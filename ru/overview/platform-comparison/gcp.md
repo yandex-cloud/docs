@@ -1,62 +1,37 @@
 # Сопоставление с Google Cloud Platform
 
-## Infrastructure {#infrastructure}
-
-{% include [infrastructure](../../_includes/overview/infrastructure.md) %}
-
 | Google Cloud Platform | {{ yandex-cloud }} |
 |----|----|
-| Compute Engine | [{{ compute-full-name }}](../../compute/) |
-| Cloud Storage | [{{ objstorage-full-name }}](../../storage/) |
-| Virtual Private Cloud | [{{ vpc-full-name }}](../../vpc/) |
+| AI Platform | [{{ ml-platform-full-name }}](../../datasphere/) |
+| Azure Application Gateway | [{{ api-gw-full-name }}](../../api-gateway/) |
+| Cloud Dataproc | [{{ dataproc-full-name }}](../../data-proc/) |
+| Cloud Functions | [{{ sf-full-name }}](../../functions/) |
 | Cloud Interconnect | [{{ interconnect-full-name }}](../../vpc/interconnect/) |
-| Identity and Access Management, Cloud Identity | [{{ iam-full-name }}](../../iam/) |
-| Resource Manager | [{{ resmgr-full-name }}](../../resource-manager/) |
-| Cloud Load Balancing, App Engine, Cloud Run | [{{ certificate-manager-full-name }}](../../certificate-manager/) |
+| Cloud IoT Core | [{{ iot-full-name }}](../../iot-core/) |
 | Cloud Key Management Service | [{{ kms-full-name }}](../../kms/) |
 | Cloud Load Balancing | [{{ network-load-balancer-full-name }}](../../network-load-balancer/) |
-| Managed Instance Groups | [Yandex Instance Groups](../../compute/concepts/instance-groups/) |
-| Container Registry | [{{ container-registry-full-name }}](../../container-registry/) |
-| Kubernetes Engine | [{{managed-k8s-full-name}}](../../managed-kubernetes/) |
-| Google Stackdriver | [{{ monitoring-full-name }}](../../monitoring/) |
-| Google Cloud Armor | [{{ ddos-protection-full-name }}](../../vpc/ddos-protection/) |
-
-## Data storage & Analytics {#data-storage}
-
-{% include [ds-analytics](../../_includes/overview/ds-analytics.md) %}
-
-| Google Cloud Platform | {{ yandex-cloud }} |
-|----|----|
-| Cloud SQL: PostgreSQL | [{{ mpg-full-name }}](../../managed-postgresql/) |
-| GCP: MongoDB Atlas | [{{ mmg-full-name }}](../../managed-mongodb/) |
-| Cloud SQL: MySQL | [{{ mmy-full-name }}](../../managed-mysql/) |
+| Cloud Load Balancing, App Engine, Cloud Run | [{{ certificate-manager-full-name }}](../../certificate-manager/) |
 | Cloud Memorystore | [{{ mrd-full-name }}](../../managed-redis/) |
-| SQL Server on Google Cloud | [{{ mms-full-name }}](../../managed-sqlserver/) |
-| Cloud Dataproc | [{{ dataproc-full-name }}](../../data-proc/) |
-| Confluent and Google Cloud | [{{ mkf-full-name }}](../../managed-kafka/) |
-| Elastic Cloud (Elasticsearch managed service) | [{{ mes-full-name }}](../../managed-elasticsearch/) |
-| Google Data Studio | [{{ datalens-full-name }}](../../datalens/) |
-| Database Migration Service, Migrate for Compute Engine | [{{ data-transfer-full-name }}](../../data-transfer/) |
-
-## Serverless {#serverless}
-
-{% include [cloud-native](../../_includes/overview/serverless.md) %}
-
-| Google Cloud Platform | {{ yandex-cloud }} |
-|----|----|
-| Cloud Spanner | [{{ ydb-full-name }}](../../ydb/) |
 | Cloud Pub/Sub | [{{ message-queue-full-name }}](../../message-queue/) |
-| Cloud Functions | [{{ sf-full-name }}](../../functions/) |
-| Azure Application Gateway | [{{ api-gw-full-name }}](../../api-gateway/) |
-| Cloud IoT Core | [{{ iot-full-name }}](../../iot-core/) |
-
-## Machine Learning & Artificial Intelligence {#ml-ai}
-
-{% include [ml-ai](../../_includes/overview/ml-ai.md) %}
-
-| Google Cloud Platform | {{ yandex-cloud }} |
-|----|----|
+| Cloud Spanner | [{{ ydb-full-name }}](../../ydb/) |
 | Cloud Speech-to-Text, Cloud Text-to-Speech | [{{ speechkit-full-name }}](../../speechkit/) |
-| Translation API | [{{ translate-full-name }}](../../translate/) |
+| Cloud SQL: MySQL | [{{ mmy-full-name }}](../../managed-mysql/) |
+| Cloud SQL: PostgreSQL | [{{ mpg-full-name }}](../../managed-postgresql/) |
+| Cloud Storage | [{{ objstorage-full-name }}](../../storage/) |
 | Cloud Vision | [{{ vision-full-name }}](../../vision/) |
-| AI Platform | [{{ ml-platform-full-name }}](../../datasphere/) |
+| Compute Engine | [{{ compute-full-name }}](../../compute/) |
+| Confluent and Google Cloud | [{{ mkf-full-name }}](../../managed-kafka/) |
+| Container Registry | [{{ container-registry-full-name }}](../../container-registry/) |
+| Database Migration Service, Migrate for Compute Engine | [{{ data-transfer-full-name }}](../../data-transfer/) |
+| Elastic Cloud (Elasticsearch managed service) | [{{ mes-full-name }}](../../managed-elasticsearch/) |
+| GCP: MongoDB Atlas | [{{ mmg-full-name }}](../../managed-mongodb/) |
+| Google Cloud Armor | [{{ ddos-protection-full-name }}](../../vpc/ddos-protection/) |
+| Google Data Studio | [{{ datalens-full-name }}](../../datalens/) |
+| Google Stackdriver | [{{ monitoring-full-name }}](../../monitoring/) |
+| Identity and Access Management, Cloud Identity | [{{ iam-full-name }}](../../iam/) |
+| Kubernetes Engine | [{{managed-k8s-full-name}}](../../managed-kubernetes/) |
+| Managed Instance Groups | [Yandex Instance Groups](../../compute/concepts/instance-groups/) |
+| Resource Manager | [{{ resmgr-full-name }}](../../resource-manager/) |
+| SQL Server on Google Cloud | [{{ mms-full-name }}](../../managed-sqlserver/) |
+| Translation API | [{{ translate-full-name }}](../../translate/) |
+| Virtual Private Cloud | [{{ vpc-full-name }}](../../vpc/) |

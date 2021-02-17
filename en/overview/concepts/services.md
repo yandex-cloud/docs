@@ -1,46 +1,38 @@
 # Services {{ yandex-cloud }}
 
-_Services_ in {{ yandex-cloud }} let you manage specific categories of cloud resources and access them.
-
-## Service categories {#service-type}
-
-{% include  [service-type](../../_includes/overview/service-type.md) %}
+_Services_ in {{ yandex-cloud }} let you manage specific cloud resources and access them.
 
 ## Service list {{ yandex-cloud }} {#list}
 
 The following services are currently available as part of the {{ yandex-cloud }} platform:
 
-* Infrastructure:
-    * [{{ compute-full-name }}](../../compute/) (Compute Cloud).
-    * [{{ objstorage-full-name }}](../../storage/) (Object Storage).
-    * [{{ vpc-full-name }}](../../vpc/) (Virtual Private Cloud).
-    * [{{ interconnect-full-name }}](../../vpc/interconnect/) (Dedicated network connection management).
-    * [{{ iam-full-name }}](../../iam/) (Cloud resource access management).
-    * [{{ resmgr-full-name }}](../../resource-manager/) (Cloud resource management).
-    * [{{ kms-full-name }}](../../kms/) (Encryption key management).
-    * [{{ network-load-balancer-full-name }}](../../network-load-balancer/) (Network load balancer management).
-    * [Yandex Instance Groups](../../compute/concepts/instance-groups/) (Instance group creation and management).
-    * [{{ container-registry-full-name }}](../../container-registry/) (Container image management).
-    * [{{managed-k8s-full-name}}<sup>®</sup>](../../managed-kubernetes/) (Kubernetes management).
-    * [{{ monitoring-full-name }}](../../monitoring/) (Monitoring).
-    * [Yandex DDoS Protection](../../vpc/ddos-protection/) (DDoS protection).
-* Data storage & Analytics:
-    * [{{ mpg-full-name }}](../../managed-postgresql/) (PostgreSQL management).
-    * [{{ mch-full-name }}](../../managed-clickhouse/) (ClickHouse management).
-    * [{{ mmg-full-name }}](../../managed-mongodb/) (MongoDB management).
-    * [{{ mmy-full-name }}<sup>®</sup>](../../managed-mysql/) (MySQL management).
-    * [{{ mrd-full-name }}™](../../managed-redis/) (Redis management).
-    * [{{ dataproc-full-name }}](../../data-proc/) (Data Proc management).
-    * [{{ datalens-full-name }}](../../datalens/) (Data visualization and analysis).
-* Cloud-native:
-    * [{{ ydb-full-name }}](../../ydb/) ({{ ydb-full-name }} management).
-    * [{{ message-queue-full-name }}](../../message-queue/) (Message queue).
-    * [{{ sf-full-name }}](../../functions/) (Serverless computing).
-    * [{{ iot-full-name }}](../../iot-core/) (Internet of things).
-* Machine Learning & Artificial Intelligence (ML & AI):
-    * [{{ speechkit-full-name }}](../../speechkit/) (Speech technologies).
-    * [{{ translate-full-name }}](../../translate/) (Machine translation).
-    * [{{ vision-full-name }}](../../vision/) (Computer vision).
+* [{{ sf-full-name }}](../../functions/) (Serverless computing).
+* [{{ interconnect-full-name }}](../../vpc/interconnect/) (Dedicated network connection management).
+* [{{ compute-full-name }}](../../compute/) (Compute Cloud).
+* [{{ container-registry-full-name }}](../../container-registry/) (Container image management).
+* [{{ dataproc-full-name }}](../../data-proc/) (Data Proc management).
+* [{{ ydb-full-name }}](../../ydb/) ({{ ydb-full-name }} management).
+* [{{ datalens-full-name }}](../../datalens/) (Data visualization and analysis).
+* [Yandex DDoS Protection](../../vpc/ddos-protection/) (DDoS protection).
+* [{{ iam-full-name }}](../../iam/) (Cloud resource access management).
+* [Yandex Instance Groups](../../compute/concepts/instance-groups/) (Instance group creation and management).
+* [{{ iot-full-name }}](../../iot-core/) (Internet of things).
+* [{{ kms-full-name }}](../../kms/) (Encryption key management).
+* [{{ mch-full-name }}](../../managed-clickhouse/) (ClickHouse management).
+* [{{managed-k8s-full-name}}<sup>®</sup>](../../managed-kubernetes/) (Kubernetes management).
+* [{{ mmg-full-name }}](../../managed-mongodb/) (MongoDB management).
+* [{{ mmy-full-name }}<sup>®</sup>](../../managed-mysql/) (MySQL management).
+* [{{ mpg-full-name }}](../../managed-postgresql/) (PostgreSQL management).
+* [{{ mrd-full-name }}™](../../managed-redis/) (Redis management).
+* [{{ message-queue-full-name }}](../../message-queue/) (Message queue).
+* [{{ monitoring-full-name }}](../../monitoring/) (Monitoring).
+* [{{ network-load-balancer-full-name }}](../../network-load-balancer/) (Network load balancer management).
+* [{{ objstorage-full-name }}](../../storage/) (Object Storage).
+* [{{ resmgr-full-name }}](../../resource-manager/) (Cloud resource management).
+* [{{ speechkit-full-name }}](../../speechkit/) (Speech technologies).
+* [{{ translate-full-name }}](../../translate/) (Machine translation).
+* [{{ vpc-full-name }}](../../vpc/) (Virtual Private Cloud).
+* [{{ vision-full-name }}](../../vision/) (Computer vision).
 
 ### How to enable services {#enable}
 

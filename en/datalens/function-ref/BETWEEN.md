@@ -10,13 +10,13 @@ editable: false
 
 
 ```
-value [ NOT ] BETWEEEN low AND high
+value [ NOT ] BETWEEN low AND high
 ```
 
 #### Description {#description}
 Returns `TRUE` if `value` is in the range from `low` to `high`.
 
-The option `value NOT BETWEEEN low AND high` returns the opposite value.
+The option `value NOT BETWEEN low AND high` returns the opposite value.
 
 **Argument types:**
 - `value` — `Date | Datetime | Number | String`

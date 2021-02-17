@@ -56,6 +56,7 @@
 ## Creating new disks {#disk-create}
 
 * [{#T}](disk-create/empty.md)
+* [{#T}](disk-create/empty-disk-blocksize.md)
 
 ## Disk management {#disk-control}
 

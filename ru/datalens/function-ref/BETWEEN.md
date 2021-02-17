@@ -10,13 +10,13 @@ editable: false
 
 
 ```
-value [ NOT ] BETWEEEN low AND high
+value [ NOT ] BETWEEN low AND high
 ```
 
 #### Описание {#description}
 Возвращает `TRUE`, если `value` принадлежит диапазону значений с `low` по `high`.
 
-Вариант `value NOT BETWEEEN low AND high` возвращает противоположное значение
+Вариант `value NOT BETWEEN low AND high` возвращает противоположное значение
 
 **Типы аргументов:**
 - `value` — `Дата | Дата и время | Число | Строка`

@@ -1,52 +1,45 @@
 # Сервисы {{ yandex-cloud }}
 
-_Сервис_ в составе {{ yandex-cloud }} позволяет управлять определенными категориями облачных ресурсов и доступом к ним.
-
-## Категории сервисов {#service-type}
-
-{% include [service-type](../../_includes/overview/service-type.md) %}
+_Сервис_ в составе {{ yandex-cloud }} позволяет управлять определенными облачными ресурсами и доступом к ним.
 
 ## Список сервисов {{ yandex-cloud }} {#list}
 
 На данный момент в рамках платформы {{ yandex-cloud }} доступны следующие сервисы:
-* Infrastructure:
-    * [{{ compute-full-name }}](../../compute/) (Сервис Облачных вычислений).
-    * [{{ objstorage-full-name }}](../../storage/) (Сервис Объектного хранилища).
-    * [{{ vpc-full-name }}](../../vpc/) (Сервис Виртуальное частное облако).
-    * [{{ interconnect-full-name }}](../../vpc/interconnect/) (Сервис управления выделенными сетевыми соединениями).
-    * [{{ iam-full-name }}](../../iam/) (Сервис по управлению доступом к облачным ресурсам).
-    * [{{ resmgr-full-name }}](../../resource-manager/) (Сервис по управлению облачными ресурсами).
-    * [{{ certificate-manager-full-name }}](../../certificate-manager/) (Сервис для управления TLS-сертификатами).
-    * [{{ kms-full-name }}](../../kms/) (Сервис для управления ключами шифрования).
-    * [{{ network-load-balancer-full-name }}](../../network-load-balancer/) (Сервис для управления сетевыми балансировщиками нагрузки).
-    * [{{ ig-full-name }}](../../compute/concepts/instance-groups/) (Сервис для создания и управления группами виртуальных машин).
-    * [{{ container-registry-full-name }}](../../container-registry/) (Сервис для управления образами контейнеров).
-    * [{{ managed-k8s-full-name }}<sup>®</sup>](../../managed-kubernetes/) (Сервис Управления для Kubernetes).
-    * [{{ monitoring-full-name }}](../../monitoring/) (Сервис мониторинга).
-    * [{{ ddos-protection-full-name }}](../../vpc/ddos-protection/) (Сервис защиты от DDoS-атак).
-* Data storage & Analytics:
-    * [{{ mpg-full-name }}](../../managed-postgresql/) (Сервис Управления для PostgreSQL).
-    * [{{ mch-full-name }}](../../managed-clickhouse/) (Сервис Управления для ClickHouse).
-    * [{{ mmg-full-name }}](../../managed-mongodb/) (Сервис Управления для MongoDB).
-    * [{{ mmy-full-name }}<sup>®</sup>](../../managed-mysql/) (Сервис Управления для MySQL).
-    * [{{ mrd-full-name }}™](../../managed-redis/) (Сервис Управления для Redis).
-    * [{{ mms-full-name }}™](../../managed-sqlserver/) (Сервис Управления для SQL Server™).
-    * [{{ data-transfer-full-name }}](../../data-transfer/) (Сервис для миграции баз данных). _Сервис находится на стадии [Preview](./launch-stages.md)._
-    * [{{ dataproc-full-name }}](../../data-proc/) (Сервис Управления данными Data Proc).
-    * [{{ mkf-full-name }}](../../managed-kafka/) (Сервис для создания и управления кластерами Apache Kafka<sup>®</sup>).
-    * [{{ mes-full-name }}](../../managed-elasticsearch/) (Сервис для управления кластерами Elasticsearch). _Сервис находится на стадии [Preview](./launch-stages.md)._
-    * [{{ datalens-full-name }}](../../datalens/) (Сервис визуализации и анализа данных).
-* Serverless:
-    * [{{ ydb-full-name }}](../../ydb/) (Сервис управления для {{ ydb-full-name }}). 
-    * [{{ message-queue-full-name }}](../../message-queue/) (Сервис очередей).
-    * [{{ sf-full-name }}](../../functions/) (Сервис бессерверных вычислений).
-    * [{{ api-gw-full-name }}](../../api-gateway/) (Сервис для создания API-шлюзов).
-    * [{{ iot-full-name }}](../../iot-core/) (Сервис Интернета Вещей).
-* Machine Learning & Artificial Intelligence (ML & AI):
-    * [{{ speechkit-full-name }}](../../speechkit/) (Сервис речевых технологий).
-    * [{{ translate-full-name }}](../../translate/) (Сервис машинного перевода).
-    * [{{ vision-full-name }}](../../vision/) (Сервис компьютерного зрения).
-    * [{{ ml-platform-full-name }}](../../datasphere/) (Сервис для ML-разработки).
+
+* [{{ api-gw-full-name }}](../../api-gateway/) (Сервис для создания API-шлюзов).
+* [{{ certificate-manager-full-name }}](../../certificate-manager/) (Сервис для управления TLS-сертификатами).
+* [{{ sf-full-name }}](../../functions/) (Сервис бессерверных вычислений).
+* [{{ interconnect-full-name }}](../../vpc/interconnect/) (Сервис управления выделенными сетевыми соединениями).
+* [{{ compute-full-name }}](../../compute/) (Сервис Облачных вычислений).
+* [{{ container-registry-full-name }}](../../container-registry/) (Сервис для управления образами контейнеров).
+* [{{ dataproc-full-name }}](../../data-proc/) (Сервис Управления данными Data Proc).
+* [{{ data-transfer-full-name }}](../../data-transfer/) (Сервис для миграции баз данных). _Сервис находится на стадии [Preview](./launch-stages.md)._
+* [{{ ydb-full-name }}](../../ydb/) (Сервис управления для {{ ydb-full-name }}).
+* [{{ datalens-full-name }}](../../datalens/) (Сервис визуализации и анализа данных).
+* [{{ ml-platform-full-name }}](../../datasphere/) (Сервис для ML-разработки).
+* [{{ ddos-protection-full-name }}](../../vpc/ddos-protection/) (Сервис защиты от DDoS-атак).
+* [{{ iam-full-name }}](../../iam/) (Сервис по управлению доступом к облачным ресурсам).
+* [{{ ig-full-name }}](../../compute/concepts/instance-groups/) (Сервис для создания и управления группами виртуальных машин).
+* [{{ iot-full-name }}](../../iot-core/) (Сервис Интернета Вещей).
+* [{{ kms-full-name }}](../../kms/) (Сервис для управления ключами шифрования).
+* [{{ mkf-full-name }}](../../managed-kafka/) (Сервис для создания и управления кластерами Apache Kafka<sup>®</sup>).
+* [{{ mch-full-name }}](../../managed-clickhouse/) (Сервис Управления для ClickHouse).
+* [{{ mes-full-name }}](../../managed-elasticsearch/) (Сервис для управления кластерами Elasticsearch). _Сервис находится на стадии [Preview](./launch-stages.md)._
+* [{{ managed-k8s-full-name }}<sup>®</sup>](../../managed-kubernetes/) (Сервис Управления для Kubernetes).
+* [{{ mmg-full-name }}](../../managed-mongodb/) (Сервис Управления для MongoDB).
+* [{{ mmy-full-name }}<sup>®</sup>](../../managed-mysql/) (Сервис Управления для MySQL).
+* [{{ mpg-full-name }}](../../managed-postgresql/) (Сервис Управления для PostgreSQL).
+* [{{ mrd-full-name }}™](../../managed-redis/) (Сервис Управления для Redis).
+* [{{ mms-full-name }}™](../../managed-sqlserver/) (Сервис Управления для SQL Server™).
+* [{{ message-queue-full-name }}](../../message-queue/) (Сервис очередей).
+* [{{ monitoring-full-name }}](../../monitoring/) (Сервис мониторинга).
+* [{{ network-load-balancer-full-name }}](../../network-load-balancer/) (Сервис для управления сетевыми балансировщиками нагрузки).
+* [{{ objstorage-full-name }}](../../storage/) (Сервис Объектного хранилища).
+* [{{ resmgr-full-name }}](../../resource-manager/) (Сервис по управлению облачными ресурсами).
+* [{{ speechkit-full-name }}](../../speechkit/) (Сервис речевых технологий).
+* [{{ translate-full-name }}](../../translate/) (Сервис машинного перевода).
+* [{{ vpc-full-name }}](../../vpc/) (Сервис Виртуальное частное облако).
+* [{{ vision-full-name }}](../../vision/) (Сервис компьютерного зрения).
 
 ### Как подключиться к сервисам {#enable}
 
