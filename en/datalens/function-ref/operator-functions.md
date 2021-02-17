@@ -90,11 +90,11 @@ Performs a Boolean join of two expressions with the `AND` condition.
 
 ## [BETWEEN](BETWEEN.md)
 
-**Syntax:**`value [ NOT ] BETWEEEN low AND high`
+**Syntax:**`value [ NOT ] BETWEEN low AND high`
 
 Returns `TRUE` if `value` is in the range from `low` to `high`.
 
-The option `value NOT BETWEEEN low AND high` returns the opposite value.
+The option `value NOT BETWEEN low AND high` returns the opposite value.
 
 
 

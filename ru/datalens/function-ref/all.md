@@ -264,11 +264,11 @@ END`<br/>или<br/>`IF(
 
 ## [BETWEEN](BETWEEN.md)
 
-**Синтаксис:**`value [ NOT ] BETWEEEN low AND high`
+**Синтаксис:**`value [ NOT ] BETWEEN low AND high`
 
 Возвращает `TRUE`, если `value` принадлежит диапазону значений с `low` по `high`.
 
-Вариант `value NOT BETWEEEN low AND high` возвращает противоположное значение
+Вариант `value NOT BETWEEN low AND high` возвращает противоположное значение
 
 
 
