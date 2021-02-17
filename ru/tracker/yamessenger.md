@@ -69,7 +69,7 @@
         ```
         {
             "chat_id": "<ID чата>",
-            "text": "Пора тестировать задачу [{{issue.key}}: {{issue.summary}}](https://tracker.yandex.ru/{{issue.key}})"
+            "text": "Пора тестировать задачу [not_var{{issue.key}}: not_var{{issue.summary}}](https://tracker.yandex.ru/not_var{{issue.key}})"
         }
         ```
         В качестве значения параметра `chat_id` укажите идентификатор чата, который вы [получили из URL чата](#add-chat).

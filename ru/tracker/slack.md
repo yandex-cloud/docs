@@ -61,7 +61,7 @@
         ```
         {
             "link_names": true,
-            "text": "@tracker, пора тестировать задачу <https://tracker.yandex.ru/{{issue.key}}|{{issue.key}}>: {{issue.summary}}"
+            "text": "@tracker, пора тестировать задачу <https://tracker.yandex.ru/not_var{{issue.key}}|not_var{{issue.key}}>: not_var{{issue.summary}}"
         }
         ```
         Чтобы добавить в тело запроса значения полей задачи, справа от поля ввода нажмите кнопку **{ }** и выберите имя поля.
