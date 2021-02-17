@@ -1,7 +1,7 @@
 # Экспорт метрик в формате Prometheus
-Чтобы выгрузить метрики в формате Prometheus, воспользуйтесь методом [prometheusMetrics](../../api-ref/MetricsData/prometheusMetrics.md). Для загрузки метрик в Prometheus необходимо предварительно настроить сбор метрик в Prometheus.
+Чтобы выгрузить метрики в формате {{ prometheus-name }}, воспользуйтесь методом [prometheusMetrics](../../api-ref/MetricsData/prometheusMetrics.md). Для загрузки метрик в {{ prometheus-name }} необходимо предварительно настроить сбор метрик в {{ prometheus-name }}.
 
-Пример настройки сбора метрик из {{ monitoring-name }} в Prometheus:
+Пример настройки сбора метрик из {{ monitoring-name }} в {{ prometheus-name }}:
 1. Выберите каталог, с которого вы хотите собирать данные.
 1. Выберите сервис из следующего списка:
    - `compute` — {{ compute-name }};
@@ -37,8 +37,8 @@
            folderId: '<folderId>'
            service: '<serviceId>'
    ```
-1. Перезапустите Prometheus.
-1. Проверьте сбор данных в пользовательском интерфейсе Prometheus: `http://localhost:9090/targets` (замените `localhost` именем хоста, на котором установлен Prometheus).
+1. Перезапустите {{ prometheus-name }}.
+1. Проверьте сбор данных в пользовательском интерфейсе {{ prometheus-name }}: `http://localhost:9090/targets` (замените `localhost` именем хоста, на котором установлен {{ prometheus-name }}).
 1. При необходимости изменения имен меток воспользуйтесь механизмом [relabeling](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#relabel_config).
 
 {% note tip %}

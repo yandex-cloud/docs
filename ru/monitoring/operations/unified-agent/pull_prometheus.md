@@ -1,8 +1,8 @@
 # Поставка метрик пользовательских приложений
 
-{{unified-agent-full-name}} поддерживает сбор метрик в формате Prometheus и конвертацию метрик в формат {{ monitoring-full-name }}. При помощи {{unified-agent-short-name}} вы сможете собирать метрики любых приложений, которые предоставляют метрики в формате Prometheus.
+{{unified-agent-full-name}} поддерживает сбор метрик в формате {{ prometheus-name }} и конвертацию метрик в формат {{ monitoring-full-name }}. При помощи {{unified-agent-short-name}} вы сможете собирать метрики любых приложений, которые предоставляют метрики в формате {{ prometheus-name }}.
 
-Для поставки в {{ monitoring-full-name }} метрик пользовательских приложений используется [вход metrics_pull](../../concepts/data-collection/unified-agent/configuration.md#metrics_pull_input), который периодически опрашивает приложение по HTTP, ожидая получить метрики в формате Prometheus.
+Для поставки в {{ monitoring-full-name }} метрик пользовательских приложений используется [вход metrics_pull](../../concepts/data-collection/unified-agent/configuration.md#metrics_pull_input), который периодически опрашивает приложение по HTTP, ожидая получить метрики в формате {{ prometheus-name }}.
 
 Для примера рассмотрим поставку метрик тестового приложения на Python.
 
@@ -10,7 +10,7 @@
 
 Описанная методика может также применяться для поставки метрик любых пользовательских приложений, использующих [клиентские библиотеки Prometheus](https://prometheus.io/docs/instrumenting/clientlibs/).
 
-1. Запустите тестовое Python-приложение, предоставляющее метрики в формате Prometheus.
+1. Запустите тестовое Python-приложение, предоставляющее метрики в формате {{ prometheus-name }}.
 
    1. Установите Python-библиотеку [prometheus_client](https://github.com/prometheus/client_python), выполнив следующие команды:
 

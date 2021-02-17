@@ -1,8 +1,8 @@
 # Поставка метрик HAProxy и других сторонних приложений
 
-{{unified-agent-full-name}} поддерживает сбор метрик в формате Prometheus и конвертацию метрик в формат {{ monitoring-full-name }}. При помощи {{unified-agent-short-name}} вы сможете собирать метрики любых приложений, которые предоставляют метрики в формате Prometheus.
+{{unified-agent-full-name}} поддерживает сбор метрик в формате {{ prometheus-name }} и конвертацию метрик в формат {{ monitoring-full-name }}. При помощи {{unified-agent-short-name}} вы сможете собирать метрики любых приложений, которые предоставляют метрики в формате {{ prometheus-name }}.
 
-Для поставки в {{ monitoring-full-name }} метрик сторонних приложений используется вход `metrics_pull`, который периодически опрашивает напрямую стороннее приложение (если оно поддерживает метрики в формате Prometheus) или специальное приложение-экспортер, реализующее интеграцию с Prometheus. Подробнее работа этого входа описана в разделе [{#T}](../../concepts/data-collection/unified-agent/configuration.md#metrics_pull_input).
+Для поставки в {{ monitoring-full-name }} метрик сторонних приложений используется вход `metrics_pull`, который периодически опрашивает напрямую стороннее приложение (если оно поддерживает метрики в формате {{ prometheus-name }}) или специальное приложение-экспортер, реализующее интеграцию с {{ prometheus-name }}. Подробнее работа этого входа описана в разделе [{#T}](../../concepts/data-collection/unified-agent/configuration.md#metrics_pull_input).
 
 Для примера рассмотрим поставку в {{ monitoring-full-name }} метрик [HAProxy](https://www.haproxy.org). Описанная методика может также применяться для отправки метрик любых сторонних приложений, для которых существует [интеграция с Prometheus](https://prometheus.io/docs/instrumenting/exporters/).
 
