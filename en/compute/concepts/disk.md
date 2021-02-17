@@ -4,7 +4,7 @@ _Disks_ are virtual versions of physical storage devices, such as SSDs and HDDs.
 
 Disks are designed for storing data and attach to VMs. Detaching a disk doesn't delete its data.
 
-Each disk is located in an availability zone, where it's [replicated](#backup) to provide data protection. Disks are not replicated to other zones.
+Each disk is located in an availability zone, where it's [replicated](#backup) (excluding non-replicated disks) to provide data protection. Disks are not replicated to other zones.
 
 ## Disks as a {{ yandex-cloud }} resource {#disk-as-resource}
 
@@ -18,14 +18,37 @@ If a disk is created from a snapshot or image, the disk information contains the
 
 VMs in {{ yandex-cloud }} can use the following types of disks:
 
-- Network SSD (`network-ssd`): A fast network drive. Network block storage on an SSD.
-- Network HDD (`network-hdd`): A standard network drive. Network block storage on an HDD.
+* Network SSD (`network-ssd`): A fast network drive. Network block storage on an SSD.
+* Network HDD (`network-hdd`): A standard network drive. Network block storage on an HDD.
+* Non-replicated SSD (`nonrepl`): A network drive with enhanced performance that is implemented by imposing several [limitations](#nr-disks).
 
-Network drives provide sufficient redundancy for reliable data storage and allow for continuous read and write operations even when multiple physical disks fail at the same time.
+Standard network SSDs and HDDs provide sufficient redundancy for reliable data storage and allow for continuous read and write operations even when multiple physical disks fail at the same time. Non-replicated disks do not duplicate the information they store.
 
-If a physical disk fails, the VM continues to run and quickly regains full access to the data.
+If a physical disk with a network SSD or HDD fails, the VM continues to run and quickly regains full access to the data.
 
 Network drives are slower than local drives in terms of execution speed and throughput, but they provide greater reliability and uptime for VMs.
+
+### Non-replicated disk limitations {#nr-disks}
+
+{% note info %}
+
+Non-replicated disks are at the [Preview](https://cloud.yandex.com/docs/overview/concepts/launch-stages) stage.
+
+{% endnote %}
+
+Non-replicated disks outperform regular network drives and can be useful when redundancy is already provided at the application level or you need to provide quick access to temporary data.
+
+Non-replicated disks have a number of limitations:
+
+* A non-replicated disk's size must be a multiple of 93 GB.
+
+  {% include [pricing-gb-size](../../_includes/pricing-gb-size.md) %}
+
+* Non-replicated disks can't be used as boot disks.
+
+* The information they store may be temporarily unavailable or lost in the event of failure since non-replicated disks don't provide redundancy.
+
+Multiple non-replicated disks can be grouped into `placement groups` to provide data storage redundancy at the application level. In this case, individual disks are physically placed in different racks in a data center to reduce the probability of simultaneous failure of all disks in the group.
 
 ## Attaching and detaching disks {#attach-detach}
 
