@@ -16,6 +16,7 @@ default:
   ddos-protection-full-name: Yandex DDoS Protection
   monitoring-full-name: Yandex Monitoring
   unified-agent-full-name: Yandex Unified Agent
+  prometheus-name: Prometheus
   dsvm-full-name: Yandex Data Science Virtual Machine
   speechkit-full-name: Yandex SpeechKit
   translate-full-name: Yandex Translate
