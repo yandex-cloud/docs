@@ -52,10 +52,12 @@ expiration_time = valueof(ttl_column) + expire_after_seconds
 
 Управление настройками TTL в настоящий момент возможно с использованием:
 {% if audience != "external" %}
+* [YQL](../yql.md).
 * [Консольного клиента {{ ydb-short-name }}](../getting_started/ydb_cli.md).
 * [{{ ydb-short-name }} C++ SDK](../getting_started/start_cpp.md).
 * [{{ ydb-short-name }} Python SDK](../getting_started/start_python.md).
 {% else %}
+* [YQL](../yql/reference/overview.md).
 * [Консольного клиента {{ ydb-short-name }}](../quickstart/examples-ydb-cli.md).
 * [{{ ydb-short-name }} Python SDK](https://github.com/yandex-cloud/ydb-python-sdk).
 {% endif %}
@@ -65,6 +67,11 @@ expiration_time = valueof(ttl_column) + expire_after_seconds
 В приведённом ниже примере строки таблицы `mytable` будут удаляться спустя час после наступления времени, записанного в колонке `created_at`:
 
 {% list tabs %}
+
+- YQL
+  ```yql
+  ALTER TABLE `mytable` SET (TTL = Interval("PT1H") ON created_at);
+  ```
 
 - CLI
   ```bash
@@ -91,11 +98,28 @@ expiration_time = valueof(ttl_column) + expire_after_seconds
 
 {% endlist %}
 
+{% note info %}
+
+При настройке TTL с использованием YQL, `Interval` создаётся из строкового литерала в формате [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).
+
+{% endnote %}
+
 ### Включение TTL для вновь создаваемой таблицы {#enable-for-new-table}
 
 Для вновь создаваемой таблицы можно передать настройки TTL вместе с её описанием:
 
 {% list tabs %}
+
+- YQL
+  ```yql
+  CREATE TABLE `mytable` (
+      id Uint64,
+      expire_at Timestamp,
+      PRIMARY KEY (id)
+  ) WITH (
+      TTL = Interval("PT0S") ON expire_at
+  );
+  ```
 
 {% if audience != "external" %}
 - C++
@@ -129,6 +153,11 @@ expiration_time = valueof(ttl_column) + expire_after_seconds
 ### Выключение TTL {#disable}
 
 {% list tabs %}
+
+- YQL
+  ```yql
+  ALTER TABLE `mytable` RESET (TTL);
+  ```
 
 - CLI
   ```bash

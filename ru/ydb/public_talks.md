@@ -4,13 +4,24 @@
 
 - [Yandex Database Whitepaper](https://storage.yandexcloud.net/ydb-public-talks/yandex-database-a4.pdf).
 
+### 2021: Webinar YDB 2021-01-21 {#webinar20210121}
+
+- Тема: Практический пример использования serverless: интеграция сервисов Yandex.Cloud с голосовыми технологиями компании Voximplant.
+  - [О мероприятии](https://cloud.yandex.ru/events/298).
+  - [Запись трансляции](https://youtu.be/mB0Wpn2473U).
+  - Описание:
+    1. Интеграция Voximplant Kit с Yandex SpeechKit — сервисом распознавания и синтеза речи.
+    2. Настройка и автоматизация обработки диалога с помощью Voximplant Kit.
+    3. CRM-система, построенная с помощью serverless API Gateway, Yandex Cloud Functions и Yandex Database (serverless).
+    4. [Пример приложения на Go](https://github.com/yandex-cloud/examples/tree/master/serverless/serverless_voximplant).
+
 ### 2020: Webinar YDB 2020-04-23 {#webinar20200423}
 
 - Тема: Новости Yandex Database.
   - [Запись трансляции](https://youtu.be/6LMH4Q4uGBU).
   - Описание:
-    1. Пример приложения на Node.js;
-    1. Поддержка JSON в YDB;
+    1. Пример приложения на Node.js.
+    1. Поддержка JSON в YDB.
     1. База YDB в {{ yandex-cloud }} доступная через Internet ("белые" IP).
 
 ### 2019: YaTalks Москва {#yatalks-moscow-2019}
