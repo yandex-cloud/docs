@@ -9,7 +9,7 @@
 ## Creating a table
 
 ```javascript
-const { DocAPIService } = require('yandex-cloud')
+const { DocAPIService } = require('yandex-cloud/lib/slydb/docapi/docapi')
 
 // change for your Document API endpoint
 const endpoint = '<your Document API endpoint here>';
@@ -47,7 +47,7 @@ docapi.createTable(params).then(res => { console.log(res); }).catch(err => { con
 ## Saving writes
 
 ```javascript
-const { DocAPIService } = require('yandex-cloud')
+const { DocAPIService } = require('yandex-cloud/lib/slydb/docapi/docapi')
 
 // change for your Document API endpoint
 const endpoint = '<your Document API endpoint here>';
@@ -70,7 +70,7 @@ docapi.putItem(params).then(res => { console.log(res); }).catch(err => { console
 ## Reading writes
 
 ```javascript
-const { DocAPIService } = require('yandex-cloud')
+const { DocAPIService } = require('yandex-cloud/lib/slydb/docapi/docapi')
 
 // change for your Document API endpoint
 const endpoint = '<your Document API endpoint here>';

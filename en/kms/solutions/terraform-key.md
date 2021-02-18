@@ -32,19 +32,11 @@ To manage access to keys in Terraform, assign the necessary roles for the folder
 For example, assign a role for the service account, which grants the permission to encrypt and decrypt data with keys from a specific folder:
 
 ```
-data "yandex_iam_policy" "encrypter_decrypter_iam_policy" {
-  binding {
-    role = "kms.keys.encrypterDecrypter"
+resource "yandex_resourcemanager_folder_iam_member" "admin" {
+  folder_id = "<folder ID>"
 
-    members = [
-      "serviceAccount:<service account ID>",
-    ]
-  }
-}
-
-resource "yandex_resourcemanager_folder_iam_policy" "folder_iam_policy" {
-  folder_id   = "<folder ID>"
-  policy_data = "${data.yandex_iam_policy.encrypter_decrypter_iam_policy.policy_data}"
+  role   = "kms.keys.encrypterDecrypter"
+  member = "serviceAccount:<service account ID>"
 }
 ```
 

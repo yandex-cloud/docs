@@ -88,13 +88,13 @@ Additional {{ datalens-short-name }} features that are available in {{ marketpla
 
 \* Geocoding functions: [GEOCODE](function-ref/GEOCODE.md) and [GEOINFO](function-ref/GEOINFO.md).
 
-For users who had a {{ datalens-short-name }} instance that was created before February 1, 2021, the new pricing policy will come into effect at the start of the new billing period in February.
+For users who had a {{ datalens-short-name }} instance that was created before February 1, 2021, the new pricing policy will come into effect at the start of the new reporting period in February.
 
 > For example, a user activated {{ datalens-short-name }} on December 15, 2020.
-The new billing period starts on January 15, 2021 with the [old pricing plan](#prices-before-1-2021), and ends on February 14, 2021.
-The [new plan](#prices-after-1-2021) takes effect on February 15, 2021, when the next billing period starts.
+The new reporting period starts on January 15, 2021 with the [old pricing plan](#prices-before-1-2021), and ends on February 14, 2021.
+The [new plan](#prices-after-1-2021) takes effect on February 15, 2021, when the next reporting period starts.
 
-You can check the billing period of your {{ datalens-short-name }} instance in your [billing account](https://datalens.yandex.com/billing).
+You can check the reporting period of your {{ datalens-short-name }} instance in your [billing account](https://datalens.yandex.com/billing).
 
 ## Session {#sessions}
 
@@ -150,7 +150,7 @@ The quota includes:
 ## Enabling a billing plan {#enable-the-plan}
 
 To activate a billing plan, go to your billing account and select the desired plan. The period starts on the date when the {{ datalens-short-name }} instance is created.
-You're charged for the plan on the first day of the period.
+When activating the **Standard** plan, you're charged on the first day of the period. When extending the plan, you're charged the day before the first day of a new reporting period.
 
 If you created a billing account in the cloud, then the {{ datalens-short-name }} instance automatically switches to the **Free** plan.
 Until you create a billing account, the {{ datalens-short-name }} instance remains in demo mode.
@@ -180,7 +180,7 @@ To unblock your resources, do one of the following:
 
 * Switch from the **Free** plan to the **Standard** plan.
 * Enable [automatic payment for additional sessions](#autoprolongation) for the **Standard** plan.
-* Wait for the start of the new billing period (for any plan).
+* Wait for the start of the new reporting period (for any plan).
 
 ### Cloud suspension {#locks-cloud}
 
