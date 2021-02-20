@@ -63,7 +63,7 @@
   Чтобы скачать последнюю версию агента в виде deb-пакета для Ubuntu 14.04, выполните команду:
 
   ```bash
-  ubuntu_name="ubuntu-14.04-trusty" ua_version=$(wget --quiet -O - https://storage.yandexcloud.net/yc-unified-agent/latest-version) bash -c 'wget --quiet https://storage.yandexcloud.net/yc-unified-agent/releases/${ua_version}/deb/${ubuntu_name}/yandex-unified-agent_${ua_version}_amd64.deb'
+  ubuntu_name="ubuntu-14.04-trusty" ua_version=$(curl -s https://storage.yandexcloud.net/yc-unified-agent/latest-version) bash -c 'curl -s -O https://storage.yandexcloud.net/yc-unified-agent/releases/${ua_version}/deb/${ubuntu_name}/yandex-unified-agent_${ua_version}_amd64.deb'
   ```
 
   Поддерживаемые значения параметра `ubuntu_name`:
@@ -74,7 +74,7 @@
 
   Чтобы узнать все доступные версии агента выполните команду:
   ```(bash)
-  wget --quiet -O - https://storage.yandexcloud.net/yc-unified-agent/all-versions
+  curl -s https://storage.yandexcloud.net/yc-unified-agent/all-versions
   ```
 
   Чтобы установить deb-пакет, выполните команду:
@@ -106,7 +106,7 @@
   Чтобы скачать последнюю версию агента в виде бинарного файла, выполните команду:
 
   ```bash
-  ua_version=$(wget --quiet -O - https://storage.yandexcloud.net/yc-unified-agent/latest-version) bash -c 'wget --quiet https://storage.yandexcloud.net/yc-unified-agent/releases/$ua_version/unified_agent && chmod +x ./unified_agent'
+  ua_version=$(curl -s https://storage.yandexcloud.net/yc-unified-agent/latest-version) bash -c 'curl -s -O https://storage.yandexcloud.net/yc-unified-agent/releases/$ua_version/unified_agent && chmod +x ./unified_agent'
   ```
 
   Чтобы узнать все доступные версии агента выполните команду:
