@@ -20,12 +20,17 @@ routes:
   - input:
       plugin: agent_metrics
       config:
-        namespace: agent
+        namespace: ua
     channel:
+      pipe:
+        - filter:
+            plugin: filter_metrics
+            config:
+              match: "{scope=health}"
       output:
         plugin: yc_metrics
         config:
-          folder_id: <FOLDER_ID>
+          folder_id: "$FOLDER_ID"
           iam:
             cloud_meta: {}
 ```
@@ -48,7 +53,7 @@ storages:
   - name: main
     plugin: fs
     config:
-      directory: ./data/storage
+      directory: /var/lib/yandex/unified_agent/main
       max_partition_size: 1gb
       max_segment_size: 500mb
 

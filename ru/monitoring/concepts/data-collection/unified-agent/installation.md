@@ -6,6 +6,7 @@
 
 - Ubuntu 14.04 или старше;
 - Debian 9 или старше;
+- CentOS 7 или старше;
 - Fedora 32 или старше;
 - Fedora CoreOS.
 
@@ -34,7 +35,7 @@
 
 - Docker-образ
 
-  {{unified-agent-short-name}} распространяется в виде Docker-образа. Образ опубликован в репозитории `cr.yandex` с названием `unified_agent` и тегом `latest`. Образ содержит бинарный файл с агентом и конфигурационный файл, настраивающий агент для [поставки системных метрик Linux](../../../operations/unified-agent/linux_metrics.md) в {{monitoring-full-name}}. Для авторизации используется
+  {{unified-agent-short-name}} распространяется в виде Docker-образа. Образ опубликован в репозитории `cr.yandex/yc` с названием `unified_agent` и тегом `latest`. Образ содержит бинарный файл с агентом и конфигурационный файл, настраивающий агент для [поставки системных метрик Linux](../../../operations/unified-agent/linux_metrics.md) в {{monitoring-full-name}}.
 
   Конфигурационный файл расположен в `/etc/yandex/unified_agent/config.yml` и параметризован переменными окружения. Подробнее параметры запуска Docker-контейнера описаны в разделе [ниже](#configure-docker).
 
@@ -59,19 +60,30 @@
 
   {{unified-agent-short-name}} распространяется в виде deb-пакета для операционных систем Ubuntu 14.04 или старше. Пакет содержит бинарный файл с агентом и пустой конфигурационный файл, расположенный в `/etc/yandex/unified_agent/config.yml`.
 
-  Чтобы скачать deb-пакет при помощи утилиты `wget`, выполните команду:
+  Чтобы скачать последнюю версию агента в виде deb-пакета для Ubuntu 14.04, выполните команду:
 
   ```bash
-  wget --quiet https://storage.yandexcloud.net/yc-unified-agent/builds/binary/21.2.2/deb/ubuntu-20.04-focal/yandex-unified-agent.21.2.2/yandex-unified-agent_21.2.2_amd64.deb
+  ubuntu_name="ubuntu-14.04-trusty" ua_version=$(wget --quiet -O - https://storage.yandexcloud.net/yc-unified-agent/latest-version) bash -c 'wget --quiet https://storage.yandexcloud.net/yc-unified-agent/releases/${ua_version}/deb/${ubuntu_name}/yandex-unified-agent_${ua_version}_amd64.deb'
+  ```
+
+  Поддерживаемые значения параметра `ubuntu_name`:
+  - `ubuntu-14.04-trusty`,
+  - `ubuntu-16.04-xenial`,
+  - `ubuntu-18.04-bionic`,
+  - `ubuntu-20.04-focal`.
+
+  Чтобы узнать все доступные версии агента выполните команду:
+  ```(bash)
+  wget --quiet -O - https://storage.yandexcloud.net/yc-unified-agent/all-versions
   ```
 
   Чтобы установить deb-пакет, выполните команду:
 
   ```bash
-  sudo dpkg -i ./yandex-unified-agent_21.2.2_amd64.deb
+  sudo dpkg -i yandex-unified-agent_21.02.03_amd64.deb
   ```
 
-  Чтобы убедиться, что {{unified-agent-short-name}} успешно установлен и запущен выполните команду `service unified-agent status`. Пример работы команды:
+  Чтобы убедиться, что {{unified-agent-short-name}} успешно установлен и запущен, выполните команду `service unified-agent status`. Пример работы команды:
 
   ```bash
   user@my-vm:~$ service unified-agent status
@@ -91,13 +103,18 @@
 
   {{unified-agent-short-name}} распространяется в виде бинарного файла, собранного под архитектуру x86-64 / amd64 для операционных систем Ubuntu 14.04 или старше.
 
-  Чтобы скачать бинарный файл при помощи утилиты `wget`, выполните команду:
+  Чтобы скачать последнюю версию агента в виде бинарного файла, выполните команду:
 
   ```bash
-  wget --quiet https://storage.yandexcloud.net/yc-unified-agent/builds/binary/21.2.2/unified_agent
+  ua_version=$(wget --quiet -O - https://storage.yandexcloud.net/yc-unified-agent/latest-version) bash -c 'wget --quiet https://storage.yandexcloud.net/yc-unified-agent/releases/$ua_version/unified_agent && chmod +x ./unified_agent'
   ```
 
-  После скачивания файла с агентом создайте конфигурационный файл, например, с настройками для [поставки системных метрик Linux](../../../operations/unified-agent/linux_metrics.md). Подробнее про конфигурацию агента читайте в разделе [{#T}](./configuration.md).
+  Чтобы узнать все доступные версии агента выполните команду:
+  ```(bash)
+  wget --quiet -O - https://storage.yandexcloud.net/yc-unified-agent/all-versions
+  ```
+
+  После скачивания исполняемого файла с агентом создайте конфигурационный файл, например, с настройками для [поставки системных метрик Linux](../../../operations/unified-agent/linux_metrics.md). Подробнее про конфигурацию агента читайте в разделе [{#T}](./configuration.md).
 
   Чтобы запустить агент, выполните команду, указав путь до конфигурационного файла в параметре `--config`:
 
