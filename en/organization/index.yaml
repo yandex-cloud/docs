@@ -1,0 +1,29 @@
+# Yandex Cloud Organization
+title: "Yandex Cloud Organization"
+description:
+  - "<em>Yandex Cloud Organization is running in <a href=\"/docs/overview/concepts/launch-stages\">Preview</a> mode.</em>"
+  - "Yandex Cloud Organization is a solution for corporate clients that you can use to connect you company to Yandex.Cloud services and manage employee access to these services."
+
+# Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
+meta:
+  title: "Yandex Cloud Organization"
+  # Блок со ссылками
+links:
+- title: "Register an organization"
+  description: "To get started, register your organization"
+  href: "enable-org"
+- title: "Add users"
+  description: "To let your employees access your organization's services, connect them to the organization using their Yandex accounts"
+  href: "add-account"
+- title: "Configure an identity federation"
+  description: "Configure an identity federation so that your employees can use their work accounts to access services"
+  href: "add-federation"
+#- title: "Подключить сервисы"
+#  description: "Подключите сервисы, которыми смогут пользоваться сотрудники организации"
+#  href: "services"
+#- title: "Квоты и лимиты"
+#  description: "Технические и организационные ограничения сервиса"
+#  href: "limits"
+#- title: "Администрирование"
+#  description: "Настройки организации и управление сотрудниками"
+#  href: "org-profile"
