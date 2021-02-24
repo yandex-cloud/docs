@@ -25,9 +25,11 @@ AGO( measure, date_dimension [ , unit [ , number ] ] )
 - `"minute"` — минута;
 - `"second"` — секунда.
 
-Возможен вариант использования `AGO(measure, date_dimension, number)`. В этом случае аргумент `unit` — количество дней.
+Возможен вариант использования `AGO( measure, date_dimension, number )`. В этом случае аргумент `unit` — количество дней.
 
-Обратите внимание, что это не оконная функция и она не поддерживает такие параметры, как `BEFORE FILTER BY`. В качестве альтернативы среди оконных функций используйте [LAG](LAG.md).
+Обратите внимание, что это не оконная функция и она не поддерживает такие параметры, как `BEFORE FILTER BY`.
+
+См. также [AT_DATE](AT_DATE.md), [LAG](LAG.md).
 
 **Типы аргументов:**
 - `measure` — `Любой`
@@ -49,6 +51,21 @@ AGO( measure, date_dimension [ , unit [ , number ] ] )
 Первый аргумент функции должен быть показателем (агрегированным выражением). Отсутствие показателя приведет к ошибке.
 
 {% endnote %}
+
+
+#### Примеры {#examples}
+
+```
+AGO(SUM([Sales]), [Order Date], "month", 3)
+```
+
+```
+AGO(SUM([Sales]), [Order Date], "year")
+```
+
+```
+AGO(SUM([Sales]), [Order Date], 1)
+```
 
 
 #### Поддержка источников данных {#data-source-support}
