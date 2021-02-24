@@ -275,6 +275,8 @@ items:
         href: function-ref/time-series-functions.md
       - name: AGO
         href: function-ref/AGO.md
+      - name: AT_DATE
+        href: function-ref/AT_DATE.md
   - name: Type conversion functions
     items:
       - name: Overview

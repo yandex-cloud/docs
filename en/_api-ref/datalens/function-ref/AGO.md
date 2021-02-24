@@ -25,9 +25,11 @@ The `unit` argument takes the following values:
 - `"minute"`;
 - `"second"`.
 
-Can also be used as `AGO(measure, date_dimension, number)`. In this case, the third argument is interpreted as the number of days.
+Can also be used as `AGO( measure, date_dimension, number )`. In this case, the third argument is interpreted as the number of days.
 
-This non-window function does not support window options such as `BEFORE FILTER BY`. For an alternative among window functions see [LAG](LAG.md).
+This non-window function does not support window options such as `BEFORE FILTER BY`.
+
+See also [AT_DATE](AT_DATE.md), [LAG](LAG.md).
 
 **Argument types:**
 - `measure` — `Any`
@@ -49,6 +51,21 @@ Only constant values are accepted for arguments (`unit`, `number`).
 The first argument must be a measure (aggregated expression), otherwise an error will be raised.
 
 {% endnote %}
+
+
+#### Examples {#examples}
+
+```
+AGO(SUM([Sales]), [Order Date], "month", 3)
+```
+
+```
+AGO(SUM([Sales]), [Order Date], "year")
+```
+
+```
+AGO(SUM([Sales]), [Order Date], 1)
+```
 
 
 #### Data source support {#data-source-support}
