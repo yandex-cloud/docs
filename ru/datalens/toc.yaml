@@ -170,6 +170,11 @@ items:
   - name: Правила тарификации
     when: audience == "external"
     href: pricing.md
+  - name: Справочник функций
+    items: null
+    include:
+      repo: docs
+      path: ru/_api-ref/datalens/toc.yaml
   - name: ChartEditor
     when: audience == "internal"
     items:
@@ -307,11 +312,6 @@ items:
             href: chartkit/readme-v4.md
           - name: v5v6
             href: chartkit/readme-v5v6.md
-  - name: Справочник функций
-    items: null
-    include:
-      repo: docs
-      path: ru/_api-ref/datalens/toc.yaml
   - name: Вопросы и ответы
     when: audience == "external"
     href: qa/index.md

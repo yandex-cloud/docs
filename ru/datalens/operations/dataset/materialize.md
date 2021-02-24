@@ -51,6 +51,6 @@
      description: Materialization failed
    ```
 
-Уведомления будут приходить вам в Telegram при падении или задержке материализации. Эта информация необходима при обращении в [чат DataLens Support](https://t.me/joinchat/BbHwRD-yeFhOUcVS1_fdsA).
+Уведомления будут приходить вам в Telegram при падении или задержке материализации. Эта информация необходима при обращении в [чат DataLens Community](https://t.me/joinchat/BbHwRD-yeFhOUcVS1_fdsA).
 
 {% endif %}
