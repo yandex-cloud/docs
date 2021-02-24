@@ -78,7 +78,7 @@ editable: false
 
 `BEFORE FILTER BY` применяется также и ко всем вложенным оконным функциям.
 Пример:
-- функция — `MAVG(RSUM([Sales] BEFORE FILTER BY [Date]), 10)';
+- функция — `MAVG(RSUM([Sales] BEFORE FILTER BY [Date]), 10)`;
 - эквивалент — `MAVG(RSUM([Sales] BEFORE FILTER BY [Date]), 10 BEFORE FILTER BY [Date])`.
 
 Не используйте кофликтующие `BEFORE FILTER BY` в запросе:

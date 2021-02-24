@@ -10,11 +10,6 @@ _Статические ключи доступа_ — секретный клю
 
 * [{{ objstorage-name }}](/docs/storage/)
 * [{{ message-queue-name }}](/docs/message-queue/)
-* [{{ ydb-name }}](../../../ydb/quickstart/aws-instrument/setup.md)
-
-      
-* [{{ ydb-name }}](../../../ydb/quickstart/aws-instrument/setup.md)
-
 
       
 * [{{ ydb-name }}](../../../ydb/quickstart/aws-instrument/setup.md)
