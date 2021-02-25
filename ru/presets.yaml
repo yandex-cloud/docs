@@ -188,6 +188,12 @@ default:
   ZK: ZooKeeper
   MS: SQL Server
   RMQ: RabbitMQ
+  tag-con: <code><b><small>Консоль управления</small></b></code>
+  tag-cli: <code><b><small>CLI</small></b></code>
+  tag-tf: <code><b><small>Terraform</small></b></code>
+  tag-api: <code><b><small>API</small></b></code>
+  tag-sql: <code><b><small>SQL</small></b></code>
+  tag-all: <code><b><small>Все интерфейсы</small></b></code>
   zone-id: ru-central1-c
   host-class: s2.micro
   b1-nano: b1.nano (2 vCPU × 5%, 2 ГБ)
@@ -295,6 +301,12 @@ internal:
   ZK: ZooKeeper
   MS: Microsoft SQL Server
   RMQ: RabbitMQ
+  tag-con: <code><b><small>Консоль управления</small></b></code>
+  tag-cli: <code><b><small>CLI</small></b></code>
+  tag-tf: <code><b><small>Terraform</small></b></code>
+  tag-api: <code><b><small>API</small></b></code>
+  tag-sql: <code><b><small>SQL</small></b></code>
+  tag-all: <code><b><small>Все интерфейсы</small></b></code>
   zone-id: vla
   host-class: db1.micro
   mch-backup-retention: 7

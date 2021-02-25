@@ -176,17 +176,14 @@
 
   1. Перейдите на страницу каталога и выберите сервис **{{ mch-name }}**.
   1. Выберите кластер и нажмите кнопку **Изменить кластер** на панели сверху.
-  1. Измените настройки {{ CH }}, нажав на кнопку **Настроить** в блоке **Настройки СУБД**:
-
-     {% include [mch-additional-properties](../../_includes/mdb/mch-additional-properties.md) %}
-
+  1. Измените [настройки {{ CH }}](../concepts/settings-list.md#dbms-cluster-settings), нажав на кнопку **Настроить** в блоке **Настройки СУБД**:
   1. Нажмите кнопку **Сохранить изменения**.
 
 - API
 
   Воспользуйтесь методом API [update](../api-ref/Cluster/update.md): передайте в запросе нужные значения в параметре `configSpec.clickhouse.config`.
 
-  Все поддерживаемые настройки описаны [в справочнике API](../api-ref/Cluster/update.md).
+  Все поддерживаемые настройки описаны в разделе [{#T}](../concepts/settings-list.md#dbms-cluster-settings) и в [справочнике API](../api-ref/Cluster/update.md).
 
 {% endlist %}
 

@@ -90,8 +90,10 @@ items:
         href: concepts/sharding.md
       - name: Поддерживаемые клиенты
         href: concepts/supported-clients.md
-      - name: Политика работа с версиями ClickHouse
+      - name: Политика работы с версиями ClickHouse
         href: concepts/update-policy.md
+      - name: Настройки ClickHouse
+        href: concepts/settings-list.md  
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
