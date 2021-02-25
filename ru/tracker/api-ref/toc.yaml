@@ -1,0 +1,193 @@
+items:
+- name: Обзор
+  href: about.md
+- name: Доступ к API
+  href: concepts/access.md
+- name: Задачи
+  items:  
+    - name: Получить параметры задачи
+      href: concepts/issues/get-issue.md
+    - name: Редактировать задачу
+      href: concepts/issues/patch-issue.md
+    - name: Создать задачу
+      href: concepts/issues/create-issue.md
+    - name: Перенести задачу в другую очередь
+      href: concepts/issues/move-issue.md
+    - name: Узнать количество задач
+      href: concepts/issues/count-issues.md
+    - name: Найти задачи
+      href: concepts/issues/search-issues.md
+    - name: Освободить ресурсы просмотра прокрутки
+      href: concepts/issues/search-release.md
+    - name: Получить приоритеты
+      href: concepts/issues/get-priorities.md
+    - name: Получить связи задачи
+      href: concepts/issues/get-links.md
+    - name: Связать задачи
+      href: concepts/issues/link-issue.md
+    - name: Получить переходы
+      href: concepts/issues/get-transitions.md
+    - name: Выполнить переход в статус
+      href: concepts/issues/new-transition.md
+    - name: Получить историю изменений задачи
+      href: concepts/issues/get-changelog.md
+- name: Чеклисты
+  items:
+    - name: Создать чеклист или добавить в него пункты
+      href: concepts/issues/add-checklist-item.md   
+    - name: Получить параметры чеклиста
+      href: concepts/issues/get-checklist.md
+    - name: Удалить чеклист
+      href: concepts/issues/delete-checklist.md
+- name: Проекты
+  items:
+    - name: Создать проект
+      href: concepts/projects/create-project.md
+    - name: Получить параметры проекта
+      href: concepts/projects/get-project.md
+    - name: Получить список всех проектов
+      href: concepts/projects/get-projects.md
+    - name: Получить список очередей проекта
+      href: concepts/projects/get-project-queues.md
+    - name: Изменить проект
+      href: concepts/projects/update-project.md
+    - name: Удалить проект
+      href: concepts/projects/delete-project.md
+- name: Комментарии
+  items:
+    - name: Добавить комментарий
+      href: concepts/issues/add-comment.md
+    - name: Получить комментарии к задаче
+      href: concepts/issues/get-comments.md
+    - name: Редактировать комментарий
+      href: concepts/issues/edit-comment.md
+    - name: Удалить комментарий
+      href: concepts/issues/delete-comment.md
+- name: Макросы
+  items:
+    - name: Получить макросы очереди
+      href: get-macroses.md
+    - name: Получить макрос
+      href: get-macros.md
+    - name: Создать макрос
+      href: post-macros.md
+    - name: Редактировать макрос
+      href: patch-macros.md
+    - name: Удалить макрос
+      href: delete-macros.md
+- name: Прикрепленные файлы
+  items:  
+    - name: Получить список прикрепленных файлов
+      href: concepts/issues/get-attachments-list.md
+    - name: Скачать файл
+      href: concepts/issues/get-attachment.md
+    - name: Скачать миниатюру
+      href: concepts/issues/get-attachment-preview.md
+    - name: Прикрепить файл
+      href: concepts/issues/post-attachment.md
+    - name: Загрузить временный файл
+      href: concepts/issues/temp-attachment.md
+    - name: Удалить файл
+      href: concepts/issues/delete-attachment.md
+- name: Очереди
+  items:  
+    - name: Создать очередь
+      href: concepts/queues/create-queue.md
+    - name: Получить параметры очереди
+      href: concepts/queues/get-queue.md
+    - name: Получить список очередей
+      href: concepts/queues/get-queues.md
+    - name: Получить версии очереди
+      href: concepts/queues/get-versions.md
+    - name: Получить обязательные поля очереди
+      href: concepts/queues/get-fields.md
+    - name: Удалить очередь
+      href: concepts/queues/delete-queue.md
+    - name: Восстановить очередь
+      href: concepts/queues/restore-queue.md
+    - name: Удалить тег из очереди
+      href: concepts/queues/delete-tag.md    
+- name: Доски задач
+  items:
+    - name: Получить параметры всех досок
+      href: get-boards.md
+    - name: Получить параметры доски
+      href: get-board.md
+    - name: Создать доску
+      href: post-board.md
+    - name: Редактировать доску
+      href: patch-board.md
+    - name: Удалить доску
+      href: delete-board.md
+    - name: Колонки
+      items:
+        - name: Получить параметры всех колонок
+          href: get-columns.md
+        - name: Получить параметры колонки
+          href: get-column.md
+        - name: Создать колонку
+          href: post-column.md
+        - name: Редактировать колонку
+          href: patch-column.md
+        - name: Удалить колонку
+          href: delete-column.md
+    - name: Спринты
+      items:
+        - name: Получить все спринты доски
+          href: get-sprints.md
+        - name: Получить спринт
+          href: get-sprint.md
+        - name: Создать спринт
+          href: post-sprint.md
+- name: Чеклисты
+  items:
+    - name: Создать чеклист или добавить в него пункты
+      href: concepts/issues/add-checklist-item.md
+    - name: Редактировать чеклист
+      href: concepts/issues/edit-checklist.md
+- name: Импорт
+  items:
+    - name: Импортировать задачу
+      href: concepts/import/import-ticket.md
+    - name: Импортировать файлы
+      href: concepts/import/import-attachments.md
+    - name: Импортировать комментарии
+      href: concepts/import/import-comments.md
+    - name: Импортировать связи
+      href: concepts/import/import-links.md
+- name: Пакетные операции
+  items:
+    - name: Массовый перенос задач в другую очередь
+      href: concepts/bulkchange/bulk-move-issues.md
+    - name: Массовое редактирование задач
+      href: concepts/bulkchange/bulk-update-issues.md
+    - name: Массовое изменение статуса задач
+      href: concepts/bulkchange/bulk-transition.md
+- name: Учет времени
+  items:
+    - name: Добавить запись о затраченном времени
+      href: concepts/issues/new-worklog.md
+    - name: Редактировать запись о затраченном времени
+      href: concepts/issues/patch-worklog.md
+    - name: Удалить запись о затраченном времени
+      href: concepts/issues/delete-worklog.md
+    - name: Получить записи о затраченном времени
+      items:
+        - name: Получить все записи по задаче
+          href: concepts/issues/issue-worklog.md
+        - name: Отобрать записи по параметрам
+          href: concepts/issues/get-worklog.md
+- name: Поля задачи
+  items:
+#    - name: Обзор
+#      href: extra-api-requests.md
+    - name: Получить параметры поля задачи
+      href: concepts/issues/get-issue-fields.md
+    - name: Изменить название поля задачи
+      href: concepts/issues/patch-issue-field-name.md
+    - name: Изменить возможные значения поля задачи
+      href: concepts/issues/patch-issue-field-value.md
+- name: Получить информацию о текущем пользователе
+  href: get-user-info.md
+- name: Возможные коды ответа
+  href: error-codes.md

@@ -311,7 +311,7 @@ items:
   items:
     - name: Плагин для  IDE
       href: idea-plugin.md
-    - name: API Tracker
+    - name: API
       href: user/API.md
     - name: Python клиент
       href: user/python.md
@@ -324,6 +324,11 @@ items:
 #  items:
 #    - name: Оплата
 #      href: payment.md
+- name: Справочник API
+  items: null
+  include:
+    repo: docs
+    path: ru/tracker/api-ref/toc.yaml
 - name: Вопросы и ответы
   href: faq.md
 - name: Служба поддержки

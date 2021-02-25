@@ -8,6 +8,12 @@ default:
 
   locale: ru
   
+  #API
+  api-name: Yandex Tracker API
+  api-short-name: Tracker API
+  host: 'https://api.tracker.yandex.net'
+  ver: v2
+  
   #Ссылки на Tracker и Коннект
   link-tracker: https://tracker.yandex.ru/
   link-tracker-ya: https://st.yandex-team.ru/
@@ -15,6 +21,7 @@ default:
   link-connect-main: https://connect.yandex.ru/portal/home
   link-admin-fields: https://tracker.yandex.ru/admin/fields
   link-admin-fields-ya: https://st.yandex-team.ru/admin/fields
+  link-admin-resolutions: https://tracker.yandex.ru/admin/resolutions
   link-quick-start: https://tracker.yandex.ru/queues/new/quick-start
   link-repositories: https://tracker.yandex.ru/admin/repositories
   link-tracker-statuses: https://tracker.yandex.ru/admin/statuses
@@ -37,6 +44,15 @@ default:
   #Внешние ссылки
   link-wiki-scrum: https://ru.wikipedia.org/wiki/SCRUM
   link-wiki-kanban: https://ru.wikipedia.org/wiki/%D0%9A%D0%B0%D0%BD%D0%B1%D0%B0%D0%BD_(%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B0)
+
+  #Внешние ссылки из справочника API
+  link-iso-8601: http://dotat.at/tmp/ISO_8601-2004_E.pdf
+  link-rfc7578: https://tools.ietf.org/html/rfc7578
+  link-OAuth-dev-guide: https://tech.yandex.ru/oauth/doc/dg/concepts/about-docpage/
+  link-register-application: https://yandex.ru/dev/oauth/doc/dg/tasks/register-client.html
+  link-get-token: https://oauth.yandex.ru/
+  link-yandex_tracker_client: https://github.com/yandex/yandex_tracker_client
+  link-python-official: https://www.python.org/downloads/
 
   #Интерфейс
   tracker-settings: Настройки Tracker
