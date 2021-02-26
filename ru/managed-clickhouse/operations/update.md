@@ -244,6 +244,4 @@
 
   Воспользуйтесь методом API [update](../api-ref/Cluster/update.md): передайте в запросе нужные значения в параметрах `configSpec.access` и `configSpec.backupWindowStart`.
 
-  Все поддерживаемые настройки описаны [в справочнике API](../api-ref/Cluster/update.md).
-
 {% endlist %}
