@@ -14,6 +14,13 @@ RMIN( value [ , direction ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] 
 ```
 
 #### Description {#description}
+
+{% note warning %}
+
+The sorting order is based on the fields listed in the sorting section of the chart and in the `ORDER BY` clause. First, `ORDER BY` fields are used, and then they are complemented by the fields from the chart.
+
+{% endnote %}
+
 Returns the minimum of all values in a growing (or shrinking) window defined by the sort order and the value of `direction`:
 
 | `direction`   | Window                                                 |
@@ -38,12 +45,6 @@ See also [MIN](MIN.md), [MMIN](MMIN.md).
 {% note info %}
 
 Only constant values are accepted for arguments (`direction`).
-
-{% endnote %}
-
-{% note warning %}
-
-The sorting order is based on the fields listed in the sorting section of the chart and in the `ORDER BY` clause. First, `ORDER BY` fields are used, and then they are complemented by the fields from the chart.
 
 {% endnote %}
 

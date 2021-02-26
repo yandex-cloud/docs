@@ -20,7 +20,7 @@ VMs in {{ yandex-cloud }} can use the following types of disks:
 
 * Network SSD (`network-ssd`): A fast network drive. Network block storage on an SSD.
 * Network HDD (`network-hdd`): A standard network drive. Network block storage on an HDD.
-* Non-replicated SSD (`nonrepl`): A network drive with enhanced performance that is implemented by imposing several [limitations](#nr-disks).
+* Non-replicated SSD (`network-ssd-nonreplicated`): A network drive with enhanced performance that is implemented by imposing several [limitations](#nr-disks).
 
 Standard network SSDs and HDDs provide sufficient redundancy for reliable data storage and allow for continuous read and write operations even when multiple physical disks fail at the same time. Non-replicated disks do not duplicate the information they store.
 

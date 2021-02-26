@@ -9,3 +9,5 @@
 - **Доступ из {{ datalens-name }}** — включите эту опцию, чтобы получить возможность анализировать данные из кластера в сервисе [{{ datalens-full-name }}](../../datalens/concepts/index.md). Подробнее о настройке подключения см. в разделе [Подключение к {{ datalens-name }}](../../managed-postgresql/operations/datalens-connect.md).
 
 - **Доступ из консоли управления** — включите эту опцию, чтобы получить возможность [выполнять SQL-запросы](../../managed-postgresql/operations/web-sql-query.md) к базам кластера из консоли управления {{ yandex-cloud }}.
+
+- **Сбор статистики** — включите эту опцию, чтобы воспользоваться инструментом [{#T}](../../managed-postgresql/operations/performance-diagnostics.md) в кластере. Эта функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md).

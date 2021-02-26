@@ -4,12 +4,17 @@ default:
   tracker-short-name: Tracker
   org-full-name: Yandex Cloud Organization
   locale: ru
+  api-name: Yandex Tracker API
+  api-short-name: Tracker API
+  host: https://api.tracker.yandex.net
+  ver: v2
   link-tracker: https://tracker.yandex.ru/
   link-tracker-ya: https://st.yandex-team.ru/
   link-connect: https://connect.yandex.ru/
   link-connect-main: https://connect.yandex.ru/portal/home
   link-admin-fields: https://tracker.yandex.ru/admin/fields
   link-admin-fields-ya: https://st.yandex-team.ru/admin/fields
+  link-admin-resolutions: https://tracker.yandex.ru/admin/resolutions
   link-quick-start: https://tracker.yandex.ru/queues/new/quick-start
   link-repositories: https://tracker.yandex.ru/admin/repositories
   link-tracker-statuses: https://tracker.yandex.ru/admin/statuses
@@ -28,10 +33,46 @@ default:
   link-forms-ya: https://forms.yandex-team.ru/
   link-passport: https://passport.yandex.ru/
   link-500-users: https://cloud.yandex.ru/services/tracker#contact-form
+  link-tracker-support: https://support.cloud.yandex.ru/
+  link-tracker-example-1: https://tracker.yandex.ru/TEST-1234
+  link-tracker-example-1-ya: https://st.yandex-team.ru/TEST-1234
+  link-tracker-example-2: https://tracker.yandex.ru/ключОчереди
+  link-tracker-example-2-ya: https://st.yandex-team.ru/ключОчереди
+  support-connect-account: https://yandex.ru/support/connect/add-account.html#org-structure__manage-user
+  support-connect-domain: https://yandex.ru/support/connect/add-domain.html
+  support-connect-domains: https://yandex.ru/support/connect/domains.html#proof
+  support-connect-services: https://yandex.ru/support/connect/services.html#services__mail-settings
+  support-forms-main: https://yandex.ru/support/connect-forms/
+  support-forms-main-ya: https://doc.yandex-team.ru/forms/
+  support-forms-create: https://yandex.ru/support/connect-forms/common/new-form.html
+  support-forms-create-ya: https://doc.yandex-team.ru/forms/external/new-form.html
+  support-forms-tracker: https://yandex.ru/support/connect-forms/common/create-task.html
+  support-forms-tracker-ya: https://doc.yandex-team.ru/forms/external/create-task.html
+  support-forms-access: https://yandex.ru/support/connect-forms/common/restrictions.html#restrictions__sec_access
+  support-forms-notify: https://yandex.ru/support/connect-forms/common/notifications.html
+  support-forms-notify-ya: https://doc.yandex-team.ru/forms/external/notifications.html
+  support-forms-publish: https://yandex.ru/support/connect-forms/common/publish.html#publish__section_link
+  support-forms-publish-ya: https://doc.yandex-team.ru/forms/external/publish.html
+  support-forms-wiki: https://yandex.ru/support/connect-forms/common/publish.html#publish__section_xvx_g2c_tbb
+  support-forms-wiki-ya: https://doc.yandex-team.ru/forms/external/publish.html#publish__section_xvx_g2c_tbb
+  support-forms-embed: https://yandex.ru/support/connect-forms/common/publish.html##publish__section_c21_gdb_42b
+  support-forms-embed-ya: https://doc.yandex-team.ru/forms/external/publish.html#publish__section_c21_gdb_42b
+  support-passport-create: https://yandex.ru/support/passport/authorization/registration.html
+  support-business-domain: https://yandex.ru/support/business/domains.html
+  support-business-users: https://yandex.ru/support/business/add-users.html
   link-wiki-scrum: https://ru.wikipedia.org/wiki/SCRUM
   link-wiki-kanban: >-
     https://ru.wikipedia.org/wiki/%D0%9A%D0%B0%D0%BD%D0%B1%D0%B0%D0%BD_(%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B0)
+  link-wiki-agile: https://ru.wikipedia.org/wiki/Гибкая_методология_разработки
+  link-wiki-poker: https://ru.wikipedia.org/wiki/Покер_планирования
+  link-iso-8601: http://dotat.at/tmp/ISO_8601-2004_E.pdf
+  link-rfc7578: https://tools.ietf.org/html/rfc7578
+  link-OAuth-dev-guide: https://yandex.ru/dev/oauth/doc/dg/concepts/about.html
+  link-register-application: https://yandex.ru/dev/oauth/doc/dg/tasks/register-client.html
+  link-get-token: https://oauth.yandex.ru/
+  link-yandex_tracker_client: https://github.com/yandex/yandex_tracker_client
+  link-python-official: https://www.python.org/downloads/
   tracker-settings: Настройки Tracker
-  release-date: 25 февраля
-  promo-end-date: 25 марта
+  release-date: 1 марта
+  promo-end-date: 31 марта
   example-account: login@yandex.ru

@@ -4,6 +4,8 @@
 - [Создать базу данных](#add-db).
 - [Удалить базу данных](#remove-db).
 
+{% include [db-sql](../../_includes/mdb/mdb-db-sql-limits.md) %}
+
 ## Получить список баз данных в кластере {#list-db}
 
 {% list tabs %}

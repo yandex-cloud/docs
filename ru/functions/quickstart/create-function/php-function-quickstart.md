@@ -13,7 +13,7 @@
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать функцию.
     1. Откройте сервис **{{ sf-name }}**
     1. Нажмите кнопку **Создать функцию**.
-    1. Введите имя функции — `php_function`.
+    1. Введите имя функции — `php-function`.
     1. Нажмите кнопку **Создать**.
 
 - CLI
@@ -25,7 +25,7 @@
     Чтобы создать функцию, выполните команду:
 
     ```
-    yc serverless function create --name=php_function
+    yc serverless function create --name=php-function
     ```
 
     Результат:
@@ -34,7 +34,7 @@
     id: b09bhaokchn9pnbrlseb
     folder_id: aoek49ghmknnpj1ll45e
     created_at: "2019-06-14T10:03:37.475Z"
-    name: php_function
+    name: php-function
     log_group_id: eolm8aoq9vcppsieej6h
     http_invoke_url: https://functions.yandexcloud.net/b09bhaokchn9pnbrlseb
     status: ACTIVE
@@ -75,7 +75,7 @@
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится функция.
     1. Выберите сервис **{{ sf-name }}**.
-    1. Выберите функцию `php_function`.
+    1. Выберите функцию `php-function`.
     1. В разделе **Последняя версия** нажмите кнопку **Создать в редакторе**.
     1. Задайте параметры версии:
         - **Среда выполнения:** `php74`.
@@ -97,7 +97,7 @@
 
     ```
     yc serverless function version create \
-    --function-name=php_function \
+    --function-name=php-function \
     --runtime php74 \
     --entrypoint hello.handler \
     --memory 128m \
