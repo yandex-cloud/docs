@@ -27,7 +27,7 @@ items:
         href: operations/cluster-delete.md
   - name: Концепции
     items:
-      - name: Обзор
+      - name: Взаимосвязь ресурсов сервиса
         href: concepts/index.md
       - name: Классы хостов
         href: concepts/instance-types.md
@@ -43,7 +43,7 @@ items:
         href: concepts/supported-clients.md
       - name: Ограничения Managed Service for Redis
         href: concepts/supported-features.md
-      - name: Квоты и лимиты сервиса
+      - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Управление доступом
     href: security/index.md

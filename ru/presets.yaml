@@ -183,6 +183,7 @@ default:
   mmg-backup-retention-max: 35
   MY: MySQL
   RD: Redis
+  mrd-max-disk-size: 4096 ГБ
   KF: Apache Kafka<sup>®</sup>
   ES: Elasticsearch
   ZK: ZooKeeper
