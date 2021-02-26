@@ -59,17 +59,17 @@
 
   {{unified-agent-short-name}} распространяется в виде deb-пакета для операционных систем Ubuntu 14.04 или старше. Пакет содержит бинарный файл с агентом и пустой конфигурационный файл, расположенный в `/etc/yandex/unified_agent/config.yml`.
 
-  Чтобы скачать последнюю версию агента в виде deb-пакета для Ubuntu 14.04, выполните команду:
+  Чтобы скачать последнюю версию агента в виде deb-пакета выполните команду:
 
   ```bash
   ubuntu_name="ubuntu-14.04-trusty" ua_version=$(curl -s https://storage.yandexcloud.net/yc-unified-agent/latest-version) bash -c 'curl -s -O https://storage.yandexcloud.net/yc-unified-agent/releases/${ua_version}/deb/${ubuntu_name}/yandex-unified-agent_${ua_version}_amd64.deb'
   ```
 
   Поддерживаемые значения параметра `ubuntu_name`:
-  - `ubuntu-14.04-trusty`,
-  - `ubuntu-16.04-xenial`,
-  - `ubuntu-18.04-bionic`,
-  - `ubuntu-20.04-focal`.
+    - `ubuntu-14.04-trusty`,
+    - `ubuntu-16.04-xenial`,
+    - `ubuntu-18.04-bionic`,
+    - `ubuntu-20.04-focal`.
 
   Чтобы узнать все доступные версии агента выполните команду:
   ```(bash)
@@ -86,7 +86,7 @@
 
   ```bash
   user@my-vm:~$ systemctl status unified-agent
-● unified-agent.service - Yandex Unified Agent service
+  ● unified-agent.service - Yandex Unified Agent service
      Loaded: loaded (/lib/systemd/system/unified-agent.service; enabled; vendor preset: enabled)
      Active: active (running) since Tue 2021-02-09 15:57:08 UTC; 2 weeks 2 days ago
    Main PID: 141403 (unified_agent)
