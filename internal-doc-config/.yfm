@@ -6,6 +6,7 @@ ignore:
   - "en/_api-ref-grpc/*"
   - "ru/_api-ref/*"
   - "ru/_api-ref-grpc/*"
+  - "ru/tracker/*"
 
 docs-viewer:
   project-name: cloud
