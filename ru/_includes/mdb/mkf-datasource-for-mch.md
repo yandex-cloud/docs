@@ -11,25 +11,25 @@
 ## Перед началом работы {#before-you-begin}
 
 1. [Создайте кластер {{ mkf-name }}](../../managed-kafka/operations/cluster-create.md) любой подходящей вам конфигурации.
-1. [Создайте кластер {{ mch-name }}](../../managed-clickhouse/operations/cluster-create.md) любой подходящей вам конфигурации с базой данных `db1`. 
+1. [Создайте кластер {{ mch-name }}](../../managed-clickhouse/operations/cluster-create.md) любой подходящей вам конфигурации с базой данных `db1`.
 
    {% note info %}
-   
+
    Интеграцию с {{ KF }} можно настроить уже на этапе [создания кластера](../../managed-clickhouse/operations/cluster-create.md). В этом сценарии использования интеграция будет настроена [позже](#configure-mch-for-kf).
-   
+
    {% endnote %}
 
 1. [Создайте топик](../../managed-kafka/operations/cluster-topics.md#create-topic) `datastore` в кластере {{ mkf-name }}.
 
-1. [Создайте учетные записи](../../managed-kafka/operations/cluster-accounts.md#create-account) в кластере {{ mkf-name }}  для работы с топиком `datastore`: 
+1. [Создайте учетные записи](../../managed-kafka/operations/cluster-accounts.md#create-account) в кластере {{ mkf-name }}  для работы с топиком `datastore`:
    - учетную запись производителя `writer`;
    - учетную запись потребителя `reader`.
-   
+
 1. Установите утилиту `kafkacat` и убедитесь, что можете с ее помощью [подключиться к кластеру {{ mkf-name }} через SSL](../../managed-kafka/operations/connect.md#connection-string).
 
-1. Установите утилиту `clickhouse-client` и убедитесь, что можете с ее помощью [подключиться к кластеру {{ mch-name }} через SSL](../../managed-clickhouse/operations/connect.md#connection-string). 
+1. Установите утилиту `clickhouse-client` и убедитесь, что можете с ее помощью [подключиться к кластеру {{ mch-name }} через SSL](../../managed-clickhouse/operations/connect.md#connection-string).
 
-1. Установите утилиту для потоковой обработки JSON-файлов [jq](https://stedolan.github.io/jq/). 
+1. Установите утилиту для потоковой обработки JSON-файлов [jq](https://stedolan.github.io/jq/).
 
 
 ## Настройте интеграцию с {{ KF }} для кластера {{ mch-name }} {#configure-mch-for-kf}
@@ -53,9 +53,9 @@
 - координаты автомобиля:
   - широта `latitude`;
   - долгота `longitude`;
-  - высота над уровнем моря `altitude`:
+  - высота над уровнем моря `altitude`;
 - текущая скорость `speed`;
-- напряжение батарей `battery_voltage` (для электромобиля, для автомобиля с с ДВС значение этого параметра — `null`);
+- напряжение батарей `battery_voltage` (для электромобиля, для автомобиля с ДВС значение этого параметра — `null`);
 - температура в салоне `cabin_temperature`;
 - уровень топлива `fuel_level` (для автомобиля с ДВС, для электромобиля значение этого параметра — `null`).
 
@@ -85,15 +85,15 @@
      speed Float32,
      battery_voltage Nullable(Float32),
      cabin_temperature Float32,
-     fuel_level Nullable(Float32)   
+     fuel_level Nullable(Float32)
    ) ENGINE = Kafka()
    SETTINGS
        kafka_broker_list = '<FQDN хоста-брокера Kafka>:9091',
        kafka_topic_list = 'datastore',
        kafka_group_name = 'sample_group',
        kafka_format = 'JSONEachRow';
-   ``` 
-   
+   ```
+
 Эта таблица будет автоматически наполняться сообщениями, считываемыми из топика `datastore` кластера {{ mkf-name }}. При чтении данных {{ mch-name }} использует [указанные ранее настройки](#configure-mch-for-kf) для [учетной записи потребителя `reader`](#before-you-begin).
 
 Подробнее о создании таблицы на движке {{ KF }} см. в [документации {{ CH }}](https://clickhouse.tech/docs/ru/engines/table-engines/integrations/kafka/).
@@ -127,7 +127,7 @@
      "cabin_temperature": 18,
      "fuel_level": 32
    }
-   
+
    {
      "device_id": "iv9a94th6rztooxh5ur2",
      "datetime": "2020-06-07 15:00:10",
@@ -140,7 +140,7 @@
      "fuel_level": null
    }
    ```
-   
+
 1. Отправьте данные из файла `sample.json` в топик `datastore` кластера {{ mkf-name }} с помощью `jq`  и `kafkacat`:
 
    ```bash
@@ -160,7 +160,7 @@
 
 ## Проверьте наличие тестовых данных в таблице кластера {{ mch-name }} {#fetch-sample-data}
 
-Хотя можно напрямую считать данные из таблицы `db1.kafka`, это не рекомендуется, т.к. каждое сообщение из топика может быть прочитано {{ CH }} только один раз. 
+Хотя можно напрямую считать данные из таблицы `db1.kafka`, это не рекомендуется, т.к. каждое сообщение из топика может быть прочитано {{ CH }} только один раз.
 
 Практичнее создать материализованное представление (`MATERIALIZED VIEW`) и использовать его для доступа к данным. Когда к таблице на движке {{ KF }} присоединяется материализованное представление, оно начинает в фоновом режиме собирать данные. Это позволяет непрерывно получать сообщения от {{ KF }} и преобразовывать их в необходимый формат с помощью `SELECT`.
 
@@ -181,7 +181,7 @@
      cabin_temperature Float32,
      fuel_level Nullable(Float32)
    ) ENGINE = MergeTree()
-   ORDER BY device_id; 	
+   ORDER BY device_id;
 
    CREATE MATERIALIZED VIEW db1.data_view TO db1.kafka_data_source
        AS SELECT * FROM db1.kafka;
@@ -194,7 +194,7 @@
    ```sql
    SELECT * FROM db1.data_view;
    ```
-   
+
 После выполнения запроса вы должны получить отправленные в {{ mkf-name }} данные в табличном виде.
 
 Подробнее о работе с данными, поставляемыми из {{ KF }}, см. [в документации {{ CH }}](https://clickhouse.tech/docs/ru/engines/table-engines/integrations/kafka/).
