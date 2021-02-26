@@ -13,7 +13,7 @@
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать функцию.
     1. Откройте сервис **{{ sf-name }}**
     1. Нажмите кнопку **Создать функцию**.
-    1. Введите имя функции — `python_function`.
+    1. Введите имя функции — `python-function`.
     1. Нажмите кнопку **Создать**.
 
 - CLI
@@ -25,7 +25,7 @@
     Чтобы создать функцию, выполните команду:
 
     ```
-    yc serverless function create --name=python_function
+    yc serverless function create --name=python-function
     ```
 
     Результат:
@@ -34,7 +34,7 @@
     id: b09bhaokchn9pnbrlseb
     folder_id: aoek49ghmknnpj1ll45e
     created_at: "2019-06-14T10:03:37.475Z"
-    name: python_function
+    name: python-function
     log_group_id: eolm8aoq9vcppsieej6h
     http_invoke_url: https://functions.yandexcloud.net/b09bhaokchn9pnbrlseb
     status: ACTIVE
@@ -77,7 +77,7 @@
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится функция.
     1. Выберите сервис **{{ sf-name }}**.
-    1. Выберите функцию `python_function`.
+    1. Выберите функцию `python-function`.
     1. В разделе **Последняя версия** нажмите кнопку **Создать в редакторе**.
     1. Задайте параметры версии:
         - **Среда выполнения:** `python37`.
@@ -99,7 +99,7 @@
 
     ```
     yc serverless function version create \
-    --function-name=python_function \
+    --function-name=python-function \
     --runtime python37 \
     --entrypoint hello.handler \
     --memory 128m \

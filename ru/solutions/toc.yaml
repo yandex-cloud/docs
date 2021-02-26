@@ -47,6 +47,8 @@ items:
         href: archive/object-storage-duplicati.md
       - name: Резервное копирование в Object Storage через Bacula
         href: archive/backup-with-bacula.md
+      - name: Резервное копирование в Object Storage через Veritas Backup Exec
+        href: archive/object-storage-veritas.md
       - name: Оцифровка архива в Yandex Vision
         href: archive/archive-from-vision-to-object-storage.md
   - name: Тестовая среда

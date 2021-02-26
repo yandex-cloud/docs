@@ -153,17 +153,14 @@
 
   1. Перейдите на страницу каталога и выберите сервис **{{ mch-name }}**.
   1. Выберите кластер и нажмите кнопку **Изменить кластер** на панели сверху.
-  1. Измените настройки {{ CH }}, нажав на кнопку **Настроить** в блоке **Настройки СУБД**:
-
-     {% include [mch-additional-properties](../../_includes/mdb/mch-additional-properties.md) %}
-
+  1. Измените [настройки {{ CH }}](../concepts/settings-list.md#dbms-cluster-settings), нажав на кнопку **Настроить** в блоке **Настройки СУБД**:
   1. Нажмите кнопку **Сохранить изменения**.
 
 - API
 
   Воспользуйтесь методом API [update](../api-ref/Cluster/update.md): передайте в запросе нужные значения в параметре `configSpec.clickhouse.config`.
 
-  Все поддерживаемые настройки описаны [в справочнике API](../api-ref/Cluster/update.md).
+  Все поддерживаемые настройки описаны в разделе [{#T}](../concepts/settings-list.md#dbms-cluster-settings) и в [справочнике API](../api-ref/Cluster/update.md).
 
 {% endlist %}
 
@@ -171,7 +168,7 @@
 
 {% list tabs %}
 
-- Консоль управления
+* Консоль управления
 
   1. Перейдите на страницу каталога и выберите сервис **{{ mch-name }}**.
   1. Выберите кластер и нажмите кнопку **Изменить кластер** на панели сверху.
@@ -181,7 +178,46 @@
 
   1. Нажмите кнопку **Сохранить изменения**.
 
-- API
+* CLI
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  Чтобы изменить дополнительные настройки кластера:
+
+    1. Посмотрите описание команды CLI для изменения кластера:
+
+        ```bash
+        {{ yc-mdb-ch }} cluster update --help
+        ```
+
+    1. Выполните команду, передав список настроек, которые хотите изменить:
+
+        ```bash
+        {{ yc-mdb-ch }} cluster update <имя кластера> \
+            --backup-window-start <время начала резервного копирования> \
+            --datalens-access=<true или false> \
+            --maintenance-window type=<weekly или anytime> \
+            --metrika-access=<true или false> \
+            --websql-access=<true или false>
+        ```
+
+    Вы можете изменить следующие настройки:
+
+    {% include [backup-window-start](../../_includes/mdb/cli-additional-settings/backup-window-start.md) %}
+
+    * `--datalens-access` — разрешает доступ из DataLens. Значение по умолчанию — `false`. Подробнее о настройке подключения см. в разделе [{#T}](datalens-connect.md).
+
+    {% include [maintenance-window](../../_includes/mdb/cli-additional-settings/maintenance-window.md) %}
+
+    * `--metrika-access` — разрешает [импорт данных из AppMetrika в кластер](https://appmetrica.yandex.ru/docs/cloud/index.html). Значение по умолчанию — `false`.
+
+    * `--websql-access` — разрешает [выполнять SQL запросы](web-sql-query.md) из консоли управления. Значение по умолчанию — `false`.
+
+    Имя кластера можно [получить со списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+* API
 
   Воспользуйтесь методом API [update](../api-ref/Cluster/update.md): передайте в запросе нужные значения в параметрах `configSpec.access` и `configSpec.backupWindowStart`.
 

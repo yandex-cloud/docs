@@ -97,6 +97,81 @@
   - Идентификатор каталога, в котором должен быть размещен кластер, в параметре `folderId`.
   - Имя кластера в параметре `name`.
 
+- Terraform
+
+    {% include [terraform-definition](../../solutions/_solutions_includes/terraform-definition.md) %}
+
+    Если у вас еще нет Terraform, [установите его и настройте провайдер](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+    Чтобы создать кластер:
+
+    1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
+
+        {% include [terraform-create-cluster-step-1](../../_includes/mdb/terraform-create-cluster-step-1.md) %}
+
+        Пример структуры конфигурационного файла:
+
+        ```go
+        terraform {
+          required_providers {
+            yandex = {
+             source = "yandex-cloud/yandex"
+            }
+          }
+        }
+
+        provider "yandex" {
+          token     = "<OAuth или статический ключ сервисного аккаунта>"
+          cloud_id  = "<идентификатор облака>"
+          folder_id = "<идентификатор каталога>"
+          zone      = "<зона доступности>"
+        }
+
+        resource "yandex_mdb_kafka_cluster" "<имя кластера>" {
+        environment = "<окружение: PRESTABLE или PRODUCTION>"
+        name        = "<имя кластера>"
+        network_id  = "<идентификатор сети>"
+
+          config {
+            assign_public_ip = "<публичный доступ к кластеру: true или false>"
+            brokers_count    = <количество брокеров>
+            version          = "<версия Apache Kafka: 2.1 или 2.6>"
+            kafka {
+              resources {
+                disk_size          = <размер хранилища в гигабайтах>
+                disk_type_id       = "<тип хранилища: network-ssd, network-hdd или local-ssd>"
+                resource_preset_id = "<класс хоста>"
+              }
+            }
+
+            zones = [
+              "<зоны доступности>"
+            ]
+          }
+        }
+
+        resource "yandex_vpc_network" "<имя сети>" {
+          name = "<имя сети>"
+        }
+
+        resource "yandex_vpc_subnet" "<имя подсети>" {
+          name           = "<имя подсети>"
+          zone           = "<зона доступности>"
+          network_id     = "<идентификатор сети>"
+          v4_cidr_blocks = ["<диапазон>"]
+        }
+        ```
+
+        Более подробную информацию о ресурсах, которые можно создать с помощью Terraform, см. в [документации провайдера](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_kafka_cluster).
+
+    1. Проверьте корректность конфигурационных файлов.
+
+        {% include [terraform-create-cluster-step-2](../../_includes/mdb/terraform-create-cluster-step-2.md) %}
+
+    1. Создайте кластер.
+
+        {% include [terraform-create-cluster-step-3](../../_includes/mdb/terraform-create-cluster-step-3.md) %}
+
 {% endlist %}
 
 ## Примеры {#examples}
@@ -107,7 +182,7 @@
 
 - CLI
 
-  Допустим, нужно создать {{ KF }}-кластер со следующими характеристиками:
+  Допустим, нужно создать кластер {{ mkf-name }} со следующими характеристиками:
 
 
   - С именем `mykf`.
@@ -133,5 +208,73 @@
   --disk-type {{ disk-type-example }} \
   --assign-public-ip
   ```
+
+- Terraform
+
+  Допустим, нужно создать кластер {{ mkf-name }} со следующими характеристиками:
+
+    - В облаке с идентификатором `{{ tf-cloud-id }}`.
+    - В каталоге с идентификатором `{{ tf-folder-id }}`.
+    - С именем `mykf`.
+    - В окружении `PRODUCTION`.
+    - С версией {{ KF }} `2.6`.
+    - В новой сети `mynet` с подсетью `mysubnet`.
+    - С одним хостом класса `{{ host-class }}`, в зоне доступности `{{ zone-id }}`.
+    - С одним брокером.
+    - С быстрым сетевым хранилищем (`{{ disk-type-example }}`) объемом 10 ГБ.
+    - С публичным доступом.
+
+  Конфигурационный файл для такого кластера выглядит так:
+
+    ```go
+    terraform {
+      required_providers {
+        yandex = {
+          source = "yandex-cloud/yandex"
+        }
+      }
+    }
+
+    provider "yandex" {
+      token     = "<OAuth или статический ключ сервисного аккаунта>"
+      cloud_id  = "{{ tf-cloud-id }}"
+      folder_id = "{{ tf-folder-id }}"
+      zone      = "{{ zone-id }}"
+    }
+
+    resource "yandex_mdb_kafka_cluster" "mykf" {
+      environment = "PRODUCTION"
+      name        = "mykf"
+      network_id  = yandex_vpc_network.mynet.id
+
+      config {
+        assign_public_ip = true
+        brokers_count    = 1
+        version          = "2.6"
+        kafka {
+          resources {
+            disk_size          = 10
+            disk_type_id       = "{{ disk-type-example }}"
+            resource_preset_id = "{{ host-class }}"
+          }
+        }
+
+        zones = [
+          "{{ zone-id }}"
+        ]
+      }
+    }
+
+    resource "yandex_vpc_network" "{{ network-name }}" {
+      name = "{{ network-name }}"
+    }
+
+    resource "yandex_vpc_subnet" "mysubnet" {
+      name           = "mysubnet"
+      zone           = "{{ zone-id }}"
+      network_id     = yandex_vpc_network.mynet.id
+      v4_cidr_blocks = ["10.5.0.0/24"]
+    }
+    ```
 
 {% endlist %}

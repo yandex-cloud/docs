@@ -179,11 +179,18 @@ default:
   mmg-backup-retention-max: 35
   MY: MySQL
   RD: Redis
+  mrd-max-disk-size: 4096 ГБ
   KF: Apache Kafka<sup>®</sup>
   ES: Elasticsearch
   ZK: ZooKeeper
   MS: SQL Server
   RMQ: RabbitMQ
+  tag-con: <code><b><small>Консоль управления</small></b></code>
+  tag-cli: <code><b><small>CLI</small></b></code>
+  tag-tf: <code><b><small>Terraform</small></b></code>
+  tag-api: <code><b><small>API</small></b></code>
+  tag-sql: <code><b><small>SQL</small></b></code>
+  tag-all: <code><b><small>Все интерфейсы</small></b></code>
   zone-id: ru-central1-c
   host-class: s2.micro
   b1-nano: b1.nano (2 vCPU × 5%, 2 ГБ)
@@ -264,4 +271,5 @@ default:
   link-app-android: https://play.google.com/store/apps/details?id=ru.yandex.cloud
   link-app-ios: https://apps.apple.com/ru/app/yandex-cloud/id1515465314
   tf-cloud-id: b1gq90dgh25bebiu75o
+  tf-folder-id: b1gia87mbaomkfvsleds
   yandex-cloud: Yandex.Cloud

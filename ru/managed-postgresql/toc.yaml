@@ -35,6 +35,8 @@ items:
         href: operations/cluster-backups.md
       - name: Удаление кластера
         href: operations/cluster-delete.md
+      - name: Диагностика производительности
+        href: operations/performance-diagnostics.md
       - name: Миграция базы данных в Yandex.Cloud
         href: operations/data-migration.md
       - name: >-

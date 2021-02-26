@@ -2,6 +2,12 @@
 
 Вы можете создавать [резервные копии](../concepts/backup.md) и восстанавливать кластеры из имеющихся резервных копий.
 
+{% note warning %}
+
+Вы не можете с помощью команд SQL изменять [модель восстановления](https://docs.microsoft.com/ru-ru/sql/relational-databases/backup-restore/recovery-models-sql-server?view=sql-server-2016) для операций резервного копирования и восстановления.
+
+{% endnote %}
+
 ## Получить список резервных копий {#list-backups}
 
 {% list tabs %}

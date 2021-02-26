@@ -13,7 +13,7 @@
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать функцию.
     1. Откройте сервис **{{ sf-name }}**
     1. Нажмите кнопку **Создать функцию**.
-    1. Введите имя функции — `bash_function`.
+    1. Введите имя функции — `bash-function`.
     1. Нажмите кнопку **Создать**.
 
 - CLI
@@ -25,7 +25,7 @@
     Чтобы создать функцию, выполните команду:
 
     ```
-    yc serverless function create --name=bash_function
+    yc serverless function create --name=bash-function
     ```
 
     Результат:
@@ -34,7 +34,7 @@
     id: b09bhaokchn9pnbrlseb
     folder_id: aoek49ghmknnpj1ll45e
     created_at: "2019-06-14T10:03:37.475Z"
-    name: bash_function
+    name: bash-function
     log_group_id: eolm8aoq9vcppsieej6h
     http_invoke_url: https://functions.yandexcloud.net/b09bhaokchn9pnbrlseb
     status: ACTIVE
@@ -69,7 +69,7 @@
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится функция.
     1. Выберите сервис **{{ sf-name }}**.
-    1. Выберите функцию `bash_function`.
+    1. Выберите функцию `bash-function`.
     1. В разделе **Последняя версия** нажмите кнопку **Создать в редакторе**.
     1. Задайте параметры версии:
         - **Среда выполнения:** `bash`.
@@ -91,7 +91,7 @@
 
     ```
     yc serverless function version create \
-    --function-name=bash_function \
+    --function-name=bash-function \
     --runtime bash \
     --entrypoint hello.sh \
     --memory 128m \
