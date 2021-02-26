@@ -83,16 +83,16 @@
   sudo dpkg -i yandex-unified-agent_21.02.03_amd64.deb
   ```
 
-  Чтобы убедиться, что {{unified-agent-short-name}} успешно установлен и запущен, выполните команду `service unified-agent status`. Пример работы команды:
+  Чтобы убедиться, что {{unified-agent-short-name}} успешно установлен и запущен, выполните команду `systemctl status unified-agent`. Пример работы команды:
 
   ```bash
-  user@my-vm:~$ service unified-agent status
-  unified-agent.service - Yandex Unified Agent service
+  user@my-vm:~$ systemctl status unified-agent
+● unified-agent.service - Yandex Unified Agent service
      Loaded: loaded (/lib/systemd/system/unified-agent.service; enabled; vendor preset: enabled)
-     Active: active (running) since Tue 2021-02-09 15:57:08 UTC; 6 days ago
+     Active: active (running) since Tue 2021-02-09 15:57:08 UTC; 2 weeks 2 days ago
    Main PID: 141403 (unified_agent)
       Tasks: 8 (limit: 507)
-     Memory: 10.5M
+     Memory: 9.4M
      CGroup: /system.slice/unified-agent.service
              └─141403 /usr/bin/unified_agent --config /etc/yandex/unified_agent/config.yml --log-priority NOTICE
   ```

@@ -12,7 +12,7 @@
 
    1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) в каталоге, куда будут записываться метрики и [назначьте ему роль](../../../iam/operations/sa/assign-role-for-sa.md) `editor`.
 
-   1. [Создайте авторизованный ключ](../../../iam/operations/authorized-key/create.md) для созданного сервисного аккаунта. Например, при помощи утилиты `yc`, заменив строку `<SA_ID>` на идентификатор сервисного аккаунта:
+   1. [Создайте авторизованный ключ](../../../iam/operations/authorized-key/create.md) для созданного сервисного аккаунта при помощи утилиты [YC CLI](../../../cli/quickstart.md), заменив строку `<SA_ID>` на идентификатор сервисного аккаунта:
 
        ```bash
        yc iam key create --service-account-id <SA_ID> --output jwt_params.json
