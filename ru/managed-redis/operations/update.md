@@ -199,7 +199,7 @@
 
 {% list tabs %}
 
-- Консоль управления
+* Консоль управления
 
   1. Перейдите на страницу каталога и выберите сервис **{{ mrd-name }}**.
   1. Выберите кластер и нажмите кнопку **Изменить кластер** на панели сверху.
@@ -208,5 +208,35 @@
      {% include [mrd-extra-settings](../../_includes/mdb/mrd-extra-settings-web-console.md) %}
 
   1. Нажмите кнопку **Сохранить изменения**.
+
+* CLI
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  Чтобы изменить дополнительные настройки кластера:
+
+    1. Посмотрите описание команды CLI для изменения кластера:
+
+        ```bash
+        {{ yc-mdb-rd }} cluster update --help
+        ```
+
+    1. Выполните команду, передав список настроек, которые хотите изменить:
+
+        ```bash
+        {{ yc-mdb-rd }} cluster update <имя кластера> \
+            --backup-window-start <время начала резервного копирования> \
+            --maintenance-window type=<weekly или anytime>
+        ```
+
+    Вы можете изменить следующие настройки:
+
+    {% include [backup-window-start](../../_includes/mdb/cli-additional-settings/backup-window-start.md) %}
+
+    {% include [maintenance-window](../../_includes/mdb/cli-additional-settings/maintenance-window.md) %}
+
+    Имя кластера можно [получить со списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 {% endlist %}
