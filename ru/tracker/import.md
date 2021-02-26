@@ -10,7 +10,7 @@
 
 1. Убедитесь, что вы авторизованы в {{ tracker-name }} с учетной записью администратора.
 
-1. Получите [доступ к API]{% if locale == "ru" %}(https://tech.yandex.ru/connect/tracker/api/concepts/access-docpage/){% else %}(https://tech.yandex.com/connect/tracker/api/concepts/access-docpage/){% endif %}.
+1. Получите [доступ к API](concepts/access.md).
 
 1. [Создайте очереди](manager/create-queue.md), в которые вы будете импортировать задачи.
 
@@ -24,7 +24,7 @@
 
 1. При необходимости создайте [доски задач](manager/create-agile-board.md) и [спринты](manager/create-agile-sprint.md).
 
-1. Импортируйте данные в {{ tracker-name }} [с помощью API]{% if locale == "ru" %}(https://tech.yandex.ru/connect/tracker/api/concepts/import/import-ticket-docpage/){% else %}(https://tech.yandex.com/connect/tracker/api/concepts/import/import-ticket-docpage/){% endif %}.
+1. Импортируйте данные в {{ tracker-name }} [с помощью API](concepts/import/import-ticket.md).
 
 
 

@@ -10,7 +10,7 @@
 
 1. [Шаблоны](user/ticket-template.md) — заготовки для типовых задач или комментариев.
 
-{% if locale == "ru" %}
+{% if audience == "internal" %}
 
 @[youtube](tN7TsTwGNoE)
 

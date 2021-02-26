@@ -12,15 +12,15 @@
 
 1. {% if audience == "external" %}Перейдите в сервис [Яндекс.Формы]({{ link-forms }}). Если сервис не подключен, обратитесь к администратору вашей организации.{% else %}Перейдите в сервис [Яндекс.Формы]({{ link-forms }}).{% endif %}
 
-1. [Создайте]{% if audience == "external" %}{% if locale == "ru" %}(https://yandex.ru/support/connect-forms/common/new-form.html){% else %}(https://yandex.com/support/connect-forms/common/new-form.html){% endif %}{% else %}(https://doc.yandex-team.ru/forms/external/new-form.html){% endif %} новую форму с нуля или используйте шаблон **Задача для {{ tracker-name }}**.
+1. [Создайте]{% if audience == "external" %}({{ support-forms-create }}){% else %}({{ support-forms-create-ya }}){% endif %} новую форму с нуля или используйте шаблон **Задача для {{ tracker-name }}**.
    
    Настройте ее поля так, чтобы собрать данные, которые необходимы для создания задачи.
 
 1. Настройте название формы. Название будет отображаться в интерфейсе {{ tracker-name }} при создании задачи.
 
-1. Настройте для формы [интеграцию с {{ tracker-name }}]{% if audience == "external" %}{% if locale == "ru" %}(https://yandex.ru/support/connect-forms/common/create-task.html){% else %}(https://yandex.com/support/connect-forms/common/create-task.html){% endif %}{% else %}(https://doc.yandex-team.ru/forms/external/create-task.html){% endif %}.
+1. Настройте для формы [интеграцию с {{ tracker-name }}]{% if audience == "external" %}({{ support-forms-tracker }}){% else %}({{ support-forms-tracker-ya }}){% endif %}.
 
-1. [Опубликуйте]{% if audience == "external" %}{% if locale == "ru" %}(https://yandex.ru/support/connect-forms/common/publish.html#publish__section_lmk_gvb_tbb){% else %}(https://yandex.com/support/connect-forms/common/publish.html#publish__section_lmk_gvb_tbb){% endif %}{% else %}(https://doc.yandex-team.ru/forms/external/publish.html){% endif %} форму и скопируйте ссылку на форму из поля **Ссылка**.
+1. [Опубликуйте]{% if audience == "external" %}({{ support-forms-publish }}){% else %}({{ support-forms-publish-ya }}){% endif %} форму и скопируйте ссылку на форму из поля **Ссылка**.
 
 ## Шаг 2. Подключите форму к очереди {#section_xxj_fll_1gb}
 

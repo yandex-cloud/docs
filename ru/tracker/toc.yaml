@@ -3,48 +3,84 @@ stage: tech-preview
 href: index.yaml
 items:
 - name: Начало работы
-  when: audience == "external"
   items:
     - name: Подключить Tracker
+      when: audience == "external"
       href: enable-tracker.md
     - name: Настроить Tracker
       href: quick-start.md
+    - name: Как работать в Tracker
+      items:
+      - name: Войти в Tracker
+        when: audience == "external"
+        href: user/login.md
+      - name: Начальная страница
+        href: user/startpage.md
+      - name: Мои задачи
+        href: user/my-tickets.md
+      - name: Как работать с задачей
+        href: user/ticket-in-progress.md
+      - name: Избранные задачи, доски, дашборды
+        href: user/favourites.md
+      - name: Персональные настройки
+        href: user/personal.md
     - name: Мигрировать в Tracker
+      when: audience == "external"
       href: import.md
     - name: Отключить платные услуги
+      when: audience == "external"
       href: disable-tracker.md
-- name: Начало работы
-  when: audience == "internal"
-  href: quick-start.md
 - name: Сценарии использования
   items:
     - name: Настроить Tracker для команды разработки
-      href: dev-process.md
+      items:
+        - name: Обзор 
+          href: dev-process.md       
+        - name: Создать очередь для команды разработки
+          href: dev-process-create-queue.md 
+        - name: Структурировать задачи
+          href: dev-process-manage-tickets.md   
+        - name: Использовать гибкие методологии (Agile)
+          href: dev-process-agile.md 
+        - name: Настроить шаблоны задач
+          href: dev-process-templates.md  
+        - name: Подключить репозиторий
+          when: audience == "external"
+          href: dev-process-repo.md  
+        - name: Автоматизировать рутинные действия
+          href: dev-process-automation.md            
+        - name: Интегрировать Tracker с другими системами
+          href: dev-process-api.md   
     - name: Настроить Tracker для службы поддержки
-      href: support-process.md
+      items:
+        - name: Обзор
+          href: support-process.md      
+        - name: Создать очередь для службы поддержки
+          href: support-process-create-queue.md      
+        - name: Принимать обращения через форму
+          href: support-process-mail-forms.md  
+        - name: Настроить многоуровневую структуру поддержки
+          href: support-process-lines.md  
+        - name: Отправлять письма со страницы задачи
+          when: audience == "internal"
+          href: support-process-send-mail.md             
+        - name: Группировать обращения по темам
+          href: support-process-group.md
+        - name: Отслеживать время обработки обращений
+          href: support-process-sla.md  
+        - name: Собирать статистику по обращениям
+          href: support-process-dashboards.md     
+        - name: Настроить интеграцию со сторонними системами
+          href: support-process-integration.md                                                
 - name: Концепции
   items:
     - name: Обзор сервиса
       href: about-tracker.md
     - name: Основные понятия
       href: glossary.md
-    - name: Обучающие материалы
-      href: education.md
-      when: locale == "ru"
-- name: Как работать в Tracker
-  items:
-    - name: Как войти в Tracker
-      href: user/login.md
-    - name: Начальная страница
-      href: user/startpage.md
-    - name: Мои задачи
-      href: user/my-tickets.md
-    - name: Как работать с задачей
-      href: user/ticket-in-progress.md
-    - name: Избранные задачи, доски, дашборды
-      href: user/favourites.md
-    - name: Персональные настройки
-      href: user/personal.md
+#    - name: Обучающие материалы
+#      href: education.md
+#      when: locale == "ru"
 - name: Настроить очередь
   items:
     - name: Обзор
@@ -332,5 +368,4 @@ items:
 - name: Вопросы и ответы
   href: faq.md
 - name: Служба поддержки
-  when: audience == "internal"
   href: troubleshooting.md

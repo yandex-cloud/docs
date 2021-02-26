@@ -2,7 +2,7 @@
 
 В сервисе [Яндекс.Формы]{% if audience == "external" %}({{ link-forms }}){% else %}({{ link-forms-ya }}){% endif %} можно настроить интеграцию с {{ tracker-name }}, чтобы автоматически создавать задачи на основании данных, полученных через форму.
 
-Форму можно опубликовать по прямой ссылке, разместить на сайте или вики-странице. С помощью таких форм задачи могут создавать даже те пользователи, у которых нет доступа {{ tracker-name }}. Например, формы удобно использовать, чтобы [принимать обращения пользователей в службу поддержки](../support-process.md#form) или заявки на обслуживание.
+Форму можно опубликовать по прямой ссылке, разместить на сайте или вики-странице. С помощью таких форм задачи могут создавать даже те пользователи, у которых нет доступа {{ tracker-name }}. Например, формы удобно использовать, чтобы [принимать обращения пользователей в службу поддержки](../support-process-mail-forms.md) или заявки на обслуживание.
 
 Чтобы использовать форму как шаблон для быстрого создания типовых задач, [встройте форму на страницу создания задачи в {{ tracker-name }}](attach-form.md).
 
@@ -10,10 +10,10 @@
 
 1. {% if audience == "external" %}Перейдите в сервис [Яндекс.Формы]({{ link-forms }}). Если сервис не подключен, обратитесь к администратору вашей организации.{% else %}Перейдите в сервис [Яндекс.Формы]({{ link-forms-ya }}).{% endif %}
 
-1. [Создайте]{% if audience == "external" %}{% if locale == "ru" %}(https://yandex.ru/support/connect-forms/common/new-form.html){% else %}(https://yandex.com/support/connect-forms/common/new-form.html){% endif %}{% else %}(https://doc.yandex-team.ru/forms/external/new-form.html){% endif %} новую форму.
+1. [Создайте]{% if audience == "external" %}({{ support-forms-create }}){% else %}({{ support-forms-create-ya }}){% endif %} новую форму.
     Настройте ее так, чтобы собрать данные, которые необходимы для создания задачи.
 
-1. Настройте [интеграцию с {{ tracker-name }}]{% if audience == "external" %}{% if locale == "ru" %}(https://yandex.ru/support/connect-forms/common/create-task.html){% else %}(https://yandex.com/support/connect-forms/common/create-task.html){% endif %}{% else %}(https://doc.yandex-team.ru/forms/external/create-task.html){% endif %}:
+1. Настройте [интеграцию с {{ tracker-name }}]{% if audience == "external" %}({{ support-forms-tracker }}){% else %}({{ support-forms-tracker-ya }}){% endif %}:
 
     1. Укажите очередь и другие параметры задачи.
 
@@ -37,15 +37,15 @@
 
 {% if audience == "external" %}
 
-1. Настройте [доступ к заполнению формы]{% if locale == "ru" %}(https://yandex.ru/support/connect-forms/common/restrictions.html#restrictions__sec_access){% else %}(https://yandex.com/support/connect-forms/common/restrictions.html#restrictions__sec_access){% endif %}.
+1. Настройте [доступ к заполнению формы]({{ support-forms-access }}).
     По умолчанию форму могут заполнять все пользователи. Вы можете разрешить заполнение формы только сотрудникам вашей организации.
 
 {% endif %}
 
-1. [Опубликуйте]{% if audience == "external" %}{% if locale == "ru" %}(https://yandex.ru/support/connect-forms/common/publish.html#publish__section_lmk_gvb_tbb){% else %}(https://yandex.com/support/connect-forms/common/publish.html#publish__section_lmk_gvb_tbb){% endif %}{% else %}(https://doc.yandex-team.ru/forms/external/publish.html){% endif %} форму. Форма будет доступна по ссылке, указанной в поле **Ссылка**.
+1. [Опубликуйте]{% if audience == "external" %}({{ support-forms-publish }}){% else %}({{ support-forms-publish-ya }}){% endif %} форму. Форма будет доступна по ссылке, указанной в поле **Ссылка**.
 
-Опубликованную форму можно [встроить в вики-страницу](https://doc.yandex-team.ru/forms/external/publish.html#publish__section_xvx_g2c_tbb), [разместить на сайте](https://doc.yandex-team.ru/forms/external/publish.html#publish__section_c21_gdb_42b) или [добавить на страницу создания задачи](../manager/attach-form.md) в интерфейсе {{ tracker-name }}.
+Опубликованную форму можно [встроить в вики-страницу]{% if audience == "external" %}({{ support-forms-wiki }}){% else %}({{ support-forms-wiki-ya }}){% endif %}, [разместить на сайте]{% if audience == "external" %}({{ support-forms-embed }}){% else %}({{ support-forms-embed-ya }}){% endif %} или [добавить на страницу создания задачи](../manager/attach-form.md) в интерфейсе {{ tracker-name }}.
 
-Подробнее о сервисе Яндекс.Формы читайте в [Справке]{% if audience == "external" %}{% if locale == "ru" %}(https://yandex.ru/support/connect-forms/){% else %}(https://yandex.com/support/connect-forms/){% endif %}{% else %}(https://doc.yandex-team.ru/forms/){% endif %}.
+Подробнее о сервисе Яндекс.Формы читайте в [Справке]{% if audience == "external" %}({{ support-forms-main }}){% else %}({{ support-forms-main-ya }}){% endif %}.
 
 

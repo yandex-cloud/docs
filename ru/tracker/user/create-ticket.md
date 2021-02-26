@@ -59,7 +59,7 @@
 
 - Чтобы [создать связь с задачей](ticket-links.md).
 - Чтобы ссылаться на задачу в других задачах — для этого вставьте ключ очереди в текст комментария или в описание задачи. Он будет преобразован в ссылку.
-- Для прямого доступа к задаче по адресу: {% if audience == "external" %}{% if locale == "ru" %}`https://tracker.yandex.ru/TEST-1234`{% else %}`https://tracker.yandex.com/TEST-1234`{% endif %}{% else%}`https://st.yandex-team.ru/TEST-1234`{% endif %}.
+- Для прямого доступа к задаче по адресу: {% if audience == "external" %}`({{ link-tracker-example-1 }})`{% else %}`({{ link-tracker-example-1-ya }})`{% endif %}.
 
 ## Создать подзадачу {#section_dqs_34n_jz}
 

@@ -24,7 +24,7 @@
 
     1. Убедитесь, что вы авторизованы в {{ tracker-name }} как администратор организации.
 
-    1. На верхней панели {{ tracker-name }} выберите  ![](../../_assets/tracker/icon-settings.png) → **Настройки {{ tracker-name }}**.
+    1. На верхней панели {{ tracker-name }} выберите  ![](../../_assets/tracker/icon-settings.png) → **Настроить {{ tracker-name }}**.
 
     1. Перейдите на вкладку [Репозитории]({{ link-repositories }}) и нажмите кнопку **Подключить репозиторий**.
 
@@ -40,7 +40,7 @@
 
     1. Убедитесь, что вы авторизованы в {{ tracker-name }} как администратор организации.
 
-    1. На верхней панели {{ tracker-name }} выберите  ![](../../_assets/tracker/icon-settings.png) → **Настройки {{ tracker-name }}**.
+    1. На верхней панели {{ tracker-name }} выберите  ![](../../_assets/tracker/icon-settings.png) → **Настроить {{ tracker-name }}**.
 
     1. Перейдите на вкладку [Репозитории]({{ link-repositories }}) и нажмите кнопку **Подключить репозиторий**.
 
@@ -95,7 +95,7 @@
 
     1. Убедитесь, что вы авторизованы в {{ tracker-name }} как администратор организации.
 
-    1. На верхней панели {{ tracker-name }} выберите  ![](../../_assets/tracker/icon-settings.png) → **Настройки {{ tracker-name }}**.
+    1. На верхней панели {{ tracker-name }} выберите  ![](../../_assets/tracker/icon-settings.png) → **Настроить {{ tracker-name }}**.
 
     1. Перейдите на вкладку [Репозитории]({{ link-repositories }}) и нажмите кнопку **Подключить репозиторий**.
 
@@ -117,7 +117,7 @@
 
     1. Убедитесь, что вы авторизованы в {{ tracker-name }} как администратор организации.
 
-    1. На верхней панели {{ tracker-name }} выберите ![](../../_assets/tracker/icon-settings.png) → **Настройки {{ tracker-name }}**.
+    1. На верхней панели {{ tracker-name }} выберите ![](../../_assets/tracker/icon-settings.png) → **Настроить {{ tracker-name }}**.
 
     1. Перейдите на вкладку [Репозитории]({{ link-repositories }}) и нажмите кнопку **Подключить репозиторий**.
 
@@ -170,7 +170,7 @@
 
 1. Убедитесь, что вы авторизованы в {{ tracker-name }} как администратор организации.
 
-1. На верхней панели {{ tracker-name }} выберите ![](../../_assets/tracker/icon-settings.png) → **Настройки {{ tracker-name }}**.
+1. На верхней панели {{ tracker-name }} выберите ![](../../_assets/tracker/icon-settings.png) → **Настроить {{ tracker-name }}**.
 
 1. Перейдите на вкладку [Репозитории]({{ link-repositories }}) и нажмите кнопку **Подключить репозиторий**.
 

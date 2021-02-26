@@ -104,8 +104,8 @@
 Чтобы отправлять письма из {{ tracker-name }} и создавать задачи из входящих писем, настройте интеграцию с почтой:
 
 1. [Настройте почтовый адрес для очереди]{% if audience == "external" %}(queue-mail.md#section_gwv_hqb_hgb){% else %}(queue-mail.md#sec-mail-yandex){% endif %}, в которой будут создаваться задачи по обращениям пользователей.
-
-    Если добавление адреса очереди недоступно, значит у вашей организации нет домена. Домен нужен для создания почтовых ящиков и рассылок, в том числе чтобы создать адрес очереди. Домен можно бесплатно [подключить в Яндекс.Коннекте](https://yandex.ru/support/connect/add-domain.html).
+<!--
+    Если добавление адреса очереди недоступно, значит у вашей организации нет домена. Домен нужен для создания почтовых ящиков и рассылок, в том числе чтобы создать адрес очереди. Домен можно бесплатно [подключить в Яндекс.Коннекте](https://yandex.ru/support/connect/add-domain.html).-->
 
 1. [Настройте псевдонимы и подписи](queue-mail.md#send_outside), если нужно.
 
@@ -119,7 +119,7 @@
 
 {% else %}
 
-1. Если пользователи не являются сотрудниками организации, [разрешите отправку писем из задач на внешние адреса](queue-mail.md#send_outside).
+1. Если пользователи не являются сотрудниками Яндекса, [разрешите отправку писем из задач на внешние адреса](queue-mail.md#send_outside).
 
 {% endif %}
 
@@ -168,8 +168,8 @@
 Чтобы отправлять письма из {{ tracker-name }}, настройте интеграцию с почтой:
 
 1. [Настройте почтовый адрес для очереди]{% if audience == "external" %}(queue-mail.md#section_gwv_hqb_hgb){% else %}(queue-mail.md#sec-mail-yandex){% endif %}, в которой будут создаваться задачи по обращениям пользователей.
-
-   Если добавление адреса очереди недоступно, значит у вашей организации нет домена. Домен нужен для создания почтовых ящиков и рассылок, в том числе чтобы создать адрес очереди. Домен можно бесплатно [подключить в Яндекс.Коннекте](https://yandex.ru/support/connect/add-domain.html).
+<!--
+   Если добавление адреса очереди недоступно, значит у вашей организации нет домена. Домен нужен для создания почтовых ящиков и рассылок, в том числе чтобы создать адрес очереди. Домен можно бесплатно [подключить в Яндекс.Коннекте](https://yandex.ru/support/connect/add-domain.html).-->
 
 1. [Настройте псевдонимы и подписи](queue-mail.md#send_outside), если нужно.
 
@@ -187,7 +187,7 @@
 
     ![](../../_assets/tracker/trigger-example-form-constructor.png)
 
-1. Настройте для формы [интеграцию с {{ tracker-name }}]{% if audience == "external" %}{% if locale == "ru" %}(https://yandex.ru/support/connect-forms/common/create-task.html){% else %}(https://yandex.com/support/connect-forms/common/create-task.html){% endif %}{% else %}(https://doc.yandex-team.ru/forms/external/create-task.html){% endif %}:        
+1. Настройте для формы [интеграцию с {{ tracker-name }}]{% if audience == "external" %}({{ support-forms-tracker }}){% else %}({{ support-forms-tracker-ya }}){% endif %}:        
 
     1. Укажите очередь и другие параметры задачи.
 
@@ -199,7 +199,7 @@
 
     ![image](../../_assets/tracker/trigger-example-form-integration.png)
 
-1. [Опубликуйте]{% if audience == "external" %}{% if locale == "ru" %}(https://yandex.ru/support/connect-forms/common/publish.html#publish__section_lmk_gvb_tbb){% else %}(https://yandex.com/support/connect-forms/common/publish.html#publish__section_lmk_gvb_tbb){% endif %}{% else %}(https://doc.yandex-team.ru/forms/external/publish.html){% endif %} форму.
+1. [Опубликуйте]{% if audience == "external" %}({{ support-forms-publish }}){% else %}({{ support-forms-publish-ya }}){% endif %} форму.
 
 #### Шаг 3. Настроить триггер для отправки писем
 

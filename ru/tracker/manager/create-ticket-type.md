@@ -14,7 +14,7 @@
 
 1. Убедитесь, что вы авторизованы в {{ tracker-full-name }} как администратор.
 
-1. На верхней панели {{ tracker-name }} выберите ![](../../_assets/tracker/icon-settings.png) → **Настройки {{ tracker-name }}**.
+1. На верхней панели {{ tracker-name }} выберите ![](../../_assets/tracker/icon-settings.png) → **Настроить {{ tracker-name }}**.
 
 1. Перейдите на вкладку **Типы задач**.
 
