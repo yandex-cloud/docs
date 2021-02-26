@@ -44,6 +44,10 @@
 
      {% include [mmg-extra-settings](../../_includes/mdb/mmg-extra-settings-web-console.md) %}
 
+  1. При необходимости задайте дополнительные настройки СУБД:
+
+      {% include [mmg-dbms-settings](../../_includes/mdb/mmg-dbms-settings.md) %}
+
   1. Нажмите кнопку **Создать кластер**.
 
 - CLI
@@ -145,7 +149,7 @@
 
        resources {
          resource_preset_id = "<класс хоста>"
-         disk_type_id       = "<тип хранилища>"    
+         disk_type_id       = "<тип хранилища>"
          disk_size          = "<размер хранилища в гигабайтах>"
        }
 
@@ -292,7 +296,7 @@
 
     resources {
       resource_preset_id = "{{ host-class }}"
-      disk_type_id       = "{{ disk-type-example }}"    
+      disk_type_id       = "{{ disk-type-example }}"
       disk_size          = 20
     }
 
