@@ -14,6 +14,13 @@ MMIN( value, rows_1 [ , rows_2 ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY .
 ```
 
 #### Description {#description}
+
+{% note warning %}
+
+The sorting order is based on the fields listed in the sorting section of the chart and in the `ORDER BY` clause. First, `ORDER BY` fields are used, and then they are complemented by the fields from the chart.
+
+{% endnote %}
+
 Returns the moving minimum of values in a fixed-size window defined by the sort order and arguments:
 
 | `rows_1`   | `rows_2`   | Window                                                                |
@@ -38,12 +45,6 @@ See also [MIN](MIN.md), [RMIN](RMIN.md).
 {% note info %}
 
 Only constant values are accepted for arguments (`rows_1`, `rows_2`).
-
-{% endnote %}
-
-{% note warning %}
-
-The sorting order is based on the fields listed in the sorting section of the chart and in the `ORDER BY` clause. First, `ORDER BY` fields are used, and then they are complemented by the fields from the chart.
 
 {% endnote %}
 

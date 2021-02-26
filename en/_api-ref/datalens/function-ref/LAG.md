@@ -14,6 +14,13 @@ LAG( value [ , offset [ , default ] ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER
 ```
 
 #### Description {#description}
+
+{% note warning %}
+
+The sorting order is based on the fields listed in the sorting section of the chart and in the `ORDER BY` clause. First, `ORDER BY` fields are used, and then they are complemented by the fields from the chart.
+
+{% endnote %}
+
 Returns `value` re-evaluated against the row that is offset from the current row by `offset` within the specified window:
 - Positive `offset` seeks among preceding rows.
 - Negative `offset` seeks among following rows.
@@ -35,12 +42,6 @@ See also [AGO](AGO.md) for a non-window function alternative.
 {% note info %}
 
 Only constant values are accepted for arguments (`offset`, `default`).
-
-{% endnote %}
-
-{% note warning %}
-
-The sorting order is based on the fields listed in the sorting section of the chart and in the `ORDER BY` clause. First, `ORDER BY` fields are used, and then they are complemented by the fields from the chart.
 
 {% endnote %}
 
