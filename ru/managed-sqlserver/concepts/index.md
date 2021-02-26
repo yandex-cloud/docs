@@ -28,6 +28,8 @@
   
   Подробнее о возможностях этих редакций см. в [документации {{ MS }}](https://docs.microsoft.com/ru-ru/sql/sql-server/editions-and-components-of-sql-server-2016?view=sql-server-ver15). 
 
-{% if audience != "internal" %} Созданный в каталоге кластер БД доступен по сети для всех виртуальных машин, подключенных к этой же облачной сети. [Подробнее о работе сети](../../vpc/). {% endif %}
+{% if audience != "internal" %}
+Созданный в каталоге кластер БД доступен по сети для всех виртуальных машин, подключенных к этой же облачной сети. [Подробнее о работе сети](../../vpc/).
+{% endif %}
 
 {% include [monitoring-access](../../_includes/mdb/monitoring-access.md) %}
