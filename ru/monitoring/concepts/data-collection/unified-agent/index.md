@@ -8,7 +8,7 @@
 - поставку метрик в {{monitoring-full-name}};
 - файловое хранилище для надежной доставки данных.
 
-Чтобы установить агент, настроенный для [поставки системных метрик Linux](../../../operations/unified-agent/linux_metrics.md), при помощи Docker, выполните команду:
+Чтобы установить настроенный для [поставки системных метрик Linux](../../../operations/unified-agent/linux_metrics.md)агент, выполните Docker-команду:
 
 ```bash
 docker run \
@@ -24,7 +24,10 @@ docker run \
 
 {% note info %}
 
-{{unified-agent-full-name}} распространяется под лицензией Apache License, Version 2.0. Чтобы отобразить полный текст лицензии, выполните команду `unified_agent --license`. Чтобы отобразить список библиотек, используемых агентом, и их лицензии, выполните команду `unified_agent --credits`.
+{{unified-agent-full-name}} распространяется под лицензией Apache License 2.0.
+Чтобы узнать больше о лицензии, выполните команды:
+* `unified_agent --license` — отображает полный текст лицензии;
+* `unified_agent --credits` — отображает список и лицензии библиотек, используемых агентом.
 
 {% endnote %}
 
@@ -61,7 +64,7 @@ docker run \
 ```
 
 См. также:
-- [Список реализованных входов](configuration.md#inputs);
+- [Список реализованных входов](configuration.md#inputs).
 - [Настройки инфраструктуры работы с сессиями](configuration.md#flow_control).
 
 ### Выходы { #outputs }
