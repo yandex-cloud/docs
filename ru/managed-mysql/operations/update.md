@@ -10,6 +10,12 @@
 
 * [Изменить дополнительные настройки кластера](#change-additional-settings).
 
+{% note warning %}
+
+Вы не можете менять настройки серверов {{ MY }} с помощью команд SQL.
+
+{% endnote %}
+
 ## Изменить класс хостов {#change-resource-preset}
 
 {% list tabs %}

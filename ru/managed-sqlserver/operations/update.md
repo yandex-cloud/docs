@@ -7,6 +7,12 @@
 - [Изменить настройки](#change-sqlserver-config) {{ MS }} согласно документации {{ MS }}.
 - [Переместить кластер](#move-cluster) в другой каталог.
 
+{% note warning %}
+
+Вы не можете с помощью команд SQL изменять настройки {{ MS }}, в том числе управлять объектами уровня сервера `Linked Server`, `Login`, `Credential`, `SQL Server Agent Job`, `Maintenance Plan`, `Audit`, `Polybase`, `Replication`, `Backup devices`, `Server Triggers`, `Extended events`.
+
+{% endnote %}
+
 ## Изменить класс хостов {#change-resource-preset}
 
 {% list tabs %}
