@@ -9,7 +9,7 @@
 Доступ для внешних сотрудников закрыт на уровне сервиса {{ datalens-short-name }} и на уровне объектов {{ datalens-short-name }} (подключений, датасетов, чартов и дашбордов).
 
 Чтобы у внешних сотрудников появился доступ к DataLens:
-1. Запросите доступ к сервисам в [Puncher](https://puncher.yandex-team.ru/).
+1. Запросите доступ к сервисам **datalens.yandex-team.ru** и **upload.datalens.yandex-team.ru** (для возможности загрузки CSV-файлов) в [Puncher](https://puncher.yandex-team.ru/).
 2. Запросите доступ к объектам к {{ datalens-short-name }}.
 
 {% note warning %}
@@ -24,7 +24,7 @@
 
 Запрос прав доступа для группы, в которую входят внешние сотрудники.
 
-1. Оформите заявку в [Puncher](https://puncher.yandex-team.ru/) на доступ к сервису **datalens.yandex-team.ru** и **stat.yandex-team.ru** (при необходимости работы с отчетами). При оформлении заявки выберите порт **443**.
+1. Оформите заявку в [Puncher](https://puncher.yandex-team.ru/) на доступ к сервисам **datalens.yandex-team.ru**, **upload.datalens.yandex-team.ru** и **stat.yandex-team.ru** (при необходимости работы с отчетами). При оформлении заявки выберите порт **443**.
 
     ![image](../../_assets/datalens/internal/puncher-request.png)
 
