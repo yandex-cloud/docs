@@ -1,0 +1,38 @@
+# Yandex Tracker
+title: "Yandex Tracker"
+description:
+  - "Yandex Tracker is a service for managing your projects and activities."
+  - "You can organize any type of work, such as developing software, managing ad campaigns, accepting user requests, and negotiating contracts."
+  - "Yandex Tracker helps managers distribute work among their employees and monitor their progress."
+  - "Yandex Tracker helps employees find their list of issues and keep track of deadlines and priorities."
+# у Трекера свои серверы вне облачной инфраструктуры
+#  - "Инфраструктура Yandex.Cloud <a href=\"https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf\">защищена</a> в соответствии с ФЗ-152."
+# Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
+meta:
+  title: "Yandex Tracker"
+  # Блок со ссылками
+links:
+- title: "Yandex Tracker overview"
+  description: "Learn about how Yandex Tracker works. Find out how you can use Yandex Tracker for your workflow."
+  href: "about-tracker"
+- title: "Setting up Yandex Tracker"
+  description: "Set up your Yandex Tracker workspace and create your first queues for issues in the same pipeline or for a single product."
+  href: "queue-intro"
+- title: "How to use Yanex Tracker"
+  description: "Log in to Yandex Tracker, start working on an issue, or close a completed issue."
+  href: "user/ticket-in-progress"
+- title: "Automation and templates"
+  description: "You can automate recurring issue actions with triggers and auto actions. You can use templates to create standard issues or comments that you use frequently."
+  href: "automation"
+- title: "Agile tools"
+  description: "Yandex Tracker lets you use the Agile software development methodology in your projects. Issues can be grouped into sprints and tracked on agile boards."
+  href: "manager/agile"
+- title: "Search for issues"
+  description: "You can use filters to search for issues by any issue parameter or combinations. Use the filter designer or query language to set filters. You can save filter settings."
+  href: "user/filters"
+- title: "Monitoring issues"
+  description: "All information about important issues can be collected on a single dashboard page. You can put lists of issues, statistics, tables, and notes on a dashboard. Issue boards are a convenient way to keep track of your team's progress."
+  href: "user/dashboard"
+- title: "Pricing"
+  description: "Prices and rules for calculating the cost of using the service"
+  href: "pricing"  
