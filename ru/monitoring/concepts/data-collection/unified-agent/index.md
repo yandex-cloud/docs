@@ -8,7 +8,7 @@
 - поставку метрик в {{monitoring-full-name}};
 - файловое хранилище для надежной доставки данных.
 
-Чтобы установить настроенный для [поставки системных метрик Linux](../../../operations/unified-agent/linux_metrics.md)агент, выполните Docker-команду:
+Чтобы установить настроенный для [поставки системных метрик Linux](../../../operations/unified-agent/linux_metrics.md) агент, выполните Docker-команду:
 
 ```bash
 docker run \
