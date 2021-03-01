@@ -20,7 +20,7 @@ docker run \
     cr.yandex/yc/unified-agent
 ```
 
-Подробнее про способы установки {{unified-agent-short-name}} читайте в разделе [{#T}](./installation.md).
+Другие примеры использования агента приведены в разделе [{#T}](../../../operations/index.md#working-with-metrics). Подробнее про способы установки {{unified-agent-short-name}} читайте в разделе [{#T}](./installation.md).
 
 {% note info %}
 
