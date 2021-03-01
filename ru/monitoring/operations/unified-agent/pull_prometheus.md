@@ -1,6 +1,6 @@
 # Поставка метрик пользовательских приложений
 
-{{unified-agent-full-name}} поддерживает сбор метрик в формате {{ prometheus-name }} и конвертацию метрик в формат {{ monitoring-full-name }}. При помощи {{unified-agent-short-name}} вы сможете собирать метрики любых приложений, которые предоставляют метрики в формате {{ prometheus-name }}.
+{{unified-agent-full-name}} собирает метрики в формате {{ prometheus-name }} и конвертирует их в формат {{ monitoring-full-name }}. При помощи {{unified-agent-short-name}} вы сможете собирать метрики любых приложений, которые предоставляют метрики в формате {{ prometheus-name }}.
 
 Для поставки в {{ monitoring-full-name }} метрик пользовательских приложений используется [вход metrics_pull](../../concepts/data-collection/unified-agent/configuration.md#metrics_pull_input), который периодически опрашивает приложение по HTTP, ожидая получить метрики в формате {{ prometheus-name }}.
 
@@ -79,7 +79,7 @@
       -p 16241:16241 -it --detach --uts=host \
       --name=ua \
       -v \/proc:/ua_proc \
-      -v config.yml:/etc/yandex/unified_agent/conf.d/config.yml
+      -v config.yml:/etc/yandex/unified_agent/conf.d/config.yml \
       -e PROC_DIRECTORY=/ua_proc \
       -e FOLDER_ID=a1bs... \
       cr.yandex/yc/unified-agent
@@ -148,9 +148,12 @@
 
     1. На [главной странице](https://monitoring.cloud.yandex.ru) сервиса {{ monitoring-full-name }} перейдите в раздел **Обзор метрик**.
 
-    1. В строке запроса выберите каталог, в который собираются метрики с префиксом `app`.
+    1. В строке запроса выберите:
+      - каталог, в который собираются метрики;
+      - значение метки `service=custom`;
+      - имя метрики, начинающееся с префикса `app`.
 
-## Что дальше {#next-steps}
+#### Что дальше {#what-is-next}
 
 - [Изучите концепции Unified Agent](../../concepts/data-collection/unified-agent/index.md)
 - [Узнайте подробнее о конфигурировании Unified Agent](../../concepts/data-collection/unified-agent/configuration.md)

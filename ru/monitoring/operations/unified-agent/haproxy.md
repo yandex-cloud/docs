@@ -18,7 +18,7 @@
       sudo apt install haproxy prometheus-haproxy-exporter
       ```
 
-   1. Убедитесь, что экспортер запущен и предоставляет метрики, выполнив команду `curl http://localhost:9101/metrics`. Пример работы команды:
+   1. Убедитесь, что экспортер запущен и предоставляет метрики. Для этого выполните команду `curl http://localhost:9101/metrics`. Пример работы команды:
 
       ```bash
       $ curl http://localhost:9101/metrics
@@ -54,7 +54,7 @@
       -p 16241:16241 -it --detach --uts=host \
       --name=ua \
       -v \/proc:/ua_proc \
-      -v config.yml:/etc/yandex/unified_agent/conf.d/config.yml
+      -v config.yml:/etc/yandex/unified_agent/conf.d/config.yml \
       -e PROC_DIRECTORY=/ua_proc \
       -e FOLDER_ID=a1bs... \
       cr.yandex/yc/unified-agent
@@ -123,9 +123,12 @@
 
     1. На [главной странице](https://monitoring.cloud.yandex.ru) сервиса {{ monitoring-full-name }} перейдите в раздел **Обзор метрик**.
 
-    1. В строке запроса выберите каталог, в который собираются метрики с префиксом `haproxy`.
+    1. В строке запроса выберите:
+      - каталог, в который собираются метрики;
+      - значение метки `service=custom`;
+      - имя метрики, начинающееся с префикса `haproxy`.
 
-## Что дальше {#next-steps}
+#### Что дальше {#what-is-next}
 
 - [Изучите концепции Unified Agent](../../concepts/data-collection/unified-agent/index.md)
 - [Узнайте подробнее о конфигурировании Unified Agent](../../concepts/data-collection/unified-agent/configuration.md)

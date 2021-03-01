@@ -49,7 +49,7 @@
       -p 16241:16241 -it --detach --uts=host \
       --name=ua \
       -v \/proc:/ua_proc \
-      -v config.yml:/etc/yandex/unified_agent/conf.d/config.yml
+      -v config.yml:/etc/yandex/unified_agent/conf.d/config.yml \
       -e PROC_DIRECTORY=/ua_proc \
       -e FOLDER_ID=a1bs... \
       cr.yandex/yc/unified-agent
@@ -127,7 +127,7 @@
 
 ## Параметры запуска Docker-контейнера с Unified Agent { #configure-docker }
 
-Если вы устанавливаете {{unified-agent-short-name}} при помощи Docker, вы можете сконфигурировать агент с помощью переменных окружения. Так вам не потребуется редактировать файл конфигурации по умолчанию, расположенный в `/etc/yandex/unified_agent/config.yml`. Список переменных окружения перечислен в таблице ниже.
+Если вы устанавливаете {{unified-agent-short-name}} при помощи Docker, вы можете сконфигурировать агент с помощью переменных окружения. Так вам не потребуется редактировать файл конфигурации, расположенный в `/etc/yandex/unified_agent/config.yml`. Список переменных окружения перечислен в таблице ниже.
 
 Переменная окружения | Значение по умолчанию | Описание
 -------------------- | --------------------- | --------
@@ -138,7 +138,7 @@
 `SYS_DIRECTORY` | `/sys` | Директория со смонтированным [sysfs](https://ru.wikipedia.org/wiki/Sysfs), откуда агент будет получать системные Linux-метрики.<br/>Подробнее в разделе [{#T}](./configuration.md#linux_metrics_input).
 `UA_LINUX_RESOURCE_CPU`<br/>`UA_LINUX_RESOURCE_MEMORY`<br/>`UA_LINUX_RESOURCE_NETWORK`</br>`UA_LINUX_RESOURCE_STORAGE`<br/>`UA_LINUX_RESOURCE_IO`<br/>`UA_LINUX_RESOURCE_KERNEL` | `basic` | Уровень детализации системных метрик CPU, сети, дисков, системы ввода-вывода и Linux-ядра.<br/>Подробнее в разделе [{#T}](./configuration.md#linux_metrics_input).
 
-## Что дальше {#next-steps}
+#### Что дальше {#what-is-next}
 
 - [Изучите концепции Unified Agent](./index.md)
 - [Узнайте подробнее о конфигурировании Unified Agent](./configuration.md)
