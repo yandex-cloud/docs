@@ -11,9 +11,6 @@ items:
 #  items:
 #    - name: Трекер
 #      href: tracker-settings.md
-#      items:
-#        - name: Тарифы Трекера
-#          href: pricing.md
 #    - name: Оплата
 #      href: billing.md
 - name: Управление организациями
@@ -34,7 +31,7 @@ items:
   items:
     - name: Обзор
       href: manage-users.md
-    - name: Добавить пользователей Яндекса
+    - name: Добавить пользователя
       href: add-account.md
     - name: Настроить федерацию удостоверений
       href: add-federation.md
@@ -49,3 +46,5 @@ items:
 
 #- name: API Yandex Cloud Organization
 #  href: org-api.md
+- name: Правила тарификации
+  href: pricing.md
