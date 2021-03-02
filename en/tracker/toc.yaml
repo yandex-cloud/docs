@@ -1,0 +1,276 @@
+title: Yandex Tracker
+href: index.yaml
+items:
+  - name: Getting started
+    items:
+      - name: Activate Tracker
+        href: enable-tracker.md
+      - name: Setting up Tracker
+        href: quick-start.md
+      - name: How to use Tracker
+        items:
+          - name: Logging in to Tracker
+            href: user/login.md
+          - name: Main page
+            href: user/startpage.md
+          - name: My issues
+            href: user/my-tickets.md
+          - name: Work with an issue
+            href: user/ticket-in-progress.md
+          - name: Favorite issues, boards, and dashboards
+            href: user/favourites.md
+          - name: Personal settings
+            href: user/personal.md
+      - name: Migrating to Tracker
+        href: import.md
+  - name: Use cases
+    items:
+      - name: Setting up Tracker for a development team
+        href: dev-process.md
+      - name: Setting up Tracker for use by the support team
+        href: support-process.md
+  - name: Concepts
+    items:
+      - name: Tracker overview
+        href: about-tracker.md
+      - name: Basic terms
+        href: glossary.md
+  - name: Configuring queues
+    items:
+      - name: Overview
+        href: queue-intro.md
+      - name: Create a queue
+        href: manager/create-queue.md
+      - name: Queue templates
+        href: manager/workflows.md
+      - name: View issues in a queue
+        href: user/queue.md
+      - name: Changing basic queue settings
+        href: manager/edit-queue-general.md
+      - name: Configure issue types and statuses
+        items:
+          - name: Overview
+            href: manager/workflow.md
+          - name: Configure issue types
+            href: manager/add-ticket-type.md
+          - name: Configure workflow
+            href: manager/add-workflow.md
+          - name: Configure statuses
+            href: manager/workflow-status-edit.md
+          - name: Configure transitions
+            href: manager/workflow-action-edit.md
+          - name: Add issue types, statuses, and resolutions
+            items:
+              - name: Create an issue type
+                href: manager/create-ticket-type.md
+              - name: Create a status
+                href: manager/create-status.md
+              - name: Create a resolution
+                href: manager/create-resolution.md
+      - name: Add a queue team
+        href: manager/queue-team.md
+      - name: Set access rights to queues
+        href: manager/queue-access.md
+      - name: Advanced queue features
+        href: manager/queue-advanced.md
+      - name: View the history of queue changes
+        href: manager/queue-history.md
+      - name: Deleting a queue
+        href: manager/delete-queue.md
+  - name: Work with issues
+    items:
+      - name: Creating issues
+        items:
+          - name: Overview
+            href: user/create-ticket.md
+          - name: Creating an issue from a form
+            href: user/create-ticket-with-forms.md
+          - name: Clone an issue
+            href: user/clone.md
+      - name: Edit an issue
+        items:
+          - name: Overview
+            href: user/edit-ticket.md
+          - name: Add comments to issues
+            href: user/comments.md
+          - name: Format text in issues
+            href: user/wiki-markup.md
+          - name: Editing issue links
+            href: user/ticket-links.md
+          - name: Adding issue fields
+            href: user/create-param.md
+          - name: Run a macro
+            href: user/macroses.md
+          - name: Change multiple issues
+            href: manager/bulk-change.md
+      - name: Create a checklist
+        href: user/checklist.md
+      - name: Set up an issue reminder
+        href: user/reminder.md
+      - name: Register time spent
+        href: user/time-spent.md
+      - name: View the history of issue changes
+        href: user/history.md
+      - name: Vote for an issue
+        href: user/votes.md
+      - name: Get access to an issue
+        href: user/ticket-access.md
+      - name: Delete an issue
+        href: user/ticket-cancel.md
+  - name: Structure issues
+    items:
+      - name: Overview
+        href: structure.md
+      - name: Links between issues
+        href: user/links.md
+      - name: Projects
+        href: manager/projects.md
+      - name: Components
+        href: manager/components.md
+      - name: Versions
+        href: manager/versions.md
+  - name: Agile development tools
+    items:
+      - name: Overview
+        href: manager/agile.md
+      - name: Create a board
+        href: manager/create-agile-board.md
+      - name: Work with an agile board
+        href: user/agile.md
+      - name: Edit or delete a board
+        href: manager/edit-agile-board.md
+      - name: Sprints
+        href: manager/create-agile-sprint.md
+      - name: Epics
+        href: manager/epic.md
+      - name: Collaborative workload estimation
+        href: manager/planning-poker.md
+      - name: Burndown chart
+        href: manager/burndown.md
+  - name: Find issues
+    items:
+      - name: Overview
+        href: user/filters.md
+      - name: Finding my issues
+        href: user/default-filters.md
+      - name: Find issues in queues
+        href: manager/quick-filters.md
+      - name: Create an issue filter
+        href: user/create-filter.md
+      - name: Query language
+        href: user/query-filter.md
+  - name: Notifications and subscriptions
+    items:
+      - name: Overview
+        href: user/notifications.md
+      - name: Subscribe to notifications
+        href: user/subscribe.md
+      - name: Receiving update reports
+        href: user/notification-digest.md
+      - name: Subscribe other users to queue updates
+        href: manager/subscriptions.md
+      - name: Configuring notification contents
+        href: user/notification-settings.md
+  - name: Statistics and dashboards
+    items:
+      - name: Dashboards
+        items:
+          - name: Overview
+            href: user/dashboard.md
+          - name: How to create a dashboard
+            href: user/create-dashboard.md
+          - name: Widgets
+            href: user/widgets.md
+          - name: How to change a dashboard
+            href: user/edit-dashboard.md
+          - name: Shared access to dashboards
+            href: user/share-dashboard.md
+          - name: How to make a dashboard your home page
+            href: user/startpage-dashboard.md
+      - name: Queue statistics
+        href: manager/statistics.md
+      - name: Gantt chart
+        href: manager/gantt.md
+  - name: Automation and templates
+    items:
+      - name: Overview
+        href: automation.md
+      - name: Triggers
+        items:
+          - name: Overview
+            href: user/trigger.md
+          - name: Creating triggers
+            href: user/create-trigger.md
+          - name: Setting trigger conditions
+            href: user/set-condition.md
+          - name: Setting trigger actions
+            href: user/set-action.md
+          - name: Editing and deleting triggers
+            href: user/manage-trigger.md
+          - name: Trigger examples
+            href: manager/trigger-examples.md
+      - name: Auto actions
+        items:
+          - name: Overview
+            href: user/autoactions.md
+          - name: Automatic issue updates
+            href: user/create-autoaction.md
+          - name: Scheduled issue creation
+            href: user/ticket-schedule.md
+          - name: Change or delete auto actions
+            href: user/manage-autoaction.md
+      - name: Macros
+        href: manager/create-macroses.md
+      - name: Templates
+        items:
+          - name: Overview
+            href: user/ticket-template.md
+          - name: Create a template
+            href: user/create-template.md
+          - name: Change a template
+            href: user/edit-template.md
+          - name: Delete a template
+            href: user/delete-template.md
+          - name: Use shared templates
+            href: user/share-template.md
+      - name: Use a form as a template for creating issues
+        href: manager/attach-form.md
+  - name: Configuring an SLA for issues
+    items:
+      - name: Overview
+        href: sla-head.md
+      - name: Configuring rules
+        href: manager/sla.md
+      - name: Work schedule
+        href: manager/schedule.md
+  - name: Integration with other services
+    items:
+      - name: Forms
+        href: manager/forms-integration.md
+      - name: Wiki
+        href: user/wiki.md
+      - name: Messengers
+        items:
+          - name: Overview
+            href: messenger.md
+          - name: Slack
+            href: slack.md
+          - name: Telegram
+            href: telegram.md
+  - name: Developer tools
+    items:
+      - name: Plugin for the IntelliJ IDE
+        href: idea-plugin.md
+      - name: API
+        href: user/API.md
+      - name: Python client
+        href: user/python.md
+      - name: Connecting repositories
+        href: manager/add-repository.md
+  - name: Pricing policy
+    href: pricing.md
+  - name: Questions and answers
+    href: faq.md
+  - name: Technical support
+    href: troubleshooting.md
+base: en/tracker

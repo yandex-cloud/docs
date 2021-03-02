@@ -1,7 +1,10 @@
 # Пошаговые инструкции для {{ monitoring-full-name }}
 
 ## Работа с метриками {#working-with-metrics}
-
+- [{#T}](unified-agent/linux_metrics.md)
+- [{#T}](unified-agent/pull_prometheus.md)
+- [{#T}](unified-agent/haproxy.md)
+- [{#T}](unified-agent/non-yc.md)
 - [{#T}](metric/add.md)
 - [{#T}](metric/get.md)
 - [{#T}](metric/list.md)

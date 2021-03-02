@@ -57,6 +57,8 @@ items:
         href: tutorials/hybrid-storage.md
       - name: Получение данных из Managed Service for Apache Kafka®
         href: tutorials/fetch-data-from-mkf.md
+      - name: Получение данных из RabbitMQ
+        href: tutorials/fetch-data-from-rabbitmq.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

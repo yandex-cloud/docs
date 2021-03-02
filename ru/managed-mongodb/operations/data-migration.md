@@ -13,20 +13,20 @@
 1. [Создайте кластер {{ mmg-name }}](#create-cluster), на котором будет развернута восстановленная база.
 1. [Восстановите данные из дампа](#restore) в кластере с помощью утилиты `mongorestore`.
 
-### Создайте дамп {#dump}
+## Создайте дамп {#dump}
 
 Создать дамп базы данных следует с помощью утилиты `mongodump`. Подробно утилита описана в [документации {{ MG }}](https://docs.mongodb.com/manual/reference/program/mongodump/).
 
 1. Установите `mongodump` и дополнительные утилиты для работы с MongoDB. Пример для дистрибутивов Ubuntu и Debian:
 
-    ```
-    $ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD75D9DCB49F368818C72E52529D4
+    ```bash
+    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD75D9DCB49F368818C72E52529D4
     ...
-    $ echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.0.list
+    echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.0.list
     ...
-    $ sudo apt-get update
+    sudo apt-get update
     ...
-    $ sudo apt-get install mongodb-org-shell mongodb-org-tools
+    sudo apt-get install mongodb-org-shell mongodb-org-tools
     ```
 
     Инструкции для других платформ, а также более подробную информацию об установке утилит можно найти на странице [Install MongoDB](https://docs.mongodb.com/manual/installation/).
@@ -35,24 +35,23 @@
 
 1. Создайте дамп базы данных:
 
-    ```
-    $ mongodump --host <адрес сервера СУБД> --port <порт> --username <имя пользователя> --password "<пароль>" --db <имя базы данных> --out ~/db_dump
+    ```bash
+    mongodump --host <адрес сервера СУБД> --port <порт> --username <имя пользователя> --password "<пароль>" --db <имя базы данных> --out ~/db_dump
     ```
 
    Если вы можете использовать несколько ядер процессора для создания дампа, задайте флаг `-j` с количеством доступных ядер:
 
-    ```
-    $ mongodump --host <адрес сервера СУБД> --port <порт> --username <имя пользователя> --password "<пароль>" -j <количество ядер> --db <имя базы данных> --out ~/db_dump
+    ```bash
+    mongodump --host <адрес сервера СУБД> --port <порт> --username <имя пользователя> --password "<пароль>" -j <количество ядер> --db <имя базы данных> --out ~/db_dump
     ```
 
 1. Архивируйте дамп:
 
-    ```
-    $ tar -cvzf db_dump.tar.gz ~/db_dump
+    ```bash
+    tar -cvzf db_dump.tar.gz ~/db_dump
     ```
 
-
-### (опционально) Создайте виртуальную машину для загрузки дампа {#create-vm}
+## (опционально) Создайте виртуальную машину для загрузки дампа {#create-vm}
 
 Промежуточная виртуальная машина в {{ compute-full-name }} понадобится, если:
 
@@ -63,31 +62,31 @@
 
 1. В консоли управления [создайте новую виртуальную машину](../../compute/operations/vm-create/create-linux-vm.md) из образа Ubuntu 18.04. Нужное количество оперативной памяти и ядер процессора зависит от объема переносимых данных и требуемой скорости переноса.
 
-   Минимальной конфигурации (1 ядро, 2 ГБ RAM, 10 ГБ дискового пространства) должно хватить для переносы базы до 1 ГБ. Чем больше переносимая база, тем больше должно быть дискового пространства (как минимум в два раза больше, чем размер базы) и оперативной памяти.
+   Минимальной конфигурации (1 ядро, 2 ГБ RAM, 10 ГБ дискового пространства) должно хватить для переноса базы до 1 ГБ. Чем больше переносимая база, тем больше должно быть дискового пространства (как минимум в два раза больше, чем размер базы) и оперативной памяти.
 
    Виртуальная машина должна находиться в той же сети и зоне доступности, что хост-мастер кластера {{ mmg-name }}. Кроме того, виртуальной машине должен быть присвоен внешний IP-адрес, чтобы вы могли загрузить файл дампа извне {{ yandex-cloud }}.
 
 1. Установите клиент {{ MG }} и дополнительные утилиты для работы с СУБД:
 
-    ```
-    $ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD75D9DCB49F368818C72E52529D4
+    ```bash
+    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD75D9DCB49F368818C72E52529D4
     ...
-    $ echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.0.list
+    echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.0.list
     ...
-    $ sudo apt-get update
+    sudo apt-get update
     ...
-    $ sudo apt-get install mongodb-org-shell mongodb-org-tools
+    sudo apt-get install mongodb-org-shell mongodb-org-tools
     ```
 
 1. Перенесите дамп базы данных с вашего сервера на виртуальную машину, например, используя утилиту `scp`:
 
-    ```
+    ```bash
     scp ~/db_dump.tar.gz <имя пользователя ВМ>@<публичный адрес ВМ>:/tmp/db_dump.tar.gz
     ```
 
 1. Распакуйте дамп на виртуальной машине:
 
-    ```
+    ```bash
     tar -xzf /tmp/db_dump.tar.gz
     ```
 
@@ -103,7 +102,7 @@
 
 Восстанавливать базу данных из дампа следует с помощью утилиты [mongorestore](https://docs.mongodb.com/manual/reference/program/mongorestore/).
 
-* Если вы восстанавливаете дамп с виртуальной машине в {{ yandex-cloud }}:
+* Если вы восстанавливаете дамп с виртуальной машины в {{ yandex-cloud }}:
 
     ```
     $ mongorestore --host <адрес сервера СУБД> \
@@ -115,7 +114,7 @@
                    --nsInclude '*.*' /tmp/db_dump
     ```
 
-* Если вы восстанавливаете дамп с сервера вне {{ yandex-cloud }} для `mongorestore` необходимо явно задать параметры SSL:
+* Если вы восстанавливаете дамп с сервера вне {{ yandex-cloud }}, для `mongorestore` необходимо явно задать параметры SSL:
 
     ```
     $ mongorestore --host <адрес сервера СУБД> \
