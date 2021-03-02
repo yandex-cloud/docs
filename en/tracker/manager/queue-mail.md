@@ -2,11 +2,11 @@
 
 You can use {{ tracker-name }} to [create issues from emails sent to the queue mailbox](../user/create-ticket-by-mail.md) or [communicate with external users from the issue page](../user/comments.md#section_zpd_ph5_wdb). This lets you [register user requests sent to the support team](../support-process.md#mail).
 
-To set up mail integration{% if audience == "external" %}:{% else %}, [add an email address to the queue](#sec-mail-yandex). You can add multiple addresses for creating issues with different types or different [components](edit-versions-and-components.md).{% endif %}
+To set up mail integration{% if audience == "external" %}:{% else %}, [add an email address to the queue](#sec-mail-yandex). You can add multiple addresses for creating issues with different types or different [components](components.md).{% endif %}
 
 {% if audience == "external" %}
 
-1. [Add an email address to the queue](#section_gwv_hqb_hgb). You can add multiple addresses for creating issues with different types or different [components](edit-versions-and-components.md).
+1. [Add an email address to the queue](#section_gwv_hqb_hgb). You can add multiple addresses for creating issues with different types or different [components](components.md).
 
 1. [Set up issue creation from emails](#mail_tasks).
 
@@ -56,7 +56,7 @@ Emails sent to the queue address can be used to create issues. You can configure
 
 1. Set up the following parameters in the **Create issues by email** section:
     - Select the [type for issues](add-ticket-type.md) to be created from emails.
-    - You can specify additional issue [components](edit-versions-and-components.md#section_ywj_1k4_4bb) in the **Components** field.
+    - You can specify additional issue [components](components.md) in the **Components** field.
     - If you want to allow external users to create issues by email, choose **Accept email from external addresses**.
 
 1. Click **Save**.

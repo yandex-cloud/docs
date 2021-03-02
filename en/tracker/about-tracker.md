@@ -34,7 +34,7 @@ Issues are generally completed in multiple stages. For example, creation, resolu
 
 In {{ tracker-name }}, each issue stage corresponds to a certain _status_. Those include "Open", "In Progress", "Testing", and "Closed". To set your pipeline up in {{ tracker-name }}, you need to configure your _workflow_, which is a set of statuses an issue goes through from creation to completion as well as specific rules for transitioning between those statuses.
 
-Your workflow is associated with your issue queue. If you need to set up multiple workflows for different teams, you can [create standalone queues for each of them](manager/delete-queue.md). You can also add multiple [issue types](manager/add-ticket-type.md) to a single queue and set up an exclusive workflow for each type.
+Your workflow is associated with your issue queue. If you need to set up multiple workflows for different teams, you can [create standalone queues for each of them](manager/create-queue.md). You can also add multiple [issue types](manager/add-ticket-type.md) to a single queue and set up an exclusive workflow for each type.
 
 {{ tracker-name }} includes [queue templates](manager/workflows.md) with preset workflows for various processes to help you get started. Here's what a versatile workflow looks like:
 
