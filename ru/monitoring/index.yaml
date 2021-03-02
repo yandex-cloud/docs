@@ -11,27 +11,36 @@ description:
 meta:
   title: Yandex Monitoring
 links:
-  - title: Начало работы
-    description: Начните отслеживание ваших метрик
-    href: quickstart
-  - title: Пошаговые инструкции
-    description: Инструкции по выполнению рутинных операций
-    href: operations/
-  - title: Концепции
-    description: Узнайте про устройство и возможности сервиса
-    href: concepts/
-  - title: Алертинг
-    description: Настройте оповещения об изменении метрик
-    href: concepts/alerting
-  - title: Справочник API
-    description: Описание методов HTTP API
-    href: api-ref/
-  - title: Квоты и лимиты
-    description: Технические и организационные ограничения сервиса
-    href: concepts/limits
-  - title: Управление доступом
-    description: Какие права доступа нужны для работы с сервисом
-    href: security/
-  - title: Правила тарификации
-    description: Цены и правила расчета стоимости услуг сервиса
-    href: pricing
+  - title: "Начало работы"
+    description: "Начните отслеживание ваших метрик"
+    href: "quickstart"
+  - title: "Пошаговые инструкции"
+    description: "Инструкции по выполнению рутинных операций"
+    href: "operations/"
+  - title: "Концепции"
+    description: "Узнайте про устройство и возможности сервиса"
+    href: "concepts/"
+  - title: "Агент для поставки метрик"
+    description: "Настройте поставку системных метрик или метрик приложений при помощи Yandex Unified Agent"
+    href: "concepts/data-collection/unified-agent/index"
+  - title: "Язык запросов"
+    description: "Описание языка запросов для преобразования метрик"
+    href: "concepts/querying"
+  - title: "Алертинг"
+    description: "Настройте оповещения об изменении метрик"
+    href: "concepts/alerting"
+  #- title: "Справочник метрик"
+    ##  description: "Описание метрик сервисов Yandex.Cloud"
+    ##  href: "metrics-ref/"
+  - title: "Справочник API"
+    description: "Описание методов HTTP API"
+    href: "api-ref/"
+  - title: "Квоты и лимиты"
+    description: "Технические и организационные ограничения сервиса"
+    href: "concepts/limits"
+  - title: "Управление доступом"
+    description: "Какие права доступа нужны для работы с сервисом"
+    href: "security/"
+  - title: "Правила тарификации"
+    description: "Цены и правила расчета стоимости услуг сервиса"
+    href: "pricing"

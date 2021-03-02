@@ -1,6 +1,6 @@
-# Запись пользовательских метрик
+# Запись пользовательских метрик через API
 
-Чтобы записать метрику, воспользуйтесь методом [write](../../api-ref/MetricsData/write.md).
+Чтобы начать записывать пользовательские метрики через API, воспользуйтесь методом [write](../../api-ref/MetricsData/write.md).
 
 {% include [before-beginning](../../../_includes/monitoring/before-beginning.md) %}
 
