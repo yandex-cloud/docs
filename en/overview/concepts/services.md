@@ -6,33 +6,41 @@ _Services_ in {{ yandex-cloud }} let you manage specific cloud resources and acc
 
 The following services are currently available as part of the {{ yandex-cloud }} platform:
 
-* [{{ sf-full-name }}](../../functions/) (Serverless computing).
-* [{{ interconnect-full-name }}](../../vpc/interconnect/) (Dedicated network connection management).
-* [{{ compute-full-name }}](../../compute/) (Compute Cloud).
-* [{{ container-registry-full-name }}](../../container-registry/) (Container image management).
-* [{{ dataproc-full-name }}](../../data-proc/) (Data Proc management).
-* [{{ ydb-full-name }}](../../ydb/) ({{ ydb-full-name }} management).
-* [{{ datalens-full-name }}](../../datalens/) (Data visualization and analysis).
-* [Yandex DDoS Protection](../../vpc/ddos-protection/) (DDoS protection).
-* [{{ iam-full-name }}](../../iam/) (Cloud resource access management).
-* [Yandex Instance Groups](../../compute/concepts/instance-groups/) (Instance group creation and management).
-* [{{ iot-full-name }}](../../iot-core/) (Internet of things).
-* [{{ kms-full-name }}](../../kms/) (Encryption key management).
-* [{{ mch-full-name }}](../../managed-clickhouse/) (ClickHouse management).
-* [{{managed-k8s-full-name}}<sup>®</sup>](../../managed-kubernetes/) (Kubernetes management).
-* [{{ mmg-full-name }}](../../managed-mongodb/) (MongoDB management).
-* [{{ mmy-full-name }}<sup>®</sup>](../../managed-mysql/) (MySQL management).
-* [{{ mpg-full-name }}](../../managed-postgresql/) (PostgreSQL management).
-* [{{ mrd-full-name }}™](../../managed-redis/) (Redis management).
-* [{{ message-queue-full-name }}](../../message-queue/) (Message queue).
-* [{{ monitoring-full-name }}](../../monitoring/) (Monitoring).
-* [{{ network-load-balancer-full-name }}](../../network-load-balancer/) (Network load balancer management).
-* [{{ objstorage-full-name }}](../../storage/) (Object Storage).
-* [{{ resmgr-full-name }}](../../resource-manager/) (Cloud resource management).
-* [{{ speechkit-full-name }}](../../speechkit/) (Speech technologies).
-* [{{ translate-full-name }}](../../translate/) (Machine translation).
-* [{{ vpc-full-name }}](../../vpc/) (Virtual Private Cloud).
-* [{{ vision-full-name }}](../../vision/) (Computer vision).
+* [{{ alb-full-name }}](../../application-load-balancer/)
+* [{{ api-gw-full-name }}](../../api-gateway/)
+* [{{ certificate-manager-full-name }}](../../certificate-manager/)
+* [{{ sf-full-name }}](../../functions/)
+* [{{ interconnect-full-name }}](../../vpc/interconnect/)
+* [{{ compute-full-name }}](../../compute/)
+* [{{ container-registry-full-name }}](../../container-registry/)
+* [{{ dataproc-full-name }}](../../data-proc/)
+* [{{ data-transfer-full-name }}](../../data-transfer/)
+* [{{ ydb-full-name }}](../../ydb/)
+* [{{ datalens-full-name }}](../../datalens/)
+* [{{ ml-platform-full-name }}](../../datasphere/)
+* [Yandex DDoS Protection](../../vpc/ddos-protection/)
+* [{{ iam-full-name }}](../../iam/)
+* [Yandex Instance Groups](../../compute/concepts/instance-groups/)
+* [{{ iot-full-name }}](../../iot-core/)
+* [{{ kms-full-name }}](../../kms/)
+* [{{ mkf-full-name }}](../../managed-kafka/)
+* [{{ mch-full-name }}](../../managed-clickhouse/)
+* [{{ mes-full-name }}](../../managed-elasticsearch/)
+* [{{managed-k8s-full-name}}<sup>®</sup>](../../managed-kubernetes/)
+* [{{ mmg-full-name }}](../../managed-mongodb/)
+* [{{ mmy-full-name }}<sup>®</sup>](../../managed-mysql/)
+* [{{ mpg-full-name }}](../../managed-postgresql/)
+* [{{ mrd-full-name }}™](../../managed-redis/)
+* [{{ mms-full-name }}](../../managed-sqlserver/)
+* [{{ message-queue-full-name }}](../../message-queue/)
+* [{{ monitoring-full-name }}](../../monitoring/)
+* [{{ network-load-balancer-full-name }}](../../network-load-balancer/)
+* [{{ objstorage-full-name }}](../../storage/)
+* [{{ resmgr-full-name }}](../../resource-manager/)
+* [{{ speechkit-full-name }}](../../speechkit/)
+* [{{ translate-full-name }}](../../translate/)
+* [{{ vpc-full-name }}](../../vpc/)
+* [{{ vision-full-name }}](../../vision/)
 
 ### How to enable services {#enable}
 
@@ -226,4 +234,3 @@ List of services whose resources support labels:
 * [{{ sf-full-name }}](../../functions/)
 * [{{ iot-full-name }}](../../iot-core/)
 * [{{ ydb-full-name }}](../../ydb/)
-
