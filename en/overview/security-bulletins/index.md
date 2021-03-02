@@ -2,6 +2,26 @@
 
 This page lists security recommendations given by Yandex.Cloud experts.
 
+## 26.01.2021 — CVE-2021-3156 - privilege escalation via sudo
+
+### Description
+
+A number of [vulnerabilities](https://nvd.nist.gov/vuln/detail/CVE-2021-3156) in `sudo` utility allowed any unprivileged user to gain `root` privileges on the vulnerable host.
+
+###  Impact on Yandex.Cloud services
+
+The following Linux images have been updated:
+* all images from the {{ yandex-cloud }} publisher available in the {{ marketplace-name }};
+* the {{ coi }} image;
+* node images for the {{ managed-k8s-short-name }};
+* hosts images for managed databases clusters;
+* host images for the {{ dataproc-short-name }} clusters.
+
+### Additional Information
+
+* [Buffer overflow in command line unescaping](https://www.sudo.ws/alerts/unescape_overflow.html)
+* [CVE-2021-3156: Heap-Based Buffer Overflow in Sudo (Baron Samedit)](https://blog.qualys.com/vulnerabilities-research/2021/01/26/cve-2021-3156-heap-based-buffer-overflow-in-sudo-baron-samedit)%
+
 ## 24.12.2020 — CVE-2020-25695 - privilege escalation in PostgreSQL
 
 ### Description

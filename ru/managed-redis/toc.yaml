@@ -27,6 +27,10 @@ items:
         href: operations/failover.md
       - name: Удаление кластера
         href: operations/cluster-delete.md
+  - name: Сценарии использования
+    items:
+      - name: Хранение сессий PHP в Managed Service for Redis
+        href: tutorials/redis-as-php-sessions-storage.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

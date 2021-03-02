@@ -1,4 +1,4 @@
-   ```
+   ```bash
    #cloud-config
    users:
      - name: <имя пользователя>

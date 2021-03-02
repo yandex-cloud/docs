@@ -1,0 +1,25 @@
+# Dashboards
+
+_Dashboards_ let you track the status of important issues on a single page. You can arrange [widgets](widgets.md) on your dashboard to display useful information. They can show lists of issues, statistics on issue completion, pivot tables, or notes.
+
+![](../../_assets/tracker/dashboard-examp.png)
+
+Widget content is generated automatically. The list of issues that a widget is based on is set using [filters](filters.md). You can go to [{#T}](../support-process.md#dashboards) to find sample widgets for the support service dashboard.
+
+{% note warning %}
+
+Issues that you don't have access to will not show up on the dashboard.
+
+{% endnote %}
+
+You can create multiple dashboards with different sets of widgets and switch between them as necessary. You can make any of your dashboards your [home page](startpage-dashboard.md) or [share](share-dashboard.md) it with a coworker.
+
+- [{#T}](create-dashboard.md)
+- [{#T}](edit-dashboard.md)
+- [{#T}](share-dashboard.md)
+- [{#T}](startpage-dashboard.md)
+- [{#T}](widgets.md)
+
+
+[Contact support](../troubleshooting.md)
+

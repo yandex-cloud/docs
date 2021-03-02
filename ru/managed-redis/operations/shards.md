@@ -25,7 +25,7 @@
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
   Чтобы получить список баз данных в кластере, выполните команду:
-  
+
   ```
   $ yc managed-redis shards list --cluster-name <имя кластера>
   +--------------+
@@ -42,7 +42,7 @@
 {% endlist %}
 
 ## Получить детальную информацию о шарде {#get}
-  
+
 {% include [cli-install](../../_includes/cli-install.md) %}
 
 {% include [default-catalogue](../../_includes/default-catalogue.md) %}
@@ -54,7 +54,7 @@ $ {{ yc-mdb-rd }} shards get <имя шарда> --cluster-name <имя клас
 ```
 
 Идентификатор и имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md).
-  
+
 ## Добавить шард {#add}
 
 {% list tabs %}
@@ -71,17 +71,17 @@ $ {{ yc-mdb-rd }} shards get <имя шарда> --cluster-name <имя клас
       * если требуется, добавьте дополнительные хосты в шард.
   1. Нажмите кнопку **Создать шард**.
 
-  После добавления нового шарда необходимо выполнить [ребалансировку кластера](../concepts/sharding.md#scaling): 
+  После добавления нового шарда необходимо выполнить [ребалансировку кластера](../concepts/sharding.md#scaling):
 
-  1. Дождитесь, когда кластер перейдет в статус `Running`.
+  1. Дождитесь, когда кластер перейдет в статус **Running**.
   1. Откройте вкладку **Хосты** и нажмите кнопку **Ребалансировать кластер**. Нажмите кнопку **Ок**.
 
 - CLI
-  
+
   {% include [cli-install](../../_includes/cli-install.md) %}
-  
+
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-  
+
   Чтобы добавить шард c двумя хостами в кластер:
 
   ```
@@ -90,10 +90,10 @@ $ {{ yc-mdb-rd }} shards get <имя шарда> --cluster-name <имя клас
     --host zone-id=<зона доступности>,subnet-name=<имя подсети>
   ```
 
-  После добавления нового шарда необходимо выполнить ребалансировку кластера: 
+  После добавления нового шарда необходимо выполнить ребалансировку кластера:
 
   ```
-  $ yc managed-redis cluster --cluster-name test-sharding-2 rebalance 
+  $ yc managed-redis cluster --cluster-name test-sharding-2 rebalance
   ```
 
 {% endlist %}
@@ -119,9 +119,9 @@ $ {{ yc-mdb-rd }} shards get <имя шарда> --cluster-name <имя клас
   1. В открывшемся окне нажмите кнопку **Удалить**.
 
 - CLI
-  
+
   {% include [cli-install](../../_includes/cli-install.md) %}
-  
+
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
   Чтобы удалить шард из кластера, выполните команду:

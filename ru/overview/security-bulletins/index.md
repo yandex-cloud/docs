@@ -2,6 +2,26 @@
 
 На этой странице приводятся рекомендации специалистов {{ yandex-cloud }} о вопросах безопасности.
 
+## 26.01.2021 — CVE-2021-3156 - повышение привилегий через уязвимости в sudo.
+
+### Описание
+
+В приложении `sudo` был найден ряд уязвимостей [CVE-2021-3156](https://nvd.nist.gov/vuln/detail/CVE-2021-3156), которые позволяют непривилигированному пользвателю системы повысить свои привилегии до пользователя `root`.
+
+### Влияние на сервисы Yandex.Cloud
+
+Были обновлены следующие образы операционных систем Linux:
+* все образы от издателя {{ yandex-cloud }}, доступные в {{ marketplace-name }};
+* образ {{ coi }};
+* образ, который используется для создания узлов в сервисе {{ managed-k8s-short-name }};
+* образы, которые используются для создания кластеров управляемых баз данных;
+* образ, который используется для создания кластеров {{ dataproc-short-name }}.
+
+### Дополнительная информация
+
+* [Buffer overflow in command line unescaping](https://www.sudo.ws/alerts/unescape_overflow.html)
+* [CVE-2021-3156: Heap-Based Buffer Overflow in Sudo (Baron Samedit)](https://blog.qualys.com/vulnerabilities-research/2021/01/26/cve-2021-3156-heap-based-buffer-overflow-in-sudo-baron-samedit)
+
 ## 24.12.2020 — CVE-2020-25695 - повышение привилегий в PostgreSQL
 
 ### Описание

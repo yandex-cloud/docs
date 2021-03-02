@@ -44,7 +44,7 @@
       ```ini
       wal_level = logical                    # minimal, replica, or logical
       ```
-      
+
 1. Настройте аутентификацию хостов на источнике. Для этого нужно внести хосты кластера в {{ yandex-cloud }} в файл `pg_hba.conf` (на дистрибутивах Debian и Ubuntu по умолчанию расположен по пути `/etc/postgresql/10/main/pg_hba.conf`).
 
    Для этого туда следует добавить строки, которые разрешат входящие соединения к базе данных с указанных хостов.
@@ -62,6 +62,7 @@
      host         all            all             <адрес хоста>      md5
      host    replication         all             <адрес хоста>      md5
      ```
+
 1. Если на сервере-источнике работает файрвол, разрешите входящие соединения с хостов кластера {{ mpg-name }}. Например, для Ubuntu 18:
 
    ```bash
@@ -73,6 +74,7 @@
    ```bash
    sudo systemctl restart postgresql
    ```
+
 1. Проверьте статус {{ PG }} после перезапуска:
 
    ```bash
@@ -120,6 +122,7 @@ pg_restore -Fd -v --single-transaction -s --no-privileges \
    ```sql
    CREATE PUBLICATION p_data_migration FOR ALL TABLES;
    ```
+
 1. На хосте кластера {{ mpg-name }} создайте подписку со строкой подключения к публикации. Более подробно о создании
 подписок см. в [документации {{ PG }}](https://www.postgresql.org/docs/10/sql-createsubscription.html).
 
@@ -134,6 +137,7 @@ pg_restore -Fd -v --single-transaction -s --no-privileges \
    ```sql
    CREATE SUBSCRIPTION s_data_migration CONNECTION 'host=<адрес сервера-источника> port=<порт> user=<имя пользователя> sslmode=disable dbname=<имя базы данных>' PUBLICATION p_data_migration;
    ```
+
 1. Следить за статусом репликации можно через каталоги `pg_subscription_rel`. Общий статус репликации на приемнике можно получить через `pg_stat_subscription`, на источнике — через `pg_stat_replication`.
 
    ```sql
@@ -157,7 +161,7 @@ pg_restore -Fd -v --single-transaction -s --no-privileges \
 
 1. Восстановите sequences на хосте {{ mpg-name }}:
 
-   ```
+   ```bash
    psql -h <адрес сервера СУБД> -U <имя пользователя> -p 6432 -d <имя базы данных> \
         < /tmp/seq-data.sql
    ```
@@ -178,7 +182,7 @@ pg_restore -Fd -v --single-transaction -s --no-privileges \
 
 {% note info %}
 
-Для использования утилиты `pg-restore` может понадобиться расширение базы данных `pg_repack`.
+Для использования утилиты `pg_restore` может понадобиться расширение базы данных `pg_repack`.
 
 {% endnote %}
 
@@ -198,24 +202,23 @@ pg_restore -Fd -v --single-transaction -s --no-privileges \
 
 1. Перед созданием дампа рекомендуется переключить базу в режим <q>только чтение</q>, чтобы не потерять данные, которые бы появились во время создания дампа. Сам дамп базы данных создается следующей командой:
 
-    ```
-    $ pg_dump -h <адрес сервера СУБД> -U <имя пользователя> -Fd -d <имя базы данных> -f ~/db_dump
+    ```bash
+    pg_dump -h <адрес сервера СУБД> -U <имя пользователя> -Fd -d <имя базы данных> -f ~/db_dump
     ```
 
 1. Для ускорения процесса вы можете запустить сброс дампа, используя несколько ядер процессора. Для этого задайте флаг `-j` с числом, соответствующим количеству ядер, которое доступно СУБД:
 
-    ```
-    $ pg_dump -h <адрес сервера СУБД> -U <имя пользователя> -j 4 -Fd -d <имя базы данных> -f ~/db_dump
+    ```bash
+    pg_dump -h <адрес сервера СУБД> -U <имя пользователя> -j 4 -Fd -d <имя базы данных> -f ~/db_dump
     ```
 
 1. Упакуйте дамп в архив:
 
-    ```
-    $ tar -cvzf db_dump.tar.gz ~/db_dump
+    ```bash
+    tar -cvzf db_dump.tar.gz ~/db_dump
     ```
 
 Подробно утилита `pg_dump` описана в [документации {{ PG }}](https://www.postgresql.org/docs/current/app-pgdump.html).
-
 
 ### (опционально) Создайте виртуальную машину в {{ yandex-cloud }} и загрузите дамп на нее {#create-vm}
 
@@ -241,10 +244,10 @@ pg_restore -Fd -v --single-transaction -s --no-privileges \
 
    # Для PostgreSQL 10
    $ sudo apt install postgresql-client-10
-   
+
    # Для PostgreSQL 11
    $ sudo apt install postgresql-client-11
-   
+
    # Для PostgreSQL 12
    $ sudo apt install postgresql-client-12
 
@@ -254,13 +257,13 @@ pg_restore -Fd -v --single-transaction -s --no-privileges \
 
 1. Перенесите дамп базы данных на виртуальную машину, например, используя утилиту `scp`:
 
-    ```
+    ```bash
     scp ~/db_dump.tar.gz <имя пользователя ВМ>@<публичный адрес ВМ>:/tmp/db_dump.tar.gz
     ```
-    
+
 1. Распакуйте дамп:
 
-    ```
+    ```bash
     tar -xzf /tmp/db_dump.tar.gz
     ```
 
@@ -280,7 +283,7 @@ pg_restore -Fd -v --single-transaction -s --no-privileges \
 
 Если нужно восстановить только одну схему, добавьте флаг `-n <имя схемы>` (без этого флага команда сработает только от лица владельца базы данных). Восстановление лучше всего проводить с флагом `--single-transaction`, чтобы избежать неопределенного состояния базы в случае ошибки:
 
-```
+```bash
 pg_restore -Fd \
            -v \
            -h <pgsql_host_address> \
@@ -291,7 +294,5 @@ pg_restore -Fd \
            --single-transaction \
            --no-privileges
 ```
-
-
 
 Подробно утилита `pg_restore` описана в [документации {{ PG }}](https://www.postgresql.org/docs/current/app-pgrestore.html).

@@ -9,14 +9,22 @@ items:
         href: operations/index.md
       - name: Работа с метриками
         items:
+          - name: Поставка системных метрик Linux
+            href: operations/unified-agent/linux_metrics.md
+          - name: Поставка метрик пользовательских приложений
+            href: operations/unified-agent/pull_prometheus.md
+          - name: Поставка метрик HAProxy и других сторонних приложений
+            href: operations/unified-agent/haproxy.md
+          - name: Поставка метрик с хостов вне Yandex.Cloud
+            href: operations/unified-agent/non-yc.md
+          - name: Запись пользовательских метрик через API
+            href: operations/metric/add.md
           - name: Получение списка метрик
             href: operations/metric/list.md
           - name: Выгрузка метрик
             href: operations/metric/get.md
           - name: Экспорт метрик в формате Prometheus
             href: operations/metric/prometheusExport.md
-          - name: Запись пользовательских метрик
-            href: operations/metric/add.md
       - name: Работа с дашбордами
         items:
           - name: Создание дашборда
@@ -53,6 +61,18 @@ items:
             href: concepts/visualization/widget.md
           - name: Дашборд
             href: concepts/visualization/dashboard.md
+      - name: Передача метрик
+        items:
+          - name: Агент для поставки метрик
+            items:
+              - name: Обзор
+                href: concepts/data-collection/unified-agent/index.md
+              - name: Установка и запуск
+                href: concepts/data-collection/unified-agent/installation.md
+              - name: Конфигурирование
+                href: concepts/data-collection/unified-agent/configuration.md
+              - name: Рекомендации по использованию агента
+                href: concepts/data-collection/unified-agent/best-practices.md
       - name: Язык запросов
         href: concepts/querying.md
       - name: Алертинг
