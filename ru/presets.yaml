@@ -175,7 +175,7 @@ default:
   pem-path: /cloud-certs/CA.pem
   dns-zone: mdb.yandexcloud.net
   network-name: default
-  security-group: enp6saqnq4ie244g67sb 
+  security-group: enp6saqnq4ie244g67sb
   host-net-example: zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch64
   disk-type-example: network-ssd
   PG: PostgreSQL
