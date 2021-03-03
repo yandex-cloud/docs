@@ -175,6 +175,7 @@ default:
   pem-path: /cloud-certs/CA.pem
   dns-zone: mdb.yandexcloud.net
   network-name: default
+  security-group: enp6saqnq4ie244g67sb 
   host-net-example: zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch64
   disk-type-example: network-ssd
   PG: PostgreSQL
@@ -289,6 +290,7 @@ internal:
   pem-path: https://crls.yandex.net/allCAs.pem
   dns-zone: db.yandex.net
   network-name: ' '
+  security-group: enp6saqnq4ie244g67sb
   host-net-example: zone-id=vla
   disk-type-example: local-ssd
   PG: PostgreSQL
@@ -326,11 +328,13 @@ internal:
   link-cloud-oauth: https://oauth.yandex-team.ru/authorize?response_type=token&client_id=8cdb2f6a0dca48398c6880312ee2f78d
   link-cloud-partners: https://partners.cloud.yandex.ru/
   tf-cloud-id: b1gq90dgh25bebiu75o
+  tf-folder-id: b1go92dnv7b9u8f21mnj
 external:
   audience: external
   console-link: https://console.cloud.yandex.ru
   host-class: s2.micro
   network-name: default-net
+  security-group: enp6saqnq4ie244g67sb
   zone-id: ru-central1-c
   link-console-billing: https://console.cloud.yandex.ru/billing
   link-console-main: https://console.cloud.yandex.ru/
@@ -343,3 +347,4 @@ external:
   link-cloud-oauth: https://oauth.yandex.ru/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb
   link-cloud-partners: https://partners.cloud.yandex.ru/
   tf-cloud-id: b1gq90dgh25bebiu75o
+  tf-folder-id: b1go92dnv7b9u8f21mnj
