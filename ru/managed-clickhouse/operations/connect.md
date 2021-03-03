@@ -1,12 +1,10 @@
 # Подключение к базе данных в кластере {{ CH }}
 
-{% if audience != "internal" %}
+К хостам кластера {{ mch-short-name }} можно подключиться:
 
-Внутри {{ yandex-cloud }} подключиться к кластеру БД можно только с виртуальной машины, подключенной к той же подсети, что и кластер.
+{% include [cluster-connect-note](../../_includes/mdb/cluster-connect-note.md) %}
 
-{% endif %}
-
-К кластеру {{ CH }} можно подключиться как с помощью [клиента командной строки](https://clickhouse.yandex/docs/ru/interfaces/cli/) (порт 9440), так и по [HTTP-интерфейсу](https://clickhouse.yandex/docs/ru/interfaces/http_interface/) (порт 8443). Все соединения с кластерами БД шифруются.
+К кластеру можно подключиться как с использованием шифрования — через порты `9440` для [clickhouse-client](https://clickhouse.tech/docs/ru/interfaces/cli/) и `8443` для [HTTP-интерфейса](https://clickhouse.tech/docs/ru/interfaces/http/), так и без него — через порты `9000` и `8123` соответственно.
 
 ## Получение SSL-сертификата {#get-ssl-cert}
 
@@ -32,11 +30,13 @@ chmod 0655 /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt
 
 ## Примеры строк подключения {#connection-string}
 
-{% include [conn-strings-environment](../../_includes/mdb/mdb-conn-strings-env.md) %} 
+{% include [conn-strings-environment](../../_includes/mdb/mdb-conn-strings-env.md) %}
 
-Вы можете подключаться к кластеру {{ CH }} только с использованием SSL-сертификата. Перед подключением [подготовьте сертификат](#get-ssl-cert). 
+Вы можете подключаться к хостам кластера {{ CH }} в публичном доступе только с использованием SSL-сертификата. Перед подключением [подготовьте сертификат](#get-ssl-cert).
 
 В этих примерах предполагается, что сертификат `YandexInternalRootCA.crt` расположен в директории `/usr/local/share/ca-certificates/Yandex/`.
+
+Подключение без использования SSL-сертификата поддерживается только для хостов, находящихся не в публичном доступе. В этом случае трафик внутри виртуальной сети при подключении к БД шифроваться не будет.
 
 {% include [see-fqdn-in-console](../../_includes/mdb/see-fqdn-in-console.md) %}
 
