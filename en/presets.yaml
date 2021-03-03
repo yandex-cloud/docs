@@ -79,6 +79,7 @@ default:
   api-gw-name: API Gateway
   lockbox-name: Lockbox
   tracker-name: Tracker
+  alb-name: Application Load Balancer
   iam-short-name: IAM
   resmgr-short-name: Resource Manager
   compute-short-name: Compute Cloud
