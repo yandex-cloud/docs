@@ -112,7 +112,7 @@
 
   Чтобы узнать все доступные версии агента выполните команду:
   ```(bash)
-  wget --quiet -O - https://storage.yandexcloud.net/yc-unified-agent/all-versions
+  curl -s https://storage.yandexcloud.net/yc-unified-agent/all-versions
   ```
 
   После скачивания исполняемого файла с агентом создайте конфигурационный файл, например, с настройками для [поставки системных метрик Linux](../../../operations/unified-agent/linux_metrics.md). Подробнее про конфигурацию агента читайте в разделе [{#T}](./configuration.md).
