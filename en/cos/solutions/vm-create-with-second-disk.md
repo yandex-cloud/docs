@@ -72,6 +72,7 @@ If the required Docker image is pushed to {{ container-registry-name }}, create 
         1. Get the ID of the running Docker container:
 
             ```
+            sudo docker ps -a
             CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS               NAMES
             1f71192ded4c        mongo:latest        "docker-entrypoint.s…"   5 minutes ago       Up 5 minutes        27017/tcp           container-name
             ```
