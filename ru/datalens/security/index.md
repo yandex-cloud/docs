@@ -24,7 +24,7 @@
 
 Запрос прав доступа для группы, в которую входят внешние сотрудники.
 
-1. Оформите заявку в [Puncher](https://puncher.yandex-team.ru/) на доступ к сервисам **datalens.yandex-team.ru**, **upload.datalens.yandex-team.ru** и **stat.yandex-team.ru** (при необходимости работы с отчетами). При оформлении заявки выберите порт **443**.
+1. Оформите заявку в [Puncher](https://puncher.yandex-team.ru?create_destinations=datalens.yandex-team.ru&create_destinations=upload.datalens.yandex-team.ru&create_protocol=tcp&create_locations=office&create_locations=vpn&create_ports=443) на доступ к сервисам **datalens.yandex-team.ru**, **upload.datalens.yandex-team.ru** и **stat.yandex-team.ru** (при необходимости работы с отчетами). При оформлении заявки выберите порт **443**.
 
     ![image](../../_assets/datalens/internal/puncher-request.png)
 
