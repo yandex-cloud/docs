@@ -36,6 +36,9 @@ items:
         href: ../solutions/datalens/data-from-appmetrica-visualization.md
       - name: Визуализация геоданных из CSV-файла
         href: ../solutions/datalens/data-from-csv-geo-visualization.md
+      - name: Визуализация данных из отчетов Statface
+        when: audience == "internal"
+        href: ../solutions/datalens/data-from-statface-visualization.md
   - name: Пошаговые инструкции
     items:
       - name: Все инструкции

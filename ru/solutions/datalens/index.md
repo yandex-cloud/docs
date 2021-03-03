@@ -19,5 +19,6 @@
 - [{#T}](data-from-csv-visualization.md)
 - [{#T}](data-from-ch-over-yt.md)
 - [{#T}](data-from-csv-geo-visualization.md)
+- [{#T}](data-from-statface-visualization.md)
 
 {% endif %}
