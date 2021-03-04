@@ -79,7 +79,7 @@
 
 {% endlist %}
 
-Созданный контроллер будет установлен за {{ load-balancer-full-name }}.
+Созданный контроллер будет установлен за {{ network-load-balancer-full-name }}.
 
 Чтобы настроить конфигурацию контроллера самостоятельно, обратитесь к [документации Helm](https://helm.sh/docs/intro/using_helm/#customizing-the-chart-before-installing) и отредактируйте файл [values.yaml](https://github.com/kubernetes/ingress-nginx/blob/master/charts/ingress-nginx/values.yaml).
 
