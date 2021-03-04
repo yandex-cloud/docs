@@ -155,6 +155,29 @@ items:
         href: operations/crud.md
       - name: Работа со вторичными индексами
         href: operations/indexes.md
+      - name: Работа с AWS SDK
+        when: audience == "external"
+        items:
+          - name: Обзор
+            href: operations/aws-sdk/index.md
+          - name: Создание таблицы
+            href: operations/aws-sdk/create-table.md
+          - name: Загрузка данных в таблицу
+            href: operations/aws-sdk/load-data.md
+          - name: Управление записями в таблице
+            items:
+              - name: Создание записи
+                href: operations/aws-sdk/create-item.md
+              - name: Чтение записи
+                href: operations/aws-sdk/read-item.md
+              - name: Обновление записи
+                href: operations/aws-sdk/update-item.md
+              - name: Удаление записи
+                href: operations/aws-sdk/delete-item.md
+          - name: Поиск и извлечение данных
+            href: operations/aws-sdk/query-and-scan.md
+          - name: Удаление таблицы
+            href: operations/aws-sdk/delete-table.md
   - name: Работа с SDK
     href: sdk/index.md
     when: audience == "external"
