@@ -142,6 +142,9 @@ items:
         href: datalens/data-from-appmetrica-visualization.md
       - name: Визуализация геоданных из CSV-файла
         href: datalens/data-from-csv-geo-visualization.md
+      - name: Визуализация данных из базы данных ClickHouse с геослоями из Marketplace
+        when: audience == "external"
+        href: datalens/data-from-ch-to-geolayers-visualization.md
   - name: Интернет вещей
     items:
       - name: Сценарии работы с интернетом вещей
