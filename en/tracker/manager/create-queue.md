@@ -92,10 +92,15 @@ You need to fill in the list of team members if you want to [configure special a
 1. Configure [general queue settings](edit-queue-general.md). Example:
     - Default issue type and priority.
     - **Required fields for the queue**: Issue fields that are always displayed on the issue page, regardless of [user settings](../user/edit-ticket.md#section_jqw_ppn_jz).
+
+    {% if audience == "internal" %}
     - **Sending emails**: Allows users to [send emails](../user/comments.md#section_zpd_ph5_wdb) to any address directly from the issue page. The message text is attached to the issue as a comment.
+  
+    {% endif %}
+
     - **Show "Commits" tab**: Show or hide the **Commits** tab on the queue and issue pages. The tab displays all commits linked to your issue.
 
-1. Configure [advanced queue features](queue-advanced.md), such as mailbox integration or automatic changes to issue parameters.
+2. Configure [advanced queue features](queue-advanced.md), such as mailbox integration or automatic changes to issue parameters.
 
 {% if audience == "external" %}
 

@@ -61,10 +61,10 @@ You can change access settings for individual users, groups, or roles:
 If a user has multiple roles, they gain all access rights associated with each role.
 
 > **Example**
-
-![](../../_assets/tracker/access-roles.png)
-
-If a user is both the reporter and the assignee, they're allowed to **Create issues**, **View issues**, and **Edit issues**.
+>
+>![](../../_assets/tracker/access-roles.png)
+>
+>If a user is both the reporter and the assignee, they're allowed to **Create issues**, **View issues**, and **Edit issues**.
 
 ## Add a message for users who can't access issues {#deny-message}
 
@@ -123,10 +123,10 @@ To configure access to issues by component:
 If an issue has several associated components, all users with access to at least one of them will be able to access the issue.
 
 > **Example**
-
-![](../../_assets/tracker/access-components.png)
-
-If an issue has the **Hardware** and **Software** components, it can be accessed by users from both the <q>Product development</q> and <q>Application development</q> groups.
+>
+>![](../../_assets/tracker/access-components.png)
+>
+>If an issue has the **Hardware** and **Software** components, it can be accessed by users from both the <q>Product development</q> and <q>Application development</q> groups.
 
 ## Set access rights to issues in private queues {#section_kgf_gmm_52b}
 

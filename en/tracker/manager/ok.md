@@ -81,7 +81,7 @@ You can use additional parameters in the approval code:
 
     {% note info %}
 
-    The members of the added groups do not receive approval  notifications.
+    The members of the added groups do not receive approval notifications.
 
     {% endnote %}
 
