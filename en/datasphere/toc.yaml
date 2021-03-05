@@ -49,6 +49,8 @@ items:
         href: concepts/dvc-and-git.md
       - name: Integration with Data Proc
         href: concepts/data-proc.md
+      - name: Using TensorBoard in DataSphere
+        href: concepts/tensorboard.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Access management

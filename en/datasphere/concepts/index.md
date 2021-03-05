@@ -16,7 +16,7 @@ If you're missing a package, you can [install it](../operations/projects/install
 
 ### Automatic maintenance of computing resources {#auto-service}
 
-The service automatically manages resource allocation. If you don't perform any computations, no resources are allocated.
+The service automatically manages resource allocation. If you don't perform any computations, no resources are allocated. If you use early access features, the amount of vCPU and memory usage is shown directly in the notebook interface.
 
 ### Saving states at shutdown {#save-state}
 
