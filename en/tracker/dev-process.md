@@ -120,7 +120,7 @@ You can also [create multiple issue boards](manager/create-agile-board.md). This
 
      ![](../_assets/tracker/dev-process-board-filter.png)
 
-#### Board types in{{ tracker-name }} {#board_types}
+#### Board types in {{ tracker-name }} {#board_types}
 
 {{ tracker-name }} has multiple board types:
 
@@ -132,7 +132,7 @@ You can also [create multiple issue boards](manager/create-agile-board.md). This
 
 #### Scrum board tools
 
-The <q>Scrum</q> board offers tools to help organize your workflow according to the Scrum]({{ link-wiki-scrum }}) methodology:
+The <q>Scrum</q> board offers tools to help organize your workflow according to the [Scrum]({{ link-wiki-scrum }}) methodology:
 
 - **Sprints**
 
@@ -150,7 +150,7 @@ The <q>Scrum</q> board offers tools to help organize your workflow according to 
 
 - **Planning poker** {#poker}
 
-    To accurately gauge the workload for the upcoming sprint, you need to be able to evaluate its issue complexity. To do this, Scrum uses [poker planning)]{% if locale == "ru" %}(https://ru.wikipedia.org/wiki/Poker_планирования){% else %}(https://en.wikipedia.org/wiki/Planning_poker){% endif %}. This method lets each member of your team score issues on their complexity independently, discuss the results, and finally pin down the total score. This scoring method usually involves relative issue complexity grades called [Story Points](manager/agile.md#dlen_sp).
+    To accurately gauge the workload for the upcoming sprint, you need to be able to evaluate its issue complexity. To do this, Scrum uses [poker planning]{% if locale == "ru" %}(https://ru.wikipedia.org/wiki/Poker_планирования){% else %}(https://en.wikipedia.org/wiki/Planning_poker){% endif %}. This method lets each member of your team score issues on their complexity independently, discuss the results, and finally pin down the total score. This scoring method usually involves relative issue complexity grades called [Story Points](manager/agile.md#dlen_sp).
 
     You can [use planning poker in {{ tracker-name }}](manager/planning-poker.md):
 
@@ -256,7 +256,7 @@ For example, the tester should start testing a new product feature once the deve
 
 - Trigger action: Specify the tester in the <q>Assignee</q> field.
 
-(/../_assets/tracker/trigger-example-status.png)
+![](../_assets/tracker/trigger-example-status.png)
 
 Now let's consider a situation where one developer is responsible for the server side of a product while another developer handles the client side. When creating new bug-related issues pertaining to the server or client side of a product, you can automatically assign the corresponding developer to handle the job using components and triggers:
 

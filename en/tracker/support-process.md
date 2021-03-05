@@ -30,7 +30,7 @@ Let's create a dedicated {{ tracker-name }} [queue](queue-intro.md) for the supp
 
 1. If your organization doesn't have **{{ tracker-name }}** yet, [activate the service](enable-tracker.md).
 
-1. Make sure all the support staff is added to your organization and [grent them full access to {{ tracker-name }}](enable-tracker.md#subscriptions).
+1. Make sure all the support staff is added to your organization and [grent them full access to {{ tracker-name }}](enable-tracker.md#access).
 
 {% endif %}
 
@@ -103,7 +103,7 @@ A dedicated issue status can be assigned to each support line. For example, the 
 
 ### Use issue fields
 
-Sometimes it may be more convenient to {% if audience == "external" %}[create a new issue field](user/create-param.md#section_pxn_fp4_xgb){% else %}use an issue field, such as <q>Line</q> from the Tools category{% endif%}. Let's say you [receive user requests via forms](#form), and you want them to be automatically distributed between your two support lines based on the request subject. When you create an issue based on a form, you can't assign an issue status corresponding to any of the support lines, because all new issues automatically have the <q>Open</q> status. However, you can still assign values to issue fields provided the request has a specific subject. You can then automatically change issue statuses based on the value in that issue field.
+Sometimes it may be more convenient to {% if audience == "external" %}[create a new issue field](user/create-param.md#section_pxn_fp4_xgb){% else %}use an issue field, such as <q>Line</q> from the Tools category{% endif%}. Let's say you [receive user requests via forms](#mail_forms), and you want them to be automatically distributed between your two support lines based on the request subject. When you create an issue based on a form, you can't assign an issue status corresponding to any of the support lines, because all new issues automatically have the <q>Open</q> status. However, you can still assign values to issue fields provided the request has a specific subject. You can then automatically change issue statuses based on the value in that issue field.
 
 To do this in {{ tracker-name }}:
 
@@ -135,9 +135,9 @@ Go to {{ tracker-name }} settings and [create a new field](user/create-param.md#
 
     To distribute requests between support lines, add a dropdown list to the <q>Request subject</q> form and specify some common problems.
 
-1. Configure [issue creation in Tracker {{ tracker-name }}]{% if audience == "external" %}{% if locale == "ru" %}(https://yandex.ru/support/connect-forms/common/create-task.html){% else %}(https://yandex.com/support/connect-forms/common/create-task.html){% endif %}{% else %}(https://doc.yandex-team.ru/forms/external/create-task.html){% endif %} for the first support line in integration settings:
+1. Configure [issue creation in {{ tracker-name }}]{% if audience == "external" %}{% if locale == "ru" %}(https://yandex.ru/support/connect-forms/common/create-task.html){% else %}(https://yandex.com/support/connect-forms/common/notifications.html#notifications__section_rvr_4jc_tbb){% endif %}{% else %}(https://doc.yandex-team.ru/forms/external/create-task.html){% endif %} for the first support line in integration settings:
 
-    1. Configure [notification conditions]{% if audience == "external" %}{% if locale == "ru" %}(https://yandex.ru/support/connect-forms/common/notifications.html){% else %}https://yandex.com/support/connect-forms/common/notifications.html){% endif %}{% else %}(https://doc.yandex-team.ru/forms/external/notifications.html){% endif %}. The <q>Request subject</q> list displays subjects that should be handled by the first support line.
+    1. Configure [notification conditions]{% if audience == "external" %}{% if locale == "ru" %}(https://yandex.ru/support/connect-forms/common/notifications.html){% else %}(https://yandex.com/support/connect-forms/common/notifications.html){% endif %}{% else %}(https://doc.yandex-team.ru/forms/external/notifications.html){% endif %}. The <q>Request subject</q> list displays subjects that should be handled by the first support line.
 
          ![](../_assets/tracker/support-form-condition.png)
 

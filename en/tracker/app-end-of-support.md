@@ -1,4 +1,4 @@
-# Discontinuing support for the Yandex Tracker mobile app{{ tracker-name }}
+# Discontinuing support for the {{ tracker-name }} mobile app
 
 In August, 2020, support for the {{ tracker-name }} mobile app for iOS and Android was discontinued.
 

@@ -6,7 +6,7 @@
 
 To let your employees use {{ tracker-name }}:
 
-1. [Add employees to {{ tracker-name }}](enable-tracker.md#add-users). You can invite users with Yandex accounts to join your organization or configure an identity federation so that your employees could log in to Tracker with their corporate accounts.
+1. [Add employees to {{ tracker-name }}](enable-tracker.md#section_v3s_wp4_1cb). You can invite users with Yandex accounts to join your organization or configure an identity federation so that your employees could log in to Tracker with their corporate accounts.
 
 1. Grant your employees [full access to {{ tracker-name }}](enable-tracker.md#access).
 

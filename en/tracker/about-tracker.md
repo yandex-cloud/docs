@@ -1,10 +1,10 @@
-# How Yandex Tracker works {{ tracker-name }}
+# How {{ tracker-name }} works 
 
 In this section, you'll learn all about how {{ tracker-name }} works and how you can use {{ tracker-name }} to suit your workflow.
 
 You may need to set up {{ tracker-name }} first. Find out how to do this in [{#T}](quick-start.md).
 
-## Wiki structure {{ tracker-name }} {#blocks}
+## {{ tracker-name }} structure {#blocks}
 
 Organizing your workflow in {{ tracker-name }} requires managing two crucial elements: _issues_ and _queues_. Issues describe tasks that need to be completed, while a queue sets the rules all issues within must abide by.
 
