@@ -4,7 +4,7 @@
 
 Форму можно опубликовать по прямой ссылке, разместить на сайте или вики-странице. С помощью таких форм задачи могут создавать даже те пользователи, у которых нет доступа {{ tracker-name }}. Например, формы удобно использовать, чтобы [принимать обращения пользователей в службу поддержки](../support-process-mail-forms.md) или заявки на обслуживание.
 
-Чтобы использовать форму как шаблон для быстрого создания типовых задач, [встройте форму на страницу создания задачи в {{ tracker-name }}](attach-form.md).
+{% if audience == "internal" %}Чтобы использовать форму как шаблон для быстрого создания типовых задач, [встройте форму на страницу создания задачи в {{ tracker-name }}](attach-form.md).{% endif %}
 
 Чтобы настроить форму для создания задач:
 
@@ -44,7 +44,7 @@
 
 1. [Опубликуйте]{% if audience == "external" %}({{ support-forms-publish }}){% else %}({{ support-forms-publish-ya }}){% endif %} форму. Форма будет доступна по ссылке, указанной в поле **Ссылка**.
 
-Опубликованную форму можно [встроить в вики-страницу]{% if audience == "external" %}({{ support-forms-wiki }}){% else %}({{ support-forms-wiki-ya }}){% endif %}, [разместить на сайте]{% if audience == "external" %}({{ support-forms-embed }}){% else %}({{ support-forms-embed-ya }}){% endif %} или [добавить на страницу создания задачи](../manager/attach-form.md) в интерфейсе {{ tracker-name }}.
+Опубликованную форму можно [встроить в вики-страницу]{% if audience == "external" %}({{ support-forms-wiki }}){% else %}({{ support-forms-wiki-ya }}){% endif %}, [разместить на сайте]{% if audience == "external" %}({{ support-forms-embed }}){% else %}({{ support-forms-embed-ya }}) или [добавить на страницу создания задачи](../manager/attach-form.md) в интерфейсе {{ tracker-name }}{% endif %}.
 
 Подробнее о сервисе Яндекс.Формы читайте в [Справке]{% if audience == "external" %}({{ support-forms-main }}){% else %}({{ support-forms-main-ya }}){% endif %}.
 

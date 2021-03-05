@@ -137,6 +137,7 @@ items:
           when: audience == "internal"
           href: user/create-ticket-by-mail.md
         - name: Создать задачу из формы
+          when: audience == "internal"
           href: user/create-ticket-with-forms.md
         - name: Клонировать задачу
           href: user/clone.md
@@ -292,6 +293,7 @@ items:
         - name: Использовать общие шаблоны
           href: user/share-template.md
     - name: Использовать форму как шаблон для создания задач
+      when: audience == "internal"
       href: manager/attach-form.md
 - name: Настроить SLA для задач
   items:
