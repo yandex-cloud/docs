@@ -2,7 +2,7 @@
 
 You can use {{ tracker-name }} to schedule issue creation using a template. For example, this lets you automatically create a data backup issue every week.
 
-Such issues only work in queues where auto updates are configured. The reporter for such issues is the {% if audience == "external" %}Tracker robot{% else %}Tracker robot{% endif %}.
+Such issues only work in queues where auto updates are configured. The reporter for such issues is the Tracker robot.
 
 {% note tip %}
 

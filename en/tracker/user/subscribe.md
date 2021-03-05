@@ -80,7 +80,7 @@ To track issues associated with a specific goal, subscribe to it:
 
 By default you don't get notifications for the actions you've done yourself. To enable notifications about your own actions:
 
-1. {% if audience == "external" %} On the {{ tracker-name }}  top panel, click ![](../../_assets/tracker/tracker-settings.png)  → **Personal settings** .{% else %} On the {{ tracker-name }} top panel in , click on your profile picture and select **Personal settings**  or follow the link:  [https://st.yandex-team.ru/settings]({{ link-settings-ya }}){% endif %}
+1. {% if audience == "external" %}On the {{ tracker-name }} top panel, click ![](../../_assets/tracker/tracker-settings.png) → **Personal settings**.{% else %}On the {{ tracker-name }} top panel, click on your profile picture and select **Personal settings** or follow the link: [https://st.yandex-team.ru/settings]({{ link-settings-ya }}){% endif %}
 
     {% if audience == "external" %}
 

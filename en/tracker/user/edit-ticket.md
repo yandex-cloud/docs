@@ -91,7 +91,7 @@ Values responsible for date and time can be displayed in the full (day, month, y
 
 If you want to change the display type for these values, do the following:
 
-1. {% if audience == "external" %} On the {{ tracker-name }}  top panel, click ![](../../_assets/tracker/tracker-settings.png)  → **Personal settings** .{% else %} On the {{ tracker-name }} top panel in , click on your profile picture and select **Personal settings**  or follow the link:  [https://st.yandex-team.ru/settings]({{ link-settings-ya }}){% endif %}
+1. {% if audience == "external" %}On the {{ tracker-name }} top panel, click ![](../../_assets/tracker/tracker-settings.png) → **Personal settings**.{% else %}On the {{ tracker-name }} top panel, click on your profile picture and select **Personal settings** or follow the link: [https://st.yandex-team.ru/settings]({{ link-settings-ya }}){% endif %}
 
     {% if audience == "external" %}
 
@@ -111,7 +111,7 @@ If you want to change the display type for these values, do the following:
 
 You can choose how usernames are displayed on the issue page.
 
-1. {% if audience == "external" %} On the {{ tracker-name }}  top panel, click ![](../../_assets/tracker/tracker-settings.png)  → **Personal settings** .{% else %} On the {{ tracker-name }} top panel in , click on your profile picture and select **Personal settings**  or follow the link:  [https://st.yandex-team.ru/settings]({{ link-settings-ya }}){% endif %}
+1. {% if audience == "external" %}On the {{ tracker-name }} top panel, click ![](../../_assets/tracker/tracker-settings.png) → **Personal settings**.{% else %}On the {{ tracker-name }} top panel, click on your profile picture and select **Personal settings** or follow the link: [https://st.yandex-team.ru/settings]({{ link-settings-ya }}){% endif %}
 
     {% if audience == "external" %}
 

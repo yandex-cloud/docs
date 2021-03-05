@@ -6,7 +6,7 @@ You can manage your issues more easily by configuring the {{ tracker-name }} int
 
 You can set {% if audience == "external" %}your [home page](startpage.md){% else %}the tab [**My page**](startpage.md){% endif %} to display any [filter](filters.md), [dashboard](dashboard.md), or [issue board](../manager/create-agile-board.md):
 
-1. {% if audience == "external" %} On the {{ tracker-name }}  top panel, click ![]( ../../_assets/tracker/tracker-settings.png)  → **Personal settings** .{% else %} On the {{ tracker-name }} top panel in , click on your profile picture and select **Personal settings**  or follow the link:  [https://st.yandex-team.ru/settings]({{ link-settings-ya }}){% endif %}
+1. {% if audience == "external" %}On the {{ tracker-name }} top panel, click ![]( ../../_assets/tracker/tracker-settings.png) → **Personal settings**.{% else %}On the {{ tracker-name }} top panel, click on your profile picture and select **Personal settings** or follow the link: [https://st.yandex-team.ru/settings]({{ link-settings-ya }}){% endif %}
 
     {% if audience == "external" %}
 
@@ -26,7 +26,7 @@ You can set {% if audience == "external" %}your [home page](startpage.md){% else
 
 {{ tracker-name }} is available in English and Russian. To do this:
 
-1. {% if audience == "external" %} On the {{ tracker-name }}  top panel, click ![]( ../../_assets/tracker/tracker-settings.png)  → **Personal settings** .{% else %} On the {{ tracker-name }} top panel in , click on your profile picture and select **Personal settings**  or follow the link:  [https://st.yandex-team.ru/settings]({{ link-settings-ya }}){% endif %}
+1. {% if audience == "external" %}On the {{ tracker-name }} top panel, click ![]( ../../_assets/tracker/tracker-settings.png) → **Personal settings**.{% else %}On the {{ tracker-name }} top panel, click on your profile picture and select **Personal settings** or follow the link: [https://st.yandex-team.ru/settings]({{ link-settings-ya }}){% endif %}
 
     {% if audience == "external" %}
 
@@ -54,7 +54,7 @@ By default, the **Reporter**, **Assignee**, and **Followers** fields display the
 
 To change the display method, do the following:
 
-1. {% if audience == "external" %} On the {{ tracker-name }}  top panel, click ![]( ../../_assets/tracker/tracker-settings.png)  → **Personal settings** .{% else %} On the {{ tracker-name }} top panel in , click on your profile picture and select **Personal settings**  or follow the link:  [https://st.yandex-team.ru/settings]({{ link-settings-ya }}){% endif %}
+1. {% if audience == "external" %}On the {{ tracker-name }} top panel, click ![]( ../../_assets/tracker/tracker-settings.png) → **Personal settings**.{% else %}On the {{ tracker-name }} top panel, click on your profile picture and select **Personal settings** or follow the link: [https://st.yandex-team.ru/settings]({{ link-settings-ya }}){% endif %}
 
     {% if audience == "external" %}
 
@@ -88,9 +88,9 @@ To change the display method, do the following:
 
 ## Configure notifications {#sec_notifications}
 
-{{ tracker-name }}  notifies you of any updates to issues you're subscribed to. You can change your notification settings on the personal settings page:
+{{ tracker-name }} notifies you of any updates to issues you're subscribed to. You can change your notification settings on the personal settings page:
 
-1. {% if audience == "external" %} On the {{ tracker-name }}  top panel, click ![]( ../../_assets/tracker/tracker-settings.png)  → **Personal settings** .{% else %} On the {{ tracker-name }} top panel in , click on your profile picture and select **Personal settings**  or follow the link:  [https://st.yandex-team.ru/settings]({{ link-settings-ya }}){% endif %}
+1. {% if audience == "external" %}On the {{ tracker-name }} top panel, click ![]( ../../_assets/tracker/tracker-settings.png) → **Personal settings**.{% else %}On the {{ tracker-name }} top panel, click on your profile picture and select **Personal settings** or follow the link: [https://st.yandex-team.ru/settings]({{ link-settings-ya }}){% endif %}
 
     {% if audience == "external" %}
 

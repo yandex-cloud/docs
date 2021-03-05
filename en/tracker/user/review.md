@@ -4,7 +4,7 @@
 
 To link a review in Crucible to an issue, specify the issue key in the name or description of the review. The link to the review will appear in the Related section.
 
-{{ tracker-name }}  supports integration with multiple Crucible installations:
+{{ tracker-name }} supports integration with multiple Crucible installations:
 
 - [maps.crucible.yandex-team.ru](https://maps.crucible.yandex-team.ru)
 - [markup.crucible.yandex-team.ru](https://markup.crucible.yandex-team.ru)

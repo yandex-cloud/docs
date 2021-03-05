@@ -19,7 +19,7 @@ The history saves:
 
 History entries are listed chronologically by default. To change the entry order, do the following:
 
-1. {% if audience == "external" %} On the {{ tracker-name }}  top panel, click ![](../../_assets/tracker/tracker-settings.png)  → **Personal settings** .{% else %} On the {{ tracker-name }} top panel in , click on your profile picture and select **Personal settings**  or follow the link:  [https://st.yandex-team.ru/settings]({{ link-settings-ya }}){% endif %}
+1. {% if audience == "external" %}On the {{ tracker-name }} top panel, click ![](../../_assets/tracker/tracker-settings.png) → **Personal settings**.{% else %}On the {{ tracker-name }} top panel, click on your profile picture and select **Personal settings** or follow the link: [https://st.yandex-team.ru/settings]({{ link-settings-ya }}){% endif %}
 
     {% if audience == "external" %}
 

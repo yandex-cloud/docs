@@ -1,6 +1,6 @@
 # Creating issues
 
-You can create issues in any of the available [queues](../queue-intro.md). Select the queue that best matches the topic of the issue. If you don't know which queue to create the issue in, check with the project manager{% if audience == "external" %}  or your organization's admin{% endif %} .
+You can create issues in any of the available [queues](../queue-intro.md). Select the queue that best matches the topic of the issue. If you don't know which queue to create the issue in, check with the project manager{% if audience == "external" %}  or your organization's admin{% endif %}.
 
 {% if locale == "ru" %}
 
