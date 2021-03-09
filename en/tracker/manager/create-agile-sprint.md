@@ -6,7 +6,7 @@ You can only use sprints with **Scrum** boards.
 
 {% endnote %}
 
-{{ tracker-name }}  can help you utilize the Scrum workflow. With scrum, all your pipeline is split into sprints. A sprint is a development cycle that lasts a certain amount of time. Each cycle starts with issue evaluation and planning for the upcoming sprint.
+{{ tracker-name }} can help you utilize the Scrum workflow. With scrum, all your pipeline is split into sprints. A sprint is a development cycle that lasts a certain amount of time. Each cycle starts with issue evaluation and planning for the upcoming sprint.
 
 ## Plan a sprint {#section_sjg_111_2gb}
 
@@ -125,7 +125,7 @@ You can filter your issues to only leave the ones you need on the **Sprints** ta
 
 You can set your sprint page to display issues and sprints in a single column. To do this:
 
-1. On the {{ tracker-name }}  top panel, click ![]( ../../_assets/tracker/tracker-settings.png)  → **Personal settings** .
+1. On the {{ tracker-name }} top panel, click ![]( ../../_assets/tracker/tracker-settings.png) → **Personal settings**.
 
 
     {% note info %}

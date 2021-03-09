@@ -8,13 +8,13 @@
 
 [{#T}](check-charges.md)
 
-[{#T}](pay-the-bill.md) 
+[{#T}](pay-the-bill.md)
 
 [{#T}](pin-card.md)
 
 [{#T}](pin-cloud.md)
 
-[{#T}](change-payment-method.md) 
+[{#T}](change-payment-method.md)
 
 [{#T}](spell-out-bill.md)
 
@@ -22,5 +22,6 @@
 
 [{#T}](change-data.md)
 
-[{#T}](create-new-account.md) 
+[{#T}](create-new-account.md)
 
+[{#T}](get-folder-report.md)

@@ -67,7 +67,7 @@ If you did everything right, an icon appears next to the version number: ![](../
 
 By default you don't get notifications for the actions you've done yourself. To enable notifications about your own actions:
 
-1. On the {{ tracker-name }}  top panel, click ![](../../_assets/tracker/tracker-settings.png)  → **Personal settings** .
+1. On the {{ tracker-name }} top panel, click ![](../../_assets/tracker/tracker-settings.png) → **Personal settings**.
 
 
     {% note info %}

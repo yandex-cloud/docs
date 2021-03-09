@@ -4,7 +4,7 @@
 
 To change a template for an issue or comment:
 
-1. On the {{ tracker-name }}  top panel, click ![](../../_assets/tracker/tracker-settings.png) → **Manage templates**.
+1. On the {{ tracker-name }} top panel, click ![](../../_assets/tracker/tracker-settings.png) → **Manage templates**.
 
 1. Select an option:
     - **Issues** to edit issue templates.

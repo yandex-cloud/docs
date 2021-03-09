@@ -3,8 +3,7 @@
 Let's look at some examples of how triggers work in {{ tracker-name }}:
 
 - How to [automatically pick assignees](#assign_ticket) based on status or component.
-- How to [automatically notify a user](#notify_mail) after an issue was created based on a request sent to the support team via email.
-- How to [automatically notify a user](#notify_form) after an issue was created based on a request sent to the support team via Yandex.Forms.
+
 - How to [set up notifications in messengers](#section_vsn_mb2_d3b) via HTTP requests.
 
 ## Pick assignees automatically {#assign_ticket}

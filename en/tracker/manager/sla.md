@@ -20,19 +20,19 @@ To create a new SLA rule:
 
 1. Click ![](../../_assets/tracker/icon-edit.png) and enter a name for the rule.
 
-1. Choose [work schedule ](schedule.md). The schedule defines the time when the rule is active. The timer will be paused automatically during non-work hours.
+2. Choose [work schedule](schedule.md). The schedule defines the time when the rule is active. The timer will be paused automatically during non-work hours.
 
-1. The rule can be applied to all issues in the queue, or to specific groups of issues. To add a new group of issues, click **Create a new filter** and set the criteria for selecting issues.
+3. The rule can be applied to all issues in the queue, or to specific groups of issues. To add a new group of issues, click **Create a new filter** and set the criteria for selecting issues.
 
    To change an existing group, click ![](../../_assets/tracker/icon-edit.png).
 
-1. For each group, set the timeframe for completing issues in `00h 00m` format:
+4. For each group, set the timeframe for completing issues in `00h 00m` format:
 
     - **Time until warning** (optional): When this time expires, {{ tracker-name }} sends a warning that the time to process the issue is running out.
 
     - **Time until expiration**: The time limit for processing the issue. When this time ends, {{ tracker-name }} sends out a notification saying that the time is up.
 
-1. Set the conditions for starting, pausing, or stopping the timer:
+5. Set the conditions for starting, pausing, or stopping the timer:
 
     - **Start**: The timer starts if any of the listed conditions is met. If the timer was paused, timing will continue from where it left off.
 
@@ -59,9 +59,9 @@ To create a new SLA rule:
     Resolution set | This condition is met when the one of the resolutions in the issue is set.
     Queue team responded | This condition is considered fulfilled if a user on the [queue team](queue-team.md) adds a comment to the issue.
 
-1. In the **Notifications** section, specify how and who to notify of overdue issues.
+6. In the **Notifications** section, specify how and who to notify of overdue issues.
 
-1. Click **Save**.
+7. Click **Save**.
 
 > **Example**
 Let's create a rule for monitoring response time to new issues. The timer for this rule will start as soon as the issue has been assigned, and will stop when the assignee starts working on it. If the assignee does not react to the issue within 15 minutes, you will receive an email notification.

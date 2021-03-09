@@ -1,6 +1,6 @@
 # Set up an issue reminder
 
-{{ tracker-name }}  can send issue reminders. You can send reminders to yourself or other users. Only the sender and the recipient will be able to see the reminder.
+{{ tracker-name }} can send issue reminders. You can send reminders to yourself or other users. Only the sender and the recipient will be able to see the reminder.
 
 ## Create a reminder {#section_ct4_trk_t2b}
 

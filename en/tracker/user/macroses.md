@@ -17,7 +17,7 @@ To run a macro:
 1. Select a macro from the drop-down **Macros** list.
 You can select multiple macros at the same time. If multiple macros change the same field, only the last executed change will be applied.
 
-1. To send a message using a macro, go to the **Message** tab and [configure its fields](../user/comments.md#section_zpd_ph5_wdb).
+1. To send a message using a macro, go to the **Message** tab and [configure its fields](../user/comments.md).
 
 1. To execute the macro, click **Send**.
 

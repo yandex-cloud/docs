@@ -88,7 +88,7 @@ If you are subscribed to queue, component, or version updates, you can configure
 
 You can choose the display type for usernames and event types in notification messages. To do this:
 
-1. On the {{ tracker-name }}  top panel, click ![](../../_assets/tracker/tracker-settings.png)  → **Personal settings** .
+1. On the {{ tracker-name }} top panel, click ![](../../_assets/tracker/tracker-settings.png) → **Personal settings**.
 
 
     {% note info %}

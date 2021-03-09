@@ -2,7 +2,7 @@
 
 To regularly receive reports for issues you're subscribed to via email:
 
-1. On the {{ tracker-name }}  top panel, click ![](../../_assets/tracker/tracker-settings.png)  → **Personal settings** .
+1. On the {{ tracker-name }} top panel, click ![](../../_assets/tracker/tracker-settings.png) → **Personal settings**.
 
 
     {% note info %}

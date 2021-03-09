@@ -16,7 +16,6 @@ If the field you need is missing, your organization's admin can [create a new fi
 | End date | Date when the issue was completed. You usually don't need to fill this in when creating an issue. |
 | Deadline | Date by which the issue should be resolved. |
 | Tags | Tags are text labels that make it easier to find and sort issues. |
-|  |
 | Components | You can mark issues with special labels called [components](../manager/components.md). They will help you sort issues within the queue.<br/><br/>The list of possible components depends on the [queue settings](../manager/components.md). |
 | Affected version | The version of the product that the issue is related to. The list of available versions is determined by the [queue settings](../manager/versions.md#section_f5q_bfl_xz).<br/><br/>The **Affected Version** field is usually used with **Bug** type issues. |
 | Fix version | The version of the product that the issue is related to. The list of available versions is determined by the [queue settings](../manager/versions.md#section_f5q_bfl_xz).<br/><br/>The **Affected Version** field is usually used with **Bug** type issues. |

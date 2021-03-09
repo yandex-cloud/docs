@@ -14,7 +14,6 @@ _Статические ключи доступа_ — секретный клю
       
 * [{{ ydb-name }}](../../../ydb/quickstart/aws-instrument/setup.md)
 
-
 #### См. также {#see-also}
 
 * [Как создать статический ключ доступа](../../operations/sa/create-access-key.md)

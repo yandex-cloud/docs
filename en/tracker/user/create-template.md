@@ -2,7 +2,7 @@
 
 To create a template of an issue or comment:
 
-1. On the {{ tracker-name }}  top panel, click ![](../../_assets/tracker/tracker-settings.png) → **Manage templates**.
+1. On the {{ tracker-name }} top panel, click ![](../../_assets/tracker/tracker-settings.png) → **Manage templates**.
 
 1. Select an option:
     - **Issues** to create a template for issues.

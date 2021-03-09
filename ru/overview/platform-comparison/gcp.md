@@ -24,6 +24,7 @@
 | Container Registry | [{{ container-registry-full-name }}](../../container-registry/) |
 | Database Migration Service, Migrate for Compute Engine | [{{ data-transfer-full-name }}](../../data-transfer/) |
 | Elastic Cloud (Elasticsearch managed service) | [{{ mes-full-name }}](../../managed-elasticsearch/) |
+| External HTTP(S) Load Balancing | [{{ alb-full-name }}](../../application-load-balancer/) |
 | GCP: MongoDB Atlas | [{{ mmg-full-name }}](../../managed-mongodb/) |
 | Google Cloud Armor | [{{ ddos-protection-full-name }}](../../vpc/ddos-protection/) |
 | Google Data Studio | [{{ datalens-full-name }}](../../datalens/) |

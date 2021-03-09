@@ -8,7 +8,7 @@ Deleting a template is permanent. This operation can&apos;t be undone. If you pl
 
 To delete a template for an issue or comment:
 
-1. On the {{ tracker-name }}  top panel, click ![](../../_assets/tracker/tracker-settings.png) → **Manage templates**.
+1. On the {{ tracker-name }} top panel, click ![](../../_assets/tracker/tracker-settings.png) → **Manage templates**.
 
 1. Select an option:
     - **Issues** to edit issue templates.
@@ -24,7 +24,7 @@ If you don&apos;t plan on using the template any time soon, you can disable it. 
 
 To disable a template:
 
-1. On the {{ tracker-name }}  top panel, click ![](../../_assets/tracker/tracker-settings.png) → **Manage templates**.
+1. On the {{ tracker-name }} top panel, click ![](../../_assets/tracker/tracker-settings.png) → **Manage templates**.
 
 1. Select an option:
     - **Issues** to edit issue templates.

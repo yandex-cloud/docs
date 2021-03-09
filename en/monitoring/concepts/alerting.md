@@ -47,7 +47,7 @@ You can pick from the preset window values or set up your own window in the form
 * `1m`: 1 minute.
 * `1s`: 1 second.
 
-The minimum value is 1 minute (`1m`).  
+The minimum value is 1 minute (`1m`).
 The maximum values is 1 hour (`1h`).
 
 > For example, the value `3m 45s` sets a time window of 3 minutes and 45 seconds.
@@ -89,7 +89,9 @@ To send an SMS, link a phone number to the user account.
 
     {% endnote %}
 
-- **Notification method**. The method for notifying users, such as email or SMS.
+- **Notification method**. The method for notifying users. Supported methods:
+  - Email;
+  - SMS.
 
 After you create a channel, the additional parameters become available:
 

@@ -113,7 +113,7 @@ If the discussion of an issue leads to creating a new issue, you can create it d
 
 Comments are listed chronologically by default. If you want to place the most recent comments at the start of the chain, do the following:
 
-1. On the {{ tracker-name }}  top panel, click ![](../../_assets/tracker/tracker-settings.png)  → **Personal settings** .
+1. On the {{ tracker-name }} top panel, click ![](../../_assets/tracker/tracker-settings.png) → **Personal settings**.
 
 
     {% note info %}

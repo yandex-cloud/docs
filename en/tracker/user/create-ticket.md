@@ -1,6 +1,6 @@
 # Creating issues
 
-You can create issues in any of the available [queues](../queue-intro.md). Select the queue that best matches the topic of the issue. If you don't know which queue to create the issue in, check with the project manager or your organization's admin .
+You can create issues in any of the available [queues](../queue-intro.md). Select the queue that best matches the topic of the issue. If you don't know which queue to create the issue in, check with the project manager or your organization's admin.
 
 
 ## Create an issue {#section_bh1_44f_mz}

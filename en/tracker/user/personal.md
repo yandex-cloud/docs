@@ -6,7 +6,7 @@ You can manage your issues more easily by configuring the {{ tracker-name }} int
 
 You can set your [home page](startpage.md) to display any [filter](filters.md), [dashboard](dashboard.md), or [issue board](../manager/create-agile-board.md):
 
-1. On the {{ tracker-name }}  top panel, click ![]( ../../_assets/tracker/tracker-settings.png)  → **Personal settings** .
+1. On the {{ tracker-name }} top panel, click ![]( ../../_assets/tracker/tracker-settings.png) → **Personal settings**.
 
 
     {% note info %}
@@ -23,7 +23,7 @@ You can set your [home page](startpage.md) to display any [filter](filters.md), 
 
 {{ tracker-name }} is available in English and Russian. To do this:
 
-1. On the {{ tracker-name }}  top panel, click ![]( ../../_assets/tracker/tracker-settings.png)  → **Personal settings** .
+1. On the {{ tracker-name }} top panel, click ![]( ../../_assets/tracker/tracker-settings.png) → **Personal settings**.
 
 
     {% note info %}
@@ -48,7 +48,7 @@ By default, the **Reporter**, **Assignee**, and **Followers** fields display the
 
 To change the display method, do the following:
 
-1. On the {{ tracker-name }}  top panel, click ![]( ../../_assets/tracker/tracker-settings.png)  → **Personal settings** .
+1. On the {{ tracker-name }} top panel, click ![]( ../../_assets/tracker/tracker-settings.png) → **Personal settings**.
 
 
     {% note info %}
@@ -79,9 +79,9 @@ To change the display method, do the following:
 
 ## Configure notifications {#sec_notifications}
 
-{{ tracker-name }}  notifies you of any updates to issues you're subscribed to. You can change your notification settings on the personal settings page:
+{{ tracker-name }} notifies you of any updates to issues you're subscribed to. You can change your notification settings on the personal settings page:
 
-1. On the {{ tracker-name }}  top panel, click ![]( ../../_assets/tracker/tracker-settings.png)  → **Personal settings** .
+1. On the {{ tracker-name }} top panel, click ![]( ../../_assets/tracker/tracker-settings.png) → **Personal settings**.
 
 
     {% note info %}
