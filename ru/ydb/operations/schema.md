@@ -181,7 +181,7 @@
    
    В таблице ниже приведены имена методов в SDK для [С++](https://a.yandex-team.ru/arc/trunk/arcadia/kikimr/public/sdk/cpp/client/ydb_scheme.h), [Java](https://a.yandex-team.ru/arc/trunk/arcadia/kikimr/public/sdk/java/table/src/SchemeClient.java), [Python](https://a.yandex-team.ru/arc/trunk/arcadia/kikimr/public/sdk/python/client/scheme.py) и [Go](https://godoc.yandex-team.ru/pkg/a.yandex-team.ru/kikimr/public/sdk/go/ydb/scheme/).
    
-   {% else if audience == external %}
+   {% else if audience == "external" %}
    
    В таблице ниже приведены имена методов в SDK для [Java](https://github.com/yandex-cloud/ydb-java-sdk), [Python](https://github.com/yandex-cloud/ydb-python-sdk) и [Go](https://github.com/yandex-cloud/ydb-go-sdk).
    
