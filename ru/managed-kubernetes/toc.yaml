@@ -59,10 +59,14 @@ items:
             href: operations/node-group/node-group-delete.md
   - name: Сценарии использования
     items:
+      - name: Все сценарии
+        href: solutions/index.md
       - name: Интеграция с Container Registry
         href: solutions/container-registry.md
       - name: Запуск рабочих нагрузок с GPU
         href: solutions/running-pod-gpu.md
+      - name: Установка NGINX Ingress Controller с Let's Encrypt®
+        href: solutions/ingress-cert-manager.md
       - name: Резервное копирование в Object Storage
         href: solutions/backup.md
   - name: Концепции

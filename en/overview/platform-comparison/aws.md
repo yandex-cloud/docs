@@ -22,6 +22,7 @@
 | Amazon SageMaker | [{{ ml-platform-full-name }}](../../datasphere/) |
 | Amazon Simple Queue Service | [{{ message-queue-full-name }}](../../message-queue/) |
 | Amazon Virtual Private Cloud | [{{ vpc-full-name }}](../../vpc/) |
+| Application Load Balancer | [{{ alb-full-name }}](../../application-load-balancer/) |
 | AWS Certificate Manager | [{{ certificate-manager-full-name }}](../../certificate-manager/) |
 | AWS Database Migration Service | [{{ data-transfer-full-name }}](../../data-transfer/) |
 | AWS Direct Connect | [{{ interconnect-full-name }}](../../vpc/interconnect/) |

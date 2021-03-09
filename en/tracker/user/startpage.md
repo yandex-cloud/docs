@@ -7,7 +7,7 @@ By default, this page displays the issue list from the [<q>All issues</q>](my-ti
 
 You can set your home page to display any [filter](filters.md), [dashboard](dashboard.md), or [issue board](../manager/create-agile-board.md):
 
-1. On the {{ tracker-name }}  top panel, click ![](../../_assets/tracker/tracker-settings.png)  → **Personal settings** .
+1. On the {{ tracker-name }} top panel, click ![](../../_assets/tracker/tracker-settings.png) → **Personal settings**.
 
 
     {% note info %}

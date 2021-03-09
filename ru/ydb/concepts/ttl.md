@@ -138,3 +138,23 @@ expiration_time = valueof(ttl_column) + expire_after_seconds
   ```
 
 {% endlist %}
+
+### Получение настроек TTL {#describe}
+
+Текущие настройки TTL можно получить из описания таблицы:
+
+{% list tabs %}
+
+- CLI
+  ```bash
+  $ {{ ydb-cli }} -e <endpoint> -d <database> scheme describe mytable
+  ```
+
+
+- Python
+  ```python
+  desc = session.describe_table('mytable')
+  ttl = desc.ttl_settings
+  ```
+
+{% endlist %}

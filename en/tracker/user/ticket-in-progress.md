@@ -21,7 +21,7 @@ The available statuses and transitions depend on the [queue settings](../manager
 
 ## Work on an issue {#section_c3t_l53_d1b}
 
-{{ tracker-name }}  helps you keep track of progress on issues and communicate with colleagues. When you are working on an issue, you can:
+{{ tracker-name }} helps you keep track of progress on issues and communicate with colleagues. When you are working on an issue, you can:
 
 - [Create a checklist for your issue](checklist.md).
 List the steps needed to solve the issue and make a note in the checklist once you complete one.

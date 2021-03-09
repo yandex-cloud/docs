@@ -48,6 +48,8 @@
 		Запросить публичный доступ после создания кластера невозможно.
 
 		{% endnote %}
+    
+     1. Выберите группы безопасности для сетевого трафика кластера.
 
   1. В блоке **Хосты** укажите количество [хостов-брокеров](../concepts/brokers.md) {{ KF }} для размещения в каждой выбранной зоне доступности.
 
@@ -87,7 +89,8 @@
          --resource-preset <класс хоста> \
          --disk-type <тип диска> \
          --disk-size <размер хранилища в гигабайтах> \
-         --assign-public-ip <публичный доступ>
+         --assign-public-ip <публичный доступ> \
+         --security-group-ids <список идентификаторов групп безопасности>
       ```
 
 
@@ -96,6 +99,83 @@
   Чтобы создать кластер, воспользуйтесь методом API [create](../api-ref/Cluster/create.md) и передайте в запросе:
   - Идентификатор каталога, в котором должен быть размещен кластер, в параметре `folderId`.
   - Имя кластера в параметре `name`.
+  - Идентификаторы групп безопасности в параметре `securityGroupIds`.
+
+- Terraform
+
+    {% include [terraform-definition](../../solutions/_solutions_includes/terraform-definition.md) %}
+
+    Если у вас еще нет Terraform, [установите его и настройте провайдер](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+    Чтобы создать кластер:
+
+    1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
+
+        {% include [terraform-create-cluster-step-1](../../_includes/mdb/terraform-create-cluster-step-1.md) %}
+
+        Пример структуры конфигурационного файла:
+
+        ```hcl
+        terraform {
+          required_providers {
+            yandex = {
+             source = "yandex-cloud/yandex"
+            }
+          }
+        }
+
+        provider "yandex" {
+          token     = "<OAuth или статический ключ сервисного аккаунта>"
+          cloud_id  = "<идентификатор облака>"
+          folder_id = "<идентификатор каталога>"
+          zone      = "<зона доступности>"
+        }
+
+        resource "yandex_mdb_kafka_cluster" "<имя кластера>" {
+          environment = "<окружение: PRESTABLE или PRODUCTION>"
+          name        = "<имя кластера>"
+          network_id  = "<идентификатор сети>"
+          security_group_ids = ["<список групп безопасности>"]
+
+          config {
+            assign_public_ip = "<публичный доступ к кластеру: true или false>"
+            brokers_count    = <количество брокеров>
+            version          = "<версия Apache Kafka: 2.1 или 2.6>"
+            kafka {
+              resources {
+                disk_size          = <размер хранилища в гигабайтах>
+                disk_type_id       = "<тип хранилища: network-ssd, network-hdd или local-ssd>"
+                resource_preset_id = "<класс хоста>"
+              }
+            }
+
+            zones = [
+              "<зоны доступности>"
+            ]
+          }
+        }
+
+        resource "yandex_vpc_network" "<имя сети>" {
+          name = "<имя сети>"
+        }
+
+        resource "yandex_vpc_subnet" "<имя подсети>" {
+          name           = "<имя подсети>"
+          zone           = "<зона доступности>"
+          network_id     = "<идентификатор сети>"
+          v4_cidr_blocks = ["<диапазон>"]
+        }
+        ```
+
+        Более подробную информацию о ресурсах, которые можно создать с помощью Terraform, см. в [документации провайдера](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_kafka_cluster).
+
+    1. Проверьте корректность конфигурационных файлов.
+
+        {% include [terraform-create-cluster-step-2](../../_includes/mdb/terraform-create-cluster-step-2.md) %}
+
+    1. Создайте кластер.
+
+        {% include [terraform-create-cluster-step-3](../../_includes/mdb/terraform-create-cluster-step-3.md) %}
 
 - Terraform
 
@@ -174,6 +254,12 @@
 
 {% endlist %}
 
+{% note warning %}
+
+Если вы указали идентификаторы групп безопасности при создании кластера, то для подключения к нему может потребоваться дополнительная [настройка групп безопасности](connect.md#configuring-security-groups).
+
+{% endnote %}
+
 ## Примеры {#examples}
 
 ### Создание кластера с одним хостом {#creating-a-single-host-cluster}
@@ -188,6 +274,7 @@
   - С именем `mykf`.
   - В окружении `production`.
   - В сети `{{ network-name }}`.
+  - В группе безопасности `{{ security-group }}`.
   - С одним хостом класса `{{ host-class }}`, в зоне доступности `{{ zone-id }}`.
   - С одним брокером.
   - С быстрым сетевым хранилищем (`{{ disk-type-example }}`) объемом 10 ГБ.
@@ -206,7 +293,8 @@
   --resource-preset {{ host-class }} \
   --disk-size 10 \
   --disk-type {{ disk-type-example }} \
-  --assign-public-ip
+  --assign-public-ip \
+  --security-group-ids {{ security-group }}
   ```
 
 - Terraform
@@ -219,6 +307,7 @@
     - В окружении `PRODUCTION`.
     - С версией {{ KF }} `2.6`.
     - В новой сети `mynet` с подсетью `mysubnet`.
+    - В новой группе безопасности `mykf-sg`, разрешающей подключение к кластеру из интернета по порту `9091`.
     - С одним хостом класса `{{ host-class }}`, в зоне доступности `{{ zone-id }}`.
     - С одним брокером.
     - С быстрым сетевым хранилищем (`{{ disk-type-example }}`) объемом 10 ГБ.
@@ -226,7 +315,7 @@
 
   Конфигурационный файл для такого кластера выглядит так:
 
-    ```go
+    ```hcl
     terraform {
       required_providers {
         yandex = {
@@ -246,6 +335,7 @@
       environment = "PRODUCTION"
       name        = "mykf"
       network_id  = yandex_vpc_network.mynet.id
+      security_group_ids = [ yandex_vpc_security_group.mykf-sg.id ]
 
       config {
         assign_public_ip = true
@@ -265,8 +355,8 @@
       }
     }
 
-    resource "yandex_vpc_network" "{{ network-name }}" {
-      name = "{{ network-name }}"
+    resource "yandex_vpc_network" "mynet" {
+      name = "mynet"
     }
 
     resource "yandex_vpc_subnet" "mysubnet" {
@@ -274,6 +364,18 @@
       zone           = "{{ zone-id }}"
       network_id     = yandex_vpc_network.mynet.id
       v4_cidr_blocks = ["10.5.0.0/24"]
+    }
+    
+    resource "yandex_vpc_security_group" "mykf-sg" {
+      name       = "mykf-sg"
+      network_id = yandex_vpc_network.mynet.id
+  
+      ingress {
+        description    = "Kafka"
+        port           = 9091
+        protocol       = "TCP"
+        v4_cidr_blocks = [ "0.0.0.0/0" ]
+      }
     }
     ```
 

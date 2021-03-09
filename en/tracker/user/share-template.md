@@ -10,7 +10,7 @@ If you want other users to be able to use your template:
 
 To change the access settings for a template:
 
-1. On the {{ tracker-name }}  top panel, click ![](../../_assets/tracker/tracker-settings.png) → **Manage templates**.
+1. On the {{ tracker-name }} top panel, click ![](../../_assets/tracker/tracker-settings.png) → **Manage templates**.
 
 1. Select an option:
     - **Issues** to edit issue templates.
@@ -42,7 +42,7 @@ Shared templates are available to all users on the **Select** tab.
 
 To share a template with a coworker, send a link to the template:
 
-1. On the {{ tracker-name }}  top panel, click ![](../../_assets/tracker/tracker-settings.png) → **Manage templates**.
+1. On the {{ tracker-name }} top panel, click ![](../../_assets/tracker/tracker-settings.png) → **Manage templates**.
 
 1. Select an option:
     - **Issues** to edit issue templates.
@@ -64,7 +64,7 @@ The user will only be able to see the template if they have [read access](#secti
 
 If you have [read access](#section_nmn_prs_zz) for the desired template, you can use it to create issues and comments. To do this, enable a template:
 
-1. On the {{ tracker-name }}  top panel, click ![](../../_assets/tracker/tracker-settings.png) → **Manage templates**.
+1. On the {{ tracker-name }} top panel, click ![](../../_assets/tracker/tracker-settings.png) → **Manage templates**.
 
 1. Select an option:
     - **Issues** to edit issue templates.

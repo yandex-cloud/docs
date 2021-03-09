@@ -45,6 +45,8 @@
       - Имя БД.
       - Имя пользователя.
       - Пароль пользователя. Минимум 8 символов.
+  1. В блоке **Сетевые настройки** выберите облачную сеть для размещения кластера и группы безопасности для сетевого трафика кластера. Может потребоваться дополнительная [настройка групп безопасности](connect.md#configuring-security-groups) для того, чтобы можно было подключаться к кластеру.
+
   1. В блоке **Хосты** укажите параметры хостов БД, создаваемых вместе с кластером. Чтобы изменить добавленный хост, наведите курсор на строку хоста и нажмите значок ![image](../../_assets/pencil.svg).
   
      При настройке параметров хостов обратите внимание, что:
@@ -95,11 +97,12 @@
         --clickhouse-disk-type <network-hdd | network-ssd | local-ssd> \
         --clickhouse-disk-size <размер хранилища в гигабайтах> \
         --user name=<имя пользователя>,password=<пароль пользователя> \
-        --database name=<имя базы данных>
+        --database name=<имя базы данных> \
+        --security-group-ids <список идентификаторов групп безопасности>
      ```
      
      Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной зоне доступности создано 2 и больше подсетей.
-
+     
 - Terraform
 
   {% include [terraform-definition](../../solutions/_solutions_includes/terraform-definition.md) %}
@@ -118,9 +121,10 @@
 
        ```
        resource "yandex_mdb_clickhouse_cluster" "<имя кластера>" {
-         name        = "<имя кластера>"
-         environment = "<окружение>"
-         network_id  = "<идентификатор сети>"
+         name               = "<имя кластера>"
+         environment        = "<окружение>"
+         network_id         = "<идентификатор сети>"
+         security_group_ids = ["<список групп безопасности>"]
 
          clickhouse {
            resources {
@@ -189,6 +193,7 @@
   - Конфигурацию кластера в параметре `configSpec`.
   - Конфигурацию хостов кластера в одном или нескольких параметрах `hostSpecs`.
   - Идентификатор сети в параметре `networkId`.
+  - Идентификаторы групп безопасности в параметре `securityGroupIds`.
 
   При необходимости включите управление пользователями и базами данных через SQL:
   - `configSpec.sqlUserManagement` — задайте значение `true` для включения режима [управления пользователями через SQL](cluster-users.md#sql-user-management).
@@ -201,6 +206,11 @@
 
 {% endlist %}
 
+{% note warning %}
+
+Если вы указали идентификаторы групп безопасности при создании кластера, то для подключения к нему может потребоваться дополнительная [настройка групп безопасности](connect.md#configuring-security-groups).
+
+{% endnote %}  
 
 ## Примеры {#examples}
 
@@ -218,6 +228,7 @@
   - С именем `mych`.
   - В окружении `production`.
   - В сети `default`.
+  - В группе безопасности `{{ security-group }}`.
   - С одним хостом ClickHouse класса `{{ host-class }}` в подсети `b0rcctk2rvtr8efcch64`, в зоне доступности `ru-central1-c`.
   - С быстрым сетевым хранилищем (`{{ disk-type-example }}`) объемом 20 ГБ.
   - С одним пользователем, `user1`, с паролем `user1user1`.
@@ -236,7 +247,8 @@
        --clickhouse-disk-size 20 \
        --clickhouse-disk-type {{ disk-type-example }} \
        --user name=user1,password=user1user1 \
-       --database name=db1
+       --database name=db1 \
+       --security-group-ids {{ security-group }}
   ```
 
 - Terraform
@@ -245,8 +257,9 @@
     - С именем `mych`.
     - В окружении `PRESTABLE`.
     - В облаке с идентификатором `{{ tf-cloud-id }}`.
-    - В каталоге `myfolder`.
+    - В каталоге с идентификатором `{{ tf-folder-id }}`.
     - В новой сети `mynet`.
+    - В новой группе безопасности `mych-sg`, разрешающей подключение к кластеру из интернета по портам `8443`, `9440`. 
     - С одним хостом класса `{{ host-class }}` в новой подсети `mysubnet`, в зоне доступности `ru-central1-c`. Подсеть `mysubnet` будет иметь диапазон `10.5.0.0/24`.
     - С быстрым сетевым хранилищем объемом 32 ГБ.
     - С именем базы данных `my_db`.
@@ -258,20 +271,21 @@
   provider "yandex" {
     token     = "<OAuth или статический ключ сервисного аккаунта>"
     cloud_id  = "{{ tf-cloud-id }}"
-    folder_id = "${data.yandex_resourcemanager_folder.myfolder.id}"
+    folder_id = "{{ tf-folder-id }}"
     zone      = "ru-central1-c"
   }
 
   resource "yandex_mdb_clickhouse_cluster" "mych" {
-    name        = "mych"
-    environment = "PRESTABLE"
-    network_id  = "${yandex_vpc_network.mynet.id}"
+    name               = "mych"
+    environment        = "PRESTABLE"
+    network_id         = yandex_vpc_network.mynet.id
+    security_group_ids = [ yandex_vpc_security_group.mych-sg.id ]
 
     clickhouse {
       resources {
         resource_preset_id = "{{ host-class }}"
         disk_type_id       = "network-ssd"
-        disk_size          = 32
+        disk_size          = "32"
       }
     }
 
@@ -290,7 +304,7 @@
     host {
       type      = "CLICKHOUSE"
       zone      = "ru-central1-c"
-      subnet_id = "${yandex_vpc_subnet.mysubnet.id}"
+      subnet_id = yandex_vpc_subnet.mysubnet.id
     }
   }
 
@@ -299,8 +313,27 @@
   resource "yandex_vpc_subnet" "mysubnet" {
     name           = "mysubnet"
     zone           = "ru-central1-c"
-    network_id     = "${yandex_vpc_network.mynet.id}"
+    network_id     = yandex_vpc_network.mynet.id
     v4_cidr_blocks = ["10.5.0.0/24"]
+  }
+  
+  resource "yandex_vpc_security_group" "mych-sg" {
+    name       = "mych-sg"
+    network_id = yandex_vpc_network.mynet.id
+
+    ingress {
+      description    = "MCHSSSH"
+      port           = 8443
+      protocol       = "TCP"
+      v4_cidr_blocks = [ "0.0.0.0/0" ]
+    }
+
+    ingress {
+      description    = "MCHSSH2"
+      port           = 9440
+      protocol       = "TCP"
+      v4_cidr_blocks = [ "0.0.0.0/0" ]
+    }
   }
   ```
 

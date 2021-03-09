@@ -29,7 +29,7 @@ Find changes made by a specific user.
 View configuration changes of a particular type.
 
 1. **By component**
-ПView component changes: creation, deletion, field changes, etc.
+View component changes: creation, deletion, field changes, etc.
 
 1. **By date**
 Find changes for a specific timeframe. You can specify just the start and end dates, as well as the whole interval.

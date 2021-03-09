@@ -20,7 +20,7 @@ The cost of using {{ tracker-name }} [is based on the number of users with full 
 
 1. Log in to your [Yandex account]({{ link-passport }}). If you don't have an account yet, [create one]({{ support-passport-create }}).
 
-1. Go to the [{{ tracker-name }} page ]({{ link-tracker-promo }}) and click **Free trial**. 
+1. Go to the [{{ tracker-name }} page ]({{ link-tracker-project }}) and click **Free trial**. 
 
 1. If your user account is added to several {{ yandex-cloud }} organizations, select the organization for which you want to activate {{ tracker-name }}.
 

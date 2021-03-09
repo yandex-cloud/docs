@@ -38,6 +38,7 @@ default:
   api-gw-full-name: Yandex API Gateway
   lockbox-full-name: Yandex Lockbox
   tracker-full-name: Yandex Tracker
+  alb-full-name: Yandex Application Load Balancer
   iam-name: Identity and Access Management
   ig-name: Instance Groups
   resmgr-name: Resource Manager
@@ -78,6 +79,7 @@ default:
   api-gw-name: API Gateway
   lockbox-name: Lockbox
   tracker-name: Tracker
+  alb-name: Application Load Balancer
   iam-short-name: IAM
   resmgr-short-name: Resource Manager
   compute-short-name: Compute Cloud
@@ -169,7 +171,7 @@ default:
   disk-type-example: network-ssd
   PG: PostgreSQL
   CH: ClickHouse
-  mch-hs-version: 20.1
+  mch-hs-version: 21.1
   MG: MongoDB
   mmg-backup-retention: 7
   mmg-backup-retention-min: 7

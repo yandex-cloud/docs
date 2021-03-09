@@ -91,7 +91,7 @@ Values responsible for date and time can be displayed in the full (day, month, y
 
 If you want to change the display type for these values, do the following:
 
-1. On the {{ tracker-name }}  top panel, click ![](../../_assets/tracker/tracker-settings.png)  → **Personal settings** .
+1. On the {{ tracker-name }} top panel, click ![](../../_assets/tracker/tracker-settings.png) → **Personal settings**.
 
 
     {% note info %}
@@ -108,7 +108,7 @@ If you want to change the display type for these values, do the following:
 
 You can choose how usernames are displayed on the issue page.
 
-1. On the {{ tracker-name }}  top panel, click ![](../../_assets/tracker/tracker-settings.png)  → **Personal settings** .
+1. On the {{ tracker-name }} top panel, click ![](../../_assets/tracker/tracker-settings.png) → **Personal settings**.
 
 
     {% note info %}

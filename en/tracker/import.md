@@ -24,7 +24,7 @@ If you are already using a project management service, use the API to transfer y
 
 1. You can also create [issue boards](manager/create-agile-board.md) and [sprints](manager/create-agile-sprint.md) if necessary.
 
-1. Import data to {{ tracker-name }} [using the API](https://tech.yandex.com/connect/tracker/api/concepts/import/import-ticket-docpage/).
+1. Import data to {{ tracker-name }} using the API<!-- [using the API](https://tech.yandex.com/connect/tracker/api/concepts/import/import-ticket-docpage/)-->.
 
 
 [Contact support](troubleshooting.md)

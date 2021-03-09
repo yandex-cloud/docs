@@ -10,6 +10,7 @@ default:
   ver: v2
   link-tracker: https://tracker.yandex.com/
   link-tracker-ya: https://st.yandex-team.ru/
+  link-tracker-project: https://yandex.com/tracker/
   link-connect: https://connect.yandex.com/
   link-connect-main: https://connect.yandex.com/portal/home
   link-admin-fields: https://tracker.yandex.com/admin/fields

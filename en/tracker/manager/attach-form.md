@@ -18,7 +18,7 @@ You can use Yandex.Forms to set up your form to act as a template for creating i
 
 1. Configure the name of the form. This name will be displayed in the {{ tracker-name }} interface during issue creation.
 
-2. Set up [{{ tracker-name }} integration](https://yandex.com/support/connect-forms/common/create-task.html) for your form.
+2. Set up [{{ tracker-name }} integration](https://yandex.com/support/connect-forms/common/notifications.html#notifications__section_rvr_4jc_tbb) for your form.
 
 3. [Publish](https://yandex.com/support/connect-forms/common/publish.html#publish__section_lmk_gvb_tbb) the form and copy the link to it from the **Link** field.
 

@@ -19,6 +19,10 @@ items:
         href: solutions/docker-compose.md
       - name: Creating an instance group from a Container Optimized Image
         href: solutions/ig-create.md
+      - name: >-
+          Creating an instance group from a Container Optimized Image with
+          multiple Docker containers
+        href: solutions/ig-with-containers.md
       - name: Editing a VM with Container Optimized Image
         href: solutions/vm-update.md
       - name: Configuring data output from a Docker container to a serial port

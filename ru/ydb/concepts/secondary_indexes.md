@@ -33,6 +33,7 @@
 {% list tabs %}
 - Cli
 
+Создание:
 ```bash
 $ {{ ydb-cli }} -e <эндпоинт> -d <база данных> table index add global --index-name title_index --columns title series
 ┌────────────────────────────────────────┬───────┬────────┐

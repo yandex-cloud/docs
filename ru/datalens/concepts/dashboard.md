@@ -81,6 +81,8 @@ _Виджет_ – это элемент дашборда. Между видже
 
 {% include [share-note](../../_includes/datalens/datalens-share-note.md) %} 
 
+ 
+
 ## Управление доступом {#access-management}
 
 Вы можете настроить права доступа к дашборду. Подробнее в разделе [{#T}](../security/index.md).

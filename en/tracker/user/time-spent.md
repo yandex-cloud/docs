@@ -1,6 +1,6 @@
 # Register time spent
 
-{{ tracker-name }}  can keep a record of the time you spent on an issue. Besides the assignee, other users can also record the time they spent.
+{{ tracker-name }} can keep a record of the time you spent on an issue. Besides the assignee, other users can also record the time they spent.
 
 ## Time tracking {#section_y1t_gkh_vcb}
 
