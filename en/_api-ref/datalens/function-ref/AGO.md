@@ -34,8 +34,8 @@ See also [AT_DATE](AT_DATE.md), [LAG](LAG.md).
 **Argument types:**
 - `measure` — `Any`
 - `date_dimension` — `Date | Datetime`
-- `unit` — `Number (whole) | String`
-- `number` — `Number (whole)`
+- `unit` — `Integer | String`
+- `number` — `Integer`
 
 
 **Return type**: Same type as (`measure`)

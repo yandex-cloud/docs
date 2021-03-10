@@ -28,7 +28,7 @@ Supported units:
 **Argument types:**
 - `datetime` — `Date | Datetime`
 - `unit` — `String`
-- `number` — `Number (whole)`
+- `number` — `Integer`
 
 
 **Return type**: Same type as (`datetime`)

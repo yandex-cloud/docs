@@ -20,7 +20,7 @@ Returns the average of all values. Applicable to numeric data types.
 - `value` — `Any`
 
 
-**Return type**: `Number (decimal)`
+**Return type**: `Fractional number`
 
 #### Examples {#examples}
 

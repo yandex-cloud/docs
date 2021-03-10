@@ -17,11 +17,11 @@ number_1 / number_2
 Divides the number `number_1` by the number `number_2`.
 
 **Argument types:**
-- `number_1` — `Number`
-- `number_2` — `Number`
+- `number_1` — `Fractional number | Integer`
+- `number_2` — `Fractional number | Integer`
 
 
-**Return type**: `Number (decimal)`
+**Return type**: `Fractional number`
 
 #### Examples {#examples}
 

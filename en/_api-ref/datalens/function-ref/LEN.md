@@ -20,7 +20,7 @@ Returns the number of characters in the string `string`.
 - `string` — `String`
 
 
-**Return type**: `Number (whole)`
+**Return type**: `Integer`
 
 #### Examples {#examples}
 

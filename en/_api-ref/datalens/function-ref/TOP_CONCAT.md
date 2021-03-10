@@ -17,8 +17,8 @@ TOP_CONCAT( expression, amount [ , separator ] )
 Returns a string that contains top `amount` grouped values of `expression` delimited by `separator` (if `separator` is not specified, a comma is used).
 
 **Argument types:**
-- `expression` — `Boolean | Date | Datetime | Geopoint | Geopolygon | Number | String | UUID`
-- `amount` — `Number (whole)`
+- `expression` — `Boolean | Date | Datetime | Fractional number | Geopoint | Geopolygon | Integer | String | UUID`
+- `amount` — `Integer`
 - `separator` — `String`
 
 

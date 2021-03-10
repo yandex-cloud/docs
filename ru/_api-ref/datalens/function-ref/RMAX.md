@@ -36,7 +36,7 @@ RMAX( value [ , direction ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] 
 См. также [MAX](MAX.md), [MMAX](MMAX.md).
 
 **Типы аргументов:**
-- `value` — `Логический | Дата | Дата и время | Число | Строка | UUID`
+- `value` — `Логический | Дата | Дата и время | Дробное число | Целое число | Строка | UUID`
 - `direction` — `Строка`
 
 

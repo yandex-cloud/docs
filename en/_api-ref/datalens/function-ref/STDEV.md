@@ -17,10 +17,10 @@ STDEV( value )
 Returns the statistical standard deviation of all values in the expression based on a selection from the population.
 
 **Argument types:**
-- `value` — `Number`
+- `value` — `Fractional number | Integer`
 
 
-**Return type**: `Number (decimal)`
+**Return type**: `Fractional number`
 
 #### Examples {#examples}
 

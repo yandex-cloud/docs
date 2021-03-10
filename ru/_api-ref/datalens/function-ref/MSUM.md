@@ -36,7 +36,7 @@ MSUM( value, rows_1 [ , rows_2 ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY .
 См. также [SUM](SUM.md), [RSUM](RSUM.md).
 
 **Типы аргументов:**
-- `value` — `Число`
+- `value` — `Дробное число | Целое число`
 - `rows_1` — `Целое число`
 - `rows_2` — `Целое число`
 

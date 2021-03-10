@@ -17,7 +17,7 @@ AVG( value )
 Returns the average of all values. Applicable to numeric data types as well as `Date | Datetime`.
 
 **Argument types:**
-- `value` — `Date | Datetime | Number`
+- `value` — `Date | Datetime | Fractional number | Integer`
 
 
 **Return type**: Depends on argument types

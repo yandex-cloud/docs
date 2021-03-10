@@ -20,7 +20,7 @@ Returns the approximate number of unique values in the group. Faster than [COUNT
 - `value` — `Any`
 
 
-**Return type**: `Number (whole)`
+**Return type**: `Integer`
 
 #### Examples {#examples}
 

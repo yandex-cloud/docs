@@ -33,7 +33,7 @@ If the additional parameter `firstday` is specified, this day is considered the 
 - `firstday` — `String`
 
 
-**Return type**: `Number (whole)`
+**Return type**: `Integer`
 
 {% note info %}
 

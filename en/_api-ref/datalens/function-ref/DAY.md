@@ -20,7 +20,7 @@ Returns the number of the day in the month of the specified date `datetime`.
 - `datetime` — `Date | Datetime`
 
 
-**Return type**: `Number (whole)`
+**Return type**: `Integer`
 
 #### Examples {#examples}
 

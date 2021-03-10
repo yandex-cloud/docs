@@ -36,7 +36,7 @@ Window functions with a similar behavior: [RCOUNT](RCOUNT.md), [RMIN](RMIN.md), 
 See also [SUM](SUM.md), [MSUM](MSUM.md).
 
 **Argument types:**
-- `value` — `Number`
+- `value` — `Fractional number | Integer`
 - `direction` — `String`
 
 

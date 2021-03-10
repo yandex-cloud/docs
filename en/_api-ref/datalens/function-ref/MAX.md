@@ -23,7 +23,7 @@ If `value`:
 
 
 **Argument types:**
-- `value` — `Boolean | Date | Datetime | Number | String | UUID`
+- `value` — `Boolean | Date | Datetime | Fractional number | Integer | String | UUID`
 
 
 **Return type**: Same type as (`value`)

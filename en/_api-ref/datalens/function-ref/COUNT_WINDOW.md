@@ -20,7 +20,7 @@ Returns the number of items in the specified window.
 - `value` — `Any`
 
 
-**Return type**: `Number (whole)`
+**Return type**: `Integer`
 
 #### Examples {#examples}
 
