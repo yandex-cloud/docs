@@ -17,10 +17,10 @@ VARP( value )
 Returns the statistical variance of all values in an expression across the entire population.
 
 **Argument types:**
-- `value` — `Number`
+- `value` — `Fractional number | Integer`
 
 
-**Return type**: `Number (decimal)`
+**Return type**: `Fractional number`
 
 #### Examples {#examples}
 

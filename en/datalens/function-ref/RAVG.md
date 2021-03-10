@@ -36,11 +36,11 @@ Window functions with a similar behavior: [RSUM](RSUM.md), [RCOUNT](RCOUNT.md), 
 See also [AVG](AVG.md), [MAVG](MAVG.md).
 
 **Argument types:**
-- `value` — `Number`
+- `value` — `Fractional number | Integer`
 - `direction` — `String`
 
 
-**Return type**: `Number (whole)`
+**Return type**: `Integer`
 
 {% note info %}
 

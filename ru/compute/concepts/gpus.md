@@ -1,8 +1,16 @@
-# Графические ускорители (GPU)
+# Графические ускорители GPU и vGPU
 
-{{ compute-full-name }} предоставляет графические ускорители (GPU) в составе графических карт. GPU обрабатывают некоторые типы данных эффективнее, чем vCPU, и могут использоваться для сложных вычислений.
+{{ compute-short-name }} предоставляет графические ускорители (GPU) и виртуальные графические ускорители (vGPU) в составе графических карт. GPU обрабатывают некоторые типы данных эффективнее, чем vCPU, и могут использоваться для сложных вычислений.
 
-В {{ compute-short-name }} доступны графические карты [NVIDIA® Tesla® V100](https://www.nvidia.com/ru-ru/data-center/tesla-v100/) с 32 ГБ памяти HBM2.
+В {{ compute-short-name }} доступны графические карты [NVIDIA® Tesla® V100](https://www.nvidia.com/ru-ru/data-center/tesla-v100/) с 32 ГБ памяти HBM2 (High Bandwidth Memory).
+
+{% note warning %}
+
+В отличие от vGPU, GPU работает в режиме [TCC](https://docs.nvidia.com/nsight-visual-studio-edition/reference/index.html#tesla-compute-cluster), который не использует графические драйверы операционной системы. 
+
+{% endnote %}
+
+## Графические ускорители (GPU)
 
 Графическая карта NVIDIA® Tesla® V100 содержит 5120 ядер CUDA®, позволяющих выполнять [высокопроизводительные вычисления](https://www.nvidia.com/ru-ru/high-performance-computing/) (High Performance Computing, HPC), а также 640 ядер Tensor, позволяющих решать задачи глубокого обучения (Deep Learning, DL).
 
@@ -10,7 +18,7 @@
 
 Контролировать GPU и RAM можно непосредственно с виртуальной машины.
 
-## Конфигурации виртуальных машин {#config}
+### Конфигурации виртуальных машин {#config}
 
 Доступные конфигурации вычислительных ресурсов:
 
@@ -33,13 +41,13 @@
 
 Ознакомиться с организационными и техническими ограничениями виртуальных машин можно в разделе [Квоты и лимиты](../concepts/limits.md).
 
-## Образы операционных систем {#os}
+### Образы операционных систем {#os}
 
 {% include [gpu-os](../../_includes/compute/gpu-os.md) %}
 
 ## Виртуальные графические ускорители (vGPU) {#vgpu}
 
-{{ compute-full-name }} предоставляет возможность виртуализации графических ускорителей (GPU). Виртуализация машин с GPU основана на технологии [NVIDIA® vGPU](https://www.nvidia.com/ru-ru/data-center/virtualization/).
+{{ compute-short-name }} предоставляет возможность виртуализации графических ускорителей (GPU). Виртуализация машин с GPU основана на технологии [NVIDIA® vGPU](https://www.nvidia.com/ru-ru/data-center/virtualization/).
 
 Технология NVIDIA® vGPU позволяет использовать карты с GPU как для решения графических, так и для вычислительных задач на vGPU. Для этого вам понадобятся соответствующие [лицензии](https://www.nvidia.com/content/dam/en-zz/Solutions/design-visualization/solutions/resources/documents1/Virtual-GPU-Packaging-and-Licensing-Guide.pdf).
 
@@ -60,13 +68,16 @@
 
 ### Конфигурации виртуальных машин с vGPU {#config-vgpu}
 
-Доступная конфигурация ВМ с vGPU:
-
-* Платформа Intel Broadwell with NVIDIA® vGPU Tesla® V100 8G (`vgpu-standard-v1`):
+Для ВМ с vGPU доступна конфигурация на платформе Intel Broadwell with NVIDIA® vGPU Tesla® V100 8G (`vgpu-standard-v1`):
 
   Количество vGPU | Количество vCPU | Объем RAM, ГБ | Объем GPU RAM, ГБ
   --- | --- | --- | ---
   1 | 4 | 12 | 8
+
+## Сравнение GPU и vGPU
+
+{% include [gpu-vs-vgpu](../../_includes/compute/gpu-comparation.md) %}
+
 
 ## Смотрите также {#see-also}
 

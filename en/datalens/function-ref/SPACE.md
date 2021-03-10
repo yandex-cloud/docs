@@ -17,7 +17,7 @@ SPACE( value )
 Returns a string with the specified number of spaces.
 
 **Argument types:**
-- `value` — `Number (whole)`
+- `value` — `Integer`
 
 
 **Return type**: `String`

@@ -17,7 +17,7 @@ COUNT_IF( expression, condition [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILT
 Returns the number of items in the specified window meeting the `expression` condition.
 
 **Argument types:**
-- `expression` — `Number`
+- `expression` — `Fractional number | Integer`
 - `condition` — `Boolean`
 
 

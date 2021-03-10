@@ -17,10 +17,10 @@ COT( number )
 Returns the cotangent of `number` in radians.
 
 **Argument types:**
-- `number` — `Number`
+- `number` — `Fractional number | Integer`
 
 
-**Return type**: `Number (decimal)`
+**Return type**: `Fractional number`
 
 #### Examples {#examples}
 

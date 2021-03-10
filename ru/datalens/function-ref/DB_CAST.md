@@ -42,7 +42,7 @@ DB_CAST( expression, native_type [ , param_1 [ , param_2 ] ] )
 
 
 **Типы аргументов:**
-- `expression` — `Число | Строка`
+- `expression` — `Дробное число | Целое число | Строка`
 - `native_type` — `Строка`
 - `param_1` — `Любой`
 - `param_2` — `Любой`

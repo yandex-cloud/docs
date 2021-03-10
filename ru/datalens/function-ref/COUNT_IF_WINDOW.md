@@ -17,7 +17,7 @@ COUNT_IF( expression, condition [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILT
 Возвращает количество элементов в заданном окне, которые удовлетворяют условию `expression`.
 
 **Типы аргументов:**
-- `expression` — `Число`
+- `expression` — `Дробное число | Целое число`
 - `condition` — `Логический`
 
 

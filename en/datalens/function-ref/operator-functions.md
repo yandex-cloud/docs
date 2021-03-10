@@ -19,7 +19,7 @@ Returns the remainder from dividing the first number `number_1` by the second nu
 
 If both arguments are numbers, it returns the result by multiplying `value_1` by `value_2`.
 
-If one of the arguments is `String` and the other is `Number (whole)`, it returns the string repeated the specified number of times.
+If one of the arguments is `String` and the other is `Integer`, it returns the string repeated the specified number of times.
 
 
 
@@ -29,12 +29,12 @@ If one of the arguments is `String` and the other is `Number (whole)`, it return
 
 Behaves differently depending on the argument types. Possible options are listed in the table:
 
-| Type of `value_1`   | Type of `value_2`   | Return value                                                                                                                                                                     |
-|:--------------------|:--------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `Number`            | `Number`            | The sum of the numbers `value_1` and `value_2`.                                                                                                                                  |
-| `Date`              | `Number`            | The date that is `value_2` days greater than `value_1` (rounded down to an integer number of days).                                                                              |
-| `Datetime`          | `Number`            | The date with time, `value_2` days greater than `value_1`. If `value_2` contains a fractional part, it is converted hours (`1/24`), minutes (`1/1440`), and seconds (`1/86400`). |
-| `String`            | `String`            | The merging (concatenation) of strings `value_1` and `value_2`.                                                                                                                  |
+| Type of `value_1`                             | Type of `value_2`                             | Return value                                                                                                                                                                     |
+|:----------------------------------------------|:----------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| <code>Fractional number &#124; Integer</code> | <code>Fractional number &#124; Integer</code> | The sum of the numbers `value_1` and `value_2`.                                                                                                                                  |
+| `Date`                                        | <code>Fractional number &#124; Integer</code> | The date that is `value_2` days greater than `value_1` (rounded down to an integer number of days).                                                                              |
+| `Datetime`                                    | <code>Fractional number &#124; Integer</code> | The date with time, `value_2` days greater than `value_1`. If `value_2` contains a fractional part, it is converted hours (`1/24`), minutes (`1/1440`), and seconds (`1/86400`). |
+| `String`                                      | `String`                                      | The merging (concatenation) of strings `value_1` and `value_2`.                                                                                                                  |
 
 Changing the order of arguments does not affect the result.
 
@@ -46,13 +46,13 @@ Changing the order of arguments does not affect the result.
 
 Behaves differently depending on the argument types. Possible options are listed in the table:
 
-| Type of `value_1`   | Type of `value_2`   | Return value                                                                                                                                                                                                       |
-|:--------------------|:--------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `Number`            | `Number`            | The difference between the numbers `value_1` and `value_2`.                                                                                                                                                        |
-| `Date`              | `Number`            | The date that is `value_2` days smaller than `value_1` (rounded down to an integer number of days).                                                                                                                |
-| `Datetime`          | `Number`            | The date with time, `value_2` days smaller than `value_1`. If `value_2` contains a fractional part, it is converted to hours (`1/24`), minutes (`1/1440`), and seconds (`1/86400`).                                |
-| `Date`              | `Date`              | The difference between two dates in days.                                                                                                                                                                          |
-| `Datetime`          | `Datetime`          | The difference between two dates in days: the integer part — the number of whole days, the fractional part — the number of hours, minutes and seconds expressed as a fraction of the whole day (1 hour is '1/24'). |
+| Type of `value_1`                             | Type of `value_2`                             | Return value                                                                                                                                                                                                       |
+|:----------------------------------------------|:----------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| <code>Fractional number &#124; Integer</code> | <code>Fractional number &#124; Integer</code> | The difference between the numbers `value_1` and `value_2`.                                                                                                                                                        |
+| `Date`                                        | <code>Fractional number &#124; Integer</code> | The date that is `value_2` days smaller than `value_1` (rounded down to an integer number of days).                                                                                                                |
+| `Datetime`                                    | <code>Fractional number &#124; Integer</code> | The date with time, `value_2` days smaller than `value_1`. If `value_2` contains a fractional part, it is converted to hours (`1/24`), minutes (`1/1440`), and seconds (`1/86400`).                                |
+| `Date`                                        | `Date`                                        | The difference between two dates in days.                                                                                                                                                                          |
+| `Datetime`                                    | `Datetime`                                    | The difference between two dates in days: the integer part — the number of whole days, the fractional part — the number of hours, minutes and seconds expressed as a fraction of the whole day (1 hour is '1/24'). |
 
 
 

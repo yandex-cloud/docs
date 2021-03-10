@@ -40,7 +40,7 @@ See also [COUNT](COUNT.md), [MCOUNT](MCOUNT.md).
 - `direction` — `String`
 
 
-**Return type**: `Number (whole)`
+**Return type**: `Integer`
 
 {% note info %}
 

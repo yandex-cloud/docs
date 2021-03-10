@@ -17,10 +17,10 @@ RADIANS( degrees )
 Converts `degrees` degrees to radians.
 
 **Argument types:**
-- `degrees` — `Number`
+- `degrees` — `Fractional number | Integer`
 
 
-**Return type**: `Number (decimal)`
+**Return type**: `Fractional number`
 
 #### Examples {#examples}
 

@@ -16,7 +16,7 @@ PI()
 #### Description {#description}
 Returns PI. The accuracy depends on the data source.
 
-**Return type**: `Number (decimal)`
+**Return type**: `Fractional number`
 
 #### Examples {#examples}
 

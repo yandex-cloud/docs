@@ -35,7 +35,7 @@ If you select `"dayofweek"`, you can use the additional parameter `firstday` to 
 - `firstday` — `String`
 
 
-**Return type**: `Number (whole)`
+**Return type**: `Integer`
 
 {% note info %}
 

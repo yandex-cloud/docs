@@ -191,7 +191,7 @@ items:
             href: concepts/vm-platforms.md
           - name: Уровни производительности vCPU
             href: concepts/performance-levels.md
-          - name: Графические ускорители (GPU)
+          - name: Графические ускорители GPU и vGPU
             href: concepts/gpus.md
           - name: Прерываемые виртуальные машины
             href: concepts/preemptible-vm.md

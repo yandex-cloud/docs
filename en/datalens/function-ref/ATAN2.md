@@ -17,11 +17,11 @@ ATAN2( x, y )
 Returns the arctangent in radians for the specified coordinates `x` and `y`.
 
 **Argument types:**
-- `x` — `Number`
-- `y` — `Number`
+- `x` — `Fractional number | Integer`
+- `y` — `Fractional number | Integer`
 
 
-**Return type**: `Number (decimal)`
+**Return type**: `Fractional number`
 
 #### Examples {#examples}
 

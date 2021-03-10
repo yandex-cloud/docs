@@ -33,7 +33,7 @@ See also [AGO](AGO.md) for a non-window function alternative.
 
 **Argument types:**
 - `value` — `Any`
-- `offset` — `Number (whole)`
+- `offset` — `Integer`
 - `default` — `Any`
 
 

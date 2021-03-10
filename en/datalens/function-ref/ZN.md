@@ -17,7 +17,7 @@ ZN( expression )
 Returns `expression` if it's not `NULL`. Otherwise returns 0.
 
 **Argument types:**
-- `expression` — `Number`
+- `expression` — `Fractional number | Integer`
 
 
 **Return type**: Same type as (`expression`)

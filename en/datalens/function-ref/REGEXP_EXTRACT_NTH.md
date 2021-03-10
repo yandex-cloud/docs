@@ -19,7 +19,7 @@ Returns a substring `string` that matches the regular expression pattern `patter
 **Argument types:**
 - `string` — `String`
 - `pattern` — `String`
-- `match_index` — `Number (whole)`
+- `match_index` — `Integer`
 
 
 **Return type**: `String`

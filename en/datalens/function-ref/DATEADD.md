@@ -27,8 +27,8 @@ The `unit` argument takes the following values:
 
 **Argument types:**
 - `datetime` — `Date | Datetime`
-- `unit` — `Number (whole) | String`
-- `number` — `Number (whole)`
+- `unit` — `Integer | String`
+- `number` — `Integer`
 
 
 **Return type**: Same type as (`datetime`)

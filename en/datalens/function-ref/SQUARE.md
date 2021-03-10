@@ -17,7 +17,7 @@ SQUARE( number )
 Returns the number `number` raised to the power of 2.
 
 **Argument types:**
-- `number` — `Number`
+- `number` — `Fractional number | Integer`
 
 
 **Return type**: Same type as (`number`)

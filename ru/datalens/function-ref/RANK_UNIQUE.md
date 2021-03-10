@@ -21,7 +21,7 @@ RANK_UNIQUE( value [ , direction ] [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE F
 См. также [RANK](RANK.md), [RANK_DENSE](RANK_DENSE.md), [RANK_PERCENTILE](RANK_PERCENTILE.md).
 
 **Типы аргументов:**
-- `value` — `Логический | Дата | Дата и время | Число | Строка | UUID`
+- `value` — `Логический | Дата | Дата и время | Дробное число | Целое число | Строка | UUID`
 - `direction` — `Строка`
 
 

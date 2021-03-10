@@ -17,11 +17,11 @@ POWER( base, power )
 Raises `base` to the power of `power`.
 
 **Argument types:**
-- `base` — `Number`
-- `power` — `Number`
+- `base` — `Fractional number | Integer`
+- `power` — `Fractional number | Integer`
 
 
-**Return type**: `Number (decimal)`
+**Return type**: `Fractional number`
 
 #### Examples {#examples}
 

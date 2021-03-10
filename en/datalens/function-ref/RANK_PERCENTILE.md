@@ -21,11 +21,11 @@ If `direction` is `"desc"` or omitted, then ranking is done from greatest to lea
 See also [RANK](RANK.md), [RANK_DENSE](RANK_DENSE.md), [RANK_UNIQUE](RANK_UNIQUE.md).
 
 **Argument types:**
-- `value` — `Boolean | Date | Datetime | Number | String | UUID`
+- `value` — `Boolean | Date | Datetime | Fractional number | Integer | String | UUID`
 - `direction` — `String`
 
 
-**Return type**: `Number (decimal)`
+**Return type**: `Fractional number`
 
 {% note info %}
 

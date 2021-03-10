@@ -18,8 +18,8 @@ Rounds the number `number` to the number of decimal digits specified in `precisi
 If the number `precision` is omitted, `number` is rounded to the nearest integer.
 
 **Argument types:**
-- `number` — `Number`
-- `precision` — `Number (whole)`
+- `number` — `Fractional number | Integer`
+- `precision` — `Integer`
 
 
 **Return type**: Depends on argument types

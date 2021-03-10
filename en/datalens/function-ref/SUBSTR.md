@@ -20,8 +20,8 @@ If an additional argument `length` is specified, a substring of the specified le
 
 **Argument types:**
 - `string` — `String`
-- `from_index` — `Number (whole)`
-- `length` — `Number (whole)`
+- `from_index` — `Integer`
+- `length` — `Integer`
 
 
 **Return type**: `String`

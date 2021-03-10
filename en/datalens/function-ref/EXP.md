@@ -17,10 +17,10 @@ EXP( number )
 Returns the result of raising the number 'e' to the power of `number`.
 
 **Argument types:**
-- `number` — `Number`
+- `number` — `Fractional number | Integer`
 
 
-**Return type**: `Number (decimal)`
+**Return type**: `Fractional number`
 
 #### Examples {#examples}
 

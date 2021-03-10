@@ -17,11 +17,11 @@ LOG( value, base )
 Returns the logarithm of `value` to base `base`. Returns 'NULL' if the number `value` is less than or equal to 0.
 
 **Argument types:**
-- `value` — `Number`
-- `base` — `Number`
+- `value` — `Fractional number | Integer`
+- `base` — `Fractional number | Integer`
 
 
-**Return type**: `Number (decimal)`
+**Return type**: `Fractional number`
 
 #### Examples {#examples}
 

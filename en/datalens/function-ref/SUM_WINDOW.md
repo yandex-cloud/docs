@@ -17,7 +17,7 @@ SUM( value [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )
 Returns the sum of all expression values. Applicable to numeric data types only.
 
 **Argument types:**
-- `value` — `Number`
+- `value` — `Fractional number | Integer`
 
 
 **Return type**: Same type as (`value`)

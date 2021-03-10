@@ -21,10 +21,10 @@ If the `start_index` option is specified, the search starts from the specified p
 **Argument types:**
 - `string` — `String`
 - `substring` — `String`
-- `start_index` — `Number (whole)`
+- `start_index` — `Integer`
 
 
-**Return type**: `Number (whole)`
+**Return type**: `Integer`
 
 #### Examples {#examples}
 

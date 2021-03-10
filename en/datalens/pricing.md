@@ -3,12 +3,6 @@ editable: false
 ---
 # Pricing for {{ datalens-full-name }}
 
-{% note warning %}
-
-Starting February 1, 2021, [new pricing](#prices-after-1-2021) takes effect for {{ datalens-short-name }}.
-
-{% endnote %}
-
 In {{ datalens-short-name }}, you pay for:
 
 * The number of ten-minute sessions to the data source. The session considers requests from charts and dashboards.
@@ -27,38 +21,6 @@ Additional {{ datalens-short-name }} features that are available in {{ marketpla
 {% endnote %}
 
 ## Prices and features {#prices}
-
-### Pricing plans valid until February 1, 2021 {#prices-before-1-2021}
-
-{% list tabs %}
-
-- Prices in USD
-
-  | Service | Free | Standard |
-  | ----- | ----- | ----- |
-  | Monthly price, without VAT | Free | $24.358974 |
-  | Number of sessions per month | 1000 | 10,000 |
-  | Additional sessions,<br/> per 10 sessions, without VAT | - | $0.024358 |
-  | External sessions multiplier | x 10 | x 10 |
-  | Database size for materialized data, GB | 0.5 | 10 |
-  | Geocoding* | - | ✔ |
-
-- Prices in roubles
-
-  | Service | Free | Standard |
-  | ----- | ----- | ----- |
-  | Monthly price, with VAT | Free | ₽1900 |
-  | Number of sessions per month | 1000 | 10,000 |
-  | Additional sessions,<br/> per 10 sessions, with VAT | - | ₽1.90 |
-  | External sessions multiplier | x 10 | x 10 |
-  | Database size for materialized data, GB | 0.5 | 10 |
-  | Geocoding* | - | ✔ |
-
-{% endlist %}
-
-\* Geocoding functions: [GEOCODE](function-ref/GEOCODE.md) and [GEOINFO](function-ref/GEOINFO.md).
-
-### Pricing effective as of February 1, 2021 {#prices-after-1-2021}
 
 {% list tabs %}
 
@@ -87,12 +49,6 @@ Additional {{ datalens-short-name }} features that are available in {{ marketpla
 {% endlist %}
 
 \* Geocoding functions: [GEOCODE](function-ref/GEOCODE.md) and [GEOINFO](function-ref/GEOINFO.md).
-
-For users who had a {{ datalens-short-name }} instance that was created before February 1, 2021, the new pricing policy will come into effect at the start of the new reporting period in February.
-
-> For example, a user activated {{ datalens-short-name }} on December 15, 2020.
-The new reporting period starts on January 15, 2021 with the [old pricing plan](#prices-before-1-2021), and ends on February 14, 2021.
-The [new plan](#prices-after-1-2021) takes effect on February 15, 2021, when the next reporting period starts.
 
 You can check the reporting period of your {{ datalens-short-name }} instance in your [billing account](https://datalens.yandex.com/billing).
 

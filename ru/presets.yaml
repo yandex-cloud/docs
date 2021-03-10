@@ -42,6 +42,7 @@ default:
   lockbox-full-name: Yandex Lockbox
   tracker-full-name: Yandex Tracker
   alb-full-name: Yandex Application Load Balancer
+  dns-full-name: Yandex Cloud DNS
   iam-name: Identity and Access Management
   ig-name: Instance Groups
   resmgr-name: Resource Manager
@@ -83,6 +84,7 @@ default:
   lockbox-name: Lockbox
   tracker-name: Tracker
   alb-name: Application Load Balancer
+  dns-name: Cloud DNS
   iam-short-name: IAM
   resmgr-short-name: Resource Manager
   compute-short-name: Compute Cloud

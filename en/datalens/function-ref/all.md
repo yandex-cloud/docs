@@ -19,7 +19,7 @@ Returns the remainder from dividing the first number `number_1` by the second nu
 
 If both arguments are numbers, it returns the result by multiplying `value_1` by `value_2`.
 
-If one of the arguments is `String` and the other is `Number (whole)`, it returns the string repeated the specified number of times.
+If one of the arguments is `String` and the other is `Integer`, it returns the string repeated the specified number of times.
 
 
 
@@ -29,12 +29,12 @@ If one of the arguments is `String` and the other is `Number (whole)`, it return
 
 Behaves differently depending on the argument types. Possible options are listed in the table:
 
-| Type of `value_1`   | Type of `value_2`   | Return value                                                                                                                                                                     |
-|:--------------------|:--------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `Number`            | `Number`            | The sum of the numbers `value_1` and `value_2`.                                                                                                                                  |
-| `Date`              | `Number`            | The date that is `value_2` days greater than `value_1` (rounded down to an integer number of days).                                                                              |
-| `Datetime`          | `Number`            | The date with time, `value_2` days greater than `value_1`. If `value_2` contains a fractional part, it is converted hours (`1/24`), minutes (`1/1440`), and seconds (`1/86400`). |
-| `String`            | `String`            | The merging (concatenation) of strings `value_1` and `value_2`.                                                                                                                  |
+| Type of `value_1`                             | Type of `value_2`                             | Return value                                                                                                                                                                     |
+|:----------------------------------------------|:----------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| <code>Fractional number &#124; Integer</code> | <code>Fractional number &#124; Integer</code> | The sum of the numbers `value_1` and `value_2`.                                                                                                                                  |
+| `Date`                                        | <code>Fractional number &#124; Integer</code> | The date that is `value_2` days greater than `value_1` (rounded down to an integer number of days).                                                                              |
+| `Datetime`                                    | <code>Fractional number &#124; Integer</code> | The date with time, `value_2` days greater than `value_1`. If `value_2` contains a fractional part, it is converted hours (`1/24`), minutes (`1/1440`), and seconds (`1/86400`). |
+| `String`                                      | `String`                                      | The merging (concatenation) of strings `value_1` and `value_2`.                                                                                                                  |
 
 Changing the order of arguments does not affect the result.
 
@@ -46,13 +46,13 @@ Changing the order of arguments does not affect the result.
 
 Behaves differently depending on the argument types. Possible options are listed in the table:
 
-| Type of `value_1`   | Type of `value_2`   | Return value                                                                                                                                                                                                       |
-|:--------------------|:--------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `Number`            | `Number`            | The difference between the numbers `value_1` and `value_2`.                                                                                                                                                        |
-| `Date`              | `Number`            | The date that is `value_2` days smaller than `value_1` (rounded down to an integer number of days).                                                                                                                |
-| `Datetime`          | `Number`            | The date with time, `value_2` days smaller than `value_1`. If `value_2` contains a fractional part, it is converted to hours (`1/24`), minutes (`1/1440`), and seconds (`1/86400`).                                |
-| `Date`              | `Date`              | The difference between two dates in days.                                                                                                                                                                          |
-| `Datetime`          | `Datetime`          | The difference between two dates in days: the integer part — the number of whole days, the fractional part — the number of hours, minutes and seconds expressed as a fraction of the whole day (1 hour is '1/24'). |
+| Type of `value_1`                             | Type of `value_2`                             | Return value                                                                                                                                                                                                       |
+|:----------------------------------------------|:----------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| <code>Fractional number &#124; Integer</code> | <code>Fractional number &#124; Integer</code> | The difference between the numbers `value_1` and `value_2`.                                                                                                                                                        |
+| `Date`                                        | <code>Fractional number &#124; Integer</code> | The date that is `value_2` days smaller than `value_1` (rounded down to an integer number of days).                                                                                                                |
+| `Datetime`                                    | <code>Fractional number &#124; Integer</code> | The date with time, `value_2` days smaller than `value_1`. If `value_2` contains a fractional part, it is converted to hours (`1/24`), minutes (`1/1440`), and seconds (`1/86400`).                                |
+| `Date`                                        | `Date`                                        | The difference between two dates in days.                                                                                                                                                                          |
+| `Datetime`                                    | `Datetime`                                    | The difference between two dates in days: the integer part — the number of whole days, the fractional part — the number of hours, minutes and seconds expressed as a fraction of the whole day (1 hour is '1/24'). |
 
 
 
@@ -297,12 +297,12 @@ Stylizes the passed text in bold font.
 
 Converts the `expression` expression to Boolean type according to the following rules:
 
-| Type                              | `FALSE`             | `TRUE`     |
-|:----------------------------------|:--------------------|:-----------|
-| `Number`                          | `0`, `0.0`          | All others |
-| `String`                          | Empty string (`""`) | All others |
-| `Boolean`                         | `FALSE`             | `TRUE`     |
-| <code>Date &#124; Datetime</code> | -                   | `TRUE`     |
+| Type                                          | `FALSE`             | `TRUE`     |
+|:----------------------------------------------|:--------------------|:-----------|
+| <code>Fractional number &#124; Integer</code> | `0`, `0.0`          | All others |
+| `String`                                      | Empty string (`""`) | All others |
+| `Boolean`                                     | `FALSE`             | `TRUE`     |
+| <code>Date &#124; Datetime</code>             | -                   | `TRUE`     |
 
 
 
@@ -544,27 +544,27 @@ Converts the `expression` expression to database's native type `native_type`.
 
 The following type casts are supported:
 
-| Data source   | Data type          | Native data type    | Parameters for native type         | Comment                       |
-|:--------------|:-------------------|:--------------------|:-----------------------------------|:------------------------------|
-| `ClickHouse`  | `Number (decimal)` | `Float32`           |                                    |                               |
-| `ClickHouse`  | `Number (decimal)` | `Float64`           |                                    |                               |
-| `ClickHouse`  | `Number (decimal)` | `Decimal`           | `Number (whole)`, `Number (whole)` |                               |
-| `ClickHouse`  | `Number (whole)`   | `Int8`              |                                    |                               |
-| `ClickHouse`  | `Number (whole)`   | `Int16`             |                                    |                               |
-| `ClickHouse`  | `Number (whole)`   | `Int32`             |                                    |                               |
-| `ClickHouse`  | `Number (whole)`   | `Int64`             |                                    |                               |
-| `ClickHouse`  | `String`           | `String`            |                                    |                               |
-| `PostgreSQL`  | `Number (decimal)` | `double precision`  |                                    |                               |
-| `PostgreSQL`  | `Number (decimal)` | `real`              |                                    |                               |
-| `PostgreSQL`  | `Number (decimal)` | `numeric`           | `Number (whole)`, `Number (whole)` |                               |
-| `PostgreSQL`  | `Number (whole)`   | `smallint`          |                                    |                               |
-| `PostgreSQL`  | `Number (whole)`   | `integer`           |                                    |                               |
-| `PostgreSQL`  | `Number (whole)`   | `bigint`            |                                    |                               |
-| `PostgreSQL`  | `String`           | `text`              |                                    |                               |
-| `PostgreSQL`  | `String`           | `character`         | `Number (whole)`                   | Alias: `char`                 |
-| `PostgreSQL`  | `String`           | `character varying` | `Number (whole)`                   | Alias: `varchar`              |
-| `PostgreSQL`  | `String`           | `char`              | `Number (whole)`                   | Alias for `character`         |
-| `PostgreSQL`  | `String`           | `varchar`           | `Number (whole)`                   | Alias for `character varying` |
+| Data source   | Data type           | Native data type    | Parameters for native type   | Comment                       |
+|:--------------|:--------------------|:--------------------|:-----------------------------|:------------------------------|
+| `ClickHouse`  | `Fractional number` | `Float32`           |                              |                               |
+| `ClickHouse`  | `Fractional number` | `Float64`           |                              |                               |
+| `ClickHouse`  | `Fractional number` | `Decimal`           | `Integer`, `Integer`         |                               |
+| `ClickHouse`  | `Integer`           | `Int8`              |                              |                               |
+| `ClickHouse`  | `Integer`           | `Int16`             |                              |                               |
+| `ClickHouse`  | `Integer`           | `Int32`             |                              |                               |
+| `ClickHouse`  | `Integer`           | `Int64`             |                              |                               |
+| `ClickHouse`  | `String`            | `String`            |                              |                               |
+| `PostgreSQL`  | `Fractional number` | `double precision`  |                              |                               |
+| `PostgreSQL`  | `Fractional number` | `real`              |                              |                               |
+| `PostgreSQL`  | `Fractional number` | `numeric`           | `Integer`, `Integer`         |                               |
+| `PostgreSQL`  | `Integer`           | `smallint`          |                              |                               |
+| `PostgreSQL`  | `Integer`           | `integer`           |                              |                               |
+| `PostgreSQL`  | `Integer`           | `bigint`            |                              |                               |
+| `PostgreSQL`  | `String`            | `text`              |                              |                               |
+| `PostgreSQL`  | `String`            | `character`         | `Integer`                    | Alias: `char`                 |
+| `PostgreSQL`  | `String`            | `character varying` | `Integer`                    | Alias: `varchar`              |
+| `PostgreSQL`  | `String`            | `char`              | `Integer`                    | Alias for `character`         |
+| `PostgreSQL`  | `String`            | `varchar`           | `Integer`                    | Alias for `character varying` |
 
 
 
@@ -617,12 +617,12 @@ If the `start_index` option is specified, the search starts from the specified p
 
 Converts the `expression` expression to fractional number format according to the following rules:
 
-| Type                              | Value                                                                                                                                                                                                             |
-|:----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `Number`                          | Original value.                                                                                                                                                                                                   |
-| <code>Date &#124; Datetime</code> | [Unix time](https://en.wikipedia.org/wiki/Unix_time) corresponding to the date and time. If the value contains time zone data, it's used in the calculation. If the time zone is unknown, the time is set in UTC. |
-| `String`                          | A number from a decimal string.                                                                                                                                                                                   |
-| `Boolean`                         | `TRUE` — `1.0`, `FALSE` — `0.0`.                                                                                                                                                                                  |
+| Type                                          | Value                                                                                                                                                                                                             |
+|:----------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| <code>Fractional number &#124; Integer</code> | Original value.                                                                                                                                                                                                   |
+| <code>Date &#124; Datetime</code>             | [Unix time](https://en.wikipedia.org/wiki/Unix_time) corresponding to the date and time. If the value contains time zone data, it's used in the calculation. If the time zone is unknown, the time is set in UTC. |
+| `String`                                      | A number from a decimal string.                                                                                                                                                                                   |
+| `Boolean`                                     | `TRUE` — `1.0`, `FALSE` — `0.0`.                                                                                                                                                                                  |
 
 
 
@@ -740,8 +740,8 @@ Converts the `expression` expression to integer format according to the followin
 
 | Type                              | Value                                                                                                                                                                                                             |
 |:----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `Number (whole)`                  | Original value.                                                                                                                                                                                                   |
-| `Number (decimal)`                | Integer part of the number (rounded down).                                                                                                                                                                        |
+| `Integer`                         | Original value.                                                                                                                                                                                                   |
+| `Fractional number`               | Integer part of the number (rounded down).                                                                                                                                                                        |
 | <code>Date &#124; Datetime</code> | [Unix time](https://en.wikipedia.org/wiki/Unix_time) corresponding to the date and time. If the value contains time zone data, it's used in the calculation. If the time zone is unknown, the time is set in UTC. |
 | `String`                          | A number from a decimal string.                                                                                                                                                                                   |
 | `Boolean`                         | `TRUE` — `1`, `FALSE` — `0`.                                                                                                                                                                                      |

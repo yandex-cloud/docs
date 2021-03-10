@@ -20,7 +20,7 @@ Returns the numeric representation of the first character of the string.
 - `string` — `String`
 
 
-**Return type**: `Number (whole)`
+**Return type**: `Integer`
 
 #### Examples {#examples}
 

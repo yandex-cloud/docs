@@ -17,10 +17,10 @@ FLOOR( number )
 Rounds the value down to the nearest integer.
 
 **Argument types:**
-- `number` — `Number`
+- `number` — `Fractional number | Integer`
 
 
-**Return type**: `Number (decimal)`
+**Return type**: `Fractional number`
 
 #### Examples {#examples}
 

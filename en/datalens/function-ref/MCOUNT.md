@@ -36,8 +36,8 @@ See also [COUNT](COUNT.md), [RCOUNT](RCOUNT.md).
 
 **Argument types:**
 - `value` — `Any`
-- `rows_1` — `Number (whole)`
-- `rows_2` — `Number (whole)`
+- `rows_1` — `Integer`
+- `rows_2` — `Integer`
 
 
 **Return type**: Same type as (`value`)

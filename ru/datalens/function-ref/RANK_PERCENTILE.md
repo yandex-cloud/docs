@@ -21,7 +21,7 @@ RANK_PERCENTILE( value [ , direction ] [ TOTAL | WITHIN ... | AMONG ... ] [ BEFO
 См. также [RANK](RANK.md), [RANK_DENSE](RANK_DENSE.md), [RANK_UNIQUE](RANK_UNIQUE.md).
 
 **Типы аргументов:**
-- `value` — `Логический | Дата | Дата и время | Число | Строка | UUID`
+- `value` — `Логический | Дата | Дата и время | Дробное число | Целое число | Строка | UUID`
 - `direction` — `Строка`
 
 

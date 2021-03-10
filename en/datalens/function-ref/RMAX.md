@@ -36,7 +36,7 @@ Window functions with a similar behavior: [RSUM](RSUM.md), [RCOUNT](RCOUNT.md), 
 See also [MAX](MAX.md), [MMAX](MMAX.md).
 
 **Argument types:**
-- `value` — `Boolean | Date | Datetime | Number | String | UUID`
+- `value` — `Boolean | Date | Datetime | Fractional number | Integer | String | UUID`
 - `direction` — `String`
 
 

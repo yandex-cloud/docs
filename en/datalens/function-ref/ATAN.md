@@ -17,10 +17,10 @@ ATAN( number )
 Returns the arctangent of `number` in radians.
 
 **Argument types:**
-- `number` — `Number`
+- `number` — `Fractional number | Integer`
 
 
-**Return type**: `Number (decimal)`
+**Return type**: `Fractional number`
 
 #### Examples {#examples}
 

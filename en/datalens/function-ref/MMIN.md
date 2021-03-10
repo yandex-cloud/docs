@@ -35,9 +35,9 @@ Window functions with a similar behavior: [MSUM](MSUM.md), [MCOUNT](MCOUNT.md), 
 See also [MIN](MIN.md), [RMIN](RMIN.md).
 
 **Argument types:**
-- `value` — `Boolean | Date | Datetime | Number | String | UUID`
-- `rows_1` — `Number (whole)`
-- `rows_2` — `Number (whole)`
+- `value` — `Boolean | Date | Datetime | Fractional number | Integer | String | UUID`
+- `rows_1` — `Integer`
+- `rows_2` — `Integer`
 
 
 **Return type**: Same type as (`value`)

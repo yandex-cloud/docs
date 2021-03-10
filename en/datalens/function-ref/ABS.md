@@ -17,7 +17,7 @@ ABS( number )
 Returns the absolute value of `number`.
 
 **Argument types:**
-- `number` — `Number`
+- `number` — `Fractional number | Integer`
 
 
 **Return type**: Same type as (`number`)

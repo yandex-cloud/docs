@@ -17,8 +17,8 @@ QUANTILE( value, quant )
 Returns the precise `quant`-level quantile (`quant` should be in range from 0 to 1).
 
 **Argument types:**
-- `value` — `Number`
-- `quant` — `Number`
+- `value` — `Fractional number | Integer`
+- `quant` — `Fractional number | Integer`
 
 
 **Return type**: Same type as (`value`)

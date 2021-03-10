@@ -11,12 +11,12 @@ editable: false
 
 Converts the `expression` expression to Boolean type according to the following rules:
 
-| Type                              | `FALSE`             | `TRUE`     |
-|:----------------------------------|:--------------------|:-----------|
-| `Number`                          | `0`, `0.0`          | All others |
-| `String`                          | Empty string (`""`) | All others |
-| `Boolean`                         | `FALSE`             | `TRUE`     |
-| <code>Date &#124; Datetime</code> | -                   | `TRUE`     |
+| Type                                          | `FALSE`             | `TRUE`     |
+|:----------------------------------------------|:--------------------|:-----------|
+| <code>Fractional number &#124; Integer</code> | `0`, `0.0`          | All others |
+| `String`                                      | Empty string (`""`) | All others |
+| `Boolean`                                     | `FALSE`             | `TRUE`     |
+| <code>Date &#124; Datetime</code>             | -                   | `TRUE`     |
 
 
 
@@ -67,27 +67,27 @@ Converts the `expression` expression to database's native type `native_type`.
 
 The following type casts are supported:
 
-| Data source   | Data type          | Native data type    | Parameters for native type         | Comment                       |
-|:--------------|:-------------------|:--------------------|:-----------------------------------|:------------------------------|
-| `ClickHouse`  | `Number (decimal)` | `Float32`           |                                    |                               |
-| `ClickHouse`  | `Number (decimal)` | `Float64`           |                                    |                               |
-| `ClickHouse`  | `Number (decimal)` | `Decimal`           | `Number (whole)`, `Number (whole)` |                               |
-| `ClickHouse`  | `Number (whole)`   | `Int8`              |                                    |                               |
-| `ClickHouse`  | `Number (whole)`   | `Int16`             |                                    |                               |
-| `ClickHouse`  | `Number (whole)`   | `Int32`             |                                    |                               |
-| `ClickHouse`  | `Number (whole)`   | `Int64`             |                                    |                               |
-| `ClickHouse`  | `String`           | `String`            |                                    |                               |
-| `PostgreSQL`  | `Number (decimal)` | `double precision`  |                                    |                               |
-| `PostgreSQL`  | `Number (decimal)` | `real`              |                                    |                               |
-| `PostgreSQL`  | `Number (decimal)` | `numeric`           | `Number (whole)`, `Number (whole)` |                               |
-| `PostgreSQL`  | `Number (whole)`   | `smallint`          |                                    |                               |
-| `PostgreSQL`  | `Number (whole)`   | `integer`           |                                    |                               |
-| `PostgreSQL`  | `Number (whole)`   | `bigint`            |                                    |                               |
-| `PostgreSQL`  | `String`           | `text`              |                                    |                               |
-| `PostgreSQL`  | `String`           | `character`         | `Number (whole)`                   | Alias: `char`                 |
-| `PostgreSQL`  | `String`           | `character varying` | `Number (whole)`                   | Alias: `varchar`              |
-| `PostgreSQL`  | `String`           | `char`              | `Number (whole)`                   | Alias for `character`         |
-| `PostgreSQL`  | `String`           | `varchar`           | `Number (whole)`                   | Alias for `character varying` |
+| Data source   | Data type           | Native data type    | Parameters for native type   | Comment                       |
+|:--------------|:--------------------|:--------------------|:-----------------------------|:------------------------------|
+| `ClickHouse`  | `Fractional number` | `Float32`           |                              |                               |
+| `ClickHouse`  | `Fractional number` | `Float64`           |                              |                               |
+| `ClickHouse`  | `Fractional number` | `Decimal`           | `Integer`, `Integer`         |                               |
+| `ClickHouse`  | `Integer`           | `Int8`              |                              |                               |
+| `ClickHouse`  | `Integer`           | `Int16`             |                              |                               |
+| `ClickHouse`  | `Integer`           | `Int32`             |                              |                               |
+| `ClickHouse`  | `Integer`           | `Int64`             |                              |                               |
+| `ClickHouse`  | `String`            | `String`            |                              |                               |
+| `PostgreSQL`  | `Fractional number` | `double precision`  |                              |                               |
+| `PostgreSQL`  | `Fractional number` | `real`              |                              |                               |
+| `PostgreSQL`  | `Fractional number` | `numeric`           | `Integer`, `Integer`         |                               |
+| `PostgreSQL`  | `Integer`           | `smallint`          |                              |                               |
+| `PostgreSQL`  | `Integer`           | `integer`           |                              |                               |
+| `PostgreSQL`  | `Integer`           | `bigint`            |                              |                               |
+| `PostgreSQL`  | `String`            | `text`              |                              |                               |
+| `PostgreSQL`  | `String`            | `character`         | `Integer`                    | Alias: `char`                 |
+| `PostgreSQL`  | `String`            | `character varying` | `Integer`                    | Alias: `varchar`              |
+| `PostgreSQL`  | `String`            | `char`              | `Integer`                    | Alias for `character`         |
+| `PostgreSQL`  | `String`            | `varchar`           | `Integer`                    | Alias for `character varying` |
 
 
 
@@ -98,12 +98,12 @@ The following type casts are supported:
 
 Converts the `expression` expression to fractional number format according to the following rules:
 
-| Type                              | Value                                                                                                                                                                                                             |
-|:----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `Number`                          | Original value.                                                                                                                                                                                                   |
-| <code>Date &#124; Datetime</code> | [Unix time](https://en.wikipedia.org/wiki/Unix_time) corresponding to the date and time. If the value contains time zone data, it's used in the calculation. If the time zone is unknown, the time is set in UTC. |
-| `String`                          | A number from a decimal string.                                                                                                                                                                                   |
-| `Boolean`                         | `TRUE` — `1.0`, `FALSE` — `0.0`.                                                                                                                                                                                  |
+| Type                                          | Value                                                                                                                                                                                                             |
+|:----------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| <code>Fractional number &#124; Integer</code> | Original value.                                                                                                                                                                                                   |
+| <code>Date &#124; Datetime</code>             | [Unix time](https://en.wikipedia.org/wiki/Unix_time) corresponding to the date and time. If the value contains time zone data, it's used in the calculation. If the time zone is unknown, the time is set in UTC. |
+| `String`                                      | A number from a decimal string.                                                                                                                                                                                   |
+| `Boolean`                                     | `TRUE` — `1.0`, `FALSE` — `0.0`.                                                                                                                                                                                  |
 
 
 
@@ -131,8 +131,8 @@ Converts the `expression` expression to integer format according to the followin
 
 | Type                              | Value                                                                                                                                                                                                             |
 |:----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `Number (whole)`                  | Original value.                                                                                                                                                                                                   |
-| `Number (decimal)`                | Integer part of the number (rounded down).                                                                                                                                                                        |
+| `Integer`                         | Original value.                                                                                                                                                                                                   |
+| `Fractional number`               | Integer part of the number (rounded down).                                                                                                                                                                        |
 | <code>Date &#124; Datetime</code> | [Unix time](https://en.wikipedia.org/wiki/Unix_time) corresponding to the date and time. If the value contains time zone data, it's used in the calculation. If the time zone is unknown, the time is set in UTC. |
 | `String`                          | A number from a decimal string.                                                                                                                                                                                   |
 | `Boolean`                         | `TRUE` — `1`, `FALSE` — `0`.                                                                                                                                                                                      |

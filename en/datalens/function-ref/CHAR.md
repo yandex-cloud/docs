@@ -17,7 +17,7 @@ CHAR( string )
 Converts the numeric representation of an ASCII character to a value.
 
 **Argument types:**
-- `string` — `Number (whole)`
+- `string` — `Integer`
 
 
 **Return type**: `String`

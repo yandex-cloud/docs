@@ -36,7 +36,7 @@ RSUM( value [ , direction ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] 
 См. также [SUM](SUM.md), [MSUM](MSUM.md).
 
 **Типы аргументов:**
-- `value` — `Число`
+- `value` — `Дробное число | Целое число`
 - `direction` — `Строка`
 
 

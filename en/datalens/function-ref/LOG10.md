@@ -17,10 +17,10 @@ LOG10( number )
 Returns the logarithm of the number `number` to base 10. Returns 'NULL' if the number is less than or equal to 0.
 
 **Argument types:**
-- `number` — `Number`
+- `number` — `Fractional number | Integer`
 
 
-**Return type**: `Number (decimal)`
+**Return type**: `Fractional number`
 
 #### Examples {#examples}
 
