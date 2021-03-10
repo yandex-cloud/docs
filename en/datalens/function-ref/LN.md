@@ -17,10 +17,10 @@ LN( number )
 Returns the natural logarithm of the number `number`. Returns 'NULL' if the number is less than or equal to 0.
 
 **Argument types:**
-- `number` — `Number`
+- `number` — `Fractional number | Integer`
 
 
-**Return type**: `Number (decimal)`
+**Return type**: `Fractional number`
 
 #### Examples {#examples}
 

@@ -17,7 +17,7 @@ SUM_IF( expression, condition [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER
 Returns the sum of all the expression values that meet the `condition` condition. Applicable to numeric data types only.
 
 **Argument types:**
-- `expression` — `Number`
+- `expression` — `Fractional number | Integer`
 - `condition` — `Boolean`
 
 

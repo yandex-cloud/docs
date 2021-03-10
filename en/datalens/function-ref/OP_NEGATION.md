@@ -17,7 +17,7 @@ editable: false
 Returns the number `value` with the opposite sign.
 
 **Argument types:**
-- `value` — `Number`
+- `value` — `Fractional number | Integer`
 
 
 **Return type**: Same type as (`value`)

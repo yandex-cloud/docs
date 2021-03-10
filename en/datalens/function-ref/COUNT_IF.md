@@ -20,7 +20,7 @@ Returns the number of items in the group meeting the `condition` condition.
 - `condition` — `Boolean`
 
 
-**Return type**: `Number (whole)`
+**Return type**: `Integer`
 
 #### Examples {#examples}
 

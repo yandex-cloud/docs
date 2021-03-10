@@ -23,7 +23,7 @@ See also [COUNTD_APPROX](COUNTD_APPROX.md).
 - `condition` — `Boolean`
 
 
-**Return type**: `Number (whole)`
+**Return type**: `Integer`
 
 #### Examples {#examples}
 

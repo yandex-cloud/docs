@@ -19,7 +19,7 @@ Returns a substring from `orig_string` using the `delimiter` delimiter character
 **Argument types:**
 - `orig_string` — `String`
 - `delimiter` — `String`
-- `part_index` — `Number (whole)`
+- `part_index` — `Integer`
 
 
 **Return type**: `String`

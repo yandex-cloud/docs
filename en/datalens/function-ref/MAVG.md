@@ -35,9 +35,9 @@ Window functions with a similar behavior: [MSUM](MSUM.md), [MCOUNT](MCOUNT.md), 
 See also [AVG](AVG.md), [RAVG](RAVG.md).
 
 **Argument types:**
-- `value` — `Number`
-- `rows_1` — `Number (whole)`
-- `rows_2` — `Number (whole)`
+- `value` — `Fractional number | Integer`
+- `rows_1` — `Integer`
+- `rows_2` — `Integer`
 
 
 **Return type**: Same type as (`value`)

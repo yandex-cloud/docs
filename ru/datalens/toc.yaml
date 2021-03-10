@@ -148,7 +148,13 @@ items:
       - name: Управление доступом на уровне строк данных
         href: security/row-level-security.md
   - name: Правила тарификации
-    href: pricing.md
+    items:
+      - name: Действующие правила
+        href: pricing.md
+      - name: Архив
+        items:
+          - name: Правила до 1 марта 2021 года
+            href: pricing-archive/pricing-01032021.md
   - name: Справочник функций
     items:
       - name: Все функции

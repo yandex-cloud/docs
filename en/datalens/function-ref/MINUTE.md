@@ -20,7 +20,7 @@ Returns the number of the minute in the hour of the specified date `datetime`. W
 - `datetime` — `Date | Datetime`
 
 
-**Return type**: `Number (whole)`
+**Return type**: `Integer`
 
 #### Examples {#examples}
 

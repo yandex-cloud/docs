@@ -1,0 +1,29 @@
+title: Yandex Cloud DNS
+description:
+  - >-
+    <em>Сервис Yandex Cloud DNS находится на стадии <a
+    href="/docs/overview/concepts/launch-stages">Preview</a>.</em>
+  - >-
+    Yandex Cloud DNS служит для управления зонами DNS и доменными именами ваших
+    ресурсов.
+meta:
+  title: Yandex Cloud DNS
+links:
+  - title: Начало работы
+    description: Создайте первую зону DNS
+    href: quickstart
+  - title: Пошаговые инструкции
+    description: Инструкции по выполнению рутинных операций
+    href: operations/index
+  - title: Концепции
+    description: Узнайте про концепции и ресурсы сервиса
+    href: concepts/index
+  - title: Квоты и лимиты
+    description: Технические и организационные ограничения сервиса
+    href: concepts/limits
+  - title: Управление доступом
+    description: Настройте права доступа для работы с сервисом
+    href: security/
+  - title: Правила тарификации
+    description: Цены и правила расчета стоимости услуг сервиса
+    href: pricing

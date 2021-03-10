@@ -22,7 +22,7 @@ See also [COUNTD_APPROX](COUNTD_APPROX.md).
 - `value` — `Any`
 
 
-**Return type**: `Number (whole)`
+**Return type**: `Integer`
 
 #### Examples {#examples}
 

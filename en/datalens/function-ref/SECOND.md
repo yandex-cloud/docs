@@ -20,7 +20,7 @@ Returns the number of the second in the minute of the specified date `datetime`.
 - `datetime` — `Date | Datetime`
 
 
-**Return type**: `Number (whole)`
+**Return type**: `Integer`
 
 #### Examples {#examples}
 

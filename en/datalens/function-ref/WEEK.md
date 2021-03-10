@@ -20,7 +20,7 @@ The number of the week according to [ISO 8601](https://en.wikipedia.org/wiki/ISO
 - `value` — `Date | Datetime`
 
 
-**Return type**: `Number (whole)`
+**Return type**: `Integer`
 
 #### Examples {#examples}
 

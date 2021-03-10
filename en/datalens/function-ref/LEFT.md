@@ -18,7 +18,7 @@ Returns a string that contains the number of characters specified in `number` fr
 
 **Argument types:**
 - `string` — `String`
-- `number` — `Number (whole)`
+- `number` — `Integer`
 
 
 **Return type**: `String`

@@ -20,7 +20,7 @@ Returns the number of the hour in the day of the specified date and time `dateti
 - `datetime` — `Date | Datetime`
 
 
-**Return type**: `Number (whole)`
+**Return type**: `Integer`
 
 #### Examples {#examples}
 

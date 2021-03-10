@@ -20,10 +20,10 @@ Returns the sign of the number `number`:
 - `1` if the number is positive.
 
 **Argument types:**
-- `number` — `Number`
+- `number` — `Fractional number | Integer`
 
 
-**Return type**: `Number (whole)`
+**Return type**: `Integer`
 
 #### Examples {#examples}
 

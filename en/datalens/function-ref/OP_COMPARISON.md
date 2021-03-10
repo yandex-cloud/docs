@@ -37,8 +37,8 @@ value_1 => value_2
 Compares the value `value_1` with the value `value_2`.
 
 **Argument types:**
-- `value_1` — `Boolean | Date | Datetime | Geopoint | Geopolygon | Number | String | UUID`
-- `value_2` — `Boolean | Date | Datetime | Geopoint | Geopolygon | Number | String | UUID`
+- `value_1` — `Boolean | Date | Datetime | Fractional number | Geopoint | Geopolygon | Integer | String | UUID`
+- `value_2` — `Boolean | Date | Datetime | Fractional number | Geopoint | Geopolygon | Integer | String | UUID`
 
 
 **Return type**: `Boolean`

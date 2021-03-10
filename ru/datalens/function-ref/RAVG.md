@@ -36,7 +36,7 @@ RAVG( value [ , direction ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] 
 См. также [AVG](AVG.md), [MAVG](MAVG.md).
 
 **Типы аргументов:**
-- `value` — `Число`
+- `value` — `Дробное число | Целое число`
 - `direction` — `Строка`
 
 
