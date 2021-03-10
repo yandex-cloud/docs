@@ -42,6 +42,7 @@ default:
   lockbox-full-name: Yandex Lockbox
   tracker-full-name: Yandex Tracker
   alb-full-name: Yandex Application Load Balancer
+  dns-full-name: Yandex Cloud DNS
 
   # Полные имена сервисов без Yandex
   iam-name: Identity and Access Management
@@ -85,6 +86,7 @@ default:
   lockbox-name: Lockbox
   tracker-name: Tracker
   alb-name: Application Load Balancer
+  dns-name: Cloud DNS
 
   # Короткие имена
   iam-short-name: IAM
