@@ -55,6 +55,8 @@ items:
             href: operations/node-group/node-group-create.md
           - name: Изменение группы узлов
             href: operations/node-group/node-group-update.md
+          - name: Управление метками узлов кластера
+            href: operations/node-group/node-label-management.md
           - name: Удаление группы узлов
             href: operations/node-group/node-group-delete.md
   - name: Сценарии использования

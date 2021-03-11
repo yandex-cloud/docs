@@ -16,20 +16,5 @@ The cost for using {{ kms-name }} is based on:
 
 ## Pricing {#prices}
 
-{% list tabs %}
 
-- Prices in USD
 
-    | Service | Rate, without VAT |
-    | ----- | ----- |
-    | Use of 1 symmetric key version per month | $0.023077 |
-    | 10,000 cryptographic operations | $0.023077 |
-
-- Prices in roubles
-
-    | Service | Rate, with VAT |
-    | ----- | ----- |
-    | Use of 1 symmetric key version per month | ₽1.8 |
-    | 10,000 cryptographic operations | ₽1.8 |
-
-{% endlist %}
