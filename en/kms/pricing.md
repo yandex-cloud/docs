@@ -16,20 +16,20 @@ The cost for using {{ kms-name }} is based on:
 
 ## Pricing {#prices}
 
-{% if region == "ru"%}
+{% list tabs %}
 
-{% include [rub.md](../_pricing/kms/rub.md) %}
+- Prices in USD
 
-{% endif %}
+    | Service | Rate, without VAT |
+    | ----- | ----- |
+    | Monthly using for 1 symmetric key | $0.023077 |
+    | 10,000 cryptographic operations | $0.023077 |
 
-{% if region == "kz"%}
+- Prices in roubles
 
-{% include [kzt.md](../_pricing/kms/kzt.md) %}
+    | Service | Rate, with VAT |
+    | ----- | ----- |
+    | Monthly storage for 1 symmetric key | ₽1.8 |
+    | 10,000 cryptographic operations | ₽1.8 |
 
-{% endif %}
-
-{% if region == "int"%}
-
-{% include [usd.md](../_pricing/kms/usd.md) %}
-
-{% endif %}
+{% endlist %}
