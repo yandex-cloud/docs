@@ -128,6 +128,9 @@ items:
       - name: Визуализация данных из базы данных ClickHouse
         when: audience == "external"
         href: datalens/data-from-ch-visualization.md
+      - name: Визуализация данных из ClickHouse over YT (CHYT)
+        when: audience == "internal"
+        href: datalens/data-from-ch-over-yt.md
       - name: Визуализация данных из Метрики
         when: audience == "external"
         href: datalens/data-from-metrica-visualization.md
@@ -145,6 +148,9 @@ items:
       - name: Визуализация данных из базы данных ClickHouse с геослоями из Marketplace
         when: audience == "external"
         href: datalens/data-from-ch-to-geolayers-visualization.md
+      - name: Визуализация данных из отчетов Statface
+        when: audience == "internal"
+        href: datalens/data-from-statface-visualization.md
   - name: Интернет вещей
     items:
       - name: Сценарии работы с интернетом вещей

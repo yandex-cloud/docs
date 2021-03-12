@@ -7,4 +7,4 @@
 
 {% include [include](../../../../_includes/datalens/internal/editor/widgets/selector/controls.md) %}
 
-{% include [include](../../../../_includes/datalens/internal/editor/widgets/table/examples.md) %}
+{% include [include](../../../../_includes/datalens/internal/editor/widgets/selector/examples.md) %}

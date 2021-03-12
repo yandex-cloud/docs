@@ -27,7 +27,7 @@ _Коннектор_ — это драйвер для подключения и 
 
 ## Управление доступом {#access-management}
 
-Вы можете настроить права доступа к подключению. {% if audience != "internal" %} Подробнее в разделе [{#T}](../security/index.md). {% endif %}
+Вы можете настроить права доступа к подключению. Подробнее в разделе [{#T}](../security/index.md).
 
 #### См. также {#see-also}
 {% if audience != "internal" %} - [{#T}](../operations/connection/create-clickhouse.md) {% endif %}

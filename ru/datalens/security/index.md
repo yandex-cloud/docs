@@ -1,56 +1,17 @@
 # Управление доступом к DataLens
 
-{% if audience == "internal" %} 
-
-У всех штатных сотрудников есть доступ к {{ datalens-short-name }} по умолчанию. Чтобы предоставить доступ внешним сотрудникам, воспользуйтесь инструкцией ниже.
-
-## Доступ для внешних сотрудников {#access-for-external}
-
-Доступ для внешних сотрудников закрыт на уровне сервиса {{ datalens-short-name }} и на уровне объектов {{ datalens-short-name }} (подключений, датасетов, чартов и дашбордов).
-
-Чтобы у внешних сотрудников появился доступ к DataLens:
-1. Запросите доступ к сервисам **datalens.yandex-team.ru** и **upload.datalens.yandex-team.ru** (для возможности загрузки CSV-файлов) в [Puncher](https://puncher.yandex-team.ru/).
-2. Запросите доступ к объектам к {{ datalens-short-name }}.
-
-{% note warning %}
-
-* Права выдаются только для Staff- и ABC-групп. Не согласуются права доступа для отдельных пользователей и Вики-групп. О правилах заказа сетевого доступа через ABC см. в [документации](https://wiki.yandex-team.ru/security/dostup/get_network_access/#abcrol).
-
-* Доступ к сервисам {{ datalens-short-name }} осуществляется только через VPN.
-
-{% endnote %}
-
-### Пример запроса доступа к дашборду {{ datalens-short-name }} {#access-external-example}
-
-Запрос прав доступа для группы, в которую входят внешние сотрудники.
-
-1. Оформите заявку в [Puncher](https://puncher.yandex-team.ru?create_destinations=datalens.yandex-team.ru&create_destinations=upload.datalens.yandex-team.ru&create_protocol=tcp&create_locations=office&create_locations=vpn&create_ports=443) на доступ к сервисам **datalens.yandex-team.ru**, **upload.datalens.yandex-team.ru** и **stat.yandex-team.ru** (при необходимости работы с отчетами). При оформлении заявки выберите порт **443**.
-
-    ![image](../../_assets/datalens/internal/puncher-request.png)
-
-    Заявку в Puncher утверждают последовательно сотрудники сервиса {{ datalens-short-name }} и СИБ.
-
-1. Перейдите в меню дашборда и выберите пункт **Права доступа**.
-
-    ![image](../../_assets/datalens/internal/dashboard-access-right.png)
-
-1. Запросите доступ для групп на дашборд и связанные с ним объекты.
-
-    1. Добавьте участников.
-    1. Установите права доступа для каждого из объектов.
-    1. Активируйте опцию **Cвязанные объекты**.
-    1. Нажмите кнопку **Добавить**.
-
-    ![image](../../_assets/datalens/internal/access-for-group.png)
-
-Доступы могут утвердить администраторы объектов. Если пользователь, который запрашивает доступ, является администратором — утверждение запроса происходит автоматически.
-
-{% endif %}
-
-{% if audience != "internal" %} 
+{% if audience == "external" %}
 
 Доступ к сервису {{ datalens-full-name }} регулируется через консоль {{ yandex-cloud }}.
 Чтобы предоставить доступ, назначьте пользователю одну из ролей {{ datalens-short-name }}.
+
+{% endif %}
+
+{% if audience == "internal" %}
+
+У всех штатных сотрудников есть доступ к {{ datalens-short-name }} по умолчанию. Чтобы предоставить доступ внешним сотрудникам, воспользуйтесь [инструкцией](external-access.md).
+
+{% endif %}
 
 Разграничение прав доступа в сервисе реализовано на уровне объектов и папок.
 На каждый объект и папку можно назначать пользователю права доступа, которые определяют допустимые операции. По умолчанию объекты наследуют права родительской папки.
@@ -60,6 +21,8 @@
 - Датасет
 - Чарт
 - Дашборд
+
+{% if audience != "internal" %}
 
 Также пользователь может запросить права доступа самостоятельно через форму запроса. Подробнее в разделе [{#T}](../operations/permission/request.md).
 
@@ -97,6 +60,7 @@
     Для добавления роли на каталог, выберите каталог и нажмите **Назначить роль** в блоке **Роли в каталогах**.
 1. Выберите `{{ roles-datalens-instances-user }}`  или  `{{ roles-datalens-instances-admin }}` из списка.
 
+
 ### Добавить федеративных пользователей {#federated-user}
 
 {% include [include](../../_includes/iam/add-federated-users-before-begin.md) %}
@@ -112,6 +76,8 @@
 1. Выберите `{{ roles-datalens-instances-user }}` из списка. 
 
 Подробнее о назначении ролей в {{ yandex-cloud }} в разделе [Роли](../../iam/concepts/access-control/roles.md).
+
+{% endif %}
 
 ## Права доступа на объекты {#permissions}
 
@@ -183,6 +149,8 @@
 
 Пользователь {{ datalens-short-name }} может получить логи доступа к объектам {{ datalens-short-name }} (просмотр, редактирование, удаление).
 Чтобы получить логи, [обратитесь в службу технической поддержки]({{ link-console-support }}).
+
+{% if audience != "internal" %}
 
 #### Что дальше {#what-is-next}
 
