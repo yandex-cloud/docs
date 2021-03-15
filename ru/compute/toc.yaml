@@ -247,6 +247,8 @@ items:
                 href: concepts/instance-groups/deploy/deploy.md
               - name: Правила обновления виртуальных машин
                 href: concepts/instance-groups/deploy/instance.md
+              - name: Изменение дополнительных дисков в шаблоне виртуальной машины
+                href: concepts/instance-groups/deploy/secondary-disk.md
           - name: Статусы
             href: concepts/instance-groups/statuses.md
       - name: Выделенный хост
