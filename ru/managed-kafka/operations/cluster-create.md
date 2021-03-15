@@ -84,6 +84,7 @@
       {{ yc-mdb-kf }} cluster create \
          --name <имя кластера> \
          --environment <окружение: prestable или production> \
+         --version <версия: 2.1 или 2.6> \
          --network-name <имя сети> \
          --brokers-count <количество брокеров в зоне> \
          --resource-preset <класс хоста> \
@@ -92,8 +93,6 @@
          --assign-public-ip <публичный доступ> \
          --security-group-ids <список идентификаторов групп безопасности>
       ```
-
-{% if api != "noshow" %}
 
 - API
 
@@ -133,9 +132,10 @@
         }
 
         resource "yandex_mdb_kafka_cluster" "<имя кластера>" {
-        environment = "<окружение: PRESTABLE или PRODUCTION>"
-        name        = "<имя кластера>"
-        network_id  = "<идентификатор сети>"
+          environment        = "<окружение: PRESTABLE или PRODUCTION>"
+          name               = "<имя кластера>"
+          network_id         = "<идентификатор сети>"
+          security_group_ids = ["<список групп безопасности>"]
 
           config {
             assign_public_ip = "<публичный доступ к кластеру: true или false>"
@@ -177,8 +177,6 @@
 
         {% include [terraform-create-cluster-step-3](../../_includes/mdb/terraform-create-cluster-step-3.md) %}
 
-{% endif %}
-
 {% endlist %}
 
 {% note warning %}
@@ -201,6 +199,7 @@
 
   - С именем `mykf`.
   - В окружении `production`.
+  - С {{ KF }} версии `2.6`.
   - В сети `{{ network-name }}`.
   - В группе безопасности `{{ security-group }}`.
   - С одним хостом класса `{{ host-class }}`, в зоне доступности `{{ zone-id }}`.
@@ -212,6 +211,7 @@
 
   - С именем `mykf`.
   - В окружении `production`.
+  - С {{ KF }} версии `2.6`.
   - В сети `{{ network-name }}`.
   - В группе безопасности `{{ security-group }}`.
   - С одним хостом класса `{{ host-class }}`, в зоне доступности `{{ zone-id }}`.
@@ -225,10 +225,11 @@
 
   {% if audience != "internal" %}
 
-  ```
+  ```bash
   {{ yc-mdb-kf }} cluster create \
   --name mykf \
   --environment production \
+  --version 2.6 \
   --network-name {{ network-name }} \
   --zone-ids {{ zone-id }} \
   --brokers-count 1 \
@@ -245,6 +246,7 @@
   {{ yc-mdb-kf }} cluster create \
   --name mykf \
   --environment production \
+  --version 2.6 \
   --network-name {{ network-name }} \
   --zone-ids {{ zone-id }} \
   --brokers-count 1 \
@@ -265,7 +267,7 @@
     - В каталоге с идентификатором `{{ tf-folder-id }}`.
     - С именем `mykf`.
     - В окружении `PRODUCTION`.
-    - С версией {{ KF }} `2.6`.
+    - С {{ KF }} версии `2.6`.
     - В новой сети `mynet` с подсетью `mysubnet`.
     - В новой группе безопасности `mykf-sg`, разрешающей подключение к кластеру из интернета по порту `9091`.
     - С одним хостом класса `{{ host-class }}`, в зоне доступности `{{ zone-id }}`.
