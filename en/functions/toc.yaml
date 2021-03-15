@@ -5,20 +5,36 @@ items:
     items:
       - name: Overview
         href: quickstart/index.md
-      - name: Creating and executing functions
-        href: quickstart/function-quickstart.md
-      - name: Creating a timer
-        href: quickstart/timer-quickstart.md
-      - name: Creating a trigger for Message Queue
-        href: quickstart/ymq-trigger-quickstart.md
-      - name: Creating a trigger for Object Storage
-        href: quickstart/os-trigger-quickstart.md
-      - name: Creating a trigger for Container Registry
-        href: quickstart/cr-trigger-quickstart.md
-      - name: Creating a trigger for Cloud Logs
-        href: quickstart/cloudlogs-trigger-quickstart.md
-      - name: Creating a trigger for IoT Core
-        href: quickstart/iot-core-trigger-quickstart.md
+      - name: Creating a function
+        items:
+          - name: Overview
+            href: quickstart/create-function/index.md
+          - name: Python
+            href: quickstart/create-function/python-function-quickstart.md
+          - name: Node.js
+            href: quickstart/create-function/node-function-quickstart.md
+          - name: PHP
+            href: quickstart/create-function/php-function-quickstart.md
+          - name: Go
+            href: quickstart/create-function/go-function-quickstart.md
+          - name: Bash
+            href: quickstart/create-function/bash-function-quickstart.md
+      - name: Creating a trigger
+        items:
+          - name: Overview
+            href: quickstart/create-trigger/index.md
+          - name: Timer
+            href: quickstart/create-trigger/timer-quickstart.md
+          - name: Trigger for Message Queue
+            href: quickstart/create-trigger/ymq-trigger-quickstart.md
+          - name: Trigger for Object Storage
+            href: quickstart/create-trigger/os-trigger-quickstart.md
+          - name: Trigger for Container Registry
+            href: quickstart/create-trigger/cr-trigger-quickstart.md
+          - name: Trigger for Cloud Logs
+            href: quickstart/create-trigger/cloudlogs-trigger-quickstart.md
+          - name: Trigger for Yandex IoT Core
+            href: quickstart/create-trigger/iot-core-trigger-quickstart.md
   - name: Step-by-step instructions
     items:
       - name: All instructions
@@ -39,11 +55,11 @@ items:
             href: operations/function/function-invoke.md
           - name: Updating a function
             href: operations/function/function-update.md
-          - name: Viewing monitoring charts
+          - name: View monitoring charts
             href: operations/function/function-monitoring.md
           - name: Viewing the execution log
             href: operations/function/function-logs.md
-          - name: Deleting a function
+          - name: Delete function
             href: operations/function/function-delete.md
       - name: Managing triggers
         items:
@@ -73,7 +89,7 @@ items:
         href: concepts/function.md
       - name: Invoking a function
         href: concepts/function-invoke.md
-      - name: Runtime
+      - name: Runtime environment
         items:
           - name: Overview
             href: concepts/runtime/index.md
@@ -264,28 +280,28 @@ items:
       - name: Authentication in the API
         href: api-ref/functions/authentication.md
       - name: gRPC
-        items: null
+        items:
         include:
           repo: docs
-          path: en/_api-ref-grpc/functions/functions/api-ref/toc.yaml
+          path: ru/_api-ref-grpc/functions/functions/api-ref/toc.yaml
       - name: REST
-        items: null
+        items:
         include:
           repo: docs
-          path: en/_api-ref/serverless/functions/toc.yaml
+          path: ru/_api-ref/serverless/functions/toc.yaml
   - name: API Triggers reference
     items:
       - name: Authentication in the API
         href: api-ref/triggers/authentication.md
       - name: gRPC
-        items: null
+        items:
         include:
           repo: docs
-          path: en/_api-ref-grpc/functions/triggers/api-ref/toc.yaml
+          path: ru/_api-ref-grpc/functions/triggers/api-ref/toc.yaml
       - name: REST
-        items: null
+        items:
         include:
           repo: docs
-          path: en/_api-ref/serverless/triggers/toc.yaml
+          path: ru/_api-ref/serverless/triggers/toc.yaml
   - name: Questions and answers
     href: qa/index.md

@@ -15,52 +15,47 @@ As an example, we'll use the function described in [{#T}](version-manage.md#func
 {% list tabs %}
 
 - Management console
-
-    Invoke the function:
-    1. Select **{{ sf-name }}** in [management console]({{ link-console-main }}).
-    1. Click ![image](../../../_assets/vertical-ellipsis.svg) in the row of the function you want to invoke.
-    1. In the window that opens, go to **Testing**.
+    1. In the [management console]({{ link-console-main }}), go to the folder where the function is located.
+    1. Select **{{ sf-name }}**.
+    1. Select a function.
+    1. Go to the **Testing** tab.
     1. In the **Tag version** field, specify which function version to invoke.
     1. Under **Payload template**, choose one of the options:
         - **Without preset**: Custom data format.
         - **HTTP call**: HTTP call data format for a function acting as an HTTP request handler.
-        - **Trigger for {{message-queue-short-name}}**: Data format for the function called by a trigger in order to process messages from the queue.
+        - **Trigger for {{message-queue-short-name}}**: Data format for the function invoked by a trigger in order to process messages from the queue.
     1. In the **Input** field, enter the input data to test the function.
     1. Click **Run test**.
-    1. You will see the testing status under **Test result** in the **Function status** field. **Important**: The maximum function execution time before [timeout](../../operations/function/version-manage.md#version-create) (including original initialization at first call) is 10 minutes.
-    1. You will see the data processed by the function in the **Function output** field.
+    1. You will see the testing status under **Test result** in the **Function status** field. **Important**: The maximum function execution time before [timeout](../../operations/function/version-manage.md#version-create) (including original initialization at initial invocation) is 10 minutes.
+    1. You will see the function execution result in the **Function output** field.
 
 - HTTP
 
-    {% note info %}
+    You can view the function invocation link in the **Link to invoke** string after creating the function.
 
-    For security reasons, the function can only be called using TLS protocol.
-
-    {% endnote %}
-
-    Call the function as a regular HTTP request, such as by entering the function call link in your browser address bar. Call link format:
+    For security reasons, you can only invoke the function via HTTPS. Invoke it as a regular HTTP request by inserting the function invocation link in the browser address bar. Link format:
 
     ```
     {{ sf-url }}/<function ID>
     ```
 
-    The function call link is also shown in the `http_invoke_url` parameter when [creating a function](function-create.md).
+    The function invocation link is also shown in the `http_invoke_url` parameter when [creating a function](function-create.md).
 
-    You can call a specific function version using the `tag` parameter. The function with the `$latest` tag is called by default.
+    You can invoke a specific function version using the `tag` parameter. The function with the `$latest` tag is invoked by default.
 
-    - Example of function call with no additional parameters:
+    - Example of function invocation with no additional parameters:
 
         ```
         {{ sf-url }}/b09bhaokchn9pnbrlseb
         ```
 
-        The response depends on the function you call. In this case, it will be as follows:
+        The response depends on the function you invoke. In this case, it will be as follows:
 
         ```
         Hello, World!
         ```
 
-    - Example of function call with the `name` parameter added to the URL:
+    - Example of function invocation with the `name` parameter added to the URL:
 
         ```
         {{ sf-url }}/b09bhaokchn9pnbrlseb?name=<user name>
@@ -72,7 +67,7 @@ As an example, we'll use the function described in [{#T}](version-manage.md#func
         Hello, Username!
         ```
 
-    - Example of calling a specific function version with the `tag` parameter added to the URL:
+    - Example of invoking a specific function version with the `tag` parameter added to the URL:
 
         ```
         {{ sf-url }}/b09bhaokchn9pnbrlseb?tag=<version tag>
@@ -80,12 +75,12 @@ As an example, we'll use the function described in [{#T}](version-manage.md#func
 
 - CLI
 
-    You can call a specific function version using the `--tag` parameter. The function with the `$latest` tag is called by default.
+    You can invoke a specific function version using the `--tag` parameter. The function with the `$latest` tag is invoked by default.
 
-    - Call the function by specifying in the parameter a name for еру greeting:
+    - Invoke the function by specifying in the parameter a name for еру greeting:
 
         ```
-        $ yc serverless function invoke <function ID> -d '{"queryStringParameters": {"name": "Username"}}'
+        yc serverless function invoke <function ID> -d '{"queryStringParameters": {"name": "Username"}}'
         ```
 
         Result:
@@ -94,10 +89,10 @@ As an example, we'll use the function described in [{#T}](version-manage.md#func
         {"statusCode": 200, "headers": {"Content-Type": "text/plain"}, "isBase64Encoded": false, "body": "Hello, Username!"}
         ```
 
-    - Use a tag to call a specific function version:
+    - Use a tag to invoke a specific function version:
 
         ```
-        $ yc serverless function invoke <function ID> --tag <function version tag>
+        yc serverless function invoke <function ID> --tag <function version tag>
         ```
 
 {% endlist %}
