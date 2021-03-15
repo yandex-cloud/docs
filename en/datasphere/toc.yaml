@@ -51,6 +51,8 @@ items:
         href: concepts/data-proc.md
       - name: Using TensorBoard in DataSphere
         href: concepts/tensorboard.md
+      - name: Background operations
+        href: concepts/async.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Access management
