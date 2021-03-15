@@ -210,6 +210,17 @@ MS SQL Server Enterprise* | 20163 ₽
 **Intel Cascade Lake** |
 RAM | 98,8800 ₽
 
+### Программно-ускоренная сеть {#software-accelerated-network}
+
+Программное ускорение сети | Цена за 1 час, вкл. НДС
+----- | -----
+**Intel Broadwell** |
+Для ВМ с числом ядер меньше 18 | 2,68 ₽
+Для ВМ c 18 ядрами и больше | 5,36 ₽
+**Intel Cascade Lake** |
+Для ВМ с числом ядер меньше 20 | 2,68 ₽
+Для ВМ c 20 ядрами и больше | 5,36 ₽
+
 ### Исходящий трафик {#prices-traffic}
 
 {% include notitle [pricing-egress-traffic](../_includes/pricing/pricing-egress-traffic.md) %}
