@@ -13,7 +13,7 @@ items:
         href: operations/projects/install-dependencies.md
       - name: Running sample code in a notebook
         href: operations/projects/snippets.md
-      - name: Version control. Working with checkpoints
+      - name: Versioning. Working with checkpoints
         href: operations/projects/checkpoints.md
       - name: Managing computing resources
         href: operations/projects/control-compute-resources.md
@@ -55,6 +55,10 @@ items:
         href: concepts/async.md
       - name: Quotas and limits
         href: concepts/limits.md
+  - name: Use cases
+    items:
+      - name: Voice recognition
+        href: tutorials/speech-recognition.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy
