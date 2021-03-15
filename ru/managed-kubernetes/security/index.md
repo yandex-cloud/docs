@@ -61,16 +61,16 @@ kubectl describe clusterrole <роль для доступа к {{ k8s }} API>
 Примитивная роль | Комбинация ролей {{ managed-k8s-name }}
 ----- | -----
 `admin` | `k8s.cluster-api.cluster-admin`, `k8s.admin`, `vpc.publicAdmin`.
-`editor` | `k8s.cluster-api.cluster-editor`, `k8s.editor`, `vpc.publicAdmin`.
+`editor` | `k8s.cluster-api.cluster-admin`, `k8s.editor`, `vpc.publicAdmin`.
 `viewer`| `k8s.cluster-api.viewer`, `k8s.viewer`.
 
 ## Сервисные аккаунты кластера {{ managed-k8s-name }} {#sa-annotation}
 
 При создании кластера в {{ managed-k8s-name }} необходимо указать два сервисных аккаунта:
 
-* **Сервисный аккаунт кластера** — от этого имени кластер {{ managed-k8s-name }} управляет узлами кластера, подсетями для подов и сервисов, дисками, балансировками нагрузки, а также шифрует и дешифрует секреты. Минимально рекомендуемая роль для такого аккаунта — `k8s.clusters.agent`.
+* **Сервисный аккаунт кластера** — от имени этого сервисного аккаунта сервис {{ managed-k8s-name }} управляет узлами кластера, подсетями для подов и сервисов, дисками, балансировками нагрузки, а также шифрует и дешифрует секреты. Минимально рекомендуемая роль для такого аккаунта — `k8s.clusters.agent`.
 
-* **Сервисный аккаунт группы узлов** — от этого имени узел кластера аутентифицируется в [{{ container-registry-full-name }}](../../container-registry/concepts/index.md). Для использования реестров образов аккаунту нужно назначить какую-либо [сервисную роль](../../container-registry/security/index.md#servisnye-roli) {{ container-registry-short-name }}. Если используется другой реестр, то роли этому сервисному аккаунту можно не назначать.
+* **Сервисный аккаунт группы узлов** — от имени этого сервисного аккаунта узлы кластера аутентифицируются в [{{ container-registry-full-name }}](../../container-registry/concepts/index.md). Для развертывания в кластере приложений с использованием образов из {{ container-registry-full-name }} этому аккаунту нужно назначить какую-либо [сервисную роль](../../container-registry/security/index.md#servisnye-roli) {{ container-registry-short-name }}. Если используется другой container registry, то роли этому сервисному аккаунту можно не назначать.
 
 ## Доступ к консоли управления {{ managed-k8s-name }} {#ui-annotation}
 
