@@ -2,15 +2,17 @@
 
 После создания кластера вы можете:
 
-* [Изменить имя и описание кластера](#change-name-and-description).
+- [{#T}](#change-name-and-description).
 
-* [Изменить класс хостов](#change-resource-preset).
+- [{#T}](#change-resource-preset).
 
-* [Увеличить размер дисков хостов {{ RD }}](#change-disk-size).
+- [{#T}](#change-disk-size).
 
-* [Настроить серверы](#change-redis-config) {{ RD }} согласно [документации {{ RD }}](https://redis.io/documentation). Список поддерживаемых настроек приведен [в справочнике API](../api-ref/Cluster/update.md).
+- [Настроить серверы](#change-redis-config) {{ RD }} согласно [документации {{ RD }}](https://redis.io/documentation). Список поддерживаемых настроек приведен [в справочнике API](../api-ref/Cluster/update.md).
 
-* [Изменить дополнительные настройки кластера](#change-additional-settings).
+- [{#T}](#change-additional-settings).
+
+- [{#T}](#change-sg-set).
 
 ## Изменить имя и описание кластера {#change-name-and-description}
 
@@ -240,3 +242,50 @@
     Имя кластера можно [получить со списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 {% endlist %}
+
+## Изменить группы безопасности {#change-sg-set}
+
+{% list tabs %}
+
+- Консоль управления
+
+    1. Перейдите на страницу каталога и выберите сервис **{{ mrd-name }}**.
+    1. Выберите кластер и нажмите кнопку **Изменить кластер** на панели сверху.
+    1. В блоке **Сетевые настройки** выберите группы безопасности для сетевого трафика кластера.
+
+- CLI
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы изменить список [групп безопасности](../concepts/network.md#security-groups) для кластера:
+
+    1. Посмотрите описание команды CLI для изменения кластера:
+
+        ```bash
+        {{ yc-mdb-rd }} cluster update --help
+        ```
+
+    1. Укажите нужные группы безопасности в команде изменения кластера:
+
+        ```bash
+        {{ yc-mdb-rd }} cluster update <имя кластера> \
+           --security-group-ids <список групп безопасности>
+        ```
+
+- API
+
+    Чтобы изменить список [групп безопасности](../concepts/network.md#security-groups) кластера, воспользуйтесь методом API `update` и передайте в запросе:
+
+    - Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md).
+    - Список групп в параметре `securityGroupIds`.
+    - Список настроек, которые необходимо изменить, в параметре `updateMask`. Если не задать этот параметр, метод API сбросит на значения по умолчанию все настройки кластера, которые не были явно указаны в запросе.
+
+{% endlist %}
+
+{% note warning %}
+
+Может потребоваться дополнительная [настройка групп безопасности](connect.md#configuring-security-groups) для подключения к кластеру.
+
+{% endnote %}

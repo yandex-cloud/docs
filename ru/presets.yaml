@@ -283,6 +283,22 @@ default:
   tf-cloud-id: b1gq90dgh25bebiu75o
   tf-folder-id: b1gia87mbaomkfvsleds
   yandex-cloud: Yandex.Cloud
+# Порты
+  port-any: 0-65535
+  port-http: 80
+  port-https: 443
+  port-mch-cli: 9440
+  port-mch-http: 8443
+  port-mkf-ssl: 9091
+  port-mkf-text: 9092
+  port-mmg-sharded: 27017
+  port-mmg: 27018
+  port-mms: 1433
+  port-mmy: 3306
+  port-mpg: 6432
+  port-mrd-sentinel: 26379
+  port-mrd: 6379
+  port-ssh: 22
 internal:
   audience: internal
   console-link: https://yc.yandex-team.ru
