@@ -10,7 +10,7 @@ If you are already using a project management service, use the API to transfer y
 
 1. Make sure that you are logged in to {{ tracker-name }} with the administrator account.
 
-1. Get [API access]{% if locale == "ru" %}(https://tech.yandex.ru/connect/tracker/api/concepts/access-docpage/){% else %}(https://tech.yandex.com/connect/tracker/api/concepts/access-docpage/){% endif %}.
+1. Get [API access](concepts/access.md).
 
 1. [Create queues](manager/create-queue.md) that you can import issues to.
 
@@ -24,7 +24,7 @@ If you are already using a project management service, use the API to transfer y
 
 1. You can also create [issue boards](manager/create-agile-board.md) and [sprints](manager/create-agile-sprint.md) if necessary.
 
-1. Import data to {{ tracker-name }} using the API<!-- [using the API]{% if locale == "ru" %}(https://tech.yandex.ru/connect/tracker/api/concepts/import/import-ticket-docpage/){% else %}(https://tech.yandex.com/connect/tracker/api/concepts/import/import-ticket-docpage/){% endif %}-->.
+1. Import data to {{ tracker-name }} [using the API](concepts/import/import-ticket.md).
 
 {% if audience == "external" %}
 

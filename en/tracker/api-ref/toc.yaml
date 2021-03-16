@@ -1,0 +1,177 @@
+items:
+- name: Overview
+  href: about.md
+- name: API access
+  href: concepts/access.md
+- name: Issues
+  items:  
+    - name: Get issue parameters
+      href: concepts/issues/get-issue.md
+    - name: Edit an issue
+      href: concepts/issues/patch-issue.md
+    - name: Create an issue
+      href: concepts/issues/create-issue.md
+    - name: Move an issue to another queue
+      href: concepts/issues/move-issue.md
+    - name: Find out the number of issues
+      href: concepts/issues/count-issues.md
+    - name: Find issues
+      href: concepts/issues/search-issues.md
+    - name: Release scroll view resources
+      href: concepts/issues/search-release.md
+    - name: Get priorities
+      href: concepts/issues/get-priorities.md
+    - name: Get issue links
+      href: concepts/issues/get-links.md
+    - name: Link issues
+      href: concepts/issues/link-issue.md
+    - name: Create a checklist or add items to it
+      href: concepts/issues/add-checklist-item.md
+    - name: Get transitions
+      href: concepts/issues/get-transitions.md
+    - name: Make a transition to a new status
+      href: concepts/issues/new-transition.md
+    - name: Get the history of issue changes
+      href: concepts/issues/get-changelog.md
+- name: Projects
+  items:
+    - name: Create a project
+      href: concepts/projects/create-project.md
+    - name: Get project parameters
+      href: concepts/projects/get-project.md
+    - name: Get a list of all projects
+      href: concepts/projects/get-projects.md
+    - name: Get a list of project queues
+      href: concepts/projects/get-project-queues.md
+    - name: Edit a project
+      href: concepts/projects/update-project.md
+    - name: Delete a project
+      href: concepts/projects/delete-project.md
+- name: Comments
+  items:
+    - name: Add a comment
+      href: concepts/issues/add-comment.md
+    - name: Get issue comments
+      href: concepts/issues/get-comments.md
+    - name: Edit a comment
+      href: concepts/issues/edit-comment.md
+    - name: Delete a comment
+      href: concepts/issues/delete-comment.md
+- name: Macros
+  items:
+    - name: Get queue macros
+      href: get-macroses.md
+    - name: Get a macro
+      href: get-macros.md
+    - name: Create a macro
+      href: post-macros.md
+    - name: Edit a macro
+      href: patch-macros.md
+    - name: Delete a macro
+      href: delete-macros.md
+- name: Attached files
+  items:  
+    - name: Get a list of attached files
+      href: concepts/issues/get-attachments-list.md
+    - name: Download a file
+      href: concepts/issues/get-attachment.md
+    - name: Download a thumbnail
+      href: concepts/issues/get-attachment-preview.md
+    - name: Attach a file
+      href: concepts/issues/post-attachment.md
+    - name: Upload a temporary file
+      href: concepts/issues/temp-attachment.md
+    - name: Delete a file
+      href: concepts/issues/delete-attachment.md
+- name: Queues
+  items:  
+    - name: Create a queue
+      href: concepts/queues/create-queue.md
+    - name: Get queue parameters
+      href: concepts/queues/get-queue.md
+    - name: Get a list of queues
+      href: concepts/queues/get-queues.md
+    - name: Get queue versions
+      href: concepts/queues/get-versions.md
+    - name: Get required queue fields
+      href: concepts/queues/get-fields.md
+    - name: Delete a queue
+      href: concepts/queues/delete-queue.md
+    - name: Restore a queue
+      href: concepts/queues/restore-queue.md
+- name: Issue boards
+  items:
+    - name: Get parameters of all boards
+      href: get-boards.md
+    - name: Get board parameters
+      href: get-board.md
+    - name: Create a board
+      href: post-board.md
+    - name: Edit a board
+      href: patch-board.md
+    - name: Delete a board
+      href: delete-board.md
+    - name: Columns
+      items:
+        - name: Get parameters of all columns
+          href: get-columns.md
+        - name: Get column parameters
+          href: get-column.md
+        - name: Create a column
+          href: post-column.md
+        - name: Edit a column
+          href: patch-column.md
+        - name: Delete a column
+          href: delete-column.md
+    - name: Sprints
+      items:
+        - name: Get all sprints of a board
+          href: get-sprints.md
+        - name: Get a sprint
+          href: get-sprint.md
+        - name: Create a sprint
+          href: post-sprint.md
+- name: Import
+  items:
+    - name: Import an issue
+      href: concepts/import/import-ticket.md
+    - name: Import files
+      href: concepts/import/import-attachments.md
+    - name: Import comments
+      href: concepts/import/import-comments.md
+    - name: Import links
+      href: concepts/import/import-links.md
+- name: Bulk operations
+  items:
+    - name: Perform a bulk move of issues to a different queue
+      href: concepts/bulkchange/bulk-move-issues.md
+    - name: Make bulk changes to issues
+      href: concepts/bulkchange/bulk-update-issues.md
+    - name: Make bulk changes to issue statuses
+      href: concepts/bulkchange/bulk-transition.md
+- name: Time tracking
+  items:
+    - name: Add a record of time spent
+      href: concepts/issues/new-worklog.md
+    - name: Edit a record of time spent
+      href: concepts/issues/patch-worklog.md
+    - name: Delete a record of time spent
+      href: concepts/issues/delete-worklog.md
+    - name: Get records of time spent
+      items:
+        - name: Get all records for an issue
+          href: concepts/issues/issue-worklog.md
+        - name: Select records by parameters
+          href: concepts/issues/get-worklog.md
+- name: Issue fields
+  items:
+    - name: Get issue field parameters
+      href: concepts/issues/get-issue-fields.md
+    - name: Edit issue field names
+      href: concepts/issues/patch-issue-field-name.md
+    - name: Edit possible values of issue fields
+      href: concepts/issues/patch-issue-field-value.md
+- name: Get information about the current user
+  href: get-user-info.md
+- name: Possible response codes
+  href: error-codes.md

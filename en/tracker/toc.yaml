@@ -320,11 +320,11 @@ items:
 - name: Pricing policy
   when: audience == "external"
   href: pricing.md
-#- name: API reference
-#  items: null
-#  include:
-#    repo: docs
-#    path: en/tracker/api-ref/toc.yaml
+- name: API reference
+  items: null
+  include:
+    repo: docs
+    path: en/tracker/api-ref/toc.yaml
 - name: Questions and answers
   href: faq.md
 - name: Technical support
