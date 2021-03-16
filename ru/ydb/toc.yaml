@@ -119,9 +119,6 @@ items:
     - name: Использование рецепта YDB
       href: getting_started/ydb_recipe.md
       when: audience != "external"
-    - name: Использование Docker контейнера YDB
-      href: getting_started/ydb_docker.md
-      when: audience != "external"
     - name: ClickHouse over YDB
       href: getting_started/start_chydb.md
       when: audience != "external"
@@ -155,6 +152,9 @@ items:
         href: operations/crud.md
       - name: Работа со вторичными индексами
         href: operations/indexes.md
+      - name: Использование Docker-контейнера YDB
+        href: getting_started/ydb_docker.md
+        when: audience == "external"
       - name: Работа с AWS SDK
         when: audience == "external"
         items:
