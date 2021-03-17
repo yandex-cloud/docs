@@ -49,7 +49,6 @@ items:
       - name: Работа с подключениями
         items:
           - name: Создание подключения к ClickHouse
-            when: audience == "external"
             href: operations/connection/create-clickhouse.md
           - name: Создание подключения к файлу CSV
             href: operations/connection/create-csv.md
