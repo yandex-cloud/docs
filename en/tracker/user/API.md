@@ -1,6 +1,6 @@
 # API {{ tracker-name }}
 
-Manage your {{ tracker-name }} issues using HTTP requests to the [REST API {{ tracker-full-name }}](https://tech.yandex.com/connect/tracker/).
+Manage your {{ tracker-name }} issues using HTTP requests to the [{{ tracker-full-name }} REST API](../about.md).
 
 The {{ tracker-full-name }} API is used by web services and apps that process your company's issues on behalf of the user. Users may have different features available in the API depending on their access rights.
 
@@ -11,7 +11,7 @@ With the {{ tracker-name }} API, you can:
 - Set specific handling rules for specific actions, such as updating the status at a particular time.
 - Create web browser extensions for managing {{ tracker-name }}.
 
-To learn more about the {{ tracker-name }} API features, see the [documentation](https://tech.yandex.com/connect/tracker/api/about-docpage/).
+To learn more about the {{ tracker-name }} API features, see the [reference](../about.md).
 
 
 {% note tip %}

@@ -5,20 +5,36 @@ items:
     items:
       - name: Overview
         href: quickstart/index.md
-      - name: Creating and executing functions
-        href: quickstart/function-quickstart.md
-      - name: Creating a timer
-        href: quickstart/timer-quickstart.md
-      - name: Creating a trigger for Message Queue
-        href: quickstart/ymq-trigger-quickstart.md
-      - name: Creating a trigger for Object Storage
-        href: quickstart/os-trigger-quickstart.md
-      - name: Creating a trigger for Container Registry
-        href: quickstart/cr-trigger-quickstart.md
-      - name: Creating a trigger for Cloud Logs
-        href: quickstart/cloudlogs-trigger-quickstart.md
-      - name: Creating a trigger for IoT Core
-        href: quickstart/iot-core-trigger-quickstart.md
+      - name: Creating a function
+        items:
+          - name: Overview
+            href: quickstart/create-function/index.md
+          - name: Python
+            href: quickstart/create-function/python-function-quickstart.md
+          - name: Node.js
+            href: quickstart/create-function/node-function-quickstart.md
+          - name: PHP
+            href: quickstart/create-function/php-function-quickstart.md
+          - name: Go
+            href: quickstart/create-function/go-function-quickstart.md
+          - name: Bash
+            href: quickstart/create-function/bash-function-quickstart.md
+      - name: Creating a trigger
+        items:
+          - name: Overview
+            href: quickstart/create-trigger/index.md
+          - name: Timer
+            href: quickstart/create-trigger/timer-quickstart.md
+          - name: Trigger for Message Queue
+            href: quickstart/create-trigger/ymq-trigger-quickstart.md
+          - name: Trigger for Object Storage
+            href: quickstart/create-trigger/os-trigger-quickstart.md
+          - name: Trigger for Container Registry
+            href: quickstart/create-trigger/cr-trigger-quickstart.md
+          - name: Trigger for Cloud Logs
+            href: quickstart/create-trigger/cloudlogs-trigger-quickstart.md
+          - name: Trigger for Yandex IoT Core
+            href: quickstart/create-trigger/iot-core-trigger-quickstart.md
   - name: Step-by-step instructions
     items:
       - name: All instructions
@@ -39,11 +55,11 @@ items:
             href: operations/function/function-invoke.md
           - name: Updating a function
             href: operations/function/function-update.md
-          - name: Viewing monitoring charts
+          - name: View monitoring charts
             href: operations/function/function-monitoring.md
           - name: Viewing the execution log
             href: operations/function/function-logs.md
-          - name: Deleting a function
+          - name: Delete function
             href: operations/function/function-delete.md
       - name: Managing triggers
         items:
@@ -73,7 +89,7 @@ items:
         href: concepts/function.md
       - name: Invoking a function
         href: concepts/function-invoke.md
-      - name: Runtime
+      - name: Runtime environment
         items:
           - name: Overview
             href: concepts/runtime/index.md
@@ -265,7 +281,7 @@ items:
         href: api-ref/functions/authentication.md
       - name: gRPC
         items:
-          - name: Overview
+          - name: Обзор
             href: grpc/index.md
           - name: FunctionService
             href: grpc/function_service.md
@@ -273,11 +289,11 @@ items:
             href: grpc/operation_service.md
       - name: REST
         items:
-          - name: Overview
+          - name: Обзор
             href: functions/api-ref/index.md
           - name: Function
             items:
-              - name: Overview
+              - name: Обзор
                 href: functions/api-ref/Function/index.md
               - name: create
                 href: functions/api-ref/Function/create.md
@@ -319,7 +335,7 @@ items:
         href: api-ref/triggers/authentication.md
       - name: gRPC
         items:
-          - name: Overview
+          - name: Обзор
             href: grpc/index.md
           - name: TriggerService
             href: grpc/trigger_service.md
@@ -327,11 +343,11 @@ items:
             href: grpc/operation_service.md
       - name: REST
         items:
-          - name: Overview
+          - name: Обзор
             href: triggers/api-ref/index.md
           - name: Trigger
             items:
-              - name: Overview
+              - name: Обзор
                 href: triggers/api-ref/Trigger/index.md
               - name: create
                 href: triggers/api-ref/Trigger/create.md
@@ -343,10 +359,6 @@ items:
                 href: triggers/api-ref/Trigger/list.md
               - name: listOperations
                 href: triggers/api-ref/Trigger/listOperations.md
-              - name: pause
-                href: triggers/api-ref/Trigger/pause.md
-              - name: resume
-                href: triggers/api-ref/Trigger/resume.md
               - name: update
                 href: triggers/api-ref/Trigger/update.md
   - name: Questions and answers

@@ -2,17 +2,17 @@
 editable: false
 ---
 
-# Method listRuntimes
-Lists available runtime environments for the specified function.
+# Метод listRuntimes
+Список доступных сред выполнения для указанной функции.
  
 
  
-## HTTP request {#https-request}
+## HTTP-запрос {#https-request}
 ```
 GET https://serverless-functions.api.cloud.yandex.net/functions/v1/runtimes
 ```
  
-## Response {#responses}
+## Ответ {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -24,6 +24,6 @@ GET https://serverless-functions.api.cloud.yandex.net/functions/v1/runtimes
 ```
 
  
-Field | Description
+Поле | Описание
 --- | ---
-runtimes[] | **string**<br><p>Runtime environments available for the specified function.</p> 
+runtimes[] | **string**<br><p>Среды выполнения, доступные для указанной функции.</p> 

@@ -300,7 +300,7 @@ For a detailed example of setting up auto actions, see [{#T}](user/create-autoac
 
 ## Integrate {{ tracker-name }} with other platforms {#api}
 
-Developers have to use various different platforms to build, test, and deploy their apps, among other things. You can use {{ tracker-name }} to find links to related resources or to issues hosted on other platforms, making cross-platform development more convenient. To send information from other platforms to {{ tracker-name }}, use the {{ tracker-name }} API. To learn more about the {{ tracker-name }} API capabilities, read the [Yandex.Tracker API documentation](https://tech.yandex.com/connect/tracker/api/about-docpage/).
+Developers have to use various different platforms to build, test, and deploy their apps, among other things. You can use {{ tracker-name }} to find links to related resources or to issues hosted on other platforms, making cross-platform development more convenient. To send information from other platforms to {{ tracker-name }}, use the {{ tracker-name }} API. To learn more about the {{ tracker-name }} API capabilities, read the [Yandex.Tracker API reference](about.md).
 
 To transmit data from {{ tracker-name }} to another platform, try sending HTTP requests via [triggers](user/trigger.md).
 
@@ -320,7 +320,7 @@ You can use the {{ tracker-name }} API to update issue statuses automatically ba
 
 1. The intermediate service then sends a request to the {{ tracker-name }} API, telling it to update the issue status. The request URL must contain the issue key and the status key. You can find the status key in the {{ tracker-name }} settings on the [**Issue statuses**]({{ link-tracker-statuses }}) tab.
 
-    See the request format in Tracker API documentation<!--[Tracker API documentation](https://tech.yandex.com/connect/tracker/api/concepts/issues/new-transition-docpage/)comment text -->.
+    See the request format in [Tracker API reference](about.md).
 
 #### Link a test bench to an issue
 
@@ -337,7 +337,7 @@ The same script can be used to add a link to the unpacked bench to the issue. To
 
 1. Once the script has deployed the test bench, it sends a request to the {{ tracker-name }} API, adding the bench address to the <q>Bench link</q> issue field. The request URL must contain the issue key, and the request body must contain the key and the new field value. You can find the field key in the {{ tracker-name }} settings on the [**Fields**]({{ link-admin-fields }}) tab.
 
-    See the request format in [Tracker API documentation](https://tech.yandex.com/connect/tracker/api/concepts/issues/patch-issue-docpage/).
+    See the request format in [Tracker API documentation](about.md).
 
 #### Send notifications to a messenger
 

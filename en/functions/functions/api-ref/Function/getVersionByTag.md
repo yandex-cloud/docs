@@ -2,24 +2,24 @@
 editable: false
 ---
 
-# Method getVersionByTag
-Returns all versions with the specified tag.
+# Метод getVersionByTag
+Возвращает все версии с указанным тегом.
  
-To get the list of all available versions, make a [listVersions](/docs/functions/functions/api-ref/Function/listVersions) request.
+Чтобы получить список доступных версий, используйте запрос [listVersions](/docs/functions/functions/api-ref/Function/listVersions) .
  
-## HTTP request {#https-request}
+## HTTP-запрос {#https-request}
 ```
 GET https://serverless-functions.api.cloud.yandex.net/functions/v1/versions:byTag
 ```
  
-## Query parameters {#query_params}
+## Query-параметры {#query_params}
  
-Parameter | Description
+Параметр | Описание
 --- | ---
-functionId | Required. ID of the function whose versions should be listed.  To get a function ID use a [list](/docs/functions/functions/api-ref/Function/list) request.
-tag | Version tag.  To get the history of version tags make a [listTagHistory](/docs/functions/functions/api-ref/Function/listTagHistory) request.  Value must match the regular expression `` [a-z][-_0-9a-z]*|[$]latest ``.
+functionId | Обязательное поле. Идентификатор функции, для которой нужно вернуть список версий.  Чтобы получить идентификатор функции, используйте запрос [list](/docs/functions/functions/api-ref/Function/list) .
+tag | Тег версии.  Чтобы получить историю тегов версий, используйте запрос [listTagHistory](/docs/functions/functions/api-ref/Function/listTagHistory) .  Значение должно соответствовать регулярному выражению `` [a-z][-_0-9a-z]*|[$]latest ``.
  
-## Response {#responses}
+## Ответ {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -41,34 +41,26 @@ tag | Version tag.  To get the history of version tags make a [listTagHistory](/
     "string"
   ],
   "logGroupId": "string",
-  "environment": "object",
-  "connectivity": {
-    "networkId": "string",
-    "subnetId": [
-      "string"
-    ]
-  }
+  "environment": "object"
 }
 ```
-Version of a function. For details about the concept, see [Function versions](/docs/functions/concepts/function#version).
+Версия функции. Дополнительные сведения о концепции см. в разделе
+[Версия функции](/docs/functions/concepts/function#version).
  
-Field | Description
+Поле | Описание
 --- | ---
-id | **string**<br><p>ID of the version.</p> 
-functionId | **string**<br><p>ID of the function that the version belongs to.</p> 
-description | **string**<br><p>Description of the version.</p> <p>The string length in characters must be 0-256.</p> 
-createdAt | **string** (date-time)<br><p>Creation timestamp for the version.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
-runtime | **string**<br><p>ID of the runtime environment for the function.</p> <p>Supported environments and their identifiers are listed in the <a href="/docs/functions/concepts/runtime">Runtime environments</a>.</p> 
-entrypoint | **string**<br><p>Entrypoint for the function: the name of the function to be called as the handler.</p> <p>Specified in the format `<function file name>.<handler name>`, for example, `index.myFunction`.</p> 
-resources | **object**<br><p>Resources allocated to the version.</p> <p>Resources allocated to a version.</p> 
-resources.<br>memory | **string** (int64)<br><p>Amount of memory available to the version, specified in bytes.</p> <p>Acceptable values are 134217728 to 2147483648, inclusive.</p> 
-executionTimeout | **string**<br><p>Timeout for the execution of the version.</p> <p>If the timeout is exceeded, Cloud Functions responds with a 504 HTTP code.</p> 
-serviceAccountId | **string**<br><p>ID of the service account associated with the version.</p> 
-imageSize | **string** (int64)<br><p>Final size of the deployment package after unpacking.</p> 
-status | **string**<br><p>Status of the version.</p> <ul> <li>CREATING: Version is being created.</li> <li>ACTIVE: Version is ready to use.</li> </ul> 
-tags[] | **string**<br><p>Version tags. For details, see <a href="/docs/functions/concepts/function#tag">Version tag</a>.</p> 
-logGroupId | **string**<br><p>ID of the log group for the version.</p> 
-environment | **object**<br><p>Environment settings for the version.</p> 
-connectivity | **object**<br><p>Network access. If specified the version will be attached to specified network/subnet(s).</p> <p>Version connectivity specification.</p> 
-connectivity.<br>networkId | **string**<br><p>Network the version will have access to. It's essential to specify network with subnets in all availability zones.</p> 
-connectivity.<br>subnetId[] | **string**<br><p>Complete list of subnets (from the same network) the version can be attached to. It's essential to specify at least one subnet for each availability zones.</p> 
+id | **string**<br><p>Идентификатор версии.</p> 
+functionId | **string**<br><p>Идентификатор функции, которой принадлежит версия.</p> 
+description | **string**<br><p>Описание версии.</p> <p>Длина строки в символах должна быть от 0 до 256.</p> 
+createdAt | **string** (date-time)<br><p>Время создания версии.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
+runtime | **string**<br><p>Идентификатор среды выполнения для функции.</p> <p>Поддерживаемые среды и их идентификаторы перечислены в списке <a href="/docs/functions/concepts/runtime">Среда выполнения</a>.</p> 
+entrypoint | **string**<br><p>Точка входа для функции: имя функции, вызываемой в качестве обработчика.</p> <p>Указывается в формате `<function file name>.<handler name>`, например, `index.myFunction`.</p> 
+resources | **object**<br><p>Ресурсы, выделенные для версии.</p> <p>Ресурсы, выделенные для версии.</p> 
+resources.<br>memory | **string** (int64)<br><p>Объем памяти в байтах, доступный для версии.</p> <p>Допустимые значения — от 33554432 до 1073741824 включительно.</p> 
+executionTimeout | **string**<br><p>Таймаут для выполнения версии.</p> <p>Если время ожидания будет превышено, Cloud Functions возвращает 504 HTTP-код.</p> 
+serviceAccountId | **string**<br><p>Идентификатор сервисного аккаунта, который связан с версией.</p> 
+imageSize | **string** (int64)<br><p>Окончательный размер пакета развертывания после распаковки.</p> 
+status | **string**<br><p>Состояние версии.</p> <ul> <li>CREATING: Версия создается.</li> <li>ACTIVE: Версия готова к использованию.</li> </ul> 
+tags[] | **string**<br><p>Теги версий. Подробнее см. в <a href="/docs/functions/concepts/function#tag">Тег версии</a>.</p> 
+logGroupId | **string**<br><p>Идентификатор группы журналов выполнения для версии.</p> 
+environment | **object**<br><p>Параметры среды выполнения для версии.</p> 
