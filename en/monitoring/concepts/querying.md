@@ -199,73 +199,73 @@ The rank functions order a metric vector by the aggregation function value in th
 
 #### bottom_avg
 
-**bottom_avg**(*source: timeseries_vector*, *limit: number*): *timeseries_vector*
+**bottom_avg**(*limit: number*, *source: timeseries_vector*): *timeseries_vector*
 
 Returns the _limit_ of metrics with a minimum average value.
 
 #### bottom_count
 
-**bottom_count**(*source: timeseries_vector*, *limit: number*): *timeseries_vector*
+**bottom_count**(*limit: number*, *source: timeseries_vector*): *timeseries_vector*
 
 Returns the _limit_ of metrics with a minimum number of values.
 
 #### bottom_last
 
-**bottom_last**(*source: timeseries_vector*, *limit: number*): *timeseries_vector*
+**bottom_last**(*limit: number*, *source: timeseries_vector*): *timeseries_vector*
 
 Returns the _limit_ of metrics with the minimum last value.
 
 #### bottom_max
 
-**bottom_max**(*source: timeseries_vector*, *limit: number*): *timeseries_vector*
+**bottom_max**(*limit: number*, *source: timeseries_vector*): *timeseries_vector*
 
 Returns the _limit_ of metrics with the lowest max value.
 
 #### bottom_min
 
-**bottom_min**(*source: timeseries_vector*, *limit: number*): *timeseries_vector*
+**bottom_min**(*limit: number*, *source: timeseries_vector*): *timeseries_vector*
 
 Returns the _limit_ of metrics with the lowest min value.
 
 #### bottom_sum
 
-**bottom_sum**(*source: timeseries_vector*, *limit: number*): *timeseries_vector*
+**bottom_sum**(*limit: number*, *source: timeseries_vector*): *timeseries_vector*
 
 Returns the _limit_ of metrics with the lowest sum value.
 
 #### top_avg
 
-**top_avg**(*source: timeseries_vector*, *limit: number*): *timeseries_vector*
+**top_avg**(*limit: number*, *source: timeseries_vector*): *timeseries_vector*
 
 Returns the _limit_ of metrics with the top average value.
 
 #### top_count
 
-**top_count**(*source: timeseries_vector*, *limit: number*): *timeseries_vector*
+**top_count**(*limit: number*, *source: timeseries_vector*): *timeseries_vector*
 
 Returns the _limit_ of metrics with a maximum number of values.
 
 #### top_last
 
-**top_last**(*source: timeseries_vector*, *limit: number*): *timeseries_vector*
+**top_last**(*limit: number*, *source: timeseries_vector*): *timeseries_vector*
 
 Returns the _limit_ of metrics with the top last value.
 
 #### top_max
 
-**top_max**(*source: timeseries_vector*, *limit: number*): *timeseries_vector*
+**top_max**(*limit: number*, *source: timeseries_vector*): *timeseries_vector*
 
 Returns the _limit_ of metrics with the top max value.
 
 #### top_min
 
-**top_min**(*source: timeseries_vector*, *limit: number*): *timeseries_vector*
+**top_min**(*limit: number*, *source: timeseries_vector*): *timeseries_vector*
 
 Returns the _limit_ of metrics with the top min value.
 
 #### top_sum
 
-**top_sum**(*source: timeseries_vector*, *limit: number*): *timeseries_vector*
+**top_sum**(*limit: number*, *source: timeseries_vector*): *timeseries_vector*
 
 Returns the _limit_ of metrics with the top sum value.
 

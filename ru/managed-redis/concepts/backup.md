@@ -4,7 +4,7 @@
 
 ## Настройки резервного копирования {{ mrd-short-name }} {#backup-settings}
 
-{{ mrd-short-name }} использует AOF (append-only file) с форсированной записью на диск каждую секунду — выставлен параметр [appendfsync everysec](http://download.redis.io/redis-stable/redis.conf).
+{{ mrd-short-name }} использует AOF (Append Only File) с форсированной записью на диск каждую секунду — выставлен параметр [appendfsync everysec](http://download.redis.io/redis-stable/redis.conf).
 
 Резервная копия всех данных кластера (снимок в формате RDB) автоматически создается раз в день. Отключить автоматическое создание резервной копии невозможно, и изменить промежуток хранения автоматических копий (по умолчанию 7 дней) пока тоже нельзя.
 

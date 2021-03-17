@@ -44,8 +44,6 @@ Non-replicated disks have a number of limitations:
 
   {% include [pricing-gb-size](../../_includes/pricing-gb-size.md) %}
 
-* Non-replicated disks can't be used as boot disks.
-
 * The information they store may be temporarily unavailable or lost in the event of failure since non-replicated disks don't provide redundancy.
 
 Multiple non-replicated disks can be grouped into `placement groups` to provide data storage redundancy at the application level. In this case, individual disks are physically placed in different racks in a data center to reduce the probability of simultaneous failure of all disks in the group.

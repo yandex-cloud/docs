@@ -3,8 +3,8 @@ editable: false
 ---
 
 # Function
-A set of methods for managing serverless functions.
-## JSON Representation {#representation}
+Набор методов управления бессерверными функциями.
+## JSON-представление {#representation}
 ```json 
 {
   "id": "string",
@@ -19,35 +19,35 @@ A set of methods for managing serverless functions.
 }
 ```
  
-Field | Description
+Поле | Описание
 --- | ---
-id | **string**<br><p>ID of the function. Generated at creation time.</p> 
-folderId | **string**<br><p>ID of the folder that the function belongs to.</p> 
-createdAt | **string** (date-time)<br><p>Creation timestamp for the function.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
-name | **string**<br><p>Name of the function. The name is unique within the folder.</p> <p>The string length in characters must be 3-63.</p> 
-description | **string**<br><p>Description of the function.</p> <p>The string length in characters must be 0-256.</p> 
-labels | **object**<br><p>Function labels as `key:value` pairs.</p> <p>No more than 64 per resource.</p> 
-logGroupId | **string**<br><p>ID of the log group for the function.</p> 
-httpInvokeUrl | **string**<br><p>URL that needs to be requested to invoke the function.</p> 
-status | **string**<br><p>Status of the function.</p> <ul> <li>CREATING: Function is being created.</li> <li>ACTIVE: Function is ready to be invoked.</li> <li>DELETING: Function is being deleted.</li> <li>ERROR: Function failed.</li> </ul> 
+id | **string**<br><p>Идентификатор функции. Генерируется во время создания.</p> 
+folderId | **string**<br><p>Идентификатор каталога, к которому принадлежит функция.</p> 
+createdAt | **string** (date-time)<br><p>Время создания функции.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
+name | **string**<br><p>Имя функции. Имя уникально в рамках каталога.</p> <p>Длина строки в символах должна быть от 3 до 63.</p> 
+description | **string**<br><p>Описание функции.</p> <p>Длина строки в символах должна быть от 0 до 256.</p> 
+labels | **object**<br><p>Метки функций в виде пар `key:value` .</p> <p>Не более 64 на ресурс.</p> 
+logGroupId | **string**<br><p>Идентификатор группы журналов выполнения функции.</p> 
+httpInvokeUrl | **string**<br><p>URL-адрес, который нужнозапросить для вызова функции.</p> 
+status | **string**<br><p>Состояние функции.</p> <ul> <li>CREATING: Функция создается.</li> <li>ACTIVE: Функция готова к вызову.</li> <li>DELETING: Функция удаляется.</li> <li>ERROR: Сбой функции.</li> </ul> 
 
-## Methods {#methods}
-Method | Description
+## Методы {#methods}
+Метод | Описание
 --- | ---
-[create](create.md) | Creates a function in the specified folder.
-[createVersion](createVersion.md) | Creates a version for the specified function.
-[delete](delete.md) | Deletes the specified function.
-[get](get.md) | Returns the specified function.
-[getVersion](getVersion.md) | Returns the specified version of a function.
-[getVersionByTag](getVersionByTag.md) | Returns all versions with the specified tag.
-[list](list.md) | Retrieves the list of functions in the specified folder.
-[listAccessBindings](listAccessBindings.md) | Lists existing access bindings for the specified function.
-[listOperations](listOperations.md) | Lists operations for the specified function.
-[listRuntimes](listRuntimes.md) | Lists available runtime environments for the specified function.
-[listTagHistory](listTagHistory.md) | Returns the log of tags assigned to versions of the specified function.
-[listVersions](listVersions.md) | Retrieves the list of versions for the specified function, or of all function versions in the specified folder.
-[removeTag](removeTag.md) | Remove a tag from the specified version of a function.
-[setAccessBindings](setAccessBindings.md) | Sets access bindings for the function.
-[setTag](setTag.md) | Set a tag for the specified version of a function.
-[update](update.md) | Updates the specified function.
-[updateAccessBindings](updateAccessBindings.md) | Updates access bindings for the specified function.
+[create](create.md) | Создает функцию в указанном каталоге.
+[createVersion](createVersion.md) | Создает версию для указанной функции.
+[delete](delete.md) | Удаляет указанную функцию.
+[get](get.md) | Возвращает указанную функцию.
+[getVersion](getVersion.md) | Возвращает указанную версию функции.
+[getVersionByTag](getVersionByTag.md) | Возвращает все версии с указанным тегом.
+[list](list.md) | Возвращает список функций в указанном каталоге.
+[listAccessBindings](listAccessBindings.md) | Возвращает список привязок прав доступа для указанной функции.
+[listOperations](listOperations.md) | Возвращает список операций для указанной функции.
+[listRuntimes](listRuntimes.md) | Список доступных сред выполнения для указанной функции.
+[listTagHistory](listTagHistory.md) | Возвращает журнал тегов, назначенных версиям указанной функции.
+[listVersions](listVersions.md) | Извлекает список версий для указанной функции или всех версий функции в указанном каталоге
+[removeTag](removeTag.md) | Удаляет тег из указанной версии функции.
+[setAccessBindings](setAccessBindings.md) | Устанавливает привязки прав доступа для указанной функции.
+[setTag](setTag.md) | Устанавливает тег для указанной версии функции.
+[update](update.md) | Обновляет указанную функцию.
+[updateAccessBindings](updateAccessBindings.md) | Обновляет привязки прав доступа для указанной функции.

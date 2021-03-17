@@ -35,9 +35,9 @@ Primitive roles are common to all Yandex.Cloud resources. Assigning any of them 
 
 List of primitive roles:
 
-* {% include [viewer](../../_includes/iam/roles/short-descriptions/viewer.md) %}
-* {% include [editor](../../_includes/iam/roles/short-descriptions/editor.md) %}
-* {% include [admin](../../_includes/iam/roles/short-descriptions/admin.md) %}
+* `viewer`: Only lets you view information about the resources.
+* `editor`: Lets you manage resources (create and edit).
+* `admin`: Lets you manage access to resources and the resources themselves (create, modify, and delete).
 
 ## What roles do I need {#choosing-roles}
 

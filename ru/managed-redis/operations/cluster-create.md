@@ -35,7 +35,7 @@
       - Выберите объем оперативной памяти для хоста.
       - Выберите размер диска. Доступный размер диска зависит от объема оперативной памяти и ограничен [квотами и лимитами](../concepts/limits.md#limits). Минимальный размер диска в 2 раза больше выбранного объема оперативной памяти, максимальный — в 8 раз больше.
   1. В блоке **Настройки кластера** в поле **Пароль** укажите пароль пользователя, от 8 до 128 символов.
-  1. В блоке **Сеть** выберите сеть, к подсетям которой будут подключены хосты.
+  1. В блоке **Сетевые настройки** выберите облачную сеть для размещения кластера и группы безопасности для сетевого трафика кластера. Может потребоваться дополнительная [настройка групп безопасности](connect.md#configuring-security-groups) для того, чтобы можно было подключаться к кластеру.
   1. В блоке **Хосты** нажмите на кнопку **Добавить хост** и выберите зону доступности и подсеть, к которой будет подключен хост. Создайте необходимое количество хостов. Для изменения зоны доступности и добавленного хоста нажмите на значок карандаша в строке хоста.
 
      Если вы включили шардирование, укажите названия шардов.
@@ -84,6 +84,7 @@
          --environment <окружение, prestable или production> \
          --network-name <имя сети> \
          --host zone-id=<зона доступности>,subnet-id=<идентификатор подсети> \
+         --security-group-ids <список идентификаторов групп безопасности> \
          --resource-preset <класс хоста> \
          --disk-size <размер хранилища в гигабайтах> \
          --password=<пароль пользователя> \
@@ -107,12 +108,13 @@
        * Подсети — описание [подсетей](../../vpc/concepts/network.md#network), к которым будут подключены хосты кластера. Если подходящие подсети у вас уже есть, описывать их повторно не нужно.
               
        Пример структуры конфигурационного файла:
-       
-       ```
+
+       ```hcl
        resource "yandex_mdb_redis_cluster" "<имя кластера>" {
-         name        = "<имя кластера>"
-         environment = "<окружение>"
-         network_id  = "<идентификатор сети>"
+         name               = "<имя кластера>"
+         environment        = "<окружение>"
+         network_id         = "<идентификатор сети>"
+         security_group_ids = [ "<идентификаторы групп безопасности>" ]
        
          config {
            password = "<пароль>"
@@ -162,6 +164,11 @@
           
 {% endlist %}
 
+{% note warning %}
+
+Если вы указали идентификаторы групп безопасности при создании кластера, то для подключения к нему может потребоваться дополнительная [настройка групп безопасности](connect.md#configuring-security-groups).
+
+{% endnote %}
 
 ## Примеры {#examples}
 
@@ -178,7 +185,7 @@
   - С именем `myredis`.
   - В окружении `production`.
   - В сети `default`.
-  - С одним хостом класса `hm1.nano` в подсети `b0rcctk2rvtr8efcch64`, в зоне доступности `{{ zone-id }}`.
+  - С одним хостом класса `hm1.nano` в подсети `b0rcctk2rvtr8efcch64`, в зоне доступности `{{ zone-id }}` и группе безопасности с идентификатором `{{ security-group }}`.
   - С быстрым сетевым хранилищем (`{{ disk-type-example }}`) объемом 16 ГБ.
   - C паролем `user1user1`.
   
@@ -191,6 +198,7 @@
        --network-name default \
        --resource-preset hm1.nano \
        --host zone-id={{ zone-id }},subnet-id=b0rcctk2rvtr8efcch64 \
+       --security-group-ids {{ security-group }} \
        --disk-size 16 \
        --password=user1user1
   ```
@@ -201,50 +209,71 @@
     - С именем `myredis`.
     - В окружении `production`.
     - В облаке с идентификатором `{{ tf-cloud-id }}`.
-    - В каталоге `myfolder`.
+    - В каталоге с идентификатором `{{ tf-folder-id }}`.
     - В новой сети `mynet`.
     - С одним хостом класса `hm1.nano` в новой подсети `mysubnet`, в зоне доступности `{{ zone-id }}`. Подсеть `mysubnet` будет иметь диапазон `10.5.0.0/24`.
+    - В новой группе безопасности `redis-sg`, разрешающей подключения через порт `{{ port-mrd }}` с любых адресов подсети `mysubnet`.
     - С быстрым сетевым хранилищем (`{{ disk-type-example }}`) объемом 16 ГБ.
     - C паролем `user1user1`.
     
   Конфигурационный файл для такого кластера выглядит так:
   
-  ```
+  ```hcl
   provider "yandex" {
     token     = "<OAuth или статический ключ сервисного аккаунта>"
     cloud_id  = "{{ tf-cloud-id }}"
-    folder_id = "${data.yandex_resourcemanager_folder.myfolder.id}"
+    folder_id = "{{ tf-folder-id }}"
     zone      = "{{ zone-id }}"
   }
-  
+
   resource "yandex_mdb_redis_cluster" "myredis" {
-    name        = "myredis"
-    environment = "PRODUCTION"
-    network_id  = "${yandex_vpc_network.mynet.id}"
-  
+    name               = "myredis"
+    environment        = "PRODUCTION"
+    network_id         = yandex_vpc_network.mynet.id
+    security_group_ids = [ yandex_vpc_security_group.redis-sg.id ]
+
     config {
       password = "user1user1"
     }
-  
+
     resources {
       resource_preset_id = "hm1.nano"
       disk_size          = 16
     }
-  
+
     host {
       zone      = "{{ zone-id }}"
-      subnet_id = "${yandex_vpc_subnet.mysubnet.id}"
+      subnet_id = yandex_vpc_subnet.mysubnet.id
     }
   }
-  
+
   resource "yandex_vpc_network" "mynet" { name = "mynet" }
-  
+
+  resource "yandex_vpc_security_group" "redis-sg" {
+    name       = "redis-sg"
+    network_id = yandex_vpc_network.mynet.id
+
+    ingress {
+      description    = "Redis"
+      port           = {{ port-mrd }}
+      protocol       = "TCP"
+      v4_cidr_blocks = ["10.5.0.0/24"]
+    }
+
+    egress {
+      description    = "Redis"
+      port           = {{ port-mrd }}
+      protocol       = "TCP"
+      v4_cidr_blocks = ["10.5.0.0/24"]
+    }
+  }
+
   resource "yandex_vpc_subnet" "mysubnet" {
     name           = "mysubnet"
     zone           = "{{ zone-id }}"
-    network_id     = "${yandex_vpc_network.mynet.id}"
+    network_id     = yandex_vpc_network.mynet.id
     v4_cidr_blocks = ["10.5.0.0/24"]
   }
   ```
-    
+
 {% endlist %}

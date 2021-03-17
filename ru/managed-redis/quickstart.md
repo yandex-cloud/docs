@@ -12,7 +12,7 @@
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
-1. Подключиться к кластеру можно только изнутри {{ yandex-cloud }}. Для подключения создайте виртуальную машину на основе [Linux](../compute/quickstart/quick-create-linux.md) в той же сети, что и кластер.
+1. Подключиться к кластеру можно только изнутри {{ yandex-cloud }}. Для подключения создайте виртуальную машину в той же облачной сети, что и кластер {{ RD }} (на основе [Linux](../compute/quickstart/quick-create-linux.md) или [Windows](../compute/quickstart/quick-create-windows.md)).
 1. [Подключитесь](../compute/operations/vm-connect/ssh.md) к виртуальной машине по SSH.
 1. Установите на виртуальную машину утилиту [redis-cli](https://redis.io/topics/rediscli), например, так (для Ubuntu 20.04 LTS): 
 
@@ -29,6 +29,8 @@
 1. Дождитесь, когда кластер будет готов к работе: его статус на панели {{ mrd-short-name }} сменится на **Running**, а состояние — на **Alive**. Это может занять некоторое время.
 
 ## Подключитесь к кластеру {#connect}
+
+1. [Настройте группы безопасности](operations/connect.md#configuring-security-groups) для облачной сети так, чтобы был разрешен весь необходимый трафик между кластером и хостом, с которого выполняется подключение.
 
 1. Подключитесь к хосту-мастеру кластера {{ RD }}, используя `redis-cli`.
 

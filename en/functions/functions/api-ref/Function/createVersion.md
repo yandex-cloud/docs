@@ -2,17 +2,17 @@
 editable: false
 ---
 
-# Method createVersion
-Creates a version for the specified function.
+# Метод createVersion
+Создает версию для указанной функции.
  
 
  
-## HTTP request {#https-request}
+## HTTP-запрос {#https-request}
 ```
 POST https://serverless-functions.api.cloud.yandex.net/functions/v1/versions
 ```
  
-## Body parameters {#body_params}
+## Параметры в теле запроса {#body_params}
  
 ```json 
 {
@@ -26,53 +26,38 @@ POST https://serverless-functions.api.cloud.yandex.net/functions/v1/versions
   "executionTimeout": "string",
   "serviceAccountId": "string",
   "environment": "object",
-  "tag": [
-    "string"
-  ],
-  "connectivity": {
-    "networkId": "string",
-    "subnetId": [
-      "string"
-    ]
-  },
 
-  //  includes only one of the fields `package`, `content`, `versionId`
+  //  включает только одно из полей `package`, `content`
   "package": {
     "bucketName": "string",
     "objectName": "string",
     "sha256": "string"
   },
   "content": "string",
-  "versionId": "string",
-  // end of the list of possible fields
+  // конец списка возможных полей
 
 }
 ```
 
  
-Field | Description
+Поле | Описание
 --- | ---
-functionId | **string**<br><p>Required. ID of the function to create a version for.</p> <p>To get a function ID, make a <a href="/docs/functions/functions/api-ref/Function/list">list</a> request.</p> 
-runtime | **string**<br><p>Required. Runtime environment for the version.</p> 
-description | **string**<br><p>Description of the version</p> <p>The string length in characters must be 0-256.</p> 
-entrypoint | **string**<br><p>Required. Entrypoint of the version.</p> 
-resources | **object**<br>Required. Resources allocated to the version.<br><p>Resources allocated to a version.</p> 
-resources.<br>memory | **string** (int64)<br><p>Amount of memory available to the version, specified in bytes.</p> <p>Acceptable values are 134217728 to 2147483648, inclusive.</p> 
-executionTimeout | **string**<br><p>Required. Timeout for the execution of the version.</p> <p>If the timeout is exceeded, Cloud Functions responds with a 504 HTTP code.</p> 
-serviceAccountId | **string**<br><p>ID of the service account to associate with the version.</p> 
-environment | **object**<br><p>Environment settings for the version.</p> <p>Each key must match the regular expression `` [a-zA-Z][a-zA-Z0-9_]* ``. The maximum string length in characters for each value is 4096.</p> 
-tag[] | **string**<br><p>Function version tags. For details, see <a href="/docs/functions/concepts/function#tag">Version tag</a>.</p> <p>Each value must match the regular expression `` [a-z][-_0-9a-z]* ``.</p> 
-connectivity | **object**<br>Function version connectivity. If specified the version will be attached to specified network/subnet(s).<br><p>Version connectivity specification.</p> 
-connectivity.<br>networkId | **string**<br><p>Network the version will have access to. It's essential to specify network with subnets in all availability zones.</p> 
-connectivity.<br>subnetId[] | **string**<br><p>Complete list of subnets (from the same network) the version can be attached to. It's essential to specify at least one subnet for each availability zones.</p> 
-package | **object**<br>Functions deployment package. <br> includes only one of the fields `package`, `content`, `versionId`<br><br><p>Version deployment package.</p> 
-package.<br>bucketName | **string**<br><p>Required. Name of the bucket that stores the code for the version.</p> 
-package.<br>objectName | **string**<br><p>Required. Name of the object in the bucket that stores the code for the version.</p> 
-package.<br>sha256 | **string**<br><p>SHA256 hash of the version deployment package.</p> 
-content | **string** (byte) <br> includes only one of the fields `package`, `content`, `versionId`<br><br><p>Content of the deployment package.</p> <p>The maximum string length in characters is 52428800.</p> 
-versionId | **string** <br> includes only one of the fields `package`, `content`, `versionId`<br><br><p>ID of the version to be copied from. Source version must belong to the same folder as the created version and the user must have read permissions to the source version.</p> 
+functionId | **string**<br><p>Обязательное поле. Идентификатор функции для создания версии.</p> <p>Чтобы получить идентификатор функции, используйте запрос <a href="/docs/functions/functions/api-ref/Function/list">list</a> .</p> 
+runtime | **string**<br><p>Обязательное поле. Среда выполнения для версии.</p> 
+description | **string**<br><p>Описание версии.</p> <p>Длина строки в символах должна быть от 0 до 256.</p> 
+entrypoint | **string**<br><p>Обязательное поле. Точка входа для версии.</p> 
+resources | **object**<br>Обязательное поле. Ресурсы, выделенные для версии.<br><p>Ресурсы, выделенные для версии.</p> 
+resources.<br>memory | **string** (int64)<br><p>Объем памяти в байтах, доступный для версии.</p> <p>Допустимые значения — от 33554432 до 1073741824 включительно.</p> 
+executionTimeout | **string**<br><p>Обязательное поле. Таймаут для выполнения версии.</p> <p>Если время ожидания будет превышено, Cloud Functions возвращает 504 HTTP-код.</p> 
+serviceAccountId | **string**<br><p>Идентификатор сервисного аккаунта, который нужно связать с версией.</p> 
+environment | **object**<br><p>Параметры среды выполнения для версии.</p> <p>Каждый ключ должен соответствовать регулярному выражению `` [a-zA-Z][a-zA-Z0-9_]* ``. Максимальная длина строки в символах для каждого значения — 4096.</p> 
+package | **object**<br>Пакет развертывания функций. <br> включает только одно из полей `package`, `content`<br><br><p>Пакет развертывания версий.</p> 
+package.<br>bucketName | **string**<br><p>Обязательное поле. Имя бакета, в котором хранится код версии.</p> 
+package.<br>objectName | **string**<br><p>Обязательное поле. Имя объекта в корзине, в которой хранится код версии.</p> 
+package.<br>sha256 | **string**<br><p>SHA256-хэш пакета развертывания для версии.</p> 
+content | **string** (byte) <br> включает только одно из полей `package`, `content`<br><br><p>Содержимое пакета развертывания.</p> <p>Максимальная длина строки в символах — 52428800.</p> 
  
-## Response {#responses}
+## Ответ {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -85,7 +70,7 @@ versionId | **string** <br> includes only one of the fields `package`, `content`
   "done": true,
   "metadata": "object",
 
-  //  includes only one of the fields `error`, `response`
+  //  включает только одно из полей `error`, `response`
   "error": {
     "code": "integer",
     "message": "string",
@@ -94,23 +79,24 @@ versionId | **string** <br> includes only one of the fields `package`, `content`
     ]
   },
   "response": "object",
-  // end of the list of possible fields
+  // конец списка возможных полей
 
 }
 ```
-An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
+Ресурс Operation. Дополнительные сведения см. в разделе
+[Объект Operation](/docs/api-design-guide/concepts/operation).
  
-Field | Description
+Поле | Описание
 --- | ---
-id | **string**<br><p>ID of the operation.</p> 
-description | **string**<br><p>Description of the operation. 0-256 characters long.</p> 
-createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
-createdBy | **string**<br><p>ID of the user or service account who initiated the operation.</p> 
-modifiedAt | **string** (date-time)<br><p>The time when the Operation resource was last modified.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
-done | **boolean** (boolean)<br><p>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available.</p> 
-metadata | **object**<br><p>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any.</p> 
-error | **object**<br>The error result of the operation in case of failure or cancellation. <br> includes only one of the fields `error`, `response`<br><br><p>The error result of the operation in case of failure or cancellation.</p> 
-error.<br>code | **integer** (int32)<br><p>Error code. An enum value of <a href="https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto">google.rpc.Code</a>.</p> 
-error.<br>message | **string**<br><p>An error message.</p> 
-error.<br>details[] | **object**<br><p>A list of messages that carry the error details.</p> 
-response | **object** <br> includes only one of the fields `error`, `response`<br><br><p>The normal response of the operation in case of success. If the original method returns no data on success, such as Delete, the response is <a href="https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty">google.protobuf.Empty</a>. If the original method is the standard Create/Update, the response should be the target resource of the operation. Any method that returns a long-running operation should document the response type, if any.</p> 
+id | **string**<br><p>Идентификатор операции.</p> 
+description | **string**<br><p>Описание операции. Длина описания должна быть от 0 до 256 символов.</p> 
+createdAt | **string** (date-time)<br><p>Время создания ресурса в формате в <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
+createdBy | **string**<br><p>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию.</p> 
+modifiedAt | **string** (date-time)<br><p>Время, когда ресурс Operation последний раз обновлялся. Значение в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
+done | **boolean** (boolean)<br><p>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`.</p> 
+metadata | **object**<br><p>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`.</p> 
+error | **object**<br>Описание ошибки в случае сбоя или отмены операции. <br> включает только одно из полей `error`, `response`<br><br><p>Описание ошибки в случае сбоя или отмены операции.</p> 
+error.<br>code | **integer** (int32)<br><p>Код ошибки. Значение из списка <a href="https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto">google.rpc.Code</a>.</p> 
+error.<br>message | **string**<br><p>Текст ошибки.</p> 
+error.<br>details[] | **object**<br><p>Список сообщений с подробными сведениями об ошибке.</p> 
+response | **object** <br> включает только одно из полей `error`, `response`<br><br><p>Результат операции в случае успешного завершения. Если исходный метод не возвращает никаких данных при успешном завершении, например метод Delete, поле содержит объект <a href="https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty">google.protobuf.Empty</a>. Если исходный метод — это стандартный метод Create / Update, поле содержит целевой ресурс операции. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `response`.</p> 

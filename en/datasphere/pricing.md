@@ -122,7 +122,7 @@ If you need to store large amounts of data that exceed the specified limits, use
 
 - Prices in USD
 
-    Configuration | Number of units |  Duration of <br>calculation | Price per calculation, <br>with VAT
+    Configuration | Number of units |  Duration of <br>calculation | Price per calculation, <br>without VAT
     ----- | ---- | ---- | -----
     S (4 vCPU, 0 GPU) | 1 | 1 second | $0.000009
     S (4 vCPU, 0 GPU) | 1 | 1 minute | $0.000576

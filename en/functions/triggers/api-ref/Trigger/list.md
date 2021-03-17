@@ -2,26 +2,26 @@
 editable: false
 ---
 
-# Method list
-Retrieves the list of triggers in the specified folder.
+# Метод list
+Возвращает список триггеров в указанном каталоге.
  
 
  
-## HTTP request {#https-request}
+## HTTP-запрос {#https-request}
 ```
 GET https://serverless-triggers.api.cloud.yandex.net/triggers/v1/triggers
 ```
  
-## Query parameters {#query_params}
+## Query-параметры {#query_params}
  
-Parameter | Description
+Параметр | Описание
 --- | ---
-folderId | Required. ID of the folder to list triggers in.  To get a folder ID use a [list](/docs/resource-manager/api-ref/Folder/list) request.
-pageSize | The maximum number of results per page to return. If the number of available results is larger than `pageSize`, the service returns a [nextPageToken](/docs/functions/triggers/api-ref/Trigger/list#responses) that can be used to get the next page of results in subsequent list requests.  Default value: 100.
-pageToken | Page token. To get the next page of results, set `pageToken` to the [nextPageToken](/docs/functions/triggers/api-ref/Trigger/list#responses) returned by a previous list request.
-filter | A filter expression that filters triggers listed in the response.  The expression must specify: 1. The field name. Currently filtering can only be applied to the [Trigger.name](/docs/functions/triggers/api-ref/Trigger#representation) field. 2. A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. 3. The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`. Example of a filter: `name=my-trigger`.
+folderId | Обязательное поле. Идентификатор каталога для получения списка триггеров.  Чтобы получить идентификатор каталога, используйте запрос [list](/docs/resource-manager/api-ref/Folder/list).
+pageSize | Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем `pageSize` , сервис вернет значение [nextPageToken](/docs/functions/triggers/api-ref/Trigger/list#responses), которое можно использовать для получения следующей страницы.  Значение по умолчанию: 100.
+pageToken | Токен страницы. Установите значение `pageToken` равным значению поля [nextPageToken](/docs/functions/triggers/api-ref/Trigger/list#responses) предыдущего запроса, чтобы получить следующую страницу результатов.
+filter | Параметры фильтрации ресурсов в ответе.  В параметрах фильтрации указываются: 1. Имя поля. В настоящее время фильтрация осуществляется только по полю [Trigger.name](/docs/functions/triggers/api-ref/Trigger#representation). 2. Условный оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений. 3. Значение. Значение длиной от 3 до 63 символов, совпадающее с регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`. Пример фильтра: `name=my-trigger`.
  
-## Response {#responses}
+## Ответ {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -36,11 +36,11 @@ filter | A filter expression that filters triggers listed in the response.  The 
       "labels": "object",
       "rule": {
 
-        // `triggers[].rule` includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`
+        // `triggers[].rule` включает только одно из полей `timer`, `messageQueue`, `iotMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`
         "timer": {
           "cronExpression": "string",
 
-          // `triggers[].rule.timer` includes only one of the fields `invokeFunction`, `invokeFunctionWithRetry`
+          // `triggers[].rule.timer` включает только одно из полей `invokeFunction`, `invokeFunctionWithRetry`
           "invokeFunction": {
             "functionId": "string",
             "functionTag": "string",
@@ -59,7 +59,7 @@ filter | A filter expression that filters triggers listed in the response.  The 
               "serviceAccountId": "string"
             }
           },
-          // end of the list of possible fields`triggers[].rule.timer`
+          // конец списка возможных полей`triggers[].rule.timer`
 
         },
         "messageQueue": {
@@ -158,7 +158,7 @@ filter | A filter expression that filters triggers listed in the response.  The 
             }
           }
         },
-        // end of the list of possible fields`triggers[].rule`
+        // конец списка возможных полей`triggers[].rule`
 
       },
       "status": "string"
@@ -169,101 +169,101 @@ filter | A filter expression that filters triggers listed in the response.  The 
 ```
 
  
-Field | Description
+Поле | Описание
 --- | ---
-triggers[] | **object**<br><p>A trigger to invoke a serverless function. For more information, see <a href="/docs/functions/concepts/trigger">Triggers</a>.</p> 
-triggers[].<br>id | **string**<br><p>ID of the trigger. Generated at creation time.</p> 
-triggers[].<br>folderId | **string**<br><p>Required. ID of the folder that the trigger belongs to.</p> <p>The maximum string length in characters is 50.</p> 
-triggers[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp for the trigger.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
-triggers[].<br>name | **string**<br><p>Name of the trigger.</p> <p>The string length in characters must be 3-63.</p> 
-triggers[].<br>description | **string**<br><p>Description of the trigger.</p> <p>The string length in characters must be 0-256.</p> 
-triggers[].<br>labels | **object**<br><p>Trigger labels as `key:value` pairs.</p> 
-triggers[].<br>rule | **object**<br><p>Required. Rule for trigger activation (always consistent with the trigger type).</p> <p>Description of a rule for trigger activation.</p> 
-triggers[].<br>rule.<br>timer | **object**<br>Rule for a timed trigger. <br>`triggers[].rule` includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`<br><br><p>Rule for activating a timed trigger.</p> 
-triggers[].<br>rule.<br>timer.<br>cronExpression | **string**<br><p>Required. Description of a schedule as a <a href="/docs/functions/concepts/trigger/timer">cron expression</a>.</p> <p>The maximum string length in characters is 100.</p> 
-triggers[].<br>rule.<br>timer.<br>invokeFunction | **object**<br>Instructions for invoking a function once. <br>`triggers[].rule.timer` includes only one of the fields `invokeFunction`, `invokeFunctionWithRetry`<br><br><p>A single function invocation.</p> 
-triggers[].<br>rule.<br>timer.<br>invokeFunction.<br>functionId | **string**<br><p>Required. ID of the function to invoke.</p> <p>The maximum string length in characters is 50.</p> 
-triggers[].<br>rule.<br>timer.<br>invokeFunction.<br>functionTag | **string**<br><p>Version tag of the function to execute.</p> 
-triggers[].<br>rule.<br>timer.<br>invokeFunction.<br>serviceAccountId | **string**<br><p>ID of the service account that should be used to invoke the function.</p> 
-triggers[].<br>rule.<br>timer.<br>invokeFunctionWithRetry | **object**<br>Instructions for invoking a function with retries as needed. <br>`triggers[].rule.timer` includes only one of the fields `invokeFunction`, `invokeFunctionWithRetry`<br><br><p>A function invocation with retries.</p> 
-triggers[].<br>rule.<br>timer.<br>invokeFunctionWithRetry.<br>functionId | **string**<br><p>Required. ID of the function to invoke.</p> <p>The maximum string length in characters is 50.</p> 
-triggers[].<br>rule.<br>timer.<br>invokeFunctionWithRetry.<br>functionTag | **string**<br><p>Version tag of the function to execute.</p> 
-triggers[].<br>rule.<br>timer.<br>invokeFunctionWithRetry.<br>serviceAccountId | **string**<br><p>ID of the service account which has permission to invoke the function.</p> 
-triggers[].<br>rule.<br>timer.<br>invokeFunctionWithRetry.<br>retrySettings | **object**<br><p>Retry policy. If the field is not specified, or the value is empty, no retries will be attempted.</p> <p>Settings for retrying to invoke a function.</p> 
-triggers[].<br>rule.<br>timer.<br>invokeFunctionWithRetry.<br>retrySettings.<br>retryAttempts | **string** (int64)<br><p>Maximum number of retries (extra invokes) before the action is considered failed.</p> <p>Acceptable values are 1 to 5, inclusive.</p> 
-triggers[].<br>rule.<br>timer.<br>invokeFunctionWithRetry.<br>retrySettings.<br>interval | **string**<br><p>Required. Time in seconds to wait between individual retries.</p> 
-triggers[].<br>rule.<br>timer.<br>invokeFunctionWithRetry.<br>deadLetterQueue | **object**<br><p>DLQ policy (no value means discarding a message).</p> 
-triggers[].<br>rule.<br>timer.<br>invokeFunctionWithRetry.<br>deadLetterQueue.<br>queueId | **string**<br><p>ID of the queue.</p> 
-triggers[].<br>rule.<br>timer.<br>invokeFunctionWithRetry.<br>deadLetterQueue.<br>serviceAccountId | **string**<br><p>Required. Service account which has write permission on the queue.</p> <p>The maximum string length in characters is 50.</p> 
-triggers[].<br>rule.<br>messageQueue | **object**<br>Rule for a message queue trigger. <br>`triggers[].rule` includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`<br><br><p>Rule for activating a message queue trigger.</p> 
-triggers[].<br>rule.<br>messageQueue.<br>queueId | **string**<br><p>Required. ID of the message queue in Yandex Message Queue.</p> 
-triggers[].<br>rule.<br>messageQueue.<br>serviceAccountId | **string**<br><p>Required. ID of the service account which has read access to the message queue.</p> <p>The maximum string length in characters is 50.</p> 
-triggers[].<br>rule.<br>messageQueue.<br>batchSettings | **object**<br>Required. Batch settings for processing messages in the queue.<br><p>Settings for batch processing of messages in a queue.</p> 
-triggers[].<br>rule.<br>messageQueue.<br>batchSettings.<br>size | **string** (int64)<br><p>Batch size. Trigger will send the batch of messages to the function when the number of messages in the queue reaches `size`, or the `cutoff` time has passed.</p> <p>Acceptable values are 0 to 10, inclusive.</p> 
-triggers[].<br>rule.<br>messageQueue.<br>batchSettings.<br>cutoff | **string**<br><p>Required. Maximum wait time. Trigger will send the batch of messages to the function when the number of messages in the queue reaches `size`, or the `cutoff` time has passed.</p> 
-triggers[].<br>rule.<br>messageQueue.<br>visibilityTimeout | **string**<br><p>Queue visibility timeout override.</p> <p>The maximum value is 43200 seconds.</p> 
-triggers[].<br>rule.<br>messageQueue.<br>invokeFunction | **object**<br>Instructions for invoking a function once.<br><p>A single function invocation.</p> 
-triggers[].<br>rule.<br>messageQueue.<br>invokeFunction.<br>functionId | **string**<br><p>Required. ID of the function to invoke.</p> <p>The maximum string length in characters is 50.</p> 
-triggers[].<br>rule.<br>messageQueue.<br>invokeFunction.<br>functionTag | **string**<br><p>Version tag of the function to execute.</p> 
-triggers[].<br>rule.<br>messageQueue.<br>invokeFunction.<br>serviceAccountId | **string**<br><p>ID of the service account that should be used to invoke the function.</p> 
-triggers[].<br>rule.<br>iotMessage | **object**<br>Rule for a Yandex IoT Core trigger. <br>`triggers[].rule` includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`<br><br><p>Rule for activating a Yandex IoT Core trigger.</p> 
-triggers[].<br>rule.<br>iotMessage.<br>registryId | **string**<br><p>Required. ID of the Yandex IoT Core registry.</p> 
-triggers[].<br>rule.<br>iotMessage.<br>deviceId | **string**<br><p>ID of the Yandex IoT Core device in the registry.</p> 
-triggers[].<br>rule.<br>iotMessage.<br>mqttTopic | **string**<br><p>MQTT topic whose messages activate the trigger.</p> 
-triggers[].<br>rule.<br>iotMessage.<br>invokeFunction | **object**<br>Instructions for invoking a function with retries as needed.<br><p>A function invocation with retries.</p> 
-triggers[].<br>rule.<br>iotMessage.<br>invokeFunction.<br>functionId | **string**<br><p>Required. ID of the function to invoke.</p> <p>The maximum string length in characters is 50.</p> 
-triggers[].<br>rule.<br>iotMessage.<br>invokeFunction.<br>functionTag | **string**<br><p>Version tag of the function to execute.</p> 
-triggers[].<br>rule.<br>iotMessage.<br>invokeFunction.<br>serviceAccountId | **string**<br><p>ID of the service account which has permission to invoke the function.</p> 
-triggers[].<br>rule.<br>iotMessage.<br>invokeFunction.<br>retrySettings | **object**<br><p>Retry policy. If the field is not specified, or the value is empty, no retries will be attempted.</p> <p>Settings for retrying to invoke a function.</p> 
-triggers[].<br>rule.<br>iotMessage.<br>invokeFunction.<br>retrySettings.<br>retryAttempts | **string** (int64)<br><p>Maximum number of retries (extra invokes) before the action is considered failed.</p> <p>Acceptable values are 1 to 5, inclusive.</p> 
-triggers[].<br>rule.<br>iotMessage.<br>invokeFunction.<br>retrySettings.<br>interval | **string**<br><p>Required. Time in seconds to wait between individual retries.</p> 
-triggers[].<br>rule.<br>iotMessage.<br>invokeFunction.<br>deadLetterQueue | **object**<br><p>DLQ policy (no value means discarding a message).</p> 
-triggers[].<br>rule.<br>iotMessage.<br>invokeFunction.<br>deadLetterQueue.<br>queueId | **string**<br><p>ID of the queue.</p> 
-triggers[].<br>rule.<br>iotMessage.<br>invokeFunction.<br>deadLetterQueue.<br>serviceAccountId | **string**<br><p>Required. Service account which has write permission on the queue.</p> <p>The maximum string length in characters is 50.</p> 
-triggers[].<br>rule.<br>objectStorage | **object** <br>`triggers[].rule` includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`<br><br>
-triggers[].<br>rule.<br>objectStorage.<br>eventType[] | **string**<br><p>Required. Type (name) of events, at least one value is required.</p> <p>Must contain at least one element.</p> 
-triggers[].<br>rule.<br>objectStorage.<br>bucketId | **string**<br><p>ID of the bucket.</p> 
-triggers[].<br>rule.<br>objectStorage.<br>prefix | **string**<br><p>Prefix of the object key. Filter, optional.</p> 
-triggers[].<br>rule.<br>objectStorage.<br>suffix | **string**<br><p>Suffix of the object key. Filter, optional.</p> 
-triggers[].<br>rule.<br>objectStorage.<br>invokeFunction | **object**<br>Instructions for invoking a function with retries as needed.<br><p>A function invocation with retries.</p> 
-triggers[].<br>rule.<br>objectStorage.<br>invokeFunction.<br>functionId | **string**<br><p>Required. ID of the function to invoke.</p> <p>The maximum string length in characters is 50.</p> 
-triggers[].<br>rule.<br>objectStorage.<br>invokeFunction.<br>functionTag | **string**<br><p>Version tag of the function to execute.</p> 
-triggers[].<br>rule.<br>objectStorage.<br>invokeFunction.<br>serviceAccountId | **string**<br><p>ID of the service account which has permission to invoke the function.</p> 
-triggers[].<br>rule.<br>objectStorage.<br>invokeFunction.<br>retrySettings | **object**<br><p>Retry policy. If the field is not specified, or the value is empty, no retries will be attempted.</p> <p>Settings for retrying to invoke a function.</p> 
-triggers[].<br>rule.<br>objectStorage.<br>invokeFunction.<br>retrySettings.<br>retryAttempts | **string** (int64)<br><p>Maximum number of retries (extra invokes) before the action is considered failed.</p> <p>Acceptable values are 1 to 5, inclusive.</p> 
-triggers[].<br>rule.<br>objectStorage.<br>invokeFunction.<br>retrySettings.<br>interval | **string**<br><p>Required. Time in seconds to wait between individual retries.</p> 
-triggers[].<br>rule.<br>objectStorage.<br>invokeFunction.<br>deadLetterQueue | **object**<br><p>DLQ policy (no value means discarding a message).</p> 
-triggers[].<br>rule.<br>objectStorage.<br>invokeFunction.<br>deadLetterQueue.<br>queueId | **string**<br><p>ID of the queue.</p> 
-triggers[].<br>rule.<br>objectStorage.<br>invokeFunction.<br>deadLetterQueue.<br>serviceAccountId | **string**<br><p>Required. Service account which has write permission on the queue.</p> <p>The maximum string length in characters is 50.</p> 
-triggers[].<br>rule.<br>containerRegistry | **object** <br>`triggers[].rule` includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`<br><br>
-triggers[].<br>rule.<br>containerRegistry.<br>eventType[] | **string**<br><p>Required. Type (name) of events, at least one value is required.</p> <p>Must contain at least one element.</p> 
-triggers[].<br>rule.<br>containerRegistry.<br>registryId | **string**<br><p>ID of the registry.</p> 
-triggers[].<br>rule.<br>containerRegistry.<br>imageName | **string**<br><p>Docker-image name. Filter, optional.</p> 
-triggers[].<br>rule.<br>containerRegistry.<br>tag | **string**<br><p>Docker-image tag. Filter, optional.</p> 
-triggers[].<br>rule.<br>containerRegistry.<br>invokeFunction | **object**<br>Instructions for invoking a function with retries as needed.<br><p>A function invocation with retries.</p> 
-triggers[].<br>rule.<br>containerRegistry.<br>invokeFunction.<br>functionId | **string**<br><p>Required. ID of the function to invoke.</p> <p>The maximum string length in characters is 50.</p> 
-triggers[].<br>rule.<br>containerRegistry.<br>invokeFunction.<br>functionTag | **string**<br><p>Version tag of the function to execute.</p> 
-triggers[].<br>rule.<br>containerRegistry.<br>invokeFunction.<br>serviceAccountId | **string**<br><p>ID of the service account which has permission to invoke the function.</p> 
-triggers[].<br>rule.<br>containerRegistry.<br>invokeFunction.<br>retrySettings | **object**<br><p>Retry policy. If the field is not specified, or the value is empty, no retries will be attempted.</p> <p>Settings for retrying to invoke a function.</p> 
-triggers[].<br>rule.<br>containerRegistry.<br>invokeFunction.<br>retrySettings.<br>retryAttempts | **string** (int64)<br><p>Maximum number of retries (extra invokes) before the action is considered failed.</p> <p>Acceptable values are 1 to 5, inclusive.</p> 
-triggers[].<br>rule.<br>containerRegistry.<br>invokeFunction.<br>retrySettings.<br>interval | **string**<br><p>Required. Time in seconds to wait between individual retries.</p> 
-triggers[].<br>rule.<br>containerRegistry.<br>invokeFunction.<br>deadLetterQueue | **object**<br><p>DLQ policy (no value means discarding a message).</p> 
-triggers[].<br>rule.<br>containerRegistry.<br>invokeFunction.<br>deadLetterQueue.<br>queueId | **string**<br><p>ID of the queue.</p> 
-triggers[].<br>rule.<br>containerRegistry.<br>invokeFunction.<br>deadLetterQueue.<br>serviceAccountId | **string**<br><p>Required. Service account which has write permission on the queue.</p> <p>The maximum string length in characters is 50.</p> 
-triggers[].<br>rule.<br>cloudLogs | **object** <br>`triggers[].rule` includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`<br><br>
-triggers[].<br>rule.<br>cloudLogs.<br>logGroupId[] | **string**<br><p>Log group identifiers, at least one value is required.</p> 
-triggers[].<br>rule.<br>cloudLogs.<br>batchSettings | **object**<br>Required. Batch settings for processing log events.<br>
-triggers[].<br>rule.<br>cloudLogs.<br>batchSettings.<br>size | **string** (int64)<br><p>Batch size. Trigger will send the batch of messages to the function when the number of messages in the log group reaches `size`, or the `cutoff` time has passed.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
-triggers[].<br>rule.<br>cloudLogs.<br>batchSettings.<br>cutoff | **string**<br><p>Maximum wait time. Trigger will send the batch of messages to the function when the number of messages in the log group reaches `size`, or the `cutoff` time has passed.</p> <p>Acceptable values are 1 seconds to 60 seconds, inclusive.</p> 
-triggers[].<br>rule.<br>cloudLogs.<br>invokeFunction | **object**<br>Instructions for invoking a function with retries as needed.<br><p>A function invocation with retries.</p> 
-triggers[].<br>rule.<br>cloudLogs.<br>invokeFunction.<br>functionId | **string**<br><p>Required. ID of the function to invoke.</p> <p>The maximum string length in characters is 50.</p> 
-triggers[].<br>rule.<br>cloudLogs.<br>invokeFunction.<br>functionTag | **string**<br><p>Version tag of the function to execute.</p> 
-triggers[].<br>rule.<br>cloudLogs.<br>invokeFunction.<br>serviceAccountId | **string**<br><p>ID of the service account which has permission to invoke the function.</p> 
-triggers[].<br>rule.<br>cloudLogs.<br>invokeFunction.<br>retrySettings | **object**<br><p>Retry policy. If the field is not specified, or the value is empty, no retries will be attempted.</p> <p>Settings for retrying to invoke a function.</p> 
-triggers[].<br>rule.<br>cloudLogs.<br>invokeFunction.<br>retrySettings.<br>retryAttempts | **string** (int64)<br><p>Maximum number of retries (extra invokes) before the action is considered failed.</p> <p>Acceptable values are 1 to 5, inclusive.</p> 
-triggers[].<br>rule.<br>cloudLogs.<br>invokeFunction.<br>retrySettings.<br>interval | **string**<br><p>Required. Time in seconds to wait between individual retries.</p> 
-triggers[].<br>rule.<br>cloudLogs.<br>invokeFunction.<br>deadLetterQueue | **object**<br><p>DLQ policy (no value means discarding a message).</p> 
-triggers[].<br>rule.<br>cloudLogs.<br>invokeFunction.<br>deadLetterQueue.<br>queueId | **string**<br><p>ID of the queue.</p> 
-triggers[].<br>rule.<br>cloudLogs.<br>invokeFunction.<br>deadLetterQueue.<br>serviceAccountId | **string**<br><p>Required. Service account which has write permission on the queue.</p> <p>The maximum string length in characters is 50.</p> 
-triggers[].<br>status | **string**<br><p>Trigger status.</p> 
-nextPageToken | **string**<br><p>Token for getting the next page of the list. If the number of results is greater than the specified <a href="/docs/functions/triggers/api-ref/Trigger/list#query_params">pageSize</a>, use `nextPageToken` as the value for the <a href="/docs/functions/triggers/api-ref/Trigger/list#query_params">pageToken</a> parameter in the next list request.</p> <p>Each subsequent page will have its own `nextPageToken` to continue paging through the results.</p> 
+triggers[] | **object**<br><p>Триггер для вызова бессерверной функции. Дополнительные сведения см. в разделе <a href="/docs/functions/concepts/trigger">Triggers</a>.</p> 
+triggers[].<br>id | **string**<br><p>Идентификатор триггера. Генерируется при создании.</p> 
+triggers[].<br>folderId | **string**<br><p>Обязательное поле. Идентификатор каталога, в котором создается триггер.</p> <p>Максимальная длина строки в символах — 50.</p> 
+triggers[].<br>createdAt | **string** (date-time)<br><p>Время создания триггера.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
+triggers[].<br>name | **string**<br><p>Имя триггера.</p> <p>Длина строки в символах должна быть от 3 до 63.</p> 
+triggers[].<br>description | **string**<br><p>Описание триггера.</p> <p>Длина строки в символах должна быть от 0 до 256.</p> 
+triggers[].<br>labels | **object**<br><p>Метки триггеров в виде пар `key:value` .</p> 
+triggers[].<br>rule | **object**<br><p>Обязательное поле. Правило активации триггера (всегда соответствует типу триггера).</p> <p>Описание правила активации триггера.</p> 
+triggers[].<br>rule.<br>timer | **object**<br>Правило для таймера. <br>`triggers[].rule` включает только одно из полей `timer`, `messageQueue`, `iotMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`<br><br><p>Правило активации таймера.</p> 
+triggers[].<br>rule.<br>timer.<br>cronExpression | **string**<br><p>Обязательное поле. Описание расписания в виде <a href="/docs/functions/concepts/trigger/timer">cron expression</a>.</p> <p>Максимальная длина строки в символах — 100.</p> 
+triggers[].<br>rule.<br>timer.<br>invokeFunction | **object**<br>Инструкции для единичного вызова функции. <br>`triggers[].rule.timer` включает только одно из полей `invokeFunction`, `invokeFunctionWithRetry`<br><br><p>Единичный вызов функции.</p> 
+triggers[].<br>rule.<br>timer.<br>invokeFunction.<br>functionId | **string**<br><p>Обязательное поле. Идентификатор вызываемой функции.</p> <p>Максимальная длина строки в символах — 50.</p> 
+triggers[].<br>rule.<br>timer.<br>invokeFunction.<br>functionTag | **string**<br><p>Тег версии выполняемой функции.</p> 
+triggers[].<br>rule.<br>timer.<br>invokeFunction.<br>serviceAccountId | **string**<br><p>Идентификатор сервисного аккаунта, от имени которого будет вызываться функция.</p> 
+triggers[].<br>rule.<br>timer.<br>invokeFunctionWithRetry | **object**<br>Инструкции для вызова функции с повторными попытками по мере необходимости. <br>`triggers[].rule.timer` включает только одно из полей `invokeFunction`, `invokeFunctionWithRetry`<br><br><p>Вызов функции с повторными попытками.</p> 
+triggers[].<br>rule.<br>timer.<br>invokeFunctionWithRetry.<br>functionId | **string**<br><p>Обязательное поле. Идентификатор вызываемой функции.</p> <p>Максимальная длина строки в символах — 50.</p> 
+triggers[].<br>rule.<br>timer.<br>invokeFunctionWithRetry.<br>functionTag | **string**<br><p>Тег версии выполняемой функции.</p> 
+triggers[].<br>rule.<br>timer.<br>invokeFunctionWithRetry.<br>serviceAccountId | **string**<br><p>Идентификатор сервисного аккаунта с правами на вызов функции.</p> 
+triggers[].<br>rule.<br>timer.<br>invokeFunctionWithRetry.<br>retrySettings | **object**<br><p>Политика повторных попыток. Если поле не указано или значение пусто, повторные попытки не предпринимаются.</p> <p>Параметры повторной попытки вызова функции.</p> 
+triggers[].<br>rule.<br>timer.<br>invokeFunctionWithRetry.<br>retrySettings.<br>retryAttempts | **string** (int64)<br><p>Максимальное количество повторных попыток (дополнительных вызовов), прежде чем действие будет считаться неудачным.</p> <p>Допустимые значения — от 1 до 5 включительно.</p> 
+triggers[].<br>rule.<br>timer.<br>invokeFunctionWithRetry.<br>retrySettings.<br>interval | **string**<br><p>Обязательное поле. Время ожидания между повторными попытками, в секундах.</p> 
+triggers[].<br>rule.<br>timer.<br>invokeFunctionWithRetry.<br>deadLetterQueue | **object**<br><p>Политика DLQ (отсутствие значения означает отказ от сообщения).</p> 
+triggers[].<br>rule.<br>timer.<br>invokeFunctionWithRetry.<br>deadLetterQueue.<br>queueId | **string**<br><p>Идентификатор очереди.</p> 
+triggers[].<br>rule.<br>timer.<br>invokeFunctionWithRetry.<br>deadLetterQueue.<br>serviceAccountId | **string**<br><p>Обязательное поле. Сервисный аккаунт с правами на запись в очередь.</p> <p>Максимальная длина строки в символах — 50.</p> 
+triggers[].<br>rule.<br>messageQueue | **object**<br>Правило для триггера очереди сообщений. <br>`triggers[].rule` включает только одно из полей `timer`, `messageQueue`, `iotMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`<br><br><p>Правило для активации триггера очереди сообщений.</p> 
+triggers[].<br>rule.<br>messageQueue.<br>queueId | **string**<br><p>Обязательное поле. Идентификатор очереди сообщений в Yandex Message Queue.</p> 
+triggers[].<br>rule.<br>messageQueue.<br>serviceAccountId | **string**<br><p>Обязательное поле. Идентификатор сервисного аккаунта с ролью на чтение очереди сообщений.</p> <p>Максимальная длина строки в символах — 50.</p> 
+triggers[].<br>rule.<br>messageQueue.<br>batchSettings | **object**<br>Обязательное поле. Настройки группы сообщений для обработки сообщений в очереди.<br><p>Настройки обработки группы сообщений в очереди.</p> 
+triggers[].<br>rule.<br>messageQueue.<br>batchSettings.<br>size | **string** (int64)<br><p>Размер группы сообщений. Триггер отправит группу сообщений в функцию, когда число сообщений в очереди достигнет `size` или истечет `cutoff`.</p> <p>Допустимые значения — от 0 до 10 включительно.</p> 
+triggers[].<br>rule.<br>messageQueue.<br>batchSettings.<br>cutoff | **string**<br><p>Обязательное поле. Максимальное время ожидания. Триггер отправит группу сообщений в функцию, когда число сообщений в очереди достигнет `size` или истечет `cutoff`.</p> 
+triggers[].<br>rule.<br>messageQueue.<br>visibilityTimeout | **string**<br><p>Переопределение таймаута видимости очереди.</p> <p>Максимальное значение — 43200 seconds.</p> 
+triggers[].<br>rule.<br>messageQueue.<br>invokeFunction | **object**<br>Инструкции для единичного вызова функции.<br><p>Единичный вызов функции.</p> 
+triggers[].<br>rule.<br>messageQueue.<br>invokeFunction.<br>functionId | **string**<br><p>Обязательное поле. Идентификатор вызываемой функции.</p> <p>Максимальная длина строки в символах — 50.</p> 
+triggers[].<br>rule.<br>messageQueue.<br>invokeFunction.<br>functionTag | **string**<br><p>Тег версии выполняемой функции.</p> 
+triggers[].<br>rule.<br>messageQueue.<br>invokeFunction.<br>serviceAccountId | **string**<br><p>Идентификатор сервисного аккаунта, от имени которого будет вызываться функция.</p> 
+triggers[].<br>rule.<br>iotMessage | **object**<br>Правило для триггера Yandex IoT Core. <br>`triggers[].rule` включает только одно из полей `timer`, `messageQueue`, `iotMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`<br><br><p>Правило для активации триггера Yandex IoT Core.</p> 
+triggers[].<br>rule.<br>iotMessage.<br>registryId | **string**<br><p>Обязательное поле. Идентификатор реестра Yandex IoT Core.</p> 
+triggers[].<br>rule.<br>iotMessage.<br>deviceId | **string**<br><p>Идентификатор устройства в реестре Yandex IoT.</p> 
+triggers[].<br>rule.<br>iotMessage.<br>mqttTopic | **string**<br><p>MQTT-топик, сообщения котрого активируют триггер.</p> 
+triggers[].<br>rule.<br>iotMessage.<br>invokeFunction | **object**<br>Инструкции для вызова функции с повторными попытками по мере необходимости.<br><p>Вызов функции с повторными попытками.</p> 
+triggers[].<br>rule.<br>iotMessage.<br>invokeFunction.<br>functionId | **string**<br><p>Обязательное поле. Идентификатор вызываемой функции.</p> <p>Максимальная длина строки в символах — 50.</p> 
+triggers[].<br>rule.<br>iotMessage.<br>invokeFunction.<br>functionTag | **string**<br><p>Тег версии выполняемой функции.</p> 
+triggers[].<br>rule.<br>iotMessage.<br>invokeFunction.<br>serviceAccountId | **string**<br><p>Идентификатор сервисного аккаунта с правами на вызов функции.</p> 
+triggers[].<br>rule.<br>iotMessage.<br>invokeFunction.<br>retrySettings | **object**<br><p>Политика повторных попыток. Если поле не указано или значение пусто, повторные попытки не предпринимаются.</p> <p>Параметры повторной попытки вызова функции.</p> 
+triggers[].<br>rule.<br>iotMessage.<br>invokeFunction.<br>retrySettings.<br>retryAttempts | **string** (int64)<br><p>Максимальное количество повторных попыток (дополнительных вызовов), прежде чем действие будет считаться неудачным.</p> <p>Допустимые значения — от 1 до 5 включительно.</p> 
+triggers[].<br>rule.<br>iotMessage.<br>invokeFunction.<br>retrySettings.<br>interval | **string**<br><p>Обязательное поле. Время ожидания между повторными попытками, в секундах.</p> 
+triggers[].<br>rule.<br>iotMessage.<br>invokeFunction.<br>deadLetterQueue | **object**<br><p>Политика DLQ (отсутствие значения означает отказ от сообщения).</p> 
+triggers[].<br>rule.<br>iotMessage.<br>invokeFunction.<br>deadLetterQueue.<br>queueId | **string**<br><p>Идентификатор очереди.</p> 
+triggers[].<br>rule.<br>iotMessage.<br>invokeFunction.<br>deadLetterQueue.<br>serviceAccountId | **string**<br><p>Обязательное поле. Сервисный аккаунт с правами на запись в очередь.</p> <p>Максимальная длина строки в символах — 50.</p> 
+triggers[].<br>rule.<br>objectStorage | **object** <br>`triggers[].rule` включает только одно из полей `timer`, `messageQueue`, `iotMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`<br><br>
+triggers[].<br>rule.<br>objectStorage.<br>eventType[] | **string**<br><p>Обязательное поле. Тип (имя) событий, требуется хотя бы одно значение.</p> <p>Должен содержать хотя бы один элемент.</p> 
+triggers[].<br>rule.<br>objectStorage.<br>bucketId | **string**<br><p>Идентификатор бакета.</p> 
+triggers[].<br>rule.<br>objectStorage.<br>prefix | **string**<br><p>Префикс ключа объекта. Фильтр, опционально.</p> 
+triggers[].<br>rule.<br>objectStorage.<br>suffix | **string**<br><p>Суффикс ключа объекта. Фильтр, опционально.</p> 
+triggers[].<br>rule.<br>objectStorage.<br>invokeFunction | **object**<br>Инструкции для вызова функции с повторными попытками по мере необходимости.<br><p>Вызов функции с повторными попытками.</p> 
+triggers[].<br>rule.<br>objectStorage.<br>invokeFunction.<br>functionId | **string**<br><p>Обязательное поле. Идентификатор вызываемой функции.</p> <p>Максимальная длина строки в символах — 50.</p> 
+triggers[].<br>rule.<br>objectStorage.<br>invokeFunction.<br>functionTag | **string**<br><p>Тег версии выполняемой функции.</p> 
+triggers[].<br>rule.<br>objectStorage.<br>invokeFunction.<br>serviceAccountId | **string**<br><p>Идентификатор сервисного аккаунта с правами на вызов функции.</p> 
+triggers[].<br>rule.<br>objectStorage.<br>invokeFunction.<br>retrySettings | **object**<br><p>Политика повторных попыток. Если поле не указано или значение пусто, повторные попытки не предпринимаются.</p> <p>Параметры повторной попытки вызова функции.</p> 
+triggers[].<br>rule.<br>objectStorage.<br>invokeFunction.<br>retrySettings.<br>retryAttempts | **string** (int64)<br><p>Максимальное количество повторных попыток (дополнительных вызовов), прежде чем действие будет считаться неудачным.</p> <p>Допустимые значения — от 1 до 5 включительно.</p> 
+triggers[].<br>rule.<br>objectStorage.<br>invokeFunction.<br>retrySettings.<br>interval | **string**<br><p>Обязательное поле. Время ожидания между повторными попытками, в секундах.</p> 
+triggers[].<br>rule.<br>objectStorage.<br>invokeFunction.<br>deadLetterQueue | **object**<br><p>Политика DLQ (отсутствие значения означает отказ от сообщения).</p> 
+triggers[].<br>rule.<br>objectStorage.<br>invokeFunction.<br>deadLetterQueue.<br>queueId | **string**<br><p>Идентификатор очереди.</p> 
+triggers[].<br>rule.<br>objectStorage.<br>invokeFunction.<br>deadLetterQueue.<br>serviceAccountId | **string**<br><p>Обязательное поле. Сервисный аккаунт с правами на запись в очередь.</p> <p>Максимальная длина строки в символах — 50.</p> 
+triggers[].<br>rule.<br>containerRegistry | **object** <br>`triggers[].rule` включает только одно из полей `timer`, `messageQueue`, `iotMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`<br><br>
+triggers[].<br>rule.<br>containerRegistry.<br>eventType[] | **string**<br><p>Обязательное поле. Тип (имя) событий, требуется хотя бы одно значение.</p> <p>Должен содержать хотя бы один элемент.</p> 
+triggers[].<br>rule.<br>containerRegistry.<br>registryId | **string**<br><p>Идентификатор реестра.</p> 
+triggers[].<br>rule.<br>containerRegistry.<br>imageName | **string**<br><p>Имя Docker-образа. Фильтр, опционально.</p> 
+triggers[].<br>rule.<br>containerRegistry.<br>tag | **string**<br><p>Тег Docker-образа. Фильтр, опционально.</p> 
+triggers[].<br>rule.<br>containerRegistry.<br>invokeFunction | **object**<br>Инструкции для вызова функции с повторными попытками по мере необходимости.<br><p>Вызов функции с повторными попытками.</p> 
+triggers[].<br>rule.<br>containerRegistry.<br>invokeFunction.<br>functionId | **string**<br><p>Обязательное поле. Идентификатор вызываемой функции.</p> <p>Максимальная длина строки в символах — 50.</p> 
+triggers[].<br>rule.<br>containerRegistry.<br>invokeFunction.<br>functionTag | **string**<br><p>Тег версии выполняемой функции.</p> 
+triggers[].<br>rule.<br>containerRegistry.<br>invokeFunction.<br>serviceAccountId | **string**<br><p>Идентификатор сервисного аккаунта с правами на вызов функции.</p> 
+triggers[].<br>rule.<br>containerRegistry.<br>invokeFunction.<br>retrySettings | **object**<br><p>Политика повторных попыток. Если поле не указано или значение пусто, повторные попытки не предпринимаются.</p> <p>Параметры повторной попытки вызова функции.</p> 
+triggers[].<br>rule.<br>containerRegistry.<br>invokeFunction.<br>retrySettings.<br>retryAttempts | **string** (int64)<br><p>Максимальное количество повторных попыток (дополнительных вызовов), прежде чем действие будет считаться неудачным.</p> <p>Допустимые значения — от 1 до 5 включительно.</p> 
+triggers[].<br>rule.<br>containerRegistry.<br>invokeFunction.<br>retrySettings.<br>interval | **string**<br><p>Обязательное поле. Время ожидания между повторными попытками, в секундах.</p> 
+triggers[].<br>rule.<br>containerRegistry.<br>invokeFunction.<br>deadLetterQueue | **object**<br><p>Политика DLQ (отсутствие значения означает отказ от сообщения).</p> 
+triggers[].<br>rule.<br>containerRegistry.<br>invokeFunction.<br>deadLetterQueue.<br>queueId | **string**<br><p>Идентификатор очереди.</p> 
+triggers[].<br>rule.<br>containerRegistry.<br>invokeFunction.<br>deadLetterQueue.<br>serviceAccountId | **string**<br><p>Обязательное поле. Сервисный аккаунт с правами на запись в очередь.</p> <p>Максимальная длина строки в символах — 50.</p> 
+triggers[].<br>rule.<br>cloudLogs | **object** <br>`triggers[].rule` включает только одно из полей `timer`, `messageQueue`, `iotMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`<br><br>
+triggers[].<br>rule.<br>cloudLogs.<br>logGroupId[] | **string**<br><p>Идентификаторы групп журналов, по крайней мере, одно значение обязательно.</p> 
+triggers[].<br>rule.<br>cloudLogs.<br>batchSettings | **object**<br>Обязательное поле. Пакетные настройки для обработки событий журнала.<br>
+triggers[].<br>rule.<br>cloudLogs.<br>batchSettings.<br>size | **string** (int64)<br><p>Размер группы сообщений. Триггер отправит группу сообщений в функцию, когда число сообщений в лог-группе достигнет `size` или истечет `cutoff`.</p> <p>Допустимые значения — от 0 до 100 включительно.</p> 
+triggers[].<br>rule.<br>cloudLogs.<br>batchSettings.<br>cutoff | **string**<br><p>Максимальное время ожидания. Триггер отправит группу сообщений в функцию, когда число сообщений в лог-группе достигнет `size` или истечет `cutoff`.</p> <p>Допустимые значения — от 1 seconds до 60 seconds включительно.</p> 
+triggers[].<br>rule.<br>cloudLogs.<br>invokeFunction | **object**<br>Инструкции для вызова функции с повторными попытками по мере необходимости.<br><p>Вызов функции с повторными попытками.</p> 
+triggers[].<br>rule.<br>cloudLogs.<br>invokeFunction.<br>functionId | **string**<br><p>Обязательное поле. Идентификатор вызываемой функции.</p> <p>Максимальная длина строки в символах — 50.</p> 
+triggers[].<br>rule.<br>cloudLogs.<br>invokeFunction.<br>functionTag | **string**<br><p>Тег версии выполняемой функции.</p> 
+triggers[].<br>rule.<br>cloudLogs.<br>invokeFunction.<br>serviceAccountId | **string**<br><p>Идентификатор сервисного аккаунта с правами на вызов функции.</p> 
+triggers[].<br>rule.<br>cloudLogs.<br>invokeFunction.<br>retrySettings | **object**<br><p>Политика повторных попыток. Если поле не указано или значение пусто, повторные попытки не предпринимаются.</p> <p>Параметры повторной попытки вызова функции.</p> 
+triggers[].<br>rule.<br>cloudLogs.<br>invokeFunction.<br>retrySettings.<br>retryAttempts | **string** (int64)<br><p>Максимальное количество повторных попыток (дополнительных вызовов), прежде чем действие будет считаться неудачным.</p> <p>Допустимые значения — от 1 до 5 включительно.</p> 
+triggers[].<br>rule.<br>cloudLogs.<br>invokeFunction.<br>retrySettings.<br>interval | **string**<br><p>Обязательное поле. Время ожидания между повторными попытками, в секундах.</p> 
+triggers[].<br>rule.<br>cloudLogs.<br>invokeFunction.<br>deadLetterQueue | **object**<br><p>Политика DLQ (отсутствие значения означает отказ от сообщения).</p> 
+triggers[].<br>rule.<br>cloudLogs.<br>invokeFunction.<br>deadLetterQueue.<br>queueId | **string**<br><p>Идентификатор очереди.</p> 
+triggers[].<br>rule.<br>cloudLogs.<br>invokeFunction.<br>deadLetterQueue.<br>serviceAccountId | **string**<br><p>Обязательное поле. Сервисный аккаунт с правами на запись в очередь.</p> <p>Максимальная длина строки в символах — 50.</p> 
+triggers[].<br>status | **string**<br><p>Состояние триггера</p> 
+nextPageToken | **string**<br><p>Токен для получения следующей страницы списка. Если количество результатов больше чем <a href="/docs/functions/triggers/api-ref/Trigger/list#query_params">pageSize</a>, используйте `nextPageToken` в качестве значения параметра <a href="/docs/functions/triggers/api-ref/Trigger/list#query_params">pageToken</a> в следующем запросе списка ресурсов.</p> <p>Все последующие запросы будут получать свои значения `nextPageToken` для перебора страниц результатов.</p> 

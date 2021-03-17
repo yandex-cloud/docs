@@ -201,73 +201,73 @@ _Селектор_ состоит из имени метки, оператора
 
 #### bottom_avg
 
-**bottom_avg**(*source: timeseries_vector*, *limit: number*): *timeseries_vector*
+**bottom_avg**(*limit: number*, *source: timeseries_vector*): *timeseries_vector*
 
 Возвращает _limit_ метрик с минимальным средним значением.
 
 #### bottom_count
 
-**bottom_count**(*source: timeseries_vector*, *limit: number*): *timeseries_vector*
+**bottom_count**(*limit: number*, *source: timeseries_vector*): *timeseries_vector*
 
 Возвращает _limit_ метрик с минимальным количеством значений.
 
 #### bottom_last
 
-**bottom_last**(*source: timeseries_vector*, *limit: number*): *timeseries_vector*
+**bottom_last**(*limit: number*, *source: timeseries_vector*): *timeseries_vector*
 
 Возвращает _limit_ метрик с минимальным последним значением.
 
 #### bottom_max
 
-**bottom_max**(*source: timeseries_vector*, *limit: number*): *timeseries_vector*
+**bottom_max**(*limit: number*, *source: timeseries_vector*): *timeseries_vector*
 
 Возвращает _limit_ метрик с минимальным значением максимума.
 
 #### bottom_min
 
-**bottom_min**(*source: timeseries_vector*, *limit: number*): *timeseries_vector*
+**bottom_min**(*limit: number*, *source: timeseries_vector*): *timeseries_vector*
 
 Возвращает _limit_ метрик с минимальным значением минимума.
 
 #### bottom_sum
 
-**bottom_sum**(*source: timeseries_vector*, *limit: number*): *timeseries_vector*
+**bottom_sum**(*limit: number*, *source: timeseries_vector*): *timeseries_vector*
 
 Возвращает _limit_ метрик с минимальным значением суммы.
 
 #### top_avg
 
-**top_avg**(*source: timeseries_vector*, *limit: number*): *timeseries_vector*
+**top_avg**(*limit: number*, *source: timeseries_vector*): *timeseries_vector*
 
 Возвращает _limit_ метрик с максимальным средним значением.
 
 #### top_count
 
-**top_count**(*source: timeseries_vector*, *limit: number*): *timeseries_vector*
+**top_count**(*limit: number*, *source: timeseries_vector*): *timeseries_vector*
 
 Возвращает _limit_ метрик с максимальным количеством значений.
 
 #### top_last
 
-**top_last**(*source: timeseries_vector*, *limit: number*): *timeseries_vector*
+**top_last**(*limit: number*, *source: timeseries_vector*): *timeseries_vector*
 
 Возвращает _limit_ метрик с максимальным последним значением.
 
 #### top_max
 
-**top_max**(*source: timeseries_vector*, *limit: number*): *timeseries_vector*
+**top_max**(*limit: number*, *source: timeseries_vector*): *timeseries_vector*
 
 Возвращает _limit_ метрик с максимальным значением максимума.
 
 #### top_min
 
-**top_min**(*source: timeseries_vector*, *limit: number*): *timeseries_vector*
+**top_min**(*limit: number*, *source: timeseries_vector*): *timeseries_vector*
 
 Возвращает _limit_ метрик с максимальным значением минимума.
 
 #### top_sum
 
-**top_sum**(*source: timeseries_vector*, *limit: number*): *timeseries_vector*
+**top_sum**(*limit: number*, *source: timeseries_vector*): *timeseries_vector*
 
 Возвращает _limit_ метрик с максимальным значением суммы.
 

@@ -1,8 +1,70 @@
 # Релизы YC CLI
 
-## Версия 0.72.0 (11.02.21) {#latest-release}
+## Версия 0.73.0 (17.03.21) {#latest-release}
 
 ### Изменения в сервисах {{ yandex-cloud }}
+
+#### {{ container-registry-name }} {#container-registry}
+
+Добавлены команды управления разрешенными IP-адресами для загрузки и скачивания Docker-образов:
+* `yc container registry add-ip-permissions` добавляет IP-адреса.
+* `yc container registry list-ip-permissions` позволяет посмотреть IP-адреса.
+* `yc container registry set-ip-permissions` устанавливает IP-адреса.
+* `yc container registry remove-ip-permissions` удаляет IP-адреса.
+
+#### {{ dns-name }} {#dns}
+
+* Добавлена команда `yc dns zone` для управления DNS-зонами.
+
+#### {{ sf-name }} {#cloud-functions}
+
+* Команда `yc serverless function version create`.
+
+  Добавлены значения по умолчанию для флагов:
+  * `--execution-timeout` – три секунды;
+  * `--memory` – 128 МБ.
+
+* Команда `yc serverless function version create`.
+
+  Добавлен флаг `--add-service-account` для указания дополнительных сервисных аккаунтов к версии.
+
+#### {{ cloud-logs-name }} {#logs}
+
+* Добавлена команда `yc logs`.
+
+#### Сервисы управляемых баз данных {#managed-db}
+
+**{{ mkf-name }}**
+
+* Команда `yc managed-kafka cluster create`.
+
+  Для флагов `--disk-size`, `--disk-type`, `--resource-preset`, `--zookeeper-disk-size`, `--zookeeper-disk-type` и `--zookeeper-resource-preset` теперь не указываются значения по умолчанию. Если значения не указаны, будут применяться значения по умолчанию, задаваемые на сервере.
+
+* Команда `yc managed-kafka cluster create`.
+
+  Добавлен флаг `--unmanaged-topics`, позволяющий включить управление топиками {{ KF }} через AdminAPI.
+
+  Добавлен флаг `--auto-create-topics-enable`, позволяющий включить автоматическое создание топиков {{ KF }}.
+
+* Команда `yc managed-kafka user create`.
+
+  Добавлена роль `admin`, позволяющая включить управление топиками кластера {{ KF }} через AdminAPI.
+
+**{{ mrd-name }}**
+
+* Команда `yc managed-redis cluster create`.
+
+  Добавлен флаг `--enable-tls`, который позволяет включить TLS при создании кластера {{ RD }}.
+
+* Команда `yc managed-redis cluster restore`.
+
+  Добавлен флаг `--enable-tls`, который позволяет включить TLS при создании кластера {{ RD }} из резервной копии.
+
+## Предыдущие релизы {#previous-releases}
+
+### Версия 0.72.0 (11.02.21)
+
+#### Изменения в сервисах {{ yandex-cloud }}
 
 #### {{ alb-name }} {#alb}
 
@@ -16,8 +78,6 @@
 #### {{ compute-name }} {#compute}
 
 * Команды `yc compute instance|disk|image list` теперь возвращают более 1000 элементов.
-
-## Предыдущие релизы {#previous-releases} 
 
 ### Версия 0.71.0 (03.02.21) {#version0.71.0}
 

@@ -100,7 +100,7 @@ Restore the schema in the new cluster:
 
 ```bash
 pg_restore -Fd -v --single-transaction -s --no-privileges \
-          -h <source address> \
+          -h <receiving address> \
           -U <username> \
           -p 6432 \
           -d <database name> /tmp/db_dump

@@ -48,6 +48,8 @@ items:
             href: operations/security-group-update.md
           - name: Удалить группу безопасности
             href: operations/security-group-delete.md
+      - name: Включить программно-ускоренную сеть
+        href: operations/enable-software-accelerated-network.md
       - name: Защита от DDoS-атак
         items:
           - name: Включить защиту от DDoS-атак
@@ -72,6 +74,8 @@ items:
         href: concepts/mtu-mss.md
       - name: Настройки DHCP
         href: concepts/dhcp-options.md
+      - name: Программно-ускоренная сеть
+        href: concepts/software-accelerated-network.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: DDoS Protection

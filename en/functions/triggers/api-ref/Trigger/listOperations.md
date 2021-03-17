@@ -2,31 +2,31 @@
 editable: false
 ---
 
-# Method listOperations
-Lists operations for the specified trigger.
+# Метод listOperations
+Возвращает список операций для указанного триггера.
  
 
  
-## HTTP request {#https-request}
+## HTTP-запрос {#https-request}
 ```
 GET https://serverless-triggers.api.cloud.yandex.net/triggers/v1/triggers/{triggerId}/operations
 ```
  
-## Path parameters {#path_params}
+## Path-параметры {#path_params}
  
-Parameter | Description
+Параметр | Описание
 --- | ---
-triggerId | Required. ID of the trigger to list operations for.
+triggerId | Обязательное поле. Идентификатор триггера, для котрого запрашивается список операций.
  
-## Query parameters {#query_params}
+## Query-параметры {#query_params}
  
-Parameter | Description
+Параметр | Описание
 --- | ---
-pageSize | The maximum number of results per page that should be returned. If the number of available results is larger than `pageSize`, the service returns a [nextPageToken](/docs/functions/triggers/api-ref/Trigger/listOperations#responses) that can be used to get the next page of results in subsequent list requests.  Default value: 100.  Acceptable values are 0 to 1000, inclusive.
-pageToken | Page token. To get the next page of results, set `pageToken` to the [nextPageToken](/docs/functions/triggers/api-ref/Trigger/listOperations#responses) returned by a previous list request.  The maximum string length in characters is 100.
-filter | A filter expression that filters resources listed in the response.  The expression must specify: 1. The field name. Currently filtering can only be applied to the [Trigger.name](/docs/functions/triggers/api-ref/Trigger#representation) field. 2. A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. 3. The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`. Example of a filter: `name=my-function`.  The maximum string length in characters is 1000.
+pageSize | Максимальное число возвращаемых результатов на странице. Если количество результатов больше чем `pageSize` , сервис вернет значение [nextPageToken](/docs/functions/triggers/api-ref/Trigger/listOperations#responses), которое можно использовать для получения следующей страницы.  Значение по умолчанию: 100.  Допустимые значения — от 0 до 1000 включительно.
+pageToken | Токен страницы. Установите значение `pageToken` равным значению поля [nextPageToken](/docs/functions/triggers/api-ref/Trigger/listOperations#responses) предыдущего запроса, чтобы получить следующую страницу результатов.  Максимальная длина строки в символах — 100.
+filter | Параметры фильтрации ресурсов в ответе.  В параметрах фильтрации указываются: 1. Имя поля. В настоящее время фильтрация осуществляется только по полю [Trigger.name](/docs/functions/triggers/api-ref/Trigger#representation). 2. Условный оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений. 3. Значение. Значение длиной от 3 до 63 символов, совпадающее с регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`. Пример фильтра: `name=my-function`.  Максимальная длина строки в символах — 1000.
  
-## Response {#responses}
+## Ответ {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -41,7 +41,7 @@ filter | A filter expression that filters resources listed in the response.  The
       "done": true,
       "metadata": "object",
 
-      // `operations[]` includes only one of the fields `error`, `response`
+      // `operations[]` включает только одно из полей `error`, `response`
       "error": {
         "code": "integer",
         "message": "string",
@@ -50,7 +50,7 @@ filter | A filter expression that filters resources listed in the response.  The
         ]
       },
       "response": "object",
-      // end of the list of possible fields`operations[]`
+      // конец списка возможных полей`operations[]`
 
     }
   ],
@@ -59,19 +59,19 @@ filter | A filter expression that filters resources listed in the response.  The
 ```
 
  
-Field | Description
+Поле | Описание
 --- | ---
-operations[] | **object**<br><p>An Operation resource. For more information, see <a href="/docs/api-design-guide/concepts/operation">Operation</a>.</p> 
-operations[].<br>id | **string**<br><p>ID of the operation.</p> 
-operations[].<br>description | **string**<br><p>Description of the operation. 0-256 characters long.</p> 
-operations[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
-operations[].<br>createdBy | **string**<br><p>ID of the user or service account who initiated the operation.</p> 
-operations[].<br>modifiedAt | **string** (date-time)<br><p>The time when the Operation resource was last modified.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
-operations[].<br>done | **boolean** (boolean)<br><p>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available.</p> 
-operations[].<br>metadata | **object**<br><p>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any.</p> 
-operations[].<br>error | **object**<br>The error result of the operation in case of failure or cancellation. <br>`operations[]` includes only one of the fields `error`, `response`<br><br><p>The error result of the operation in case of failure or cancellation.</p> 
-operations[].<br>error.<br>code | **integer** (int32)<br><p>Error code. An enum value of <a href="https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto">google.rpc.Code</a>.</p> 
-operations[].<br>error.<br>message | **string**<br><p>An error message.</p> 
-operations[].<br>error.<br>details[] | **object**<br><p>A list of messages that carry the error details.</p> 
-operations[].<br>response | **object** <br>`operations[]` includes only one of the fields `error`, `response`<br><br><p>The normal response of the operation in case of success. If the original method returns no data on success, such as Delete, the response is <a href="https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty">google.protobuf.Empty</a>. If the original method is the standard Create/Update, the response should be the target resource of the operation. Any method that returns a long-running operation should document the response type, if any.</p> 
-nextPageToken | **string**<br><p>Token for getting the next page of the list. If the number of results is greater than the specified <a href="/docs/functions/triggers/api-ref/Trigger/listOperations#query_params">pageSize</a>, use `nextPageToken` as the value for the <a href="/docs/functions/triggers/api-ref/Trigger/listOperations#query_params">pageToken</a> parameter in the next list request.</p> <p>Each subsequent page will have its own `nextPageToken` to continue paging through the results.</p> 
+operations[] | **object**<br><p>Ресурс Operation. Дополнительные сведения см. в разделе <a href="/docs/api-design-guide/concepts/operation">Объект Operation</a>.</p> 
+operations[].<br>id | **string**<br><p>Идентификатор операции.</p> 
+operations[].<br>description | **string**<br><p>Описание операции. Длина описания должна быть от 0 до 256 символов.</p> 
+operations[].<br>createdAt | **string** (date-time)<br><p>Время создания ресурса в формате в <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
+operations[].<br>createdBy | **string**<br><p>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию.</p> 
+operations[].<br>modifiedAt | **string** (date-time)<br><p>Время, когда ресурс Operation последний раз обновлялся. Значение в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
+operations[].<br>done | **boolean** (boolean)<br><p>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`.</p> 
+operations[].<br>metadata | **object**<br><p>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`.</p> 
+operations[].<br>error | **object**<br>Описание ошибки в случае сбоя или отмены операции. <br>`operations[]` включает только одно из полей `error`, `response`<br><br><p>Описание ошибки в случае сбоя или отмены операции.</p> 
+operations[].<br>error.<br>code | **integer** (int32)<br><p>Код ошибки. Значение из списка <a href="https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto">google.rpc.Code</a>.</p> 
+operations[].<br>error.<br>message | **string**<br><p>Текст ошибки.</p> 
+operations[].<br>error.<br>details[] | **object**<br><p>Список сообщений с подробными сведениями об ошибке.</p> 
+operations[].<br>response | **object** <br>`operations[]` включает только одно из полей `error`, `response`<br><br><p>Результат операции в случае успешного завершения. Если исходный метод не возвращает никаких данных при успешном завершении, например метод Delete, поле содержит объект <a href="https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty">google.protobuf.Empty</a>. Если исходный метод — это стандартный метод Create / Update, поле содержит целевой ресурс операции. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `response`.</p> 
+nextPageToken | **string**<br><p>Токен для получения следующей страницы списка. Если количество результатов больше чем <a href="/docs/functions/triggers/api-ref/Trigger/listOperations#query_params">pageSize</a>, используйте `nextPageToken` в качестве значения параметра <a href="/docs/functions/triggers/api-ref/Trigger/listOperations#query_params">pageToken</a> в следующем запросе списка ресурсов.</p> <p>Все последующие запросы будут получать свои значения `nextPageToken` для перебора страниц результатов.</p> 

@@ -84,6 +84,7 @@
       {{ yc-mdb-kf }} cluster create \
          --name <имя кластера> \
          --environment <окружение: prestable или production> \
+         --version <версия: 2.1 или 2.6> \
          --network-name <имя сети> \
          --brokers-count <количество брокеров в зоне> \
          --resource-preset <класс хоста> \
@@ -93,89 +94,12 @@
          --security-group-ids <список идентификаторов групп безопасности>
       ```
 
-
 - API
 
   Чтобы создать кластер, воспользуйтесь методом API [create](../api-ref/Cluster/create.md) и передайте в запросе:
   - Идентификатор каталога, в котором должен быть размещен кластер, в параметре `folderId`.
   - Имя кластера в параметре `name`.
   - Идентификаторы групп безопасности в параметре `securityGroupIds`.
-
-- Terraform
-
-    {% include [terraform-definition](../../solutions/_solutions_includes/terraform-definition.md) %}
-
-    Если у вас еще нет Terraform, [установите его и настройте провайдер](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
-
-    Чтобы создать кластер:
-
-    1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
-
-        {% include [terraform-create-cluster-step-1](../../_includes/mdb/terraform-create-cluster-step-1.md) %}
-
-        Пример структуры конфигурационного файла:
-
-        ```hcl
-        terraform {
-          required_providers {
-            yandex = {
-             source = "yandex-cloud/yandex"
-            }
-          }
-        }
-
-        provider "yandex" {
-          token     = "<OAuth или статический ключ сервисного аккаунта>"
-          cloud_id  = "<идентификатор облака>"
-          folder_id = "<идентификатор каталога>"
-          zone      = "<зона доступности>"
-        }
-
-        resource "yandex_mdb_kafka_cluster" "<имя кластера>" {
-          environment = "<окружение: PRESTABLE или PRODUCTION>"
-          name        = "<имя кластера>"
-          network_id  = "<идентификатор сети>"
-          security_group_ids = ["<список групп безопасности>"]
-
-          config {
-            assign_public_ip = "<публичный доступ к кластеру: true или false>"
-            brokers_count    = <количество брокеров>
-            version          = "<версия Apache Kafka: 2.1 или 2.6>"
-            kafka {
-              resources {
-                disk_size          = <размер хранилища в гигабайтах>
-                disk_type_id       = "<тип хранилища: network-ssd, network-hdd или local-ssd>"
-                resource_preset_id = "<класс хоста>"
-              }
-            }
-
-            zones = [
-              "<зоны доступности>"
-            ]
-          }
-        }
-
-        resource "yandex_vpc_network" "<имя сети>" {
-          name = "<имя сети>"
-        }
-
-        resource "yandex_vpc_subnet" "<имя подсети>" {
-          name           = "<имя подсети>"
-          zone           = "<зона доступности>"
-          network_id     = "<идентификатор сети>"
-          v4_cidr_blocks = ["<диапазон>"]
-        }
-        ```
-
-        Более подробную информацию о ресурсах, которые можно создать с помощью Terraform, см. в [документации провайдера](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_kafka_cluster).
-
-    1. Проверьте корректность конфигурационных файлов.
-
-        {% include [terraform-create-cluster-step-2](../../_includes/mdb/terraform-create-cluster-step-2.md) %}
-
-    1. Создайте кластер.
-
-        {% include [terraform-create-cluster-step-3](../../_includes/mdb/terraform-create-cluster-step-3.md) %}
 
 - Terraform
 
@@ -208,9 +132,10 @@
         }
 
         resource "yandex_mdb_kafka_cluster" "<имя кластера>" {
-        environment = "<окружение: PRESTABLE или PRODUCTION>"
-        name        = "<имя кластера>"
-        network_id  = "<идентификатор сети>"
+          environment        = "<окружение: PRESTABLE или PRODUCTION>"
+          name               = "<имя кластера>"
+          network_id         = "<идентификатор сети>"
+          security_group_ids = ["<список групп безопасности>"]
 
           config {
             assign_public_ip = "<публичный доступ к кластеру: true или false>"
@@ -273,6 +198,7 @@
 
   - С именем `mykf`.
   - В окружении `production`.
+  - С {{ KF }} версии `2.6`.
   - В сети `{{ network-name }}`.
   - В группе безопасности `{{ security-group }}`.
   - С одним хостом класса `{{ host-class }}`, в зоне доступности `{{ zone-id }}`.
@@ -283,10 +209,11 @@
   Запустите следующую команду:
 
 
-  ```
+  ```bash
   {{ yc-mdb-kf }} cluster create \
   --name mykf \
   --environment production \
+  --version 2.6 \
   --network-name {{ network-name }} \
   --zone-ids {{ zone-id }} \
   --brokers-count 1 \
@@ -305,7 +232,7 @@
     - В каталоге с идентификатором `{{ tf-folder-id }}`.
     - С именем `mykf`.
     - В окружении `PRODUCTION`.
-    - С версией {{ KF }} `2.6`.
+    - С {{ KF }} версии `2.6`.
     - В новой сети `mynet` с подсетью `mysubnet`.
     - В новой группе безопасности `mykf-sg`, разрешающей подключение к кластеру из интернета по порту `9091`.
     - С одним хостом класса `{{ host-class }}`, в зоне доступности `{{ zone-id }}`.
