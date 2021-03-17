@@ -7,5 +7,5 @@ ignore:
   - "ru/_api-ref-grpc/*"
   - "ru/mdb/*"
   - "en/mdb/*"
-  - "ru/tracker/api-ref"
-  - "en/tracker/api-ref"
+  - "ru/tracker/api-ref/*"
+  - "en/tracker/api-ref/*"
