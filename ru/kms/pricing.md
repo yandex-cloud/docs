@@ -17,7 +17,20 @@ editable: false
 
 ## Цены {#prices}
 
-Услуга | Цена вкл. НДС
------ | -----
-| Использование одной версии симметричного ключа в месяц | 1,8 ₽ |
-| 10 000 криптографических операций | 1,8 ₽ |
+{% if region == "ru"%}
+
+{% include [rub.md](../_pricing/kms/rub.md) %}
+
+{% endif %}
+
+{% if region == "kz"%}
+
+{% include [kzt.md](../_pricing/kms/kzt.md) %}
+
+{% endif %}
+
+{% if region == "int"%}
+
+{% include [usd.md](../_pricing/kms/usd.md) %}
+
+{% endif %}
