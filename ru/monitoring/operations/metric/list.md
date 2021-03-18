@@ -11,51 +11,42 @@
 ```bash
 $ export IAM_TOKEN=CggaATEVAgA...
 $ curl -H "Content-Type: application/json" \
-    -H "Authorization: Bearer ${IAM_TOKEN}" \
-    'https://monitoring.api.cloud.yandex.net/monitoring/v2/metrics/?folderId=aoeng2krmasimogorn5m&service=compute&selectors={resource_id="d9hvsd8eh12n8nzcof4ou"}' > output.json
+        -H "Authorization: Bearer ${IAM_TOKEN}" \
+        -G 'https://monitoring.api.cloud.yandex.net/monitoring/v2/metrics/?folderId=b1gucmd4tma1r85c7rhk&pageSize=200' --data-urlencode 'selectors={service="managed-clickhouse", resource_id="c9q5e2a9i24p7s0o9sh6"}' >  output.json
 ```
 
-Пример ответа на запрос, который получает список метрик сервиса Compute для ресурса (виртуальной машины) с идентификатором `d9hvsd8eh12n8nzcof4ou`. В свойстве `metrics` перечислен список метрик:
+Пример ответа на запрос, который получает список метрик сервиса {{ mch-name }} для ресурса с идентификатором `c9q5e2a9i24p7s0o9sh6`. В свойстве `metrics` перечислен список метрик:
 
 **output.json:**
 ```json
 {
-    "metrics": [
-        {
-            "name": "memory_usage",
-            "labels": {
-                "cluster": "aoeng2krmasimogorn5m",
-                "service": "compute",
-                "resource_type": "vm",
-                "project": "b1gbkpesobgv2i2266vg",
-                "resource_id": "d9hvsd8eh12n8nzcof4ou"
-            },
-            "type": "DGAUGE"
-        },
-        {
-            "name": "cpu_usage",
-            "labels": {
-                "cluster": "aoeng2krmasimogorn5m",
-                "service": "compute",
-                "resource_type": "vm",
-                "project": "b1gbkpesobgv2i2266vg",
-                "resource_id": "d9hvsd8eh12n8nzcof4ou"
-            },
-            "type": "DGAUGE"
-        },
-        {
-            "type": "DGAUGE",
-            "name": "disk_write_ops",
-            "labels": {
-                "cluster": "aoeng2krmasimogorn5m",
-                "service": "compute",
-                "resource_type": "vm",
-                "project": "b1gbkpesobgv2i2266vg",
-                "resource_id": "d9hvsd8eh12n8nzcof4ou",
-                "device": "d9hjde6k6168k7k4kgti",
-            }
-        },
-    ...
+   "metrics" : [
+      {
+         "labels" : {
+            "dc" : "rc1c",
+            "host" : "rc1c-dqd0h0i0vax2bxk7.mdb.yandexcloud.net",
+            "node" : "replica",
+            "resource_id" : "c9q5e2a9i24p7s0o9sh6",
+            "resource_type" : "cluster",
+            "service" : "managed-clickhouse",
+            "shard" : "c9qdstaf9lfgtogd213s"
+         },
+         "name" : "net.packets_sent",
+         "type" : "DGAUGE"
+      },
+      {
+         "labels" : {
+            "dc" : "rc1c",
+            "host" : "rc1c-dqd0h0i0vax2bxk7.mdb.yandexcloud.net",
+            "node" : "replica",
+            "resource_id" : "c9q5e2a9i24p7s0o9sh6",
+            "resource_type" : "cluster",
+            "service" : "managed-clickhouse",
+            "shard" : "c9qdstaf9lfgtogd213s"
+         },
+         "name" : "disk.free_inodes",
+         "type" : "DGAUGE"
+      }
     ]
 }
 ```
