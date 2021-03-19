@@ -8,7 +8,7 @@ You can set your [home page](startpage.md) to display any [filter](filters.md), 
 
 1. On the {{ tracker-name }} top panel, click ![]( ../../_assets/tracker/tracker-settings.png) → **Personal settings**.
 
-
+    
     {% note info %}
 
     You can also follow this link: [https://tracker.yandex.ru/settings]({{ link-settings }}).
@@ -25,7 +25,7 @@ You can set your [home page](startpage.md) to display any [filter](filters.md), 
 
 1. On the {{ tracker-name }} top panel, click ![]( ../../_assets/tracker/tracker-settings.png) → **Personal settings**.
 
-
+    
     {% note info %}
 
     You can also follow this link: [https://tracker.yandex.ru/settings]({{ link-settings }}).
@@ -50,7 +50,7 @@ To change the display method, do the following:
 
 1. On the {{ tracker-name }} top panel, click ![]( ../../_assets/tracker/tracker-settings.png) → **Personal settings**.
 
-
+    
     {% note info %}
 
     You can also follow this link: [https://tracker.yandex.ru/settings]({{ link-settings }}).
@@ -83,7 +83,7 @@ To change the display method, do the following:
 
 1. On the {{ tracker-name }} top panel, click ![]( ../../_assets/tracker/tracker-settings.png) → **Personal settings**.
 
-
+    
     {% note info %}
 
     You can also follow this link: [https://tracker.yandex.ru/settings]({{ link-settings }}).

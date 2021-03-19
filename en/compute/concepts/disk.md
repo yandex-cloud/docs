@@ -48,6 +48,10 @@ Non-replicated disks have a number of limitations:
 
 Multiple non-replicated disks can be grouped into `placement groups` to provide data storage redundancy at the application level. In this case, individual disks are physically placed in different racks in a data center to reduce the probability of simultaneous failure of all disks in the group.
 
+##  Maximum disk size
+
+{% include [disk-blocksize](../../_includes/compute/disk-blocksize.md) %}
+
 ## Attaching and detaching disks {#attach-detach}
 
 Disks can only be attached to one VM at a time. The disk and VM must be located in the same availability zone.

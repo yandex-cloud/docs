@@ -32,7 +32,7 @@ After creating a cluster, you can:
 
   1. Request a list of available host classes (the `ZONES` column specifies the availability zones where you can select the appropriate class):
 
-
+     
      ```
      $ {{ yc-mdb-pg }} resource-preset list
      
@@ -74,7 +74,7 @@ After creating a cluster, you can:
 
   To increase the storage size for a cluster:
 
-
+  
   1. Make sure the required cluster is using network storage (it is not yet possible to increase the size of local storage). To do this, request information about the cluster and find the `disk_type_id` field: it should be set to `network-hdd` or `network-ssd`:
 
       ```

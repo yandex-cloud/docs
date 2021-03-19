@@ -33,7 +33,7 @@
    
    - CLI
    
-     
+          
      {% include [cli-install](../../_includes/cli-install.md) %}
      
      1. Посмотрите описание команды для получения списка баз данных:

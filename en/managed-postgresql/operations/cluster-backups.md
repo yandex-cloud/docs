@@ -71,7 +71,7 @@ For a new cluster, you should set all the parameters that are required at creati
       This results in a new {{ PG }} cluster with the following characteristics:
       - Named `mynewpg`.
       - In the `PRODUCTION` environment.
-- In the `{{ network-name }}` network.
+      - In the `{{ network-name }}` network.
       - With a single `{{ host-class }}` class host in the `b0rcctk2rvtr8efcch63` subnet, in the `{{ zone-id }}` availability zone.
       - With the databases and users from the backup.
       - With 20 GB fast network storage (`{{ disk-type-example }}`).

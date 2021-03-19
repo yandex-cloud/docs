@@ -101,6 +101,8 @@ items:
                 href: manager/create-status.md
               - name: Создать резолюцию
                 href: manager/create-resolution.md
+      - name: Локальные поля задач
+        href: local-fields.md
       - name: Добавить команду очереди
         href: manager/queue-team.md
       - name: Настроить доступ к очереди
@@ -129,8 +131,6 @@ items:
             href: user/wiki-markup.md
           - name: Изменить связи задачи
             href: user/ticket-links.md
-          - name: Добавить поле задачи
-            href: user/create-param.md
           - name: Выполнить макрос
             href: user/macroses.md
           - name: Изменить несколько задач
@@ -141,6 +141,8 @@ items:
         href: user/reminder.md
       - name: Отметить затраченное время
         href: user/time-spent.md
+      - name: Добавить поле задачи
+        href: user/create-param.md
       - name: Посмотреть историю изменений задачи
         href: user/history.md
       - name: Проголосовать за задачу

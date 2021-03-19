@@ -35,7 +35,7 @@ The number of hosts that can be created with a {{ CH }} cluster depends on the s
 
   1. Under **Storage size**:
 
-      - Select the type of storage, either a more flexible network type (**network-hdd** or **network-ssd**) or faster local SSD storage (**local-ssd**). The size of the local storage can only be changed in 100 GB increments.
+            - Select the type of storage, either a more flexible network type (**network-hdd** or **network-ssd**) or faster local SSD storage (**local-ssd**). The size of the local storage can only be changed in 100 GB increments.
       - Select the size to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
 
   1. Under **Database**, specify the DB attributes:
@@ -63,7 +63,7 @@ The number of hosts that can be created with a {{ CH }} cluster depends on the s
 
   To create a cluster:
 
-
+  
   1. Check whether the folder has any subnets for the cluster hosts:
 
      ```
@@ -80,7 +80,7 @@ The number of hosts that can be created with a {{ CH }} cluster depends on the s
 
   1. Specify the cluster parameters in the create command (the example shows only mandatory flags):
 
-
+     
      ```
      $ {{ yc-mdb-ch }} cluster create \
         --name <cluster name> \
@@ -190,7 +190,7 @@ The number of hosts that can be created with a {{ CH }} cluster depends on the s
 
   Let's say we need to create a {{ CH }} cluster with the following characteristics:
 
-  - Named `mych`.
+    - Named `mych`.
   - In the `production` environment.
   - In the `default` network.
   - With a single `{{ host-class }}` class ClickHouse host in the `b0rcctk2rvtr8efcch64` subnet and `ru-central1-c` availability zone.
@@ -200,7 +200,7 @@ The number of hosts that can be created with a {{ CH }} cluster depends on the s
 
   Run the command:
 
-
+  
   ```
   $ {{ yc-mdb-ch }} cluster create \
        --name mych \

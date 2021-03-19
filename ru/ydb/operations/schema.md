@@ -170,10 +170,10 @@
 
    SDK предоставляет методы создания, удаления, листинга и просмотра информации о директории.
   
-   
+      
    В таблице ниже приведены имена методов в SDK для [Java](https://github.com/yandex-cloud/ydb-java-sdk), [Python](https://github.com/yandex-cloud/ydb-python-sdk) и [Go](https://github.com/yandex-cloud/ydb-go-sdk).
    
-  
+     
    | Метод    | Java | Python |  Go |
    | ---- | ---- | ---- | ---- | ---- |
    | Создание директории | ```SchemeClient.makeDirectory``` | ```scheme_client.make_directory``` | ```Client.MakeDirectory``` |

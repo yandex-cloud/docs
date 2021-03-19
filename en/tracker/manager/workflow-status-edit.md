@@ -23,7 +23,7 @@ You can choose a set of available statuses for each individual workflow. These s
     | **Button name in English** | The name of the button in the {{ tracker-name }} interface that will switch the issue to this status. The same name is used for the transition in the editor. |
     | **Button name in Russian** | The name of the button in the Russian {{ tracker-name }} interface that will switch the issue to this status. |
 
-
+   
    The most popular statuses are available in {{ tracker-name }} by default. If you don't see the status you need, your company's admin can [create it](create-status.md).
 
 1. Click **Save**.

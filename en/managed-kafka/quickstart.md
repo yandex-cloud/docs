@@ -79,7 +79,7 @@ To connect to a cluster:
 
 1. Install an SSL certificate on the VM:
 
-
+   
    ```
    $ sudo mkdir -p /usr/local/share/ca-certificates/Yandex
    $ sudo wget "https://{{ s3-storage-host }}{{ pem-path }}" -O /usr/local/share/ca-certificates/Yandex/YandexCA.crt

@@ -115,7 +115,7 @@
 
 1. На верхней панели {{ tracker-name }} нажмите ![](../../_assets/tracker/tracker-settings.png) → **Персональные настройки**.
 
-
+    
     {% note info %}
 
     Вы также можете перейти по ссылке [https://tracker.yandex.ru/settings]({{ link-settings }}).

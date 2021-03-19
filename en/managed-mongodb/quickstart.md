@@ -24,7 +24,7 @@ To use the service, create a cluster and connect to a DBMS:
 
 1. To connect to the DB server, you need an SSL certificate. You can prepare all the necessary authentication data as follows:
 
-
+    
     ```bash
     $ mkdir ~/.mongodb
     $ wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.mongodb/CA.pem
@@ -32,7 +32,7 @@ To use the service, create a cluster and connect to a DBMS:
 
 1. You can now connect to the cluster:
 
-
+    
     ```bash
     $ mongo --norc \
             --ssl \

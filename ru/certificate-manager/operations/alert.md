@@ -31,7 +31,7 @@
             - **Функция агрегации**.
             - **Окно вычисления**.
     
-
+            
             
             Подробнее в разделе [{#T}](../../monitoring/concepts/alerting.md#alert-parameters).
             
@@ -71,7 +71,7 @@
             - **Функция агрегации**.
             - **Окно вычисления**.
             
-            
+                        
             Подробнее в разделе [{#T}](../../monitoring/concepts/alerting.md#alert-parameters).
             
         1. Укажите канал уведомлений. Если у вас нет канала уведомлений, [создайте его](../../monitoring/operations/alert/create-channel.md).
