@@ -93,7 +93,7 @@
 
 1. На верхней панели {{ tracker-name }} нажмите ![](../../_assets/tracker/tracker-settings.png) → **Персональные настройки**.
 
-
+    
     {% note info %}
 
     Вы также можете перейти по ссылке [https://tracker.yandex.ru/settings](https://tracker.yandex.ru/settings).
@@ -110,7 +110,7 @@
 
 1. На верхней панели {{ tracker-name }} нажмите ![](../../_assets/tracker/tracker-settings.png) → **Персональные настройки**.
 
-
+    
     {% note info %}
 
     Вы также можете перейти по ссылке [https://tracker.yandex.ru/settings]({{ link-settings }}).
@@ -130,8 +130,7 @@
 
 {% note alert %}
 
-Когда вы переносите задачу, ее подзадачи остаются в исходной очереди. 
-
+Когда вы переносите задачу, ее подзадачи остаются в исходной очереди. Если в задаче указаны значения [локальных полей](../local-fields.md), при переносе в другую очередь они будут удалены.
 
 {% endnote %}
 

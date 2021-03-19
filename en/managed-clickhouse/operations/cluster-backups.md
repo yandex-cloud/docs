@@ -83,7 +83,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
   1. Request creation of a cluster from a backup:
 
-
+      
       ```
       $ {{ yc-mdb-ch }} cluster restore \
              --backup-id c9q22suuefrmrp2lrv9f:20181109T101204 \
@@ -98,7 +98,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
       This results in a new {{ CH }} cluster with the following characteristics:
 
-      - Named `mynewch`.
+            - Named `mynewch`.
       - In the `PRODUCTION` environment.
       - In the `{{ network-name }}` network.
       - With a single `{{ host-class }}` class host in the `b0rcctk2rvtr8efcch63` subnet of the `{{ zone-id }}` availability zone.

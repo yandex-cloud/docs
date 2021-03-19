@@ -57,7 +57,7 @@ The number of hosts in {{ mch-short-name }} clusters is limited by the CPU and R
   1. Click on the name of the cluster you need and go to the **Hosts** tab.
   1. Click **Add host**.
 
-
+  
   1. Specify the host parameters:
 
       * Availability zone.
@@ -74,7 +74,7 @@ The number of hosts in {{ mch-short-name }} clusters is limited by the CPU and R
 
   To add a host to the cluster:
 
-
+  
   1. Request a list of cluster subnets to select one for the new host:
 
       ```
@@ -100,7 +100,7 @@ The number of hosts in {{ mch-short-name }} clusters is limited by the CPU and R
 
   1. Run the add host command:
 
-
+     
      ```
      $ {{ yc-mdb-ch }} host add
           --cluster-name <cluster name>
@@ -109,7 +109,7 @@ The number of hosts in {{ mch-short-name }} clusters is limited by the CPU and R
 
      {{ mch-short-name }} will run the add host operation.
 
-The subnet ID should be specified if the availability zone contains multiple subnets, otherwise {{ mch-short-name }} automatically selects a single subnet. The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+     The subnet ID should be specified if the availability zone contains multiple subnets, otherwise {{ mch-short-name }} automatically selects a single subnet. The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 

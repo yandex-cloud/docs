@@ -38,7 +38,7 @@ The number of hosts that can be created with a {{ MG }} cluster depends on the s
 
   To create a cluster:
 
-
+  
   1. Check whether the folder has any subnets for the cluster hosts:
 
      ```
@@ -55,7 +55,7 @@ The number of hosts that can be created with a {{ MG }} cluster depends on the s
 
   1. Specify the cluster parameters in the create command (the example shows only mandatory flags):
 
-
+      
       ```
       $ {{ yc-mdb-mg }} cluster create \
          --cluster-name <cluster name>
@@ -153,7 +153,7 @@ The number of hosts that can be created with a {{ MG }} cluster depends on the s
 
   Let's say we need to create a {{ MG }} cluster with the following characteristics:
 
-  - Named `mymg`.
+    - Named `mymg`.
   - In the `production` environment.
   - In the `{{ network-name }}` network.
   - With one `{{ host-class }}` class host in the `b0rcctk2rvtr8efcch64` subnet in the `{{ zone-id }}` availability zone.
@@ -163,7 +163,7 @@ The number of hosts that can be created with a {{ MG }} cluster depends on the s
 
   Run the command:
 
-
+  
   ```
   $ {{ yc-mdb-mg }} cluster create \
        --cluster-name mymg \

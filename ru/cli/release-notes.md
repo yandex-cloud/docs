@@ -12,10 +12,6 @@
 * `yc container registry set-ip-permissions` устанавливает IP-адреса.
 * `yc container registry remove-ip-permissions` удаляет IP-адреса.
 
-#### {{ dns-name }} {#dns}
-
-* Добавлена команда `yc dns zone` для управления DNS-зонами.
-
 #### {{ sf-name }} {#cloud-functions}
 
 * Команда `yc serverless function version create`.

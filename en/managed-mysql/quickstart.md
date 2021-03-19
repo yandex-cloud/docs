@@ -31,7 +31,7 @@ You can connect to DB clusters from both inside and outside Yandex.Cloud:
 
 1. To connect to the DB server, get an SSL certificate:
 
-
+      
       1. Create a folder:
 
          ```bash

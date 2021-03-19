@@ -35,7 +35,7 @@ You can connect to the database using the command `mongo` by listing all the clu
 
   {% include [public-connect-ssl](../../_includes/mdb/public-connect-ssl.md) %}
 
-
+  
   ```bash
   $ mongo --norc \
           --tls \
@@ -50,7 +50,7 @@ You can connect to the database using the command `mongo` by listing all the clu
 
   {% include [public-connect-ssl](../../_includes/mdb/public-connect-ssl.md) %}
 
-
+  
   ```bash
   $ mongo --norc \
           --ssl \
@@ -65,7 +65,7 @@ You can connect to the database using the command `mongo` by listing all the clu
 
   If you don't need to encrypt traffic within the virtual network when connecting to the database, you can connect from a Yandex.Cloud VM without SSL. Pass the `sslmode` parameter with the `disable` value:
 
-
+  
   ```bash
   $ mongo --norc \
           --host 'rs01/<host 1 FQDN>:27018,<host 2 FQDN>:27018,<host N FQDN>:27018' \

@@ -85,7 +85,7 @@
 1. [Настройте группы безопасности](operations/connect.md#configuring-security-groups) для облачной сети так, чтобы был разрешен весь необходимый трафик между кластером и хостом, с которого выполняется подключение.
 1. Установите на виртуальную машину SSL-сертификат:
 
-
+   
    ```bash
    $ sudo mkdir -p /usr/local/share/ca-certificates/Yandex
    $ sudo wget "https://{{ s3-storage-host }}{{ pem-path }}" -O /usr/local/share/ca-certificates/Yandex/YandexCA.crt

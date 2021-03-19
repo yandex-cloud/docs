@@ -50,7 +50,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
   1. Request creation of a cluster from a backup:
 
-
+      
       ```
       $ {{ yc-mdb-my }} cluster restore \
              --backup-id c9qgo11pud7kb3cdomeg:stream_20190213T093643Z \
@@ -67,7 +67,7 @@ For a new cluster, you should set all the parameters that are required at creati
       This results in a new {{ MY }} cluster with the following characteristics:
 
 
-      - With the `mynewmy` name.
+            - With the `mynewmy` name.
       - In the `PRODUCTION` environment.
       - In the `{{ network-name }}` network.
       - With a single `{{ host-class }}` class host in the `b0rcctk2rvtr8efcch63` subnet of the `{{ zone-id }}` availability zone.

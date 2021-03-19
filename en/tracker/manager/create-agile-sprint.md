@@ -127,7 +127,7 @@ You can set your sprint page to display issues and sprints in a single column. T
 
 1. On the {{ tracker-name }} top panel, click ![]( ../../_assets/tracker/tracker-settings.png) → **Personal settings**.
 
-
+    
     {% note info %}
 
     You can also follow this link: [https://tracker.yandex.ru/settings]({{ link-settings }}).

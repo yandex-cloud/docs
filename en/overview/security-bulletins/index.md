@@ -2,6 +2,16 @@
 
 This page lists security recommendations given by Yandex.Cloud experts.
 
+## 03.03.2021 — CVE-2021-21309 — remote code execution in {{ RD }}
+
+### Description
+
+In affected versions of Redis an integer overflow bug in 32-bit Redis version 4.0 or newer could be exploited to corrupt the heap and potentially result with remote code execution.
+
+### Impact on Yandex.Cloud services
+
+{{ mrd-full-name }} uses the 64-bit version of {{ RD }} and is not vulnerable.
+
 ## 26.01.2021 — CVE-2021-3156 - privilege escalation via sudo
 
 ### Description

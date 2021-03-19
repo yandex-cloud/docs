@@ -59,7 +59,7 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
 
   To create a cluster:
 
-1. Check whether the folder has any subnets for the cluster hosts:
+  1. Check whether the folder has any subnets for the cluster hosts:
 
      ```
      $ yc vpc subnet list

@@ -69,7 +69,7 @@ By default you don't get notifications for the actions you've done yourself. To 
 
 1. On the {{ tracker-name }} top panel, click ![](../../_assets/tracker/tracker-settings.png) → **Personal settings**.
 
-
+    
     {% note info %}
 
     You can also follow this link: [https://tracker.yandex.ru/settings]({{ link-settings }}).

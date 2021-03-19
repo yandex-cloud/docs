@@ -49,7 +49,7 @@ By default, {{ mpg-short-name }} limits the maximum number of connections to eac
 
   1. Under **Storage size**:
 
-- Select the type of storage, either more flexible network storage (**network-hdd** or **network-ssd**) or faster local SSD storage (**local-ssd**). The size of local storage can only be changed in 100 GB increments.
+      - Select the type of storage, either more flexible network storage (**network-hdd** or **network-ssd**) or faster local SSD storage (**local-ssd**). The size of local storage can only be changed in 100 GB increments.
       - Select the size to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
 
   1. Under **Database**, specify the database attributes:
@@ -75,7 +75,7 @@ By default, {{ mpg-short-name }} limits the maximum number of connections to eac
 
   To create a cluster:
 
-1. Check whether the folder has any subnets for the cluster hosts:
+  1. Check whether the folder has any subnets for the cluster hosts:
 
      ```
      $ yc vpc subnet list
@@ -91,7 +91,7 @@ By default, {{ mpg-short-name }} limits the maximum number of connections to eac
 
   1. Specify the cluster parameters in the create command (only some of the supported parameters are given in the example):
 
-
+      
       ```bash
       $ {{ yc-mdb-pg }} cluster create \
            --name <cluster name> \
@@ -188,7 +188,7 @@ By default, {{ mpg-short-name }} limits the maximum number of connections to eac
 
   Let's say we need to create a {{ PG }} cluster with the following characteristics:
 
-  - Named `mypg`.
+    - Named `mypg`.
   - In the `production` environment.
   - In the `default` network.
   - With one `{{ host-class }}` class host in the `b0rcctk2rvtr8efcch64` subnet in the `{{ zone-id }}` availability zone.
@@ -198,7 +198,7 @@ By default, {{ mpg-short-name }} limits the maximum number of connections to eac
 
   Run the command:
 
-
+  
   ```
   $ {{ yc-mdb-pg }} cluster create \
        --name mypg \

@@ -51,7 +51,7 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
   1. Click on the name of the cluster you need and go to the **Hosts** tab.
   1. Click **Add host**.
 
-
+  
   1. Specify the host parameters:
 
       * Availability zone.
@@ -72,7 +72,7 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
 
   To add a host to the cluster:
 
-
+  
   1. Request a list of cluster subnets to select one for the new host:
 
       ```
@@ -98,7 +98,7 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
 
   1. Run the add host command:
 
-
+     
      ```
      $ {{ yc-mdb-pg }} host add
           --cluster-name <cluster name>
@@ -107,7 +107,7 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
 
      {{ mpg-short-name }} will run the add host operation.
 
-
+     
      The subnet ID should be specified if the availability zone contains multiple subnets, otherwise {{ mpg-short-name }} automatically selects a single subnet. You can retrieve the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API

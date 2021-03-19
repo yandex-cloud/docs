@@ -12,7 +12,7 @@ To use an encrypted SSL connection, get an SSL certificate and add it to the ope
 {% list tabs %}
 
 - Ubuntu 20.04
-
+  
   ```bash
   $ sudo mkdir -p /usr/local/share/ca-certificates/Yandex && \
   sudo wget "https://{{ s3-storage-host }}{{ pem-path }}" -O /usr/local/share/ca-certificates/Yandex/YandexCA.crt && \

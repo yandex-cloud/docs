@@ -90,7 +90,7 @@ You can choose the display type for usernames and event types in notification me
 
 1. On the {{ tracker-name }} top panel, click ![](../../_assets/tracker/tracker-settings.png) → **Personal settings**.
 
-
+    
     {% note info %}
 
     You can also follow this link: [https://tracker.yandex.ru/settings]({{ link-settings }}).

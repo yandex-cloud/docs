@@ -22,10 +22,10 @@ To create a new issue type:
 
 1. Configure settings:
     - **Issue type**: Select one of the available types.
-The most popular issue types are available in {{ tracker-name }} by default. If you don't see the type you need, your company's admin can [create it](create-ticket-type.md).
+      The most popular issue types are available in {{ tracker-name }} by default. If you don't see the type you need, your company's admin can [create it](create-ticket-type.md).
     - **Workflow**: Set the workflow to apply to this type of issue. Select one of the available workflows or [create a new one](add-workflow.md) based on one of them.
     - **Resolutions**: Select possible resolutions.
-The most popular resolutions are available in {{ tracker-name }} by default. If you don't see the resolution you need, your company's admin can [create it](create-resolution.md).
+     The most popular resolutions are available in {{ tracker-name }} by default. If you don't see the resolution you need, your company's admin can [create it](create-resolution.md).
 	 
 
 1. The **Statuses and transitions** section shows the main parameters of the selected workflow. If necessary, you can edit it or create a copy.

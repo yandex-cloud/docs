@@ -51,7 +51,7 @@ The number of hosts in {{ mmg-short-name }} clusters is limited by the CPU and R
   1. Click on the name of the cluster you need and go to the **Hosts** tab.
   1. Click **Add host**.
 
-
+  
   1. Specify the host parameters:
 
       * Availability zone.
@@ -68,7 +68,7 @@ The number of hosts in {{ mmg-short-name }} clusters is limited by the CPU and R
 
   To add a host to the cluster:
 
-
+  
   1. Request a list of cluster subnets to select one for the new host:
 
       ```
