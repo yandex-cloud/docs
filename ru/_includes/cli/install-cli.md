@@ -17,7 +17,27 @@
         
         {% endnote %}
         
-    1. После завершения установки перезапустите командную оболочку.
+        Скрипт установки автоматически дополнит файл ` ~/.bash_profile` или `~/.zshrc` (в зависимости от текущей командной оболочки)
+        
+        ```
+        # The next line updates PATH for {{ yandex-cloud }} CLI.
+        if [ -f '/Users/<username>/yandex-cloud/path.bash.inc' ]; then source '/Users/<username>/yandex-cloud/path.bash.inc'; fi
+        # The next line enables shell command completion for yc.
+        if [ -f '/Users/<username>/yandex-cloud/completion.bash.inc' ]; then source '/Users/<username>/yandex-cloud/completion.bash.inc'; fi
+        ```
+        
+    1. После завершения установки перезапустите командную оболочку или введите команду для `bash`
+
+    ```bash
+    source ~/.bash_profile
+    ```
+    
+    1. Для `zsh` можно ввести команду
+    
+    ```bash
+    source ~/.zshrc
+    ```
+
 
 - macOS
 
@@ -28,18 +48,8 @@
         ```
         
         Скрипт установит CLI и добавит путь до исполняемого файла в переменную окружения `PATH`.
-    1. Перезапустите командную оболочку, чтобы перезагрузить переменные окружения.
-    
-    CLI поддерживает автодополнение команд в командной оболочке `bash`. Чтобы автодополнение заработало:
-    
-    1. Установите менеджер пакетов [Homebrew](https://brew.sh).
-    1. Установите пакет `bash-completion`:
-            
-        ```
-        $ brew install bash-completion
-        ```
         
-        Скрипт установки автоматически дополнит файл ` ~/.bash_profile`:
+        Скрипт установки автоматически дополнит файл ` ~/.bash_profile` или `~/.zshrc` (в зависимости от текущей командной оболочки)
         
         ```
         # The next line updates PATH for {{ yandex-cloud }} CLI.
@@ -47,6 +57,29 @@
         # The next line enables shell command completion for yc.
         if [ -f '/Users/<username>/yandex-cloud/completion.bash.inc' ]; then source '/Users/<username>/yandex-cloud/completion.bash.inc'; fi
         ```
+            
+    1. После завершения установки перезапустите командную оболочку или введите команду для `bash`
+
+    ```bash
+    source ~/.bash_profile
+    ```
+    
+    1. Для `zsh` можно ввести команду
+    
+    ```bash
+    source ~/.zshrc
+    ```
+    
+    Если вы используете командную облочку `zsh` с пакетом дополнений `oh-my-zsh`, то будет доступно автодополнение.
+    
+    Чтобы автодополнение заработало в bash:
+    
+    1. Установите менеджер пакетов [Homebrew](https://brew.sh).
+    1. Установите пакет `bash-completion`:
+            
+        ```
+        $ brew install bash-completion
+        ```        
     1. После завершения установки добавьте в файл ` ~/.bash_profile` следующие строки. Расположите их выше строк, автоматически добавленных скриптом установки.
     
         ```
@@ -55,6 +88,7 @@
         fi
         ```
     1. Перезапустите командную оболочку.
+
 
 - Windows
 
