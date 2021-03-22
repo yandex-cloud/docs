@@ -53,6 +53,8 @@
 
 Пока модель обучается, вы можете выполнять операции в других ячейках.
 
+## Прерывание фоновой операции {#interrupt}
+
 {% include [interrupt](../../_includes/datasphere/interrupt-cell.md) %}
 
 
