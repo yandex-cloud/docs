@@ -49,6 +49,9 @@ default:
   link-tracker-example-2-ya: https://st.yandex-team.ru/queueKey
 
   #Ссылки на справку на yandex.ru/support
+  #И на справку Организации, пока она в Preview
+  link-org-add-federation: https://cloud.yandex.com/docs/organization/add-federation
+  link-org-main: https://cloud.yandex.com/docs/organization/
   support-connect-account: https://yandex.com/support/connect/add-account.html#org-structure__manage-user
   support-connect-domain: https://yandex.com/support/connect/add-domain.html
   support-connect-domains: https://yandex.com/support/connect/domains.html#proof
