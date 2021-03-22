@@ -80,7 +80,7 @@ folderId | **string**<br><p>Идентификатор каталога, к ко
        "https://stt.api.cloud.yandex.net/speech/v1/stt:recognize?topic=general&folderId=${FOLDER_ID}"
   ```
 
-- Python
+- Python 3
 
   ```python
   import urllib.request
