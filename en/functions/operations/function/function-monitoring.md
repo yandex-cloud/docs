@@ -20,7 +20,7 @@ To view the chart:
 
 1. The number of function calls is displayed on the **Invocations** chart:
 
-    ![image](../../../_assets/functions/invocations.svg)
+    ![image](../../../_assets/functions/invocations.png)
 
 ## Average function execution time {#durations}
 
@@ -36,7 +36,7 @@ To view the chart:
 
 1. The average call time is displayed in the **Durations** chart:
 
-    ![image](../../../_assets/functions/durations.svg)
+    ![image](../../../_assets/functions/durations.png)
 
 ## Number of errors that occurred when executing a function {#errors}
 
@@ -52,5 +52,5 @@ To view the chart:
 
 1. The number of errors that occurred when running the function is shown in the **Errors** chart:
 
-    ![image](../../../_assets/functions/errors.svg)
+    ![image](../../../_assets/functions/errors.png)
 
