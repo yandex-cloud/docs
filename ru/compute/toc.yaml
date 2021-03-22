@@ -99,6 +99,8 @@ items:
             href: operations/disk-create/empty.md
           - name: Создать пустой диск с блоком большого размера
             href: operations/disk-create/empty-disk-blocksize.md
+          - name: Создать нереплицируемый диск
+            href: operations/disk-create/nonreplicated.md
       - name: Управление диском
         items:
           - name: Создать снимок диска
