@@ -241,7 +241,7 @@ metadata:
   namespace: policy-test
 spec:
   podSelector:
-  matchLabels: {}
+    matchLabels: {}
 EOF
 ```
 
