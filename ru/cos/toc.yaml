@@ -33,6 +33,8 @@ items:
         href: concepts/index.md
       - name: Квоты и лимиты
         href: concepts/limits.md
+  - name: Релизы COI
+    href: release-notes.md
   - name: Правила тарификации
     href: pricing.md
   - name: Вопросы и ответы
