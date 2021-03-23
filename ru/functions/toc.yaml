@@ -271,6 +271,8 @@ items:
     items:
       - name: Создание навыка Алисы
         href: solutions/alice-skill.md
+      - name: Развертывание веб-приложения
+        href: ../_includes/java-servlet-todo-list.md
   - name: Правила тарификации
     href: pricing.md
   - name: Управление доступом
