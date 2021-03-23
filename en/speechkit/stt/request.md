@@ -77,7 +77,7 @@ To recognize speech in Russian, send an audio fragment (for example, [speech.ogg
        "https://stt.api.cloud.yandex.net/speech/v1/stt:recognize?topic=general&folderId=${FOLDER_ID}"
   ```
 
-- Python
+- Python 3
 
   ```python
   import urllib.request

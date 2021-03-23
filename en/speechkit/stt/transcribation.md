@@ -285,7 +285,7 @@ To recognize speech in [OggOpus](formats.md#oggopus) format, just specify the re
       }
       ```
 
-- Python
+- Python 3
 
   1. [Create an API key](../../iam/operations/api-key/create.md) for authentication in this example. To use an IAM token for authentication, correct the header in the `header` variable: replace `Api-Key` with `Bearer` and add the code used to [get an IAM token](../../iam/operations/iam-token/create-for-sa.md) instead of the API key.
 

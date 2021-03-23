@@ -40,6 +40,8 @@ default:
   link-tracker-example-1-ya: https://st.yandex-team.ru/TEST-1234
   link-tracker-example-2: https://tracker.yandex.com/queueKey
   link-tracker-example-2-ya: https://st.yandex-team.ru/queueKey
+  link-org-add-federation: https://cloud.yandex.com/docs/organization/add-federation
+  link-org-main: https://cloud.yandex.com/docs/organization/
   support-connect-account: https://yandex.com/support/connect/add-account.html#org-structure__manage-user
   support-connect-domain: https://yandex.com/support/connect/add-domain.html
   support-connect-domains: https://yandex.com/support/connect/domains.html#proof
