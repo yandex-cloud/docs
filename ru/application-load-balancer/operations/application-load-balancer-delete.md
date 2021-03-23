@@ -22,10 +22,19 @@
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  Выполните команду:
-
-  ```
-  yc alb load-balancer delete <идентификатор или имя балансировщика>
-  ```
+  1. Посмотрите описание команды CLI для удаления балансировщика:
+     ```
+     yc alb load-balancer delete --help
+     ```
+     
+  1. Выполните команду:
+     ```
+     yc alb load-balancer delete <идентификатор или имя балансировщика>
+     ```
+     
+     Результат выполнения команды:
+     ```
+     done (1m10s)
+     ```
 
 {% list tabs %}

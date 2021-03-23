@@ -21,11 +21,20 @@
   {% include [cli-install](../../_includes/cli-install.md) %}
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-  
-  Выполните команду:
 
-  ```
-  yc alb target-group delete <имя или идентификатор целевой группы>
-  ```
+  1. Посмотрите описание команды CLI для удаления целевой группы:
+     ```
+     yc alb target-group delete --help
+     ```
+
+  1. Выполните команду:
+     ```
+     yc alb target-group delete <имя или идентификатор целевой группы>
+     ```
+
+     Чтобы проверить удаление, получите список целевых групп, выполнив команду:
+     ```
+     yc alb target-group list
+     ```
 
 {% endlist %}
