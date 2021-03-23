@@ -1,5 +1,11 @@
 # Creating a connection to a CSV file
 
+{% note warning %}
+
+You can only upload a CSV file once. To reupload an updated CSV file, create a new connection.
+
+{% endnote %}
+
 To create a connection to a CSV file:
 
 1. Go to the [connections page](https://datalens.yandex.com/connections).

@@ -73,6 +73,10 @@ items:
             href: operations/aws-sdk/delete-table.md
   - name: Работа с SDK
     href: sdk/index.md
+  - name: Сценарии использования
+    items:
+      - name: Развертывание веб-приложения
+        href: ../_includes/java-servlet-todo-list.md
   - name: Концепции
     items:
       - name: Обзор
