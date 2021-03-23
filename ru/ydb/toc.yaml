@@ -181,6 +181,10 @@ items:
   - name: Работа с SDK
     href: sdk/index.md
     when: audience == "external"
+  - name: Сценарии использования
+    items:
+      - name: Развертывание веб-приложения
+        href: ../_includes/java-servlet-todo-list.md
   - name: Концепции
     when: audience == "external"
     items:
