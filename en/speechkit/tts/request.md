@@ -92,7 +92,7 @@ By default, data in the audio file is encoded using the OPUS audio codec and com
   }
   ```
 
-- Python
+- Python 3
 
   1. Create a file (for example, `test.py`), and add the following code to it:
 
@@ -246,7 +246,7 @@ In this example, we synthesize the submitted text in LPCM format with a sampling
       }
       ```
 
-    - Python
+    - Python 3
 
       1. Create a file (for example, `test.py`), and add the following code to it:
 

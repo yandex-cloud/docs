@@ -28,7 +28,7 @@ The cost of using {{ tracker-name }} [is based on the number of users with full 
 
 {{ tracker-full-name }} will be activated for the organization you have selected or created.
 
-To learn more about managing organizations, read the [{{ org-full-name }} documentation](../organization/index.yaml).
+To learn more about managing organizations, read the [{{ org-full-name }} documentation]({{ link-org-main }}).
 
 ## Add users {#section_v3s_wp4_1cb}
 
@@ -66,7 +66,7 @@ To configure an identity federation:
 
 To [log in](user/login.md) to {{ tracker-name }} users with corporate accounts should use the **Log in via SSO button**.
 
-To learn more about creating federations, read the [{{ org-full-name }} documentation](../organization/add-federation.md).
+To learn more about creating federations, read the [{{ org-full-name }} documentation]({{ link-org-add-federation }}).
 
 
 #### Create user accounts {#create_users}

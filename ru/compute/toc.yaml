@@ -99,6 +99,8 @@ items:
             href: operations/disk-create/empty.md
           - name: Создать пустой диск с блоком большого размера
             href: operations/disk-create/empty-disk-blocksize.md
+          - name: Создать нереплицируемый диск
+            href: operations/disk-create/nonreplicated.md
       - name: Управление диском
         items:
           - name: Создать снимок диска
@@ -201,7 +203,7 @@ items:
             href: concepts/software-accelerated-network.md
           - name: Динамическая миграция
             href: concepts/live-migration.md
-          - name: Группы размещения
+          - name: Группы размещения ВМ
             href: concepts/placement-groups.md
           - name: Статусы
             href: concepts/vm-statuses.md
@@ -213,6 +215,8 @@ items:
             href: concepts/disk.md
           - name: Снимки дисков
             href: concepts/snapshot.md
+          - name: Группы размещения нереплицируемых дисков
+            href: concepts/disk-placement-group.md
       - name: Образы
         href: concepts/image.md
       - name: Группы виртуальных машин
