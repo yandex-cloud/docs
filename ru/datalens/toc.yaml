@@ -164,7 +164,6 @@ items:
       - name: Резервное копирование в DataLens
         href: concepts/backup.md
       - name: Квоты и лимиты
-        when: audience == "external"
         href: concepts/limits.md
   - name: Управление доступом
     items:
