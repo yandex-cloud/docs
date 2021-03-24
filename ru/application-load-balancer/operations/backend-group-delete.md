@@ -22,10 +22,19 @@
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  Выполните команду, указав идентификатор или имя группы бэкендов:
+  1. Посмотрите описание команды CLI для удаления группы бэкендов:
+     ```
+     yc alb backend-group delete --help
+     ```
 
-  ```
-  $ yc alb backend-group delete --id a5dg2cv4ngne8575fb1p
-  ```
+  1. Выполните команду, указав имя удаляемой группы бэкендов:
+     ```
+     yc alb backend-group delete --name <имя группы бэкендов>
+     ```
+
+     Чтобы проверить удаление, получите список группы бэкендов, выполнив команду:
+     ```
+     yc alb backend-group list
+     ```
 
 {% list tabs %}

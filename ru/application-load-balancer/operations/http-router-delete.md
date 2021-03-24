@@ -21,10 +21,19 @@
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  Выполните команду, указав идентификатор или имя HTTP-роутера:
+  1. Посмотрите описание команды CLI для удаления HTTP-роутера:
+     ```
+     yc alb http-router delete --help
+     ```
+  
+  1. Выполните команду, указав имя HTTP-роутера:
+     ```
+     yc alb http-router delete --name <имя HTTP-роутера>
+     ```
 
-  ```
-  yc alb http-router delete --id <идентификатор HTTP-роутера>
-  ```
+     Чтобы проверить удаление, получите список HTTP-роутеров, выполнив команду:
+     ```
+     yc alb http-router list
+     ```
 
 {% list tabs %}

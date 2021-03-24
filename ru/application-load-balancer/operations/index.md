@@ -1,10 +1,10 @@
 # Пошаговые инструкции
 
-## L7-балансировщики {#application-load-balancer-operations}
+## Целевые группы {#target-group-operations}
 
-* [{#T}](application-load-balancer-create.md)
-* [{#T}](application-load-balancer-update.md)
-* [{#T}](application-load-balancer-delete.md)
+* [{#T}](target-group-create.md)
+* [{#T}](target-group-update.md)
+* [{#T}](target-group-delete.md)
 
 ## Группы бэкендов {#backend-group-operations}
 
@@ -18,8 +18,8 @@
 * [{#T}](http-router-update.md)
 * [{#T}](http-router-delete.md)
 
-## Целевые группы {#target-group-operations}
+## L7-балансировщики {#application-load-balancer-operations}
 
-* [{#T}](target-group-create.md)
-* [{#T}](target-group-update.md)
-* [{#T}](target-group-create.md)
+* [{#T}](application-load-balancer-create.md)
+* [{#T}](application-load-balancer-update.md)
+* [{#T}](application-load-balancer-delete.md)
