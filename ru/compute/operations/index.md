@@ -66,6 +66,10 @@
 * [{#T}](disk-control/delete.md)
 * [{#T}](snapshot-control/delete.md)
 
+## Группы размещения дисков {#placement-groups}
+
+* [{#T}](disk-placement-groups/create.md)
+
 ## Создание нового образа {#image-create}
 
 * [{#T}](image-create/upload.md)
