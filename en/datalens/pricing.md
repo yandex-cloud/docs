@@ -50,9 +50,9 @@ Additional {{ datalens-short-name }} features that are available in {{ marketpla
 
 \* Geocoding functions: [GEOCODE](function-ref/GEOCODE.md) and [GEOINFO](function-ref/GEOINFO.md).
 
-You can check the reporting period of your {{ datalens-short-name }} instance in your [billing account](https://datalens.yandex.com/billing).
+You can check the billing period of your {{ datalens-short-name }} instance in your [billing account](https://datalens.yandex.ru/billing).
 
-## Session {#sessions}
+## Sessions {#sessions}
 
 Sessions are ten-minute periods when the user makes requests to a data source. For example, a user updates charts and dashboards and builds custom requests in the wizard.
 
@@ -70,8 +70,8 @@ In {{ datalens-short-name }}, sessions are categorized as internal or external:
 
 | Session type | Data source |
 | ----- | ----- |
-| Internal | Materialized datasets<br/>CSV connections<br/>Metrica<br/>Metrica Logs API<br/>AppMetrica<br/>AppMetrica Logs API<br/>Yandex.Cloud Managed Databases:<br/> - [Managed Service for ClickHouse](../managed-clickhouse)<br/> - [Managed Service for PostgreSQL](../managed-postgresql)<br/> - [Managed Service for MySQL<sup>®</sup>](../managed-mysql) |
-| External | Any external data source that is not related to Yandex or Yandex.Cloud. |
+| Internal | Materialized datasets<br/>CSV connections<br/>Yandex.Metrica<br/>Metrica Logs API<br/>AppMetrica<br/>AppMetrica Logs API<br/>{{ yandex-cloud }}Managed databases:<br/> - [Managed Service for ClickHouse](../managed-clickhouse)<br/> - [Managed Service for PostgreSQL](../managed-postgresql)<br/> - [Managed Service for MySQL<sup>®</sup>](../managed-mysql) |
+| External | Any external data source that is not related to Yandex or {{ yandex-cloud }}. |
 
 ### How sessions are calculated {#how-sessions-counted}
 
@@ -92,6 +92,7 @@ The session doesn't consider requests from:
 A materialized data quota is available for each {{ datalens-short-name }} instance.
 
 The quota includes:
+
 * Dataset preview data.
 * Materialized dataset data.
 * Materialized connection data.
@@ -105,25 +106,37 @@ The quota includes:
 
 ## Enabling a billing plan {#enable-the-plan}
 
-To activate a billing plan, go to your billing account and select the desired plan. The period starts on the date when the {{ datalens-short-name }} instance is created.
-When activating the **Standard** plan, you're charged on the first day of the period. When extending the plan, you're charged the day before the first day of a new reporting period.
+By default, {{ datalens-short-name }} activates with the **Free** plan.
 
-If you created a billing account in the cloud, then the {{ datalens-short-name }} instance automatically switches to the **Free** plan.
-Until you create a billing account, the {{ datalens-short-name }} instance remains in demo mode.
+You can switch to a paid **Standard** plan on the [Billing](https://datalens.yandex.ru/billing) page. The billing period starts on the date you switch to the **Standard** plan. When you enable the **Standard** plan, you're charged on the first day of the billing period. When the **Standard** plan is renewed, you're debited the day before the first day of a new billing period.
 
-> If you created a {{ datalens-short-name }} instance on January 31, the next charge would occur on February 28 (or February 29 if it's a leap year).
+The plans are non-refundable.
+
+Example:
+
+> On January 10, you activated a {{ datalens-short-name }} instance with the **Free** plan.
+>
+> On January 15, you switched to the **Standard** plan: ₽1900 were debited to your account the same date.
+>
+> On February 14, you are debited for the next billing period (from February 15 to March 14) under the **Standard** plan.
+>
+> On March 14, you are debited for the next billing period (from March 15 to April 14) under the **Standard** plan.
+>
+> On March 18, you decide to cancel your **Standard** subscription. However, you may continue using it until the end of the billing period, April 14.
+>
+> The **Free** plan will be activated on April 15.
 
 ### Switching plans {#change-the-plan}
 
-You can switch from the **Free** to the **Standard** plan at any time. When you switch plans, the period starts the day the plan is switched.
+You can switch from the **Free** to the **Standard** plan at any time. When you switch plans, the billing period starts the same day.
 
-So if you go from the **Standard** plan to the **Free** plan, the new plan and period would come into effect when the paid period under the **Standard** plan ends. In this case, the start date of the new period becomes the date the **Standard** plan ends.
+So if you switch from the **Standard** plan to the **Free** plan, the new plan's period starts when your Standard plan's paid billing period ends.
 
 ### Automatic payment for additional sessions {#autoprolongation}
 
-Under the **Standard** plan, you can set up automatic payment for additional sessions. To do this, you should specify your planned budget in the billing account.
+Automatic payment for additional sessions is not available under the **Free** plan. If you reach the session limit or the DB size limit for the **Free** plan, you can switch to the **Standard** plan. Automatic switching from the **Free** plan to the **Standard** plan is not supported.
 
-Automatic payment isn't available in the **Free** plan. If you reach the session limit or the DB size limit for this plan, you can switch to the **Standard** plan.
+Under the **Standard** plan, you can enable automatic payment for additional sessions in the [auto-renewal limit settings](https://datalens.yandex.ru/billing).
 
 ## Blocks {#locks}
 
@@ -136,11 +149,11 @@ To unblock your resources, do one of the following:
 
 * Switch from the **Free** plan to the **Standard** plan.
 * Enable [automatic payment for additional sessions](#autoprolongation) for the **Standard** plan.
-* Wait for the start of the new reporting period (for any plan).
+* Wait for the start of the new billing period (for any plan).
 
 ### Cloud suspension {#locks-cloud}
 
-Your cloud may be suspended if there are arrears on your account, if your trial period is over, or if you are in violation of the [{{ yandex-cloud }} Terms of Use](https://yandex.com/legal/cloud_termsofuse/).
+Your cloud may be suspended if there are arrears on your account, if your trial period is over, or if you are in violation of the [{{ yandex-cloud }} Terms of Use](https://yandex.ru/legal/cloud_termsofuse/).
 
 When a cloud is suspended, your {{ datalens-short-name }} instance will be unavailable. You won't be able to use {{ datalens-short-name }} until access to the cloud is restored.
 

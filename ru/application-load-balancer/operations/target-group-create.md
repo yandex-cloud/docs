@@ -21,25 +21,23 @@
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
   1. Посмотрите описание команды CLI для создания целевой группы:
-
       ```
       yc alb target-group create --help
       ```
 
-  1. Выполните команду:
-
+  1. Выполните команду, указав в параметрах имя подсети и внутренний IP-адрес ресурса:
      ```
-     yc alb target-group create test-tg \
-     --target subnet-name=subnet-1,ip-address=10.0.0.36 \
-     --target subnet-name=subnet-2,ip-address=10.1.0.8 \
-     --target subnet-name=subnet-3,ip-address=10.2.0.12 
+     yc alb target-group create <имя целевой группы> \
+     --target subnet-name=<имя подсети>,ip-address=<внутренний IP-адрес ВМ 1> \
+     --target subnet-name=<имя подсети>,ip-address=<внутренний IP-адрес ВМ 2> \
+     --target subnet-name=<имя подсети>,ip-address=<внутренний IP-адрес ВМ 3> 
      ```
 
      Результат выполнения команды:
      
      ```
      id: a5d751meibht4ev264pp
-     name: test-tg
+     name: test-target-group
      folder_id: aoerb349v3h4bupphtaf
      targets:
      - ip_address: 10.0.0.36

@@ -37,44 +37,55 @@
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
   1. Посмотрите описание команды CLI для создания группы бэкендов:
-
      ```
      yc alb backend-group create --help
      ```
 
   1. Создайте группу бэкендов, выполнив команду:
-  
      ```
-     yc alb backend-group create test-backend-group
+     yc alb backend-group create <имя группы бэкендов>
      ```
-  
+
      Результат выполнения команды:
 
      ```
      id: a5dg2cv4ngne8575fb1p
      name: test-backend-group
      folder_id: aoerb349v3h4bupphtaf
+     created_at: "2021-02-11T20:46:21.688940670Z"
      ```
 
   1. Добавьте в группу бэкенд и проверку состояния:
-
      ```
-     yc application-load-balancer backend-group add-http-backend \
-     --backend-group-name test-backend-group \
-     --name backend1 \
-     --weight 1 \
-     --port 80 \
-     --target-group-id=a5d751meibht4ev264pp \
+     yc alb backend-group add-http-backend \
+     --backend-group-name <имя бэкенд группы> \
+     --name <имя добавляемого бэкенда> \
+     --weight <вес бэкенда> \
+     --port <порт бэкенда> \
+     --target-group-id=<идентификатор целевой группы> \
      --panic-threshold 90
-     --http-health-check port=80,healthy-threshold=10,unhealthy-threshold=15,timeout=10s,interval=2s,host=your-host.com,path=/ping
+     --http-healthcheck port=80,healthy-threshold=10,unhealthy-threshold=15, \
+     timeout=10s,interval=2s,host=your-host.com,path=/ping
      ```
+
+     Параметры команды:
+
+     * `--panic-threshold` — порог для режима паники.
+     * `--http-healthcheck` — параметры проверки состояния ресурсов.
+       * `port` — порт.
+       * `healthy-threshold` — порог работоспособности.
+       * `unhealthy-threshold` — порог неработоспособности.
+       * `timeout` — таймаут.
+       * `interval` — интервал.
+       * `host` — адрес хоста.
+       * `path` — путь.
 
      Результат выполнения команды:
 
      ```
-     id: a5dg2cv4ngne8575fb1p
+     id: a5dqkr2mk3rr799f1npa
      name: test-backend-group
-     folder_id: aoerb349v3h4bupphtaf
+     folder_id: aoe197919j8elpeg1lkp
      http:
        backends:
        - name: backend1
@@ -84,7 +95,7 @@
          port: "80"
          target_groups:
            target_group_ids:
-           - a5d751meibht4ev264pp
+           - a5d2iap3nue9s3anblu6
          healthchecks:
          - timeout: 10s
            interval: 2s
@@ -94,7 +105,7 @@
            http:
              host: your-host.com
              path: /ping
+     created_at: "2021-02-11T20:46:21.688940670Z"
      ```
-
 
 {% endlist %}

@@ -28,52 +28,44 @@
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
   1. Посмотрите описание команды CLI для создания HTTP-роутера:
-
      ```
      yc alb http-router create --help
      ```
 
   1. Выполните команду:
-
      ```
-     yc alb http-router create test-http-router
+     yc alb http-router create <имя HTTP-роутера>
      ```
 
      Результат выполнения команды: 
-
      ```
      id: a5dcsselagj4o2v4a6e7
      name: test-http-router
      folder_id: aoerb349v3h4bupphtaf
+     created_at: "2021-02-11T21:04:59.438292069Z"
      ```
 
-  1. Создайте виртуальный хост, указав идентификатор или имя HTTP-роутера и настройки виртуального хоста.
+  1. Посмотрите описание команды CLI для создания виртуального хоста:
+     ```
+     yc alb virtual-host create --help
+     ```
 
-     Возможные параметры:
+  1. Создайте виртуальный хост, указав имя HTTP-роутера и настройки виртуального хоста:
+     ```
+     yc alb virtual-host create <имя виртуального хоста> \
+     --http-router-name <имя HTTP-роутера> \
+     --authority your-domain.foo.com \
+     --modify-request-header name=Accept-Language,append=ru-RU
+     ```
+
+     Параметры команды:
 
      * `--authority` — домены для заголовков `Host` и `authority`, которые будут связаны с этим виртуальным хостом. Поддерживаются символы подстановки, например `*.foo.com` или `*-bar.foo.com`.
      * `--modify-request-header` — настройки модификации заголовка запроса:
        * `name` — имя модифицируемого заголовка.
        * `append` — строка, которая будет добавлена к значению заголовку.
-       * `replace` — значение, на которое будет заменено значение заголовка.
-       * `rename` — новое имя для заголовка.
-       * `remove` — удаление заголовка.
-     * `--modify-response-header` — настройки модификации заголовка ответа:
-       * `name` — имя модифицируемого заголовка.
-       * `append` — строка, которая будет добавлена к значению заголовку.
-       * `replace` — значение, на которое будет заменено значение заголовка.
-       * `rename` — новое имя для заголовка.
-       * `remove` — удаление заголовка.
-
-     ```
-     yc alb  virtual-host create test-virtual-host \
-     --http-router-name test-http-router \
-     --authority your-domain.foo.com \
-     --modify-request-header name=Accept-Language,append=ru-RU
-     ```
 
      Результат выполнения команды:
-
      ```
      name: test-virtual-host
      authority:
@@ -83,46 +75,41 @@
        append: ru-RU
      ```
 
+  1. Посмотрите описание команды CLI для добавления маршрута:
+     ```
+     yc alb virtual-host append-http-route --help
+     ```
+
   1. Добавьте маршрут, указав идентификатор или имя роутера и параметры маршрутизации:
+     ```
+     yc alb virtual-host append-http-route <имя маршрута> \
+     --virtual-host-name <имя виртуального хоста> \
+     --http-router-name <имя HTTP-роутера> \
+     --prefix-path-match / \
+     --backend-group-name <имя группы бэкендов> \
+     --request-timeout <тайм-аут запроса>s \
+     --request-idle-timeout <тайм-аут ожидания запроса>s
+     ```
 
-     * `--match-http-method` — HTTP-метод для маршрута. Возможные значения: 
-       * `GET`
-       * `HEAD`
-       * `POST`
-       * `PUT`
-       * `DELETE`
-       * `CONNECT`
-       * `OPTIONS`
-       * `TRACE`
-       * `PATCH`
-     * `--exact-path-match` — точный путь для маршрутизации запроса.
-     * `--prefix-path-match` — префикс пути для маршрутизации запроса.
-     * `--backend-group-id` — идентификатор группы бэкендов.
-     * `--backend-group-name` — имя группы бэкендов.
-     * `--request-timeout` — максимальное время на обработку запроса.
-     * `--request-idle-timeout` — максимальное время, которое балансировщик ожидает данные от бэкенда.
-     * `--upgrade-types` — разрешенные значения заголовка `Upgrade` запроса, которые может прислать клиент. 
-     * `--auto-host-rewrite` — замена значения заголовков `Host` или `:authority` на IP-адрес целевого ресурса. 
-     * `--host-rewrite` — хост, на который будет заменено значение заголовков `Host` или `:authority` при отправке запросов на бэкенд.
-     * `--path-prefix-rewrite` — значение, на которое будет заменен префикс маршрута. Перед значением будет находиться путь для запроса.
-     * `--direct-response-code` — HTTP-код прямого ответа балансировщика для этого маршрута.
-     * `--direct-response-body` — тело прямого ответа балансировщика на запросы для этого маршрута.
-     * `--direct-response-body-file` — путь к файлу с телом прямого ответа балансировщика.
-     * `--redirect-code` — HTTP-код (`302`, `303`) или текстовое представление (`FOUND`, `SEE_OTHER`) при выполнении перенаправления по указанному маршруту. Значение по умолчанию: `301`, `MOVED_PERMANENTLY`.
-     * `--redirect-scheme` — схема перенаправления для запросов по указанному маршруту. Если не указано, используется `http`.
-     * `--redirect-host` — значение для перезаписи заголовков `Host` или `:authority`. Если не указано, заголовок не изменится.
-     * `--redirect-port` — порт для перенаправления на указанном маршруте. Если не указано, используются стандартные перенаправления, например с `80` на `443` порт для перенаправления на с HTTP на HTTPS или порты не меняются.
-     * `--redirect-path` — путь перенаправления на указанном маршруте.
-     * `--redirect-prefix` — префикс для URI ресурса при перенаправлении.
-     * `--redirect-strip-query` — удаление параметров изначального запроса при перенаправлении.
-
-  ```
-  yc alb virtual-host append-http-route test-route \
-  --http-router-name test-http-router \
-  --match-http-method GET \
-  --exact-path-match / \--backend-group-name test-backend-group \
-  --request-timeout 2s \
-  --request-idle-timeout 3s
-  ```
+     Результат выполнения команды:
+     ```
+     done (1s)
+     name: test-virtual-host
+     authority:
+     - your-domain.foo.com
+     routes:
+     - name: test-route
+       http:
+         match:
+           path:
+             prefix_match: /
+         route:
+           backend_group_id: a5d4db973944t2fh8gor
+           timeout: 2s
+           idle_timeout: 3s
+     modify_request_headers:
+     - name: Accept-Language
+       append: ru-RU
+     ```
 
 {% endlist %}
