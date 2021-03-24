@@ -4,8 +4,8 @@
 
     1. Выполните команду:
     
-        ```
-        $ curl https://{{ s3-storage-host }}{{ yc-install-path }} | bash
+        ```bash
+        curl https://{{ s3-storage-host }}{{ yc-install-path }} | bash
         ```
         Скрипт установит CLI и добавит путь до исполняемого файла в переменную окружения `PATH`.
         
@@ -23,8 +23,8 @@
 
     1. Выполните команду:
     
-        ```
-        $ curl https://{{ s3-storage-host }}{{ yc-install-path }} | bash
+        ```bash
+        curl https://{{ s3-storage-host }}{{ yc-install-path }} | bash
         ```
         
         Скрипт установит CLI и добавит путь до исполняемого файла в переменную окружения `PATH`.
@@ -36,7 +36,7 @@
     1. Установите пакет `bash-completion`:
             
         ```
-        $ brew install bash-completion
+        brew install bash-completion
         ```
         
         Скрипт установки автоматически дополнит файл ` ~/.bash_profile`:
