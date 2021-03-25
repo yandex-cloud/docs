@@ -184,7 +184,7 @@ items:
   - name: Сценарии использования
     items:
       - name: Развертывание веб-приложения
-        href: ../_includes/java-servlet-todo-list.md
+        href: solutions/java-servlet-todo-list.md
   - name: Концепции
     when: audience == "external"
     items:
