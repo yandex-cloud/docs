@@ -114,6 +114,8 @@ _Роль_ — это набор разрешений, который опре�
 
 {% include [storage.admin](../../../_includes/roles-storage-admin.md) %}
 
+{% include [storage.configViewer](../../../_includes/roles-storage-config-viewer.md) %}
+
 {% include [storage.configurer](../../../_includes/roles-storage-configurer.md) %}
 
 {% include [storage.editor](../../../_includes/roles-storage-editor.md) %}
