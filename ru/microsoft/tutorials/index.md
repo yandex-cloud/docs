@@ -1,4 +1,4 @@
-# Сценарии использования
+# Практические руководства
 
 * [Развертывание Active Directory](active-directory.md)
 * [Развертывание Microsoft Exchange](exchange.md)
