@@ -8,7 +8,7 @@ To keep up to date with the latest changes and updates, subscribe to our Telegra
 
 {{ speechkit-name }} provides updates based on the system model and version.
 
-### For recognition {#for-sst}
+### For speech recognition {#for-sst}
 
 The `general` model versions have several [tags](stt/models.md#new-versions):
 
@@ -18,33 +18,15 @@ The `general` model versions have several [tags](stt/models.md#new-versions):
 
 For a detailed description of the available versions, see [Recognition models](stt/models.md#version).
 
-The next-generation `hqa` model is only available in transcription.
+The next-generation `hqa` model is only available in transcription for the _Stradivarius_ version.
 
-### For synthesis {#for-tts}
+### For speech synthesis {#for-tts}
 
 In speech synthesis, the service provides [two types of voices](tts/voices.md): standard and premium. Premium voices use new speech-synthesis technology.
 
 For more information about voice models, see [About the technology](tts/index.md#voices).
 
 ## Current version {#current}
-
-### Release 26.02.2021 {#2602}
-
-In transcription by the `hqa` model tag, a new version named _Guarneri_ is now available. It features greatly improved recognition quality.
-
-#### Version availability by tags {#tags-2602}
-
-In transcription only:
-
-* `hqa`: The _Guarneri_ version.
-
-In streaming, transcription, and short audio recognition:
-
-* `general`: The Galen version.
-* `general:rc`: The Galen version.
-* `general:deprecated`: The Zeno version.
-
-## Previous versions {#previous}
 
 ### Release 03.02.21 {#0302}
 
@@ -61,6 +43,8 @@ In streaming, transcription, and short audio recognition:
 * `general`: The _Galen_ version.
 * `general:rc`: The _Galen_ version.
 * `general:deprecated`: The _Zeno_ version.
+
+## Previous versions {#previous}
 
 ### Release 14.12.20 {#1412}
 
