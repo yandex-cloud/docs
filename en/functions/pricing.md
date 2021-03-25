@@ -48,45 +48,45 @@ Where:
 
 ### Invoking a function {#invoke}
 
-{% list tabs %}
+{% if region == "ru" %}
 
-- Prices in USD
+{% include [rub.md](../_pricing/functions/rub-invocations.md) %}
 
-    | Service | Cost of 1 million invokes, <br>without VAT |
-    | ----- | ----- |
-    | Invoking a function, <1 000 000 invocations per month | Not charged |
-    | Invoking a function, >1 000 000 invocations per month | $0.128205 |
+{% endif %}
 
-- Prices in roubles
+{% if region == "pre-kz" %}
 
-    | Service | Cost of 1 million invocations, <br>with VAT |
-    | ----- | ----- |
-    | Invoking a function, <1 000 000 invocations per month | Not charged |
-    | Invoking a function, >1 000 000 invocations per month | ₽10  |
+{% include [kzt.md](../_pricing/functions/kzt-invocations.md) %}
 
-{% endlist %}
+{% endif %}
 
-You are charged for an actual number of invokes. E.g., the cost of 1000 invokes will be `$0.000128`.
+{% if region == "int" %}
+
+{% include [usd.md](../_pricing/functions/usd-invocations.md) %}
+
+{% endif %}
+
+You are charged for an actual number of invokes. E.g., the cost of 1000 invokes will be `$0.000128` at the price of `$0.128205` for 1 million invokes.
 
 ### Function execution time {#execution}
 
-{% list tabs %}
+{% if region == "ru" %}
 
-- Prices in USD
+{% include [rub.md](../_pricing/functions/rub-compute.md) %}
 
-    | Service | Price per 1 GB×hour, <br>without VAT |
-    | ----- | ----- |
-    | Functions execution, <1 GB×hour per month | Not charged |
-    | Functions execution, >1 GB×hour per month | $0.043846 |
-    
-- Prices in roubles
+{% endif %}
 
-    | Service | Price per 1 GB×hour, <br>with VAT |
-    | ----- | ----- |
-    | Functions execution, <1 GB×hour per month | Not charged |
-    | Functions execution, >1 GB×hour per month | ₽3.42  |
+{% if region == "pre-kz" %}
 
-{% endlist %} 
+{% include [kzt.md](../_pricing/functions/kzt-compute.md) %}
+
+{% endif %}
+
+{% if region == "int" %}
+
+{% include [usd.md](../_pricing/functions/usd-compute.md) %}
+
+{% endif %}
 
 ### Outgoing traffic {#prices-traffic}
 

@@ -46,23 +46,47 @@ editable: false
 
 ### Вызов функции {#invoke}
 
-Услуга | Цена за 1 млн вызовов, <br>вкл. НДС
------ | -----
-Вызов функций, первые 1 млн в месяц| не тарифицируются
-Вызов функций, свыше 1 млн в месяц| 10 ₽
+{% if region == "ru" %}
 
-Оплачивается фактическое количество вызовов. Например, стоимость тысячи вызовов составит `0,01 ₽`.
+{% include [rub.md](../_pricing/functions/rub-invocations.md) %}
+
+{% endif %}
+
+{% if region == "pre-kz" %}
+
+{% include [kzt.md](../_pricing/functions/kzt-invocations.md) %}
+
+{% endif %}
+
+{% if region == "int" %}
+
+{% include [usd.md](../_pricing/functions/usd-invocations.md) %}
+
+{% endif %}
+
+Оплачивается фактическое количество вызовов. Например, стоимость тысячи вызовов составит `0,01 ₽` при цене `10 ₽` за 1 млн вызовов.
 
 ### Время выполнения функции {#execution}
 
-Услуга | Цена за 1 ГБ×час, <br>вкл. НДС
------ | -----
-Выполнение функций, первые 10 ГБ×час в месяц | не тарифицируются
-Выполнение функций, свыше  10 ГБ×час в месяц | 3,42 ₽
+{% if region == "ru" %}
+
+{% include [rub.md](../_pricing/functions/rub-compute.md) %}
+
+{% endif %}
+
+{% if region == "pre-kz" %}
+
+{% include [kzt.md](../_pricing/functions/kzt-compute.md) %}
+
+{% endif %}
+
+{% if region == "int" %}
+
+{% include [usd.md](../_pricing/functions/usd-compute.md) %}
+
+{% endif %}
 
 ### Исходящий трафик {#prices-traffic}
 
 {% include notitle [pricing-egress-traffic](../_includes/pricing/pricing-egress-traffic.md) %}
-
-
 
