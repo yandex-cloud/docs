@@ -81,6 +81,8 @@ items:
         href: concepts/replication.md
       - name: Поддерживаемые клиенты
         href: concepts/supported-clients.md
+      - name: Настройки PostgreSQL
+        href: concepts/settings-list.md
   - name: Управление доступом
     href: security/index.md
   - name: Ресурсы и квоты
