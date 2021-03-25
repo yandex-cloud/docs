@@ -57,9 +57,17 @@
       - Выберите объем, который будет использоваться для данных и резервных копий. Подробнее о том, как занимают пространство резервные копии, см. раздел [{#T}](../concepts/backup.md).
 
   1. В блоке **База данных** укажите атрибуты БД:
+
       - Имя БД.
       - Имя пользователя.
       - Пароль пользователя. Минимум 8 символов.
+
+  1. Для [управления пользователями через SQL](cluster-users.md#sql-user-management) включите настройку **Управление пользователями через SQL** и укажите пароль пользователя `admin`.
+
+  1. Для [управления базами данных через SQL](databases.md#sql-database-management), включите настройки **Управление пользователями через SQL** и **Управление базами данных через SQL**, укажите пароль пользователя `admin`.
+
+    {% include [sql-db-and-users-alers](../../_includes/mdb/mch-sql-db-and-users-alert.md) %}
+
   1. В блоке **Сетевые настройки** выберите облачную сеть для размещения кластера и группы безопасности для сетевого трафика кластера. Может потребоваться дополнительная [настройка групп безопасности](connect.md#configuring-security-groups) для того, чтобы можно было подключаться к кластеру.
 
   1. В блоке **Хосты** укажите параметры хостов БД, создаваемых вместе с кластером. Чтобы изменить добавленный хост, наведите курсор на строку хоста и нажмите значок ![image](../../_assets/pencil.svg).
@@ -105,7 +113,7 @@
   1. Укажите параметры кластера в команде создания (в примере приведены только обязательные флаги):
 
      {% if audience != "internal" %}
-     
+
      ```
      $ {{ yc-mdb-ch }} cluster create \
         --name <имя кластера> \
@@ -119,27 +127,54 @@
         --database name=<имя базы данных> \
         --security-group-ids <список идентификаторов групп безопасности>
      ```
-     
+
      Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной зоне доступности создано 2 и больше подсетей.
 
      {% else %}
 
-     ```
-     $ {{ yc-mdb-ch }} cluster create \
-        --name <имя кластера> \
-        --environment <окружение, prestable или production> \
-        --network-id ' ' \
-        --host type=<clickhouse или zookeeper>,zone-id=<зона доступности> \
-        --clickhouse-resource-preset <класс хоста> \
-        --clickhouse-disk-type local-ssd \
-        --clickhouse-disk-size <размер хранилища в гигабайтах> \
-        --user name=<имя пользователя>,password=<пароль пользователя> \
-        --database name=<имя базы данных> \
-        --security-group-ids <список идентификаторов групп безопасности>
-     ```
+      ```
+      $ {{ yc-mdb-ch }} cluster create \
+         --name <имя кластера> \
+         --environment <окружение, prestable или production> \
+         --network-id ' ' \
+         --host type=<clickhouse или zookeeper>,zone-id=<зона доступности> \
+         --clickhouse-resource-preset <класс хоста> \
+         --clickhouse-disk-type local-ssd \
+         --clickhouse-disk-size <размер хранилища в гигабайтах> \
+         --user name=<имя пользователя>,password=<пароль пользователя> \
+         --database name=<имя базы данных> \
+         --security-group-ids <список идентификаторов групп безопасности>
+      ```
 
-     {% endif %}
-     
+    {% endif %}
+
+      1. Чтобы включить [режим управления пользователями через SQL](cluster-users.md#sql-user-management):
+
+          {% include [sql-db-and-users-alers](../../_includes/mdb/mch-sql-db-and-users-alert.md) %}
+
+          * Задайте значение `true` для параметра `--enable-sql-user-management`.
+          * Задайте пароль для пользователя `admin` в параметре `--admin-password`.
+
+          ```bash
+          {{ yc-mdb-ch }} cluster create \
+             ...
+             --enable-sql-user-management=true \
+             --admin-password <пароль пользователя admin>
+          ```
+
+      1. Чтобы включить [режим управления базами данных через SQL](databases.md#sql-database-management):
+
+          * Задайте значение `true` для параметров `--enable-sql-user-management` и `--enable-sql-database-management`.
+          * Задайте пароль для пользователя `admin` в параметре `--admin-password`.
+
+          ```bash
+          {{ yc-mdb-ch }} cluster create \
+             ...
+             --enable-sql-user-management=true \
+             --enable-sql-database-management=true \
+             --admin-password <пароль пользователя admin>
+          ```
+
 - Terraform
 
   {% include [terraform-definition](../../solutions/_solutions_includes/terraform-definition.md) %}
