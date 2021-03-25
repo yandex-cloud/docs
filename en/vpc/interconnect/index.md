@@ -32,7 +32,7 @@ You can create [two](../concepts/limits.md#yandex-cloud-interconnect) private co
 
 ### Setting up a private connection {#set-up-private-connection}
 
-To use a private connection, you must submit a request. The request must indicate the point of presence where the connection is set up and the connection bandwidth. If you set up a connection via a partner, enter the name of the partner company.
+To use a private connection, you must [submit](https://cloud.yandex.com/services/interconnect#interconnect-form) a request. The request must indicate the point of presence where the connection is set up and the connection bandwidth. If you set up a connection via a partner, enter the name of the partner company.
 
 As soon as your request is processed, our experts contact you to discuss the details. The service is provided when technically possible.
 
