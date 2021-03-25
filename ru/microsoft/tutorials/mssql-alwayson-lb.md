@@ -1,0 +1,1 @@
+{% include [rds.md](../../_includes/tutorials/mssql-alwayson-lb.md) %}

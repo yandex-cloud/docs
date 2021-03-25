@@ -22,4 +22,4 @@
 
 ## Лицензирование {#licensing}
 
-{% include notitle [licensing](licensing.md) %}
+{% include notitle [licensing](../../_includes/compute/qa-licensing.md) %}

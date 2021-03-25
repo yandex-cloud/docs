@@ -113,6 +113,10 @@ items:
             href: operations/disk-control/delete.md
           - name: Удалить снимок диска
             href: operations/snapshot-control/delete.md
+      - name: Группы размещения дисков
+        items:
+          - name: Создать группу размещения дисков
+            href: operations/disk-placement-groups/create.md
       - name: Создание нового образа
         items:
           - name: Загрузить свой образ

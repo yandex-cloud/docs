@@ -1,6 +1,6 @@
 # Создание виртуальной машины Windows
 
-Cоздайте [виртуальную машину](../concepts/vm.md) Windows с помощью сервиса {{ compute-short-name }} в консоли управления {{ yandex-cloud }} и подключитесь к ней.
+Создайте [виртуальную машину](../concepts/vm.md) Windows с помощью сервиса {{ compute-short-name }} в консоли управления {{ yandex-cloud }} и подключитесь к ней.
 
 ## Перед началом работы {#before-you-begin}
 

@@ -1,6 +1,14 @@
 title: Партнерская программа Yandex.Cloud
 href: index.yaml
 items:
+  - name: Пошаговые инструкции
+    items:
+      - name: Закрепить клиента в партнерском портале
+        href: operations/pin-client.md
+      - name: Проверить наличие доступов к облакам клиента
+        href: operations/access/check.md
+      - name: Предоставить партнеру доступ к облакам клиента
+        href: operations/access/grant.md
   - name: Партнерские программы
     expanded: true
     items:
