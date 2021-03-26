@@ -69,6 +69,7 @@
 ## Группы размещения дисков {#placement-groups}
 
 * [{#T}](disk-placement-groups/create.md)
+* [{#T}](disk-placement-groups/remove-disk.md)
 
 ## Создание нового образа {#image-create}
 

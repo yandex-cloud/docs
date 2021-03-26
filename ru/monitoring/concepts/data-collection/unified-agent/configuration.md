@@ -451,6 +451,23 @@ flow_control:  # необязательный
 
 Вход для сбора статистики использования системных ресурсов (процессор, память, сеть, диск) для Linux-совместимых операционных систем. Вход собирает значения метрик из [procfs](https://ru.wikipedia.org/wiki/Procfs) и [sysfs](https://ru.wikipedia.org/wiki/Sysfs).
 
+{% note warning %}
+
+Если агент запущен в Docker-контейнере, для мониторинга системных метрик хоста и дополнительных дисков, подключенных к хосту, передайте в контейнер пути до procfs, sysfs и точек монтирования дисков. Для этого воспользуйтесь командой `docker run` с параметром `-v`. Например, если дополнительный диск смонтирован в каталоге `/data`:
+
+```bash
+  docker run \
+    -p 16241:16241 -it --detach --uts=host \
+    --name=ua \
+    -v \/proc:/ua_proc \
+    -v \/data:/data \
+    -e PROC_DIRECTORY=/ua_proc \
+    -e FOLDER_ID=a1bs... \
+    cr.yandex/yc/unified-agent
+```
+
+{% endnote %}
+
 Описание параметров:
 
 ```yaml

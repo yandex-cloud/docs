@@ -65,6 +65,8 @@ items:
     items:
       - name: Распознавание голоса
         href: tutorials/speech-recognition.md
+      - name: Классификация изображений на видеокадрах
+        href: tutorials/video-recognition.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
