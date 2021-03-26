@@ -2,13 +2,15 @@
 
 После создания кластера вы можете:
 
-* [Изменить класс хостов](#change-resource-preset).
+- [Изменить класс хостов](#change-resource-preset).
 
-* [Увеличить размер хранилища](#change-disk-size) (доступно только для сетевого хранилища, `network-hdd` и `network-ssd`).
+- [Увеличить размер хранилища](#change-disk-size) (доступно только для сетевого хранилища, `network-hdd` и `network-ssd`).
 
-* [Настроить серверы](#change-mongod-config) {{ MG }} согласно [документации {{ MG }}](https://docs.mongodb.com/manual/reference/configuration-options/).
+- [Настроить серверы](#change-mongod-config) {{ MG }} согласно [документации {{ MG }}](https://docs.mongodb.com/manual/reference/configuration-options/).
 
-* [Изменить дополнительные настройки кластера](#change-additional-settings).
+- [Изменить дополнительные настройки кластера](#change-additional-settings).
+
+- [{#T}](#change-sg-set).
 
 ## Изменить класс хостов {#change-resource-preset}
 
@@ -254,3 +256,50 @@
     Воспользуйтесь методом API [update](../api-ref/Cluster/update.md): передайте в запросе нужные значения в параметрах `configSpec.access` и `configSpec.backupWindowStart`.
 
 {% endlist %}
+
+## Изменить группы безопасности {#change-sg-set}
+
+{% list tabs %}
+
+- Консоль управления
+
+    1. Перейдите на страницу каталога и выберите сервис **{{ mmg-name }}**.
+    1. Выберите кластер и нажмите кнопку **Изменить кластер** на панели сверху.
+    1. В блоке **Сетевые настройки** выберите группы безопасности для сетевого трафика кластера.
+
+- CLI
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы изменить список [групп безопасности](../concepts/network.md#security-groups) для кластера:
+
+    1. Посмотрите описание команды CLI для изменения кластера:
+
+        ```bash
+        {{ yc-mdb-mg }} cluster update --help
+        ```
+
+    1. Укажите нужные группы безопасности в команде изменения кластера:
+
+        ```bash
+        {{ yc-mdb-mg }} cluster update <имя кластера> \
+           --security-group-ids <список групп безопасности>
+        ```
+
+- API
+
+  Чтобы изменить список [групп безопасности](../concepts/network.md#security-groups) кластера, воспользуйтесь методом API `update` и передайте в запросе:
+
+    - Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md).
+    - Список групп в параметре `securityGroupIds`.
+    - Список настроек, которые необходимо изменить, в параметре `updateMask`. Если не задать этот параметр, метод API сбросит на значения по умолчанию все настройки кластера, которые не были явно указаны в запросе.
+
+{% endlist %}
+
+{% note warning %}
+
+Может потребоваться дополнительная [настройка групп безопасности](connect.md#configuring-security-groups) для подключения к кластеру.
+
+{% endnote %}
