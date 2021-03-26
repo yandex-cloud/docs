@@ -11,7 +11,7 @@ default:
   #API
   api-name: Yandex Tracker API
   api-short-name: Tracker API
-  host: 'https://api.tracker.yandex.net'
+  host: https://api.tracker.yandex.net
   ver: v2
   
   #Ссылки на Tracker и Коннект
