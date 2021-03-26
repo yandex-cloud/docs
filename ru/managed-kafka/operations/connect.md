@@ -111,5 +111,3 @@ chmod 655 /usr/local/share/ca-certificates/Yandex/YandexCA.crt
 {% include [see-fqdn-in-console](../../_includes/mdb/see-fqdn-in-console.md) %}
 
 {% include [mkf-connection-strings](../../_includes/mdb/mkf-conn-strings.md) %}
-
-Сначала запустите приложение-потребитель, которое будет непрерывно считывать новые сообщения из топика. Затем запустите приложение-производитель, которое отправит в топик {{ KF }} одно или несколько сообщений `test message` с ключом `key`. Приложение-потребитель отобразит сообщения, отправленные в топик.
