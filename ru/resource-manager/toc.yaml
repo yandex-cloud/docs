@@ -17,6 +17,8 @@ items:
             href: operations/cloud/set-access-bindings.md
           - name: Переключение на другое облако
             href: operations/cloud/switch-cloud.md
+          - name: Уведомления об инцидентах в облаке
+            href: operations/cloud/notify.md
       - name: Каталог
         items:
           - name: Создание каталога
@@ -27,10 +29,14 @@ items:
             href: operations/folder/set-access-bindings.md
           - name: Получение идентификатора каталога
             href: operations/folder/get-id.md
+          - name: Уведомления об инцидентах в каталоге
+            href: operations/folder/notify.md
   - name: Концепции
     items:
       - name: Иерархия ресурсов Yandex.Cloud
         href: concepts/resources-hierarchy.md
+      - name: Оповещения от Yandex.Cloud
+        href: concepts/notify.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Управление доступом

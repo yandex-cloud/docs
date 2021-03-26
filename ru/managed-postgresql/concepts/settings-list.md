@@ -1,0 +1,28 @@
+# Настройки {{ PG }}
+
+Для кластера {{ mpg-name }} можно задать настройки, которые относятся к {{ PG }}. Часть настроек задается [на уровне кластера](#dbms-cluster-settings), часть — [на уровне пользователя](#user-level-settings).
+
+Метки рядом с названием настройки позволяют определить, с помощью какого интерфейса задается значение этой настройки: консоль управления, CLI, API, SQL или Terraform. Метка {{ tag-all }} указывает, что поддерживаются все перечисленные интерфейсы.
+
+В зависимости от выбранного интерфейса, одна и та же настройка будет представлена по-разному, например:
+- **Backend flush after** в консоли управления соответствует:
+  - `backend_flush_after` в gRPC API, CLI, Terraform, SQL;
+  - `backendFlushAfter` в REST API;
+- **Default transaction isolation** в настройках уровня пользователя в консоли управления соответствует:
+  - `--default-transaction-isolation` в CLI;
+  - `default_transaction_isolation` в gRPC API;
+  - `defaultTransactionIsolation` в REST API.
+
+## Настройки СУБД уровня кластера {#dbms-cluster-settings}
+
+Доступны следующие настройки:
+
+{% include [mpg-dbms-settings](../../_includes/mdb/mpg-dbms-settings.md) %}
+
+## Пользовательские настройки {#dbms-user-settings}
+
+Эти настройки влияют на поведение {{ PG }} при работе с запросами пользователя.
+
+Доступны следующие настройки:
+
+{% include [mpg-dbms-user-settings](../../_includes/mdb/mpg-dbms-user-settings.md) %}
