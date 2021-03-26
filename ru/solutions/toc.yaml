@@ -151,6 +151,9 @@ items:
       - name: Визуализация данных из отчетов Statface
         when: audience == "internal"
         href: datalens/data-from-statface-visualization.md
+      - name: Визуализация данных из статистики подкастов Яндекс.Музыки
+        when: audience == "external"
+        href: datalens/data-from-podcasts.md
   - name: Интернет вещей
     items:
       - name: Сценарии работы с интернетом вещей

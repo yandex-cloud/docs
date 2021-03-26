@@ -42,6 +42,9 @@ items:
       - name: Визуализация данных из отчетов Statface
         when: audience == "internal"
         href: ../solutions/datalens/data-from-statface-visualization.md
+      - name: Визуализация данных из статистики подкастов Яндекс.Музыки
+        when: audience == "external"
+        href: ../solutions/datalens/data-from-podcasts.md
   - name: Пошаговые инструкции
     items:
       - name: Все инструкции
