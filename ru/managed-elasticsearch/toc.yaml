@@ -40,6 +40,8 @@ items:
         href: concepts/storage.md
       - name: Шардирование и репликация
         href: concepts/scalability-and-resilience.md
+      - name: Расширения Elasticsearch
+        href: concepts/plugins.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
