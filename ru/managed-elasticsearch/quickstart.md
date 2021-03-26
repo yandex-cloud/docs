@@ -1,6 +1,7 @@
 # Как начать работать с {{ mes-name }}
 
 Чтобы начать работу с сервисом:
+
 1. [Создайте кластер](#cluster-create).
 1. [Подключитесь к кластеру](#connect).
 1. [Подключитесь к Kibana](#connect-kibana).
@@ -37,7 +38,7 @@
 1. Подключаться к кластеру {{ ES }} можно как изнутри, так и извне {{ yandex-cloud }}:
    - Чтобы подключиться изнутри {{ yandex-cloud }}, создайте виртуальную машину на основе [Linux](../compute/quickstart/quick-create-linux.md) или [Windows](../compute/quickstart/quick-create-windows.md) в той же сети, что и кластер.
    - Чтобы подключиться к кластеру из интернета, [запросите публичный доступ](operations/cluster-create.md#change-data-node-settings) к хостам с ролью _Data node_ при создании кластера.
-   
+
 {% note info %}
 
 Эта инструкция предполагает, что подключение к кластеру производится из интернета.
@@ -118,7 +119,7 @@
 
 Подробнее о работе с Kibana см. в [документации {{ ES }}](https://www.elastic.co/guide/en/kibana/current/tutorial-sample-data.html).
 
-## Что дальше
+## Что дальше {#whats-next}
 
 - Изучите [концепции сервиса](concepts/index.md).
 - Узнайте подробнее о [создании кластера](operations/cluster-create.md) и [подключении к кластеру](operations/cluster-connect.md).

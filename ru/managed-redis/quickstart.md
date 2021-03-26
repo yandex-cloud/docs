@@ -23,6 +23,7 @@
 {% else %}
 
 Чтобы начать работу с сервисом:
+
 1. [Создайте кластер](#cluster-create).
 1. [Подключитесь к кластеру](#connect).
 
@@ -35,7 +36,7 @@
 
 1. Подключиться к кластеру можно только изнутри {{ yandex-cloud }}. Для подключения создайте виртуальную машину в той же облачной сети, что и кластер {{ RD }} (на основе [Linux](../compute/quickstart/quick-create-linux.md) или [Windows](../compute/quickstart/quick-create-windows.md)).
 1. [Подключитесь](../compute/operations/vm-connect/ssh.md) к виртуальной машине по SSH.
-1. Установите на виртуальную машину утилиту [redis-cli](https://redis.io/topics/rediscli), например, так (для Ubuntu 20.04 LTS): 
+1. Установите на виртуальную машину утилиту [redis-cli](https://redis.io/topics/rediscli), например, так (для Ubuntu 20.04 LTS):
 
    ```bash
    sudo apt install redis-tools
@@ -72,6 +73,7 @@
         ```bash
         redis-cli -с -h <адрес хоста-мастера {{ RD }}> -a <пароль {{ RD }}>
         ```
+
    - Напрямую к хосту-мастеру:
 
      ```bash
@@ -80,7 +82,7 @@
 
 1. После успешного подключения отправьте команду `PING`. {{ RD }} должен вернуть ответ `PONG`.
 
-## Что дальше
+## Что дальше {#whats-next}
 
 - Изучите [концепции сервиса](./concepts/index.md).
 - Узнайте подробнее о [создании кластера](./operations/cluster-create.md) и [подключении к кластеру](./operations/connect.md).

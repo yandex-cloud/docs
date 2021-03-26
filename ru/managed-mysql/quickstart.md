@@ -78,7 +78,7 @@
          ```bash
          $ wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.mysql/root.crt
          ```
-      
+
       1. Настройте права доступа к сертификату:
 
          ```
@@ -118,7 +118,7 @@
       --password <имя базы данных>
    ```
 
-## Что дальше
+## Что дальше {#whats-next}
 
 - Изучите [концепции сервиса](./concepts/index.md).
 - Узнайте подробнее о [создании кластера](./operations/cluster-create.md) и [подключении к БД](./operations/connect.md).

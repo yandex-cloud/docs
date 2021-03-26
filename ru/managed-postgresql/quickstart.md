@@ -68,7 +68,7 @@
 1. Для подключения к серверу БД получите SSL-сертификат:
 
     {% if audience != "internal" %}
-    
+
     1. Создайте каталог:
 
         ```bash
@@ -76,7 +76,7 @@
         ```
 
     1. Получите сертификат:
-        
+
         ```bash
         $ wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.postgresql/root.crt
         ```
@@ -88,9 +88,9 @@
         ```
 
     {% else %}
-    
+
     1. Создайте каталог:
-        
+
         ```bash
         $ mkdir ~/.postgresql
         ```
@@ -100,13 +100,13 @@
         ```bash
         $ wget "{{ pem-path }}" -O ~/.postgresql/root.crt
         ```
-        
+
     1. Настройте права доступа к сертификату:
 
         ```bash
         $ chmod 0600 ~/.postgresql/root.crt
         ```
-    
+
     {% endif %}
 
 1. Используйте для подключения команду `psql`:
@@ -119,9 +119,8 @@
           user=<имя пользователя базы данных>"
     ```
 
-## Что дальше
+## Что дальше {#whats-next}
 
 - Изучите [концепции сервиса](./concepts/index.md).
 - Узнайте подробнее о [создании кластера](./operations/cluster-create.md) и [подключении к БД](./operations/connect.md).
 - Ознакомьтесь с [вопросами и ответами](./qa/general.md).
-

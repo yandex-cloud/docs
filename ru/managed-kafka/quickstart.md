@@ -161,7 +161,7 @@
 
 Подробно процесс подключения к кластеру {{ mkf-name }} рассмотрен в разделе [{#T}](operations/connect.md).
 
-## Что дальше
+## Что дальше {#whats-next}
 
 - Изучите [концепции сервиса](./concepts/index.md).
 - Узнайте подробнее о [создании кластера](./operations/cluster-create.md) и [подключении к кластеру](./operations/connect.md).
