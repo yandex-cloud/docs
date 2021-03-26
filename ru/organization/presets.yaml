@@ -20,6 +20,8 @@ default:
 
   #Внешние ссылки
   link-saml: https://ru.wikipedia.org/wiki/SAML
+  link-base64: https://ru.wikipedia.org/wiki/Base64
+  link-adfs-add-claim: https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/add-a-claim-description
 
   # Полные имена сервисов
   resmgr-full-name: Yandex Resource Manager
