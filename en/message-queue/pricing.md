@@ -9,29 +9,27 @@ editable: false
 
 ### Requests to queues {#requests-to-queues}
 
-{% list tabs %}
+{% if region == "ru"%}
 
-- Prices in USD
+{% include [rub.md](../_pricing/message-queue/rub.md) %}
 
-  | Service | Rate for 1 million requests, without VAT |
-  | ----- | ----- |
-  | The first 100 000 requests per month | Not charged |
-  | Requests to standard queues | $0.390769 |
-  | Requests to FIFO queues | $0.490000 |
+{% endif %}
 
-- Prices in roubles
+{% if region == "pre-kz"%}
 
-  Service | Rate for 1 million requests, with VAT
-  ----- | -----
-  The first 100 000 requests per month | Not charged 
-  Requests to standard queues | ₽30.48
-  Requests to FIFO queues | ₽38.22
+{% include [kzt.md](../_pricing/message-queue/kzt.md) %}
 
-{% endlist %}
+{% endif %}
 
-Payment is made for the actual number of requests. For example, the cost per thousand requests is `$0.000390`.
+{% if region == "int"%}
 
-For pricing purposes, every 64 KB of request data is considered a separate request. For example, a 63 KB request is charged as one request, while a 65 KB request is charged as two requests (64 + 1).
+{% include [usd.md](../_pricing/message-queue/usd.md) %}
+
+{% endif %}
+
+Payment is made for the actual number of requests. For example, the cost per thousand requests is `$0.000390` at the price of `$0.390769` for 1 million requests.
+
+For pricing purposes, every 64 KB of request data is considered a separate request. For example, a 63 KB request is charged as one request, while a 65 KB request is charged as two requests (64 + 1).
 
 {% include [pricing-egress-traffic.md](../_includes/pricing/pricing-egress-traffic.md) %}
 
