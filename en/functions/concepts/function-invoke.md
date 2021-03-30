@@ -24,7 +24,7 @@ You can run functions by specifying the `integration=raw` request string paramet
 
 ### Request structure {#request}
 
-JSON structure of a request:
+JSON query structure:
 
 ```
 {
@@ -164,8 +164,8 @@ Optionally, the function can accept the second argument with the following struc
 - `requestId`: The ID of the function call, generated when the function is accessed and displayed in the function call log.
 - `functionName`: The function ID.
 - `functionVersion`: The ID of the function version.
-- `memoryLimitInMB`: The amount of memory specified for the function version, MB.
-- `token`: The [IAM token](../../iam/concepts/authorization/iam-token.md) of the service account specified for the function version. The current value is generated automatically. It's used to access the [{{ yandex-cloud }} API](../../api-design-guide/). This field is present only if the correct service account is specified for the function version.
+- `memoryLimitInMB`: The amount of memory given for the function version, MB.
+- `token`: The [IAM token](../../iam/concepts/authorization/iam-token.md) of the service account specified for the function version. The current value is generated automatically. Used for working with the [{{ yandex-cloud }} API](../../api-design-guide/). This field is present only if the correct service account is specified for the function version.
 
 Example of using service data in a function:
 
@@ -181,7 +181,7 @@ module.exports.handler = async (event, context) => {
 
 ### Response structure {#response}
 
- {{ sf-name }} interprets the function execution result to fill in the HTTP response contents, headers, and status code. For this to work, the function must return a response in the following structure:
+{{ sf-name }} interprets the function execution result to fill in the HTTP response contents, headers, and status code. For this to work, the function must return a response in the following structure:
 
 ```
 {
@@ -245,14 +245,14 @@ If the error occurs in a user-defined function, the `X-Function-Error: true` hea
 - `404 Not Found`: The function is not found at the specified URL.
 - `413 Payload Too Large`: The [limit](../concepts/limits.md#limits) for the request JSON structure is exceeded by more than 3.5 MB.
 - `429 TooManyRequests`: The function call intensity is too high:
-    - The [quota](../concepts/limits.md#quotas) on the number of requests executed is exceeded.
+    - The [quota](../concepts/limits.md#functions-quotas) on the number of requests executed is exceeded.
     - Can't execute this request because all executors are already overloaded by the existing requests to this function.
 - `500 Internal Server Error`: Internal server error.
 - `502 BadGateway`: Incorrect function code or format of the returning JSON response.
 - `503 Service Unavailable`: {{ sf-name }} is unavailable.
 - `504 Gateway Timeout`: Exceeded maximum function execution time before timeout.
 
-### Filtering of message headers {#headers}
+### Filtering message headers {#headers}
 
 Your function receives and passes the contents of HTTP headers as JSON fields (see the description [above](#http)). Some request and response headers are removed or renamed as described below.
 
@@ -300,9 +300,9 @@ Your function receives and passes the contents of HTTP headers as JSON fields (s
 
 ## Invoking a function using the YC CLI {#cli}
 
-Function invocations from the CLI are HTTP requests using the POST method and the `integration=raw` parameter (without converting the request to a JSON structure or checking the response).
+Function calls from the CLI are HTTP requests using the POST method and the `integration=raw` parameter (without converting the request to a JSON structure or checking the response).
 
-View the help for the function invocation command:
+View the help for the function call command:
 
 ```
 yc serverless function invoke --help
@@ -336,7 +336,7 @@ Detailed description of how to transfer data using different flags and arguments
     yc serverless function invoke <function ID> --data-file <file path>
     ```
 
-    Similar to the command with the `-d` argument with the `@<file name>` value: `yc serverless function invoke b09bhaokchn9pnbrlseb -d @<file path>`
+    Similar to the command with the `-d` argument and `@<file name>` value: `yc serverless function invoke b09bhaokchn9pnbrlseb -d @<file path>`
 
 - `--data-stdin`: Data is read from the input stream.
 

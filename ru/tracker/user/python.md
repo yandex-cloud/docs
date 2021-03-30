@@ -20,5 +20,7 @@
     ```
     Здесь `<token>` — ваш OAuth-токен, а `<org_id>` — идентификатор организации.
 
+В клиенте используйте такой же формат данных, как в [API {{ tracker-name }}](../concepts/access.md).
+
 Подробнее о работе клиента и условиях использования читайте на его странице в GitHub: [https://github.com/yandex/yandex_tracker_client](https://github.com/yandex/yandex_tracker_client).
 

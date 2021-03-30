@@ -175,7 +175,7 @@ You can't order {{ ZK }} resources with CVoS discounts.
 - Prices in USD, without VAT
 
   Service | Rate for 1 GB per month
-  ----- | ----- | -----
+  ----- | ----- 
   Fast network storage | $0.104302 |
   Backup over storage size | $0.032594
 

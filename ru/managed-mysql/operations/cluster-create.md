@@ -38,6 +38,8 @@
       - Имя пользователя — владельца БД. Имя пользователя должно содержать только латинские буквы, цифры и подчеркивания.
       - Пароль пользователя, от 8 до 128 символов.
 
+  1. В блоке **Сетевые настройки** выберите облачную сеть для размещения кластера и группы безопасности для сетевого трафика кластера. Может потребоваться дополнительная [настройка групп безопасности](connect.md#configuring-security-group) для того, чтобы можно было подключаться к кластеру.
+
   1. В блоке **Хосты** выберите параметры хостов БД, создаваемых вместе с кластером (помните, что используя SSD-диски при создании {{ MY }}-кластера можно задать не меньше 3 хостов). Открыв блок **Расширенные настройки**, вы можете выбрать конкретные подсети для каждого хоста — по умолчанию каждый хост создается в отдельной подсети.
 
   1. При необходимости задайте дополнительные настройки кластера:
@@ -83,7 +85,8 @@
         --mysql-version <версия MySQL> \
         --resource-preset <класс хоста> \
         --user name=<имя пользователя>,password=<пароль пользователя> \
-        --database name=<имя базы данных>
+        --database name=<имя базы данных> \
+        --securiry-group-ids <список идентификаторов групп безопасности>
      ```
 
       Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной зоне доступности создано 2 и больше подсетей.
@@ -92,7 +95,7 @@
 
   {% include [terraform-definition](../../solutions/_solutions_includes/terraform-definition.md) %}
 
-  Если у вас ещё нет Terraform, [установите его и настройте провайдер](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет Terraform, [установите его и настройте провайдер](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   Чтобы создать кластер:
 
@@ -102,12 +105,13 @@
 
      Пример структуры конфигурационного файла:
 
-     ```
+     ```hcl
      resource "yandex_mdb_mysql_cluster" "<имя кластера>" {
-       name        = "<имя кластера>"
-       environment = "<окружение, PRESTABLE или PRODUCTION>"
-       network_id  = "<идентификатор сети>"
-       version     = "<версия MySQL: 5.7 или 8.0>"
+       name               = "<имя кластера>"
+       environment        = "<окружение, PRESTABLE или PRODUCTION>"
+       network_id         = "<идентификатор сети>"
+       version            = "<версия MySQL: 5.7 или 8.0>"
+       security_group_ids = [ "<список групп безопасности>" ]
 
        resources {
          resource_preset_id = "<класс хоста>"
@@ -156,6 +160,11 @@
 
 {% endlist %}
 
+{% note warning %}
+
+Если вы указали идентификаторы групп безопасности при создании кластера, то для подключения к нему может потребоваться дополнительная [настройка групп безопасности](connect.md#configuring-security-groups).
+
+{% endnote %}
 
 ## Примеры {#examples}
 
@@ -174,6 +183,7 @@
     - Версии `8.0`.
     - В окружении `production`.
     - В сети `default`.
+    - В группе безопасности с идентификатором `{{ security-group }}`.
     - С одним хостом класса `{{ host-class }}` в подсети `{{ subnet-id }}`, в зоне доступности `{{ zone-id }}`.
     - С быстрым сетевым хранилищем (`{{ disk-type-example }}`) объемом 20 Гб.
     - С одним пользователем (`user1`), с паролем `user1user1`.
@@ -188,6 +198,7 @@
          --mysql-version 8.0 \
          --environment=production \
          --network-name=default \
+         --security-group-ids {{ security-group }} \
          --host zone-id={{ host-net-example }} \
          --resource-preset {{ host-class }} \
          --disk-type {{ disk-type-example }} \
@@ -212,8 +223,9 @@
   - Версии `8.0`.
   - В окружении `PRESTABLE`.
   - В облаке с идентификатором `{{ tf-cloud-id }}`.
-  - В каталоге `myfolder`.
+  - В каталоге с идентификатором `{{ tf-folder-id }}`.
   - В новой сети `mynet`.
+  - В новой группе безопасности `mysql-sg`, разрешающей подключение к кластеру из интернета через порт `{{ port-mmy }}`.
   - С одним хостом класса `{{ host-class }}` в новой подсети `mysubnet`, в зоне доступности `{{ zone-id }}`. Подсеть `mysubnet` будет иметь диапазон `10.5.0.0/24`.
   - С быстрым сетевым хранилищем (`{{ disk-type-example }}`) объемом 20 ГБ.
   - С одним пользователем (`user1`), с паролем `user1user1`.
@@ -221,19 +233,20 @@
 
   Конфигурационный файл для такого кластера выглядит так:
 
-  ```
+  ```hcl
   provider "yandex" {
     token     = "<OAuth или статический ключ сервисного аккаунта>"
     cloud_id  = "{{ tf-cloud-id }}"
-    folder_id = "${data.yandex_resourcemanager_folder.myfolder.id}"
+    folder_id = "{{ tf-folder-id }}"
     zone      = "{{ zone-id }}"
   }
 
   resource "yandex_mdb_mysql_cluster" "my-mysql" {
-    name        = "my-mysql"
-    environment = "PRESTABLE"
-    network_id  = "${yandex_vpc_network.mynet.id}"
-    version     = "8.0"
+    name               = "my-mysql"
+    environment        = "PRESTABLE"
+    network_id         = yandex_vpc_network.mynet.id
+    version            = "8.0"
+    security_group_ids = [ yandex_vpc_security_group.mysql-sg.id ]
 
     resources {
       resource_preset_id = "{{ host-class }}"
@@ -256,16 +269,28 @@
 
     host {
       zone      = "{{ zone-id }}"
-      subnet_id = "${yandex_vpc_subnet.mysubnet.id}"
+      subnet_id = yandex_vpc_subnet.mysubnet.id
     }
   }
 
   resource "yandex_vpc_network" "mynet" { name = "mynet" }
 
+  resource "yandex_vpc_security_group" "mysql-sg" {
+    name       = "mysql-sg"
+    network_id = yandex_vpc_network.mynet.id
+
+    ingress {
+      description    = "MySQL"
+      port           = {{ port-mmy }}
+      protocol       = "TCP"
+      v4_cidr_blocks = [ "0.0.0.0/0" ]
+    }
+  }
+
   resource "yandex_vpc_subnet" "mysubnet" {
     name           = "mysubnet"
     zone           = "{{ zone-id }}"
-    network_id     = "${yandex_vpc_network.mynet.id}"
-    v4_cidr_blocks = ["10.5.0.0/24"]
+    network_id     = yandex_vpc_network.mynet.id
+    v4_cidr_blocks = [ "10.5.0.0/24" ]
   }
   ```

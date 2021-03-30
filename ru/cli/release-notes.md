@@ -1,8 +1,22 @@
 # Релизы YC CLI
 
-## Версия 0.73.0 (17.03.21) {#latest-release}
+## Версия 0.74.0 (30.03.21) {#latest-release}
+
+* Добавлена поддержка платформ macOS/arm64 (Apple Silicon M1) и linux/arm64.
 
 ### Изменения в сервисах {{ yandex-cloud }}
+
+#### {{ dataproc-name }} {#dataproc}
+
+* Команды `yc dataproc cluster create` и `yc dataproc cluster update`.
+
+  Добавлен флаг `--security-group-ids`, который позволяет установить набор групп безопасности для кластера.
+
+## Предыдущие релизы {#previous-releases}
+
+### Версия 0.73.0 (17.03.21) {#version0.73.0}
+
+#### Изменения в сервисах {{ yandex-cloud }}
 
 #### {{ container-registry-name }} {#container-registry}
 
@@ -55,8 +69,6 @@
 * Команда `yc managed-redis cluster restore`.
 
   Добавлен флаг `--enable-tls`, который позволяет включить TLS при создании кластера {{ RD }} из резервной копии.
-
-## Предыдущие релизы {#previous-releases}
 
 ### Версия 0.72.0 (11.02.21)
 

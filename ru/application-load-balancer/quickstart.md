@@ -8,16 +8,16 @@
 1. [На странице биллинга](https://console.cloud.yandex.ru/billing) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
 1. Если у вас еще нет каталога, [создайте его](../resource-manager/operations/folder/create.md). Во время создания каталога вы можете создать виртуальную сеть по умолчанию с подсетями во всех зонах доступности.
 
-## Создайте ВМ и запустите на них тестовый веб-сервер {#create-vm}
+## Создайте ВМ и запустите на ней тестовый веб-сервер {#create-vm}
 
 1. [Создайте](../compute/operations/vm-create/create-linux-vm.md) виртуальную машину `test-vm1` в зоне доступности `ru-central1-a`.
-1. [Подключитесь к ВМ](../compute/operations/vm-connect/ssh.md) и запустите на ней тестовый веб-сервер, который будет отвечать на запросы на порту `80`:
+1. [Подключитесь к ВМ](../compute/operations/vm-connect/ssh.md) и запустите на ней тестовый веб-сервер, который будет отвечать на запросы на порте `80`:
 
     ```bash
     sudo python3 -m http.server 80
     ```
 
-1. Убедитесь, что веб-сервер возвращает список папок из корневого каталога. В терминале вашего компьютера выполните:
+1. Убедитесь, что веб-сервер возвращает список папок из каталога. В терминале вашего компьютера выполните:
 
     ```bash
     curl -v <публичный IP-адрес тестовой ВМ>
@@ -27,19 +27,19 @@
 
 На ВМ из [целевой группы](concepts/target-group.md) развертываются бэкенды вашего приложения. Целевая группа будет подключена к балансировщику, чтобы на эндпоинты бэкендов вашего приложения можно было направлять запросы.
 
-Для примере в целевой группе будет находиться только одна виртуальная машина.
+Для примера в целевой группе будет находиться только одна виртуальная машина.
 
 {% list tabs %}
 
 - Консоль управления
 
   1. В [консоли управления](https://console.cloud.yandex.ru) выберите каталог, в котором будет создаваться целевая группа.
- 	1. В списке сервисов выберите **{{ alb-name }}**.
- 	1. В меню слева выберите **Целевые группы**.
- 	1. Нажмите кнопку **Создать целевую группу**.
- 	1. Введите имя целевой группы: `test-target-group`.
- 	1. Выберите ВМ `test-vm1`.
- 	1. Нажмите кнопку **Создать**.
+  1. В списке сервисов выберите **{{ alb-name }}**.
+  1. В меню слева выберите **Целевые группы**.
+  1. Нажмите кнопку **Создать целевую группу**.
+  1. Введите имя целевой группы: `test-target-group`.
+  1. Выберите ВМ `test-vm1`.
+  1. Нажмите кнопку **Создать**.
 
 - CLI
 
@@ -47,9 +47,9 @@
 
   Выполните команду:
 
-  ```
+  ```bash
   yc alb target-group create test-target-group \
-  --target subnet-name=<имя подсети ВМ>,ip-address=<внутрений IP-адрес ВМ>
+  --target subnet-name=<имя подсети ВМ>,ip-address=<внутренний IP-адрес ВМ>
   ```
 
 {% endlist %}
@@ -66,38 +66,39 @@
   1. Нажмите кнопку **Создать группу бэкендов**.
   1. Введите имя группы бэкендов: `test-backend-group`.
   1. В блоке **Бэкенды** нажмите кнопку **Добавить**. Задайте настройки бэкенда:
-    	1. Введите имя бэкенда: `backend-1`.
-    	1. В списке **Целевая группа** выберите `test-target-group`.
-    	1. Укажите **Порт**: `80`.
+      1. Введите имя бэкенда: `backend-1`.
+      1. В списке **Целевая группа** выберите `test-target-group`.
+      1. Укажите **Порт**: `80`.
   1. Разверните поле **Настройки протокола** и задайте их параметры:
-  			1. Выберите тип `HTTP`.
+      1. Выберите тип `HTTP`.
   1. Нажмите кнопку **Добавить проверку состояния** и задайте настройки проверки:
-     1. **Таймаут**: `1`.
-     1. **Интервал**: `3`.
-     1. **Порог работоспособности**: `2`.
-     1. **Порог неработоспособности**: `2`.
-     1. **Тип**: `HTTP`.
-     1. **Путь**: `/`.
+      1. **Таймаут**: `1`.
+      1. **Интервал**: `3`.
+      1. **Порог работоспособности**: `2`.
+      1. **Порог неработоспособности**: `2`.
+      1. **Тип**: `HTTP`.
+      1. **Путь**: `/`.
   1. Нажмите кнопку **Создать**.
 
 - CLI
 
   1. Создайте группу бэкендов:
-    
-     ```
-     yc alb backend-group create test-backend-group
-     ```
+
+      ```bash
+      yc alb backend-group create test-backend-group
+      ```
 
   1. Создайте бэкенд и проверку состояния:
-     
-     ```
-     yc application-load-balancer backend-group add-http-backend \
-     --backend-group-name test-backend-group \
-     --name backend1 \
-     --port 80 \
-     --target-group-name=test-target-group \
-     --http-health-check healthy-threshold=2,unhealthy-threshold=2,timeout=1s,interval=3s,path=/
-     ```
+
+      ```bash
+      yc alb backend-group add-http-backend \
+      --backend-group-name test-backend-group \
+      --name backend1 \
+      --port 80 \
+      --target-group-name test-target-group \
+      --target-group-id <ID целевой группы> \
+      --http-healthcheck healthy-threshold=2,unhealthy-threshold=2,timeout=1s,interval=3s,path=/
+      ```
 
 {% endlist %}
 
@@ -112,11 +113,11 @@
   1. В меню слева выберите **HTTP-роутеры**.
   1. Нажмите кнопку **Создать HTTP-роутер**.
   1. Введите имя роутера: `test-http-router`.
-  1. В блоке **Виртуальные хосты** нажмите кнопку **Добавить виртуальный хост**. 
+  1. В блоке **Виртуальные хосты** нажмите кнопку **Добавить виртуальный хост**.
   1. Введите имя хоста: `test-virtual-host`.
   1. Нажмите кнопку **Добавить маршрут**.
   1. Введите **Имя**: `test-route`.
-  1. В поле **Путь** выберите `Совпадение по префиксу` и укажите путь `/`.
+  1. В поле **Путь** выберите `Начинается с` и укажите путь `/`.
   1. В поле **Действие** оставьте `Маршрутизация`.
   1. В списке **Группа бэкендов** выберите `test-backend-group`.
   1. Остальные настройки оставьте без изменений и нажмите кнопку **Создать**.
@@ -125,24 +126,25 @@
 
   1. Создайте HTTP-роутер:
 
-     ```
-     yc alb http-router create test-http-router
-     ```
+      ```bash
+      yc alb http-router create test-http-router
+      ```
 
   1. Создайте виртуальный хост:
 
-     ```
-     yc alb virtual-host create test-virtual-host --http-router-name test-http-router
-     ```
+      ```bash
+      yc alb virtual-host create test-virtual-host --http-router-name test-http-router
+      ```
   
   1. Добавьте маршрут:
 
-     ```
-     yc alb virtual-host append-http-route test-route \
-     --http-router-name test-http-router \
-     --prefix-path-match / \
-     --backend-group-name test-backend-group
-     ```
+      ```bash
+      yc alb virtual-host append-http-route test-route \
+      --http-router-name test-http-router \
+      --prefix-path-match / \
+      --backend-group-name test-backend-group \
+      --virtual-host-name test-virtual-host
+      ```
 
 {% endlist %}
 
@@ -158,37 +160,37 @@
 
   1. В меню слева выберите **Балансировщики**.
   1. Нажмите кнопку **Создать балансировщик**.
-  1. Введите имя роутера: `test-load-balancer`.
-  1. В блоке **Сетевые настройки** выберите сеть, в подсетях которой будет размещаться узлы балансировщика. 
+  1. Введите имя балансировщика: `test-load-balancer`.
+  1. В блоке **Сетевые настройки** выберите сеть, в подсетях которой будет размещаться узлы балансировщика.
   1. В блоке **Размещение** выберите подсети для узлов балансировщика в каждой зоне доступности и включите передачу трафика.
   1. В блоке **Обработчики** нажмите кнопку **Добавить обработчик**. Задайте настройки обработчика:
-     1. Введите имя обработчика: `test-listener`.
-     1. В блоке **Настройки публичного IP-адреса** включите передачу трафика.
-     1. Укажите порт `80`.
-     1. В поле **Назначить IP-адрес** выберите **Автоматически**.
-  1. В поле **HTTP-роутер** выберите `test-http-router`. 
+      1. Введите имя обработчика: `test-listener`.
+      1. В блоке **Настройки публичного IP-адреса** включите передачу трафика.
+      1. Укажите порт `80`.
+      1. Выберите тип **Автоматически**.
+  1. В поле **HTTP-роутер** выберите `test-http-router`.
   1. Нажмите кнопку **Создать**.
 
 - CLI
 
   1. Создайте балансировщик c узлом в одной подсети:
 
-     ```
-     yc alb load-balancer create test-load-balancer \
-     --network-name test-network \
-     --location subnet-name=test-subnet1,zone=ru-central1-a \
-     --location subnet-name=test-subnet2,zone=ru-central1-b \
-     --location subnet-name=test-subnet3,zone=ru-central1-c
-     ```
+      ```bash
+      yc alb load-balancer create test-load-balancer \
+      --network-name <имя сети> \
+      --location subnet-name=<имя подсети в зоне ru-central1-a>,zone=ru-central1-a \
+      --location subnet-name=<имя подсети в зоне ru-central1-b>,zone=ru-central1-b \
+      --location subnet-name=<имя подсети в зоне ru-central1-c>,zone=ru-central1-c
+      ```
 
   1. Добавьте обработчик:
 
-     ```
-     yc alb load-balancer add-listener test-load-balancer \
-     --listener-name test-listener \
-     --http-router-id a5dcsselagj4o2v4a6e7 \
-     --external-ipv4-endpoint port=80
-     ```
+      ```bash
+      yc alb load-balancer add-listener test-load-balancer \
+      --listener-name test-listener \
+      --http-router-id <ID HTTP-роутера> \
+      --external-ipv4-endpoint port=80
+      ```
 
 {% endlist %}
 
@@ -196,10 +198,10 @@
 
 В терминале выполните следующую команду:
 
-```
+```bash
 curl -v <публичный IP-адрес балансировщика>:80
 ```
 
-В ответ должен вернуться HTTP-ответ с кодом `200` и список папок из корневого каталога тестовой ВМ в HTML-разметке. 
+В ответ должен вернуться HTTP-ответ с кодом `200` и список папок из каталога тестовой ВМ в HTML-разметке.
 
 После этого вы можете добавить другие виртуальные машины в целевую группу, создать новые бэкенды для вашего приложения и построить маршруты до их эндпоинтов.
