@@ -43,6 +43,8 @@ items:
         href: concepts/storage.md
       - name: Резервные копии
         href: concepts/backup.md
+      - name: Настройки SQL Server
+        href: concepts/settings-list.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

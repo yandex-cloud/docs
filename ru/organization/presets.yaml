@@ -10,6 +10,8 @@ default:
   link-passport: https://passport.yandex.ru/
   login-example: login@yandex.ru
   link-saml: https://ru.wikipedia.org/wiki/SAML
+  link-base64: https://ru.wikipedia.org/wiki/Base64
+  link-adfs-add-claim: https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/add-a-claim-description
   resmgr-full-name: Yandex Resource Manager
   compute-full-name: Yandex Compute Cloud
   managed-postgresql-full-name: Yandex Managed Service for PostgreSQL

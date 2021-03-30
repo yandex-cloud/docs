@@ -36,6 +36,7 @@
       - Имя БД.
       - Имя пользователя.
       - Пароль пользователя. Минимум 8 символов.
+  1. В блоке **Сетевые настройки** выберите облачную сеть для размещения кластера и группы безопасности для сетевого трафика кластера. Может потребоваться дополнительная [настройка групп безопасности](connect.md#configuring-security-groups) для того, чтобы можно было подключаться к кластеру.
   1. В блоке **Хосты** выберите параметры хостов БД, создаваемых вместе с кластером (помните, что используя SSD-диски при создании {{ MG }}-кластера можно задать не меньше 3 хостов). Открыв блок **Расширенные настройки**, вы можете выбрать конкретные подсети для каждого хоста — по умолчанию каждый хост создается в отдельной подсети.
   1. При необходимости задайте дополнительные настройки кластера:
 
@@ -101,11 +102,12 @@
 
      Пример структуры конфигурационного файла:
 
-     ```
+     ```hcl
      resource "yandex_mdb_mongodb_cluster" "<имя кластера>" {
-       name        = "<имя кластера>"
-       environment = "<окружение, PRESTABLE или PRODUCTION>"
-       network_id  = "<идентификатор сети>"
+       name               = "<имя кластера>"
+       environment        = "<окружение: PRESTABLE или PRODUCTION>"
+       network_id         = "<идентификатор сети>"
+       security_group_ids = [ "<список групп безопасности>" ]
 
        cluster_config {
          version = "версия MongoDB: 4.0, 4.2 или 4.4"
@@ -157,6 +159,11 @@
 
 {% endlist %}
 
+{% note warning %}
+
+Если вы указали идентификаторы групп безопасности при создании кластера, то для подключения к нему может потребоваться дополнительная [настройка групп безопасности](connect.md#configuring-security-groups).
+
+{% endnote %}
 
 ## Примеры {#examples}
 
@@ -174,6 +181,7 @@
   - С именем `mymg`.
   - В окружении `production`.
   - В сети `{{ network-name }}`.
+  - В группе безопасности с идентификатором `{{ security-group }}`.
   - С одним хостом класса `{{ host-class }}` в подсети `b0rcctk2rvtr8efcch64`, в зоне доступности `{{ zone-id }}`.
   - С быстрым сетевым хранилищем (`{{ disk-type-example }}`) объемом 20 ГБ.
   - С одним пользователем, `user1`, с паролем `user1user1`.
@@ -187,6 +195,7 @@
        --name mymg \
        --environment production \
        --network-name {{ network-name }} \
+       --security-group-ids {{ security-group }} \
        --mongod-resource-preset {{ host-class }} \
        --host zone-id={{ zone-id }},subnet-id=b0rcctk2rvtr8efcch64 \
        --mongod-disk-size 20 \
@@ -202,27 +211,29 @@
   - Версии `4.4`.
   - В окружении `PRODUCTION`.
   - В облаке с идентификатором `{{ tf-cloud-id }}`.
-  - В каталоге `myfolder`.
+  - В каталоге с идентификатором `{{ tf-folder-id }}`.
   - В новой сети `mynet`.
   - С одним хостом класса `{{ host-class }}` в новой подсети `mysubnet`, в зоне доступности `{{ zone-id }}`. Подсеть `mysubnet` будет иметь диапазон `10.5.0.0/24`.
+  - В новой группе безопасности `mymg-sg`, разрешающей TCP-подключения к кластеру из интернета через порт `{{ port-mmg }}`.
   - С быстрым сетевым хранилищем (`{{ disk-type-example }}`) объемом 20 ГБ.
   - С одним пользователем, `user1`, с паролем `user1user1`.
   - С одной базой данных, `db1`.
 
   Конфигурационный файл для такого кластера выглядит так:
 
-  ```
+  ```hcl
   provider "yandex" {
     token     = "<OAuth или статический ключ сервисного аккаунта>"
     cloud_id  = "{{ tf-cloud-id }}"
-    folder_id = "${data.yandex_resourcemanager_folder.myfolder.id}"
+    folder_id = "{{ tf-folder-id }}"
     zone      = "{{ zone-id }}"
   }
 
   resource "yandex_mdb_mongodb_cluster" "mymg" {
-    name        = "mymg"
-    environment = "PRODUCTION"
-    network_id  = "${yandex_vpc_network.mynet.id}"
+    name               = "mymg"
+    environment        = "PRODUCTION"
+    network_id         = yandex_vpc_network.mynet.id
+    security_group_ids = [ yandex_vpc_security_group.mymg-sg.id ]
 
     cluster_config {
       version = "4.4"
@@ -248,16 +259,28 @@
 
     host {
       zone_id   = "{{ zone-id }}"
-      subnet_id = "${yandex_vpc_subnet.mysubnet.id}"
+      subnet_id = yandex_vpc_subnet.mysubnet.id
     }
   }
 
   resource "yandex_vpc_network" "mynet" { name = "mynet" }
 
+  resource "yandex_vpc_security_group" "mymg-sg" {
+    name       = "mymg-sg"
+    network_id = yandex_vpc_network.mynet.id
+
+    ingress {
+      description    = "MongoDB"
+      port           = {{ port-mmg }}
+      protocol       = "TCP"
+      v4_cidr_blocks = [ "0.0.0.0/0" ]
+    }
+  }
+
   resource "yandex_vpc_subnet" "mysubnet" {
     name           = "mysubnet"
     zone           = "{{ zone-id }}"
-    network_id     = "${yandex_vpc_network.mynet.id}"
+    network_id     = yandex_vpc_network.mynet.id
     v4_cidr_blocks = ["10.5.0.0/24"]
   }
   ```

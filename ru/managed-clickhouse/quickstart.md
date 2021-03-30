@@ -34,13 +34,13 @@
    ```
 
 1. Установите зависимости и клиентское приложение `clickhouse-client`:
-     
+
    ```bash
    sudo apt update && sudo apt install -y clickhouse-client
    ```
 
 1. Загрузите файл конфигурации для `clickhouse-client`:
-    
+
    ```bash
    mkdir -p ~/.clickhouse-client && wget "https://storage.yandexcloud.net/mdb/clickhouse-client.conf.example" -O ~/.clickhouse-client/config.xml
    ```
@@ -59,7 +59,7 @@
 
 1. Для подключения к серверу БД получите SSL-сертификат:
 
-        
+    
     1. Создайте каталог:
 
         ```bash
@@ -67,7 +67,7 @@
         ```
 
     1. Получите сертификат:
-        
+
         ```bash
         $ wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.clickhouse/root.crt
         ```
@@ -106,10 +106,10 @@
                       --user <имя пользователя БД> \
                       --password <пароль пользователя БД> \
                       -q "<запрос к БД>" \
-                      --port 9440 
+                      --port 9440
     ```
 
-## Что дальше
+## Что дальше {#whats-next}
 
 - Изучите [концепции сервиса](./concepts/index.md).
 - Узнайте подробнее о [создании кластера](./operations/cluster-create.md) и [подключении к БД](./operations/connect.md).

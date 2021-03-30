@@ -485,6 +485,8 @@ items:
             href: concepts/issues/patch-issue-field-name.md
           - name: Изменить возможные значения поля задачи
             href: concepts/issues/patch-issue-field-value.md
+          - name: Создать категорию поля задачи
+            href: concepts/issues/create-issue-field-category.md
       - name: Получить информацию о текущем пользователе
         href: get-user-info.md
       - name: Возможные коды ответа

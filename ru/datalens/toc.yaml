@@ -25,6 +25,8 @@ items:
           Визуализация данных из базы данных ClickHouse с геослоями из
           Marketplace
         href: ../solutions/datalens/data-from-ch-to-geolayers-visualization.md
+      - name: Визуализация данных из статистики подкастов Яндекс.Музыки
+        href: ../solutions/datalens/data-from-podcasts.md
   - name: Пошаговые инструкции
     items:
       - name: Все инструкции
