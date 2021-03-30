@@ -61,51 +61,24 @@ editable: false
 
 ## Цены {#prices}
 
-### Стоимость юнита {#unit}
+{% if region == "ru"%}
 
-Количество | Цена за 1 секунду расчета, <br>вкл. НДС
------ | ---- |
-Один юнит  | 0,00075 ₽
+{% include [rub.md](../_pricing/datasphere/rub.md) %}
 
-### Вычислительные ресурсы {#paug}
+{% endif %}
 
-Конфигурация | Количество юнитов <br> за конфигурацию | Продолжительность <br>вычисления | Цена за вычисление, <br>вкл. НДС
- ----- | ---- | ---- | ---- 
-  S (4 vCPU, 0 GPU) | 4 | 1 секунда | 0,003 ₽
-  S (4 vCPU, 0 GPU) | 4 | 1 минута | 0,18 ₽
-  S (4 vCPU, 0 GPU) | 4 | 1 час | 10,8 ₽
-  M (8 vCPU, 0 GPU) | 8 | 1 секунда | 0,006 ₽
-  M (8 vCPU, 0 GPU) | 8 | 1 минута | 0,36 ₽
-  M (8 vCPU, 0 GPU) | 8 | 1 час | 21,6 ₽
-  L (8 vCPU, 1 GPU) | 72 | 1 секунда | 0,054 ₽
-  L (8 vCPU, 1 GPU) | 72 | 1 минута| 3,24 ₽
-  L (8 vCPU, 1 GPU) | 72 | 1 час | 194,4 ₽  
-  XL (32 vCPU, 4 GPU) | 288 | 1 секунда | 0,216 ₽
-  XL (32 vCPU, 4 GPU) | 288 | 1 минута| 12,96 ₽
-  XL (32 vCPU, 4 GPU) | 288 | 1 час | 777,6 ₽  
-  
-### Выполнение фоновых операций {#async}
+{% if region == "pre-kz"%}
 
-Подробнее про [фоновые операции](concepts/async.md).
+{% include [kzt.md](../_pricing/datasphere/kzt.md) %}
 
-Конфигурация | Количество юнитов | Продолжительность <br>вычисления | Цена за вычисление, <br>вкл. НДС
------ | ---- | ---- | ----
-S (4 vCPU, 0 GPU) | 1  | 1 секунда | 0,00075 ₽
-S (4 vCPU, 0 GPU) | 1  | 1 минута | 0,045 ₽
-S (4 vCPU, 0 GPU) | 1  | 1 час | 2,7 ₽
-M (8 vCPU, 0 GPU) | 2 | 1 секунда | 0,0015 ₽
-M (8 vCPU, 0 GPU) | 2 | 1 минута | 0,09 ₽
-M (8 vCPU, 0 GPU) | 2 | 1 час | 5,4 ₽
-L (8 vCPU, 1 GPU) | 15 | 1 секунда | 0,01125 ₽
-L (8 vCPU, 1 GPU) | 15 | 1 минута | 0,675 ₽
-L (8 vCPU, 1 GPU) | 15 | 1 час | 40,5 ₽
-XL (32 vCPU, 4 GPU) | 60 | 1 секунда  | 0,045 ₽
-XL (32 vCPU, 4 GPU) | 60 | 1 минута  | 2,7 ₽
-XL (32 vCPU, 4 GPU) | 60 | 1 час  | 162 ₽
+{% endif %}
+
+{% if region == "int"%}
+
+{% include [usd.md](../_pricing/datasphere/usd.md) %}
+
+{% endif %}
 
 ### Исходящий трафик {#prices-traffic}
 
 {% include notitle [pricing-egress-traffic](../_includes/pricing/pricing-egress-traffic.md) %}
-
-
-
