@@ -17,9 +17,23 @@ editable: false
 
 Тарифицируется входящий трафик, поступающий на пару из IP-адреса и порта, указанную в качестве обработчика сетевого балансировщика. Остальной трафик, поступающий на балансировщик, не принимается и не тарифицируется.
 
-Услуга | Цена за ГБ <br>обработанного трафика, <br>вкл. НДС
------ | -----
-Обработка входящего <br>трафика балансировщиком | 0,1728 ₽
+{% if region == "ru"%}
+
+{% include [rub.md](../_pricing/network-load-balancer/rub-ingress.md) %}
+
+{% endif %}
+
+{% if region == "pre-kz"%}
+
+{% include [kzt.md](../_pricing/network-load-balancer/kzt-ingress.md) %}
+
+{% endif %}
+
+{% if region == "int"%}
+
+{% include [usd.md](../_pricing/network-load-balancer/usd-ingress.md) %}
+
+{% endif %}
 
 ### Сетевые балансировщики {#network-load-balancers}
 
@@ -27,6 +41,20 @@ editable: false
 
 Если у сетевого балансировщика нет подключенных целевых групп, но есть обработчик, то публичный IP-адрес обработчика тарифицируется как [неактивный публичный IP-адрес](../vpc/pricing.md#prices-public-ip).
 
-Тип ресурса | Цена за 1 час, вкл. НДС
------ | -----
-Сетевой балансировщик нагрузки | 0,5556 ₽
+{% if region == "ru"%}
+
+{% include [rub.md](../_pricing/network-load-balancer/rub-balancer.md) %}
+
+{% endif %}
+
+{% if region == "pre-kz"%}
+
+{% include [kzt.md](../_pricing/network-load-balancer/kzt-balancer.md) %}
+
+{% endif %}
+
+{% if region == "int"%}
+
+{% include [usd.md](../_pricing/network-load-balancer/usd-balancer.md) %}
+
+{% endif %}

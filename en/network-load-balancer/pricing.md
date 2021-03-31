@@ -17,21 +17,23 @@ The internal load balancer function is currently at the [Preview](../overview/co
 
 You are charged for incoming traffic to the IP address and port specified as the network load balancer's listener. Any other traffic directed to the load balancer is not accepted and is not charged.
 
-{% list tabs %}
+{% if region == "ru"%}
 
-- Prices in USD
-  
-  | Service | Rate for 1 GB of processed traffic, without VAT | 
-  | ----- | ----- |
-  | Processing of incoming traffic by the load balancer | $0.002215 |
-  
-- Prices in roubles
-  
-  | Service | Rate for 1 GB of processed traffic, with VAT |
-  | ----- | ----- |
-  | Processing of incoming traffic by the load balancer | ₽0,1728 |
-  
-{% endlist %}
+{% include [rub.md](../_pricing/network-load-balancer/rub-ingress.md) %}
+
+{% endif %}
+
+{% if region == "pre-kz"%}
+
+{% include [kzt.md](../_pricing/network-load-balancer/kzt-ingress.md) %}
+
+{% endif %}
+
+{% if region == "int"%}
+
+{% include [usd.md](../_pricing/network-load-balancer/usd-ingress.md) %}
+
+{% endif %}
 
 ### Network load balancers {#network-load-balancers}
 
@@ -39,18 +41,20 @@ You are charged for network load balancers if they have a listener and a non-emp
 
 If a network load balancer has no target groups attached but has a listener, then the public IP address of the listener is charged as an [inactive public IP address](../vpc/pricing.md#prices-public-ip).
 
-{% list tabs %}
+{% if region == "ru"%}
 
-- Prices in USD
-  
-  | Resource type | Rate for 1 balancer per hour, without VAT |
-  | ----- | ----- |
-  | Network load balancer | $0.007123 |
-  
-- Prices in roubles
-  
-  | Resource type | Rate for 1 balancer per hour, with VAT |
-  | ----- | ----- |
-  | Network load balancer | ₽0,5556 |
-  
-{% endlist %}
+{% include [rub.md](../_pricing/network-load-balancer/rub-balancer.md) %}
+
+{% endif %}
+
+{% if region == "pre-kz"%}
+
+{% include [kzt.md](../_pricing/network-load-balancer/kzt-balancer.md) %}
+
+{% endif %}
+
+{% if region == "int"%}
+
+{% include [usd.md](../_pricing/network-load-balancer/usd-balancer.md) %}
+
+{% endif %}
