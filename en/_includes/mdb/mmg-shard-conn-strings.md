@@ -12,7 +12,7 @@
   mongo --norc \
         --tls \
         --tlsCAFile /home//.mongodb/root.crt \
-        --host '<name of replica set>/<FQDN of {{ MG }} host 1>:27018,...,FQDN of {{ MG }} host N>:27018' \
+        --host '<FQDN of MONGOINFRA or MONGOS host 1>:27017,...,FQDN of MONGOINFRA or MONGOS host N>:27017' \
         -u <DB username> \
         <DB name>
   ```
@@ -23,7 +23,7 @@
   mongo --norc \
         --ssl \
         --sslCAFile /home/<home directory>/.mongodb/root.crt \
-        --host '<name of replica set>/<FQDN of {{ MG }} host 1>:27018,...,FQDN of {{ MG }} host N>:27018' \
+        --host '<FQDN of MONGOINFRA or MONGOS host 1>:27017,...,FQDN of MONGOINFRA or MONGOS host N>:27017' \
         -u <DB username> \
         <DB name>
   ```
@@ -32,7 +32,7 @@
 
   ```
   mongo --norc \
-        --host '<FQDN of {{ MG }} host 1>:27018,...,FQDN of {{ MG }} host N>:27018' \
+        --host '<FQDN of MONGOINFRA or MONGOS host 1>:27017,...,FQDN of MONGOINFRA or MONGOS host N>:27017' \
         -u <DB username> \
         <DB name>
   ```
@@ -60,20 +60,18 @@
   from urllib.parse import quote_plus as quote
   
   CACERT = '/home/<home directory>/.mongodb/root.crt'
-  DB_RS = '<replica set name>'
   DB_NAME = '<DB name>'
   DB_HOSTS =','.join([
-        '<FQDN of {{ MG }} host 1>:27018',
+        '<FQDN of MONGOINFRA or MONGOS host 1>:27017',
         ...,
-        '<FQDN of {{ MG }} host N>:27018'
+        '<FQDN of MONGOINFRA or MONGOS host 1>:27017'
       ])
   DB_USER = '<DB username>'
   DB_PASS = '<DB user password>'
   
-  url = 'mongodb://{user}:{pw}@{hosts}/?replicaSet={rs}&authSource={auth_src}'.format(
+  url = 'mongodb://{user}:{pw}@{hosts}/?authSource={auth_src}'.format(
             user = quote(DB_USER),
             pw = quote(DB_PASS),
-            rs = DB_RS,
             hosts = DB_HOSTS,
             auth_src = DB_NAME)
   
@@ -97,20 +95,18 @@
   import pymongo
   from urllib.parse import quote_plus as quote
   
-  DB_RS = '<replica set name>'
   DB_NAME = '<DB name>'
   DB_HOSTS =','.join([
-        '<FQDN of {{ MG }} host 1>:27018',
+        '<FQDN of MONGOINFRA or MONGOS host 1>:27017',
         ...,
-        '<FQDN of {{ MG }} host N>:27018'
+        '<FQDN of MONGOINFRA or MONGOS host 1>:27017'
       ])
   DB_USER = '<DB username>'
   DB_PASS = '<DB user password>'
   
-  url = 'mongodb://{user}:{pw}@{hosts}/?replicaSet={rs}&authSource={auth_src}'.format(
+  url = 'mongodb://{user}:{pw}@{hosts}/?authSource={auth_src}'.format(
             user = quote(DB_USER),
             pw = quote(DB_PASS),
-            rs = DB_RS,
             hosts = DB_HOSTS,
             auth_src = DB_NAME)
   
@@ -142,20 +138,18 @@
 
   ```php
   <?php
-    $DB_RS    = '<replica set name>';
     $DB_NAME  = '<DB name>';
-    $DB_HOSTS = '<FQDN of {{ MG }} host 1>:27018,...,<FQDN of {{ MG }} host 2>:27018'; 
+    $DB_HOSTS = '<FQDN of MONGOINFRA or MONGOS host 1>:27017,...,<FQDN of MONGOINFRA or MONGOS host N>:27017'; 
     $DB_USER  = '<DB username>';
     $DB_PASS  = '<DB user password>';
     $CACERT   = '/home/<home directory>/.mongodb/root.crt';
   
     $uri = sprintf(
-        'mongodb://%s:%s@%s/%s?replicaSet=%s',
+        'mongodb://%s:%s@%s/%s',
         $DB_USER,
         $DB_PASS,
         $DB_HOSTS,
-        $DB_NAME,
-        $DB_RS
+        $DB_NAME
     );
   
     $conn = new \MongoDB\Driver\Manager($uri, ["tls" => "true", "tlsCAFile" => $CACERT], []);
@@ -179,19 +173,17 @@
 
   ```php
   <?php
-    $DB_RS    = '<replica set name>';
     $DB_NAME  = '<DB name>';
-    $DB_HOSTS = '<FQDN of {{ MG }} host 1>:27018,...,<FQDN of {{ MG }} host 2>:27018'; 
+    $DB_HOSTS = '<FQDN of MONGOINFRA or MONGOS host 1>:27017,...,<FQDN of MONGOINFRA or MONGOS host N>:27017'; 
     $DB_USER  = '<DB username>';
     $DB_PASS  = '<DB user password>';
   
     $uri = sprintf(
-        'mongodb://%s:%s@%s/%s?replicaSet=%s',
+        'mongodb://%s:%s@%s/%s',
         $DB_USER,
         $DB_PASS,
         $DB_HOSTS,
-        $DB_NAME,
-        $DB_RS
+        $DB_NAME
     );
   
     $conn = new \MongoDB\Driver\Manager($uri);
@@ -339,12 +331,12 @@
       System.setProperty("javax.net.ssl.trustStore", "/home/<home directory>/.mongodb/YATrustStore");
       System.setProperty("javax.net.ssl.trustStorePassword", "<certificate store password>");
   
-      final Integer DB_PORT = 27018;
+      final Integer DB_PORT = 27017;
   
       List DB_HOSTS = new ArrayList<ServerAddress>();
-      DB_HOSTS.add(new ServerAddress("<FQDN of {{ MG }} host 1>", DB_PORT));
+      DB_HOSTS.add(new ServerAddress("<FQDN of MONGOINFRA or MONGOS host 1>", DB_PORT));
       ...
-      DB_HOSTS.add(new ServerAddress("<FQDN of {{ MG }} host N>", DB_PORT));
+      DB_HOSTS.add(new ServerAddress("<FQDN of MONGOINFRA or MONGOS host N>", DB_PORT));
   
       final String DB_NAME = "<DB name>";
       final String DB_USER = "<DB username>";
@@ -378,12 +370,12 @@
   public class App {
     public static void main(String[] args) {
   
-      final Integer DB_PORT = 27018;
+      final Integer DB_PORT = 27017;
   
       List DB_HOSTS = new ArrayList<ServerAddress>();
-      DB_HOSTS.add(new ServerAddress("<FQDN of {{ MG }} host 1>", DB_PORT));
+      DB_HOSTS.add(new ServerAddress("<FQDN of MONGOINFRA or MONGOS host 1>", DB_PORT));
       ...
-      DB_HOSTS.add(new ServerAddress("<FQDN of {{ MG }} host N>", DB_PORT));
+      DB_HOSTS.add(new ServerAddress("<FQDN of MONGOINFRA or MONGOS host N>", DB_PORT));
   
       final String DB_NAME = "<DB name>";
       final String DB_USER = "<DB username>";
@@ -424,11 +416,10 @@
   const util = require('util');
   const MongoClient = require('mongodb').MongoClient;
   
-  const DB_RS = '<replica set name>'
   const DB_NAME = '<DB name>'
-  const DB_HOSTS = ['<FQDN of {{ MG }} host 1>:27018',
+  const DB_HOSTS = ['<FQDN of MONGOINFRA or MONGOS host 1>:27017',
                     ... 
-                    '<FQDN of {{ MG }} host N>:27018']
+                    '<FQDN of MONGOINFRA or MONGOS host N>:27017']
   const DB_USER  = '<DB username>'
   const DB_PASS  = '<DB user password>'
   const CACERT   = '/home/<home directory>/.mongodb/root.crt'
@@ -440,7 +431,6 @@
     useUnifiedTopology: true,
     tls: true,
     tlsCAFile: CACERT,
-    replicaSet: DB_RS,
     authSource: DB_NAME
   }
   
@@ -462,11 +452,10 @@
   const util = require('util');
   const MongoClient = require('mongodb').MongoClient;
   
-  const DB_RS = '<replica set name>'
   const DB_NAME = '<DB name>'
-  const DB_HOSTS = ['<FQDN of {{ MG }} host 1>:27018',
+  const DB_HOSTS = ['<FQDN of MONGOINFRA or MONGOS host 1>:27018',
                     ... 
-                    '<FQDN of {{ MG }} host N>:27018']
+                    '<FQDN of MONGOINFRA or MONGOS host N>:27018']
   const DB_USER  = '<DB username>'
   const DB_PASS  = '<DB user password>'
   
@@ -475,7 +464,6 @@
   const options = {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    replicaSet: DB_RS,
     authSource: DB_NAME
   }
   
@@ -521,22 +509,20 @@
   
   func main() {
   
-        const DB_RS = "<replica set name>"
         const DB_NAME = "<DB name>"
-        DB_HOSTS := []string {"<FQDN of {{ MG }} host 1>:27018",
+        DB_HOSTS := []string {"<FQDN of MONGOINFRA or MONGOS host 1>:27017",
                               ... 
-                              "<FQDN of {{ MG }} host N>:27018"}
+                              "<FQDN of MONGOINFRA or MONGOS host N>:27017"}
         const DB_USER = "<DB username>"
         const DB_PASS = "<DB user password>"
   
         const CACERT = "/home/<home directory>/.mongodb/root.crt"
   
-        url := fmt.Sprintf("mongodb://%s:%s@%s/%s?replicaSet=%s&tls=true&tlsCaFile=%s",
+        url := fmt.Sprintf("mongodb://%s:%s@%s/%s?tls=true&tlsCaFile=%s",
                 DB_USER,
                 DB_PASS,
                 strings.Join(DB_HOSTS, ","),
                 DB_NAME,
-                DB_RS,
                 CACERT)
   
         conn, err := mongo.Connect(context.Background(), options.Client().ApplyURI(url))
@@ -567,20 +553,18 @@
   
   func main() {
   
-        const DB_RS = "<replica set name>"
         const DB_NAME = "<DB name>"
-        DB_HOSTS := []string {"<FQDN of {{ MG }} host 1>:27018",
+        DB_HOSTS := []string {"<FQDN of MONGOINFRA or MONGOS host 1>:27017",
                               ... 
-                              "<FQDN of {{ MG }} host N>:27018"}
+                              "<FQDN of MONGOINFRA or MONGOS host N>:27017"}
         const DB_USER = "<DB username>"
         const DB_PASS = "<DB user password>"
   
-        url := fmt.Sprintf("mongodb://%s:%s@%s/%s?replicaSet=%s&tls=false",
+        url := fmt.Sprintf("mongodb://%s:%s@%s/%s?tls=false",
                 DB_USER,
                 DB_PASS,
                 strings.Join(DB_HOSTS, ","),
-                DB_NAME,
-                DB_RS)
+                DB_NAME)
   
         conn, err := mongo.Connect(context.Background(), options.Client().ApplyURI(url))
         if err != nil {

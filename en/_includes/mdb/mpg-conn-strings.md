@@ -22,7 +22,7 @@
   **Connecting without SSL:**
 
   ```bash
-  psql "host=<FQDN of the host> \
+  psql "host=<FQDN of one or multiple {{ PG }} hosts> \
       port=6432 \
       sslmode=disable \
       dbname=<DB name> \
@@ -169,43 +169,43 @@
 
   1. Install the dependencies:
 
-    ```bash
-    sudo apt update && sudo apt install -y default-jdk maven
-    ```
+     ```bash
+     sudo apt update && sudo apt install -y default-jdk maven
+     ```
 
   1. Create a folder for the Maven project:
 
-    ```bash
-    cd ~/ && mkdir -p project/src/java/com/example && cd project/
-    ```
+     ```bash
+     cd ~/ && mkdir -p project/src/java/com/example && cd project/
+     ```
 
   1. Create a configuration file for Maven:
 
      {% cut "pom.xml" %}
 
-    ```xml
-    <?xml version="1.0" encoding="UTF-8"?>
-    <project
-        xmlns="http://maven.apache.org/POM/4.0.0"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-        <modelVersion>4.0.0</modelVersion>
-        <groupId>com.example</groupId>
-        <artifactId>app</artifactId>
-        <packaging>jar</packaging>
-        <version>0.1.0</version>
-        <properties>
-    	    <maven.compiler.source>1.8</maven.compiler.source>
-    	    <maven.compiler.target>1.8</maven.compiler.target>
-        </properties>
-        <dependencies>
-    	    <dependency>
-    		    <groupId>org.postgresql</groupId>
-    		    <artifactId>postgresql</artifactId>
-    		    <version>42.2.16</version>
-    	    </dependency>
-    	</dependencies>
-    	<build>
+     ```xml
+     <?xml version="1.0" encoding="UTF-8"?>
+     <project
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+         <modelVersion>4.0.0</modelVersion>
+         <groupId>com.example</groupId>
+         <artifactId>app</artifactId>
+         <packaging>jar</packaging>
+         <version>0.1.0</version>
+         <properties>
+     	     <maven.compiler.source>1.8</maven.compiler.source>
+     	     <maven.compiler.target>1.8</maven.compiler.target>
+         </properties>
+         <dependencies>
+     	     <dependency>
+     		     <groupId>org.postgresql</groupId>
+     		     <artifactId>postgresql</artifactId>
+     		     <version>42.2.16</version>
+     	     </dependency>
+     	</dependencies>
+     	<build>
          	<finalName>${project.artifactId}-${project.version}</finalName>
          	<sourceDirectory>src</sourceDirectory>
      		<resources>
@@ -250,12 +250,12 @@
         		</plugin>
      		</plugins>
      	</build>
-    </project>
-    ```
+     </project>
+     ```
 
-    {% endcut %}
+     {% endcut %}
 
-    Current dependency version for Maven: [postgresql](https://mvnrepository.com/artifact/org.postgresql/postgresql).
+     Current dependency version for Maven: [postgresql](https://mvnrepository.com/artifact/org.postgresql/postgresql).
 
   **Code example for connecting via SSL:**
 
@@ -396,55 +396,73 @@
 
   ```bash
   sudo apt update && sudo apt install -y golang git && \
-  go get github.com/lib/pq
+  go get github.com/jackc/pgx && go mod init example
   ```
 
   **Code example for connecting via SSL:**
 
   `connect.go`
 
-  ```go
+  ```
   package main
   
   import (
-    "database/sql"
+    "io/ioutil"
+    "crypto/tls"
+    "crypto/x509"
     "fmt"
-  
-    _ "github.com/lib/pq"
+    "github.com/jackc/pgx"
   )
   
   const (
-    host     = "<FQDN of the host>"
+    host     = "<FQDN of one or multiple {{ PG }} hosts>"
     port     = 6432
     user     = "<username>"
     password = "<user password>"
     dbname   = "<DB name>"
-    ca = "/home/<home directory>/.postgresql/root.crt"
+    ca       = "/home/<home directory>/.postgresql/root.crt"
   )
   
   func main() {
-    psqlInfo := fmt.Sprintf("host=%s port=%d user=%s " +
-                            "password=%s dbname=%s " +
-                            "sslmode=verify-full " +
-                            "sslrootcert=%s, host, port, user, password, dbname, ca)
-    conn, err := sql.Open("postgres", psqlInfo)
+  
+    rootCertPool := x509.NewCertPool()
+    pem, err := ioutil.ReadFile(ca)
+    if err != nil {
+      panic(err)
+    }
+  
+    if ok := rootCertPool.AppendCertsFromPEM(pem); !ok {
+      panic("Failed to append PEM.")
+    }
+  
+    config := pgx.ConnConfig {
+      Host: host,
+      Port: port,
+      User: user,
+      Password: password,
+      Database: dbname,
+      TargetSessionAttrs: "read-write",
+      TLSConfig: &tls.Config {
+        RootCAs: rootCertPool,
+        InsecureSkipVerify: true,
+      },
+    }
+  
+    conn, err := pgx.Connect(config)
     if err != nil {
       panic(err)
     }
   
     defer conn.Close()
   
-    q, err := db.Query("SELECT version()")
+    var version string
+  
+    err = conn.QueryRow("SELECT version()").Scan(&version)
     if err != nil {
       panic(err)
     }
   
-    var result string
-  
-    for q.Next() {
-     q.Scan(&result)
-     fmt.Println(result)
-    }
+    fmt.Println(version)
   }
   ```
 
@@ -454,18 +472,16 @@
 
   `connect.go`
 
-  ```go
+  ```
   package main
   
   import (
-    "database/sql"
     "fmt"
-  
-    _ "github.com/lib/pq"
+    "github.com/jackc/pgx"
   )
   
   const (
-    host     = "<FQDN of the host>"
+    host     = "<FQDN of one or multiple {{ PG }} hosts>"
     port     = 6432
     user     = "<username>"
     password = "<user password>"
@@ -473,27 +489,31 @@
   )
   
   func main() {
-    psqlInfo := fmt.Sprintf("host=%s port=%d user=%s " +
-                            "password=%s dbname=%s " +
-                            "sslmode=disable", host, port, user, password, dbname)
-    conn, err := sql.Open("postgres", psqlInfo)
+  
+    config := pgx.ConnConfig {
+      Host: host,
+      Port: port,
+      User: user,
+      Password: password,
+      Database: dbname,
+      TargetSessionAttrs: "read-write",
+    }
+  
+    conn, err := pgx.Connect(config)
     if err != nil {
       panic(err)
     }
   
     defer conn.Close()
   
-    q, err := conn.Query("SELECT version()")
+    var version string
+  
+    err = conn.QueryRow("SELECT version()").Scan(&version)
     if err != nil {
       panic(err)
     }
   
-    var result string
-  
-    for q.Next() {
-     q.Scan(&result)
-     fmt.Println(result)
-    }
+    fmt.Println(version)
   }
   ```
 
@@ -519,7 +539,7 @@
   require "pg"
   
   conn = PG.connect("
-          host=<FQDN of the host>
+          host=<FQDN of one or multiple {{ PG }} hosts>
           port=6432
           dbname=<DB name>
           user=<username>
@@ -542,7 +562,7 @@
   require "pg"
   
   conn = PG.connect("
-          host=<FQDN of the host>
+          host=<FQDN of one or multiple {{ PG }} hosts>
           port=6432
           dbname=<DB name>
           user=<username>

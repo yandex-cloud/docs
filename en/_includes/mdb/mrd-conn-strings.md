@@ -19,7 +19,7 @@
   1. Connect to the host with this address:
 
      ```bash
-     redis-cli -с -h <{{ RD }} master host address> -a <{{ RD }} password>
+     redis-cli -c -h <{{ RD }} master host address> -a <{{ RD }} password>
      ```
 
   **Connecting directly to the master:**

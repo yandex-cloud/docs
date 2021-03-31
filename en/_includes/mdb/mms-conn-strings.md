@@ -55,7 +55,7 @@
       ```bash
       $ mssql-cli -U <username> \
                 -d <database name> \
-                -S ,1433 \
+                -S <FQDN of the host>,1433 \
                 -N
       ```
 
@@ -565,7 +565,7 @@
                 try
                 {
                     $serverName = "<host FQDN>,1433";
-                    $connectionInfo = array("UID" => "<username>", "pwd" => "user password", "Database" => "<database name>", "LoginTimeout" => 30, "Encrypt" => 0, "TrustServerCertificate" => 0);
+                    $connectionInfo = array("UID" => "<username>", "pwd" => "<user password>", "Database" => "<database name>", "LoginTimeout" => 30, "Encrypt" => 0, "TrustServerCertificate" => 0);
                     $conn = sqlsrv_connect($serverName, $connectionInfo);
                     if($conn == false)
                         echo print_r(sqlsrv_errors(), true);

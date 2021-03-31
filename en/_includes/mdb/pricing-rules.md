@@ -4,4 +4,5 @@
 
 * Settings and number of backups.
 
-* The volume of outgoing traffic from Yandex.Cloud to the internet.
+* Outgoing traffic from {{ yandex-cloud }} to the internet.
+

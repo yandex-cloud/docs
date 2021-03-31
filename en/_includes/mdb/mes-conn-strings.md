@@ -4,7 +4,7 @@
 
   {% if audience == "internal" %}
   1. Download and install the [certificate](https://crls.yandex.net/allCAs.pem) in the browser.
-  1. The interface of your Kibana instance is available at the link `https://c-<{{ ES }} cluster ID>.rw.db.yandex.net`. You can fetch the cluster ID with a [list of clusters in the folder](../../managed-elasticsearch/operations/cluster-list.md#list-clusters).
+  1. The interface of your Kibana instance is available at the link `https://c-<{{ ES }} cluster ID>.rw.db.yandex.net`. You can fetch the cluster ID with a [list of clusters in the folder](../../managed-elasticsearch/operations/cluster-list#list-clusters).
   1. Enter your username and password.
 
   {% else %}
@@ -12,7 +12,7 @@
   **If a host with the _Data node_ role is assigned a public IP address:**
   1. Before connecting, install the [SSL certificate](https://storage.yandexcloud.net/cloud-certs/CA.pem) in the browser's trusted root certificate store ([instructions](https://wiki.mozilla.org/PSM:Changing_Trust_Settings#Trusting_an_Additional_Root_Certificate) for Mozilla Firefox).
   1. In the browser, go to one of the addresses:
-     - `https://c-<{{ ES }} cluster ID>.rw.mdb.yandexcloud.net`, if a public IP address is assigned to all hosts with this role. You can fetch the cluster ID with a [list of clusters in the folder](../../managed-elasticsearch/operations/cluster-list.md#list-clusters).
+     - `https://c-<{{ ES }} cluster ID>.rw.mdb.yandexcloud.net`, if a public IP address is assigned to all hosts with this role. You can fetch the cluster ID with a [list of clusters in the folder](../../managed-elasticsearch/operations/cluster-list#list-clusters).
      - `https://<name of any host with the Data node role and public IP>.mdb.cloud.yandex.net`
   1. Enter your username and password.
 

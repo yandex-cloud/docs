@@ -1,4 +1,4 @@
-- **Audit log**: Enables/disables writing the {{ MY }} audit log.
+- **Audit log**: Controls writing the {{ MY }} audit log.
 
   By default, disabled.
 
@@ -35,7 +35,7 @@
 
   For more information, see the [documentation for {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_binlog_row_image).
 
-- **Binlog rows query log events**: Enables/disables logging information events (for example, query log events) in the binary log.
+- **Binlog rows query log events**: Controls logging information events (for example, query log events) in the binary log.
 
   By default, disabled.
 
@@ -66,13 +66,13 @@
 
   For more information, see the [documentation for {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/server-options.html#option_mysqld_default-time-zone).
 
-- **Explicit defaults for timestamp**: Determines whether the server enables certain nonstandard behaviors for default values and `NULL` value handling in `TIMESTAMP` columns.
+- **Explicit defaults for timestamp**: Controls non-standard default values and `NULL` value handling in `TIMESTAMP` columns.
 
   By default, the setting is enabled, which **disables** any nonstandard behaviors.
 
   For more information, see the [documentation for {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_explicit_defaults_for_timestamp).
 
-- **General log**: Enables/disables writing the {{ MY }} general query log.
+- **General log**: Controls writing the {{ MY }} general query log.
 
   By default, disabled.
 
@@ -82,9 +82,9 @@
 
   The minimum value is `4` and the maximum value is `33554432` (32 MB). Defaults to `1024` (1 KB).
 
-  For more information, see the [documentation for {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_group_concat_max_len)
+  For more information, see the [{{ MY }} documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_group_concat_max_len)
 
-- **Innodb adaptive hash index**: Enables/disables the InnoDB [adaptive hash index](https://dev.mysql.com/doc/refman/8.0/en/glossary.html#glos_adaptive_hash_index). It may be desirable to disable this index for some types of database workloads. The {{ MY }} documentation recommends performing load testing on real data to determine whether to enable the adaptive hash index.
+- **Innodb adaptive hash index**: Controls the InnoDB [adaptive hash index](https://dev.mysql.com/doc/refman/8.0/en/glossary.html#glos_adaptive_hash_index). It may be desirable to disable this index for some types of database workloads. The {{ MY }} documentation recommends performing load testing on real data to determine whether to enable the adaptive hash index.
 
   By default, the adaptive hash index is enabled.
 
@@ -135,13 +135,13 @@
 
   For more information, see the [documentation for {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_log_file_size).
 
-- **Innodb numa interleave**: Enables/disables the [NUMA Interleave](https://www.kernel.org/doc/html/latest/admin-guide/mm/numa_memory_policy.html#components-of-memory-policies) memory policy for allocation of the InnoDB buffer pool.
+- **Innodb numa interleave**: Controls the [NUMA Interleave](https://www.kernel.org/doc/html/latest/admin-guide/mm/numa_memory_policy.html#components-of-memory-policies) memory policy for allocation of the InnoDB buffer pool.
 
   This policy is disabled by default.
 
   For more information, see the [documentation for {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_numa_interleave).
 
-- **Innodb print all deadlocks**: Enables/disables writing information about all [deadlocks](https://dev.mysql.com/doc/refman/8.0/en/innodb-deadlocks.html) to the error log. If disabled, you see information about only the last deadlock, using the `SHOW ENGINE INNODB STATUS` command.
+- **Innodb print all deadlocks**: Controls writing information about all [deadlocks](https://dev.mysql.com/doc/refman/8.0/en/innodb-deadlocks.html) to the error log. If disabled, you see information about only the last deadlock, using the `SHOW ENGINE INNODB STATUS` command.
 
   By default, the option for showing information about all deadlocks is off.
 
@@ -178,11 +178,11 @@
   For more information, see the [documentation for {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_write_io_threads).
 
 - **Join buffer size**: The minimum size of the buffer (in bytes) that is used for:
-  -  Plain index scans.
+  - Plain index scans.
   - Range index scans.
   - Full table scans (for `JOIN` operations where no index is used).
 
-   One join buffer of the specified size is allocated for each full join between two tables. Increase the value of this setting to get a faster full join when adding indexes is not possible.
+  One join buffer of the specified size is allocated for each full join between two tables. Increase the value of this setting to get a faster full join when adding indexes is not possible.
 
   The minimum value is `1024` (1 KB) and the maximum value is `16777216` (16 MB). Defaults to `262144` (256 KB).
 
@@ -204,7 +204,7 @@
 
 - **Max connections**: The maximum number of simultaneous connections permitted for {{ MY }} cluster hosts.
 
-  The minimum value is `10` and the maximum value is `10000`. Defaults to 25 connections per 1 GB of a cluster host's RAM except for hosts with more than 384 GB of RAM (for example, a host of the [b2.medium](../../managed-mysql/concepts/instance-types.md) class with 4 GB of RAM has this value set to `100` by default).
+  Minimum value: `10`, maximum value: `10000`, default value: `100 × <number of vCPU on the host> × <vCPU share on the host>`, but no less than `100`.
 
   For more information, see the [documentation for {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_connections).
 
@@ -232,7 +232,7 @@
 
   For more information, see the [documentation for {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_regexp_time_limit).
 
-- **Rpl semi sync master wait for slave count**: The number of replica acknowledgments that the master must receive during semisynchronous replication before a transaction's `COMMIT`.
+- **Rpl semi sync master wait for slave count**: Number of replica acknowledgments that the master must receive during semisynchronous replication before a transaction's `COMMIT`.
 
   The minimum value is `1` and the maximum value is `2`. Defaults to `1`.
 
@@ -374,7 +374,7 @@
 
   For more information, see the [documentation for {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_thread_stack).
 
-- **Tmp table size**: The maximum size of in-memory temporary tables (in bytes). If a table exceeds this limit, it's converted to an on-disk temporary table. This setting doesn't affect user-created MEMORY tables. Increase this value if you run many advanced `GROUP BY` queries and your cluster hosts have enough memory. {#setting-tmp-table-size}
+- **Tmp table size**: The maximum size of in-memory temporary tables (in bytes). If a table exceeds this limit, it's converted to an on-disk temporary table. This setting doesn't affect user-created MEMORY tables. Increase this value if you run many advanced `GROUP BY` queries and your cluster hosts have enough RAM. {#setting-tmp-table-size}
 
   The minimum value is `1024` (1 KB) and the maximum value is `134217728` (128 MB). Defaults to `16777216` (16 MB).
 
@@ -383,7 +383,7 @@
 - **Transaction isolation**: The default transaction isolation level:
   - `READ-COMMITTED`: A query only sees the strings that were committed before it is run.
   - `REPEATABLE-READ`: All queries in the current transaction only see the strings that were committed before the first query to select and update data that was executed in this transaction.
-  - `SERIALIZABLE`: Same as `REPEATABLE-READ`, except that InnoDB implicitly converts `SELECT` statements to `SELECT ... FOR SHARE` if [autocommit](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_autocommit) mode is off. If autocommit is on, a `SELECT` is executed in its own transaction in `read only` mode and can be serialized.
+  - `SERIALIZABLE`: Same as `REPEATABLE-READ`, except that InnoDB implicitly converts `SELECT` statements to `SELECT ... FOR SHARE` if the [autocommit](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_autocommit) mode is disabled. If autocommit is on, a `SELECT` is executed in its own transaction in `read only` mode and can be serialized.
 
   For more information, see the [documentation for {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_transaction_isolation).
 

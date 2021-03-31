@@ -44,11 +44,11 @@
 * **Text log enabled**: Enables or disables writing of system logs to the [system.text_log](https://clickhouse.tech/docs/en/operations/system-tables/text_log) table. Logging is disabled by default (`false`).
 
 * **Text log level**: The level of event logging in the [system.text_log](https://clickhouse.tech/docs/en/operations/system-tables/text_log) table. At each next level, the log will contain complete information from the previous one:
-   1. `ERROR`: Information about errors in the DBMS.
-   1. `WARNING`: Information about events that may cause errors in the DBMS.
-   1. `INFORMATION`: Confirmation and information about events that don't lead to errors in the DBMS.
-   1. `DEBUG`: System information to be used later in debugging.
-   1. `TRACE`: All available information about DBMS performance.
+    1. `ERROR`: Information about errors in the DBMS.
+    1. `WARNING`: Information about events that may cause errors in the DBMS.
+    1. `INFORMATION`: Confirmation and information about events that don't lead to errors in the DBMS.
+    1. `DEBUG`: System information to be used later in debugging.
+    1. `TRACE`: All available information about DBMS performance.
 
 * **Text log retention size**: The maximum size in bytes that the [system.text_log](https://clickhouse.tech/docs/en/operations/system-tables/text_log) table can reach before old records start being deleted from it. A value of 0 means that the old records aren't deleted as the table size grows. Default value: 536870912 (0.5 GB).
 
@@ -82,6 +82,29 @@
          * **Age**: Minimum data age, in seconds.
          * **Precision**: Accuracy of determining the age of the data, in seconds. Must be a divisor of 86,400 (the number of seconds in 24 hours).
 
+* **Kafka**: Global authentication settings for [integration with {{ KF }}](https://clickhouse.tech/docs/en/engines/table-engines/integrations/kafka/):
+  * **Sasl mechanism**: SASL authentication mechanism:
+    - `GSSAPI`: Authentication [using Kerberos](https://kafka.apache.org/documentation/#security_sasl_kerberos).
+    - `PLAIN`: Authentication [using the "username-password" pair passed as plain text](https://kafka.apache.org/documentation/#security_sasl_plain).
+    - `SCRAM-SHA-256` and `SCRAM-SHA-512`: Authentication [using the SCRAM family mechanisms](https://kafka.apache.org/documentation/#security_sasl_scram).
+  * **Sasl password**: Password of an {{ KF }} account.
+  * **Sasl username**: Username of an {{ KF }} account.
+  * **Security protocol**: Security protocol used for authentication:
+    * `PLAINTEXT`: Authentication credentials are sent as plain text.
+    * `SSL`: Authentication credentials are sent with SSL encryption.
+    * `SASL_PLAINTEXT`: Authentication credentials are sent as plain text with SASL transport.
+    * `SASL_SSL`: Authentication credentials are sent with SSL encryption and SASL as transport.
+
+  For more information, see the [{{ KF }} documentation](https://kafka.apache.org/documentation/#security).
+
+* **Kafka topics**: Authentication settings at the level of [topics](../../managed-kafka/concepts/topics.md) for [integration with {{ KF }}](https://clickhouse.tech/docs/en/engines/table-engines/integrations/kafka/):
+  * **Name**: {{ KF }} topic name.
+  * **Settings**: Topic-level authentication settings similar to the global authentication settings in the **Kafka** section.
+
+  If no topic authentication data is found for a table that runs on the [Kafka engine](https://clickhouse.tech/docs/en/engines/table-engines/integrations/kafka/), the global settings from the **Kafka** section are used.
+
+  For more information, see the [{{ KF }} documentation](https://kafka.apache.org/documentation/#security).
+
 * **Merge tree**: MergeTree engine configuration. For more information, see the [{{ CH }} documentation](https://clickhouse.tech/docs/en/operations/server-configuration-parameters/settings/#server_configuration_parameters-merge_tree)
    * **Max bytes to merge at min space in pool**: Maximum total size of a [data part](https://clickhouse.yandex/docs/en/operations/table_engines/mergetree/#mergetree-data-storage) to merge when the number of free threads in the background pool is minimum.
    * **Max replicated merges in queue**: Maximum number of merge tasks that can be in the `ReplicatedMergeTree` queue at the same time.
@@ -90,4 +113,8 @@
    * **Parts to throw insert**: Threshold value of active data parts in a table. When exceeded,{{ CH }} throws the 'Too many parts ...' exception.
    * **Replicated deduplication window**: Number of recent hash blocks that {{ ZK }} stores (old ones are deleted).
    * **Replicated deduplication window seconds**: Time during which {{ ZK }} stores hash blocks (old ones are deleted).
+
+* **Rabbitmq**: Global authentication settings for [integration with {{ RMQ }}](https://clickhouse.tech/docs/en/engines/table-engines/integrations/rabbitmq/):
+   * **Password**: Password of an {{ RMQ }} account.
+   * **Username**: Username of an {{ RMQ }} account.
 

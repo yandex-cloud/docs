@@ -4,13 +4,13 @@
 
   Подробнее см. в [документации {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/audit-log-reference.html#audit-log-options-variables).
 
-- **Auto increment increment** — задает интервал между значениями столбцов с атрибутом `AUTO_INCREMENT`. {#setting-auto-increment-increment}
+- **Auto increment** — задает интервал между значениями столбцов с атрибутом `AUTO_INCREMENT`. {#setting-auto-increment-increment}
 
   Минимальное значение — `1`, максимальное значение — `65535`, по умолчанию — `1`.
 
   Подробнее см. в [документации {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/replication-options-source.html#sysvar_auto_increment_increment).
 
-- **Auto increment offset** — задает начальное значение для столбцов с атрибутом `AUTO_INCREMENT`. Эта настройка игнорируется, если ее значение больше значения настройки [Auto increment increment](#setting-auto-increment-increment).
+- **Auto increment offset** — задает начальное значение для столбцов с атрибутом `AUTO_INCREMENT`. Эта настройка игнорируется, если ее значение больше значения настройки [Auto increment](#setting-auto-increment-increment).
 
   Минимальное значение — `1`, максимальное значение — `65535`, по умолчанию — `1`.
 
