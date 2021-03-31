@@ -63,6 +63,8 @@ items:
         href: early-access/repeat.md
   - name: Сценарии использования
     items:
+      - name: Знакомство с DataSphere
+        href: tutorials/basics.md
       - name: Распознавание голоса
         href: tutorials/speech-recognition.md
       - name: Классификация изображений на видеокадрах

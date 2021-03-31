@@ -6,21 +6,21 @@ items:
   - name: Use cases
     items:
       - name: All use cases
-        href: ../solutions/datalens/index.md
+        href: solutions/index.md
       - name: Visualizing data from a CSV file
-        href: ../solutions/datalens/data-from-csv-visualization.md
+        href: solutions/data-from-csv-visualization.md
       - name: Visualizing data from a ClickHouse database
-        href: ../solutions/datalens/data-from-ch-visualization.md
+        href: solutions/data-from-ch-visualization.md
       - name: Visualizing data from Yandex.Metriсa
-        href: ../solutions/datalens/data-from-metrica-visualization.md
+        href: solutions/data-from-metrica-visualization.md
       - name: Visualizing data from Yandex.Metrica Logs API
-        href: ../solutions/datalens/data-from-metrica-logsapi-visualization.md
+        href: solutions/data-from-metrica-logsapi-visualization.md
       - name: Publishing a chart with a map from a CSV file to DataLens Public
-        href: ../solutions/datalens/data-from-csv-to-public-visualization.md
+        href: solutions/data-from-csv-to-public-visualization.md
       - name: Visualizing data from AppMetrica
-        href: ../solutions/datalens/data-from-appmetrica-visualization.md
+        href: solutions/data-from-appmetrica-visualization.md
       - name: Visualizing geodata from a CSV file
-        href: ../solutions/datalens/data-from-csv-geo-visualization.md
+        href: solutions/data-from-csv-geo-visualization.md
   - name: Step-by-step instructions
     items:
       - name: All instructions

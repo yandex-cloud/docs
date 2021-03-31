@@ -6,27 +6,27 @@ items:
   - name: Сценарии использования
     items:
       - name: Все сценарии
-        href: ../solutions/datalens/index.md
+        href: solutions/index.md
       - name: Визуализация данных из CSV-файла
-        href: ../solutions/datalens/data-from-csv-visualization.md
+        href: solutions/data-from-csv-visualization.md
       - name: Визуализация данных из базы данных ClickHouse
-        href: ../solutions/datalens/data-from-ch-visualization.md
+        href: solutions/data-from-ch-visualization.md
       - name: Визуализация данных из Metriсa
-        href: ../solutions/datalens/data-from-metrica-visualization.md
+        href: solutions/data-from-metrica-visualization.md
       - name: Визуализация данных из Metriсa Logs API
-        href: ../solutions/datalens/data-from-metrica-logsapi-visualization.md
+        href: solutions/data-from-metrica-logsapi-visualization.md
       - name: Публикация в DataLens Public диаграммы с картой на основе CSV-файла
-        href: ../solutions/datalens/data-from-csv-to-public-visualization.md
+        href: solutions/data-from-csv-to-public-visualization.md
       - name: Визуализация данных из AppMetrica
-        href: ../solutions/datalens/data-from-appmetrica-visualization.md
+        href: solutions/data-from-appmetrica-visualization.md
       - name: Визуализация геоданных из CSV-файла
-        href: ../solutions/datalens/data-from-csv-geo-visualization.md
+        href: solutions/data-from-csv-geo-visualization.md
       - name: >-
           Визуализация данных из базы данных ClickHouse с геослоями из
           Marketplace
-        href: ../solutions/datalens/data-from-ch-to-geolayers-visualization.md
+        href: solutions/data-from-ch-to-geolayers-visualization.md
       - name: Визуализация данных из статистики подкастов Яндекс.Музыки
-        href: ../solutions/datalens/data-from-podcasts.md
+        href: solutions/data-from-podcasts.md
   - name: Пошаговые инструкции
     items:
       - name: Все инструкции

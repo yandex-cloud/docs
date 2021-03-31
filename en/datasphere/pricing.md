@@ -58,103 +58,10 @@ If you need to store large amounts of data that exceed the specified limits, use
 
 ## Pricing {#prices}
 
-### Unit cost {#unit}
 
-{% list tabs %}
 
-- Prices in USD
 
-    Number | Price per 1 second of calculation, <br>without VAT
-    ----- | ---- |
-    One unit | $0.000009
-
-- Prices in roubles
-
-    Number | Price per 1 second of calculation, <br>with VAT
-    ----- | ---- |
-    One unit | ₽0.00075 
-  
-{% endlist %}
-
-### Computing resource {#paug}
-
-{% list tabs %}
-
-- Prices in USD
-  
-    Configuration | Number of units <br> per configuration | Duration of <br>calculation | Price per calculation, <br>without VAT
-    ----- | ---- | ---- | ---- 
-    S (4 vCPU, 0 GPU) | 4 | 1 second | $0.000038
-    S (4 vCPU, 0 GPU) | 4 | 1 minute | $0.002307 
-    S (4 vCPU, 0 GPU) | 4 | 1 hour | $0.138461 
-    M (8 vCPU, 0 GPU) | 8 | 1 second | $0.000076
-    M (8 vCPU, 0 GPU) | 8 | 1 minute | $0.004614
-    M (8 vCPU, 0 GPU) | 8 | 1 hour | $0.276922
-    L (8 vCPU, 1 GPU) | 72 | 1 second | $0.000692
-    L (8 vCPU, 1 GPU) | 72 | 1 minute| $0.041538
-    L (8 vCPU, 1 GPU) | 72 | 1 hour | $2.492307
-    XL (32 vCPU, 4 GPU) | 288 | 1 second | $0.002768
-    XL (32 vCPU, 4 GPU) | 288 | 1 minute | $0.166152
-    XL (32 vCPU, 4 GPU) | 288 | 1 hour | $9.969228
-  
-- Prices in roubles
-  
-    Configuration | Number of units <br> per configuration | Duration of <br>calculation | Price per calculation, <br>with VAT
-    ----- | ---- | ---- | ---- 
-    S (4 vCPU, 0 GPU) | 4 | 1 second | ₽0.003
-    S (4 vCPU, 0 GPU) | 4 | 1 minute | ₽0.18
-    S (4 vCPU, 0 GPU) | 4 | 1 hour | ₽10.8
-    M (8 vCPU, 0 GPU) | 8 | 1 second | ₽0.006
-    M (8 vCPU, 0 GPU) | 8 | 1 minute | ₽0.36
-    M (8 vCPU, 0 GPU) | 8 | 1 hour | ₽21.6
-    L (8 vCPU, 1 GPU) | 72 | 1 second | ₽0.054
-    L (8 vCPU, 1 GPU) | 72 | 1 minute | ₽3.24
-    L (8 vCPU, 1 GPU) | 72 | 1 hour | ₽194.4 
-    XL (32 vCPU, 4 GPU) | 288 | 1 second | ₽0.216
-    XL (32 vCPU, 4 GPU) | 288 | 1 minute | ₽12.96
-    XL (32 vCPU, 4 GPU) | 288 | 1 hour | ₽777.6 
-  
-{% endlist %}
-
-### Performing asynchronous operations {#async}
-
-{% list tabs %}
-
-- Prices in USD
-
-    Configuration | Number of units |  Duration of <br>calculation | Price per calculation, <br>without VAT
-    ----- | ---- | ---- | -----
-    S (4 vCPU, 0 GPU) | 1 | 1 second | $0.000009
-    S (4 vCPU, 0 GPU) | 1 | 1 minute | $0.000576
-    S (4 vCPU, 0 GPU) | 1 | 1 hour | $0.034615
-    M (8 vCPU, 0 GPU) | 2 | 1 second | $0.000019
-    M (8 vCPU, 0 GPU) | 2 | 1 minute | $0.001153
-    M (8 vCPU, 0 GPU) | 2 | 1 hour | $0.069230 
-    L (8 vCPU, 1 GPU) | 15 | 1 second | $0.000144
-    L (8 vCPU, 1 GPU) | 15 | 1 minute | $0.008653
-    L (8 vCPU, 1 GPU) | 15 | 1 hour | $0.519230
-    XL (32 vCPU, 4 GPU) | 60  | 1 second | $0.000576
-    XL (32 vCPU, 4 GPU) | 60 | 1 minute | $0.034615
-    XL (32 vCPU, 4 GPU) | 60  | 1 hour  | $2.076923
-
-- Prices in roubles
-
-    Configuration | Number of units |  Duration of <br>calculation | Price per calculation, <br>with VAT
-    ----- | ---- | ---- | ----
-    S (4 vCPU, 0 GPU) | 1  | 1 second | ₽0.00075 
-    S (4 vCPU, 0 GPU) | 1  | 1 minute | ₽0.045
-    S (4 vCPU, 0 GPU) | 1  | 1 hour | ₽2.7
-    M (8 vCPU, 0 GPU) | 2 | 1 second | ₽0.0015
-    M (8 vCPU, 0 GPU) | 2 | 1 minute | ₽0.09
-    M (8 vCPU, 0 GPU) | 2 | 1 hour | ₽5.4
-    L (8 vCPU, 1 GPU) | 15 | 1 second | ₽0.01125 
-    L (8 vCPU, 1 GPU) | 15 | 1 minute | ₽0.675 
-    L (8 vCPU, 1 GPU) | 15 | 1 hour | ₽40.5 
-    XL (32 vCPU, 4 GPU) | 60 | 1 second  | ₽0.045 
-    XL (32 vCPU, 4 GPU) | 60 | 1 minute  | ₽2.7 
-    XL (32 vCPU, 4 GPU) | 60 | 1 hour  | ₽162 
-
-{% endlist %}
+{% include [usd.md](../_pricing/datasphere/usd.md) %}
 
 {% include [pricing-egress-traffic](../_includes/pricing/pricing-egress-traffic.md) %}
 
