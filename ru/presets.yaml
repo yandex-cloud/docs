@@ -44,6 +44,7 @@ default:
   tracker-full-name: Yandex Tracker
   alb-full-name: Yandex Application Load Balancer
   dns-full-name: Yandex Cloud DNS
+  at-full-name: Yandex Audit Trails
 
   # Полные имена сервисов без Yandex
   iam-name: Identity and Access Management
@@ -88,6 +89,7 @@ default:
   tracker-name: Tracker
   alb-name: Application Load Balancer
   dns-name: Cloud DNS
+  at-name: Audit Trails
 
   # Короткие имена
   iam-short-name: IAM
@@ -127,6 +129,7 @@ default:
   data-transfer-short-name: Data Transfer
   api-gw-short-name: API Gateway
   lockbox-short-name: Lockbox
+  at-short-name: Audit Trails
   price-per-hour-count-per-second: Цена указывается за 1 час использования. Тарификация посекундная.
   roles-cr-admin: container-registry.admin
   roles-cr-puller: container-registry.images.puller
