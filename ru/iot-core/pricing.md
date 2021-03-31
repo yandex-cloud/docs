@@ -31,9 +31,20 @@ editable: false
 
 ### Объем данных {#volumes}
 
-Категория ресурса | Цена за 1 млн, вкл. НДС
------ | -----
-Первые 100 000 сообщений в месяц | Не тарифицируются
-Количество сообщений, до 1 млн | 72,00 ₽
-Количество сообщений, от 1 до 5 млн | 65,00 ₽
-Количество сообщений, свыше 5 млн | 58,00 ₽
+{% if region == "ru" %}
+   
+{% include [rub.md](../_pricing/iot-core/rub.md) %}
+   
+{% endif %}
+   
+{% if region == "pre-kz" %}
+   
+{% include [kzt.md](../_pricing/iot-core/kzt.md) %}
+   
+{% endif %}
+   
+{% if region == "int" %}
+   
+{% include [usd.md](../_pricing/iot-core/usd.md) %}
+   
+{% endif %}
