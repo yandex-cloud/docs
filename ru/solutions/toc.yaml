@@ -162,3 +162,7 @@ items:
         href: iot/datalens.md
       - name: Мониторинг показаний датчиков и уведомления о событиях
         href: iot/monitoring.md
+  - name: Бессерверные технологии
+    items:
+      - name: Сокращатель ссылок
+        href: serverless/serverless_url_shortener.md
