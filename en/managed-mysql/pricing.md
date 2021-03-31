@@ -17,7 +17,7 @@ The cost of {{ mmy-name }} usage is based on:
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 
-### Use of DB hosts {#rules-hosts-uptime}
+### DB host usage {#rules-hosts-uptime}
 
 The cost is calculated for each hour of operation of the host in accordance with the allocated computing resources. Supported resource configurations are listed in the [{#T}](concepts/instance-types.md) section, prices for using vCPU and RAM — in the [Prices](#prices) section.
 
@@ -34,10 +34,9 @@ The following is charged:
 
     * Backups are stored free of charge as long as the combined size of the database and all backups is less than the storage volume selected.
 
-    * The number of hosts in the cluster does not affect the size of the storage and, consequently, that of free backups.
+    * The number of hosts in the cluster does not affect the size of the storage or free backups.
 
 The cost is specified for one month of use. The minimum billing unit is 1 GB per hour (for example, the cost of storing 1 GB for 1.5 hours is equal to the cost of storage for 2 hours).
-
 
 ## Discount for committed volumes of services (CVoS) {#cvos}
 
@@ -120,10 +119,9 @@ You can use a CVoS to order certain types of resources. For non-supported resour
 
 {% include notitle [pricing-egress-traffic](../_includes/pricing/pricing-egress-traffic.md) %}
 
+## Estimated prices for host classes {#calculated-host-price}
 
-## Estimated prices for host classes {#calculated-prices}
-
-Prices for the time of host uptime are calculated based on [host classes](concepts/instance-types.md) and the above prices for using vCPU and RAM for the corresponding platform. To accurately calculate the cost of the desired cluster, use the [calculator](https://cloud.yandex.com/services/managed-mysql#calculator).
+Prices for host uptime are calculated based on [host classes](concepts/instance-types.md) and the above prices for using vCPU and RAM for the corresponding platform. To accurately calculate the cost of the desired cluster, use the [calculator](https://cloud.yandex.com/services/managed-mysql#calculator).
 
 {% include [host-class-price-alert](../_includes/mdb/pricing-host-class-alert.md) %}
 

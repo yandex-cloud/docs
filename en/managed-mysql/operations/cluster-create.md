@@ -1,23 +1,21 @@
 # Creating {{ MY }} clusters
 
-{{ MY }} clusters are one or more database hosts that replication can be configured between. Replication is enabled by default in any cluster consisting of more than one host: the master host accepts write requests, synchronously duplicates changes in the primary replica, and does it asynchronously in all the others.
+{{ MY }} clusters are one or more database hosts that replication can be configured between. Replication is enabled by default in any cluster consisting of more than one host: the master host accepts write requests, then duplicates changes synchronously in the primary replica and asynchronously in all the others.
 
 {% if audience != "internal" %}
 
 The number of hosts that can be created with a {{ MY }} cluster depends on the storage option selected:
 
-  - When using network drives, you can request any number of hosts (from one to the current [quota](../concepts/limits.md) limit).
-  - When using SSDs, you can create at least three replicas along with the cluster (a minimum of three replicas is required to ensure fault tolerance). If the [available folder resources](../concepts/limits.md) are still sufficient after creating a cluster, you can add extra replicas.
-
-{% endif %}
-
-By default, {{ mmy-short-name }} limits the maximum number of connections to each {{ MY }} cluster host to ` 200 x <number of vCPUs on host>`. For example, for a [s1.micro class](../concepts/instance-types.md) host, the `max_connections` default parameter value is 400.
+- If you use network drives, the available number of hosts is limited to the current [quota](../concepts/limits.md).
+- If you use SSD disks, at least 3 replicas are created with a cluster to ensure fault tolerance.
 
 {% note info %}
 
 If database storage is 95% full, the cluster switches to read-only mode. Increase the storage size in advance.
 
 {% endnote %}
+
+{% endif %}
 
 ## How to create a {{ MY }} cluster {#create-cluster}
 
@@ -31,7 +29,7 @@ If database storage is 95% full, the cluster switches to read-only mode. Increas
 
   1. Click **Create cluster**.
 
-  1. Enter the cluster name in the **Cluster name** field. The cluster name must be unique within {{ yandex-cloud }}.
+  1. Enter a name for the cluster in the **Cluster name** field. The cluster name must be unique within {{ yandex-cloud }}.
 
   1. Select the environment where you want to create the cluster (you can't change the environment once the cluster is created):
       - `PRODUCTION`: For stable versions of your apps.
@@ -78,7 +76,7 @@ If database storage is 95% full, the cluster switches to read-only mode. Increas
 
      If there are no subnets in the folder, [create the necessary subnets](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
 
-  1. View a description of the CLI's create cluster command:
+  1. View a description of the CLI create cluster command:
 
       ```
       $ {{ yc-mdb-my }} cluster create --help
@@ -132,12 +130,12 @@ If database storage is 95% full, the cluster switches to read-only mode. Increas
        }
      
        user {
-         name     = "<user name>"
+         name     = "<username>"
          password = "<user password>"
          permission {
            database_name = "<database name>"
            roles         = ["ALL"]
-         } 
+         }
        }
      
        host {
@@ -173,6 +171,78 @@ If database storage is 95% full, the cluster switches to read-only mode. Increas
 ### Creating a single-host cluster {#creating-a-single-host-cluster}
 
 {% list tabs %}
+
+- CLI
+
+  To create a cluster with a single host, you should pass a single `--host` parameter.
+
+  Let's say we need to create a {{ MY }} cluster with the following characteristics:
+
+    {% if audience != "internal" %}
+    - Named `my-mysql`.
+    - Version `8.0`.
+    - In the `production` environment.
+    - In the `default` network.
+    - With one `{{ host-class }}` host in the `{{ subnet-id }}` subnet, in the `{{ zone-id }}` availability zone.
+    - With 20 GB fast network storage (`{{ disk-type-example }}`).
+    - With one user (`user1`) with the password `user1user1`.
+    - With 1 `db1` database, in which `user1` has full rights (the same as `GRANT ALL PRIVILEGES on db1.*`).
+
+    {% else %}
+    - Named `my-mysql`.
+    - Version `8.0`.
+    - In the `production` environment.
+    - With one `{{ host-class }}` host in the `man` availability zone.
+    - With 20 GB fast local storage (`local-ssd`).
+    - With one user (`user1`) with the password `user1user1`.
+    - With 1 `db1` database, in which `user1` has full rights (the same as `GRANT ALL PRIVILEGES on db1.*`).
+
+    {% endif %}
+
+  1. Run the command to create a cluster:
+
+      {% if audience != "internal" %}
+
+      ```bash
+      {{ yc-mdb-my }} cluster create \
+         --name="my-mysql" \
+         --mysql-version 8.0 \
+         --environment=production \
+         --network-name=default \
+         --host zone-id={{ host-net-example }} \
+         --resource-preset {{ host-class }} \
+         --disk-type {{ disk-type-example }} \
+         --disk-size 20 \
+         --user name=user1,password="user1user1" \
+         --database name=db1
+      ```
+
+      {% else %}
+
+      ```bash
+      {{ yc-mdb-my }} cluster create \
+         --name="my-mysql" \
+         --mysql-version 8.0 \
+         --environment=production \
+         --network-id=' ' \
+         --host zone-id=man \
+         --resource-preset {{ host-class }} \
+         --disk-type local-ssd \
+         --disk-size 20 \
+         --user name=user1,password="user1user1" \
+         --database name=db1
+      ```
+
+      {% endif %}
+
+  1. Run the command to change the `user1` user's permissions.
+
+      ```bash
+      {{ yc-mdb-my }} user grant-permission user1 \
+         --cluster-name="my-mysql" \
+         --database=db1 \
+         --permissions ALL
+      ```
 
 - Terraform
 
@@ -220,7 +290,7 @@ If database storage is 95% full, the cluster switches to read-only mode. Increas
       permission {
         database_name = "db1"
         roles         = ["ALL"]
-      } 
+      }
     }
   
     host {

@@ -29,7 +29,7 @@ You can add and remove databases, as well as view information about them.
 
 ## Creating a database {#add-db}
 
-The number of databases in a cluster is unlimited.
+There are no limits to the number of databases in a cluster.
 
 {% list tabs %}
 
@@ -39,7 +39,7 @@ The number of databases in a cluster is unlimited.
   1. If the owner of the new database still doesn't exist, [add the user](cluster-users.md#adduser).
   1. Select the **Databases** tab.
   1. Click **Add**.
-  1. Enter the database name and select its owner.
+  1. Enter a name for the database and click **Add**.
 
 - CLI
 
@@ -49,7 +49,7 @@ The number of databases in a cluster is unlimited.
 
   To create a database in a cluster:
 
-  1. See the description of the CLI's create database command:
+  1. View a description of the CLI create database command:
 
      ```
      $ {{ yc-mdb-my }} database create --help
@@ -58,7 +58,7 @@ The number of databases in a cluster is unlimited.
   1. Run the create database command:
 
      ```
-     $ {{ yc-mdb-my }} database create <database name> --cluster-name <cluster name>
+     $ {{ yc-mdb-my }} database create <database name> --cluster-name=<cluster name>
      ```
 
      {{ mmy-short-name }} runs the create database operation.
@@ -66,6 +66,12 @@ The number of databases in a cluster is unlimited.
   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
 
 {% endlist %}
+
+{% note info %}
+
+[Grant roles to the appropriate users](grant.md#grant-role) to access the created database.
+
+{% endnote %}
 
 ## Deleting a database {#remove-db}
 
@@ -88,13 +94,13 @@ The number of databases in a cluster is unlimited.
   $ {{ yc-mdb-my }} database delete <database name> --cluster-name=<cluster name>
   ```
 
-  The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
-  
+  The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
+
 {% endlist %}
 
 {% note warning %}
 
-Before creating a new database with the same name, wait for the delete operation to complete, otherwise the database being deleted is restored. Operation status can be obtained with a [list of cluster operations](cluster-list.md#list-operations).
+Before creating a new database with the same name, wait for the delete operation to complete, otherwise the database being deleted will be restored. Operation status can be obtained with a [list of cluster operations](cluster-list.md#list-operations).
 
 {% endnote %}
 

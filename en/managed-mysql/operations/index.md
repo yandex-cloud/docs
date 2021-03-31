@@ -3,6 +3,7 @@
 - [{#T}](cluster-list.md)
 - [{#T}](cluster-create.md)
 - [{#T}](cluster-stop.md)
+- [{#T}](web-sql-query.md)
 - [{#T}](data-migration.md)
 - [{#T}](connect.md)
 - [{#T}](cluster-backups.md)
@@ -12,5 +13,5 @@
 - [{#T}](db-settings.md)
 - [{#T}](datalens-connect.md)
 - [{#T}](cluster-users.md)
+- [{#T}](grant.md)
 - [{#T}](cluster-delete.md)
-
