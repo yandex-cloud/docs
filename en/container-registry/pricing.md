@@ -52,4 +52,20 @@ Here is an example of proportional calculation: let's say the user stores 15 GB 
 Storage_cost = Cost_per_GB_per_month * 15 * 12 / 24 / 30
 ```
 
-{% include [pricing-egress-traffic](../_includes/pricing/pricing-egress-traffic.md) %}
+{% if region == "ru" %}
+
+{% include [rub-egress-traffic.md](../_pricing/rub-egress-traffic.md) %}
+
+{% endif %}
+
+{% if region == "pre-kz" %}
+
+{% include [kzt-egress-traffic.md](../_pricing/kzt-egress-traffic.md) %}
+
+{% endif %}
+
+{% if region == "int" %}
+
+{% include [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
+
+{% endif %}

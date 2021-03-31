@@ -32,4 +32,20 @@ editable: false
 
 При тарификации каждые 64 КБ данных запроса считаются отдельным запросом. Например, запрос размером 63 КБ будет тарифицирован как один запрос, а 65 КБ (64 + 1) — уже как два запроса.
 
-{% include [pricing-egress-traffic.md](../_includes/pricing/pricing-egress-traffic.md) %}
+{% if region == "ru" %}
+
+{% include [rub-egress-traffic.md](../_pricing/rub-egress-traffic.md) %}
+
+{% endif %}
+
+{% if region == "pre-kz" %}
+
+{% include [kzt-egress-traffic.md](../_pricing/kzt-egress-traffic.md) %}
+
+{% endif %}
+
+{% if region == "int" %}
+
+{% include [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
+
+{% endif %}

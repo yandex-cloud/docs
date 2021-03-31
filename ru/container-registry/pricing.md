@@ -41,4 +41,20 @@ editable: false
 Цена_хранения = Цена_за_ГБ_в_месяц * 15 * 12 / 24 / 30
 ```
 
-{% include [pricing-egress-traffic](../_includes/pricing/pricing-egress-traffic.md) %}
+{% if region == "ru" %}
+
+{% include [rub-egress-traffic.md](../_pricing/rub-egress-traffic.md) %}
+
+{% endif %}
+
+{% if region == "pre-kz" %}
+
+{% include [kzt-egress-traffic.md](../_pricing/kzt-egress-traffic.md) %}
+
+{% endif %}
+
+{% if region == "int" %}
+
+{% include [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
+
+{% endif %}

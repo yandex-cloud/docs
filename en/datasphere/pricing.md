@@ -1,4 +1,4 @@
----
+1---
 editable: false
 ---
 # Pricing for {{ ml-platform-name }}
@@ -76,7 +76,20 @@ If you need to store large amounts of data that exceed the specified limits, use
 
 {% endif %}
 
-{% include [pricing-egress-traffic](../_includes/pricing/pricing-egress-traffic.md) %}
+{% if region == "ru" %}
 
+{% include [rub-egress-traffic.md](../_pricing/rub-egress-traffic.md) %}
 
+{% endif %}
 
+{% if region == "pre-kz" %}
+
+{% include [kzt-egress-traffic.md](../_pricing/kzt-egress-traffic.md) %}
+
+{% endif %}
+
+{% if region == "int" %}
+
+{% include [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
+
+{% endif %}

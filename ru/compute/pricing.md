@@ -223,4 +223,20 @@ RAM | 98,8800 ₽
 
 ### Исходящий трафик {#prices-traffic}
 
-{% include notitle [pricing-egress-traffic](../_includes/pricing/pricing-egress-traffic.md) %}
+{% if region == "ru" %}
+
+{% include notitle [rub-egress-traffic.md](../_pricing/rub-egress-traffic.md) %}
+
+{% endif %}
+
+{% if region == "pre-kz" %}
+
+{% include notitle [kzt-egress-traffic.md](../_pricing/kzt-egress-traffic.md) %}
+
+{% endif %}
+
+{% if region == "int" %}
+
+{% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
+
+{% endif %}
