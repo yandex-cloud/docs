@@ -60,6 +60,8 @@
 
   1. Если вы указали более одного хоста-брокера, то в блоке **Класс хоста {{ ZK }}** укажите характеристики [хостов {{ ZK }}](../concepts/index.md) для размещения в каждой выбранной зоне доступности.
 
+  1. При необходимости задайте [настройки {{ KF }}](../concepts/settings-list.md#cluster-settings).
+
   1. Нажмите кнопку **Создать кластер**.
 
   1. Дождитесь, когда кластер будет готов к работе: его статус на панели {{ mkf-short-name }} сменится на **Running**, а состояние — на **Alive**. Это может занять некоторое время.
@@ -94,6 +96,8 @@
          --security-group-ids <список идентификаторов групп безопасности>
       ```
 
+      При необходимости здесь же можно задать [настройки {{ KF }}](../concepts/settings-list.md#cluster-settings).
+
 - API
 
   Чтобы создать кластер, воспользуйтесь методом API [create](../api-ref/Cluster/create.md) и передайте в запросе:
@@ -113,9 +117,11 @@
 
         {% include [terraform-create-cluster-step-1](../../_includes/mdb/terraform-create-cluster-step-1.md) %}
 
+        При необходимости здесь же можно задать [настройки {{ KF }}](../concepts/settings-list.md#cluster-settings).
+
         Пример структуры конфигурационного файла:
 
-        ```go
+        ```hcl
         terraform {
           required_providers {
             yandex = {

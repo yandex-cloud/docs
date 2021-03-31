@@ -199,6 +199,7 @@ default:
   ZK: ZooKeeper
   MS: SQL Server
   RMQ: RabbitMQ
+  TF: Terraform
   tag-con: <code><b><small>Консоль управления</small></b></code>
   tag-cli: <code><b><small>CLI</small></b></code>
   tag-tf: <code><b><small>Terraform</small></b></code>

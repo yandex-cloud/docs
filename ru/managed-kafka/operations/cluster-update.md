@@ -3,17 +3,20 @@
 {% if api != "noshow" %}
 
 После создания кластера {{ KF }} вы можете:
-- [Изменить класс и количество хостов](#change-resource-preset).
-- [Изменить настройки хранилища](#change-disk-size).
+
+- [{#T}](#change-resource-preset).
+- [{#T}](#change-disk-size).
+- [Изменить настройки {{ KF }}](#change-kafka-settings).
 - [Переместить кластер](#move-cluster) из текущего каталога в другой каталог.
 - [Изменить группы безопасности кластера](#change-sg-set).
-
 
 {% else %}
 
 После создания кластера {{ KF }} вы можете:
-- [Изменить класс и количество хостов](#change-resource-preset).
-- [Изменить настройки хранилища](#change-disk-size).
+
+- [{#T}](#change-resource-preset).
+- [{#T}](#change-disk-size).
+- [Изменить настройки {{ KF }}](#change-kafka-settings).
 
 {% endif %}
 
@@ -170,11 +173,64 @@
 
 {% endlist %}
 
+## Изменить настройки {{ KF }} {#change-kafka-settings}
+
+{% list tabs %}
+
+- Консоль управления
+
+    1. Перейдите на страницу каталога и выберите сервис **{{ mkf-name }}**.
+    1. Выберите кластер и нажмите кнопку **Редактировать** на панели сверху.
+    1. Измените настройки {{ KF }}, нажав кнопку **Настроить** в блоке **Настройки Kafka**.
+
+        Подробнее см. в разделе [Настройки {{ KF }}](../concepts/settings-list.md).
+
+    1. Нажмите кнопку **Сохранить**.
+
+- CLI
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы изменить настройки {{ KF }}:
+
+    1. Посмотрите описание команды CLI для изменения настроек кластера:
+
+        ```bash
+        {{ yc-mdb-kf }} cluster update --help
+        ```
+
+    1. Измените [настройки {{ KF }}](../concepts/settings-list.md#cluster-settings) в команде изменения кластера (в примере приведены не все настройки):
+
+        ```bash
+        {{ yc-mdb-kf }} cluster update <имя кластера> \
+           --compression-type <тип сжатия> \
+           --log-flush-interval-messages <количество сообщений в логе, необходимое для их сброса на диск> \
+           --log-flush-interval-ms <максимальное время хранения сообщений в памяти перед сбросом на диск>
+        ```
+
 {% if api != "noshow" %}
+
+- API
+
+    Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
+
+    - Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
+    - Список настроек, которые необходимо изменить, в параметре `updateMask` (одной строкой через запятую). Если не задать этот параметр, метод API сбросит на значения по умолчанию все настройки кластера, которые не были явно указаны в запросе.
+    - Новые значения [настроек {{ KF }}](../concepts/settings-list.md#cluster-settings) в параметре:
+        - `configSpec.kafka.kafkaConfig_2_1`, если используете {{ KF }} версии `2.1`;
+        - `configSpec.kafka.kafkaConfig_2_6`, если используете {{ KF }} версии `2.6`.
+
+{% endif %}
+
+{% endlist %}
 
 ## Переместить кластер {#move-cluster}
 
 {% list tabs %}
+
+{% if api != "noshow" %}
 
 - API
 
@@ -182,9 +238,10 @@
   - Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
   - Идентификатор каталога назначения в параметре `destinationFolderId`.
 
+{% endif %}
+
 {% endlist %}
 
-{% endif %}
 ## Изменить группы безопасности {#change-sg-set}
 
 {% list tabs %}
