@@ -8,7 +8,7 @@ Specifics of background operations:
 * Running operations in the background does not guarantee their immediate execution.
 * In general, background operations may take longer than regular ones.
 * Background operations can run on [preemptible](../../compute/concepts/preemptible-vm.md) VMs and resources.
-* Different pricing policies apply to background operations. For more information, see [{#T}](../pricing.md#async).
+* Different pricing policies apply to background operations. For more information, see [{#T}](../pricing.md).
 
 ## Running a background operation {#run}
 

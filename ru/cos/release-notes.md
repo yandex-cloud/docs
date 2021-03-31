@@ -1,12 +1,17 @@
 # Релизы COI
 
-## Версия 2.0.3 {#latest-release}
+## Версия 2.0.4 {#latest-release}
+
+* Добавлен образ Container Optimized Image с поддержкой GPU
+(`yc compute image get-latest-from-family coi-base-gpu --folder-id standard-images`)
+
+## Предыдущие релизы {#previous-releases}
+
+### Версия 2.0.3 {#version2.0.3}
 
 * Включен строгий режим параметра ядра `net.ipv4.conf.all.rp_filter`.
 * Исправлена конфигурация утилиты `logrotate`.
 * Удален конфигурационный файл Docker `daemon.json`, ошибочно отключающий доступ из Docker-контейнера в интернет.
-
-## Предыдущие релизы {#previous-releases} 
 
 ### Версия 2.0.2 {#version2.0.2}
 
