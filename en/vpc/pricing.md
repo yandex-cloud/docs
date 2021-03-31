@@ -17,45 +17,49 @@ A public IP address can be in one of the following two states:
 
 1. **Active**: When a _dynamic_ or _static_ public IP address is linked to a running cloud resource.
 
-1. **Inactive**: When a _static_ public IP address isn't linked to a cloud resource or is linked to a stopped resource. The price of an inactive public static address is calculated by adding the price of a public IP address to the price for reserving an inactive public static IP address:
+1. **Inactive**: When a _static_ public IP address isn't linked to a cloud resource or is linked to a stopped resource. The price of an inactive public static address is calculated by adding the price of a public IP address to the price for reserving an inactive public static IP address. 
 
+   For example, if the cost of an hour of using a public IP address is $0.001953, and the cost of an hour of reserving an inactive public static IP address is $0.002538, the price of an inactive public static address will be:
+   
    > $0.001953 + $0.002538 = $0.004491 per hour, without VAT
 
-{% list tabs %}
+{% if region == "ru"%}
 
-- Prices in USD
-  
-  | Service | Rate for 1 hour, without VAT |
-  | ----- | ----- |
-  | Public IP address | $0.001953 |
-  | Reserving an inactive public static IP address | $0.002538 |
-  
-- Prices in roubles
-  
-  | Service | Rate for 1 hour, with VAT |
-  | ----- | ----- |
-  | Public IP address | ₽0.1524 |
-  | Reserving an inactive public static IP address | ₽0.1980 |
-  
-{% endlist %}
+{% include [rub-ip.md](../_pricing/vpc/rub-ip.md) %}
+
+{% endif %}
+
+{% if region == "pre-kz"%}
+
+{% include [kzt-ip.md](../_pricing/vpc/kzt-ip.md) %}
+
+{% endif %}
+
+{% if region == "int"%}
+
+{% include [usd-ip.md](../_pricing/vpc/usd-ip.md) %}
+
+{% endif %}
 
 ### DDoS protection {#prices-ddos-protection}
 
-{% list tabs %}
+{% if region == "ru"%}
 
-- Prices in USD
-  
-  | Service | Rate for 1 GB of traffic after filtering, without VAT | 
-  | ----- | ----- |
-  | Filtering incoming traffic to a public IP address with DDoS protection | $0.031153 |
-  
-- Prices in roubles
-  
-  | Service | Rate for 1 GB of traffic after filtering, with VAT | 
-  | ----- | ----- |
-  | Filtering incoming traffic to a public IP address with DDoS protection | ₽2.4300 |
-  
-{% endlist %}
+{% include [rub-ddos.md](../_pricing/vpc/rub-ddos.md) %}
+
+{% endif %}
+
+{% if region == "pre-kz"%}
+
+{% include [kzt-ddos.md](../_pricing/vpc/kzt-ddos.md) %}
+
+{% endif %}
+
+{% if region == "int"%}
+
+{% include [usd-ddos.md](../_pricing/vpc/usd-ddos.md) %}
+
+{% endif %}
 
 Filtered traffic is incoming traffic that the DDoS Protection filtering system passes to the user's cloud resources. Only filtered traffic is charged.
 
@@ -73,23 +77,5 @@ The [security group](concepts/security-groups.md) functionality is at the [Previ
 
 ### Outgoing traffic {#prices-traffic}
 
-Outgoing traffic from {{ yandex-cloud }} resources is charged within the relevant services. The cost of outgoing traffic is the same for all services.
-
-The minimum billable unit is 1 MB.
-
-{% list tabs %}
-
-- Prices in USD
-  | Resource category | Cost of 1 GB, without VAT |
-  | ----- | -----
-  | Outgoing traffic, <10 GB | $0 |
-  | Outgoing traffic, >10 GB | $0.012307 |
-  
-- Prices in roubles
-  | Resource category | Cost of 1 GB, with VAT |
-  | ----- | -----
-  | Outgoing traffic, <10 GB | ₽0 |
-  | Outgoing traffic, >10 GB | ₽0.9600 |
-  
-{% endlist %}
+{% include notitle [pricing-egress-traffic](../_includes/pricing/pricing-egress-traffic.md) %}
 
