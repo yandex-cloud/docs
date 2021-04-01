@@ -37,7 +37,13 @@ You can request detailed information about each {{ mmg-short-name }} cluster you
 
 - Management console
   1. Go to the folder page and select **{{ mmg-name }}**.
-  1. Click on the name of the cluster you need.
+  1. Click on the name of the cluster you need.
+
+  {% note tip %}
+
+  To request access to [Point-in-Time-Recovery](../concepts/backup.md) (PITR) in [Preview](../../overview/concepts/launch-stages.md) mode, click **Request access** next to **Point-in-time recovery** and fill out the form.
+
+  {% endnote %}
 
 - CLI
 
@@ -63,7 +69,7 @@ You can request detailed information about each {{ mmg-short-name }} cluster you
 
 - Management console
   1. Go to the folder page and select **{{ mmg-name }}**.
-  1. Click on the name of the cluster you need.
+  1. Click on the name of the cluster you need.
   1. Go to the **Operations** tab.
 
 - CLI

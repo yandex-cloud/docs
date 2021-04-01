@@ -1,6 +1,6 @@
 # Creating {{ MG }} clusters
 
-{{ MG }}clusters are one or more database hosts that replication can be configured between. Replication is enabled by default in any cluster consisting of more than one host (the primary host accepts write requests and asynchronously duplicates changes in the secondary hosts).
+{{ MG }} clusters are one or more database hosts that replication can be configured between. Replication is enabled by default in any cluster consisting of more than one host (the primary host accepts write requests and asynchronously duplicates changes in the secondary hosts).
 
 {% if audience != "internal" %}
 
@@ -9,28 +9,51 @@ The number of hosts that can be created with a {{ MG }} cluster depends on the s
   - When using network drives, you can request any number of hosts (from one to the current [quota](../concepts/limits.md) limit).
   - When using SSDs, you can create at least three replicas along with the cluster (a minimum of three replicas is required to ensure fault tolerance). If the [available folder resources](../concepts/limits.md) are still sufficient after creating a cluster, you can add extra replicas.
 
+{% note info %}
+
+Creation of {{ MG }} 3.6 clusters will be disabled in March 2021 due to the version 3.6 [End of Life](https://www.mongodb.com/support-policy).
+
+In April 2021, all existing clusters with this {{ MG }} version will be [forcibly upgraded](../qa/general.md#dbms-deprecated) to version 4.0. We recommend that you [upgrade](../operations/cluster-version-update.md) to the latest {{ MG }} versions in advance.
+
+{% endnote %}
+
 {% endif %}
 
 {% list tabs %}
 
 - Management console
+
   1. In the management console, select the folder where you want to create a DB cluster.
+
   1. Select **{{ mmg-name }}**.
+
   1. Click **Create cluster**.
+
   1. Enter the cluster name in the **Cluster name** field. The cluster name must be unique within the folder.
+
   1. Select the environment where you want to create the cluster (you can't change the environment once the cluster is created):
      - `PRODUCTION`: For stable versions of your apps.
      - `PRESTABLE`: For testing, including the {{ mmg-short-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
+
   1. Select the DBMS version.
+
   1. Select the host class that defines the technical specifications of the VMs where the DB hosts will be deployed. When you change the host class for the cluster, the characteristics of all existing hosts change, too.
+
   1. Under **Storage size**:
       - Select the type of storage, either a more flexible network type (**network-hdd** or **network-ssd**) or faster local SSD storage (**local-ssd**). The size of the local storage can only be changed in 100 GB increments.
       - Select the size to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
+
   1. Under **Database**, specify the DB attributes:
       - DB name.
       - Username.
       - User password. At least 8 characters.
+
   1. Under **Hosts**, select parameters for the database hosts created with the cluster (keep in mind that if you use SSDs when creating a {{ MG }} cluster, you can set at least three hosts). If you open **Advanced settings**, you can choose specific subnets for each host. By default, each host is created in a separate subnet.
+
+  1. If necessary, configure additional cluster settings:
+
+     {% include [mmg-extra-settings](../../_includes/mdb/mmg-extra-settings-web-console.md) %}
+
   1. Click **Create cluster**.
 
 - CLI
@@ -65,13 +88,13 @@ The number of hosts that can be created with a {{ MG }} cluster depends on the s
 
       ```
       $ {{ yc-mdb-mg }} cluster create \
-         --cluster-name <cluster name>
+         --name <cluster name> \
          --environment=<prestable or production> \
          --network-name <network name> \
          --host zone-id=<availability zone>,subnet-id=<subnet ID> \
          --mongod-resource-preset <host class> \
          --user name=<user name>, password=<user password> \
-         --database name=<database name>,owner=<database owner name> \
+         --database name=<database name> \
          --mongod-disk-type <network-hdd | network-ssd | local-ssd> \
          --mongod-disk-size <storage size in GB>
       ```
@@ -82,13 +105,13 @@ The number of hosts that can be created with a {{ MG }} cluster depends on the s
 
       ```
       $ {{ yc-mdb-mg }} cluster create \
-         --cluster-name <cluster name>
+         --name <cluster name> \
          --environment=<prestable or production> \
          --network-id {{ network-name }} \
          --host zone-id=<availability zone> \
          --mongod-resource-preset <host class> \
          --user name=<user name>, password=<user password> \
-         --database name=<database name>,owner=<database owner name> \
+         --database name=<database name> \
          --mongod-disk-type local-ssd \
          --mongod-disk-size <storage size in GB>
       ```
@@ -116,7 +139,7 @@ The number of hosts that can be created with a {{ MG }} cluster depends on the s
        network_id  = "<network ID>"
      
        cluster_config {
-         version = "MongoDB version: 3.6, 4.0, or 4.2"
+         version = "MongoDB version: 4.0, 4.2 or 4.4"
        }
      
        database {
@@ -146,7 +169,7 @@ The number of hosts that can be created with a {{ MG }} cluster depends on the s
      resource "yandex_vpc_network" "<network name>" { name = "<network name>" }
      
      resource "yandex_vpc_subnet" "<subnet name>" {
-       name           = "<subnet name>" 
+       name           = "<subnet name>"
        zone           = "<availability zone>"
        network_id     = "<network ID>"
        v4_cidr_blocks = ["<range>"]
@@ -167,7 +190,7 @@ The number of hosts that can be created with a {{ MG }} cluster depends on the s
 
 ## Examples {#examples}
 
-### Creating a single-host cluster {#Creating-single-host-cluster}
+### Creating a single-host cluster {#creating-a-single-host-cluster}
 
 {% list tabs %}
 
@@ -190,7 +213,7 @@ The number of hosts that can be created with a {{ MG }} cluster depends on the s
   - Named `mymg`.
   - In the `production` environment.
   - With one `{{ host-class }}` class host in the `{{ zone-id }}` availability zone.
-  - With 20 GB fast network storage (`local-ssd`).
+  - With 20 GB fast local storage (`local-ssd`).
   - With one user, `user1`, with the password `user1user1`.
   - With one database, `db1`.
 
@@ -202,7 +225,7 @@ The number of hosts that can be created with a {{ MG }} cluster depends on the s
 
   ```
   $ {{ yc-mdb-mg }} cluster create \
-       --cluster-name mymg \
+       --name mymg \
        --environment production \
        --network-name {{ network-name }} \
        --mongod-resource-preset {{ host-class }} \
@@ -217,7 +240,7 @@ The number of hosts that can be created with a {{ MG }} cluster depends on the s
 
   ```
   $ {{ yc-mdb-mg }} cluster create \
-       --cluster-name mymg \
+       --name mymg \
        --environment production \
        --network-id {{ network-name }} \
        --mongod-resource-preset {{ host-class }} \
@@ -234,11 +257,11 @@ The number of hosts that can be created with a {{ MG }} cluster depends on the s
 
   Let's say we need to create a {{ MG }} cluster and a network for it with the following characteristics:
   - Named `mymg`.
-  - Version `4.2`.
+  - Version `4.4`.
   - In the `PRODUCTION` environment.
   - In the cloud with ID `{{ tf-cloud-id }}`.
   - In a folder named `myfolder`.
-  - In a new network named `mynet`.
+  - Network: `mynet`.
   - With 1 `{{ host-class }}` class host in the new `mysubnet` subnet and `{{ zone-id }}` availability zone. The `mysubnet` subnet will have the range `10.5.0.0/24`.
   - With 20 GB fast network storage (`{{ disk-type-example }}`).
   - With one user, `user1`, with the password `user1user1`.
@@ -260,7 +283,7 @@ The number of hosts that can be created with a {{ MG }} cluster depends on the s
     network_id  = "${yandex_vpc_network.mynet.id}"
   
     cluster_config {
-      version = "4.2"
+      version = "4.4"
     }
   
     database {

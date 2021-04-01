@@ -16,6 +16,8 @@ default:
   vpc-full-name: Yandex Virtual Private Cloud
   ddos-protection-full-name: Yandex DDoS Protection
   monitoring-full-name: Yandex Monitoring
+  unified-agent-full-name: Yandex Unified Agent
+  prometheus-name: Prometheus
   dsvm-full-name: Yandex Data Science Virtual Machine
   speechkit-full-name: Yandex SpeechKit
   translate-full-name: Yandex Translate
@@ -37,9 +39,14 @@ default:
   certificate-manager-full-name: Yandex Certificate Manager
   data-transfer-full-name: Yandex Data Transfer
   api-gw-full-name: Yandex API Gateway
+  ig-full-name: Yandex Instance Groups
   lockbox-full-name: Yandex Lockbox
   tracker-full-name: Yandex Tracker
   alb-full-name: Yandex Application Load Balancer
+  dns-full-name: Yandex Cloud DNS
+  at-full-name: Yandex Audit Trails
+
+  # Full services names without Yandex
   iam-name: Identity and Access Management
   ig-name: Instance Groups
   resmgr-name: Resource Manager
@@ -81,6 +88,10 @@ default:
   lockbox-name: Lockbox
   tracker-name: Tracker
   alb-name: Application Load Balancer
+  dns-name: Cloud DNS
+  at-name: Audit Trails
+
+  # Short names
   iam-short-name: IAM
   resmgr-short-name: Resource Manager
   compute-short-name: Compute Cloud
@@ -94,6 +105,7 @@ default:
   mms-short-name: Managed Service for SQL Server
   mes-short-name: Managed Service for Elasticsearch
   monitoring-short-name: Monitoring
+  unified-agent-short-name: Unified Agent
   vpc-short-name: VPC
   ddos-protection-short-name: DDoS Protection
   dsvm-short-name: DSVM
@@ -117,6 +129,7 @@ default:
   data-transfer-short-name: Data Transfer
   api-gw-short-name: API Gateway
   lockbox-short-name: Lockbox
+  at-short-name: Audit Trails
   tracker-short-name: Tracker
   price-per-hour-count-per-second: Prices are shown for 1 hour of use. Billing occurs per second.
   roles-cr-admin: container-registry.admin
@@ -149,6 +162,7 @@ default:
   roles-viewer: viewer
   subjects-allUsers: allUsers
   subjects-allAuthenticatedUsers: allAuthenticatedUsers
+  subnet-id: b0rcctk2rvtr8efcch64
   s3-storage-host: storage.yandexcloud.net
   s3-web-host: website.yandexcloud.net
   yc-mdb-mg: yc managed-mongodb
@@ -183,6 +197,13 @@ default:
   ES: Elasticsearch
   ZK: ZooKeeper
   MS: SQL Server
+  RMQ: RabbitMQ
+  tag-con: <code><b><small>Консоль управления</small></b></code>
+  tag-cli: <code><b><small>CLI</small></b></code>
+  tag-tf: <code><b><small>Terraform</small></b></code>
+  tag-api: <code><b><small>API</small></b></code>
+  tag-sql: <code><b><small>SQL</small></b></code>
+  tag-all: <code><b><small>Все интерфейсы</small></b></code>
   zone-id: ru-central1-c
   host-class: s2.micro
   b1-nano: b1.nano (2 vCPU × 5%, 2 GB)
@@ -263,14 +284,36 @@ default:
   link-cloud-partners: https://partners.cloud.yandex.ru/
   link-app-android: https://play.google.com/store/apps/details?id=ru.yandex.cloud
   link-app-ios: https://apps.apple.com/ru/app/yandex-cloud/id1515465314
+  link-cloud-notifications: https://console.cloud.yandex.ru/cloud?section=incident-notifications
   tf-cloud-id: b1gq90dgh25bebiu75o
   yandex-cloud: Yandex.Cloud
+
+#Ports 
+  port-any: 0-65535
+  port-http: 80
+  port-https: 443
+  port-mch-cli: 9440
+  port-mch-http: 8443
+  port-mkf-ssl: 9091
+  port-mkf-text: 9092
+  port-mmg-sharded: 27017
+  port-mmg: 27018
+  port-mms: 1433
+  port-mmy: 3306
+  port-mpg: 6432
+  port-mrd-sentinel: 26379
+  port-mrd: 6379
+  port-ssh: 22
 internal:
   audience: internal
   console-link: yc.yandex-team.ru
+  s3-storage-host: s3.mds.yandex.net
+  yc-install-path: /mcdev/yandex-cli/install.sh
+  yc-windows-path: /mcdev/yandex-cli/install.ps1
   pem-path: https://crls.yandex.net/allCAs.pem
   dns-zone: db.yandex.net
   network-name: ' '
+  security-group: enp6saqnq4ie244g67sb
   host-net-example: zone-id=vla
   disk-type-example: local-ssd
   PG: PostgreSQL
@@ -286,6 +329,13 @@ internal:
   ES: Elasticsearch
   ZK: ZooKeeper
   MS: Microsoft SQL Server
+  RMQ: RabbitMQ
+  tag-con: <code><b><small>Консоль управления</small></b></code>
+  tag-cli: <code><b><small>CLI</small></b></code>
+  tag-tf: <code><b><small>Terraform</small></b></code>
+  tag-api: <code><b><small>API</small></b></code>
+  tag-sql: <code><b><small>SQL</small></b></code>
+  tag-all: <code><b><small>Все интерфейсы</small></b></code>
   zone-id: vla
   host-class: db1.micro
   mch-backup-retention: 7
@@ -302,11 +352,13 @@ internal:
     https://oauth.yandex.com/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb
   link-cloud-partners: https://partners.cloud.yandex.ru/
   tf-cloud-id: b1gq90dgh25bebiu75o
+  tf-folder-id: b1go92dnv7b9u8f21mnj
 external:
   audience: external
   console-link: console.cloud.yandex.com
   host-class: s2.micro
   network-name: default-net
+  security-group: enp6saqnq4ie244g67sb
   zone-id: ru-central1-c
   link-console-billing: https://console.cloud.yandex.com/billing
   link-console-main: https://console.cloud.yandex.com/
@@ -320,3 +372,4 @@ external:
     https://oauth.yandex.com/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb
   link-cloud-partners: https://partners.cloud.yandex.ru/
   tf-cloud-id: b1gq90dgh25bebiu75o
+  tf-folder-id: b1go92dnv7b9u8f21mnj

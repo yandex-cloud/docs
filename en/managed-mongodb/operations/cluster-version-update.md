@@ -1,28 +1,42 @@
 # Version update {{ MG }}
 
-You can update {{ mmg-name }} clusters to versions 4.0 and 4.2.
+You can upgrade {{ mmg-name }} clusters to versions 4.0, 4.2, or 4.4.
 
-## Before updating {#before-update}
+You can upgrade only to the version that immediately follows the current one, namely:
 
-Prior to updating the cluster, make sure this doesn't affect your apps:
+- From version 3.6 to version 4.0.
+- From version 4.0 to version 4.2.
+- From version 4.2 to version 4.4.
 
-1. View the revision history for versions [4.0](https://docs.mongodb.com/v4.0/release-notes/4.0/) and [4.2](https://docs.mongodb.com/v4.0/release-notes/) {{ MG }} and check if any of the revisions may affect how the app works.
-1. Try updating a test cluster (you can try deploying it from a backup of the main cluster).
-1. [Make a backup ](cluster-backups.md#create-backup) of the main cluster before updating.
+You need multiple steps to upgrade between versions that are farther apart. For example, to upgrade a cluster from 4.0 to 4.4, you need two steps: 4.0 → 4.2 → 4.4.
 
-## Updating a cluster {#start-update}
+{% note info %}
 
-To update a {{ mmg-name }} cluster:
+In April 2021, clusters running {{ MG }} 3.6 will be [forcibly upgraded](../qa/general.md#dbms-deprecated) to version 4.0 due to the version 3.6 [End of Life](https://www.mongodb.com/support-policy). We recommend that you upgrade to the latest {{ MG }} versions in advance.
+
+{% endnote %}
+
+## Before upgrading {#before-update}
+
+Prior to upgrading a cluster, make sure this doesn't affect your applications:
+
+1. View the revision history for {{ MG }} versions [4.0](https://docs.mongodb.com/v4.0/release-notes/4.0/), [4.2](https://docs.mongodb.com/v4.0/release-notes/), or [4.4](https://docs.mongodb.com/v4.4/release-notes/4.4/) and check if any of the revisions may affect your applications.
+1. Try upgrading a test cluster (you can try [deploying](cluster-backups.md#restore) it from a backup of the main cluster).
+1. [Back up](cluster-backups.md#create-backup) the main cluster prior to upgrading.
+
+## Upgrading a cluster {#start-update}
+
+To upgrade a {{ mmg-name }} cluster:
 
 {% list tabs %}
 
 - Management console
   1. Open the **{{ mmg-name }}** page in the folder with the cluster to be updated.
   1. Select the cluster from the list and click **Edit cluster**.
-  1. In the **Version** field, click *4.0* or *4.2*.
+  1. In the **Version** field, click *4.0*, *4.2*, or *4.4*.
   1. Click **Save changes**.
 
-  When the update starts, the cluster status switches to `UPDATING`. Wait for the operation to complete and then check the cluster version.
+  Once the update is launched, the cluster status changes to `UPDATING`. Wait for the operation to complete and then check the cluster version.
 
 - CLI
 
