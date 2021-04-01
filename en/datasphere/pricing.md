@@ -1,4 +1,4 @@
-1---
+---
 editable: false
 ---
 # Pricing for {{ ml-platform-name }}
