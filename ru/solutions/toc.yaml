@@ -165,4 +165,4 @@ items:
   - name: Бессерверные технологии
     items:
       - name: Сокращатель ссылок
-        href: serverless/serverless_url_shortener.md
+        href: serverless/serverless-url-shortener.md
