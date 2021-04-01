@@ -2,6 +2,7 @@ title: Партнерская программа Yandex.Cloud
 href: index.yaml
 items:
   - name: Пошаговые инструкции
+    expanded: true
     items:
       - name: Закрепить клиента в партнерском портале
         href: operations/pin-client.md

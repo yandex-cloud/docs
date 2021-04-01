@@ -1,0 +1,72 @@
+title: Yandex Lockbox
+href: index.yaml
+items:
+  - name: Начало работы
+    href: quickstart.md
+  - name: Квоты и лимиты
+    href: concepts/limits.md
+  - name: Управление доступом
+    href: security/index.md
+  - name: Правила тарификации
+    href: pricing.md
+  - name: Справочник API
+    items:
+      - name: Аутентификация в API
+        href: api-ref/authentication.md
+      - name: gRPC
+        items:
+          - name: Обзор
+            href: grpc/index.md
+          - name: PayloadService
+            href: grpc/payload_service.md
+          - name: SecretService
+            href: grpc/secret_service.md
+          - name: OperationService
+            href: grpc/operation_service.md
+      - name: REST
+        items:
+          - name: Обзор
+            href: api-ref/index.md
+          - name: Payload
+            items:
+              - name: Обзор
+                href: api-ref/Payload/index.md
+              - name: get
+                href: api-ref/Payload/get.md
+          - name: Secret
+            items:
+              - name: Обзор
+                href: api-ref/Secret/index.md
+              - name: activate
+                href: api-ref/Secret/activate.md
+              - name: addVersion
+                href: api-ref/Secret/addVersion.md
+              - name: cancelVersionDestruction
+                href: api-ref/Secret/cancelVersionDestruction.md
+              - name: create
+                href: api-ref/Secret/create.md
+              - name: deactivate
+                href: api-ref/Secret/deactivate.md
+              - name: delete
+                href: api-ref/Secret/delete.md
+              - name: get
+                href: api-ref/Secret/get.md
+              - name: list
+                href: api-ref/Secret/list.md
+              - name: listAccessBindings
+                href: api-ref/Secret/listAccessBindings.md
+              - name: listOperations
+                href: api-ref/Secret/listOperations.md
+              - name: listVersions
+                href: api-ref/Secret/listVersions.md
+              - name: scheduleVersionDestruction
+                href: api-ref/Secret/scheduleVersionDestruction.md
+              - name: setAccessBindings
+                href: api-ref/Secret/setAccessBindings.md
+              - name: update
+                href: api-ref/Secret/update.md
+              - name: updateAccessBindings
+                href: api-ref/Secret/updateAccessBindings.md
+  - name: Вопросы и ответы
+    href: qa/index.md
+base: ru/lockbox

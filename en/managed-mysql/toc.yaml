@@ -11,11 +11,13 @@ items:
         href: operations/cluster-list.md
       - name: Creating clusters
         href: operations/cluster-create.md
-      - name: Connecting to databases
+      - name: Connecting to a database
         href: operations/connect.md
       - name: Stopping and starting clusters
         href: operations/cluster-stop.md
-      - name: Changing clusters
+      - name: SQL queries in the management console
+        href: operations/web-sql-query.md
+      - name: Editing clusters
         href: operations/update.md
       - name: Connecting to DataLens
         href: operations/datalens-connect.md
@@ -25,20 +27,32 @@ items:
         href: operations/databases.md
       - name: Database setup
         href: operations/db-settings.md
-      - name: Managing database users
+      - name: Managing users
         href: operations/cluster-users.md
+      - name: Assigning privileges and roles
+        href: operations/grant.md
       - name: Managing backups
         href: operations/cluster-backups.md
       - name: Deleting clusters
         href: operations/cluster-delete.md
-      - name: Database migration to the Cloud
+      - name: Migrating databases to Yandex.Cloud
         href: operations/data-migration.md
+      - name: Monitoring the state of a cluster and hosts
+        href: operations/monitoring.md
   - name: Concepts
     items:
       - name: Relationship between service resources
         href: concepts/index.md
       - name: Host classes
-        href: concepts/instance-types.md
+        items:
+          - name: Active host classes
+            href: concepts/instance-types.md
+          - name: Archive
+            items:
+              - name: Before June 1, 2020
+                href: concepts/instance-types-archive/instance-types-01062020.md
+          - name: Using deprecated host classes
+            href: concepts/using-deprecated-instances.md
       - name: Network in Managed Service for MySQL
         href: concepts/network.md
       - name: Quotas and limits

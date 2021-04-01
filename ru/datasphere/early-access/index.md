@@ -16,4 +16,4 @@
 
 ## Сейчас в раннем доступе {#available-now}
 
-* [{#T}](repeat.md).
+* [{#T}](repeat.md)

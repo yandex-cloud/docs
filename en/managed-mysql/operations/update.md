@@ -10,9 +10,15 @@ After creating a cluster, you can:
 
 * [Change additional cluster settings](#change-additional-settings).
 
-## Change the host class {#change-resource-preset}
+## Changing the host class {#change-resource-preset}
 
 {% list tabs %}
+
+- Management console
+  1. Go to the folder page and select **{{ mmy-name }}**.
+  1. Select the cluster and click **Edit cluster** in the top panel.
+  1. To change the class of {{ MY }} hosts, under **Host class**, select the required class.
+  1. Click **Save changes**.
 
 - CLI
 
@@ -64,6 +70,12 @@ After creating a cluster, you can:
 
 {% list tabs %}
 
+- Management console
+  1. Go to the folder page and select **{{ mmy-name }}**.
+  1. Select the cluster and click **Edit cluster** in the top panel.
+  1. Under **Storage size**, specify the required value.
+  1. Click **Save changes**.
+
 - CLI
 
   {% include [cli-install](../../_includes/cli-install.md) %}
@@ -80,7 +92,7 @@ After creating a cluster, you can:
 
   1. Make sure the cloud's quota is sufficient to increase the storage size: open the [Quotas]({{ link-console-quotas }}) page for your cloud and check that the {{ mmy-full-name }} section still has space available in the **space** line.
 
-  1. Make sure the required cluster is using network storage (it is not yet possible to increase the size of local storage). To do this, request information about the cluster and find the `disk_type_id` field: it should be set to `network-hdd` or `network-ssd`:
+  1. Make sure the required cluster uses network storage (it's currently not possible to increase the size of local storage). To do this, request information about the cluster and find the `disk_type_id` field: it should be set to `network-hdd` or `network-ssd`:
 
       ```
       $ {{ yc-mdb-my }} cluster get <cluster name>
@@ -140,7 +152,7 @@ After creating a cluster, you can:
 
   To change {{ MY }} server settings:
 
-  1. View the description of the CLI's update cluster configuration command:
+  1. View a description of the CLI's update cluster configuration command:
 
       ```
       $ {{ yc-mdb-my }} cluster update-config --help

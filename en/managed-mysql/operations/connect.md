@@ -1,4 +1,4 @@
-# Connecting to a database in a cluster {{ MY }}
+# Connecting to a database in a {{ MY }} cluster
 
 You can connect to {{ mmy-short-name }} cluster hosts:
 
@@ -10,62 +10,79 @@ If public access is only configured for certain hosts in your cluster, automatic
 
 {% endnote %}
 
-## Configuring an SSL certificate {#Configuring-an-SSL-certificate}
+The maximum number of simultaneous connections to a {{ mmy-name }} cluster host is set by the `max_connections` parameter and by default is equal to `100 × <number of vCPU on the host> × <vCPU share on the host>`, but no less than `100`.
 
-{{ MY }}hosts with public access only support connections with an SSL certificate. You can prepare a certificate as follows:
+For example, for a [s1.micro](../concepts/instance-types.md) host with 2 vCPUs and a 100% share, the default value of the `max_connections` parameter is `200`: `100×2×1`.
+
+## Configuring an SSL certificate {#configuring-an-ssl-certificate}
+
+{{ MY }} hosts with public access only support connections with an SSL certificate. You can prepare a certificate as follows:
 
 
 ```bash
-$ mkdir ~/.mysql
-$ wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.mysql/root.crt
-$ chmod 0600 ~/.mysql/root.crt
+mkdir ~/.mysql && \
+wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.mysql/root.crt && \
+chmod 0600 ~/.mysql/root.crt
 ```
 
-## Connection string {#Connection-string}
+## Sample connection strings {#connection-string}
 
-Connect to the database using the command `mysql`.
+{% include [conn-strings-environment](../../_includes/mdb/mdb-conn-strings-env.md) %}
+
+You can connect to public {{ MY }} hosts only if you use an SSL certificate. Before connecting to such hosts, [prepare the certificate](#configuring-an-ssl-certificate).
+
+These examples assume that the `root.crt` certificate is located in the ` /home/<home directory>/.mysql/` folder.
+
+Connecting without an SSL certificate is only supported for hosts that are not publicly accessible. For connections to the database, traffic inside the virtual network isn't encrypted in this case.
+
+You can connect to a cluster using both regular FQDN hosts and [special FQDNs](#special-fqdns).
 
 {% include [see-fqdn-in-console](../../_includes/mdb/see-fqdn-in-console.md) %}
 
-{% list tabs %}
+{% include [mmy-connection-strings](../../_includes/mdb/mmy-conn-strings.md) %}
 
-- SSL
+If the connection to the cluster and the test query are successful, the {{ MY }} version is output.
 
-  {% include [public-connect-ssl](../../_includes/mdb/public-connect-ssl.md) %}
+## Special FQDNs {#special-fqdns}
 
-  ```bash
-  $ mysql --host=<host FQDN>
-          --port=3306
-          --ssl-ca=~/.mysql/root.crt
-          --ssl-mode=REQUIRED
-          --user=<name of database user>
-          --password <DB name>
-  ```
+Just like usual FQDNs, which can be requested with a [list of cluster hosts](hosts.md#list), {{ mmy-name }} provides a number of special FQDNs, which can also be used when connecting to a cluster.
 
-- Without SSL
+### Current master {#fqdn-master}
 
-  If you don't need to encrypt traffic within the virtual network when connecting to the database, you can connect to the database without an SSL connection. Pass the `--ssl-mode` parameter with the `DISABLED` value:
+An FQDN like `c-<cluster ID>.rw.{{ dns-zone }}` always points to the current master host in the cluster. The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  ```bash
-  $ mysql --host=<host FQDN>
-          --port=3306
-          --ssl-mode=DISABLED
-          --user=<name of database user>
-          --password <DB name>
-  ```
+When connecting to this FQDN, both read and write operations are allowed.
 
-{% endlist%}
-
-## Connecting to the master {#Connecting-to-master}
-
-Hosts will always identify the current master as `c-<cluster ID>.rw.{{ dns-zone }}`. For example, you can connect to the master of the cluster with the ID `c9qash3nb1v9ulc8j9nm` as follows:
+An example of connecting to a master host for a cluster with the ID `c9qash3nb1v9ulc8j9nm`:
 
 ```bash
-$ mysql --host=c-c9qash3nb1v9ulc8j9nm.rw.{{ dns-zone }}
-        --port=3306
-        --ssl-ca=~/.mysql/root.crt
-        --ssl-mode=REQUIRED
-        --user=<name of database user>
-        --password <DB name>
+mysql --host=c-c9qash3nb1v9ulc8j9nm.rw.{{ dns-zone }} \
+      --port=3306 \
+      --ssl-ca=~/.mysql/root.crt \
+      --ssl-mode=VERIFY_IDENTITY \
+      --user=<username> \
+      --password \
+      <DB name>
+```
+
+### The least lagging replica {#fqdn-replica}
+
+An FQDN like `c-<cluster ID>.ro.{{ dns-zone }}` points to the [replica](../concepts/replication.md) that is least lagging from the master host. The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+**Specifics:**
+
+- When connecting to this FQDN, only read operations are allowed.
+- If there are no active replicas in the cluster, you can't connect to this FQDN: the corresponding CNAME entry in the DNS will read `"null"`.
+
+An example of connecting to the least lagging replica for a cluster with the ID `c9qash3nb1v9ulc8j9nm`:
+
+```bash
+mysql --host=c-c9qash3nb1v9ulc8j9nm.ro.{{ dns-zone }} \
+      --port=3306 \
+      --ssl-ca=~/.mysql/root.crt \
+      --ssl-mode=VERIFY_IDENTITY \
+      --user=<username> \
+      --password \
+      <DB name>
 ```
 

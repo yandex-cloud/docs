@@ -31,15 +31,14 @@ editable: false
 
 ### Запросы к API-шлюзам {#request}
 
-Услуга | Цена за 1 млн запросов, <br>вкл. НДС
------ | -----
-Запросы к API-шлюзам,  до 100 000 запросов в месяц  | Не тарифицируется
-Запросы к API-шлюзам, свыше 100 000 запросов в месяц  | 75 ₽
 
-Оплачивается фактическое количество вызовов. Например, стоимость десяти тысяч вызовов составит `0,75 ₽`.
+{% include notitle [rub.md](../_pricing/api-gateway/rub.md) %}
+
+
 
 ### Исходящий трафик {#prices-traffic}
 
-{% include notitle [pricing-egress-traffic](../_includes/pricing/pricing-egress-traffic.md) %}
+
+{% include notitle [rub-egress-traffic.md](../_pricing/rub-egress-traffic.md) %}
 
 

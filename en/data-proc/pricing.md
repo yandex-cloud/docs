@@ -82,5 +82,7 @@ You can use GPUs on {{ dataproc-name }} hosts by submitting a request to [tech s
 
 ### Egress {#prices-traffic}
 
-{% include notitle [pricing-egress-traffic](../_includes/pricing/pricing-egress-traffic.md) %}
 
+
+
+{% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}

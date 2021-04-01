@@ -1,0 +1,21 @@
+title: Yandex Lockbox
+description:
+  - >-
+    <em>Cервис Lockbox находится на <a
+    href="/docs/overview/concepts/launch-stages">стадии Preview</a></em>.
+  - Yandex Lockbox — сервис для хранения секретов.
+meta:
+  title: Yandex Lockbox
+links:
+  - title: Начало работы
+    description: Создайте свой первый секрет
+    href: quickstart
+  - title: Квоты и лимиты
+    description: Технические и организационные ограничения сервиса
+    href: concepts/limits
+  - title: Управление доступом
+    description: Настройте права доступа для работы с сервисом
+    href: security/
+  - title: Правила тарификации
+    description: Цены и правила расчета стоимости услуг сервиса
+    href: pricing

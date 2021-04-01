@@ -57,10 +57,14 @@ items:
             href: operations/node-group/node-group-delete.md
   - name: Solutions
     items:
+      - name: All solutions
+        href: solutions/index.md
       - name: Integration with Container Registry
         href: solutions/container-registry.md
       - name: Running workloads with GPUs
         href: solutions/running-pod-gpu.md
+      - name: Installing the NGINX Ingress Controller with Let's Encrypt®
+        href: solutions/ingress-cert-manager.md
       - name: Making backups to Object Storage
         href: solutions/backup.md
   - name: Concepts

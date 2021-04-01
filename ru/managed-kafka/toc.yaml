@@ -47,6 +47,8 @@ items:
         href: concepts/limits.md
       - name: Типы хранилища
         href: concepts/storage.md
+      - name: Настройки Apache Kafka®
+        href: concepts/settings-list.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

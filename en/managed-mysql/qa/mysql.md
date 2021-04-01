@@ -4,7 +4,7 @@
 
 {{ mmy-short-name }} supports {{ MY }} 5.7 and {{ MY }} 8.
 
-#### Is DB cluster backup enabled by default? {#backup}
+#### Are DB cluster backups enabled by default? {#backup}
 
 Yes, backup is enabled by default. For {{ MY }} clusters, a full backup is performed once a day, saving all the database cluster transaction logs. This allows you to restore the cluster state to any point in time during the backup storage period, except for the last 30 seconds.
 

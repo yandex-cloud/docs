@@ -80,7 +80,9 @@ RAM (за 1 ГБ) | 0,28 ₽ | 0,18 ₽ (-36%) | 0,14 ₽ (-50%)
 
 ### Исходящий трафик {#prices-traffic}
 
-{% include notitle [pricing-egress-traffic](../_includes/pricing/pricing-egress-traffic.md) %}
+
+{% include notitle [rub-egress-traffic.md](../_pricing/rub-egress-traffic.md) %}
+
 
 
 ## Расчетные цены для конфигураций хостов {#calculated-prices}

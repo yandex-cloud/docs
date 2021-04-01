@@ -1,10 +1,12 @@
 # Backups
 
-{{ mmy-short-name }} provides automatic and manual database backups. Backups take up space in the storage allocated to the cluster. If the total amount of data and backups exceeds the amount of storage, the excess is charged at the corresponding [rates](../pricing.md).
+{{ mmy-short-name }} provides automatic and manual database backups. Backups take up space in the storage allocated to the cluster. If the total amount of data and backups exceeds the amount of storage space, the excess is [billed](../pricing.md).
 
 [A physical backup](https://dev.mysql.com/doc/refman/5.7/en/backup-types.html) of all cluster data is automatically created once a day. You currently can't disable automatic backups or change the storage period for automatic backups (7 days by default).
 
 The backup process start time is set when a cluster is created or updated. The backup will start within half an hour of the specified time. By default, the backup process starts at 22:00 UTC (Coordinated Universal Time).
+
+You can recover cluster data _from a given time point_ (Point-in-Time-Recovery, PITR). {{ mmy-name }} allows you to restore the state of a cluster from any time pont after the creation of the oldest full backup up to a given time. This is achieved by supplementing the backup selected as the starting point for recovery with entries from the write-ahead logs (WAL) of later backups and the cluster. To learn more about PITR, see the [documentation for {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/point-in-time-recovery.html).
 
 To restore a cluster from a backup, [follow the instructions](../operations/cluster-backups.md).
 
@@ -32,4 +34,3 @@ Backup integrity is checked on synthetic data using integration tests available 
 ### Checking backup recovery {#capabilities}
 
 To test the backup feature, [restore a cluster from a backup](../operations/cluster-backups.md) and check the integrity of your data.
-

@@ -90,8 +90,9 @@ To send an SMS, link a phone number to the user account.
     {% endnote %}
 
 - **Notification method**. The method for notifying users. Supported methods:
-  - Email;
-  - SMS.
+  - email;
+  - SMS;
+  - push notifications in the {{ yandex-cloud }} [mobile app](../../overview/mobile-app/index.md).
 
 After you create a channel, the additional parameters become available:
 

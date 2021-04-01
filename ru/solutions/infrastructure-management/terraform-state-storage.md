@@ -48,7 +48,7 @@
 
 ## Установите Terraform {#install-terraform}
 
-{% include [terraform-install](../_solutions_includes/terraform-install.md) %}
+{% include [terraform-install](../../_includes/solutions/terraform-install.md) %}
 
 ## Создайте файл конфигурации Terraform {#configure-terraform}
 
@@ -57,7 +57,7 @@
 
 ## Настройте провайдер {#configure-provider}
 
-{% include [terraform-configure-provider](../_solutions_includes/terraform-configure-provider.md) %}
+{% include [terraform-configure-provider](../../_includes/solutions/terraform-configure-provider.md) %}
 
 ## Создайте сервисный аккаунт и статический ключ доступа {#create-service-account}
 

@@ -25,7 +25,7 @@ You can use the following settings:
 
   - `transaction-isolation-serializable`: The strictest isolation level of all those mentioned.
 
-  All queries in the current transaction only see the strings that were committed before the first query to select and update data that was executed in this transaction. If the overlap of read and write operations of parallel serializable transactions can lead to a situation that is impossible when executed sequentially, one of the transactions is rolled back with the "serialization failure" error.
+    All queries in the current transaction only see the strings that were committed before the first query to select and update data that was executed in this transaction. If the overlap of read and write operations of parallel serializable transactions can lead to a situation that is impossible when executed sequentially, one of the transactions is rolled back with the "serialization failure" error.
 
   For more information about isolation levels, see the [documentation for {{ PG }}](https://www.postgresql.org/docs/current/transaction-iso.html).
 
