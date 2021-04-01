@@ -1,0 +1,7 @@
+title: "Search similar images"
+stage: tech-preview
+href: index.yaml
+editable: false
+items:
+  - name: Search similar images
+    href: image-copy.md
