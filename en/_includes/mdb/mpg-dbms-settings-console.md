@@ -66,9 +66,9 @@ You can use the following settings:
 
   For more information, see the [documentation for {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-logging.html).
 
-- **Temp file limit**: The maximum amount of disk space (KB) that a single process can use for temporary files. A transaction that tries to exceed this limit will be canceled.
+- **Temp file limit**: The maximum amount of disk space (bytes) that a single process can use for temporary files. A transaction that tries to exceed this limit will be canceled.
 
-  Large queries, due to their size, are executed in the disk space rather than in RAM. Queries that are too large can overload the disk and prevent other quieres from being executed. This setting prevents queries that can greatly affect performance by limiting the size of temporary files.
+   Large queries, due to their size, are executed in the disk space rather than in RAM. Queries that are too large can overload the disk and prevent other quieres from being executed. This setting prevents queries that can greatly affect performance by limiting the size of temporary files.
 
   The default value is `-1` (no limitations).
 

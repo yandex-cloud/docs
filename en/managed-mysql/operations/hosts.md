@@ -57,7 +57,7 @@ The number of hosts in {{ mmy-short-name }} clusters is limited by the CPU and R
      - Subnet (if the necessary subnet is not in the list, [create it](../../vpc/operations/subnet-create.md)).
      - Priority of the host as a {{ MY }} replica.
      - Replication source (if you use cascading replication).
-     - Select the **Public access** option if the host must be accessible from outside the Cloud.
+     - Select the **Public access** option if the host must be accessible from outside {{ yandex-cloud }}.
 
 - CLI
 
@@ -84,7 +84,7 @@ The number of hosts in {{ mmy-short-name }} clusters is limited by the CPU and R
 
       If the necessary subnet is not in the list, [create it](../../vpc/operations/subnet-create.md).
 
-  1. See the description of the CLI command for adding a host:
+  1. View a description of the CLI command for adding a host:
 
      ```
      $ {{ yc-mdb-my }} host add --help
@@ -108,7 +108,7 @@ The number of hosts in {{ mmy-short-name }} clusters is limited by the CPU and R
 
 {% endlist %}
 
-## Removing a host {#remove}
+## Deleting a host {#remove}
 
 You can remove a host from a {{ MY }} cluster if it is not the only host in it. To replace a single host, first create a new host and then remove the old one.
 
@@ -130,7 +130,7 @@ If the host is the master when deleted, {{ mmy-short-name }} automatically assig
   To remove a host from the cluster, run:
 
   ```
-  $ {{ yc-mdb-my }} host delete <hostname>
+  $ {{ yc-mdb-my }} host delete <host name>
        --cluster-name=<cluster name>
   ```
 

@@ -133,7 +133,10 @@ For the following products, funds are debited once for the calendar month in adv
 
 ### Outgoing traffic {#prices-traffic}
 
-{% include notitle [pricing-egress-traffic](../_includes/pricing/pricing-egress-traffic.md) %}
+
+
+
+{% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
 
 ## Estimated prices for host classes {#calculated-prices}
 

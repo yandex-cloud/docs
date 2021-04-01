@@ -81,7 +81,7 @@
   pip3 install kafka-python lz4 python-snappy crc32c
   ```
 
-  **Example code for delivering a message to a topic:**
+  **Example code for sending a message to a topic:**
 
   `producer.py`
 
@@ -100,7 +100,7 @@
   producer.close()
   ```
 
-  **Code example for getting messages from a topic:**
+  **Code example for receiving messages from a topic:**
 
   `consumer.py`
 
@@ -139,7 +139,7 @@
   pip3 install kafka-python lz4 python-snappy crc32c
   ```
 
-  **Example code for delivering a message to a topic:**
+  **Example code for sending a message to a topic:**
 
   `producer.py`
 
@@ -159,7 +159,7 @@
   producer.close()
   ```
 
-  **Code example for getting messages from a topic:**
+  **Code example for receiving messages from a topic:**
 
   `consumer.py`
 
@@ -188,6 +188,214 @@
 
   ```bash
   python3 consumer.py
+  ```
+
+- Node.js
+
+  **Before connecting, install the dependencies:**
+
+  ```bash
+  sudo apt update && sudo apt install -y nodejs npm && \
+  npm install node-rdkafka
+  ```
+
+  **Example code for sending messages to a topic:**
+
+  `producer.js`
+
+  ```js
+  "use strict"
+  const Kafka = require('node-rdkafka');
+  
+  const MSG_COUNT = 5;
+  
+  const HOST = "<FQDN of the broker>:9092";
+  const TOPIC = "<topic name>";
+  const USER = "<producer name>";
+  const PASS = "<producer password>";
+  
+  const producer = new Kafka.Producer({
+      'bootstrap.servers': HOST,
+      'sasl.username': USER,
+      'sasl.password': PASS,
+      'security.protocol': "SASL_PLAINTEXT",
+      'sasl.mechanisms': "SCRAM-SHA-512"
+    });
+  
+  producer.connect();
+  
+  producer.on('ready', function() {
+    try {
+      for (let i = 0; i < MSG_COUNT; ++i) {
+        producer.produce(TOPIC, -1, Buffer.from("test message"), "key");
+        console.log("Produced: test message");
+      }
+  
+      producer.flush(10000, () => {
+          producer.disconnect();
+        });
+    } catch (err) {
+      console.error('Error');
+      console.error(err);
+    }
+  });
+  ```
+
+  **Code example for receiving messages from a topic:**
+
+  `consumer.js`
+
+  ```js
+  "use strict"
+  const Kafka = require('node-rdkafka');
+  
+  const MSG_COUNT = 5;
+  
+  const HOST = "<FQDN of the broker>:9092";
+  const TOPIC = "<topic name>";
+  const USER = "<consumer name>";
+  const PASS = "<consumer password>";
+  
+  const consumer = new Kafka.Consumer({
+      'bootstrap.servers': HOST,
+      'sasl.username': USER,
+      'sasl.password': PASS,
+      'security.protocol': "SASL_PLAINTEXT",
+      'sasl.mechanisms': "SCRAM-SHA-512",
+    'group.id': "demo"
+  });
+  
+  consumer.connect();
+  
+  consumer
+    .on('ready', function() {
+      consumer.subscribe([TOPIC]);
+      consumer.consume();
+    })
+    .on('data', function(data) {
+      console.log(data.value.toString());
+    });
+  
+  process.on('SIGINT', () => {
+      console.log('\nDisconnecting consumer ...');
+      consumer.disconnect();
+  });
+  ```
+
+  **Running applications:**
+
+  ```bash
+  node producer.js
+  ```
+
+  ```bash
+  node consumer.js
+  ```
+
+- Node.js (SSL)
+
+  **Before connecting, install the dependencies:**
+
+  ```bash
+  sudo apt update && sudo apt install -y nodejs npm && \
+  npm install node-rdkafka
+  ```
+
+  **Example code for sending messages to a topic:**
+
+  `producer.js`
+
+  ```js
+  "use strict"
+  const Kafka = require('node-rdkafka');
+  
+  const MSG_COUNT = 5;
+  
+  const HOST = "<FQDN of the broker>:9091";
+  const TOPIC = "<topic name>";
+  const USER = "<producer name>";
+  const PASS = "<producer password>";
+  const CA_FILE = "/usr/local/share/ca-certificates/Yandex/YandexCA.crt";
+  
+  const producer = new Kafka.Producer({
+      'bootstrap.servers': HOST,
+      'sasl.username': USER,
+      'sasl.password': PASS,
+      'security.protocol': "SASL_SSL",
+      'ssl.ca.location': CA_FILE, 
+      'sasl.mechanisms': "SCRAM-SHA-512"
+    });
+  
+  producer.connect();
+  
+  producer.on('ready', function() {
+    try {
+      for (let i = 0; i < MSG_COUNT; ++i) {
+        producer.produce(TOPIC, -1, Buffer.from("test message"), "key");
+        console.log("Produced: test message");
+      }
+  
+      producer.flush(10000, () => {
+          producer.disconnect();
+        });
+    } catch (err) {
+      console.error('Error');
+      console.error(err);
+    }
+  });
+  ```
+
+  **Code example for receiving messages from a topic:**
+
+  `consumer.js`
+
+  ```js
+  "use strict"
+  const Kafka = require('node-rdkafka');
+  
+  const MSG_COUNT = 5;
+  
+  const HOST = "<FQDN of the broker>:9091";
+  const TOPIC = "<topic name>";
+  const USER = "<consumer name>";
+  const PASS = "<consumer password>";
+  const CA_FILE = "/usr/local/share/ca-certificates/Yandex/YandexCA.crt";
+  
+  const consumer = new Kafka.Consumer({
+      'bootstrap.servers': HOST,
+      'sasl.username': USER,
+      'sasl.password': PASS,
+      'security.protocol': "SASL_SSL",
+      'ssl.ca.location': CA_FILE, 
+      'sasl.mechanisms': "SCRAM-SHA-512",
+    'group.id': "demo"
+  });
+  
+  consumer.connect();
+  
+  consumer
+    .on('ready', function() {
+      consumer.subscribe([TOPIC]);
+      consumer.consume();
+    })
+    .on('data', function(data) {
+      console.log(data.value.toString());
+    });
+  
+  process.on('SIGINT', () => {
+      console.log('\nDisconnecting consumer ...');
+      consumer.disconnect();
+  });
+  ```
+
+  **Running applications:**
+
+  ```bash
+  node producer.js
+  ```
+
+  ```bash
+  node consumer.js
   ```
 
 - Java
@@ -300,7 +508,7 @@
       cp pom.xml producer/pom.xml && cp pom.xml consumer/pom.xml
       ```
 
-  **Example code for delivering messages to a topic:**
+  **Example code for sending messages to a topic:**
 
   `producer/src/java/com/example/App.java`
 
@@ -354,7 +562,7 @@
   }
   ```
 
-  **Code example for getting messages from a topic:**
+  **Code example for receiving messages from a topic:**
 
   `consumer/src/java/com/example/App.java`
 
@@ -539,7 +747,7 @@
       cp pom.xml producer/pom.xml && cp pom.xml consumer/pom.xml
       ```
 
-  **Example code for delivering messages to a topic:**
+  **Example code for sending messages to a topic:**
 
   `producer/src/java/com/example/App.java`
 
@@ -597,7 +805,7 @@
   }
   ```
 
-  **Code example for getting messages from a topic:**
+  **Code example for receiving messages from a topic:**
 
   `consumer/src/java/com/example/App.java`
 
@@ -736,7 +944,7 @@
      cp scram.go producer/scram.go && cp scram.go consumer/scram.go
      ```
 
-  **Example code for delivering a message to a topic:**
+  **Example code for sending a message to a topic:**
 
   `producer/main.go`
 
@@ -791,7 +999,7 @@
   }
   ```
 
-  **Code example for getting messages from a topic:**
+  **Code example for receiving messages from a topic:**
 
   `consumer/main.go`
 
@@ -956,7 +1164,7 @@
      cp scram.go producer/scram.go && cp scram.go consumer/scram.go
      ```
 
-  **Example code for delivering a message to a topic:**
+  **Example code for sending a message to a topic:**
 
   `producer/main.go`
 
@@ -1029,7 +1237,7 @@
   }
   ```
 
-  **Code example for getting messages from a topic:**
+  **Code example for receiving messages from a topic:**
 
   `consumer/main.go`
 
@@ -1141,6 +1349,340 @@
 
   ```bash
   ~/go-project/consumer/consumer
+  ```
+
+- C#
+
+  **Before connecting:**
+
+  1. Install the dependencies:
+
+     ```bash
+     wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb && \
+     sudo dpkg -i packages-microsoft-prod.deb && \
+     sudo apt update && \
+     sudo apt-get install -y apt-transport-https dotnet-sdk-5.0
+     ```
+
+  1. Create a directory for the project:
+
+     ```bash
+     cd ~/ && mkdir cs-project && cd cs-project && mkdir -p consumer producer && cd ~/cs-project
+     ```
+
+  1. Create a configuration file:
+
+     `App.csproj`
+
+     ```csharp
+     <Project Sdk="Microsoft.NET.Sdk">
+        <PropertyGroup>
+          <OutputType>Exe</OutputType>
+          <TargetFramework>netcoreapp5.0</TargetFramework>
+        </PropertyGroup>
+     
+        <ItemGroup>
+           <PackageReference Include="Confluent.Kafka" Version="1.4.2" />
+        </ItemGroup>
+     </Project>
+     ```
+
+  1. Copy `App.csproj` to the directories of the producer application and consumer application:
+
+      ```bash
+      cp App.csproj producer/App.csproj && cp App.csproj consumer/App.csproj
+      ```
+
+  **Example code for sending messages to a topic:**
+
+  `cs-project/producer/Program.cs`
+
+  ```csharp
+  using Confluent.Kafka;
+  using System;
+  using System.Collections.Generic;
+  
+  namespace App
+  {
+      class Program
+      {
+          public static void Main(string[] args)
+          {
+              int MSG_COUNT = 5;
+  
+              string HOST = "<FQDN of the broker host>:9092";
+              string TOPIC = "<topic name>";
+              string USER = "<producer name>";
+              string PASS = "<producer password>";
+  
+              var producerConfig = new ProducerConfig(
+                   new Dictionary<string,string>{
+                       {"bootstrap.servers", HOST},
+                       {"security.protocol", "SASL_PLAINTEXT"},
+                       {"sasl.mechanisms", "SCRAM-SHA-512"},
+                       {"sasl.username", USER},
+                       {"sasl.password", PASS}
+                   }
+               );
+  
+               var producer = new ProducerBuilder<string, string>(producerConfig).Build();
+  
+               for(int i=0; i<MSG_COUNT; i++)
+               {
+                   producer.Produce(TOPIC, new Message<string, string> { Key = "key", Value = "test message" },
+                   (deliveryReport) =>
+                       {
+                           if (deliveryReport.Error.Code != ErrorCode.NoError)
+                           {
+                               Console.WriteLine($"Failed to deliver message: {deliveryReport.Error.Reason}");
+                           }
+                           else
+                           {
+                               Console.WriteLine($"Produced message to: {deliveryReport.TopicPartitionOffset}");
+                           }
+                       });
+               }
+  
+               producer.Flush(TimeSpan.FromSeconds(10));
+          }
+      } 
+  }
+  ```
+
+  **Code example for receiving messages from a topic:**
+
+  `cs-project/consumer/Program.cs`
+
+  ```csharp
+  using Confluent.Kafka;
+  using System;
+  using System.Collections.Generic;
+  
+  namespace CCloud
+  {
+      class Program
+      {
+          public static void Main(string[] args)
+          {
+              string HOST = "<FQDN of the broker host>:9092";
+              string TOPIC = "<topic name>";
+              string USER = "<consumer name>";
+              string PASS = "<consumer password>";
+  
+              var consumerConfig = new ConsumerConfig(
+                        new Dictionary<string,string>{
+                                {"bootstrap.servers", HOST},
+                                {"security.protocol", "SASL_PLAINTEXT"},
+                                {"sasl.mechanisms", "SCRAM-SHA-512"},
+                                {"sasl.username", USER},
+                                {"sasl.password", PASS},
+                                {"group.id", "demo"}
+                        }
+                );
+  
+               var consumer = new ConsumerBuilder<string, string>(consumerConfig).Build();
+               consumer.Subscribe(TOPIC);
+               try
+               {
+                  while (true)
+                  {
+                        var cr = consumer.Consume();
+                        Console.WriteLine(cr.Message.Value);
+                  }
+                }
+                catch (OperationCanceledException)
+                {
+                    // Ctrl-C was pressed.
+                }
+                finally
+                {
+                    consumer.Close();
+                }
+            }
+  
+        }
+  }
+  ```
+
+  **Building and launching applications:**
+
+  ```bash
+  cd ~/cs-project/producer && dotnet build && \
+  dotnet run bin/Debug/netcoreapp5.0/App.dll 
+  ```
+
+  ```bash
+  cd ~/cs-project/consumer && dotnet build && \
+  dotnet run bin/Debug/netcoreapp5.0/App.dll  
+  ```
+
+- C# (SSL)
+
+  **Before connecting:**
+
+  1. Install the dependencies:
+
+     ```bash
+     wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb && \
+     sudo dpkg -i packages-microsoft-prod.deb && \
+     sudo apt update && \
+     sudo apt-get install -y apt-transport-https dotnet-sdk-5.0
+     ```
+
+  1. Create a directory for the project:
+
+     ```bash
+     cd ~/ && mkdir cs-project && cd cs-project && mkdir -p consumer producer && cd ~/cs-project
+     ```
+
+  1. Create a configuration file:
+
+     `App.csproj`
+
+     ```csharp
+     <Project Sdk="Microsoft.NET.Sdk">
+        <PropertyGroup>
+          <OutputType>Exe</OutputType>
+          <TargetFramework>netcoreapp5.0</TargetFramework>
+        </PropertyGroup>
+     
+        <ItemGroup>
+           <PackageReference Include="Confluent.Kafka" Version="1.4.2" />
+        </ItemGroup>
+     </Project>
+     ```
+
+  1. Copy `App.csproj` to the directories of the producer application and consumer application:
+
+      ```bash
+      cp App.csproj producer/App.csproj && cp App.csproj consumer/App.csproj
+      ```
+
+  **Example code for sending messages to a topic:**
+
+  `cs-project/producer/Program.cs`
+
+  ```csharp
+  using Confluent.Kafka;
+  using System;
+  using System.Collections.Generic;
+  
+  namespace App
+  {
+      class Program
+      {
+          public static void Main(string[] args)
+          {
+              int MSG_COUNT = 5;
+  
+              string HOST = "<FQDN of the broker host>:9091";
+              string TOPIC = "<topic name>";
+              string USER = "<producer name>";
+              string PASS = "<producer password>";
+              string CA_FILE = "/usr/local/share/ca-certificates/Yandex/YandexCA.crt";
+  
+              var producerConfig = new ProducerConfig(
+                   new Dictionary<string,string>{
+                       {"bootstrap.servers", HOST},
+                       {"security.protocol", "SASL_SSL"},
+                       {"ssl.ca.location", CA_FILE}, 
+                       {"sasl.mechanisms", "SCRAM-SHA-512"},
+                       {"sasl.username", USER},
+                       {"sasl.password", PASS}
+                   }
+               );
+  
+               var producer = new ProducerBuilder<string, string>(producerConfig).Build();
+  
+               for(int i=0; i<MSG_COUNT; i++)
+               {
+                   producer.Produce(TOPIC, new Message<string, string> { Key = "key", Value = "test message" },
+                   (deliveryReport) =>
+                       {
+                           if (deliveryReport.Error.Code != ErrorCode.NoError)
+                           {
+                               Console.WriteLine($"Failed to deliver message: {deliveryReport.Error.Reason}");
+                           }
+                           else
+                           {
+                               Console.WriteLine($"Produced message to: {deliveryReport.TopicPartitionOffset}");
+                           }
+                       });
+               }
+  
+               producer.Flush(TimeSpan.FromSeconds(10));
+          }
+      } 
+  }
+  ```
+
+  **Code example for receiving messages from a topic:**
+
+  `cs-project/consumer/Program.cs`
+
+  ```csharp
+  using Confluent.Kafka;
+  using System;
+  using System.Collections.Generic;
+  
+  namespace CCloud
+  {
+      class Program
+      {
+          public static void Main(string[] args)
+          {
+              string HOST = "<FQDN of the broker host>:9091";
+              string TOPIC = "<topic name>";
+              string USER = "<consumer name>";
+              string PASS = "<consumer password>";
+              string CA_FILE = "/usr/local/share/ca-certificates/Yandex/YandexCA.crt";
+  
+              var consumerConfig = new ConsumerConfig(
+                        new Dictionary<string,string>{
+                                {"bootstrap.servers", HOST},
+                                {"security.protocol", "SASL_SSL"},
+                                {"ssl.ca.location", CA_FILE}, 
+                                {"sasl.mechanisms", "SCRAM-SHA-512"},
+                                {"sasl.username", USER},
+                                {"sasl.password", PASS},
+                                {"group.id", "demo"}
+                        }
+                );
+  
+               var consumer = new ConsumerBuilder<string, string>(consumerConfig).Build();
+               consumer.Subscribe(TOPIC);
+               try
+               {
+                  while (true)
+                  {
+                        var cr = consumer.Consume();
+                        Console.WriteLine(cr.Message.Value);
+                  }
+                }
+                catch (OperationCanceledException)
+                {
+                    // Ctrl-C was pressed.
+                }
+                finally
+                {
+                    consumer.Close();
+                }
+            }
+  
+        }
+  }
+  ```
+
+  **Building and launching applications:**
+
+  ```bash
+  cd ~/cs-project/producer && dotnet build && \
+  dotnet run bin/Debug/netcoreapp5.0/App.dll 
+  ```
+
+  ```bash
+  cd ~/cs-project/consumer && dotnet build && \
+  dotnet run bin/Debug/netcoreapp5.0/App.dll  
   ```
 
 {% endlist %}

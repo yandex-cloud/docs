@@ -106,7 +106,7 @@
          --resource-preset <класс хоста> \
          --user name=<имя пользователя>,password=<пароль пользователя> \
          --database name=<имя базы данных>,owner=<имя владельца базы данных> \
-         --disk-size <размер хранилища в гигабайтах>
+         --disk-size <размер хранилища в гигабайтах> \
          --security-group-ids <список идентификаторов групп безопасности>
       ```
 
@@ -119,15 +119,9 @@
         - Если в кластере есть несколько хостов с наибольшим приоритетом, то среди них проводятся выборы синхронной реплики.
         - Наименьший приоритет — `0` (по умолчанию), наивысший — `100`.
 
-      {% note warning %}
-
-      При использовании опции `--security-group-ids` может потребоваться [настройка групп безопасности](connect.md#configuring-security-groups) для подключения к кластеру.
-
-      {% endnote %}  
-
 - Terraform
 
-  {% include [terraform-definition](../../solutions/_solutions_includes/terraform-definition.md) %}
+  {% include [terraform-definition](../../_includes/solutions/terraform-definition.md) %}
 
   Если у вас ещё нет Terraform, [установите его и настройте провайдер](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
 
@@ -146,6 +140,7 @@
        name        = "<имя кластера>"
        environment = "<окружение, PRESTABLE или PRODUCTION>"
        network_id  = "<идентификатор сети>"
+       security_group_ids = [ "<список групп безопасности>" ]
 
        config {
          version = "<версия PostgreSQL: 10, 10-1с, 11, 11-1c, 12, 12-1c или 13>"
@@ -197,6 +192,11 @@
 
 {% endlist %}
 
+{% note warning %}
+
+Если вы указали идентификаторы групп безопасности при создании кластера, то для подключения к нему может потребоваться дополнительная [настройка групп безопасности](connect.md#configuring-security-groups).
+
+{% endnote %}  
 
 ## Примеры {#examples}
 
@@ -214,6 +214,7 @@
   - С именем `mypg`.
   - В окружении `production`.
   - В сети `default`.
+  - В группе безопасности `{{ security-group }}`.
   - С одним хостом класса `{{ host-class }}` в подсети `b0rcctk2rvtr8efcch64`, в зоне доступности `{{ zone-id }}`.
   - С быстрым сетевым хранилищем (`{{ disk-type-example }}`) объемом 20 ГБ.
   - С одним пользователем (`user1`), с паролем `user1user1`.
@@ -232,7 +233,8 @@
        --disk-type {{ disk-type-example }} \
        --disk-size 20 \
        --user name=user1,password=user1user1 \
-       --database name=db1,owner=user1
+       --database name=db1,owner=user1 \
+       --security-group-ids {{ security-group }}
   ```
 
 - Terraform
@@ -242,8 +244,9 @@
   - Версии `13`.
   - В окружении `PRESTABLE`.
   - В облаке с идентификатором `{{ tf-cloud-id }}`.
-  - В каталоге `myfolder`.
+  - В каталоге `{{ tf-folder-id }}`.
   - В новой сети `mynet`.
+  - В новой группе безопасности `pgsql-sg`, разрешающей подключение к кластеру из интернета через порт `6432`.
   - С одним хостом класса `{{ host-class }}` в новой подсети `mysubnet`, в зоне доступности `{{ zone-id }}`. Подсеть `mysubnet` будет иметь диапазон `10.5.0.0/24`.
   - С быстрым сетевым хранилищем (`{{ disk-type-example }}`) объемом 20 ГБ.
   - С одним пользователем (`user1`), с паролем `user1user1`.
@@ -255,21 +258,22 @@
   provider "yandex" {
     token     = "<OAuth или статический ключ сервисного аккаунта>"
     cloud_id  = "{{ tf-cloud-id }}"
-    folder_id = "${data.yandex_resourcemanager_folder.myfolder.id}"
+    folder_id = "{{ tf-folder-id }}"
     zone      = "{{ zone-id }}"
   }
 
   resource "yandex_mdb_postgresql_cluster" "mypg" {
     name        = "mypg"
     environment = "PRESTABLE"
-    network_id  = "${yandex_vpc_network.mynet.id}"
+    network_id  = yandex_vpc_network.mynet.id
+    security_group_ids = [ yandex_vpc_security_group.pgsql-sg.id ]
 
     config {
       version = 13
       resources {
         resource_preset_id = "{{ host-class }}"
         disk_type_id       = "{{ disk-type-example }}"
-        disk_size          = 20
+        disk_size          = "20"
       }
     }
 
@@ -288,7 +292,7 @@
 
     host {
       zone      = "{{ zone-id }}"
-      subnet_id = "${yandex_vpc_subnet.mysubnet.id}"
+      subnet_id = yandex_vpc_subnet.mysubnet.id
     }
   }
 
@@ -297,8 +301,20 @@
   resource "yandex_vpc_subnet" "mysubnet" {
     name           = "mysubnet"
     zone           = "{{ zone-id }}"
-    network_id     = "${yandex_vpc_network.mynet.id}"
+    network_id     = yandex_vpc_network.mynet.id
     v4_cidr_blocks = ["10.5.0.0/24"]
+  }
+  
+  resource "yandex_vpc_security_group" "pgsql-sg" {
+    name       = "pgsql-sg"
+    network_id = yandex_vpc_network.mynet.id
+
+    ingress {
+      description    = "PostgreSQL"
+      port           = 6432
+      protocol       = "TCP"
+      v4_cidr_blocks = [ "0.0.0.0/0" ]
+    }
   }
   ```
 

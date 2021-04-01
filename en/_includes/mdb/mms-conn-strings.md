@@ -55,7 +55,7 @@
       ```bash
       $ mssql-cli -U <username> \
                 -d <database name> \
-                -S ,1433 \
+                -S <FQDN of the host>,1433 \
                 -N
       ```
 

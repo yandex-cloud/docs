@@ -8,3 +8,5 @@
 
 - **Access from {{ datalens-name }}**: Enable this option to be able to analyze data from the cluster in [{{ datalens-full-name }}](../../datalens/concepts/index.md). For more information about setting up a connection, see [Connecting to {{ datalens-name }}](../../managed-mysql/operations/datalens-connect.md).
 
+- **Access from the management console**: Select this option to be able to [execute SQL queries](../../managed-mysql/operations/web-sql-query.md) to cluster databases from the {{ yandex-cloud }} management console.
+

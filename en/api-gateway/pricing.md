@@ -32,29 +32,13 @@ Where:
 ### API gateway requests {#request}
 
 
-{% list tabs %}
 
-- Prices in USD
 
-   | Service | Price per 1 million requests, <br>without VAT |
-   | ----- | ----- |
-   | Requests to API gateways, up to 100,000 requests per month | Free |
-   | Requests to the API gateway, more than 100,000 requests per month | $0.961538
- 
-   You pay for the actual number of invocations. For example, the cost of ten thousand invocations is `$0.00961538`.
-
-- Prices in roubles
-
-   | Service | Price per 1 million requests, <br>with VAT |
-   | ----- | ----- |
-   | Requests to API gateways, up to 100,000 requests per month | Free |
-   | Requests to the API gateway, more than 100,000 requests per month | ₽75 |
- 
-   You pay for the actual number of invocations. For example, the cost of ten thousand invocations is `₽0.75`.
-
-{% endlist %}
+{% include notitle [usd.md](../_pricing/api-gateway/usd.md) %}
 
 ### Outgoing traffic {#prices-traffic}
 
-{% include notitle [pricing-egress-traffic](../_includes/pricing/pricing-egress-traffic.md) %}
 
+
+
+{% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}

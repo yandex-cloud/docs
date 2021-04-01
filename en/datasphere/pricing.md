@@ -63,7 +63,7 @@ If you need to store large amounts of data that exceed the specified limits, use
 
 {% include [usd.md](../_pricing/datasphere/usd.md) %}
 
-{% include [pricing-egress-traffic](../_includes/pricing/pricing-egress-traffic.md) %}
 
 
 
+{% include [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}

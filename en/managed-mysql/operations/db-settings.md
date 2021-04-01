@@ -2,11 +2,20 @@
 
 You can manage some database settings using {{ mmy-name }} interfaces.
 
-## Set SQL mode (sql_mode) {#sql-mode}
+## Setting SQL mode (sql_mode) {#sql-mode}
 
 You can set or change the value of the [sql_mode](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html) variable defining the SQL mode for the database. This operation restarts the cluster hosts.
 
 {% list tabs %}
+
+- Management console
+  1. Go to the folder page and select **{{ mmy-name }}**.
+  1. Select the cluster and click **Edit cluster** in the top panel.
+  1. Under **DBMS settings**, click **Settings**.
+  1. In the list of the settings, locate the **Sql mode** parameter.
+  1. Configure a set of SQL modes in the drop-down list. To restore default settings, click **Reset**.
+  1. Click **Save** in the DBMS settings dialog box.
+  1. Click **Save changes**.
 
 - CLI
 
@@ -32,7 +41,7 @@ You can set or change the value of the [sql_mode](https://dev.mysql.com/doc/refm
 
 {% endlist %}
 
-## Change the character set and collation rules (CHARACTER SET, COLLATE) {#charset-collate}
+## Changing a character set and collation rules (CHARACTER SET, COLLATE) {#charset-collate}
 
 To configure the database character settings, use the [ALTER DATABASE](https://dev.mysql.com/doc/refman/5.7/en/charset-database.html) command. To do this, you need to run a query on behalf of a user with the `ALL` or `ALTER` privilege for the applicable database, for example:
 
