@@ -166,3 +166,4 @@ items:
     items:
       - name: Сокращатель ссылок
         href: serverless/serverless-url-shortener.md
+        when: audience == "external"
