@@ -29,5 +29,3 @@
   {% include [terraform-delete-mdb-cluster](../../_includes/mdb/terraform-delete-mdb-cluster.md) %}
 
 {% endlist %}
-
-

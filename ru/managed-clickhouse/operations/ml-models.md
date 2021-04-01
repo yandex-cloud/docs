@@ -32,6 +32,37 @@
 
   1. Нажмите кнопку **Добавить** и дождитесь окончания добавления модели.
 
+- Terraform
+
+    Чтобы подключить к кластеру модель машинного обучения:
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+    1. Добавьте к описанию кластера {{ mch-name }} блок `ml_model` с описанием подключаемой модели машинного обучения:
+
+        ```hcl
+        resource "yandex_mdb_clickhouse_cluster" "<имя кластера>" {
+          ...
+          ml_model {
+            name = "<имя модели>"
+            type = "<тип модели: ML_MODEL_TYPE_CATBOOST>"
+            uri  = "<публичная ссылка на файл модели в {{ objstorage-name }}>"
+          }
+        }
+        ```
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
+
 {% endlist %}
 
 ## Применить модель {#apply-ml-model}

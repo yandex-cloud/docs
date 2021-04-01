@@ -189,22 +189,22 @@ default:
   security-group: enp6saqnq4ie244g67sb
   host-net-example: zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch64
   disk-type-example: network-ssd
-  PG: PostgreSQL
-  CH: ClickHouse
   mch-hs-version: 21.1
-  MG: MongoDB
   mmg-backup-retention: 7
   mmg-backup-retention-min: 7
   mmg-backup-retention-max: 35
-  MY: MySQL
-  RD: Redis
   mrd-max-disk-size: 4096 ГБ
-  KF: Apache Kafka<sup>®</sup>
+  CH: ClickHouse
   ES: Elasticsearch
-  ZK: ZooKeeper
+  KF: Apache Kafka<sup>®</sup>
+  MG: MongoDB
   MS: SQL Server
+  MY: MySQL
+  PG: PostgreSQL
+  RD: Redis
   RMQ: RabbitMQ
   TF: Terraform
+  ZK: ZooKeeper
   tag-con: <code><b><small>Консоль управления</small></b></code>
   tag-cli: <code><b><small>CLI</small></b></code>
   tag-tf: <code><b><small>Terraform</small></b></code>
