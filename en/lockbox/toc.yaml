@@ -1,5 +1,4 @@
 title: Yandex Lockbox
-stage: tech-preview
 href: index.yaml
 items:
   - name: Getting started
@@ -24,3 +23,5 @@ items:
         include:
           repo: docs
           path: en/_api-ref/lockbox/toc.yaml
+  - name: Questions and answers
+    href: qa/index.md
