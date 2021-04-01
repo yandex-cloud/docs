@@ -1,4 +1,4 @@
-# Connecting to a database in a cluster {{ MS }}
+# Connecting to a database in a {{ MS }} cluster
 
 You can connect to {{ mms-short-name }} cluster hosts:
 

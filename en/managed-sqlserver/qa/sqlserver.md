@@ -1,6 +1,6 @@
 # Questions about {{ MS }}
 
-#### How to import data to a {{ MS }} database cluster in {{ mms-short-name }}? {#migrate}
+#### How do I import data to a {{ MS }} database cluster in {{ mms-short-name }}? {#migrate}
 
 #### What {{ MS }} versions does {{ mms-short-name }} support? {#supported-version}
 

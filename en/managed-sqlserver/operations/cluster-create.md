@@ -1,4 +1,4 @@
-# Creating clusters {{ MS }}
+# Creating {{ MS }} clusters
 
 A {{ MS }} cluster is one or more database hosts that replication can be configured between. Replication is enabled by default in any cluster consisting of more than one host: the master host accepts write requests, synchronously duplicates changes in the primary replica, and does it asynchronously in all the others.
 
@@ -8,7 +8,7 @@ If database storage is 95% full, the cluster switches to read-only mode. Plan an
 
 {% endnote %}
 
-## How to create a cluster {{ MS }} {#create-cluster}
+## How to create a {{ MS }} cluster {#create-cluster}
 
 {% list tabs %}
 
@@ -26,13 +26,17 @@ If database storage is 95% full, the cluster switches to read-only mode. Plan an
       - `PRODUCTION`: For stable versions of your apps.
       - `PRESTABLE`: For testing, including the {{ mms-short-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
 
-  1. Select the DBMS version. The currently supported version is `2016 ServicePack 2`.
+  1. Select the DBMS version. Currently, we support `2016 ServicePack 2` of the following editions:
+     * Standard Edition.
+     * Enterprise Edition.
+
+     For more information, see [{#T}](../concepts/index.md).
 
   1. Select the host class to define the technical specifications of the VMs where the database hosts will be deployed. All available options are listed in [{#T}](../concepts/instance-types.md). When you change the host class for the cluster, the characteristics of all existing hosts change, too.
 
   1. Under **Storage size**:
 
-      {% if audience != "internal" %} Select the type of storage, either a more flexible network storage (**network-hdd** or **network-ssd**) or faster local SSD storage (**local-ssd**). The size of the local storage can only be changed in 100 GB increments. {% endif %}
+      {% if audience != "internal" %} - Select the type of storage, either more flexible network storage (**network-hdd** or **network-ssd**) or faster local SSD storage (**local-ssd**). The size of local storage can only be changed in 100 GB increments. {% endif %}
       - Select the size to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
 
   1. Under **Database**, specify the database attributes:
@@ -42,11 +46,17 @@ If database storage is 95% full, the cluster switches to read-only mode. Plan an
 
   1. Under **Hosts**, select the parameters for the database hosts created with the cluster. You can add either one, three, or more hosts. By default, each host is created in a separate subnet. To select a specific subnet for the host, click ![image](../../_assets/pencil.svg) in the row of the host and select the desired availability zone and subnet.
 
+     {% note warning %}
+     * If you select **Standard Edition**, you can create a cluster from only one host. This cluster does not provide any fault tolerance. For more information, see [{#T}](../concepts/index.md).
+     * At the moment, you can create an **Enterprise Edition** cluster with either one or three hosts.
+
+     {% endnote %}
+
   1. Click **Create cluster**.
 
 - API
 
-  To create a cluster, use the API `create` method and pass the following in the request:
+  To create a cluster, use the [create](../api-ref/Cluster/create.md) API method and pass the following in the request:
   - In the `folderId` parameter, the ID of the folder where the cluster should be placed.
   - The cluster name, in the `name` parameter.
   - Cluster configuration, in the `configSpec` parameter.

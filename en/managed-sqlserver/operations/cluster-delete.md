@@ -1,4 +1,4 @@
-# How to delete a cluster
+# Deleting clusters
 
 {% include [backups-stored](../../_includes/mdb/backups-stored.md) %}
 
@@ -12,7 +12,7 @@
 
 - API
 
-  To delete the cluster, use the `delete` API method: pass the ID of the desired cluster in the `clusterId` request parameter.
+  To delete a cluster, use the [delete](../api-ref/Cluster/delete.md) API method: pass the cluster ID in the `clusterId` request parameter.
 
   To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
 

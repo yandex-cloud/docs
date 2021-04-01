@@ -7,8 +7,7 @@ is returned only when the data is written to the disk on both the master host an
 
 ## Selecting the master and a synchronous replica {#selecting-the-master-and-a-synchronous-replica}
 
-The master host and synchronous replica are selected by priority, which you can
-[set for a specific host](../operations/hosts.md#update).
+The master host and synchronous replica are selected based on the priority that you can [set for a specific host](../operations/hosts.md#update).
 
 In addition, you can configure cascading replication by explicitly assigning a source of replication for each host. The hosts with the set replication source cannot:
 

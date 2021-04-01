@@ -13,14 +13,30 @@ To get started with the service:
 
     {% include [create-folder](../_includes/create-folder.md) %}
 
-You can connect to DB clusters from both inside and outside {{ yandex-cloud }}:
+1. You can connect to DB clusters from both inside and outside {{ yandex-cloud }}:
+   - To connect from inside {{ yandex-cloud }}, create a [Linux](../compute/quickstart/quick-create-linux.md)- or [Windows](../compute/quickstart/quick-create-windows.md)-based virtual machine, which must be in the same network as the DB cluster.
+   - To be able to connect to a cluster from the internet, request public access to hosts at cluster creation.
 
-1. To connect to a DB cluster from inside {{ yandex-cloud }}, create a VM in the same network as the DB cluster (with [Linux](../compute/quickstart/quick-create-linux.md) or [Windows](../compute/quickstart/quick-create-windows.md)).
-1. To connect to a cluster from the internet, request public access to the hosts when creating the cluster.
+   {% note info %}
+
+   The next step assumes that the you connect to the cluster from a [Linux](../compute/quickstart/quick-create-linux.md)-based VM.
+
+   {% endnote %}
+
+1. [Connect](../compute/operations/vm-connect/ssh.md) to the VM via SSH.
+
+1. Install the dependencies and the `mssql-cli` client application:
+
+   ```bash
+   sudo apt update && \
+   sudo apt install python3-pip python-is-python3 && \
+   pip3 install mssql-cli && \
+   source ~/.profile
+   ```
 
 ## Create a cluster {#cluster-create}
 
-1. In [management console]({{ link-console-main }}), select the folder where you want to create a cluster.
+1. In the [management console]({{ link-console-main }}), select the folder where you want to create a cluster.
 1. Select **{{ mms-name }}**.
 1. Click **Create cluster**.
 1. Set the cluster parameters and click **Create cluster**. This process is described in detail in [{#T}](operations/cluster-create.md).
@@ -28,20 +44,51 @@ You can connect to DB clusters from both inside and outside {{ yandex-cloud }}:
 
 ## Connect to the DB {#connect}
 
-1. [Create a Linux VM](../compute/quickstart/quick-create-linux.md) in the same [virtual network](../vpc/concepts/network.md) as the cluster.
+1. To connect to the DB server, get an SSL certificate:
 
-1. [Connect](../compute/operations/vm-connect/ssh.md) to the VM via SSH.
+      {% if audience != "internal" %}
 
-1. Install the dependencies and the `mssql-cli` client application:
+      1. Create a folder:
 
-   ```bash
-   $ sudo apt update
-   $ sudo apt install python3-pip python-is-python3
-   $ pip3 install mssql-cli
-   $ source ~/.profile
-   ```
+         ```bash
+         $ mkdir ~/.mysql
+         ```
 
-1. Connect to a database:
+      1. Get a certificate:
+
+         ```bash
+         $ wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.mysql/root.crt
+         ```
+
+      1. Configure permissions to the certificate:
+
+         ```
+         $ chmod 0600 ~/.mysql/root.crt
+         ```
+
+      {% else %}
+
+      1. Create a folder:
+
+         ```bash
+         $ mkdir ~/.mysql
+         ```
+
+      1. Get a certificate:
+
+         ```bash
+         $ wget "{{ pem-path }}" -O ~/.mysql/root.crt
+         ```
+
+      1. Configure permissions to the certificate:
+
+         ```bash
+         $ chmod 0600 ~/.mysql/root.crt
+         ```
+
+      {% endif %}
+
+1. Use the `mssql-cli` command to connect:
 
    ```bash
    $ mssql-cli -U <username> \
@@ -49,7 +96,7 @@ You can connect to DB clusters from both inside and outside {{ yandex-cloud }}:
              -S <FQDN of the host>,1433
    ```
 
-   After running the command, enter the user password to complete the connection procedure.
+1. After running the command, enter the user password to complete the connection procedure.
 
 ## What's next
 

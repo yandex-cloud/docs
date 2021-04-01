@@ -1,4 +1,4 @@
-# Viewing cluster logs {{ MS }}
+# Viewing {{ MS }} cluster logs
 
 {{ mms-name }} lets you get cluster logs for viewing and analysis.
 
@@ -16,7 +16,7 @@
 
 - API
 
-  Use the `listLogs` API method: pass the ID of the required cluster in the `clusterId` request parameter.
+  Use the [listLogs](../api-ref/Cluster/listLogs.md) API method: pass the ID of the required cluster in the `clusterId` request parameter.
 
   To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
 
