@@ -1,0 +1,21 @@
+# Заголовок и описание на странице
+title: "Yandex SpeechKit Pro"
+description:
+  - "Сценарии использования SpeechKit Pro."
+# Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
+meta:
+  title: "Yandex SpeechKit"
+# Блок со ссылками
+links:
+- title: "Оценка качества STT моделей"
+  description: "Пройдите сценарий"
+  href: "estimate-quality"
+- title: "Обучение языковых моделей для STT"
+  description: "Пройдите сценарий"
+  href: "fit-lm"
+- title: "Разметка аудио"
+  description: "Пройдите сценарий"
+  href: "markup"
+- title: "Распознавание аудио с помощью Cloud STT API"
+  description: "Пройдите сценарий"
+  href: "recognize-api"

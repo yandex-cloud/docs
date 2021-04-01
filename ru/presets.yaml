@@ -45,11 +45,13 @@ default:
   alb-full-name: Yandex Application Load Balancer
   dns-full-name: Yandex Cloud DNS
   at-full-name: Yandex Audit Trails
+  speechkit-pro-full-name: Yandex SpeechKit Pro
 
   # Полные имена сервисов без Yandex
   iam-name: Identity and Access Management
   ig-name: Instance Groups
   resmgr-name: Resource Manager
+  cloud-stt-api-name: Cloud STT API
   compute-name: Compute Cloud
   objstorage-name: Object Storage
   mpg-name: Managed Service for PostgreSQL
@@ -90,6 +92,7 @@ default:
   alb-name: Application Load Balancer
   dns-name: Cloud DNS
   at-name: Audit Trails
+  speechkit-pro-name: SpeechKit Pro
 
   # Короткие имена
   iam-short-name: IAM
@@ -130,6 +133,8 @@ default:
   api-gw-short-name: API Gateway
   lockbox-short-name: Lockbox
   at-short-name: Audit Trails
+  tracker-short-name: Tracker
+  speechkit-pro-short-name: SpeechKit Pro
   price-per-hour-count-per-second: Цена указывается за 1 час использования. Тарификация посекундная.
   roles-cr-admin: container-registry.admin
   roles-cr-puller: container-registry.images.puller
