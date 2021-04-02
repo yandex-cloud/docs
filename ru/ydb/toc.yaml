@@ -155,6 +155,22 @@ items:
       - name: Использование Docker-контейнера YDB
         href: getting_started/ydb_docker.md
         when: audience == "external"
+      - name: Работа с AWS CLI
+        items:
+          - name: Начало работы с AWS CLI
+            href: operations/aws-cli/index.md
+          - name: Создание таблицы
+            href: operations/aws-cli/create-table.md
+          - name: Добавление данных в таблицу
+            href: operations/aws-cli/put-item.md
+          - name: Чтение данных из таблицы
+            href: operations/aws-cli/get-item.md
+          - name: Обновление данных
+            href: operations/aws-cli/update-item.md
+          - name: Выборка данных
+            href: operations/aws-cli/query.md
+          - name: Удаление созданных ресурсов
+            href: operations/aws-cli/cleanup.md
       - name: Работа с AWS SDK
         when: audience == "external"
         items:
