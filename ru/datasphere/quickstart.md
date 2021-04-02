@@ -30,6 +30,9 @@
 
 {% include [include](../_includes/datasphere/control-compute-resources-steps.md) %}
 
+## Обратитесь в поддержку из сервиса {#support}
+
+{% include [include](../_includes/datasphere/notebook-support.md) %}
 
 ## Что дальше {what-is-next}
 
