@@ -52,6 +52,121 @@
 
      Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
+- Terraform
+
+    Чтобы включить отказоустойчивость для кластера:
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+    1. Убедитесь, что в конфигурационном файле описаны три подсети — по одной для каждой зоны доступности. При необходимости добавьте недостающие:
+
+        ```hcl
+        resource "yandex_vpc_network" "<имя сети>" {
+          name = "<имя сети>"
+        }
+
+        resource "yandex_vpc_subnet" "<имя подсети в зоне ru-central1-a>" {
+          name           = "<имя подсети в зоне ru-central1-a>"
+          zone           = "ru-central1-a"
+          network_id     = yandex_vpc_network.<имя сети>.id
+          v4_cidr_blocks = [ "<диапазон адресов подсети в зоне ru-central1-a>" ]
+        }
+
+        resource "yandex_vpc_subnet" "<имя подсети в зоне ru-central1-b>" {
+          name           = "<имя подсети в зоне ru-central1-b>"
+          zone           = "ru-central1-b"
+          network_id     = yandex_vpc_network.<имя сети>.id
+          v4_cidr_blocks = [ "<диапазон адресов подсети в зоне ru-central1-b>" ]
+        }
+
+        resource "yandex_vpc_subnet" "<имя подсети в зоне ru-central1-c>" {
+          name           = "<имя подсети в зоне ru-central1-c>"
+          zone           = "ru-central1-c"
+          network_id     = yandex_vpc_network.<имя сети>.id
+          v4_cidr_blocks = [ "<диапазон адресов подсети в зоне ru-central1-c>" ]
+        }
+        ```
+
+    1. Добавьте к описанию кластера {{ CH }} необходимое количество блоков `host` с типом `CLICKHOUSE`.
+
+        Требования к хостам {{ CH }}:
+
+        * минимальный класс хоста — `b1.medium`;
+        * если хостов больше одного, они должны размещаться в разных зонах доступности.
+
+        При необходимости измените класс существующих хостов {{ CH }} и зоны доступности, добавьте необходимое количество новых хостов.
+
+        ```hcl
+        resource "yandex_mdb_clickhouse_cluster" "<имя кластера>" {
+          name = "<имя кластера>"
+          ...
+          clickhouse {
+            resources {
+              resource_preset_id = "<класс хоста: b1.medium или выше>"
+              disk_type_id       = "<тип хранилища>"
+              disk_size          = <размер хранилища, ГБ>
+            }
+          }
+          ...
+          host {
+            type      = "CLICKHOUSE"
+            zone      = "ru-central1-a"
+            subnet_id = yandex_vpc_subnet.<имя подсети в зоне доступности ru-central1-a>.id
+          }
+          ...
+        }
+        ```
+
+    1. Добавьте к описанию кластера {{ CH }} не меньше трех блоков `host` с типом `ZOOKEEPER`.
+
+        Требования к хостам {{ ZK }}:
+
+        * в каждой зоне доступности должно быть минимум по одному хосту;
+        * минимальный класс хоста — `b1.medium`;
+        * тип хранилища — `network-ssd`;
+        * минимальный размер хранилища — 10 гигабайт.
+
+        ```hcl
+        resource "yandex_mdb_clickhouse_cluster" "<имя кластера>" {
+          ...
+          zookeeper {
+            resources {
+              resource_preset_id = "<класс хоста: b1.medium или выше>"
+              disk_type_id       = "network-ssd"
+              disk_size          = <размер хранилища, ГБ>
+            }
+          }
+          ...
+          host {
+            type      = "ZOOKEEPER"
+            zone      = "ru-central1-a"
+            subnet_id = yandex_vpc_subnet.<имя подсети в зоне доступности ru-central1-a>.id
+          }
+          host {
+            type      = "ZOOKEEPER"
+            zone      = "ru-central1-b"
+            subnet_id = yandex_vpc_subnet.<имя подсети в зоне доступности ru-central1-b>.id
+          }
+          host {
+            type      = "ZOOKEEPER"
+            zone      = "ru-central1-c"
+            subnet_id = yandex_vpc_subnet.<имя подсети в зоне доступности ru-central1-c>.id
+          }
+        }
+        ```
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
+
 - API
 
   Воспользуйтесь методом  [addZookeeper](../api-ref/Cluster/addZookeeper.md). При добавлении укажите настройки для трех хостов {{ ZK }}, перечислив их в параметре `hostSpecs`.
@@ -106,13 +221,45 @@
      $ {{ yc-mdb-ch }} hosts add \
           --cluster-name <имя кластера> \
           --host zone-id=<зона доступности>,subnet-id=<идентификатор подсети>,type=zookeeper
-     ```      
+     ```
+
+- Terraform
+
+    Чтобы добавить хост {{ ZK }} в кластер:
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+    1. Добавьте к описанию кластера {{ mch-name }} блок `host` с типом `ZOOKEEPER`:
+
+        ```hcl
+        resource "yandex_mdb_clickhouse_cluster" "<имя кластера>" {
+          ...
+          host {
+            type      = "ZOOKEEPER"
+            zone      = "<зона доступности>"
+            subnet_id = yandex_vpc_subnet.<имя подсети в выбранной зоне доступности>.id
+          }
+          ...
+        }
+        ```
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
 
 - API
 
   Воспользуйтесь методом [addHosts](../api-ref/Cluster/addHosts.md) и передайте в запросе:
   - Идентификатор кластера, в котором нужно разместить хост, в параметре `clusterId`. Чтобы узнать идентификатор, получите [список кластеров в каталоге](cluster-list.md#list-clusters).
-  - Настройки для хоста в параметре `hostSpecs` (в том числе укажите тип `ZOOKEEPER` в параметре `hostSpecs.type`). Не указывайте настройки для нескольких хостов в этом параметре — хосты {{ ZK }} добавляются в кластер по одному, в отличие от [хостов {{ CH }}](hosts.md#add-host), которых можно добавить сразу несколько. 
+  - Настройки для хоста в параметре `hostSpecs` (в том числе укажите тип `ZOOKEEPER` в параметре `hostSpecs.type`). Не указывайте настройки для нескольких хостов в этом параметре — хосты {{ ZK }} добавляются в кластер по одному, в отличие от [хостов {{ CH }}](hosts.md#add-host), которых можно добавить сразу несколько.
 
 {% endlist %}
 
@@ -141,6 +288,26 @@
   ```
 
   Имя хоста можно запросить со [списком хостов в кластере](hosts.md#list-hosts), имя кластера — со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+- Terraform
+
+    Чтобы удалить хост {{ ZK }} из кластера:
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+    1. Удалите из описания кластера {{ mch-name }} блок `host` с типом `ZOOKEEPER`.
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите удаление ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
 
 - API
 

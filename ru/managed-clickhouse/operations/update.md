@@ -75,6 +75,44 @@
 
      Для хоста {{ZK}} класс можно задать в аналогичном параметре, `--zookeeper-resource-preset`.
 
+- Terraform
+
+    Чтобы изменить [класс хостов](../concepts/instance-types.md) для кластера:
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+    1. Измените в описании кластера {{ mch-name }} значение параметра `resource_preset_id` в блоках `clickhouse.resources` и `zookeeper.resources` для хостов {{ CH }} и {{ ZK }} соответственно:
+
+        ```hcl
+        resource "yandex_mdb_clickhouse_cluster" "<имя кластера>" {
+          ...
+          clickhouse {
+            resources {
+              resource_preset_id = "<класс хостов {{ CH }}>"
+              ...
+            }
+          }
+          zookeeper {
+            resources {
+              resource_preset_id = "<класс хостов {{ ZK }}>"
+              ...
+            }
+          }
+        }
+        ```
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
+
 - API
 
   Изменить [класс хостов](../concepts/instance-types.md) кластера можно с помощью метода API [update](../api-ref/Cluster/update.md): передайте в запросе нужные значения в параметре `configSpec.clickhouse.resources.resourcePresetId` (для ZooKeeper — `configSpec.zookeeper.resources.resourcePresetId`).
@@ -139,6 +177,44 @@
 
      Объем хранилища для ZooKeeper можно изменить аналогичным параметром, `--zookeeper-disk-size`.
 
+- Terraform
+
+    Чтобы увеличить размер хранилища для кластера:
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+    1. Измените в описании кластера {{ mch-name }} значение параметра `disk_size` в блоках `clickhouse.resources` и `zookeeper.resources` для хостов {{ CH }} и {{ ZK }} соответственно:
+
+        ```hcl
+        resource "yandex_mdb_clickhouse_cluster" "<имя кластера>" {
+          ...
+          clickhouse {
+            resources {
+              disk_size = <размер хранилища в гигабайтах>
+              ...
+            }
+          }
+          zookeeper {
+            resources {
+              disk_size = <размер хранилища в гигабайтах>
+              ...
+            }
+          }
+        }
+        ```
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
+
 - API
 
   Изменить размер хранилища для кластера можно с помощью метода API [update](../api-ref/Cluster/update.md): передайте в запросе нужные значения в параметре `configSpec.clickhouse.resources.diskSize` (для ZooKeeper — `configSpec.zookeeper.resources.diskSize`).
@@ -157,6 +233,76 @@
   1. Выберите кластер и нажмите кнопку **Изменить кластер** на панели сверху.
   1. Измените [настройки {{ CH }}](../concepts/settings-list.md#dbms-cluster-settings), нажав на кнопку **Настроить** в блоке **Настройки СУБД**:
   1. Нажмите кнопку **Сохранить изменения**.
+
+- Terraform
+
+    Чтобы изменить [настройки кластера](../concepts/settings-list.md#dbms-cluster-settings):
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+    1. Измените в описании кластера {{ mch-name }} значения параметров в блоке `clickhouse.config`:
+
+        ```hcl
+        resource "yandex_mdb_clickhouse_cluster" "<имя кластера>" {
+          ...
+          clickhouse {
+            ...
+
+            config {
+              # Общие настройки СУБД
+              ...
+
+              merge_tree {
+                # Настройки движка MergeTree
+                ...
+              }
+
+              kafka {
+                # Общие настройки получения данных из Apache Kafka
+                ...
+              }
+
+              kafka_topic {
+                # Настройки отдельного топика Apache Kafka
+                ...
+              }
+
+              rabbit_mq {
+                # Настройки получения данных из {{ RMQ }}
+                username = "<имя пользователя>"
+                password = "<пароль>"
+              }
+
+              compression {
+                # Настройки сжатия данных
+                method              = "<метод сжатия: LZ4 или ZSTD>"
+                min_part_size       = <минимальный размер куска данных таблицы в байтах>
+                min_part_size_ratio = <отношение размера наименьшего куска таблицы к полному размеру таблицы>
+              }
+
+              graphite_rollup {
+                # Настройки движка GraphiteMergeTree для прореживания и агрегирования/усреднения
+                # (rollup) данных Graphite.
+                ...
+              }
+            }
+          ...
+          }
+        ...
+        }
+        ```
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    Подробнее см. в [документации провайдера Terraform](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
 
 - API
 
@@ -219,6 +365,52 @@
 
     Имя кластера можно [получить со списком кластеров в каталоге](cluster-list.md#list-clusters).
 
+* Terraform
+
+    Для изменения дополнительных настроек кластера:
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+    1. Чтобы изменить время начала резервного копирования, добавьте к описанию кластера {{ mch-name }} блок `backup_window_start`.
+
+        ```hcl
+        resource "yandex_mdb_clickhouse_cluster" "<имя кластера>" {
+          ...
+          backup_window_start {
+            hours   = <Час начала резервного копирования>
+            minutes = <Минута начала резервного копирования>
+          }
+          ...
+        }
+        ```
+
+    1. Чтобы разрешить доступ из других сервисов {{ yandex-cloud }} и [выполнение SQL-запросов из консоли управления](web-sql-query.md), измените значения соответствующих полей в блоке `access`:
+
+        ```hcl
+        resource "yandex_mdb_clickhouse_cluster" "<имя кластера>" {
+          ...
+          access {
+            datalens   = <Доступ из DataLens: true или false>
+            metrika    = <Доступ из Метрики и AppMetrika: true или false>
+            serverless = <Доступ из Serverless: true или false>
+            web_sql    = <Выполнение SQL-запросов из консоли управления: true или false>
+          }
+          ...
+        }
+        ```
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    Подробнее см. в [документации провайдера Terraform](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
+
 * API
 
   Воспользуйтесь методом API [update](../api-ref/Cluster/update.md): передайте в запросе нужные значения в параметрах `configSpec.access` и `configSpec.backupWindowStart`.
@@ -255,6 +447,33 @@
       $ {{ yc-mdb-ch }} cluster update <имя кластера>
            --security-group-ids <список групп безопасности>
       ```
+
+- Terraform
+
+    Для изменения групп безопасности кластера:
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+    1. Измените значение параметра `security_group_ids` в описании кластера:
+
+        ```hcl
+        resource "yandex_mdb_clickhouse_cluster" "<имя кластера>" {
+          ...
+          security_group_ids = [ <список групп безопасности кластера> ]
+        }
+        ```
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    Подробнее см. в [документации провайдера Terraform](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
 
 - API
 

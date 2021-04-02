@@ -1,6 +1,6 @@
 # General questions
 
-#### What's {{ mms-short-name }}? {#what-is}
+#### What is {{ mms-short-name }}? {#what-is}
 
 {{ mms-short-name }} is a service that helps you create, operate, and scale {{ MS }} databases in a cloud infrastructure.
 
@@ -27,7 +27,7 @@ For the created and running databases, {{ mms-short-name }} automatically create
 
 {{ mms-short-name }} also provides data replication between database hosts (both inside and between availability zones) and automatically switches the load over to a backup replica in the event of a failure.
 
-#### Which tasks should I use {{ mms-short-name }} for and for which VMs with databases? {#mdb-advantage}
+#### Which tasks should I use {{ mms-short-name }} or VMs with databases for? {#mdb-advantage}
 
 {{ yandex-cloud }} offers two ways to work with databases:
 
@@ -85,7 +85,7 @@ Maintenance in {{ mms-short-name }} implies:
 
 The database software is updated when new minor versions are released. The owners of the affected DB clusters receive an advance notice of expected work timing and DB availability.
 
-#### What happens when a DBMS version becomes deprecated? {#dbms-deprecated}
+#### What happens when a DBMS version is deprecated? {#dbms-deprecated}
 
 One month after the database version becomes deprecated, {{ mms-short-name }} automatically sends email notifications to the owners of DB clusters created with this version.
 

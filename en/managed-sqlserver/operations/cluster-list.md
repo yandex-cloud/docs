@@ -12,7 +12,7 @@ You can request detailed information about each {{ mms-short-name }} cluster you
 
 - API
 
-  Use the `list` API method: pass the ID of the required folder in the `folderId` request parameter.
+  Use the [list](../api-ref/Cluster/list.md) API method: pass the ID of the required folder in the `folderId` request parameter.
 
   The response will contain cluster names and IDs.
 
@@ -24,10 +24,11 @@ You can request detailed information about each {{ mms-short-name }} cluster you
 
 - Management console
   1. Go to the folder page and select **{{ mms-name }}**.
-  1. Click on the name of the cluster you need.
+  1. Click on the name of the cluster you need.
+
 - API
 
-  Use the `get` API method: pass the ID of the required cluster in the `clusterId` request parameter.
+  Use the [get](../api-ref/Cluster/get.md) API method: pass the ID of the required cluster in the `clusterId` request parameter.
 
   To find out the cluster ID, [get a list of clusters in the folder](#list-clusters).
 
@@ -46,7 +47,7 @@ You can request detailed information about each {{ mms-short-name }} cluster you
 
 - API
 
-  Use the `listOperations` API method: pass the ID of the required cluster in the `clusterId` request parameter.
+  Use the [listOperations](../api-ref/Cluster/listOperations.md) API method: pass the ID of the required cluster in the `clusterId` request parameter.
 
   To find out the cluster ID, [get a list of clusters in the folder](#list-clusters).
 

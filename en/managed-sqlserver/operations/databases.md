@@ -4,7 +4,7 @@
 - [Creating a database](#add-db).
 - [Deleting a database](#remove-db).
 
-## Getting a list of cluster databases {#list-db}
+## Getting a list of databases in a cluster {#list-db}
 
 {% list tabs %}
 
@@ -14,7 +14,7 @@
 
 - API
 
-  Use the `list` API method: pass the ID of the required cluster in the `clusterId` request parameter.
+  Use the [list](../api-ref/Database/list.md) API method: pass the ID of the required cluster in the `clusterId` request parameter.
 
   To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -39,7 +39,7 @@ You can create an unlimited number of databases in each {{ mms-name }} cluster.
 
 - API
 
-  Use the `create` API method and pass the following in the request:
+  Use the [create](../api-ref/Database/create.md) API method and pass the following in the request:
   - ID of the cluster where you want to create a database, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
   - Database name, in the `databaseSpec.name` parameter.
 
@@ -58,7 +58,7 @@ To find out the cluster ID, [get a list of clusters in the folder](cluster-list.
 
 - API
 
-  Use the `delete` API method and pass the following in the request:
+  Use the [delete](../api-ref/Database/delete.md) API method and pass the following in the request:
   - In the `clusterId` parameter, the ID of the cluster where the database is hosted. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
   - Database name, in the `databaseName` parameter. To find out the database name, [get a list of databases in the cluster](#list-db).
 

@@ -46,8 +46,6 @@
 
 ## Изменить версию {#start-update}
 
-Чтобы изменить версию {{ CH }}:
-
 {% list tabs %}
 
 - Консоль управления
@@ -102,6 +100,33 @@
         ```
 
     После того, как изменение версии запущено, кластер переходит в статус **UPDATING**. Дождитесь окончания операции и проверьте версию кластера.
+
+- Terraform
+
+    Чтобы изменить версию {{ CH }}:
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+    1. Добавьте к описанию кластера {{ mch-name }} поле `version` или измените его значение, если оно уже существует:
+
+        ```hcl
+        resource "yandex_mdb_clickhouse_cluster" "<имя кластера>" {
+          ...
+          version = "<версия ClickHouse>"
+        }
+        ```
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
 
 - API
 

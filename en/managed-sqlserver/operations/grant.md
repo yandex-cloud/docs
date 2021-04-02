@@ -1,19 +1,16 @@
-# Granting user permissions and roles
-
-The user created with a **{{ mms-name }}** cluster is automatically assigned the owner (`DB_OWNER`) role for the first database in the cluster. After that, you can create other users and configure their permissions as you wish.
+# Assigning privileges and roles to users
 
 Atomic permissions in **{{ MS }}** are called _privileges_ and groups of permissions are called _roles_. **{{ mms-name }}** supports [predefined roles](#predefined-db-roles). For more information about how to manage permissions, see the [{{ MS }} documentation](https://docs.microsoft.com/en-us/sql/relational-databases/security/authentication-access/getting-started-with-database-engine-permissions?view=sql-server-2016).
 
-To grant a **privilege** to a particular user, [create](cluster-users.md#adduser) a user in the {{ yandex-cloud }} management console or API, then run the `GRANT` command on behalf of the DB owner. For example:
+The user created with a **{{ mms-name }}** cluster is automatically assigned the owner (`DB_OWNER`) role for the first database in the cluster. After that, you can [create other users](cluster-users.md#adduser) and configure their permissions as you wish:
 
-```
-GRANT SELECT ON Person.Address TO user1;
-GO
-```
-
-To assign a **role** to a user, use the {{ yandex-cloud }} management console or API: the roles assigned by the `GRANT` request are canceled during the next database operation.
+- [Updating the list of user roles](#grant-role).
+- [Granting a privilege to a user](#grant-privilege).
+- [Revoking a privilege from a user](#revoke-privilege).
 
 ## Updating the list of user roles {#grant-role}
+
+To assign a **role** to a user, use the {{ yandex-cloud }} management console or API: the roles assigned by the `GRANT` request are canceled during the next database operation.
 
 {% list tabs %}
 
@@ -37,7 +34,7 @@ To assign a **role** to a user, use the {{ yandex-cloud }} management console or
 
 - API
 
-  Use the `update` API method and pass the following in the request:
+  Use the [update](../api-ref/User/update.md) API method and pass the following in the request:
   - In the `clusterId` parameter, the ID of the cluster where the user is located. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
   - Username, in the `userName` parameter. To find out the name, [get a list of users in the cluster](cluster-users.md#list-users).
   - The name of the database for which you want to change the list of user roles, in the `permissions.databaseName` parameter. To find out the name, [get a list of databases in the cluster](databases.md#list-db).
@@ -51,6 +48,18 @@ To assign a **role** to a user, use the {{ yandex-cloud }} management console or
   {% endnote %}
 
 {% endlist %}
+
+## Granting a privilege to a user {#grant-privilege}
+
+1. [Connect](connect.md) to the database under the account of the database owner.
+2. Run the `GRANT` command. To learn more about the command syntax, see the [documentation for {{ MS }}](https://docs.microsoft.com/en-us/sql/t-sql/statements/grant-transact-sql?view=sql-server-2016).
+
+## Revoking a privilege from a user {#revoke-privilege}
+
+1. [Connect](connect.md) to the database under the account of the database owner.
+2. Run the `REVOKE` command. To learn more about the command syntax, see the [documentation for {{ MS }}](https://docs.microsoft.com/en-us/sql/t-sql/statements/grant-transact-sql?view=sql-server-2016).
+
+{% include [user-ro](../../_includes/mdb/mms-user-examples.md) %}
 
 ## Description of predefined roles {#predefined-db-roles}
 

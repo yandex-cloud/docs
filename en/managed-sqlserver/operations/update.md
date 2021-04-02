@@ -19,14 +19,14 @@ After creating a cluster, you can:
 
 - API
 
-  To change the [host class](../concepts/instance-types.md) for the cluster, use the `update` method and pass the following in the request:
+  To change the [host class](../concepts/instance-types.md) for the cluster, use the [update](../api-ref/Cluster/update.md) method and pass the following in the request:
   - The cluster ID, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
   - New host class, in the `configSpec.resources.resourcePresetId` parameter. To find out the list of supported values, use the `list` method for `ResourcePreset`.
   - List of cluster configuration fields to be changed (in this case, `configSpec.resources.resourcePresetId`), in the `updateMask` parameter.
 
   {% note warning %}
 
-  This API method resets any cluster settings that aren't passed explicitly in the request to their defaults. To avoid this, list the settings you want to change in the `updateMask` parameter (in a single line, separated by commas).
+  This API method resets any cluster settings that aren't passed explicitly in the request to their defaults. To avoid this, in the `updateMask` parameter, list the settings you want to change (in a single line, separated by commas).
 
   {% endnote %}
 
@@ -39,25 +39,25 @@ After creating a cluster, you can:
 - Management console
   1. Go to the folder page and select **{{ mms-name }}**.
   1. Select the cluster and click **Edit cluster** in the top panel.
-  1. Specify the required storage size.
+  1. Under **Storage size**, specify the required value.
   1. Click **Save changes**.
 
 - API
 
-  To change the storage size for a cluster, use the `update` method and pass the following in the request:
+  To change the storage size for a cluster, use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
   - The cluster ID, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
   - Required storage size (in bytes), in the `configSpec.resources.diskSize` parameter.
   - List of user configuration fields to be changed (in this case, `configSpec.resources.diskSize`), in the `updateMask` parameter.
 
   {% note warning %}
 
-  This API method resets any cluster settings that aren't passed explicitly in the request to their defaults. To avoid this, list the settings you want to change in the `updateMask` parameter (in a single line, separated by commas).
+  This API method resets any cluster settings that aren't passed explicitly in the request to their defaults. To avoid this, in the `updateMask` parameter, list the settings you want to change (in a single line, separated by commas).
 
   {% endnote %}
 
 {% endlist %}
 
-## Changing settings {{ MS }} {#change-sqlserver-config}
+## Changing {{ MS }} settings {#change-sqlserver-config}
 
 {% list tabs %}
 
@@ -70,20 +70,20 @@ After creating a cluster, you can:
 
 - API
 
-  Use the `update` API method and pass the following in the request:
+  Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
   - The cluster ID, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
   - The relevant values in the `configSpec.sqlserverConfig_2016sp2` parameter.
   - List of user configuration fields to be changed (in this case, `configSpec.sqlserverConfig_2016sp2`), in the `updateMask` parameter.
 
   {% note warning %}
 
-  This API method resets any cluster settings that aren't passed explicitly in the request to their defaults. To avoid this, list the settings you want to change in the `updateMask` parameter (in a single line, separated by commas).
+  This API method resets any cluster settings that aren't passed explicitly in the request to their defaults. To avoid this, in the `updateMask` parameter, list the settings you want to change (in a single line, separated by commas).
 
   {% endnote %}
 
 {% endlist %}
 
-## Move a cluster {#move-cluster}
+## Moving a cluster {#move-cluster}
 
 {% list tabs %}
 
@@ -98,7 +98,7 @@ After creating a cluster, you can:
 
 - API
 
-  To move a cluster to another folder, use the `move` API method and pass the following in the request:
+  To move a cluster from the current folder to a different one, use the [move](../api-ref/Cluster/move.md) API method and pass the following in the request:
   - The cluster ID, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
   - The ID of the destination folder in the `destinationFolderId` parameter.
 

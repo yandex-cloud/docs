@@ -64,7 +64,10 @@
   1. Перейдите на страницу каталога и выберите сервис **{{ mch-name }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **Пользователи**.
   1. Нажмите кнопку **Добавить**.
-  1. Введите имя пользователя базы данных и пароль (от 8 до 128 символов).
+  1. Введите имя пользователя базы данных и пароль.
+
+      {% include [user-name-and-password-limits](../../_includes/mdb/mch/note-info-user-name-and-pass-limits.md) %}
+
   1. Выберите одну или несколько баз данных, к которым должен иметь доступ пользователь:
      1. Выберите базу данных из выпадающего списка **База данных**.
      1. Нажмите кнопку **Добавить** справа от выпадающего списка.
@@ -74,7 +77,7 @@
      1. Настройте [квоты](../concepts/settings-list.md#quota-settings) в разделе **Дополнительные настройки → Quotas**:
         1. Чтобы добавить квоту, нажмите значок ![image](../../_assets/plus.svg) или кнопку **+ Quotas**. Вы можете добавить несколько квот, которые будут действовать одновременно.
         1. Чтобы удалить квоту, нажмите значок ![image](../../_assets/vertical-ellipsis.svg) справа от имени квоты и выберите пункт **Удалить**.
-        1. Чтобы изменить квоту, задайте требуемые значения настроек для неё.
+        1. Чтобы изменить квоту, задайте требуемые значения настроек для нее.
      1. Настройте [{{ CH }}](../concepts/settings-list.md#user-level-settings) в разделе **Дополнительные настройки → Settings**.
   1. Нажмите кнопку **Добавить**.
   
@@ -96,7 +99,9 @@
        --quota=<список настроек одной квоты для пользователя>
        --settings=<список настроек {{ CH }} для пользователя>
   ```
-    
+
+  {% include [user-name-and-password-limits](../../_includes/mdb/mch/note-info-user-name-and-pass-limits.md) %}
+
   Подробнее о [квотах](../concepts/settings-list.md#quota-settings) и [настройках {{ CH }}](../concepts/settings-list.md#user-level-settings) читайте в разделе [{#T}](../concepts/settings-list.md).
   
   Чтобы задать несколько квот, перечислите их, используя требуемое количество параметров `--quota` в команде:
@@ -113,6 +118,39 @@
   
   См. также: [пример создания пользователя с правами «только чтение»](#example-create-readonly-user).
 
+- Terraform
+
+    Чтобы создать пользователя в кластере:
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+    1. Добавьте к описанию кластера {{ mch-name }} блок `user`:
+
+        ```hcl
+        resource "yandex_mdb_clickhouse_cluster" "<имя кластера>" {
+          ...
+          user {
+            name     = "<имя пользователя>"
+            password = "<пароль>"
+            ...
+          }
+        }
+        ```
+
+        {% include [user-name-and-password-limits](../../_includes/mdb/mch/note-info-user-name-and-pass-limits.md) %}
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
+
 - SQL
 
   1. [Подключитесь](connect.md) к кластеру, используя [учетную запись `admin`](#sql-user-management).
@@ -121,6 +159,8 @@
       ```sql
       CREATE USER <имя пользователя> IDENTIFIED WITH sha256_password BY '<пароль пользователя>';
       ```
+
+      {% include [user-name-and-password-limits](../../_includes/mdb/mch/note-info-user-name-and-pass-limits.md) %}
 
   Подробнее о создании пользователей см. [в документации {{ CH }}](https://clickhouse.tech/docs/ru/sql-reference/statements/create/user/).
 
@@ -137,6 +177,8 @@
   1. Нажмите на имя нужного кластера и выберите вкладку **Пользователи**.
   1. Нажмите значок ![image](../../_assets/vertical-ellipsis.svg) и выберите пункт **Изменить пароль**.
   1. Задайте новый пароль и нажмите кнопку **Изменить**.
+
+  {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
   
 - CLI
   
@@ -151,9 +193,46 @@
        --cluster-name=<имя кластера>
        --password=<новый пароль>
   ```
-  
+
+  {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
+
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
-   
+
+- Terraform
+
+    Чтобы изменить пароль пользователя:
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+    1. Найдите в описании кластера {{ mch-name }} блок `user` для нужного пользователя.
+
+    1. Измените значение поля `password`:
+
+        ```hcl
+        resource "yandex_mdb_clickhouse_cluster" "<имя кластера>" {
+          ...
+          user {
+            name     = "<имя пользователя>"
+            password = "<новый пароль>"
+            ...
+          }
+        }
+        ```
+
+        {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
+
 - SQL
 
   1. [Подключитесь](connect.md) к кластеру, используя [учетную запись `admin`](#sql-user-management).
@@ -162,6 +241,8 @@
       ```sql
       ALTER USER <имя пользователя> IDENTIFIED BY '<новый пароль>';
       ```
+
+      {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
 
   Подробнее об изменении пользователей см. [в документации {{ CH }}](https://clickhouse.tech/docs/ru/sql-reference/statements/alter/user/).
 
@@ -186,7 +267,7 @@
   1. Настройте [квоты](../concepts/settings-list.md#quota-settings) для пользователя в разделе **Дополнительные настройки → Quotas**:
      1. Чтобы добавить квоту, нажмите значок ![image](../../_assets/plus.svg) или кнопку **+ Quotas**. Вы можете добавить несколько квот, которые будут действовать одновременно.
      1. Чтобы удалить квоту, нажмите значок ![image](../../_assets/vertical-ellipsis.svg) справа от имени квоты и выберите пункт **Удалить**.
-     1. Чтобы изменить квоту, задайте требуемые значения настроек для неё.
+     1. Чтобы изменить квоту, задайте требуемые значения настроек для нее.
   1. Измените [настройки {{ CH }}](../concepts/settings-list.md#dbms-user-settings) для пользователя в разделе **Дополнительные настройки → Settings**.   
   1. Нажмите кнопку **Сохранить**.
   
@@ -248,6 +329,78 @@
      
      С помощью этой команды невозможно удалить сделанную настройку, допустимо только явно присвоить ей значение по умолчанию (оно указано для [каждой настройки](#clickhouse-settings)).
 
+- Terraform
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+    1. Чтобы настроить права пользователя на доступ к определенным базам данных, добавьте необходимое количество блоков `permission` к описанию пользователя кластера — по одному на каждую базу:
+
+        ```hcl
+        resource "yandex_mdb_clickhouse_cluster" "<имя кластера>" {
+          ...
+          user {
+            name     = "<имя пользователя>"
+            password = "<пароль>"
+            permission {
+              database_name = "<база данных 1>"
+            }
+            ...
+            permission {
+              database_name = "<база данных N>"
+            }
+          }
+        }
+        ```
+
+        В поле `database_name` укажите имя базы данных, к которой нужно предоставить доступ.
+
+    1. Чтобы изменить [настройки квот](../concepts/settings-list.md#quota-settings) для пользователя, добавьте необходимое количество блоков `quota` к его описанию.
+
+        При описании квот обязательным является только поле `interval_duration`.
+
+        ```hcl
+        resource "yandex_mdb_clickhouse_cluster" "<имя кластера>" {
+          ...
+          user {
+            name     = "<имя пользователя>"
+            password = "<пароль>"
+            ...
+            quota {
+              interval_duration = <длительность интервала в миллисекундах>
+              ...
+            }
+          }
+        }
+        ```
+
+    1. Чтобы изменить [настройки {{ CH }}](../concepts/settings-list.md#dbms-user-settings) для пользователя, добавьте блок `settings` к его описанию.
+
+        ```hcl
+        resource "yandex_mdb_clickhouse_cluster" "<имя кластера>" {
+          ...
+          user {
+            name     = "<имя пользователя>"
+            password = "<пароль>"
+            ...
+            settings {
+              <настройки СУБД для отдельного пользователя>
+            }
+          }
+        }
+        ```
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
+
 - SQL
 
   1. [Подключитесь](connect.md) к кластеру, используя [учетную запись `admin`](#sql-user-management).
@@ -295,6 +448,26 @@
   ```
   
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+- Terraform
+
+    Чтобы удалить пользователя:
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+    1. Удалите из описания кластера {{ mch-name  }} блок `user` с описанием нужного пользователя.
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
 
 - SQL
 
@@ -355,6 +528,44 @@
        ```
        DB::Exception: Cannot modify 'readonly' setting in readonly mode.
        ```
+
+- Terraform
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+    1. Добавьте к описанию кластера блок `user`.
+
+        ```hcl
+        resource "yandex_mdb_clickhouse_cluster" "mych" {
+          name = "mych"
+
+          database {
+            name = "db1"
+          }
+
+          user {
+            name     = "ro-user"
+            password = "Passw0rd"
+            permission {
+              database_name = "db1"
+            }
+            settings {
+              readonly = 1
+            }
+          }
+          ...
+        }
+        ```
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
 - SQL
 

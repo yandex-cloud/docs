@@ -2,63 +2,85 @@
 
 {% note info %}
 
-Sharding in {{ mmg-name }} is available for clusters running {{ MG }} version 4.0 or higher. If your cluster is deployed with version 3.6, you can [update it](../operations/cluster-version-update.md).
+Sharding in {{ mmg-name }} is available for clusters running {{ MG }} version 4.0 or higher. If your cluster is deployed with version 3.6, you can [upgrade it](../operations/cluster-version-update.md).
 
 {% endnote %}
 
-_Sharding_ is a horizontal data scaling strategy that puts parts of MongoDB collections on different hosts in the cluster. Shards (sets of hosts) are linked to data sets using the _shard key_. MongoDB supports sharding to handle large data volumes and increase DBMS throughput. Sharding is particularly useful when vertical scaling (upgrading server capacity) isn't cost-efficient or possible.
+_Sharding_ is a horizontal data scaling strategy that distributes parts of {{ MG }} collections across different hosts in the cluster. A shard (set of hosts) is associated with a data set using a _shard key_. {{ MG }} supports sharding to handle large data volumes and increase DBMS throughput. Sharding is particularly useful when vertical scaling (upgrading server capacity) isn't cost-efficient or possible.
 
-{{ mmg-name }} supports the core data sharding strategies:
+{{ mmg-name }} supports core data sharding strategies:
 
-* Hashed sharding (by a range of hashed shard key values)
-* Ranged sharding (by a shard key value range)
+* [Hashed sharding](https://docs.mongodb.com/manual/core/hashed-sharding/) (with a hash-based sharding key).
+* [Ranged sharding](https://docs.mongodb.com/manual/core/ranged-sharding/).
+
+Learn more about {{ MG }} database sharding in the[{{ MG }} documentation](https://docs.mongodb.com/manual/sharding/#sharded-cluster).
 
 ## Benefits of sharding {#advantages}
 
-Sharding allows you to distribute loads across database hosts, which lets you overcome the resource restrictions of a single server. This is particularly important when you handle large amounts of data or run compute-intensive jobs.
+Sharding helps you distribute loads across database hosts. It's usually used in the following cases:
 
-Horizontal scaling is the distribution of data sets and workloads across multiple nodes. You can increase disk space by adding more servers. While a single machine may be slow or low-capacity, in a horizontally-scaled cluster, each machine handles only part of the total load and stores only part of the total data. This makes the system potentially more efficient than a single server with a large capacity and fast disks.
+- When very frequent database queries and rapid data growth are expected.
+- The application requires more and more resources, but a solution with a replica cluster can no longer be scaled using the vertical strategy (by increasing the computing power of the hosts in the cluster: disks, RAM, and CPU).
 
-The downside of sharding is the complexity of the infrastructure, deployment, and maintenance.
+Horizontal scaling is the distribution of data sets and workloads across multiple nodes. You can also increase disk space by adding more servers. While a single machine may be slow or low-capacity, in a horizontally-scaled cluster, each machine handles only part of the total load and stores only part of the total data. This makes the system potentially more efficient than a single server with a large capacity and fast disks.
 
-More information on {{ MG }} database sharding can be found in the [{{ MG }} documentation](https://docs.mongodb.com/v4.0/sharding/#sharded-cluster).
+Sharding can help you:
+
+- Overcome technical limitations. {#restrictions}
+
+  When you need to handle large data sets, your data storage infrastructure might reach the maximum capacity of commercially available hardware (for example, disk subsystem IOPS).
+
+  If your apps approach the performance limits, it's a good idea to split data into shards and distribute read operations.
+
+- Create geographically distributed systems. {#geo-distribution}
+
+  By distributing your cluster shards across regions, you can:
+  - Improve availability for regional users.
+  - Comply with the local laws, for example, by storing your data in a particular country or region.
+
+- Improve fault tolerance. {#high-availability}
+
+  Sharding lets you isolate individual host or replica set malfunctions. If you don't use sharding, then when one host fails, access to the entire data set it contains is lost completely. But if one shard out of five fails, for example, then 80% of the collection data is still available.
+
+  To reduce the risk of a whole shard going offline, we recommend configuring shards as a set of three replicas. Moreover, if you distribute shard hosts across different {{ yandex-cloud }} availability zones, you increase data availability.
+
+- To improve the query performance. {#processing-speed}
+
+  Query processing can slow down when they begin to compete for resources. This usually happens as the number of read operations or CPU time per query grows.
+
+  However, in a sharded cluster, where shards query the same collection in parallel, competition for shared resources (CPU, disk subsystem) is eliminated and query processing time decreases.
 
 ## Use of sharding {#uses}
 
-Sharding is often used in the following cases:
+To split data into shards:
 
-* High frequency of database queries and fast data growth is expected.
-* An app requires more and more resources, but the cluster replica solution can't be expanded using higher-capacity and faster disks, server RAM, or more powerful CPUs.
+1. [Enable sharding](../operations/shards.md#enable) at the cluster level {{ mmg-name }}.
+1. [Add](../operations/shards.md#add-shard) the required number of shards.
+1. [Enable sharding](../tutorials/sharding.md#enable) for the applicable collections.
 
-Sharding can help you solve the following problems:
+See also [Example of sharding](../tutorials/sharding.md#example).
 
-* [Technical restrictions](#restrictions).
-* [Geographically distributed data consumers](#geo-distribution).
-* [Insufficient fault-tolerance](#high-availability).
-* [Low query processing speed](#processing-speed).
+## Specifics of sharding management in {{ mmg-name }} {#shard-management}
 
-### Technical restrictions {#restrictions}
+{{ mmg-name }} manages shards as follows:
 
-The need to work with fairly large data sets may cause your data storage infrastructure to reach the maximum capacity of commercially available hardware (for example, disk subsystem IOPS).
+- Due to limited resources, clusters with the **b1.nano**, **b1.micro**, **b1.medium**, **b2.nano**, **b2.micro**, and **b2.medium** hosts can't be sharded.
 
-When your apps approach the performance limits, it's a good idea to split the data into shards and distribute the read operations.
+- Clusters are unsharded at [creation](../operations/cluster-create.md).
 
-### Geographically distributed consumers {#geo-distribution}
+- In {{ mmg-name }}, sharding is managed by the hosts with the roles `MONGOS` ([routing user queries](https://docs.mongodb.com/manual/core/sharded-cluster-query-router/)) and `MONGOCFG` ([storing the shard configuration](https://docs.mongodb.com/manual/core/sharded-cluster-config-servers/)).
 
-By distributing your cluster shards across regions, you can:
+- In {{ mmg-name }}, you can enable two types of sharding:
 
-* Improve availability for regional users.
-* Comply with the local laws, for example, by storing your data in a particular country or region.
+  - **Standard**: Cost-effective sharding for clusters that don't have any special requirements for sharding management hosts.
 
-### Insufficient fault-tolerance {#high-availability}
+    The `MONGOINFRA` hosts that combine the `MONGOS` and `MONGOCFG` roles will be added to the cluster. The minimum number of such hosts is three.
 
-Sharding lets you isolate individual host or replica set malfunctions. If you don't use sharding, then when one host fails, access to the entire data set it contains is lost completely. But if one shard out of five fails, for example, then 80% of the collection data is still available.
+  - **Advanced**: Flexible sharding for clusters that require a certain number of hosts for each role.
 
-To reduce the risk of a whole shard going offline, we recommend configuring shards as a set of three replicas. Moreover, if you distribute shard hosts across different Yandex.Cloud availability zones, you increase data availability.
+    Dedicated `MONGOS` and `MONGOCFG` servers will be added to the cluster. The minimum number of hosts is two for `MONGOS` and three for `MONGOCFG` hosts.
 
-### Slow query processing {#processing-speed}
-
-Query processing can slow down when they begin to compete for resources. This usually happens as the number of read operations or CPU time per query grows.
-
-However, in a sharded cluster, where shards query the same collection in parallel, competition for shared resources (CPU, disk subsystem) is eliminated and query processing time is reduced.
+- In a sharded cluster:
+  - All queries to {{ mmg-name }} must be redirected to `MONGOS` or `MONGOINFRA` hosts instead of `MONGOD` hosts.
+  - You can't disable sharding or completely remove the hosts that support sharding: the cluster will always support a minimum number of `MONGOS` and `MONGOCFG` or `MONGOINFRA` hosts.
 

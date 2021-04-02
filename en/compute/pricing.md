@@ -343,6 +343,34 @@ For the following products, funds are debited once for the calendar month in adv
 
 {% endlist %}
 
+### Software accelerated network {#software-accelerated-network}
+
+{% list tabs %}
+
+- Prices in USD
+
+    Software network acceleration | Rate for 1 hour, without VAT
+    ----- | -----
+    **Intel Broadwell** |
+    For VMs with less than 18 cores | $0.034358
+    For VMs with 18 or more cores | $0.068717
+    **Intel Cascade Lake** |
+    For VMs with less than 20 cores | $0.034358
+    For VMs with 20 or more cores | $0.068717
+
+- Prices in roubles
+    
+    Software network acceleration | Rate for 1 hour, with VAT
+    ----- | -----
+    **Intel Broadwell** |
+    For VMs with less than 18 cores | ₽2.68
+    For VMs with 18 or more cores | ₽5.36
+    **Intel Cascade Lake** |
+    For VMs with less than 20 cores | ₽2.68
+    For VMs with 20 or more cores | ₽5.36
+
+{% endlist %}
+
 ### Outgoing traffic {#prices-traffic}
 
 

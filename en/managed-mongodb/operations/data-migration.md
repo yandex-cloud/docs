@@ -1,15 +1,15 @@
 # Migrating data to {{ mmg-name }}
 
-To migrate your database to {{ mmg-name }}, you need to transfer the data directly, close the old database for writing, and then transfer the load to the database cluster in Yandex.Cloud.
+To migrate your database to {{ mmg-name }}, you need to directly transfer the data, disable writing to the old database, and then switch the load over to the database cluster in {{ yandex-cloud }}.
 
 To transfer data to a {{ mmg-name }} cluster, you can use `mongodump` and `mongorestore`: create a dump of a working database and restore it in the desired cluster.
 
-Before importing your data, check whether the DBMS versions of the existing database and your cluster in Yandex.Cloud match. If not, you won't be able to restore the created dump.
+Before importing your data, check whether the DBMS versions of the existing database and your cluster in {{ yandex-cloud }} match. If not, you won't be able to restore the created dump.
 
 Sequence of actions:
 
 1. [Create a dump](#dump) of the database you want to migrate using `mongodump`.
-1. If necessary, [create a virtual machine](#create-vm) in {{ compute-name }} to restore the database from the dump in the Yandex.Cloud infrastructure.
+1. If necessary, [create a VM](#create-vm) in {{ compute-name }} to restore the database from a dump in the {{ yandex-cloud }} infrastructure.
 1. [Create a {{ mmg-name }} cluster](#create-cluster) where the restored database will be deployed.
 1. [Restore data from the dump](#restore) in the cluster using`mongorestore`.
 
@@ -51,12 +51,12 @@ You can create a database dump using `mongodump`. For more information about thi
     $ tar -cvzf db_dump.tar.gz ~/db_dump
     ```
 
-### (optional) Create a virtual machine for loading the dump {#create-vm}
+### (optional) Create a VM for loading a dump {#create-vm}
 
 You need an intermediate virtual machine in {{ compute-full-name }} if:
 
 * Your {{ mmg-name }} cluster is not accessible from the internet.
-* Your hardware or connection to the cluster in Yandex.Cloud is not very reliable.
+* Your hardware or connection to the cluster in {{ yandex-cloud }} is not very reliable.
 
 To prepare the virtual machine to restore the dump:
 
@@ -64,7 +64,7 @@ To prepare the virtual machine to restore the dump:
 
    The minimum configuration (1 core, 2 GB RAM, 10 GB disk space) should be sufficient to migrate a DB up to 1 GB in size. The bigger the database being migrated, the more RAM and storage space you need (at least twice the size of the database).
 
-   The virtual machine must be in the same network and availability zone as the {{ mmg-name }} cluster master host. Additionally, the VM must be assigned an external IP address so that you can load the dump file from outside Yandex.Cloud.
+   The virtual machine must be in the same network and availability zone as the {{ mmg-name }} cluster master host. The VM must be also assigned an external IP address so that you can upload the dump file from outside {{ yandex-cloud }}.
 
 1. Install the {{ MG }} client and additional utilities for working with the DBMS:
 
@@ -92,7 +92,7 @@ To prepare the virtual machine to restore the dump:
 
 You get a virtual machine with a database dump that is ready to be restored to the {{ mmg-name }} cluster.
 
-## Create a cluster {{ mmg-name }} {#create-cluster}
+## Create a {{ mmg-name }} cluster {#create-cluster}
 
 Create a cluster with the computing power and storage size appropriate for the environment where the existing database is deployed. More information about creating {{ mmg-name }} clusters can be found here: [{#T}](cluster-create.md) .
 
@@ -100,7 +100,7 @@ Create a cluster with the computing power and storage size appropriate for the e
 
 Use the [mongorestore](https://docs.mongodb.com/manual/reference/program/mongorestore/) utility to restore your DB dump.
 
-* If you restore a dump from a Yandex.Cloud virtual machine:
+* If you restore from a dump stored on a {{ yandex-cloud }} VM:
 
     ```
     $ mongorestore --host <DBMS server address> \
@@ -112,7 +112,7 @@ Use the [mongorestore](https://docs.mongodb.com/manual/reference/program/mongore
                    --nsInclude '*.*' /tmp/db_dump
     ```
 
-* If you restore a dump from a server outside Yandex.Cloud, SSL parameters must be explicitly set for `mongorestore`:
+* If you restore from a dump stored on a server outside {{ yandex-cloud }}, SSL parameters must be explicitly set for `mongorestore`:
 
     ```
     $ mongorestore --host <DBMS server address> \
