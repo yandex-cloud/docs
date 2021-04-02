@@ -44,6 +44,10 @@
 
 Опробуйте новые функции {{ ml-platform-name }} до их релиза в [режиме раннего доступа](../early-access/index.md) и поделитесь мнением об их работе.
 
+## Обращение в поддержку из сервиса {#support}
+
+{% include [include](../../_includes/datasphere/notebook-support.md) %}
+
 #### См. также {#see-also}
 
 * [{#T}](../operations/index.md)
