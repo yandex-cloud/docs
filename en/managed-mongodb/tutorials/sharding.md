@@ -1,8 +1,8 @@
 # Sharding collections {{ MG }}
 
-Sharding in {{ mmg-name }} is available for clusters running {{ MG }} version 4.0 or higher. If your cluster is deployed with version 3.6, you can [update it](../operations/cluster-version-update.md).
+Sharding in {{ mmg-name }} is available for clusters running {{ MG }} version 4.0 or higher. If your cluster is deployed with version 3.6, you can [upgrade it](../operations/cluster-version-update.md).
 
-Please note that when you shard a {{ mmg-name }} cluster, mongos and mongocfg service hosts are automatically created and [billed](../pricing.md) separately from the main DBMS hosts.
+Please note that when you shard a {{ mmg-name }} cluster, `MONGOS` and `MONGOCFG` or `MONGOINFRA` service hosts are automatically created and [billed](../pricing.md) separately from the main DBMS hosts.
 
 {% include [irreversible-sharding-note.md](../../_includes/mdb/irreversible-sharding-note.md) %}
 
@@ -26,17 +26,15 @@ Run all your sharding setup commands via the `mongo` CLI from a user granted the
 
 {% endnote %}
 
-1. Open a {{ mmg-name }} cluster page in [management console]({{ link-console-main }}).
+1. [Enable sharding](../operations/shards.md#enable) for the cluster.
 
-1. Go to the **Shards** tab and click **Enable**.
-
-1. Specify the host class, storage type and size, and subnets for shard hosts (mongocfg and mongos).
-
-1. Connect to the mongos host using the `mongo` CLI and enable sharding:
+1. [Connect](../operations/connect.md) to the `MONGOS` or `MONGOINFRA` host using the `mongo` CLI and enable sharding:
 
    ```
    sh.enableSharding(<database name>)
    ```
+
+   You can obtain the host type with a [list of hosts in the cluster](../operations/hosts.md#list-hosts).
 
 1. Define an index for the sharded collection:
 
@@ -50,9 +48,9 @@ Run all your sharding setup commands via the `mongo` CLI from a user granted the
    sh.shardCollection( "<collection>", { "<index>": "hashed" } )
    ```
 
-   For a detailed description of the `shardCollection`  command, see the [MongoDB documentation](https://docs.mongodb.com/manual/reference/method/sh.shardCollection/#definition).
+   For a detailed description of the `shardCollection` command, see the [{{ MG }} documentation](https://docs.mongodb.com/manual/reference/method/sh.shardCollection/#definition).
 
-1. Modify applications that use your database to **only** use the mongos hosts.
+1. Modify applications that access your database to use **only** the `MONGOS` or `MONGOINFRA` hosts.
 
 ### Links on the topic {#links}
 

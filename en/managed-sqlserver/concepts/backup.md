@@ -19,7 +19,7 @@ After a backup is created, it's compressed for storage. The exact backup size cu
 
 ## Storing backups {#storage}
 
-Backups are stored in Yandex internal storage as binary files and are encrypted using GnuMS. Each cluster has its own encryption keys.
+Backups are stored in Yandex internal storage as binary files and are encrypted using [GMS](https://en.wikipedia.org/wiki/GnuMS). Each cluster has its own encryption keys.
 
 All backups (automatic or manual) are stored for 7 days. You can store one or two full backups to ensure recovery from an automatic seven-day-old backup.
 
@@ -29,7 +29,7 @@ All backups (automatic or manual) are stored for 7 days. You can store one or tw
 
 Backup integrity is checked on synthetic data using integration tests available in the service. For user clusters, backups currently aren't checked.
 
-### Checking backup recovery {#capabilities}
+### Checking backup restoration {#capabilities}
 
 To test the backup feature, [restore a cluster from a backup](../operations/cluster-backups.md) and check the integrity of your data.
 

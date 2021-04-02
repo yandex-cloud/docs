@@ -26,6 +26,44 @@
   1. Укажите имя шарда и добавьте нужное количество хостов.
   1. Нажмите кнопку **Создать шард**.
 
+- Terraform
+
+    {% note info %}
+
+    {{ TF }} не позволяет указывать вес шардов.
+
+    {% endnote %}
+
+    Чтобы добавить шард в кластер:
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+    1. Добавьте к описанию кластера {{ mch-name }} блок `host` типа `CLICKHOUSE` с заполненным полем `shard_name` или измените существующие хосты:
+
+        ```hcl
+        resource "yandex_mdb_clickhouse_cluster" "<имя кластера>" {
+          ...
+          host {
+            type       = "CLICKHOUSE"
+            zone       = "<зона доступности>"
+            subnet_id  = yandex_vpc_subnet.<подсеть в зоне доступности>.id
+            shard_name = "<имя шарда>"
+          }
+        }
+        ```
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    Подробнее см. в [документации провайдера Terraform](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
+
 - API
 
   Добавить шард в кластер можно с помощью метода [addShard](../api-ref/Cluster/addShard.md).
@@ -120,6 +158,26 @@
   1. Нажмите на имя нужного кластера и выберите вкладку **Шарды**.
 
   1. Нажмите значок ![image](../../_assets/horizontal-ellipsis.svg) в строке нужного хоста и выберите пункт **Удалить**.
+
+- Terraform
+
+    Чтобы удалить шард из кластера:
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+    1. Удалите из описания кластера {{ mch-name }} блок `host` с описанием шарда.
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите удаление ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    Подробнее см. в [документации провайдера Terraform](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
 
 - API
 

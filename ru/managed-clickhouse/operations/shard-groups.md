@@ -99,6 +99,42 @@
 
   Имена шардов можно запросить со [списком шардов в кластере](shards.md#list-shards).
 
+- Terraform
+
+    Чтобы создать группу шардов:
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+    1. Добавьте к описанию кластера {{ mch-name }} блок описания группы шардов `shard_group`.
+
+        ```hcl
+        resource "yandex_mdb_clickhouse_cluster" "<имя кластера>" {
+          ...
+          shard_group {
+            name        = "<имя группы шардов>"
+            description = "<необязательное описание группы шардов>"
+            shard_names = [
+              # Список шардов, входящих в группу
+              "<имя шарда 1>",
+              ...
+              "<имя шарда N>"
+            ]
+          }
+        }
+        ```
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
+
 - API
 
   Воспользуйтесь методом API [createShardGroup](../api-ref/Cluster/createShardGroup.md) и передайте в запросе:
@@ -143,6 +179,42 @@
 
   Имена шардов можно запросить со [списком шардов в кластере](shards.md#list-shards).
 
+- Terraform
+
+    Чтобы изменить группу шардов:
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+    1. Измените в описании кластера {{ mch-name }} блок `shard_group` с нужной группой шардов.
+
+        ```hcl
+        resource "yandex_mdb_clickhouse_cluster" "<имя кластера>" {
+          ...
+          shard_group {
+            name        = "<новое имя группы шардов>"
+            description = "<новое описание группы шардов>"
+            shard_names = [
+              # Новый список входящих в группу шардов
+              "<имя шарда 1>",
+              ...
+              "<имя шарда N>"
+            ]
+          }
+        }
+        ```
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
+
 - API
 
   Воспользуйтесь методом API [updateShardGroup](../api-ref/Cluster/updateShardGroup.md) и передайте в запросе:
@@ -185,6 +257,26 @@
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
   Имя группы шардов можно запросить со [списком групп шардов в кластере](#list-shard-groups).
+
+- Terraform
+
+    Чтобы удалить группу шардов:
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+    1. Удалите из описания кластера {{ mch-name }} блок описания нужной группы шардов `shard_group`.
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите удаление ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
 
 - API
 

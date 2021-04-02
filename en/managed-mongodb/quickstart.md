@@ -1,45 +1,86 @@
 # Getting started with {{ mmg-short-name }}
 
+To get started with the service:
+
+1. [Create a cluster](#cluster-create).
+1. [Connect to the DB](#connect).
 
 
-To use the service, create a cluster and connect to a DBMS:
+## Before you start {#before-you-begin}
 
-1. All you need to create a database cluster is a folder in Yandex.Cloud that you are allowed to access. If you already have a folder in Yandex.Cloud, open the page of that folder in the management console. If there is no folder yet, create one:
+1. Go to the [management console]({{ link-console-main }}). Then log in to {{ yandex-cloud }} or sign up if you don't have an account yet.
+
+1. If you don't have a folder yet, create one:
 
     {% include [create-folder](../_includes/create-folder.md) %}
 
-1. Create a VM (based on [Linux](../compute/quickstart/quick-create-linux.md) or [Windows](../compute/quickstart/quick-create-windows.md)) that you will use for accessing the DB cluster. If you plan to connect to the database from outside Yandex.Cloud, request external IP addresses for hosts when creating a cluster.
-   1. To connect to a DB cluster from inside the Cloud, create a VM in the same network as the DB cluster (based on [Linux](../compute/quickstart/quick-create-linux.md) or [Windows](../compute/quickstart/quick-create-windows.md))
-   1. To connect to a cluster from the internet, request public access to the hosts when creating the cluster.
+1. You can connect to DB clusters from both inside and outside {{ yandex-cloud }}:
+   - To connect from inside {{ yandex-cloud }}, create a [Linux](../compute/quickstart/quick-create-linux.md)- or [Windows](../compute/quickstart/quick-create-windows.md)-based virtual machine in the same network as the DB cluster.
+   - To be able to connect to the cluster from the internet, request public access to hosts when creating the cluster.
+
+   {% note info %}
+
+   The next step assumes that you connect to the cluster from a [Linux](../compute/quickstart/quick-create-linux.md)-based VM.
+
+   {% endnote %}
+
+1. [Connect](../compute/operations/vm-connect/ssh.md) to the VM via SSH.
+
+1. Install MongoDB Shell:
+
+   ```bash
+   cd ~/ && \
+   wget https://repo.mongodb.org/apt/ubuntu/dists/focal/mongodb-org/4.4/multiverse/binary-amd64/mongodb-org-shell_4.4.1_amd64.deb && \
+   sudo dpkg -i mongodb-org-shell_4.4.1_amd64.deb
+   ```
+
+## Create a cluster {#cluster-create}
 
 1. In [management console]({{ link-console-main }}), select the folder where you want to create a cluster.
-
 1. Select **{{ mmg-name }}**.
-
-1. Click **Create cluster** and select the necessary DBMS.
-
+1. Click **Create cluster**.
 1. Set the cluster parameters and click **Create cluster**. This process is described in detail in [{#T}](operations/cluster-create.md).
+1. When the cluster is ready, its status changes to **Running** and its state to **Alive**. This may take some time.
 
-1. When the cluster is ready, its status on the {{ mmg-short-name }} dashboard will change to **RUNNING**.
+## Connect to the DB {#connect}
 
-1. To connect to the DB server, you need an SSL certificate. You can prepare all the necessary authentication data as follows:
+1. Get an SSL certificate:
 
     
-    ```bash
-    $ mkdir ~/.mongodb
-    $ wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.mongodb/CA.pem
-    ```
+    1. Create a folder:
 
-1. You can now connect to the cluster:
+        ```bash
+        $ mkdir ~/.mongodb
+        ```
+
+    1. Get a certificate:
+
+        ```bash
+        $ wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.mongodb/root.crt
+        ```
+
+    1. Configure permissions to the certificate:
+
+        ```bash
+        $ chmod 0600 ~/.mongodb/root.crt
+        ```
+
+1. Connect to the cluster using the {{ MG }} CLI:
 
     
     ```bash
     $ mongo --norc \
             --ssl \
-            --sslCAFile ~/.mongodb/CA.pem \
+            --sslCAFile ~/.mongodb/root.crt \
             --host 'rs01/<address of host 1>:27018,<address of host 2>:27018,<address of host N>:27018' \
             -u <user name> \
             -p <user password> \
             <DB name>
     ```
+
+## What's next
+
+- Read about [service concepts](concepts/index.md).
+- Learn more about [creating a cluster](operations/cluster-create.md) and [connecting to the database](operations/connect.md).
+- Read [questions and answers](qa/general.md).
 

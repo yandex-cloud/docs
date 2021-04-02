@@ -26,7 +26,7 @@ Backups are created every 24 hours and stored for seven days after being created
 
 #### How does replication work for {{ MG }}? {#replication}
 
-{{ mmg-short-name }} uses the standard {{ MG }} replication mechanism: if a cluster has multiple active hosts, one of them is automatically selected as the primary server for handling write requests.
+{{ mmg-short-name }} uses {{ MG }} standard replication: if a cluster has multiple active hosts, one of them is automatically elected as the primary server for handling write queries.
 
 For more information about how replication works in {{ MG }}, read the [DBMS documentation](https://docs.mongodb.com/manual/replication/).
 

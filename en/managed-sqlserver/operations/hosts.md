@@ -14,7 +14,7 @@ You can get a list of {{ MS }} cluster hosts.
 
 - API
 
-  Use the `listHosts` API method: pass the ID of the desired cluster in the `clusterId` request parameter.
+  Use the [listHosts](../api-ref/Cluster/listHosts.md) API method: pass the ID of the required cluster in the `clusterId` request parameter.
 
   To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
 

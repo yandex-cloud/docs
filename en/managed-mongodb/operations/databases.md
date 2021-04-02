@@ -23,7 +23,7 @@ You can add and remove databases, as well as view information about them.
        --cluster-name <cluster name>
   ```
 
-  The cluster name can be requested with a [list of folder clusters](cluster-list.md#list-clusters).
+  You can query the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 
@@ -45,7 +45,7 @@ Created databases are not available to cluster users by default. To allow a user
 
 - Management console
   1. Go to the folder page and select **{{ mmg-name }}**.
-  1. Click on the name of the cluster you need.
+  1. Click on the name of the cluster you need.
   1. Select the **Databases** tab.
   1. Click **Add**.
   1. Enter a name for the database and click **Add**.
@@ -66,7 +66,7 @@ Created databases are not available to cluster users by default. To allow a user
 
   {{ mmg-short-name }} runs the create database operation.
 
-  The cluster name can be requested with a [list of folder clusters](cluster-list.md#list-clusters).
+  You can query the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   Make sure you [granted permission](cluster-users.md#updateuser) to access the created database to the appropriate cluster user.
 
@@ -98,7 +98,7 @@ Created databases are not available to cluster users by default. To allow a user
        --cluster-name <cluster name>
   ```
 
-  The cluster name can be requested with a [list of folder clusters](cluster-list.md#list-clusters).
+  You can query the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 

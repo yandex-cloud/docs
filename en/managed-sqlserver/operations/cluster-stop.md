@@ -2,7 +2,7 @@
 
 If necessary, you can stop and restart the cluster.
 
-## Stop a cluster {#stop-cluster}
+## Stopping a cluster {#stop-cluster}
 
 {% list tabs %}
 
@@ -15,13 +15,13 @@ If necessary, you can stop and restart the cluster.
 
 - API
 
-  Use the `stop` API method to stop all the cluster hosts: pass the ID of the required cluster in the `clusterId` request parameter.
+  Use the [stop](../api-ref/Cluster/stop.md) API method to stop all cluster hosts: pass the ID of the required cluster in the `clusterId` request parameter.
 
   To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
 
 {% endlist %}
 
-## Start a cluster {#start-cluster}
+## Starting a cluster {#start-cluster}
 
 {% list tabs %}
 
@@ -34,7 +34,7 @@ If necessary, you can stop and restart the cluster.
 
 - API
 
-  To start the cluster, use the `start` API method: pass the ID of the desired cluster in the `clusterId` request parameter.
+  To start a cluster, use the [start](../api-ref/Cluster/start.md) API method: pass the ID of the required cluster in the `clusterId` request parameter.
 
   To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
 

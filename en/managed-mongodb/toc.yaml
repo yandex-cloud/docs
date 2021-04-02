@@ -15,7 +15,7 @@ items:
         href: operations/data-migration.md
       - name: Connecting to databases
         href: operations/connect.md
-      - name: Stop and start the cluster
+      - name: Stopping and starting clusters
         href: operations/cluster-stop.md
       - name: Changing cluster and database settings
         href: operations/update.md
@@ -29,7 +29,7 @@ items:
         href: operations/cluster-users.md
       - name: Managing backups
         href: operations/cluster-backups.md
-      - name: How to manage shards
+      - name: Managing shards
         href: operations/shards.md
       - name: Deleting clusters
         href: operations/cluster-delete.md
@@ -42,7 +42,15 @@ items:
       - name: Relationship between service resources
         href: concepts/index.md
       - name: Host classes
-        href: concepts/instance-types.md
+        items:
+          - name: Active host classes
+            href: concepts/instance-types.md
+          - name: Archive
+            items:
+              - name: Before June 1, 2020
+                href: concepts/instance-types-archive/instance-types-01062020.md
+          - name: Using deprecated host classes
+            href: concepts/using-deprecated-instances.md
       - name: Network in Yandex Managed Service for MongoDB
         href: concepts/network.md
       - name: Quotas and limits

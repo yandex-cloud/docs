@@ -59,6 +59,38 @@
   1. Нажмите кнопку **Настроить** в блоке **Настройки СУБД**. 
   1. В поле **Geobase uri** — укажите публичную ссылку на архив с геобазой в {{ objstorage-name }}.
 
+- Terraform
+
+    Чтобы подключить геобазу к кластеру:
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+    1. Добавьте в настройки кластера {{ mch-name }} параметр `geobase_uri` со ссылкой на архив с подключаемой геобазой в {{ objstorage-name }}:
+
+        ```hcl
+        resource "yandex_mdb_clickhouse_cluster" "<имя кластера>" {
+          ...
+          clickhouse {
+            config {
+              geobase_uri = "<публичная ссылка на архив с геобазой в {{ objstorage-name }}>"
+              ...
+            }
+          ...
+          }
+        ...
+        }
+        ```
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
+
 {% endlist %}
-
-

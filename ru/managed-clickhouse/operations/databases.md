@@ -74,13 +74,9 @@
   1. Выберите вкладку **Базы данных**.
   1. Нажмите кнопку **Добавить**.
   1. Введите имя для базы данных и нажмите кнопку **Добавить**.
-     
-  {% note info %}
-  
-    Имя базы может состоять из букв латинского алфавита, цифр, символов тире и подчеркивания. Максимальная длина имени 63 символа. Запрещено создание базы данных с именем `default`.
-  
-  {% endnote %}
- 
+
+  {% include [db-name-limits](../../_includes/mdb/mch/note-info-db-name-limits.md) %}
+
 - CLI
 
   {% include [cli-install](../../_includes/cli-install.md) %}
@@ -90,19 +86,46 @@
   Выполните команду создания БД, задав имя новой базы:
 
   ```
-  $ {{ yc-mdb-ch }} database create <имя базы данных>
+  $ {{ yc-mdb-ch }} database create <имя базы данных> \
       --cluster-name <имя кластера>
   ```
 
   {{ mch-short-name }} запустит операцию создания базы данных.
   
-  {% note info %}
-  
-    Имя базы может состоять из букв латинского алфавита, цифр, символов тире и подчеркивания. Максимальная длина имени 63 символа. Запрещено создание базы данных с именем `default`.
-  
-  {% endnote %}
+  {% include [db-name-limits](../../_includes/mdb/mch/note-info-db-name-limits.md) %}
 
   Имя кластера можно запросить со [списком кластеров в каталоге](#list-clusters).
+
+- Terraform
+
+    Чтобы создать базу данных в кластере:
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+    1. Добавьте к описанию кластера {{ mch-name }} блок описания базы данных `database`:
+
+        ```hcl
+        resource "yandex_mdb_clickhouse_cluster" "<имя кластера>" {
+          ...
+          database {
+            name = "<имя базы данных>"
+          }
+        }
+        ```
+
+        {% include [db-name-limits](../../_includes/mdb/mch/note-info-db-name-limits.md) %}
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
 
 - API
 
@@ -117,6 +140,8 @@
       CREATE DATABASE <имя базы данных>;
       ```
 
+      {% include [db-name-limits](../../_includes/mdb/mch/note-info-db-name-limits.md) %}
+
   Подробнее о создании баз данных см. [в документации {{ CH }}](https://clickhouse.tech/docs/ru/sql-reference/statements/create/database/).
 
 {% endlist %}
@@ -130,7 +155,6 @@
   1. Перейдите на страницу каталога и выберите сервис **{{ mch-name }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **Базы данных**.
   1. Нажмите значок ![image](../../_assets/vertical-ellipsis.svg) в строке нужной БД и выберите пункт **Удалить**.
-
 
 - CLI
 
@@ -147,6 +171,25 @@
 
   Имя кластера можно запросить со [списком кластеров в каталоге](#list-clusters).
 
+- Terraform
+
+    Чтобы удалить базу данных из кластера:
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+    1. Удалите из описания кластера {{ mch-name }} блок `database` с описанием базы данных.
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
 
 - API
 

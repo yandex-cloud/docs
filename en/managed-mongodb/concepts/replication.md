@@ -1,12 +1,12 @@
 # Replication and fault tolerance {{ MG }}
 
-{{ mmg-name }} supports replication by default: if a cluster has multiple active hosts, the first replica that handles write requests is automatically selected out of them.
+{{ mmg-name }} supports replication by default: if a cluster has multiple active hosts, the primary replica to process write queries is automatically elected.
 
 {% include [non-replicating-hosts](../../_includes/mdb/non-replicating-hosts.md) %}
 
 For more information about how replication works in {{ MG }}, read the [DBMS documentation](https://docs.mongodb.com/manual/replication/).
 
-## Fault tolerant {#Fault-tolerance}
+## Fault tolerance {#Fault-tolerance}
 
 For cluster hosts to be able to automatically select the primary replica if needed, the vast majority of hosts need to be operable. As a result, it's more cost-efficient to deploy clusters with an odd number of hosts when working with {{ mmg-name }}. For example, a cluster with 3 hosts can't lose more than 1 host and keep working. At the same time, a cluster with 4 hosts also can't lose more than 1: if a second host is lost, the remaining hosts won't be enough to select a new primary replica.
 

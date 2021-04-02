@@ -31,7 +31,7 @@ You can add and remove users, as well as manage their individual settings.
 
 {% endlist %}
 
-## Add a user {#adduser}
+## Adding a user {#adduser}
 
 {% list tabs %}
 
@@ -130,7 +130,7 @@ You can add and remove users, as well as manage their individual settings.
 
 {% endlist %}
 
-## Deleting users {#removeuser}
+## Deleting a user {#removeuser}
 
 {% list tabs %}
 
@@ -159,4 +159,6 @@ You can add and remove users, as well as manage their individual settings.
   You can delete a user using the [delete](../api-ref/User/delete.md) method.
 
 {% endlist %}
+
+{% include [user-ro](../../_includes/mdb/mmg-user-examples.md) %}
 

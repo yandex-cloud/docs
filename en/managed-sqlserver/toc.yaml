@@ -19,11 +19,11 @@ items:
         href: operations/update.md
       - name: Managing SQL Server hosts
         href: operations/hosts.md
-      - name: Managing databases
+      - name: Database management
         href: operations/databases.md
       - name: Managing users
         href: operations/cluster-users.md
-      - name: Granting permissions and roles
+      - name: Assigning privileges and roles
         href: operations/grant.md
       - name: Managing backups
         href: operations/cluster-backups.md
@@ -35,7 +35,7 @@ items:
         href: concepts/index.md
       - name: Host classes
         href: concepts/instance-types.md
-      - name: Networks in Managed Service for SQL Server
+      - name: Network in Managed Service for SQL Server
         href: concepts/network.md
       - name: Quotas and limits
         href: concepts/limits.md

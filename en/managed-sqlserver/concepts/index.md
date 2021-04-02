@@ -16,7 +16,21 @@ When creating a cluster, specify:
    * `PRODUCTION`: For stable versions of your apps.
    * `PRESTABLE`: For testing, including the {{ mms-short-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
 
-A database cluster created in a folder can be accessed by all VMs connected to the same cloud network. [Learn more about networking](../../vpc/).
+* {{ MS }} _version_.
+
+  {{ mms-name }} clusters support `2016 ServicePack 2` for the following editions:
+
+  * Standard Edition.
+
+    This edition is only available for single-host clusters.
+
+  * Enterprise Edition.
+
+  For the full list of limitations imposed by {{ mms-name }} on the clusters of these editions, see [{#T}](limits.md).
+
+  For more information about editions, see the [documentation for {{ MS }}](https://docs.microsoft.com/en-us/sql/sql-server/editions-and-components-of-sql-server-2016?view=sql-server-ver15).
+
+A database cluster created in a folder can be accessed by all VM instances connected to the same cloud network. [Learn more about networking](../../vpc/).
 
 {% include [monitoring-access](../../_includes/mdb/monitoring-access.md) %}
 

@@ -1,18 +1,21 @@
-# How to manage shards
+# Managing shards
 
-You can enable sharding for clusters that have {{ MG }} version 4.0 or higher. You can also add and configure individual shards.
+You can enable [sharding](../concepts/sharding.md) for clusters that have {{ MG }} version 4.0 or higher. You can also add and configure individual shards.
 
 {% note alert %}
 
-Once sharding is enabled, the only right way to access the database is over the mongos hosts that store and update shard data. Don't forget to change the host addresses in your app code.
+After [cluster sharding](../concepts/sharding.md) is enabled:
+
+- You can't disable sharding: the cluster will always maintain a minimum number of `MONGOS`, `MONGOCFG`, or `MONGOINFRA` hosts depending on the [sharding type](../concepts/sharding.md#shard-management).
+- For accessing the databases, only use the `MONGOS` or `MONGOINFRA` hosts that route queries to shards. For this purpose, edit host addresses in your application code accordingly.
 
 {% endnote %}
 
 Make sure that your shards consist of at least 3 hosts to ensure higher availability. We don't recommend sharding small collections: query processing is faster with a standard replica cluster.
 
-## Enable sharding {#enable}
+## Enabling sharding {#enable}
 
-Using the {{ mmg-name }} interface, you can quickly create a {{ MG }} sharding infrastructure: the mongos and mongocfg hosts needed to run the sharded database.
+The {{ mmg-name }} interface lets you quickly create a [{{ MG }} sharding infrastructure](../concepts/sharding.md#shard-management).
 
 To learn how to directly shard your {{ MG }} database and collections, see [{#T}](../tutorials/sharding.md).
 
@@ -20,27 +23,47 @@ To learn how to directly shard your {{ MG }} database and collections, see [{#T}
 
 - Management console
 
-  1. Go to the folder page and select **{{ mmg-name }}**.
+    1. Go to the folder page and select **{{ mmg-name }}**.
 
-  1. Click the name of a cluster and open the **Shards** tab.
+    1. Click the name of a cluster and open the **Shards** tab.
 
-  1. Click **Enable**.
+        {% note info %}
 
-  1. Configure the mongocfg and mongos hosts that should provide access to the sharded data.
+         Sharding is [not supported](../concepts/sharding.md#shard-management) for hosts with the classes **b1.nano**, **b1.micro**, **b1.medium**, **b2.nano**, **b2.micro**, or **b2.medium**. If you don't see the **Shards** tab, [increase the cluster host class](update.md#change-resource-preset) to the supported value.
 
-     To ensure continuous access to your data, {{ mmg-name }} lets you create at least 3 mongocfg hosts and 2 mongos hosts.
+        {% endnote %}
 
-  1. Click **Enable sharding**.
+    1. Click **Enable**.
 
-  The cluster update starts. This operation creates the requested mongocfg and mongos hosts as well as the first shard of the cluster.
+    1. Select a sharding type:
+
+       - **Standard**: Using a `MONGOINFRA` host.
+          To ensure continuous access to data, {{ mmg-name }} requires at least three `MONGOINFRA` hosts.
+
+       - **Advanced**: Using `MONGOS` and `MONGOCFG` hosts.
+          To ensure continuous access to data, {{ mmg-name }} requires at least two `MONGOS` hosts and at least three `MONGOCFG` hosts.
+
+          For more information, see [{#T}](../concepts/sharding.md).
+
+       {% note warning %}
+
+       After you enable sharding, you can't change its type.
+
+       {% endnote %}
+
+    1. Set the parameters of the hosts that will provide access to the sharded data.
+
+    1. Click **Enable sharding**.
+
+    The cluster will start updating, with the requested hosts and first shard of the cluster created.
 
 - API
 
-  You can enable sharding for the cluster using the [enableSharding](../api-ref/Cluster/enableSharding.md) method.
+    You can enable sharding for the cluster using the [enableSharding](../api-ref/Cluster/enableSharding.md) method.
 
 {% endlist %}
 
-## List shards in a cluster {#list-shards}
+## Listing shards in a cluster {#list-shards}
 
 {% list tabs %}
 
@@ -56,14 +79,13 @@ To learn how to directly shard your {{ MG }} database and collections, see [{#T}
 
 {% endlist %}
 
-## Add a shard {#add-shard}
+## Adding a shard {#add-shard}
 
 The number of shards in {{ mmg-short-name }} clusters is limited by the CPU and RAM quotas available to DB clusters in your cloud. To check the resources in use, open the [Quotas]({{ link-console-quotas }}) page and find the **{{ mmg-full-name }}** block.
 
 {% list tabs %}
 
 - Management console
-
   1. Go to the folder page and select **{{ mmg-name }}**.
   1. Click on the name of the cluster you need and go to the **Hosts** tab.
   1. Click **Add shard**.
@@ -76,7 +98,7 @@ The number of shards in {{ mmg-short-name }} clusters is limited by the CPU and 
 
 {% endlist %}
 
-## Delete a shard {#delete-shard}
+## Deleting a shard {#delete-shard}
 
 You can delete a shard from a {{ MG }} cluster provided that it's not the only shard in it. To replace the only shard in a cluster, first create a new shard and then remove the old one.
 

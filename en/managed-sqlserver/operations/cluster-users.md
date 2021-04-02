@@ -12,13 +12,13 @@ You can add and remove users, as well as manage their individual settings.
 
 - API
 
-  Use the `list` API method: pass the ID of the required cluster in the `clusterId` request parameter.
+  Use the [list](../api-ref/User/list.md) API method: pass the ID of the required cluster in the `clusterId` request parameter.
 
   To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
 
 {% endlist %}
 
-## Add a user {#adduser}
+## Adding a user {#adduser}
 
 {% list tabs %}
 
@@ -37,7 +37,7 @@ You can add and remove users, as well as manage their individual settings.
 
 - API
 
-  Use the `create` API method and pass the following in the request:
+  Use the [create](../api-ref/User/create.md) API method and pass the following in the request:
   - ID of the cluster where you want to create a user, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
   - Username, in the `userSpec.name` parameter.
   - User password, in the `userSpec.password` parameter.
@@ -46,7 +46,7 @@ You can add and remove users, as well as manage their individual settings.
 
 {% endlist %}
 
-## Change password {#change-password}
+## Changing a password {#change-password}
 
 {% list tabs %}
 
@@ -55,12 +55,12 @@ You can add and remove users, as well as manage their individual settings.
   To change the user's password:
   1. Go to the folder page and select **{{ mms-name }}**.
   1. Click on the name of the cluster you need and select the tab **Users**.
-  1. Click the image icon and select **Change password**.
+  1. Click ![options](../../_assets/horizontal-ellipsis.svg) and select **Change password**.
   1. Set a new password and click **Edit**.
 
 - API
 
-  Use the `update` API method and pass the following in the request:
+  Use the [update](../api-ref/User/update.md) API method and pass the following in the request:
   - In the `clusterId` parameter, the ID of the cluster where the user is located. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
   - Username, in the `userName` parameter. To find out the username, [get a list of users in the cluster](#list-users).
   - New user password, in the `password` parameter.
@@ -75,7 +75,7 @@ You can add and remove users, as well as manage their individual settings.
 
 {% endlist %}
 
-## Change user settings {#update-settings}
+## Changing user settings {#update-settings}
 
 {% list tabs %}
 
@@ -96,7 +96,7 @@ You can add and remove users, as well as manage their individual settings.
 
 - API
 
-  Use the `update` API method and pass the following in the request:
+  Use the [update](../api-ref/User/update.md) API method and pass the following in the request:
   - In the `clusterId` parameter, the ID of the cluster where the user is located. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
   - Username, in the `userName` parameter. To find out the username, [get a list of users in the cluster](#list-users).
   - New values for user settings.
@@ -105,13 +105,13 @@ You can add and remove users, as well as manage their individual settings.
   {% note warning %}
 
   This API method resets any settings that aren't passed explicitly in the request to their defaults.
-  To avoid this, list the settings you want to change in the `updateMask` parameter (in a single line, separated by commas).
+  To avoid this, in the `updateMask` parameter, list the settings you want to change (in a single line, separated by commas).
 
   {% endnote %}
 
 {% endlist %}
 
-## Deleting users {#removeuser}
+## Deleting a user {#removeuser}
 
 {% list tabs %}
 
@@ -123,9 +123,11 @@ You can add and remove users, as well as manage their individual settings.
 
 - API
 
-  Use the `delete` API method and pass the following in the request:
+  Use the [delete](../api-ref/User/delete.md) API method and pass the following in the request:
   - In the `clusterId` parameter, the ID of the cluster where the user is located. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
   - Username, in the `userName` parameter. To find out the username, [get a list of users in the cluster](#list-users).
 
 {% endlist %}
+
+{% include [user-ro](../../_includes/mdb/mms-user-examples.md) %}
 

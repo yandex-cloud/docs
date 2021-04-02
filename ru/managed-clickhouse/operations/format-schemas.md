@@ -51,6 +51,37 @@
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
+- Terraform
+
+    Чтобы подключить схему формата данных к кластеру:
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+    1. Добавьте к описанию кластера {{ mch-name }} блок `format_schema`:
+
+        ```hcl
+        resource "yandex_mdb_clickhouse_cluster" "<имя кластера>" {
+          ...
+          format_schema {
+            name = "<имя схемы>"
+            type = "<тип схемы: FORMAT_SCHEMA_TYPE_CAPNPROTO или FORMAT_SCHEMA_TYPE_PROTOBUF>"
+            uri  = "<публичная ссылка на файл схемы в {{ objstorage-name }}>"
+          }
+        }
+        ```
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
+
 {% endtabs %}
 
 ## Изменить схему формата данных {#update-format-schema}
@@ -87,6 +118,37 @@
 
      Имя схемы можно запросить со [списком схем формата данных в кластере](#list-format-schemas); имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
+    - Terraform
+
+        Чтобы изменить схему формата данных:
+
+        1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+            О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+        1. Измените в описании кластера {{ mch-name }} значение параметра `uri` в блоке `format_schema`:
+
+            ```hcl
+            resource "yandex_mdb_clickhouse_cluster" "<имя кластера>" {
+              ...
+              format_schema {
+                name = "<имя схемы>"
+                type = "<тип схемы>"
+                uri  = "<новая публичная ссылка на файл схемы в {{ objstorage-name }}>"
+              }
+            }
+            ```
+
+        1. Проверьте корректность настроек.
+
+            {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+        1. Подтвердите изменение ресурсов.
+
+            {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+        Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
+
    {% endtabs %}
 
 ## Отключить схему формата данных {#disable-format-schema}
@@ -99,7 +161,7 @@
 
 {% list tabs %}
 
- - Консоль управления
+- Консоль управления
 
    1. Перейдите на страницу каталога и выберите сервис **{{ mch-name }}**.
    1. Нажмите на имя нужного кластера и выберите вкладку **Схемы формата данных**.
@@ -119,6 +181,26 @@
   ```
 
   Имя схемы можно запросить со [списком схем формата данных в кластере](#list-format-schemas); имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+- Terraform
+
+    Чтобы отключить схему формата данных:
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+    1. Удалите из описания кластера {{ mch-name }} блок описания нужной схемы формата данных `format_schema`.
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
 
 {% endtabs %}
 

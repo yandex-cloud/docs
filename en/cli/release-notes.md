@@ -1,8 +1,76 @@
 # YC CLI Releases
 
-## Version 0.72.0 (11.02.21) {#latest-release}
+## Version 0.74.0 (30.03.21) {#latest-release}
+
+* Added support for macOS/arm64 (Apple Silicon M1) and linux/arm64.
 
 ### Changes to {{ yandex-cloud }} services
+
+#### {{ dataproc-name }} {#dataproc}
+
+* Commands `yc dataproc cluster create` and `yc dataproc cluster update`.
+
+  Added the `--security-group-ids` flag that lets you specify a set of security groups for a cluster.
+
+## Previous releases {#previous-releases}
+
+### Version 0.73.0 (17.03.21) {#version0.73.0}
+
+#### {{ container-registry-name }} {#container-registry}
+
+Added commands for managing the allowed IP addresses for pushing and pulling the Docker images:
+* `yc container registry add-ip-permissions` adds IP addresses.
+* `yc container registry list-ip-permissions` lets you view IP addresses.
+* `yc container registry set-ip-permissions` sets IP addresses.
+* `yc container registry remove-ip-permissions` removes IP addresses.
+
+#### {{ sf-name }} {#cloud-functions}
+
+* Command `yc serverless function version create`.
+
+Added default values for flags:
+* `--execution-timeout` – Three seconds.
+* `--memory` – 128 MB.
+
+* Command `yc serverless function version create`.
+
+  Added the `--add-service-account` flag to specify additional service accounts for the version.
+
+#### {{ cloud-logs-name }} {#logs}
+
+* Added the `yc logs` command.
+
+#### Managed database services {#managed-db}
+
+**{{ mkf-name }}**
+
+* Command `yc managed-kafka cluster create`.
+
+Default values are no longer set for the flags `--disk-size`, `--disk-type`, `--resource-preset`, `--zookeeper-disk-size`, `--zookeeper-disk-type` and `--zookeeper-resource-preset`. If no values are specified, the default values set on the server are used.
+
+* Command `yc managed-kafka cluster create`.
+
+Added the `--unmanaged-topics` flag to enable management of {{ KF }} topics via AdminAPI.
+
+Added the `--auto-create-topics-enable` flag to enable automatic {{ KF }}  topic creation.
+
+* Command `yc managed-kafka user create`.
+
+Added the `admin` role to enable managing {{ KF }} cluster topics via AdminAPI.
+
+**{{ mrd-name }}**
+
+* Command `yc managed-redis cluster create`.
+
+Added the `--enable-tls` flag to enable TLS when creating an {{ RD }} cluster.
+
+* Command `yc managed-redis cluster restore`.
+
+  Added the `--enable-tls` flag to enable TLS when creating an {{ RD }} cluster from a backup.
+
+### Version 0.72.0 (11.02.21) {#version0.72.0}
+
+#### Changes to {{ yandex-cloud }} services
 
 #### {{ alb-name }} {#alb}
 
@@ -17,8 +85,6 @@ Added primary support for {{ alb-name }}:
 #### {{ compute-name }} {#compute}
 
 * Commands `yc compute instance|disk|image list` now return more than 1000 items.
-
-## Previous releases {#previous-releases}
 
 ### Version 0.71.0 (03.02.21) {#version0.71.0}
 
