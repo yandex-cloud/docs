@@ -26,6 +26,20 @@ editable: false
 
 ## Цены {#prices}
 
-Услуга | Цена за единицу тарификации,<br> вкл. НДС
------ | -----
-[Распознавание текста](concepts/ocr/index.md) | 0,1200 ₽
+{% if region == "ru" %}
+
+{% include notitle [rub.md](../_pricing/vision/rub.md) %}
+
+{% endif %}
+
+{% if region == "pre-kz" %}
+
+{% include notitle [kzt.md](../_pricing/vision/kzt.md) %}
+
+{% endif %}
+
+{% if region == "int" %}
+
+{% include notitle [usd.md](../_pricing/vision/usd.md) %}
+
+{% endif %}

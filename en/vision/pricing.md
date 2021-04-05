@@ -19,19 +19,20 @@ Each successful image analysis performed using any feature is charged as a singl
 
 ## Pricing {#prices}
 
+{% if region == "ru" %}
 
-{% list tabs %}
+{% include notitle [rub.md](../_pricing/vision/rub.md) %}
 
-- Prices in USD
+{% endif %}
 
-  | Feature | Rate for the billable unit, without VAT |
-  | ----- | ----- |
-  | [Text recognition](concepts/ocr/index.md) | $0.00153846 |
+{% if region == "pre-kz" %}
 
-- Prices in roubles
+{% include notitle [kzt.md](../_pricing/vision/kzt.md) %}
 
-  | Feature | Rate for the billable unit, with VAT |
-  | ----- | ----- |
-  | [Text recognition](concepts/ocr/index.md) | ₽0.1200 |
+{% endif %}
 
-{% endlist %}
+{% if region == "int" %}
+
+{% include notitle [usd.md](../_pricing/vision/usd.md) %}
+
+{% endif %}
