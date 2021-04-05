@@ -1,11 +1,13 @@
-# Создать новый продукт
+# Создание продукта
 
-Чтобы добавить продукт в Marketplace, вам нужно [создать образ в {{ compute-name }}](../../compute/operations/image-create/upload.md). Затем выполните следущие шаги:
+Чтобы добавить продукт в Marketplace, нужно [загрузить образ в {{ yandex-cloud }}](create-image.md#create).
 
-## Расскажите о продукте {#description}
+## Рассказать о продукте
 
-{% include [new-product-desc](../_includes_service/new-product-desc.md) %}
+{% include [product](../../_includes/marketplace/product.md) %}
 
-## Загрузите первую версию продукта {#first-version}
+## Создать первую версию продукта {#first-version}
 
-{% include [new-product-version](../_includes_service/new-product-version.md) %}
+{% include [product-version](../../_includes/marketplace/product-version.md) %}
+
+Первая версия продукта отправится на модерацию в {{ yandex-cloud }}. После проверки вы получите письмо с подтверждением того, что ваш продукт доступен пользователям в публичном каталоге Marketplace.
