@@ -7,13 +7,17 @@ items:
     items:
       - name: Все инструкции
         href: operations/index.md
-      - name: Создать тариф
+      - name: Регистрация
+        href: operations/registration.md
+      - name: Создание тарифа
         href: operations/create-tariff.md
-      - name: Создать новый продукт
+      - name: Создание образа продукта
+        href: operations/create-image.md
+      - name: Создание продукта
         href: operations/create-product.md
-      - name: Изменить информацию о продукте
+      - name: Изменение продукта
         href: operations/change-product.md
-      - name: Создать новую версию продукта
+      - name: Добавление новой версии продукта
         href: operations/create-new-version.md
   - name: Концепции
     items:

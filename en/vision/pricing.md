@@ -20,18 +20,6 @@ Each successful image analysis performed using any feature is charged as a singl
 ## Pricing {#prices}
 
 
-{% list tabs %}
 
-- Prices in USD
 
-  | Feature | Rate for the billable unit, without VAT |
-  | ----- | ----- |
-  | [Text recognition](concepts/ocr/index.md) | $0.00153846 |
-
-- Prices in roubles
-
-  | Feature | Rate for the billable unit, with VAT |
-  | ----- | ----- |
-  | [Text recognition](concepts/ocr/index.md) | ₽0.1200 |
-
-{% endlist %}
+{% include notitle [usd.md](../_pricing/vision/usd.md) %}
