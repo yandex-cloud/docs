@@ -93,7 +93,7 @@ Create a [dataset](../../datalens/concepts/dataset/index.md) using the [connecti
 
 1. For the **ShopDistrictCoordinates** field, change the data type to **Geopolygon**.
 
-1. For the **DeliveryDistrictCoordinates** field, change the data type to **Geopoint**.
+1. For the **DeliveryDistrictCoordinates** field, change the data type to **Geopolygon**.
 
 1. In the **Aggregation** column, select **Sum** for the **Sales** field.
 

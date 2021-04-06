@@ -1,39 +1,29 @@
 # Начало работы с кабинетом партнера Marketplace
 
-С помощью кабинета партнера Marketplace можно добавлять образы ваших продуктов в Marketplace, управлять их версиями и тарифами на их использование. Зарегистрируйтесь в кабинете партнера Marketplace и загрузите ваш первый образ, следуя инструкциям.
+С помощью кабинета партнера Marketplace можно добавлять образы ваших продуктов в Marketplace, управлять их версиями и тарифами на использование. Зарегистрируйтесь в кабинете партнера Marketplace и загрузите ваш первый образ, следуя инструкциям.
 
 ## Регистрация {#registration}
 
-Откройте страницу [Marketplace](https://cloud.yandex.ru/marketplace) и заполните заявку на добавление вашего продукта в Marketplace. В тексте заявки укажите [платежный аккаунт](../billing/concepts/billing-account.md) юридического лица, которое будет публиковать продукт. Отправка заявки означает принятие [оферты](https://yandex.ru/legal/marketplace_offer/) на предоставление доступа к программному продукту в Marketplace.
+{% include [registration](../_includes/marketplace/registration.md) %}
 
-После того, как {{ yandex-cloud }} подтвердит заявку, указанному платежному аккаунту будет предоставлен статус партнера и доступ в [кабинет партнера](https://partners.cloud.yandex.ru/) Marketplace, о чем вы получите сообщение по электронной почте.
+## Создать тариф {#create-tariff}
 
-## Создайте тариф {#create-tariff}
+{% include [tariff-note](../_includes/marketplace/tariff-note.md) %}
 
-{% note warning %}
+Тариф определяет стоимость использования ваших продуктов. Создайте новый тариф, чтобы назначить его продукту.
 
-{{ yandex-cloud }} взимает 20% комиссии от стоимости использования образов.
+{% include [tariff](../_includes/marketplace/tariff.md) %}
 
-{% endnote %}
+## Создать и загрузить образ продукта {#create-image}
 
-Тариф определяет стоимость использования ваших продуктов. Создайте новый тариф, чтобы назначить его продукту:
+{% include [image](../_includes/marketplace/image.md) %}
 
-{% include [new-tariff](_includes_service/new-tariff.md) %}
+## Создать продукт {#create-product}
 
-## Загрузите образ {#upload-image}
+{% include [product](../_includes/marketplace/product.md) %}
 
-Чтобы создать продукт, нужно [загрузить образ ВМ в {{ yandex-cloud }}](../compute/operations/image-create/upload.md). 
+## Создать первую версию продукта {#create-version}
 
-## Создайте продукт {#create-product}
-
-Заполните информацию о своем продукте, которая будет видна в каталоге Marketplace:
-
-{% include [new-product-desc](_includes_service/new-product-desc.md) %}
-
-## Загрузите первую версию продукта {#first-version}
-
-Загрузите первую версию своего продукта и назначьте тариф на использование:
-
-{% include [new-product-version](_includes_service/new-product-version.md) %}
+{% include [product-version](../_includes/marketplace/product-version.md) %}
 
 Первая версия продукта отправится на модерацию в {{ yandex-cloud }}. После проверки вы получите письмо с подтверждением того, что ваш продукт доступен пользователям в публичном каталоге Marketplace.

@@ -86,6 +86,8 @@ _Роль_ — это набор разрешений, который опре�
 
 {% include [serverless.functions.invoker](../../../_includes/roles-functions-invoker.md) %}
 
+{% include [functions-roles-admin](../../../_includes/roles-functions-admin.md) %}
+
 ## {{ iam-name }} {#iam-roles}
 
 {% include [roles-sa-user](../../../_includes/roles-sa-user.md) %}

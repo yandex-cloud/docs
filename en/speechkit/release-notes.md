@@ -8,7 +8,7 @@ To keep up to date with the latest changes and updates, subscribe to our Telegra
 
 {{ speechkit-name }} provides updates based on the system model and version.
 
-### For speech recognition {#for-sst}
+### For recognition {#for-sst}
 
 The `general` model versions have several [tags](stt/models.md#new-versions):
 
@@ -18,15 +18,51 @@ The `general` model versions have several [tags](stt/models.md#new-versions):
 
 For a detailed description of the available versions, see [Recognition models](stt/models.md#version).
 
-The next-generation `hqa` model is only available in transcription for the _Stradivarius_ version.
+The next-generation `hqa` model is only available in transcription.
 
-### For speech synthesis {#for-tts}
+### For synthesis {#for-tts}
 
 In speech synthesis, the service provides [two types of voices](tts/voices.md): standard and premium. Premium voices use new speech-synthesis technology.
 
 For more information about voice models, see [About the technology](tts/index.md#voices).
 
 ## Current version {#current}
+
+### Release 09.03.21 {#0903}
+
+In streaming speech recognition, transcription, and short audio recognition by the `general:rc` tag, a new version of the _Demosthenes_ model is now available. It features improved basic recognition quality and recognizes names of healthcare professions and words related to jewelry.
+
+We invite you to join in testing the version. We'll be grateful for your feedback.
+
+#### Version availability by tags {#tags-0903}
+
+In transcription only:
+
+* `hqa`: The _Amati_ version.
+
+In streaming, transcription, and short audio recognition:
+
+* `general`: The _Galen_ version.
+* `general:rc`: The _Demosthenes_ version.
+* `general:deprecated`: The _Zeno_ version.
+
+## Previous versions {#previous}
+
+### Release 26.02.21 {#2602}
+
+In transcription by the `hqa` model tag, a new version named _Guarneri_ is now available. It features greatly improved recognition quality.
+
+#### Version availability by tags {#tags-2602}
+
+In transcription only:
+
+* `hqa`: The _Guarneri_ version.
+
+In streaming, transcription, and short audio recognition:
+
+* `general`: The _Galen_ version.
+* `general:rc`: The _Galen_ version.
+* `general:deprecated`: The _Zeno_ version.
 
 ### Release 03.02.21 {#0302}
 
@@ -43,8 +79,6 @@ In streaming, transcription, and short audio recognition:
 * `general`: The _Galen_ version.
 * `general:rc`: The _Galen_ version.
 * `general:deprecated`: The _Zeno_ version.
-
-## Previous versions {#previous}
 
 ### Release 14.12.20 {#1412}
 
@@ -80,7 +114,7 @@ In streaming, transcription, and short audio recognition:
 
 ### Release 24.11.20 {#2411}
 
-  After successful testing, the _Zeno_ version is now the main released version of the `general` model in streaming, transcription, and short audio recognition.
+After successful testing, the _Zeno_ version is now the main released version of the `general` model in streaming, transcription, and short audio recognition.
 
 #### Version availability by tags {#tags-2411}
 
