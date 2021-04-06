@@ -73,5 +73,7 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
+  - name: Релизы
+    href: release-notes.md
   - name: Вопросы и ответы
     href: qa/index.md
