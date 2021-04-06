@@ -1,86 +1,219 @@
 # Управление правами доступа к функции
 
-Вы можете сделать функцию [публичной](#public) или [приватной](#private), а также [посмотреть какие роли назначены на функцию](#list).
+Вы можете сделать функцию [публичной](#public) или [приватной](#private), [посмотреть](#list), какие роли на нее назначены, [отозвать](#revoke) их или [назначить](#add-access) новые.
 
-## Сделайте функцию публичной {#public}
+## Сделать функцию публичной {#public}
 
-Чтобы любой пользователь мог вызывать функцию, необходимо сделать ее публичной, то есть позволить вызывать функцию через HTTP без передачи заголовка авторизации.
+Чтобы любой пользователь мог вызвать функцию без передачи заголовка авторизации, сделайте ее публичной.
 
 {% list tabs %}
 
 - Консоль управления
 
-    Сделайте функцию публичной:
-    1. Откройте раздел **{{ sf-name }}** в каталоге с функцией, которую хотите сделать публичной.
-    1. В списке функций выберите функцию.
-    1. На странице **Обзор** в разделе **Общая информация** нажмите переключатель в поле **Публичная функция**. 
+    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится функция.
+    1. Выберите сервис **{{ sf-name }}**.
+    1. Выберите функцию, которую хотите сделать публичной.
+    1. На странице **Обзор**, в разделе **Общая информация**, переведите переключатель **Публичная функция** в активное состояние.
     
 - CLI 
 
-    Сделайте функцию публичной: 
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы сделать функцию публичной, выполните команду:
     
     ```
-    $ yc serverless function allow-unauthenticated-invoke <имя функции>
+    yc serverless function allow-unauthenticated-invoke <имя функции>
     ```
+
     Результат:
+
     ```
     done (1s)    
     ```
 
-    Также вы можете сделать функцию публичной, назначив на нее роль `serverless.functions.invoker` для всех неавторизованных пользователей — системная группа `allUsers`. О том как назначить роль на функцию читайте в разделе [{#T}](../../iam/operations/roles/grant.md).
+- API
+
+    Сделать функцию публичной можно с помощью метода API [setAccessBindings](../functions/api-ref/Function/setAccessBindings.md).
 
 {% endlist %}
 
-## Посмотрите роли, назначенные на функцию {#list}
+## Сделать функцию приватной {#private}
 
+Чтобы функцию могли вызвать только пользователи, у которых есть права на ее вызов, сделайте функцию приватной.
 
-{% list tabs %}
-    
-- CLI 
+{% note info %}
 
-    Посмотрите роли, назначенные на функцию: 
-    
-    ```
-    $ yc serverless function list-access-bindings <имя функции>
-    ```
-    Результат:
-    ```
-    +------------------------------+--------------+------------+
-    |           ROLE ID            | SUBJECT TYPE | SUBJECT ID |
-    +------------------------------+--------------+------------+
-    | serverless.functions.invoker | system       | allUsers   |
-    +------------------------------+--------------+------------+
-    ```
+Если на облако или каталог всем неавторизованным пользователям (системная группа `allUsers`) выданы права на вызов функции, функция будет публичной вне зависимости от ее настроек. [Как отозвать роль.](../../iam/operations/roles/revoke.md)
 
-{% endlist %}
-
-
-## Сделайте функцию приватной {#private}
-
-Чтобы вызвать приватную функцию через HTTP, необходимо [аутентифицироваться](./function/function-invoke.md).
+{% endnote %}
 
 {% list tabs %}
 
 - Консоль управления
 
-    Сделайте функцию приватной:
-    1. Откройте раздел **{{ sf-name }}** в каталоге с функцией, которую хотите сделать приватной.
-    1. В списке функций выберите функцию.
-    1. На странице **Обзор** в разделе **Общая функция** нажмите переключатель в поле **Публичная функция**. 
+    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится функция.
+    1. Выберите сервис **{{ sf-name }}**.
+    1. Выберите функцию, которую хотите сделать приватной.
+    1. На странице **Обзор**, в разделе **Общая функция**, переведите переключатель **Публичная функция** в неактивное состояние.
     
 - CLI 
 
-    Сделайте функцию приватной:
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы сделать функцию приватной, выполните команду:
+
     ```
-    $ yc serverless function deny-unauthenticated-invoke <имя функции>
+    yc serverless function deny-unauthenticated-invoke <имя функции>
     ```
+
     Результат:
     ```
     done (1s)   
     ```
 
-    Также вы можете сделать функцию приватной, отозвав у нее роль `serverless.functions.invoker`. О том как отозвать роль читайте в разделе [{#T}](../../iam/operations/roles/revoke.md).
+{% endlist %}
+
+## Посмотреть роли, назначенные на функцию {#list}
+
+{% list tabs %}
+    
+- CLI 
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы посмотреть [роли](../security/index.md#roles), назначенные на функцию, выполните команду:
+    
+    ```
+    $ yc serverless function list-access-bindings <имя функции>
+    ```
+
+    Результат:
+    ```
+    +------------------------------+--------------+-----------------------+
+    |           ROLE ID            | SUBJECT TYPE |       SUBJECT ID      |
+    +------------------------------+--------------+-----------------------+
+    | serverless.functions.invoker | system       | allAuthenticatedUsers |
+    +------------------------------+--------------+-----------------------+
+    ```
+
+- API
+
+    Посмотреть [роли](../security/index.md#roles), назначенные на функцию, можно с помощью метода API [listAccessBindings](../functions/api-ref/Function/listAccessBindings.md).
 
 {% endlist %}
 
-Подробнее о правах, читайте в разделе [{#T}](../security/index.md).
+{% note info %}
+
+[Роли](../security/index.md#roles), назначенные на каталог или облако, автоматически [наследуются](../../iam/concepts/access-control/index.md#inheritance) функцией. При этом они не отображаются в списке ролей, назначенных на нее. Подробнее о [просмотре ролей](../../iam/operations/roles/get-assigned-roles.md).
+
+{% endnote %}
+
+## Назначить роли на функцию {#add-access}
+
+{% list tabs %}
+    
+- CLI 
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Выполните команду, чтобы назначить [роль](../security/index.md#roles) на функцию:
+
+    * пользователю:
+        ```
+        yc serverless function add-access-binding \
+            --id <идентификатор функции> \
+            --user-account-id <идентификатор пользователя> \
+            --role <роль>
+        ```
+        Результат:
+        ```
+        done (1s)
+        ```
+    * [сервисному аккаунту](../../iam/concepts/users/service-accounts.md):  
+        ```
+        yc serverless function add-access-binding \
+            --id <идентификатор функции> \
+            --service-account-id <идентификатор сервисного аккаунта> \
+            --role <роль>
+        ```
+        Результат:
+        ```
+        done (1s)
+        ```
+    * всем авторизованным пользователям (системная группа `allAuthenticatedUsers`):
+        ```
+        yc serverless function add-access-binding \
+            --id <идентификатор функции> \
+            --all-authenticated-users \
+            --role <роль>
+        ```
+        Результат:
+        ```
+        done (1s)
+        ```
+
+- API
+
+    Назначить роли на функцию можно с помощью метода API [setAccessBindings](../functions/api-ref/Function/setAccessBindings.md).
+
+{% endlist %}
+
+## Отозвать роли, назначенные на функцию {#revoke}
+
+{% list tabs %}
+    
+- CLI 
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Выполните команду, чтобы отозвать [роль](../security/index.md#roles) на функцию:
+
+    * у пользователя:
+        ```
+        yc serverless function remove-access-binding \
+            --id <идентификатор функции> \
+            --user-account-id <идентификатор пользователя> \
+            --role <роль>
+        ```
+        Результат:
+        ```
+        done (1s)
+        ```
+    * у [сервисного аккаунта](../../iam/concepts/users/service-accounts.md):
+        ```
+        yc serverless function remove-access-binding \
+            --id <идентификатор функции> \
+            --service-account-id <идентификатор сервисного аккаунта> \
+            --role <роль>
+        ```
+        Результат:
+        ```
+        done (1s)
+        ```
+    * у всех авторизованных пользователей (системная группа `allAuthenticatedUsers`):
+        ```
+        yc serverless function remove-access-binding \
+            --id <идентификатор функции> \
+            --all-authenticated-users \
+            --role <роль>
+        ```
+        Результат:
+        ```
+        done (1s)
+        ```
+
+- API
+
+    Отозвать роли на функцию можно с помощью метода API [updateAccessBindings](../functions/api-ref/Function/updateAccessBindings.md).
+
+{% endlist %}

@@ -1,29 +1,25 @@
 # Управление доступом
 
-Пользователь {{ yandex-cloud }} может выполнять только те операции над ресурсами, которые разрешены назначенными ему ролями.
-Пока у пользователя нет никаких ролей, почти все операции ему запрещены.
+В этом разделе вы узнаете:
 
-Чтобы разрешить доступ к ресурсам сервиса {{ sf-name }} (функции и их версии), назначьте пользователю нужные роли из приведенного ниже списка. На данный момент роль может быть назначена на родительский ресурс (каталог или облако) или на функцию.
+* [на какие ресурсы можно назначить роль](#resources);
+* [какие роли действуют в сервисе](#roles).
 
-{% note info %}
+{% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-Подробнее о наследовании ролей читайте в разделе [{#T}](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) документации сервиса {{ resmgr-full-name }}.
+## На какие ресурсы можно назначить роль {#resources}
 
-{% endnote %}
+Роль можно назначить на [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud), [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) и [функцию](../concepts/function.md). Роли, назначенные на облако или каталог, действуют и на функции, которые находятся в них.
 
-## Назначение ролей {#grant-roles}
-
-Чтобы назначить пользователю роль:
-
-{% include [grant-role-console](../../_includes/grant-role-console.md) %}
-
-## Роли {#roles}
+## Какие роли действуют в сервисе {#roles}
 
 Ниже перечислены все роли, которые учитываются при проверке прав доступа в сервисе {{ sf-name }}.
 
 {% include [cloud-roles](../../_includes/cloud-roles.md) %}
 
 {% include [functions-roles-invoker](../../_includes/roles-functions-invoker.md) %}
+
+{% include [functions-roles-admin](../../_includes/roles-functions-admin.md) %}
 
 ### {{ roles-viewer }} {#viewer}
 
