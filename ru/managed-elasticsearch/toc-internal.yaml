@@ -15,6 +15,8 @@ items:
       href: operations/cluster-connect.md
     - name: Остановка и запуск кластера
       href: operations/cluster-stop.md
+    - name: Изменение настроек кластера
+      href: operations/update.md
     - name: Управление хостами Elasticsearch
       href: operations/cluster-hosts.md
     - name: Управление пользователями Elasticsearch
@@ -25,6 +27,10 @@ items:
     items:
     - name: Взаимосвязь ресурсов сервиса
       href: concepts/index.md
+    - name: Роли хостов
+      href: concepts/hosts-roles.md
+    - name: Редакции Elasticsearch
+      href: concepts/es-editions.md
     - name: Индексы
       href: concepts/indexing.md
     - name: Поиск с помощью Elasticsearch
