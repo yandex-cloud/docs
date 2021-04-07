@@ -26,7 +26,7 @@ editable: false
          
 {% endif %}
          
-{% if region == "kz"%}
+{% if region == "pre-kz"%}
          
 {% include [kzt.md](../_pricing/monitoring/kzt.md) %}
          
