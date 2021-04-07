@@ -22,14 +22,23 @@ editable: false
 
 ## Цены и возможности {#prices}
 
-Услуга | Бесплатный | Стандарт
------ | ----- | -----
-Стоимость подписки на месяц, вкл. НДС | бесплатно | 1 900 ₽
-Количество [внутренних сессий](#session-types) в месяц | не ограничено | не ограничено 
-Количество [внешних сессий](#session-types) в месяц| 100 | 1 000
-Стоимость одной дополнительной<br/> внешней сессии, вкл. НДС | - | 1,90 ₽
-Объем БД для материализованных данных, ГБ | 0,5 | 10
-Использование функций геокодирования* | - | ✔
+{% if region == "ru"%}
+
+{% include [rub.md](../_pricing/datalens/rub.md) %}
+
+{% endif %}
+
+{% if region == "pre-kz"%}
+
+{% include [kzt.md](../_pricing/datalens/kzt.md) %}
+
+{% endif %}
+
+{% if region == "int"%}
+
+{% include [usd.md](../_pricing/datalens/usd.md) %}
+
+{% endif %}
 
 \* Функции геокодирования — [GEOCODE](function-ref/GEOCODE.md) и [GEOINFO](function-ref/GEOINFO.md).
 

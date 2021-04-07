@@ -22,31 +22,23 @@ Additional {{ datalens-short-name }} features that are available in {{ marketpla
 
 ## Prices and features {#prices}
 
-{% list tabs %}
+{% if region == "ru"%}
 
-- Prices in USD
+{% include [rub.md](../_pricing/datalens/rub.md) %}
 
-  | Service | Free | Standard |
-  | ----- | ----- | ----- |
-  | Monthly price, without VAT | Free | $24.358974 |
-  | [Internal sessions](#session-types) per month | No limits | No limits |
-  | [External sessions](#session-types) per month | 100 | 1000 |
-  | One additional<br/> external session, with VAT | - | $0.024358 |
-  | Database size for materialized data, GB | 0.5 | 10 |
-  | Geocoding* | - | ✔ |
+{% endif %}
 
-- Prices in roubles
+{% if region == "pre-kz"%}
 
-  | Service | Free | Standard |
-  | ----- | ----- | ----- |
-  | Monthly price, with VAT | Free | ₽1900 |
-  | [Internal sessions](#session-types) per month | No limits | No limits |
-  | [External sessions](#session-types) per month | 100 | 1000 |
-  | One additional<br/> external session, with VAT | - | ₽1.90 |
-  | Database size for materialized data, GB | 0.5 | 10 |
-  | Geocoding* | - | ✔ |
+{% include [kzt.md](../_pricing/datalens/kzt.md) %}
 
-{% endlist %}
+{% endif %}
+
+{% if region == "int"%}
+
+{% include [usd.md](../_pricing/datalens/usd.md) %}
+
+{% endif %}
 
 \* Geocoding functions: [GEOCODE](function-ref/GEOCODE.md) and [GEOINFO](function-ref/GEOINFO.md).
 
