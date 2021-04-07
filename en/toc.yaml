@@ -5,6 +5,8 @@ items:
     href: datalens/
   - name: Yandex Managed Service for ClickHouse
     href: managed-clickhouse/
+  - name: Managed Elasticsearch
+    href: managed-elasticsearch/    
   - name: Yandex Managed Service for Apache Kafka
     href: managed-kafka/
   - name: Yandex Managed Service for MongoDB

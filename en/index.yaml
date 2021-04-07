@@ -11,6 +11,9 @@ links:
   - title: Yandex Managed Service for ClickHouse
     description: ''
     href: managed-clickhouse/
+  - title: Yandex Managed Service for Elasticsearch
+    description: ''
+    href: managed-elasticsearch/    
   - title: Yandex Managed Service for Apache Kafka
     description: ''
     href: managed-kafka/

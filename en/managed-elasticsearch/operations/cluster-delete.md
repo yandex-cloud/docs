@@ -1,0 +1,20 @@
+# Deleting clusters
+
+You can delete an {{ ES }} cluster if you no longer need it. All data in the cluster will be deleted.
+
+{% list tabs %}
+
+- Management console
+  1. In the management console, select the folder you want to delete a cluster from.
+  1. Select **{{ mes-name }}**.
+  1. Click ![image](../../_assets/options.svg) for the cluster and select **Delete cluster**.
+  1. Confirm cluster deletion and click **Delete**.
+
+- API
+
+  To delete the cluster, use the `delete` API method: pass the ID of the desired cluster in the `clusterId` request parameter.
+
+  To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+
+{% endlist %}
+
