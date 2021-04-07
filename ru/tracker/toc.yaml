@@ -104,7 +104,7 @@ items:
           href: manager/workflow-status-edit.md
         - name: Настроить переходы
           href: manager/workflow-action-edit.md
-        - name: Добавить типы задач. статусы, резолюции
+        - name: Добавить типы задач, статусы, резолюции
           when: audience == "external"
           items:
             - name: Создать тип задачи
