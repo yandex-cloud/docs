@@ -19,20 +19,20 @@ The cost for using Yandex Translate is calculated based on the total number of c
 
 ### Text translation and language detection {#prices-translate-detect}
 
-{% list tabs %}
+{% if region == "ru"%}
 
-- Prices in USD
+{% include [rub.md](../_pricing/translate/rub.md) %}
 
-  | Service | Rate per 1 million characters, without VAT |
-  | ----- | ----- |
-  | Translation | $5.736635 |
-  | Language detection | $5.736635 |
+{% endif %}
 
-- Prices in roubles
+{% if region == "pre-kz"%}
 
-  | Service | Rate per 1 million characters, with VAT |
-  | ----- | ----- |
-  | Translation | ₽447.4576 |
-  | Language detection | ₽447.4576 |
+{% include [kzt.md](../_pricing/translate/kzt.md) %}
 
-{% endlist %}
+{% endif %}
+
+{% if region == "int"%}
+
+{% include [usd.md](../_pricing/translate/usd.md) %}
+
+{% endif %}

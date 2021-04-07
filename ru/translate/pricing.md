@@ -22,8 +22,20 @@ editable: false
 
 ### Перевод и определение языка текста {#prices-translate-detect}
 
-Услуга | Цена за 1 млн символов,<br/>вкл. НДС
------ | -----
-Перевод | 447,4576 ₽
-Определение языка | 447,4576 ₽
+{% if region == "ru"%}
 
+{% include [rub.md](../_pricing/translate/rub.md) %}
+
+{% endif %}
+
+{% if region == "pre-kz"%}
+
+{% include [kzt.md](../_pricing/translate/kzt.md) %}
+
+{% endif %}
+
+{% if region == "int"%}
+
+{% include [usd.md](../_pricing/translate/usd.md) %}
+
+{% endif %}
