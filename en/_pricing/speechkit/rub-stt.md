@@ -1,0 +1,5 @@
+| Service | Rate for the billable unit, with VAT |
+| ----- | ----- |
+| [Short audio recognition](../../speechkit/pricing#rules-stt-short) | {{ sku|RUB|ai.speech.stt|string }} |
+| [Long audio recognition](../../speechkit/pricing#rules-stt-long) | {{ sku|RUB|ai.speech.stt_long_running|string }} |
+| [Long audio recognition](../../speechkit/pricing#rules-stt-long) by the [deferred-general](../../speechkit/stt/models.md#new-versions) model | {{ sku|RUB|ai.speech.stt_long_running_deferred.v1|string }} |

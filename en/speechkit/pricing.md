@@ -63,42 +63,40 @@ The minimum billable amount is 15 seconds for every pair of channels. Audio with
 
 ### Speech synthesis {#prices-tts}
 
-{% list tabs %}
+{% if region == "ru"%}
 
-- Prices in USD
+{% include [rub.md](../_pricing/speechkit/rub-tts.md) %}
 
-  | Service | Rate for 1 million characters, without VAT |
-  | ----- | ----- |
-  | Speech synthesis using [standard voices](tts/voices.md#standard) | $2.346805 |
-  | Speech synthesis using [premium voices](tts/voices.md#premium) | $15,384615 |
+{% endif %}
 
-- Prices in roubles
+{% if region == "pre-kz"%}
 
-  | Service | Rate per 1 million characters,<br/>with VAT |
-  | ----- | ----- |
-  | Speech synthesis using [standard voices](tts/voices.md#standard) | ₽183.0508 |
-  | Speech synthesis using [premium voices](tts/voices.md#premium) | ₽1200 |
+{% include [kzt.md](../_pricing/speechkit/kzt-tts.md) %}
 
-{% endlist %}
+{% endif %}
+
+{% if region == "int"%}
+
+{% include [usd.md](../_pricing/speechkit/usd-tts.md) %}
+
+{% endif %}
 
 ### Speech recognition {#prices-stt}
 
-{% list tabs %}
+{% if region == "ru"%}
 
-- Prices in USD
+{% include [rub.md](../_pricing/speechkit/rub-stt.md) %}
 
-  | Service | Rate for the billable unit, without VAT |
-  | ----- | ----- |
-  | [Short audio recognition](#rules-stt-short) | $0.001953 |
-  | [Long audio recognition](#rules-stt-long) | $0.000128 |
-  | [Long audio recognition](#rules-stt-long) by the [deferred-general](stt/models.md#new-versions) model | $0.000032 |
+{% endif %}
 
-- Prices in roubles
+{% if region == "pre-kz"%}
 
-  | Service | Rate for the billable unit, with VAT |
-  | ----- | ----- |
-  | [Short audio recognition](#rules-stt-short) | ₽0.1524 |
-  | [Long audio recognition](#rules-stt-long) | ₽0.01 |
-  | [Long audio recognition](#rules-stt-long) by the [deferred-general](stt/models.md#new-versions) model | ₽0,0025 |
+{% include [kzt.md](../_pricing/speechkit/kzt-stt.md) %}
 
-{% endlist %}
+{% endif %}
+
+{% if region == "int"%}
+
+{% include [usd.md](../_pricing/speechkit/usd-stt.md) %}
+
+{% endif %}

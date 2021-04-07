@@ -63,15 +63,40 @@ editable: false
 
 ### Синтез речи {#prices-tts}
 
-Услуга | Цена за 1 млн символов,<br/>вкл. НДС
------ | -----
-Синтез с использованием [стандартных голосов](tts/voices.md#standard) | 183,0508 ₽
-Синтез с использованием [премиум-голосов](tts/voices.md#premium) | 1200 ₽
+{% if region == "ru"%}
+
+{% include [rub.md](../_pricing/speechkit/rub-tts.md) %}
+
+{% endif %}
+
+{% if region == "pre-kz"%}
+
+{% include [kzt.md](../_pricing/speechkit/kzt-tts.md) %}
+
+{% endif %}
+
+{% if region == "int"%}
+
+{% include [usd.md](../_pricing/speechkit/usd-tts.md) %}
+
+{% endif %}
 
 ### Распознавание речи {#prices-stt}
 
-Услуга | Цена за единицу тарификации,<br/>вкл. НДС
------ | -----
-[Распознавание коротких аудио](#rules-stt-short) | 0,1524 ₽
-[Распознавание длинных аудио](#rules-stt-long) | 0,01 ₽
-[Распознавание длинных аудио](#rules-stt-long) моделью [deferred-general](stt/models#new-versions) | 0,0025 ₽
+{% if region == "ru"%}
+
+{% include [rub.md](../_pricing/speechkit/rub-stt.md) %}
+
+{% endif %}
+
+{% if region == "pre-kz"%}
+
+{% include [kzt.md](../_pricing/speechkit/kzt-stt.md) %}
+
+{% endif %}
+
+{% if region == "int"%}
+
+{% include [usd.md](../_pricing/speechkit/usd-stt.md) %}
+
+{% endif %}
