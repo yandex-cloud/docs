@@ -20,7 +20,7 @@
   Чтобы запросить список {{ MG }}-кластеров в каталоге по умолчанию, выполните команду:
 
   ```
-  $ yc managed-postgresql cluster list
+  $ yc managed-mongodb cluster list
 
   +----------------------+------------+-----------------------------+--------+---------+
   |          ID          |    NAME    |         CREATED AT          | HEALTH | STATUS  |
