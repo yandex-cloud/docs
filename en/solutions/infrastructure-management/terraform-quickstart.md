@@ -54,7 +54,7 @@ Resource names must meet the following requirements:
 
 {% include [names](../../_includes/name-format.md) %}
 
-The VMs have a different number of cores and amount of RAM: 2 cores and 2 GB of RAM for `terraform1` and 4 cores and 4 GB of RAM for `terraform2`. The VMs will automatically get public and private IP addresses from the `192.168.10.0/24` range in the `subnet-1` subnet located in the `ru-central1-a` availability zone and belonging to the `network-1` cloud network. The Ubuntu OS will be installed on the VMs and the public part of the key used to access the VMs via SSH will be stored on them.
+The VMs have a different number of cores and amount of RAM: 2 cores and 2 GB of RAM for `terraform1` and 4 cores and 4 GB of RAM for `terraform2`. The VMs will automatically get public and private IP addresses from the `192.168.10.0/24` range in the `subnet-1` subnet located in the `ru-central1-a` [availability zone](../../overview/concepts/geo-scope.md) and belonging to the `network-1` cloud network. The Ubuntu OS will be installed on the VMs and the public part of the key used to access the VMs via SSH will be stored on them.
 
 In the VM configuration, you'll need to specify the boot disk image ID. You can get a list of available public images using the [CLI](../../cli/quickstart.md) `yc compute image list --folder-id standard-images` command.
 
