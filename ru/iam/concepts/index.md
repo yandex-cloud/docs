@@ -29,7 +29,7 @@
 
 ### Аккаунт на Яндексе {#passport}
 
-_Аккаунт на Яндексе_ — ваш аккаунт в Яндекс.Паспорте или в [Яндекс.Коннекте]({{ link-yandex-connect }}).
+_Аккаунт на Яндексе_ — ваш аккаунт на [Яндексе](https://yandex.ru/support/passport/index.html) или в [Яндекс.Коннекте]({{ link-yandex-connect }}).
 
 {% note info %}
 

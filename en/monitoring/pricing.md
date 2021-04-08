@@ -19,33 +19,12 @@ Pricing specifics:
 
 The minimum billable unit is one metric value. The cost is rounded to the nearest hundredth.
 
-For example, the cost of writing the first 86,400 values is `₽0.6048` and rounded to `₽0.60`. The cost of writing 87,000 values is `₽0.609` and rounded to `₽0.61`.
+For example, the cost of writing the first 86,400 values is `$0.007754` and rounded to `$0.01`. The cost of writing 870,000 values is `$0.078077` and rounded to `$0.08`. Where `$0.089744` is the price per 50 million metrics. 
 
-{% list tabs %}
-
-- Prices in USD
-
-  Service | Price per 1 million values,<br>without VAT
-  ----- | -----
-  Reading any metric values via the API<br/>(up to 50 million values) | $0,064103
-  Reading any metric values via the API<br/>(over 50 million values) | $0,038462
-  Writing custom metric values via the API<br/>(up to 50 million values) | $0,089744
-  Writing custom metric values via the API<br/>(over 50 million values) | $0,051282
-  Writing {{ yandex-cloud }} resource metric values | $0.00
-
-
-- Prices in roubles
-
-  Service | Price per 1 million values,<br>with VAT
-  ----- | -----
-  Reading any metric values via the API<br/>(up to 50 million values) | ₽5.00
-  Reading any metric values via the API<br/>(over 50 million values) | ₽3.00
-  Writing custom metric values via the API<br/>(up to 50 million values) | ₽7.00
-  Writing custom metric values via the API<br/>(over 50 million values) | ₽4.00
-  Writing {{ yandex-cloud }} resource metric values | ₽0.00
-  
-
-{% endlist %}
+         
+         
+         
+{% include [usd.md](../_pricing/monitoring/usd.md) %}
 
 ### Cost calculation example {#example}
 

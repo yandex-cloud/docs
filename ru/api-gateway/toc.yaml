@@ -39,6 +39,10 @@ items:
             href: concepts/extensions/http.md
           - name: Интеграция с Object Storage
             href: concepts/extensions/object-storage.md
+          - name: Жадные параметры
+            href: concepts/extensions/greedy-parameters.md
+          - name: Обобщенный HTTP-метод
+            href: concepts/extensions/any-method.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Управление доступом

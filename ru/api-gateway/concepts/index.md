@@ -9,6 +9,8 @@ API-шлюз задается декларативно при помощи сп�
 * [Вызов функции](../concepts/extensions/cloud-functions.md).
 * [Обращение по HTTP](../concepts/extensions/http.md).
 * [Интеграция с Object Storage](../concepts/extensions/object-storage.md).
+* [Жадные параметры](../concepts/extensions/greedy-parameters.md).
+* [Обобщенный HTTP-метод](../concepts/extensions/any-method.md).
 
 ## Использование доменов {#domains}
 

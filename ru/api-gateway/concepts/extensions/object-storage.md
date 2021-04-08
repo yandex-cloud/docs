@@ -10,6 +10,7 @@
 ----|----|----
 `bucket` | `string` | Имя [бакета](../../../storage/concepts/bucket.md).
 `object` |`string` | Имя [объекта](../../../storage/concepts/object.md). Поддерживается шаблонизация параметрами из пути исходного запроса. <br>В `object` осуществляется подстановка параметров.
+`error_object` |`string` | Необязательный параметр. Имя [объекта](../../../storage/concepts/object.md), который возвращается, если вместо `object` получена ошибка с HTTP-кодом 4xx.
 `presigned_redirect` | `bool` | Если значение — `true`, генерирует [подписанный (pre-signed) URL](../../../storage/concepts/pre-signed-urls.md) и возвращает перенаправление клиенту.
 `service_account_id` | `string` | Идентификатор сервисного аккаунта для авторизации при обращении к {{ objstorage-short-name }}. Если параметр не указан, используется значение [верхнеуровнего](./index.md#top-level) параметра `service_account_id`. Если верхнеуровнего параметра тоже нет, функция вызывается без авторизации. 
 
@@ -32,6 +33,7 @@
         type: object_storage
         bucket: my-example-bucket
         object: '{file}'
+        error_object: error.html
         presigned_redirect: true
         service_account_id: ajehfe41hhliq4n93q1g
 ```
