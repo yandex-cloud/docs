@@ -21,7 +21,7 @@
 1. Добавьте нужный ключ в список доступных агенту:
  
    ```bash
-   $ ssh-add -i ~/.ssh/example-key
+   $ ssh-add ~/.ssh/example-key
    ```
 
 1. Откройте SSH-соединение с хостом {{ dataproc-name }} для пользователя `root`, например:

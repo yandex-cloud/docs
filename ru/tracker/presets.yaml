@@ -76,5 +76,4 @@ default:
   link-python-official: https://www.python.org/downloads/
   tracker-settings: Настройки Tracker
   release-date: 1 марта
-  promo-end-date: 31 марта
   example-account: login@yandex.ru

@@ -41,4 +41,50 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
+  - name: Справочник API
+    items:
+      - name: Аутентификация в API
+        href: api-ref/authentication.md
+      - name: gRPC
+        items:
+          - name: Обзор
+            href: grpc/index.md
+          - name: DnsZoneService
+            href: grpc/dns_zone_service.md
+          - name: OperationService
+            href: grpc/operation_service.md
+      - name: REST
+        items:
+          - name: Обзор
+            href: api-ref/index.md
+          - name: DnsZone
+            items:
+              - name: Обзор
+                href: api-ref/DnsZone/index.md
+              - name: create
+                href: api-ref/DnsZone/create.md
+              - name: delete
+                href: api-ref/DnsZone/delete.md
+              - name: get
+                href: api-ref/DnsZone/get.md
+              - name: getRecordSet
+                href: api-ref/DnsZone/getRecordSet.md
+              - name: list
+                href: api-ref/DnsZone/list.md
+              - name: listAccessBindings
+                href: api-ref/DnsZone/listAccessBindings.md
+              - name: listOperations
+                href: api-ref/DnsZone/listOperations.md
+              - name: listRecordSets
+                href: api-ref/DnsZone/listRecordSets.md
+              - name: setAccessBindings
+                href: api-ref/DnsZone/setAccessBindings.md
+              - name: update
+                href: api-ref/DnsZone/update.md
+              - name: updateAccessBindings
+                href: api-ref/DnsZone/updateAccessBindings.md
+              - name: updateRecordSets
+                href: api-ref/DnsZone/updateRecordSets.md
+              - name: upsertRecordSets
+                href: api-ref/DnsZone/upsertRecordSets.md
 base: ru/dns

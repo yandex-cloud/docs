@@ -93,7 +93,7 @@ items:
             href: manager/workflow-status-edit.md
           - name: Настроить переходы
             href: manager/workflow-action-edit.md
-          - name: Добавить типы задач. статусы, резолюции
+          - name: Добавить типы задач, статусы, резолюции
             items:
               - name: Создать тип задачи
                 href: manager/create-ticket-type.md

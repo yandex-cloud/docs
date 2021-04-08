@@ -21,7 +21,7 @@ To connect to a {{ dataproc-name }} host from your VM, make sure the SSH key tha
 1. Add the required key to the list of those available to the agent:
 
    ```bash
-   $ ssh-add -i ~/.ssh/example-key
+   $ ssh-add ~/.ssh/example-key
    ```
 
 1. Open an SSH connection to the {{ dataproc-name }} host for the `root` user, for example:
