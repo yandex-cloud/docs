@@ -114,6 +114,12 @@ To use the attached disk:
 
       This method works for partitions with `ext2`, `ext3`, and `ext4` file systems. The latter is used in the Linux images provided by {{ yandex-cloud }}. The file system type is returned by the `blkid` command in the `TYPE` parameter.
 
+      If you use another filesystem, run the suitable command. For example, to generate a UUID for `XFS`, run the following:
+
+      ```bash
+      $ sudo xfs_admin -U generate /dev/vdb2
+      ```
+
       To see if the UUID changed, run the `blkid` command again:
 
       ```bash
