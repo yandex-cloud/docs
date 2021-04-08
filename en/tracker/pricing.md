@@ -12,16 +12,23 @@ If you activate {{ tracker-full-name }} before {{ promo-end-date }}, 2021, you g
 
 The cost of using {{ tracker-name }} is based on the number of users with full access to the platform. You don't have to pay for {{ tracker-name }} if you have a small team. You can subscribe up to 5 employees to {{ tracker-name }} for free.
 
-For large companies, the cost of using {{ tracker-name }} is [calculated on a progressive scale](#sec_calculate). For the first 100 users, full access to {{ tracker-name }} costs ₽258 per month. If 100 employees are already subscribed to {{ tracker-name }}, the subscription fee for the next 150 users will be lower: ₽222 per month. If more than 250 employees are subscribed, the monthly fee for new users is ₽185.
+{% if region == "ru"%}
 
-| Number of subscribed users | Price per new user per month * |
-| ----- | ----- |
-| up to 5 | 0 ₽ |
-| 6–100 | 258 ₽ |
-| 101–250 | 222 ₽ |
-| 250+ | 185 ₽ |
+{% include [rub.md](../_pricing/tracker/rub.md) %}
 
-\* Includes VAT. Reduced rates may apply when using promo codes.
+{% endif %}
+
+{% if region == "pre-kz"%}
+
+{% include [kzt.md](../_pricing/tracker/kzt.md) %}
+
+{% endif %}
+
+{% if region == "int"%}
+
+{% include [usd.md](../_pricing/tracker/usd.md) %}
+
+{% endif %}
 
 {% note info %}
 
@@ -43,15 +50,17 @@ How the monthly {{ tracker-name }} subscription fee is calculated:
 
 <!-- - If you accidentally granted access to {{ tracker-name }} to a user or team that won't use {{ tracker-name }}, you can revoke their access within 30 minutes. In this case, the users in question will not be considered when calculating the monthly subscription fee.
 -->
-- For large companies, the monthly fee is calculated on a progressive scale:
+- For large companies, the monthly fee is calculated on a progressive scale.
 
-    - The subscription fee for the first 100 users is ₽258.
-
-    - The subscription fee for next 150 users is ₽222.
-
-    - After 250 users the fee is ₽185.
-
-> For example, let's say the number of employees who had full access to {{ tracker-name }} in January changed like this:
+> For example, let's say the fee was like this:
+>
+>- The subscription fee for the first 100 users is ₽258.
+>
+>- The subscription fee for next 150 users is ₽222.
+>
+>- After 250 users the fee is ₽185.
+>
+> The number of employees who had full access to {{ tracker-name }} in January changed like this:
 >
 >- 245 employees had full Tacker access for 14 days.
 >
