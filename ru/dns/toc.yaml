@@ -41,3 +41,17 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
+  - name: Справочник API
+    items:
+      - name: Аутентификация в API
+        href: api-ref/authentication.md
+      - name: gRPC
+        items: null
+        include:
+          repo: docs
+          path: ru/_api-ref-grpc/dns/api-ref/toc.yaml
+      - name: REST
+        items: null
+        include:
+          repo: docs
+          path: ru/_api-ref/dns/toc.yaml
