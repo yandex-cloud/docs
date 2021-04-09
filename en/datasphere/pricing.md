@@ -23,6 +23,8 @@ The cost of one billing unit is the cost of using 1 CPU core for 1 second. The n
 * L-configuration — 72 units per second.
 * XL-configuration — 288 units per second.
 
+{% if region == "int"%}
+
 ### Example of cost calculation {#price-example}
 
 Example of cost calculation:
@@ -40,6 +42,8 @@ Where:
 * 72 — number of units per L-configuration.
 * 2 — rounded up 1,400 MS.
 * $0.000009 — cost of 1 unit.
+
+{% endif %}
 
 ### Using {{ dataproc-name }} clusters {#data-proc}
 
@@ -60,36 +64,54 @@ If you need to store large amounts of data that exceed the specified limits, use
 
 {% if region == "ru"%}
 
-{% include [rub.md](../_pricing/datasphere/rub.md) %}
+{% include [rub-unit-and-resource.md](../_pricing/datasphere/rub-unit-and-resource.md) %}
 
 {% endif %}
 
 {% if region == "pre-kz"%}
 
-{% include [kzt.md](../_pricing/datasphere/kzt.md) %}
+{% include [kzt-unit-and-resource.md](../_pricing/datasphere/kzt-unit-and-resource.md) %}
 
 {% endif %}
 
 {% if region == "int"%}
 
-{% include [usd.md](../_pricing/datasphere/usd.md) %}
+{% include [usd-unit-and-resource.md](../_pricing/datasphere/usd-unit-and-resource.md) %}
 
 {% endif %}
 
+### Performing background operations {#async}
+
+More about [background operations](concepts/async.md).
+
+{% if region == "ru"%}
+
+{% include [rub-async.md](../_pricing/datasphere/rub-async.md) %}
+
+{% endif %}
+
+{% if region == "pre-kz"%}
+
+{% include [kzt-async.md](../_pricing/datasphere/kzt-async.md) %}
+
+{% endif %}
+
+### Outgoing traffic {#prices-traffic}
+
 {% if region == "ru" %}
 
-{% include [rub-egress-traffic.md](../_pricing/rub-egress-traffic.md) %}
+{% include notitle [rub-egress-traffic.md](../_pricing/rub-egress-traffic.md) %}
 
 {% endif %}
 
 {% if region == "pre-kz" %}
 
-{% include [kzt-egress-traffic.md](../_pricing/kzt-egress-traffic.md) %}
+{% include notitle [kzt-egress-traffic.md](../_pricing/kzt-egress-traffic.md) %}
 
 {% endif %}
 
 {% if region == "int" %}
 
-{% include [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
+{% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
 
 {% endif %}

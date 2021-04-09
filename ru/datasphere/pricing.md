@@ -26,6 +26,8 @@ editable: false
 
 [Стоимость фоновых операций](#async) рассчитывается отдельно.
 
+{% if region == "ru"%}
+
 ### Пример расчета стоимости {#price-example}
 
 Пример расчета стоимости: 
@@ -43,6 +45,8 @@ editable: false
 * 72 — количество юнитов за L-конфигурацию.
 * 2 — округленные в большую сторону 1 400 мс.
 * 0,00075 ₽ — стоимость 1 юнита.
+
+{% endif %}
 
 ### Использование кластеров {{ dataproc-name }} {#data-proc}
 
@@ -63,19 +67,41 @@ editable: false
 
 {% if region == "ru"%}
 
-{% include [rub.md](../_pricing/datasphere/rub.md) %}
+{% include [rub-unit-and-resource.md](../_pricing/datasphere/rub-unit-and-resource.md) %}
 
 {% endif %}
 
 {% if region == "pre-kz"%}
 
-{% include [kzt.md](../_pricing/datasphere/kzt.md) %}
+{% include [kzt-unit-and-resource.md](../_pricing/datasphere/kzt-unit-and-resource.md) %}
 
 {% endif %}
 
 {% if region == "int"%}
 
-{% include [usd.md](../_pricing/datasphere/usd.md) %}
+{% include [usd-unit-and-resource.md](../_pricing/datasphere/usd-unit-and-resource.md) %}
+
+{% endif %}
+
+### Выполнение фоновых операций {#async}
+
+Подробнее про [фоновые операции](concepts/async.md).
+
+{% if region == "ru"%}
+
+{% include [rub-async.md](../_pricing/datasphere/rub-async.md) %}
+
+{% endif %}
+
+{% if region == "pre-kz"%}
+
+{% include [kzt-async.md](../_pricing/datasphere/kzt-async.md) %}
+
+{% endif %}
+
+{% if region == "int"%}
+
+{% include [usd-async.md](../_pricing/datasphere/usd-async.md) %}
 
 {% endif %}
 
@@ -83,18 +109,18 @@ editable: false
 
 {% if region == "ru" %}
 
-{% include [rub-egress-traffic.md](../_pricing/rub-egress-traffic.md) %}
+{% include notitle [rub-egress-traffic.md](../_pricing/rub-egress-traffic.md) %}
 
 {% endif %}
 
 {% if region == "pre-kz" %}
 
-{% include [kzt-egress-traffic.md](../_pricing/kzt-egress-traffic.md) %}
+{% include notitle [kzt-egress-traffic.md](../_pricing/kzt-egress-traffic.md) %}
 
 {% endif %}
 
 {% if region == "int" %}
 
-{% include [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
+{% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
 
 {% endif %}
