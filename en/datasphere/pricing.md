@@ -23,6 +23,7 @@ The cost of one billing unit is the cost of using 1 CPU core for 1 second. The n
 * L-configuration — 72 units per second.
 * XL-configuration — 288 units per second.
 
+
 ### Example of cost calculation {#price-example}
 
 Example of cost calculation:
@@ -61,9 +62,17 @@ If you need to store large amounts of data that exceed the specified limits, use
 
 
 
-{% include [usd.md](../_pricing/datasphere/usd.md) %}
+{% include [usd-unit-and-resource.md](../_pricing/datasphere/usd-unit-and-resource.md) %}
+
+### Performing background operations {#async}
+
+More about [background operations](concepts/async.md).
+
+
+
+### Outgoing traffic {#prices-traffic}
 
 
 
 
-{% include [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
+{% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}

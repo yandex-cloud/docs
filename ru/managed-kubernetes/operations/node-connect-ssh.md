@@ -97,9 +97,18 @@ $ yc managed-kubernetes node-group create \
 --fixed-size <кол-во узлов в группе> \
 --location zone=<зона доступности>,subnet-name=<имя подсети> \
 --public-ip \
---metadata-from-file=ssh-keys=<имя файла с публичными ключами> \
+--metadata-from-file=ssh-keys <имя файла с публичными ключами> \
 ```
 
+## Обновите ключи группы узлов {#node-add-metadata}
+
+Чтобы обновить ssh-ключи группы узлов, воспользуйтесь следующей командой:
+
+```
+$ yc managed-kubernetes node-group add-metadata \
+--name <имя группы узлов> \
+--metadata-from-file=ssh-keys <имя файла с публичными ключами> \
+```
 
 ## Получите публичный IP-адрес узла {#node-public-ip}
 

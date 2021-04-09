@@ -17,6 +17,8 @@ items:
         href: operations/projects/checkpoints.md
       - name: Управление вычислительными ресурсами
         href: operations/projects/control-compute-resources.md
+      - name: Создание пользовательского образа
+        href: operations/user-images.md
       - name: Очистка состояния интерпретатора
         href: operations/projects/clear-kernel-state.md
       - name: Поделиться ноутбуком

@@ -25,6 +25,8 @@
   
 {% endlist %}
 
+{% include [ограничения политики](../../../_includes/container-registry/lifecycle-restrictions.md) %}
+
 ## Примеры {#examples}
 
 ### Изменить правила политики удаления {#update-rules}

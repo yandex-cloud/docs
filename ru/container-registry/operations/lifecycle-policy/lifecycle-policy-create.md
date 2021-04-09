@@ -7,6 +7,8 @@
 - CLI
   
     {% include [cli-install](../../../_includes/cli-install.md) %}
+
+    {% include [ограничения политики](../../../_includes/container-registry/lifecycle-restrictions.md) %}
     
     1. Подготовьте [правила политики](../../concepts/lifecycle-policy.md#lifecycle-rules) и сохраните их в файл `rules.json`.
      
@@ -23,7 +25,7 @@
        
         {% note info %}
         
-        Политика по умолчанию создается выключенной (в статусе `DISABLED`). Можно (но не рекомендуется) создать сразу активную политику, указав флаг `--active`.
+        Политика по умолчанию создается выключенной (в статусе `DISABLED`). Можно (но не рекомендуется) создать сразу активную политику, указав флаг `--active`, или [активировать политику](../../operations/lifecycle-policy/lifecycle-policy-update.md#update-status) после создания.
         
         {% endnote %}
         

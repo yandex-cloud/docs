@@ -13,7 +13,7 @@
 
 ## Настройка {#setup}
 
-{% include [storage-sdk-setup](../_includes_service/storage-sdk-setup.md) %}
+{% include [storage-sdk-setup](../_includes_service/storage-sdk-setup-storage-url.md) %}
 
 
 ## Пример {#boto-example}

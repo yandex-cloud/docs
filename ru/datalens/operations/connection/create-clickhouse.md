@@ -2,9 +2,8 @@
 
 {% note info %}
 
-Особенности работы {{ datalens-short-name }} с подключением к {{ CH }}:
-  - Подключение к {{ CH }} выполняется только по HTTP-интерфейсу.
-  - Все запросы к данным выполняются с включенным флагом [join_use_nulls](https://clickhouse.tech/docs/ru/operations/settings/settings/#join_use_nulls).
+- Подключение к {{ CH }} выполняется только по HTTP-интерфейсу.
+- Все запросы к данным выполняются с включенным флагом [join_use_nulls](https://clickhouse.tech/docs/ru/operations/settings/settings/#join_use_nulls). Ознакомьтесь с разделом [{#T}](#ch-connection-specify), если вы используете представления (VIEW) или подзапросы с секцией JOIN в {{ datalens-short-name }}.
 
 {% endnote %}
 
@@ -69,4 +68,23 @@
 Вы можете проверить подключение к хосту перед созданием. Для этого нажмите кнопку **Проверить подключение**.
 
 {% endnote %}
+
+## Особенности работы с подключением к ClickHouse {#ch-connection-specify}
+
+Вы можете создавать датасеты поверх представлений (VIEW) в {{ CH }}, содержащих секцию JOIN. Для этого представление должно быть создано с включенной опцией `join_use_nulls`. Рекомендуется выставлять настройку `join_use_nulls = 1` в секции `SETTINGS`:
+
+```sql
+CREATE VIEW ... (
+    ...
+) AS 
+    SELECT 
+        ...
+    FROM 
+        ...
+    SETTINGS join_use_nulls = 1
+```
+
+Также следует включать эту опцию для подзапросов raw-sql, которые иcпользуются как источник данных в датасете.
+
+Чтобы избежать ошибок при работе с представлениями в {{ datalens-short-name }}, содержащими секцию JOIN, создайте заново все представления с настройкой `join_use_nulls = 1`. Пустые ячейки при этом заполнятся значениями `NULL`, а тип соответствующих полей преобразуется в [Nullable](https://clickhouse.tech/docs/ru/sql-reference/data-types/nullable/#data_type-nullable).
  
