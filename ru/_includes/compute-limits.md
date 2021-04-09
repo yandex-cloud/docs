@@ -34,6 +34,15 @@
 Максимальное количество RAM для виртуальных машин с GPU | 384
 Максимальное количество групп безопасности на один интерфейс | 5
 
+#### Лимиты виртуальных машин на работу с нереплицируемыми дисками {#compute-limits-vm-nonrepl}
+
+Вид ограничения | Значение
+----- | -----
+Максимальный[*](../compute/concepts/limits.md#max_iops) [IOPS](../compute/concepts/disk.md#rw) для 1 vCPU | 10 000
+Максимальный[*](../compute/concepts/limits.md#max_iops) IOPS для одной виртуальной машины | 100 000
+Максимальная[**](../compute/concepts/limits.md#max_bandwidth) [пропускная способность](../compute/concepts/disk.md#rw) для 1 vCPU | 100 МБ/с 
+Максимальная[**](../compute/concepts/limits.md#max_bandwidth) пропускная способность для одной виртуальной машины | 1 ГБ/с
+
 #### Лимиты дисков {#compute-limits-disks}
 
 {% list tabs %}
@@ -74,6 +83,15 @@
     Вид ограничения | Значение
     ----- | -----
     Минимальный размер нереплицируемого диска | 93 ГБ
+    Размер [блока размещения](../compute/concepts/disk.md#rw) | 93 ГБ
+    Максимальный[*](../compute/concepts/limits.md#max_iops) [IOPS](../compute/concepts/disk.md#rw) на запись, на 1 диск | 50 000
+    Максимальный[*](../compute/concepts/limits.md#max_iops) IOPS на запись, на блок размещения | 5 600
+    Максимальная[**](../compute/concepts/limits.md#max_bandwidth) [пропускная способность](../compute/concepts/disk.md#rw) на запись, на 1 диск | 1 ГБ/с
+    Максимальная[**](../compute/concepts/limits.md#max_bandwidth) пропускная способность на запись, на блок размещения | 82 МБ/с
+    Максимальный[*](../compute/concepts/limits.md#max_iops) IOPS на чтение, на 1 диск | 50 000
+    Максимальный[*](../compute/concepts/limits.md#max_iops) IOPS на чтение, на блок размещения | 28 000
+    Максимальная[**](../compute/concepts/limits.md#max_bandwidth) пропускная способность на чтение, на 1 диск | 1 ГБ/с
+    Максимальная[**](../compute/concepts/limits.md#max_bandwidth) пропускная способность на чтение, на блок размещения | 110 МБ/с
 
 {% endlist %}
 

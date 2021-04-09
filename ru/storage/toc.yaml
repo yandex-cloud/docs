@@ -111,6 +111,8 @@ items:
             href: tools/aws-sdk-java.md
           - name: Python SDK (boto)
             href: tools/boto.md
+          - name: AWS SDK для .NET
+            href: tools/aws-sdk-net.md
       - name: FUSE
         items:
           - name: s3fs

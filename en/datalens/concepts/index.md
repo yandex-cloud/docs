@@ -1,7 +1,7 @@
 # Overview
 
-{{ datalens-full-name }} is a business analytics service that lets you upload, process, and visualize data for analysing and testing hypotheses.
-You can use it to make important marketing and other decisions related to your product.
+{{ datalens-full-name }} is a business analytics service. It lets you connect to various data sources, visualize data, create dashboards, and share the results.
+With {{ datalens-full-name }}, you can track your product and business metrics directly from data sources to make data-based decisions.
 
 
 {% note warning %}
@@ -23,5 +23,5 @@ The number of {{ datalens-short-name }} instances in one [{{ yandex-cloud }} clo
 - **Chart**: Data from a dataset visualized as tables, diagrams, or maps.
 - **Dashboard**: A set of charts, selectors for filtering data, and text blocks.
 
-You can create the entity objects yourself or use ready-made solutions from the [{{ datalens-short-name }} Marketplace](marketplace.md).
+You can create entity objects yourself or use ready-made solutions from the [{{ datalens-short-name }} Marketplace](marketplace.md).
 

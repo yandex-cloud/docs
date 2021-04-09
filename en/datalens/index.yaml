@@ -1,6 +1,12 @@
 title: Yandex DataLens
 description:
-  - The DataLens service lets you visualize data for analysis.
+  - >-
+    Yandex DataLens is a business analytics service. It lets you connect to
+    various data sources, visualize data, create dashboards, and share the
+    results.
+  - >-
+    With Yandex DataLens, you can track your product and business metrics
+    directly from data sources to make data-based decisions.
 meta:
   title: Yandex DataLens
 links:
@@ -23,5 +29,5 @@ links:
     description: Permissions required for using the service
     href: security/
   - title: Pricing policy
-    description: Service pricing and cost calculations
+    description: Pricing and cost calculation for services
     href: pricing

@@ -291,6 +291,12 @@ For the following products, funds are debited once for the calendar month in adv
 
 ### Disks, snapshots, and images {#prices-storage}
 
+{% note info %}
+
+At the [Preview](../overview/concepts/launch-stages.md) stage, non-replicated disks can be used free of charge. The rates for non-replicated disks listed on this page will be effective from April 19, 2021.
+
+{% endnote %}
+
 {% list tabs %}
 
 - Prices in USD
@@ -299,6 +305,7 @@ For the following products, funds are debited once for the calendar month in adv
   ----- | -----
   | Fast network drive (SSD) | $0.095437 |
   | Standard disk drive (HDD) | $0.026726 |
+  | Non-replicated disk (SSD) | $0.070513 |
   | Snapshot | $0.028552 |
   | Image | $0.028552 |
 
@@ -308,6 +315,7 @@ For the following products, funds are debited once for the calendar month in adv
   ----- | -----
   | Fast network drive (SSD) | ₽7.4441 |
   | Standard disk drive (HDD) | ₽2.0847 |
+  | Non-replicated disk (SSD) | ₽5.5000 |
   | Snapshot | ₽2.2271 |
   | Image | ₽2.2271 |
 
