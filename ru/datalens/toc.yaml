@@ -160,7 +160,11 @@ items:
         when: audience == "external"
         href: concepts/datalens-public.md
       - name: Вычисляемые поля
-        href: concepts/calculations.md
+        items:
+          - name: Обзор
+            href: concepts/calculations/index.md
+          - name: Синтаксис формул
+            href: concepts/calculations/formula-syntax.md
       - name: Marketplace
         when: audience == "external"
         href: concepts/marketplace.md
