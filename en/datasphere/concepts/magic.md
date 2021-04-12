@@ -33,7 +33,7 @@ To run bash commands, put 'bash' explicitly at the beginning of the cell:
     #!<configuration name>:bash
     ```
 
-    > For example, to run commands in the S configuration, enter `#!S:bash`.
+    > For example, to run commands in the configuration c1.4 , enter `#!c1.4 :bash`.
 
 The available configurations are described in [{#T}](configurations.md)
 
@@ -67,7 +67,7 @@ To specify that a cell's variable is read-only, use the command:
 #pragma readonly/ro <variable 1>, <variable 2>
 ```
 
-This command should be placed in the first lines of the cell before the code but allowed after the configuration update (`#!S`,&nbsp;`#!L`).
+This command should be placed in the first lines of the cell before the code but allowed after the configuration update (`#!c1.4 `,&nbsp;`#!g1.1`).
 
 Possible options for writing the command using `x` and `y` variables as an example:
 
