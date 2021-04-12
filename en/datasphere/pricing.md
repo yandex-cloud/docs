@@ -18,16 +18,20 @@ A billing measure is a one billing unit. The number of billing units spent on ca
     The calculation time is rounded up to an integer number of seconds.
 
 The cost of one billing unit is the cost of using 1 CPU core for 1 second. The number of units depends on [computing resource configuration](concepts/configurations.md).
-* S-configuration — 4 units per second.
-* M-configuration — 8 units per second.
-* L-configuration — 72 units per second.
-* XL-configuration — 288 units per second.
+
+Configuration | Units per second
+ ----- | ---- 
+  c1.4 | 4 
+  c1.8 | 8 
+  c1.80 | 80 
+  g1.1 | 72 
+  g1.4 | 288 
 
 
 ### Example of cost calculation {#price-example}
 
 Example of cost calculation:
-- **Computing resource:** L-configuration with 8 CPUs and 1 GPU.
+- **Computing resource:** configuration c1.8 with 8 CPUs and 1 GPU.
 - **Operation execution time:** 1,400 MS (rounded up to an integer number of seconds).
 
 Cost calculation:
@@ -38,14 +42,14 @@ Cost calculation:
 > Total: $0.001296
 
 Where:
-* 72 — number of units per L-configuration.
+* 72 — number of units per configuration g1.1.
 * 2 — rounded up 1,400 MS.
 * $0.000009 — cost of 1 unit.
 
 ### Using {{ dataproc-name }} clusters {#data-proc}
 
 The cost of using integration with the {{ dataproc-name}} service takes into account:
-* S-configuration computing resources {{ml-platform-name }}.
+* Configuration c1.4 computing resources {{ml-platform-name }}.
 
     These resources are created for integration with the {{ dataproc-name}} cluster and are charged while the cluster is being calculated.
 * The entire lifetime of the cluster {{ dataproc-name }} according to [pricing rules {{ dataproc-full-name }}](../data-proc/pricing.md).

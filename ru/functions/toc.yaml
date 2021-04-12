@@ -273,6 +273,8 @@ items:
         href: solutions/alice-skill.md
       - name: Развертывание веб-приложения
         href: solutions/java-servlet-todo-list.md
+      - name: Запись данных с устройства в Managed Service for PostgreSQL
+        href: solutions/data-recording.md
   - name: Правила тарификации
     href: pricing.md
   - name: Управление доступом

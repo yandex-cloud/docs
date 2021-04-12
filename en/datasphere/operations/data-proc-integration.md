@@ -27,10 +27,11 @@ You can calculate the total SSD space required for different configurations usin
 
 | Cluster type | Number of hosts. | SSD size |
 | ------------ | :---------------: | ---------------- |
-| S cluster | 4 | 1152 GB |
-| M-cluster | 8 | 2176 GB |
-| L cluster | 16 | 4224 GB |
-| XL cluster | 32 | 8320 GB |
+| Cluster c1.4 | 4 | 1152 GB |
+| Cluster c1.8 | 8 | 2176 GB |
+| Cluster c1.80 | 80 | 20 608 GB |
+| Cluster g1.1 | 16 | 4224 GB |
+| Cluster g1.4 | 32 | 8320 GB |
 
 You can view your current resources in [Quotas]({{ link-console-quotas }}) in the management console.
 
