@@ -15,7 +15,7 @@
 
 ## Измените конфигурацию {#config}
 
-Префикс конфигурации соответствует [имени конфигурации вычислительных ресурсов](../../concepts/configurations.md). Конфигурация по умолчанию — S (4 vCPU, 0 GPU).
+Префикс конфигурации соответствует [имени конфигурации вычислительных ресурсов](../../concepts/configurations.md). Конфигурация по умолчанию — c1.4 (4 vCPU, 0 GPU).
 
 {% include [include](../../../_includes/datasphere/control-compute-resources-steps.md) %}
 

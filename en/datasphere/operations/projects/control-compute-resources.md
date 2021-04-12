@@ -15,7 +15,7 @@ If not, open the project:
 
 ## Change the configuration {#config}
 
-The configuration prefix corresponds to the [name of the computing resource configuration](../../concepts/configurations.md). The default configuration is S (4 vCPUs, 0 GPU).
+The configuration prefix corresponds to the [name of the computing resource configuration](../../concepts/configurations.md). The default configuration is c1.4  (4 vCPUs, 0 GPU).
 
 {% include [include](../../../_includes/datasphere/control-compute-resources-steps.md) %}
 

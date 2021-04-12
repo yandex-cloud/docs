@@ -136,7 +136,11 @@ items:
       - name: DataLens Public
         href: concepts/datalens-public.md
       - name: Вычисляемые поля
-        href: concepts/calculations.md
+        items:
+          - name: Обзор
+            href: concepts/calculations/index.md
+          - name: Синтаксис формул
+            href: concepts/calculations/formula-syntax.md
       - name: Marketplace
         href: concepts/marketplace.md
       - name: Резервное копирование в DataLens
