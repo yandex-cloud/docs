@@ -30,7 +30,7 @@ items:
     - name: Выполнить переход в статус
       href: concepts/issues/new-transition.md
     - name: Получить историю изменений задачи
-      href: concepts/issues/get-changelog.md
+      href: concepts/issues/get-changelog.md 
 - name: Чеклисты
   items:
     - name: Создать чеклист или добавить в него пункты
@@ -108,7 +108,7 @@ items:
     - name: Восстановить очередь
       href: concepts/queues/restore-queue.md
     - name: Удалить тег из очереди
-      href: concepts/queues/delete-tag.md   
+      href: concepts/queues/delete-tag.md
 - name: Доски задач
   items:
     - name: Получить параметры всех досок
@@ -187,6 +187,8 @@ items:
       href: concepts/issues/create-issue-field-category.md     
     - name: Локальные поля
       items:
+        - name: Создать локальное поле очереди
+          href: concepts/queues/create-local-field.md        
         - name: Получить локальные поля очереди
           href: concepts/queues/get-local-fields.md
         - name: Получить информацию о локальном поле очереди
