@@ -1,6 +1,12 @@
 # Managing hosts
 
-You can add hosts to an {{ ES }} cluster, delete hosts from the cluster, and get a list of hosts in the cluster.
+You can get a list of {{ ES }} cluster hosts and add or delete them.
+
+{% note info %}
+
+You can only add or delete hosts with the [_Data node_](../concepts/index.md) role.
+
+{% endnote %}
 
 ## Getting a list of cluster hosts {#list-hosts}
 
@@ -22,6 +28,19 @@ You can add hosts to an {{ ES }} cluster, delete hosts from the cluster, and get
 
 {% list tabs %}
 
+- Management console
+
+    1. Go to the folder page and select **{{ mes-name }}**.
+
+    1. Click on the name of the cluster you need and select the **Hosts** tab.
+
+    1. Click **Add host**.
+
+    1. Specify the host parameters:
+        - Availability zone.
+        - Subnet (if the necessary subnet is not in the list, [create it](../../vpc/operations/subnet-create.md).
+        - Select the **Public access** option if the host must be accessible from outside {{ yandex-cloud }}.
+
 - API
 
   Use the `addHosts` API method: pass the ID of the required cluster in the `clusterId` request parameter.
@@ -34,7 +53,17 @@ You can add hosts to an {{ ES }} cluster, delete hosts from the cluster, and get
 
 ## Deleting hosts from a cluster {#delete-hosts}
 
+The following restrictions apply when deleting hosts:
+
+- You can't delete a single host with the _Data node_ role.
+- If a cluster consists of multiple hosts with the _Data node_ role, you can't delete the last two hosts.
+
 {% list tabs %}
+
+- Management console
+    1. Go to the folder page and select **{{ mes-name }}**.
+    1. Click on the name of the cluster you need and select the **Hosts** tab.
+    1. Click the ![image](../../_assets/vertical-ellipsis.svg) in the line of the necessary host and select **Delete**.
 
 - API
 

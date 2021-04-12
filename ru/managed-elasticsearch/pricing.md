@@ -4,12 +4,6 @@ editable: false
 
 # Правила тарификации для Managed Service for Elasticsearch
 
-{% note info %}
-
-На стадии [Preview](../overview/concepts/launch-stages.md) использование сервиса {{ mes-full-name }} не тарифицируется. Тарифы, приведенные на этой странице, начнут действовать с 13 апреля 2021 г.
-
-{% endnote %}
-
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
 

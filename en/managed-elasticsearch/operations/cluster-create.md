@@ -1,6 +1,6 @@
 # Creating clusters
 
-A {{ mes-name }} cluster is a group of multiple linked {{ ES }} hosts. A cluster provides high search performance by distributing search and indexing tasks across all cluster hosts with the _Data node_ role. To learn more about roles in the cluster, see [{#T}](../concepts/index.md).
+A {{ mes-name }} cluster is a group of multiple linked {{ ES }} hosts. A cluster provides high search performance by distributing search and indexing tasks across all cluster hosts with the _Data node_ role. To learn more about roles in the cluster, see [{#T}](../concepts/hosts-roles.md).
 
 ## Creating a cluster {#create-cluster}
 
@@ -27,7 +27,9 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
 
   1. Under **Network settings**, select [network](../../vpc/concepts/network.md).
 
-  1. Under **User**, specify the settings for the user whose account will be used to connect to {{ ES }}: the username and password.
+  1. Under **User**, specify the `admin` user password.
+
+     {% include [mes-superuser](../../_includes/mdb/mes-superuser.md)%}
 
   1. Configure hosts with the _Data node_ role by opening the **Data node** tab:
 
@@ -67,7 +69,7 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
 
              {% note tip %}
 
-             We don't recommend enabling public access for hotspots with the _Master node_ role. Change this setting only if you know exactly what you want to do.
+             It's not recommended to enable public access for hosts with the _Master node_ role. Change this setting only if you know exactly what you want to do.
 
              {% endnote %}
 
@@ -76,13 +78,13 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
 - API
 
   To create a cluster, use the API `create` method and pass the following in the request:
-  - In the `folderId` parameter, the ID of the folder where the cluster should be placed.
-  - The cluster name, in the `name` parameter.
-  - Cluster configuration, in the `configSpec` parameter, including:
-    - Class of hosts with the _Master node_ role, in the `configSpec.elasticsearchSpec.masterNode.resources` parameter. If you don't want to create dedicated hosts with the _Master node_ role, don't set values for the group of `configSpec.elasticsearchSpec.masterNode` parameters.
-    - Class of hosts with the _Data node_ role, in the `configSpec.elasticsearchSpec.dataNode.resources` parameter.
-  - Configuration of the cluster hosts, in one or more `hostSpecs` parameters.
-  - Network ID, in the `networkId` parameter.
+    - In the `folderId` parameter, the ID of the folder where the cluster should be placed.
+    - The cluster name, in the `name` parameter.
+    - Cluster configuration, in the `configSpec` parameter, including:
+        - Class of hosts with the _Master node_ role, in the `configSpec.elasticsearchSpec.masterNode.resources` parameter. If you don't want to create dedicated hosts with the _Master node_ role, don't set values for the group of `configSpec.elasticsearchSpec.masterNode` parameters.
+        - Class of hosts with the _Data node_ role, in the `configSpec.elasticsearchSpec.dataNode.resources` parameter.
+    - Configuration of the cluster hosts, in one or more `hostSpecs` parameters.
+    - Network ID, in the `networkId` parameter.
 
 {% endlist %}
 

@@ -1,6 +1,6 @@
 # Connecting to clusters
 
-You can connect to the hosts in the {{ mes-name }} cluster with the _Data node_ role:
+You can connect to {{ mes-name }} cluster hosts with the [_Data node_](../concepts/hosts-roles.md#data-node) role:
 
 - Over the internet, if you configured public access for the appropriate host.
 - From {{ yandex-cloud }} VM instances hosted in the same [virtual network](../../vpc/concepts/network.md).

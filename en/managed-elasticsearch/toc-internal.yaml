@@ -15,16 +15,22 @@ items:
       href: operations/cluster-connect.md
     - name: Stopping and starting clusters
       href: operations/cluster-stop.md
+    - name: Changing cluster settings
+      href: operations/update.md
     - name: Managing Elasticsearch hosts
       href: operations/cluster-hosts.md
     - name: Managing Elasticsearch users
       href: operations/cluster-users.md
-    - name: Deleting clusters
+    - name: Deleting a cluster
       href: operations/cluster-delete.md
   - name: Concepts
     items:
     - name: Relationship between service resources
       href: concepts/index.md
+    - name: Host roles
+      href: concepts/hosts-roles.md
+    - name: Elasticsearch editions
+      href: concepts/es-editions.md
     - name: Indexes
       href: concepts/indexing.md
     - name: Search using Elasticsearch
@@ -43,5 +49,5 @@ items:
     href: quotas.md
   - name: API reference
     items:
-      - name: Authentication in the API
+      - name: API authentication
         href: api-ref/authentication.md

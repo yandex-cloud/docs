@@ -8,7 +8,7 @@ To get started with the service:
 
 {% if audience == "internal" %}
 
-For the internal MDB service, the [web interface]({{ console-link }}) is deployed, where you can manually create a database cluster. For more about quotas and the correlation between ABC services and clouds and folders, see [{#T}](../mdb/access.md).
+For the internal MDB service, the [веб-интерфейс]({{ console-link }}) is deployed, where you can manually create a database cluster. For more about quotas and the correlation between ABC services and clouds and folders, see [{#T}](../mdb/access.md).
 
 ## Access to DB clusters {#access}
 
@@ -37,8 +37,8 @@ If you plan to use the CLI, install and configure it by following the [instructi
    {% include [create-folder](../_includes/create-folder.md) %}
 
 1. You can connect to an {{ ES }} cluster from both inside and outside {{ yandex-cloud }}:
-   - To connect from inside {{ yandex-cloud }}, create a [Linux](../compute/quickstart/quick-create-linux.md)- or [Windows](../compute/quickstart/quick-create-windows.md)-based virtual machine, which must be in the same network as the cluster.
-   - To connect to a cluster from the internet, when creating a cluster, [request public access](operations/cluster-create.md#change-data-node-settings) to hosts with the _Data node_ role.
+    - To connect from inside {{ yandex-cloud }}, create a [Linux](../compute/quickstart/quick-create-linux.md)- or [Windows](../compute/quickstart/quick-create-windows.md)-based virtual machine, which must be in the same network as the cluster.
+    - To connect to a cluster from the internet, [request public access](operations/cluster-create.md#change-data-node-settings) to hosts with the [_Data node_](concepts/hosts-roles.md#data-node) role when creating a cluster.
 
 {% note info %}
 
@@ -69,7 +69,7 @@ These instructions assume that you're connecting to the cluster from the interne
 
 1. Click **Create cluster**.
 
-1. Wait until the cluster is ready: its status on the {{ mes-short-name }} dashboard changes to `Running` and its state to `Alive`. This may take some time.
+1. Wait until the cluster is ready: its status on the {{ mes-short-name }} dashboard changes to **Running** and its state to **Alive**. This may take some time.
 
 ## Connect to the cluster {#connect}
 
@@ -125,7 +125,7 @@ To connect to a cluster:
 
 To learn more about Kibana, see the [{{ ES }} documentation](https://www.elastic.co/guide/en/kibana/current/tutorial-sample-data.html).
 
-## What's next
+## What's next {#whats-next}
 
 - Read about [service concepts](concepts/index.md).
 - Learn more about [creating clusters](operations/cluster-create.md) and [connecting to clusters](operations/cluster-connect.md).

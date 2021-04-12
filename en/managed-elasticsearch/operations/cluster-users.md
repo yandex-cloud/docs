@@ -1,54 +1,13 @@
 # Managing {{ ES }} users
 
-You can add and remove users, as well as manage their individual settings.
+You can manage cluster users as an `admin` user.
 
-## Getting a list of users {#list-users}
+Interfaces available for user management:
 
-{% list tabs %}
+- [{{ ES }} Security API](https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api.html#security-user-apis).
+- [Kibana](https://www.elastic.co/guide/en/kibana/current/xpack-security.html#_users). For more information about how to connect to Kibana, see [{#T}](cluster-connect.md).
 
-- Management console
-  1. Go to the folder page and select **{{ mes-name }}**.
-  1. Click on the name of the cluster you need and then select the **Users** tab.
+To perform routine tasks, create individual users with the minimum required [set of privileges](https://www.elastic.co/guide/en/elasticsearch/reference/current/security-privileges.html). It's not recommended to use the `admin` account for these purposes, because it has full access to the cluster. Running an incorrect command under the admin account may cause the cluster to fail.
 
-- API
-
-  To get a list of users, use the [list](../api-ref/User/list.md) method.
-
-{% endlist %}
-
-## Adding a user {#adduser}
-
-{% list tabs %}
-
-- Management console
-  1. Go to the folder page and select **{{ mes-name }}**.
-  1. Click on the name of the cluster you need and select the tab **Users**.
-  1. Click **Add**.
-  1. Set the username and password (from 8 to 128 characters).
-  1. Click **Add**.
-
-{% endlist %}
-
-## Changing a password {#updateuser}
-
-{% list tabs %}
-
-- Management console
-  1. Go to the folder page and select **{{ mes-name }}**.
-  1. Click on the name of the cluster you need and select the tab **Users**.
-  1. Click ![image](../../_assets/horizontal-ellipsis.svg) and select **Change password**.
-  1. Set a new password, enter it again in the **Confirm password** field and click **Change**.
-
-{% endlist %}
-
-## Deleting a user {#removeuser}
-
-{% list tabs %}
-
-- Management console
-  1. Go to the folder page and select **{{ mes-name }}**.
-  1. Click on the name of the cluster you need and select the tab **Users**.
-  1. Click ![image](../../_assets/horizontal-ellipsis.svg) and select **Delete**.
-
-{% endlist %}
+To learn more about roles and privileges, see the [{{ ES }} documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/authorization.html).
 

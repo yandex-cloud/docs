@@ -1,10 +1,5 @@
 title: Yandex Managed Service for Elasticsearch
-stage: preview
 description:
-  - >-
-    <em>Managed Service for Elasticsearch is at the <a
-    href="/docs/overview/concepts/launch-stages">Preview stage</a> and is
-    free of charge</em>.
   - >-
     Managed Service for Elasticsearch helps you deploy and
     maintain Elasticsearch server clusters in the Yandex.Cloud infrastructure
