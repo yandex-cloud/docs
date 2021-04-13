@@ -6,7 +6,8 @@ With function versioning, you can:
 - [Get information about a function version](version-manage.md#version-info).
     - [Get a list of function versions](version-manage.md#version-list).
     - [Get detailed information about a function version](version-manage.md#version-get).
-- [Manage version tags](function-update.md#manage-tags).
+- [Add environment variables](version-manage.md#version-env).
+- [Manage version tags](version-manage.md#manage-tags).
 
 You can change the function code using the [Code editor](function-editor.md).
 
@@ -18,7 +19,7 @@ To ensure the integrity of version links, you can't update or delete function ve
 
 ## Getting a list of functions {#function-list}
 
-For function versioning, you need to know the name or unique ID of the function that the version belongs to. To find them out, get a list of functions.
+For function versioning, you need to know the name or unique ID of the function that the version belongs to. To find them, get a list of functions.
 
 {% include [function-list](../../../_includes/functions/function-list.md) %}
 
@@ -28,42 +29,22 @@ For function versioning, you need to know the name or unique ID of the function 
 
 ### Preparing a ZIP archive with the function code {#zip-archive}
 
-1. Save the following code to a file named `index.js`:
-
-    ```
-    exports.handler = async function (event, context) {
-        let name = 'World';
-        if (event.queryStringParameters && event.queryStringParameters.name) {
-            name = event.queryStringParameters.name
-        }
-        return {
-            'statusCode': 200,
-            'headers': {
-                'Content-Type': 'text/plain'
-            },
-            'isBase64Encoded': false,
-            'body': `Hello, ${name}!`
-        }
-    };
-    ```
-
-1. Add `index.js` to the `hello-js.zip` archive.
+{% include [create-js-zip](../../../_includes/functions/create-js-zip.md) %}
 
 ### Creating a function version {#version-create}
 
 When creating a version, set the following parameters:
 
 - _Runtime environment_: Provides additional libraries and environment variables that can be accessed from the function code. It corresponds to the programming language that your function is written in.
-- _Entry point_: The name of the function to be called as a handler. To read more about the handler, see [Programming model](../../concepts/function.md#programming-model).
+- _Entry point_: The function to be invoked as a handler. To read more about the handler, see [Programming model](../../concepts/function.md#programming-model).
 - _Timeout_: The maximum function execution time, after which the service will terminate its execution without waiting for a response. It includes the time of the first initialization when the function is first run.
 
 {% list tabs %}
 
 - Management console
-
-    Create the function version:
-    1. Open **{{ sf-name }}** in the folder where you want to create the function version.
-    1. Select the function to create the version for.
+    1. In the [management console]({{ link-console-main }}), go to the folder where the function is located.
+    1. Open **{{ sf-name }}**.
+    1. Select the function to create a version of.
     1. Under **Latest version**, click **Create in editor**.
     1. Set the version parameters:
        - Runtime environment: `nodejs`.
@@ -80,17 +61,28 @@ When creating a version, set the following parameters:
 
     {% include [cli-install](../../../_includes/cli-install.md) %}
 
-    Create the function version:
+    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+    To create a function version, run the command:
 
     ```
-    $ yc serverless function version create \
-    --function-name=my-nodejs-function \ # Function name.
-    --runtime nodejs12 \ # Runtime environment.
-    --entrypoint index.handler \ The handler, specified in <function file name>.<handler name> format.
-    --memory 128m \ # Amount of RAM.
-    --execution-timeout 5s \ # The maximum function execution time before the timeout is reached.
-    --source-path ./hello-js.zip # ZIP archive with the function code and all required dependencies.
+    yc serverless function version create \
+    --function-name=my-nodejs-function \
+    --runtime nodejs12 \
+    --entrypoint index.handler \
+    --memory 128m \
+    --execution-timeout 5s \
+    --source-path ./hello-js.zip
     ```
+
+    where:
+
+    `--function-name`: The function you want to create a version of.
+`--runtime`: The runtime environment.
+`--entrypoint`: The entry point specified in <function file name>.<handler name> format.
+`--memory`: The amount of RAM.
+`--execution-timeout`: The maximum function execution time before the timeout is reached.
+`--source-path`: ZIP archive with the function code and required dependencies.
 
     Result:
 
@@ -111,6 +103,10 @@ When creating a version, set the following parameters:
     log_group_id: ckg3qh8h363p40gmr9gn
     ```
 
+- API
+
+    You can create a function version using the [createVersion](../../functions/api-ref/Function/createVersion.md) API method.
+
 {% endlist %}
 
 ## Getting information about a function version {#version-info}
@@ -130,28 +126,51 @@ When you add environment variables, a new version of the function is created. Yo
 {% list tabs %}
 
 - Management console
-    1. Select **{{ sf-name }}** in [management console]({{ link-console-main }}).
-    1. Click ![image](../../../_assets/vertical-ellipsis.svg) in the row of the function whose version you want to add an environment variable for.
-    1. Open the **Editor** section.
-    1. In the window that opens, under **Parameters**, add an environment variable in the **Environment variables** field and click **Add environment variable**. You can add multiple variables.
-    1. Click **Create version** in the upper-right corner. A new version of the function with the specified environment variables is created.
+    1. In the [management console]({{ link-console-main }}), go to the folder where the function is located.
+    1. Open **{{ sf-name }}**.
+    1. Select the function whose version you want to add an environment variable for.
+    1. Go to the **Editor** tab.
+    1. In the window that opens, under **Parameters**, specify the environment variable and click **Add environment variable**. You can add multiple environment variables.
+    1. Click **Create version**. A new version of the function with the specified environment variables is created.
 
 - CLI
 
-    Run the command:
+    {% include [cli-install](../../../_includes/cli-install.md) %}
 
-    ```
-    $ yc serverless function version create \
-    --function-name=<function name> \ # Name of the function.
-    --runtime <runtime environment> \ # Runtime environment.
-    --entrypoint <handler> \ # The handler specified in <function file name>.<handler name> format.
-    --memory 128m \ # Amount of RAM.
-    --execution-timeout 5s \ # The maximum function execution time before the timeout is reached.
-    --source-version-id <version ID> \ # ID of the version to copy executable code from.
-    --environment <environment variables> # Environment variables in key=value format. You can specify multiple pairs separated by commas.
-    ```
+    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+    To add environment variables, run the command:
+
+    {% note warning %}
 
     If the previous version contained environment variables, this command overwrites them.
+
+    {% endnote %}
+
+    ```
+    yc serverless function version create \
+    --function-name=<function name> \
+    --runtime <runtime environment> \
+    --entrypoint <entry point> \
+    --memory 128m \
+    --execution-timeout 5s \
+    --source-version-id <version ID> \
+    --environment <environment variables>
+    ```
+
+    where:
+
+    `--function-name`: The function name.
+`--runtime`: The runtime environment.
+`--entrypoint`: The entry point specified in <function file name>.<handler name> format.
+`--memory`: The amount of RAM.
+`--execution-timeout`: The maximum function execution time before the timeout is reached.
+`--source-version-id`: The ID of the function version to copy the code of.
+`--environment`: Environment variables in key=value format. You can specify multiple pairs separated by commas.
+
+- API
+
+    You can add environment variables using the [createVersion](../../functions/api-ref/Function/createVersion.md) API method.
 
 {% end list %}
 
@@ -169,10 +188,12 @@ To access the function version, use its unique ID. For information about how to 
 
     {% include [cli-install](../../../_includes/cli-install.md) %}
 
-    Add a version tag:
+    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+    To add a version tag, run the command:
 
     ```
-    $ yc serverless function version set-tag --id <version ID> --tag <tag>
+    yc serverless function version set-tag --id <version ID> --tag <tag>
     ```
 
     Result:
@@ -194,6 +215,10 @@ To access the function version, use its unique ID. For information about how to 
     log_group_id: eolv6578frac08uh5h6s
     ```
 
+- API
+
+    You can add a tag using the [setTag](../../functions/api-ref/Function/setTag.md) API method.
+
 {% endlist %}
 
 ### Removing a tag {#remove-tag}
@@ -204,10 +229,12 @@ To access the function version, use its unique ID. For information about how to 
 
     {% include [cli-install](../../../_includes/cli-install.md) %}
 
-    Remove a version tag:
+    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+    To remove a version tag, run the command:
 
     ```
-    $ yc serverless function version remove-tag --id <version ID> --tag <tag>
+    yc serverless function version remove-tag --id <version ID> --tag <tag>
     ```
 
     Result:
@@ -227,6 +254,10 @@ To access the function version, use its unique ID. For information about how to 
     - beta
     log_group_id: eolv6578frac08uh5h6s
     ```
+
+- API
+
+    You can remove a tag using the [removeTag](../../functions/api-ref/Function/removeTag.md) API method.
 
 {% endlist %}
 
