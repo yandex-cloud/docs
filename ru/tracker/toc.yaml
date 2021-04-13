@@ -56,12 +56,11 @@ items:
           href: support-process.md      
         - name: Создать очередь для службы поддержки
           href: support-process-create-queue.md      
-        - name: Принимать обращения через форму
+        - name: Принимать обращения по почте и через форму
           href: support-process-mail-forms.md  
         - name: Настроить многоуровневую структуру поддержки
           href: support-process-lines.md  
         - name: Отправлять письма со страницы задачи
-          when: audience == "internal"
           href: support-process-send-mail.md             
         - name: Группировать обращения по темам
           href: support-process-group.md
@@ -133,7 +132,6 @@ items:
         - name: Обзор
           href: user/create-ticket.md
         - name: Создать задачу по почте
-          when: audience == "internal"
           href: user/create-ticket-by-mail.md
         - name: Создать задачу из формы
           when: audience == "internal"
@@ -311,7 +309,6 @@ items:
 - name: Интеграция с другими сервисами
   items:
     - name: Почта
-      when: audience == "internal"
       href: manager/queue-mail.md
     - name: Формы
       href: manager/forms-integration.md

@@ -73,7 +73,7 @@ default:
   support-passport-create: https://yandex.ru/support/passport/authorization/registration.html
   support-business-domain: https://yandex.ru/support/business/domains.html
   support-business-users: https://yandex.ru/support/business/add-users.html
-
+  
   #link-tracker-accessapi: https://tech.yandex.ru/connect/tracker/api/concepts/access-docpage/
   #link-tracker-importapi: https://tech.yandex.ru/connect/tracker/api/concepts/import/import-ticket-docpage/
   #link-tracker-techapi: https://tech.yandex.ru/connect/tracker/
