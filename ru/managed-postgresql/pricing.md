@@ -64,30 +64,45 @@ editable: false
 
 ### Вычислительные ресурсы хостов {#prices-hosts}
 
-Ресурс | Цена за 1 час | Цена с CVoS на 1 год | Цена с CVoS на 3 года
------ | ----- | ----- | -----
-**Intel Broadwell** |
-5% vCPU | 0,04 ₽ | − | −
-20% vCPU | 0,28 ₽ | − | −
-50% vCPU | 0,47 ₽ | − | −
-100% vCPU | 1,34 ₽ | − | −
-RAM (за 1 ГБ) | 0,31 ₽ | − | −
-**Intel Cascade Lake** |
-5% vCPU | 0,04 ₽ | − | −
-20% vCPU | 0,28 ₽ | − | −
-50% vCPU | 0,47 ₽ | − | −
-100% vCPU | 1,13 ₽ | 0,81 ₽ (-28%) | 0,64 ₽ (-43%)
-RAM (за 1 ГБ) | 0,31 ₽ | 0,20 ₽ (-35%) | 0,15 ₽ (-52%)
+{% if region == "ru" %}
+
+{% include notitle [rub-host-resources.md](../_pricing/managed-postgresql/rub-host-resources.md) %}
+
+{% endif %}
+
+{% if region == "pre-kz" %}
+
+{% include notitle [kzt-host-resources.md](../_pricing/managed-postgresql/kzt-host-resources.md) %}
+
+{% endif %}
+
+{% if region == "int" %}
+
+{% include notitle [usd-host-resources.md](../_pricing/managed-postgresql/usd-host-resources.md) %}
+
+{% endif %}
 
 
 ### Хранилище и резервные копии {#prices-storage}
 
-Услуга | Цена за ГБ в месяц
------ | -----
-Стандартное сетевое хранилище | 2,2881 ₽ |
-Быстрое сетевое хранилище | 8,1356 ₽ |
-Быстрое локальное хранилище | 8,1356 ₽ |
-Резервные копии сверх размера хранилища | 2,5424 ₽
+{% if region == "ru" %}
+
+{% include notitle [rub-storage.md](../_pricing/managed-postgresql/rub-storage.md) %}
+
+{% endif %}
+
+{% if region == "pre-kz" %}
+
+{% include notitle [kzt-storage.md](../_pricing/managed-postgresql/kzt-storage.md) %}
+
+{% endif %}
+
+{% if region == "int" %}
+
+{% include notitle [usd-storage.md](../_pricing/managed-postgresql/usd-storage.md) %}
+
+{% endif %}
+
 
 
 ### Исходящий трафик {#prices-traffic}
@@ -122,86 +137,43 @@ RAM (за 1 ГБ) | 0,31 ₽ | 0,20 ₽ (-35%) | 0,15 ₽ (-52%)
 
   Из расчета 720 часов в месяц, округлено до целых рублей.
 
-  Класс хостов | Цена за месяц | Цена с CVoS на 1 год | Цена с CVoS на 3 года
-  ----- | ----- | ----- | -----
-  **Intel Broadwell** |
-  {{ b1-nano }} | 504 ₽ | − | −
-  {{ b1-micro }} | 850 ₽ | − | −
-  {{ b1-medium }} | 1 570 ₽ | − | −
-  {{ s1-nano }}| 1 858 ₽ | − | −
-  {{ s1-micro }} | 3 715 ₽ | − | −
-  {{ s1-small }} | 7 430 ₽ | − | −
-  {{ s1-medium }} | 14 861 ₽ | − | −
-  {{ s1-large }} | 29 722 ₽ | − | −
-  {{ s1-xlarge }} | 59 443 ₽ | − | −
-  **Intel Cascade Lake** |
-  {{ b2-nano }}| 504 ₽ | − | −
-  {{ b2-micro }} | 850 ₽ | − | −
-  {{ b2-medium }} | 1 570 ₽ | − | −
-  {{ m2-micro }} | 5 198 ₽ | 3 470 ₽ (-33%) | 2 650 ₽ (-49%) 
-  {{ m2-small }} | 10 397 ₽ | 6 941 ₽ (-33%) | 5 299 ₽ (-49%)
-  {{ m2-medium }}| 15 595 ₽ | 10 411 ₽ (-33%) | 7 949 ₽ (-49%)
-  {{ m2-large }} | 20 794 ₽ | 13 882 ₽ (-33%) | 10 598 ₽ (-49%)
-  {{ m2-xlarge }} | 31 190 ₽ | 20 822 ₽ (-33%) | 15 898 ₽ (-49%)
-  {{ m2-2xlarge }} | 41 587 ₽ | 27 763 ₽ (-33%) | 21 197 ₽ (-49%)
-  {{ m2-3xlarge }} | 62 381 ₽ | 41 645 ₽ (-33%) | 31 795 ₽ (-49%)
-  {{ m2-4xlarge }} | 83 174 ₽ | 55 526 ₽ (-33%) | 42 394 ₽ (-49%)
-  {{ m2-5xlarge }} | 103 968 ₽ | 69 408 ₽ (-33%) | 52 992 ₽ (-49%)
-  {{ m2-6xlarge }} | 124 762 ₽ | 83 290 ₽ (-33%) | 63 590 ₽ (-49%)
-  {{ m2-7xlarge }} | 145 555 ₽ | 97 171 ₽ (-33%) | 74 189 ₽ (-49%)
-  {{ m2-8xlarge }} | 166 349 ₽ | 111 053 ₽ (-33%) | 84 787 ₽ (-49%)
-  {{ s2-micro }} | 3 413 ₽ | 2 318 ₽ (-32%) | 1 786 ₽ (-48%)
-  {{ s2-small }} | 6 826 ₽ | 4 637 ₽ (-32%) | 3 571 ₽ (-48%)
-  {{ s2-medium }} | 13 651 ₽ | 9 274 ₽ (-32%) | 7 142 ₽ (-48%)
-  {{ s2-large }} | 20 477 ₽ | 13 910 ₽ (-32%) | 10 714 ₽ (-48%)
-  {{ s2-xlarge }} | 27 302 ₽ | 18 547 ₽ (-32%) | 14 285 ₽ (-48%)
-  {{ s2-2xlarge }} | 40 954 ₽ | 27 821 ₽ (-32%) | 21 427 ₽ (-48%)
-  {{ s2-3xlarge }} | 54 605 ₽ | 37 094 ₽ (-32%) | 28 570 ₽ (-48%)
-  {{ s2-4xlarge }}| 68 256 ₽ | 46 368 ₽ (-32%) | 35 712 ₽ (-48%)
-  {{ s2-5xlarge }}| 81 907 ₽ | 55 642 ₽ (-32%) | 42 854 ₽ (-48%)
-  {{ s2-6xlarge }}| 109 210 ₽ | 74 189 ₽ (-32%) | 57 139 ₽ (-48%)
+  {% if region == "ru" %}
+
+  {% include notitle [rub-calculated-month.md](../_pricing/managed-postgresql/rub-calculated-month.md) %}
+
+  {% endif %}
+
+  {% if region == "pre-kz" %}
+
+  {% include notitle [kzt-calculated-month.md](../_pricing/managed-postgresql/kzt-calculated-month.md) %}
+
+  {% endif %}
+
+  {% if region == "int" %}
+
+  {% include notitle [usd-calculated-month.md](../_pricing/managed-postgresql/usd-calculated-month.md) %}
+
+  {% endif %}
 
 - За 1 час работы хоста
 
-  Класс хостов | Цена за час | Цена с CVoS на 1 год | Цена с CVoS на 3 года
-  ----- | ----- | ----- | -----
-  **Intel Broadwell** |
-  {{ b1-nano }}| 0,70 ₽ | − | −
-  {{ b1-micro }} | 1,18 ₽ | − | −
-  {{ b1-medium }} | 2,18 ₽ | − | −
-  {{ s1-nano }} | 2,58 ₽ | − | −
-  {{ s1-micro }} | 5,16 ₽ | − | −
-  {{ s1-small }} | 10,32 ₽ | − | −
-  {{ s1-medium }} | 20,64 ₽ | − | −
-  {{ s1-large }} | 41,28 ₽ | − | −
-  {{ s1-xlarge }} | 82,56 ₽ | − | −
-  **Intel Cascade Lake** |
-  {{ b2-nano }}| 0,70 ₽ | − | −
-  {{ b2-micro }} | 1,18 ₽ | − | −
-  {{ b2-medium }} | 2,18 ₽ | − | −
-  {{ m2-micro }} | 7,22 ₽ | 4,82 ₽ (-33%) | 3,68 ₽ (-49%)
-  {{ m2-small }} | 14,44 ₽ | 9,64 ₽ (-33%) | 7,36 ₽ (-49%)
-  {{ m2-medium }}| 21,66 ₽ | 14,46 ₽ (-33%) | 11,04 ₽ (-49%)
-  {{ m2-large }} | 28,88 ₽ | 19,28 ₽ (-33%) | 14,72 ₽ (-49%)
-  {{ m2-xlarge }} | 43,32 ₽ | 28,92 ₽ (-33%) | 22,08 ₽ (-49%)
-  {{ m2-2xlarge }} | 57,76 ₽ | 38,56 ₽ (-33%) | 29,44 ₽ (-49%)
-  {{ m2-3xlarge }} | 86,64 ₽ | 57,84 ₽ (-33%) | 44,16 ₽ (-49%)
-  {{ m2-4xlarge }} | 115,52 ₽ | 77,12  (-33%) | 58,88 ₽ (-49%)
-  {{ m2-5xlarge }} | 144,40 ₽ | 96,40 ₽ (-33%) | 73,60 ₽ (-49%)
-  {{ m2-6xlarge }} | 173,28 ₽ | 115,68 ₽ (-33%) | 88,32 ₽ (-49%)
-  {{ m2-7xlarge }} | 202,16 ₽ | 134,96 ₽ (-33%) | 103,04 ₽ (-49%)
-  {{ m2-8xlarge }} | 231,04 ₽ | 154,24 ₽ (-33%) | 117,76 ₽ (-49%)
-  {{ s2-micro }} | 4,74 ₽ | 3,22 ₽ (-32%) | 2,48 ₽ (-48%)
-  {{ s2-small }} | 9,48 ₽ | 6,44 ₽ (-32%) | 4,96 ₽ (-48%)
-  {{ s2-medium }} | 18,96 ₽ | 12,88 ₽ (-32%) | 9,92 ₽ (-48%)
-  {{ s2-large }} | 28,44 ₽ | 19,32 ₽ (-32%) | 14,88 ₽ (-48%)
-  {{ s2-xlarge }} | 37,92 ₽ | 25,76 ₽ (-32%) | 19,84 ₽ (-48%)
-  {{ s2-2xlarge }} | 56,88 ₽ | 38,64 ₽ (-32%) | 29,76 ₽ (-48%)
-  {{ s2-3xlarge }} | 75,84 ₽ | 51,52 ₽ (-32%) | 39,68 ₽ (-48%)
-  {{ s2-4xlarge }}| 94,80 ₽ | 64,40 ₽ (-32%) | 49,60 ₽ (-48%)
-  {{ s2-5xlarge }}| 113,76 ₽ | 77,28 ₽ (-32%) | 59,52 ₽ (-48%)
-  {{ s2-6xlarge }}| 151,68 ₽ | 103,04 ₽ (-32%) | 79,36 ₽ (-48%)
+  {% if region == "ru" %}
+
+  {% include notitle [rub-calculated-hour.md](../_pricing/managed-postgresql/rub-calculated-hour.md) %}
+
+  {% endif %}
+
+  {% if region == "pre-kz" %}
+
+  {% include notitle [kzt-calculated-hour.md](../_pricing/managed-postgresql/kzt-calculated-hour.md) %}
+
+  {% endif %}
+
+  {% if region == "int" %}
+
+  {% include notitle [usd-calculated-hour.md](../_pricing/managed-postgresql/usd-calculated-hour.md) %}
+
+  {% endif %}
 
 {% endlist %}
-
 
