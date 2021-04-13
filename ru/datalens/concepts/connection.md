@@ -16,6 +16,7 @@ _Коннектор_ — это драйвер для подключения и 
 - **PostgreSQL**
 - **MySQL**
 - **CSV-файл**
+- **Google Sheets**
 - **MS SQL Server**
 - **Oracle Database**
 - **Metrica** (в режиме прямого доступа и через API)
@@ -32,6 +33,7 @@ _Коннектор_ — это драйвер для подключения и 
 #### См. также {#see-also}
 {% if audience != "internal" %} - [{#T}](../operations/connection/create-clickhouse.md) {% endif %}
 - [{#T}](../operations/connection/create-csv.md)
+- [{#T}](../operations/connection/create-google-sheets.md)
 - [{#T}](../operations/connection/create-mysql.md)
 - [{#T}](../operations/connection/create-postgresql.md)
 - [{#T}](../operations/connection/create-mssql-server.md)
