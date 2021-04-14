@@ -283,12 +283,12 @@ items:
         items:
         include:
           repo: docs
-          path: ru/_api-ref-grpc/functions/functions/api-ref/toc.yaml
+          path: en/_api-ref-grpc/functions/functions/api-ref/toc.yaml
       - name: REST
         items:
         include:
           repo: docs
-          path: ru/_api-ref/serverless/functions/toc.yaml
+          path: en/_api-ref/serverless/functions/toc.yaml
   - name: API Triggers reference
     items:
       - name: Authentication in the API
@@ -297,11 +297,11 @@ items:
         items:
         include:
           repo: docs
-          path: ru/_api-ref-grpc/functions/triggers/api-ref/toc.yaml
+          path: en/_api-ref-grpc/functions/triggers/api-ref/toc.yaml
       - name: REST
         items:
         include:
           repo: docs
-          path: ru/_api-ref/serverless/triggers/toc.yaml
+          path: en/_api-ref/serverless/triggers/toc.yaml
   - name: Questions and answers
     href: qa/index.md
