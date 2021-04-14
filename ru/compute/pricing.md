@@ -61,7 +61,7 @@ editable: false
 
 Обе виртуальные машины проработали в течение 30 дней.
 
-Расчет стоимости для виртуальной машины с 5% vCPU:
+Расчет стоимости для виртуальной машины с 5% vCPU при цене часа использования ядра процессора, равной 0,1932 ₽, и цене часа использования 1 ГБ оперативной памяти, равной 0,2441 ₽:
 
 >5% vCPU = 0,1932 ₽/час * 30 дней * 24 часа = 139,1040 ₽
 >
@@ -69,7 +69,7 @@ editable: false
 >
 >Итого: 314,8560 ₽
 
-Расчет стоимости для виртуальной машины со 100% vCPU:
+Расчет стоимости для виртуальной машины со 100% vCPU при цене часа использования ядра процессора, равной 0,7017 ₽, и цене часа использования 1 ГБ оперативной памяти, равной 0,2441 ₽:
 
 >1 vCPU = 0,7017 ₽/час * 30 дней * 24 часа = 505,2240 ₽
 >
@@ -109,83 +109,121 @@ vCPU и память ВМ, запущенных на выделенном хос
 
 ### Вычислительные ресурсы ВМ {#prices-instance-resources}
 
-Гарантированная доля vCPU | Цена за 1 час, вкл. НДС
------ | -----
-**Intel Broadwell** |
-5% | 0,1932 ₽
-20% | 0,5500 ₽
-100% | 0,7017 ₽
-**Intel Cascade Lake** |
-5% | 0,1020 ₽
-20% | 0,3060 ₽
-50% | 0,4488 ₽
-100% | 0,7476 ₽
+{% if region == "ru"%}
 
-Другие вычислительные ресурсы | Цена за 1 час, вкл. НДС
------ | -----
-**Intel Broadwell** |
-1 GPU | 155,9530 ₽
-1 vGPU | 39,0000 ₽
-RAM (за 1 ГБ) | 0,2441 ₽
-**Intel Cascade Lake** |
-1 GPU | 155,9530 ₽
-RAM (за 1 ГБ) | 0,1980 ₽
+{% include [rub-instance-cpu.md](../_pricing/compute/rub-instance-cpu.md) %}
+
+{% include [rub-instance-other.md](../_pricing/compute/rub-instance-other.md) %}
+
+{% endif %}
+
+{% if region == "pre-kz"%}
+
+{% include [kzt-instance-cpu.md](../_pricing/compute/kzt-instance-cpu.md) %}
+
+{% include [kzt-instance-other.md](../_pricing/compute/kzt-instance-other.md) %}
+
+{% endif %}
+
+{% if region == "int"%}
+
+{% include [usd-instance-cpu.md](../_pricing/compute/usd-instance-cpu.md) %}
+
+{% include [usd-instance-other.md](../_pricing/compute/usd-instance-other.md) %}
+
+{% endif %}
 
 ### Вычислительные ресурсы прерываемых ВМ {#prices-preemptible-instance-resources}
 
-Гарантированная доля vCPU | Цена за 1 час, вкл. НДС
------ | -----
-**Intel Broadwell** |
-5% | 0,1198 ₽
-20% | 0,1706 ₽
-100% | 0,2160 ₽
-**Intel Cascade Lake** |
-5% | 0,0636 ₽
-20% | 0,1000 ₽
-50% | 0,1400 ₽
-100% | 0,2040 ₽
+{% if region == "ru"%}
 
-Другие вычислительные ресурсы | Цена за 1 час, вкл. НДС
------ | -----
-**Intel Broadwell** |
-1 GPU | 39,0000 ₽
-1 vGPU | 9,7500 ₽
-RAM (за 1 ГБ) | 0,0750 ₽
-**Intel Cascade Lake** |
-1 GPU | 39,0000 ₽
-RAM (за 1 ГБ) | 0,0492 ₽
+{% include [rub-preemp-instance-cpu.md](../_pricing/compute/rub-preemp-instance-cpu.md) %}
+
+{% include [rub-preemp-instance-other.md](../_pricing/compute/rub-preemp-instance-other.md) %}
+
+{% endif %}
+
+{% if region == "pre-kz"%}
+
+{% include [kzt-preemp-instance-cpu.md](../_pricing/compute/kzt-preemp-instance-cpu.md) %}
+
+{% include [kzt-preemp-instance-other.md](../_pricing/compute/kzt-preemp-instance-other.md) %}
+
+{% endif %}
+
+{% if region == "int"%}
+
+{% include [usd-preemp-instance-cpu.md](../_pricing/compute/usd-preemp-instance-cpu.md) %}
+
+{% include [usd-preemp-instance-other.md](../_pricing/compute/usd-preemp-instance-other.md) %}
+
+{% endif %}
 
 ### Операционные системы {#prices-os}
 
-ОС | Цена за 1 vCPU в час, вкл. НДС
------ | -----
-Linux всех типов ядра | 0 ₽
-Windows Server Datacenter для 5% vCPU | 0,6346 ₽
-Windows Server Datacenter для 20% и 50% vCPU | 0,75 ₽
-Windows Server Datacenter для 100% vCPU | 1,2691 ₽
+{% if region == "ru"%}
+
+{% include [rub-os.md](../_pricing/compute/rub-os.md) %}
+
+{% endif %}
+
+{% if region == "pre-kz"%}
+
+{% include [kzt-os.md](../_pricing/compute/kzt-os.md) %}
+
+{% endif %}
+
+{% if region == "int"%}
+
+{% include [usd-os.md](../_pricing/compute/usd-os.md) %}
+
+{% endif %}
 
 Списание средств для следующих продуктов происходит единовременно в момент запуска ВМ из расчета за один календарный месяц вперед, вне зависимости от времени фактической работы ВМ:
 
-ОС | Цена за 1 ВМ в месяц, вкл. НДС
------ | -----
-Windows Server Standard* | 6020 ₽
+{% if region == "ru"%}
+
+{% include [rub-os-win-server.md](../_pricing/compute/rub-os-win-server.md) %}
+
+{% endif %}
+
+{% if region == "pre-kz"%}
+
+{% include [kzt-os-win-server.md](../_pricing/compute/kzt-os-win-server.md) %}
+
+{% endif %}
+
+{% if region == "int"%}
+
+{% include [usd-os-win-server.md](../_pricing/compute/usd-os-win-server.md) %}
+
+{% endif %}
 
 \* Стоимость Windows Server Standard является фиксированной и не зависит от конфигурации ВМ
 
-Продукт | Цена за пакет лицензий в месяц, вкл. НДС
------ | -----
-Remote Desktop Services (5 лицензий) | 2110 ₽
-Remote Desktop Services (10 лицензий) | 4220 ₽
-Remote Desktop Services (25 лицензий) | 10550 ₽
-Remote Desktop Services (50 лицензий) | 21100 ₽
-Remote Desktop Services (100 лицензий) | 42200 ₽
-Remote Desktop Services (250 лицензий) | 105500 ₽
-Remote Desktop Services (500 лицензий) | 211000 ₽
+{% if region == "ru"%}
 
-Продукт | Цена за 1 vCPU в месяц, вкл. НДС
------ | -----
-MS SQL Server Standard* | 5896,5 ₽
-MS SQL Server Enterprise* | 20163 ₽
+{% include [rub-os-rds.md](../_pricing/compute/rub-os-rds.md) %}
+
+{% include [rub-os-sql.md](../_pricing/compute/rub-os-sql.md) %}
+
+{% endif %}
+
+{% if region == "pre-kz"%}
+
+{% include [kzt-os-rds.md](../_pricing/compute/kzt-os-rds.md) %}
+
+{% include [kzt-os-sql.md](../_pricing/compute/kzt-os-sql.md) %}
+
+{% endif %}
+
+{% if region == "int"%}
+
+{% include [usd-os-rds.md](../_pricing/compute/usd-os-rds.md) %}
+
+{% include [usd-os-sql.md](../_pricing/compute/usd-os-sql.md) %}
+
+{% endif %}
 
 \* Продукт предоставляется на группу из 2 vCPU, минимальное доступное количество vCPU для ВМ — 4 (2 группы).
 
@@ -197,36 +235,69 @@ MS SQL Server Enterprise* | 20163 ₽
 
 {% endnote %}
 
-Тип  | Цена за ГБ в месяц,<br/>вкл. НДС
------  | -----
-Быстрый диск (SSD) | 7,4441 ₽
-Стандартный диск (HDD) | 2,0847 ₽
-Нереплицируемый диск (SSD) | 5,5000 ₽
-Снимок | 2,2271 ₽
-Образ | 2,2271 ₽
+{% if region == "ru"%}
+
+{% include [rub-storage.md](../_pricing/compute/rub-storage.md) %}
+
+{% endif %}
+
+{% if region == "pre-kz"%}
+
+{% include [kzt-storage.md](../_pricing/compute/kzt-storage.md) %}
+
+{% endif %}
+
+{% if region == "int"%}
+
+{% include [usd-storage.md](../_pricing/compute/usd-storage.md) %}
+
+{% endif %}
 
 ### Вычислительные ресурсы выделенных хостов {#prices-dedicated-host}
 
-Гарантированная доля vCPU | Цена за 1 час, вкл. НДС
------ | -----
-**Intel Cascade Lake** |
-100% | 54,2800 ₽
+{% if region == "ru"%}
 
-Другие вычислительные ресурсы | Цена за 1 час, вкл. НДС
------ | -----
-**Intel Cascade Lake** |
-RAM | 98,8800 ₽
+{% include [rub-host-cpu.md](../_pricing/compute/rub-host-cpu.md) %}
+
+{% include [rub-host-other.md](../_pricing/compute/rub-host-other.md) %}
+
+{% endif %}
+
+{% if region == "pre-kz"%}
+
+{% include [kzt-host-cpu.md](../_pricing/compute/kzt-host-cpu.md) %}
+
+{% include [kzt-host-other.md](../_pricing/compute/kzt-host-other.md) %}
+
+{% endif %}
+
+{% if region == "int"%}
+
+{% include [usd-host-cpu.md](../_pricing/compute/usd-host-cpu.md) %}
+
+{% include [usd-host-other.md](../_pricing/compute/usd-host-other.md) %}
+
+{% endif %}
 
 ### Программно-ускоренная сеть {#software-accelerated-network}
 
-Программное ускорение сети | Цена за 1 час, вкл. НДС
------ | -----
-**Intel Broadwell** |
-Для ВМ с числом ядер меньше 18 | 2,68 ₽
-Для ВМ c 18 ядрами и больше | 5,36 ₽
-**Intel Cascade Lake** |
-Для ВМ с числом ядер меньше 20 | 2,68 ₽
-Для ВМ c 20 ядрами и больше | 5,36 ₽
+{% if region == "ru"%}
+
+{% include [rub-network.md](../_pricing/compute/rub-network.md) %}
+
+{% endif %}
+
+{% if region == "pre-kz"%}
+
+{% include [kzt-network.md](../_pricing/compute/kzt-network.md) %}
+
+{% endif %}
+
+{% if region == "pre-kz"%}
+
+{% include [usd-network.md](../_pricing/compute/usd-network.md) %}
+
+{% endif %}
 
 ### Исходящий трафик {#prices-traffic}
 

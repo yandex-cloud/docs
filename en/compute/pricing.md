@@ -61,7 +61,7 @@ Two VMs were created running Linux OS:
 
 Both VMs have been running for 30 days.
 
-VM cost with 5% vCPU:
+VM cost with 5% vCPU at the price of an hour of CPU core usage equal to $0.002476, and the price of an hour of 1 GB of RAM usage equal to $0.003129:
 
 > 5% vCPU = $0.002476/hour * 30 days * 24 hours = $1.782720
 >
@@ -69,7 +69,7 @@ VM cost with 5% vCPU:
 >
 > Total: $4.035600
 
-VM Cost with 100% vCPU:
+VM Cost with 100% vCPU at the price of an hour of CPU core usage equal to $0.008996, and the price of an hour of 1 GB of RAM usage equal to $0.003129:
 
 > 1 vCPU = $0.008996/hour * 30 days * 24 hours = $6.477120
 >
@@ -109,183 +109,107 @@ Prices are shown for 1 hour of use. Billing occurs per second.
 
 ### VM computing resources {#prices-instance-resources}
 
-{% list tabs %}
+{% if region == "ru"%}
 
-- Prices in USD
+{% include [rub-instance-cpu.md](../_pricing/compute/rub-instance-cpu.md) %}
 
-    | Guaranteed vCPU performance | Rate for 1 hour, without VAT |
-    | ----- | ----- |
-    | **Intel Broadwell** |
-    | 5% | $0.002476 |
-    | 20% | $0.007051 |
-    | 100% | $0.008996 |
-    | **Intel Cascade Lake** |
-    | 5% | $0.001307 |
-    | 20% | $0.003923 |
-    | 50% | $0.005753 |
-    | 100% | $0.009584 |
+{% include [rub-instance-other.md](../_pricing/compute/rub-instance-other.md) %}
 
-    | Other computing resources | Rate for 1 hour, without VAT |
-    | ----- | ----- |
-    | **Intel Broadwell** |
-    | 1 GPU | $1.999397 |
-    | 1 vGPU | $0.500000 |
-    | RAM (for 1 GB) | $0.003129 |
-    | **Intel Cascade Lake** |
-    | 1 GPU | $1.999397 |
-    | RAM (for 1 GB) | $0.002538 |
+{% endif %}
 
-- Prices in roubles
+{% if region == "pre-kz"%}
 
-    | Guaranteed vCPU performance | Rate for 1 hour, with VAT |
-    | ----- | ----- |
-    | **Intel Broadwell** |
-    | 5% | ₽0.1932 |
-    | 20% | ₽0.5500 |
-    | 100% | ₽0.7017 |
-    | **Intel Cascade Lake** |
-    | 5% | ₽0.1020 |
-    | 20% | ₽0.3060 |
-    | 50% | ₽0.4488 |
-    | 100% | ₽0.7476 |
+{% include [kzt-instance-cpu.md](../_pricing/compute/kzt-instance-cpu.md) %}
 
-    | Other computing resources | Rate for 1 hour, with VAT |
-    | ----- | ----- |
-    | **Intel Broadwell** |
-    | 1 GPU | ₽155.9530 |
-    | 1 vGPU | ₽39.0000 |
-    | RAM (for 1 GB) | ₽0.2441 |
-    | **Intel Cascade Lake** |
-    | 1 GPU | ₽155.9530 |
-    | RAM (for 1 GB) | ₽0.1980 |
+{% include [kzt-instance-other.md](../_pricing/compute/kzt-instance-other.md) %}
 
-{% endlist %}
+{% endif %}
+
+{% if region == "int"%}
+
+{% include [usd-instance-cpu.md](../_pricing/compute/usd-instance-cpu.md) %}
+
+{% include [usd-instance-other.md](../_pricing/compute/usd-instance-other.md) %}
+
+{% endif %}
 
 ### Preemptible VM computing resources {#prices-preemptible-instance-resources}
 
-{% list tabs %}
+{% if region == "ru"%}
 
-- Prices in USD
+{% include [rub-preemp-instance-cpu.md](../_pricing/compute/rub-preemp-instance-cpu.md) %}
 
-    | Guaranteed vCPU performance | Rate for 1 hour, without VAT |
-    | ----- | ----- |
-    | **Intel Broadwell** |
-    | 5% | $0.001535 |
-    | 20% | $0.002187 |
-    | 100% | $0.002769 |
-    | **Intel Cascade Lake** |
-    | 5% | $0.000815 |
-    | 20% | $0.001282 |
-    | 50% | $0.001794 |
-    | 100% | $0.002615 |
+{% include [rub-preemp-instance-other.md](../_pricing/compute/rub-preemp-instance-other.md) %}
 
-    | Other computing resources | Rate for 1 hour, without VAT |
-    | ----- | ----- |
-    | **Intel Broadwell** |
-    | 1 GPU | $0.500000 |
-    | 1 vGPU | $0.125000 |
-    | RAM (for 1 GB) | $0.000961 |
-    | **Intel Cascade Lake** |
-    | 1 GPU | $0.500000 |
-    | RAM (for 1 GB) | $0.000630 |
-    
-- Prices in roubles
+{% endif %}
 
-    | Guaranteed vCPU performance | Rate for 1 hour, with VAT |
-    | ----- | ----- |
-    | **Intel Broadwell** |
-    | 5% | ₽0.1198 |
-    | 20% | ₽0.1706 |
-    | 100% | ₽0.2160 |
-    | **Intel Cascade Lake** |
-    | 5% | ₽0.0636 |
-    | 20% | ₽0.1000 |
-    | 50% | ₽0.1400 |
-    | 100% | ₽0.2040 |
+{% if region == "pre-kz"%}
 
-    | Other computing resources | Rate for 1 hour, with VAT |
-    | ----- | ----- |
-    | **Intel Broadwell** |
-    | 1 GPU | ₽39.0000 |
-    | 1 vGPU | ₽9.7500 |
-    | RAM (for 1 GB) | ₽0.0750 |
-    | **Intel Cascade Lake** |
-    | 1 GPU | ₽39.0000 |
-    | RAM (for 1 GB) | ₽0.0492 |
+{% include [kzt-preemp-instance-cpu.md](../_pricing/compute/kzt-preemp-instance-cpu.md) %}
 
-{% endlist %}
+{% include [kzt-preemp-instance-other.md](../_pricing/compute/kzt-preemp-instance-other.md) %}
+
+{% endif %}
+
+{% if region == "int"%}
+
+{% include [usd-preemp-instance-cpu.md](../_pricing/compute/usd-preemp-instance-cpu.md) %}
+
+{% include [usd-preemp-instance-other.md](../_pricing/compute/usd-preemp-instance-other.md) %}
+
+{% endif %}
 
 ### Operating systems {#prices-os}
 
-{% list tabs %}
+{% if region == "ru"%}
 
-- Prices in USD
+{% include [rub-os.md](../_pricing/compute/rub-os.md) %}
 
-  | OS | Cost per vCPU per hour, without VAT
-  ----- | -----
-  | Linux for all core types | $0 |
-  | Windows Server Datacenter for 5% of vCPU | $0.008135 |
-  | Windows Server Datacenter for 20% and 50% vCPU | $0.009615 |
-  | Windows Server Datacenter for 100% vCPU | $0.016270 |
+{% endif %}
 
-- Prices in roubles
+{% if region == "pre-kz"%}
 
-  | OS | Cost per vCPU per hour, with VAT |
-  ----- | -----
-  | Linux for all core types | ₽0 |
-  | Windows Server Datacenter for 5% of vCPU | ₽0.6346 |
-  | Windows Server Datacenter for 20% and 50% vCPU | ₽0.75 |
-  | Windows Server Datacenter for 100% vCPU | ₽1.2691 |
+{% include [kzt-os.md](../_pricing/compute/kzt-os.md) %}
 
-{% endlist %}
+{% endif %}
+
+{% if region == "int"%}
+
+{% include [usd-os.md](../_pricing/compute/usd-os.md) %}
+
+{% endif %}
 
 For the following products, funds are debited once for the calendar month in advance when a VM is started, regardless of the actual amount of time the VM runs for:
 
-{% list tabs %}
+{% if region == "ru"%}
 
-- Prices in USD
+{% include [rub-os-win-server.md](../_pricing/compute/rub-os-win-server.md) %}
 
-  OS | Cost per VM per month, without VAT
-  ----- | -----
-  Windows Server Standard | $77.179488
+{% include [rub-os-rds.md](../_pricing/compute/rub-os-rds.md) %}
 
-  Product | Cost per CAL pack per month, without VAT
-  ----- | -----
-  Remote Desktop Services (5 CAL) | $27.05128243
-  Remote Desktop Services (10 CAL) | $5.10256486
-  Remote Desktop Services (25 CAL) | $135.25641215
-  Remote Desktop Services (50 CAL) | $270.5128243
-  Remote Desktop Services (100 CAL) | $541.0256486
-  Remote Desktop Services (250 CAL) | $1352.5641215
-  Remote Desktop Services (500 CAL) | $2705.128243
+{% include [rub-os-sql.md](../_pricing/compute/rub-os-sql.md) %}
 
-  Product | Cost per vCPU per month, without VAT
-  ----- | -----
-  MS SQL Server Standard* | $75.59615
-  MS SQL Server Enterprise* | $258.50001
+{% endif %}
 
-- Prices in roubles
+{% if region == "pre-kz"%}
 
-  OS | Cost per VM per month, with VAT
-  ----- | -----
-  Windows Server Standard | ₽6020
+{% include [kzt-os-win-server.md](../_pricing/compute/kzt-os-win-server.md) %}
 
-   Product | Cost per CAL pack per month, with VAT
-  ----- | -----
-  Remote Desktop Services (5 CAL) | ₽2110
-  Remote Desktop Services (10 CAL) | ₽4220
-  Remote Desktop Services (25 CAL) | ₽10550
-  Remote Desktop Services (50 CAL) | ₽21100
-  Remote Desktop Services (100 CAL) | ₽42200
-  Remote Desktop Services (250 CAL) | ₽105500
-  Remote Desktop Services (500 CAL) | ₽211000
+{% include [kzt-os-rds.md](../_pricing/compute/kzt-os-rds.md) %}
 
-  Product | Cost per vCPU per month, with VAT
-  ----- | -----
-  MS SQL Server Standard* | ₽5896.5
-  MS SQL Server Enterprise* | ₽20163
+{% include [kzt-os-sql.md](../_pricing/compute/kzt-os-sql.md) %}
 
-{% endlist %}
+{% endif %}
+
+{% if region == "int"%}
+
+{% include [usd-os-win-server.md](../_pricing/compute/usd-os-win-server.md) %}
+
+{% include [usd-os-rds.md](../_pricing/compute/usd-os-rds.md) %}
+
+{% include [usd-os-sql.md](../_pricing/compute/usd-os-sql.md) %}
+
+{% endif %}
 
 \* The product is provided for a group of 2 vCPUs. The minimum available number of vCPUs for a VM is 4 (2 groups).
 
@@ -297,87 +221,71 @@ At the [Preview](../overview/concepts/launch-stages.md) stage, non-replicated di
 
 {% endnote %}
 
-{% list tabs %}
+{% if region == "ru"%}
 
-- Prices in USD
+{% include [rub-storage.md](../_pricing/compute/rub-storage.md) %}
 
-  | Type | Rate for 1 GB per month, without VAT
-  ----- | -----
-  | Fast network drive (SSD) | $0.095437 |
-  | Standard disk drive (HDD) | $0.026726 |
-  | Non-replicated disk (SSD) | $0.070513 |
-  | Snapshot | $0.028552 |
-  | Image | $0.028552 |
+{% endif %}
 
-- Prices in roubles
+{% if region == "pre-kz"%}
 
-  | Type | Rate for 1 GB per month, with VAT |
-  ----- | -----
-  | Fast network drive (SSD) | ₽7.4441 |
-  | Standard disk drive (HDD) | ₽2.0847 |
-  | Non-replicated disk (SSD) | ₽5.5000 |
-  | Snapshot | ₽2.2271 |
-  | Image | ₽2.2271 |
+{% include [kzt-storage.md](../_pricing/compute/kzt-storage.md) %}
 
-{% endlist %}
+{% endif %}
+
+{% if region == "int"%}
+
+{% include [usd-storage.md](../_pricing/compute/usd-storage.md) %}
+
+{% endif %}
 
 ### Dedicated host computing resources {#dedicated-host}
 
-{% list tabs %}
+{% if region == "ru"%}
 
-- Prices in USD
+{% include [rub-host-cpu.md](../_pricing/compute/rub-host-cpu.md) %}
 
-    Guaranteed vCPU performance | Rate for 1 hour, without VAT
-    ----- | ----- 
-    **Intel Cascade Lake** |
-    100% | $0.695897 
+{% include [rub-host-other.md](../_pricing/compute/rub-host-other.md) %}
 
-    Other computing resources | Rate for 1 hour, without VAT
-    ----- | -----
-    **Intel Cascade Lake** |
-    RAM | $1.267692
+{% endif %}
 
-- Prices in roubles
+{% if region == "pre-kz"%}
 
-    Guaranteed vCPU performance | Rate for 1 hour, with VAT
-    ----- | -----
-    **Intel Cascade Lake** |
-    100% | ₽54.2800
+{% include [kzt-host-cpu.md](../_pricing/compute/kzt-host-cpu.md) %}
 
-    Other computing resources | Rate for 1 hour, with VAT
-    ----- | -----
-    **Intel Cascade Lake** |
-    RAM (for 1 GB) | ₽98.8800
+{% include [kzt-host-other.md](../_pricing/compute/kzt-host-other.md) %}
+
+{% endif %}
+
+{% if region == "int"%}
+
+{% include [usd-host-cpu.md](../_pricing/compute/usd-host-cpu.md) %}
+
+{% include [usd-host-other.md](../_pricing/compute/usd-host-other.md) %}
+
+{% endif %}
 
 {% endlist %}
 
 ### Software accelerated network {#software-accelerated-network}
 
-{% list tabs %}
+{% if region == "ru"%}
 
-- Prices in USD
+{% include [rub-network.md](../_pricing/compute/rub-network.md) %}
 
-    Software network acceleration | Rate for 1 hour, without VAT
-    ----- | -----
-    **Intel Broadwell** |
-    For VMs with less than 18 cores | $0.034358
-    For VMs with 18 or more cores | $0.068717
-    **Intel Cascade Lake** |
-    For VMs with less than 20 cores | $0.034358
-    For VMs with 20 or more cores | $0.068717
+{% endif %}
 
-- Prices in roubles
-    
-    Software network acceleration | Rate for 1 hour, with VAT
-    ----- | -----
-    **Intel Broadwell** |
-    For VMs with less than 18 cores | ₽2.68
-    For VMs with 18 or more cores | ₽5.36
-    **Intel Cascade Lake** |
-    For VMs with less than 20 cores | ₽2.68
-    For VMs with 20 or more cores | ₽5.36
+{% if region == "pre-kz"%}
 
-{% endlist %}
+{% include [kzt-network.md](../_pricing/compute/kzt-network.md) %}
+
+{% endif %}
+
+{% if region == "int"%}
+
+{% include [usd-network.md](../_pricing/compute/usd-network.md) %}
+
+{% endif %}
 
 ### Outgoing traffic {#prices-traffic}
 
