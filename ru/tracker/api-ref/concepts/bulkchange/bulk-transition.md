@@ -56,7 +56,7 @@ values | Параметры задач, которые будут изменен
 > - Статус задач <q>TEST-1</q>, <q>TEST-2</q>, <q>TEST-3</q> меняется на <q>Закрыт</q> с резолюцией <q>Решен</q>.
 > 
 > ```
-> POST /{{ ver }}/bulkchange/_update
+> POST /{{ ver }}/bulkchange/_transition
 > Host: {{ host }}
 > Authorization: OAuth <OAuth-токен>
 > X-Org-Id: <идентификатор организации>
