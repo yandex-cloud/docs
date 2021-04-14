@@ -70,6 +70,9 @@ default:
   support-forms-wiki-ya: https://doc.yandex-team.ru/forms/external/publish.html#publish__section_xvx_g2c_tbb
   support-forms-embed: https://yandex.ru/support/connect-forms/common/publish.html##publish__section_c21_gdb_42b
   support-forms-embed-ya: https://doc.yandex-team.ru/forms/external/publish.html#publish__section_c21_gdb_42b
+  support-forms-get-params-ya: https://doc.yandex-team.ru/forms/external/get-params.html
+  support-forms-instance-ya: https://doc.yandex-team.ru/forms/external/new-form.html#new-form__instance
+  support-forms-question-id: https://yandex.ru/support/connect-forms/common/question-id.html#question-id__sec_question
   support-passport-create: https://yandex.ru/support/passport/authorization/registration.html
   support-business-domain: https://yandex.ru/support/business/domains.html
   support-business-users: https://yandex.ru/support/business/add-users.html
