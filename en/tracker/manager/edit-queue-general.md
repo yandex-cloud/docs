@@ -27,12 +27,13 @@ To configure the main queue settings:
         - **Fields in notifications**: Issue fields that are displayed in all notifications relating to queue issues.
 
         {% if audience == "internal" %}
+
         - **Status after adding external link**: Status that queue issues are automatically switched to when creating a link to commits or pull requests on Crucible, Review Board, Stash, or GitHub. Possible issue statuses are set in the [workflow](workflow.md) settings.
 
         - **Sending emails**: Allows users to [send emails](../user/comments.md#section_zpd_ph5_wdb) to any address directly from the issue page. The message text is attached to the issue as a comment.
-               
+
         - **Add the issue number in the subject line**: Indicates issue keys in the subject field for [emails sent from the issue page](../user/comments.md#section_zpd_ph5_wdb).
-       
+
         {% endif %}
         - **Don't link to issues in other queues automatically**: Issue linking doesn't trigger when an issue key from another queue is embedded in a comment or issue description.
 
@@ -53,10 +54,4 @@ To configure the main queue settings:
         {% endif %}
 
 1. Click **Save**.
-
-{% if audience == "external" %}
-
-[Contact support](../troubleshooting.md)
-
-{% endif %}
 

@@ -16,13 +16,17 @@ To create an issue:
 
 1. Select the **Queue** to create the issue in.
 
-    {% note info %}
+    {% if audience == "internal" %}
+	
+	{% note info %}
 
     The queue owner can [set up simplified forms](../manager/attach-form.md) for creating issues. If this is the case, select the appropriate form and fill in the fields following the prompts. If you are unsure how you should fill the form out, contact the queue owner.
 
     If no simplified forms are linked to the queue, the standard issue creation form will open instead.
 
     {% endnote %}
+	
+	{% endif %}
 
 1. Select the issue **Type**.
 Each queue can have its own [set of issue types](../manager/add-ticket-type.md). If you don&apos;t see an appropriate type in the list, contact the queue owner.
@@ -59,7 +63,7 @@ Here is what you can do with issue keys:
 
 - [Create links to other issues](ticket-links.md).
 - Paste the queue key into an issue's description or comment body to put a link to another issue there. It will be converted into a clickable link.
-- Access an issue directly by visiting: {% if audience == "external" %}{% if locale == "ru" %}`https://tracker.yandex.ru/TEST-1234`{% else %}`https://tracker.yandex.com/TEST-1234`{% endif %}{% else%}`https://st.yandex-team.ru/TEST-1234`{% endif %}.
+- To directly access an issue at: {% if audience == "external" %}`({{ link-tracker-example-1 }})`{% else %}`({{ link-tracker-example-1-ya }})`{% endif %}.
 
 ## Create a sub-issue {#section_dqs_34n_jz}
 
@@ -92,10 +96,3 @@ Clicking this link sends you to an issue creation window with its fields filled 
 #### Next step
 
 [View your issues](my-tickets.md)
-
-{% if audience == "external" %}
-
-[Contact support](../troubleshooting.md)
-
-{% endif %}
-

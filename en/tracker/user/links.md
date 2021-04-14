@@ -22,9 +22,5 @@ Epic for — Sub-epic
 
 You can view and edit the list of links on the [issue page](ticket-links.md).
 
-{% if audience == "external" %}
 
-[Contact support](../troubleshooting.md)
-
-{% endif %}
 

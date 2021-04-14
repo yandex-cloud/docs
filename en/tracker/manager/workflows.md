@@ -433,9 +433,3 @@ When an issue is **Closed**, the user is asked to leave a comment and choose a r
 - **Later**
 - **Won't resolve**
 
-{% if audience == "external" %}
-
-[Contact support](../troubleshooting.md)
-
-{% endif %}
-

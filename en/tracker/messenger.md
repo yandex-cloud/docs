@@ -12,10 +12,3 @@ Let's look at how we can set up triggers that send notifications to:
 - [Yandex.Messenger](yamessenger.md)
 
 {% endif %}
-
-{% if audience == "external" %}
-
-[Contact support](troubleshooting.md)
-
-{% endif %}
-

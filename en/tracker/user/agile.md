@@ -148,9 +148,5 @@ To exit fullscreen mode, click **Exit fullscreen** in the bottom-right corner of
 
 You can add boards to Favorites for quicker access. Just go to the page of the board and click ![](../../_assets/tracker/add-to-favorites.png) to the right of the board name. Your favorite boards are displayed in the **Boards** menu on the upper panel in {{ tracker-name }}.
 
-{% if audience == "external" %}
 
-[Contact support](../troubleshooting.md)
-
-{% endif %}
 

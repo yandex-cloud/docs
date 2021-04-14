@@ -114,9 +114,5 @@ To learn more about notifications, see the following sections:
 - [{#T}](subscribe.md)
 - [{#T}](notification-settings.md)
 
-{% if audience == "external" %}
 
-[Contact support](../troubleshooting.md)
-
-{% endif %}
 

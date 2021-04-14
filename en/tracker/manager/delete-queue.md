@@ -25,9 +25,3 @@ To permanently delete a queue and all the issues in it:
 
 {% endnote %}
 
-{% if audience == "external" %}
-
-[Contact support](../troubleshooting.md)
-
-{% endif %}
-

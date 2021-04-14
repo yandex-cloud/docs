@@ -42,9 +42,5 @@ To remove the link to a parent issue:
 1. Click ![](../../_assets/tracker/edit-parent.png) next to the name of the parent issue at the top of the page.
 1. Click **Remove link**.
 
-{% if audience == "external" %}
 
-[Contact support](../troubleshooting.md)
-
-{% endif %}
 

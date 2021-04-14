@@ -34,9 +34,5 @@ To find the issues that you voted for, use the [query language](query-filter.md)
 
 - If an issue that received votes is closed as a duplicate, all the votes will be transferred to the original issue.
 
-{% if audience == "external" %}
 
-[Contact support](../troubleshooting.md)
-
-{% endif %}
 

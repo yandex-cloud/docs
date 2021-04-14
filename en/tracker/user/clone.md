@@ -42,9 +42,5 @@ To clone an issue:
 
 1. Click **Clone**.
 
-{% if audience == "external" %}
 
-[Contact support](../troubleshooting.md)
-
-{% endif %}
 

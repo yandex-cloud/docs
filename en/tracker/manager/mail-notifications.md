@@ -1,4 +1,4 @@
-# Send notifications to mailboxes in your domain
+# Sending notifications to mailboxes in your domain
 
 {% note warning %}
 
@@ -16,7 +16,7 @@ To configure email forwarding for mailboxes hosted on your domain, connect the d
 
 1. Enter the name of your domain (such as `example.org`) and click **Add**.
 
-1. [Confirm]{% if locale == "ru" %} (https://yandex.ru/support/connect/domains.html#proof){% else %}(https://yandex.com/support/connect/domains.html#proof){% endif %} domain ownership, but do not delegate it to Yandex servers.
+1. [Confirm]({{ support-forms-domains }}) domain ownership, but do not delegate it to Yandex servers.
 
 1. Wait for your domain to be verified and click **Make this the primary domain**. Now all emails sent to your company's mailbox in Yandex.Connect will be forwarded to the mailbox hosted on your domain.
 
@@ -32,21 +32,15 @@ To configure email forwarding for mailboxes hosted on your domain, connect the d
 
     {% endcut %}
 
-1. [Create]{% if locale == "ru" %} (https://yandex.ru/support/connect/org-structure.html#org-structure__manage-user){% else %}(https://yandex.com/support/connect/org-structure.html#org-structure__manage-user){% endif %} user accounts in Yandex.Connect so that user logins in Yandex.Connect match the names of the mailboxes on your mail service.
+1. [Create]({{ support-connect-account }}) user accounts in Yandex.Connect so that user logins in Yandex.Connect match the names of the mailboxes on your mail service.
 
     {% note tip %}
 
-    Set up [Lost email collection]{% if locale == "ru" %}(https://yandex.ru/support/connect/services.html#services__mail-settings){% else %}(https://yandex.com/support/connect/services.html#services__mail-settings){% endif %} in case you made a mistake when creating employee accounts. Then create a mailbox with the same name on your mail service.
+    Set up [Lost email collection]({{ support-connect-services }}) in case you make a mistake when creating employee accounts. Then create a mailbox with the same name on your mail service.
 
     {% endnote %}
 
 1. If you aren't planning to use the Yandex mail service for your company, disable it:
     - Go to the [Yandex.Connect main page]({{ link-connect-main }}) and on the Mail card click ![](../../_assets/tracker/icon-settings.png).
     - Click **Disable** in the upper-right corner of the Mail settings page.
-
-{% if audience == "external" %}
-
-[Contact support](../troubleshooting.md)
-
-{% endif %}
 

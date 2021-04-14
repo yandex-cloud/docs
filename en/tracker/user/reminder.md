@@ -34,9 +34,4 @@ To change or delete a reminder, do the following:
 
 1. Click ![](../../_assets/tracker/icon-edit.png) to make changes, or ![](../../_assets/tracker/icon-delete.png) to delete a reminder.
 
-{% if audience == "external" %}
-
-[Contact support](../troubleshooting.md)
-
-{% endif %}
 

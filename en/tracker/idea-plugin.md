@@ -60,7 +60,7 @@ The plugin only allows you to work with issues that you are assigned to.
 
 {% if audience == "external" %}
 
-To make the plugin work, link it to your account:
+To make the plugin work, link it to your {{ tracker-name }} account:
 
 {% else %}
 
@@ -91,10 +91,3 @@ To make the plugin work, link it to your yandex-team account:
 1. Select the queue that you want to work in.
 
 1. Click **OK**.
-
-{% if audience == "external" %}
-
-[Contact support](troubleshooting.md)
-
-{% endif %}
-

@@ -11,7 +11,7 @@
     | Event | Issue created.<br/><br/>Issue changed.<br/><br/>New comment.<br/><br/>Formula fields [changed](set-action.md#section_calc_field). |
     | Comment text | Includes specified snippet. |
     | Comment author | Comment left by user specified. |
-    | Comment type | **Email**: [A comment created via email](comments.md#section_zmr_mxt_52b).</br></br>**Comment in {{ tracker-name }}**: A comment left by an internal user. |
+    | Comment type | {% if audience == "internal" %}**Email**: [A comment created via email](comments.md#section_zmr_mxt_52b).</br></br>{% endif %}**Comment in {{ tracker-name }}**: A comment left by an internal user. |
     | Issue field | Field value changed or became equal to the specified value. |
 
 1. Choose an event or [comparison operation](#section_cdn_d4j_wfb) depending on the condition type.
@@ -53,10 +53,3 @@ Examples of acceptable comparison operations are listed in the table.
 | Element number equal, element number greater than, element number less than | Comparison operations for fields that may contain multiple elements, such as **Tags** |
 | Includes no elements, includes all elements, includes any element | Comparison operations for fields that may contain multiple elements, such as **Tags** |
 | Includes no fragments, doesn't include fragment, matches, includes any fragment, includes fragment | Comparison operations for the **Comment text** condition, which check for specified text fragments in comments. |
-
-{% if audience == "external" %}
-
-[Contact support](../troubleshooting.md)
-
-{% endif %}
-

@@ -75,6 +75,13 @@ default:
   support-business-domain: https://yandex.com/support/business/domains.html
   support-business-users: https://yandex.com/support/business/add-users.html
 
+  #link-tracker-accessapi: https://tech.yandex.ru/connect/tracker/api/concepts/access-docpage/
+  #link-tracker-importapi: https://tech.yandex.ru/connect/tracker/api/concepts/import/import-ticket-docpage/
+  #link-tracker-techapi: https://tech.yandex.ru/connect/tracker/
+  #link-tracker-transitapi: https://yandex.ru/dev/connect/tracker/api/concepts/issues/new-transition-docpage/
+  #link-tracker-docapi: https://yandex.ru/dev/connect/tracker/api/about-docpage/
+  #link-tracker-formatapi: https://yandex.ru/dev/connect/tracker/api/concepts/issues/patch-issue-docpage/
+
   #Внешние ссылки
   link-wiki-scrum: https://en.wikipedia.org/wiki/Scrum_(software_development)
   link-wiki-kanban: https://en.wikipedia.org/wiki/Kanban_(development)
@@ -91,9 +98,8 @@ default:
   link-python-official: https://www.python.org/downloads/
 
   #Интерфейс
-  tracker-settings: Tracker Settings
+  tracker-settings: Tracker settings
   
   #Другое
   release-date: March 1
-  promo-end-date: March 31
   example-account: login@yandex.com

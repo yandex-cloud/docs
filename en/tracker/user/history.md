@@ -37,9 +37,5 @@ History entries are listed chronologically by default. To change the entry order
 
 All the issue comments will be displayed from newest to oldest.
 
-{% if audience == "external" %}
 
-[Contact support](../troubleshooting.md)
-
-{% endif %}
 

@@ -11,13 +11,13 @@ The most popular issue fields (settings) are available in {{ tracker-name }} by 
 | **System** |
 | Followers | Usernames or names of users subscribed to the issue.<br/><br/>By default, followers have access to read and edit the issue and are notified of any changes to it.<br/><br/>The access permissions for issues are determined by the [queue settings](../manager/queue-access.md). For details, contact the queue owner. |
 | Access | By default, users in this group have access to read and edit the issue, but they do not receive notifications of changes to the issue.<br/><br/>The access permissions for issues are determined by the [queue settings](../manager/queue-access.md). For details, contact the queue owner. |
-| Maillists | [Teams and departments]{% if locale == "ru" %} (https://yandex.ru/support/connect/manage.html){% else %}(https://yandex.com/support/connect/manage.html){% endif %} subscribed to the issue.<br/><br/>By default, the members of these teams have access to read and edit the issue and are notified of any changes to it.<br/><br/>The access permissions for issues are determined by the [queue settings](../manager/queue-access.md). For details, contact the queue owner. |
+| {% if audience == "internal" %}Mailing lists | Teams and departments subscribed to the issue.<br/><br/>By default, members of these teams have access to read and edit the issue and are notified of any changes to it.<br/><br/>The access permissions for issues are determined by the [queue settings](../manager/queue-access.md). For details, contact the queue owner.{% endif %} |
 | Start date | Date when progress started on the issue. You usually don't need to fill this in when creating an issue. |
 | End date | Date when the issue was completed. You usually don't need to fill this in when creating an issue. |
 | Deadline | Date by which the issue should be resolved. |
 | Tags | Tags are text labels that make it easier to find and sort issues. |
-{% if audience == "internal" %}| Goals | The goal in the [Goals](https://goals.yandex-team.ru) service that is dependent on this issue's completion. |{% endif %}
-| Components | You can mark issues with special labels called [components](../manager/components.md). They will help you sort issues within the queue.<br/><br/>The list of possible components depends on the [queue settings](../manager/components.md). |
+| {% if audience == "internal" %}Goals | The goal in the [Goals](https://goals.yandex-team.ru) service that is dependent on this issue's completion.{% endif %} |
+| Components | You can mark issues with special labels called [components](../manager/components.md). They will help you sort issues within the queue.<br/><br/>The list of possible components depends on the [queue settings](../manager/components.md#section_zrt_szk_xz). |
 | Affected version | The version of the product that the issue is related to. The list of available versions is determined by the [queue settings](../manager/versions.md#section_f5q_bfl_xz).<br/><br/>The **Affected Version** field is usually used with **Bug** type issues. |
 | Fix version | The version of the product that the issue is related to. The list of available versions is determined by the [queue settings](../manager/versions.md#section_f5q_bfl_xz).<br/><br/>The **Affected Version** field is usually used with **Bug** type issues. |
 | **Time tracking** |
@@ -38,9 +38,9 @@ Only the company administrator can add new issue fields.
 
 The most popular issue fields (settings) are available in {{ tracker-name }} by default. To add a new field:
 
-1. Make sure that you are logged in as the admin.
+1. Make sure that you are logged in as an administrator in {{ tracker-full-name }}.
 
-1. On the top panel in {{ tracker-name }}, choose ![](../../_assets/tracker/icon-settings.png) → **Settings {{ tracker-name }}**.
+1. On the top panel in {{ tracker-name }}, choose ![](../../_assets/tracker/icon-settings.png) → **Configure {{ tracker-name }}**.
 
 1. Go to the **Fields** tab.
 
@@ -76,10 +76,3 @@ Local fields are temporarily not supported in some issue use scenarios. Support 
 Requests are processed within 2-3 business days. If the issue is urgent, increase its priority to <q>critical</q> and write in the comments why it's urgent.
 
 {% endif %}
-
-{% if audience == "external" %}
-
-[Contact support](../troubleshooting.md)
-
-{% endif %}
-

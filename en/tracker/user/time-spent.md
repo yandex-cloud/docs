@@ -1,6 +1,8 @@
-# Register time spent
+# Registering time spent
 
-{{ tracker-name }} can keep a record of the time you spent on an issue. Besides the assignee, other users can also record the time they spent.
+{{ tracker-name }} can keep a record of the time you spent on an issue.
+
+To make sure issue statistics are correct, do not enter any data for another employee. It's important that each assignee register the time spent themselves.
 
 ## Time tracking {#section_y1t_gkh_vcb}
 
@@ -18,7 +20,7 @@ To register the time spent:
 
 1. Click **Save**.
 
-Any user can record the time spent, not just the issue assignee. The [Time Spent Report](../manager/statistics.md#section_uxt_3ft_xz) stores information about who recorded time spent, and when.
+Any user can record the time spent, not just the issue assignee. The [Time Spent Report](../manager/statistics.md#section_uxt_3ft_xz) will show the time spent by all users who added time to the issue.
 
 ## View time spent {#section_cqc_hkh_vcb}
 
@@ -31,10 +33,4 @@ If the **Time spent** section is not displayed in the issue details, add it:
 1. Under **Time spent**, enable the **Estimate** and **Time spent** options.
 
 You can use the **Estimate** field to estimate the time needed to resolve the issue. Fill it in when you begin working on the issue. Each time you record the time spent, the estimation will decrease by the amount you enter.
-
-{% if audience == "external" %}
-
-[Contact support](../troubleshooting.md)
-
-{% endif %}
 

@@ -26,7 +26,7 @@ If you want to restrict users&apos; access to your dashboard, you can change acc
 
     - **Users and robots**: Individual settings for individual users. To add a user to this category, enter the login or the user's name in the search bar at the top of the table.
 
-    - **Groups**: Settings for departments and teams. To add a new department, enter its name in the search bar at the top of the table.
+    - **Groups**: Settings for {% if audience == "external" %}all employees.{% else %} departments and teams. To add a new department, enter its name in the search bar at the top of the table.{% endif %}
 
         {% note tip %}
 
@@ -55,10 +55,3 @@ If a dashboard was shared with you, you can add it to Favorites so that it&apos;
 1. Click ![](../../_assets/tracker/add-to-favorites.png) to the right of the dashboard name.
 
 Your favorite dashboards are available in the **Dashboards** menu on the top panel in {{ tracker-name }}.
-
-{% if audience == "external" %}
-
-[Contact support](../troubleshooting.md)
-
-{% endif %}
-

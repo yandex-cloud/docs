@@ -1,4 +1,4 @@
-# Add a queue team
+# Adding a queue team
 
 {% note warning %}
 
@@ -50,10 +50,4 @@ To change the list of team members::
 1. To remove a participant, click ![](../../_assets/tracker/remove-task-type.png) next to the user's name.
 
 1. Click **Save**.
-
-{% if audience == "external" %}
-
-[Contact support](../troubleshooting.md)
-
-{% endif %}
 

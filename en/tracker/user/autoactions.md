@@ -13,9 +13,5 @@ You can use auto actions to:
 - [Change issue fields that match a filter](create-autoaction.md).
 - [Set up scheduled issue creation based on a template](ticket-schedule.md).
 
-{% if audience == "external" %}
 
-[Contact support](../troubleshooting.md)
-
-{% endif %}
 

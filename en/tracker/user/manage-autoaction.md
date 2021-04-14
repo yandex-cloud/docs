@@ -11,9 +11,5 @@
     - You can toggle auto actions on or off.
     - To delete an auto action, click ![](../../_assets/tracker/icon-delete.png) and confirm your action.
 
-{% if audience == "external" %}
 
-[Contact support](../troubleshooting.md)
-
-{% endif %}
 

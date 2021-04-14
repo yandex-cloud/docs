@@ -81,17 +81,10 @@ Let's set up a daily auto update that invites the assignee to the comments and o
 
     1. Find the field that says **Invite users from a field** and enter **Assignee**.
 
-    1. Write the text of your comment. You can add issue fields to your message by clicking **Add variable**.
+    1. Write the text of your comment. You can add issue fields to the comment by clicking **Add variable**.
 
    ![](../../_assets/tracker/autoaction-example-action.png)
 
 1. Save the auto action.
 
 The created auto action then checks issues in the queue once a day. If the issue remains unsolved when there are less than 3 days until the deadline, the assignee is automatically invited to the comments.
-
-{% if audience == "external" %}
-
-[Contact support](../troubleshooting.md)
-
-{% endif %}
-

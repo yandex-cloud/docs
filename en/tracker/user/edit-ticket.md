@@ -154,9 +154,5 @@ To move an issue:
 
 1. If necessary, specify the issue parameters and click **Move**.
 
-{% if audience == "external" %}
 
-[Contact support](../troubleshooting.md)
-
-{% endif %}
 

@@ -1,4 +1,4 @@
-# Edit or delete a board
+# Editing and deleting a board
 
 ## Edit a board {#section_ft1_3l3_3z}
 
@@ -13,10 +13,10 @@
     | **Name** | Board name. |
     | **Allow changing issue order** | Enabling this option lets you change the issue order by dragging across the board. |
     | **Issue creation queue** | Queue key. You can create issues for this queue right on the board page. |
-    | **Filter settings** | Filter settings are used to automatically add issues with the desired parameters to the board. There are multiple ways to set up filters:<ul><li>Set your filters on the **Condition** tab.<li>Set your filters using the query language on the **Query** tab.|
+    | **Filter settings** | Filter settings are used to automatically add issues with the desired parameters to the board. There are multiple ways to set up filters:<br/><br/>- Set your filters on the **Condition** tab.<br/>- Set your filters using the query language on the **Query** tab. |
     | **Board type** | After [creating a board](create-agile-board.md), you won't be able to change its type. |
 
-2. Use the **Columns** tab to customize the settings and appearance of your board's columns:
+1. Use the **Columns** tab to customize the settings and appearance of your board's columns:
 
     - Create columns: Click **Add column** to the right of the board's column list.
 
@@ -32,9 +32,9 @@
 
     - Delete statuses: Click ![](../../_assets/tracker/delete-agile-column.png) to the right of the field name.
 
-3. For **Scrum** boards, go to the **Poker** tab and [set up your issue scoring system](planning-poker.md#section_scale).
+1. For **Scrum** boards, go to the **Poker** tab and [set up your issue scoring system](planning-poker.md#section_scale).
 
-4. Click **Save**.
+1. Click **Save**.
 
 ## Customize the appearance of issue cards {#sec_layout}
 
@@ -101,10 +101,4 @@ To delete a board:
 1. Click **Delete board** at the bottom of the page.
 
 1. Confirm the deletion.
-
-{% if audience == "external" %}
-
-[Contact support](../troubleshooting.md)
-
-{% endif %}
 

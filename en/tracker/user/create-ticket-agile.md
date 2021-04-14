@@ -42,9 +42,5 @@ The created issue will be placed in the queue you specified in the [settings](..
 
 The created issue will be placed in the queue you specified in the [settings](../manager/edit-agile-board.md#section_ft1_3l3_3z). To view the issue, refresh the board page.
 
-{% if audience == "external" %}
 
-[Contact support](../troubleshooting.md)
-
-{% endif %}
 

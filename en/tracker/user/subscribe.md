@@ -96,9 +96,5 @@ By default you don't get notifications for the actions you've done yourself. To 
 
 1. Click **Save**.
 
-{% if audience == "external" %}
 
-[Contact support](../troubleshooting.md)
-
-{% endif %}
 

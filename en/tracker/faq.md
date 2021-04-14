@@ -2,19 +2,43 @@
 
 {% if audience == "external" %}
 
+## How to migrate from Yandex.Connect to {{ org-full-name }}
+
+Starting from {{release-date }} 2021, once you activate {{ tracker-full-name }}, an organization is automatically created in {{ org-full-name }}. Your organization's admin can connect [identity federation](../organization/add-federation.md) to it so that your employees can log in to {{ tracker-name }} using their corporate accounts. You're charged for using {{ tracker-name }} through [{{ yandex-cloud }} billing](../billing/index.yaml).
+
+If you activated {{ tracker-name }} before {{release-date }}, the service is linked to your company in Yandex.Connect. We'll move all organizations from Yandex.Connect to {{ org-full-name }} stepwise without involving their admins. We'll notify an organization's admin in advance before carrying out migration to {{ org-full-name }}.
+
+{% endif %}
+
+## How to use {{ tracker-name }} on mobile devices {#mobile}
+
+You can use the mobile version of {{ tracker-name }}. To do this, simply open a web browser on your mobile device and visit {% if audience == "external" %}[{{ link-tracker }}]({{ link-tracker }}){% else %}[{{ link-tracker-ya }}]({{ link-tracker-ya }}){% endif%}.
+
+{% if audience == "external" %}
+
 ## How to add users to {{ tracker-name }} {#section_yvw_tyk_nbb}
 
-To let your employees use {{ tracker-name }}:
+To enable your employees to use {{ tracker-name }}:
 
-1. [Add employees to {{ tracker-name }}](enable-tracker.md#section_v3s_wp4_1cb). You can invite users with Yandex accounts to join your organization or configure an identity federation so that your employees could log in to Tracker with their corporate accounts.
+1. [Add them to {{ tracker-name }}](enable-tracker.md#add-users). You can invite users with Yandex accounts or create an identity federation so that your company's employees can log in to {{ tracker-name }} with their corporate accounts.
 
-1. Grant your employees [full access to {{ tracker-name }}](enable-tracker.md#access).
+1. Set up [full access to {{ tracker-name }}](enable-tracker.md#access) for the employees.
 
 {% endif %}
 
 ## How to delete an issue {#section_z1d_r1l_nbb}
 
 You can&apos;t delete an issue, but you can close it with an appropriate resolution. For example, duplicate issues can be closed with the resolution `Duplicate`, and issues created by mistake can be closed with the resolution `Cancelled`. For more information about issues, see [Working with issues](user/ticket-in-progress.md).
+
+{% if audience == "external" %}
+
+{% note tip %}
+
+You can [delete a queue](manager/delete-queue.md) and all issues in it. [Move](user/edit-ticket.md#section_xwx_qpn_jz) the issues you don't need to a special queue and then delete it.
+
+{% endnote %}
+
+{% endif %}
 
 {% if audience == "external" %}
 
@@ -26,7 +50,7 @@ To delete a queue:
 
 1. Open the [queue page](user/queue.md).
 
-1. To the left of the queue name, select  ![](../_assets/tracker/icon-settings.png) → **Administration**.
+1. To the left of the queue name, select ![](../_assets/tracker/icon-settings.png) → **Administration**.
 
 1. Go to the **Basic settings** tab.
 
@@ -58,10 +82,3 @@ If you can access the queue page but some of the issues remain unaccessible, som
 ## How can I find the queue owner? {#section_hgc_xyk_nbb}
 
 The owner is listed on the **Description** tab on the queue page. For more information, see [List of queue issues](user/queue.md).
-
-{% if audience == "external" %}
-
-[Contact support](troubleshooting.md)
-
-{% endif %}
-

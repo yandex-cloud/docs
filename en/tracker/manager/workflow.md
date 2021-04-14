@@ -1,4 +1,4 @@
-# Configure issue types and statuses
+# Configuring issue types and statuses
 
 {% note warning %}
 
@@ -32,10 +32,4 @@ To configure a workflow for a particular issue type:
 [{#T}](workflow-status-edit.md)
 
 [{#T}](workflow-action-edit.md)
-
-{% if audience == "external" %}
-
-[Contact support](../troubleshooting.md)
-
-{% endif %}
 

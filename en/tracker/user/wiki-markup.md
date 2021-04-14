@@ -29,5 +29,5 @@ The basic markup options are listed below.
 | Source code | {% if locale == "ru" %}```%%code fragment%%```{% else %}```%%code fragment%%```{% endif %} | ![](../../_assets/tracker/format/source-code-2.png) |
 | Escaping wiki markup | {% if locale == "ru" %}``` ""**Escaping all markup**```<br/>```//elements in this text//""```<br/>```~**Escaping a single** //markup element//```{% else %}```""**Escaping all markup**```<br/>```//elements in this text//""```<br/>```~**Escaping a single** //markup element//  ```{% endif %} | ![](../../_assets/tracker/format/escaping.png) |
 
-[Contact support](../troubleshooting.md)
+
 

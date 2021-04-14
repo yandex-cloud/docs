@@ -4,11 +4,15 @@ Let's look at some examples of how triggers work in {{ tracker-name }}:
 
 - How to [automatically pick assignees](#assign_ticket) based on status or component.
 
+- How to [automatically invite assignees](#summon_ticket) based on the status or field value.
+
 {% if audience == "internal" %}
+
 - How to [automatically notify a user](#notify_mail) after an issue was created based on a request sent to the support team via email.
 - How to [automatically notify a user](#notify_form) after an issue was created based on a request sent to the support team via Yandex.Forms.
 
 {% endif %}
+
 - How to [set up notifications in messengers](#section_vsn_mb2_d3b) via HTTP requests.
 
 ## Pick assignees automatically {#assign_ticket}
@@ -58,6 +62,34 @@ Let's set up a trigger that automatically picks an assignee for our issue:
 1. Save your trigger.
 To see if you trigger works, pick any issue from the queue with the added trigger and change the issue's status or components.
 
+## Invite assignees automatically {#summon_ticket}
+
+After completing an issue, the assignee may forget to specify some important information, such as time spent. In this case, you can configure a trigger that will automatically invite the assignee if the issue is closed and the time spent is not specified:
+
+1. Go to queue settings, open the **Triggers** section, and click [**Create trigger**](../user/create-trigger.md).
+
+1. Set the trigger to react when the issue is closed with the <q>Time spent</q> field being empty:
+
+    1. Choose **Conditions to be met** → **All**.
+
+    1. Add the condition **Status** → **Field value became equal to** → **Closed**.
+
+    1. Add the condition **Time spent** → **Field value empty**.
+
+1. Set trigger actions:
+
+    1. Add the **Add comment** action.
+
+    1. Click ![](../../_assets/tracker/summon.png), find the line **Invite users from a field**, and enter <q>Assignee</q>.
+
+    1. Enter the comment to be displayed to the assignee and choose **Send as robot**.
+
+1. Click **Create** to save the trigger.
+
+    ![](../../_assets/tracker/trigger-example-summon.png)
+
+When closing any issue that does not specify the time spent, the robot will create a comment and invite the assignee.
+
 {% if audience == "internal" %}
 
 ## Send a notification when an issue is created from an email {#notify_mail}
@@ -72,7 +104,8 @@ You need to set up email integration if you want to send emails right from {{ tr
 
 1. [Set up an email address for the queue]{% if audience == "external" %} (queue-mail.md#section_gwv_hqb_hgb){% else %}(queue-mail.md#sec-mail-yandex){% endif %} that will create issues from user requests.
 
-    If you can't create such an address, this means your organization doesn't have its own domain. You need a domain to create mailboxes and newsletters. This includes creating queue addresses. You can [add a domain for free in Yandex.Connect](https://yandex.ru/support/connect/add-domain.html).
+<!--
+    If you can't create such an address, this means your organization doesn't have its own domain. You need a domain to create mailboxes and newsletters. This includes creating queue addresses. You can [add a domain for free in Yandex.Connect](https://yandex.ru/support/connect/add-domain.html).-->
 
 1. [Set up sender names and signatures](queue-mail.md#send_outside) if needed.
 
@@ -86,7 +119,7 @@ You need to set up email integration if you want to send emails right from {{ tr
 
 {% else %}
 
-1. If the users aren't employees of your organization, [allow sending email from issue pages to external addresses](queue-mail.md#send_outside).
+1. If the users aren't Yandex employees, [allow sending email from issue pages to external addresses](queue-mail.md#send_outside).
 
 {% endif %}
 
@@ -136,7 +169,8 @@ You need to set up email integration if you want to send emails from {{ tracker-
 
 1. [Set up an email address for the queue]{% if audience == "external" %} (queue-mail.md#section_gwv_hqb_hgb){% else %}(queue-mail.md#sec-mail-yandex){% endif %} that will create issues from user requests.
 
-   If you can't create such an address, this means your organization doesn't have its own domain. You need a domain to create mailboxes and newsletters. This includes creating queue addresses. You can [add a domain for free in Yandex.Connect](https://yandex.ru/support/connect/add-domain.html).
+<!--
+   If you can't create such an address, this means your organization doesn't have its own domain. You need a domain to create mailboxes and newsletters. This includes creating queue addresses. You can [add a domain for free in Yandex.Connect](https://yandex.ru/support/connect/add-domain.html).-->
 
 1. [Set up sender names and signatures](queue-mail.md#send_outside) if needed.
 
@@ -154,19 +188,19 @@ To create issues from requests sent through forms:
 
     ![](../../_assets/tracker/trigger-example-form-constructor.png)
 
-2. Set up [{{ tracker-name }} integration]{% if audience == "external" %}{% if locale == "ru" %}(https://yandex.ru/support/connect-forms/common/create-task.html){% else %}(https://yandex.com/support/connect-forms/common/create-task.html){% endif %}{% else %}(https://doc.yandex-team.ru/forms/external/create-task.html){% endif %} for forms:
+1. Set up [{{ tracker-name }} integration]{% if audience == "external" %}({{ support-forms-tracker }}){% else %}({{ support-forms-tracker-ya }}){% endif %} for the form:
 
     1. Specify your queue and other issue parameters.
 
-    2. Use the **Issue description** field to add answers to the questions included in your form.
+    1. Use the **Issue description** field to add answers to the questions included in your form.
 
-    3. If you want to save a user's email address in your issue parameters, add the **From** field and choose **Variables** → **Answer** → **Email**.
+    1. If you want to save a user's email address in your issue parameters, add the **From** field and choose **Variables** → **Answer** → **Email**.
 
-    4. Save your integration settings.
+    1. Save your integration settings.
 
-    ![image](../../_assets/tracker/trigger-example-form-integration.png)
+    ![](../../_assets/tracker/trigger-example-form-integration.png)
 
-3. [Publish]{% if audience == "external" %}{% if locale == "ru" %} (https://yandex.ru/support/connect-forms/common/publish.html#publish__section_lmk_gvb_tbb){% else %}(https://yandex.com/support/connect-forms/common/publish.html#publish__section_lmk_gvb_tbb){% endif %}{% else %}(https://doc.yandex-team.ru/forms/external/publish.html){% endif %} the form.
+1. [Publish]{% if audience == "external" %}({{ support-forms-publish }}){% else %}({{ support-forms-publish-ya }}){% endif %} the form.
 
 #### Step 3. Set up a trigger for sending email
 
@@ -207,10 +241,4 @@ Set up a trigger that automatically notifies users by email when a new issue is 
 Messengers are a great way to quickly notify employees about important events. If a messenger has an API, you can use {{ tracker-name }} to set up a trigger that sends HTTP requests to the messenger's API when certain events occur. For instance, a request can be triggered once an error with the critical priority status is added to the queue.
 
 To view examples for setting up triggers that send notifications to Slack and Telegram, see [{#T}](../messenger.md).
-
-{% if audience == "external" %}
-
-[Contact support](../troubleshooting.md)
-
-{% endif %}
 

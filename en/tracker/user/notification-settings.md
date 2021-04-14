@@ -147,9 +147,5 @@ You can choose the display type for usernames and event types in notification me
 
 1. Click **Save**.
 
-{% if audience == "external" %}
 
-[Contact support](../troubleshooting.md)
-
-{% endif %}
 

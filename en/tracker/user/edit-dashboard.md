@@ -20,9 +20,5 @@ To change the settings of a widget:
 
 1. Make changes and click **Save widget**.
 
-{% if audience == "external" %}
 
-[Contact support](../troubleshooting.md)
-
-{% endif %}
 

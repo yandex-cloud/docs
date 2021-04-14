@@ -1,6 +1,6 @@
 # Widgets
 
-Widgets are small cards with useful information. They can show lists of issues, statistics on issue completion, pivot tables, or notes. Widget content is generated automatically. The list of issues that a widget is based on is set using [filters](filters.md). You can go to [{#T}](../support-process.md#dashboards) to find sample widgets for the support service dashboard.
+Widgets are small cards with useful information. They can show lists of issues, statistics on issue completion, pivot tables, or notes. Widget content is generated automatically. The list of issues that a widget is based on is set using [filters](filters.md). You can go to [{#T}](../support-process-dashboards.md) to find sample widgets for the support service dashboard.
 
 ## List of issues {#section_ll1_zdp_pz}
 
@@ -13,7 +13,7 @@ To configure a widget, make these settings:
 - **Name**: The name to display in the widget title.
 - **Results**: The number of issues to display on a single widget page. If there are more issues, you can navigate between pages at the bottom of the widget.
 - **Filter**: The filter used for creating the list of issues. You can set the filter using a [direct link](filters.md), [name](create-filter.md), or the [query language](query-filter.md).
-- **Columns**: The issue fields to show in the list. You can add multiple fields. To remove a field, click **x**.
+- **Columns**: The issue fields to show in the list. You can add multiple fields. To remove a field, click **х**.
 - **Auto-update**: How often to refresh the widget data.
 
 ## Summary tables {#section_esm_vjp_pz}
@@ -152,11 +152,4 @@ To configure the widget, make these settings:
 
 ![image](../../_assets/tracker/widgets/note.png)
 
-Write down your ideas and make notes right on the dashboard. You can enter notes in plain text or use [Wiki markup](wiki-markup.md).
-
-{% if audience == "external" %}
-
-[Contact support](../troubleshooting.md)
-
-{% endif %}
-
+Write down your ideas and make notes right on the dashboard. You can enter notes in plain text or use [Wiki markup](wiki-markup.md).																										

@@ -28,5 +28,5 @@ You can set up incoming message filtering in [Yandex.Mail](https://mail.yandex-t
 | X-Startrek-Voted | Available if you voted for this issue | Yes |
 | X-Startrek-Favorite | Available if the issue is added to your Favorites | Yes |
 
-[Contact support](../troubleshooting.md)
+
 

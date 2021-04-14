@@ -18,9 +18,5 @@ By default, only a [queue owner](../manager/queue-access.md) can create, edit, a
     - You can toggle triggers on or off.
     - To remove a trigger, click ![](../../_assets/tracker/icon-delete.png) and confirm your action.
 
-{% if audience == "external" %}
 
-[Contact support](../troubleshooting.md)
-
-{% endif %}
 

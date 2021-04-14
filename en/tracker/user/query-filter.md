@@ -64,8 +64,8 @@ parameter: "value1", "value2", " value3"
 ```
 
 #### Example
->
-```no-highlight 
+
+```no-highlight
 author: "vpupkin","iivanov"
 ```
 
@@ -412,7 +412,7 @@ Try a few ready-made queries to learn how they work:
 | ```"Epic" ``` | Epic keys | Search for issues related to specific epics.<br/>For example:<br/>```Epic: "TASK-123", "TASK-321" ``` |
 | ```"Epics For Queue" ``` | Queue names or keys | Search for epics that include issues from specific queues.<br/>For example:<br/>``` "Epics For Queue": TEST, DEVELOP ``` |
 | ```"Favorited by" ``` | You can only set the parameter value to the [function](#section_pmb_kmk_lz) `me()` | Search for your favorite issues.<br/>For example:<br/>```"Favorited by": me() ``` |
-| ```"Filter" ``` | Filter names or IDs | Search for issues that match specific filters.<br/>For example:<br/>```"Filter": "Issues in my department" ``` |
+| ```"Filter" ``` | Filter names or IDs | Search for issues that match specific filters.<br/>For example:<br/>```"Filter": "Issues in my department" ```<br/>**Note.** If different users set filters with the same names, they may get different results when running the same query with the filter name specified, because a search is performed using the filter created by the user who initiates the query. |
 | ```"Fix Version" ``` | Version names | Search for issues that list a specific value in the **Fix Version** field.<br/>For example:<br/>```"Fix Version": "12.11.1986" ``` |
 | ```"Followers" ``` | User logins and names | Search for issues that list specific users as followers.<br/>For example:<br/>```"Followers": user3370@, "Alice Little" ``` |
 | {% if audience == "internal" %}```"Goals" ``` | Goal name | Search for issues related to a specific goal.<br/>For example:<br/>```"Goals": "Catch up and get ahead" ```{% endif %} |
@@ -429,7 +429,7 @@ Try a few ready-made queries to learn how they work:
 | ```"Key" ``` | Issue keys | Search for issues with specific keys.<br/>For example:<br/>```"Key": "TASK-123", "TASK-321" ``` |
 | ```"Last comment" ``` | Date and time when the last comment was posted | Search for issues that didn't receive any new comments during a particular timeframe.<br/>For example:<br/>```"Last Comment": < now()-1h ``` |
 | ```"Linked to" ``` | Issue keys | Search for issues that are linked to specific issues (parent, related, duplicate, sub-issue, and so on).<br/>For example:<br/>```"Linked to": "TASK-123", "TASK-321" ``` |
-| ```"Maillists" ``` | Department or team names | Search for issues that are followed by specific departments or teams.<br/>For example:<br/>```"Maillists": "Helpdesk" ``` |
+| {% if audience == "internal" %}```"Maillists" ``` | Department or team names | Search for issues that are followed by specific departments or teams.<br/>For examlpe:<br/>```"Maillists": "Helpdesk" ```{% endif %} |
 | ```"Modifier" ``` | User logins and names | Search for issues recently updated by specific users.<br/>For example:<br/>```"Modifier": user3370@, "Alice Little" ``` |
 | ```"Old Queue" ``` | Queue names or keys | Search for issues moved from specific queues.<br/>For example:<br/>```"Old Queue": TEST ``` |
 | ```"Original" ``` | Issue keys | Search for clones of specific issues.<br/>For example:<br/>```"Original": "TASK-123", "TASK-321" ``` |
@@ -457,13 +457,7 @@ Try a few ready-made queries to learn how they work:
 | ```"Summary" ``` | Text string | Search for issues with a specific title.<br/>For example:<ul><li>Find issues that have a title containing the words and word forms in the phrase:<br/>    ```"Summary": "invent the wheel" ```</li><li>Find issues whose name completely matches the following phrase:<br/>    ```"Summary": # " invent the wheel" ```</li></ul> |
 | ```"Tags" ``` | Issue tags | Search for issues with specific tags.<br/>For example:<br/>```"Tags": "Support", "wiki" ``` |
 | ```"Time Spent" ``` | Time range in the format `"XXw XXd XXh XXm XXs"` | Search for issues that took a specific amount of time to complete.<br/>For example:<br/>```"Time Spent": >"5d 2h 30m" ``` |
+| ```"Type" ``` | Issue type | ```"Type" ``` | Issue type | Search for issues with the specified type. For example:<br/>```"Type": Epic``` |
 | ```"Updated" ``` | Date or date range | Search for issues that were changed on a specific date or during a specific date range.<br/>For example:<br/>```"Updated": >2017-01-30 ``` |
 | ```"Voted by" ``` | User logins and names | Search for issues voted on by specific users.<br/>For example:<br/>```"Voted By": user3370@, "Alice Little" ``` |
 | ```"Votes" ``` | Number of votes | Search for issues with a specific number of votes.<br/>For example:<br/>```"Votes": > 6 ``` |
-
-{% if audience == "external" %}
-
-[Contact support](../troubleshooting.md)
-
-{% endif %}
-

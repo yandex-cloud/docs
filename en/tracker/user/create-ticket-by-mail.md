@@ -38,9 +38,5 @@ To configure an automatic response for creating an issue via email, contact {{ t
 
 {% endif %}
 
-{% if audience == "external" %}
 
-[Contact support](../troubleshooting.md)
-
-{% endif %}
 

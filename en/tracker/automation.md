@@ -10,15 +10,9 @@
 
 1. [Templates](user/ticket-template.md): Templates used for standardized issues or comments.
 
-{% if locale == "ru" %}
+{% if audience == "internal" %}
 
 @[youtube](tN7TsTwGNoE)
-
-{% endif %}
-
-{% if audience == "external" %}
-
-[Contact support](troubleshooting.md)
 
 {% endif %}
 

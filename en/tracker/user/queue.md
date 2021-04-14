@@ -50,9 +50,5 @@ To save a list to a file:
 
 1. Wait until the file is downloaded to your device.
 
-{% if audience == "external" %}
 
-[Contact support](../troubleshooting.md)
-
-{% endif %}
 

@@ -112,9 +112,5 @@ If you can't add certain issue parameters to your search, use a query:
 
 You can use search parameters as a template for creating filters. To do this, click **Save filter as** and enter a name for the filter. The saved filter then appears in the list in the left panel.
 
-{% if audience == "external" %}
 
-[Contact support](../troubleshooting.md)
-
-{% endif %}
 

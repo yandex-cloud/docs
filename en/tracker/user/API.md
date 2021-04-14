@@ -11,12 +11,13 @@ With the {{ tracker-name }} API, you can:
 - Set specific handling rules for specific actions, such as updating the status at a particular time.
 - Create web browser extensions for managing {{ tracker-name }}.
 
-To learn more about the {{ tracker-name }} API features, see the [reference](../about.md).
+For more information about how to use the {{ tracker-name }} API, see the [Reference](../about.md).
 
 {% if audience == "internal" %}
 
-- [The API documentation on Wiki.](https://wiki.yandex-team.ru/tracker/api/)
-- [Generated documents.](https://st-api.yandex-team.ru/docs/)
+You can also find information about the API:											
+- [In the documentation on Wiki.](https://wiki.yandex-team.ru/tracker/api/)
+- [In automatically generated documents.](https://st-api.yandex-team.ru/docs/)
 
 {% endif %}
 
@@ -25,10 +26,3 @@ To learn more about the {{ tracker-name }} API features, see the [reference](../
 Try using our [Python client](python.md) for working with the {{ tracker-name }} API. This will make it easier for you to integrate the Tracker API into your apps.
 
 {% endnote %}
-
-{% if audience == "external" %}
-
-[Contact support](../troubleshooting.md)
-
-{% endif %}
-

@@ -34,9 +34,5 @@ To disable a template:
 
 1. Find the switch next to the desired template and set it to ![](../../_assets/tracker/disabled-switch-2.png).
 
-{% if audience == "external" %}
 
-[Contact support](../troubleshooting.md)
-
-{% endif %}
 

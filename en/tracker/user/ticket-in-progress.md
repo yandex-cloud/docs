@@ -43,9 +43,5 @@ When you finish working on an issue, switch it to the final status (usually <q>C
 
 > The issue you are working on was canceled. To register this in {{ tracker-name }}, switch the issue to the <q>Closed</q> status and select the resolution <q>Canceled</q>.
 
-{% if audience == "external" %}
 
-[Contact support](../troubleshooting.md)
-
-{% endif %}
 

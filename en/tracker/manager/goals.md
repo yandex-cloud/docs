@@ -42,9 +42,3 @@ By default, {{ tracker-name }} sends subscribers notifications about all changes
 
 To go to the Goals service and view detailed information about a goal, click ![](../../_assets/tracker/goals.png) next to the desired goal.
 
-{% if audience == "external" %}
-
-[Contact support](../troubleshooting.md)
-
-{% endif %}
-

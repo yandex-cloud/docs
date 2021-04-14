@@ -1,4 +1,4 @@
-# Set access rights for queues
+# Setting access rights for queues
 
 {% note warning %}
 
@@ -24,13 +24,13 @@ You can change access settings for individual users, groups, or roles:
 
     - **Users and robots**: Individual settings for individual users. To add a user to this category, enter the login or the user's name in the search bar at the top of the table.
 
-    - **Groups**: Settings for departments and teams. To add a new department, enter its name in the search bar at the top of the table.
+    - **Groups**: {% if audience == "external" %}Settings for all employees.{% else %}Settings for departments and teams. To add a new department, enter its name in the search bar at the top of the table.{% endif %}
 
-        {% note tip %}
+{% if audience == "internal" %}{% note tip %}
 
-        To add all {% if audience == "external" %}company{% else %}Yandex{% endif %} employees, select the {% if audience == "external" %}`All employees`{% else %}`Yandex`{% endif %} group.
+        To add all Yandex employees, select the `Yandex` group.
 
-        {% endnote %}
+        {% endnote %}{% endif %}
 
     - **Roles**: Settings for users who have specific roles in queue issues:
         - **Access**: Users listed in the **Access** field of an issue.
@@ -61,10 +61,10 @@ You can change access settings for individual users, groups, or roles:
 If a user has multiple roles, they gain all access rights associated with each role.
 
 > **Example**
->
->![](../../_assets/tracker/access-roles.png)
->
->If a user is both the reporter and the assignee, they're allowed to **Create issues**, **View issues**, and **Edit issues**.
+> 
+> ![](../../_assets/tracker/access-roles.png)
+> 
+> If a user is both the reporter and the assignee, they're allowed to **Create issues**, **View issues**, and **Edit issues**.
 
 ## Add a message for users who can't access issues {#deny-message}
 
@@ -84,15 +84,19 @@ To edit the message displayed to users with no access to the queue, do the follo
 
 1. Write your message and click **Save**.
 
-   If you want to add a link to a user profile in your message, specify their username followed by the `@` symbol, such as `login@`.
+   {% if audience == "internal" %}
+If you want to add a link to a user profile in your message, enter their username followed by the `@` symbol, such as `login@`.
+{% endif %}
 
 ## Set access rights to issues with components {#section_tbh_cs5_qbb}
 
-You can configure access to various components of the queue. This lets you create separate setups for issues that have components and those that do not. The rules for component access take priority over the rules for queue access.
+You can configure access to various [components](components.md) of the queue. This lets you create separate setups for issues that have components and those that do not. The rules for component access take priority over the rules for queue access.
 
 To configure access to issues by component:
 
 1. Open the [queue page](../user/queue.md).
+
+1. [Add to the queue components](components.md#section_zrt_szk_xz) to control access to issues with.
 
 1. To the left of the queue name, select ![](../../_assets/tracker/icon-settings.png) → **Administration**.
 
@@ -102,13 +106,13 @@ To configure access to issues by component:
 
     - **Users and robots**: Individual settings for individual users. To add a user to this category, enter the login or the user's name in the search bar at the top of the table.
 
-    - **Groups**: Settings for departments and teams. To add a new department, enter its name in the search bar at the top of the table.
+    - **Groups**: {% if audience == "external" %}Settings for all employees.{% else %}Settings for departments and teams. To add a new department, enter its name in the search bar at the top of the table.{% endif %}
 
-        {% note tip %}
+{% if audience == "internal" %}{% note tip %}
 
-        To add all {% if audience == "external" %}company{% else %}Yandex{% endif %} employees, select the {% if audience == "external" %}`All employees`{% else %}`Yandex`{% endif %} group.
+        To add all Yandex employees, select the `Yandex` group.
 
-        {% endnote %}
+        {% endnote %}{% endif %}
 
     - **Roles**: Settings for users who have specific roles in queue issues:
         - **Access**: Users listed in the **Access** field of an issue.
@@ -120,37 +124,15 @@ To configure access to issues by component:
 
 1. Click **Save**.
 
+1. To configure access to an individual issue that differs from the access settings for the entire queue, add a component to the issue.
+
 If an issue has several associated components, all users with access to at least one of them will be able to access the issue.
 
 > **Example**
->
->![](../../_assets/tracker/access-components.png)
->
->If an issue has the **Hardware** and **Software** components, it can be accessed by users from both the <q>Product development</q> and <q>Application development</q> groups.
-
-## Set access rights to issues in private queues {#section_kgf_gmm_52b}
-
-{% note info %}
-
-Creating a _private_ queue allows you to only grant access to important information to one or a limited number of users.
-
-{% endnote %}
-
-You can configure access so that users can work with some issues in your queue without having access to this queue. To do this:
-
-1. Open the queue page.
-
-1. To the left of the queue name, choose ![](../../_assets/tracker/icon-settings.png) → **Administration**.
-
-1. Go to the **Access** → **All issues** tab.
-
-1. Configure roles so that only the queue owner can **Create issues**, **View issues**, **Edit issues**, and change the **Queue settings**.
-
-1. Go to the **Issues with component** tab.
-
-1. Open the settings of the component you need. Set access rights to issues with components for individual users or roles.
-
-1. Click **Save**.
+> 
+> ![](../../_assets/tracker/access-components.png)
+> 
+> If an issue has the **Hardware** and **Software** components, it can be accessed by users from both the <q>Product development</q> and <q>Application development</q> groups.
 
 {% if audience == "internal" %}
 
@@ -185,12 +167,6 @@ To find out who has access to a queue or issue:
 - If you are not the owner of the queue, but you believe that it should not be available to external employees, write to `tools@`.
 
 - If you are the queue owner, you can see external employees in the [queue access settings](#section_bvq_dc3_3z).
-
-{% endif %}
-
-{% if audience == "external" %}
-
-[Contact support](../troubleshooting.md)
 
 {% endif %}
 

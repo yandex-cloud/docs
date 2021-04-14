@@ -2,7 +2,7 @@
 
 You can use {{ tracker-name }} to schedule issue creation using a template. For example, this lets you automatically create a data backup issue every week.
 
-Such issues only work in queues where auto updates are configured. The reporter for such issues is the Tracker robot.
+Such issues only work in queues where auto updates are configured. The reporter for such issues is the {% if audience == "external" %}Tracker robot{% else %}Yandex Tracker robot{% endif %}.
 
 {% note tip %}
 
@@ -43,10 +43,3 @@ To set up scheduled issue creation:
 1. If you wish to include multiple issues in one auto action, click **Create issue** again and fill in the fields for the new issue.
 
 1. To save an auto action, click **Create**.
-
-{% if audience == "external" %}
-
-[Contact support](../troubleshooting.md)
-
-{% endif %}
-

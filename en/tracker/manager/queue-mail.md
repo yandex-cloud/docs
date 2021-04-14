@@ -1,6 +1,6 @@
 # Mail
 
-You can use {{ tracker-name }} to [create issues from emails sent to the queue mailbox](../user/create-ticket-by-mail.md) or [communicate with external users from the issue page](../user/comments.md#section_zpd_ph5_wdb). This lets you [register user requests sent to the support team](../support-process.md#mail).
+You can use {{ tracker-name }} to [create issues from emails sent to the queue mailbox](../user/create-ticket-by-mail.md) or [communicate with external users from the issue page](../user/comments.md#section_zpd_ph5_wdb). This lets you [register user requests sent to the support team](../support-process-send-mail.md).
 
 To set up mail integration{% if audience == "external" %}:{% else %}, [add an email address to the queue](#sec-mail-yandex). You can add multiple addresses for creating issues with different types or different [components](components.md).{% endif %}
 
@@ -14,7 +14,7 @@ To set up mail integration{% if audience == "external" %}:{% else %}, [add an em
 
 {% note warning %}
 
-Your organization must have a [domain]{% if locale == "ru" %}(https://yandex.ru/support/connect/add-domain.html){% else %}(https://yandex.com/support/connect/add-domain.html){% endif %} added to Yandex.Connect if you want to set up an email address.
+You can only set up an email address for the queue if your organization has a [domain]({{ support-connect-domain }}) in Yandex.Connect.
 By default, [only the queue owner](queue-access.md) can configure a queue.
 
 {% endnote %}
@@ -30,15 +30,15 @@ To add an email address to your queue, follow these steps:
 1. Go to the **Mailboxes** tab.
 
 1. Click **Create address**.
-If you can't create such an address, this means your organization doesn't have its own domain. You need a domain to create mailboxes and newsletters. This includes creating queue addresses. You can [add a domain]{% if locale == "ru" %}(https://yandex.ru/support/connect/add-domain.html){% else %}(https://yandex.com/support/connect/add-domain.html){% endif %} to Yandex.Connect for free.
+If you can't create such an address, this means your organization doesn't have its own domain. You need a domain to create mailboxes and newsletters. This includes creating queue addresses. You can [add a domain]({{ support-connect-domain }}) to Yandex.Connect for free.
 
 1. Enter the address to assign to the queue in the **Email** field.
 
-2. Choose the signature type for emails sent from the issue page:
+1. Choose the signature type for emails sent from the issue page:
     - **Standard**: Displays the sender's full name.
     - **Advanced**: Lets you hide the sender's name and insert one or several [nicknames](#section_ffq_gqb_hgb) instead.
 
-3. Click **Save**.
+1. Click **Save**.
 
 {% note info %}
 
@@ -136,10 +136,4 @@ If you want to [send email](../user/comments.md#section_zpd_ph5_wdb) to external
 1. Go to the **Basic settings** tab and click **Show advanced settings**.
 
 1. Enable **Allow emails to be sent externally**.
-
-{% if audience == "external" %}
-
-[Contact support](../troubleshooting.md)
-
-{% endif %}
 

@@ -64,9 +64,3 @@ To delete a workflow that you created:
 
 1. Confirm the deletion.
 
-{% if audience == "external" %}
-
-[Contact support](../troubleshooting.md)
-
-{% endif %}
-

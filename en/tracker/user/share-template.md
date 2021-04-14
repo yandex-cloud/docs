@@ -1,8 +1,8 @@
-# Use shared templates
+# Using shared templates
 
 If you want other users to be able to use your template:
 
-1. [Set up template sharing](share-template.md#section_nmn_prs_zz). You can configure access permissions for individual users, teams{% if audience == "external" %}, departments, or the entire company{% else %}, or departments{% endif %}.
+1. [Set up template sharing](share-template.md#section_nmn_prs_zz). You can configure access permissions for individual users{% if audience == "internal" %}, teams, departments{% endif %}, or the entire company.
 
 1. Tell your colleagues [to enable your template in their personal settings](share-template.md#section_vkg_trs_zz).
 
@@ -24,13 +24,17 @@ To change the access settings for a template:
 
     - **Users and robots**: Individual settings for individual users. To add a user to this category, enter the login or the user's name in the search bar at the top of the table.
 
-    - **Groups**: Settings for departments and teams. To add a new department, enter its name in the search bar at the top of the table.
+    - **Groups**: Settings for {% if audience == "external" %}all employees.{% else %} departments and teams. To add a new department, enter its name in the search bar at the top of the table.{% endif %}
 
-        {% note tip %}
+        {% if audience == "internal" %}
+		
+		{% note tip %}
 
-        To add all {% if audience == "external" %}company{% else %}Yandex{% endif %} employees, select the {% if audience == "external" %}`All employees`{% else %}`Yandex`{% endif %} group.
+        To add all Yandex employees, select the `Yandex` group.
 
         {% endnote %}
+		
+		{% endif %}
 
     - **Roles**: Settings for users who have specific roles for the template:
         - **Owner**: The owner of the template. By default, the owner is the person who created the template. They're the only ones with **Write** and **Grant** rights.
@@ -74,9 +78,4 @@ If you have [read access](#section_nmn_prs_zz) for the desired template, you can
 
 1. Find the switch next to the desired template and set it to ![](../../_assets/tracker/enabled-switch-2.png).
 
-{% if audience == "external" %}
-
-[Contact support](../troubleshooting.md)
-
-{% endif %}
 

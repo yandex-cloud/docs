@@ -25,10 +25,3 @@ If you are already using a project management service, use the API to transfer y
 1. You can also create [issue boards](manager/create-agile-board.md) and [sprints](manager/create-agile-sprint.md) if necessary.
 
 1. Import data to {{ tracker-name }} [using the API](concepts/import/import-ticket.md).
-
-{% if audience == "external" %}
-
-[Contact support](troubleshooting.md)
-
-{% endif %}
-

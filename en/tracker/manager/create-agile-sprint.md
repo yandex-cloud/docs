@@ -125,7 +125,7 @@ You can filter your issues to only leave the ones you need on the **Sprints** ta
 
 You can set your sprint page to display issues and sprints in a single column. To do this:
 
-1. {% if audience == "external" %} On the {{ tracker-name }} top panel, click ![]( ../../_assets/tracker/tracker-settings.png) → **Personal settings**.{% else %} On the {{ tracker-name }} top panel in, click on your profile picture and select **Personal settings** or follow the link: [https://st.yandex-team.ru/settings]({{ link-settings-ya }}){% endif %}
+1. {% if audience == "external" %}On the {{ tracker-name }} top panel, click ![](../../_assets/tracker/tracker-settings.png) → **Personal settings**.{% else %} On the {{ tracker-name }} top panel, click on your profile picture and select **Personal settings** or follow the link: [https://st.yandex-team.ru/settings]({{ link-settings-ya }}){% endif %}
 
     {% if audience == "external" %}
 
@@ -140,10 +140,4 @@ You can set your sprint page to display issues and sprints in a single column. T
 1. Choose **Display sprints and issues in a single column**.
 
 1. Click **Save**.
-
-{% if audience == "external" %}
-
-[Contact support](../troubleshooting.md)
-
-{% endif %}
 

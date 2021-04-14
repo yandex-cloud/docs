@@ -1,4 +1,4 @@
-# Use a form as a template for creating issues
+# Using a form as a template for creating issues
 
 {% note warning %}
 
@@ -12,15 +12,15 @@ You can use Yandex.Forms to set up your form to act as a template for creating i
 
 1. {% if audience == "external" %} Go to [Yandex.Forms]({{ link-forms }}). If it isn't activated, contact your organization's administration.{% else %}Go to [Yandex.Forms]({{ link-forms }}).{% endif %}
 
-1. [Create]{% if audience == "external" %}{% if locale == "ru" %} (https://yandex.ru/support/connect-forms/common/new-form.html){% else %}(https://yandex.com/support/connect-forms/common/new-form.html){% endif %}{% else %}(https://doc.yandex-team.ru/forms/external/new-form.html){% endif %} a new form from scratch or use the **Issue for {{ tracker-name }}** template.
+1. [Create]{% if audience == "external" %}({{ support-forms-create }}){% else %}({{ support-forms-create-ya }}){% endif %} a new form from scratch or use the **Issue for {{ tracker-name }}** template.
 
    Set up your form's fields to collect data needed for issue creation.
 
 1. Configure the name of the form. This name will be displayed in the {{ tracker-name }} interface during issue creation.
 
-2. Set up [{{ tracker-name }} integration]{% if audience == "external" %}{% if locale == "ru" %}(https://yandex.ru/support/connect-forms/common/create-task.html){% else %}(https://yandex.com/support/connect-forms/common/notifications.html#notifications__section_rvr_4jc_tbb){% endif %}{% else %}(https://doc.yandex-team.ru/forms/external/create-task.html){% endif %} for your form.
+1. Set up [{{ tracker-name }} integration]{% if audience == "external" %}({{ support-forms-tracker }}){% else %}({{ support-forms-tracker-ya }}){% endif %} for the form.
 
-3. [Publish]{% if audience == "external" %}{% if locale == "ru" %} (https://yandex.ru/support/connect-forms/common/publish.html#publish__section_lmk_gvb_tbb){% else %}(https://yandex.com/support/connect-forms/common/publish.html#publish__section_lmk_gvb_tbb){% endif %}{% else %}(https://doc.yandex-team.ru/forms/external/publish.html){% endif %} the form and copy the link to it from the **Link** field.
+1. [Publish]{% if audience == "external" %}({{ support-forms-publish }}){% else %}({{ support-forms-publish-ya }}){% endif %} your form and copy the link to the form from the **Link** field.
 
 ## Step 2. Connect your form to the queue {#section_xxj_fll_1gb}
 

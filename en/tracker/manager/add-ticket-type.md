@@ -1,4 +1,4 @@
-# Configure issue types
+# Configuring issue types
 
 {% note warning %}
 
@@ -22,12 +22,11 @@ To create a new issue type:
 
 1. Configure settings:
     - **Issue type**: Select one of the available types.
-      {% if audience == "external" %}The most popular issue types are available in {{ tracker-name }} by default. If you don't see the type you need, your company's admin can [create it](create-ticket-type.md).{% endif %}
+    {% if audience == "external" %}The most popular issue types are available in {{ tracker-name }} by default. If you don't see the type you need, your company's admin can [create it](create-ticket-type.md).{% endif %}
     - **Workflow**: Set the workflow to apply to this type of issue. Select one of the available workflows or [create a new one](add-workflow.md) based on one of them.
     - **Resolutions**: Select possible resolutions.
-     {% if audience == "external" %}The most popular resolutions are available in {{ tracker-name }} by default. If you don't see the resolution you need, your company's admin can [create it](create-resolution.md).{% endif %}
-	 
-   {% if audience == "internal" %} If the issue type or resolution you need is missing in {{ tracker-name }}, send a request to create them via the [form](../user/create-param.md#section_bjz_3p4_xgb).{% endif %}
+    {% if audience == "external" %}The most popular resolutions are available in {{ tracker-name }} by default. If you don't see the resolution you need, your company's admin can [create it](create-resolution.md).{% endif %}
+    {% if audience == "internal" %} If the issue type or resolution you need is missing in {{ tracker-name }}, send a request to create them via the [form](../user/create-param.md#section_bjz_3p4_xgb).{% endif %}
 
 1. The **Statuses and transitions** section shows the main parameters of the selected workflow. If necessary, you can edit it or create a copy.
 
@@ -54,10 +53,4 @@ To remove an issue type from a queue:
 1. To remove the type, click ![](../../_assets/tracker/remove-task-type.png).
 
 1. Click **Save** at the bottom of the tab.
-
-{% if audience == "external" %}
-
-[Contact support](../troubleshooting.md)
-
-{% endif %}
 

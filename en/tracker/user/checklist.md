@@ -23,9 +23,5 @@ A checklist is a list of items that need to be completed for an issue to be solv
 - To add an item to the checklist, click **Add item** at the bottom of the list.
 - To delete a checklist, click **Delete checklist** ![](../../_assets/tracker/checklist-delete.png) at the bottom of the list.
 
-{% if audience == "external" %}
 
-[Contact support](../troubleshooting.md)
-
-{% endif %}
 

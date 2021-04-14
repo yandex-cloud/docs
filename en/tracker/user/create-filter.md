@@ -1,4 +1,4 @@
-# Create an issue filter
+# Creating an issue filter
 
 If you need something more advanced than the preset [system filters](default-filters.md) to find issues in {{ tracker-name }}, you can create your own filter and sort issues by title, description, comments, field values, update dates, and other parameters. For example, you can use custom filters to find all issues in queues where you have the author or assignee status.
 
@@ -126,7 +126,7 @@ You can share saved filters with your colleagues. By default, other employees ca
 
 1. Access is open to all employees by default. If you want to restrict access to the filter, delete the **All employees** group from the list.
 
-1. Add users, departments, or teams you want to grant access to.
+1. Add users{% if audience == "internal" %}, departments, or teams{% endif %} you want to grant access to.
 
 1. In the **Access rights** column, choose the access rights you want to grant:
 
@@ -145,10 +145,4 @@ You can share saved filters with your colleagues. By default, other employees ca
 1. Hover over the filter on the left-hand panel and click ![](../../_assets/tracker/icon-settings.png).
 
 1. On the filter card in the bottom-left corner, click ![](../../_assets/tracker/icon-delete.png) and confirm your action.
-
-{% if audience == "external" %}
-
-[Contact support](../troubleshooting.md)
-
-{% endif %}
 

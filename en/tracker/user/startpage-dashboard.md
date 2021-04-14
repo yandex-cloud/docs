@@ -14,9 +14,5 @@ You can {% if audience == "external" %}make any available dashboard your [home p
 
 1. Click **Done**.
 
-{% if audience == "external" %}
 
-[Contact support](../troubleshooting.md)
-
-{% endif %}
 

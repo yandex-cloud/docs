@@ -1,4 +1,4 @@
-# Subscribe other users to queue updates
+# Subscribing other users to queue updates
 
 You can subscribe {{ tracker-name }} users to notifications to keep them up-to-date about changes to all issues within a certain queue or changes related to specific versions or components.
 
@@ -48,7 +48,7 @@ To configure notifications for issue updates within a queue:
 
     **About issues related to a particular component**
 
-      You can configure notifications for issues that specify the component you are interested in:
+      You can set up notifications for issues that specify the component you are interested in:
 
       1. Click **Components**.
 
@@ -63,10 +63,4 @@ To configure notifications for issue updates within a queue:
           - **All events**: Users are notified of any changes to issues.
 
 1. Click **Save**.
-
-{% if audience == "external" %}
-
-[Contact support](../troubleshooting.md)
-
-{% endif %}
 

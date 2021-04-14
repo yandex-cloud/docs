@@ -64,9 +64,3 @@ You can remove an issue from an epic on the sprint page or the issue page.
 
 - Open the issue page, hover over the epic's field in the **Related** section, and click ![](../../_assets/tracker/delete-agile-status.png).
 
-{% if audience == "external" %}
-
-[Contact support](../troubleshooting.md)
-
-{% endif %}
-

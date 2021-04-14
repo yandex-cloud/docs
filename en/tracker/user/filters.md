@@ -1,14 +1,16 @@
-# Find issues
+# Searching issues
 
+{% if audience == "internal" %}						   
 You can use the search box in the top panel in {{ tracker-name }} to find issues by their key or name.
+{% endif %}		   
 
 You can use filters to search for issues by parameters.
 
-{% if locale == "ru" %}
+<!--{% if locale == "ru" %}
 
 @[youtube](nZ6XGsGG7dQ)
 
-{% endif %}
+{% endif %}-->
 
 You can use filters to:
 
@@ -19,10 +21,3 @@ You can use filters to:
 - [Set your own search parameters and save them as a preset filter.](create-filter.md)
 
     You can use your saved filters to pick issues for [dashboards](dashboard.md) and [agile boards](../manager/create-agile-board.md).
-
-{% if audience == "external" %}
-
-[Contact support](../troubleshooting.md)
-
-{% endif %}
-

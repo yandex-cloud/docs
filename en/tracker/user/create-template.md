@@ -20,9 +20,5 @@ To create a template of an issue or comment:
 
 The new template will be available on the [template page]{% if audience == "external" %}({{ link-tracker-templates }}){% else %}({{ link-tracker-templates-ya }}){% endif %}.
 
-{% if audience == "external" %}
 
-[Contact support](../troubleshooting.md)
-
-{% endif %}
 

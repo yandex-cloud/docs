@@ -86,10 +86,3 @@ To add issue field values to the request body, click **{ }** to the right of the
 1. Save your trigger.
 
 To test the trigger in action, change the issue status from **Release** to **Ready for testing**. The trigger sends a message to Yandex.Messenger with the following text: <q>Ready to test TEST-123: Trigger setup</q>.
-
-{% if audience == "external" %}
-
-[Contact support](troubleshooting.md)
-
-{% endif %}
-

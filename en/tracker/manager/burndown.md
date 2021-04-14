@@ -1,4 +1,4 @@
-# Burndown chart
+# Burn down chart
 
 {% note warning %}
 
@@ -17,10 +17,4 @@ To view the chart:
 1. Go to the **Burn down chart** tab.
 
 1. Select a sprint you want to place on the chart from the drop-down list.
-
-{% if audience == "external" %}
-
-[Contact support](../troubleshooting.md)
-
-{% endif %}
 

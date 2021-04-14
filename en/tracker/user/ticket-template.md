@@ -23,9 +23,4 @@ To create an issue template for a specific queue and add it to the issue creatio
 - [{#T}](delete-template.md)
 - [{#T}](share-template.md)
 
-{% if audience == "external" %}
-
-[Contact support](../troubleshooting.md)
-
-{% endif %}
 

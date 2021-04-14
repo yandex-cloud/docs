@@ -1,22 +1,11 @@
-# Deactivating {{ tracker-name }}
+# How to disable paid features in {{ tracker-name }}
 
-{% note alert %}
+To stop using paid {{ tracker-full-name }} features, revoke full access to {{ tracker-name }} from your employees. If no more than 5 users have full access, {{ tracker-name }} can be used free of charge. For more information, see [{#T}](pricing.md).
 
-Paid services will be deactivated automatically if your account balance is negative at the end of the month. For more information, see [Paying for Tracker](pricing.md#billing).
+1. On the top panel in {{ tracker-name }}, click ![](../_assets/tracker/tracker-burger.png) → **Manage access**.
 
-{% endnote %}
+1. In the **All users** section, find the employees to revoke {{ tracker-name }} access from and select **Read only** in the **Access** column.
 
-To deactivate {{ tracker-name }}:
+<!--1. To revoke access from all employees at once, select **Departments** on the left-hand panel and then **Read only** in the **All employees** row.-->
 
-1. Go to the [Yandex.Connect main page]({{ link-connect-main }}), find the {{ tracker-name }} card, and click  ![](../_assets/tracker/settings.png).
-
-1. On the settings page in {{ tracker-name }}, click **Disable**.
-
-Once {{ tracker-name }} is disabled, all your organization's employees will lose access. The service stores your information for 30 days after deactivation. If you decide not to renew your subscription, your data will be deleted.
-
-{% if audience == "external" %}
-
-[Contact support](troubleshooting.md)
-
-{% endif %}
-
+After you revoke access to {{ tracker-name }} from your employees, they won't be able to create and update issues. They can still view information in {{ tracker-name }}.

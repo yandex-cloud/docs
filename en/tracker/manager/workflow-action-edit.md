@@ -1,4 +1,4 @@
-# Configure transitions
+# Configuring transitions
 
 {% note warning %}
 
@@ -52,7 +52,7 @@ You can change the status an issue should transition into as well as the name of
 
 ## Configure macros {#section_ems_23b_wbb}
 
-You can configure macros to trigger automated actions during status transitions in {{ tracker-name }}. Actions that can be triggered include sending email, changing issue fields, setting resolutions, and others.
+You can configure macros to trigger automated actions during status transitions in {{ tracker-name }}. Actions that can be triggered include {% if audience == "internal" %}sending emails, {% endif %}changing issue fields, setting resolutions, and so on.
 
 To add a macro:
 
@@ -144,10 +144,4 @@ Make sure removing a transition will not result in inaccessible statuses.
 1. Click ![](../../_assets/tracker/delete-agile-status.png) next to the transition name.
 
 1. Confirm the deletion.
-
-{% if audience == "external" %}
-
-[Contact support](../troubleshooting.md)
-
-{% endif %}
 

@@ -8,7 +8,7 @@ To start working on a project in {{ tracker-name }}, create a new project and ad
 
 ## Creating a project{#section_htn_4ly_tgb}
 
-1. Open the page of an issue you want to include in your project. If you want to include issues from different queues in a project, you will be able to do that later.
+1. Open the page of a queue that the project will belong to. If you want to include issues from different queues in a project, you will be able to do that later.
 
 1. Go to the **Projects** tab and click **Create project**.
 
@@ -88,9 +88,17 @@ To add multiple issues to the project at once, use the [bulk change](bulk-change
 
 1. To create a [Gantt chart](gantt.md) for your project's issue list, in the upper-right corner, click ![](../../_assets/tracker/gantt-ico.png) .
 
-{% if audience == "external" %}
+## Deleting a project
 
-[Contact support](../troubleshooting.md)
+{% note warning %}
 
-{% endif %}
+Only the user who created the project can delete it.
+
+{% endnote %}
+
+1. Open a queue page that's linked to your project. You can open any of them if there are more than one.
+
+1. Go to the **Projects** tab.
+
+1. Once you find your project, click ![](../../_assets/tracker/icon-settings.png) → **Delete**.
 

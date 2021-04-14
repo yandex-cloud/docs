@@ -20,9 +20,5 @@ By default, only a [queue owner](../manager/queue-access.md) can create, edit, a
 
 1. Click **Create**.
 
-{% if audience == "external" %}
 
-[Contact support](../troubleshooting.md)
-
-{% endif %}
 

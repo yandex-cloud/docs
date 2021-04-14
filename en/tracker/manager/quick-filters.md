@@ -1,4 +1,4 @@
-# Find issues in queues
+# Finding issues in queues
 
 By default, the [queue page](../user/queue.md) displays all issues included in the queue. To search for issues in the list, use [quick filters](#section_y5w_chh_11b) or the [filter builder](#section_kfq_2hh_11b). If necessary, you can save the resulting list of issues as a file.
 
@@ -87,10 +87,4 @@ To save a list to a file:
 1. Select the format for saving the list.
 
 1. Wait until the file is downloaded to your device.
-
-{% if audience == "external" %}
-
-[Contact support](../troubleshooting.md)
-
-{% endif %}
 

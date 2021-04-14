@@ -16,9 +16,5 @@ To change a template for an issue or comment:
 
 1. Edit the template and click **Save**.
 
-{% if audience == "external" %}
 
-[Contact support](../troubleshooting.md)
-
-{% endif %}
 

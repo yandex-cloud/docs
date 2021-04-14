@@ -11,17 +11,10 @@ Each queue can have its own unique workflow that best suits the team. To configu
 You can use advanced features to make your queue workflow more efficient:
 
 - Set up [automated recurring actions](automation.md).
-{% if audience == "internal" %}
-- Configure integration with [email](manager/queue-mail.md) and [Yandex.Forms](manager/forms-integration.md).
-{% endif %}
+
+- Configure integration with {% if audience == "internal" %}[email](manager/queue-mail.md) and{% endif %} [Yandex.Forms](manager/forms-integration.md).
+
 - Configure [access rights to issues in your queue](manager/queue-access.md).
 - Structure queue issues using [projects](manager/projects.md), [components](manager/components.md), and [versions](manager/versions.md).
 
 If you want to learn more about organizing your queue workflow, read [how queues can be configured to benefit support teams](support-process.md).
-
-{% if audience == "external" %}
-
-[Contact support](troubleshooting.md)
-
-{% endif %}
-

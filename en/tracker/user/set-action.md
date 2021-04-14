@@ -1,4 +1,4 @@
-# Configure trigger actions
+# Configuring trigger actions
 
 Configure one or more actions under **Trigger actions** by clicking **Add new action**:
 
@@ -81,7 +81,7 @@ To configure issue creation:
 
     1. Set the issue parameters and click **Save**.
 
-1. If you want the Tracker robot to be the issue reporter, enable the option **Create as robot**. Make sure the robot has permission to create issues in the queue.
+1. If you want the {% if audience == "external" %}Tracker robot{% else %}Yandex Tracker robot{% endif %} to be the issue reporter, enable the option **Create as robot**. Make sure the robot has permission to create issues in the queue.
 
    If this option is disabled, the user who triggered the action becomes the issue reporter instead.
 
@@ -132,10 +132,4 @@ If you want the trigger to send an HTTP request:
    {% endnote %}
 
 To view examples for setting up HTTP requests that send notifications from {{ tracker-name }} to Slack and Telegram, see [{#T}](../messenger.md).
-
-{% if audience == "external" %}
-
-[Contact support](../troubleshooting.md)
-
-{% endif %}
 
