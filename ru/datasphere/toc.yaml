@@ -63,6 +63,8 @@ items:
         href: early-access/index.md
       - name: Специальные фоновые операции
         href: early-access/repeat.md
+      - name: Хранение приватных данных
+        href: early-access/secrets.md
   - name: Сценарии использования
     items:
       - name: Знакомство с DataSphere
