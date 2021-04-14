@@ -30,21 +30,25 @@ If multiple Docker images in the same registry use the same layers, reused layer
 
 The cost of 1 GB per month is fixed and doesn't depend on the number of days in the month. The storage cost per day is higher for shorter months and lower for longer months.
 
-{% list tabs %}
 
-- Prices in USD
-  
-  | Service | Rate for 1 GB per month, without VAT
-  | ----- | ----- 
-  | Storage | $0.024256 |  
-  
-- Prices in roubles
-  
-  | Service | Rate for 1 GB per month, with VAT |
-  | ----- | ----- 
-  | Storage | ₽1.8920 |
-  
-{% endlist %}
+{% if region == "ru"%}
+
+{% include [rub.md](../_pricing/cr/rub.md) %}
+
+{% endif %}
+
+{% if region == "kz"%}
+
+{% include [kzt.md](../_pricing/cr/kzt.md) %}
+
+{% endif %}
+
+{% if region == "int"%}
+
+{% include [usd.md](../_pricing/cr/usd.md) %}
+
+{% endif %}
+
 
 Here is an example of proportional calculation: let's say the user stores 15 GB of data for 11.5 hours during a month that is 30 days long. The total cost of storage can be calculated using the formula:
 
