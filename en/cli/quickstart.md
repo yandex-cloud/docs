@@ -2,21 +2,23 @@
 
 {% if audience != "internal" %}
 
-_The Yandex.Cloud command-line interface (CLI)_ provides downloadable software for managing your cloud resources from the command line.
+_The {{ yandex-cloud }} command-line interface (CLI)_ provides downloadable software for managing your cloud resources from the command line.
 
 {% else %}
 
-Inside Yandex, the CLI (command-line interface) of Yandex.Cloud allows you to use:
+Inside Yandex, the {{ yandex-cloud }} command-line interface (CLI) lets you use:
 
-- Managed Service for ClickHouse
-- Managed Service for MongoDB
-- Managed Service for MySQL
-- Managed Service for Redis
-- Managed Service for PostgreSQL
+- [{{mch-name}}](../managed-clickhouse/)
+- [{{mes-name}}](../managed-elasticsearch/)
+- [{{mkf-name}}](../managed-kafka/)
+- [{{mmg-name}}](../managed-mongodb/)
+- [{{mmy-name}}](../managed-mysql/)
+- [{{mpg-name}}](../managed-postgresql/)
+- [{{mrd-name}}](../managed-redis/)
 
 {% endif %}
 
-## Installation {#install}
+## Installing the CLI {#install}
 
 {% include [install-cli](../_includes/cli/install-cli.md) %}
 
@@ -24,14 +26,17 @@ Inside Yandex, the CLI (command-line interface) of Yandex.Cloud allows you to us
 
 {% if audience == "internal" %}
 
-Read about CLI initialization in the service documentation:
+{% note warning %}
 
-- [Managed Service for {{ CH }}](../managed-clickhouse/quickstart.md#setup)
-- [Managed Service for {{ MG }}](../managed-mongodb/quickstart.md#setup)
-- [Managed Service for {{ RD }}](../managed-redis/quickstart.md#setup)
-- [Managed Service for {{ PG }}](../managed-postgresql/quickstart.md#setup)
+Follow the instructions below if you install the internal CLI build (from s3.mds.yandex.net) rather than its external build (from storage.yandexcloud.net). If you use the external CLI build, follow [these instructions](../mdb/cli.md).
 
-{% else %}
+If you already have a CLI installed, you can figure out which build you have using the `yc version` command. If the version contains `+yandex`, the build is internal. Otherwise, the build is external.
+
+{% endnote %}
+
+{% endif %}
+
+  1. Log in to the [management console]({{ link-console-main }}) and accept the user agreement by clicking **Log in**. If you're already connected to the console, skip this step.
 
   1. Get an OAuth token from Yandex.OAuth. To do this, go to the [link]({{ link-cloud-oauth }}) and click **Allow**.
 
@@ -42,7 +47,7 @@ Read about CLI initialization in the service documentation:
      ```
      Please go to {{ link-cloud-oauth }}
       in order to obtain OAuth token.
-
+     
      Please enter OAuth token: AaAaBbBbCcCcDdDdEeEeFfFfGgGg
      ```
 
@@ -67,7 +72,17 @@ Read about CLI initialization in the service documentation:
      Please enter your numeric choice: 1
      ```
 
-  1. Select the default availability zone for the {{ compute-full-name }} service:
+{% if audience == "internal" %}
+
+  1. Disable the default availability zone selection for {{ compute-full-name }}:
+
+     ```
+     Do you want to configure a default {{ compute-full-name }} availability zone? [Y/n] N
+     ```
+
+{% else %}
+
+  1. Select the default availability zone for {{ compute-full-name }}:
 
      ```
      Do you want to configure a default {{ compute-full-name }} availability zone? [Y/n] Y
@@ -79,11 +94,15 @@ Read about CLI initialization in the service documentation:
      Please enter your numeric choice: 2
      ```
 
+{% endif %}
+
   1. View your CLI profile settings:
 
      ```
      $ yc config list
      ```
+
+{% if audience != "internal" %}
 
 ## Examples of commands {#example}
 
@@ -116,7 +135,7 @@ The following steps describe how to create a cloud network, subnet, and virtual 
 
    ```
    $ yc vpc network list
-
+   
    +----------------------+------------------+-------------------------+
    |          ID          |       NAME       |       DESCRIPTION       |
    +----------------------+------------------+-------------------------+
@@ -129,7 +148,7 @@ The following steps describe how to create a cloud network, subnet, and virtual 
 
    ```
    $ yc vpc network list --format yaml
-
+   
    - id: skesdqhkc6449hbqqar1
      folder_id: ijkl9012
      created_at: "2018-09-05T09:51:16Z"
@@ -153,7 +172,7 @@ The following steps describe how to create a cloud network, subnet, and virtual 
           --name my-yc-instance \
           --network-interface subnet-name=my-yc-subnet-b,nat-ip-version=ipv4 \
           --zone ru-central1-b \
-          --ssh-key ~/.ssh/id_rsa.pub
+		  --ssh-key ~/.ssh/id_rsa.pub
       ```
 
       Pass the path to the public key for SSH access in the `ssh-key` parameter. The `yc-user` user will be automatically created in the virtual machine OS with the specified public key.
