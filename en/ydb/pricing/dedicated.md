@@ -61,101 +61,80 @@ All prices are shown with VAT. Prices are given for a 30-day month. For shorter 
 
 ### Host computing resources {#prices-compute-units}
 
-{% list tabs %}
+{% if region == "ru" %}
 
-- Prices in USD
+{% include notitle [rub-compute-units.md](../../_pricing/ydb/rub-compute-units.md) %}
 
-  | Resource | Cost for 1 hour, without VAT | Cost with CVoS for 1 year, without VAT |
-  | ----- | ----- | ----- |
-  | **Intel Cascade Lake** |
-  | 100% vCPU | $0.0150 | $0.010897 (-28%) |
-  | RAM (for 1 GB) | $0.004102 | $0.002692 (-35%) |
+{% endif %}
 
-- Prices in roubles
+{% if region == "pre-kz" %}
 
-  | Resource | Cost for 1 hour, with VAT | Cost with CVoS for 1 year, with VAT |
-  | ----- | ----- | ----- |
-  | **Intel Cascade Lake** |
-  | 100% vCPU | ₽1.17 | ₽0.85 (-28%) |
-  | RAM (for 1 GB) | ₽0.32 | ₽0.21 (-35%) |
+{% include notitle [kzt-compute-units.md](../../_pricing/ydb/kzt-compute-units.md) %}
 
-{% endlist %}
+{% endif %}
+
+{% if region == "int" %}
+
+{% include notitle [usd-compute-units.md](../../_pricing/ydb/usd-compute-units.md) %}
+
+{% endif %}
 
 ### Storage and backups {#prices-storage}
 
-{% list tabs %}
+{% if region == "ru" %}
 
-- Prices in USD
+{% include notitle [rub-storage.md](../../_pricing/ydb/rub-storage.md) %}
 
-  | Service | Cost of 1 GB per month, without VAT |
-  | ----- | ----- |
-  | Data storage in storage groups of SSD drives | $0.171923 |
-  | Storage of on-demand backups in {{ objstorage-full-name }} | $0.016166 |
+{% endif %}
 
-- Prices in roubles
+{% if region == "pre-kz" %}
 
-  | Service | Cost of 1 GB per month, with VAT |
-  | ----- | ----- |
-  | Data storage in storage groups of SSD drives | ₽13.410 |
-  | Storage of on-demand backups in {{ objstorage-full-name }} | ₽1.261 |
+{% include notitle [kzt-storage.md](../../_pricing/ydb/kzt-storage.md) %}
 
-{% endlist %}
+{% endif %}
 
-{% note info "Минимальный размер группы" %}
+{% if region == "int" %}
 
-A single [storage group](../concepts/databases.md##storage-groups) can store up to 100 GB of user data.  The minimum granularity of space allocation for a DB is one storage group.
+{% include notitle [usd-storage.md](../../_pricing/ydb/usd-storage.md) %}
 
-{% endnote %}
-
-To create on-demand backups in {{ ydb-name }}, specify a bucket in {{ objstorage-name }}.
+{% endif %}
 
 ### Outgoing traffic {#prices-traffic}
 
-{% include notitle [pricing-egress-traffic](../_includes/pricing/pricing-egress-traffic.md) %}
+{% if region == "ru" %}
+
+{% include notitle [rub-egress-traffic.md](../../_pricing/rub-egress-traffic.md) %}
+
+{% endif %}
+
+{% if region == "pre-kz" %}
+
+{% include notitle [kzt-egress-traffic.md](../../_pricing/kzt-egress-traffic.md) %}
+
+{% endif %}
+
+{% if region == "int" %}
+
+{% include notitle [usd-egress-traffic.md](../../_pricing/usd-egress-traffic.md) %}
+
+{% endif %}
 
 ## Estimated cost of computing resources {#calculated-prices}
 
-The cost of operation time is given for [computing resource classes](../concepts/databases.md#compute-units).
+{% if region == "ru" %}
 
-**Per month per DB with 1 VM**
+{% include notitle [rub-dedicated.md](../../_pricing/ydb/rub-dedicated.md) %}
 
-At the rate of 720 hours per month.
+{% endif %}
 
-{% list tabs %}
+{% if region == "pre-kz" %}
 
-- Prices in USD
+{% include notitle [kzt-dedicated.md](../../_pricing/ydb/kzt-dedicated.md) %}
 
-  | Host class | Cost per month, without VAT | Cost with CVoS for 1 year, without VAT |
-  | ----- | ----- | ----- |
-  | **Intel Cascade Lake** |
-  | s2-medium | $180,923079 |  $124.800001 (-31%) |
+{% endif %}
 
-- Prices in roubles
+{% if region == "int" %}
 
-  | Host class | Cost per month, with VAT | Cost with CVoS for 1 year, with VAT |
-  | ----- | ----- | ----- |
-  | **Intel Cascade Lake** |
-  | s2-medium | ₽14,112 |  ₽9,734.40 (-31%) |
+{% include notitle [usd-dedicated.md](../../_pricing/ydb/usd-dedicated.md) %}
 
-{% endlist %}
-
-**Per hour per DB with 1 VM**
-
-{% list tabs %}
-
-- Prices in USD
-
-  | Host class | Cost of 1 hour, without VAT | Cost with CVoS for 1 year, without VAT |
-  | ----- | ----- | ----- |
-  | **Intel Cascade Lake** |
-  | s2-medium | $0.251282 |  $0.173333 (-31%) |
-
-- Prices in roubles
-
-  | Host class | Cost of 1 hour, with VAT | Cost with CVoS for 1 year, with VAT |
-  | ----- | ----- | ----- |
-  | **Intel Cascade Lake** |
-  | s2-medium | ₽19.60 |  ₽13.52 (-31%) |
-
-{% endlist %}
-
+{% endif %}

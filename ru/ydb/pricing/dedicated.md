@@ -63,52 +63,80 @@ editable: false
 
 ### Вычислительные ресурсы хостов {#prices-compute-units}
 
-Ресурс | Цена за 1 час | Цена с CVoS на 1 год
------ | ----- | -----
-**Intel Cascade Lake** |
-100% vCPU | 1,17 ₽ | 0,85 ₽ (-28%)
-RAM (за 1 ГБ) | 0,32 ₽ | 0,21 ₽ (-35%)
+{% if region == "ru" %}
 
+{% include notitle [rub-compute-units.md](../../_pricing/ydb/rub-compute-units.md) %}
+
+{% endif %}
+
+{% if region == "pre-kz" %}
+
+{% include notitle [kzt-compute-units.md](../../_pricing/ydb/kzt-compute-units.md) %}
+
+{% endif %}
+
+{% if region == "int" %}
+
+{% include notitle [usd-compute-units.md](../../_pricing/ydb/usd-compute-units.md) %}
+
+{% endif %}
 
 ### Хранилище и резервные копии {#prices-storage}
 
-Услуга | Цена за ГБ в месяц
------ | -----
-Хранение данных на группах хранения из SSD-накопителей | 13,410 ₽ |
-Хранение резервных копий по требованию в {{ objstorage-full-name }} | 1,261 ₽
+{% if region == "ru" %}
 
-{% note info "Минимальный размер группы" %}
+{% include notitle [rub-storage.md](../../_pricing/ydb/rub-storage.md) %}
 
-Одна [группа хранения](../concepts/databases.md#storage-groups) позволяет разместить до 100 Гб пользовательских данных. Минимальная гранулярность выделения места для базы данных – одна группа хранения.
+{% endif %}
 
-{% endnote %}
+{% if region == "pre-kz" %}
+
+{% include notitle [kzt-storage.md](../../_pricing/ydb/kzt-storage.md) %}
+
+{% endif %}
+
+{% if region == "int" %}
+
+{% include notitle [usd-storage.md](../../_pricing/ydb/usd-storage.md) %}
+
+{% endif %}
 
 ### Исходящий трафик {#prices-traffic}
 
-{% include notitle [pricing-egress-traffic](../_includes/pricing/pricing-egress-traffic.md) %}
+{% if region == "ru" %}
 
+{% include notitle [rub-egress-traffic.md](../../_pricing/rub-egress-traffic.md) %}
+
+{% endif %}
+
+{% if region == "pre-kz" %}
+
+{% include notitle [kzt-egress-traffic.md](../../_pricing/kzt-egress-traffic.md) %}
+
+{% endif %}
+
+{% if region == "int" %}
+
+{% include notitle [usd-egress-traffic.md](../../_pricing/usd-egress-traffic.md) %}
+
+{% endif %}
 
 ## Расчетные цены для вычислительных ресурсов {#calculated-prices}
 
-Цены за время работы рассчитаны для [классов вычислительных ресурсов](../concepts/databases.md#compute-units).
+{% if region == "ru" %}
 
+{% include notitle [rub-dedicated.md](../../_pricing/ydb/rub-dedicated.md) %}
 
-{% list tabs %}
+{% endif %}
 
-- За месяц работы базы из 1 виртуальной машины
+{% if region == "pre-kz" %}
 
-  Из расчета 720 часов в месяц, округлено до целых рублей.
+{% include notitle [kzt-dedicated.md](../../_pricing/ydb/kzt-dedicated.md) %}
 
-  Класс хостов | Цена за месяц | Цена с CVoS на 1 год
-  ----- | ----- | -----
-  **Intel Cascade Lake** |
-  s2-medium | 14 112 ₽ | 9 734,40 ₽ (-31%)
+{% endif %}
 
-- За 1 час работы базы из 1 виртуальной машины
+{% if region == "int" %}
 
-  Класс хостов | Цена за час | Цена с CVoS на 1 год
-  ----- | ----- | -----
-  **Intel Cascade Lake** |
-  s2-medium | 19,60 ₽ | 13,52 ₽ (-31%)
+{% include notitle [usd-dedicated.md](../../_pricing/ydb/usd-dedicated.md) %}
 
-{% endlist %}
+{% endif %}

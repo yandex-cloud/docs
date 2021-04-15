@@ -167,37 +167,39 @@ When calculating the actual consumption, the number of requests is averaged ever
 
 ## Pricing {#prices}
 
-All prices are shown with VAT. Prices are given for a 30-day month. For shorter months, the price is higher. For longer months, it's lower.
+{% if region == "ru" %}
 
-{% list tabs %}
+{% include notitle [rub-serverless](../../_pricing/ydb/rub-serverless.md) %}
 
-- Prices in USD
+{% endif %}
 
-   | Service | Cost, without VAT |
-   | ------------------------------------------------ | ---------------------- |
-   | Data operations, less than 1 million RU per month | Free |
-   | Data operations, over 1 million RU per month |  $0.171282 per 1 million RU |
-   | Data operations with a 1-month commitment |  $0.028461 per hour per 100 RU/s |
-   | Data storage, less than 1 GB per month | Free |
-   | Data storage, more than 1 GB per month | $0.171923 per 1 GB per month |
-   | Making on-demand backups | $0.004359 per 1 GB |
-   | Restoring data from backups | $0.082051 per 1 GB |
-   | Storage of on-demand backups in {{ objstorage-full-name }} | $0.016166 per 1 GB per month |
+{% if region == "pre-kz" %}
 
-- Prices in roubles
+{% include notitle [kzt-serverless](../../_pricing/ydb/kzt-serverless.md) %}
 
-   | Service | Cost, with VAT |
-   | ------------------------------------------------ | ---------------------- |
-   | Data operations, less than 1 million RU per month | Free |
-   | Data operations, over 1 million RU per month |  ₽13.36 per 1 million RU |
-   | Data operations with a 1-month commitment |  ₽2.22 per hour per 100 RU/s |
-   | Data storage, less than 1 GB per month | Free |
-   | Data storage, more than 1 GB per month | ₽13.41 per 1 GB per month |
-   | Making on-demand backups | ₽0.34 per 1 GB |
-   | Restoring data from backups | ₽6.40 per 1 GB |
-   | Storage of on-demand backups in {{ objstorage-full-name }} | ₽1.261 per 1 GB per month |
+{% endif %}
 
-{% endlist %}
+{% if region == "int" %}
 
-{% include notitle [pricing-egress-traffic](../_includes/pricing/pricing-egress-traffic.md) %}
+{% include notitle [usd-serverless](../../_pricing/ydb/usd-serverless.md) %}
+
+{% endif %}
+
+{% if region == "ru" %}
+
+{% include notitle [rub-egress-traffic.md](../../_pricing/rub-egress-traffic.md) %}
+
+{% endif %}
+
+{% if region == "pre-kz" %}
+
+{% include notitle [kzt-egress-traffic.md](../../_pricing/kzt-egress-traffic.md) %}
+
+{% endif %}
+
+{% if region == "int" %}
+
+{% include notitle [usd-egress-traffic.md](../../_pricing/usd-egress-traffic.md) %}
+
+{% endif %}
 

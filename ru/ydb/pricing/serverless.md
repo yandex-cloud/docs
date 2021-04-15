@@ -269,20 +269,42 @@ editable: false
 
 ## Цены {#prices}
 
-Все цены указаны с НДС. Цены за месяц указаны из расчета для месяца в 30 календарных дней. Для более коротких месяцев цена соответственно выше, для более длинных — ниже.
+{% if region == "ru" %}
 
-Услуга                                           | Цена
------------------------------------------------- | ----------------------
-Операции с данными, менее 1 млн RU в месяц       | Не тарифицируется
-Операции с данными, свыше 1 млн RU в месяц       | 13,360 ₽ за 1 миллион RU
-Операции с данными, резервируемые на 1 месяц     | 2,220 ₽ за 1 час за 100 RU/с
-Хранение данных, менее 1 ГБ в месяц              | Не тарифицируется
-Хранение данных, свыше 1 ГБ в месяц              | 13,410 ₽ за 1 ГБ в месяц
-Выполнение резервной копии по требованию         | 0,340 ₽ 1 ГБ
-Восстановление данных из резервной копии         | 6,400 ₽ за 1 ГБ
-Хранение резервных копий по требованию в {{ objstorage-full-name }}           | 1,261 ₽ за 1 ГБ в месяц
+{% include notitle [rub-serverless](../../_pricing/ydb/rub-serverless.md) %}
 
-{% include notitle [pricing-egress-traffic](../_includes/pricing/pricing-egress-traffic.md) %}
+{% endif %}
+
+{% if region == "pre-kz" %}
+
+{% include notitle [kzt-serverless](../../_pricing/ydb/kzt-serverless.md) %}
+
+{% endif %}
+
+{% if region == "int" %}
+
+{% include notitle [usd-serverless](../../_pricing/ydb/usd-serverless.md) %}
+
+{% endif %}
+
+{% if region == "ru" %}
+
+{% include notitle [rub-egress-traffic.md](../../_pricing/rub-egress-traffic.md) %}
+
+{% endif %}
+
+{% if region == "pre-kz" %}
+
+{% include notitle [kzt-egress-traffic.md](../../_pricing/kzt-egress-traffic.md) %}
+
+{% endif %}
+
+{% if region == "int" %}
+
+{% include notitle [usd-egress-traffic.md](../../_pricing/usd-egress-traffic.md) %}
+
+{% endif %}
+
 
 {% if audience != "external" %}
 
