@@ -9,9 +9,8 @@ editable: false
 ## Из чего складывается стоимость использования {{ container-registry-short-name }} {#rules}
 
 Расчет стоимости использования {{ container-registry-name }} учитывает:
-
-- Объем хранилища, занятый данными.
-- Объем исходящего трафика.
+* Объем хранилища, занятый данными.
+* Объем исходящего трафика.
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 
@@ -31,19 +30,19 @@ editable: false
 
 Цены за ГБ в месяц фиксированны и не зависят от количества дней в месяце. Стоимость услуги хранения в день для более коротких месяцев будет выше, для более длинных — ниже.
 
-{% if region == "ru"%}
+{% if region == "ru" %}
 
 {% include [rub.md](../_pricing/cr/rub.md) %}
 
 {% endif %}
 
-{% if region == "kz"%}
+{% if region == "pre-kz" %}
 
 {% include [kzt.md](../_pricing/cr/kzt.md) %}
 
 {% endif %}
 
-{% if region == "int"%}
+{% if region == "int" %}
 
 {% include [usd.md](../_pricing/cr/usd.md) %}
 
