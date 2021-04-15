@@ -12,14 +12,14 @@ editable: false
 
 Расчет стоимости использования {{ compute-short-name }} учитывает:
 * Вычислительные ресурсы ВМ:
-    * тип и количество ядер (vCPU);
-    * количество графических ускорителей (GPU);
-    * объем памяти (RAM).
+  * тип и количество ядер (vCPU);
+  * количество графических ускорителей (GPU);
+  * объем памяти (RAM).
 * Операционные системы.
 * Тип и объем хранилища:
-    * диски;
-    * образы;
-    * снимки.
+  * диски;
+  * образы;
+  * снимки.
 * Объем исходящего трафика.
 * Публичный IP-адрес.
 
@@ -34,6 +34,7 @@ editable: false
 Виртуальная машина автоматически запускается после создания.
 
 При создании виртуальной машины можно указать публичный IP-адрес для нее.
+
 О тарифах за использование внешнего IP-адреса читайте в разделе [{#T}](../vpc/pricing.md) документации сервиса {{ vpc-full-name }}.
 
 #### Вычислительные ресурсы {#instance-resources}
@@ -55,7 +56,6 @@ editable: false
 Сравним стоимость виртуальных машин для [платформы](concepts/vm-platforms.md) Intel Broadwell c разным [уровнем производительности vCPU](concepts/performance-levels.md).
 
 Созданы две виртуальные машины с операционной системой Linux:
-
 * 5% vCPU и 1 ГБ RAM;
 * 100% vCPU и 1 ГБ RAM.
 
@@ -109,7 +109,7 @@ vCPU и память ВМ, запущенных на выделенном хос
 
 ### Вычислительные ресурсы ВМ {#prices-instance-resources}
 
-{% if region == "ru"%}
+{% if region == "ru" %}
 
 {% include [rub-instance-cpu.md](../_pricing/compute/rub-instance-cpu.md) %}
 
@@ -117,7 +117,7 @@ vCPU и память ВМ, запущенных на выделенном хос
 
 {% endif %}
 
-{% if region == "pre-kz"%}
+{% if region == "pre-kz" %}
 
 {% include [kzt-instance-cpu.md](../_pricing/compute/kzt-instance-cpu.md) %}
 
@@ -125,7 +125,7 @@ vCPU и память ВМ, запущенных на выделенном хос
 
 {% endif %}
 
-{% if region == "int"%}
+{% if region == "int" %}
 
 {% include [usd-instance-cpu.md](../_pricing/compute/usd-instance-cpu.md) %}
 
@@ -135,7 +135,7 @@ vCPU и память ВМ, запущенных на выделенном хос
 
 ### Вычислительные ресурсы прерываемых ВМ {#prices-preemptible-instance-resources}
 
-{% if region == "ru"%}
+{% if region == "ru" %}
 
 {% include [rub-preemp-instance-cpu.md](../_pricing/compute/rub-preemp-instance-cpu.md) %}
 
@@ -143,7 +143,7 @@ vCPU и память ВМ, запущенных на выделенном хос
 
 {% endif %}
 
-{% if region == "pre-kz"%}
+{% if region == "pre-kz" %}
 
 {% include [kzt-preemp-instance-cpu.md](../_pricing/compute/kzt-preemp-instance-cpu.md) %}
 
@@ -151,7 +151,7 @@ vCPU и память ВМ, запущенных на выделенном хос
 
 {% endif %}
 
-{% if region == "int"%}
+{% if region == "int" %}
 
 {% include [usd-preemp-instance-cpu.md](../_pricing/compute/usd-preemp-instance-cpu.md) %}
 
@@ -161,19 +161,19 @@ vCPU и память ВМ, запущенных на выделенном хос
 
 ### Операционные системы {#prices-os}
 
-{% if region == "ru"%}
+{% if region == "ru" %}
 
 {% include [rub-os.md](../_pricing/compute/rub-os.md) %}
 
 {% endif %}
 
-{% if region == "pre-kz"%}
+{% if region == "pre-kz" %}
 
 {% include [kzt-os.md](../_pricing/compute/kzt-os.md) %}
 
 {% endif %}
 
-{% if region == "int"%}
+{% if region == "int" %}
 
 {% include [usd-os.md](../_pricing/compute/usd-os.md) %}
 
@@ -181,27 +181,27 @@ vCPU и память ВМ, запущенных на выделенном хос
 
 Списание средств для следующих продуктов происходит единовременно в момент запуска ВМ из расчета за один календарный месяц вперед, вне зависимости от времени фактической работы ВМ:
 
-{% if region == "ru"%}
+{% if region == "ru" %}
 
 {% include [rub-os-win-server.md](../_pricing/compute/rub-os-win-server.md) %}
 
 {% endif %}
 
-{% if region == "pre-kz"%}
+{% if region == "pre-kz" %}
 
 {% include [kzt-os-win-server.md](../_pricing/compute/kzt-os-win-server.md) %}
 
 {% endif %}
 
-{% if region == "int"%}
+{% if region == "int" %}
 
 {% include [usd-os-win-server.md](../_pricing/compute/usd-os-win-server.md) %}
 
 {% endif %}
 
-\* Стоимость Windows Server Standard является фиксированной и не зависит от конфигурации ВМ
+\* Стоимость Windows Server Standard является фиксированной и не зависит от конфигурации ВМ.
 
-{% if region == "ru"%}
+{% if region == "ru" %}
 
 {% include [rub-os-rds.md](../_pricing/compute/rub-os-rds.md) %}
 
@@ -209,7 +209,7 @@ vCPU и память ВМ, запущенных на выделенном хос
 
 {% endif %}
 
-{% if region == "pre-kz"%}
+{% if region == "pre-kz" %}
 
 {% include [kzt-os-rds.md](../_pricing/compute/kzt-os-rds.md) %}
 
@@ -217,7 +217,7 @@ vCPU и память ВМ, запущенных на выделенном хос
 
 {% endif %}
 
-{% if region == "int"%}
+{% if region == "int" %}
 
 {% include [usd-os-rds.md](../_pricing/compute/usd-os-rds.md) %}
 
@@ -235,19 +235,19 @@ vCPU и память ВМ, запущенных на выделенном хос
 
 {% endnote %}
 
-{% if region == "ru"%}
+{% if region == "ru" %}
 
 {% include [rub-storage.md](../_pricing/compute/rub-storage.md) %}
 
 {% endif %}
 
-{% if region == "pre-kz"%}
+{% if region == "pre-kz" %}
 
 {% include [kzt-storage.md](../_pricing/compute/kzt-storage.md) %}
 
 {% endif %}
 
-{% if region == "int"%}
+{% if region == "int" %}
 
 {% include [usd-storage.md](../_pricing/compute/usd-storage.md) %}
 
@@ -255,7 +255,7 @@ vCPU и память ВМ, запущенных на выделенном хос
 
 ### Вычислительные ресурсы выделенных хостов {#prices-dedicated-host}
 
-{% if region == "ru"%}
+{% if region == "ru" %}
 
 {% include [rub-host-cpu.md](../_pricing/compute/rub-host-cpu.md) %}
 
@@ -263,7 +263,7 @@ vCPU и память ВМ, запущенных на выделенном хос
 
 {% endif %}
 
-{% if region == "pre-kz"%}
+{% if region == "pre-kz" %}
 
 {% include [kzt-host-cpu.md](../_pricing/compute/kzt-host-cpu.md) %}
 
@@ -271,7 +271,7 @@ vCPU и память ВМ, запущенных на выделенном хос
 
 {% endif %}
 
-{% if region == "int"%}
+{% if region == "int" %}
 
 {% include [usd-host-cpu.md](../_pricing/compute/usd-host-cpu.md) %}
 
@@ -281,19 +281,19 @@ vCPU и память ВМ, запущенных на выделенном хос
 
 ### Программно-ускоренная сеть {#software-accelerated-network}
 
-{% if region == "ru"%}
+{% if region == "ru" %}
 
 {% include [rub-network.md](../_pricing/compute/rub-network.md) %}
 
 {% endif %}
 
-{% if region == "pre-kz"%}
+{% if region == "pre-kz" %}
 
 {% include [kzt-network.md](../_pricing/compute/kzt-network.md) %}
 
 {% endif %}
 
-{% if region == "pre-kz"%}
+{% if region == "pre-kz" %}
 
 {% include [usd-network.md](../_pricing/compute/usd-network.md) %}
 

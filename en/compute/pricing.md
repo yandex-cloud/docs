@@ -1,6 +1,7 @@
 ---
 editable: false
 ---
+
 # Pricing for {{ compute-name }}
 
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
@@ -10,18 +11,17 @@ editable: false
 ## What goes into the cost of using {{ compute-short-name }} {#rules}
 
 The cost of {{ compute-short-name }} usage is based on:
-
-* Computing resources
-    * Type and number of cores (vCPUs)
-    * Number of graphics accelerators (GPUs)
-    * Amount of memory (RAM)
-* Operating systems
-* Type and size of storage:
-    * Disks
-    * Images
-    * Snapshots
-* The amount of outgoing traffic
-* Public IP address
+* Computing resources:
+  * Type and number of cores (vCPUs).
+  * Number of graphics accelerators (GPUs).
+  * Amount of memory (RAM).
+* Operating systems.
+* Type and size of storage.
+  * Disks.
+  * Images.
+  * Snapshots.
+* The amount of outgoing traffic.
+* Public IP address.
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 
@@ -34,6 +34,7 @@ The cost is calculated for the time of using the VM, from the moment it is start
 The VM starts automatically once it's created.
 
 When creating a VM, you can specify a public IP address for it.
+
 For information about external IP address usage pricing, see [{#T}](../vpc/pricing.md) in the {{ vpc-full-name }} service documentation.
 
 #### Computing resources {#instance-resources}
@@ -55,7 +56,6 @@ OS usage on a VM is also charged. The cost depends on the OS license and the amo
 Let's compare the cost of running VMs on the Intel Broadwell [platform](concepts/vm-platforms.md) with different [vCPU performance levels](concepts/performance-levels.md).
 
 Two VMs were created running Linux OS:
-
 * 5% of vCPU and 1 GB RAM
 * 100% of vCPU and 1 GB RAM
 
@@ -109,7 +109,7 @@ Prices are shown for 1 hour of use. Billing occurs per second.
 
 ### VM computing resources {#prices-instance-resources}
 
-{% if region == "ru"%}
+{% if region == "ru" %}
 
 {% include [rub-instance-cpu.md](../_pricing/compute/rub-instance-cpu.md) %}
 
@@ -117,7 +117,7 @@ Prices are shown for 1 hour of use. Billing occurs per second.
 
 {% endif %}
 
-{% if region == "pre-kz"%}
+{% if region == "pre-kz" %}
 
 {% include [kzt-instance-cpu.md](../_pricing/compute/kzt-instance-cpu.md) %}
 
@@ -125,7 +125,7 @@ Prices are shown for 1 hour of use. Billing occurs per second.
 
 {% endif %}
 
-{% if region == "int"%}
+{% if region == "int" %}
 
 {% include [usd-instance-cpu.md](../_pricing/compute/usd-instance-cpu.md) %}
 
@@ -135,7 +135,7 @@ Prices are shown for 1 hour of use. Billing occurs per second.
 
 ### Preemptible VM computing resources {#prices-preemptible-instance-resources}
 
-{% if region == "ru"%}
+{% if region == "ru" %}
 
 {% include [rub-preemp-instance-cpu.md](../_pricing/compute/rub-preemp-instance-cpu.md) %}
 
@@ -143,7 +143,7 @@ Prices are shown for 1 hour of use. Billing occurs per second.
 
 {% endif %}
 
-{% if region == "pre-kz"%}
+{% if region == "pre-kz" %}
 
 {% include [kzt-preemp-instance-cpu.md](../_pricing/compute/kzt-preemp-instance-cpu.md) %}
 
@@ -151,7 +151,7 @@ Prices are shown for 1 hour of use. Billing occurs per second.
 
 {% endif %}
 
-{% if region == "int"%}
+{% if region == "int" %}
 
 {% include [usd-preemp-instance-cpu.md](../_pricing/compute/usd-preemp-instance-cpu.md) %}
 
@@ -161,19 +161,19 @@ Prices are shown for 1 hour of use. Billing occurs per second.
 
 ### Operating systems {#prices-os}
 
-{% if region == "ru"%}
+{% if region == "ru" %}
 
 {% include [rub-os.md](../_pricing/compute/rub-os.md) %}
 
 {% endif %}
 
-{% if region == "pre-kz"%}
+{% if region == "pre-kz" %}
 
 {% include [kzt-os.md](../_pricing/compute/kzt-os.md) %}
 
 {% endif %}
 
-{% if region == "int"%}
+{% if region == "int" %}
 
 {% include [usd-os.md](../_pricing/compute/usd-os.md) %}
 
@@ -181,7 +181,7 @@ Prices are shown for 1 hour of use. Billing occurs per second.
 
 For the following products, funds are debited once for the calendar month in advance when a VM is started, regardless of the actual amount of time the VM runs for:
 
-{% if region == "ru"%}
+{% if region == "ru" %}
 
 {% include [rub-os-win-server.md](../_pricing/compute/rub-os-win-server.md) %}
 
@@ -191,7 +191,7 @@ For the following products, funds are debited once for the calendar month in adv
 
 {% endif %}
 
-{% if region == "pre-kz"%}
+{% if region == "pre-kz" %}
 
 {% include [kzt-os-win-server.md](../_pricing/compute/kzt-os-win-server.md) %}
 
@@ -201,7 +201,7 @@ For the following products, funds are debited once for the calendar month in adv
 
 {% endif %}
 
-{% if region == "int"%}
+{% if region == "int" %}
 
 {% include [usd-os-win-server.md](../_pricing/compute/usd-os-win-server.md) %}
 
@@ -221,19 +221,19 @@ At the [Preview](../overview/concepts/launch-stages.md) stage, non-replicated di
 
 {% endnote %}
 
-{% if region == "ru"%}
+{% if region == "ru" %}
 
 {% include [rub-storage.md](../_pricing/compute/rub-storage.md) %}
 
 {% endif %}
 
-{% if region == "pre-kz"%}
+{% if region == "pre-kz" %}
 
 {% include [kzt-storage.md](../_pricing/compute/kzt-storage.md) %}
 
 {% endif %}
 
-{% if region == "int"%}
+{% if region == "int" %}
 
 {% include [usd-storage.md](../_pricing/compute/usd-storage.md) %}
 
@@ -241,7 +241,7 @@ At the [Preview](../overview/concepts/launch-stages.md) stage, non-replicated di
 
 ### Dedicated host computing resources {#dedicated-host}
 
-{% if region == "ru"%}
+{% if region == "ru" %}
 
 {% include [rub-host-cpu.md](../_pricing/compute/rub-host-cpu.md) %}
 
@@ -249,7 +249,7 @@ At the [Preview](../overview/concepts/launch-stages.md) stage, non-replicated di
 
 {% endif %}
 
-{% if region == "pre-kz"%}
+{% if region == "pre-kz" %}
 
 {% include [kzt-host-cpu.md](../_pricing/compute/kzt-host-cpu.md) %}
 
@@ -257,7 +257,7 @@ At the [Preview](../overview/concepts/launch-stages.md) stage, non-replicated di
 
 {% endif %}
 
-{% if region == "int"%}
+{% if region == "int" %}
 
 {% include [usd-host-cpu.md](../_pricing/compute/usd-host-cpu.md) %}
 
@@ -269,19 +269,19 @@ At the [Preview](../overview/concepts/launch-stages.md) stage, non-replicated di
 
 ### Software accelerated network {#software-accelerated-network}
 
-{% if region == "ru"%}
+{% if region == "ru" %}
 
 {% include [rub-network.md](../_pricing/compute/rub-network.md) %}
 
 {% endif %}
 
-{% if region == "pre-kz"%}
+{% if region == "pre-kz" %}
 
 {% include [kzt-network.md](../_pricing/compute/kzt-network.md) %}
 
 {% endif %}
 
-{% if region == "int"%}
+{% if region == "int" %}
 
 {% include [usd-network.md](../_pricing/compute/usd-network.md) %}
 
