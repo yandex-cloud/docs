@@ -67,37 +67,23 @@ editable: false
 
 Все цены указаны с включением НДС.
 
-### Лицензии {#licence}
+{% if region == "ru"%}
 
-Списание средств для следующих продуктов происходит единовременно в момент запуска ВМ из расчета за один календарный месяц вперед, вне зависимости от времени фактической работы ВМ:
+{% include [rub-pricing.md](../_pricing/managed-sqlserver/rub-pricing.md) %}
 
-Ресурс | Цена в месяц 
------ | ----- 
-Windows Server Standard* | 6 020  ₽ за хост 
-Microsoft SQL Server Standard |  23 586 ₽ за каждые 4 vCPU  
-Microsoft SQL Server Enterprise | 80 652 ₽ за каждые 4 vCPU
+{% endif %}
 
-\* Стоимость Windows Server Standard является фиксированной и не зависит от конфигурации ВМ
+{% if region == "pre-kz"%}
 
+{% include [kzt-pricing.md](../_pricing/managed-sqlserver/kzt-pricing.md) %}
 
-### Вычислительные ресурсы хостов {#prices-hosts}
+{% endif %}
 
-Ресурс | Цена за 1 час
------ | ----- 
-**Intel Cascade Lake** |
-100% vCPU | 1,2 ₽ 
-RAM (за 1 ГБ) | 0,32 ₽ 
+{% if region == "int"%}
 
+{% include [usd-pricing.md](../_pricing/managed-sqlserver/usd-pricing.md) %}
 
-### Хранилище и резервные копии {#prices-storage}
-
-Услуга | Цена за ГБ в месяц
------ | -----
-Стандартное сетевое хранилище | 2,2881 ₽ |
-Быстрое сетевое хранилище | 8,1356 ₽ |
-Быстрое локальное хранилище | 8,1356 ₽ |
-Резервные копии сверх размера хранилища | 2,5424 ₽
-
+{% endif %}
 
 ### Исходящий трафик {#prices-traffic}
 
@@ -125,28 +111,22 @@ RAM (за 1 ГБ) | 0,32 ₽
 
 {% include [host-class-price-alert](../_includes/mdb/pricing-host-class-alert.md) %}
 
-За месяц работы хоста из расчета 720 часов в месяц, округлено до целых рублей
+За месяц работы хоста из расчета 720 часов в месяц, округлено до целых рублей.
 
-Класс хостов | Цена за стандартную лицензию |  Цена за энтерпрайз лицензию
------ | ----- | ----- 
-**Intel Cascade Lake** |
-{{ m2-small }} | 40 435 ₽ | 97 501 ₽ 
-{{ m2-medium }}| 57 642 ₽ | 143 241 ₽ 
-{{ m2-large }} | 74 850 ₽ | 188 982 ₽ 
-{{ m2-xlarge }} | 109 264 ₽ | 280 462 ₽ 
-{{ m2-2xlarge }} | 143 679 ₽ | 371 943 ₽ 
-{{ m2-3xlarge }} | класс хоста не доступен | 554 905 ₽ 
-{{ m2-4xlarge }} | класс хоста не доступен | 737 866 ₽ 
-{{ m2-5xlarge }} | класс хоста не доступен | 920 828 ₽ 
-{{ m2-6xlarge }} | класс хоста не доступен | 1 103 790 ₽ 
-{{ m2-7xlarge }} | класс хоста не доступен | 1 286 751 ₽ 
-{{ m2-8xlarge }} | класс хоста не доступен | 1 469 713 ₽ 
-{{ s2-small }} | 36 748 ₽ | 93814 ₽ 
-{{ s2-medium }} | 67 477 ₽ | 181 609 ₽ 
-{{ s2-large }} | 98 205 ₽ | 269 403 ₽ 
-{{ s2-xlarge }} | 128 934 ₽ | 357 198 ₽ 
-{{ s2-2xlarge }} | 190 390 ₽ | 532 786 ₽ 
-{{ s2-3xlarge }} | класс хоста недоступен | 708 375 ₽ 
-{{ s2-4xlarge }} | класс хоста недоступен | 883 964 ₽ 
-{{ s2-5xlarge }} | класс хоста недоступен | 1 059 553 ₽ 
-{{ s2-6xlarge }} | класс хоста недоступен | 1 410 730 ₽ 
+{% if region == "ru"%}
+
+{% include [rub-licence.md](../_pricing/managed-sqlserver/rub-licence.md) %}
+
+{% endif %}
+
+{% if region == "pre-kz"%}
+
+{% include [kzt-licence.md](../_pricing/managed-sqlserver/kzt-licence.md) %}
+
+{% endif %}
+
+{% if region == "int"%}
+
+{% include [usd-licence.md](../_pricing/managed-sqlserver/usd-licence.md) %}
+
+{% endif %}

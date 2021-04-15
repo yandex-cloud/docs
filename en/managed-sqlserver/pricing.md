@@ -59,77 +59,23 @@ The cost is specified for one month of use. The minimum billing unit is 1 GB per
 
 ## Pricing {#prices}
 
-### Licenses {#licence}
+{% if region == "ru"%}
 
-For the following products, funds are debited once for the calendar month in advance when a VM is started, regardless of the actual amount of time the VM runs for:
+{% include [rub-pricing.md](../_pricing/managed-sqlserver/rub-pricing.md) %}
 
-{% list tabs %}
+{% endif %}
 
-- Prices in USD, without VAT
+{% if region == "pre-kz"%}
 
-  | Resource | Cost per month |
-  | ----- | ----- |
-  | Windows Server Standard* | $77.179488 per host |
-  | Microsoft SQL Server Standard | $302.384620 for every 4 vCPUs |
-  | Microsoft SQL Server Enterprise | $1 034.000014 for every 4 vCPUs |
+{% include [kzt-pricing.md](../_pricing/managed-sqlserver/kzt-pricing.md) %}
 
-- Prices in roubles, with VAT
+{% endif %}
 
-  | Resource | Cost per month |
-  | ----- | ----- |
-  | Windows Server Standard* | ₽6 020 per host |
-  | Microsoft SQL Server Standard | ₽23 586 for every 4 vCPUs |
-  | Microsoft SQL Server Enterprise | ₽80 652 for every 4 vCPUs |
+{% if region == "int"%}
 
-{% endlist %}
+{% include [usd-pricing.md](../_pricing/managed-sqlserver/usd-pricing.md) %}
 
-\* Windows Server Standard is provided at a fixed price that doesn't depend on VM configurations.
-
-### Host computing resources {#prices-hosts}
-
-{% list tabs %}
-
-- Prices in USD, without VAT
-
-  | Resource | Cost for 1 hour |
-  | ----- | ----- |
-  | **Intel Cascade Lake** |
-  | 100% vCPU | $0.015385 |
-  | RAM (for 1 GB) | $0.004103 |
- 
-- Prices in roubles, with VAT
-
-  | Resource | Cost for 1 hour |
-  | ----- | ----- |
-  | **Intel Cascade Lake** |
-  | 100% vCPU | ₽1.20 |
-  | RAM (for 1 GB) | ₽0.32 |
-
-{% endlist %}
-
-### Storage and backups {#prices-storage}
-
-{% list tabs %}
-
-- Prices in USD, without VAT
-
-  | Service | Cost of 1 GB per month |
-  | ----- | ----- |
-  | Standard network storage |  $0.029335 |
-  | Fast network storage |  $0.104302 |
-  | Fast local storage |  $0.104302 |
-  | Backups beyond the storage size |  $0.032594 |
-  
-- Prices in roubles, with VAT
-
-  | Service | Cost of 1 GB per month |
-  | ----- | ----- |
-  | Standard network storage |  ₽2.2881 |
-  | Fast network storage |  ₽8.1356 |
-  | Fast local storage |  ₽8.1356 |
-  | Backups beyond the storage size |  ₽2.5424 |
-
-{% endlist %}
+{% endif %}
 
 ### Outgoing traffic {#prices-traffic}
 
@@ -157,62 +103,20 @@ Prices for the time of host uptime are calculated based on [host classes](concep
 
 {% include [host-class-price-alert](../_includes/mdb/pricing-host-class-alert.md) %}
 
-{% list tabs %}
+{% if region == "ru"%}
 
-- Prices in USD, without VAT
+{% include [rub-licence.md](../_pricing/managed-sqlserver/rub-licence.md) %}
 
-  For a month of host operation at the rate of 720 hours per month, rounded to an integer, USD.
+{% endif %}
 
-  | Host class | Cost of a standard license | Cost of an enterprise license |
-  | ----- | ----- | ----- |
-  | **Intel Cascade Lake** |
-  | {{ m2-small }} | $518 | $1 250 |
-  | {{ m2-medium }} | $739 | $1 836 |
-  | {{ m2-large }} | $960 | $2 423 |
-  | {{ m2-xlarge }} | $1 401 | $3 596 |
-  | {{ m2-2xlarge }} | $1 842 | $4 769 |
-  | {{ m2-3xlarge }} | The host class is not available | $7 114 |
-  | {{ m2-4xlarge }} | The host class is not available | $9 460 |
-  | {{ m2-5xlarge }} | The host class is not available | $11 805 |
-  | {{ m2-6xlarge }} | The host class is not available | $14 151 |
-  | {{ m2-7xlarge }} | The host class is not available | $16 497 |
-  | {{ m2-8xlarge }} | The host class is not available | $18 842 |
-  | {{ s2-small }} | $471 | $1 203 |
-  | {{ s2-medium }} | $865 | $2 328 |
-  | {{ s2-large }} | $1 259 | $3 454 |
-  | {{ s2-xlarge }} | $1 653 | $4 579 |
-  | {{ s2-2xlarge }} | $2 441 | $6 831 |
-  | {{ s2-3xlarge }} | The host class is not available |  $9 082 |
-  | {{ s2-4xlarge }} | The host class is not available |  $11 333 |
-  | {{ s2-5xlarge }} | The host class is not available |  $13 584 |
-  | {{ s2-6xlarge }} | The host class is not available |  $18 086 |
-  
-- Prices in roubles, with VAT
+{% if region == "pre-kz"%}
 
-  For a month of host operation at the rate of 720 hours per month, rounded to an integer, RUB.
+{% include [kzt-licence.md](../_pricing/managed-sqlserver/kzt-licence.md) %}
 
-  | Host class | Cost of a standard license | Cost of an enterprise license |
-  | ----- | ----- | ----- |
-  | **Intel Cascade Lake** |
-  | {{ m2-small }} | ₽40 435 | ₽97 501 |
-  | {{ m2-medium }} | ₽57 642 | ₽143 241 |
-  | {{ m2-large }} | ₽74 850 | ₽188 982 |
-  | {{ m2-xlarge }} | ₽109 264 | ₽280 462 |
-  | {{ m2-2xlarge }} | ₽143 679 | ₽371 943 |
-  | {{ m2-3xlarge }} | The host class is not available | ₽554 905 |
-  | {{ m2-4xlarge }} | The host class is not available | ₽737 866 |
-  | {{ m2-5xlarge }} | The host class is not available | ₽920 828 |
-  | {{ m2-6xlarge }} | The host class is not available | ₽1 103 790 |
-  | {{ m2-7xlarge }} | The host class is not available | ₽1 286 751 |
-  | {{ m2-8xlarge }} | The host class is not available | ₽1 469 713 |
-  | {{ s2-small }} | ₽36 748 | ₽93 814 |
-  | {{ s2-medium }} | ₽67 477 | ₽181 609 |
-  | {{ s2-large }} | ₽98 205 | ₽269 403 |
-  | {{ s2-xlarge }} | ₽128 934 | ₽357 198 |
-  | {{ s2-2xlarge }} | ₽190 390 | ₽532 786 |
-  | {{ s2-3xlarge }} | The host class is not available |  ₽708 375 |
-  | {{ s2-4xlarge }} | The host class is not available |  ₽883 964 |
-  | {{ s2-5xlarge }} | The host class is not available |  ₽1 059 553 |
-  | {{ s2-6xlarge }} | The host class is not available |  ₽1 410 730 |
+{% endif %}
 
-{% endlist %}
+{% if region == "int"%}
+
+{% include [usd-licence.md](../_pricing/managed-sqlserver/usd-licence.md) %}
+
+{% endif %}
