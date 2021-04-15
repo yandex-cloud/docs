@@ -56,27 +56,43 @@ editable: false
 
 ### Вычислительные ресурсы хостов {#prices-hosts}
 
-Ресурс | Цена за 1 час | Цена с CVoS на 1 год | Цена с CVoS на 3 года
------ | ----- | ----- | -----
-**Intel Broadwell** |
-5% vCPU (**burstable**, 2 ГБ RAM) | 0,01 ₽ | — | —
-20% vCPU (**burstable**, 4 ГБ RAM) | 0,23 ₽ | — | —
-100% vCPU (**high-memory**) | 1,25 ₽ | — | — 
-RAM (за 1 ГБ) | 0,34 ₽ | — | — 
-**Intel Cascade Lake** |
-5% vCPU | 0,07 ₽ | — | —
-50% vCPU | 0,63 ₽ | — | —
-100% vCPU | 1,05 ₽ | 0,74 ₽ (-30%) | 0,57 ₽ (-46%)
-RAM (за 1 ГБ) | 0,28 ₽ | 0,18 ₽ (-36%) | 0,14 ₽ (-50%)
+{% if region == "ru"%}
 
+{% include [rub-host.md](../_pricing/managed-redis/rub-host.md) %}
+
+{% endif %}
+
+{% if region == "pre-kz"%}
+
+{% include [kzt-host.md](../_pricing/managed-redis/kzt-host.md) %}
+
+{% endif %}
+
+{% if region == "int"%}
+
+{% include [usd-host.md](../_pricing/managed-redis/usd-host.md) %}
+
+{% endif %}
 
 ### Хранилище и резервные копии {#prices-storage}
 
-Услуга | Цена за ГБ в месяц
------ | -----
-Быстрое сетевое хранилище  | 8,1356 ₽ |
-Резервные копии сверх размера хранилища  | 2,5424 ₽
+{% if region == "ru"%}
 
+{% include [rub-storage.md](../_pricing/managed-redis/rub-storage.md) %}
+
+{% endif %}
+
+{% if region == "pre-kz"%}
+
+{% include [kzt-storage.md](../_pricing/managed-redis/kzt-storage.md) %}
+
+{% endif %}
+
+{% if region == "int"%}
+
+{% include [usd-storage.md](../_pricing/managed-redis/usd-storage.md) %}
+
+{% endif %}
 
 ### Исходящий трафик {#prices-traffic}
 
@@ -104,94 +120,20 @@ RAM (за 1 ГБ) | 0,28 ₽ | 0,18 ₽ (-36%) | 0,14 ₽ (-50%)
 
 {% include [host-class-price-alert](../_includes/mdb/pricing-host-class-alert.md) %}
 
-{% list tabs %}
+{% if region == "ru"%}
 
-- За месяц работы хоста
+{% include [rub-class.md](../_pricing/managed-redis/rub-class.md) %}
 
-  Из расчета 720 часов в месяц, округлено до целых рублей.
-  
-  Класс хостов | Цена за месяц | Цена с CVoS на 1 год | Цена с CVoS на 3 года
-  ----- | ----- | ----- | -----
-  **Intel Broadwell** | 
-  {{ b1-nano }} | 504 ₽ | — | — 
-  {{ b1-small }} | 1 310 ₽ | — | — 
-  {{ hm1-nano }} | 3 758 ₽ | — | — 
-  {{ hm1-micro }} | 4 738 ₽ | — | — 
-  {{ hm1-small }} | 5 717 ₽ | — | — 
-  {{ hm1-medium }} | 9 475 ₽ | — | — 
-  {{ hm1-large }} | 11 434 ₽ | — | — 
-  {{ hm1-xlarge }} | 15 350 ₽ | — | — 
-  {{ hm1-2xlarge }} | 19 267 ₽ | — | — 
-  {{ hm1-3xlarge }} | 23 184 ₽ | — | — 
-  {{ hm1-4xlarge }} | 30 701 ₽ | — | — 
-  {{ hm1-5xlarge }} | 38 534 ₽ | — | — 
-  {{ hm1-6xlarge }} | 46 368 ₽ | — | — 
-  {{ hm1-7xlarge }} | 54 202 ₽ | — | — 
-  {{ hm1-8xlarge }} | 62 035 ₽ | — | — 
-  {{ hm1-9xlarge }} | 69 869 ₽ | — | — 
-  **Intel Cascade Lake** | 
-  {{ b2-nano }} | 504 ₽ | — | —
-  {{ b2-medium }} | 1 714 ₽ | — | — 
-  {{ hm2-nano }} | 3 125 ₽ | 2 102 ₽ (-33%) | 1 627 ₽ (-48%)
-  {{ hm2-micro }} | 3 931 ₽ | 2 621 ₽ (-33%) | 2 030 ₽ (-48%)
-  {{ hm2-small }} | 6 250 ₽ | 4 205 ₽ (-33%) | 3 254 ₽ (-48%)
-  {{ hm2-medium }} | 7 862 ₽ | 5 242 ₽ (-33%) | 4 061 ₽ (-48%)
-  {{ hm2-large }} | 9 475 ₽ | 6 278 ₽ (-34%) | 4 867 ₽ (-49%)
-  {{ hm2-xlarge }} | 12 701 ₽ | 8 352 ₽ (-34%) | 6 480 ₽ (-49%)
-  {{ hm2-60xlarge }} | 16 632 ₽ | 10 973 ₽ (-34%) | 8 510 ₽ (-49%)
-  {{ hm2-78xlarge }} | 20 261 ₽ | 13 306 ₽ (-34%) | 10 325 ₽ (-49%)
-  {{ hm2-96xlarge }} | 23 890 ₽ | 15 638 ₽ (-35%) | 12 139 ₽ (-49%)
-  {{ hm2-128xlarge }} | 31 853 ₽ | 20 851 ₽ (-35%) | 16 186 ₽ (-49%)
-  {{ hm2-160xlarge }} | 39 816 ₽ | 26 064 ₽ (-35%) | 20 232 ₽ (-49%)
-  {{ hm2-192xlarge }} | 47 779 ₽ | 31 277 ₽ (-35%) | 24 278 ₽ (-49%)
-  {{ hm2-224xlarge }} | 55 742 ₽ | 36 490 ₽ (-35%) | 28 325 ₽ (-49%)
-  {{ hm2-256xlarge }} | 63 706 ₽ | 41 702 ₽ (-35%) | 32 371 ₽ (-49%)
-  {{ hm2-320xlarge }} | 79 632 ₽ | 52 128 ₽ (-35%) | 40 464 ₽ (-49%)
-  {{ hm2-384xlarge }} | 95 558 ₽ | 62 554 ₽ (-35%) | 48 557 ₽ (-49%)
-  {{ hm2-448xlarge }} | 111 485 ₽ | 72 979 ₽ (-35%) | 56 650 ₽ (-49%)
-  {{ hm2-512xlarge }} | 127 411 ₽ | 83 405 ₽ (-35%) | 64 742 ₽ (-49%)
+{% endif %}
 
-- За 1 час работы хоста
+{% if region == "pre-kz"%}
 
-  Класс хостов | Цена за час | Цена с CVoS на 1 год | Цена с CVoS на 3 года
-  ----- | ----- | ----- | -----
-  **Intel Broadwell** | 
-  {{ b1-nano }} | 0,70 ₽ | — | — 
-  {{ b1-small }} | 1,82 ₽ | — | — 
-  {{ hm1-nano }} | 5,22 ₽ | — | — 
-  {{ hm1-micro }} | 6,58 ₽ | — | — 
-  {{ hm1-small }} | 7,94 ₽ | — | — 
-  {{ hm1-medium }} | 13,16 ₽ | — | — 
-  {{ hm1-large }} | 15,88 ₽ | — | — 
-  {{ hm1-xlarge }} | 21,32 ₽ | — | — 
-  {{ hm1-2xlarge }} | 26,76 ₽ | — | — 
-  {{ hm1-3xlarge }} | 32,20 ₽ | — | — 
-  {{ hm1-4xlarge }} | 42,64 ₽ | — | — 
-  {{ hm1-5xlarge }} | 53,52 ₽ | — | — 
-  {{ hm1-6xlarge }} | 64,40 ₽ | — | — 
-  {{ hm1-7xlarge }} | 75,28 ₽ | — | — 
-  {{ hm1-8xlarge }} | 86,16 ₽ | — | — 
-  {{ hm1-9xlarge }} | 97,04 ₽ | — | —  
-  **Intel Cascade Lake** | 
-  {{ b2-nano }} | 0,70 ₽ | — | — 
-  {{ b2-medium }} | 2,38 ₽ | — | — 
-  {{ hm2-nano }} | 4,34 ₽ | 2,92 ₽ (-33%) | 2,26 ₽ (-48%)
-  {{ hm2-micro }} | 5,46 ₽ | 3,64 ₽ (-33%) | 2,82 ₽ (-48%)
-  {{ hm2-small }} | 8,68 ₽ | 5,84 ₽ (-33%) | 4,52 ₽ (-48%)
-  {{ hm2-medium }} | 10,92 ₽ | 7,28 ₽ (-33%) | 5,64 ₽ (-48%)
-  {{ hm2-large }} | 13,16 ₽ | 8,72 ₽ (-34%) | 6,76 ₽ (-49%)
-  {{ hm2-xlarge }} | 17,64 ₽ | 11,60 ₽ (-34%) | 9,00 ₽ (-49%)
-  {{ hm2-60xlarge }} | 23,10 ₽ | 15,24 ₽ (-34%) | 11,82 ₽ (-49%)
-  {{ hm2-78xlarge }} | 28,14 ₽ | 18,48 ₽ (-34%) | 14,34 ₽ (-49%)
-  {{ hm2-96xlarge }} | 33,18 ₽ | 21,72 ₽ (-35%) | 16,86 ₽ (-49%)
-  {{ hm2-128xlarge }} | 44,24 ₽ | 28,96 ₽ (-35%) | 22,48 ₽ (-49%)
-  {{ hm2-160xlarge }} | 55,30 ₽ | 36,20 ₽ (-35%) | 28,10 ₽ (-49%)
-  {{ hm2-192xlarge }} | 66,36 ₽ | 43,44 ₽ (-35%) | 33,72 ₽ (-49%)
-  {{ hm2-224xlarge }} | 77,42 ₽ | 50,68 ₽ (-35%) | 39,34 ₽ (-49%)
-  {{ hm2-256xlarge }} | 88,48 ₽ | 57,92 ₽ (-35%) | 44,96 ₽ (-49%)
-  {{ hm2-320xlarge }} | 110,60 ₽ | 72,40 ₽ (-35%) | 56,20 ₽ (-49%)
-  {{ hm2-384xlarge }} | 132,72 ₽ | 86,88 ₽ (-35%) | 67,44 ₽ (-49%)
-  {{ hm2-448xlarge }} | 154,84 ₽ | 101,36 ₽ (-35%) | 78,68 ₽ (-49%)
-  {{ hm2-512xlarge }} | 176,96 ₽ | 115,84 ₽ (-35%) | 89,92 ₽ (-49%)
+{% include [kzt-class.md](../_pricing/managed-redis/kzt-class.md) %}
 
-{% endlist %}
+{% endif %}
+
+{% if region == "int"%}
+
+{% include [usd-class.md](../_pricing/managed-redis/usd-class.md) %}
+
+{% endif %}
