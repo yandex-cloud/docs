@@ -1,3 +1,5 @@
+For a month of host operation at the rate of 720 hours per month, rounded to an integer, RUB:
+
   Host class | Rate for 1 month | With CVoS for 1 year | With CVoS for 3 years
   ----- | ----- | ----- | -----
   **Intel Broadwell** |

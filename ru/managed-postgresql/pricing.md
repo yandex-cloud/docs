@@ -135,8 +135,6 @@ editable: false
 
 - За месяц работы хоста
 
-  Из расчета 720 часов в месяц, округлено до целых рублей.
-
   {% if region == "ru" %}
 
   {% include notitle [rub-calculated-month.md](../_pricing/managed-postgresql/rub-calculated-month.md) %}
