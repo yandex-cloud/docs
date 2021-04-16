@@ -28,7 +28,7 @@ The cost of using {{ tracker-name }} [is based on the number of users with full 
 
 {{ tracker-full-name }} is automatically activated for the organization you selected or created.
 
-For more information about managing organizations, see the documentation for [{{ org-full-name }}](../organization/index.yaml).
+For more information about managing organizations, see the documentation for [{{ org-full-name }}]({{ link-org-main }}).
 
 ## Add users {#add-users}
 
@@ -72,7 +72,7 @@ To create an identity federation:
 
 Users with corporate accounts can [log in to {{ tracker-name }}](user/login.md) by clicking **Log in via SSO**.
 
-For more information about creating identity federation, see the documentation for [{{ org-full-name }}](../organization/add-federation.md).
+For more information about creating identity federation, see the documentation for [{{ org-full-name }}]({{ link-org-add-federation }}).
 
 
 #### Create user accounts {#create_users}
