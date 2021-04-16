@@ -11,7 +11,7 @@ At the rate of 720 hours per month.
   | Host class | Cost per month, with VAT | Cost with CVoS for 1 year, with VAT |
   | ----- | ----- | ----- |
   | **Intel Cascade Lake** |
-  | s2-medium | ₸84 672.0000 | ₸58 406.4000 (-31%) |
+  | s2-medium | ₸84672.0000 | ₸58406.4000 (-31%) |
 
 - Per hour per DB with 1 VM
 
