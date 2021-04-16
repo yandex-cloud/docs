@@ -1,0 +1,52 @@
+# yc managed-kafka cluster update
+
+Modify configuration or attributes of a Kafka cluster.
+
+#### Command Usage
+
+Syntax: 
+
+`yc managed-kafka cluster update <CLUSTER-NAME|CLUSTER-ID> [Flags...] [Global Flags...]`
+
+#### Global Flags
+
+| Flag | Description |
+|----|----|
+|`--id`|<b>`string`</b><br/> Kafka cluster id.|
+|`--name`|<b>`string`</b><br/> Kafka cluster name.|
+|`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
+|`--new-name`|<b>`string`</b><br/> New name for the Kafka cluster.|
+|`--description`|<b>`string`</b><br/> New description of the Kafka cluster. --labels key=value[,key=value...] New set of labels for the Kafka cluster as key-value pairs. Existing set of labels will be completely overwritten. --security-group-ids value[,value] A list of security groups for the Kafka cluster. --zone-ids value[,value] List of availability zones.|
+|`--brokers-count`|<b>`int`</b><br/> Count of brokers in each availability zone.|
+|`--resource-preset`|<b>`string`</b><br/> Resource preset for computational resources available to a Kafka host (CPU, RAM etc.).|
+|`--disk-size`|<b>`byteSize`</b><br/> Storage volume available to a Kafka host.|
+|`--zookeeper-resource-preset`|<b>`string`</b><br/> Resource preset for computational resources available to a ZooKeeper host (CPU, RAM etc.).|
+|`--zookeeper-disk-size`|<b>`byteSize`</b><br/> Storage volume available to a ZooKeeper host.|
+|`--unmanaged-topics`| Whether a Kafka cluster allows to manage topics via AdminAPI.|
+|`--compression-type`|<b>`string`</b><br/> Allows to set Kafka cluster configuration property "compression.type". Possible values are: gzip, snappy, lz4, zstd, producer, uncompressed.|
+|`--log-flush-interval-messages`|<b>`int`</b><br/> Allows to set Kafka cluster configuration property "log.flush.interval.messages". The number of messages accumulated on a log partition before messages are flushed to disk.|
+|`--log-flush-interval-ms`|<b>`int`</b><br/> Allows to set Kafka cluster configuration property "log.flush.interval.ms". The maximum time in ms that a message in any topic is kept in memory before flushed to disk.|
+|`--log-flush-scheduler-interval-ms`|<b>`int`</b><br/> Allows to set Kafka cluster configuration property "log.flush.scheduler.interval.ms". The frequency in ms that the log flusher checks whether any log needs to be flushed to disk.|
+|`--log-retention-bytes`|<b>`int`</b><br/> Allows to set Kafka cluster configuration property "log.retention.bytes". The maximum size of the log before deleting it.|
+|`--log-retention-hours`|<b>`int`</b><br/> Allows to set Kafka cluster configuration property "log.retention.hours". The number of hours to keep a log file before deleting it.|
+|`--log-retention-minutes`|<b>`int`</b><br/> Allows to set Kafka cluster configuration property "log.retention.minutes". The number of minutes to keep a log file before deleting it.|
+|`--log-retention-ms`|<b>`int`</b><br/> Allows to set Kafka cluster configuration property "log.retention.ms". The number of milliseconds to keep a log file before deleting it.|
+|`--log-segment-bytes`|<b>`int`</b><br/> Allows to set Kafka cluster configuration property "log.segment.bytes". The maximum size of a single log file.|
+|`--log-preallocate`| Allows to set Kafka cluster configuration property "log.preallocate". Should pre allocate file when create new segment?|
+|`--auto-create-topics-enable`| Allows to set Kafka cluster configuration property "auto.create.topics.enable". Enable auto creation of topic on the server.|
+
+#### Flags
+
+| Flag | Description |
+|----|----|
+|`--profile`|<b>`string`</b><br/>Set the custom configuration file.|
+|`--debug`|Debug logging.|
+|`--debug-grpc`|Debug gRPC logging. Very verbose, used for debugging connection problems.|
+|`--no-user-output`|Disable printing user intended output to stderr.|
+|`--retry`|<b>`int`</b><br/>Enable gRPC retries. By default, retries are enabled with maximum 5 attempts. Pass 0 to disable retries. Pass any negative value for infinite retries. Even infinite retries are capped with 2 minutes timeout.|
+|`--cloud-id`|<b>`string`</b><br/>Set the ID of the cloud to use.|
+|`--folder-id`|<b>`string`</b><br/>Set the ID of the folder to use.|
+|`--folder-name`|<b>`string`</b><br/>Set the name of the folder to use (will be resolved to id).|
+|`--token`|<b>`string`</b><br/>Set the OAuth token to use.|
+|`--format`|<b>`string`</b><br/>Set the output format: text (default), yaml, json, json-rest.|
+|`-h`,`--help`|Display help for the command.|
