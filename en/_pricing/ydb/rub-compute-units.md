@@ -4,4 +4,4 @@
 | ----- | ----- | ----- |
 | **Intel Cascade Lake** |
 100% vCPU | {{ sku|RUB|ydb.cluster.v2.cpu|string }} | ₽0.8500 (-28%)
-RAM (for 1 GB) | {{ sku|USD|ydb.cluster.v2.ram|string }} | ₽0.2100 (-35%)
+RAM (for 1 GB) | {{ sku|RUB|ydb.cluster.v2.ram|string }} | ₽0.2100 (-35%)
