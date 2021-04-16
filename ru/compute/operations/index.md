@@ -73,6 +73,7 @@
 
 ## Создание нового образа {#image-create}
 
+* [{#T}](image-create/custom-image.md)
 * [{#T}](image-create/upload.md)
 
 ## Управление образом {#image-control}
