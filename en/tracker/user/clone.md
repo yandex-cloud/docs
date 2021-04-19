@@ -34,5 +34,4 @@ To clone an issue:
 1. Click **Clone**.
 
 
-[Contact support](../troubleshooting.md)
 

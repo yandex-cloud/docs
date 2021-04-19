@@ -167,37 +167,13 @@ When calculating the actual consumption, the number of requests is averaged ever
 
 ## Pricing {#prices}
 
-All prices are shown with VAT. Prices are given for a 30-day month. For shorter months, the price is higher. For longer months, it's lower.
 
-{% list tabs %}
 
-- Prices in USD
 
-   | Service | Cost, without VAT |
-   | ------------------------------------------------ | ---------------------- |
-   | Data operations, less than 1 million RU per month | Free |
-   | Data operations, over 1 million RU per month |  $0.171282 per 1 million RU |
-   | Data operations with a 1-month commitment |  $0.028461 per hour per 100 RU/s |
-   | Data storage, less than 1 GB per month | Free |
-   | Data storage, more than 1 GB per month | $0.171923 per 1 GB per month |
-   | Making on-demand backups | $0.004359 per 1 GB |
-   | Restoring data from backups | $0.082051 per 1 GB |
-   | Storage of on-demand backups in {{ objstorage-full-name }} | $0.016166 per 1 GB per month |
+{% include notitle [usd-serverless](../../_pricing/ydb/usd-serverless.md) %}
 
-- Prices in roubles
 
-   | Service | Cost, with VAT |
-   | ------------------------------------------------ | ---------------------- |
-   | Data operations, less than 1 million RU per month | Free |
-   | Data operations, over 1 million RU per month |  ₽13.36 per 1 million RU |
-   | Data operations with a 1-month commitment |  ₽2.22 per hour per 100 RU/s |
-   | Data storage, less than 1 GB per month | Free |
-   | Data storage, more than 1 GB per month | ₽13.41 per 1 GB per month |
-   | Making on-demand backups | ₽0.34 per 1 GB |
-   | Restoring data from backups | ₽6.40 per 1 GB |
-   | Storage of on-demand backups in {{ objstorage-full-name }} | ₽1.261 per 1 GB per month |
 
-{% endlist %}
 
-{% include notitle [pricing-egress-traffic](../_includes/pricing/pricing-egress-traffic.md) %}
+{% include notitle [usd-egress-traffic.md](../../_pricing/usd-egress-traffic.md) %}
 

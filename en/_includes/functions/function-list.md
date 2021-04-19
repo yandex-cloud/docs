@@ -1,7 +1,6 @@
 {% list tabs %}
 
 - Management console
-
 	1. In the [management console]({{ link-console-main }}), go to the folder where you want to view a list of functions.
 	1. Open **{{ sf-name }}**.
 	1. Go to the **Functions** tab.
@@ -10,9 +9,9 @@
 
 	{% include [cli-install](../cli-install.md) %}
 
-	{% include [default-catalogue](../default-catalogue.md) %}
+    {% include [default-catalogue](../default-catalogue.md) %}
 
-	Get a list of functions:
+	To get a list of functions, run the command:
 
 	```
 	yc serverless function list
@@ -33,3 +32,4 @@
 	You can get a list of functions using the [list](../../functions/functions/api-ref/Function/list.md) API method.
 
 {% endlist %}
+

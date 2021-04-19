@@ -144,5 +144,4 @@ To move an issue:
 1. If necessary, specify the issue parameters and click **Move**.
 
 
-[Contact support](../troubleshooting.md)
 

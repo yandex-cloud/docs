@@ -1,4 +1,4 @@
-# Work schedule
+# Work schedules
 
 {% note warning %}
 
@@ -47,7 +47,4 @@ The schedule you created will be available in the **My schedules** section. Othe
 1. Click **Edit**.
 
 1. Make your changes and click **Save**.
-
-
-[Contact support](../troubleshooting.md)
 

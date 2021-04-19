@@ -1,0 +1,42 @@
+# yc managed-sqlserver cluster create
+
+Create SQLServer cluster
+
+#### Command Usage
+
+Syntax: 
+
+`yc managed-sqlserver cluster create <CLUSTER-NAME> [Flags...] [Global Flags...]`
+
+#### Global Flags
+
+| Flag | Description |
+|----|----|
+|`--name`|<b>`string`</b><br/> Cluster name.|
+|`--description`|<b>`string`</b><br/> Cluster description.|
+|`--environment`|<b>`string`</b><br/> Cluster environment. Values: production, prestable.|
+|`--network-id`|<b>`string`</b><br/> Network id.|
+|`--network-name`|<b>`string`</b><br/> Network name. --host PROPERTY=VALUE[,PROPERTY=VALUE...] Individual configurations for hosts that should be created for the SQLServer cluster.  Possible property names:  zone-id ID of the availability zone where the host resides.  subnet-id ID of the subnet that the host should be created in.  subnet-name Name of the subnet that the host should be created in.  assign-public-ip Whether the host should get a public IP address on creation.   --user PROPERTY=VALUE[,PROPERTY=VALUE...] Descriptions of database users to be created in the SQLServer cluster.  Possible property names:  name Name of the SQLServer user.  password Password of the SQLServer user.   --database PROPERTY=VALUE[,PROPERTY=VALUE...] Descriptions of databases to be created in the SQLServer cluster.  Possible property names:  name Name of the SQLServer database.  |
+|`--sqlserver-version`|<b>`string`</b><br/> Version of SQLServer used in the cluster. Values: 2016sp2std, 2016sp2ent|
+|`--resource-preset`|<b>`string`</b><br/> ID of the preset for computational resources available to a host (CPU, memory etc.).|
+|`--disk-size`|<b>`byteSize`</b><br/> Volume of the storage available to a host.|
+|`--disk-type`|<b>`string`</b><br/> Type of the storage environment for the host.|
+|`--backup-window-start`|<b>`timeofday`</b><br/> Start time for the daily backup in UTC timezone. Format: HH:MM:SS --labels key=value[,key=value...] A list of label KEY=VALUE pairs to add. --security-group-ids value[,value] A list of security groups for the SQLServer cluster.|
+|`--confirm-payment`| Confirm immediate payment for cluster creation/restoring|
+|`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
+
+#### Flags
+
+| Flag | Description |
+|----|----|
+|`--profile`|<b>`string`</b><br/>Set the custom configuration file.|
+|`--debug`|Debug logging.|
+|`--debug-grpc`|Debug gRPC logging. Very verbose, used for debugging connection problems.|
+|`--no-user-output`|Disable printing user intended output to stderr.|
+|`--retry`|<b>`int`</b><br/>Enable gRPC retries. By default, retries are enabled with maximum 5 attempts. Pass 0 to disable retries. Pass any negative value for infinite retries. Even infinite retries are capped with 2 minutes timeout.|
+|`--cloud-id`|<b>`string`</b><br/>Set the ID of the cloud to use.|
+|`--folder-id`|<b>`string`</b><br/>Set the ID of the folder to use.|
+|`--folder-name`|<b>`string`</b><br/>Set the name of the folder to use (will be resolved to id).|
+|`--token`|<b>`string`</b><br/>Set the OAuth token to use.|
+|`--format`|<b>`string`</b><br/>Set the output format: text (default), yaml, json, json-rest.|
+|`-h`,`--help`|Display help for the command.|

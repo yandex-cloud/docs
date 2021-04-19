@@ -46,5 +46,3 @@ You can configure how issues are displayed in the list or download the list as a
 - To save the issue list, click ![](../../_assets/tracker/icon-download.png) to the right above the list and select the format of the file to download or simply copy the list to the clipboard.
 
 
-[Contact support](../troubleshooting.md)
-

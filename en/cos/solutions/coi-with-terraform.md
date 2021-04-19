@@ -48,6 +48,7 @@ If you don't have Terraform, [install it and configure the {{ yandex-cloud }} pr
 1. Create a cloud specification file named `cloud_config.yaml` in the `~/yandex-cloud-terraform` directory. Describe the specification:
 
    ```yaml
+   #cloud-config
    ssh_pwauth: no
    users:
      - name: yc-user
@@ -126,13 +127,13 @@ Run the VM with a {{ coi }} using the Terraform configuration.
 
         ```bash
         data.yandex_compute_image.container-optimized-image: Refreshing state...
-        
+
         An execution plan has been generated and is shown below.
         Resource actions are indicated with the following symbols:
         ...
           Terraform will perform the actions described above.
           Only 'yes' will be accepted to approve.
-        
+
           Enter a value:
         ```
 
@@ -150,9 +151,9 @@ Run the VM with a {{ coi }} using the Terraform configuration.
         yandex_compute_instance.instance-based-on-coi: Still creating... [20s elapsed]
         ...
         Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
-        
+
         Outputs:
-        
+
         external_ip = <public IP address>
         ```
 
@@ -172,7 +173,7 @@ Run the VM with a {{ coi }} using the Terraform configuration.
 
         ```
         The authenticity of host '<public IP address> (<public IP address>)' can't be established.
-        ECDSA key fingerprint is SHA256:JPq....
+        ECDSA key fingerprint is SHA256:JPq...
         Are you sure you want to continue connecting (yes/no/[fingerprint])?
         ```
 
@@ -187,7 +188,7 @@ Run the VM with a {{ coi }} using the Terraform configuration.
         ```bash
         Warning: Permanently added '<public IP address>' (ECDSA) to the list of known hosts.
         Welcome to Ubuntu 20.04.1 LTS (GNU/Linux 5.4.0-52-generic x86_64)
-        
+
          * Documentation:  https://help.ubuntu.com
         ...
         Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
@@ -342,13 +343,13 @@ Run the instance group with a {{ coi }} using the Terraform configuration.
 
         ```bash
         data.yandex_compute_image.container-optimized-image: Refreshing state...
-        
+
         An execution plan has been generated and is shown below.
         Resource actions are indicated with the following symbols:
         ...
           Terraform will perform the actions described above.
           Only 'yes' will be accepted to approve.
-        
+
           Enter a value:
         ```
 
@@ -404,7 +405,7 @@ Run the instance group with a {{ coi }} using the Terraform configuration.
         ```bash
         Warning: Permanently added '<public IP address of VM1>' (ECDSA) to the list of known hosts.
         Welcome to Ubuntu 20.04.1 LTS (GNU/Linux 5.4.0-52-generic x86_64)
-        
+
          * Documentation:  https://help.ubuntu.com
         ...
         Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
@@ -433,4 +434,3 @@ Run the instance group with a {{ coi }} using the Terraform configuration.
      ```
 
 {% endlist %}
-

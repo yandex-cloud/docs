@@ -37,11 +37,11 @@
 
 > Например, в январе действовали тарифы:
 >
-> - для первых 100 пользователей — 258 ₽;
+> - для первых 100 пользователей — {{ sku|RUB|b2b.tracker.license.v1|pricingRate.6|string }};
 >
-> - для следующих 150 пользователей — 222 ₽;
+> - для следующих 150 пользователей — {{ sku|RUB|b2b.tracker.license.v1|pricingRate.100|string }};
 >
-> - для всех пользователей свыше 250 — 185 ₽.
+> - для всех пользователей свыше 250 — {{ sku|RUB|b2b.tracker.license.v1|pricingRate.250|string }}.
 >
 > Количество сотрудников, имеющих полный доступ к {{ tracker-name }}, в январе изменялось так:
 > 
@@ -56,5 +56,5 @@
 > Сумма оплаты за 270 пользователей будет рассчитана по формуле:
 > 
 > ```
-> 100 × 258 ₽ + 150 × 222 ₽ + 20 × 185 ₽ =  62800 ₽
+> 100 × {{ sku|RUB|b2b.tracker.license.v1|pricingRate.6|string }} + 150 × {{ sku|RUB|b2b.tracker.license.v1|pricingRate.100|string }} + 20 × {{ sku|RUB|b2b.tracker.license.v1|pricingRate.250|string }}
 > ```

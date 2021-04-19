@@ -51,5 +51,4 @@ To save a list to a file:
 1. Wait until the file is downloaded to your device.
 
 
-[Contact support](../troubleshooting.md)
 

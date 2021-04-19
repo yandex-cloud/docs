@@ -43,7 +43,3 @@ To set up scheduled issue creation:
 1. If you wish to include multiple issues in one auto action, click **Create issue** again and fill in the fields for the new issue.
 
 1. To save an auto action, click **Create**.
-
-
-[Contact support](../troubleshooting.md)
-

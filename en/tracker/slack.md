@@ -76,7 +76,3 @@ To send {{ tracker-name }} notifications to team chats, set up the external app 
 1. Save your trigger.
 
 To test the trigger in action, change the issue status from **Release** to **Ready for testing**. The trigger sends a message to the group chat with a link to the issue and the following text: <q>Ready to test TEST-123: Trigger setup</q>.
-
-
-[Contact support](troubleshooting.md)
-

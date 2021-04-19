@@ -7,7 +7,6 @@ _A dedicated host_ is a physical server that is intended solely for hosting your
 You can create a group of one or more dedicated hosts of the same type. To optimize the use of resources, you can host multiple [VMs with different configurations](vm-platforms.md) on each dedicated host.
 
 Advantages of using dedicated hosts:
-
 * Security and compliance.
   You can use a dedicated host to physically isolate your VM in the public cloud if this is required by your company's information security service or industry standards (such as medical or finance).
 * Using your own licenses.
@@ -19,9 +18,9 @@ Advantages of using dedicated hosts:
 
 Characteristics of dedicated hosts:
 
-| Type | Processor | Number of</br>processors | Cores | vCPU | RAM, GB |
-| --- | --- | --- | --- | --- | --- |
-| `intel-6230-c66-m454` | [Intel® Xeon® Gold 6230](https://ark.intel.com/content/www/us/en/ark/products/192437/intel-xeon-gold-6230-processor-27-5m-cache-2-10-ghz.html) | 2 | 40 | 66* | 454 |
+Type | Processor | Number of<br>processors | Cores | vCPU | RAM, GB
+--- | --- | --- | --- | --- | ---
+`intel-6230-c66-m454` | [Intel® Xeon® Gold 6230](https://ark.intel.com/content/www/us/en/ark/products/192437/intel-xeon-gold-6230-processor-27-5m-cache-2-10-ghz.html) | 2 | 40 | 66* | 454
 
 \* Intel Xeon Gold 6230 has 80 vCPUs available, but 14 of them are used by the system.
 
@@ -51,16 +50,15 @@ yc compute host-group create \
 
 Keys:
 
-| Key | Value |
-| ----- | ----- |
-| `fixed-size` | The number of dedicated hosts in the group. |
+Key | Value
+--- | ---
+`fixed-size` | The number of dedicated hosts in the group.
 
 ## Maintenance policy {#maintenance-policy}
 
 {{ compute-name }} stops VMs during maintenance without moving them to other hosts. Subsequent VM behavior depends on the physical server status.
 
 If the physical server is restarted, the VMs running on it are automatically restarted, too, and linked:
-
 * To the same host group if the VM was linked to any group. Linking to a different host in the group is possible.
 * To a dedicated host if the VM was linked to a specific host.
 
@@ -69,17 +67,16 @@ The maintenance policy is set when creating a group of dedicated hosts and defin
 ```
 yc compute host-group create \
   --maintenance-policy restart \
-  ...
+...
 ```
 
 Keys:
 
-| Key | Value |
-| ----- | ----- |
-| `maintenance-policy` | Maintenance policy.</br> Possible values:</br> - `restart`: Stop VMs for maintenance and restart them afterwards. |
+Key | Value
+--- | ---
+`maintenance-policy` | Maintenance policy.<br> Possible values:<br> - `restart`: Stop VMs for maintenance and restart them afterwards.
 
 If the physical server is completely stopped, {{ compute-name }}:
-
 1. Disables access to your dedicated host.
 1. Deletes the physical server and its unique ID (`server-id`). In this case, the IDs of the host group (`host-group-id`) and each dedicated host (`host-id`) are preserved.
 1. Replaces failed hardware and assigns a new ID.
@@ -88,7 +85,6 @@ If the physical server is completely stopped, {{ compute-name }}:
 ## Linking a VM to a group or host {#bind-vm}
 
 To uniquely map a VM and a physical server, you can create a VM that is linked:
-
 * To a group of dedicated hosts.
   When the VM is stopped, it won't be available on the group hosts, and when it's restarted, it may be linked to a different host from the group.
 * To the selected host from a group of hosts.
@@ -97,7 +93,6 @@ To uniquely map a VM and a physical server, you can create a VM that is linked:
 Linking a VM ensures that it will run on the same physical server or group of servers even after a scheduled outage.
 
 To move a VM from one dedicated host to another:
-
 1. [Stop the VM](../operations/vm-control/vm-stop-and-start).
 1. Link the VM to a different host in the group.
 1. Restart the VM.
@@ -106,7 +101,7 @@ When creating a VM, you can specify multiple host groups or specific hosts that 
 
 ```
 yc compute instance create \
-  --host-group-id 1 or host-group-id 2 \
+  --host-group-id 1 \
   --network-interface subnet-name=default-ru-central1-a \
   --zone ru-central1-a
 ```
@@ -131,4 +126,3 @@ host-group-id: 2
 ## Billing {#billing}
 
 For information about pricing for dedicated hosts, see [{#T}](../pricing.md#dedicated-host).
-

@@ -104,5 +104,4 @@ You can choose the display type for usernames and event types in notification me
 1. Click **Save**.
 
 
-[Contact support](../troubleshooting.md)
 

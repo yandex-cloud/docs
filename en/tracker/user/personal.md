@@ -103,5 +103,4 @@ To learn more about notifications, see the following sections:
 - [{#T}](notification-settings.md)
 
 
-[Contact support](../troubleshooting.md)
 

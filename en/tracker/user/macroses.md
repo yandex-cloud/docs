@@ -1,6 +1,6 @@
-# Run a macro
+# Running a macro
 
-In {{ tracker-name }}, macros are scripted algorithms that can be executed on the issue page. You can use macros to automate repeating actions. Macros allow you to change issue fields, create automated comments and send messages in just one click.
+In {{ tracker-name }}, macros are scripted algorithms that can be executed on the issue page. You can use macros to automate repeating actions. Macros let you change messages.
 
 {% note info %}
 
@@ -17,10 +17,5 @@ To run a macro:
 1. Select a macro from the drop-down **Macros** list.
 You can select multiple macros at the same time. If multiple macros change the same field, only the last executed change will be applied.
 
-1. To send a message using a macro, go to the **Message** tab and [configure its fields](../user/comments.md).
 
 1. To execute the macro, click **Send**.
-
-
-[Contact support](../troubleshooting.md)
-

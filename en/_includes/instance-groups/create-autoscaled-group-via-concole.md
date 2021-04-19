@@ -64,4 +64,3 @@
    * In the **Performance threshold** field, specify the number of successful health checks required for the instance to be considered healthy.
    * In the **Failure threshold** field, specify the number of failed health checks for the instance to be considered unhealthy.
 1. Click **Create**.
-

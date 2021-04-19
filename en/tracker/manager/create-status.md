@@ -1,4 +1,4 @@
-# Create a status
+# Creating a status
 
 
 {% note warning %}
@@ -11,16 +11,13 @@ A status is an issue attribute that reflects the current state of the issue comp
 
 The most popular issue statuses are available in {{ tracker-name }} by default. If you need something different, create a new one:
 
-1. Make sure that you are logged in as the admin.
+1. Make sure that you are logged in as an administrator in {{ tracker-full-name }}.
 
-1. Select ![](../../_assets/tracker/icon-settings.png) → **{{ tracker-name }} settings** on the top panel in {{ tracker-name }}.
+1. On the top panel in {{ tracker-name }}, choose ![](../../_assets/tracker/icon-settings.png) → **Configure {{ tracker-name }}**.
 
 1. Go to the **Issue statuses** tab.
 
 1. Click **Create status**.
 
 1. Fill in the fields and click **Create**.
-
-
-[Contact support](../troubleshooting.md)
 

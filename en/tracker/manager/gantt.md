@@ -1,4 +1,4 @@
-# Gantt chart
+# Gantt charts
 
 The Gantt chart in {{ tracker-name }} is a tool for planning work on issues in the calendar. You can create a Gantt chart for issue lists found in your queue or by using filters.
 
@@ -59,7 +59,4 @@ If you want to set deadlines using the chart, do the following:
 1. Click **Save**.
 
 You can also click the issue name and set deadlines using the issue card to the right. Refresh the page for changes to appear on the chart.
-
-
-[Contact support](../troubleshooting.md)
 

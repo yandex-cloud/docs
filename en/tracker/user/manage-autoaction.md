@@ -12,5 +12,4 @@
     - To delete an auto action, click ![](../../_assets/tracker/icon-delete.png) and confirm your action.
 
 
-[Contact support](../troubleshooting.md)
 

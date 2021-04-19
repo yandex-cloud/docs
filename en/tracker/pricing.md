@@ -2,12 +2,6 @@
 
 All employees can use {{ tracker-name }} for free in [<q>Read only</q>](enable-tracker.md#readonly) mode. Grant them [full access](enable-tracker.md#access) to {{ tracker-name }} so that your employees can use all of its features.
 
-{% note tip %}
-
-If you activate {{ tracker-full-name }} before {{ promo-end-date }}, 2021, you get free access to all {{ tracker-name }} features for one month.
-
-{% endnote %}
-
 ## Pricing {#sec_price}
 
 The cost of using {{ tracker-name }} is based on the number of users with full access to the platform. You don't have to pay for {{ tracker-name }} if you have a small team. You can subscribe up to 5 employees to {{ tracker-name }} for free.
@@ -41,11 +35,11 @@ How the monthly {{ tracker-name }} subscription fee is calculated:
 
 > For example, let's say the fee was like this:
 >
->- The subscription fee for the first 100 users is ₽258.
+>- The subscription fee for the first 100 users is {{ sku|USD|b2b.tracker.license.v1|pricingRate.6|string }}.
 >
->- The subscription fee for next 150 users is ₽222.
+>- The subscription fee for next 150 users is {{ sku|USD|b2b.tracker.license.v1|pricingRate.100|string }}.
 >
->- After 250 users the fee is ₽185.
+>- After 250 users the fee is {{ sku|USD|b2b.tracker.license.v1|pricingRate.250|string }}.
 >
 > The number of employees who had full access to {{ tracker-name }} in January changed like this:
 >
@@ -60,8 +54,5 @@ How the monthly {{ tracker-name }} subscription fee is calculated:
 >This means that the following formula will be used to calculate the subscription fee for 270 users:
 >
 >```
->100 × 258 ₽ + 150 × 222 ₽ + 20 × 185 ₽ =  62800 ₽
+>100 × {{ sku|USD|b2b.tracker.license.v1|pricingRate.6|string }} + 150 × {{ sku|USD|b2b.tracker.license.v1|pricingRate.100|string }} + 20 × {{ sku|USD|b2b.tracker.license.v1|pricingRate.250|string }}
 >```
-
-[Contact support](troubleshooting.md)
-

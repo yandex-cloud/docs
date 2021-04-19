@@ -26,5 +26,4 @@ To start using the client:
 To learn more about the client and its terms of use, visit the GitHub page: [https://github.com/yandex/yandex_tracker_client](https://github.com/yandex/yandex_tracker_client).
 
 
-[Contact support](../troubleshooting.md)
 

@@ -53,7 +53,7 @@ X-Org-Id: <organization ID>
 >- An HTTP POST method is used.
 >- The status of the <q>TEST-1</q>, <q>TEST-2</q>, and <q>TEST-3</q> issues is changed to <q>Closed</q> with the <q>Resolved</q> resolution.
 >```
->POST /{{ ver }}/bulkchange/_update
+>POST /{{ ver }}/bulkchange/_transition
 >Host: {{ host }}
 >Authorization: OAuth <OAuth token>
 >X-Org-Id: <organization ID>

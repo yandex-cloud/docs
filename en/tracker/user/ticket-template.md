@@ -15,5 +15,3 @@ Templates help you:
 - [{#T}](share-template.md)
 
 
-[Contact support](../troubleshooting.md)
-

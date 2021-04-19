@@ -3,8 +3,8 @@ editable: false
 ---
 
 # Yandex Cloud Functions Service
-Методы справочника API сгруппированы по ресурсам. Чтобы выполнить операцию над ресурсом, отправьте HTTP-запрос к соответствующему URL. Подробнее об архитектуре API Яндекс.Облака, см. [Концепции API Яндекс.Облака](/docs/api-design-guide/).
+This API reference is organized by resource. Actions are performed by sending HTTP requests to resource URLs or making RPC calls. For more information about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
 
-Ресурс | Описание
+Resource | Description
 --- | ---
-[Function](Function/index.md) | Набор методов управления бессерверными функциями.
+[Function](Function/index.md) | A set of methods for managing serverless functions.

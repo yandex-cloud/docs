@@ -1,6 +1,7 @@
 ---
 editable: false
 ---
+
 # Pricing for {{ managed-k8s-name }}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
@@ -13,27 +14,14 @@ Nodes are charged according to [pricing for {{ compute-short-name }}](../compute
 
 ### Master {#master}
 
-{% list tabs %}
 
-- Prices in USD
 
-    | Master type | Rate for 1 hour, without VAT |
-    | ----- | ----- |
-    | Zonal | $0.070512 |
-    | Regional | $0.178205 |
 
-- Prices in roubles
-
-    | Master type | Rate for 1 hour, with VAT |
-    | ----- | ----- |
-    | Zonal | ₽5.5000 |
-    | Regional | ₽13.9000 |
-
-{% endlist %}
+{% include [usd.md](../_pricing/managed-kubernetes/usd.md) %}
 
 ### Outgoing traffic {#prices-traffic}
 
 
 
 
-{% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}\
+{% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}

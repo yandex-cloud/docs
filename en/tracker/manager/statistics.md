@@ -29,6 +29,3 @@ To generate a report:
 
 The report is saved as a file in `XLSX` format. You can view the file using most modern spreadsheet applications, such as Microsoft Excel or LibreOffice.
 
-
-[Contact support](../troubleshooting.md)
-

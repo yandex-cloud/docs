@@ -81,5 +81,4 @@ By default you don't get notifications for the actions you've done yourself. To 
 1. Click **Save**.
 
 
-[Contact support](../troubleshooting.md)
 

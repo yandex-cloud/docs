@@ -35,5 +35,4 @@ History entries are listed chronologically by default. To change the entry order
 All the issue comments will be displayed from newest to oldest.
 
 
-[Contact support](../troubleshooting.md)
 

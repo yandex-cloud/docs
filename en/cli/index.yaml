@@ -23,4 +23,4 @@ links:
     href: error
   - title: CLI reference
     description: CLI command tree
-    href: command-tree/
+    href: cli-ref/

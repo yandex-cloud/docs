@@ -64,6 +64,3 @@ To delete a workflow that you created:
 
 1. Confirm the deletion.
 
-
-[Contact support](../troubleshooting.md)
-

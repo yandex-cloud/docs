@@ -22,11 +22,11 @@ Follow these steps to link a [GitHub](https://github.com) repository to {{ track
 
 - Public repository
 
-    1. Make sure that you are logged in as the organization administrator.
+    1. Make sure that you are logged in as your organization's admin in {{ tracker-name }}.
 
-    1. On the top panel in {{ tracker-name }}, choose ![](../../_assets/tracker/icon-settings.png) → **Settings {{ tracker-name }}**.
+    1. On the top panel in {{ tracker-name }}, choose ![](../../_assets/tracker/icon-settings.png) → **Configure {{ tracker-name }}**.
 
-    1. Open the [**Repositories**]({{ link-repositories }}) tab and click **Connect repository**.
+    1. Go to the [**Repositories**]({{ link-repositories }}) tab and click **Connect repository**.
 
     1. Choose GitHub in the **Platform** field.
 
@@ -38,11 +38,11 @@ Follow these steps to link a [GitHub](https://github.com) repository to {{ track
 
 - Private repository
 
-    1. Make sure that you are logged in as the organization administrator.
+    1. Make sure that you are logged in as your organization's admin in {{ tracker-name }}.
 
-    1. On the top panel in {{ tracker-name }}, choose ![](../../_assets/tracker/icon-settings.png) → **Settings {{ tracker-name }}**.
+    1. On the top panel in {{ tracker-name }}, choose ![](../../_assets/tracker/icon-settings.png) → **Configure {{ tracker-name }}**.
 
-    1. Open the [**Repositories**]({{ link-repositories }}) tab and click **Connect repository**.
+    1. Go to the [**Repositories**]({{ link-repositories }}) tab and click **Connect repository**.
 
     1. Choose GitHub in the **Platform** field.
 
@@ -95,11 +95,11 @@ Follow these steps to link a [GitLab](https://gitlab.com) repository to {{ track
 
 - Public repository
 
-    1. Make sure that you are logged in as the organization administrator.
+    1. Make sure that you are logged in as your organization's admin in {{ tracker-name }}.
 
-    1. On the top panel in {{ tracker-name }}, choose ![](../../_assets/tracker/icon-settings.png) → **Settings {{ tracker-name }}**.
+    1. On the top panel in {{ tracker-name }}, choose ![](../../_assets/tracker/icon-settings.png) → **Configure {{ tracker-name }}**.
 
-    1. Open the [**Repositories**]({{ link-repositories }}) tab and click **Connect repository**.
+    1. Go to the [**Repositories**]({{ link-repositories }}) tab and click **Connect repository**.
 
     1. Choose GitLab in the **Platform** field.
 
@@ -117,11 +117,11 @@ Follow these steps to link a [GitLab](https://gitlab.com) repository to {{ track
 
     {% endnote %}
 
-    1. Make sure that you are logged in as the organization administrator.
+    1. Make sure that you are logged in as your organization's admin in {{ tracker-name }}.
 
-    1. On the top panel in {{ tracker-name }}, choose ![](../../_assets/tracker/icon-settings.png) → **Settings {{ tracker-name }}**.
+    1. On the top panel in {{ tracker-name }}, choose ![](../../_assets/tracker/icon-settings.png) → **Configure {{ tracker-name }}**.
 
-    1. Open the [**Repositories**]({{ link-repositories }}) tab and click **Connect repository**.
+    1. Go to the [**Repositories**]({{ link-repositories }}) tab and click **Connect repository**.
 
     1. Choose GitLab in the **Platform** field.
 
@@ -170,11 +170,11 @@ If you don't see the **Commits** tab, make sure it's enabled in your [queue sett
 
 Follow these steps to link a [Bitbucket](https://bitbucket.org) repository to {{ tracker-name }}:
 
-1. Make sure that you are logged in as the organization administrator.
+1. Make sure that you are logged in as your organization's admin in {{ tracker-name }}.
 
-1. On the top panel in {{ tracker-name }}, choose ![](../../_assets/tracker/icon-settings.png) → **Settings {{ tracker-name }}**.
+1. On the top panel in {{ tracker-name }}, choose ![](../../_assets/tracker/icon-settings.png) → **Configure {{ tracker-name }}**.
 
-1. Open the [**Repositories**]({{ link-repositories }}) tab and click **Connect repository**.
+1. Go to the [**Repositories**]({{ link-repositories }}) tab and click **Connect repository**.
 
 1. Choose Bitbucket in the **Platform** field.
 
@@ -191,7 +191,8 @@ Follow these steps to link a [Bitbucket](https://bitbucket.org) repository to {{
     - Think of a name for your password, such as `Tracker integration password`.
 
     - Set access rights for your password. To make sure {{ tracker-name }} operates properly, enable the **read** option under **Repositories**:
-![](../../_assets/tracker/bitbucket-password-settings.png)
+    
+        ![](../../_assets/tracker/bitbucket-password-settings.png)
 
     - Click **Create**.
 
@@ -217,7 +218,4 @@ To link a commit to an issue in {{ tracker-name }}, specify the issue key in the
 - On the **Commits** tab on the queue page.
 
 If you don't see the **Commits** tab, make sure it's enabled in your [queue settings](edit-queue-general.md#ul_gcz_xlp_m2b).
-
-
-[Contact support](../troubleshooting.md)
 

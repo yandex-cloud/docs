@@ -19,5 +19,4 @@ By default, only a [queue owner](../manager/queue-access.md) can create, edit, a
     - To remove a trigger, click ![](../../_assets/tracker/icon-delete.png) and confirm your action.
 
 
-[Contact support](../troubleshooting.md)
 

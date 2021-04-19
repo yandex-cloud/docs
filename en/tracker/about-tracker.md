@@ -58,7 +58,7 @@ Grouping issues can prove useful for determining your workload at various stages
 You can use {{ tracker-name }} to group issues by the following criteria:
 
 - [Components](manager/components.md) help you group issues in a queue that are related to the same subject. When managing issues with components, you can set up a default assignee and [access rights](manager/queue-access.md#section_tbh_cs5_qbb).
-For example, you can use components to [group support service requests](support-process.md#group).
+For example, you can use components to [group support service requests](support-process-group.md).
 - [Versions](manager/versions.md) help you group issues in the same queue based on the product version they belong to.
 For example, to schedule a bug fix for a specific product release, you can specify the product's version in the **Fix Version** field.
 - A tag is a type of label that can be added manually to any issue. Tags let users group issues based on any attribute, which makes it easy to search for those issues by tag later. To add tags to an issue, [edit the **Tags**](user/edit-ticket.md#section_jqw_ppn_jz) parameter.
@@ -108,7 +108,7 @@ You can create a Gantt chart for a project, your queue, or a filtered issue list
 
 A dashboard is a page that helps users monitor the status of important issues and view statistics. You can customize your dashboard and add [widgets](glossary.md#rus-v) that display data you wish to track. Widgets receive issue-related data automatically and display it as issue lists, tables, or charts.
 
-You can go to [{#T}](support-process.md#dashboards) to find an example of how to set up a dashboard.
+You can go to [{#T}](support-process-dashboards.md) to find an example of how to set up a dashboard.
 
 #### Issue boards {#boards}
 

@@ -1,4 +1,4 @@
-# View the history of queue changes
+# Viewing the history of queue changes
 
 {% note warning %}
 
@@ -36,7 +36,3 @@ Find changes for a specific timeframe. You can specify just the start and end da
 
 1. **Disabling filters**
 Click Reset to disable a filter.
-
-
-[Contact support](../troubleshooting.md)
-

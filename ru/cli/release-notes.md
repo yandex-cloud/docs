@@ -1,18 +1,70 @@
 # Релизы YC CLI
 
-## Версия 0.74.0 (30.03.21) {#latest-release}
-
-* Добавлена поддержка платформ macOS/arm64 (Apple Silicon M1) и linux/arm64.
+## Версия 0.75.0 (13.04.21) {#latest-release}
 
 ### Изменения в сервисах {{ yandex-cloud }}
 
+#### {{ compute-name }} {#compute}
+
+* Команда `yc compute create-with-container`.
+
+  Добавлен флаг `--gpus`, который позволяет создать Container Optimized Image с GPU.
+
+#### Сервисы управляемых баз данных {#managed-db}
+
+**{{ mrd-name }}**
+
+* Команда `yc managed-redis cluster create`.
+
+  Добавлен ключ `--disk-type-id [local-ssd|network-ssd]`, который позволяет выбрать тип диска.
+
+**{{ mmy-name }}**
+
+* Команда `yc managed-mysql cluster list-logs`.
+   
+  Теперь логи по умолчанию выводятся в необработанном формате (AS IS). Чтобы включить старый формат логов, используйте флаг `--format=yaml`.
+
+**{{ mes-name }}**
+
+* Команды `yc managed-elasticsearch cluster create` и `yc managed-elasticsearch cluster update`.
+ 
+  Добавлены флаги управления паролем адинистратора кластера (пользователь `admin`):
+
+     * `--admin-password`, который позволяет вручную задать пароль;
+     * `--generate-admin-password`, который позволяет автоматически сгенерировать пароль;
+     * `--read-admin-password`, который позволяет задать пароль из файла.
+
+* Удалены команды `yc managed-elasticsearch user`. Управление пользователями теперь доступно нативными средствами Elasticsearch через пользователя `admin`.
+
+* Команда `yc managed-elasticsearch create`.
+  
+  Добавлен флаг `--edition [basic|gold|platinum]`, который позволяет указать редакцию {{ ES }} при создании кластера 
+ 
+**{{ mkf-name }}**
+
+* Команда `yc managed-kafka cluster create`.
+
+  Добавлен флаг `--host-group-ids`, контролирующий размещение кластера на выделенных серверах.
+
 #### {{ dataproc-name }} {#dataproc}
+
+* Команда `yc dataproc cluster create`.
+
+  Добавлен флаг `--host-group-ids`, контролирующий размещение кластера на выделенных серверах.
+
+## Предыдущие релизы {#previous-releases}
+
+### Версия 0.74.0 (29.03.21)
+
+* Добавлена поддержка платформ macOS/arm64 (Apple Silicon M1) и linux/arm64.
+
+#### Изменения в сервисах {{ yandex-cloud }}
+
+##### {{ dataproc-name }} {#dataproc}
 
 * Команды `yc dataproc cluster create` и `yc dataproc cluster update`.
 
   Добавлен флаг `--security-group-ids`, который позволяет установить набор групп безопасности для кластера.
-
-## Предыдущие релизы {#previous-releases}
 
 ### Версия 0.73.0 (17.03.21) {#version0.73.0}
 

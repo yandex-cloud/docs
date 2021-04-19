@@ -5,6 +5,6 @@
 Минимальная единица тарификации — 1 МБ.
 
 Категория ресурса | Цена за ГБ, вкл. НДС
------ | -----
-Исходящий трафик, до 10 ГБ | {{ sku|RUB|network.egress.inet|string }} |
+--- | ---
+Исходящий трафик, до 10 ГБ | {{ sku|RUB|network.egress.inet|string }}
 Исходящий трафик, сверх 10 ГБ | {{ sku|RUB|network.egress.inet|pricingRate.10|string }}

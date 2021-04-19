@@ -1,6 +1,8 @@
 # Загрузить свой образ диска в {{ yandex-cloud }}
 
-Эта инструкция описывает, как подготовить образ диска, а также загрузить файл с образом в {{ objstorage-full-name }} и создать из него [образ](../../concepts/image.md) в сервисе {{ compute-name }}.
+Эта инструкция описывает, как загрузить файл образа в {{ objstorage-full-name }}, а также создать из него [образ](../../concepts/image.md) и виртуальную машину в сервисе {{ compute-name }}.
+
+Поддерживаются известные системы виртуализации. О том, как подготовить ВМ, см. в разделе [{#T}](custom-image.md).
 
 {% note warning %}
 
@@ -8,39 +10,9 @@
 
 {% endnote %}
 
-## Подготовьте файл с образом {#prepare-file}
-
-Поддерживаемые форматы образов: Qcow2, VMDK и VHD.
-
-Для образов загрузочного диска должны выполняться следующие требования:
-* ОС на базе Linux.
-* Установлены последние обновления ОС.
-* Диск смонтирован по UUID, а не по имени.
-* Ядро Linux запущено с параметром `console=ttyS0`.
-* SSH-сервер запускается автоматически при запуске ВМ.
-* Сетевой интерфейс получает IP-адрес по DHCP.
-* Установлен пакет `cloud-init`, а также драйверы `virtio-net` и `virtio-blk`.
-
-Рекомендации:
-
-* Образы рекомендуется оптимизировать перед загрузкой с помощью утилиты `qemu-img`, чтобы ускорить импорт:
-
-  ```
-  qemu-img convert -p -O qcow2 -o cluster_size=2M <имя вашего файла образа> <имя нового файла образа>
-  ```
-
-* Чтобы образ был совместим с [GPU](../../concepts/gpus.md), при подготовке файла [установите драйверы NVIDIA](../vm-operate/install-nvidia-drivers.md).
-
-{% note info %}
-
-Не используйте программы для сжатия или архивирования при подготовке файла с образом.
-
-{% endnote %}
-
 ## Загрузите файл образа в {{ objstorage-name }} {#upload-file}
 
-Загрузите файл с образом в сервис {{ objstorage-full-name }} и получите ссылку на загруженный образ:
-
+Загрузите файл с образом в сервис {{ objstorage-name }} и получите ссылку на загруженный образ:
 1. Если у вас еще нет бакета в {{ objstorage-name }}, [создайте](../../../storage/operations/buckets/create.md) его.
 1. [Загрузите образ](../../../storage/operations/objects/upload.md) в ваш бакет. В терминах {{ objstorage-name }} загружаемый файл образа будет называться _объектом_.
 1. [Получите ссылку](../../../storage/operations/objects/link-for-download.md) на загруженный образ. Используйте эту ссылку при создании образа в {{ compute-name }}.
@@ -59,7 +31,7 @@
   1. Нажмите кнопку **Загрузить образ**.
   1. Введите имя образа.
 
-      {% include [name-format](../../../_includes/name-format.md) %}
+     {% include [name-format](../../../_includes/name-format.md) %}
 
   1. Если требуется, добавьте произвольное описание образа.
   1. Вставьте ссылку на образ, полученную в {{ objstorage-name }}.
@@ -69,55 +41,53 @@
 
   Чтобы создать новый образ по ссылке, воспользуйтесь флагом `--source-uri`.
 
-  ```
-  yc compute image create --name <IMAGE-NAME> --source-uri <IMAGE-URL>
+  ```bash
+  yc compute image create --name <image-name> --source-uri <image-URL>
   ```
 
-  где:
-
-  - `<IMAGE-NAME>` — имя, которое будет присвоено образу.
-  - `<IMAGE-URL>` — ссылка на образ, полученная в {{ objstorage-name }}.
+  Где:
+  * `<image-name>` — имя, которое будет присвоено образу.
+  * `<image-URL>` — ссылка на образ, полученная в {{ objstorage-name }}.
 
   Если необходимо, добавьте описание и укажите [семейство](../../concepts/image.md#family), к которому относится этот образ:
 
-  ```
-  yc compute image create  \
-      --name ubuntu-cosmic \
-      --description "Ubuntu Server 18.10 (Cosmic Cuttlefish)" \
-      --family ubuntu \
-      --source-uri "https://storage.yandexcloud.net/mybucket/cosmic-server-cloudimg-amd64.vmdk"
+  ```bash
+  yc compute image create \
+    --name ubuntu-cosmic \
+    --description "Ubuntu Server 18.10 (Cosmic Cuttlefish)" \
+    --family ubuntu \
+    --source-uri "https://storage.yandexcloud.net/mybucket/cosmic-server-cloudimg-amd64.vmdk"
   ```
 
   Если вы знаете минимальные требования к размеру диска, который будет создан из этого образа, укажите размер в гигабайтах:
 
-  ```
-  yc compute image create  \
-      --name big-image \
-      --min-disk-size 20 \
-      --source-uri "https://storage.yandexcloud.net/mybucket/cosmic-server-cloudimg-amd64.vmdk"
+  ```bash
+  yc compute image create \
+    --name big-image \
+    --min-disk-size 20 \
+    --source-uri "https://storage.yandexcloud.net/mybucket/cosmic-server-cloudimg-amd64.vmdk"
   ```
 
   {% include [min-disk-size](../../_includes_service/min-disk-size.md) %}
 
 - API
 
-  Чтобы создать новый образ по ссылке, воспользуйтесь методом [Create](../../api-ref/Image/create.md) для ресурса `Image`. Ссылку на образ передайте в элементе `uri`.
+  Чтобы создать новый образ по ссылке, воспользуйтесь методом [Create](../../api-ref/Image/create.md) для ресурса `Image`. Ссылку на образ передайте в параметре `uri`.
 
 - Terraform
 
-  Если у вас ещё нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).  
+  Если у вас еще нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   Чтобы создать образ:
 
   1. Опишите в конфигурационном файле параметры ресурса `yandex_compute_image`.
 
      Пример структуры конфигурационного файла:
-     
+
      ```
      resource "yandex_compute_image" "image-1" {
-
-       name       = "ubuntu-cosmic"
-       os_type    = "LINUX"
+       name = "ubuntu-cosmic"
+       os_type = "LINUX"
        source_url = "<ссылка на образ в {{ objstorage-name }}>"
      }
      ```
@@ -129,17 +99,17 @@
      1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
      1. Выполните проверку с помощью команды:
 
-        ```
+        ```bash
         terraform plan
         ```
 
-     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет. 
+       Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет.
 
   1. Разверните облачные ресурсы.
 
-     1. Если в конфигурации нет ошибок, выполните команду:
+     1. Выполните команду:
 
-        ```
+        ```bash
         terraform apply
         ```
 

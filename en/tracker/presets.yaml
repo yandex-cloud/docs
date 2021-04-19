@@ -75,7 +75,6 @@ default:
   link-get-token: https://oauth.yandex.com/
   link-yandex_tracker_client: https://github.com/yandex/yandex_tracker_client
   link-python-official: https://www.python.org/downloads/
-  tracker-settings: Tracker Settings
+  tracker-settings: Tracker settings
   release-date: March 1
-  promo-end-date: March 31
   example-account: login@yandex.com

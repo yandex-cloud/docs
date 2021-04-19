@@ -1,4 +1,4 @@
-# Set up statuses
+# Setting up statuses
 
 {% note warning %}
 
@@ -101,7 +101,4 @@ To remove a status from a workflow:
 1. Click ![](../../_assets/tracker/remove-task-type.png).
 
 1. Confirm the deletion.
-
-
-[Contact support](../troubleshooting.md)
 
