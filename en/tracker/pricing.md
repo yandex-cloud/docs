@@ -12,7 +12,7 @@ The cost of using {{ tracker-name }} is based on the number of users with full a
 
 {% endif %}
 
-{% if region == "pre-kz"%}
+{% if region == "kz"%}
 
 {% include [kzt.md](../_pricing/tracker/kzt.md) %}
 

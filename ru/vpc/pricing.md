@@ -29,7 +29,7 @@ editable: false
 
 {% endif %}
 
-{% if region == "pre-kz"%}
+{% if region == "kz"%}
 
 {% include [kzt-ip.md](../_pricing/vpc/kzt-ip.md) %}
 
@@ -49,7 +49,7 @@ editable: false
 
 {% endif %}
 
-{% if region == "pre-kz"%}
+{% if region == "kz"%}
 
 {% include [kzt-ddos.md](../_pricing/vpc/kzt-ddos.md) %}
 

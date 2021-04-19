@@ -110,7 +110,7 @@ editable: false
 
 {% endif %}
 
-{% if region == "pre-kz"%}
+{% if region == "kz"%}
 
 {% include [kzt-host-ch.md](../_pricing/managed-clickhouse/kzt-host-ch.md) %}
 
@@ -137,7 +137,7 @@ editable: false
 
 {% endif %}
 
-{% if region == "pre-kz"%}
+{% if region == "kz"%}
 
 {% include [kzt-host-zoo.md](../_pricing/managed-clickhouse/kzt-host-zoo.md) %}
 
@@ -158,7 +158,7 @@ editable: false
 
 {% endif %}
 
-{% if region == "pre-kz"%}
+{% if region == "kz"%}
 
 {% include [kzt-storage.md](../_pricing/managed-clickhouse/kzt-storage.md) %}
 
@@ -179,7 +179,7 @@ editable: false
 
 {% endif %}
 
-{% if region == "pre-kz" %}
+{% if region == "kz" %}
 
 {% include notitle [kzt-egress-traffic.md](../_pricing/kzt-egress-traffic.md) %}
 
@@ -204,16 +204,14 @@ editable: false
 {% list tabs %}
 
 - За месяц работы хоста
-
-  Из расчета 720 часов в месяц, округлено до целых рублей.
-
+  
   {% if region == "ru"%}
 
   {% include [rub-ch-classes-month.md](../_pricing/managed-clickhouse/rub-ch-classes-month.md) %}
 
   {% endif %}
 
-  {% if region == "pre-kz"%}
+  {% if region == "kz"%}
 
   {% include [kzt-ch-classes-month.md](../_pricing/managed-clickhouse/kzt-ch-classes-month.md) %}
 
@@ -227,7 +225,7 @@ editable: false
 
   {% endif %}
 
-  {% if region == "pre-kz"%}
+  {% if region == "kz"%}
 
   {% include [kzt-ch-classes-hour.md](../_pricing/managed-clickhouse/kzt-ch-classes-hour.md) %}
 
@@ -242,7 +240,7 @@ editable: false
 {% endlist %}
 
 
-### Хосты ZooKeeper {#prices-zookeeper}
+### Хосты ZooKeeper {#prices-zookeeper-host}
 
 {% note info %}
 
@@ -260,7 +258,7 @@ editable: false
 
   {% endif %}
 
-  {% if region == "pre-kz"%}
+  {% if region == "kz"%}
 
   {% include [kzt-zoo-classes-month.md](../_pricing/managed-clickhouse/kzt-zoo-classes-month.md) %}
 
@@ -274,7 +272,7 @@ editable: false
 
   {% endif %}
 
-  {% if region == "pre-kz"%}
+  {% if region == "kz"%}
 
   {% include [kzt-zoo-classes-hour.md](../_pricing/managed-clickhouse/kzt-zoo-classes-hour.md) %}
 

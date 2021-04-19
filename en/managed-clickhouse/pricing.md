@@ -101,7 +101,7 @@ You can use a CVoS to order certain types of resources. For non-supported resour
 
 {% endif %}
 
-{% if region == "pre-kz"%}
+{% if region == "kz"%}
 
 {% include [kzt-host-ch.md](../_pricing/managed-clickhouse/kzt-host-ch.md) %}
 
@@ -127,7 +127,7 @@ You can't order {{ ZK }} resources with CVoS discounts.
 
 {% endif %}
 
-{% if region == "pre-kz"%}
+{% if region == "kz"%}
 
 {% include [kzt-host-zoo.md](../_pricing/managed-clickhouse/kzt-host-zoo.md) %}
 
@@ -147,7 +147,7 @@ You can't order {{ ZK }} resources with CVoS discounts.
 
 {% endif %}
 
-{% if region == "pre-kz"%}
+{% if region == "kz"%}
 
 {% include [kzt-storage.md](../_pricing/managed-clickhouse/kzt-storage.md) %}
 
@@ -167,7 +167,7 @@ You can't order {{ ZK }} resources with CVoS discounts.
 
 {% endif %}
 
-{% if region == "pre-kz" %}
+{% if region == "kz" %}
 
 {% include notitle [kzt-egress-traffic.md](../_pricing/kzt-egress-traffic.md) %}
 
@@ -194,7 +194,7 @@ Prices for the time of host uptime are calculated based on [host classes](concep
 
 {% endif %}
 
-{% if region == "pre-kz"%}
+{% if region == "kz"%}
 
 {% include [kzt-ch-classes-hour.md](../_pricing/managed-clickhouse/kzt-ch-classes-hour.md) %}
 
@@ -215,7 +215,7 @@ Prices for the time of host uptime are calculated based on [host classes](concep
 
   {% endif %}
 
-  {% if region == "pre-kz"%}
+  {% if region == "kz"%}
 
   {% include [kzt-zoo-classes-hour.md](../_pricing/managed-clickhouse/kzt-zoo-classes-hour.md) %}
 

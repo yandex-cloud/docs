@@ -72,7 +72,7 @@ editable: false
 
 {% endif %}
 
-{% if region == "pre-kzt" %}
+{% if region == "kz" %}
 
 {% include [kzt-host](../_pricing/managed-mongodb/kzt-host.md) %}
 
@@ -95,7 +95,7 @@ Prices in USD, without VAT
 
 {% endif %}
 
-{% if region == "pre-kzt" %}
+{% if region == "kz" %}
 
 {% include [kzt-storage](../_pricing/managed-mongodb/kzt-storage.md) %}
 
@@ -118,7 +118,7 @@ Prices in USD, without VAT
 
 {% endif %}
 
-{% if region == "pre-kz" %}
+{% if region == "kz" %}
 
 {% include notitle [kzt-egress-traffic.md](../_pricing/kzt-egress-traffic.md) %}
 
@@ -145,7 +145,7 @@ Prices in USD, without VAT
 
 {% endif %}
 
-{% if region == "pre-kzt" %}
+{% if region == "kz" %}
     
 {% include [kzt-class](../_pricing/managed-mongodb/kzt-class.md) %}
 

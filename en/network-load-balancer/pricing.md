@@ -23,7 +23,7 @@ You are charged for incoming traffic to the IP address and port specified as the
 
 {% endif %}
 
-{% if region == "pre-kz"%}
+{% if region == "kz"%}
 
 {% include [kzt.md](../_pricing/network-load-balancer/kzt-ingress.md) %}
 
@@ -47,7 +47,7 @@ If a network load balancer has no target groups attached but has a listener, the
 
 {% endif %}
 
-{% if region == "pre-kz"%}
+{% if region == "kz"%}
 
 {% include [kzt.md](../_pricing/network-load-balancer/kzt-balancer.md) %}
 

@@ -69,7 +69,7 @@ editable: false
 
 {% endif %}
 
-{% if region == "pre-kz"%}
+{% if region == "kz"%}
 
 {% include [kzt.md](../_pricing/speechkit/kzt-tts.md) %}
 
@@ -89,7 +89,7 @@ editable: false
 
 {% endif %}
 
-{% if region == "pre-kz"%}
+{% if region == "kz"%}
 
 {% include [kzt.md](../_pricing/speechkit/kzt-stt.md) %}
 

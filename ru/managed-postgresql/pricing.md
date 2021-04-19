@@ -70,7 +70,7 @@ editable: false
 
 {% endif %}
 
-{% if region == "pre-kz" %}
+{% if region == "kz" %}
 
 {% include notitle [kzt-host-resources.md](../_pricing/managed-postgresql/kzt-host-resources.md) %}
 
@@ -91,7 +91,7 @@ editable: false
 
 {% endif %}
 
-{% if region == "pre-kz" %}
+{% if region == "kz" %}
 
 {% include notitle [kzt-storage.md](../_pricing/managed-postgresql/kzt-storage.md) %}
 
@@ -113,7 +113,7 @@ editable: false
 
 {% endif %}
 
-{% if region == "pre-kz" %}
+{% if region == "kz" %}
 
 {% include notitle [kzt-egress-traffic.md](../_pricing/kzt-egress-traffic.md) %}
 
@@ -141,7 +141,7 @@ editable: false
 
   {% endif %}
 
-  {% if region == "pre-kz" %}
+  {% if region == "kz" %}
 
   {% include notitle [kzt-calculated-month.md](../_pricing/managed-postgresql/kzt-calculated-month.md) %}
 
@@ -161,7 +161,7 @@ editable: false
 
   {% endif %}
 
-  {% if region == "pre-kz" %}
+  {% if region == "kz" %}
 
   {% include notitle [kzt-calculated-hour.md](../_pricing/managed-postgresql/kzt-calculated-hour.md) %}
 

@@ -53,7 +53,7 @@ Total price per hour: ₽2.4048 + ₽0.2405 + ₽0.4447 = ₽3.09 ₽
 
 {% endif %}
 
-{% if region == "pre-kz"%}
+{% if region == "kz"%}
 
 {% include [kzt.md](../_pricing/data-proc/kzt.md) %}
 
@@ -79,7 +79,7 @@ You can use GPUs on {{ dataproc-name }} hosts by submitting a request to [tech s
 
 {% endif %}
 
-{% if region == "pre-kz" %}
+{% if region == "kz" %}
 
 {% include notitle [kzt-egress-traffic.md](../_pricing/kzt-egress-traffic.md) %}
 

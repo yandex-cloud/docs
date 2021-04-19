@@ -52,7 +52,7 @@ editable: false
 
 {% endif %}
 
-{% if region == "pre-kz" %}
+{% if region == "kz" %}
 
 {% include [kzt.md](../_pricing/functions/kzt-invocations.md) %}
 
@@ -74,7 +74,7 @@ editable: false
 
 {% endif %}
 
-{% if region == "pre-kz" %}
+{% if region == "kz" %}
 
 {% include [kzt.md](../_pricing/functions/kzt-compute.md) %}
 
@@ -94,7 +94,7 @@ editable: false
 
 {% endif %}
 
-{% if region == "pre-kz" %}
+{% if region == "kz" %}
 
 {% include notitle [kzt-egress-traffic.md](../_pricing/kzt-egress-traffic.md) %}
 

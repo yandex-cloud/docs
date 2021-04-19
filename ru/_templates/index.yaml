@@ -27,7 +27,7 @@ description:
 - "Взаимодействие с сервисом осуществляется с помощью <a href=\"https://github.com/yandex-cloud/ydb-python-sdk\">Python</a>, <a href=\"https://github.com/yandex-cloud/ydb-go-sdk\">Go</a> или <a href=\"https://github.com/yandex-cloud/ydb-java-sdk\">Go</a> SDK, а также в консоли управления Yandex.Cloud. Для запросов к СУБД используется декларативный SQL-подобный язык запросов YQL."
 
 <!-- Защита данных
-- "Инфраструктура Yandex.Cloud <a href=\"https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf\">защищена</a> в соответствии с ФЗ-152."
+- "Инфраструктура Yandex.Cloud <a href=\"https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf\">защищена</a> в соответствии с Федеральным законом Российской Федерации «О персональных данных» № 152-ФЗ."
 -->
 <!-- Cоглашение об уровне обслуживания
 - "Для сервиса действует <a href=\"https://yandex.ru/legal/cloud_sla\">соглашение об уровне обслуживания</a>. Уровень обслуживания сервиса определен в документе <a href=\"https://yandex.ru/legal/cloud_sla_storage\">Уровень обслуживания Yandex Object Storage</a>."

@@ -40,7 +40,7 @@ List of commands charged under {{ iot-name }}:
    
 {% endif %}
    
-{% if region == "pre-kz" %}
+{% if region == "kz" %}
    
 {% include [kzt.md](../_pricing/iot-core/kzt.md) %}
    

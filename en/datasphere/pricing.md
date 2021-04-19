@@ -72,7 +72,7 @@ If you need to store large amounts of data that exceed the specified limits, use
 
 {% endif %}
 
-{% if region == "pre-kz"%}
+{% if region == "kz"%}
 
 {% include [kzt-unit-and-resource.md](../_pricing/datasphere/kzt-unit-and-resource.md) %}
 
@@ -94,7 +94,7 @@ More about [background operations](concepts/async.md).
 
 {% endif %}
 
-{% if region == "pre-kz"%}
+{% if region == "kz"%}
 
 {% include [kzt-async.md](../_pricing/datasphere/kzt-async.md) %}
 
@@ -108,7 +108,7 @@ More about [background operations](concepts/async.md).
 
 {% endif %}
 
-{% if region == "pre-kz"%}
+{% if region == "kz"%}
 
 {% include notitle [kzt-egress-traffic.md](../_pricing/kzt-egress-traffic.md) %}
 

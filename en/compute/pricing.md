@@ -117,7 +117,7 @@ Prices are shown for 1 hour of use. Billing occurs per second.
 
 {% endif %}
 
-{% if region == "pre-kz" %}
+{% if region == "kz" %}
 
 {% include [kzt-instance-cpu.md](../_pricing/compute/kzt-instance-cpu.md) %}
 
@@ -143,7 +143,7 @@ Prices are shown for 1 hour of use. Billing occurs per second.
 
 {% endif %}
 
-{% if region == "pre-kz" %}
+{% if region == "kz" %}
 
 {% include [kzt-preemp-instance-cpu.md](../_pricing/compute/kzt-preemp-instance-cpu.md) %}
 
@@ -167,7 +167,7 @@ Prices are shown for 1 hour of use. Billing occurs per second.
 
 {% endif %}
 
-{% if region == "pre-kz" %}
+{% if region == "kz" %}
 
 {% include [kzt-os.md](../_pricing/compute/kzt-os.md) %}
 
@@ -191,7 +191,7 @@ For the following products, funds are debited once for the calendar month in adv
 
 {% endif %}
 
-{% if region == "pre-kz" %}
+{% if region == "kz" %}
 
 {% include [kzt-os-win-server.md](../_pricing/compute/kzt-os-win-server.md) %}
 
@@ -227,7 +227,7 @@ At the [Preview](../overview/concepts/launch-stages.md) stage, non-replicated di
 
 {% endif %}
 
-{% if region == "pre-kz" %}
+{% if region == "kz" %}
 
 {% include [kzt-storage.md](../_pricing/compute/kzt-storage.md) %}
 
@@ -249,7 +249,7 @@ At the [Preview](../overview/concepts/launch-stages.md) stage, non-replicated di
 
 {% endif %}
 
-{% if region == "pre-kz" %}
+{% if region == "kz" %}
 
 {% include [kzt-host-cpu.md](../_pricing/compute/kzt-host-cpu.md) %}
 
@@ -275,7 +275,7 @@ At the [Preview](../overview/concepts/launch-stages.md) stage, non-replicated di
 
 {% endif %}
 
-{% if region == "pre-kz" %}
+{% if region == "kz" %}
 
 {% include [kzt-network.md](../_pricing/compute/kzt-network.md) %}
 
@@ -295,7 +295,7 @@ At the [Preview](../overview/concepts/launch-stages.md) stage, non-replicated di
 
 {% endif %}
 
-{% if region == "pre-kz" %}
+{% if region == "kz" %}
 
 {% include notitle [kzt-egress-traffic.md](../_pricing/kzt-egress-traffic.md) %}
 

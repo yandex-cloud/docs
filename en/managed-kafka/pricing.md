@@ -86,7 +86,7 @@ You can use a CVoS to order certain types of resources. For non-supported resour
 
 {% endif %}
 
-{% if region == "pre-kz" %}
+{% if region == "kz" %}
 
 {% include notitle [kzt-hosts-and-storage.md](../_pricing/managed-kafka/kzt-hosts-and-storage.md) %}
 
@@ -107,7 +107,7 @@ You can use a CVoS to order certain types of resources. For non-supported resour
 
 {% endif %}
 
-{% if region == "pre-kz" %}
+{% if region == "kz" %}
 
 {% include notitle [kzt-egress-traffic.md](../_pricing/kzt-egress-traffic.md) %}
 
@@ -134,7 +134,7 @@ Prices for the time of host uptime are calculated based on [host classes](concep
 
 {% endif %}
 
-{% if region == "pre-kz" %}
+{% if region == "kz" %}
 
 {% include notitle [kzt-calculated.md](../_pricing/managed-kafka/kzt-calculated.md) %}
 

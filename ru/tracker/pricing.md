@@ -12,7 +12,7 @@
 
 {% endif %}
 
-{% if region == "pre-kz"%}
+{% if region == "kz"%}
 
 {% include [kzt.md](../_pricing/tracker/kzt.md) %}
 

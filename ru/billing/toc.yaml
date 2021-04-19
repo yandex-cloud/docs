@@ -98,6 +98,7 @@ items:
             href: concepts/invoice.md
           - name: Чек об оплате
             href: concepts/individual-bill.md
+            when: region == "ru"
       - name: Валюта расчетов
         href: payment/currency.md
   - name: Управление доступом
@@ -114,7 +115,7 @@ items:
         href: qa/billing-account.md
       - name: Вопросы о пробном периоде и платной версии
         href: qa/trial-commercial.md
-      - name: Вопросы по работе с нерезидентами РФ
+      - name: Вопросы по работе с нерезидентами РФ и РК
         href: qa/non-resident.md
       - name: Все вопросы на одной странице
         href: qa/all.md

@@ -75,7 +75,7 @@ editable: false
 
 {% endif %}
 
-{% if region == "pre-kz"%}
+{% if region == "kz"%}
 
 {% include [kzt-unit-and-resource.md](../_pricing/datasphere/kzt-unit-and-resource.md) %}
 
@@ -97,7 +97,7 @@ editable: false
 
 {% endif %}
 
-{% if region == "pre-kz"%}
+{% if region == "kz"%}
 
 {% include [kzt-async.md](../_pricing/datasphere/kzt-async.md) %}
 
@@ -117,7 +117,7 @@ editable: false
 
 {% endif %}
 
-{% if region == "pre-kz" %}
+{% if region == "kz" %}
 
 {% include notitle [kzt-egress-traffic.md](../_pricing/kzt-egress-traffic.md) %}
 

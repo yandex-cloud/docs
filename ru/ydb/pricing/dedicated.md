@@ -69,7 +69,7 @@ editable: false
 
 {% endif %}
 
-{% if region == "pre-kz" %}
+{% if region == "kz" %}
 
 {% include notitle [kzt-compute-units.md](../../_pricing/ydb/kzt-compute-units.md) %}
 
@@ -89,7 +89,7 @@ editable: false
 
 {% endif %}
 
-{% if region == "pre-kz" %}
+{% if region == "kz" %}
 
 {% include notitle [kzt-storage.md](../../_pricing/ydb/kzt-storage.md) %}
 
@@ -109,7 +109,7 @@ editable: false
 
 {% endif %}
 
-{% if region == "pre-kz" %}
+{% if region == "kz" %}
 
 {% include notitle [kzt-egress-traffic.md](../../_pricing/kzt-egress-traffic.md) %}
 
@@ -129,7 +129,7 @@ editable: false
 
 {% endif %}
 
-{% if region == "pre-kz" %}
+{% if region == "kz" %}
 
 {% include notitle [kzt-dedicated.md](../../_pricing/ydb/kzt-dedicated.md) %}
 

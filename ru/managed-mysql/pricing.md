@@ -68,7 +68,7 @@ editable: false
 
 {% endif %}
 
-{% if region == "pre-kz"%}
+{% if region == "kz"%}
 
 {% include [kzt-host.md](../_pricing/managed-mysql/kzt-host.md) %}
 
@@ -88,7 +88,7 @@ editable: false
 
 {% endif %}
 
-{% if region == "pre-kz"%}
+{% if region == "kz"%}
 
 {% include [kzt-storage.md](../_pricing/managed-mysql/kzt-storage.md) %}
 
@@ -108,7 +108,7 @@ editable: false
 
 {% endif %}
 
-{% if region == "pre-kz" %}
+{% if region == "kz" %}
 
 {% include notitle [kzt-egress-traffic.md](../_pricing/kzt-egress-traffic.md) %}
 
@@ -140,7 +140,7 @@ editable: false
 
   {% endif %}
 
-  {% if region == "pre-kz" %}
+  {% if region == "kz" %}
 
   {% include notitle [kzt-classes-month.md](../_pricing/managed-mysql/kzt-classes-month.md) %}
 
@@ -160,7 +160,7 @@ editable: false
 
   {% endif %}
 
-  {% if region == "pre-kz" %}
+  {% if region == "kz" %}
 
   {% include notitle [kzt-classes-hour.md](../_pricing/managed-mysql/kzt-classes-hour.md) %}
 

@@ -25,7 +25,7 @@ Each successful image analysis performed using any feature is charged as a singl
 
 {% endif %}
 
-{% if region == "pre-kz" %}
+{% if region == "kz" %}
 
 {% include notitle [kzt.md](../_pricing/vision/kzt.md) %}
 

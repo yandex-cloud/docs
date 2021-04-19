@@ -6,7 +6,7 @@ description:
   - "Руководителям Tracker помогает распределять работу между сотрудниками и отслеживать ее выполнение."
   - "Сотрудникам Tracker помогает легко найти список своих задач, следить за сроками и приоритетами."
 # у Трекера свои серверы вне облачной инфраструктуры
-#  - "Инфраструктура Yandex.Cloud <a href=\"https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf\">защищена</a> в соответствии с ФЗ-152."
+#  - "Инфраструктура Yandex.Cloud <a href=\"https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf\">защищена</a> в соответствии с Федеральным законом Российской Федерации «О персональных данных» № 152-ФЗ."
 # Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
 meta:
   title: "Yandex Tracker"

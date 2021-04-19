@@ -35,7 +35,7 @@ The cost of 1 GB per month is fixed and doesn't depend on the number of days in 
 
 {% endif %}
 
-{% if region == "pre-kz" %}
+{% if region == "kz" %}
 
 {% include [kzt.md](../_pricing/cr/kzt.md) %}
 
@@ -59,7 +59,7 @@ Storage_cost = Cost_per_GB_per_month * 15 * 12 / 24 / 30
 
 {% endif %}
 
-{% if region == "pre-kz" %}
+{% if region == "kz" %}
 
 {% include [kzt-egress-traffic.md](../_pricing/kzt-egress-traffic.md) %}
 

@@ -173,7 +173,7 @@ When calculating the actual consumption, the number of requests is averaged ever
 
 {% endif %}
 
-{% if region == "pre-kz" %}
+{% if region == "kz" %}
 
 {% include notitle [kzt-serverless](../../_pricing/ydb/kzt-serverless.md) %}
 
@@ -191,7 +191,7 @@ When calculating the actual consumption, the number of requests is averaged ever
 
 {% endif %}
 
-{% if region == "pre-kz" %}
+{% if region == "kz" %}
 
 {% include notitle [kzt-egress-traffic.md](../../_pricing/kzt-egress-traffic.md) %}
 

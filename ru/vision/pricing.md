@@ -32,7 +32,7 @@ editable: false
 
 {% endif %}
 
-{% if region == "pre-kz" %}
+{% if region == "kz" %}
 
 {% include notitle [kzt.md](../_pricing/vision/kzt.md) %}
 

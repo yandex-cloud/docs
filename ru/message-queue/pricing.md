@@ -16,7 +16,7 @@ editable: false
 
 {% endif %}
 
-{% if region == "pre-kz"%}
+{% if region == "kz"%}
 
 {% include [kzt.md](../_pricing/message-queue/kzt.md) %}
 
@@ -38,7 +38,7 @@ editable: false
 
 {% endif %}
 
-{% if region == "pre-kz" %}
+{% if region == "kz" %}
 
 {% include [kzt-egress-traffic.md](../_pricing/kzt-egress-traffic.md) %}
 

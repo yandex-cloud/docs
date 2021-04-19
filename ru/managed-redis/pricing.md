@@ -62,7 +62,7 @@ editable: false
 
 {% endif %}
 
-{% if region == "pre-kz"%}
+{% if region == "kz"%}
 
 {% include [kzt-host.md](../_pricing/managed-redis/kzt-host.md) %}
 
@@ -82,7 +82,7 @@ editable: false
 
 {% endif %}
 
-{% if region == "pre-kz"%}
+{% if region == "kz"%}
 
 {% include [kzt-storage.md](../_pricing/managed-redis/kzt-storage.md) %}
 
@@ -102,7 +102,7 @@ editable: false
 
 {% endif %}
 
-{% if region == "pre-kz" %}
+{% if region == "kz" %}
 
 {% include notitle [kzt-egress-traffic.md](../_pricing/kzt-egress-traffic.md) %}
 
@@ -126,7 +126,7 @@ editable: false
 
 {% endif %}
 
-{% if region == "pre-kz"%}
+{% if region == "kz"%}
 
 {% include [kzt-class.md](../_pricing/managed-redis/kzt-class.md) %}
 

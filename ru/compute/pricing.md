@@ -117,7 +117,7 @@ vCPU и память ВМ, запущенных на выделенном хос
 
 {% endif %}
 
-{% if region == "pre-kz" %}
+{% if region == "kz" %}
 
 {% include [kzt-instance-cpu.md](../_pricing/compute/kzt-instance-cpu.md) %}
 
@@ -143,7 +143,7 @@ vCPU и память ВМ, запущенных на выделенном хос
 
 {% endif %}
 
-{% if region == "pre-kz" %}
+{% if region == "kz" %}
 
 {% include [kzt-preemp-instance-cpu.md](../_pricing/compute/kzt-preemp-instance-cpu.md) %}
 
@@ -167,7 +167,7 @@ vCPU и память ВМ, запущенных на выделенном хос
 
 {% endif %}
 
-{% if region == "pre-kz" %}
+{% if region == "kz" %}
 
 {% include [kzt-os.md](../_pricing/compute/kzt-os.md) %}
 
@@ -187,7 +187,7 @@ vCPU и память ВМ, запущенных на выделенном хос
 
 {% endif %}
 
-{% if region == "pre-kz" %}
+{% if region == "kz" %}
 
 {% include [kzt-os-win-server.md](../_pricing/compute/kzt-os-win-server.md) %}
 
@@ -209,7 +209,7 @@ vCPU и память ВМ, запущенных на выделенном хос
 
 {% endif %}
 
-{% if region == "pre-kz" %}
+{% if region == "kz" %}
 
 {% include [kzt-os-rds.md](../_pricing/compute/kzt-os-rds.md) %}
 
@@ -235,7 +235,7 @@ vCPU и память ВМ, запущенных на выделенном хос
 
 {% endif %}
 
-{% if region == "pre-kz" %}
+{% if region == "kz" %}
 
 {% include [kzt-storage.md](../_pricing/compute/kzt-storage.md) %}
 
@@ -257,7 +257,7 @@ vCPU и память ВМ, запущенных на выделенном хос
 
 {% endif %}
 
-{% if region == "pre-kz" %}
+{% if region == "kz" %}
 
 {% include [kzt-host-cpu.md](../_pricing/compute/kzt-host-cpu.md) %}
 
@@ -281,13 +281,13 @@ vCPU и память ВМ, запущенных на выделенном хос
 
 {% endif %}
 
-{% if region == "pre-kz" %}
+{% if region == "kz" %}
 
 {% include [kzt-network.md](../_pricing/compute/kzt-network.md) %}
 
 {% endif %}
 
-{% if region == "pre-kz" %}
+{% if region == "int" %}
 
 {% include [usd-network.md](../_pricing/compute/usd-network.md) %}
 
@@ -301,7 +301,7 @@ vCPU и память ВМ, запущенных на выделенном хос
 
 {% endif %}
 
-{% if region == "pre-kz" %}
+{% if region == "kz" %}
 
 {% include notitle [kzt-egress-traffic.md](../_pricing/kzt-egress-traffic.md) %}
 

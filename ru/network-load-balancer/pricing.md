@@ -23,7 +23,7 @@ editable: false
 
 {% endif %}
 
-{% if region == "pre-kz"%}
+{% if region == "kz"%}
 
 {% include [kzt.md](../_pricing/network-load-balancer/kzt-ingress.md) %}
 
@@ -47,7 +47,7 @@ editable: false
 
 {% endif %}
 
-{% if region == "pre-kz"%}
+{% if region == "kz"%}
 
 {% include [kzt.md](../_pricing/network-load-balancer/kzt-balancer.md) %}
 

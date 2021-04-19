@@ -69,7 +69,7 @@ The minimum billable amount is 15 seconds for every pair of channels. Audio with
 
 {% endif %}
 
-{% if region == "pre-kz"%}
+{% if region == "kz"%}
 
 {% include [kzt.md](../_pricing/speechkit/kzt-tts.md) %}
 
@@ -89,7 +89,7 @@ The minimum billable amount is 15 seconds for every pair of channels. Audio with
 
 {% endif %}
 
-{% if region == "pre-kz"%}
+{% if region == "kz"%}
 
 {% include [kzt.md](../_pricing/speechkit/kzt-stt.md) %}
 

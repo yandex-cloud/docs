@@ -44,7 +44,7 @@ editable: false
 
 {% endif %}
 
-{% if region == "pre-kz" %}
+{% if region == "kz" %}
 
 {% include [kzt.md](../_pricing/storage/kzt-used_space.md) %}
 
@@ -72,7 +72,7 @@ editable: false
 
 {% endif %}
 
-{% if region == "pre-kz" %}
+{% if region == "kz" %}
 
 {% include [kzt.md](../_pricing/storage/kzt-operations.md) %}
 
@@ -106,7 +106,7 @@ editable: false
 
 {% endif %}
 
-{% if region == "pre-kz" %}
+{% if region == "kz" %}
 
 {% include [kzt.md](../_pricing/storage/kzt-egress.md) %}
 

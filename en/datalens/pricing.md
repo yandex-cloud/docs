@@ -28,7 +28,7 @@ Additional {{ datalens-short-name }} features that are available in {{ marketpla
 
 {% endif %}
 
-{% if region == "pre-kz"%}
+{% if region == "kz"%}
 
 {% include [kzt.md](../_pricing/datalens/kzt.md) %}
 

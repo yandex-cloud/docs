@@ -54,7 +54,7 @@ Where:
 
 {% endif %}
 
-{% if region == "pre-kz" %}
+{% if region == "kz" %}
 
 {% include [kzt.md](../_pricing/functions/kzt-invocations.md) %}
 
@@ -76,7 +76,7 @@ You are charged for an actual number of invokes. E.g., the cost of 1000 invokes
 
 {% endif %}
 
-{% if region == "pre-kz" %}
+{% if region == "kz" %}
 
 {% include [kzt.md](../_pricing/functions/kzt-compute.md) %}
 
@@ -96,7 +96,7 @@ You are charged for an actual number of invokes. E.g., the cost of 1000 invokes
 
 {% endif %}
 
-{% if region == "pre-kz" %}
+{% if region == "kz" %}
 
 {% include notitle [kzt-egress-traffic.md](../_pricing/kzt-egress-traffic.md) %}
 

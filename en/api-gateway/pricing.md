@@ -59,7 +59,7 @@ Where:
 
 {% endif %}
 
-{% if region == "pre-kz" %}
+{% if region == "kz" %}
 
 {% include notitle [kzt.md](../_pricing/api-gateway/kzt.md) %}
 
@@ -79,7 +79,7 @@ Where:
 
 {% endif %}
 
-{% if region == "pre-kz" %}
+{% if region == "kz" %}
 
 {% include notitle [kzt-egress-traffic.md](../_pricing/kzt-egress-traffic.md) %}
 

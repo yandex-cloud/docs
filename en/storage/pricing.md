@@ -44,7 +44,7 @@ The cost of 1 GB per month is fixed and doesn't depend on the number of days in 
 
 {% endif %}
 
-{% if region == "pre-kz" %}
+{% if region == "kz" %}
 
 {% include [kzt.md](../_pricing/storage/kzt-used_space.md) %}
 
@@ -72,7 +72,7 @@ Storage_cost = Cost_per_GB_per_month * 15 * 12 / 24 / 30
 
 {% endif %}
 
-{% if region == "pre-kz" %}
+{% if region == "kz" %}
 
 {% include [kzt.md](../_pricing/storage/kzt-operations.md) %}
 
@@ -106,7 +106,7 @@ The minimum billable unit is 1 MB. The billing period is a calendar month.
 
 {% endif %}
 
-{% if region == "pre-kz" %}
+{% if region == "kz" %}
 
 {% include [kzt.md](../_pricing/storage/kzt-egress.md) %}
 

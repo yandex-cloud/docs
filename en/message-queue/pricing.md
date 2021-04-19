@@ -15,7 +15,7 @@ editable: false
 
 {% endif %}
 
-{% if region == "pre-kz"%}
+{% if region == "kz"%}
 
 {% include [kzt.md](../_pricing/message-queue/kzt.md) %}
 
@@ -37,7 +37,7 @@ For pricing purposes, every 64 KB of request data is considered a separate requ
 
 {% endif %}
 
-{% if region == "pre-kz" %}
+{% if region == "kz" %}
 
 {% include [kzt-egress-traffic.md](../_pricing/kzt-egress-traffic.md) %}
 

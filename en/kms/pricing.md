@@ -22,7 +22,7 @@ The cost for using {{ kms-name }} is based on:
 
 {% endif %}
 
-{% if region == "pre-kz"%}
+{% if region == "kz"%}
 
 {% include [kzt.md](../_pricing/kms/kzt.md) %}
 

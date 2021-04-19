@@ -65,7 +65,7 @@ The cost is specified for one month of use. The minimum billing unit is 1 GB per
 
 {% endif %}
 
-{% if region == "pre-kz"%}
+{% if region == "kz"%}
 
 {% include [kzt-pricing.md](../_pricing/managed-sqlserver/kzt-pricing.md) %}
 
@@ -85,7 +85,7 @@ The cost is specified for one month of use. The minimum billing unit is 1 GB per
 
 {% endif %}
 
-{% if region == "pre-kz" %}
+{% if region == "kz" %}
 
 {% include notitle [kzt-egress-traffic.md](../_pricing/kzt-egress-traffic.md) %}
 
@@ -109,7 +109,7 @@ Prices for the time of host uptime are calculated based on [host classes](concep
 
 {% endif %}
 
-{% if region == "pre-kz"%}
+{% if region == "kz"%}
 
 {% include [kzt-licence.md](../_pricing/managed-sqlserver/kzt-licence.md) %}
 

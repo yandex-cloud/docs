@@ -27,7 +27,7 @@ For example, the cost of writing the first 86,400 values is `$0.007754` and roun
          
 {% endif %}
          
-{% if region == "pre-kz"%}
+{% if region == "kz"%}
          
 {% include [kzt.md](../_pricing/monitoring/kzt.md) %}
          

@@ -69,7 +69,7 @@ Prices in roubles, with VAT
 
 {% endif %}
 
-{% if region == "pre-kzt" %}
+{% if region == "kzt" %}
 
 {% include [kzt-host](../_pricing/managed-mongodb/kzt-host.md) %}
 
@@ -91,7 +91,7 @@ Prices in USD, without VAT
 
 {% endif %}
 
-{% if region == "pre-kzt" %}
+{% if region == "kzt" %}
 
 {% include [kzt-storage](../_pricing/managed-mongodb/kzt-storage.md) %}
 
@@ -111,7 +111,7 @@ Prices in USD, without VAT
 
 {% endif %}
 
-{% if region == "pre-kz" %}
+{% if region == "kz" %}
 
 {% include notitle [kzt-egress-traffic.md](../_pricing/kzt-egress-traffic.md) %}
 
@@ -136,7 +136,7 @@ Prices for the time of host uptime are calculated based on [host classes](concep
 
 {% endif %}
 
-{% if region == "pre-kzt" %}
+{% if region == "kzt" %}
 
 {% include [kzt-class](../_pricing/managed-mongodb/kzt-class.md) %}
 

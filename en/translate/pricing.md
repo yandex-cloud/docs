@@ -25,7 +25,7 @@ The cost for using Yandex Translate is calculated based on the total number of c
 
 {% endif %}
 
-{% if region == "pre-kz"%}
+{% if region == "kz"%}
 
 {% include [kzt.md](../_pricing/translate/kzt.md) %}
 
