@@ -24,8 +24,7 @@
   
    - Предназначен для резидентов РФ или РК.
    - Для оплаты потребленных ресурсов используется банковская карта.
-   - Средства за потребленные ресурсы списываются автоматически. Подробнее см. раздел [Цикл оплаты для физических лиц](../payment/billing-cycle-individual.md).
-   {% if region == "ru" %}
+   - Средства за потребленные ресурсы списываются автоматически. {% if region == "ru" %} Подробнее см. раздел [Цикл оплаты для физических лиц](../payment/billing-cycle-individual.md).
    - После списания средств с банковской карты на электронную почту высылается [чек об оплате](individual-bill.md).
    {% endif %}
   
@@ -55,4 +54,8 @@
 
 {% include [billing-account-payers](../_includes/billing-account-payers.md) %}
 
+{% if region == "ru" %}
+
 {% include [billing-account-payers-example](../_includes/billing-account-payers-example.md) %}
+
+{% endif %}

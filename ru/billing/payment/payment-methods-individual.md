@@ -1,5 +1,7 @@
 # Способы оплаты для физических лиц
 
+{% if region == "ru" %}
+
 Физические лица могут пополнять лицевой счет и оплачивать потребленные ресурсы с помощью [банковской карты](#debit-card), привязанной к платежному аккаунту.
 
 {% include [payment-card-types](../_includes/payment-card-types.md) %}
@@ -25,3 +27,15 @@
 ## Сумма списания {#payment-amount}
 
 {% include [payment-amount](../_includes/payment-amount.md) %}
+
+{% endif %}
+
+{% if region == "kz" %}
+
+{% note info %}
+
+Доступ для физических лиц появится в ближайшее время.
+
+{% endnote %}
+
+{% endif %}
