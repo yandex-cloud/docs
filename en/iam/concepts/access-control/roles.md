@@ -105,7 +105,7 @@ For example, the `{{ roles-admin }}` role lets you perform the following operati
 
 {% include [roles-lb-admin](../../../_includes/roles-lb-admin.md) %}
 
-## {{ objstorage-name }} {#object storage}
+## {{ objstorage-name }} {#object-storage}
 
 {% include [storage.admin](../../../_includes/roles-storage-admin.md) %}
 

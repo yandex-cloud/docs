@@ -43,5 +43,4 @@ To remove the link to a parent issue:
 1. Click **Remove link**.
 
 
-[Contact support](../troubleshooting.md)
 

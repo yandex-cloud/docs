@@ -35,5 +35,4 @@ To disable a template:
 1. Find the switch next to the desired template and set it to ![](../../_assets/tracker/disabled-switch-2.png).
 
 
-[Contact support](../troubleshooting.md)
 

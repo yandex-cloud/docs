@@ -14,5 +14,4 @@ You can use auto actions to:
 - [Set up scheduled issue creation based on a template](ticket-schedule.md).
 
 
-[Contact support](../troubleshooting.md)
 

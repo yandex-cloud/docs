@@ -112,7 +112,7 @@ _Роль_ — это набор разрешений, который опре�
 
 {% include [roles-lb-admin](../../../_includes/roles-lb-admin.md) %}
 
-## {{ objstorage-name }} {#object storage}
+## {{ objstorage-name }} {#object-storage}
 
 {% include [storage.admin](../../../_includes/roles-storage-admin.md) %}
 

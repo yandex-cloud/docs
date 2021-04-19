@@ -1,14 +1,16 @@
 # Getting started with the command-line interface
 
 
-_The Yandex.Cloud command-line interface (CLI)_ provides downloadable software for managing your cloud resources from the command line.
+_The {{ yandex-cloud }} command-line interface (CLI)_ provides downloadable software for managing your cloud resources from the command line.
 
-## Installation {#install}
+## Installing the CLI {#install}
 
 {% include [install-cli](../_includes/cli/install-cli.md) %}
 
 ## Creating a profile {#initialize}
 
+
+  1. Log in to the [management console]({{ link-console-main }}) and accept the user agreement by clicking **Log in**. If you're already connected to the console, skip this step.
 
   1. Get an OAuth token from Yandex.OAuth. To do this, go to the [link]({{ link-cloud-oauth }}) and click **Allow**.
 
@@ -19,7 +21,7 @@ _The Yandex.Cloud command-line interface (CLI)_ provides downloadable software f
      ```
      Please go to {{ link-cloud-oauth }}
       in order to obtain OAuth token.
-
+     
      Please enter OAuth token: AaAaBbBbCcCcDdDdEeEeFfFfGgGg
      ```
 
@@ -44,7 +46,8 @@ _The Yandex.Cloud command-line interface (CLI)_ provides downloadable software f
      Please enter your numeric choice: 1
      ```
 
-  1. Select the default availability zone for the {{ compute-full-name }} service:
+
+  1. Select the default availability zone for {{ compute-full-name }}:
 
      ```
      Do you want to configure a default {{ compute-full-name }} availability zone? [Y/n] Y
@@ -61,6 +64,7 @@ _The Yandex.Cloud command-line interface (CLI)_ provides downloadable software f
      ```
      $ yc config list
      ```
+
 
 ## Examples of commands {#example}
 
@@ -93,7 +97,7 @@ The following steps describe how to create a cloud network, subnet, and virtual 
 
    ```
    $ yc vpc network list
-
+   
    +----------------------+------------------+-------------------------+
    |          ID          |       NAME       |       DESCRIPTION       |
    +----------------------+------------------+-------------------------+
@@ -106,7 +110,7 @@ The following steps describe how to create a cloud network, subnet, and virtual 
 
    ```
    $ yc vpc network list --format yaml
-
+   
    - id: skesdqhkc6449hbqqar1
      folder_id: ijkl9012
      created_at: "2018-09-05T09:51:16Z"
@@ -130,7 +134,7 @@ The following steps describe how to create a cloud network, subnet, and virtual 
           --name my-yc-instance \
           --network-interface subnet-name=my-yc-subnet-b,nat-ip-version=ipv4 \
           --zone ru-central1-b \
-          --ssh-key ~/.ssh/id_rsa.pub
+		  --ssh-key ~/.ssh/id_rsa.pub
       ```
 
       Pass the path to the public key for SSH access in the `ssh-key` parameter. The `yc-user` user will be automatically created in the virtual machine OS with the specified public key.

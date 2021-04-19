@@ -281,7 +281,7 @@ items:
         href: api-ref/functions/authentication.md
       - name: gRPC
         items:
-          - name: Обзор
+          - name: Overview
             href: grpc/index.md
           - name: FunctionService
             href: grpc/function_service.md
@@ -289,11 +289,11 @@ items:
             href: grpc/operation_service.md
       - name: REST
         items:
-          - name: Обзор
+          - name: Overview
             href: functions/api-ref/index.md
           - name: Function
             items:
-              - name: Обзор
+              - name: Overview
                 href: functions/api-ref/Function/index.md
               - name: create
                 href: functions/api-ref/Function/create.md
@@ -335,7 +335,7 @@ items:
         href: api-ref/triggers/authentication.md
       - name: gRPC
         items:
-          - name: Обзор
+          - name: Overview
             href: grpc/index.md
           - name: TriggerService
             href: grpc/trigger_service.md
@@ -343,11 +343,11 @@ items:
             href: grpc/operation_service.md
       - name: REST
         items:
-          - name: Обзор
+          - name: Overview
             href: triggers/api-ref/index.md
           - name: Trigger
             items:
-              - name: Обзор
+              - name: Overview
                 href: triggers/api-ref/Trigger/index.md
               - name: create
                 href: triggers/api-ref/Trigger/create.md
@@ -359,6 +359,10 @@ items:
                 href: triggers/api-ref/Trigger/list.md
               - name: listOperations
                 href: triggers/api-ref/Trigger/listOperations.md
+              - name: pause
+                href: triggers/api-ref/Trigger/pause.md
+              - name: resume
+                href: triggers/api-ref/Trigger/resume.md
               - name: update
                 href: triggers/api-ref/Trigger/update.md
   - name: Questions and answers

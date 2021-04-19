@@ -4,7 +4,7 @@ _Dashboards_ let you track the status of important issues on a single page. You 
 
 ![](../../_assets/tracker/dashboard-examp.png)
 
-Widget content is generated automatically. The list of issues that a widget is based on is set using [filters](filters.md). You can go to [{#T}](../support-process.md#dashboards) to find sample widgets for the support service dashboard.
+Widget content is generated automatically. The list of issues that a widget is based on is set using [filters](filters.md). You can go to [{#T}](../support-process-dashboards.md) to find sample widgets for the support service dashboard.
 
 {% note warning %}
 
@@ -19,7 +19,3 @@ You can create multiple dashboards with different sets of widgets and switch bet
 - [{#T}](share-dashboard.md)
 - [{#T}](startpage-dashboard.md)
 - [{#T}](widgets.md)
-
-
-[Contact support](../troubleshooting.md)
-

@@ -86,6 +86,3 @@ You can view a list of issues related to a specific version:
 
 1. Click the version number.
 
-
-[Contact support](../troubleshooting.md)
-

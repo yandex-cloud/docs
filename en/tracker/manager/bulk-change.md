@@ -1,4 +1,4 @@
-# Change multiple issues
+# Changing multiple issues
 
 You can change statuses and fields for multiple issues at once. To open your issue list, go to the queue or filter page.
 
@@ -41,7 +41,4 @@ To change the fields of issues on the queue or filter pages, do the following:
 1. If necessary, leave a comment in the text field below and click **Continue**.
 
 1. Wait for the issues to be processed and click **Finish**.
-
-
-[Contact support](../troubleshooting.md)
 

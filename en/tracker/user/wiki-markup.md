@@ -28,5 +28,5 @@ The basic markup options are listed below.
 | Source code | ```%%code fragment%%``` | ![](../../_assets/tracker/format/source-code-2.png) |
 | Escaping wiki markup | ```""**Escaping all markup**```<br/>```//elements in this text//""```<br/>```~**Escaping a single** //markup element//  ``` | ![](../../_assets/tracker/format/escaping.png) |
 
-[Contact support](../troubleshooting.md)
+
 

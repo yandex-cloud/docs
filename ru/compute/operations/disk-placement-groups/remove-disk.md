@@ -2,12 +2,6 @@
 
 Удалите нереплицируемый диск из [группы размещения](../../concepts/disk-placement-group.md). Затем диск можно [удалить насовсем](../disk-control/delete.md) или добавить обратно в группу размещения.
 
-{% note info %}
-
-Нереплицируемые диски находятся на стадии [Preview](https://cloud.yandex.ru/docs/overview/concepts/launch-stages).
-
-{% endnote %}
-
 {% list tabs %}
 
 * Консоль управления

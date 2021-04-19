@@ -25,6 +25,3 @@ To permanently delete a queue and all the issues in it:
 
 {% endnote %}
 
-
-[Contact support](../troubleshooting.md)
-

@@ -15,5 +15,4 @@ You can make any available dashboard your [home page](startpage.md):
 1. Click **Done**.
 
 
-[Contact support](../troubleshooting.md)
 

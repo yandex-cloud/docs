@@ -63,52 +63,28 @@ editable: false
 
 ### Вычислительные ресурсы хостов {#prices-compute-units}
 
-Ресурс | Цена за 1 час | Цена с CVoS на 1 год
------ | ----- | -----
-**Intel Cascade Lake** |
-100% vCPU | 1,17 ₽ | 0,85 ₽ (-28%)
-RAM (за 1 ГБ) | 0,32 ₽ | 0,21 ₽ (-35%)
+
+{% include notitle [rub-compute-units.md](../../_pricing/ydb/rub-compute-units.md) %}
+
 
 
 ### Хранилище и резервные копии {#prices-storage}
 
-Услуга | Цена за ГБ в месяц
------ | -----
-Хранение данных на группах хранения из SSD-накопителей | 13,410 ₽ |
-Хранение резервных копий по требованию в {{ objstorage-full-name }} | 1,261 ₽
 
-{% note info "Минимальный размер группы" %}
+{% include notitle [rub-storage.md](../../_pricing/ydb/rub-storage.md) %}
 
-Одна [группа хранения](../concepts/databases.md#storage-groups) позволяет разместить до 100 Гб пользовательских данных. Минимальная гранулярность выделения места для базы данных – одна группа хранения.
 
-{% endnote %}
 
 ### Исходящий трафик {#prices-traffic}
 
-{% include notitle [pricing-egress-traffic](../_includes/pricing/pricing-egress-traffic.md) %}
+
+{% include notitle [rub-egress-traffic.md](../../_pricing/rub-egress-traffic.md) %}
+
 
 
 ## Расчетные цены для вычислительных ресурсов {#calculated-prices}
 
-Цены за время работы рассчитаны для [классов вычислительных ресурсов](../concepts/databases.md#compute-units).
+
+{% include notitle [rub-dedicated.md](../../_pricing/ydb/rub-dedicated.md) %}
 
 
-{% list tabs %}
-
-- За месяц работы базы из 1 виртуальной машины
-
-  Из расчета 720 часов в месяц, округлено до целых рублей.
-
-  Класс хостов | Цена за месяц | Цена с CVoS на 1 год
-  ----- | ----- | -----
-  **Intel Cascade Lake** |
-  s2-medium | 14 112 ₽ | 9 734,40 ₽ (-31%)
-
-- За 1 час работы базы из 1 виртуальной машины
-
-  Класс хостов | Цена за час | Цена с CVoS на 1 год
-  ----- | ----- | -----
-  **Intel Cascade Lake** |
-  s2-medium | 19,60 ₽ | 13,52 ₽ (-31%)
-
-{% endlist %}

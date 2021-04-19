@@ -1,6 +1,6 @@
 # Collaborative workload estimation
 
-Teams that follow the agile software development approach use the [Planning poker](https://en.wikipedia.org/wiki/Planning_poker) technique for estimating their workload. Each team member individually rates an issue's complexity by using Story Points as a scoring system. The team members then announce and discuss their scores and decide on a final score. Planning poker usually requires special cards with numbers that represent the issue's score.
+Teams that follow the agile software development approach use the [Planning poker]({{ link-wiki-poker }}) technique for getting an estimate of their workload. Each team member individually rates an issue's complexity by using Story Points as a scoring system. The team members then announce and discuss their scores and decide on a final score. Planning poker usually requires special cards with numbers that represent the issue's score.
 
 You can use the planning poker page in {{ tracker-name }} to collaborate on workload estimation.
 
@@ -55,7 +55,4 @@ You can choose the method for calculating the issue's final difficulty score bas
 1. Choose the calculation function in the **Calculation of final estimate** field. **Maximum value** is set by default.
 
 1. Click **Save**.
-
-
-[Contact support](../troubleshooting.md)
 

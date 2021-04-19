@@ -129,5 +129,3 @@ Comments are listed chronologically by default. If you want to place the most re
 All issue changelogs on the **History** tab will also change their order to newest first.
 
 
-[Contact support](../troubleshooting.md)
-

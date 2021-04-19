@@ -125,7 +125,7 @@ You can filter your issues to only leave the ones you need on the **Sprints** ta
 
 You can set your sprint page to display issues and sprints in a single column. To do this:
 
-1. On the {{ tracker-name }} top panel, click ![]( ../../_assets/tracker/tracker-settings.png) → **Personal settings**.
+1. On the {{ tracker-name }} top panel, click ![](../../_assets/tracker/tracker-settings.png) → **Personal settings**.
 
     
     {% note info %}
@@ -137,7 +137,4 @@ You can set your sprint page to display issues and sprints in a single column. T
 1. Choose **Display sprints and issues in a single column**.
 
 1. Click **Save**.
-
-
-[Contact support](../troubleshooting.md)
 

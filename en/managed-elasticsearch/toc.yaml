@@ -1,0 +1,132 @@
+title: Yandex Managed Service for Elasticsearch
+href: index.yaml
+items:
+  - name: Getting started
+    href: quickstart.md
+  - name: Step-by-step instructions
+    items:
+      - name: All instructions
+        href: operations/index.md
+      - name: Information about existing clusters
+        href: operations/cluster-list.md
+      - name: Creating clusters
+        href: operations/cluster-create.md
+      - name: Connecting to clusters
+        href: operations/cluster-connect.md
+      - name: Stopping and starting clusters
+        href: operations/cluster-stop.md
+      - name: Changing cluster settings
+        href: operations/update.md
+      - name: Managing Elasticsearch hosts
+        href: operations/cluster-hosts.md
+      - name: Managing Elasticsearch users
+        href: operations/cluster-users.md
+      - name: Deleting a cluster
+        href: operations/cluster-delete.md
+  - name: Concepts
+    items:
+      - name: Relationship between service resources
+        href: concepts/index.md
+      - name: Host roles
+        href: concepts/hosts-roles.md
+      - name: Elasticsearch editions
+        href: concepts/es-editions.md
+      - name: Indexes
+        href: concepts/indexing.md
+      - name: Search using Elasticsearch
+        href: concepts/searching.md
+      - name: Host classes
+        href: concepts/instance-types.md
+      - name: Managed Service for Elasticsearch
+        href: concepts/network.md
+      - name: Quotas and limits
+        href: concepts/limits.md
+      - name: Storage types
+        href: concepts/storage.md
+      - name: Sharding and replication
+        href: concepts/scalability-and-resilience.md
+      - name: Elasticsearch plugins
+        href: concepts/plugins.md
+  - name: Access management
+    href: security/index.md
+  - name: Pricing policy
+    href: pricing.md
+  - name: API reference
+    items:
+      - name: API authentication
+        href: api-ref/authentication.md
+      - name: gRPC
+        items:
+          - name: Обзор
+            href: grpc/index.md
+          - name: ClusterService
+            href: grpc/cluster_service.md
+          - name: OperationService
+            href: grpc/operation_service.md
+          - name: ResourcePresetService
+            href: grpc/resource_preset_service.md
+          - name: UserService
+            href: grpc/user_service.md
+          - name: OperationService
+            href: grpc/operation_service.md
+      - name: REST
+        items:
+          - name: Обзор
+            href: api-ref/index.md
+          - name: Cluster
+            items:
+              - name: Обзор
+                href: api-ref/Cluster/index.md
+              - name: addHosts
+                href: api-ref/Cluster/addHosts.md
+              - name: create
+                href: api-ref/Cluster/create.md
+              - name: delete
+                href: api-ref/Cluster/delete.md
+              - name: deleteHosts
+                href: api-ref/Cluster/deleteHosts.md
+              - name: get
+                href: api-ref/Cluster/get.md
+              - name: list
+                href: api-ref/Cluster/list.md
+              - name: listHosts
+                href: api-ref/Cluster/listHosts.md
+              - name: listLogs
+                href: api-ref/Cluster/listLogs.md
+              - name: listOperations
+                href: api-ref/Cluster/listOperations.md
+              - name: move
+                href: api-ref/Cluster/move.md
+              - name: start
+                href: api-ref/Cluster/start.md
+              - name: stop
+                href: api-ref/Cluster/stop.md
+              - name: streamLogs
+                href: api-ref/Cluster/streamLogs.md
+              - name: update
+                href: api-ref/Cluster/update.md
+          - name: Operation
+            items:
+              - name: Обзор
+                href: api-ref/Operation/index.md
+              - name: get
+                href: api-ref/Operation/get.md
+          - name: ResourcePreset
+            items:
+              - name: Обзор
+                href: api-ref/ResourcePreset/index.md
+              - name: get
+                href: api-ref/ResourcePreset/get.md
+              - name: list
+                href: api-ref/ResourcePreset/list.md
+          - name: User
+            items:
+              - name: Обзор
+                href: api-ref/User/index.md
+              - name: get
+                href: api-ref/User/get.md
+              - name: list
+                href: api-ref/User/list.md
+  - name: Questions and answers
+    href: qa/index.md
+base: en/managed-elasticsearch

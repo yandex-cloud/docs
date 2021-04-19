@@ -38,7 +38,7 @@ The plugin only allows you to work with issues that you are assigned to.
 ## Connect the plugin to {{ tracker-name }} {#section_vgn_cqd_kdb}
 
 
-To make the plugin work, link it to your account:
+To make the plugin work, link it to your {{ tracker-name }} account:
 
 
 1. Log in to {{ tracker-name }}.
@@ -60,7 +60,3 @@ To make the plugin work, link it to your account:
 1. Select the queue that you want to work in.
 
 1. Click **OK**.
-
-
-[Contact support](troubleshooting.md)
-

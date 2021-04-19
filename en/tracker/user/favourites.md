@@ -41,5 +41,4 @@ To add an [agile board](../manager/agile.md#sec_boards) to Favorites:
 Your favorite boards are displayed in the **Boards** menu on the top panel in {{ tracker-name }}.
 
 
-[Contact support](../troubleshooting.md)
 

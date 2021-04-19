@@ -38,6 +38,3 @@ Here is what you need to create a board:
 
 1. You can also [customize the columns and appearance of the issue card](edit-agile-board.md) if needed.
 
-
-[Contact support](../troubleshooting.md)
-

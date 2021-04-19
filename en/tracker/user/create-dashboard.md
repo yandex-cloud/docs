@@ -35,5 +35,4 @@ You will be the owner of the new dashboard. You can change it, edit the widgets,
 - [How to make a dashboard your home page](startpage-dashboard.md)
 
 
-[Contact support](../troubleshooting.md)
 

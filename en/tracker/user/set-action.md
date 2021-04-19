@@ -1,4 +1,4 @@
-# Configure trigger actions
+# Configuring trigger actions
 
 Configure one or more actions under **Trigger actions** by clicking **Add new action**:
 
@@ -132,7 +132,4 @@ If you want the trigger to send an HTTP request:
    {% endnote %}
 
 To view examples for setting up HTTP requests that send notifications from {{ tracker-name }} to Slack and Telegram, see [{#T}](../messenger.md).
-
-
-[Contact support](../troubleshooting.md)
 

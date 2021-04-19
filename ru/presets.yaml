@@ -477,10 +477,10 @@ default:
         standard|int|number: '0'
         standard|int|string: Не тарифицируется
         standard|pricingRate:
-          1|number: 0,2441
-          1|string: "0,2441\_₽"
-          1|int|number: '0'
-          1|int|string: "0\_₽"
+          10|number: 0,2441
+          10|string: "0,2441\_₽"
+          10|int|number: '0'
+          10|int|string: "0\_₽"
         cold|number: 0,6102
         cold|string: "0,6102\_₽"
         cold|int|number: '1'
@@ -509,10 +509,10 @@ default:
         standard|int|number: '0'
         standard|int|string: Не тарифицируется
         standard|pricingRate:
-          1|number: 0,3051
-          1|string: "0,3051\_₽"
-          1|int|number: '0'
-          1|int|string: "0\_₽"
+          10|number: 0,3051
+          10|string: "0,3051\_₽"
+          10|int|number: '0'
+          10|int|string: "0\_₽"
       delete|number: 0,0000
       delete|string: Не тарифицируется
       delete|int|number: '0'
@@ -577,10 +577,10 @@ default:
         standard|int|number: '0'
         standard|int|string: Не тарифицируется
         standard|pricingRate:
-          1|number: 0,3051
-          1|string: "0,3051\_₽"
-          1|int|number: '0'
-          1|int|string: "0\_₽"
+          10|number: 0,3051
+          10|string: "0,3051\_₽"
+          10|int|number: '0'
+          10|int|string: "0\_₽"
       transition|number: 0,7400
       transition|string: "0,7400\_₽"
       transition|int|number: '1'
@@ -3791,63 +3791,63 @@ default:
       elasticsearch:
         v2:
           cpu:
-            c100|number: 0,0000
-            c100|string: Не тарифицируется
-            c100|int|number: '0'
-            c100|int|string: Не тарифицируется
-            c100|month|number: 0,0000
-            c100|month|string: Не тарифицируется
-            c100|month|int|number: '0'
-            c100|month|int|string: Не тарифицируется
-            c20|number: 0,0000
-            c20|string: Не тарифицируется
-            c20|int|number: '0'
-            c20|int|string: Не тарифицируется
-            c20|month|number: 0,0000
-            c20|month|string: Не тарифицируется
-            c20|month|int|number: '0'
-            c20|month|int|string: Не тарифицируется
-            c5|number: 0,0000
-            c5|string: Не тарифицируется
-            c5|int|number: '0'
-            c5|int|string: Не тарифицируется
-            c5|month|number: 0,0000
-            c5|month|string: Не тарифицируется
-            c5|month|int|number: '0'
-            c5|month|int|string: Не тарифицируется
-            c50|number: 0,0000
-            c50|string: Не тарифицируется
-            c50|int|number: '0'
-            c50|int|string: Не тарифицируется
-            c50|month|number: 0,0000
-            c50|month|string: Не тарифицируется
-            c50|month|int|number: '0'
-            c50|month|int|string: Не тарифицируется
+            c100|number: 1,0500
+            c100|string: "1,0500\_₽"
+            c100|int|number: '1'
+            c100|int|string: "1\_₽"
+            c100|month|number: 756,0000
+            c100|month|string: "756,0000\_₽"
+            c100|month|int|number: '756'
+            c100|month|int|string: "756\_₽"
+            c20|number: 1,0500
+            c20|string: "1,0500\_₽"
+            c20|int|number: '1'
+            c20|int|string: "1\_₽"
+            c20|month|number: 756,0000
+            c20|month|string: "756,0000\_₽"
+            c20|month|int|number: '756'
+            c20|month|int|string: "756\_₽"
+            c5|number: 1,0500
+            c5|string: "1,0500\_₽"
+            c5|int|number: '1'
+            c5|int|string: "1\_₽"
+            c5|month|number: 756,0000
+            c5|month|string: "756,0000\_₽"
+            c5|month|int|number: '756'
+            c5|month|int|string: "756\_₽"
+            c50|number: 1,0500
+            c50|string: "1,0500\_₽"
+            c50|int|number: '1'
+            c50|int|string: "1\_₽"
+            c50|month|number: 756,0000
+            c50|month|string: "756,0000\_₽"
+            c50|month|int|number: '756'
+            c50|month|int|string: "756\_₽"
           ram:
-            platinum|number: 0,0000
-            platinum|string: Не тарифицируется
-            platinum|int|number: '0'
-            platinum|int|string: Не тарифицируется
-            platinum|month|number: 0,0000
-            platinum|month|string: Не тарифицируется
-            platinum|month|int|number: '0'
-            platinum|month|int|string: Не тарифицируется
-            basic|number: 0,0000
-            basic|string: Не тарифицируется
-            basic|int|number: '0'
-            basic|int|string: Не тарифицируется
-            basic|month|number: 0,0000
-            basic|month|string: Не тарифицируется
-            basic|month|int|number: '0'
-            basic|month|int|string: Не тарифицируется
-            gold|number: 0,0000
-            gold|string: Не тарифицируется
-            gold|int|number: '0'
-            gold|int|string: Не тарифицируется
-            gold|month|number: 0,0000
-            gold|month|string: Не тарифицируется
-            gold|month|int|number: '0'
-            gold|month|int|string: Не тарифицируется
+            platinum|number: 1,7700
+            platinum|string: "1,7700\_₽"
+            platinum|int|number: '2'
+            platinum|int|string: "2\_₽"
+            platinum|month|number: "1\_274,4000"
+            platinum|month|string: "1\_274,4000\_₽"
+            platinum|month|int|number: "1\_274"
+            platinum|month|int|string: "1\_274\_₽"
+            basic|number: 1,3100
+            basic|string: "1,3100\_₽"
+            basic|int|number: '1'
+            basic|int|string: "1\_₽"
+            basic|month|number: 943,2000
+            basic|month|string: "943,2000\_₽"
+            basic|month|int|number: '943'
+            basic|month|int|string: "943\_₽"
+            gold|number: 1,5400
+            gold|string: "1,5400\_₽"
+            gold|int|number: '2'
+            gold|int|string: "2\_₽"
+            gold|month|number: "1\_108,8000"
+            gold|month|string: "1\_108,8000\_₽"
+            gold|month|int|number: "1\_109"
+            gold|month|int|string: "1\_109\_₽"
           ram|number: 0,0000
           ram|string: Не тарифицируется
           ram|int|number: '0'
@@ -3856,14 +3856,14 @@ default:
           ram|month|string: Не тарифицируется
           ram|month|int|number: '0'
           ram|month|int|string: Не тарифицируется
-        public_ip|number: 0,0000
-        public_ip|string: Не тарифицируется
+        public_ip|number: 0,1524
+        public_ip|string: "0,1524\_₽"
         public_ip|int|number: '0'
-        public_ip|int|string: Не тарифицируется
-        public_ip|month|number: 0,0000
-        public_ip|month|string: Не тарифицируется
-        public_ip|month|int|number: '0'
-        public_ip|month|int|string: Не тарифицируется
+        public_ip|int|string: "0\_₽"
+        public_ip|month|number: 109,7280
+        public_ip|month|string: "109,7280\_₽"
+        public_ip|month|int|number: '110'
+        public_ip|month|int|string: "110\_₽"
       kafka:
         v2:
           cpu:
@@ -6747,14 +6747,14 @@ default:
         kafka|month|string: "8,1356\_₽"
         kafka|month|int|number: '8'
         kafka|month|int|string: "8\_₽"
-        elasticsearch|number: 0,0000
-        elasticsearch|string: Не тарифицируется
+        elasticsearch|number: 0,0113
+        elasticsearch|string: "0,0113\_₽"
         elasticsearch|int|number: '0'
-        elasticsearch|int|string: Не тарифицируется
-        elasticsearch|month|number: 0,0000
-        elasticsearch|month|string: Не тарифицируется
-        elasticsearch|month|int|number: '0'
-        elasticsearch|month|int|string: Не тарифицируется
+        elasticsearch|int|string: "0\_₽"
+        elasticsearch|month|number: 8,1356
+        elasticsearch|month|string: "8,1356\_₽"
+        elasticsearch|month|int|number: '8'
+        elasticsearch|month|int|string: "8\_₽"
         mysql|number: 0,0113
         mysql|string: "0,0113\_₽"
         mysql|int|number: '0'
@@ -8186,14 +8186,14 @@ default:
         mssql|month|string: "2,2881\_₽"
         mssql|month|int|number: '2'
         mssql|month|int|string: "2\_₽"
-        elasticsearch|number: 0,0000
-        elasticsearch|string: Не тарифицируется
+        elasticsearch|number: 0,0032
+        elasticsearch|string: "0,0032\_₽"
         elasticsearch|int|number: '0'
-        elasticsearch|int|string: Не тарифицируется
-        elasticsearch|month|number: 0,0000
-        elasticsearch|month|string: Не тарифицируется
-        elasticsearch|month|int|number: '0'
-        elasticsearch|month|int|string: Не тарифицируется
+        elasticsearch|int|string: "0\_₽"
+        elasticsearch|month|number: 2,2881
+        elasticsearch|month|string: "2,2881\_₽"
+        elasticsearch|month|int|number: '2'
+        elasticsearch|month|int|string: "2\_₽"
         kafka|number: 0,0032
         kafka|string: "0,0032\_₽"
         kafka|int|number: '0'
@@ -8348,14 +8348,14 @@ default:
         mysql|month|string: "8,1356\_₽"
         mysql|month|int|number: '8'
         mysql|month|int|string: "8\_₽"
-        elasticsearch|number: 0,0000
-        elasticsearch|string: Не тарифицируется
+        elasticsearch|number: 0,0113
+        elasticsearch|string: "0,0113\_₽"
         elasticsearch|int|number: '0'
-        elasticsearch|int|string: Не тарифицируется
-        elasticsearch|month|number: 0,0000
-        elasticsearch|month|string: Не тарифицируется
-        elasticsearch|month|int|number: '0'
-        elasticsearch|month|int|string: Не тарифицируется
+        elasticsearch|int|string: "0\_₽"
+        elasticsearch|month|number: 8,1356
+        elasticsearch|month|string: "8,1356\_₽"
+        elasticsearch|month|int|number: '8'
+        elasticsearch|month|int|string: "8\_₽"
         ch|number: 0,0113
         ch|string: "0,0113\_₽"
         ch|int|number: '0'
@@ -8616,14 +8616,14 @@ default:
             cores|month|int|string: "965\_₽"
       elasticsearch:
         v2:
-          cores|number: 0,0000
-          cores|string: Не тарифицируется
-          cores|int|number: '0'
-          cores|int|string: Не тарифицируется
-          cores|month|number: 0,0000
-          cores|month|string: Не тарифицируется
-          cores|month|int|number: '0'
-          cores|month|int|string: Не тарифицируется
+          cores|number: 1,3400
+          cores|string: "1,3400\_₽"
+          cores|int|number: '1'
+          cores|int|string: "1\_₽"
+          cores|month|number: 964,8000
+          cores|month|string: "964,8000\_₽"
+          cores|month|int|number: '965'
+          cores|month|int|string: "965\_₽"
       mysql:
         v1:
           cores|number: 1,3400
@@ -9344,40 +9344,40 @@ default:
           elasticsearch:
             ram:
               v2:
-                platinum|number: 0,0000
-                platinum|string: Не тарифицируется
-                platinum|int|number: '0'
-                platinum|int|string: Не тарифицируется
-                platinum|month|number: 0,0000
-                platinum|month|string: Не тарифицируется
-                platinum|month|int|number: '0'
-                platinum|month|int|string: Не тарифицируется
-                basic|number: 0,0000
-                basic|string: Не тарифицируется
-                basic|int|number: '0'
-                basic|int|string: Не тарифицируется
-                basic|month|number: 0,0000
-                basic|month|string: Не тарифицируется
-                basic|month|int|number: '0'
-                basic|month|int|string: Не тарифицируется
-                gold|number: 0,0000
-                gold|string: Не тарифицируется
-                gold|int|number: '0'
-                gold|int|string: Не тарифицируется
-                gold|month|number: 0,0000
-                gold|month|string: Не тарифицируется
-                gold|month|int|number: '0'
-                gold|month|int|string: Не тарифицируется
+                platinum|number: 1,6700
+                platinum|string: "1,6700\_₽"
+                platinum|int|number: '2'
+                platinum|int|string: "2\_₽"
+                platinum|month|number: "1\_202,4000"
+                platinum|month|string: "1\_202,4000\_₽"
+                platinum|month|int|number: "1\_202"
+                platinum|month|int|string: "1\_202\_₽"
+                basic|number: 1,2300
+                basic|string: "1,2300\_₽"
+                basic|int|number: '1'
+                basic|int|string: "1\_₽"
+                basic|month|number: 885,6000
+                basic|month|string: "885,6000\_₽"
+                basic|month|int|number: '886'
+                basic|month|int|string: "886\_₽"
+                gold|number: 1,4500
+                gold|string: "1,4500\_₽"
+                gold|int|number: '1'
+                gold|int|string: "1\_₽"
+                gold|month|number: "1\_044,0000"
+                gold|month|string: "1\_044,0000\_₽"
+                gold|month|int|number: "1\_044"
+                gold|month|int|string: "1\_044\_₽"
             cpu:
               c100:
-                v2|number: 0,0000
-                v2|string: Не тарифицируется
-                v2|int|number: '0'
-                v2|int|string: Не тарифицируется
-                v2|month|number: 0,0000
-                v2|month|string: Не тарифицируется
-                v2|month|int|number: '0'
-                v2|month|int|string: Не тарифицируется
+                v2|number: 0,7500
+                v2|string: "0,7500\_₽"
+                v2|int|number: '1'
+                v2|int|string: "1\_₽"
+                v2|month|number: 540,0000
+                v2|month|string: "540,0000\_₽"
+                v2|month|int|number: '540'
+                v2|month|int|string: "540\_₽"
         nbs:
           volume:
             hdd|number: 0,0000
@@ -9658,40 +9658,40 @@ default:
           elasticsearch:
             cpu:
               c100:
-                v2|number: 0,0000
-                v2|string: Не тарифицируется
-                v2|int|number: '0'
-                v2|int|string: Не тарифицируется
-                v2|month|number: 0,0000
-                v2|month|string: Не тарифицируется
-                v2|month|int|number: '0'
-                v2|month|int|string: Не тарифицируется
+                v2|number: 0,5800
+                v2|string: "0,5800\_₽"
+                v2|int|number: '1'
+                v2|int|string: "1\_₽"
+                v2|month|number: 417,6000
+                v2|month|string: "417,6000\_₽"
+                v2|month|int|number: '418'
+                v2|month|int|string: "418\_₽"
             ram:
               v2:
-                basic|number: 0,0000
-                basic|string: Не тарифицируется
-                basic|int|number: '0'
-                basic|int|string: Не тарифицируется
-                basic|month|number: 0,0000
-                basic|month|string: Не тарифицируется
-                basic|month|int|number: '0'
-                basic|month|int|string: Не тарифицируется
-                gold|number: 0,0000
-                gold|string: Не тарифицируется
-                gold|int|number: '0'
-                gold|int|string: Не тарифицируется
-                gold|month|number: 0,0000
-                gold|month|string: Не тарифицируется
-                gold|month|int|number: '0'
-                gold|month|int|string: Не тарифицируется
-                platinum|number: 0,0000
-                platinum|string: Не тарифицируется
-                platinum|int|number: '0'
-                platinum|int|string: Не тарифицируется
-                platinum|month|number: 0,0000
-                platinum|month|string: Не тарифицируется
-                platinum|month|int|number: '0'
-                platinum|month|int|string: Не тарифицируется
+                basic|number: 1,1900
+                basic|string: "1,1900\_₽"
+                basic|int|number: '1'
+                basic|int|string: "1\_₽"
+                basic|month|number: 856,8000
+                basic|month|string: "856,8000\_₽"
+                basic|month|int|number: '857'
+                basic|month|int|string: "857\_₽"
+                gold|number: 1,4000
+                gold|string: "1,4000\_₽"
+                gold|int|number: '1'
+                gold|int|string: "1\_₽"
+                gold|month|number: "1\_008,0000"
+                gold|month|string: "1\_008,0000\_₽"
+                gold|month|int|number: "1\_008"
+                gold|month|int|string: "1\_008\_₽"
+                platinum|number: 1,6100
+                platinum|string: "1,6100\_₽"
+                platinum|int|number: '2'
+                platinum|int|string: "2\_₽"
+                platinum|month|number: "1\_159,2000"
+                platinum|month|string: "1\_159,2000\_₽"
+                platinum|month|int|number: "1\_159"
+                platinum|month|int|string: "1\_159\_₽"
           redis:
             ram:
               v2|number: 0,1400
@@ -10896,10 +10896,10 @@ default:
         standard|int|number: '0'
         standard|int|string: Не тарифицируется
         standard|pricingRate:
-          1|number: 0,003129
-          1|string: "0,003129\_$"
-          1|int|number: '0'
-          1|int|string: "0\_$"
+          10|number: 0,003129
+          10|string: "0,003129\_$"
+          10|int|number: '0'
+          10|int|string: "0\_$"
         cold|number: 0,007823
         cold|string: "0,007823\_$"
         cold|int|number: '0'
@@ -10928,10 +10928,10 @@ default:
         standard|int|number: '0'
         standard|int|string: Не тарифицируется
         standard|pricingRate:
-          1|number: 0,003912
-          1|string: "0,003912\_$"
-          1|int|number: '0'
-          1|int|string: "0\_$"
+          10|number: 0,003912
+          10|string: "0,003912\_$"
+          10|int|number: '0'
+          10|int|string: "0\_$"
       delete|number: 0,000000
       delete|string: Не тарифицируется
       delete|int|number: '0'
@@ -10996,10 +10996,10 @@ default:
         standard|int|number: '0'
         standard|int|string: Не тарифицируется
         standard|pricingRate:
-          1|number: 0,003912
-          1|string: "0,003912\_$"
-          1|int|number: '0'
-          1|int|string: "0\_$"
+          10|number: 0,003912
+          10|string: "0,003912\_$"
+          10|int|number: '0'
+          10|int|string: "0\_$"
       transition|number: 0,009487
       transition|string: "0,009487\_$"
       transition|int|number: '0'
@@ -14210,63 +14210,63 @@ default:
       elasticsearch:
         v2:
           cpu:
-            c100|number: 0,000000
-            c100|string: Не тарифицируется
+            c100|number: 0,013462
+            c100|string: "0,013462\_$"
             c100|int|number: '0'
-            c100|int|string: Не тарифицируется
-            c100|month|number: 0,000000
-            c100|month|string: Не тарифицируется
-            c100|month|int|number: '0'
-            c100|month|int|string: Не тарифицируется
-            c20|number: 0,000000
-            c20|string: Не тарифицируется
+            c100|int|string: "0\_$"
+            c100|month|number: 9,692308
+            c100|month|string: "9,692308\_$"
+            c100|month|int|number: '10'
+            c100|month|int|string: "10\_$"
+            c20|number: 0,013462
+            c20|string: "0,013462\_$"
             c20|int|number: '0'
-            c20|int|string: Не тарифицируется
-            c20|month|number: 0,000000
-            c20|month|string: Не тарифицируется
-            c20|month|int|number: '0'
-            c20|month|int|string: Не тарифицируется
-            c5|number: 0,000000
-            c5|string: Не тарифицируется
+            c20|int|string: "0\_$"
+            c20|month|number: 9,692308
+            c20|month|string: "9,692308\_$"
+            c20|month|int|number: '10'
+            c20|month|int|string: "10\_$"
+            c5|number: 0,013462
+            c5|string: "0,013462\_$"
             c5|int|number: '0'
-            c5|int|string: Не тарифицируется
-            c5|month|number: 0,000000
-            c5|month|string: Не тарифицируется
-            c5|month|int|number: '0'
-            c5|month|int|string: Не тарифицируется
-            c50|number: 0,000000
-            c50|string: Не тарифицируется
+            c5|int|string: "0\_$"
+            c5|month|number: 9,692308
+            c5|month|string: "9,692308\_$"
+            c5|month|int|number: '10'
+            c5|month|int|string: "10\_$"
+            c50|number: 0,013462
+            c50|string: "0,013462\_$"
             c50|int|number: '0'
-            c50|int|string: Не тарифицируется
-            c50|month|number: 0,000000
-            c50|month|string: Не тарифицируется
-            c50|month|int|number: '0'
-            c50|month|int|string: Не тарифицируется
+            c50|int|string: "0\_$"
+            c50|month|number: 9,692308
+            c50|month|string: "9,692308\_$"
+            c50|month|int|number: '10'
+            c50|month|int|string: "10\_$"
           ram:
-            platinum|number: 0,000000
-            platinum|string: Не тарифицируется
+            platinum|number: 0,022692
+            platinum|string: "0,022692\_$"
             platinum|int|number: '0'
-            platinum|int|string: Не тарифицируется
-            platinum|month|number: 0,000000
-            platinum|month|string: Не тарифицируется
-            platinum|month|int|number: '0'
-            platinum|month|int|string: Не тарифицируется
-            basic|number: 0,000000
-            basic|string: Не тарифицируется
+            platinum|int|string: "0\_$"
+            platinum|month|number: 16,338462
+            platinum|month|string: "16,338462\_$"
+            platinum|month|int|number: '16'
+            platinum|month|int|string: "16\_$"
+            basic|number: 0,016795
+            basic|string: "0,016795\_$"
             basic|int|number: '0'
-            basic|int|string: Не тарифицируется
-            basic|month|number: 0,000000
-            basic|month|string: Не тарифицируется
-            basic|month|int|number: '0'
-            basic|month|int|string: Не тарифицируется
-            gold|number: 0,000000
-            gold|string: Не тарифицируется
+            basic|int|string: "0\_$"
+            basic|month|number: 12,092308
+            basic|month|string: "12,092308\_$"
+            basic|month|int|number: '12'
+            basic|month|int|string: "12\_$"
+            gold|number: 0,019744
+            gold|string: "0,019744\_$"
             gold|int|number: '0'
-            gold|int|string: Не тарифицируется
-            gold|month|number: 0,000000
-            gold|month|string: Не тарифицируется
-            gold|month|int|number: '0'
-            gold|month|int|string: Не тарифицируется
+            gold|int|string: "0\_$"
+            gold|month|number: 14,215385
+            gold|month|string: "14,215385\_$"
+            gold|month|int|number: '14'
+            gold|month|int|string: "14\_$"
           ram|number: 0,000000
           ram|string: Не тарифицируется
           ram|int|number: '0'
@@ -14275,14 +14275,14 @@ default:
           ram|month|string: Не тарифицируется
           ram|month|int|number: '0'
           ram|month|int|string: Не тарифицируется
-        public_ip|number: 0,000000
-        public_ip|string: Не тарифицируется
+        public_ip|number: 0,001954
+        public_ip|string: "0,001954\_$"
         public_ip|int|number: '0'
-        public_ip|int|string: Не тарифицируется
-        public_ip|month|number: 0,000000
-        public_ip|month|string: Не тарифицируется
-        public_ip|month|int|number: '0'
-        public_ip|month|int|string: Не тарифицируется
+        public_ip|int|string: "0\_$"
+        public_ip|month|number: 1,406769
+        public_ip|month|string: "1,406769\_$"
+        public_ip|month|int|number: '1'
+        public_ip|month|int|string: "1\_$"
       kafka:
         v2:
           cpu:
@@ -17166,14 +17166,14 @@ default:
         kafka|month|string: "0,104303\_$"
         kafka|month|int|number: '0'
         kafka|month|int|string: "0\_$"
-        elasticsearch|number: 0,000000
-        elasticsearch|string: Не тарифицируется
+        elasticsearch|number: 0,000145
+        elasticsearch|string: "0,000145\_$"
         elasticsearch|int|number: '0'
-        elasticsearch|int|string: Не тарифицируется
-        elasticsearch|month|number: 0,000000
-        elasticsearch|month|string: Не тарифицируется
+        elasticsearch|int|string: "0\_$"
+        elasticsearch|month|number: 0,104303
+        elasticsearch|month|string: "0,104303\_$"
         elasticsearch|month|int|number: '0'
-        elasticsearch|month|int|string: Не тарифицируется
+        elasticsearch|month|int|string: "0\_$"
         mysql|number: 0,000145
         mysql|string: "0,000145\_$"
         mysql|int|number: '0'
@@ -18605,14 +18605,14 @@ default:
         mssql|month|string: "0,029335\_$"
         mssql|month|int|number: '0'
         mssql|month|int|string: "0\_$"
-        elasticsearch|number: 0,000000
-        elasticsearch|string: Не тарифицируется
+        elasticsearch|number: 0,000041
+        elasticsearch|string: "0,000041\_$"
         elasticsearch|int|number: '0'
-        elasticsearch|int|string: Не тарифицируется
-        elasticsearch|month|number: 0,000000
-        elasticsearch|month|string: Не тарифицируется
+        elasticsearch|int|string: "0\_$"
+        elasticsearch|month|number: 0,029335
+        elasticsearch|month|string: "0,029335\_$"
         elasticsearch|month|int|number: '0'
-        elasticsearch|month|int|string: Не тарифицируется
+        elasticsearch|month|int|string: "0\_$"
         kafka|number: 0,000041
         kafka|string: "0,000041\_$"
         kafka|int|number: '0'
@@ -18767,14 +18767,14 @@ default:
         mysql|month|string: "0,104303\_$"
         mysql|month|int|number: '0'
         mysql|month|int|string: "0\_$"
-        elasticsearch|number: 0,000000
-        elasticsearch|string: Не тарифицируется
+        elasticsearch|number: 0,000145
+        elasticsearch|string: "0,000145\_$"
         elasticsearch|int|number: '0'
-        elasticsearch|int|string: Не тарифицируется
-        elasticsearch|month|number: 0,000000
-        elasticsearch|month|string: Не тарифицируется
+        elasticsearch|int|string: "0\_$"
+        elasticsearch|month|number: 0,104303
+        elasticsearch|month|string: "0,104303\_$"
         elasticsearch|month|int|number: '0'
-        elasticsearch|month|int|string: Не тарифицируется
+        elasticsearch|month|int|string: "0\_$"
         ch|number: 0,000145
         ch|string: "0,000145\_$"
         ch|int|number: '0'
@@ -19035,14 +19035,14 @@ default:
             cores|month|int|string: "12\_$"
       elasticsearch:
         v2:
-          cores|number: 0,000000
-          cores|string: Не тарифицируется
+          cores|number: 0,017179
+          cores|string: "0,017179\_$"
           cores|int|number: '0'
-          cores|int|string: Не тарифицируется
-          cores|month|number: 0,000000
-          cores|month|string: Не тарифицируется
-          cores|month|int|number: '0'
-          cores|month|int|string: Не тарифицируется
+          cores|int|string: "0\_$"
+          cores|month|number: 12,369231
+          cores|month|string: "12,369231\_$"
+          cores|month|int|number: '12'
+          cores|month|int|string: "12\_$"
       mysql:
         v1:
           cores|number: 0,017179
@@ -19763,40 +19763,40 @@ default:
           elasticsearch:
             ram:
               v2:
-                platinum|number: 0,000000
-                platinum|string: Не тарифицируется
+                platinum|number: 0,021410
+                platinum|string: "0,021410\_$"
                 platinum|int|number: '0'
-                platinum|int|string: Не тарифицируется
-                platinum|month|number: 0,000000
-                platinum|month|string: Не тарифицируется
-                platinum|month|int|number: '0'
-                platinum|month|int|string: Не тарифицируется
-                basic|number: 0,000000
-                basic|string: Не тарифицируется
+                platinum|int|string: "0\_$"
+                platinum|month|number: 15,415385
+                platinum|month|string: "15,415385\_$"
+                platinum|month|int|number: '15'
+                platinum|month|int|string: "15\_$"
+                basic|number: 0,015769
+                basic|string: "0,015769\_$"
                 basic|int|number: '0'
-                basic|int|string: Не тарифицируется
-                basic|month|number: 0,000000
-                basic|month|string: Не тарифицируется
-                basic|month|int|number: '0'
-                basic|month|int|string: Не тарифицируется
-                gold|number: 0,000000
-                gold|string: Не тарифицируется
+                basic|int|string: "0\_$"
+                basic|month|number: 11,353846
+                basic|month|string: "11,353846\_$"
+                basic|month|int|number: '11'
+                basic|month|int|string: "11\_$"
+                gold|number: 0,018590
+                gold|string: "0,018590\_$"
                 gold|int|number: '0'
-                gold|int|string: Не тарифицируется
-                gold|month|number: 0,000000
-                gold|month|string: Не тарифицируется
-                gold|month|int|number: '0'
-                gold|month|int|string: Не тарифицируется
+                gold|int|string: "0\_$"
+                gold|month|number: 13,384616
+                gold|month|string: "13,384616\_$"
+                gold|month|int|number: '13'
+                gold|month|int|string: "13\_$"
             cpu:
               c100:
-                v2|number: 0,000000
-                v2|string: Не тарифицируется
+                v2|number: 0,009615
+                v2|string: "0,009615\_$"
                 v2|int|number: '0'
-                v2|int|string: Не тарифицируется
-                v2|month|number: 0,000000
-                v2|month|string: Не тарифицируется
-                v2|month|int|number: '0'
-                v2|month|int|string: Не тарифицируется
+                v2|int|string: "0\_$"
+                v2|month|number: 6,923077
+                v2|month|string: "6,923077\_$"
+                v2|month|int|number: '7'
+                v2|month|int|string: "7\_$"
         nbs:
           volume:
             hdd|number: 0,000000
@@ -20077,40 +20077,40 @@ default:
           elasticsearch:
             cpu:
               c100:
-                v2|number: 0,000000
-                v2|string: Не тарифицируется
+                v2|number: 0,007436
+                v2|string: "0,007436\_$"
                 v2|int|number: '0'
-                v2|int|string: Не тарифицируется
-                v2|month|number: 0,000000
-                v2|month|string: Не тарифицируется
-                v2|month|int|number: '0'
-                v2|month|int|string: Не тарифицируется
+                v2|int|string: "0\_$"
+                v2|month|number: 5,353847
+                v2|month|string: "5,353847\_$"
+                v2|month|int|number: '5'
+                v2|month|int|string: "5\_$"
             ram:
               v2:
-                basic|number: 0,000000
-                basic|string: Не тарифицируется
+                basic|number: 0,015256
+                basic|string: "0,015256\_$"
                 basic|int|number: '0'
-                basic|int|string: Не тарифицируется
-                basic|month|number: 0,000000
-                basic|month|string: Не тарифицируется
-                basic|month|int|number: '0'
-                basic|month|int|string: Не тарифицируется
-                gold|number: 0,000000
-                gold|string: Не тарифицируется
+                basic|int|string: "0\_$"
+                basic|month|number: 10,984615
+                basic|month|string: "10,984615\_$"
+                basic|month|int|number: '11'
+                basic|month|int|string: "11\_$"
+                gold|number: 0,017949
+                gold|string: "0,017949\_$"
                 gold|int|number: '0'
-                gold|int|string: Не тарифицируется
-                gold|month|number: 0,000000
-                gold|month|string: Не тарифицируется
-                gold|month|int|number: '0'
-                gold|month|int|string: Не тарифицируется
-                platinum|number: 0,000000
-                platinum|string: Не тарифицируется
+                gold|int|string: "0\_$"
+                gold|month|number: 12,923077
+                gold|month|string: "12,923077\_$"
+                gold|month|int|number: '13'
+                gold|month|int|string: "13\_$"
+                platinum|number: 0,020641
+                platinum|string: "0,020641\_$"
                 platinum|int|number: '0'
-                platinum|int|string: Не тарифицируется
-                platinum|month|number: 0,000000
-                platinum|month|string: Не тарифицируется
-                platinum|month|int|number: '0'
-                platinum|month|int|string: Не тарифицируется
+                platinum|int|string: "0\_$"
+                platinum|month|number: 14,861539
+                platinum|month|string: "14,861539\_$"
+                platinum|month|int|number: '15'
+                platinum|month|int|string: "15\_$"
           redis:
             ram:
               v2|number: 0,001795

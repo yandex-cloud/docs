@@ -18,7 +18,7 @@ To create a new queue:
 
     You can also [copy a queue](#section_rhb_jjb_mfb) or [create a queue manually](#section_cg3_wpq_w1b).
 
-1. Enter a unique [key for the queue](#key). The key can consist only of Latin letters and must not contain spaces or special symbols.
+1. Enter a unique [key for the queue](#key). The key can consist only of Latin letters and must not contain spaces or special symbols. If you delete a queue, you can't reuse its key.
 
     {% note tip %}
 
@@ -41,7 +41,7 @@ Each issue in the queue is assigned an issue key comprised of a queue key and an
 The queue key can be used to:
 
 - Search for issues by specifying the queue key in [filter parameters](../user/create-filter.md) and in the [query language](../user/query-filter.md).
-- Gain direct access to a queue by visiting: `https://tracker.yandex.com/queueKey`.
+- Directly access the queue at: `({{ link-tracker-example-2 }})`.
 
 ## Copy a queue {#section_rhb_jjb_mfb}
 
@@ -61,9 +61,9 @@ If you want to apply settings used in an existing queue, just copy the queue:
 
 ## Create a queue manually {#section_cg3_wpq_w1b}
 
-If none of the preset queue types is suitable for your issues, you can set all the parameters for the new queue manually. Do the following:
+If none of the preset queue types is suitable for your issues, you can set all the parameters for the new queue manually:
 
-1. Enter a unique [key for the queue](#key). The key can consist only of Latin letters and must not contain spaces or special symbols.
+1. Enter a unique [key for the queue](#key). The key can consist only of Latin letters and must not contain spaces or special symbols. If you delete a queue, you can't reuse its key.
 
     {% note tip %}
 
@@ -88,11 +88,7 @@ You need to fill in the list of team members if you want to [configure special a
     - Default issue type and priority.
     - **Required fields for the queue**: Issue fields that are always displayed on the issue page, regardless of [user settings](../user/edit-ticket.md#section_jqw_ppn_jz).
 
-
     - **Show "Commits" tab**: Show or hide the **Commits** tab on the queue and issue pages. The tab displays all commits linked to your issue.
 
-2. Configure [advanced queue features](queue-advanced.md), such as mailbox integration or automatic changes to issue parameters.
-
-
-[Contact support](../troubleshooting.md)
+1. Configure [advanced queue features](queue-advanced.md). For example, create projects and components or set up automated recurring actions with issues.
 

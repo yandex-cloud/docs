@@ -17,5 +17,4 @@ To change a template for an issue or comment:
 1. Edit the template and click **Save**.
 
 
-[Contact support](../troubleshooting.md)
 

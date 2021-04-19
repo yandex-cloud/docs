@@ -51,10 +51,12 @@ items:
             href: support-process.md
           - name: Создать очередь для службы поддержки
             href: support-process-create-queue.md
-          - name: Принимать обращения через форму
+          - name: Принимать обращения по почте и через форму
             href: support-process-mail-forms.md
           - name: Настроить многоуровневую структуру поддержки
             href: support-process-lines.md
+          - name: Отправлять письма со страницы задачи
+            href: support-process-send-mail.md
           - name: Группировать обращения по темам
             href: support-process-group.md
           - name: Отслеживать время обработки обращений
@@ -119,6 +121,8 @@ items:
         items:
           - name: Обзор
             href: user/create-ticket.md
+          - name: Создать задачу по почте
+            href: user/create-ticket-by-mail.md
           - name: Клонировать задачу
             href: user/clone.md
       - name: Редактировать задачу
@@ -283,6 +287,8 @@ items:
         href: manager/schedule.md
   - name: Интеграция с другими сервисами
     items:
+      - name: Почта
+        href: manager/queue-mail.md
       - name: Формы
         href: manager/forms-integration.md
       - name: Вики

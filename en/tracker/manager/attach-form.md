@@ -1,4 +1,4 @@
-# Use a form as a template for creating issues
+# Using a form as a template for creating issues
 
 {% note warning %}
 
@@ -12,15 +12,15 @@ You can use Yandex.Forms to set up your form to act as a template for creating i
 
 1. Go to [Yandex.Forms]({{ link-forms }}). If it isn't activated, contact your organization's administration.
 
-1. [Create](https://yandex.com/support/connect-forms/common/new-form.html) a new form from scratch or use the **Issue for {{ tracker-name }}** template.
+1. [Create]({{ support-forms-create }}) a new form from scratch or use the **Issue for {{ tracker-name }}** template.
 
    Set up your form's fields to collect data needed for issue creation.
 
 1. Configure the name of the form. This name will be displayed in the {{ tracker-name }} interface during issue creation.
 
-2. Set up [{{ tracker-name }} integration](https://yandex.com/support/connect-forms/common/notifications.html#notifications__section_rvr_4jc_tbb) for your form.
+1. Set up [{{ tracker-name }} integration]({{ support-forms-tracker }}) for the form.
 
-3. [Publish](https://yandex.com/support/connect-forms/common/publish.html#publish__section_lmk_gvb_tbb) the form and copy the link to it from the **Link** field.
+1. [Publish]({{ support-forms-publish }}) your form and copy the link to the form from the **Link** field.
 
 ## Step 2. Connect your form to the queue {#section_xxj_fll_1gb}
 

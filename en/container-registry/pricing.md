@@ -8,9 +8,8 @@ editable: false
 ## What goes into the cost of using {{ container-registry-short-name }} {#rules}
 
 The cost of {{ container-registry-name }} usage is based on:
-
-- The amount of storage used by your data.
-- The amount of outgoing traffic.
+* The amount of storage used by your data.
+* The amount of outgoing traffic.
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 
@@ -30,21 +29,10 @@ If multiple Docker images in the same registry use the same layers, reused layer
 
 The cost of 1 GB per month is fixed and doesn't depend on the number of days in the month. The storage cost per day is higher for shorter months and lower for longer months.
 
-{% list tabs %}
 
-- Prices in USD
-  
-  | Service | Rate for 1 GB per month, without VAT
-  | ----- | ----- 
-  | Storage | $0.024256 |  
-  
-- Prices in roubles
-  
-  | Service | Rate for 1 GB per month, with VAT |
-  | ----- | ----- 
-  | Storage | ₽1.8920 |
-  
-{% endlist %}
+
+
+{% include [usd.md](../_pricing/cr/usd.md) %}
 
 Here is an example of proportional calculation: let's say the user stores 15 GB of data for 11.5 hours during a month that is 30 days long. The total cost of storage can be calculated using the formula:
 

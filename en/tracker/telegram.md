@@ -73,7 +73,3 @@ To add issue field values to the request body, click **{ }** to the right of the
 1. Save your trigger.
 
 To test the trigger in action, change the issue status from **Release** to **Ready for testing**. The trigger will send a message to your Telegram chat that says: <q>Issue TEST-123 is ready for testing: Configure triggers (https://tracker.yandex.ru/TEST-123)</q>.
-
-
-[Contact support](troubleshooting.md)
-

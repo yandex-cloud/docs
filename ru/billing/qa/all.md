@@ -16,6 +16,6 @@
 
 {% include notitle [trial-commercial](trial-commercial.md) %}
 
-## Вопросы по работе с нерезидентами РФ
+## Вопросы по работе с нерезидентами РФ и РК
 
 {% include notitle [non-resident](non-resident.md) %}

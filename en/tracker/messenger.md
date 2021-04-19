@@ -7,7 +7,3 @@ Let's look at how we can set up triggers that send notifications to:
 - [Slack](slack.md)
 - [Telegram](telegram.md)
 
-
-
-[Contact support](troubleshooting.md)
-

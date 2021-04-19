@@ -11,6 +11,3 @@
 1. [Templates](user/ticket-template.md): Templates used for standardized issues or comments.
 
 
-
-[Contact support](troubleshooting.md)
-

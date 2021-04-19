@@ -1,7 +1,6 @@
 {% list tabs %}
 
 - Management console
-
     1. In the [management console]({{ link-console-main }}), go to the folder where the function is located.
     1. Open **{{ sf-name }}**.
     1. Go to the **Functions** tab.
@@ -14,13 +13,16 @@
 
     {% include [default-catalogue](../default-catalogue.md) %}
 
-    Get details of the function version by:
+    To get detailed information about a function version by:
 
-    * `ID`:
+    * `ID`, run the command:
+
         ```
         yc serverless function version get <version ID>
         ```
+
         Result:
+
         ```
         id: b09u830mb1n32a7rj0n8
         function_id: b097d9ous3gep99khe83
@@ -37,11 +39,14 @@
         log_group_id: eolv6578frac08uh5h6s
         ```
 
-    * `TAGS`:
+    * `TAGS`, run the command:
+
         ```
         yc serverless function version get-by-tag --function-name <function name> --tag <tag>
         ```
+
         Result:
+
         ```
         id: b09ch6pmpohfc9sogj5f
         function_id: b097d9ous3gep99khe83
@@ -63,3 +68,4 @@
     You can get details of the function version using the [getVersion](../../functions/functions/api-ref/Function/getVersion.md) API method.
 
 {% endlist %}
+

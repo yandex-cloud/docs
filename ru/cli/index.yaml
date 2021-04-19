@@ -21,6 +21,6 @@ links:
   - title: Решение проблем
     description: Узнайте, как собрать диагностическую информацию
     href: error
-  - title: Справочник CLI
+  - title: Справочник CLI (на английском)
     description: Дерево команд CLI
-    href: command-tree/
+    href: cli-ref/

@@ -2,7 +2,7 @@
 
 Components help users group queue issues based on a shared theme, such as their product, process, responsible party, and so on. A single queue can have multiple components.
 
-For example, you can use components to [group support service requests](../support-process.md#group).
+For example, you can use components to [group support service requests](../support-process-group.md).
 
 ## Create a component {#section_zrt_szk_xz}
 
@@ -59,7 +59,4 @@ You can view a list of issues related to a specific component:
 1. Go to the **Components** tab.
 
 1. Click the name of the component.
-
-
-[Contact support](../troubleshooting.md)
 

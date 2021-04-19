@@ -23,12 +23,46 @@ items:
             href: user/personal.md
       - name: Migrating to Tracker
         href: import.md
+      - name: Deactivating paid services
+        href: disable-tracker.md
   - name: Use cases
     items:
       - name: Setting up Tracker for a development team
-        href: dev-process.md
+        items:
+          - name: Overview
+            href: dev-process.md
+          - name: Create a queue for the development team
+            href: dev-process-create-queue.md
+          - name: Structuring issues
+            href: dev-process-manage-tickets.md
+          - name: Use Agile methodologies
+            href: dev-process-agile.md
+          - name: Configure issue templates
+            href: dev-process-templates.md
+          - name: Connecting repositories
+            href: dev-process-repo.md
+          - name: Automate recurring actions
+            href: dev-process-automation.md
+          - name: Integrate Tracker with other platforms
+            href: dev-process-api.md
       - name: Setting up Tracker for use by the support team
-        href: support-process.md
+        items:
+          - name: Overview
+            href: support-process.md
+          - name: Create a queue for the support team
+            href: support-process-create-queue.md
+          - name: Accept requests by mail and via forms
+            href: support-process-mail-forms.md
+          - name: Configure multi-tiered support
+            href: support-process-lines.md
+          - name: Group requests by topic
+            href: support-process-group.md
+          - name: Track the time it takes to process a request
+            href: support-process-sla.md
+          - name: Collect request statistics
+            href: support-process-dashboards.md
+          - name: Configure integration with third-party platforms
+            href: support-process-integration.md
   - name: Concepts
     items:
       - name: Tracker overview

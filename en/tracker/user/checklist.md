@@ -24,5 +24,4 @@ A checklist is a list of items that need to be completed for an issue to be solv
 - To delete a checklist, click **Delete checklist** ![](../../_assets/tracker/checklist-delete.png) at the bottom of the list.
 
 
-[Contact support](../troubleshooting.md)
 

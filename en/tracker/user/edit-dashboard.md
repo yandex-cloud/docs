@@ -21,5 +21,4 @@ To change the settings of a widget:
 1. Make changes and click **Save widget**.
 
 
-[Contact support](../troubleshooting.md)
 

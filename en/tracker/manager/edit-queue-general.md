@@ -36,6 +36,3 @@ To configure the main queue settings:
 
 1. Click **Save**.
 
-
-[Contact support](../troubleshooting.md)
-
