@@ -14,6 +14,9 @@ c1.4 (4 vCPU, 0 GPU) | 4 | 1 hour | ₸64.8
 c1.8 (8 vCPU, 0 GPU) | 8 | 1 second | ₸0.036
 c1.8 (8 vCPU, 0 GPU) | 8 | 1 minute | ₸2.16
 c1.8 (8 vCPU, 0 GPU) | 8 | 1 hour | ₸129.6
+c1.80 (80 vCPU, 0 GPU) | 80 | 1 second | ₸0,36
+c1.80 (80 vCPU, 0 GPU) | 80 | 1 minute | ₸21,6 
+c1.80 (80 vCPU, 0 GPU) | 80 | 1 hour | ₸1296
 g1.1 (8 vCPU, 1 GPU) | 72 | 1 second | ₸0.324
 g1.1 (8 vCPU, 1 GPU) | 72 | 1 minute | ₸19.44
 g1.1 (8 vCPU, 1 GPU) | 72 | 1 hour | ₸1166.4 
