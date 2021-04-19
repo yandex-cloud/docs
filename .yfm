@@ -9,3 +9,10 @@ ignore:
   - "en/mdb/*"
   - "ru/tracker/api-ref/*"
   - "en/tracker/api-ref/*"
+
+connector:
+    type: gitHub
+    gitHub: 
+        endpoint: https://api.github.com
+        owner: yandex-cloud
+        repo: docs
