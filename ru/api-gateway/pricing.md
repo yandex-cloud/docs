@@ -14,6 +14,8 @@ editable: false
 
 {% endnote %}
 
+{% if region == "ru"%}
+
 ### Пример расчета стоимости API-шлюза {#price-example}
 
 {% if audience != "external" %}
@@ -45,6 +47,8 @@ editable: false
 Где:
 - 75 — цена за 1 миллион вызовов API-шлюза;
 - 10 000 000 / 1 000 000 — количество миллионов запросов по HTTPS.
+
+{% endif %}
 
 {% endif %}
 

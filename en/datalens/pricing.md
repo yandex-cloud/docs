@@ -104,6 +104,8 @@ You can switch to a paid **Standard** plan on the [Billing](https://datalens.yan
 
 The plans are non-refundable.
 
+{% if region == "ru"%}
+
 Example:
 
 > On January 10, you activated a {{ datalens-short-name }} instance with the **Free** plan.
@@ -117,6 +119,8 @@ Example:
 > On March 18, you decide to cancel your **Standard** subscription. However, you may continue using it until the end of the billing period, April 14.
 >
 > The **Free** plan will be activated on April 15.
+
+{% endif %}
 
 ### Switching plans {#change-the-plan}
 

@@ -51,6 +51,8 @@ OS usage on a VM is also charged. The cost depends on the OS license and the amo
 
 {{ price-per-hour-count-per-second }}
 
+{% if region == "int"%}
+
 #### Example of cost calculation {#example-of-cost-calculation}
 
 Let's compare the cost of running VMs on the Intel Broadwell [platform](concepts/vm-platforms.md) with different [vCPU performance levels](concepts/performance-levels.md).
@@ -78,6 +80,8 @@ VM Cost with 100% vCPU at the price of an hour of CPU core usage equal to $0.008
 > Total: $8.730000
 
 As you can see, the cost of the VM using 5% vCPU is about half as much as that of the VM using 100% vCPU.
+
+{% endif %}
 
 ### Use of storage (disks, snapshots, and images) {#disk}
 

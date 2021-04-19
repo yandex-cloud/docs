@@ -48,6 +48,8 @@
 -->
 - Для крупных организаций ежемесячная плата рассчитывается по ступенчатой системе.
 
+{% if region == "ru"%}
+
 > Например, в январе действовали тарифы:
 >
 > - для первых 100 пользователей — {{ sku|RUB|b2b.tracker.license.v1|pricingRate.6|string }};
@@ -71,3 +73,5 @@
 > ```
 > 100 × {{ sku|RUB|b2b.tracker.license.v1|pricingRate.6|string }} + 150 × {{ sku|RUB|b2b.tracker.license.v1|pricingRate.100|string }} + 20 × {{ sku|RUB|b2b.tracker.license.v1|pricingRate.250|string }}
 > ```
+
+{% endif %}

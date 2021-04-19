@@ -24,6 +24,8 @@ Cost is charged under the {{ compute-name }} service for each hour of running th
 
 The amount of storage requested for each cluster hosts is charged under the {{ compute-name }} service according to the [disk space pricing policy](../compute/pricing.md#prices-storage).
 
+{% if region == "ru"%}
+
 ### Example of price calculation {#price-calculation-example}
 
 You create a cluster with a single Data subcluster. Host master: `s2.micro` (2 vCPU, 8GB RAM) with 15GB SSD storage, one host per subcluster: `s2.small` (4 vCPU, 16 GB RAM), with 100 GB HDD storage.
@@ -42,6 +44,8 @@ The cost per hour of using the cluster includes the following components:
 * (15 × ₽7.4441 + 100 ×  ₽2.0847) / 30 / 24 = ₽0.4447 (for using {{ compute-name }} disks).
 
 Total price per hour: ₽2.4048 + ₽0.2405 + ₽0.4447 = ₽3.09 ₽
+
+{% endif %}
 
 ## Pricing {#prices}
 

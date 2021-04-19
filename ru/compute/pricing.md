@@ -51,6 +51,8 @@ editable: false
 
 {{ price-per-hour-count-per-second }}
 
+{% if region == "ru"%}
+
 #### Пример расчета стоимости {#example-of-cost-calculation}
 
 Сравним стоимость виртуальных машин для [платформы](concepts/vm-platforms.md) Intel Broadwell c разным [уровнем производительности vCPU](concepts/performance-levels.md).
@@ -78,6 +80,8 @@ editable: false
 >Итого: 680,9760 ₽
 
 Таким образом, стоимость виртуальной машины с 5% vCPU почти в два раза ниже стоимости машины со 100% vCPU.
+
+{% endif %}
 
 ### Использование хранилища (диски, снимки и образы) {#disk}
 

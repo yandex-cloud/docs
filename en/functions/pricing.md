@@ -18,6 +18,8 @@ You're charged for all the [functions invoked](concepts/function-invoke.md) that
 
 {% endnote %}
 
+{% if region == "int"%}
+
 ### Example of cost calculation {#price-example}
 
 Example of calculating the cost of a function:
@@ -39,6 +41,8 @@ Where:
 - 800 / 3600 / 1000 converts milliseconds to hours, since execution time is calculated in GB×hour.
 - 0.128205 is the cost per 1 million function invokes.
 - 10,000,000 / 1,000,000 is the number of millions of invokes.
+
+{% endif %}
 
 ## Using triggers {#triggers}
 

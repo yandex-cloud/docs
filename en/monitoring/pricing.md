@@ -19,7 +19,11 @@ Pricing specifics:
 
 The minimum billable unit is one metric value. The cost is rounded to the nearest hundredth.
 
+{% if region == "int"%}
+
 For example, the cost of writing the first 86,400 values is `$0.007754` and rounded to `$0.01`. The cost of writing 870,000 values is `$0.078077` and rounded to `$0.08`. Where `$0.089744` is the price per 50 million metrics. 
+
+{% endif %}
 
 {% if region == "ru"%}
          
@@ -38,6 +42,8 @@ For example, the cost of writing the first 86,400 values is `$0.007754` and roun
 {% include [usd.md](../_pricing/monitoring/usd.md) %}
          
 {% endif %}
+
+{% if region == "int"%}
 
 ### Cost calculation example {#example}
 
@@ -58,3 +64,5 @@ For example, you set up the export of 100 metrics from {{ monitoring-short-name 
 > 100 metrics * 60 seconds / 15 seconds * 60 minutes * 24 hours * 30 days = 17,280,000 values = 17.28 million values
 
 In this case, the cost of using the service for 30 days is `17.28 million values * $0.064103 = $1.107699`.
+
+{% endif %}

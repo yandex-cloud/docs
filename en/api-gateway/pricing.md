@@ -13,6 +13,8 @@ In {{ api-gw-name }}, you're charged for the number of requests to created API g
 
 {% endnote %}
 
+{% if region == "ru"%}
+
 ### Example of calculating the cost of an API gateway {#price-example}
 
 {% if audience != "external" %}
@@ -46,6 +48,8 @@ Where:
 
 - ₽75: Price per 1 million API gateway calls.
 - 10,000,000 / 1,000,000: Number of millions of requests over HTTPS.
+
+{% endif %}
 
 {% endif %}
 

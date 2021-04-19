@@ -46,6 +46,8 @@ How the monthly {{ tracker-name }} subscription fee is calculated:
 -->
 - For large companies, the monthly fee is calculated on a progressive scale.
 
+{% if region == "ru"%}
+
 > For example, let's say the fee was like this:
 >
 >- The subscription fee for the first 100 users is {{ sku|USD|b2b.tracker.license.v1|pricingRate.6|string }}.
@@ -69,3 +71,5 @@ How the monthly {{ tracker-name }} subscription fee is calculated:
 >```
 >100 × {{ sku|USD|b2b.tracker.license.v1|pricingRate.6|string }} + 150 × {{ sku|USD|b2b.tracker.license.v1|pricingRate.100|string }} + 20 × {{ sku|USD|b2b.tracker.license.v1|pricingRate.250|string }}
 >```
+
+{% endif %}

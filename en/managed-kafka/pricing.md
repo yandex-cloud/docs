@@ -50,6 +50,8 @@ The following is charged:
 
 The cost is specified for one month of use.  The minimum billing unit is 1 GB per hour (for example, the cost of storing 1 GB for 1.5 hours is equal to the cost of storage for 2 hours).
 
+{% if region == "ru"%}
+
 ### Example of cluster cost calculation {#example}
 
 For example, you created a cluster:
@@ -62,6 +64,7 @@ Cost per hour for all hosts: `3 × (2 × ₽1.05 + 8 × ₽0.28) + 3 × (2 × �
 
 The total cost of the cluster in the month (hosts and storage): `720 × ₽18.36 + 100 × ₽2.2881 = ₽13,448.01`
 
+{% endif %}
 
 ## Discount for committed volumes of services (CVoS) {#cvos}
 
