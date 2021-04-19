@@ -95,6 +95,8 @@ items:
             href: operations/vm-connect/auth-inside-vm.md
           - name: Установить NVIDIA-драйверы
             href: operations/vm-operate/install-nvidia-drivers.md
+          - name: Восстановить доступ к ВМ
+            href: operations/vm-connect/recovery-access.md
       - name: Создание нового диска
         items:
           - name: Создать пустой диcк
