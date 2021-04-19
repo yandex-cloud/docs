@@ -10,7 +10,6 @@ editable: false
 
 {% include [pricing-status-warning.md](../_includes/mdb/pricing-status-warning.md) %}
 
-
 ## Из чего складывается стоимость использования {{ mpg-short-name }} {#rules}
 
 Расчет стоимости использования {{ mpg-name }} учитывает:
@@ -18,7 +17,6 @@ editable: false
 {% include [pricing-rules](../_includes/mdb/pricing-rules.md) %}
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
-
 
 ### Использование хостов БД {#rules-hosts-uptime}
 
@@ -29,7 +27,6 @@ editable: false
 ### Использование дискового пространства {#rules-storage}
 
 Оплачивается:
-
 * Объем хранилища, выделенный для кластеров БД.
 
     * Хранилище на быстрых локальных дисках (`local-ssd`) можно заказывать только для кластеров с 3 и более хостами, с шагом 100 ГБ.
@@ -44,7 +41,6 @@ editable: false
 
 Цена указывается за 1 месяц использования. Минимальная единица тарификации — 1 ГБ в час (например, стоимость хранения 1 ГБ в течение 1,5 часов равна стоимости хранения в течение 2 часов).
 
-
 ## Скидка за резервируемый объем ресурсов (CVoS) {#cvos}
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
@@ -56,7 +52,6 @@ editable: false
 По схеме CVoS можно заказать только ресурсы определенного вида: для недоступных видов ресурсов в колонках CVoS в разделе [Цены](#prices) стоят прочерки. Объем хранилища и интернет-трафика заказать таким образом пока невозможно.
 
 {% endnote %}
-
 
 ## Цены {#prices}
 
@@ -82,7 +77,6 @@ editable: false
 
 {% endif %}
 
-
 ### Хранилище и резервные копии {#prices-storage}
 
 {% if region == "ru" %}
@@ -102,8 +96,6 @@ editable: false
 {% include notitle [usd-storage.md](../_pricing/managed-postgresql/usd-storage.md) %}
 
 {% endif %}
-
-
 
 ### Исходящий трафик {#prices-traffic}
 
@@ -174,4 +166,3 @@ editable: false
   {% endif %}
 
 {% endlist %}
-
