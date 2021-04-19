@@ -229,12 +229,6 @@ vCPU и память ВМ, запущенных на выделенном хос
 
 ### Диски, снимки и образы {#prices-storage}
 
-{% note info %}
-
-На стадии [Preview](../overview/concepts/launch-stages.md) использование нереплицируемых дисков не тарифицируется. Тарифы на нереплицируемые диски, приведенные на этой странице, начнут действовать с 19 апреля 2021 г.
-
-{% endnote %}
-
 {% if region == "ru" %}
 
 {% include [rub-storage.md](../_pricing/compute/rub-storage.md) %}

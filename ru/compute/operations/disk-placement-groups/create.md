@@ -2,12 +2,6 @@
 
 Создайте [группу размещения](../../concepts/disk-placement-group.md) для нереплицируемых дисков.
 
-{% note info %}
-
-Нереплицируемые диски находятся на стадии [Preview](https://cloud.yandex.ru/docs/overview/concepts/launch-stages).
-
-{% endnote %}
-
 {% list tabs %}
 
 * Консоль управления
