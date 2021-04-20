@@ -1,4 +1,3 @@
-
 ### Вычислительные ресурсы хостов-брокеров {{ KF }} {#prices-kafka-brokers}
 
 Ресурс | Цена за 1 час | Цена с CVoS на 1 год | Цена с CVoS на 3 года
@@ -25,8 +24,11 @@ RAM (за 1 ГБ) | {{ sku|RUB|mdb.zk.kafka.v2.ram|string }}
 
 ### Хранилище {#prices-storage}
 
-Услуга | Цена за ГБ в месяц
------ | -----
-Стандартное сетевое хранилище | {{ sku|RUB|mdb.cluster.network-hdd.kafka|month|string }}
-Быстрое сетевое хранилище | {{ sku|RUB|mdb.cluster.network-nvme.kafka|month|string }}
-Быстрое локальное хранилище | {{ sku|RUB|mdb.cluster.local-nvme.kafka|month|string }}
+{% include [nrd-disks-preview](../../_includes/mdb/non-replicated-disks-preview.md) %}
+
+| Услуга                                  | Цена за ГБ в месяц                                                     |
+|-----------------------------------------|------------------------------------------------------------------------|
+| Стандартное сетевое хранилище           | {{ sku|RUB|mdb.cluster.network-hdd.kafka|month|string }}               |
+| Нереплицируемое сетевое хранилище       | {{ sku|RUB|mdb.cluster.network-ssd-nonreplicated.kafka|month|string }} |
+| Быстрое сетевое хранилище               | {{ sku|RUB|mdb.cluster.network-nvme.kafka|month|string }}              |
+| Быстрое локальное хранилище             | {{ sku|RUB|mdb.cluster.local-nvme.kafka|month|string }}                |

@@ -101,7 +101,6 @@ editable: false
 
 {% endif %}
 
-
 ### Исходящий трафик {#prices-traffic}
 
 {% if region == "ru" %}
@@ -146,4 +145,3 @@ editable: false
 {% include notitle [usd-calculated.md](../_pricing/managed-elasticsearch/usd-calculated.md) %}
 
 {% endif %}
-

@@ -36,6 +36,7 @@
 
 Услуга | Цена за ГБ в месяц
 ----- | -----
-Стандартное сетевое хранилище  | {{ sku|KZT|mdb.cluster.network-hdd.elasticsearch|month|string }} |
-Быстрое сетевое хранилище  | {{ sku|KZT|mdb.cluster.network-nvme.elasticsearch|month|string }} |
-Быстрое локальное хранилище  | {{ sku|KZT|mdb.cluster.local-nvme.elasticsearch|month|string }} |
+Стандартное сетевое хранилище  | {{ sku|KZT|mdb.cluster.network-hdd.elasticsearch|month|string }}
+Нереплицируемое сетевое хранилище  | {{ sku|KZT|mdb.cluster.network-ssd-nonreplicated.elasticsearch|month|string }}
+Быстрое сетевое хранилище  | {{ sku|KZT|mdb.cluster.network-nvme.elasticsearch|month|string }}
+Быстрое локальное хранилище  | {{ sku|KZT|mdb.cluster.local-nvme.elasticsearch|month|string }}

@@ -28,5 +28,6 @@ RAM (за 1 ГБ) | {{ sku|KZT|mdb.zk.kafka.v2.ram|string }}
 Услуга | Цена за ГБ в месяц
 ----- | -----
 Стандартное сетевое хранилище | {{ sku|KZT|mdb.cluster.network-hdd.kafka|month|string }}
+Нереплицируемое сетевое хранилище | {{ sku|KZT|mdb.cluster.network-ssd-nonreplicated.kafka|month|string }}
 Быстрое сетевое хранилище | {{ sku|KZT|mdb.cluster.network-nvme.kafka|month|string }}
 Быстрое локальное хранилище | {{ sku|KZT|mdb.cluster.local-nvme.kafka|month|string }}
