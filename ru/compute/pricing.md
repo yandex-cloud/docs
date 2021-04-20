@@ -51,7 +51,7 @@ editable: false
 
 {{ price-per-hour-count-per-second }}
 
-{% if region == "ru"%}
+{% if region == "ru" %}
 
 #### Пример расчета стоимости {#example-of-cost-calculation}
 

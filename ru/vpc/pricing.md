@@ -19,7 +19,7 @@ editable: false
 1. **Активном** — когда _динамический_ или _статический_ публичный IP-адрес привязан к запущенному облачному ресурсу.
 1. **Неактивном** — когда _статический_ публичный IP-адрес не привязан к облачному ресурсу или привязан к остановленному ресурсу. Цена неактивного публичного статического адреса складывается из стоимости публичного IP-адреса и стоимости резервирования неактивного публичного статического IP-адреса. 
 
-{% if region == "ru"%}
+{% if region == "ru" %}
    
    Например, при стоимости часа использования публичного IP-адреса, равной 0,1524 ₽, и стоимости часа резервирования неактивного публичного статического IP-адреса, равной 0,1980 ₽, цена неактивного публичного статического адреса составит:
    
@@ -27,19 +27,19 @@ editable: false
 
 {% endif %}
 
-{% if region == "ru"%}
+{% if region == "ru" %}
 
 {% include [rub-ip.md](../_pricing/vpc/rub-ip.md) %}
 
 {% endif %}
 
-{% if region == "kz"%}
+{% if region == "kz" %}
 
 {% include [kzt-ip.md](../_pricing/vpc/kzt-ip.md) %}
 
 {% endif %}
 
-{% if region == "int"%}
+{% if region == "int" %}
 
 {% include [usd-ip.md](../_pricing/vpc/usd-ip.md) %}
 
@@ -81,4 +81,20 @@ editable: false
 
 ### Исходящий трафик {#prices-traffic}
 
-{% include notitle [pricing-egress-traffic](../_includes/pricing/pricing-egress-traffic.md) %}
+{% if region == "ru" %}
+
+{% include notitle [rub-egress-traffic.md](../_pricing/rub-egress-traffic.md) %}
+
+{% endif %}
+
+{% if region == "kz" %}
+
+{% include notitle [kzt-egress-traffic.md](../_pricing/kzt-egress-traffic.md) %}
+
+{% endif %}
+
+{% if region == "int" %}
+
+{% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
+
+{% endif %}

@@ -46,7 +46,7 @@ How the monthly {{ tracker-name }} subscription fee is calculated:
 -->
 - For large companies, the monthly fee is calculated on a progressive scale.
 
-{% if region == "ru"%}
+{% if region == "int" %}
 
 > For example, let's say the fee was like this:
 >
