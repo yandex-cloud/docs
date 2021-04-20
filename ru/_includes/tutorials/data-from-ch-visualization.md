@@ -107,6 +107,8 @@
 
 1. Для поля **DeliveryDistrictCoordinates** измените тип данных на **Геополигон**.
 
+1. Для поля **DeliveryAddressCoord** измените тип данных на **Геоточка**.
+
 1. В столбце **Агрегация** для поля **Sales** выберите **Сумма**.
 
     ![image](../../_assets/datalens/solution-02/13-choose-agg.png)
