@@ -55,8 +55,8 @@ After the grouping comes the ordering clause. It is only supported for order-dep
 | `M*`                | `R*`                | Positional functions   |
 |:--------------------|:--------------------|:-----------------------|
 | [MAVG](MAVG.md)     | [RAVG](RAVG.md)     | [LAG](LAG.md)          |
-| [MCOUNT](MCOUNT.md) | [RCOUNT](RCOUNT.md) |                        |
-| [MMAX](MMAX.md)     | [RMAX](RMAX.md)     |                        |
+| [MCOUNT](MCOUNT.md) | [RCOUNT](RCOUNT.md) | [FIRST](FIRST.md)      |
+| [MMAX](MMAX.md)     | [RMAX](RMAX.md)     | [LAST](LAST.md)        |
 | [MMIN](MMIN.md)     | [RMIN](RMIN.md)     |                        |
 | [MSUM](MSUM.md)     | [RSUM](RSUM.md)     |                        |
 
@@ -140,6 +140,14 @@ Returns the number of items in the specified window meeting the `expression` con
 
 
 
+## [FIRST](FIRST.md)
+
+**Syntax:**`FIRST( value [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )`
+
+Returns the value of `value` from the first row in the window. See also [LAST](LAST.md).
+
+
+
 ## [LAG](LAG.md)
 
 **Syntax:**`LAG( value [ , offset [ , default ] ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )`
@@ -153,6 +161,14 @@ By default `offset` is `1`.
 If there is no available value (`offset` reaches before the first row or after the last one), then `default` is returned. If `default` is not specified, then `NULL` is used.
 
 See also [AGO](AGO.md) for a non-window function alternative.
+
+
+
+## [LAST](LAST.md)
+
+**Syntax:**`LAST( value [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )`
+
+Returns the value of `value` from the last row in the window. See also [FIRST](FIRST.md).
 
 
 

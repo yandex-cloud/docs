@@ -23,6 +23,7 @@ Supported units:
 - `"day"` (acts as the day of the year if `number` is specified);
 - `"week"`;
 - `"month"`;
+- `"quarter"`;
 - `"year"`.
 
 **Argument types:**

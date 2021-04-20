@@ -152,8 +152,6 @@ The `unit` argument takes the following values:
 
 Can also be used as `AGO( measure, date_dimension, number )`. In this case, the third argument is interpreted as the number of days.
 
-This non-window function does not support window options such as `BEFORE FILTER BY`.
-
 See also [AT_DATE](AT_DATE.md), [LAG](LAG.md).
 
 
@@ -459,6 +457,7 @@ Returns a part of the date as an integer.
 
 Depending on the argument, `unit` returns the following values:
 - `"year"` — the year number (see [YEAR](YEAR.md));
+- `"quarter"` — the number of the quarter (from `1` to `4`) of the year (see [QUARTER](QUARTER.md));
 - `"month"` — the number of the month in the year (see [MONTH](MONTH.md));
 - `"week"` — the number of the week in the year according to [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) (see [WEEK](WEEK.md));
 - `"dayofweek"`, `"dow"` — the number of the day of the week (see [DAYOFWEEK](DAYOFWEEK.md));
@@ -504,6 +503,7 @@ Supported units:
 - `"day"` (acts as the day of the year if `number` is specified);
 - `"week"`;
 - `"month"`;
+- `"quarter"`;
 - `"year"`.
 
 
@@ -608,6 +608,14 @@ Returns the result of raising the number 'e' to the power of `number`.
 Returns the index of the position of the first character of the substring `substring` in the string `string`.
 
 If the `start_index` option is specified, the search starts from the specified position.
+
+
+
+## [FIRST (window)](FIRST.md)
+
+**Syntax:**`FIRST( value [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )`
+
+Returns the value of `value` from the first row in the window. See also [LAST](LAST.md).
 
 
 
@@ -807,6 +815,14 @@ By default `offset` is `1`.
 If there is no available value (`offset` reaches before the first row or after the last one), then `default` is returned. If `default` is not specified, then `NULL` is used.
 
 See also [AGO](AGO.md) for a non-window function alternative.
+
+
+
+## [LAST (window)](LAST.md)
+
+**Syntax:**`LAST( value [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )`
+
+Returns the value of `value` from the last row in the window. See also [FIRST](FIRST.md).
 
 
 
@@ -1140,6 +1156,14 @@ Returns the precise `quant`-level quantile (`quant` should be in range from 0 to
 **Syntax:**`QUANTILE_APPROX( value, quant )`
 
 Returns the approximate `quant`-level quantile (`quant` should be in range from 0 to 1).
+
+
+
+## [QUARTER](QUARTER.md)
+
+**Syntax:**`QUARTER( datetime )`
+
+Returns the number of the quarter (from `1` to `4`) of the year of the specified date `datetime`.
 
 
 
