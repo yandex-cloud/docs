@@ -10,7 +10,7 @@ In this section, you'll learn:
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-## What resources you can assign roles to. {#resources}
+## What resources you can assign roles to {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
@@ -20,7 +20,7 @@ To allow access to {{ mrd-name }} service resources (DB clusters and hosts, clus
 
 The diagram shows which roles are available in the service and how they inherit each other's permissions. For example, the `editor` role includes all `viewer` role permissions. A description of each role is given under the diagram.
 
-![image](service-roles-hierarchy.svg)
+![image](../../_assets/security/service-roles-hierarchy.svg)
 
 Active roles in the service:
 
@@ -50,8 +50,8 @@ The table below lists the roles needed to perform a given action. You can always
 
 * [How to assign a role](../../iam/operations/roles/grant.md).
 * [How to revoke a role](../../iam/operations/roles/revoke.md).
-* [Read more about access management in Yandex.Cloud](../../iam/concepts/access-control/index.md).
-* [More about role inheritance](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
+* [Learn more about access management in {{ yandex-cloud }}](../../iam/concepts/access-control/index.md).
+* [For more information about role inheritance](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
 
 {% else %}
 

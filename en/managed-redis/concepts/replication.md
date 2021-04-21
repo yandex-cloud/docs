@@ -12,7 +12,7 @@ Due to limited resources, **b1.nano** and **b1.small** class hosts aren't replic
 
 For more information about how replication works in {{ RD }}, see the [DBMS documentation](https://redis.io/topics/replication).
 
-## Fault tolerant {#availability}
+## Fault tolerance {#availability}
 
 High availability of cluster data is provided using Redis Sentinel: in a cluster consisting of three or more three hosts, Sentinel services automatically manage the selection of the master and the configuration of replicas.
 

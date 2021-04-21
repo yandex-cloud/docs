@@ -13,11 +13,11 @@ items:
         href: operations/cluster-create.md
       - name: Changing cluster and database settings
         href: operations/update.md
-      - name: Connecting to databases
+      - name: Connecting to a database
         href: operations/connect.md
       - name: Managing hosts in a cluster
         href: operations/hosts.md
-      - name: How to manage shards
+      - name: Managing shards
         href: operations/shards.md
       - name: Managing backups
         href: operations/cluster-backups.md

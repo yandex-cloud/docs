@@ -1,4 +1,6 @@
-# Network and DB clusters {{ mrd-short-name }}
+# {{ mrd-short-name }} network and clusters
+
+{% if audience != "internal" %}
 
 When creating a cluster, you can:
 
@@ -7,11 +9,13 @@ When creating a cluster, you can:
 
 You can create a cluster without specifying any subnets for the hosts, if the availability zone selected for each host contains exactly one subnet of the cluster network.
 
-{% if audience != "internal" %}
+## Network access to a {{ mrd-short-name }} cluster {#network-access-to-a-cluster}
 
-## Network access to a cluster {{ mrd-short-name }} {#network-access-to-a-cluster}
+You can only connect to a {{ RD }} cluster from a {{ yandex-cloud }} VM instance that's in the same network as the cluster. You cannot get a public IP address for a host in this type of cluster.
 
-You can only connect to a {{ RD }} cluster from a Yandex.Cloud virtual machine instance that's in the same network as the cluster. You cannot get a public IP address for a host in this type of cluster.
+{% else %}
+
+All clusters are created inside our network, which is [already accessible](../../mdb/access.md#network-access) from most networks and most employees. If you don't have access, request access to the macro `_PGAASINTERNALNETS_` in [Puncher](https://puncher.yandex-team.ru/) . To connect to {{ RD }}, specify ports 26379 (Sentinel) and 6379 (Redis) in your request.
 
 {% endif %}
 

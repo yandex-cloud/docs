@@ -1,6 +1,6 @@
 # Creating {{ RD }} clusters
 
-{{ RD }}clusters are one or more database hosts that replication can be configured between. Replication is enabled by default in any cluster consisting of more than one host: the master host accepts write requests and asynchronously duplicates changes on replicas.
+{{ RD }} clusters are one or more database hosts that replication can be configured between. Replication is enabled by default in any cluster consisting of more than one host: the master host accepts write requests and asynchronously duplicates changes on replicas.
 
 The number of hosts that can be created together with a {{ RD }} cluster depends on the host type selected:
 
@@ -8,7 +8,7 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
 
 * In a cluster with **burstable** hosts, you can create only one host.
 
-## How to create a cluster {{ RD }} {#create-cluster}
+## How to create a {{ RD }} cluster {#create-cluster}
 
 {% list tabs %}
 
@@ -20,7 +20,7 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
 
   1. Click **Create cluster**.
 
-  1. Enter the cluster name in the **Cluster name** field. The cluster name must be unique within the Cloud.
+  1. Enter a name for the cluster in the **Cluster name** field. The cluster name must be unique within {{ yandex-cloud }}.
 
   1. Select the environment where you want to create the cluster (you can't change the environment once the cluster is created):
       - `PRODUCTION`: For stable versions of your apps.
@@ -49,6 +49,10 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
 
      If you enabled sharding, enter names for the shards.
 
+  1. If necessary, configure additional cluster settings:
+
+     {% include [mrd-extra-settings](../../_includes/mdb/mrd-extra-settings-web-console.md) %}
+
   1. Click **Create cluster**.
 
 - CLI
@@ -59,15 +63,19 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
 
   To create a cluster:
 
-  {% if audience != "internal" %} 1. Check whether the folder has any subnets for the cluster hosts:
+  {% if audience != "internal" %}
+
+  1. Check whether the folder has any subnets for the cluster hosts:
 
      ```
      $ yc vpc subnet list
      ```
 
-     If there are no subnets in the folder, [create the necessary subnets](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}. {% endif %}
+     If there are no subnets in the folder, [create the necessary subnets](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
 
-  1. View a description of the CLI's create cluster command:
+  {% endif %}
+
+  1. View a description of the CLI create cluster command:
 
       ```
       $ {{ yc-mdb-rd }} cluster create --help
@@ -83,7 +91,7 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
 
       ```bash
       $ {{ yc-mdb-rd }} cluster create \
-         --cluster-name <cluster name>
+         --name <cluster name> \
          --environment <prestable or production> \
          --network-name <network name> \
          --host zone-id=<availability zone>,subnet-id=<subnet ID> \
@@ -161,19 +169,19 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
           ```
        1. Confirm that you want to create the resources.
 
-       After this, all the necessary resources will be created in the specified folder and the IP addresses of the VMs will be displayed in the terminal. You can check resource availability and their settings in [консоли управления]({{ link-console-main }}).
+       After this, all the necessary resources will be created in the specified folder and the IP addresses of the VMs will be displayed in the terminal. You can check resource availability and their settings in [management console]({{ link-console-main }}).
 
 {% endlist %}
 
 ## Examples {#examples}
 
+### Creating a single-host cluster {#creating-a-single-host-cluster}
+
 {% list tabs %}
 
 - CLI
 
-  **Creating a single-host cluster**
-
-  To create a cluster with a single host, you should pass a single parameter, `--host`.
+  To create a cluster with a single host, you should pass a single `--host` parameter.
 
   Let's say we need to create a {{ RD }} cluster with the following characteristics:
   - Named `myredis`.
@@ -187,7 +195,7 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
 
   ```
   $ {{ yc-mdb-rd }} cluster create \
-       --cluster-name myredis \
+       --name myredis \
        --environment production \
        --network-name default \
        --resource-preset hm1.nano \
@@ -198,14 +206,12 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
 
 - Terraform
 
-  **Creating a single-host cluster**
-
   Let's say we need to create a {{ RD }} cluster and a network for it with the following characteristics:
     - Named `myredis`.
     - In the `production` environment.
-    - In the cloud with ID `{{ tf-cloud-id }}`.
+    - In the cloud with the ID `{{ tf-cloud-id }}`.
     - In a folder named `myfolder`.
-    - In a new network named `mynet`.
+    - Network: `mynet`.
     - With a single host of the `hm1.nano` class in the new `mysubnet` subnet and the `{{ zone-id }}` availability zone. The `mysubnet` subnet will have a range of `10.5.0.0/24`.
     - With a 16 GB fast network storage (`{{ disk-type-example }}`).
     - With the `user1user1` password.

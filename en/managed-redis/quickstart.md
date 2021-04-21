@@ -2,7 +2,7 @@
 
 {% if audience == "internal" %}
 
-For the internal MDB service, the [web interface]({{console-link}}) is deployed where you can manually create a database cluster. For more about quotas and the correlation between ABC services and clouds and folders, see [{#T}](../mdb/access.md).
+For the internal MDB service, the [web interface]({{ console-link }}) is deployed, where you can manually create a database cluster. For more about quotas and the correlation between ABC services and clouds and folders, see [{#T}](../mdb/access.md).
 
 ## Access to DB clusters {#access}
 
@@ -10,7 +10,9 @@ The rules for accessing MDB clusters are already given in [Puncher](https://punc
 
 If you need more rules, request access to the `_PGAASINTERNALNETS_` macro. To connect to {{ RD }} clusters, you need access to ports 26379 (Sentinel) and 6379 (Redis).
 
-{% include [cli-setup](../_includes/mdb/internal/cli-setup.md) %}
+## CLI setup
+
+If you plan to use the CLI, install and configure it according to the [instructions](../cli/quickstart.md).
 
    If you did everything correctly, the list clusters query should now work:
 
@@ -20,37 +22,72 @@ If you need more rules, request access to the `_PGAASINTERNALNETS_` macro. To co
 
 {% else %}
 
-To use the service, create a cluster and virtual machine to access the server from:
+To get started with the service:
 
-1. All you need to create a database cluster is a folder in Yandex.Cloud that you are allowed to access. If you already have a folder in Yandex.Cloud, open the page of that folder in the management console. If there is no folder yet, create one:
+1. [Create a cluster](#cluster-create).
+1. [Connect to the cluster](#connect).
 
-    {% include [create-folder](../_includes/create-folder.md) %}
+## Before you start {#before-you-begin}
 
-1. Create a VM (based on [Linux](../compute/quickstart/quick-create-linux.md) or [Windows](../compute/quickstart/quick-create-windows.md)) that you will use for accessing the DB cluster.
+1. Go to the [management console]({{ link-console-main }}). Then log in to {{ yandex-cloud }} or sign up if you don't have an account yet.
+
+1. If you don't have a folder yet, create one:
+
+   {% include [create-folder](../_includes/create-folder.md) %}
+
+1. You can only connect to the cluster from within {{ yandex-cloud }}. To do this, create a [Linux](../compute/quickstart/quick-create-linux.md) VM in the same network as the cluster.
+
+1. [Connect](../compute/operations/vm-connect/ssh.md) to the VM via SSH.
+
+1. Install the [redis-cli](https://redis.io/topics/rediscli) utility on the VM. For example, like this (for Ubuntu 20.04 LTS):
+
+   ```bash
+   sudo apt install redis-tools
+   ```
 
 {% endif %}
 
-Quickly create a cluster and test your connection to it:
+## Create a cluster {#cluster-create}
 
-1. In the management console, select the folder where you want to create a DB cluster.
+1. In the management console, select the folder where you want to create a cluster {{ RD }}.
 1. Select **{{ mrd-full-name }}**.
 1. Click **Create cluster**.
-1. Set the cluster parameters and click **Create cluster**.
-1. When the cluster is ready, its status on the {{ mrd-short-name }} dashboard will change to **RUNNING**.
-1. You can connect to the database using the [redis-cli](https://redis.io/topics/rediscli) program:
+1. Set the cluster parameters and click **Create cluster**. This process is described in detail in [{#T}](operations/cluster-create.md).
+1. Wait until the cluster is ready: its status on the {{ mrd-short-name }} dashboard changes to `Running` and its state to `Alive`. This may take some time.
 
-    ```
-    $ redis-cli -h <FQDN of any host> \
-                -p 26379
-    $ <host FQDN>:26379> sentinel get-master-addr-by-name <cluster name>
-    1) "<master name>"
-    2) "6379"
-    
-    $ redis-cli -h <master FQDN> \
-                -p 6379
-    $ <master FQDN>:6379> auth <cluster password>
-    OK
-    $ <master FQDN>:6379> set foo bar
-    OK
-    ```
+## Connect to the cluster {#connect}
+
+1. Connect to the {{ RD }} cluster master host using `redis-cli`.
+
+   {% include [see-fqdn-in-console](../_includes/mdb/see-fqdn-in-console.md) %}
+
+   To connect:
+
+   - To the master via any cluster host using [Sentinel](https://redis.io/topics/sentinel):
+
+     1. Get the address of the master host by using Sentinel and any {{ RD }} host:
+
+        ```bash
+        redis-cli -h <FQDN of any {{ RD }} host> -p 26379 sentinel get-master-addr-by-name <{{ RD }} cluster name> | head -n 1
+        ```
+
+     1. Connect to the host with this address:
+
+        ```bash
+        redis-cli -c -h <{{ RD }} master host address> -a <{{ RD }} password>
+        ```
+
+   - Directly to the master host:
+
+     ```bash
+     redis-cli -c -h <FQDN of {{ RD }} master host> -p 6379 -a <password for {{ RD }}>
+     ```
+
+1. Once connected, send the `PING` command. {{ RD }} should return `PONG` in response.
+
+## What's next
+
+- Read about [service concepts](./concepts/index.md).
+- Learn more about [creating clusters](./operations/cluster-create.md) and [connecting to clusters](./operations/connect.md).
+- Read [questions and answers](./qa/general.md).
 

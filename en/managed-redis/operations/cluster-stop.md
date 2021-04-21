@@ -2,7 +2,7 @@
 
 If necessary, you can stop and restart a DB cluster. You are not charged for the time when your cluster is stopped: you only continue to pay for the storage size and backups based on the [pricing policy](../pricing.md#prices-storage).
 
-## Stop a cluster {#stop-cluster}
+## Stopping a cluster {#stop-cluster}
 
 {% include [cluster-stop](../../_includes/mdb/cluster-stop.md) %}
 
@@ -17,7 +17,7 @@ If necessary, you can stop and restart a DB cluster. You are not charged for the
 
 {% endlist %}
 
-## Start a cluster {#start-cluster}
+## Starting a cluster {#start-cluster}
 
 You can restart `STOPPED` clusters.
 

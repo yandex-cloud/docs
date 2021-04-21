@@ -8,7 +8,7 @@ You can only manage shards in sharded clusters. Existing non-sharded clusters ca
 
 {% endnote %}
 
-## List shards in a cluster {#list}
+## Listing shards in a cluster {#list}
 
 {% list tabs %}
 
@@ -55,7 +55,7 @@ $ {{ yc-mdb-rd }} shards get <shard name> --cluster-name <cluster name>
 
 The cluster name and ID can be requested with a [list of clusters in the folder](cluster-list.md).
 
-## Add a shard {#add}
+## Adding a shard {#add}
 
 {% list tabs %}
 
@@ -100,7 +100,7 @@ The cluster name and ID can be requested with a [list of clusters in the folder]
 
 {% endlist %}
 
-## Delete a shard {#remove}
+## Deleting a shard {#remove}
 
 {% note alert %}
 
