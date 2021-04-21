@@ -104,6 +104,14 @@ _Роль_ — это набор разрешений, который опре�
 
 {% include [kms-keys-encrypterdecrypter](../../../_includes/roles-kms-keys-encrypterdecrypter.md)%}
 
+## {{ monitoring-name }} {#monitoring-roles}
+
+{% include [roles-monitoring-viewer](../../../_includes/roles-monitoring-viewer.md) %}
+
+{% include [roles-monitoring-viewer](../../../_includes/roles-monitoring-editor.md) %}
+
+{% include [roles-monitoring-viewer](../../../_includes/roles-monitoring-admin.md) %}
+
 ## {{ network-load-balancer-name }} {#load-balancer-roles}
 
 {% include [roles-lb-viewer](../../../_includes/roles-lb-viewer.md) %}
