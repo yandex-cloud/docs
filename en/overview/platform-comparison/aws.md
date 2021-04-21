@@ -18,6 +18,7 @@
 | Amazon RDS for MySQL | [{{ mmy-full-name }}](../../managed-mysql/) |
 | Amazon RDS for PostgreSQL | [{{ mpg-full-name }}](../../managed-postgresql/) |
 | Amazon RDS for SQL Server | [{{ mms-full-name }}](../../managed-sqlserver/) |
+| Amazon Route 53 | {{ dns-full-name }} |
 | Amazon S3 | [{{ objstorage-full-name }}](../../storage/) |
 | Amazon SageMaker | [{{ ml-platform-full-name }}](../../datasphere/) |
 | Amazon Simple Queue Service | [{{ message-queue-full-name }}](../../message-queue/) |

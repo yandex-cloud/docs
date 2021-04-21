@@ -5,6 +5,7 @@
 | AI Platform | [{{ ml-platform-full-name }}](../../datasphere/) |
 | API Gateway | [{{ api-gw-full-name }}](../../api-gateway/) |
 | Cloud Dataproc | [{{ dataproc-full-name }}](../../data-proc/) |
+| Cloud DNS | {{ dns-full-name }} |
 | Cloud Functions | [{{ sf-full-name }}](../../functions/) |
 | Cloud Interconnect | [{{ interconnect-full-name }}](../../vpc/interconnect/) |
 | Cloud IoT Core | [{{ iot-full-name }}](../../iot-core/) |
