@@ -4,23 +4,28 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
 
 ## Restoring clusters from backups {#restore}
 
-When you restore a cluster from a backup, you create a new cluster with the data from the backup. If the folder has insufficient [resources](../concepts/limits.md) to create such a cluster, you will not be able to restore from the backup. The average backup recovery speed is 10 MBps.
+When you restore a cluster from a backup, you create a new cluster with data from the backup. If the folder has insufficient [resources](../concepts/limits.md) to create such a cluster, you will not be able to restore from the backup. The average backup recovery speed is 10 MBps.
 
 {% list tabs %}
 
 - Management console
 
+  To restore an existing cluster from a backup:
   1. Go to the folder page and select **{{ mrd-name }}**.
-
   1. Click on the name of the cluster you need and select the tab **Backup copies**.
-
-  1. Click ![image](../../_assets/dots.svg) for the required backup and then click **Restore cluster**.
-
+  1. Click ![image](../../_assets/horizontal-ellipsis.svg) for the backup and click **Restore cluster**.
   1. Set up the new cluster. You can select a folder for the new cluster from the **Folder** list.
-
   1. Click **Restore cluster**.
 
-  {{ mrd-name }} runs cluster restore from backup.
+  To restore a previously deleted cluster from a backup:
+  1. Go to the folder page and select **{{ mrd-name }}**.
+  1. Click the **Backups** tab.
+  1. Find the desired backup using the backup creation time and cluster ID. The **Name** column contains the IDs in `<cluster ID>:<backup ID>` format.
+  1. Click ![image](../../_assets/horizontal-ellipsis.svg) for the backup and click **Restore cluster**.
+  1. Set up the new cluster. You can select a folder for the new cluster from the **Folder** list.
+  1. Click **Restore cluster**.
+
+  {{ mrd-name }} launches the operation to create a cluster from the backup.
 
 - CLI
 
@@ -30,7 +35,7 @@ When you restore a cluster from a backup, you create a new cluster with the data
 
   To restore a cluster from a backup:
 
-  1. View the description of the CLI's restore cluster command {{ RD }}:
+  1. View a description of the CLI restore {{ RD }} cluster command:
 
       ```
       $ {{ yc-mdb-rd }} cluster restore --help
@@ -49,7 +54,7 @@ When you restore a cluster from a backup, you create a new cluster with the data
       +--------------------------+----------------------+----------------------+----------------------+
       ```
 
-  1. Request creation of a cluster from a backup:
+  1. Request the creation of a cluster from a backup:
 
       ```
       $ {{ yc-mdb-rd }} cluster restore \
@@ -76,12 +81,9 @@ When you restore a cluster from a backup, you create a new cluster with the data
 {% list tabs %}
 
 - Management console
-
   1. Go to the folder page and select **{{ mrd-name }}**.
-
   1. Click on the name of the cluster you need and select the tab **Backup copies**.
-
-  1. Click **Create a backup**.
+  1. Click **Create backup**.
 
 - CLI
 
@@ -97,7 +99,7 @@ When you restore a cluster from a backup, you create a new cluster with the data
       $ {{ yc-mdb-rd }} cluster backup --help
       ```
 
-  1. Request creation of a backup specifying the cluster name or ID:
+  1. Request the creation of a backup specifying the cluster name or ID:
 
       ```
       $ {{ yc-mdb-rd }} cluster backup my-rd-cluster
@@ -113,9 +115,13 @@ When you restore a cluster from a backup, you create a new cluster with the data
 
 - Management console
 
+  To get a list of cluster backups:
   1. Go to the folder page and select **{{ mrd-name }}**.
-
   1. Click on the name of the cluster you need and select the tab **Backup copies**.
+
+  To get a list of all backups in a folder:
+  1. Go to the folder page and select **{{ mrd-name }}**.
+  1. Click the **Backups** tab.
 
 - CLI
 
@@ -144,9 +150,13 @@ When you restore a cluster from a backup, you create a new cluster with the data
 
 - Management console
 
+  To get information about the backup of an existing cluster:
   1. Go to the folder page and select **{{ mrd-name }}**.
-
   1. Click on the name of the cluster you need and select the tab **Backup copies**.
+
+  To get information about the backup of a previously deleted cluster:
+  1. Go to the folder page and select **{{ mrd-name }}**.
+  1. Click the **Backups** tab.
 
 - CLI
 
@@ -160,17 +170,17 @@ When you restore a cluster from a backup, you create a new cluster with the data
   $ yc {{ yc-mdb-rd }} backup get <backup ID>
   ```
 
-  The backup ID can be retrieved with the [list of backups](#list-backups) .
+  The backup ID can be retrieved with the [list of backups](#list-backups).
 
 {% endlist %}
 
-## Set the backup start time {#set-backup-window}
+## Setting the backup start time {#set-backup-window}
 
 {% list tabs %}
 
 - Management console
 
-  In the management console, you can only set the backup start time when you edit the cluster.
+  When [creating](cluster-create.md) or [updating](update.md#change-redis-config) a cluster, you can set the backup start time under **Additional settings**.
 
 - CLI
 

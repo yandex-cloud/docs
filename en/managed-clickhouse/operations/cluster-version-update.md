@@ -1,6 +1,6 @@
-# Changing versions {{ CH }}
+# Switching {{ CH }} versions
 
-You can change the {{ CH }} version that the cluster uses.
+You can change the {{ CH }} version used by the cluster to any of the [supported {{ mch-name }} versions](../concepts/update-policy.md#versioning-policy).
 
 ## List of available versions
 
@@ -30,11 +30,11 @@ You can change the {{ CH }} version that the cluster uses.
 
 {% endlist %}
 
-## Before changing versions {#before-update}
+## Before switching versions {#before-update}
 
 {% note warning %}
 
-If the cluster uses [hybrid storage](../concepts/storage.md#hybrid-storage-features), the minimum version number you can change the cluster to is {{ mch-hs-version }}.
+If the cluster uses [hybrid storage](../concepts/storage.md#hybrid-storage-features), the minimum version you can change the cluster to is {{ mch-hs-version }}.
 
 {% endnote %}
 
@@ -44,14 +44,14 @@ Before changing the {{ CH }} version, make sure this doesn't affect your apps:
 1. Try changing versions on a test cluster (you can try deploying it from a backup of the main cluster). Please note that when you deploy a cluster from a backup, only MergeTree engine tables are recovered.
 1. [Make a backup](cluster-backups.md#create-backup) of the main cluster before changing the version.
 
-## Changing the version {#start-update}
+## Switching versions {#start-update}
 
 To change the {{ CH }} version:
 
 {% list tabs %}
 
 - Management console
-    1. Open the **Managed Service for {{ CH }}** page in the folder where you want to change the {{ CH }} version.
+    1. Open the **{{ mch-name }}** page in the folder where you want to change the {{ CH }} version.
     1. In the list of clusters, select the one to change.
     1. Click **Edit cluster**.
     1. In the **Version** field, select the version.
@@ -104,3 +104,4 @@ To change the {{ CH }} version:
     You can change the {{ CH }} version for a cluster using the [update](../api-ref/Cluster/update.md) API method: pass the appropriate value in the `configSpec.clickhouse.config.version` request parameter.
 
 {% endlist %}
+

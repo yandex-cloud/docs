@@ -37,7 +37,7 @@ You can request detailed information about each {{ mrd-short-name }} cluster you
 
 - Management console
   1. Go to the folder page and select **{{ mrd-name }}**.
-  1. Click on the name of the cluster you need.
+  1. Click on the name of the cluster you need.
 
 - CLI
 
@@ -51,7 +51,7 @@ You can request detailed information about each {{ mrd-short-name }} cluster you
   $ {{ yc-mdb-rd }} cluster get <cluster name or ID>
   ```
 
-  The cluster name and ID can be requested with a [list of clusters in the folder](cluster-list#list-clusters).
+  The cluster name and ID can be requested with a [list of clusters in the folder](list-clusters).
 
 {% endlist %}
 

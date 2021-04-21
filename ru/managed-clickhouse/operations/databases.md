@@ -43,7 +43,7 @@
        --cluster-name=<имя кластера>
   ```
 
-  Имя кластера можно запросить со [списком кластеров в каталоге](#list-clusters).
+  Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 
 - API
@@ -94,7 +94,7 @@
   
   {% include [db-name-limits](../../_includes/mdb/mch/note-info-db-name-limits.md) %}
 
-  Имя кластера можно запросить со [списком кластеров в каталоге](#list-clusters).
+  Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 - Terraform
 
@@ -169,7 +169,7 @@
        --cluster-name=<имя кластера>
   ```
 
-  Имя кластера можно запросить со [списком кластеров в каталоге](#list-clusters).
+  Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 - Terraform
 

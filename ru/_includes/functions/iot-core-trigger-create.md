@@ -1,4 +1,4 @@
-Создайте триггер для [топика](../../iot-core/concepts/topic.md) устройства или реестра сервиса {{ iot-name }} и обрабатывайте копии сообщений с помощью [функции](../../functions/concepts/function.md) {{ sf-name }}.
+Создайте триггер для [топика](../../iot-core/concepts/topic/index.md) устройства или реестра сервиса {{ iot-name }} и обрабатывайте копии сообщений с помощью [функции](../../functions/concepts/function.md) {{ sf-name }}.
 
 {% note warning %}
 

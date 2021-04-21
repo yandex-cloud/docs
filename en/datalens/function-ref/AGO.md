@@ -27,8 +27,6 @@ The `unit` argument takes the following values:
 
 Can also be used as `AGO( measure, date_dimension, number )`. In this case, the third argument is interpreted as the number of days.
 
-This non-window function does not support window options such as `BEFORE FILTER BY`.
-
 See also [AT_DATE](AT_DATE.md), [LAG](LAG.md).
 
 **Argument types:**

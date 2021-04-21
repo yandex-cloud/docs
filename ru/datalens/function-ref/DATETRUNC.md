@@ -23,6 +23,7 @@ DATETRUNC( datetime, unit [ , number ] )
 - `"day"`;
 - `"week"`;
 - `"month"`;
+- `"quarter"`;
 - `"year"`.
 
 **Типы аргументов:**

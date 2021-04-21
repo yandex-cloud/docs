@@ -227,6 +227,8 @@ items:
             href: function-ref/MONTH.md
           - name: NOW
             href: function-ref/NOW.md
+          - name: QUARTER
+            href: function-ref/QUARTER.md
           - name: SECOND
             href: function-ref/SECOND.md
           - name: TODAY
@@ -469,8 +471,12 @@ items:
             href: function-ref/COUNT_WINDOW.md
           - name: COUNT_IF
             href: function-ref/COUNT_IF_WINDOW.md
+          - name: FIRST
+            href: function-ref/FIRST.md
           - name: LAG
             href: function-ref/LAG.md
+          - name: LAST
+            href: function-ref/LAST.md
           - name: MAVG
             href: function-ref/MAVG.md
           - name: MAX

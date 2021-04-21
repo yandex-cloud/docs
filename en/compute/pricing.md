@@ -51,6 +51,7 @@ OS usage on a VM is also charged. The cost depends on the OS license and the amo
 
 {{ price-per-hour-count-per-second }}
 
+
 #### Example of cost calculation {#example-of-cost-calculation}
 
 Let's compare the cost of running VMs on the Intel Broadwell [platform](concepts/vm-platforms.md) with different [vCPU performance levels](concepts/performance-levels.md).

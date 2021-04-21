@@ -23,7 +23,7 @@
    - `data-transfer` — {{ data-transfer-name }};
    - `serverless-apigateway` — {{ api-gw-name }}.
 1. Создайте статичный [API-ключ](../../../iam/operations/api-key/create.md) для [сервисного аккаунта](../../../iam/concepts/users/service-accounts).
-1. Назначьте сервисному аккаунту роль [viewer](../../../iam/operations/roles/grant#access-to-sa) на выбранный каталог.
+1. [Назначьте сервисному аккаунту роль](../../../iam/operations/roles/grant#access-to-sa) `{{ roles-monitoring-viewer }}` на выбранный каталог.
 1. В [конфигурацию Prometheus](https://prometheus.io/docs/prometheus/latest/configuration/configuration) в секцию для сбора данных добавьте еще одну задачу (`job`):
    ```yaml
    ...

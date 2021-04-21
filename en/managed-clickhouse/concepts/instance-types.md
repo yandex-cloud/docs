@@ -20,7 +20,6 @@ The full list of possible host configurations on each platform is provided below
 | b1.nano | 2 | 5% | 2 |
 | b1.micro | 2 | 20% | 2 |
 | b1.medium | 2 | 50% | 4 |
-| s1.nano | 1 | 100% | 4 |
 | s1.micro | 2 | 100% | 8 |
 | s1.small | 4 | 100% | 16 |
 | s1.medium | 8 | 100% | 32 |

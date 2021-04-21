@@ -73,7 +73,6 @@ editable: false
 
 
 
-
 ### Исходящий трафик {#prices-traffic}
 
 
@@ -90,6 +89,5 @@ editable: false
 
 
 {% include notitle [rub-calculated.md](../_pricing/managed-elasticsearch/rub-calculated.md) %}
-
 
 

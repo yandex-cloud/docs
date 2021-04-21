@@ -18,6 +18,7 @@ DATEPART( datetime, unit [ , firstday ] )
 
 В зависимости от аргумента `unit` возвращает следующие значения:
 - `"year"` — номер года (см. [YEAR](YEAR.md));
+- `"quarter"` — номер квартала года (от `1` до `4`) (см. [QUARTER](QUARTER.md));
 - `"month"` — номер месяца в году (см. [MONTH](MONTH.md));
 - `"week"` — номер недели в году по [ISO 8601](https://ru.wikipedia.org/wiki/ISO_8601) (см. [WEEK](WEEK.md));
 - `"dayofweek"`, `"dow"` — номер дня недели (см. [DAYOFWEEK](DAYOFWEEK.md));

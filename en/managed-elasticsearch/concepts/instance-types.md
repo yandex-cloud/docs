@@ -14,7 +14,7 @@ The full list of possible host configurations on each platform is provided below
 Configuration types:
 
 * **s2**: Standard configurations, with 4:1 GB RAM to vCPU ratio.
-* **m2**: Configurations with an increased GB RAM to vCPU ratio (8:1). These configurations can be useful for clusters with higher cache requirements.
+* **m2**: Configurations with an increased GB RAM to vCPU ratio (8:1). These configurations can be useful for clusters with increased cache requirements.
 
 | Host class name | Number of vCPUs | Guaranteed vCPU performance | RAM, GB |
 | ----- | ----- | ----- | ----- |

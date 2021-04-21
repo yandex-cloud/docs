@@ -1,6 +1,6 @@
-# Limits {{ mrd-name }}
+# Limitations {{ mrd-name }}
 
-{{ mrd-name }} allows you to run [any Redis commands](https://redis.io/commands), except the following:
+{{ mrd-name }} lets you run [any Redis command](https://redis.io/commands), except the following:
 
 - `BGREWRITEAOF`
 - `BGSAVE`

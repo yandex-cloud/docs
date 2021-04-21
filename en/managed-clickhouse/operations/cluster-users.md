@@ -2,6 +2,21 @@
 
 You can add and remove users, as well as manage their individual settings.
 
+There are two ways to manage cluster users:
+
+- {{ yandex-cloud }} standard interfaces (CLI, API, or management console). Choose this method if you want to use all the features of the {{ yandex-cloud }} managed service.
+- SQL queries to the cluster. Choose this method if you want to use an existing solution for creating and managing users, or if you need [RBAC](https://en.wikipedia.org/wiki/Role-based_access_control) support.
+
+## Managing users using SQL {#sql-user-management}
+
+To manage users using SQL, [create a cluster via the API](cluster-create.md) with the **sqlUserManagement** setting enabled. In this cluster:
+
+- Users can only be managed using SQL.
+- Management using {{ yandex-cloud }} standard interfaces (CLI, API, or management console) isn't possible.
+- Users are managed under the `admin` account. The password for this account is set when creating a cluster.
+
+To learn more about managing users using SQL, see the [documentation for {{ CH }}](https://clickhouse.tech/docs/en/operations/access-rights).
+
 ## Getting a list of users {#list-users}
 
 {% list tabs %}
@@ -23,11 +38,21 @@ You can add and remove users, as well as manage their individual settings.
        --cluster-name=<cluster name>
   ```
 
-  The cluster name can be requested with a [list of folder clusters](cluster-list.md#list-clusters).
+  You can query the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+- SQL
+
+  1. [Connect](connect.md) to the cluster using the [admin account](#sql-user-management).
+
+  1. Get a list of users:
+
+      ```sql
+      SHOW USERS;
+      ```
 
 {% endlist %}
 
-## Add a user {#adduser}
+## Adding a user {#adduser}
 
 {% list tabs %}
 
@@ -82,13 +107,25 @@ You can add and remove users, as well as manage their individual settings.
       ...
   ```
 
-  The cluster name can be requested with a [list of folder clusters](cluster-list.md#list-clusters).
+  You can query the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   See also: [Example of creating a read-only user](#example-create-readonly-user).
 
+- SQL
+
+  1. [Connect](connect.md) to the cluster using the [admin account](#sql-user-management).
+
+  1. Create a user:
+
+      ```sql
+      CREATE USER <username> IDENTIFIED WITH sha256_password BY '<user's password';
+      ```
+
+  To learn more about creating users, see the [documentation for {{ CH }}](https://clickhouse.tech/docs/en/sql-reference/statements/create/user/).
+
 {% endlist %}
 
-## Change password {#updateuser}
+## Changing a password {#updateuser}
 
 {% list tabs %}
 
@@ -114,11 +151,23 @@ You can add and remove users, as well as manage their individual settings.
        --password=<new password>
   ```
 
-  The cluster name can be requested with a [list of folder clusters](cluster-list.md#list-clusters).
+  You can query the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+- SQL
+
+  1. [Connect](connect.md) to the cluster using the [admin account](#sql-user-management).
+
+  1. Change the user's password:
+
+      ```sql
+      ALTER USER <username> IDENTIFIED BY '<new password>';
+      ```
+
+  To learn more about changing users, see the [documentation for {{ CH }}](https://clickhouse.tech/docs/en/sql-reference/statements/alter/user/).
 
 {% endlist %}
 
-## Change user settings {#update-settings}
+## Changing user settings {#update-settings}
 
 {% list tabs %}
 
@@ -157,7 +206,7 @@ You can add and remove users, as well as manage their individual settings.
           --permissions=<list of DBs the user can access>
      ```
 
-     The cluster name can be requested with a [list of folder clusters](cluster-list.md#list-clusters).
+     You can query the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
      This command grants the user the permission to access the databases listed.
 
@@ -173,14 +222,14 @@ You can add and remove users, as well as manage their individual settings.
           --quota=<settings of quota 2 (changed)>
           --quota=<settings of quota 3 (unchanged)>
           --quota=<settings of quota 4 (changed)>
-          --quota=<settings of quota 5 (new quota)>
+          --quota=<settings of quota 5 (new quota)>       
          ...
      ```
 
-     The cluster name can be requested with a [list of folder clusters](cluster-list.md#list-clusters).
+     You can query the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
      This command overwrites all existing user quota settings with the new settings that you passed to the command.
-Before running the command, make sure that you included both the settings for new and changed quotas and the settings for existing quotas that haven't changed.
+Before running the command, make sure that you included the settings for new and changed quotas and the settings for existing quotas that haven't changed.
 
      To delete one or more user quotas, exclude their settings from the list and pass the updated list of `--quota` parameters to the command.
 
@@ -189,18 +238,40 @@ Before running the command, make sure that you included both the settings for ne
      ```
      $ {{ yc-mdb-ch }} user update <username>
           --cluster-name=<cluster name>
-          --settings=<list of {{ CH }} settings>
+          --settings=<list of {{ CH }} settings>    
      ```
 
-     The cluster name can be requested with a [list of folder clusters](cluster-list.md#list-clusters).
+     You can query the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
      The command only changes the settings that are explicitly specified in the `--settings` parameter. For example, the command with the parameter `--settings="readonly=1"` only changes the `readonly` setting and doesn't reset the values of the other settings. This is how changing {{ CH }} settings differs from changing quota settings.
 
      This command doesn't delete a configured setting, it just explicitly assigns it the default value (specified for [each setting](#clickhouse-settings)).
 
+- SQL
+
+  1. [Connect](connect.md) to the cluster using the [admin account](#sql-user-management).
+
+  1. To change a set of user privileges and roles, use the [GRANT](https://clickhouse.tech/docs/en/sql-reference/statements/grant/) and [REVOKE](https://clickhouse.tech/docs/en/sql-reference/statements/revoke/) queries. For example, grant the user read rights to all objects in a specific database:
+
+      ```sql
+      GRANT SELECT ON <database name>.* TO <username>;
+      ```
+
+  1. To change [quota settings](#quota-settings) for the user, use the [CREATE QUOTA](https://clickhouse.tech/docs/en/sql-reference/statements/create/quota/#create-quota-statement), [ALTER QUOTA](https://clickhouse.tech/docs/en/sql-reference/statements/alter/quota/#alter-quota-statement), and [DROP QUOTA](https://clickhouse.tech/docs/en/sql-reference/statements/drop/#drop-quota-statement) queries. For example, limit the total number of user requests for a 15-month period:
+
+      ```sql
+      CREATE QUOTA <quota name> FOR INTERVAL 15 MONTH MAX QUERIES 100 TO <username>;
+      ```
+
+  1. To change the user account, use the [ALTER USER](https://clickhouse.tech/docs/en/sql-reference/statements/alter/user/) query. For example, to change the [settings {{ CH }}](#clickhouse-settings), run the following command listing the settings you want to change:
+
+      ```sql
+      ALTER USER <username> SETTINGS <{{ CH }} settings>;
+      ```
+
 {% endlist %}
 
-## Deleting users {#removeuser}
+## Deleting a user {#removeuser}
 
 {% list tabs %}
 
@@ -222,11 +293,23 @@ Before running the command, make sure that you included both the settings for ne
        --cluster-name=<cluster name>
   ```
 
-  The cluster name can be requested with a [list of folder clusters](cluster-list.md#list-clusters).
+  You can query the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+- SQL
+
+  1. [Connect](connect.md) to the cluster using the [admin account](#sql-user-management).
+
+  1. Delete the user:
+
+      ```sql
+      DROP USER ;
+      ```
+
+  To learn more about deleting objects, see the [documentation for{{ CH }}](https://clickhouse.tech/docs/en/sql-reference/statements/drop/).
 
 {% endlist %}
 
-## Examples
+## Examples {#examples}
 
 ### Creating a read-only user {#example-create-readonly-user}
 
@@ -269,11 +352,27 @@ Let's say you need to add to the existing `mych` cluster a new user named `ro-us
        SET readonly=0
        ```
 
-       As a result, the command should display a message saying that you can't change the setting in read-only mode:
+       As a result, the command should display a message stating that you can't change the setting in read-only mode:
 
        ```
        DB::Exception: Cannot modify 'readonly' setting in readonly mode.
        ```
+
+- SQL
+
+  1. [Connect](connect.md) to the `mych` cluster using the [admin account](#sql-user-management).
+
+  1. Create a user:
+
+      ```sql
+      CREATE USER ro-user IDENTIFIED WITH sha256_password BY 'Passw0rd';
+      ```
+
+  1. Grant the user read rights to all objects in the `db1` database:
+
+      ```sql
+      GRANT SELECT ON db1.* TO ro-user;
+      ```
 
 {% endlist %}
 
@@ -283,8 +382,7 @@ Let's say you need to add to the existing `mych` cluster a new user named `ro-us
 
 Quotas let you limit the user's consumption of {{ CH }} resources for a specified time interval.
 
-If the user exceeds one of the quota limits within this interval, they will not be able to make new queries until the interval expires.
-{{ CH }} displays a message about exceeding the quota and indicates when the next interval starts. After that, the query execution ban will be lifted and the limit counters will be reset.
+If the user exceeds one of the quota limits within this interval, they can't execute new queries until the interval expires. {{ CH }} displays a message about exceeding the quota and indicates when the next interval starts. At the beginning of the new interval, query execution is permitted and the limit counters are reset.
 
 {{ CH }} also uses quotas to account for resource consumption.
 For each user, there is a default quota that takes into account the consumption of all resources per hour, but doesn't impose any restrictions.
@@ -356,6 +454,45 @@ For more information, see the [documentation for {{ CH }}](https://clickhouse.te
 
     The minimum value is `0` (no limitation is set).
 
+- SQL
+
+  The full syntax of the create new quota command:
+
+  ```
+  CREATE QUOTA [IF NOT EXISTS | OR REPLACE] name
+      [KEYED BY {'none' | 'user name' | 'ip address' | 'client key' | 'client key or user name' | 'client key or ip address'}]
+      [FOR [RANDOMIZED] INTERVAL number {SECOND | MINUTE | HOUR | DAY | WEEK | MONTH | QUARTER | YEAR}
+          {MAX { {QUERIES | ERRORS | RESULT ROWS | RESULT BYTES | READ ROWS | READ BYTES | EXECUTION TIME} = number } [,...] |
+           NO LIMITS | TRACKING ONLY} [,...]]
+      [TO {role [,...] | ALL | ALL EXCEPT role [,...]}]
+  ```
+
+  - **`INTERVAL`**: Sets the interval for a quota. After setting the value, specify the unit of measurement.
+
+    The minimum value is one second.
+
+  - **`errors`**: Limits the total number of failed queries.
+
+    The minimum value is `0` (no limitation is set).
+
+  - **`EXECUTION TIME`**: Limits the total query execution time in seconds.
+
+    The minimum value is `0` (no limitation is set).
+
+  - **`queries`**: Limits the total number of queries.
+
+    The minimum value is `0` (no limitation is set).
+
+  - **`READ ROWS`**: Limits the total number of source rows read from tables for executing the query (including rows read from remote servers).
+
+    The minimum value is `0` (no limitation is set).
+
+  - **`RESULT ROWS`**: Limits the total number of rows in query results.
+
+    The minimum value is `0` (no limitation is set).
+
+  To learn more, see the [documentation for {{ CH }}](https://clickhouse.tech/docs/en/operations/access-rights/#quotas-management).
+
 {% endlist %}
 
 ### ClickHouse settings {#clickhouse-settings}
@@ -398,11 +535,11 @@ These settings affect the behavior of {{ CH }} when handling user queries.
 
     The value must be greater than zero (default: `10000`, 10 seconds).
 
-  - **DISTINCT overflow mode**{#setting-distinct-overflow-mode}: Determines the {{ CH }} behavior when running the `SELECT DISTINCT` [query exceeds the limits](https://clickhouse.tech/docs/en/operations/settings/query-complexity/#ogranicheniia-na-slozhnost-zaprosa): `throw` (abort the query execution and return an error) or `break` (return a partial result).
+  - **DISTINCT overflow mode**{#setting-distinct-overflow-mode}: Determines the {{ CH }} behavior when running the `SELECT DISTINCT` query [exceeds the limits](https://clickhouse.tech/docs/en/operations/settings/query-complexity/#ogranicheniia-na-slozhnost-zaprosa). Either `throw` (abort the query execution and return an error) or `break` (return a partial result).
 
     By default, not selected (equivalent to `throw`).
 
-  - **Distributed aggregation memory efficient**{#setting-distributed-aggregation-memory-efficient}: Enables of disables memory saving mode when doing distributed aggregation.
+  - **Distributed aggregation memory efficient**{#setting-distributed-aggregation-memory-efficient}: Enables or disables memory saving mode when doing distributed aggregation.
 
     Under distributed query processing, [external aggregation](#setting-max-bytes-before-external-group-by) is done on remote servers. Enable this setting to achieve a smaller memory footprint on the server that sourced such a distributed query.
 
@@ -515,6 +652,28 @@ By default, the SQL parser is enabled.
   - **Insert quorum timeout**{#setting-insert-quorum-timeout}: Sets the [insert quorum](#setting-insert-quorum) timeout in milliseconds. If the timeout expired and no write took place, {{ CH }} aborts the `INSERT` query execution, returns an error, and the client must repeat the query to insert the data block into the same or another replica.
 
     The minimum value is `1000` (1 second). The default is `60000` (1 minute).
+
+  - **Join use nulls**{#setting-join-use-nulls}: Sets the behavior type for `JOIN`. When tables are merged, empty cells may appear. If this option is enabled, the added field changes the type to `Nullable`, and the blank cell is filled with the `NULL` value. Otherwise, the blank cell is filled with the default value for this field type.
+
+    By default, this option is disabled.
+
+    To learn more, see the [documentation for {{ CH }}](https://clickhouse.tech/docs/en/operations/settings/settings/#join_use_nulls).
+
+  - **Joined subquery requires alias**{#setting-joined-subquery-requires-alias}: Requires aliases for subqueries when executing the `JOIN` command.
+
+    If the setting is enabled, this request is not executed:
+
+    ```sql
+    SELECT col1, col2 FROM table1 JOIN (SELECT col3 FROM table2)
+    ```
+
+    The request with the specified alias is successfully executed:
+
+    ```sql
+    SELECT col1, col2 FROM table1 JOIN (SELECT col3 FROM table2) AS MyQuery
+    ```
+
+    By default, this option is disabled.
 
   - **Low cardinality allow in native format**{#setting-low-cardinality-allow-in-native-format}: Determines whether to use the LowCardinality type in native format:
     - Enabled: Yes, use it.
@@ -702,7 +861,7 @@ By default, the SQL parser is enabled.
 
   - **Min bytes to use Direct I/O**{#setting-merge-tree-min-bytes-to-use-direct-io}: Limits the minimum number of bytes to enable unbuffered direct reads from disk (Direct I/O). {{ CH }} uses this parameter when reading data from tables.
 
-    By default, {{ CH }} doesn't read data directly from disk, but relies on the filesystem and its cache instead. This reading strategy is effective for small amounts of data. If the amount of the data to read is huge, it's more effective to read it directly from the disk, bypassing the filesystem cache.
+    By default, {{ CH }} doesn't read data directly from disk, but relies on the filesystem and its cache instead. This reading strategy is effective for small amounts of data. If the amount of the data to read is large, it is more effective to read it directly from the disk, bypassing the filesystem cache.
 
     If the total amount of data to read is greater than this setting value, {{ CH }} will fetch the data directly from the disk.
 
@@ -762,7 +921,7 @@ By default, the SQL parser is enabled.
 
     For more information, see the [documentation for {{ CH }}](https://clickhouse.tech/docs/en/operations/quotas/).
 
-  - **Read overflow mode**{#setting-read-overflow-mode}: Determines the {{ CH }} behavior when the amount of data read [exceeds one of the limits](https://clickhouse.tech/docs/en/operations/settings/query-complexity/#ogranicheniia-na-slozhnost-zaprosa): `throw` (abort execution and return an error) or `break` (return a partial result).
+  - **Read overflow mode**{#setting-read-overflow-mode}: Determines the {{ CH }} behavior when the amount of data read [exceeds one of the limits](https://clickhouse.tech/docs/en/operations/settings/query-complexity/#ogranicheniia-na-slozhnost-zaprosa). Either `throw` (abort execution and return an error) or `break` (return a partial result).
 
     By default, not selected (equivalent to `throw`).
 
@@ -788,7 +947,7 @@ By default, the SQL parser is enabled.
 
     For more information, see the [documentation for {{ CH }}](https://clickhouse.tech/docs/en/sql-reference/statements/alter/#sinkhronnost-zaprosov-alter).
 
-  - **Result overflow mode**{#setting-result-overflow-mode}: Determines the {{ CH }} behavior when the amount of results exceeds one of the limits: `throw` (abort execution and return an error) or `break` (return a partial result).
+  - **Result overflow mode**{#setting-result-overflow-mode}: Determines the {{ CH }} behavior when the amount of results exceeds one of the limits. Either `throw` (abort execution and return an error) or `break` (return a partial result).
 
     By default, not selected (equivalent to `throw`).
 
@@ -812,17 +971,23 @@ By default, the SQL parser is enabled.
 
     For more information, see the [documentation for {{ CH }}](https://clickhouse.tech/docs/en/operations/settings/settings/#settings-skip_unavailable_shards).
 
-  - **Sort overflow mode**{#setting-sort-overflow-mode}: Determines the {{ CH }} behavior when the amount of rows received before sorting [exceeds one of the limits](https://clickhouse.tech/docs/en/operations/settings/query-complexity/#ogranicheniia-na-slozhnost-zaprosa): `throw` (abort execution and return an error) or `break` (return a partial result).
+  - **Sort overflow mode**{#setting-sort-overflow-mode}: Determines the {{ CH }} behavior when the amount of rows received before sorting [exceeds one of the limits](https://clickhouse.tech/docs/en/operations/settings/query-complexity/#ogranicheniia-na-slozhnost-zaprosa). Either `throw` (abort execution and return an error) or `break` (return a partial result).
 
     By default, not selected (equivalent to `throw`).
 
-  - **Timeout overflow mode**{#setting-timeout-overflow-mode}: Determines the {{ CH }} behavior when query execution exceeds the `max_execution_time`: `throw` (abort execution and return an error) or `break` (return a partial result).
+  - **Timeout overflow mode**{#setting-timeout-overflow-mode}: Determines the {{ CH }} behavior when query execution exceeds the `max_execution_time`. Either `throw` (abort execution and return an error) or `break` (return a partial result).
 
     By default, not selected (equivalent to `throw`).
 
-  - **Transfer overflow mode**{#setting-transfer-overflow-mode}: Determines the {{ CH }} behavior when the amount of data to transfer to another server [exceeds one of the limits](https://clickhouse.tech/docs/en/operations/settings/query-complexity/#ogranicheniia-na-slozhnost-zaprosa): `throw` (abort execution and return an error) or `break` (return a partial result).
+  - **Transfer overflow mode**{#setting-transfer-overflow-mode}: Determines the {{ CH }} behavior when the amount of data to transfer to another server [exceeds one of the limits](https://clickhouse.tech/docs/en/operations/settings/query-complexity/#ogranicheniia-na-slozhnost-zaprosa). Either `throw` (abort execution and return an error) or `break` (return a partial result).
 
     By default, not selected (equivalent to `throw`).
+
+  - **Transform null in**{#setting-transform-null-in}: When the compare option is enabled, `NULL = NULL` returns `true` in the `IN` operator.
+
+    By default, this option is disabled (the comparison returns `false` in the `IN` operator).
+
+    To learn more, see the [documentation for {{ CH }}](https://clickhouse.tech/docs/en/operations/settings/settings/#transform_null_in).
 
   - **Use uncompressed cache**{#setting-use-uncompressed-cache}: Determines whether to use the cache of uncompressed blocks. Using this cache (only for MergeTree tables) may significantly reduce latency and increase throughput when a large amount of small queries is to be processed. Enable this setting for users who initiate small queries frequently.
 
@@ -858,6 +1023,10 @@ By default, the SQL parser is enabled.
     For more information, see the [documentation for {{ CH }}](https://clickhouse.tech/docs/en/operations/settings/permissions-for-queries/#settings_readonly).
 
     See also: [Example of creating a read-only user](#example-create-readonly-user).
+
+- SQL
+
+  For a full list of available settings, see the [documentation for {{ CH }}](https://clickhouse.tech/docs/en/operations/settings/settings/).
 
 {% endlist %}
 

@@ -2,34 +2,33 @@
 editable: false
 ---
 
-# Метод streamLogs
-То же самое, что [listLogs](/docs/managed-elasticsearch/api-ref/Cluster/listLogs), с той разницей, что со стороны сервера передается поток логов. Допускается использовать семантику `tail -f` при работе с
-потоком логов.
+# Method streamLogs
+Same as [listLogs](/docs/managed-elasticsearch/api-ref/Cluster/listLogs) but using server-side streaming. Also supports `tail -f` semantics.
  
 
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 GET https://mdb.api.cloud.yandex.net/managed-elasticsearch/v1/clusters/{clusterId}:stream_logs
 ```
  
-## Path-параметры {#path_params}
+## Path parameters {#path_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-clusterId | Обязательное поле. Идентификатор кластера Elasticsearch.  Чтобы получить идентификатор кластера Elasticsearch, выполните запрос [list](/docs/managed-elasticsearch/api-ref/Cluster/list).  Максимальная длина строки в символах — 50.
+clusterId | Required. ID of the Elasticsearch cluster.  To get the Elasticsearch cluster ID, make a [list](/docs/managed-elasticsearch/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
  
-## Query-параметры {#query_params}
+## Query parameters {#query_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-columnFilter | Столбцы, которые нужно запросить из лога.  Если столбцы не указаны, записи логов возвращаются целиком.
-fromTime | Временная метка, начиная с которой следует запросить логи.  Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
-toTime | Временная метка, до которой следует запросить логи.  Если значение этого поля не задано, то будут отправлены все существующие записи в логе, а затем и новые по мере их появления. В сущности, это эквивалентно семантике `tail -f`.  Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
-recordToken | Токен записи.  Задайте значение `record_token` равным значению `nextRecordToken`, возвращенному предыдущим запросом [streamLogs](/docs/managed-elasticsearch/api-ref/Cluster/streamLogs) чтобы продолжить стриминг со следующей записи в логе.  Максимальная длина строки в символах — 100.
-filter | Выражение, позволяющее отфильтровать информацию о ресурсах в ответе, оставив только нужную.  В этом выражении должны быть указаны: 1. Имя поля, по которому нужно выполнить фильтрацию. В настоящее время фильтрацию можно использовать только по полю `hostname`. 2. Условный оператор. Поддерживаются операторы `=` и `!=` для одиночных значений, `IN` и `NOT IN` для списков значений. 3. Значение. Должно содержать от 3 до 63 символов и соответствовать регулярному выражению `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.  Пример фильтра: `hostname='node1.db.cloud.yandex.net'`  Максимальная длина строки в символах — 1000.
+columnFilter | Columns from logs table to get in the response.  If no columns are specified, full log records are returned.
+fromTime | Start timestamp for the logs request.  String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+toTime | End timestamp for the logs request.  If this field is not set, all existing logs will be sent and then the new ones asthey appear. In essence it has `tail -f` semantics.  String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+recordToken | Record token.  Set `record_token` to the `nextRecordToken` returned by a previous [streamLogs](/docs/managed-elasticsearch/api-ref/Cluster/streamLogs) request to start streaming from next log record.  The maximum string length in characters is 100.
+filter | A filter expression that filters resources listed in the response.  The expression must specify: 1. The field name to filter by. Currently filtering can be applied to the `hostname` field. 2. A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. 3. The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.  Example of a filter: `message.hostname='node1.db.cloud.yandex.net'`  The maximum string length in characters is 1000.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -43,9 +42,9 @@ filter | Выражение, позволяющее отфильтровать �
 ```
 
  
-Поле | Описание
+Field | Description
 --- | ---
-record | **object**<br><p>Одна из запрошенных записей в логе.</p> <p>Записи в журнале.</p> 
-record.<br>timestamp | **string** (date-time)<br><p>Временная метка для записи в логе.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-record.<br>message | **object**<br><p>Содержимое записи в логе.</p> 
-nextRecordToken | **string**<br><p>Этот токен позволяет продолжить работу с потоком логов, начиная с этой записи.</p> <p>Чтобы продолжить работу с потоком, укажите значение `next_record_token` в качестве значения параметра <a href="/docs/managed-elasticsearch/api-ref/Cluster/streamLogs#query_params">recordToken</a> в следующем запросе StreamLogs.</p> <p>Это значение взаимозаменяемо с <a href="/docs/managed-elasticsearch/api-ref/Cluster/listLogs#responses">nextPageToken</a> из метода ListLogs.</p> 
+record | **object**<br><p>One of the requested log records.</p> <p>A single log record.</p> 
+record.<br>timestamp | **string** (date-time)<br><p>Log record timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+record.<br>message | **object**<br><p>Contents of the log record.</p> 
+nextRecordToken | **string**<br><p>This token allows you to continue streaming logs starting from the exact same record.</p> <p>To continue streaming, specify value of `next_record_token` as value for <a href="/docs/managed-elasticsearch/api-ref/Cluster/streamLogs#query_params">recordToken</a> parameter in the next StreamLogs request.</p> <p>This value is interchangeable with <a href="/docs/managed-elasticsearch/api-ref/Cluster/listLogs#responses">nextPageToken</a> from ListLogs method.</p> 

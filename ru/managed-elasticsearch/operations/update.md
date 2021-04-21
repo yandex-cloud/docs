@@ -4,7 +4,7 @@
 
 * [Изменить класс хостов](#change-resource-preset).
 
-* [Увеличить размер хранилища](#change-disk-size) (доступно только для сетевого хранилища: `network-hdd` и `network-ssd`).
+* [Увеличить размер хранилища](#change-disk-size) (доступно только для стандартного `network-hdd` и быстрого сетевого `network-ssd` хранилищ).
 
 ## Изменить класс хостов {#change-resource-preset}
 

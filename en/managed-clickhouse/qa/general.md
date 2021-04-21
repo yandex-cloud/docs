@@ -1,6 +1,6 @@
 # General questions
 
-#### What's {{ mch-short-name }}? {#what-is}
+#### What is {{ mch-short-name }}? {#what-is}
 
 {{ mch-short-name }} is a service that helps you create, operate, and scale {{ CH }} databases in a cloud infrastructure.
 
@@ -10,7 +10,7 @@ With {{ mch-short-name }}, you can:
 - Scale processing power and storage dedicated for your databases as needed.
 - Get database logs.
 
-{{ mch-short-name }} takes on time-consuming {{ CH }} infrastructure administration tasks:
+{{ mch-short-name }} takes on time-consuming administration tasks in the {{ CH }} infrastructure:
 
 - Monitors resource usage.
 - Automatically creates DB backups.
@@ -27,11 +27,11 @@ For the created and running databases, {{ mch-short-name }} automatically create
 
 {{ mch-short-name }} also provides data replication between database hosts (both inside and between availability zones) and automatically switches the load over to a backup replica in the event of a failure.
 
-#### Which tasks should I use {{ mch-short-name }} for and for which VMs with databases? {#mdb-advantage}
+#### When should I use {{ mch-short-name }} and when should I use VMs with databases? {#mdb-advantage}
 
-Yandex.Cloud offers two ways to work with databases:
+{{ yandex-cloud }} offers two ways to work with databases:
 
-- {{ mch-short-name }} allows you to operate template databases with no need to worry about administration.
+- {{ mch-short-name }} lets you run template databases with no need to worry about administration.
 - {{ compute-full-name }} virtual machines let you create and configure your own databases. This approach allows you to use any database management systems, access databases via SSH, and so on.
 
 #### What is a database host and database cluster? {#what-is-cluster}
@@ -42,7 +42,7 @@ _A database cluster_ is one or more database hosts between which replication can
 
 #### How do I get started with {{ mch-short-name }}? {#quickstart}
 
-{{ mch-short-name }} is available to all registered Yandex.Cloud users.
+{{ mch-short-name }} is available to any registered {{ yandex-cloud }} user.
 
 To create a database cluster in {{ mch-short-name }}, you must define its characteristics:
 
@@ -59,7 +59,7 @@ For a network-based storage (NBS), the number of hosts in a cluster is limited o
 
 For local SSD storage, the number of hosts is limited during cluster creation: for {{ CH }} clusters, you must create at least two hosts.
 
-#### How can I access a running DB host? {#db-access}
+#### How do I access a running database host? {#db-access}
 
 You can connect to {{ mch-short-name }} databases using standard DBMS methods.
 
@@ -79,17 +79,21 @@ Maintenance in {{ mch-short-name }} implies:
 
 #### Which version of {{ CH }} does {{ mch-short-name }} use? {#dbms-version}
 
-{{ mch-short-name }} uses the latest stable version of {{ CH }}.
+{{ mch-short-name }} uses some of the latest stable versions of {{ CH }}. To learn more, see [{#T}](../concepts/update-policy.md).
 
 #### What happens when a new DBMS version is released? {#new-version}
 
-When new minor versions are released, the cluster software is updated after a short testing period. The owners of the affected DB clusters receive an advance notice of expected work timing and DB availability.
+When new minor versions are released, the cluster software is automatically updated after a short testing period.
+
+The owners of the affected DB clusters receive an advance notice of expected work timing and DB availability.
 
 #### What happens when a DBMS version becomes deprecated? {#dbms-deprecated}
 
-One month after the database version becomes deprecated, {{ mch-short-name }} automatically sends email notifications to the owners of DB clusters created with this version.
+When a DBMS version becomes deprecated, {{ mch-short-name }} automatically sends email notifications to the owners of database clusters created with this version.
 
-New hosts can no longer be created using deprecated DBMS versions. Seven days within such notification for minor versions and one month for major versions, the database clusters are automatically upgraded to the next supported version. Deprecated major versions are upgraded even if you have disabled their automatic updates.
+New hosts can no longer be created using deprecated DBMS versions. Clusters on a deprecated version of {{ CH }} are updated according to the [versioning policy](../concepts/update-policy.md).
+
+The owners of the affected DB clusters receive an advance notice of expected work timing and DB availability.
 
 #### How is the cost of usage calculated for a database host? {#db-cost}
 
@@ -106,13 +110,13 @@ You can change the computing resources and storage size in the management consol
 
 The cluster characteristics change within 30 minutes. During this period, other maintenance activities may also be enabled for the cluster, such as installing updates.
 
-#### Is DB host backup enabled by default? {#default-backup}
+#### Is database host backup enabled by default? {#default-backup}
 
 Yes, backup is enabled by default. For {{ CH }}, a full backup is performed once a day with the possibility to restore it to any saved backup.
 
 By default, backups are stored for seven days.
 
-#### When is backup performed? Is a DB cluster available during backup? {#backup-window}
+#### When is backup performed? Is a database cluster available during backup? {#backup-window}
 
 The backup window is an interval during which a full daily backup of the DB cluster is performed. The backup window is from 01:00 a.m. to 05:00 a.m. (UTC+3).
 
@@ -137,3 +141,4 @@ Monitoring can be performed with a minimum granularity of 5 seconds.
 {% include [qa-fz-152.md](../../_includes/qa-fz-152.md) %}
 
 {% include [qa-logs.md](../../_includes/qa-logs.md) %}
+

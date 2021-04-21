@@ -1,19 +1,19 @@
 # Creating {{ CH }} clusters
 
-{{ CH }}clusters are one or more database hosts that replication can be configured between.
+{{ CH }} clusters are one or more database hosts that replication can be configured between.
 
 {% note warning %}
 
-When creating a {{ CH }} cluster with 2 or more hosts, {{ mch-short-name }} automatically creates a cluster of 3 ZooKeeper hosts for managing replication and fault tolerance. These hosts are considered when calculating the cost of the [resource quotas]({{ link-console-quotas }}) used by the cloud and the. Read more about replication for [{{ CH }}](../concepts/replication.md#clickhouse).
+When creating a {{ CH }} cluster with 2 or more hosts, {{ mch-short-name }} automatically creates a cluster of 3 ZooKeeper hosts for managing replication and fault tolerance. These hosts are considered when calculating the cost of the [quotas]({{ link-console-quotas }}) used by the cloud and the. Read more about replication for [{{ CH }}](../concepts/replication.md#clickhouse).
 
 {% endnote %}
 
 
-The number of hosts that can be created with a {{ CH }} cluster depends on the storage option selected:
+The number of hosts that can be created together with a {{ CH }} cluster depends on the selected [type of storage](../concepts/storage.md):
 
-* When using network drives, you can request any number of hosts (from one to the current [quota](../concepts/limits.md) limit).
-
-* When using SSDs, you can create at least two replicas along with the cluster (a minimum of two replicas is required to ensure fault tolerance). If the [available folder resources](../concepts/limits.md) are still sufficient after creating a cluster, you can add extra replicas.
+* With **local storage**, you can create a cluster with 2 or more replicas (to ensure fault tolerance, a minimum of 2 replicas is necessary). If the [available folder resources](../concepts/limits.md) are still sufficient, you can add extra replicas.
+* With **network storage**, you can request any number of hosts (from one to the maximum for the current [quota](../concepts/limits.md)).
+* With **hybrid storage**, you can only create a cluster with a single host. After creating this cluster, you can [add shards](shards.md#add-shard) consisting of only one host. Such a cluster isn't tolerant to host failures, but if this happens, the data in the shard or cluster is saved. Hybrid storage is at the [Preview](https://cloud.yandex.com/docs/overview/concepts/launch-stages) stage.
 
 {% list tabs %}
 
@@ -27,6 +27,10 @@ The number of hosts that can be created with a {{ CH }} cluster depends on the s
 
   1. Enter the cluster name in the **Cluster name** field. The cluster name must be unique within the folder.
 
+  1. From the **Version** drop-down list, select the version of {{ CH }} which the {{ mch-name }} cluster will use:
+     1. For most clusters, it's recommended to select the latest LTS version.
+     1. If you plan to use hybrid storage in a cluster, it's recommended to select the latest version. This type of storage is supported starting from {{ CH }} {{ mch-hs-version }}.
+
   1. Select the environment where you want to create the cluster (you can't change the environment once the cluster is created):
       - `PRODUCTION`: For stable versions of your apps.
       - `PRESTABLE`: For testing, including the {{ mch-short-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
@@ -35,7 +39,12 @@ The number of hosts that can be created with a {{ CH }} cluster depends on the s
 
   1. Under **Storage size**:
 
-            - Select the type of storage, either a more flexible network type (**network-hdd** or **network-ssd**) or faster local SSD storage (**local-ssd**). The size of the local storage can only be changed in 100 GB increments.
+      
+      - Select the type of storage, either a more flexible network type (**network-hdd** or **network-ssd**) or faster local SSD storage (**local-ssd**).
+
+        When selecting a storage type, remember that:
+        - The size of the local storage can only be changed in 100 GB increments.
+        - If you plan to use hybrid storage at the [Preview](../../overview/concepts/launch-stages.md) stage, you can select only one of the network storages in this section: **network-ssd** or **network-hdd**.
       - Select the size to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
 
   1. Under **Database**, specify the DB attributes:
@@ -43,11 +52,15 @@ The number of hosts that can be created with a {{ CH }} cluster depends on the s
       - Username.
       - User password. At least 8 characters.
 
-  1. Under **Hosts**, specify the parameters for the database hosts created with the cluster (keep in mind that if you use SSDs when creating the {{ CH }} cluster, you can set at least two hosts). To change the added host, place the cursor on the host line and click  ![image](../../_assets/pencil.svg).
+  1. Under **Hosts**, select the parameters of database hosts created together with the cluster. To change the added host, place the cursor on the host line and click  ![image](../../_assets/pencil.svg).
+
+     When configuring host parameters, remember that:
+     - If you previously selected **local-ssd** in the **Storage** section, you need to add at least 2 hosts to the cluster.
+     - If you plan to use hybrid storage at the [Preview](../../overview/concepts/launch-stages.md) stage, there can be only one host in the cluster.
 
   1. If necessary, configure additional cluster settings:
 
-     {% include [mch-extra-settings](../../_includes/mdb/mch-extra-settings-web-console.md) %}
+     {% include [mch-extra-settings](../../_includes/mdb/mch-extra-settings-web-console-new-cluster-wizard.md) %}
 
   1. If necessary, configure the DBMS settings:
 
@@ -87,10 +100,10 @@ The number of hosts that can be created with a {{ CH }} cluster depends on the s
         --environment <prestable or production> \
         --network-name <network name> \
         --host type=<clickhouse or zookeeper>,zone-id=<availability zone>,subnet-id=<subnet ID> \
-        --resource-preset <host class> \
+        --clickhouse-resource-preset <host class> \
         --clickhouse-disk-type <network-hdd | network-ssd | local-ssd> \
         --clickhouse-disk-size <storage size in GB> \
-        --user name=<username>,password=<user password> \
+        --user name=<имя пользователя>,password=<user password> \
         --database name=<DB name>
      ```
 
@@ -114,7 +127,7 @@ The number of hosts that can be created with a {{ CH }} cluster depends on the s
        ```
        resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
          name        = "<cluster name>"
-         environment = "<environment>"
+         environment = ""
          network_id  = "<network ID>"
        
          clickhouse {
@@ -174,17 +187,36 @@ The number of hosts that can be created with a {{ CH }} cluster depends on the s
           ```
        2. Confirm that you want to create the resources.
 
-       After this, all the necessary resources will be created in the specified folder and the IP addresses of the VMs will be displayed in the terminal. You can check resource availability and their settings in [management console]({{ link-console-main }}).
+       After this, all the necessary resources will be created in the specified folder and the IP addresses of the VMs will be displayed in the terminal. You can check resource availability and their settings in the [management console]({{ link-console-main }}).
+
+- API
+
+  To create a cluster, use the [create](../api-ref/Cluster/create.md) API method and pass the following in the request:
+  - In the `folderId` parameter, the ID of the folder where the cluster should be placed.
+  - The cluster name, in the `name` parameter.
+  - The environment of the cluster, in the `environment` parameter.
+  - Cluster configuration, in the `configSpec` parameter.
+  - Configuration of the cluster hosts, in one or more `hostSpecs` parameters.
+  - Network ID, in the `networkId` parameter.
+
+  If necessary, enable user and database management via SQL:
+  - `configSpec.sqlUserManagement`: Set `true` to enable [managing users via SQL](cluster-users.md#sql-user-management).
+  - `configSpec.sqlDatabaseManagement`: Set `true` to enable [database management via SQL](databases.md#sql-database-management). User management via SQL needs to be enabled.
+  - `configSpec.adminPassword` : Set the password for the `admin` user whose account is used for management.
+
+  When creating a cluster with multiple hosts:
+    - If a cluster in the[virtual network](../../vpc/concepts/network.md) has subnets in each of the [availability zones](../../overview/concepts/geo-scope.md), one {{ ZK }} host is automatically added to each subnet if you don't explicitly specify the settings for these hosts. If necessary, you can explicitly specify 3 {{ ZK }} hosts and their settings when creating a cluster.
+    - If a cluster in the virtual network has subnets only in certain availability zones, you need to explicitly specify 3 {{ ZK }} hosts and their settings when creating a cluster.
 
 {% endlist %}
 
 ## Examples {#examples}
 
+### Creating a single-host cluster {#creating-a-single-host-cluster}
+
 {% list tabs %}
 
 - CLI
-
-  **Creating a single-host cluster**
 
   To create a cluster with a single host, you should pass a single parameter, `--host`.
 
@@ -216,14 +248,12 @@ The number of hosts that can be created with a {{ CH }} cluster depends on the s
 
 - Terraform
 
-  **Creating a single-host cluster**
-
   Let's say we need to create a {{ CH }} cluster and a network for it with the following characteristics:
     - Named `mych`.
     - In the `PRESTABLE` environment.
     - In the cloud with ID `{{ tf-cloud-id }}`.
     - In a folder named `myfolder`.
-    - In a new network named `mynet`.
+    - Network: `mynet`.
     - With a single `{{ host-class }}` class host in the new subnet named `mysubnet` and the `ru-central1-c` availability zone. The `mysubnet` subnet will have a range of `10.5.0.0/24`.
     - With 32 GB of fast network storage.
     - With the database name `my_db`.

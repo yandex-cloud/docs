@@ -1,71 +1,32 @@
-# Connecting to a database in a cluster {{ RD }}
+# Connecting to a database in a {{ RD }} cluster
 
 ## Connection methods {#connection-methods}
 
-You can connect to the  {{ RD }} database in two ways: directly or using Redis Sentinel.
+You can connect to the {{ RD }} database host in two ways:
 
-[Redis Sentinel](https://redis.io/topics/sentinel) is a {{ RD }} host management system that provides monitoring, notification, automatic failover, and reporting of up-to-date host addresses to the clients.
+- Directly through port `6379`.
+- Using [{{ RD }} Sentinel](https://redis.io/topics/sentinel) through port `26379`. This is a {{ RD }} host management system that provides monitoring, notification, automatic failover, and reporting of up-to-date host addresses to the clients.
 
-Not every {{ RD }} client supports connecting via Sentinel. In such cases, you can connect to the host  directly. Note that you will need to track the roles of all the hosts yourself. If there is no need for a direct connection, use Sentinel for more reliable host management.
+Not every {{ RD }} client application supports connecting via Sentinel. In such cases, you can connect to the host  directly. Note that you will need to track the roles of all the hosts yourself. If there is no need for a direct connection, use Sentinel for more reliable cluster host management.
 
-{% note info %}
+## Connecting to clusters {#connect}
 
-Use port `26379` for host connections via Sentinel and port `6379` for direct connections.
+{{ RD }} cluster hosts can't be assigned public IPs. You can only access hosts from within the [virtual network](../../vpc/concepts/network.md) where the host is located.
 
-{% endnote %}
+To connect to the host of a {{ RD }} cluster:
 
-Redis cluster hosts cannot be assigned public IPs. You can only access hosts from within their subnet.
+1. [Create a VM](../../compute/operations/vm-create/create-linux-vm.md) with a public IP in the same virtual network as the host.
+1. Connect to the created VM [via SSH](../../compute/operations/vm-connect/ssh.md) and then, from this VM, connect to {{ RD }} using one of the [sample connection strings](#connection-string).
 
-## Connecting to databases {#connect-to-db}
+## Sample connection strings {#connection-string}
 
-In this example, we connect to the {{ RD }} host from a virtual machine connected to the same subnet as the host.
+{% include [conn-strings-environment](../../_includes/mdb/mdb-conn-strings-env.md) %}
 
-1. [Create a VM](../../compute/operations/vm-create/create-linux-vm.md) with a public IP in the same subnet as the Redis host.
+Examples of strings are provided for both connections using Sentinel and direct connections.
 
-1. Connect to the VM [via SSH](../../compute/operations/vm-connect/ssh.md).
+{% include [see-fqdn-in-console](../../_includes/mdb/see-fqdn-in-console.md) %}
 
-   ```
-   $ ssh <login>@<VM public IP>
-   ```
+{% include [mrd-connection-strings](../../_includes/mdb/mrd-conn-strings.md) %}
 
-1. Install Redis tools on the VM using a package manager:
-
-   {% list tabs %}
-
-   - Ubuntu
-
-     ```
-     $ sudo apt update
-     $ sudo apt-get install redis
-     ```
-
-   - CentOS
-
-     ```
-     $ sudo yum update
-     $ sudo yum install redis
-     ```
-
-   {% endlist %}
-
-1. Install a certificate for accessing the database:
-
-   ```
-   $ sudo mkdir -p /usr/local/share/ca-certificates/Yandex
-   $ sudo wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" -O /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt
-   ```
-
-1. Create a variable with the host name and port and master DB name.
-
-   ```
-   $ host=$(redis-cli -h <host address> -p 26379 sentinel get-master-addr-by-name <cluster name> | head -n 1)
-   ```
-
-1. Check the connection to the host:
-
-   ```
-   $ redis-cli -h $host -a <DB password> ping
-   ```
-
-   If the response is `PONG`, the connection is established successfully.
+If the connection to the cluster and the test query are successful, the `bar` string is output.
 

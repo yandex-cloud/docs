@@ -51,6 +51,7 @@ editable: false
 
 {{ price-per-hour-count-per-second }}
 
+
 #### Пример расчета стоимости {#example-of-cost-calculation}
 
 Сравним стоимость виртуальных машин для [платформы](concepts/vm-platforms.md) Intel Broadwell c разным [уровнем производительности vCPU](concepts/performance-levels.md).

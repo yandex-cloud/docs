@@ -55,8 +55,8 @@ editable: false
 | `M*`                | `R*`                | Позиционные функции   |
 |:--------------------|:--------------------|:----------------------|
 | [MAVG](MAVG.md)     | [RAVG](RAVG.md)     | [LAG](LAG.md)         |
-| [MCOUNT](MCOUNT.md) | [RCOUNT](RCOUNT.md) |                       |
-| [MMAX](MMAX.md)     | [RMAX](RMAX.md)     |                       |
+| [MCOUNT](MCOUNT.md) | [RCOUNT](RCOUNT.md) | [FIRST](FIRST.md)     |
+| [MMAX](MMAX.md)     | [RMAX](RMAX.md)     | [LAST](LAST.md)       |
 | [MMIN](MMIN.md)     | [RMIN](RMIN.md)     |                       |
 | [MSUM](MSUM.md)     | [RSUM](RSUM.md)     |                       |
 
@@ -140,6 +140,14 @@ editable: false
 
 
 
+## [FIRST](FIRST.md)
+
+**Синтаксис:**`FIRST( value [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )`
+
+Возвращает значение `value` из первой строки заданного окна. См. также [LAST](LAST.md).
+
+
+
 ## [LAG](LAG.md)
 
 **Синтаксис:**`LAG( value [ , offset [ , default ] ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )`
@@ -153,6 +161,14 @@ editable: false
 Если значение отсутствует (`offset` ссылается на строку до первой или после последней), то возвращается значение `default` в качестве результата. Если `default` не задано, то используется `NULL`.
 
 См. также [AGO](AGO.md) в качестве неоконной альтернативы.
+
+
+
+## [LAST](LAST.md)
+
+**Синтаксис:**`LAST( value [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )`
+
+Возвращает значение `value` из последней строки заданного окна. См. также [FIRST](FIRST.md).
 
 
 

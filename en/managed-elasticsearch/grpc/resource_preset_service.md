@@ -4,67 +4,67 @@ editable: false
 
 # ResourcePresetService
 
-Методы для работы с шаблонами ресурсов Elasticsearch.
+A set of methods for managing Elasticsearch resource presets.
 
-| Вызов | Описание |
+| Call | Description |
 | --- | --- |
-| [Get](#Get) | Возвращает указанный шаблон ресурса. |
-| [List](#List) | Возвращает список доступных шаблонов ресурсов. |
+| [Get](#Get) | Returns the specified resource preset. |
+| [List](#List) | Retrieves the list of available resource presets. |
 
-## Вызовы ResourcePresetService {#calls}
+## Calls ResourcePresetService {#calls}
 
 ## Get {#Get}
 
-Возвращает указанный шаблон ресурса. <br>Чтобы получить список доступных шаблонов ресурсов, выполните запрос [List](#List).
+Returns the specified resource preset. <br>To get the list of available resource presets, make a [List](#List) request.
 
 **rpc Get ([GetResourcePresetRequest](#GetResourcePresetRequest)) returns ([ResourcePreset](#ResourcePreset))**
 
 ### GetResourcePresetRequest {#GetResourcePresetRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-resource_preset_id | **string**<br>Обязательное поле. Идентификатор шаблона ресурса, данные о котором запрашиваются. <br>Чтобы получить идентификатор шаблона ресурса, выполните запрос [ResourcePresetService.List](#List). 
+resource_preset_id | **string**<br>Required. ID of the resource preset to return. <br>To get the resource preset ID, use a [ResourcePresetService.List](#List) request. 
 
 
 ### ResourcePreset {#ResourcePreset}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор набора ресурсов. 
-zone_ids[] | **string**<br>Идентификаторы зон доступности, в которых доступен этот набор вычислительных ресурсов. 
-cores | **int64**<br>Количество процессорных ядер для узла Elasticsearch, созданного с помощью набора вычислительных ресурсов. 
-memory | **int64**<br>Объем оперативной памяти для узла Elasticsearch, созданного с помощью набора вычислительных ресурсов, в байтах. 
+id | **string**<br>ID of the resource preset. 
+zone_ids[] | **string**<br>IDs of availability zones where the resource preset is available. 
+cores | **int64**<br>Number of CPU cores for an Elasticsearch node created with the preset. 
+memory | **int64**<br>RAM volume for an Elasticsearch node created with the preset, in bytes. 
 
 
 ## List {#List}
 
-Возвращает список доступных шаблонов ресурсов.
+Retrieves the list of available resource presets.
 
 **rpc List ([ListResourcePresetsRequest](#ListResourcePresetsRequest)) returns ([ListResourcePresetsResponse](#ListResourcePresetsResponse))**
 
 ### ListResourcePresetsRequest {#ListResourcePresetsRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-page_size | **int64**<br>Максимальное количество результатов на одной странице в ответе. <br>Если количество результатов больше чем `page_size`, сервис вернет значение [ListResourcePresetsResponse.next_page_token](#ListResourcePresetsResponse), которое можно использовать для получения следующей страницы. Максимальное значение — 1000.
-page_token | **string**<br>Токен страницы. <br>Установите значение `page_token` равным значению поля [ListResourcePresetsResponse.next_page_token](#ListResourcePresetsResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
+page_size | **int64**<br>The maximum number of results per page to return. <br>If the number of available results is larger than `page_size`, the service returns a [ListResourcePresetsResponse.next_page_token](#ListResourcePresetsResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
+page_token | **string**<br>Page token. <br>To get the next page of results, set `page_token` to the [ListResourcePresetsResponse.next_page_token](#ListResourcePresetsResponse) returned by a previous list request. The maximum string length in characters is 100.
 
 
 ### ListResourcePresetsResponse {#ListResourcePresetsResponse}
 
-Поле | Описание
+Field | Description
 --- | ---
-resource_presets[] | **[ResourcePreset](#ResourcePreset1)**<br>Список шаблонов ресурсов. 
-next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. <br>Если количество результатов больше чем [ListResourcePresetsRequest.page_size](#ListResourcePresetsRequest), используйте `next_page_token` в качестве значения параметра [ListResourcePresetsRequest.page_token](#ListResourcePresetsRequest) в следующем запросе. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. Максимальная длина строки в символах — 100.
+resource_presets[] | **[ResourcePreset](#ResourcePreset1)**<br>List of resource presets. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. <br>If the number of results is larger than [ListResourcePresetsRequest.page_size](#ListResourcePresetsRequest), use the `next_page_token` as the value for the [ListResourcePresetsRequest.page_token](#ListResourcePresetsRequest) parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. The maximum string length in characters is 100.
 
 
 ### ResourcePreset {#ResourcePreset1}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор набора ресурсов. 
-zone_ids[] | **string**<br>Идентификаторы зон доступности, в которых доступен этот набор вычислительных ресурсов. 
-cores | **int64**<br>Количество процессорных ядер для узла Elasticsearch, созданного с помощью набора вычислительных ресурсов. 
-memory | **int64**<br>Объем оперативной памяти для узла Elasticsearch, созданного с помощью набора вычислительных ресурсов, в байтах. 
+id | **string**<br>ID of the resource preset. 
+zone_ids[] | **string**<br>IDs of availability zones where the resource preset is available. 
+cores | **int64**<br>Number of CPU cores for an Elasticsearch node created with the preset. 
+memory | **int64**<br>RAM volume for an Elasticsearch node created with the preset, in bytes. 
 
 

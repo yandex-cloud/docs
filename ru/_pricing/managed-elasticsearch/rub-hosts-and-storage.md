@@ -34,8 +34,11 @@
 
 ### Хранилище {#prices-storage}
 
-Услуга | Цена за ГБ в месяц
------ | -----
-Стандартное сетевое хранилище  | {{ sku|RUB|mdb.cluster.network-hdd.elasticsearch|month|string }} |
-Быстрое сетевое хранилище  | {{ sku|RUB|mdb.cluster.network-nvme.elasticsearch|month|string }} |
-Быстрое локальное хранилище  | {{ sku|RUB|mdb.cluster.local-nvme.elasticsearch|month|string }} |
+{% include [nrd-disks-preview](../../_includes/mdb/non-replicated-disks-preview.md) %}
+
+| Услуга                                  | Цена за ГБ в месяц                                                             |
+|-----------------------------------------|--------------------------------------------------------------------------------|
+| Стандартное сетевое хранилище           | {{ sku|RUB|mdb.cluster.network-hdd.elasticsearch|month|string }}               |
+| Нереплицируемое сетевое хранилище       | {{ sku|RUB|mdb.cluster.network-ssd-nonreplicated.elasticsearch|month|string }} |
+| Быстрое сетевое хранилище               | {{ sku|RUB|mdb.cluster.network-nvme.elasticsearch|month|string }}              |
+| Быстрое локальное хранилище             | {{ sku|RUB|mdb.cluster.local-nvme.elasticsearch|month|string }}                |

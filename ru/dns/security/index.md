@@ -35,6 +35,7 @@
 **Управление ресурсами** | |
 Создание ресурсов в каталоге | `create` | `editor` на каталог
 Изменение, удаление ресурсов | `update`, `delete` | `editor`
+Создание подзон | `create` | `editor` на каталог, где находится зона, частями которой будут создаваемые подзоны
 **Управление доступом к ресурсам** | |
 [Назначение роли](../../iam/operations/roles/grant.md), [отзыв роли](../../iam/operations/roles/revoke.md) и просмотр назначенных ролей на ресурс | `setAccessBindings`, `updateAccessBindings`, `listAccessBindings` | `admin` на этот ресурс
 

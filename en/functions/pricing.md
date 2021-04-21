@@ -18,6 +18,7 @@ You're charged for all the [functions invoked](concepts/function-invoke.md) that
 
 {% endnote %}
 
+
 ### Example of cost calculation {#price-example}
 
 Example of calculating the cost of a function:
