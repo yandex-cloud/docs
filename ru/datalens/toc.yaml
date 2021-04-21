@@ -7,9 +7,44 @@ items:
   - name: О сервисе Yandex.DataLens
     when: audience == "internal"
     href: overview.md
-  - name: FAQ
+  - name: Решение проблем
+    expanded: true
     when: audience == "internal"
-    href: faq.md
+    items:
+      - name: FAQ
+        href: faq.md
+      - name: Ошибки DataLens
+        items:
+          - name: Все ошибки
+            href: troubleshooting/errors/all.md
+          - name: Cannot parse datetime
+            href: troubleshooting/errors/ERR-DS_API-DB-CANNOT_PARSE-DATETIME.md
+          - name: Cannot parse number
+            href: troubleshooting/errors/ERR-DS_API-DB-CANNOT_PARSE-NUMBER.md
+          - name: Cannot join a concatenation of tables with another table
+            href: troubleshooting/errors/ERR-DS_API-DB-CHYT-INVALID_SORTED_JOIN-MORE_THAN_ONE_TABLE.md
+          - name: Column used in join expression is not a key column
+            href: troubleshooting/errors/ERR-DS_API-DB-CHYT-INVALID_SORTED_JOIN-NOT_A_KEY_COLUMN.md
+          - name: Joined columns should form prefix of joined table key columns
+            href: troubleshooting/errors/ERR-DS_API-DB-CHYT-INVALID_SORTED_JOIN-NOT_KEY_PREFIX_COLUMN.md
+          - name: Access to table was denied
+            href: troubleshooting/errors/ERR-DS_API-DB-CHYT-TABLE_ACCESS_DENIED.md
+          - name: YT table has no schema. Only schematized tables are supported
+            href: troubleshooting/errors/ERR-DS_API-DB-CHYT-TABLE_HAS_NO_SCHEMA.md
+          - name: Columns in JOIN have different types
+            href: troubleshooting/errors/ERR-DS_API-DB-JOIN_COLUMN_TYPE_MISMATCH.md
+          - name: Data is not available because materialization is not yet complete
+            href: troubleshooting/errors/ERR-DS_API-DB-MATERIALIZATION_NOT_FINISHED.md
+          - name: Memory limit has been exceeded during query execution
+            href: troubleshooting/errors/ERR-DS_API-DB-MEMORY_LIMIT_EXCEEDED.md
+          - name: Table is not ready yet
+            href: troubleshooting/errors/ERR-DS_API-SOURCE_CONFIG-TABLE_NOT_CONFIGURED.md
+          - name: Double aggregation is forbidden
+            href: troubleshooting/errors/ERR-DS_API-VALIDATION-AGG-DOUBLE.md
+          - name: Inconsistent aggregation among operands
+            href: troubleshooting/errors/ERR-DS_API-VALIDATION-AGG-INCONSISTENT.md
+          - name: Window function has no aggregated expressions among its arguments
+            href: troubleshooting/errors/ERR-DS_API-VALIDATION-WIN_FUNC-NO_AGG.md
   - name: Сценарии использования
     items:
       - name: Все сценарии
