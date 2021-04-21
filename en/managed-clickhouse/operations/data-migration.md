@@ -1,13 +1,13 @@
 # Migrating data to {{ mch-name }}
 
-To migrate your database to {{ mch-name }}, you need to transfer the data directly, close the old database for writing, and then transfer the load to the database cluster in Yandex.Cloud.
+To migrate your database to {{ mch-name }}, you need to directly transfer the data, disable writing to the old database, and then switch the load over to the database cluster in {{ yandex-cloud }}.
 
-To transfer data to a {{ mch-name }} cluster, you can use [Apache ZooKeeper](http://zookeeper.apache.org) and [clickhouse-copier]( https://clickhouse.yandex/docs/en/operations/utils/clickhouse-copier/).
+To transfer data to a {{ mch-name }} cluster, you can use [Apache ZooKeeper](http://zookeeper.apache.org) and [clickhouse-copier]( https://clickhouse.yandex/docs/ruoperations/utils/clickhouse-copier/).
 
 Transfer data to an intermediate virtual machine in Compute Cloud if:
 
 * The {{ mch-name }} cluster isn't accessible from the internet.
-* The network equipment or connection to the {{ CH }} cluster in Yandex.Cloud isn't reliable enough.
+* The network equipment or connection to the {{ CH }} cluster in {{ yandex-cloud }} isn't reliable enough.
 * There is no environment to run `clickhouse-copier`.
 
 Migration stages:
@@ -23,15 +23,15 @@ Migration stages:
 
 1. Compatible software versions
     * {{ CH }} versions must be the same in both clusters.
-    * The `clickhouse-copier` version must be the same or higher than the {{ CH }} version in the {{ mch-name }} cluster.
-    * ZooKeeper ver. 3.4.10 and higher.
+    * The`clickhouse-copier` version must be the same as the {{ CH }} version in the {{ mch-name }} cluster or higher.
+    * The Zookeeper version must be at least 3.5.
 
 1. Check that the source cluster is ready to migrate:
     * SSL is enabled for encrypting traffic.
-    * The load on the database or shard that data will be copied from won't create any problems.
-    * `clickhouse-copier` has access to the database, and the account used has read-only access.
+    * The load on the database or shard from which the data is copied doesn't cause problems.
+    * `clickhouse-copier` has access to the database and the account used has read-only access.
 
-1. If you are using a virtual machine in Yandex.Cloud for migration:
+1. If you are using a virtual machine in {{ yandex-cloud }} for migration:
     * Create your VMs in the same cloud network as the {{ mch-name }} cluster.
     * The computing power of the VM should be chosen based on the amount of data transferred.
 
@@ -60,13 +60,14 @@ To migrate data, start a ZooKeeper node.
 
 1. Install ZooKeeper (single-node setup):
 
-    1. Download a distribution, such as version 3.4.13:
+    1. Download the latest stable version of the distribution. To learn more, see the [page with releases](https://zookeeper.apache.org/releases.html).
 
         ```bash
         $ cd /opt
-        $ sudo wget http://apache.is.co.za/zookeeper/zookeeper-3.4.13/zookeeper-3.4.13.tar.gz
-        $ sudo tar -xvf zookeeper-3.4.13.tar.gz
-        $ sudo chown hadoop:hadoop -R  zookeeper-3.4.13
+        $ sudo wget https://downloads.apache.org/zookeeper/zookeeper-3.6.2/apache-zookeeper-3.6.2-bin.tar.gz
+        $ sudo mkdir zookeeper
+        $ sudo tar -C /opt/zookeeper -xvf apache-zookeeper-3.6.2-bin.tar.gz --strip-components 1
+        $ sudo chown hadoop:hadoop -R zookeeper
         ```
 
     1. Switch to the user you created earlier to launch ZooKeeper:
@@ -75,7 +76,13 @@ To migrate data, start a ZooKeeper node.
         $ su hadoop
         ```
 
-    1. Create the file `/opt/zookeeper-3.4.13/conf/zoo.cfg` with the following contents:
+    1. Create a file named `zoo.cfg`:
+
+        ```
+        nano /opt/zookeeper/conf/zoo.cfg
+        ```
+
+        With the following content:
 
         ```ini
         tickTime=2000
@@ -83,21 +90,27 @@ To migrate data, start a ZooKeeper node.
         clientPort=2181
         ```
 
-    1. The master node must have a unique ID. To do this, create a `/var/data/zookeeper/myid` file with ID as its contents (for example, "1").
+    1. The master node must have a unique ID. To configure it, create the `myid` file.
+
+       ```
+       nano /var/data/zookeeper/myid
+       ```
+
+       Specify a unique ID as the content (for example, "1").
 
 1. To launch ZooKeeper for debugging:
 
     ```bash
-    $ bash /opt/zookeeper-3.4.13/bin/zkServer.sh start-foreground
+    $ bash /opt/zookeeper/bin/zkServer.sh start-foreground
     ```
 
 1. To launch ZooKeeper as normal:
 
     ```bash
-     $ bash /opt/zookeeper-3.4.13/bin/zkServer.sh start
+    $ bash /opt/zookeeper/bin/zkServer.sh start
     ```
 
-## Create a cluster {{ mch-name }} {#create-cluster}
+## Create a {{ mch-name }} cluster {#create-cluster}
 
 Make sure that the computing power and storage size of the cluster are appropriate for the environment where the existing databases are deployed and [create a cluster](cluster-create.md).
 
@@ -234,13 +247,13 @@ Example of data migration task description (`cp-task.xml`):
 To add a task in ZooKeeper, run the following commands:
 
 ```bash
-/opt/zookeeper-3.4.13/bin/zkCli.sh -server localhost:2181 rmr /cp-task.xml/description
-/opt/zookeeper-3.4.13/bin/zkCli.sh -server localhost:2181 rmr /cp-task.xml/task_active_workers
-/opt/zookeeper-3.4.13/bin/zkCli.sh -server localhost:2181 rmr /cp-task.xml
+/opt/zookeeper/bin/zkCli.sh -server localhost:2181 deleteall /cp-task.xml/description
+/opt/zookeeper/bin/zkCli.sh -server localhost:2181 deleteall /cp-task.xml/task_active_workers
+/opt/zookeeper/bin/zkCli.sh -server localhost:2181 deleteall /cp-task.xml
 
 fc=$(cat ./cp-task.xml)
-/opt/zookeeper-3.4.13/bin/zkCli.sh -server localhost:2181 create /cp-task.xml ""
-/opt/zookeeper-3.4.13/bin/zkCli.sh -server localhost:2181 create /cp-task.xml/description "$fc"
+/opt/zookeeper/bin/zkCli.sh -server localhost:2181 create /cp-task.xml ""
+/opt/zookeeper/bin/zkCli.sh -server localhost:2181 create /cp-task.xml/description "$fc"
 ```
 
 ## Launch clickhouse-copier {#copier-run}
@@ -251,7 +264,7 @@ If you didn't create the folders that you specified in the `--base-dir` flag or 
 
 {% endnote %}
 
-You can start the copier using the following command (to run it in daemon mode, add the `--daemon` flag):
+You can start the copier using the following command (to run in daemon mode, add the `--daemon` flag):
 
 ```bash
 $ clickhouse-copier

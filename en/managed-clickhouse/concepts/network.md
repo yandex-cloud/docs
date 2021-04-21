@@ -8,13 +8,13 @@ When creating a cluster, you can:
 
 * Set the subnets for each host in the cluster.
 
-* Request a public IP address to access the cluster from outside the Cloud.
+* Request a public IP address to access the cluster from outside {{ yandex-cloud }}.
 
 You can create a cluster without specifying any subnets for the hosts, if the availability zone selected for each host contains exactly one subnet of the cluster network.
 
 {% else %}
 
-All the clusters are created within the `_PGAASINTERNALNETS_` network macro. To connect to the created database, request access in [Puncher](https://puncher.yandex-team.ru/). To connect to {{ CH }}, specify ports 8443 (HTTPS) and 9440 (native TLS-enabled protocol) in your request.
+All clusters are created inside our network, which is [already accessible](../../mdb/access.md#network-access) from most networks and most employees. If you don't have access, request access to the macro `_PGAASINTERNALNETS_` in [Puncher](https://puncher.yandex-team.ru/). To connect to {{ CH }}, specify ports 8443 (HTTPS) and 9440 (native TLS-enabled protocol) in your request.
 
 {% endif %}
 
@@ -28,7 +28,7 @@ You can use the FQDN to access the host within a single cloud network. Read more
 
 ## Public access to a host {#public-access-to-a-host}
 
-Any cluster host can be accessible from outside Yandex.Cloud if you requested public access when creating the host. To connect to such a host, use its FQDN.
+Any cluster host can be accessible from outside {{ yandex-cloud }} if you requested public access when creating the host. To connect to such a host, use its FQDN.
 
 It is not possible to request a public address after creating a host, but you can replace one of the existing hosts with a new host that has a public address.
 

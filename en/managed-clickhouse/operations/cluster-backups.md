@@ -44,15 +44,28 @@ When you restore a cluster from a backup, you create a new cluster with the data
 
 For a new cluster, you should set all the parameters that are required at creation, except for the cluster type (a {{ CH }} backup cannot be restored as a {{ PG }} cluster).
 
+{% include [mch-mergetree-conversion](../../_includes/mdb/mch-restore-tables-conversion-alert.md) %}
+
 {% list tabs %}
 
 - Management console
 
+  To restore an existing cluster from a backup:
   1. Go to the folder page and select **{{ mch-name }}**.
-
   1. Click on the name of the cluster you need and select the tab **Backup copies**.
+  1. Click ![image](../../_assets/horizontal-ellipsis.svg) for the backup and click **Restore cluster**.
+  1. Set up the new cluster. You can select a folder for the new cluster from the **Folder** list.
+  1. Click **Restore cluster**.
 
-  1. Click ![image](../../_assets/dots.svg) for the required backup and then click **Restore cluster**.
+  To restore a previously deleted cluster from a backup:
+  1. Go to the folder page and select **{{ mch-name }}**.
+  1. Click the **Backups** tab.
+  1. Find the desired backup using the backup creation time and cluster ID. The **Name** column contains the IDs in `<cluster ID>:<backup ID>` format.
+  1. Click ![image](../../_assets/horizontal-ellipsis.svg) for the backup and click **Restore cluster**.
+  1. Set up the new cluster. You can select a folder for the new cluster from the **Folder** list.
+  1. Click **Restore cluster**.
+
+  {{ mch-name }} launches the operation to create a cluster from a backup.
 
 - CLI
 
@@ -140,9 +153,13 @@ For a new cluster, you should set all the parameters that are required at creati
 
 - Management console
 
+  To get a list of cluster backups:
   1. Go to the folder page and select **{{ mch-name }}**.
-
   1. Click on the name of the cluster you need and select the tab **Backup copies**.
+
+  To get a list of all backups in a folder:
+  1. Go to the folder page and select **{{ mch-name }}**.
+  1. Click the **Backups** tab.
 
 - CLI
 
@@ -171,9 +188,13 @@ For a new cluster, you should set all the parameters that are required at creati
 
 - Management console
 
+  To get information about the backup of an existing cluster:
   1. Go to the folder page and select **{{ mch-name }}**.
-
   1. Click on the name of the cluster you need and select the tab **Backup copies**.
+
+  To get information about the backup of a previously deleted cluster:
+  1. Go to the folder page and select **{{ mch-name }}**.
+  1. Click the **Backups** tab.
 
 - CLI
 
@@ -191,7 +212,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
 {% endlist %}
 
-## Set the backup start time {#set-backup-window}
+## Setting the backup start time {#set-backup-window}
 
 {% list tabs %}
 

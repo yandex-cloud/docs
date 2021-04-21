@@ -4,7 +4,10 @@ You can add and remove cluster hosts and manage {{ CH }} settings for individual
 
 {% note warning %}
 
-To add new hosts to a single-host cluster, first [add the {{ ZK }} hosts ](zk-hosts.md) to ensure fault tolerance for the cluster.
+Note:
+
+- To add new hosts to any of the [shards](../concepts/sharding.md) in a cluster, first [add {{ ZK }} hosts](zk-hosts.md) that will ensure fault tolerance of the cluster.
+- You can't add new hosts if the cluster uses [hybrid storage](../concepts/storage.md#hybrid-storage-features) at the [Preview](https://cloud.yandex.com/docs/overview/concepts/launch-stages) stage. However, [you can add](shards.md#add-shard) single-host shards. This restriction is removed at the General Availability stage.
 
 {% endnote %}
 
@@ -65,7 +68,7 @@ The number of hosts in {{ mch-short-name }} clusters is limited by the CPU and R
 
       * Subnet (if the necessary subnet is not in the list, [create it](../../vpc/operations/subnet-create.md)).
 
-      * Select the **Public access** option if the host must be accessible from outside the Cloud.
+      * Select the **Public access** option if the host must be accessible from outside {{ yandex-cloud }}.
 
   {% endif %}
 
@@ -126,7 +129,7 @@ The number of hosts in {{ mch-short-name }} clusters is limited by the CPU and R
 
      {{ mch-short-name }} will run the add host operation.
 
-     {% if audience != "internal" %} The subnet ID should be specified if the availability zone contains multiple subnets, otherwise {{ mch-short-name }} automatically selects a single subnet. {% endif %} The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+     {% if audience != "internal" %} The subnet ID should be specified if the availability zone contains multiple subnets, otherwise {{ mch-short-name }} automatically selects the single subnet. {% endif %} The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 
@@ -134,7 +137,7 @@ The number of hosts in {{ mch-short-name }} clusters is limited by the CPU and R
 
 {% endlist %}
 
-## Removing a host {#remove-host}
+## Deleting a host {#remove-host}
 
 You can remove a host from a {{ CH }} cluster if it contains 3 or more hosts.
 
@@ -157,7 +160,7 @@ You can remove a host from a {{ CH }} cluster if it contains 3 or more hosts.
   To remove a host from the cluster, run:
 
   ```
-  $ {{ yc-mdb-ch }} host delete <hostname>
+  $ {{ yc-mdb-ch }} host delete <host name>
        --cluster-name=<cluster name>
   ```
 
