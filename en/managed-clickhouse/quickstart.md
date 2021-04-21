@@ -8,16 +8,44 @@ To get started with the service:
 
 ## Before you start {#before-you-begin}
 
-1. Go to the [management console]({{ link-console-main }}). Then log in to Yandex.Cloud or sign up if you don't have an account.
+1. Go to the [management console]({{ link-console-main }}). Then log in to {{ yandex-cloud }} or sign up if you don't have an account yet.
 
 1. If you don't have a folder yet, create one:
 
     {% include [create-folder](../_includes/create-folder.md) %}
 
-You can connect to DB clusters from both inside and outside of the Cloud:
+1. You can connect to DB clusters from both inside and outside {{ yandex-cloud }}:
+   - To connect from inside {{ yandex-cloud }}, create a [Linux](../compute/quickstart/quick-create-linux.md)- or [Windows](../compute/quickstart/quick-create-windows.md)-based virtual machine in the same network as the DB cluster.
+   - To be able to connect to the cluster from the internet, request public access to hosts when creating the cluster.
 
-1. To connect to a DB cluster from inside the Cloud, create a VM in the same network as the DB cluster (based on [Linux](../compute/quickstart/quick-create-linux.md) or [Windows](../compute/quickstart/quick-create-windows.md))
-1. To connect to a cluster from the internet, request public access to the hosts when creating the cluster.
+   {% note info %}
+
+   The next steps assume that you connect to the cluster from a [Linux](../compute/quickstart/quick-create-linux.md)-based VM.
+
+   {% endnote %}
+
+1. [Connect](../compute/operations/vm-connect/ssh.md) to the VM via SSH.
+
+1. Add the {{ CH }} [DEB repository](https://clickhouse.tech/docs/en/getting-started/install/#install-from-deb-packages):
+
+   ```bash
+   sudo apt update && sudo apt install -y apt-transport-https ca-certificates dirmngr && \
+   sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv E0C56BD4 && \
+   echo "deb https://repo.clickhouse.tech/deb/stable/ main/" | sudo tee \
+   /etc/apt/sources.list.d/clickhouse.list
+   ```
+
+1. Install the dependencies and the `clickhouse-client` client application:
+
+   ```bash
+   sudo apt update && sudo apt install -y clickhouse-client
+   ```
+
+1. Download the configuration file for `clickhouse-client`:
+
+   ```bash
+   mkdir -p ~/.clickhouse-client && wget "https://storage.yandexcloud.net/mdb/clickhouse-client.conf.example" -O ~/.clickhouse-client/config.xml
+   ```
 
 ## Create a cluster {#cluster-create}
 

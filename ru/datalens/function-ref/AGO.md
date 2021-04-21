@@ -27,8 +27,6 @@ AGO( measure, date_dimension [ , unit [ , number ] ] )
 
 Возможен вариант использования `AGO( measure, date_dimension, number )`. В этом случае аргумент `unit` — количество дней.
 
-Обратите внимание, что это не оконная функция и она не поддерживает такие параметры, как `BEFORE FILTER BY`.
-
 См. также [AT_DATE](AT_DATE.md), [LAG](LAG.md).
 
 **Типы аргументов:**

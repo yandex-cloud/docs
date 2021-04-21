@@ -2,23 +2,23 @@
 editable: false
 ---
 
-# Метод addHosts
-Добавляет новые хосты в указанный кластер Elasticsearch.
+# Method addHosts
+Adds new hosts to the specified Elasticsearch cluster.
  
 
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 POST https://mdb.api.cloud.yandex.net/managed-elasticsearch/v1/clusters/{clusterId}/hosts:batchCreate
 ```
  
-## Path-параметры {#path_params}
+## Path parameters {#path_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-clusterId | Обязательное поле. Идентификатор кластера Elasticsearch.  Чтобы получить идентификатор кластера Elasticsearch, выполните запрос [list](/docs/managed-elasticsearch/api-ref/Cluster/list).  Максимальная длина строки в символах — 50.
+clusterId | Required. ID of the Elasticsearch cluster.  To get the Elasticsearch cluster ID, make a [list](/docs/managed-elasticsearch/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
  
-## Параметры в теле запроса {#body_params}
+## Body parameters {#body_params}
  
 ```json 
 {
@@ -35,16 +35,16 @@ clusterId | Обязательное поле. Идентификатор кла
 ```
 
  
-Поле | Описание
+Field | Description
 --- | ---
-hostSpecs[] | **object**<br><p>Обязательное поле. Одна или несколько конфигураций хостов, добавляемых в кластер Elasticsearch.</p> <p>Должен содержать хотя бы один элемент.</p> 
-hostSpecs[].<br>zoneId | **string**<br><p>Идентификатор зоны доступности, в которой находится хост.</p> <p>Максимальная длина строки в символах — 50.</p> 
-hostSpecs[].<br>subnetId | **string**<br><p>Идентификатор подсети, в которой находится хост.</p> <p>Максимальная длина строки в символах — 50.</p> 
-hostSpecs[].<br>assignPublicIp | **boolean** (boolean)<br><p>Флаг, определяющий, назначен ли хосту публичный IP-адрес.</p> <p>Если значение равно `true`, то этот хост доступен в Интернете через его публичный IP-адрес.</p> 
-hostSpecs[].<br>type | **string**<br><p>Обязательное поле. Тип хоста.</p> <ul> <li>DATA_NODE: этот хост является узлом Elasticsearch с ролью Data node.</li> <li>MASTER_NODE: этот хост является узлом Elasticsearch с ролью Master node.</li> </ul> 
-hostSpecs[].<br>shardName | **string**<br><p>Имя шарда, который нужно создать на хосте.</p> <p>Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_-]* ``.</p> 
+hostSpecs[] | **object**<br><p>Required. One or more configurations of hosts to be added to the Elasticsearch cluster.</p> <p>Must contain at least one element.</p> 
+hostSpecs[].<br>zoneId | **string**<br><p>ID of the availability zone where the host resides.</p> <p>The maximum string length in characters is 50.</p> 
+hostSpecs[].<br>subnetId | **string**<br><p>ID of the subnet the host resides in.</p> <p>The maximum string length in characters is 50.</p> 
+hostSpecs[].<br>assignPublicIp | **boolean** (boolean)<br><p>The flag that defines whether a public IP address is assigned to the host.</p> <p>If the value is `true`, then this host is available on the Internet via it's public IP address.</p> 
+hostSpecs[].<br>type | **string**<br><p>Required. Host type.</p> <ul> <li>DATA_NODE: the host is an Elasticsearch data node.</li> <li>MASTER_NODE: the host is an Elasticsearch master node.</li> </ul> 
+hostSpecs[].<br>shardName | **string**<br><p>The shard name to create on the host.</p> <p>The maximum string length in characters is 63. Value must match the regular expression `` [a-zA-Z0-9_-]* ``.</p> 
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -57,7 +57,7 @@ hostSpecs[].<br>shardName | **string**<br><p>Имя шарда, который �
   "done": true,
   "metadata": "object",
 
-  //  включает только одно из полей `error`, `response`
+  //  includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
     "message": "string",
@@ -66,24 +66,23 @@ hostSpecs[].<br>shardName | **string**<br><p>Имя шарда, который �
     ]
   },
   "response": "object",
-  // конец списка возможных полей
+  // end of the list of possible fields
 
 }
 ```
-Ресурс Operation. Дополнительные сведения см. в разделе
-[Объект Operation](/docs/api-design-guide/concepts/operation).
+An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
  
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br><p>Идентификатор операции.</p> 
-description | **string**<br><p>Описание операции. Длина описания должна быть от 0 до 256 символов.</p> 
-createdAt | **string** (date-time)<br><p>Время создания ресурса в формате в <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-createdBy | **string**<br><p>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию.</p> 
-modifiedAt | **string** (date-time)<br><p>Время, когда ресурс Operation последний раз обновлялся. Значение в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-done | **boolean** (boolean)<br><p>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`.</p> 
-metadata | **object**<br><p>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`.</p> 
-error | **object**<br>Описание ошибки в случае сбоя или отмены операции. <br> включает только одно из полей `error`, `response`<br><br><p>Описание ошибки в случае сбоя или отмены операции.</p> 
-error.<br>code | **integer** (int32)<br><p>Код ошибки. Значение из списка <a href="https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto">google.rpc.Code</a>.</p> 
-error.<br>message | **string**<br><p>Текст ошибки.</p> 
-error.<br>details[] | **object**<br><p>Список сообщений с подробными сведениями об ошибке.</p> 
-response | **object** <br> включает только одно из полей `error`, `response`<br><br><p>Результат операции в случае успешного завершения. Если исходный метод не возвращает никаких данных при успешном завершении, например метод Delete, поле содержит объект <a href="https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty">google.protobuf.Empty</a>. Если исходный метод — это стандартный метод Create / Update, поле содержит целевой ресурс операции. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `response`.</p> 
+id | **string**<br><p>ID of the operation.</p> 
+description | **string**<br><p>Description of the operation. 0-256 characters long.</p> 
+createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+createdBy | **string**<br><p>ID of the user or service account who initiated the operation.</p> 
+modifiedAt | **string** (date-time)<br><p>The time when the Operation resource was last modified.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+done | **boolean** (boolean)<br><p>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available.</p> 
+metadata | **object**<br><p>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any.</p> 
+error | **object**<br>The error result of the operation in case of failure or cancellation. <br> includes only one of the fields `error`, `response`<br><br><p>The error result of the operation in case of failure or cancellation.</p> 
+error.<br>code | **integer** (int32)<br><p>Error code. An enum value of <a href="https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto">google.rpc.Code</a>.</p> 
+error.<br>message | **string**<br><p>An error message.</p> 
+error.<br>details[] | **object**<br><p>A list of messages that carry the error details.</p> 
+response | **object** <br> includes only one of the fields `error`, `response`<br><br><p>The normal response of the operation in case of success. If the original method returns no data on success, such as Delete, the response is <a href="https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty">google.protobuf.Empty</a>. If the original method is the standard Create/Update, the response should be the target resource of the operation. Any method that returns a long-running operation should document the response type, if any.</p> 

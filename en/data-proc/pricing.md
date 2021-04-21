@@ -24,24 +24,6 @@ Cost is charged under the {{ compute-name }} service for each hour of running th
 
 The amount of storage requested for each cluster hosts is charged under the {{ compute-name }} service according to the [disk space pricing policy](../compute/pricing.md#prices-storage).
 
-### Example of price calculation {#price-calculation-example}
-
-You create a cluster with a single Data subcluster. Host master: `s2.micro` (2 vCPU, 8GB RAM) with 15GB SSD storage, one host per subcluster: `s2.small` (4 vCPU, 16 GB RAM), with 100 GB HDD storage.
-
-Resource usage prices:
-
-* usage a single core of a interruptible VM on the Intel Cascade Lake platform with 100% vCPU — ₽0.2040 per hour.
-* usage of 1 GB of RAM of the interrupted VM on the Intel Cascade Lake platform — ₽0.0492 per hour.
-* usage of 1 GB of SSD storage — ₽7.4441 per month.
-* usage of 1 GB of HDD storage — ₽2.0847 per month.
-
-The cost per hour of using the cluster includes the following components:
-
-* (2 + 4) ×  ₽0.2040 + (8 + 16) ×  ₽0.0492 = ₽2.4048 (forthe  {{ compute-name }} computing resources).
-*  ₽2.4048 × 0.1 = ₽0.2405 (the markup for using {{ dataproc-name }}).
-* (15 × ₽7.4441 + 100 ×  ₽2.0847) / 30 / 24 = ₽0.4447 (for using {{ compute-name }} disks).
-
-Total price per hour: ₽2.4048 + ₽0.2405 + ₽0.4447 = ₽3.09 ₽
 
 ## Pricing {#prices}
 

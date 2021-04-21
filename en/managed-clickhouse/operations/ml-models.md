@@ -12,7 +12,7 @@
 
 1. [Get](../../storage/operations/objects/link-for-download.md) a public link to the model.
 
-## Adding the model {#add-ml-model}
+## Adding a model {#add-ml-model}
 
 {% list tabs %}
 
@@ -32,7 +32,7 @@
 
 {% endlist %}
 
-## Applying the model {#apply-ml-model}
+## Applying a model {#apply-ml-model}
 
 To apply the model to data stored in a {{ CH }} cluster:
 

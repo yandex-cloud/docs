@@ -1,7 +1,7 @@
 {% note info %}
-  
-  Гибридное хранилище находится на стадии [Preview](https://cloud.yandex.ru/docs/overview/concepts/launch-stages). Плата за использование хранилища [{{ objstorage-name }}](../../storage) не взимается.
-  
-  На стадии Preview разрешается использовать этот тип хранилища только в кластерах с сетевым хранилищем и [выключенной отказоустойчивостью](../../managed-clickhouse/operations/zk-hosts.md). На стадии General Availability эти ограничения будут сняты.
-  
-  {% endnote %}
+
+Гибридное хранилище находится на стадии [Preview](../../overview/concepts/launch-stages.md). Использование хранилища [{{ objstorage-name }}](../../storage) не тарифицируется.
+
+Гибридное хранилище доступно только в кластерах со стандартным (`network-hdd`) или быстрым (`network-ssd`) сетевым хранилищем и [выключенной отказоустойчивостью](../../managed-clickhouse/operations/zk-hosts.md). Доступ хранилищу предоставляется по запросу. Обратитесь в [техническую поддержку](../../support/overview.md) или к вашему аккаунт-менеджеру.
+
+{% endnote %}

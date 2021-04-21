@@ -24,12 +24,12 @@ You can add and remove cluster hosts and request a list of hosts in the selected
   $ {{ yc-mdb-rd }} host list
        --cluster-name=<cluster name>
   
-  +---------------------------------+----------------------+--------+---------------+
-  |               NAME              |      CLUSTER ID      | HEALTH |    ZONE ID    |
-  +---------------------------------+----------------------+--------+---------------+
-  | rc1a-...caf.mdb.yandexcloud.net | c9qb2qj7nnt3b26fr0gg | ALIVE  | ru-central1-a |
-  | rc1c-...bgc.mdb.yandexcloud.net | c9qb2qj7nnt3b26fr0gg | ALIVE  | ru-central1-c |
-  +---------------------------------+----------------------+--------+---------------+
+  +---------------------------------+--------------+------------+---------+--------+---------------+
+  |              NAME               |  CLUSTER ID  | SHARD NAME |  ROLE   | HEALTH |    ZONE ID    |
+  +---------------------------------+--------------+------------+---------+--------+---------------+
+  | rc1a-...caf.mdb.yandexcloud.net | c9qb2...0gg  | shard1     | MASTER  | ALIVE  | ru-central1-a |
+  | rc1c-...bgc.mdb.yandexcloud.net | c9qb2...0gg  | shard1     | REPLICA | ALIVE  | ru-central1-c |
+  +---------------------------------+--------------+------------+---------+--------+---------------+
   ```
 
   You can query the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -87,7 +87,7 @@ The number of hosts in {{ mrd-short-name }} clusters is limited by the CPU and R
 
      If the necessary subnet is not in the list, [create it](../../vpc/operations/subnet-create.md).
 
-  1. See the description of the CLI command for adding a host:
+  1. View a description of the CLI command for adding a host:
 
      ```
      $ {{ yc-mdb-rd }} host add --help
@@ -140,7 +140,7 @@ If the host is the master when deleted, {{ mrd-short-name }} automatically assig
   To remove a host from the cluster, run:
 
   ```
-  $ {{ yc-mdb-rd }} host delete <hostname>
+  $ {{ yc-mdb-rd }} host delete <host name>
        --cluster-name=<cluster name>
   ```
 

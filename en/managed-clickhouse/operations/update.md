@@ -14,6 +14,28 @@ After creating a cluster, you can:
 
 {% list tabs %}
 
+- Management console
+
+  1. Go to the folder page and select **{{ mch-name }}**.
+
+  1. Select the cluster and click **Edit cluster** in the top panel.
+
+  1. To change the class of {{ CH }} hosts, under **Host class**, select the required class.
+
+  1. To change the class of {{ ZK }} hosts:
+
+      1. Click **Configure{{ ZK }}**.
+
+      1. Under **Host class {{ ZK }}**, select the class for the {{ ZK }} host.
+
+  1. Click **Save changes**.
+
+  {% note info %}
+
+  You can change the class of {{ ZK }} hosts only if [fault tolerance](zk-hosts.md#add-zk) is enabled for the cluster.
+
+  {% endnote %}
+
 - CLI
 
   {% include [cli-install](../../_includes/cli-install.md) %}
@@ -65,6 +87,12 @@ After creating a cluster, you can:
 ## Increasing storage size {#change-disk-size}
 
 {% list tabs %}
+
+- Management console
+  1. Go to the folder page and select **{{ mch-name }}**.
+  1. Select the cluster and click **Edit cluster** in the top panel.
+  1. Under **Storage size**, specify the required value.
+  1. Click **Save changes**.
 
 - CLI
 

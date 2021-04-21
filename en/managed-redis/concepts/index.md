@@ -4,7 +4,7 @@
 
 The main entity used in {{ mrd-name }} is a _database cluster_.
 
-Each cluster consists of one or more _database hosts_, which are virtual machines with DBMS servers deployed on them. Cluster hosts may reside in different availability zones and even different availability regions. [Learn more about Yandex.Cloud geography](../../overview/concepts/geo-scope.md).
+Each cluster consists of one or more _database hosts_, which are virtual machines with DBMS servers deployed on them. Cluster hosts may reside in different availability zones and even different availability regions. [More about the geo scope of {{ yandex-cloud }}](../../overview/concepts/geo-scope.md).
 
 * A cluster consisting of 3 and more hosts has automatic failover, because the hosts can take over each other's functions as the cluster's primary replica.
 

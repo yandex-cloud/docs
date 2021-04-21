@@ -39,7 +39,6 @@ You can request detailed information about each {{ mch-short-name }} cluster you
   1. Go to the folder page and select **{{ mch-name }}**.
   1. Click on the name of the cluster you need.
 
-
 - CLI
 
   {% include [cli-install](../../_includes/cli-install.md) %}
@@ -65,7 +64,6 @@ You can request detailed information about each {{ mch-short-name }} cluster you
 - Management console
   1. Go to the folder page and select **{{ mch-name }}**.
   1. Click on the name of the cluster you need.
-
   1. Go to the **Operations** tab.
 
 - CLI

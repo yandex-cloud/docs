@@ -1,12 +1,53 @@
-# How to manage shards
+# Managing shards
 
 You can enable sharding for a cluster as well as add and configure individual shards.
 
-## Enable sharding {#enable}
+{% note warning %}
 
-{{ mch-name }} clusters are created in a configuration with one shard. To start sharding data, follow the guidelines in [{#T}](../tutorials/sharding.md).
+If a cluster uses [hybrid storage](../concepts/storage.md#hybrid-storage-features) at the [Preview](https://cloud.yandex.com/docs/overview/concepts/launch-stages) stage, only shards with a single host can be added to this cluster. This restriction is removed at the General Availability stage.
 
-## Change a shard {#shard-update}
+{% endnote %}
+
+## Enabling sharding {#enable}
+
+{{ mch-name }} clusters are created with one shard. To start sharding data, [add](#add-shard) one or more shards and [create](../tutorials/sharding.md#example) a distributed table.
+
+## Adding a shard {#add-shard}
+
+The number of shards in {{ mch-short-name }} clusters is limited by the CPU and RAM quotas available to DB clusters in your cloud. To check the resources in use, open the [Quotas]({{ link-console-quotas }}) page and find the **{{ mch-full-name }}** block.
+
+{% list tabs %}
+
+- Management console
+  1. Go to the folder page and select **{{ mch-name }}**.
+  1. Click on the name of the cluster you need and go to the **Hosts** tab.
+  1. Click **Add shard**.
+  1. Enter a name for the shard and add the desired number of hosts.
+  1. Click **Create shard**.
+
+- API
+
+  To add a shard to the cluster, use the [addShard](../api-ref/Cluster/addShard.md) method.
+
+{% endlist %}
+
+## Listing shards in a cluster {#list-shards}
+
+{% list tabs %}
+
+- Management console
+
+  1. Go to the folder page and select **{{ mch-name }}**.
+
+  1. Click the name of a cluster and open the **Shards** tab.
+
+- API
+
+  To list the shards in a cluster, use the [listShards](../api-ref/Cluster/listShards.md) method.
+
+{% endlist %}
+
+## Changing a shard {#shard-update}
 
 You can change the shard weight as well as [host class](../concepts/instance-types.md) and storage size.
 
@@ -60,44 +101,14 @@ You can change the shard weight as well as [host class](../concepts/instance-typ
 
 {% endlist %}
 
-## List shards in a cluster {#list-shards}
+## Deleting a shard {#delete-shard}
 
-{% list tabs %}
+You can delete a shard from a {{ CH }} cluster provided that:
 
-- Management console
+- It's not the only shard.
+- It's not the only shard in a [group of shards](shard-groups.md).
 
-  1. Go to the folder page and select **{{ mch-name }}**.
-
-  1. Click the name of a cluster and open the **Shards** tab.
-
-- API
-
-  To list the shards in a cluster, use the [listShards](../api-ref/Cluster/listShards.md) method.
-
-{% endlist %}
-
-## Add a shard {#add-shard}
-
-The number of shards in {{ mch-short-name }} clusters is limited by the CPU and RAM quotas available to DB clusters in your cloud. To check the resources in use, open the [Quotas]({{ link-console-quotas }}) page and find the **{{ mch-full-name }}** block.
-
-{% list tabs %}
-
-- Management console
-  1. Go to the folder page and select **{{ mch-name }}**.
-  1. Click on the name of the cluster you need and go to the **Hosts** tab.
-  1. Click **Add shard**.
-  1. Enter a name for the shard and add the desired number of hosts.
-  1. Click **Create shard**.
-
-- API
-
-  To add a host to the cluster, use the [addHosts](../api-ref/Cluster/addHosts.md) method.
-
-{% endlist %}
-
-## Delete a shard {#delete-shard}
-
-You can delete a shard from a {{ CH }} cluster provided that it's not the only shard in it.
+When you delete a shard, all tables and data that are saved on that shard are deleted.
 
 {% list tabs %}
 
@@ -111,6 +122,7 @@ You can delete a shard from a {{ CH }} cluster provided that it's not the only s
 
 - API
 
-  Use the [deleteHosts](../api-ref/Cluster/deleteHosts.md) method to delete a host.
+  Use the [deleteShard](../api-ref/Cluster/deleteShard.md) method to delete a shard.
 
 {% endlist %}
+

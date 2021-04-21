@@ -12,11 +12,11 @@ Read more about {{ RD }} database sharding in the [{{ RD }} documentation](https
 
 ## Redis Cluster structure {#redis-cluster-structure}
 
-{{ RD }} Redis Cluster lets you create a Redis installation with automatic data sharding between the hosts. {{ RD }} Redis Cluster includes a set of hosts for storing your data. {{ RD }} Redis Cluster is divided into shards, each consisting of a master and replica set. Data from clients is written to the master hosts, which are then [replicated](replication.md).
+{{ RD }} Cluster lets you create a Redis installation with automatic data sharding between the hosts. {{ RD }} Redis Cluster includes a set of hosts for storing your data. {{ RD }} Redis Cluster is divided into shards, each consisting of a master and replica set. Data from clients is written to the master hosts, which are then [replicated](replication.md).
 
 Each cluster has 16,348 *hash slots* evenly distributed between shards. Slots define the dataset stored in the shard.
 
-## Fault tolerant {#failover}
+## Fault tolerance {#failover}
 
 All hosts in the cluster use service connections to exchange data about slots and regularly poll statuses from each other.
 
@@ -24,7 +24,7 @@ If the majority of master hosts fails to get a response from the host polled, th
 
 To ensure stable cluster operation, you need to create at least three master hosts in different availability zones, each with a single replica. Masters and their replicas must be located in different availability zones.
 
-## Scaling {#scaling}
+## Scalability {#scaling}
 
 If you need to scale your cluster horizontally, you can [add new shards](../operations/shards.md#add) to it.
 

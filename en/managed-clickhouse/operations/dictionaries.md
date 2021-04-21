@@ -1,6 +1,6 @@
 # Connecting external dictionaries
 
-You can add and remove [external dictionaries](../concepts/dictionaries.md#external-dicts) from your cluster. For more information about dictionaries, see the [documentation for {{ CH }}](https://clickhouse.yandex/docs/en/query_language/dicts/).
+You can add and remove [external dictionaries](../concepts/dictionaries.md#external-dicts) from your cluster. To learn more about dictionaries, see the [documentation for {{ CH }}](https://clickhouse.yandex/docs/en/query_language/dicts/).
 
 ## Adding a dictionary {#add-dictionary}
 
@@ -32,7 +32,7 @@ This parameter is available for {{ MY }} and {{ CH }}.
      * **Table**: Source table name.
      * **Collection**: Name of the collection for the {{ MG }} source.
      * **Dictionary status check**: Optional parameter. An SQL query to check changes in a dictionary.
-{{ CH }} updates the dictionary only if the results of this query change.
+{{ CH }} updates the dictionary only if there are changes in the query results.
 For more information, see the [{{ CH }} documentation](https://clickhouse.yandex/docs/en/query_language/dicts/external_dicts_dict_lifetime/).
      * **SSL mode**: Mode for establishing a secure SSL TCP/IP connection to the {{ PG }} database.
 For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-PARAMKEYWORDS).
@@ -41,8 +41,7 @@ For more information, see the [{{ PG }} documentation](https://www.postgresql.or
 
   1. Configure the structure and how the dictionary is stored in memory:
 
-     **{{ mch-name }}** supports multiple methods for storing dictionaries in memory:
-```flat```, ```hashed```, ```cache```, ```range_hashed```, ```complex_key_hashed```, and ```complex_key_cache```.
+     **{{ mch-name }}** supports a number of methods to place dictionaries in a memory:```flat```, ```hashed```, ```cache```, ```range_hashed```, ```complex_key_hashed```, and ```complex_key_cache```.
 For more information about how to store dictionaries in memory, see the [{{ CH }} documentation](https://clickhouse.yandex/docs/en/query_language/dicts/external_dicts_dict_layout/).
 
      Parameters vary for the different methods of storing dictionaries in memory:
@@ -72,8 +71,7 @@ You can't use NULL in this field. Optional parameter.
   1. Set how often the dictionary updates:
 
      {{ CH }} loads dictionaries to the RAM and periodically updates them.
-You can set a fixed update interval in seconds or specify a range,
-which {{ CH }} chooses a random time within for updating.
+You can set a fixed update interval in seconds, or specify a time range for {{ CH }} to randomly select the time for update.
 This is necessary for distributing the load on the dictionary source when upgrading on a large number of servers.
 
      For more information about dictionary updates, see the [{{ CH }} documentation](https://clickhouse.yandex/docs/en/query_language/dicts/external_dicts_dict_lifetime/).
@@ -184,3 +182,4 @@ This is necessary for distributing the load on the dictionary source when upgrad
   You can remove a dictionary using the [deleteExternalDictionary](../api-ref/Cluster/deleteExternalDictionary.md) method.
 
 {% endlist %}
+

@@ -91,19 +91,6 @@ You can switch to a paid **Standard** plan on the [Billing](https://datalens.yan
 
 The plans are non-refundable.
 
-Example:
-
-> On January 10, you activated a {{ datalens-short-name }} instance with the **Free** plan.
->
-> On January 15, you switched to the **Standard** plan: ₽1900 were debited to your account the same date.
->
-> On February 14, you are debited for the next billing period (from February 15 to March 14) under the **Standard** plan.
->
-> On March 14, you are debited for the next billing period (from March 15 to April 14) under the **Standard** plan.
->
-> On March 18, you decide to cancel your **Standard** subscription. However, you may continue using it until the end of the billing period, April 14.
->
-> The **Free** plan will be activated on April 15.
 
 ### Switching plans {#change-the-plan}
 

@@ -12,10 +12,10 @@ Learn more about geobase functions in the [{{ CH }} documentation](https://click
 If you're not satisfied with the built-in geobase, you can add your own to {{ CH }} clusters:
 
 1. [Create a geobase](#create-geobase).
-1. [Upload the geobase to Yandex.Cloud](#upload-geobase).
+1. [Upload the geobase to {{ yandex-cloud }}](#upload-geobase).
 1. [Add the geobase to the {{ CH }} cluster](#add-geobase).
 
-## Create a geobase {#create-geobase}
+## Creating a geobase {#create-geobase}
 
 Geobases in {{ CH }} are text files containing the hierarchy and names of regions. You can add several alternative geobases to {{ CH }} to reflect alternative viewpoints on the regional structure of different countries. Learn more in the [{{ CH }} documentation](https://clickhouse.yandex/docs/en/query_language/dicts/internal_dicts/).
 
@@ -38,7 +38,7 @@ To create a geobase:
 1. To add region names in other languages to your geobase, create `regions_names_<language code>.txt` files with the same structure. For example, you may create `regions_names_en.txt` for English and `regions_names_tr.txt` for Turkish.
 1. Package your geobase files as `TAR`, `TAR.GZ`, or `ZIP` archives.
 
-## Upload your geobase to Yandex.Cloud {#upload-geobase}
+## Uploading a geobase to {{ yandex-cloud }} {#upload-geobase}
 
 {{ mch-short-name }} only works with publicly readable geobases that are uploaded to {{ objstorage-name }}:
 
@@ -48,7 +48,7 @@ To create a geobase:
 
 1. [Get](../../storage/operations/objects/link-for-download.md) a public link to the geobase.
 
-## Add the geobase {#add-geobase}
+## Adding a geobase {#add-geobase}
 
 {% list tabs %}
 

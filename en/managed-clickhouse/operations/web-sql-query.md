@@ -1,10 +1,14 @@
 # SQL queries in the management console
 
-{{ mch-name }} allows you to visualize the data structure in your ClickHouse cluster and send SQL queries to databases from the Yandex.Cloud management console. To do this, log in to [management console]({{ link-console-main }}), open the cluster page and go to the **SQL** tab.
+{{ mch-name }} allows you to visualize the data structure in your ClickHouse cluster and send SQL queries to databases from the {{ yandex-cloud }} management console. To do this, log in to the [management console]({{ link-console-main }}), open the cluster page and go to the **SQL** tab.
 
 See a reference list of supported queries in the [ClickHouse documentation](https://clickhouse.yandex/docs/en/query_language/select/).
 
-{% include [web-sql-auth](../../_includes/mdb/web-sql-auth.md) %}
+## Access to the cluster from the management console {#sql-cluster-access}
+
+To connect to a {{ mch-name }} cluster from the management console and operate on its data, activate the **Access from management console** option when [creating a cluster](cluster-create.md) or [changing its settings](update.md#change-additional-settings).
+
+{% include [web-sql-auth](../../_includes/mdb/web-sql-auth-mch.md) %}
 
 ## Data structure visualization {#data-structure-visualization}
 
@@ -12,7 +16,7 @@ Once you have logged in, you can see the structure of the databases and tables i
 
 ![structure](../../_assets/mdb/structure.png)
 
-Click on the table to see the first 1000 rows of the `SELECT *` query result for this table ({{ mch-name }} doesn't support full navigation through all the DB data). Hover over the column header to see the type of column data:
+Click on the table to see the first 1000 rows of the `SELECT *` query result for this table (the console doesn't support full navigation through all the DB data). Hover over the column header to see the type of column data:
 
 ![table](../../_assets/mdb/table.png)
 
@@ -36,5 +40,5 @@ In addition, keep in mind the following:
 
 * The management console will only display the first 1000 rows of results, even if there is actually more data.
 * When a cluster query takes more than 10 minutes to complete, the management console will report an error as a result, even if the query was eventually processed successfully.
-* If your cluster has multiple {{CH}} hosts, queries from the management console are sent to a random one. Keep this in mind if you are going to modify data. For example, the `CREATE TABLE db1.newtable` query creates a table on one host only. To avoid this, use a [distributed query](https://clickhouse.tech/docs/en/sql-reference/distributed-ddl/), putting your cluster name inside the curly brackets: `CREATE TABLE db1.newtable ON CLUSTER '{cluster}'`.
+* If your cluster has multiple {{CH}} hosts, queries from the management console are sent to a random one. Keep this in mind if you are going to modify data. For example, the `CREATE TABLE db1.newtable` query creates a table on one host only. To avoid this, use a [distributed query](https://clickhouse.yandex/docs/en/query_language/create/#raspredelennye-ddl-zaprosy-sektsiia-on-cluster), putting your cluster name inside the curly brackets: `CREATE TABLE db1.newtable ON CLUSTER '{cluster}'`.
 

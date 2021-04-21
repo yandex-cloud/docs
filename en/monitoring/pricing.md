@@ -19,12 +19,14 @@ Pricing specifics:
 
 The minimum billable unit is one metric value. The cost is rounded to the nearest hundredth.
 
-For example, the cost of writing the first 86,400 values is `$0.007754` and rounded to `$0.01`. The cost of writing 870,000 values is `$0.078077` and rounded to `$0.08`. Where `$0.089744` is the price per 50 million metrics. 
+
+For example, the cost of writing the first 86,400 values is `$0.007754` and rounded to `$0.01`. The cost of writing 870,000 values is `$0.078077` and rounded to `$0.08`. Where `$0.089744` is the price per 50 million metrics.
 
          
          
          
 {% include [usd.md](../_pricing/monitoring/usd.md) %}
+
 
 ### Cost calculation example {#example}
 

@@ -18,6 +18,7 @@ Returns a part of the date as an integer.
 
 Depending on the argument, `unit` returns the following values:
 - `"year"` — the year number (see [YEAR](YEAR.md));
+- `"quarter"` — the number of the quarter (from `1` to `4`) of the year (see [QUARTER](QUARTER.md));
 - `"month"` — the number of the month in the year (see [MONTH](MONTH.md));
 - `"week"` — the number of the week in the year according to [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) (see [WEEK](WEEK.md));
 - `"dayofweek"`, `"dow"` — the number of the day of the week (see [DAYOFWEEK](DAYOFWEEK.md));

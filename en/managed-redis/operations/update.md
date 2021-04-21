@@ -8,7 +8,9 @@ After creating a cluster, you can:
 
 * [Increase the size of {{ RD }} host disks](#change-disk-size).
 
-* [Configure](#change-redis-config) {{ RD }} according to the [{{ RD }} documentation](https://redis.io/documentation). Supported settings are listed [in the API reference](../api-ref/Cluster/update.md).
+* [Configure](#change-redis-config) {{ RD }} servers according to the [{{ RD }} documentation](https://redis.io/documentation). Supported settings are listed [in the API reference](../api-ref/Cluster/update.md).
+
+* [Change additional cluster settings](#change-additional-settings).
 
 ## Change the cluster name and description {#change-name-and-description}
 
@@ -16,9 +18,9 @@ After creating a cluster, you can:
 
 - Management console
   1. Go to the folder page and select **{{ mrd-name }}**.
-  2. Select the cluster and click **Edit cluster** at the top of the page.
-  3. Under **Basic parameters**, enter a new name and description for the cluster.
-  4. Click **Save changes**.
+  1. Select the cluster and click **Edit cluster** at the top of the page.
+  1. Under **Basic parameters**, enter a new name and description for the cluster.
+  1. Click **Save changes**.
 
 - CLI
 
@@ -48,7 +50,7 @@ After creating a cluster, you can:
 
 {% endlist %}
 
-## Changing the host class {#change-resource-preset}
+## Change the host class {#change-resource-preset}
 
 {% list tabs %}
 
@@ -113,14 +115,14 @@ After creating a cluster, you can:
 
 {% endlist %}
 
-## Increase the size of host disks {{ RD }} {#change-disk-size}
+## Increase the size of {{ RD }} host disks {#change-disk-size}
 
 {% list tabs %}
 
 - Management console
   1. Go to the folder page and select **{{ mrd-name }}**.
-  1. Select the cluster and click **Edit cluster** at the top of the page.
-  1. Under **Host class**, set the size of the {{ RD }} host disks in the **Disk size** field. You can only increase hard disk size.
+  1. Select the cluster and click **Edit cluster** in the top panel.
+  1. Under **Storage size**, specify the required value.
   1. Click **Save changes**.
 
 - CLI
@@ -162,7 +164,7 @@ After creating a cluster, you can:
 
 {% endlist %}
 
-## Changing settings {{ RD }} {#change-redis-config}
+## Changing {{ RD }} settings {#change-redis-config}
 
 You can change the DBMS settings of the hosts in your cluster. All supported settings are described [in the API reference](../api-ref/Cluster/update.md).
 
@@ -178,6 +180,24 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 - API
 
   You can change the DBMS settings for a cluster using the API [update](../api-ref/Cluster/update.md) method: pass the appropriate values in the `configSpec.redisConfig_5_0` request parameter.
+
+{% endlist %}
+
+## Changing additional cluster settings {#change-additional-settings}
+
+{% list tabs %}
+
+- Management console
+
+  1. Go to the folder page and select **{{ mrd-name }}**.
+
+  1. Select the cluster and click **Edit cluster** in the top panel.
+
+  1. Change additional cluster settings:
+
+     {% include [mrd-extra-settings](../../_includes/mdb/mrd-extra-settings-web-console.md) %}
+
+  1. Click **Save changes**.
 
 {% endlist %}
 

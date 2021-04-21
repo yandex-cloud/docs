@@ -70,7 +70,17 @@ items:
       - name: Отправка сообщений MQTT-брокеру через gRPC
         href: concepts/mqtt-grpc.md
       - name: Топик
-        href: concepts/topic.md
+        items:
+          - name: Обзор
+            href: concepts/topic/index.md
+          - name: Топики устройства
+            href: concepts/topic/devices-topic.md
+          - name: Топики реестра
+            href: concepts/topic/registries-topic.md
+          - name: Сабтопик
+            href: concepts/topic/subtopic.md
+          - name: Использование топиков
+            href: concepts/topic/usage.md
       - name: Резервное копирование
         href: concepts/backup.md
       - name: Квоты и лимиты

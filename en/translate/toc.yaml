@@ -21,6 +21,8 @@ items:
         href: concepts/index.md
       - name: Retraining models
         href: concepts/trainings-of-models.md
+      - name: Supported languages
+        href: concepts/supported-languages.md
       - name: Glossaries
         href: concepts/glossary.md
       - name: Glossary support

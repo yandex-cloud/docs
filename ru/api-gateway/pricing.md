@@ -14,6 +14,7 @@ editable: false
 
 {% endnote %}
 
+
 ### Пример расчета стоимости API-шлюза {#price-example}
 
 
