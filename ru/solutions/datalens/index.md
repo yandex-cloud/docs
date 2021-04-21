@@ -11,7 +11,7 @@
 - [Публикация в DataLens Public диаграммы с картой на основе CSV-файла](data-from-csv-to-public-visualization.md)
 - [Визуализация данных из AppMetrica](data-from-appmetrica-visualization.md)
 - [Визуализация геоданных из CSV-файла](data-from-csv-geo-visualization.md)
-- [Визуализация данных из базы данных ClickHouse с геослоями из Marketplace](data-from-csv-geo-visualization.md)
+- [Визуализация данных из базы данных ClickHouse с геослоями из Marketplace](data-from-ch-to-geolayers-visualization.md)
 - [Визуализация данных из статистики подкастов Яндекс.Музыки](data-from-podcasts.md)
 
 {% endif %}
