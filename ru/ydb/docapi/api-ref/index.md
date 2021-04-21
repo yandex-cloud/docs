@@ -23,7 +23,3 @@
 [TransactGetItems](actions/transactGetItems) | Извлекает несколько элементов из таблиц
 [TransactWriteItems](actions/transactWriteItems) | Синхронная операция записи
 [UpdateItem](actions/updateItem) | Обновляет элементы в таблице
-
-
-## Полезные рецепты
-[Уникальность атрибута](../../uniqueConstraint) Как с помощью транзакций обеспечить уникальность атрибута таблицы.
