@@ -39,3 +39,5 @@ items:
     href: pricing.md
   - name: Вопросы и ответы
     href: qa/index.md
+  - name: Решение проблем
+    href: error/index.md
