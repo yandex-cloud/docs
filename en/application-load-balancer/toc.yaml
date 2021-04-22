@@ -1,0 +1,60 @@
+title: Yandex Application Load Balancer
+href: index.yaml
+items:
+  - name: Getting started
+    href: quickstart.md
+  - name: Step-by-step instructions
+    items:
+      - name: All instructions
+        href: operations/index.md
+      - name: Target groups
+        items:
+          - name: Create target group
+            href: operations/target-group-create.md
+          - name: Edit a target group
+            href: operations/target-group-update.md
+          - name: Delete a target group
+            href: operations/target-group-delete.md
+      - name: Backend groups
+        items:
+          - name: Create a backend group
+            href: operations/backend-group-create.md
+          - name: Edit a backend group
+            href: operations/backend-group-update.md
+          - name: Delete a backend group
+            href: operations/backend-group-delete.md
+      - name: HTTP routers
+        items:
+          - name: Create HTTP router
+            href: operations/http-router-create.md
+          - name: Edit an HTTP router
+            href: operations/http-router-update.md
+          - name: Delete an HTTP router
+            href: operations/http-router-delete.md
+      - name: L7 load balancers
+        items:
+          - name: Create an L7 load balancer
+            href: operations/application-load-balancer-create.md
+          - name: Edit an L7 load balancer
+            href: operations/application-load-balancer-update.md
+          - name: Delete an L7 load balancer
+            href: operations/application-load-balancer-delete.md
+  - name: Concepts
+    items:
+      - name: Overview
+        href: concepts/index.md
+      - name: Load balancer
+        href: concepts/application-load-balancer.md
+      - name: HTTP router
+        href: concepts/http-router.md
+      - name: Backend groups
+        href: concepts/backend-group.md
+      - name: Target groups
+        href: concepts/target-group.md
+      - name: Quotas and limits
+        href: concepts/limits.md
+  - name: Access management
+    href: security/index.md
+  - name: Pricing policy
+    href: pricing.md
+base: en/application-load-balancer

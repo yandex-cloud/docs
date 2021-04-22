@@ -9,9 +9,9 @@ You can [change the configuration](../operations/projects/control-compute-resour
 | ---- | ---- | ---- |
 | **c1.4** (default) | 4 | 0 |
 | **c1.8** | 8 | 0 |
-| **c1.80** | 80 | 0 |
+| **c1.80** (by request) | 80 | 0 |
 | **g1.1** | 8 | 1 |
-| **g1.4** | 32 | 4 |
+| **g1.4** (by request) | 32 | 4 |
 
 #### See also
 

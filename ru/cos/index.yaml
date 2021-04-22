@@ -23,3 +23,6 @@ links:
   - title: Правила тарификации
     description: Цены и правила расчета стоимости услуг
     href: pricing
+  - title: Решение проблем
+    description: Часто возникающие ошибки и способы их решения
+    href: error/
