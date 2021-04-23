@@ -32,15 +32,25 @@ items:
     - name: Удаление кластера
       href: operations/cluster-delete.md
     - name: Диагностика производительности
-      href: operations/performance-diagnostics.md      
-    - name: Миграция базы данных в Yandex.Cloud
-      href: operations/data-migration.md
+      href: operations/performance-diagnostics.md
     - name: Мониторинг состояния кластера и хостов
-      href: operations/monitoring.md  
+      href: operations/monitoring.md
   - name: Сценарии использования
     items:
-    - name: Миграция базы данных из Managed Service for PostgreSQL
-      href: solutions/outbound-replication.md
+    - name: Создание кластера PostgreSQL для 1С
+      href: solutions/1c-postgresql
+    - name: Репликация и миграция
+      items:
+      - name: Логическая репликация PostgreSQL
+        href: solutions/replication-overview.md
+      - name: Миграция базы данных в Yandex.Cloud
+        href: solutions/data-migration.md
+      - name: Миграция базы данных из Managed Service for PostgreSQL
+        href: solutions/outbound-replication.md
+      - name: >-
+          Создание логической реплики Amazon RDS для PostgreSQL в Managed
+          Service for PostgreSQL
+        href: solutions/logical-replica-from-rds.md
   - name: Концепции
     items:
     - name: Взаимосвязь ресурсов сервиса
