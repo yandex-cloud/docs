@@ -28,7 +28,9 @@ items:
   - name: Сценарии использования
     items:
       - name: Поставка данных в Managed Service for ClickHouse
-        href: tutorials/send-data-to-mch.md
+        href: tutorials/send-data-to-mch.md    
+      - name: Поставка данных в ksqlDB
+        href: tutorials/use-ksqldb-with-mkf.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса
