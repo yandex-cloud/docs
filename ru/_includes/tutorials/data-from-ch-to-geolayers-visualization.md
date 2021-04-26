@@ -99,9 +99,9 @@
 
 1. Нажмите кнопку **Создать чарт** на рабочей панели датасета **DODO**.
 
-  ![create-chart](../../_assets/datalens/solution-09/07-create-chart.png)       
+    ![create-chart](../../_assets/datalens/solution-09/07-create-chart.png)       
  
-1. В открывшемся окне выберите измерение **OpenDate** в секции **X** и измерение **Number of pizzerias** в секции **Y**.
+1. В открывшемся окне выберите измерение **OpenDate** в секции **X** и показатель **The number of pizzerias** в секции **Y**.
     
     ![add-measure-selector](../../_assets/datalens/solution-09/02-add-measure-selector.png) 
                              
@@ -121,8 +121,8 @@
    
    ![bar-chart](../../_assets/datalens/solution-09/03-bar-chart.png)   
 
-1. Добавьте изменение **Pizzerias** в секцию **Y**. Удалите из секции **Y** измерение **OpenData**.
-1. Добавьте показатель **Revenue** в секцию **X**. Удалите из секции **X** измерение **Number of pizzerias**.
+1. Добавьте измерение **Pizzerias** в секцию **Y**. Удалите из секции **Y** измерение **OpenDate**.
+1. Добавьте показатель **Revenue** в секцию **X**. Удалите из секции **X** показатель **The number of pizzerias**.
 1. Добавьте показатель **Revenue** в секцию **Сортировка**. 
     
    ![sort-rank](../../_assets/datalens/solution-09/33-sort-rank.png) 
@@ -211,7 +211,7 @@
 1. Нажмите **Сохранить**.
 1. Выберите в селекторе город Москва. Если при изменении города в фильтре фокус карты остался на прежней локации, обновите страницу веб-браузера. {{ datalens-name }} фиксирует масштаб и местоположение карты, если вы изменяли их в рамках текущей сессии.
 
-   ![dashboard-pizza](../../_assets/datalens/solution-09/09-dashboard-pizza-moscow.png) 
+    ![dashboard-pizza](../../_assets/datalens/solution-09/09-dashboard-pizza-moscow.png) 
 
 ## Шаг 9. Добавьте геослои на дашборд {#step9}
 
