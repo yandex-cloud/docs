@@ -30,28 +30,30 @@
         Скрипт установит CLI и добавит путь до исполняемого файла в переменную окружения `PATH`.
     1. Перезапустите командную оболочку, чтобы перезагрузить переменные окружения.
     
-    CLI поддерживает автодополнение команд в командной оболочке `bash`. Чтобы автодополнение заработало:
+    CLI поддерживает автодополнение команд в командных оболочках `bash` и `zsh`. Чтобы автодополнение заработало:
     
     1. Установите менеджер пакетов [Homebrew](https://brew.sh).
-    1. Установите пакет `bash-completion`:
+    1. Установите пакет `zsh-completion`:
             
         ```
-        brew install bash-completion
+        brew install zsh-completion
         ```
         
-        Скрипт установки автоматически дополнит файл ` ~/.bash_profile`:
+        Скрипт установки автоматически дополнит файл ` ~/.zshrc`:
         
         ```
         # The next line updates PATH for {{ yandex-cloud }} CLI.
         if [ -f '/Users/<username>/yandex-cloud/path.bash.inc' ]; then source '/Users/<username>/yandex-cloud/path.bash.inc'; fi
         # The next line enables shell command completion for yc.
-        if [ -f '/Users/<username>/yandex-cloud/completion.bash.inc' ]; then source '/Users/<username>/yandex-cloud/completion.bash.inc'; fi
+        if [ -f '/Users/<username>/yandex-cloud/completion.zsh.inc' ]; then source '/Users/<username>/yandex-cloud/completion.zsh.inc'; fi
         ```
-    1. После завершения установки добавьте в файл ` ~/.bash_profile` следующие строки. Расположите их выше строк, автоматически добавленных скриптом установки.
+        
+        Если вы используете macOS 10.14 Mojave либо более раннюю версию, здесь и далее вместо 'zsh-completion' используйте пакет `bash-completion` и конфигурационный файл ~/.bash_profile
+    1. После завершения установки добавьте в файл ` ~/.zsh` следующие строки. Расположите их выше строк, автоматически добавленных скриптом установки.
     
         ```
-        if [ -f $(brew --prefix)/etc/bash_completion ]; then
-        . $(brew --prefix)/etc/bash_completion
+        if [ -f $(brew --prefix)/etc/zsh_completion ]; then
+        . $(brew --prefix)/etc/zsh_completion
         fi
         ```
     1. Перезапустите командную оболочку.
