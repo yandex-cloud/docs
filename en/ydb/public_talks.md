@@ -94,4 +94,3 @@
 - Topic: Yandex Database: How we ensure fault-tolerance.
   - [Recorded broadcast](https://youtu.be/-GlRSxG4JQU?t=10779).
   - Description: How YDB enables redundant data storage and distributed consensus.
-
