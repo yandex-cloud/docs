@@ -1,15 +1,14 @@
 # Справочник событий
 
-Значение поля `event_type` (_тип события_) аудитного лога определяется сервисом-источником события.
+Значение поля `event_type` (_тип события_) аудитного лога определяется сервисом-источником события.
 
 Общий вид значения:
 
 ```text
-yandex.cloud.audit.<имя сервиса>.<имя события>
+yandex.cloud.audit.<имя сервиса>.<имя события>
 ```
 
 Ниже описаны события для сервисов:
-
 * [{{ compute-name }}](#compute)
 * [{{ iam-name }}](#iam)
 * [{{ kms-name }}](#kms)
@@ -23,7 +22,7 @@ yandex.cloud.audit.<имя сервиса>.<имя события>
 
 Имя события | Описание
 --- | ---
-`AddInstanceOneToOneNat` | Добавление публичного IP-адреса ВМ.
+`AddInstanceOneToOneNat` | Добавление публичного IP-адреса виртуальной машине.
 `AttachInstanceDisk` | Подключение диска к ВМ.
 `CreateDisk` | Создание диска.
 `CreateImage` | Создание образа диска.
@@ -45,7 +44,7 @@ yandex.cloud.audit.<имя сервиса>.<имя события>
 `UpdateInstanceNetworkInterface` | Изменение сетевых настроек ВМ.
 `UpdateSnapshot` | Изменение снимка диска.
 `instancegroup.CreateInstanceGroup` | Создание группы ВМ.
-`instancegroup.DeleteInstanceGroup` | Удаление группы ВМ
+`instancegroup.DeleteInstanceGroup` | Удаление группы ВМ.
 `instancegroup.StartInstanceGroup` | Запуск группы ВМ.
 `instancegroup.StopInstanceGroup` | Остановка группы ВМ.
 `instancegroup.UpdateInstanceGroup` | Изменение группы ВМ.
@@ -62,10 +61,7 @@ yandex.cloud.audit.<имя сервиса>.<имя события>
 `CreateApiKey` | Создание API-ключа.
 `CreateCertificate` | Добавление сертификата для федерации.
 `CreateFederation` | Создание федерации.
-`CreateIamCookieForSubject` | Создание {{ iam-short-name }}-сookie для аккаунта.
-`CreateIamCookieFromPassportCookies` | Обмен сookie аккаунта на Яндексе на {{ iam-short-name }}-сookie.
-`CreateIamTokenFromOAuth` | Обмен токена аккаунта на Яндексе на {{ iam-short-name }}-токен.
-`CreateIamTokenFromPassportCookies` | Обмен сookie аккаунта на Яндексе на {{ iam-short-name }}-токен.
+`CreateIamCookieForSubject` | Вход федеративного пользователя.
 `CreateKey` | Создание пары ключей для сервисного аккаунта.
 `CreateServiceAccount` | Создание сервисного аккаунта.
 `DeleteAccessKey` | Удаление ключа доступа.

@@ -13,6 +13,8 @@ items:
         href: concepts/format.md
       - name: Справочник событий
         href: concepts/events.md
+      - name: Поиск событий
+        href: concepts/search.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Правила тарификации

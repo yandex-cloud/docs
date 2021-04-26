@@ -18,6 +18,9 @@ links:
   - title: Справочник событий
     description: Описание событий сервисов
     href: concepts/events
+  - title: Поиск событий
+    description: Поиск событий в аудитном логе
+    href: concepts/search
   - title: Квоты и лимиты
     description: Технические и организационные ограничения сервиса
     href: concepts/limits
