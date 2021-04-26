@@ -159,12 +159,12 @@
 
 1. Выберите тип чарта **Карта**.
 
-  ![map-chart](../../_assets/datalens/solution-09/18-map-chart.png)     
+    ![map-chart](../../_assets/datalens/solution-09/18-map-chart.png)     
     
 1. Добавьте измерение **Coordinates** в секцию **Геоточки**.
 1. Добавьте показатель **Revenue** в секцию **Размер** и **Цвета**.
 
-   ![map-measure](../../_assets/datalens/solution-09/21-map-measure.png)  
+    ![map-measure](../../_assets/datalens/solution-09/21-map-measure.png)  
 
 1. Добавьте в секцию **Тултипы**:
     * Pizzerias;
@@ -179,7 +179,7 @@
     1. Нажмите кнопку **Применить**.  
 1. Сохраните чарт с названием **Пиццерии на карте**.
 
-  ![pizzerias-on-the-map](../../_assets/datalens/solution-09/25-pizzerias-on-the-map.png)
+    ![pizzerias-on-the-map](../../_assets/datalens/solution-09/25-pizzerias-on-the-map.png)
 
 ## Шаг 8. Создайте дашборд {#step8}
 
@@ -190,7 +190,7 @@
 1. Выберите чарт с названием **Количество пиццерий**.
 1. Нажмите кнопку **Добавить**.
 
-  ![chart-tab](../../_assets/datalens/solution-09/05-chart-tab.png)
+    ![chart-tab](../../_assets/datalens/solution-09/05-chart-tab.png)
     
 1. Повторите шаги 4-6 для остальных чартов.
 1. Для чартов-индикаторов (**Количество пиццерий** и **Выручка**) уберите отображение названия. Для этого отключите опцию **Показывать** в окне **Настройка таба**.

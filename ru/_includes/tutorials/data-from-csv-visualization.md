@@ -47,7 +47,7 @@
    
    Дождитесь, когда на экране появится содержимое таблицы.
 
-1. Нажмите кнопку **Сохранить**.
+1. Нажмите кнопку **Создать**.
 
     ![image](../../_assets/datalens/solution-01/04-Save-Connection.png)
 
@@ -61,13 +61,13 @@
 
     ![image](../../_assets/datalens/solution-01/06-Drag-Table.png)
 
-1. Перейдите на вкладку **Датасет**.
+1. Перейдите на вкладку **Поля**.
 
-    ![image](../../_assets/datalens/solution-01/07-Dataset-Tab.png)
+    ![image](../../_assets/datalens/solution-01/07-Fields-Tab.png)
 
 1. Создайте поле с показателем среднего веса супергероя:
     1. Нажмите значок ![image](../../_assets/datalens/horizontal-ellipsis.svg) в строке **Weight**.
-    1. Выберите **Продублировать**.
+    1. Выберите **Дублировать**.
 
          ![image](../../_assets/datalens/solution-01/08-Weight-Duplication.png)
 
