@@ -11,8 +11,10 @@ GET /v2/issues/<issue-id>?
 expand=<дополнительные поля в ответе>
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>
-X-Org-Id: <идентификатор организации>
+{{ org-id }}
 ```
+
+{% include [headings](../../../_includes/tracker/api/headings.md) %}
 
 #### Ресурс {#req-resource}
 
@@ -38,7 +40,7 @@ X-Org-Id: <идентификатор организации>
 > GET /v2/issues/JUNE-3?expand=attachments HTTP/1.1
 > Host: {{ host }}
 > Authorization: OAuth <OAuth-токен>
-> X-Org-Id: <идентификатор организации>
+> {{ org-id }}
 > ```
 
 ## Формат ответа {#section_xc3_53j_p1b}

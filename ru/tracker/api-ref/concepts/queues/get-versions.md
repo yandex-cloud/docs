@@ -10,8 +10,10 @@
 GET /v2/queues/<queue-id>/versions
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>
-X-Org-Id: <идентификатор организации>
+{{ org-id }}
 ```
+
+{% include [headings](../../../_includes/tracker/api/headings.md) %}
 
 #### Параметры запроса {#req-get-params}
 
@@ -27,7 +29,7 @@ X-Org-Id: <идентификатор организации>
 > GET /v2/queues/TEST/versions HTTP/1.1
 > Host: {{ host }}
 > Authorization: OAuth <OAuth-токен>
-> X-Org-Id: <идентификатор организации>
+> {{ org-id }}
 > Cache-Control: no-cache
 > ```
 

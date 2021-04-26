@@ -10,7 +10,7 @@
 POST /{{ ver }}/issues/<issue-id>/worklog
 Host: {{ host }}
 Authorization: OAuth <токен>
-X-Org-ID: <идентификатор организации>
+{{ org-id }}
 
 {
   "start": "2014-06-06T08:42:20.258",
@@ -19,31 +19,13 @@ X-Org-ID: <идентификатор организации>
 }
 ```
 
+{% include [headings](../../../_includes/tracker/api/headings.md) %}
+
 #### Ресурс {#req-resource}
 
 - **\<issue-id\>**
 
     Идентификатор или ключ задачи.
-
-#### Заголовки {#req-headers}
-
-- **Host**
-
-    Адрес узла, предоставляющего API:
-    ```
-    {{ host }}
-    ```
-
-- **Authorization**
-
-    OAuth-токен в формате `OAuth <значение токена>`, например:
-    ```
-    OAuth 0c4181a7c2cf4521964a72ff57a34a07
-    ```
-
-- **X-Org-ID**
-
-    Идентификатор организации.
 
 #### Тело запроса {#req-body-params}
 

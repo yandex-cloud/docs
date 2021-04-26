@@ -20,11 +20,11 @@
     POST /{{ ver }}/issues/<issue_id>/attachments/_import?filename={filename}&createdAt={createdAt}&createdBy={createdBy} 
     Host: {{ host }}
     Authorization: OAuth <токен>
-    X-Org-ID: <идентификатор организации>
+    {{ org-id }}
     Content-Type: multipart/form-data
     <file_data>
     ```
-
+    {% include [headings](../../../_includes/tracker/api/headings.md) %}
     #### Ресурс {#resource}
        
     - **<issue_id>**
@@ -48,24 +48,7 @@
 
        Логин или идентификатор автора прикрепленного файла.
 
-    #### Заголовки запроса {#request-headers}
-
-    - **Host**
-
-        Адрес узла, предоставляющего API:
-        ```
-        {{ host }}
-        ```
-
-    - **Authorization**
-
-        OAuth-токен в формате `OAuth <значение токена>`, например:
-        ```
-        OAuth 0c4181a7c2cf4521964a72ff57a34a07
-        ```
-    - **X-Org-ID**
-
-        Идентификатор организации.
+ 
 
     - **Content-Type**
 
@@ -83,7 +66,7 @@
     POST /{{ ver }}/issues/<issue_id>/comments/<comment_id>/attachments/_import?filename={filename}&createdAt={createdAt}&createdBy={createdBy} 
     Host: {{ host }}
     Authorization: OAuth <токен>
-    X-Org-ID: <идентификатор организации>
+    {{ org-id }}
     Content-Type: multipart/form-data
     <file_data>
     ```

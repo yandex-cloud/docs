@@ -10,7 +10,7 @@
 POST /{{ ver }}/boards/<board-id>/columns/
 Host: {{ host }}
 Authorization: OAuth <токен>
-X-Org-ID: <идентификатор организации>
+{{ org-id }}
 If-Match: "<номер версии>"
 
 {
@@ -22,35 +22,19 @@ If-Match: "<номер версии>"
 }
 ```
 
+{% include [headings](../_includes/tracker/api/headings.md) %}
+
+- **If-Match**
+
+    Номер текущей версии доски. При указании неактуальной версии доски в ответ на HTTP-запрос придет ответ с ошибкой `412 Precondition Failed`.
+
 #### Ресурс {#req-resource}
 
 - **\<board-id\>**
 
     Идентификатор доски.
 
-#### Заголовки {#req-headers}
 
-- **Host**
-
-    Адрес узла, предоставляющего API:
-    ```
-    {{ host }}
-    ```
-
-- **Authorization**
-
-    OAuth-токен в формате `OAuth <значение токена>`, например:
-    ```
-    OAuth 0c4181a7c2cf4521964a72ff57a34a07
-    ```
-
-- **X-Org-ID**
-
-    Идентификатор организации.
-
-- **If-Match**
-
-    Номер текущей версии доски. При указании неактуальной версии доски в ответ на HTTP-запрос придет ответ с ошибкой `412 Precondition Failed`.
 
 #### Тело запроса {#req-body-params}
 

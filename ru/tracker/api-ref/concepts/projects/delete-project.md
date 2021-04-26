@@ -12,9 +12,11 @@
 DELETE /{{ ver }}/projects/<project-id>
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>
-X-Org-Id: <идентификатор организации>
+{{ org-id }}
 
 ```
+
+{% include [headings](../../../_includes/tracker/api/headings.md) %}
 
 #### Параметры запроса
 

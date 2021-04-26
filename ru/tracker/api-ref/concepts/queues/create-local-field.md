@@ -12,7 +12,7 @@
 POST /{{ ver }}/queues/<queue-id>/localFields
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>
-X-Org-Id: <идентификатор организации>
+{{ org-id }}
 
 {
     "name":
@@ -81,7 +81,7 @@ values | Значения для выпадающего списка. | Масс
 > POST /v2/queues/QUEUE-TEST/localFields
 > Host: {{ host }}
 > Authorization: OAuth <OAuth-токен>
-> X-Org-Id: <идентификатор организации>
+> {{ org-id }}
 > 
 >{
 >    "name":

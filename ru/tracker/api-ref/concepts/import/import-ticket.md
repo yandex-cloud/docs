@@ -14,8 +14,9 @@
 
 ```json
 POST /{{ ver }}/issues/_import 
-Host: {{ host }}Authorization: OAuth <токен>
-X-Org-ID: <идентификатор организации>
+Host: {{ host }}
+Authorization: OAuth <токен>
+{{ org-id }}
 Content-Type: application/json
 
 {
@@ -60,25 +61,7 @@ Content-Type: application/json
 "field_name": "значение поля"
 ```
 
-#### Заголовки запроса {request-headers}
-
-- **Host**
-
-  Адрес узла, предоставляющего API:
-  ```
-  {{ host }}
-  ```
-
-- **Authorization**
-
-  OAuth-токен в формате `OAuth <значение токена>`, например:
-  ```
-  OAuth 0c4181a7c2cf4521964a72ff57a34a07
-  ```
-
-- **X-Org-ID**
-  
-  Идентификатор организации.
+{% include [headings](../../../_includes/tracker/api/headings.md) %}
 
 - **Content-Type**
   

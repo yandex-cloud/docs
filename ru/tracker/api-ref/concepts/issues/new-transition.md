@@ -10,7 +10,7 @@
 POST /{{ ver }}/issues/<issue-id>/transitions/<transition-id>/_execute
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>
-X-Org-Id: <идентификатор организации>
+{{ org-id }}
 
 {
 "<ключ1>":"<значение1>",
@@ -19,6 +19,8 @@ X-Org-Id: <идентификатор организации>
 "comment":"<текст комментария>"
 }
 ```
+
+{% include [headings](../../../_includes/tracker/api/headings.md) %}
 
 #### Ресурс {#req-resource}
 
@@ -30,25 +32,6 @@ X-Org-Id: <идентификатор организации>
 
     Идентификатор перехода.
 
-#### Заголовки {#req-headers}
-
-- **Host**
-
-    Адрес узла, предоставляющего API:	
-    ```
-    {{ host }}
-    ```
-
-- **Authorization**
-
-    OAuth-токен в формате `OAuth <значение токена>`, например:
-    ```
-    OAuth 0c4181a7c2cf4521964a72ff57a34a07
-    ```
-
-- **X-Org-ID**
-
-    Идентификатор организации.
 
 #### Тело запроса {#req-body-params}
 

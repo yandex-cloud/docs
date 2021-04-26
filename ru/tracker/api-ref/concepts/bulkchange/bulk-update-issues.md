@@ -12,7 +12,7 @@
 POST /{{ ver }}/bulkchange/_update
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>
-X-Org-Id: <идентификатор организации>
+{{ org-id }}
 
 {
   "issues": ["TEST-1", "TEST-2", "TEST-3"],
@@ -22,6 +22,8 @@ X-Org-Id: <идентификатор организации>
   }
 }
 ```
+
+{% include [headings](../../../_includes/tracker/api/headings.md) %}
 
 #### Параметры запроса {#req-params}
 
@@ -50,7 +52,7 @@ values | Параметры задач, которые будут изменен
 > POST /{{ ver }}/bulkchange/_update
 > Host: {{ host }}
 > Authorization: OAuth <OAuth-токен>
-> X-Org-Id: <идентификатор организации>
+> {{ org-id }}
 > {
 >   "issues": ["TEST-1","TEST-2","TEST-3"],
 >   "values": {

@@ -12,7 +12,7 @@ order=<направление сортировки>
 &expand=<дополнительные поля в ответе>
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>
-X-Org-Id: <идентификатор организации>
+{{ org-id }}
 
 {
   "filter": {
@@ -24,6 +24,8 @@ X-Org-Id: <идентификатор организации>
   "queue": "ключ очереди"
 }
 ```
+
+{% include [headings](../../../_includes/tracker/api/headings.md) %}
 
 #### Параметры запроса {#req-get-params}
 
@@ -65,7 +67,7 @@ queue | Очередь. Данный параметр не использует�
 > POST /v2/issues/_search?scrollType=sorted&amp;perScroll=2&expand=attachments HTTP/1.1
 > Host: {{ host }}
 > Authorization: OAuth <OAuth-токен>
-> X-Org-Id: <идентификатор организации>
+> {{ org-id }}
 > Cache-Control: no-cache
 > 
 > {

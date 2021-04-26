@@ -13,6 +13,7 @@ default:
   api-short-name: Tracker API
   host: https://api.tracker.yandex.net
   ver: v2
+  org-id: "X-Org-ID: <идентификатор организации>"
   
   #Ссылки на Tracker и Коннект
   link-tracker: https://tracker.yandex.ru/
@@ -94,9 +95,10 @@ default:
   #Внешние ссылки из справочника API
   link-iso-8601: http://dotat.at/tmp/ISO_8601-2004_E.pdf
   link-rfc7578: https://tools.ietf.org/html/rfc7578
+  link-get-token: https://oauth.yandex.ru/
+  link-get-token-ya: https://oauth.yandex-team.ru/authorize?response_type=token&client_id=5f671d781aca402ab7460fde4050267b
   link-OAuth-dev-guide: https://yandex.ru/dev/oauth/doc/dg/concepts/about.html
   link-register-application: https://yandex.ru/dev/oauth/doc/dg/tasks/register-client.html
-  link-get-token: https://oauth.yandex.ru/
   link-yandex_tracker_client: https://github.com/yandex/yandex_tracker_client
   link-python-official: https://www.python.org/downloads/
 
@@ -106,3 +108,13 @@ default:
   #Другое
   release-date: 1 марта
   example-account: login@yandex.ru
+
+external:
+
+  host: https://api.tracker.yandex.net
+  org-id: "X-Org-ID: <идентификатор организации>"
+
+internal:
+
+  host: https://st-api.yandex-team.ru
+  org-id: ""

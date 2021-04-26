@@ -10,7 +10,7 @@
 PATCH /{{ ver }}/queues/<queue-id>/macros/<macros-id>
 Host: {{ host }}
 Authorization: OAuth <токен>
-X-Org-ID: <идентификатор организации> 
+{{ org-id }}
 
 {
   "name": "Тестовый макрос 1",
@@ -18,6 +18,8 @@ X-Org-ID: <идентификатор организации>
   "fieldChanges": <Объект или массив>
 }
 ```
+
+{% include [headings](../_includes/tracker/api/headings.md) %}
 
 #### Ресурс
 
@@ -27,22 +29,7 @@ X-Org-ID: <идентификатор организации>
 - **\<macros-id\>**
   Идентификатор макроса.
 
-#### Заголовки
 
-- **Host**
-    Адрес узла, предоставляющего API:
-    ```
-    {{ host }}
-    ```
-
-- **Authorization**
-    OAuth-токен в формате `OAuth <значение токена>`, например:
-    ```
-    OAuth 0c4181a7c2cf4521964a72ff57a34a07
-    ```
-
-- **X-Org-ID**
-    Идентификатор организации.
 
 #### Параметры запроса {#body-req}
 

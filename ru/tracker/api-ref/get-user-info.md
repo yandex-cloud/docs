@@ -10,28 +10,10 @@
 GET /v2/myself
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>
-X-Org-ID: <индентификатор организации>
+{{ org-id }}
 ```
 
-#### Заголовки {#req-headers}
-
-- **Host**
-
-    Адрес узла, предоставляющего API:
-    ```
-    {{ host }}
-    ```
-
-- **Authorization**
-
-    OAuth-токен в формате `OAuth <значение токена>`, например:
-    ```
-    OAuth 0c4181a7c2cf4521964a72ff57a34a07
-    ```
-
-- **X-Org-ID**
-
-    Идентификатор организации.
+{% include [headings](../_includes/tracker/api/headings.md) %}
 
 ## Формат ответа {#answer}
 
