@@ -11,15 +11,15 @@
 
 Для визуализации и исследования данных [подготовьте облако к работе](#before-you-begin), затем выполните следующие шаги:
 
-1. [Импортируйте геослои из Marketplace](data-from-ch-to-geolayers-visualization.md#step1).
-1. [Создайте подключение](data-from-ch-to-geolayers-visualization.md#step2).
-1. [Настройте поля датасета](data-from-ch-to-geolayers-visualization.md#step3).
-1. [Создайте чарт — столбчатая диаграмма](data-from-ch-to-geolayers-visualization.md#step4).
-1. [Создайте чарт — линейчатая диаграмма](data-from-ch-to-geolayers-visualization.md#step5).
-1. [Создайте чарт — индикатор](data-from-ch-to-geolayers-visualization.md#step6).
-1. [Создайте чарт — карта](data-from-ch-to-geolayers-visualization.md#step7).
-1. [Создайте дашборд](data-from-ch-to-geolayers-visualization.md#step8).
-1. [Добавьте геослои на дашборд](data-from-ch-to-geolayers-visualization.md#step9).
+1. [Импортируйте геослои из Marketplace](#step1).
+1. [Создайте подключение](#step2).
+1. [Настройте поля датасета](#step3).
+1. [Создайте чарт — столбчатая диаграмма](#step4).
+1. [Создайте чарт — линейчатая диаграмма](#step5).
+1. [Создайте чарт — индикатор](#step6).
+1. [Создайте чарт — карта](#step7).
+1. [Создайте дашборд](#step8).
+1. [Добавьте геослои на дашборд](#step9).
 
 ## Подготовьте облако к работе {#before-you-begin}
 

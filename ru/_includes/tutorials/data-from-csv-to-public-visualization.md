@@ -14,10 +14,10 @@
 
 Для визуализации и исследования данных [подготовьте облако к работе](#before-you-begin), затем выполните следующие шаги:
 
-1. [Создайте подключение](data-from-csv-to-public-visualization.md#step1).
-1. [Создайте датасет](data-from-csv-to-public-visualization.md#step2).
-1. [Создайте чарт с картой районов Москвы](data-from-csv-to-public-visualization.md#step3).
-1. [Опубликуйте чарт в DataLens Public](data-from-csv-to-public-visualization.md#step4).
+1. [Создайте подключение](#step1).
+1. [Создайте датасет](#step2).
+1. [Создайте чарт с картой районов Москвы](#step3).
+1. [Опубликуйте чарт в DataLens Public](#step4).
 
 {% if audience != "internal" %} 
 

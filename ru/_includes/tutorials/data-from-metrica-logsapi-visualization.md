@@ -15,9 +15,9 @@
  
 Для визуализации и исследования данных [подготовьте облако к работе](#before-you-begin), затем выполните следующие шаги:
 
-1. [Создайте подключение и стандартный дашборд](data-from-metrica-logsapi-visualization#step1).
-1. [Измените стандартный дашборд](data-from-metrica-logsapi-visualization#step2).
-1. [Измените чарт](data-from-metrica-logsapi-visualization#step3).
+1. [Создайте подключение и стандартный дашборд](#step1).
+1. [Измените стандартный дашборд](#step2).
+1. [Измените чарт](#step3).
 
 {% if audience != "internal" %} 
 

@@ -23,19 +23,19 @@
 
 Для визуализации и исследования данных [подготовьте облако к работе](data-from-csv-geo-visualization.md#before-you-begin), затем выполните следующие шаги:
 
-1. [Создайте подключение к CSV-файлу](data-from-csv-geo-visualization.md#step1).
-1. [Создайте датасет и настройте его поля](data-from-csv-geo-visualization.md#step2).
-1. [Создайте первый чарт — Тепловую карту](data-from-csv-geo-visualization.md#step3).
-1. [Создайте второй чарт — Линейчатую диаграмму](data-from-csv-geo-visualization.md#step4).
-1. [Создайте еще чарты — Линейные диаграммы](data-from-csv-geo-visualization.md#step5).
-1. [Создайте дашборд](data-from-csv-geo-visualization.md#step6).
-1. [Добавьте чарты на дашборд](data-from-csv-geo-visualization.md#step7).
-1. [Добавьте селекторы и сформируйте дашборд](data-from-csv-geo-visualization.md#step8).
-1. [Подключите дополнительный источник с геослоями регионов](data-from-csv-geo-visualization.md#step9).
-1. [Добавьте новые поля в датасет](data-from-csv-geo-visualization.md#step10).
-1. [Создайте чарт с использованием новых полей](data-from-csv-geo-visualization.md#step11).
-1. [Добавьте новый чарт на дашборд](data-from-csv-geo-visualization.md#step12).
-1. [Опубликуйте дашборд](data-from-csv-geo-visualization.md#step13).
+1. [Создайте подключение к CSV-файлу](#step1).
+1. [Создайте датасет и настройте его поля](#step2).
+1. [Создайте первый чарт — Тепловую карту](#step3).
+1. [Создайте второй чарт — Линейчатую диаграмму](#step4).
+1. [Создайте еще чарты — Линейные диаграммы](#step5).
+1. [Создайте дашборд](#step6).
+1. [Добавьте чарты на дашборд](#step7).
+1. [Добавьте селекторы и сформируйте дашборд](#step8).
+1. [Подключите дополнительный источник с геослоями регионов](#step9).
+1. [Добавьте новые поля в датасет](#step10).
+1. [Создайте чарт с использованием новых полей](#step11).
+1. [Добавьте новый чарт на дашборд](#step12).
+1. [Опубликуйте дашборд](#step13).
 
 {% endif %}
 
