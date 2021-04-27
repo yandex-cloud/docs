@@ -10,7 +10,7 @@
 GET /{{ ver }}/boards/<board-id>
 Host: {{ host }}
 Authorization: OAuth <токен>
-X-Org-ID: <идентификатор организации>
+{{ org-id }}
 ```
 
 #### Ресурс {#req-resource}
@@ -19,25 +19,7 @@ X-Org-ID: <идентификатор организации>
 
     Идентификатор доски.
 
-#### Заголовки {#req-headers}
-
-- **Host**
-
-    Адрес узла, предоставляющего API:
-    ```
-    {{ host }}
-    ```
-
-- **Authorization**
-
-    OAuth-токен в формате `OAuth <значение токена>`, например:
-    ```
-    OAuth 0c4181a7c2cf4521964a72ff57a34a07
-    ```
-
-- **X-Org-ID**
-
-    Идентификатор организации.
+{% include [headings](../_includes/tracker/api/headings.md) %}
 
 ## Формат ответа {#section_a21_q4c_4fb}
 

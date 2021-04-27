@@ -3,21 +3,29 @@ editable: false
 ---
 # Trial period restrictions
 
-The free trial is intended for testing and exploring the features of the cloud infrastructure. During the trial period, you can use Yandex.Cloud resources with some restrictions.
+The free trial is intended for testing and exploring the features of the cloud infrastructure. During the trial period, you can use {{ yandex-cloud }} resources with some restrictions.
 
 ## Service Level Agreement (SLA) {#sla}
 
-The SLA doesn't apply to the trial period. We don't recommend running production applications in Yandex.Cloud during the trial period.
+The SLA doesn't apply to the trial period. We don't recommend running production applications in {{ yandex-cloud }} during the trial period.
 
-## Technical support {#support}
+## Support {#support}
 
 Technical support is provided in full during the trial period. For more information, see [Requesting technical support](../../support/overview.md).
+
+## Yandex Cloud Marketplace {#marketplace}
+
+The following products are not available during the trial period:
+
+* Microsoft SQL Server
+* Windows Server Standard
+* Windows RDS
 
 ## Service quotas and limits {#quotes-and-limits}
 
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
 
-Quotas and limits for Yandex.Cloud services during the trial period are listed below.
+Quotas and limits for {{ yandex-cloud }} services during the trial period are listed below.
 
 ### {{ compute-full-name }} {#compute}
 

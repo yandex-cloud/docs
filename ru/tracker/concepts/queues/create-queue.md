@@ -10,6 +10,7 @@
 POST /{{ ver }}/queues/
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>
+{{ org-id }}
 Content-Type: application/json 
 
 {
@@ -27,21 +28,7 @@ Content-Type: application/json
 }
 ```
 
-#### Заголовки запроса {#req-headers}
-
-- **Host**
-
-    Адрес узла, предоставляющего API:
-    ```
-    {{ host }}
-    ```
-   
-- **Authorization**
-
-    OAuth-токен в формате `OAuth <значение токена>`, например:
-    ```
-    OAuth 0c4181a7c2cf4521964a72ff57a34a07
-    ```
+{% include [headings](../../../_includes/tracker/api/headings.md) %}
 	
 - **Content-Type**
     

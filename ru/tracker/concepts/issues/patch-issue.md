@@ -17,11 +17,13 @@
 ```json
 PATCH /{{ ver }}/issues/<issue-id>Host: {{ host }}
 Authorization: OAuth <OAuth-токен>
-X-Org-Id: <идентификатор организации>
+{{ org-id }}
 {
    Тело запроса в формате JSON
 }
 ```
+
+{% include [headings](../../../_includes/tracker/api/headings.md) %}
 
 #### Параметры запроса {#req-get-params}
 
@@ -146,7 +148,7 @@ id | Идентификатор сотрудника. | Строка.
 > PATCH /v2/issues/TEST-1
 > Host: {{ host }}
 > Authorization: OAuth <OAuth-токен>
-> X-Org-Id: <идентификатор организации>
+> {{ org-id }}
 > 
 > {
 >     "summary": "Новое название задачи",
@@ -174,7 +176,7 @@ id | Идентификатор сотрудника. | Строка.
 > PATCH /v2/issues/TEST-1
 > Host: {{ host }}
 > Authorization: OAuth <OAuth-токен>
-> X-Org-Id: <идентификатор организации>
+> {{ org-id }}
 > 
 > {
 >     "parent": {

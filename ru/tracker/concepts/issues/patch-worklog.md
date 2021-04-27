@@ -10,13 +10,15 @@
 PATCH /{{ ver }}/issues/<issue-id>/worklog/<worklog-id>
 Host: {{ host }}
 Authorization: OAuth <токен>
-X-Org-ID: <идентификатор организации>
+{{ org-id }}
 
 {
     "duration": "P3W",
     "comment": "время изменено!"
 }
 ```
+
+{% include [headings](../../../_includes/tracker/api/headings.md) %}
 
 #### Ресурс {#req-resource}
 
@@ -28,25 +30,6 @@ X-Org-ID: <идентификатор организации>
 
     Идентификатор записи о затраченном времени.
 
-#### Заголовки {#req-headers}
-
-- **Host**
-
-    Адрес узла, предоставляющего API:
-    ```
-    {{ host }}
-    ```
-
-- **Authorization**
-
-    OAuth-токен в формате `OAuth <значение токена>`, например:
-    ```
-    OAuth 0c4181a7c2cf4521964a72ff57a34a07
-    ```
-
-- **X-Org-ID**
-
-    Идентификатор организации.
 
 #### Тело запроса {#req-body-params}
 

@@ -8,7 +8,7 @@
 PATCH /{{ ver }}/fields/<field-id>?version=<field-version>
 Host: {{ host }}
 Authorization: OAuth <токен> 
-X-Org-ID: <идентификатор организации>
+{{ org-id }}
 
 {"optionsProvider":
       {"type": "FixedListOptionsProvider",
@@ -17,6 +17,8 @@ X-Org-ID: <идентификатор организации>
       }
 }
 ```
+
+{% include [headings](../../../_includes/tracker/api/headings.md) %}
 
 #### Ресурс {#req-resource}
 
@@ -27,26 +29,6 @@ X-Org-ID: <идентификатор организации>
 - **\<field-version\>**
 
     Версия поля задачи.
-
-#### Заголовки {#req-headers}
-
-- **Host**
-
-    Адрес узла, предоставляющего API:
-    ```
-    {{ host }}
-    ```
-
-- **Authorization**
-
-    OAuth-токен в формате `OAuth <значение токена>`, например:
-    ```
-    OAuth 0c4181a7c2cf4521964a72ff57a34a07
-    ```
-
-- **X-Org-ID**
-
-    Идентификатор организации.
 
 #### Тело запроса {#req-body-params}
 

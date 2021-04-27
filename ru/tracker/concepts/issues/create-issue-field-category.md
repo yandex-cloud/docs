@@ -12,7 +12,7 @@
 POST /{{ ver }}/fields/categories
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>
-X-Org-Id: <идентификатор организации>
+{{ org-id }}
 
 {
     "name": {
@@ -23,9 +23,6 @@ X-Org-Id: <идентификатор организации>
     "order": 400
 }
 ```
-
-#### Параметры запроса {#req-params}
-
 
 {% include [headings](../../../_includes/tracker/api/headings.md) %}
 

@@ -10,8 +10,10 @@
 DELETE /{{ ver }}/issues/<issue-id>/comments/<comment-id>
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>
-X-Org-Id: <идентификатор организации>
+{{ org-id }}
 ```
+
+{% include [headings](../../../_includes/tracker/api/headings.md) %}
 
 #### Ресурс {#resource}
 
@@ -29,7 +31,7 @@ X-Org-Id: <идентификатор организации>
 > DELETE /v2/issues/JUNE-2/comments/53a170e8e4b07a4c3358d60a
 > Host: {{ host }}
 > Authorization: OAuth <OAuth-токен>
-> X-Org-Id: <идентификатор организации>
+> {{ org-id }}
 > ```
 
 ## Формат ответа {#section_xc3_53j_p1b}

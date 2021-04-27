@@ -12,7 +12,7 @@
 GET /{{ ver }}/queues/<queue-id>/localFields
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>
-X-Org-Id: <идентификатор организации>
+{{ org-id }}
 ```
 
 {% include [headings](../../../_includes/tracker/api/headings.md) %}

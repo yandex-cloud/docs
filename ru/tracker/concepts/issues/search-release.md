@@ -10,12 +10,14 @@
 POST /v2/system/search/scroll/_clear
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>
-X-Org-Id: <идентификатор организации>
+{{ org-id }}
 
 {
     "srollId": "scrollToken"
 }
 ```
+
+{% include [headings](../../../_includes/tracker/api/headings.md) %}
 
 #### Параметры, передаваемые в теле запроса {#req-body-params}
 
@@ -37,7 +39,7 @@ X-Org-Id: <идентификатор организации>
 > POST /v2/system/search/scroll/_clear HTTP/1.1
 > Host: {{ host }}
 > Authorization: OAuth <OAuth-токен>
-> X-Org-Id: <идентификатор организации>
+> {{ org-id }}
 > Cache-Control: no-cache
 > 
 > {

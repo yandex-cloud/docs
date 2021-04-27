@@ -14,5 +14,3 @@
 - [{#T}](grant.md)
 - [{#T}](cluster-backups.md)
 - [{#T}](cluster-delete.md)
-- [{#T}](data-migration.md)
-- [{#T}](logical-replica-from-rds.md)

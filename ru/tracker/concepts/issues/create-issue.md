@@ -10,7 +10,7 @@
 POST /{{ ver }}/issues/
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>
-X-Org-Id: <идентификатор организации>
+{{ org-id }}
 
 {
     "summary": "название задачи",
@@ -42,6 +42,7 @@ X-Org-Id: <идентификатор организации>
     "attachmentIds": [<идентификаторы вложений (через запятую)>] 
 }
 ```
+{% include [headings](../../../_includes/tracker/api/headings.md) %}
 
 #### Тело запроса {#req-body-params}
 
@@ -113,7 +114,7 @@ id | Идентификатор сотрудника. | Строка.
 > POST /v2/issues/ HTTP/1.1
 > Host: {{ host }}
 > Authorization: OAuth <OAuth-токен>
-> X-Org-Id: <идентификатор организации>
+> {{ org-id }}
 > Cache-Control: no-cache
 > 
 > {

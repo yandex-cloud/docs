@@ -10,8 +10,10 @@
 GET /{{ ver }}/issues/<issue-id>/comments
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>
-X-Org-Id: <идентификатор организации>
+{{ org-id }}
 ```
+
+{% include [headings](../../../_includes/tracker/api/headings.md) %}
 
 #### Ресурс {#resource}
 
@@ -26,7 +28,7 @@ X-Org-Id: <идентификатор организации>
 > GET /v2/issues/JUNE-3/comments HTTP/1.1
 > Host: {{ host }}
 > Authorization: OAuth <OAuth-токен>
-> X-Org-Id: <идентификатор организации>
+> {{ org-id }}
 > Cache-Control: no-cache
 > ```
 

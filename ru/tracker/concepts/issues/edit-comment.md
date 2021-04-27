@@ -10,13 +10,15 @@
 PATCH /{{ ver }}/issues/<issue-id>/comments/<comment-id>
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>
-X-Org-Id: <идентификатор организации>
+{{ org-id }}
 
 {
    "text": "<новый текст комментария>",
    "attachmentIds": [<идентификаторы вложений (через запятую)>]
 }
 ```
+
+{% include [headings](../../../_includes/tracker/api/headings.md) %}
 
 #### Ресурс {#resource}
 
@@ -26,20 +28,6 @@ X-Org-Id: <идентификатор организации>
 - **\<comment-id\>**
  [Уникальный идентификатор комментария](get-comments.md#section_xc3_53j_p1b) в числовом формате (id) или формате строки (longId).
 
-#### Заголовки {#titles}
-
-- **Host**
-  Адрес узла, предоставляющего API:
-     ```
-    {{ host }}
-     ```
-- **Authorization**
-  OAuth-токен в формате `OAuth <значение токена>`, например:
-     ```
-    OAuth 0c4181a7c2cf4521964a72ff57a34a07
-     ```
-- **X-Org-ID**
-  Идентификатор организации.
 
 #### Тело запроса {#req-body-params}
 

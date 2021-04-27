@@ -10,28 +10,10 @@
 GET /{{ ver }}/worklog?createdBy=<идентификатор или имя пользователя>&createdAt=from:<начало временного диапазона>&createdAt=to:<окончание временного диапазона>
 Host: {{ host }}
 Authorization: OAuth <токен>
-X-Org-ID: <идентификатор организации>
+{{ org-id }}
 ```
 
-#### Заголовки {#req-get-headers}
-
-- **Host**
-
-    Адрес узла, предоставляющего API:
-    ```
-    {{ host }}
-    ```
-
-- **Authorization**
-
-    OAuth-токен в формате `OAuth <значение токена>`, например:
-    ```
-    OAuth 0c4181a7c2cf4521964a72ff57a34a07
-    ```
-
-- **X-Org-ID**
-
-    Идентификатор организации.
+{% include [headings](../../../_includes/tracker/api/headings.md) %}
 
 #### Параметры запроса {#req-get-params}
 
@@ -49,7 +31,7 @@ createdAt=to | Окончание временного диапазона, в к
 POST /{{ ver }}/worklog/_search
 Host: {{ host }}
 Authorization: OAuth <токен>
-X-Org-ID: <идентификатор организации>
+{{ org-id }}
 
 {
   "createdBy": "veikus",

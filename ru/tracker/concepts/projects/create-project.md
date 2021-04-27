@@ -12,13 +12,15 @@
 POST /{{ ver }}/projects/
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>
-X-Org-Id: <идентификатор организации>
+{{ org-id }}
 
 {
     "name: "Название проекта",
     "queues": "<ключ очереди>"
 }
 ```
+
+{% include [headings](../../../_includes/tracker/api/headings.md) %}
 
 ### Параметры тела запроса
 

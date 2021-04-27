@@ -13,7 +13,7 @@
 PATCH /{{ ver }}/queues/<queue-id>/localFields/<field-key>
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>
-X-Org-Id: <идентификатор организации>
+{{ org-id }}
 
 {
     "name":

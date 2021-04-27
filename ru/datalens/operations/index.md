@@ -4,6 +4,7 @@
 
 - [{#T}](connection/create-clickhouse.md)
 - [{#T}](connection/create-csv.md)
+- [{#T}](connection/create-google-sheets.md)
 - [{#T}](connection/create-mysql.md)
 - [{#T}](connection/create-postgresql.md)
 - [{#T}](connection/create-mssql-server.md)

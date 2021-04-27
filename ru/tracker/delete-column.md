@@ -10,9 +10,15 @@
 DELETE /{{ ver }}/boards/<board-id>/columns/<column-id>
 Host: {{ host }}
 Authorization: OAuth <токен>
-X-Org-ID: <идентификатор организации>
+{{ org-id }}
 If-Match: "<номер версии>"
 ```
+
+{% include [headings](../_includes/tracker/api/headings.md) %}
+
+- **If-Match**
+
+    Номер текущей версии доски.
 
 #### Ресурс {#req-resource}
 
@@ -24,29 +30,7 @@ If-Match: "<номер версии>"
 
     Идентификатор колонки.
 
-#### Заголовки {#req-headers}
 
-- **Host**
-
-    Адрес узла, предоставляющего API:
-    ```
-    {{ host }}
-    ```
-
-- **Authorization**
-
-    OAuth-токен в формате `OAuth <значение токена>`, например:
-    ```
-    OAuth 0c4181a7c2cf4521964a72ff57a34a07
-    ```
-
-- **X-Org-ID**
-
-    Идентификатор организации.
-
-- **If-Match**
-
-    Номер текущей версии доски.
 
 ## Формат ответа {#section_tbv_lly_pfb}
 

@@ -10,8 +10,9 @@
 GET /{{ ver }}/issues/<issue-id>/thumbnails/<attachment-id>
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>
-X-Org-Id: <идентификатор организации>
+{{ org-id }}
 ```
+{% include [headings](../../../_includes/tracker/api/headings.md) %}
 
 #### Ресурс {#resource}
 

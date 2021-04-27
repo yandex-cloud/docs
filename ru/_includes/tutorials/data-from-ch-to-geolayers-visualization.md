@@ -11,15 +11,15 @@
 
 Для визуализации и исследования данных [подготовьте облако к работе](#before-you-begin), затем выполните следующие шаги:
 
-1. [Импортируйте геослои из Marketplace](data-from-ch-to-geolayers-visualization.md#step1).
-1. [Создайте подключение](data-from-ch-to-geolayers-visualization.md#step2).
-1. [Настройте поля датасета](data-from-ch-to-geolayers-visualization.md#step3).
-1. [Создайте чарт — столбчатая диаграмма](data-from-ch-to-geolayers-visualization.md#step4).
-1. [Создайте чарт — линейчатая диаграмма](data-from-ch-to-geolayers-visualization.md#step5).
-1. [Создайте чарт — индикатор](data-from-ch-to-geolayers-visualization.md#step6).
-1. [Создайте чарт — карта](data-from-ch-to-geolayers-visualization.md#step7).
-1. [Создайте дашборд](data-from-ch-to-geolayers-visualization.md#step8).
-1. [Добавьте геослои на дашборд](data-from-ch-to-geolayers-visualization.md#step9).
+1. [Импортируйте геослои из Marketplace](#step1).
+1. [Создайте подключение](#step2).
+1. [Настройте поля датасета](#step3).
+1. [Создайте чарт — столбчатая диаграмма](#step4).
+1. [Создайте чарт — линейчатая диаграмма](#step5).
+1. [Создайте чарт — индикатор](#step6).
+1. [Создайте чарт — карта](#step7).
+1. [Создайте дашборд](#step8).
+1. [Добавьте геослои на дашборд](#step9).
 
 ## Подготовьте облако к работе {#before-you-begin}
 
@@ -99,9 +99,9 @@
 
 1. Нажмите кнопку **Создать чарт** на рабочей панели датасета **DODO**.
 
-  ![create-chart](../../_assets/datalens/solution-09/07-create-chart.png)       
+    ![create-chart](../../_assets/datalens/solution-09/07-create-chart.png)       
  
-1. В открывшемся окне выберите измерение **OpenDate** в секции **X** и измерение **Number of pizzerias** в секции **Y**.
+1. В открывшемся окне выберите измерение **OpenDate** в секции **X** и показатель **The number of pizzerias** в секции **Y**.
     
     ![add-measure-selector](../../_assets/datalens/solution-09/02-add-measure-selector.png) 
                              
@@ -121,8 +121,8 @@
    
    ![bar-chart](../../_assets/datalens/solution-09/03-bar-chart.png)   
 
-1. Добавьте изменение **Pizzerias** в секцию **Y**. Удалите из секции **Y** измерение **OpenData**.
-1. Добавьте показатель **Revenue** в секцию **X**. Удалите из секции **X** измерение **Number of pizzerias**.
+1. Добавьте измерение **Pizzerias** в секцию **Y**. Удалите из секции **Y** измерение **OpenDate**.
+1. Добавьте показатель **Revenue** в секцию **X**. Удалите из секции **X** показатель **The number of pizzerias**.
 1. Добавьте показатель **Revenue** в секцию **Сортировка**. 
     
    ![sort-rank](../../_assets/datalens/solution-09/33-sort-rank.png) 
@@ -159,12 +159,12 @@
 
 1. Выберите тип чарта **Карта**.
 
-  ![map-chart](../../_assets/datalens/solution-09/18-map-chart.png)     
+    ![map-chart](../../_assets/datalens/solution-09/18-map-chart.png)     
     
 1. Добавьте измерение **Coordinates** в секцию **Геоточки**.
 1. Добавьте показатель **Revenue** в секцию **Размер** и **Цвета**.
 
-   ![map-measure](../../_assets/datalens/solution-09/21-map-measure.png)  
+    ![map-measure](../../_assets/datalens/solution-09/21-map-measure.png)  
 
 1. Добавьте в секцию **Тултипы**:
     * Pizzerias;
@@ -179,7 +179,7 @@
     1. Нажмите кнопку **Применить**.  
 1. Сохраните чарт с названием **Пиццерии на карте**.
 
-  ![pizzerias-on-the-map](../../_assets/datalens/solution-09/25-pizzerias-on-the-map.png)
+    ![pizzerias-on-the-map](../../_assets/datalens/solution-09/25-pizzerias-on-the-map.png)
 
 ## Шаг 8. Создайте дашборд {#step8}
 
@@ -190,7 +190,7 @@
 1. Выберите чарт с названием **Количество пиццерий**.
 1. Нажмите кнопку **Добавить**.
 
-  ![chart-tab](../../_assets/datalens/solution-09/05-chart-tab.png)
+    ![chart-tab](../../_assets/datalens/solution-09/05-chart-tab.png)
     
 1. Повторите шаги 4-6 для остальных чартов.
 1. Для чартов-индикаторов (**Количество пиццерий** и **Выручка**) уберите отображение названия. Для этого отключите опцию **Показывать** в окне **Настройка таба**.
@@ -211,7 +211,7 @@
 1. Нажмите **Сохранить**.
 1. Выберите в селекторе город Москва. Если при изменении города в фильтре фокус карты остался на прежней локации, обновите страницу веб-браузера. {{ datalens-name }} фиксирует масштаб и местоположение карты, если вы изменяли их в рамках текущей сессии.
 
-   ![dashboard-pizza](../../_assets/datalens/solution-09/09-dashboard-pizza-moscow.png) 
+    ![dashboard-pizza](../../_assets/datalens/solution-09/09-dashboard-pizza-moscow.png) 
 
 ## Шаг 9. Добавьте геослои на дашборд {#step9}
 

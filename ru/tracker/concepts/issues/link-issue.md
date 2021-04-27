@@ -10,13 +10,14 @@
 POST /{{ ver }}/issues/<issue-id>/links
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>
-X-Org-Id: <идентификатор организации>
+{{ org-id }}
 
 {
     "relationship": "<тип связи>",
     "issue": "<задача>"
 }
 ```
+{% include [headings](../../../_includes/tracker/api/headings.md) %} 
 
 #### Параметры запроса {#req-get-params}
 
@@ -39,7 +40,7 @@ issue {#issue} | Идентификатор или ключ связываемо
 > POST /v2/issues/TEST-1/?links HTTP/1.1
 > Host: {{ host }}
 > Authorization: OAuth <OAuth-токен>
-> X-Org-Id: <идентификатор организации>
+> {{ org-id }}
 > Cache-Control: no-cache
 > 
 > {

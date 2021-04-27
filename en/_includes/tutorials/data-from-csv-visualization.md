@@ -46,7 +46,7 @@ Create a dataset based on the [connection](../../datalens/concepts/connection.md
 
    Wait until the table content appears on the screen.
 
-1. Click **Save**.
+1. Click **Create**.
 
     ![image](../../_assets/datalens/solution-01/04-Save-Connection.png)
 
@@ -60,7 +60,7 @@ Create a dataset based on the [connection](../../datalens/concepts/connection.md
 
     ![image](../../_assets/datalens/solution-01/06-Drag-Table.png)
 
-1. Go to the **Dataset** tab.
+1. Go to the **Fields** tab.
 
     ![image](../../_assets/datalens/solution-01/07-Dataset-Tab.png)
 

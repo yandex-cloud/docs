@@ -10,7 +10,7 @@
 POST /{{ ver }}/issues/<issue-id>/comments?isAddToFollowers=<true|false>
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>
-X-Org-Id: <идентификатор организации>
+{{ org-id }}
 
 {
    "text": "<текст комментария>",
@@ -25,20 +25,7 @@ X-Org-Id: <идентификатор организации>
 - **\<issue-id\>**
  Идентификатор или ключ задачи.
 
-#### Заголовки {#titles}
-
-- **Host**
-  Адрес узла, предоставляющего API:
-     ```
-    {{ host }}
-     ```
-- **Authorization**
-  OAuth-токен в формате `OAuth <значение токена>`, например:
-     ```
-    OAuth 0c4181a7c2cf4521964a72ff57a34a07
-     ```
-- **X-Org-ID**
-  Идентификатор организации.
+{% include [headings](../../../_includes/tracker/api/headings.md) %}
 
 #### Параметры запроса {#req-params}
 

@@ -10,12 +10,18 @@
 POST /{{ ver }}/issues/<issue-id>/attachments/?filename=<новое имя файла>
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>
-X-Org-Id: <идентификатор организации>
+{{ org-id }}
 Content-Type: multipart/form-data
 
 <file_data>
 
 ```
+
+{% include [headings](../../../_includes/tracker/api/headings.md) %}
+
+- **Content-Type**
+
+    Формат тела запроса. Должен иметь значение `multipart/form-data`.
 
 #### Ресурс {#resource}
 
@@ -28,32 +34,6 @@ Content-Type: multipart/form-data
 - **filename (необязательный)**
 
     Новое имя файла, с которым он будет храниться на сервере. Необязательный параметр.
-
-#### Заголовки запроса {#req-headers}
-
-- **Host**
-
-    Адрес узла, предоставляющего API:
-
-    ```
-    {{ host }}
-    ```
-
-- **Authorization**
-
-    OAuth-токен в формате `OAuth <значение токена>`, например:
-
-    ```
-    OAuth 0c4181a7c2cf4521964a72ff57a34a07
-    ```
-
-- **X-Org-ID**
-
-    Идентификатор организации.
-
-- **Content-Type**
-
-    Формат тела запроса. Должен иметь значение `multipart/form-data`.
 
 #### Тело запроса {#req-body}
 

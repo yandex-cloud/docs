@@ -8,15 +8,15 @@
 
 Для визуализации и исследования данных [подготовьте облако к работе](#before-you-begin), затем выполните следующие шаги:
 
-1. [Создайте подключение](data-from-csv-visualization.md#step1).
-1. [Создайте датасет](data-from-csv-visualization.md#step2).
-1. [Создайте первый чарт](data-from-csv-visualization.md#step3).
-1. [Создайте второй чарт](data-from-csv-visualization.md#step4).
-1. [Создайте дашборд](data-from-csv-visualization.md#step5).
-1. [Добавьте чарты на дашборд](data-from-csv-visualization.md#step6).
-1. [Добавьте селекторы на дашборд](data-from-csv-visualization.md#step7).
-1. [Настройте отображение виджетов и приступите к исследованию зависимостей](data-from-csv-visualization.md#step8).
-1. [Продолжите исследования данных о супергероях](data-from-csv-visualization.md#step9).
+1. [Создайте подключение](#step1).
+1. [Создайте датасет](#step2).
+1. [Создайте первый чарт](#step3).
+1. [Создайте второй чарт](#step4).
+1. [Создайте дашборд](#step5).
+1. [Добавьте чарты на дашборд](#step6).
+1. [Добавьте селекторы на дашборд](#step7).
+1. [Настройте отображение виджетов и приступите к исследованию зависимостей](#step8).
+1. [Продолжите исследования данных о супергероях](#step9).
 
 
 
@@ -45,7 +45,7 @@
    
    Дождитесь, когда на экране появится содержимое таблицы.
 
-1. Нажмите кнопку **Сохранить**.
+1. Нажмите кнопку **Создать**.
 
     ![image](../../_assets/datalens/solution-01/04-Save-Connection.png)
 
@@ -59,13 +59,13 @@
 
     ![image](../../_assets/datalens/solution-01/06-Drag-Table.png)
 
-1. Перейдите на вкладку **Датасет**.
+1. Перейдите на вкладку **Поля**.
 
-    ![image](../../_assets/datalens/solution-01/07-Dataset-Tab.png)
+    ![image](../../_assets/datalens/solution-01/07-Fields-Tab.png)
 
 1. Создайте поле с показателем среднего веса супергероя:
     1. Нажмите значок ![image](../../_assets/datalens/horizontal-ellipsis.svg) в строке **Weight**.
-    1. Выберите **Продублировать**.
+    1. Выберите **Дублировать**.
 
          ![image](../../_assets/datalens/solution-01/08-Weight-Duplication.png)
 

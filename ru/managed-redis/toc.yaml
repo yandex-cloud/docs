@@ -51,6 +51,8 @@ items:
         href: concepts/supported-features.md
       - name: Квоты и лимиты
         href: concepts/limits.md
+      - name: Настройки Redis
+        href: concepts/settings-list.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

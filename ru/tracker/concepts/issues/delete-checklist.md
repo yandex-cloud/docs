@@ -10,31 +10,16 @@
 DELETE /{{ ver }}/issues/<issue-id>/checklistItems
 Host: {{ host }}
 Authorization: OAuth <токен>
-X-Org-ID: <идентификатор организации> 
+{{ org-id }}
 ```
+
+{% include [headings](../../../_includes/tracker/api/headings.md) %}
 
 #### Ресурс
 
 - **\<issue-id\>**
   Идентификатор или ключ задачи.
 
-
-#### Заголовки
-
-- **Host**
-    Адрес узла, предоставляющего API:
-    ```
-    {{ host }}
-    ```
-
-- **Authorization**
-    OAuth-токен в формате `OAuth <значение токена>`, например:
-    ```
-    OAuth 0c4181a7c2cf4521964a72ff57a34a07
-    ```
-
-- **X-Org-ID**
-  Идентификатор организации.
 
 ## Формат ответа {#answer}
 

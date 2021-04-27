@@ -22,8 +22,9 @@
 POST /{{ ver }}/issues/<issue-id>/_move?queue=<queue-id>
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>
-X-Org-Id: <идентификатор организации>
+{{ org-id }}
 ```
+{% include [headings](../../../_includes/tracker/api/headings.md) %}
 
 #### Параметры запроса {#req-get-params}
 
@@ -62,7 +63,7 @@ expand | Дополнительные поля, которые будут вкл
 > POST /v2/issues/TEST-1/_move?queue=NEW
 > Host: {{ host }}
 > Authorization: OAuth <OAuth-токен>
-> X-Org-Id: <идентификатор организации>
+> {{ org-id }}
 > ```
 
 ## Формат ответа {#section_xpm_q1y_51b}

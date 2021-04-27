@@ -10,7 +10,7 @@
 POST /v2/issues/_count
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>
-X-Org-Id: <идентификатор организации>
+{{ org-id }}
 
 {
 "filter": {
@@ -19,6 +19,8 @@ X-Org-Id: <идентификатор организации>
   "query": "фильтр на языке запросов"
 }
 ```
+
+{% include [headings](../../../_includes/tracker/api/headings.md) %}
 
 #### Параметры, передаваемые в теле запроса {#req-body-params}
 
@@ -36,7 +38,7 @@ query | Фильтр на [языке запросов](../../user/query-filter.
 > POST /v2/issues/_count HTTP/1.1
 > Host: {{ host }}
 > Authorization: OAuth <OAuth-токен>
-> X-Org-Id: <идентификатор организации>
+> {{ org-id }}
 > Cache-Control: no-cache
 > 
 > {

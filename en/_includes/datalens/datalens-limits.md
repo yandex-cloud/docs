@@ -37,7 +37,7 @@ You can change the number of data rows per response in request parameters, for e
 | Tree chart | 1000 |
 | **Tables** |
 | Table | 100,000 |
-| Pivot table | 50,000 |
+| Pivot table | 40,000 |
 | **Geomaps** |
 | Point map | 40,000 |
 | Choropleth map | 40,000 |
