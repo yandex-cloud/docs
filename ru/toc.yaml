@@ -1,18 +1,74 @@
 title: Документация Yandex.Cloud
 href: index.yaml
 items:
+  - name: api-design-guide
+    href: api-design-guide/
+    when: audience == "external"
+  - name: api-gateway
+    href: api-gateway/
+    when: audience == "external"
+  - name: application-load-balancer
+    href: application-load-balancer/
+    when: audience == "external"
+  - name: billing
+    href: billing/
+  - name: certificate-manager
+    href: certificate-manager/
+    when: audience == "external"
   - name: CLI
     href: cli/
+  - name: compute
+    href: compute/
+    when: audience == "external"
+  - name: container-registry
+    href: container-registry/
+    when: audience == "external"
+  - name: cos
+    href: cos/
+    when: audience == "external"
+  - name: data-proc
+    href: data-proc/
+    when: audience == "external"
+  - name: data-transfer
+    href: data-transfer/
   - name: DataLens
     href: datalens/
-  - name: MDB
-    href: mdb/
+  - name: datalens-api
+    href: datalens-api/
+    when: audience == "external"
+  - name: datasphere
+    href: datasphere/
+    when: audience == "external"
+  - name: dns
+    href: dns/
+    when: audience == "external"
+  - name: free-trial
+    href: free-trial/
+    when: audience == "external"
+  - name: functions
+    href: functions/
+    when: audience == "external"
+  - name: iam
+    href: iam/
+    when: audience == "external"
+  - name: iot-core
+    href: iot-core/
+    when: audience == "external"
+  - name: kms
+    href: kms/
+    when: audience == "external"
+  - name: lockbox
+    href: lockbox/
+    when: audience == "external"
   - name: Managed ClickHouse
     href: managed-clickhouse/
   - name: Managed Elasticsearch
     href: managed-elasticsearch/
   - name: Managed Kafka
     href: managed-kafka/
+  - name: managed-kubernetes
+    href: managed-kubernetes/
+    when: audience == "external"
   - name: Managed MongoDB
     href: managed-mongodb/
   - name: Managed MySQL
@@ -21,3 +77,61 @@ items:
     href: managed-postgresql/
   - name: Managed Redis
     href: managed-redis/
+  - name: managed-sqlserver
+    href: managed-sqlserver/
+    when: audience == "external"
+  - name: marketplace
+    href: marketplace/
+    when: audience == "external"
+  - name: MDB
+    href: mdb/
+  - name: message-queue
+    href: message-queue/
+    when: audience == "external"
+  - name: microsoft
+    href: microsoft/
+    when: audience == "external"
+  - name: monitoring
+    href: monitoring/
+    when: audience == "external"
+  - name: network-load-balancer
+    href: network-load-balancer/
+    when: audience == "external"
+  - name: organization
+    href: organization/
+    when: audience == "external"
+  - name: overview
+    href: overview/
+    when: audience == "external"
+  - name: partner
+    href: partner/
+    when: audience == "external"
+  - name: resource-manager
+    href: resource-manager/
+    when: audience == "external"
+  - name: solutions
+    href: solutions/
+    when: audience == "external"
+  - name: speechkit
+    href: speechkit/
+    when: audience == "external"
+  - name: storage
+    href: storage/
+    when: audience == "external"
+  - name: support
+    href: support/
+    when: audience == "external"
+  - name: tracker
+    href: tracker/
+  - name: translate
+    href: translate/
+    when: audience == "external"
+  - name: vision
+    href: vision/
+    when: audience == "external"
+  - name: vpc
+    href: vpc/
+    when: audience == "external"
+  - name: ydb
+    href: ydb/
+    when: audience == "external"

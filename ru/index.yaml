@@ -3,15 +3,67 @@ meta:
   title: Yandex.Cloud
   noIndex: true
 links:
+  - title: api-design-guide
+    href: api-design-guide/
+    when: audience == "external"
+  - title: api-gateway
+    href: api-gateway/
+    when: audience == "external"
+  - title: application-load-balancer
+    href: application-load-balancer/
+    when: audience == "external"
+  - title: billing
+    href: billing/
+  - title: certificate-manager
+    href: certificate-manager/
+    when: audience == "external"
   - title: CLI
     description: Интерфейс командной строки
     href: cli/
+  - title: compute
+    href: compute/
+    when: audience == "external"
+  - title: container-registry
+    href: container-registry/
+    when: audience == "external"
+  - title: cos
+    href: cos/
+    when: audience == "external"
+  - title: data-proc
+    href: data-proc/
+    when: audience == "external"
+  - title: data-transfer
+    href: data-transfer/
   - title: DataLens
     description: Визуализация и анализ данных
     href: datalens/
-  - title: Yandex MDB
-    description: Управляемые базы данных в целом
-    href: mdb/
+  - title: datalens-api
+    href: datalens-api/
+    when: audience == "external"
+  - title: datasphere
+    href: datasphere/
+    when: audience == "external"
+  - title: dns
+    href: dns/
+    when: audience == "external"
+  - title: free-trial
+    href: free-trial/
+    when: audience == "external"
+  - title: functions
+    href: functions/
+    when: audience == "external"
+  - title: iam
+    href: iam/
+    when: audience == "external"
+  - title: iot-core
+    href: iot-core/
+    when: audience == "external"
+  - title: kms
+    href: kms/
+    when: audience == "external"
+  - title: lockbox
+    href: lockbox/
+    when: audience == "external"
   - title: Managed ClickHouse
     description: Управление кластерами ClickHouse
     href: managed-clickhouse/
@@ -21,6 +73,9 @@ links:
   - title: Managed Kafka
     description: Управление кластерами Apache Kafka®
     href: managed-kafka/
+  - title: managed-kubernetes
+    href: managed-kubernetes/
+    when: audience == "external"
   - title: Managed MongoDB
     description: Управление кластерами MongoDB
     href: managed-mongodb/
@@ -33,3 +88,62 @@ links:
   - title: Managed Redis
     description: Управление кластерами Redis
     href: managed-redis/
+  - title: managed-sqlserver
+    href: managed-sqlserver/
+    when: audience == "external"
+  - title: marketplace
+    href: marketplace/
+    when: audience == "external"
+  - title: Yandex MDB
+    description: Управляемые базы данных в целом
+    href: mdb/
+  - title: message-queue
+    href: message-queue/
+    when: audience == "external"
+  - title: microsoft
+    href: microsoft/
+    when: audience == "external"
+  - title: monitoring
+    href: monitoring/
+    when: audience == "external"
+  - title: network-load-balancer
+    href: network-load-balancer/
+    when: audience == "external"
+  - title: organization
+    href: organization/
+    when: audience == "external"
+  - title: overview
+    href: overview/
+    when: audience == "external"
+  - title: partner
+    href: partner/
+    when: audience == "external"
+  - title: resource-manager
+    href: resource-manager/
+    when: audience == "external"
+  - title: solutions
+    href: solutions/
+    when: audience == "external"
+  - title: speechkit
+    href: speechkit/
+    when: audience == "external"
+  - title: storage
+    href: storage/
+    when: audience == "external"
+  - title: support
+    href: support/
+    when: audience == "external"
+  - title: tracker
+    href: tracker/
+  - title: translate
+    href: translate/
+    when: audience == "external"
+  - title: vision
+    href: vision/
+    when: audience == "external"
+  - title: vpc
+    href: vpc/
+    when: audience == "external"
+  - title: ydb
+    href: ydb/
+    when: audience == "external"
