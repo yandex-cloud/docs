@@ -8,7 +8,7 @@
 
 - [{#T}](#change-disk-size).
 
-- [Настроить серверы](#change-redis-config) {{ RD }} согласно [документации {{ RD }}](https://redis.io/documentation). Список поддерживаемых настроек приведен [в справочнике API](../api-ref/Cluster/update.md).
+- [Настроить серверы](#change-redis-config) {{ RD }} согласно [документации {{ RD }}](https://redis.io/documentation). Список поддерживаемых настроек приведен в разделе [{#T}](../concepts/settings-list.md) и [в справочнике API](../api-ref/Cluster/update.md).
 
 - [{#T}](#change-additional-settings).
 
@@ -170,7 +170,7 @@
 
 ## Изменить настройки {{ RD }} {#change-redis-config}
 
-Вы можете изменить настройки СУБД для хостов вашего кластера. Все поддерживаемые настройки описаны [в справочнике API](../api-ref/Cluster/update.md).
+Вы можете изменить настройки СУБД для хостов вашего кластера. Все поддерживаемые настройки описаны в разделе [{#T}](../concepts/settings-list.md) и в [справочнике API](../api-ref/Cluster/update.md).
 
 {% list tabs %}
 

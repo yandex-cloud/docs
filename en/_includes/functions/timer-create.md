@@ -7,8 +7,8 @@ To create a trigger, you need:
 1. [Functions](../../functions/concepts/function.md) that the trigger will call. If you don't have a function:
     * [Create a function](../../functions/operations/function/function-create.md).
     * [Create a function version](../../functions/operations/function/version-manage.md#func-version-create).
-1. The [Dead Letter Queue](../../functions/concepts/dlq.md) where messages that the function couldn't process are moved. If you don't have a queue, [create one](../../message-queue/operations/message-queue-new-queue.md).
-1. Service accounts with rights to invoke the function and write messages to the [Dead Letter Queue](../../functions/concepts/dlq.md). You can use the same service account or different ones. If you don't have a service account, [create one](../../iam/operations/sa/create.md).
+1. (optional) The [Dead Letter Queue](../../functions/concepts/dlq.md) where messages that the function couldn't process are moved. If you don't have a queue, [create one](../../message-queue/operations/message-queue-new-queue.md).
+1. Service accounts with rights to invoke the function and (optionally) write messages to the [Dead Letter Queue](../../functions/concepts/dlq.md). You can use the same service account or different ones. If you don't have a service account, [create one](../../iam/operations/sa/create.md).
 
 ## Creating a trigger {#trigger-create}
 
@@ -26,13 +26,13 @@ To create a trigger, you need:
         * In the **Type** field, select **Timer**.
     1. Under **Timer settings**, specify the function invocation schedule in a [cron expression](../../functions/concepts/trigger/timer.md#cron-expression).
     1. Under **Function settings**:
-        * Select the function for the trigger to call.
+        * Select the function for the trigger to invoke.
         * Specify the [function version tag](../../functions/concepts/function.md#tag).
-        * Specify the service account to be used to call the function.
-    1. Under **Repeat request settings**:
-        * In the **Interval** field, specify the time after which the function will be invoked again if the current attempt fails. Acceptable values are from 10 to 60 seconds.
-        * In the **Number of attempts** field, specify the number of invocation retries before the trigger moves a message to the [Dead Letter Queue](../../functions/concepts/dlq.md). Acceptable values are from 1 to 5.
-    1. Under **Dead Letter Queue settings**, select the [Dead Letter Queue](../../functions/concepts/dlq.md) and service account with rights to write messages to it.
+        * Specify the service account to be used to invoke the function.
+    1. (optional) Under **Repeat request settings**:
+        * In the **Interval** field, specify the time after which the function will be invoked again if the current attempt fails. Values can be from 10 to 60 seconds. The default is 10 seconds.
+        * In the **Number of attempts** field, specify the number of invocation retries before the trigger moves a message to the [Dead Letter Queue](../../functions/concepts/dlq.md). Values can be from 1 to 5. The default is 1.
+    1. (optional) Under **Dead Letter Queue settings**, select the [Dead Letter Queue](../../functions/concepts/dlq.md) and service account with rights to write messages to it.
     1. Click **Create trigger**.
 
 - CLI
@@ -57,13 +57,13 @@ To create a trigger, you need:
 
     where:
     * `--name`: Timer name.
-    * `--cron-expression`: Function invocation schedule in [cron expression](../../functions/concepts/trigger/timer.md#cron-expression) format.
+    * `--cron-expression`: Function call schedule in [cron expression](../../functions/concepts/trigger/timer.md#cron-expression) format.
     * `--invoke-function-id`: Function ID.
     * `--invoke-function-service-account-id`: Service account with rights to call the function.
-    * `--retry-attempts`: The time after which the function will be invoked again if the current attempt fails. Values can be from 10 to 60 seconds. The default is 10 seconds.
-    * `--retry-interval`: The number of invocation retries before the trigger moves a message to the [Dead Letter Queue](../../message-queue/concepts/dlq.md). Values can be from 1 to 5. The default is 1.
-    * `--dlq-queue-id`: ID of the [Dead Letter Queue](../../functions/concepts/dlq.md).
-    * `--dlq-service-account-id`: Service account with rights to write messages to the [Dead Letter Queue](../../functions/concepts/dlq.md).
+    * `--retry-attempts`: The time after which the function will be invoked again if the current attempt fails. Optional parameter. Values can be from 10 to 60 seconds. The default is 10 seconds.
+    * `--retry-interval`: The number of invocation retries before the trigger moves a message to the [Dead Letter Queue](../../message-queue/concepts/dlq.md). Optional parameter. Values can be from 1 to 5. The default is 1.
+    * `--dlq-queue-id`: ID of the [Dead Letter Queue](../../functions/concepts/dlq.md). Optional parameter.
+    * `--dlq-service-account-id`: Service account with rights to write messages to the [Dead Letter Queue](../../functions/concepts/dlq.md). Optional parameter.
 
     Result:
 

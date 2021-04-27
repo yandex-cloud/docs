@@ -17,7 +17,7 @@ To create a trigger, you need:
 1. [A message queue](../../message-queue/concepts/queue.md) that the trigger will pick up messages from. If you don't have a queue, [create one](../../message-queue/operations/message-queue-new-queue.md).
 1. Service accounts with rights to read messages from a message queue and to call a function. You can use the same service account or different ones. If you don't have a service account, [create one](../../iam/operations/sa/create.md).
 
-## Create a trigger {#trigger-create}
+## Creating a trigger {#trigger-create}
 
 {% include [trigger-time](trigger-time.md) %}
 
@@ -32,11 +32,13 @@ To create a trigger, you need:
         * Enter a name and description for the trigger.
         * In the **Type** field, select **Message Queue**.
     1. Under **Message Queue settings**, select a message queue and a service account with rights to read messages from it.
-    1. Under **Batch message settings**, specify the message batch size and the maximum waiting time. The trigger will send the batch of messages to the function when the number of messages in the queue reaches the specified batch size or the maximum waiting time expires.
+    1. (optional) Under **Batch message settings**, specify:
+        * Batch size. Values can be from 1 to 10. The default is 1.
+        * Maximum wait time. Values can be from 0 to 20 seconds. The default is 10 seconds. The trigger will send the batch of messages to the function when the number of messages in the queue reaches the specified batch size or the maximum waiting time expires.
     1. Under **Function settings**:
-        * Select the function for the trigger to call.
+        * Select the function for the trigger to invoke.
         * Specify the [function version tag](../../functions/concepts/function.md#tag).
-        * Specify the service account to be used to call the function.
+        * Specify the service account to be used to invoke the function.
     1. Click **Create trigger**.
 
 - CLI
@@ -69,8 +71,8 @@ To create a trigger, you need:
     * `--invoke-function-id`: Function ID.
     * `--queue-service-account-name`: Service account with rights to read messages from the queue.
     * `--invoke-function-service-account-id`: Service account with rights to call the function.
-    * `--batch-size`: Message batch size. Values can be from 1 to 10. The default is 1.
-    * `--batch-cutoff`: Maximum waiting time. Values can be from 0 to 20 seconds. The default is 10 seconds. The trigger will send the batch of messages to the function when the number of messages in the queue reaches the `batch-size` or the `batch-cutoff` expires.
+    * `--batch-size`: Message batch size. Optional parameter. Values can be from 1 to 10. The default is 1.
+    * `--batch-cutoff`: Maximum waiting time. Optional parameter. Values can be from 0 to 20 seconds. The default is 10 seconds. The trigger will send the batch of messages to the function when the number of messages in the queue reaches the `batch-size` or the `batch-cutoff` expires.
 
     Result:
 
@@ -99,7 +101,7 @@ To create a trigger, you need:
 
 {% endlist %}
 
-## Check the results {#check-result}
+## Checking the result {#check-result}
 
 {% list tabs %}
 

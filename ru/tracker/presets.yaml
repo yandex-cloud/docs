@@ -8,6 +8,7 @@ default:
   api-short-name: Tracker API
   host: https://api.tracker.yandex.net
   ver: v2
+  org-id: 'X-Org-ID: <идентификатор организации>'
   link-tracker: https://tracker.yandex.ru/
   link-tracker-ya: https://st.yandex-team.ru/
   link-connect: https://connect.yandex.ru/
@@ -72,9 +73,10 @@ default:
   link-wiki-poker: https://ru.wikipedia.org/wiki/Покер_планирования
   link-iso-8601: http://dotat.at/tmp/ISO_8601-2004_E.pdf
   link-rfc7578: https://tools.ietf.org/html/rfc7578
+  link-get-token: https://oauth.yandex.ru/
+  link-get-token-ya: https://oauth.yandex-team.ru/authorize?response_type=token&client_id=5f671d781aca402ab7460fde4050267b
   link-OAuth-dev-guide: https://yandex.ru/dev/oauth/doc/dg/concepts/about.html
   link-register-application: https://yandex.ru/dev/oauth/doc/dg/tasks/register-client.html
-  link-get-token: https://oauth.yandex.ru/
   link-yandex_tracker_client: https://github.com/yandex/yandex_tracker_client
   link-python-official: https://www.python.org/downloads/
   tracker-settings: Настройки Tracker

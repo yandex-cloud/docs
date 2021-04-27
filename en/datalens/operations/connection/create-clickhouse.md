@@ -2,10 +2,8 @@
 
 {% note info %}
 
-{{ datalens-short-name }} specifics for {{ CH }} connections:
-
-  - {{ CH }} connections only run over the HTTP interface.
-  - All the data requests are executed with the [join_use_nulls](https://clickhouse.tech/docs/en/operations/settings/settings/#join_use_nulls) flag enabled.
+- {{ CH }} connections only run over the HTTP interface.
+- All the data requests are executed with the [join_use_nulls](https://clickhouse.tech/docs/en/operations/settings/settings/#join_use_nulls) flag enabled. See the [{#T}](#ch-connection-specify) section if you use views or subqueries with a JOIN in {{ datalens-short-name }}.
 
 {% endnote %}
 
@@ -29,7 +27,9 @@ To create a {{ CH }} connection:
 
     - Select in Yandex.Cloud
 
+      
       Specify the connection parameters for the {{ CH }} DB available in {{ yandex-cloud }}:
+
 
       - **Cluster**. Specify a cluster from the list of available {{ CH }} clusters. If you don't have an available cluster, click **Create new**.
 
@@ -79,3 +79,21 @@ You can check the host connection before creating it. To do this, click **Check 
 
 {% endnote %}
 
+## Specifics for ClickHouse connections {#ch-connection-specify}
+
+You can create datasets on top of views that contain a JOIN in {{ CH }}. To do this, make sure a view is created with the `join_use_nulls` option enabled. We recommend that you set `join_use_nulls = 1` in the `SETTINGS` section:
+
+```sql
+CREATE VIEW ... (
+    ...
+) AS 
+    SELECT 
+        ...
+    FROM 
+        ...
+    SETTINGS join_use_nulls = 1
+```
+
+You should also enable this option for raw-sql subqueries that are used as a data source in your dataset.
+
+To avoid errors when using views with a JOIN in {{ datalens-short-name }}, re-create all views and set `join_use_nulls = 1`. This fills in empty cells with `NULL` values and converts the type of the corresponding fields to [Nullable](https://clickhouse.tech/docs/en/sql-reference/data-types/nullable/#data_type-nullable).

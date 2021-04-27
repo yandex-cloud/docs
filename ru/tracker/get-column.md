@@ -10,8 +10,10 @@
 GET /{{ ver }}/boards/<board-id>/columns/<column-id>
 Host: {{ host }}
 Authorization: OAuth <токен>
-X-Org-ID: <идентификатор организации>
+{{ org-id }}
 ```
+
+{% include [headings](../_includes/tracker/api/headings.md) %}
 
 #### Ресурс {#req-resource}
 
@@ -23,25 +25,7 @@ X-Org-ID: <идентификатор организации>
 
     Идентификатор колонки.
 
-#### Заголовки {#req-headers}
 
-- **Host**
-
-    Адрес узла, предоставляющего API:
-    ```
-    {{ host }}
-    ```
-
-- **Authorization**
-
-    OAuth-токен в формате `OAuth <значение токена>`, например:
-    ```
-    OAuth 0c4181a7c2cf4521964a72ff57a34a07
-    ```
-
-- **X-Org-ID**
-
-    Идентификатор организации.
 
 ## Формат ответа {#section_enn_gdd_pfb}
 

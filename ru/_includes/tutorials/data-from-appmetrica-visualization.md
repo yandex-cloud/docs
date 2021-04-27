@@ -6,8 +6,8 @@
 
 Для визуализации и исследования данных [подготовьте облако к работе](#before-you-begin), затем выполните следующие шаги:
 
-1. [Создайте подключение и стандартный дашборд](data-from-appmetrica-visualization.md#create-dashboard).
-1. [Измените стандартный дашборд](data-from-appmetrica-visualization.md#edit-dashboard).
+1. [Создайте подключение и стандартный дашборд](#create-dashboard).
+1. [Измените стандартный дашборд](#edit-dashboard).
 
 
 

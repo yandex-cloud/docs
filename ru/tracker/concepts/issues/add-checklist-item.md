@@ -12,13 +12,14 @@
 POST /{{ ver }}/issues/<issue-id>/checklistItems
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>
-X-Org-Id: <идентификатор организации>
+{{ org-id }}
 
 {
     "text: "<Текст пункта>",
     "checked": "<true|false>"
 }
 ```
+{% include [headings](../../../_includes/tracker/api/headings.md) %}
 
 #### Параметры тела запроса {#req-body-params}
 

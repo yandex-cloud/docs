@@ -10,34 +10,16 @@
 POST /v2/queues/<queue-id>/_restore
 Host: {{ host }}
 Authorization: OAuth <токен>
-X-Org-ID: <идентификатор организации> 
+{{ org-id }}
 ```
+
+{% include [headings](../../../_includes/tracker/api/headings.md) %}
 
 #### Ресурс {#req-resource}
 
 - **\<queue-id\>**
 
     Идентификатор или ключ очереди. Ключ очереди чувствителен к регистру символов.
-
-#### Заголовки {#req-headers}
-
-- **Host**
-
-    Адрес узла, предоставляющего API:
-    ```
-    {{ host }}
-    ```
-
-- **Authorization**
-
-    OAuth-токен в формате `OAuth <значение токена>`, например:
-    ```
-    OAuth 0c4181a7c2cf4521964a72ff57a34a07
-    ```
-
-- **X-Org-ID**
-
-    Идентификатор организации.
 
 ## Формат ответа {#section_xc3_53j_p1b}
 
