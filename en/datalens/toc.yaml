@@ -2,7 +2,6 @@ title: Yandex DataLens
 href: index.yaml
 items:
   - name: Getting started
-    when: audience == "external"
     href: quickstart.md
   - name: Use cases
     items:
@@ -11,24 +10,18 @@ items:
       - name: Visualizing data from a CSV file
         href: solutions/data-from-csv-visualization.md
       - name: Visualizing data from a ClickHouse database
-        when: audience == "external"
         href: solutions/data-from-ch-visualization.md
       - name: Visualizing data from Yandex.Metriсa
-        when: audience == "external"
         href: solutions/data-from-metrica-visualization.md
       - name: Visualizing data from Yandex.Metrica Logs API
-        when: audience == "external"
         href: solutions/data-from-metrica-logsapi-visualization.md
       - name: Publishing a chart with a map from a CSV file to DataLens Public
-        when: audience == "external"
         href: solutions/data-from-csv-to-public-visualization.md
       - name: Visualizing data from AppMetrica
-        when: audience == "external"
         href: solutions/data-from-appmetrica-visualization.md
       - name: Visualizing geodata from a CSV file
         href: solutions/data-from-csv-geo-visualization.md
       - name: Visualizing data from a ClickHouse database with geolayers from the Marketplace
-        when: audience == "external"
         href: solutions/data-from-ch-to-geolayers-visualization.md
   - name: Step-by-step instructions
     items:
@@ -37,7 +30,6 @@ items:
       - name: Working with connections
         items:
           - name: Creating a ClickHouse connection
-            when: audience == "external"
             href: operations/connection/create-clickhouse.md
           - name: Creating a connection to a CSV file
             href: operations/connection/create-csv.md
@@ -56,7 +48,6 @@ items:
           - name: Creating an AppMetrica connection
             href: operations/connection/create-appmetrica.md
           - name: Managing connection access
-            when: audience == "external"
             href: operations/connection/manage-access.md
       - name: Working with datasets
         items:
@@ -71,7 +62,6 @@ items:
           - name: Dataset materialization
             href: operations/dataset/materialize.md
           - name: Managing dataset access
-            when: audience == "external"
             href: operations/dataset/manage-access.md
           - name: Managing access to data rows
             href: operations/dataset/manage-row-level-security.md
@@ -94,7 +84,6 @@ items:
           - name: Creating a pivot table
             href: operations/chart/create-pivot-table.md
           - name: Publishing a chart
-            when: audience == "external"
             href: operations/chart/publish.md
           - name: Managing chart access
             href: operations/chart/manage-access.md
@@ -107,12 +96,10 @@ items:
           - name: Adding selectors to dashboards
             href: operations/dashboard/add-selector.md
           - name: Publishing dashboards
-            when: audience == "external"
             href: operations/dashboard/publish.md
           - name: Managing dashboard access
             href: operations/dashboard/manage-access.md
       - name: Working with permissions
-        when: audience == "external"
         items:
           - name: Granting permissions
             href: operations/permission/grant.md
@@ -143,17 +130,14 @@ items:
       - name: Using Markdown in DataLens
         href: concepts/markdown.md
       - name: DataLens Public
-        when: audience == "external"
         href: concepts/datalens-public.md
       - name: Calculated fields
         href: concepts/calculations.md
       - name: Marketplace
-        when: audience == "external"
         href: concepts/marketplace.md
       - name: Backups in DataLens
         href: concepts/backup.md
       - name: Quotas and limits
-        when: audience == "external"
         href: concepts/limits.md
   - name: Access management
     items:
@@ -162,7 +146,6 @@ items:
       - name: Managing access at the data row level
         href: security/row-level-security.md
   - name: Pricing policy
-    when: audience == "external"
     items:
       - name: Current pricing policy
         href: pricing.md
@@ -176,5 +159,4 @@ items:
       repo: docs
       path: en/_api-ref/datalens/toc.yaml
   - name: Questions and answers
-    when: audience == "external"
     href: qa/index.md

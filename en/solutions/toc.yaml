@@ -118,24 +118,18 @@ items:
       - name: Visualizing data from a CSV file
         href: datalens/data-from-csv-visualization.md
       - name: Visualizing data from a ClickHouse database
-        when: audience == "external"
         href: datalens/data-from-ch-visualization.md
       - name: Visualizing data from Yandex.Metrica
-        when: audience == "external"
         href: datalens/data-from-metrica-visualization.md
       - name: Visualizing data from Yandex.Metrica Logs API
-        when: audience == "external"
         href: datalens/data-from-metrica-logsapi-visualization.md
       - name: Publishing a chart with a map from a CSV file to DataLens Public
-        when: audience == "external"
         href: datalens/data-from-csv-to-public-visualization.md
       - name: Visualizing data from AppMetrica
-        when: audience == "external"
         href: datalens/data-from-appmetrica-visualization.md
       - name: Visualizing geodata from a CSV file
         href: datalens/data-from-csv-geo-visualization.md
       - name: Visualizing data from a ClickHouse database with geolayers from the Marketplace
-        when: audience == "external"
         href: datalens/data-from-ch-to-geolayers-visualization.md
   - name: Internet of things
     items:
