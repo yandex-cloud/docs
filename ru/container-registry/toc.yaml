@@ -91,20 +91,20 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
-  - name: Справочник API (англ.)
+  - name: Справочник API
     items:
-      - name: Authentication
+      - name: Аутентификация в API
         href: api-ref/authentication.md
       - name: gRPC
         items: null
         include:
           repo: docs
-          path: en/_api-ref-grpc/container-registry/api-ref/toc.yaml
+          path: ru/_api-ref-grpc/container-registry/api-ref/toc.yaml
       - name: REST
         items: null
         include:
           repo: docs
-          path: en/_api-ref/containerregistry/toc.yaml
+          path: ru/_api-ref/containerregistry/toc.yaml
   - name: Решение проблем
     href: error/index.md
   - name: Вопросы и ответы

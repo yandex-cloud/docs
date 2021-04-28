@@ -1,0 +1,55 @@
+items:
+  - name: Overview
+    href: api-ref/index.md
+  - name: Image
+    items:
+      - name: Overview
+        href: api-ref/Image/index.md
+      - name: delete
+        href: api-ref/Image/delete.md
+      - name: get
+        href: api-ref/Image/get.md
+      - name: list
+        href: api-ref/Image/list.md
+  - name: LifecyclePolicy
+    items:
+      - name: Overview
+        href: api-ref/LifecyclePolicy/index.md
+  - name: Registry
+    items:
+      - name: Overview
+        href: api-ref/Registry/index.md
+      - name: create
+        href: api-ref/Registry/create.md
+      - name: delete
+        href: api-ref/Registry/delete.md
+      - name: get
+        href: api-ref/Registry/get.md
+      - name: list
+        href: api-ref/Registry/list.md
+      - name: listAccessBindings
+        href: api-ref/Registry/listAccessBindings.md
+      - name: setAccessBindings
+        href: api-ref/Registry/setAccessBindings.md
+      - name: update
+        href: api-ref/Registry/update.md
+      - name: updateAccessBindings
+        href: api-ref/Registry/updateAccessBindings.md
+  - name: Repository
+    items:
+      - name: Overview
+        href: api-ref/Repository/index.md
+      - name: get
+        href: api-ref/Repository/get.md
+      - name: list
+        href: api-ref/Repository/list.md
+      - name: listAccessBindings
+        href: api-ref/Repository/listAccessBindings.md
+      - name: setAccessBindings
+        href: api-ref/Repository/setAccessBindings.md
+      - name: updateAccessBindings
+        href: api-ref/Repository/updateAccessBindings.md
+  - name: Scanner
+    items:
+      - name: Overview
+        href: api-ref/Scanner/index.md
