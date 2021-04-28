@@ -9,14 +9,14 @@ Deletes the specified target group.
  
 ## HTTP request {#https-request}
 ```
-DELETE https://load-balancer.api.cloud.yandex.net/network-load-balancer/v1alpha/targetGroups/{targetGroupId}
+DELETE https://load-balancer.api.cloud.yandex.net/load-balancer/v1alpha/targetGroups/{targetGroupId}
 ```
  
 ## Path parameters {#path_params}
  
 Parameter | Description
 --- | ---
-targetGroupId | Required. ID of the target group to delete. To get the target group ID, use a [list](/docs/network-load-balancer/api-ref/TargetGroup/list) request.  The maximum string length in characters is 50.
+targetGroupId | Required. ID of the target group to delete. To get the target group ID, use a [list](/docs/load-balancer/api-ref/TargetGroup/list) request.  The maximum string length in characters is 50.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

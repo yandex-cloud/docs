@@ -1,0 +1,44 @@
+---
+editable: false
+---
+
+# Method getNotificationState
+
+ 
+
+ 
+## HTTP request {#https-request}
+```
+GET https://monitoring.api.cloud.yandex.net/monitoring/v3/alerts/{alertId}:getNotificationState
+```
+ 
+## Path parameters {#path_params}
+ 
+Parameter | Description
+--- | ---
+alertId | Required. ID of the alert.  The maximum string length in characters is 50.
+ 
+## Response {#responses}
+**HTTP Code: 200 - OK**
+
+```json 
+{
+  "channelStates": [
+    {
+      "folderId": "string",
+      "channelId": "string",
+      "status": "string",
+      "latestEval": "string"
+    }
+  ]
+}
+```
+
+ 
+Field | Description
+--- | ---
+channelStates[] | **object**<br>
+channelStates[].<br>folderId | **string**<br><p>Reference to folder that contains alert.</p> 
+channelStates[].<br>channelId | **string**<br><p>Reference to notification channel.</p> 
+channelStates[].<br>status | **string**<br><p>Latest notification status.</p> <ul> <li>SKIP_REPEAT: Send notification was skipped because already notified.</li> <li>SKIP_BY_STATUS: Skip notification because status absent in subscribe list.</li> <li>SUCCESS: Notification successfully delivered.</li> <li>ERROR: Not classified kind of error occurs.</li> <li>INVALID_REQUEST: Target service reject notification because it not valid or notification channel configured. not correctly</li> <li>OBSOLETE: Notification not valid any more.</li> <li>ABSENT_NOTIFICATION_CHANNEL: Notification was send to /dev/null because reference notificaiton channel not exists.</li> <li>ERROR_ABLE_TO_RETRY: Notification should be repeated because target destination not ready yet accept it.</li> <li>RESOURCE_EXHAUSTED: One of the quote exhausted.</li> <li>PERMISSION_DENIED: User have no rights to receive notifications.</li> <li>NOT_SUBSCRIBED: User unsubscribed or missing settings (e.g. no phone specified).</li> </ul> 
+channelStates[].<br>latestEval | **string** (date-time)<br><p>Time when notification was triggered latest time.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 

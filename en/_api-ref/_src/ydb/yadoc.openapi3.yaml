@@ -1,34 +1,164 @@
-openapi: '3.0'
+openapi: "3.0"
 info:
   title: Yandex Database Control Plane API
-  description: >-
-    This API reference is organized by resource. Actions are performed by
-    sending HTTP requests to resource URLs or making RPC calls. For more
-    information about Yandex.Cloud API architecture, see [API
-    Concepts](/docs/api-design-guide/).
+  description: This API reference is organized by resource. Actions are performed
+    by sending HTTP requests to resource URLs or making RPC calls. For more information
+    about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
   version: v1
   x-y-docUri: api-ref
   x-y-baseUrl: https://ydb.api.cloud.yandex.net
 paths:
+  /ydb/v1/backups/{backupId}:
+    get:
+      tags:
+      - Backup
+      summary: Returns the specified backup.
+      operationId: BackupGet
+      parameters:
+      - name: backupId
+        in: path
+        description: |-
+          Required.
+          Required. ID of the YDB backup.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Backup'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - Backup
+      summary: Deletes the specified backup.
+      operationId: BackupDelete
+      parameters:
+      - name: backupId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteBackupMetadata'
+      x-y-operation-response: Empty
+  /ydb/v1/backups/{backupId}/paths:
+    get:
+      tags:
+      - Backup
+      operationId: BackupListPaths
+      parameters:
+      - name: backupId
+        in: path
+        description: |-
+          Required.
+          Required. ID of the YDB backup.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page that should be returned. If the number of available
+          results is larger than `page_size`, the service returns a `next_page_token` that can be used
+          to get the next page of results in subsequent ListPaths requests.
+          Acceptable values are 0 to 1000, inclusive. Default value: 100.
+
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. Set `page_token` to the `next_page_token` returned by a previous ListPaths
+          request to get the next page of results.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListPathsResponse'
+      x-y-navtitle: listPaths
+  /ydb/v1/backups:
+    get:
+      tags:
+      - Backup
+      summary: Retrieves a list of backups.
+      operationId: BackupList
+      parameters:
+      - name: folderId
+        in: query
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page that should be returned. If the number of available
+          results is larger than `page_size`, the service returns a `next_page_token` that can be used
+          to get the next page of results in subsequent ListBackups requests.
+          Acceptable values are 0 to 1000, inclusive. Default value: 100.
+
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. Set `page_token` to the `next_page_token` returned by a previous ListBackups
+          request to get the next page of results.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListBackupsResponse'
+      x-y-navtitle: list
   /ydb/v1/databases/{databaseId}:
     get:
       tags:
-        - Database
+      - Database
       summary: Returns the specified database.
       operationId: DatabaseGet
       parameters:
-        - name: databaseId
-          in: path
-          description: |-
-            Required.
-            Required. ID of the YDB cluster.
+      - name: databaseId
+        in: path
+        description: |-
+          Required.
+          Required. ID of the YDB cluster.
 
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -37,17 +167,17 @@ paths:
       x-y-navtitle: get
     delete:
       tags:
-        - Database
+      - Database
       summary: Deletes the specified database.
       operationId: DatabaseDelete
       parameters:
-        - name: databaseId
-          in: path
-          required: true
-          schema:
-            type: string
+      - name: databaseId
+        in: path
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -59,15 +189,15 @@ paths:
       x-y-operation-response: Empty
     patch:
       tags:
-        - Database
+      - Database
       summary: Modifies the specified database.
       operationId: DatabaseUpdate
       parameters:
-        - name: databaseId
-          in: path
-          required: true
-          schema:
-            type: string
+      - name: databaseId
+        in: path
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -75,7 +205,7 @@ paths:
               $ref: '#/components/schemas/UpdateDatabaseRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -88,47 +218,37 @@ paths:
   /ydb/v1/databases:
     get:
       tags:
-        - Database
+      - Database
       summary: Retrieves a list of databases.
       operationId: DatabaseList
       parameters:
-        - name: folderId
-          in: query
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            The maximum number of results per page that should be returned. If
-            the number of available
+      - name: folderId
+        in: query
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page that should be returned. If the number of available
+          results is larger than `page_size`, the service returns a `next_page_token` that can be used
+          to get the next page of results in subsequent ListDatabases requests.
+          Acceptable values are 0 to 1000, inclusive. Default value: 100.
 
-            results is larger than `page_size`, the service returns a
-            `next_page_token` that can be used
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. Set `page_token` to the `next_page_token` returned by a previous ListDatabases
+          request to get the next page of results.
 
-            to get the next page of results in subsequent ListDatabases
-            requests.
-
-            Acceptable values are 0 to 1000, inclusive. Default value: 100.
-
-
-            Acceptable values are 0 to 1000, inclusive.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Page token. Set `page_token` to the `next_page_token` returned by a
-            previous ListDatabases
-
-            request to get the next page of results.
-
-
-            The maximum string length in characters is 100.
-          schema:
-            type: string
+          The maximum string length in characters is 100.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -137,7 +257,7 @@ paths:
       x-y-navtitle: list
     post:
       tags:
-        - Database
+      - Database
       summary: Creates a new database.
       operationId: DatabaseCreate
       requestBody:
@@ -147,7 +267,7 @@ paths:
               $ref: '#/components/schemas/CreateDatabaseRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -157,23 +277,120 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/CreateDatabaseMetadata'
       x-y-operation-response: '[Database](/docs/ydb/api-ref/Database#representation)'
+  /ydb/v1/databases/{databaseId}:start:
+    post:
+      tags:
+      - Database
+      summary: Starts the specified database.
+      operationId: DatabaseStart
+      parameters:
+      - name: databaseId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: start
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/StartDatabaseMetadata'
+      x-y-operation-response: '[Database](/docs/ydb/api-ref/Database#representation)'
+  /ydb/v1/databases/{databaseId}:stop:
+    post:
+      tags:
+      - Database
+      summary: Stops the specified database.
+      operationId: DatabaseStop
+      parameters:
+      - name: databaseId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: stop
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/StopDatabaseMetadata'
+      x-y-operation-response: '[Database](/docs/ydb/api-ref/Database#representation)'
+  /ydb/v1/databases:restore:
+    post:
+      tags:
+      - Database
+      summary: Restores the specified backup
+      operationId: DatabaseRestore
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RestoreBackupRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: restore
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/RestoreBackupMetadata'
+      x-y-operation-response: '[Database](/docs/ydb/api-ref/Database#representation)'
+  /ydb/v1/databases:backup:
+    post:
+      tags:
+      - Database
+      operationId: DatabaseBackup
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BackupDatabaseRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: backup
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/BackupDatabaseMetadata'
+      x-y-operation-response: '[Database](/docs/ydb/api-ref/Database#representation)'
   /ydb/v1/locations/{locationId}:
     get:
       tags:
-        - Location
+      - Location
       summary: Returns the specified location.
       operationId: LocationGet
       parameters:
-        - name: locationId
-          in: path
-          description: |-
-            Required.
-            Required. ID of the location to return.
-          required: true
-          schema:
-            type: string
+      - name: locationId
+        in: path
+        description: |-
+          Required.
+          Required. ID of the location to return.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -183,43 +400,33 @@ paths:
   /ydb/v1/locations:
     get:
       tags:
-        - Location
+      - Location
       summary: Returns the list of available locations.
       operationId: LocationList
       parameters:
-        - name: pageSize
-          in: query
-          description: >-
-            The maximum number of results per page that should be returned. If
-            the number of available
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page that should be returned. If the number of available
+          results is larger than `page_size`, the service returns a `next_page_token` that can be used
+          to get the next page of results in subsequent ListLocations requests.
+          Acceptable values are 0 to 1000, inclusive. Default value: 100.
 
-            results is larger than `page_size`, the service returns a
-            `next_page_token` that can be used
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. Set `page_token` to the `next_page_token` returned by a previous ListLocations
+          request to get the next page of results.
 
-            to get the next page of results in subsequent ListLocations
-            requests.
-
-            Acceptable values are 0 to 1000, inclusive. Default value: 100.
-
-
-            Acceptable values are 0 to 1000, inclusive.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Page token. Set `page_token` to the `next_page_token` returned by a
-            previous ListLocations
-
-            request to get the next page of results.
-
-
-            The maximum string length in characters is 100.
-          schema:
-            type: string
+          The maximum string length in characters is 100.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -229,20 +436,20 @@ paths:
   /ydb/v1/resourcePresets/{resourcePresetId}:
     get:
       tags:
-        - ResourcePreset
+      - ResourcePreset
       summary: Returns the specified resource preset.
       operationId: ResourcePresetGet
       parameters:
-        - name: resourcePresetId
-          in: path
-          description: |-
-            Required.
-            Required. ID of the resource preset to return.
-          required: true
-          schema:
-            type: string
+      - name: resourcePresetId
+        in: path
+        description: |-
+          Required.
+          Required. ID of the resource preset to return.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -252,43 +459,33 @@ paths:
   /ydb/v1/resourcePresets:
     get:
       tags:
-        - ResourcePreset
+      - ResourcePreset
       summary: Returns the list of available resource presets.
       operationId: ResourcePresetList
       parameters:
-        - name: pageSize
-          in: query
-          description: >-
-            The maximum number of results per page that should be returned. If
-            the number of available
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page that should be returned. If the number of available
+          results is larger than `page_size`, the service returns a `next_page_token` that can be used
+          to get the next page of results in subsequent ListResourcePresets requests.
+          Acceptable values are 0 to 1000, inclusive. Default value: 100.
 
-            results is larger than `page_size`, the service returns a
-            `next_page_token` that can be used
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. Set `page_token` to the `next_page_token` returned by a previous ListResourcePresets
+          request to get the next page of results.
 
-            to get the next page of results in subsequent ListResourcePresets
-            requests.
-
-            Acceptable values are 0 to 1000, inclusive. Default value: 100.
-
-
-            Acceptable values are 0 to 1000, inclusive.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Page token. Set `page_token` to the `next_page_token` returned by a
-            previous ListResourcePresets
-
-            request to get the next page of results.
-
-
-            The maximum string length in characters is 100.
-          schema:
-            type: string
+          The maximum string length in characters is 100.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -298,20 +495,20 @@ paths:
   /ydb/v1/storageTypes/{storageTypeId}:
     get:
       tags:
-        - StorageType
+      - StorageType
       summary: Returns the specified storage types.
       operationId: StorageTypeGet
       parameters:
-        - name: storageTypeId
-          in: path
-          description: |-
-            Required.
-            Required. ID of the storage type to return.
-          required: true
-          schema:
-            type: string
+      - name: storageTypeId
+        in: path
+        description: |-
+          Required.
+          Required. ID of the storage type to return.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -321,43 +518,33 @@ paths:
   /ydb/v1/storageTypes:
     get:
       tags:
-        - StorageType
+      - StorageType
       summary: Returns the list of available storage types.
       operationId: StorageTypeList
       parameters:
-        - name: pageSize
-          in: query
-          description: >-
-            The maximum number of results per page that should be returned. If
-            the number of available
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page that should be returned. If the number of available
+          results is larger than `page_size`, the service returns a `next_page_token` that can be used
+          to get the next page of results in subsequent ListStorageTypes requests.
+          Acceptable values are 0 to 1000, inclusive. Default value: 100.
 
-            results is larger than `page_size`, the service returns a
-            `next_page_token` that can be used
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. Set `page_token` to the `next_page_token` returned by a previous ListStorageTypes
+          request to get the next page of results.
 
-            to get the next page of results in subsequent ListStorageTypes
-            requests.
-
-            Acceptable values are 0 to 1000, inclusive. Default value: 100.
-
-
-            Acceptable values are 0 to 1000, inclusive.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Page token. Set `page_token` to the `next_page_token` returned by a
-            previous ListStorageTypes
-
-            request to get the next page of results.
-
-
-            The maximum string length in characters is 100.
-          schema:
-            type: string
+          The maximum string length in characters is 100.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -366,6 +553,153 @@ paths:
       x-y-navtitle: list
 components:
   schemas:
+    Backup:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          description: human readable backup name.
+          type: string
+        folderId:
+          type: string
+        databaseId:
+          type: string
+        description:
+          description: description of backup.
+          type: string
+        createdAt:
+          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
+            format.
+          type: string
+          format: date-time
+        startedAt:
+          description: |-
+            indicates when backup started.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        completedAt:
+          description: |-
+            indicates when backup completed.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        status:
+          $ref: '#/components/schemas/BackupStatus_in_Backup_status'
+        backupSettings:
+          $ref: '#/components/schemas/BackupSettings_in_Backup_backupSettings'
+        type:
+          $ref: '#/components/schemas/BackupType_in_Backup_type'
+        size:
+          description: size of backup in bytes.
+          type: string
+          format: int64
+    BackupConfig:
+      type: object
+      properties:
+        backupSettings:
+          type: array
+          items:
+            $ref: '#/components/schemas/BackupSettings'
+    BackupDatabaseMetadata:
+      type: object
+      properties:
+        backupId:
+          type: string
+        databaseId:
+          type: string
+    BackupDatabaseRequest:
+      type: object
+      properties:
+        databaseId:
+          type: string
+        backupSettings:
+          $ref: '#/components/schemas/BackupSettings_in_BackupDatabaseRequest_backupSettings'
+    BackupSchedule:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          nextExecuteTime:
+            description: |-
+              output only field: when next backup will be executed
+              using provided schedule.
+
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+      - title: policy
+        type: object
+        maxProperties: 1
+        properties:
+          dailyBackupSchedule:
+            $ref: '#/components/schemas/DailyBackupSchedule'
+          weeklyBackupSchedule:
+            $ref: '#/components/schemas/WeeklyBackupSchedule'
+    BackupSettings:
+      type: object
+      properties:
+        name:
+          description: |-
+            name of backup settings
+
+            The maximum string length in characters is 256.
+          type: string
+        description:
+          description: |-
+            human readable description.
+
+            The maximum string length in characters is 256.
+          type: string
+        backupSchedule:
+          $ref: '#/components/schemas/BackupSchedule_in_BackupSettings_backupSchedule'
+        backupTimeToLive:
+          description: provide time to live of backup.
+          type: string
+        sourcePaths:
+          description: |-
+            provide a list of source paths. Each path can be directory, table or even database itself.
+            Each directory (or database) will be traversed recursively and all childs of directory will be included to backup.
+            By default, backup will be created for full database.
+
+            The maximum number of elements is 256.
+          type: array
+          items:
+            type: string
+        sourcePathsToExclude:
+          description: |-
+            provide a list of paths to exclude from backup.
+            Each path is a directory, table, or database.
+            Each directory (or database) will be traversed recursively and all childs of directory will be excluded.
+
+            The maximum number of elements is 256.
+          type: array
+          items:
+            type: string
+        type:
+          $ref: '#/components/schemas/BackupSettingsType_in_BackupSettings_type'
+    BackupSettingsType:
+      type: string
+      enum:
+      - SYSTEM
+      - USER
+    BackupStatus:
+      description: id of backup
+      type: string
+      enum:
+      - CREATING
+      - READY
+      - ERROR
+      - CANCELLED
+    BackupType:
+      description: ' - SYSTEM: indicates that backup started by the system.'
+      type: string
+      enum:
+      - SYSTEM
+      - USER
     CreateDatabaseMetadata:
       type: object
       properties:
@@ -378,126 +712,168 @@ components:
     CreateDatabaseRequest:
       type: object
       allOf:
-        - type: object
-          properties:
-            folderId:
+      - type: object
+        properties:
+          folderId:
+            type: string
+          name:
+            type: string
+          description:
+            type: string
+          resourcePresetId:
+            type: string
+          storageConfig:
+            $ref: '#/components/schemas/StorageConfig'
+          scalePolicy:
+            $ref: '#/components/schemas/ScalePolicy'
+          networkId:
+            type: string
+          subnetIds:
+            type: array
+            items:
               type: string
-            name:
+          assignPublicIps:
+            type: boolean
+            format: boolean
+          locationId:
+            type: string
+          labels:
+            type: object
+            additionalProperties:
               type: string
-            description:
-              type: string
-            resourcePresetId:
-              type: string
-            storageConfig:
-              $ref: '#/components/schemas/StorageConfig'
-            scalePolicy:
-              $ref: '#/components/schemas/ScalePolicy'
-            networkId:
-              type: string
-            subnetIds:
-              type: array
-              items:
-                type: string
-            assignPublicIps:
-              type: boolean
-              format: boolean
-            locationId:
-              type: string
-            labels:
-              type: object
-              additionalProperties:
-                type: string
-        - title: database_type
-          type: object
-          maxProperties: 1
-          properties:
-            zonalDatabase:
-              $ref: '#/components/schemas/ZonalDatabase'
-              description: deprecated field
-            regionalDatabase:
-              $ref: '#/components/schemas/RegionalDatabase'
-              description: deprecated field
-            dedicatedDatabase:
-              $ref: '#/components/schemas/DedicatedDatabase'
-            serverlessDatabase:
-              $ref: '#/components/schemas/ServerlessDatabase'
+          backupConfig:
+            $ref: '#/components/schemas/BackupConfig'
+      - title: database_type
+        type: object
+        maxProperties: 1
+        properties:
+          zonalDatabase:
+            $ref: '#/components/schemas/ZonalDatabase'
+            description: deprecated field
+          regionalDatabase:
+            $ref: '#/components/schemas/RegionalDatabase'
+            description: deprecated field
+          dedicatedDatabase:
+            $ref: '#/components/schemas/DedicatedDatabase'
+          serverlessDatabase:
+            $ref: '#/components/schemas/ServerlessDatabase'
+    DailyBackupSchedule:
+      type: object
+      properties:
+        executeTime:
+          $ref: '#/components/schemas/TimeOfDay_in_DailyBackupSchedule_executeTime'
     Database:
       description: YDB database.
       type: object
       allOf:
-        - type: object
-          properties:
-            id:
+      - type: object
+        properties:
+          id:
+            type: string
+          folderId:
+            type: string
+          createdAt:
+            description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+              text format.
+            type: string
+            format: date-time
+          name:
+            type: string
+          description:
+            type: string
+          status:
+            $ref: '#/components/schemas/DatabaseStatus'
+          endpoint:
+            type: string
+          resourcePresetId:
+            type: string
+          storageConfig:
+            $ref: '#/components/schemas/StorageConfig'
+          scalePolicy:
+            $ref: '#/components/schemas/ScalePolicy'
+          networkId:
+            type: string
+          subnetIds:
+            type: array
+            items:
               type: string
-            folderId:
+          assignPublicIps:
+            type: boolean
+            format: boolean
+          locationId:
+            type: string
+          labels:
+            type: object
+            additionalProperties:
               type: string
-            createdAt:
-              description: >-
-                String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-                format.
-              type: string
-              format: date-time
-            name:
-              type: string
-            description:
-              type: string
-            status:
-              $ref: '#/components/schemas/DatabaseStatus'
-            endpoint:
-              type: string
-            resourcePresetId:
-              type: string
-            storageConfig:
-              $ref: '#/components/schemas/StorageConfig'
-            scalePolicy:
-              $ref: '#/components/schemas/ScalePolicy'
-            networkId:
-              type: string
-            subnetIds:
-              type: array
-              items:
-                type: string
-            assignPublicIps:
-              type: boolean
-              format: boolean
-            locationId:
-              type: string
-            labels:
-              type: object
-              additionalProperties:
-                type: string
-            documentApiEndpoint:
-              type: string
-        - title: database_type
-          type: object
-          maxProperties: 1
-          properties:
-            zonalDatabase:
-              $ref: '#/components/schemas/ZonalDatabase'
-              description: deprecated field
-            regionalDatabase:
-              $ref: '#/components/schemas/RegionalDatabase'
-              description: deprecated field
-            dedicatedDatabase:
-              $ref: '#/components/schemas/DedicatedDatabase'
-            serverlessDatabase:
-              $ref: '#/components/schemas/ServerlessDatabase'
+          backupConfig:
+            $ref: '#/components/schemas/BackupConfig'
+          documentApiEndpoint:
+            type: string
+      - title: database_type
+        type: object
+        maxProperties: 1
+        properties:
+          zonalDatabase:
+            $ref: '#/components/schemas/ZonalDatabase'
+            description: deprecated field
+          regionalDatabase:
+            $ref: '#/components/schemas/RegionalDatabase'
+            description: deprecated field
+          dedicatedDatabase:
+            $ref: '#/components/schemas/DedicatedDatabase'
+          serverlessDatabase:
+            $ref: '#/components/schemas/ServerlessDatabase'
     DatabaseStatus:
       type: string
       enum:
-        - PROVISIONING
-        - RUNNING
-        - UPDATING
-        - ERROR
-        - DELETING
+      - PROVISIONING
+      - RUNNING
+      - UPDATING
+      - ERROR
+      - DELETING
+      - STARTING
+      - STOPPED
+    DayOfWeek:
+      description: |-
+        Represents a day of week.
+
+         - DAY_OF_WEEK_UNSPECIFIED: The unspecified day-of-week.
+         - MONDAY: The day-of-week of Monday.
+         - TUESDAY: The day-of-week of Tuesday.
+         - WEDNESDAY: The day-of-week of Wednesday.
+         - THURSDAY: The day-of-week of Thursday.
+         - FRIDAY: The day-of-week of Friday.
+         - SATURDAY: The day-of-week of Saturday.
+         - SUNDAY: The day-of-week of Sunday.
+      type: string
+      enum:
+      - MONDAY
+      - TUESDAY
+      - WEDNESDAY
+      - THURSDAY
+      - FRIDAY
+      - SATURDAY
+      - SUNDAY
+    DaysOfWeekBackupSchedule:
+      type: object
+      properties:
+        days:
+          description: |-
+            Required.
+            The number of elements must be in the range 1-7.
+          type: array
+          items:
+            $ref: '#/components/schemas/DayOfWeek'
+        executeTime:
+          $ref: '#/components/schemas/TimeOfDay_in_DaysOfWeekBackupSchedule_executeTime'
     DedicatedDatabase:
       type: object
       properties:
         resourcePresetId:
           type: string
         storageConfig:
-          $ref: >-
-            #/components/schemas/StorageConfig_in_DedicatedDatabase_storageConfig
+          $ref: '#/components/schemas/StorageConfig_in_DedicatedDatabase_storageConfig'
         scalePolicy:
           $ref: '#/components/schemas/ScalePolicy_in_DedicatedDatabase_scalePolicy'
         networkId:
@@ -509,6 +885,13 @@ components:
         assignPublicIps:
           type: boolean
           format: boolean
+    DeleteBackupMetadata:
+      type: object
+      properties:
+        backupId:
+          type: string
+        databaseId:
+          type: string
     DeleteDatabaseMetadata:
       type: object
       properties:
@@ -521,26 +904,31 @@ components:
       type: object
       maxProperties: 0
     FieldMask:
-      description: >-
+      description: |-
         A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
 
-        Оnly the specified fields will be changed. The others will be left
-        untouched.
-
-        If the field is specified in `` updateMask `` and no value for that
-        field was sent in the request,
-
-        the field's value will be reset to the default. The default value for
-        most fields is null or 0.
-
-
-        If `` updateMask `` is not sent in the request, all fields' values will
-        be updated.
-
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
         Fields specified in the request will be updated to provided values.
-
         The rest of the fields will be reset to the default.
       type: string
+    ListBackupsResponse:
+      type: object
+      properties:
+        backups:
+          type: array
+          items:
+            $ref: '#/components/schemas/Backup'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for ListBackups requests,
+            if the number of results is larger than `page_size` specified in the request.
+            To get the next page, specify the value of `next_page_token` as a value for
+            the `page_token` parameter in the next ListBackups request. Subsequent ListBackups
+            requests will have their own `next_page_token` to continue paging through the results.
+          type: string
     ListDatabasesResponse:
       type: object
       properties:
@@ -549,21 +937,12 @@ components:
           items:
             $ref: '#/components/schemas/Database'
         nextPageToken:
-          description: >-
-            This token allows you to get the next page of results for
-            ListDatabases requests,
-
-            if the number of results is larger than `page_size` specified in the
-            request.
-
-            To get the next page, specify the value of `next_page_token` as a
-            value for
-
-            the `page_token` parameter in the next ListDatabases request.
-            Subsequent ListDatabases
-
-            requests will have their own `next_page_token` to continue paging
-            through the results.
+          description: |-
+            This token allows you to get the next page of results for ListDatabases requests,
+            if the number of results is larger than `page_size` specified in the request.
+            To get the next page, specify the value of `next_page_token` as a value for
+            the `page_token` parameter in the next ListDatabases request. Subsequent ListDatabases
+            requests will have their own `next_page_token` to continue paging through the results.
           type: string
     ListLocationsResponse:
       type: object
@@ -574,21 +953,21 @@ components:
           items:
             $ref: '#/components/schemas/Location'
         nextPageToken:
-          description: >-
-            This token allows you to get the next page of results for
-            ListLocations requests,
-
-            if the number of results is larger than `page_size` specified in the
-            request.
-
-            To get the next page, specify the value of `next_page_token` as a
-            value for
-
-            the `page_token` parameter in the next ListLocations request.
-            Subsequent ListLocations
-
-            requests will have their own `next_page_token` to continue paging
-            through the results.
+          description: |-
+            This token allows you to get the next page of results for ListLocations requests,
+            if the number of results is larger than `page_size` specified in the request.
+            To get the next page, specify the value of `next_page_token` as a value for
+            the `page_token` parameter in the next ListLocations request. Subsequent ListLocations
+            requests will have their own `next_page_token` to continue paging through the results.
+          type: string
+    ListPathsResponse:
+      type: object
+      properties:
+        paths:
+          type: array
+          items:
+            type: string
+        nextPageToken:
           type: string
     ListResourcePresetsResponse:
       type: object
@@ -599,21 +978,12 @@ components:
           items:
             $ref: '#/components/schemas/ResourcePreset'
         nextPageToken:
-          description: >-
-            This token allows you to get the next page of results for
-            ListResourcePresets requests,
-
-            if the number of results is larger than `page_size` specified in the
-            request.
-
-            To get the next page, specify the value of `next_page_token` as a
-            value for
-
-            the `page_token` parameter in the next ListResourcePresets request.
-            Subsequent ListResourcePresets
-
-            requests will have their own `next_page_token` to continue paging
-            through the results.
+          description: |-
+            This token allows you to get the next page of results for ListResourcePresets requests,
+            if the number of results is larger than `page_size` specified in the request.
+            To get the next page, specify the value of `next_page_token` as a value for
+            the `page_token` parameter in the next ListResourcePresets request. Subsequent ListResourcePresets
+            requests will have their own `next_page_token` to continue paging through the results.
           type: string
     ListStorageTypesResponse:
       type: object
@@ -624,21 +994,12 @@ components:
           items:
             $ref: '#/components/schemas/StorageType'
         nextPageToken:
-          description: >-
-            This token allows you to get the next page of results for
-            ListStorageTypes requests,
-
-            if the number of results is larger than `page_size` specified in the
-            request.
-
-            To get the next page, specify the value of `next_page_token` as a
-            value for
-
-            the `page_token` parameter in the next ListStorageTypes request.
-            Subsequent ListStorageTypes
-
-            requests will have their own `next_page_token` to continue paging
-            through the results.
+          description: |-
+            This token allows you to get the next page of results for ListStorageTypes requests,
+            if the number of results is larger than `page_size` specified in the request.
+            To get the next page, specify the value of `next_page_token` as a value for
+            the `page_token` parameter in the next ListStorageTypes request. Subsequent ListStorageTypes
+            requests will have their own `next_page_token` to continue paging through the results.
           type: string
     Location:
       type: object
@@ -648,85 +1009,62 @@ components:
         description:
           type: string
     Operation:
-      description: >-
-        An Operation resource. For more information, see
-        [Operation](/docs/api-design-guide/concepts/operation).
+      description: An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
       type: object
       allOf:
-        - type: object
-          properties:
-            id:
-              description: ID of the operation.
-              type: string
-            description:
-              description: Description of the operation. 0-256 characters long.
-              type: string
-            createdAt:
-              description: >-
-                Creation timestamp.
+      - type: object
+        properties:
+          id:
+            description: ID of the operation.
+            type: string
+          description:
+            description: Description of the operation. 0-256 characters long.
+            type: string
+          createdAt:
+            description: |-
+              Creation timestamp.
 
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          createdBy:
+            description: ID of the user or service account who initiated the operation.
+            type: string
+          modifiedAt:
+            description: |-
+              The time when the Operation resource was last modified.
 
-                String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-                format.
-              type: string
-              format: date-time
-            createdBy:
-              description: ID of the user or service account who initiated the operation.
-              type: string
-            modifiedAt:
-              description: >-
-                The time when the Operation resource was last modified.
-
-
-                String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-                format.
-              type: string
-              format: date-time
-            done:
-              description: >-
-                If the value is `false`, it means the operation is still in
-                progress.
-
-                If `true`, the operation is completed, and either `error` or
-                `response` is available.
-              type: boolean
-              format: boolean
-            metadata:
-              description: >-
-                Service-specific metadata associated with the operation.
-
-                It typically contains the ID of the target resource that the
-                operation is performed on.
-
-                Any method that returns a long-running operation should document
-                the metadata type, if any.
-              type: object
-        - title: result
-          type: object
-          maxProperties: 1
-          properties:
-            error:
-              $ref: '#/components/schemas/rpcStatus'
-              description: >-
-                The error result of the operation in case of failure or
-                cancellation.
-            response:
-              description: >-
-                The normal response of the operation in case of success.
-
-                If the original method returns no data on success, such as
-                Delete,
-
-                the response is
-                [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty).
-
-                If the original method is the standard Create/Update,
-
-                the response should be the target resource of the operation.
-
-                Any method that returns a long-running operation should document
-                the response type, if any.
-              type: object
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          done:
+            description: |-
+              If the value is `false`, it means the operation is still in progress.
+              If `true`, the operation is completed, and either `error` or `response` is available.
+            type: boolean
+            format: boolean
+          metadata:
+            description: |-
+              Service-specific metadata associated with the operation.
+              It typically contains the ID of the target resource that the operation is performed on.
+              Any method that returns a long-running operation should document the metadata type, if any.
+            type: object
+      - title: result
+        type: object
+        maxProperties: 1
+        properties:
+          error:
+            $ref: '#/components/schemas/rpcStatus'
+            description: The error result of the operation in case of failure or cancellation.
+          response:
+            description: |-
+              The normal response of the operation in case of success.
+              If the original method returns no data on success, such as Delete,
+              the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty).
+              If the original method is the standard Create/Update,
+              the response should be the target resource of the operation.
+              Any method that returns a long-running operation should document the response type, if any.
+            type: object
     RegionalDatabase:
       type: object
       properties:
@@ -744,15 +1082,49 @@ components:
         memory:
           type: string
           format: int64
+    RestoreBackupMetadata:
+      type: object
+      properties:
+        backupId:
+          type: string
+        databaseId:
+          type: string
+    RestoreBackupRequest:
+      type: object
+      properties:
+        backupId:
+          description: |-
+            Required.
+            Required. ID of the YDB backup.
+
+            The maximum string length in characters is 50.
+          type: string
+        databaseId:
+          description: |-
+            Required.
+            Required. ID of the YDB database.
+
+            The maximum string length in characters is 50.
+          type: string
+        pathsToRestore:
+          description: |-
+            Specify paths to restore.
+            If empty, all paths will restored by default.
+          type: array
+          items:
+            type: string
+        targetPath:
+          description: Specify target path.
+          type: string
     ScalePolicy:
       type: object
       allOf:
-        - title: scale_type
-          type: object
-          maxProperties: 1
-          properties:
-            fixedScale:
-              $ref: '#/components/schemas/ScalePolicyFixedScale'
+      - title: scale_type
+        type: object
+        maxProperties: 1
+        properties:
+          fixedScale:
+            $ref: '#/components/schemas/ScalePolicyFixedScale'
     ScalePolicyFixedScale:
       type: object
       properties:
@@ -763,6 +1135,20 @@ components:
     ServerlessDatabase:
       type: object
       properties: {}
+    StartDatabaseMetadata:
+      type: object
+      properties:
+        databaseId:
+          type: string
+        databaseName:
+          type: string
+    StopDatabaseMetadata:
+      type: object
+      properties:
+        databaseId:
+          type: string
+        databaseName:
+          type: string
     StorageConfig:
       type: object
       properties:
@@ -790,6 +1176,33 @@ components:
           type: string
         redundancyType:
           type: string
+    TimeOfDay:
+      description: |-
+        Represents a time of day. The date and time zone are either not significant
+        or are specified elsewhere. An API may choose to allow leap seconds. Related
+        types are [google.type.Date](https://github.com/googleapis/googleapis/blob/master/google/type/date.proto) and [google.protobuf.Timestamp](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto).
+      type: object
+      properties:
+        hours:
+          description: |-
+            Hours of day in 24 hour format. Should be from 0 to 23. An API may choose
+            to allow the value "24:00:00" for scenarios like business closing time.
+          type: integer
+          format: int32
+        minutes:
+          description: Minutes of hour of day. Must be from 0 to 59.
+          type: integer
+          format: int32
+        seconds:
+          description: |-
+            Seconds of minutes of the time. Must normally be from 0 to 59. An API may
+            allow the value 60 if it allows leap-seconds.
+          type: integer
+          format: int32
+        nanos:
+          description: Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.
+          type: integer
+          format: int32
     UpdateDatabaseMetadata:
       type: object
       properties:
@@ -800,49 +1213,61 @@ components:
     UpdateDatabaseRequest:
       type: object
       allOf:
-        - type: object
-          properties:
-            folderId:
+      - type: object
+        properties:
+          folderId:
+            type: string
+          updateMask:
+            $ref: '#/components/schemas/FieldMask'
+          name:
+            type: string
+          description:
+            type: string
+          resourcePresetId:
+            type: string
+          storageConfig:
+            $ref: '#/components/schemas/StorageConfig'
+          scalePolicy:
+            $ref: '#/components/schemas/ScalePolicy'
+          networkId:
+            type: string
+          subnetIds:
+            type: array
+            items:
               type: string
-            updateMask:
-              $ref: '#/components/schemas/FieldMask'
-            name:
+          assignPublicIps:
+            type: boolean
+            format: boolean
+          locationId:
+            type: string
+          labels:
+            type: object
+            additionalProperties:
               type: string
-            description:
-              type: string
-            resourcePresetId:
-              type: string
-            storageConfig:
-              $ref: '#/components/schemas/StorageConfig'
-            scalePolicy:
-              $ref: '#/components/schemas/ScalePolicy'
-            networkId:
-              type: string
-            subnetIds:
-              type: array
-              items:
-                type: string
-            assignPublicIps:
-              type: boolean
-              format: boolean
-            locationId:
-              type: string
-            labels:
-              type: object
-              additionalProperties:
-                type: string
-        - title: database_type
-          type: object
-          maxProperties: 1
-          properties:
-            zonalDatabase:
-              $ref: '#/components/schemas/ZonalDatabase'
-            regionalDatabase:
-              $ref: '#/components/schemas/RegionalDatabase'
-            dedicatedDatabase:
-              $ref: '#/components/schemas/DedicatedDatabase'
-            serverlessDatabase:
-              $ref: '#/components/schemas/ServerlessDatabase'
+          backupConfig:
+            $ref: '#/components/schemas/BackupConfig'
+      - title: database_type
+        type: object
+        maxProperties: 1
+        properties:
+          zonalDatabase:
+            $ref: '#/components/schemas/ZonalDatabase'
+          regionalDatabase:
+            $ref: '#/components/schemas/RegionalDatabase'
+          dedicatedDatabase:
+            $ref: '#/components/schemas/DedicatedDatabase'
+          serverlessDatabase:
+            $ref: '#/components/schemas/ServerlessDatabase'
+    WeeklyBackupSchedule:
+      type: object
+      properties:
+        daysOfWeek:
+          description: |-
+            Required.
+            The number of elements must be in the range 1-7.
+          type: array
+          items:
+            $ref: '#/components/schemas/DaysOfWeekBackupSchedule'
     ZonalDatabase:
       type: object
       properties:
@@ -854,9 +1279,7 @@ components:
       type: object
       properties:
         code:
-          description: >-
-            Error code. An enum value of
-            [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
+          description: Error code. An enum value of [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
           type: integer
           format: int32
         message:
@@ -867,6 +1290,191 @@ components:
           type: array
           items:
             type: object
+    BackupStatus_in_Backup_status:
+      description: id of backup
+      type: string
+      enum:
+      - CREATING
+      - READY
+      - ERROR
+      - CANCELLED
+    BackupSettings_in_Backup_backupSettings:
+      description: settings used to make backup.
+      type: object
+      properties:
+        name:
+          description: |-
+            name of backup settings
+
+            The maximum string length in characters is 256.
+          type: string
+        description:
+          description: |-
+            human readable description.
+
+            The maximum string length in characters is 256.
+          type: string
+        backupSchedule:
+          $ref: '#/components/schemas/BackupSchedule_in_BackupSettings_backupSchedule'
+        backupTimeToLive:
+          description: provide time to live of backup.
+          type: string
+        sourcePaths:
+          description: |-
+            provide a list of source paths. Each path can be directory, table or even database itself.
+            Each directory (or database) will be traversed recursively and all childs of directory will be included to backup.
+            By default, backup will be created for full database.
+
+            The maximum number of elements is 256.
+          type: array
+          items:
+            type: string
+        sourcePathsToExclude:
+          description: |-
+            provide a list of paths to exclude from backup.
+            Each path is a directory, table, or database.
+            Each directory (or database) will be traversed recursively and all childs of directory will be excluded.
+
+            The maximum number of elements is 256.
+          type: array
+          items:
+            type: string
+        type:
+          $ref: '#/components/schemas/BackupSettingsType_in_BackupSettings_type'
+    BackupType_in_Backup_type:
+      description: ' - SYSTEM: indicates that backup started by the system.'
+      type: string
+      enum:
+      - SYSTEM
+      - USER
+    BackupSettings_in_BackupDatabaseRequest_backupSettings:
+      description: custom backup options, if required.
+      type: object
+      properties:
+        name:
+          description: |-
+            name of backup settings
+
+            The maximum string length in characters is 256.
+          type: string
+        description:
+          description: |-
+            human readable description.
+
+            The maximum string length in characters is 256.
+          type: string
+        backupSchedule:
+          $ref: '#/components/schemas/BackupSchedule_in_BackupSettings_backupSchedule'
+        backupTimeToLive:
+          description: provide time to live of backup.
+          type: string
+        sourcePaths:
+          description: |-
+            provide a list of source paths. Each path can be directory, table or even database itself.
+            Each directory (or database) will be traversed recursively and all childs of directory will be included to backup.
+            By default, backup will be created for full database.
+
+            The maximum number of elements is 256.
+          type: array
+          items:
+            type: string
+        sourcePathsToExclude:
+          description: |-
+            provide a list of paths to exclude from backup.
+            Each path is a directory, table, or database.
+            Each directory (or database) will be traversed recursively and all childs of directory will be excluded.
+
+            The maximum number of elements is 256.
+          type: array
+          items:
+            type: string
+        type:
+          $ref: '#/components/schemas/BackupSettingsType_in_BackupSettings_type'
+    BackupSchedule_in_BackupSettings_backupSchedule:
+      description: provide schedule. if empty, backup will be disabled.
+      type: object
+      allOf:
+      - type: object
+        properties:
+          nextExecuteTime:
+            description: |-
+              output only field: when next backup will be executed
+              using provided schedule.
+
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+      - title: policy
+        type: object
+        maxProperties: 1
+        properties:
+          dailyBackupSchedule:
+            $ref: '#/components/schemas/DailyBackupSchedule'
+          weeklyBackupSchedule:
+            $ref: '#/components/schemas/WeeklyBackupSchedule'
+    BackupSettingsType_in_BackupSettings_type:
+      type: string
+      enum:
+      - SYSTEM
+      - USER
+    TimeOfDay_in_DailyBackupSchedule_executeTime:
+      description: |-
+        Required.
+
+        Represents a time of day. The date and time zone are either not significant
+        or are specified elsewhere. An API may choose to allow leap seconds. Related
+        types are [google.type.Date](https://github.com/googleapis/googleapis/blob/master/google/type/date.proto) and [google.protobuf.Timestamp](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto).
+      type: object
+      properties:
+        hours:
+          description: |-
+            Hours of day in 24 hour format. Should be from 0 to 23. An API may choose
+            to allow the value "24:00:00" for scenarios like business closing time.
+          type: integer
+          format: int32
+        minutes:
+          description: Minutes of hour of day. Must be from 0 to 59.
+          type: integer
+          format: int32
+        seconds:
+          description: |-
+            Seconds of minutes of the time. Must normally be from 0 to 59. An API may
+            allow the value 60 if it allows leap-seconds.
+          type: integer
+          format: int32
+        nanos:
+          description: Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.
+          type: integer
+          format: int32
+    TimeOfDay_in_DaysOfWeekBackupSchedule_executeTime:
+      description: |-
+        Required.
+
+        Represents a time of day. The date and time zone are either not significant
+        or are specified elsewhere. An API may choose to allow leap seconds. Related
+        types are [google.type.Date](https://github.com/googleapis/googleapis/blob/master/google/type/date.proto) and [google.protobuf.Timestamp](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto).
+      type: object
+      properties:
+        hours:
+          description: |-
+            Hours of day in 24 hour format. Should be from 0 to 23. An API may choose
+            to allow the value "24:00:00" for scenarios like business closing time.
+          type: integer
+          format: int32
+        minutes:
+          description: Minutes of hour of day. Must be from 0 to 59.
+          type: integer
+          format: int32
+        seconds:
+          description: |-
+            Seconds of minutes of the time. Must normally be from 0 to 59. An API may
+            allow the value 60 if it allows leap-seconds.
+          type: integer
+          format: int32
+        nanos:
+          description: Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.
+          type: integer
+          format: int32
     StorageConfig_in_DedicatedDatabase_storageConfig:
       type: object
       properties:
@@ -880,15 +1488,17 @@ components:
     ScalePolicy_in_DedicatedDatabase_scalePolicy:
       type: object
       allOf:
-        - title: scale_type
-          type: object
-          maxProperties: 1
-          properties:
-            fixedScale:
-              $ref: '#/components/schemas/ScalePolicyFixedScale'
+      - title: scale_type
+        type: object
+        maxProperties: 1
+        properties:
+          fixedScale:
+            $ref: '#/components/schemas/ScalePolicyFixedScale'
 tags:
-  - name: Database
-    description: A set of methods for managing databases.
-  - name: Location
-  - name: ResourcePreset
-  - name: StorageType
+- name: Backup
+  description: A set of methods for managing backups.
+- name: Database
+  description: A set of methods for managing databases.
+- name: Location
+- name: ResourcePreset
+- name: StorageType

@@ -52,6 +52,8 @@ zone_id | **string**<br>ID of the availability zone where the cluster resides.
 service_account_id | **string**<br>ID of service account for the Data Proc manager agent. 
 bucket | **string**<br>Object Storage bucket to be used for Data Proc jobs that are run in the cluster. 
 ui_proxy | **bool**<br>Whether UI Proxy feature is enabled. 
+security_group_ids[] | **string**<br>User security groups. 
+host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
 
 
 ### Monitoring {#Monitoring}
@@ -122,6 +124,8 @@ zone_id | **string**<br>ID of the availability zone where the cluster resides.
 service_account_id | **string**<br>ID of service account for the Data Proc manager agent. 
 bucket | **string**<br>Object Storage bucket to be used for Data Proc jobs that are run in the cluster. 
 ui_proxy | **bool**<br>Whether UI Proxy feature is enabled. 
+security_group_ids[] | **string**<br>User security groups. 
+host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
 
 
 ### Monitoring {#Monitoring1}
@@ -165,7 +169,7 @@ Metadata and response of Operation:<br>
 Field | Description
 --- | ---
 folder_id | **string**<br>Required. ID of the folder to create a cluster in. <br>To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. The maximum string length in characters is 50.
-name | **string**<br>Name of the cluster. The name must be unique within the folder. The name can’t be changed after the Data Proc cluster is created. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+name | **string**<br>Name of the cluster. The name must be unique within the folder. The name can't be changed after the Data Proc cluster is created. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br>Description of the cluster. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Cluster labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 config_spec | **[CreateClusterConfigSpec](#CreateClusterConfigSpec)**<br>Required. Configuration and resources for hosts that should be created with the cluster. 
@@ -173,6 +177,8 @@ zone_id | **string**<br>Required. ID of the availability zone where the cluster 
 service_account_id | **string**<br>Required. ID of the service account to be used by the Data Proc manager agent. 
 bucket | **string**<br>Name of the Object Storage bucket to use for Data Proc jobs. 
 ui_proxy | **bool**<br>Enable UI Proxy feature. 
+security_group_ids[] | **string**<br>User security groups. 
+host_group_ids[] | **string**<br>Host groups to place VMs of cluster on. 
 
 
 ### CreateClusterConfigSpec {#CreateClusterConfigSpec}
@@ -210,7 +216,7 @@ autoscaling_config | **[AutoscalingConfig](#AutoscalingConfig)**<br>Configuratio
 Field | Description
 --- | ---
 resource_preset_id | **string**<br>ID of the resource preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/data-proc/concepts/instance-types). 
-disk_type_id | **string**<br><ul><li>network-hdd — network HDD drive, </li><li>network-ssd — network SSD drive.</li></ul> 
+disk_type_id | **string**<br><ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive.</li></ul> 
 disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
 
 
@@ -268,6 +274,8 @@ zone_id | **string**<br>ID of the availability zone where the cluster resides.
 service_account_id | **string**<br>ID of service account for the Data Proc manager agent. 
 bucket | **string**<br>Object Storage bucket to be used for Data Proc jobs that are run in the cluster. 
 ui_proxy | **bool**<br>Whether UI Proxy feature is enabled. 
+security_group_ids[] | **string**<br>User security groups. 
+host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
 
 
 ### Monitoring {#Monitoring2}
@@ -320,6 +328,7 @@ service_account_id | **string**<br>ID of the new service account to be used by t
 bucket | **string**<br>Name of the new Object Storage bucket to use for Data Proc jobs. 
 decommission_timeout | **int64**<br>Timeout to gracefully decommission nodes. In seconds. Default value: 0 Acceptable values are 0 to 86400, inclusive.
 ui_proxy | **bool**<br>Enable UI Proxy feature. 
+security_group_ids[] | **string**<br>User security groups. 
 
 
 ### UpdateClusterConfigSpec {#UpdateClusterConfigSpec}
@@ -345,7 +354,7 @@ autoscaling_config | **[AutoscalingConfig](#AutoscalingConfig1)**<br>Configurati
 Field | Description
 --- | ---
 resource_preset_id | **string**<br>ID of the resource preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/data-proc/concepts/instance-types). 
-disk_type_id | **string**<br><ul><li>network-hdd — network HDD drive, </li><li>network-ssd — network SSD drive.</li></ul> 
+disk_type_id | **string**<br><ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive.</li></ul> 
 disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
 
 
@@ -403,6 +412,8 @@ zone_id | **string**<br>ID of the availability zone where the cluster resides.
 service_account_id | **string**<br>ID of service account for the Data Proc manager agent. 
 bucket | **string**<br>Object Storage bucket to be used for Data Proc jobs that are run in the cluster. 
 ui_proxy | **bool**<br>Whether UI Proxy feature is enabled. 
+security_group_ids[] | **string**<br>User security groups. 
+host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
 
 
 ### Monitoring {#Monitoring3}
@@ -530,6 +541,8 @@ zone_id | **string**<br>ID of the availability zone where the cluster resides.
 service_account_id | **string**<br>ID of service account for the Data Proc manager agent. 
 bucket | **string**<br>Object Storage bucket to be used for Data Proc jobs that are run in the cluster. 
 ui_proxy | **bool**<br>Whether UI Proxy feature is enabled. 
+security_group_ids[] | **string**<br>User security groups. 
+host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
 
 
 ### Monitoring {#Monitoring4}
@@ -617,6 +630,8 @@ zone_id | **string**<br>ID of the availability zone where the cluster resides.
 service_account_id | **string**<br>ID of service account for the Data Proc manager agent. 
 bucket | **string**<br>Object Storage bucket to be used for Data Proc jobs that are run in the cluster. 
 ui_proxy | **bool**<br>Whether UI Proxy feature is enabled. 
+security_group_ids[] | **string**<br>User security groups. 
+host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
 
 
 ### Monitoring {#Monitoring5}

@@ -40,6 +40,7 @@ description | **string**<br>Description of the router. 0-256 characters long.
 folder_id | **string**<br>ID of the folder that the router belongs to. 
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
 virtual_hosts[] | **[VirtualHost](#VirtualHost)**<br>Only one virtual host with no authority (default match) can be specified. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp for the http router. 
 
 
 ### VirtualHost {#VirtualHost}
@@ -226,6 +227,7 @@ description | **string**<br>Description of the router. 0-256 characters long.
 folder_id | **string**<br>ID of the folder that the router belongs to. 
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
 virtual_hosts[] | **[VirtualHost](#VirtualHost1)**<br>Only one virtual host with no authority (default match) can be specified. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp for the http router. 
 
 
 ### VirtualHost {#VirtualHost1}
@@ -583,6 +585,7 @@ description | **string**<br>Description of the router. 0-256 characters long.
 folder_id | **string**<br>ID of the folder that the router belongs to. 
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
 virtual_hosts[] | **[VirtualHost](#VirtualHost3)**<br>Only one virtual host with no authority (default match) can be specified. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp for the http router. 
 
 
 ### VirtualHost {#VirtualHost3}
@@ -941,6 +944,7 @@ description | **string**<br>Description of the router. 0-256 characters long.
 folder_id | **string**<br>ID of the folder that the router belongs to. 
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
 virtual_hosts[] | **[VirtualHost](#VirtualHost5)**<br>Only one virtual host with no authority (default match) can be specified. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp for the http router. 
 
 
 ### VirtualHost {#VirtualHost5}

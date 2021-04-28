@@ -34,5 +34,6 @@ type | **string**<br><p>How this backup was created (manual/automatic/etc...)</p
 ## Methods {#methods}
 Method | Description
 --- | ---
+[delete](delete.md) | Returns the list of available backups for the specified MongoDB cluster.
 [get](get.md) | Returns the specified MongoDB backup.
 [list](list.md) | Retrieves the list of backups available for the specified folder.

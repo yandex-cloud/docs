@@ -1,11 +1,9 @@
-openapi: '3.0'
+openapi: "3.0"
 info:
   title: Yandex Managed Service for Redis API
-  description: >-
-    This API reference is organized by resource. Actions are performed by
-    sending HTTP requests to resource URLs or making RPC calls. For more
-    information about Yandex.Cloud API architecture, see [API
-    Concepts](/docs/api-design-guide/).
+  description: This API reference is organized by resource. Actions are performed
+    by sending HTTP requests to resource URLs or making RPC calls. For more information
+    about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
   version: v1
   x-y-docUri: api-ref
   x-y-baseUrl: https://mdb.api.cloud.yandex.net
@@ -13,28 +11,23 @@ paths:
   /managed-redis/v1/backups/{backupId}:
     get:
       tags:
-        - Backup
+      - Backup
       summary: Returns the specified Redis backup.
-      description: >-
-        To get the list of available Redis backups, make a
-        [list](/docs/managed-redis/api-ref/Backup/list) request.
+      description: To get the list of available Redis backups, make a [list](/docs/managed-redis/api-ref/Backup/list)
+        request.
       operationId: BackupGet
       parameters:
-        - name: backupId
-          in: path
-          description: >-
-            Required.
-
-            ID of the Redis backup to return.
-
-            To get the backup ID, use a
-            [listBackups](/docs/managed-redis/api-ref/Cluster/listBackups)
-            request.
-          required: true
-          schema:
-            type: string
+      - name: backupId
+        in: path
+        description: |-
+          Required.
+          ID of the Redis backup to return.
+          To get the backup ID, use a [listBackups](/docs/managed-redis/api-ref/Cluster/listBackups) request.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -44,59 +37,42 @@ paths:
   /managed-redis/v1/backups:
     get:
       tags:
-        - Backup
+      - Backup
       summary: Retrieves the list of Redis backups available for the specified folder.
       operationId: BackupList
       parameters:
-        - name: folderId
-          in: query
-          description: >-
-            Required.
+      - name: folderId
+        in: query
+        description: |-
+          Required.
+          ID of the folder to list backups in.
+          To get the folder ID, use a [list](/docs/resource-manager/api-ref/Folder/list) request.
 
-            ID of the folder to list backups in.
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/managed-redis/api-ref/Backup/list#query_params), the service returns a [nextPageToken](/docs/managed-redis/api-ref/Backup/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
 
-            To get the folder ID, use a
-            [list](/docs/resource-manager/api-ref/Folder/list) request.
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/managed-redis/api-ref/Backup/list#query_params) to the [nextPageToken](/docs/managed-redis/api-ref/Backup/list#responses)
+          returned by a previous list request.
 
-
-            The maximum string length in characters is 50.
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            The maximum number of results per page to return. If the number of
-            available
-
-            results is larger than
-            [pageSize](/docs/managed-redis/api-ref/Backup/list#query_params),
-            the service returns a
-            [nextPageToken](/docs/managed-redis/api-ref/Backup/list#responses)
-
-            that can be used to get the next page of results in subsequent list
-            requests.
-
-
-            Acceptable values are 0 to 1000, inclusive.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Page token. To get the next page of results, set
-            [pageToken](/docs/managed-redis/api-ref/Backup/list#query_params) to
-            the
-            [nextPageToken](/docs/managed-redis/api-ref/Backup/list#responses)
-
-            returned by a previous list request.
-
-
-            The maximum string length in characters is 100.
-          schema:
-            type: string
+          The maximum string length in characters is 100.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -106,30 +82,25 @@ paths:
   /managed-redis/v1/clusters/{clusterId}:
     get:
       tags:
-        - Cluster
+      - Cluster
       summary: Returns the specified Redis cluster.
-      description: >-
-        To get the list of available Redis clusters, make a
-        [list](/docs/managed-redis/api-ref/Cluster/list) request.
+      description: To get the list of available Redis clusters, make a [list](/docs/managed-redis/api-ref/Cluster/list)
+        request.
       operationId: ClusterGet
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Required.
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the Redis cluster to return.
+          To get the cluster ID use a [list](/docs/managed-redis/api-ref/Cluster/list) request.
 
-            ID of the Redis cluster to return.
-
-            To get the cluster ID use a
-            [list](/docs/managed-redis/api-ref/Cluster/list) request.
-
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -138,27 +109,23 @@ paths:
       x-y-navtitle: get
     delete:
       tags:
-        - Cluster
+      - Cluster
       summary: Deletes the specified Redis cluster.
       operationId: ClusterDelete
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Required.
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the Redis cluster to delete.
+          To get the Redis cluster ID, use a [list](/docs/managed-redis/api-ref/Cluster/list) request.
 
-            ID of the Redis cluster to delete.
-
-            To get the Redis cluster ID, use a
-            [list](/docs/managed-redis/api-ref/Cluster/list) request.
-
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -170,25 +137,21 @@ paths:
       x-y-operation-response: Empty
     patch:
       tags:
-        - Cluster
+      - Cluster
       summary: Updates the specified Redis cluster.
       operationId: ClusterUpdate
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Required.
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the Redis cluster to update.
+          To get the Redis cluster ID, use a [list](/docs/managed-redis/api-ref/Cluster/list) request.
 
-            ID of the Redis cluster to update.
-
-            To get the Redis cluster ID, use a
-            [list](/docs/managed-redis/api-ref/Cluster/list) request.
-
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -196,7 +159,7 @@ paths:
               $ref: '#/components/schemas/UpdateClusterRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -209,82 +172,56 @@ paths:
   /managed-redis/v1/clusters:
     get:
       tags:
-        - Cluster
+      - Cluster
       summary: |-
         Retrieves the list of Redis clusters that belong
         to the specified folder.
       operationId: ClusterList
       parameters:
-        - name: folderId
-          in: query
-          description: >-
-            Required.
+      - name: folderId
+        in: query
+        description: |-
+          Required.
+          ID of the folder to list Redis clusters in.
+          To get the folder ID, use a [list](/docs/resource-manager/api-ref/Folder/list) request.
 
-            ID of the folder to list Redis clusters in.
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/managed-redis/api-ref/Cluster/list#query_params), the service returns a [nextPageToken](/docs/managed-redis/api-ref/Cluster/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
 
-            To get the folder ID, use a
-            [list](/docs/resource-manager/api-ref/Folder/list) request.
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/managed-redis/api-ref/Cluster/list#query_params) to the [nextPageToken](/docs/managed-redis/api-ref/Cluster/list#responses)
+          returned by a previous list request.
 
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          A filter expression that filters clusters listed in the response.
+          The expression must specify:
+          1. The field name. Currently you can only use filtering with the [Cluster.name](/docs/managed-redis/api-ref/Cluster#representation) field.
+          2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
+          3. The value. Must be 3-63 characters long and match the regular expression `^[a-z]([-a-z0-9]{,61}[a-z0-9])?$`.
 
-            The maximum string length in characters is 50.
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            The maximum number of results per page to return. If the number of
-            available
-
-            results is larger than
-            [pageSize](/docs/managed-redis/api-ref/Cluster/list#query_params),
-            the service returns a
-            [nextPageToken](/docs/managed-redis/api-ref/Cluster/list#responses)
-
-            that can be used to get the next page of results in subsequent list
-            requests.
-
-
-            Acceptable values are 0 to 1000, inclusive.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Page token. To get the next page of results, set
-            [pageToken](/docs/managed-redis/api-ref/Cluster/list#query_params)
-            to the
-            [nextPageToken](/docs/managed-redis/api-ref/Cluster/list#responses)
-
-            returned by a previous list request.
-
-
-            The maximum string length in characters is 100.
-          schema:
-            type: string
-        - name: filter
-          in: query
-          description: >-
-            A filter expression that filters clusters listed in the response.
-
-            The expression must specify:
-
-            1. The field name. Currently you can only use filtering with the
-            [Cluster.name](/docs/managed-redis/api-ref/Cluster#representation)
-            field.
-
-            2. An operator. Can be either `=` or `!=` for single values, `IN` or
-            `NOT IN` for lists of values.
-
-            3. The value. Мust be 3-63 characters long and match the regular
-            expression `^[a-z]([-a-z0-9]{,61}[a-z0-9])?$`.
-
-
-            The maximum string length in characters is 1000.
-          schema:
-            type: string
+          The maximum string length in characters is 1000.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -293,7 +230,7 @@ paths:
       x-y-navtitle: list
     post:
       tags:
-        - Cluster
+      - Cluster
       summary: Creates a Redis cluster in the specified folder.
       operationId: ClusterCreate
       requestBody:
@@ -303,7 +240,7 @@ paths:
               $ref: '#/components/schemas/CreateClusterRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -316,22 +253,22 @@ paths:
   /managed-redis/v1/clusters/{clusterId}:start:
     post:
       tags:
-        - Cluster
+      - Cluster
       summary: Start the specified Redis cluster.
       operationId: ClusterStart
       parameters:
-        - name: clusterId
-          in: path
-          description: |-
-            Required.
-            ID of the Redis cluster to start.
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the Redis cluster to start.
 
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -344,22 +281,22 @@ paths:
   /managed-redis/v1/clusters/{clusterId}:stop:
     post:
       tags:
-        - Cluster
+      - Cluster
       summary: Stop the specified Redis cluster.
       operationId: ClusterStop
       parameters:
-        - name: clusterId
-          in: path
-          description: |-
-            Required.
-            ID of the Redis cluster to stop.
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the Redis cluster to stop.
 
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -372,20 +309,20 @@ paths:
   /managed-redis/v1/clusters/{clusterId}:move:
     post:
       tags:
-        - Cluster
+      - Cluster
       summary: Moves a Redis cluster to the specified folder.
       operationId: ClusterMove
       parameters:
-        - name: clusterId
-          in: path
-          description: |-
-            Required.
-            ID of the Redis cluster to move.
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the Redis cluster to move.
 
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -393,7 +330,7 @@ paths:
               $ref: '#/components/schemas/MoveClusterRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -406,27 +343,23 @@ paths:
   /managed-redis/v1/clusters/{clusterId}:backup:
     post:
       tags:
-        - Cluster
+      - Cluster
       summary: Creates a backup for the specified Redis cluster.
       operationId: ClusterBackup
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Required.
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the Redis cluster to back up.
+          To get the Redis cluster ID, use a [list](/docs/managed-redis/api-ref/Cluster/list) request.
 
-            ID of the Redis cluster to back up.
-
-            To get the Redis cluster ID, use a
-            [list](/docs/managed-redis/api-ref/Cluster/list) request.
-
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -439,7 +372,7 @@ paths:
   /managed-redis/v1/clusters:restore:
     post:
       tags:
-        - Cluster
+      - Cluster
       summary: Creates a new Redis cluster using the specified backup.
       operationId: ClusterRestore
       requestBody:
@@ -449,7 +382,7 @@ paths:
               $ref: '#/components/schemas/RestoreClusterRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -462,20 +395,20 @@ paths:
   /managed-redis/v1/clusters/{clusterId}:rescheduleMaintenance:
     post:
       tags:
-        - Cluster
-      summary: Reschedule planned maintenance operation.
+      - Cluster
+      summary: Reschedules planned maintenance operation.
       operationId: ClusterRescheduleMaintenance
       parameters:
-        - name: clusterId
-          in: path
-          description: |-
-            Required.
-            Required. ID of the Redis cluster to maintenance reschedule.
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the Redis cluster to reschedule the maintenance operation for.
 
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -483,7 +416,7 @@ paths:
               $ref: '#/components/schemas/RescheduleMaintenanceRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -496,22 +429,22 @@ paths:
   /managed-redis/v1/clusters/{clusterId}:startFailover:
     post:
       tags:
-        - Cluster
+      - Cluster
       summary: Start a manual failover on the specified Redis cluster.
       operationId: ClusterStartFailover
       parameters:
-        - name: clusterId
-          in: path
-          description: |-
-            Required.
-            ID of the Redis cluster to start failover on.
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the Redis cluster to start failover on.
 
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -524,97 +457,74 @@ paths:
   /managed-redis/v1/clusters/{clusterId}:logs:
     get:
       tags:
-        - Cluster
+      - Cluster
       summary: Retrieves logs for the specified Redis cluster.
       operationId: ClusterListLogs
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Required.
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the Redis cluster to request logs for.
+          To get the Redis cluster ID use a [list](/docs/managed-redis/api-ref/Cluster/list) request.
 
-            ID of the Redis cluster to request logs for.
-
-            To get the Redis cluster ID use a
-            [list](/docs/managed-redis/api-ref/Cluster/list) request.
-
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: columnFilter
+        in: query
+        description: |-
+          Columns from the logs table to request.
+          If no columns are specified, entire log records are returned.
+        schema:
+          type: array
+          items:
             type: string
-        - name: columnFilter
-          in: query
-          description: |-
-            Columns from the logs table to request.
-            If no columns are specified, entire log records are returned.
-          schema:
-            type: array
-            items:
-              type: string
-        - name: serviceType
-          in: query
-          schema:
-            $ref: '#/components/schemas/ListClusterLogsRequestServiceType'
-        - name: fromTime
-          in: query
-          description: >-
-            Start timestamp for the logs request, in
-            [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+      - name: serviceType
+        in: query
+        schema:
+          $ref: '#/components/schemas/ListClusterLogsRequestServiceType'
+      - name: fromTime
+        in: query
+        description: |-
+          Start timestamp for the logs request, in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
 
+          String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+        schema:
+          type: string
+          format: date-time
+      - name: toTime
+        in: query
+        description: |-
+          End timestamp for the logs request, in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
 
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-            format.
-          schema:
-            type: string
-            format: date-time
-        - name: toTime
-          in: query
-          description: >-
-            End timestamp for the logs request, in
-            [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+        schema:
+          type: string
+          format: date-time
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/managed-redis/api-ref/Cluster/listLogs#query_params), the service returns a [nextPageToken](/docs/managed-redis/api-ref/Cluster/listLogs#responses)
+          that can be used to get the next page of results in subsequent list requests.
 
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/managed-redis/api-ref/Cluster/listLogs#query_params) to the
+          [nextPageToken](/docs/managed-redis/api-ref/Cluster/listLogs#responses) returned by a previous list request.
 
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-            format.
-          schema:
-            type: string
-            format: date-time
-        - name: pageSize
-          in: query
-          description: >-
-            The maximum number of results per page to return. If the number of
-            available
-
-            results is larger than
-            [pageSize](/docs/managed-redis/api-ref/Cluster/listLogs#query_params),
-            the service returns a
-            [nextPageToken](/docs/managed-redis/api-ref/Cluster/listLogs#responses)
-
-            that can be used to get the next page of results in subsequent list
-            requests.
-
-
-            Acceptable values are 0 to 1000, inclusive.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Page token. To get the next page of results, set
-            [pageToken](/docs/managed-redis/api-ref/Cluster/listLogs#query_params)
-            to the
-
-            [nextPageToken](/docs/managed-redis/api-ref/Cluster/listLogs#responses)
-            returned by a previous list request.
-
-
-            The maximum string length in characters is 100.
-          schema:
-            type: string
+          The maximum string length in characters is 100.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -624,96 +534,76 @@ paths:
   /managed-redis/v1/clusters/{clusterId}:stream_logs:
     get:
       tags:
-        - Cluster
-      summary: >-
-        Same as ListLogs but using server-side streaming. Also allows for 'tail
+      - Cluster
+      summary: Same as ListLogs but using server-side streaming. Also allows for 'tail
         -f' semantics.
       operationId: ClusterStreamLogs
       parameters:
-        - name: clusterId
-          in: path
-          description: |-
-            Required.
-            Required. ID of the Redis cluster.
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          Required. ID of the Redis cluster.
 
-            The maximum string length in characters is 50.
-          required: true
-          schema:
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: columnFilter
+        in: query
+        description: Columns from logs table to get in the response.
+        schema:
+          type: array
+          items:
             type: string
-        - name: columnFilter
-          in: query
-          description: Columns from logs table to get in the response.
-          schema:
-            type: array
-            items:
-              type: string
-        - name: serviceType
-          in: query
-          schema:
-            $ref: '#/components/schemas/StreamClusterLogsRequestServiceType'
-        - name: fromTime
-          in: query
-          description: >-
-            Start timestamp for the logs request.
+      - name: serviceType
+        in: query
+        schema:
+          $ref: '#/components/schemas/StreamClusterLogsRequestServiceType'
+      - name: fromTime
+        in: query
+        description: |-
+          Start timestamp for the logs request.
 
+          String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+        schema:
+          type: string
+          format: date-time
+      - name: toTime
+        in: query
+        description: |-
+          End timestamp for the logs request.
+          If this field is not set, all existing logs will be sent and then the new ones as
+          they appear. In essence it has 'tail -f' semantics.
 
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-            format.
-          schema:
-            type: string
-            format: date-time
-        - name: toTime
-          in: query
-          description: >-
-            End timestamp for the logs request.
+          String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+        schema:
+          type: string
+          format: date-time
+      - name: recordToken
+        in: query
+        description: |-
+          Record token. Set `record_token` to the `next_record_token` returned by a previous StreamLogs
+          request to start streaming from next log record.
 
-            If this field is not set, all existing logs will be sent and then
-            the new ones as
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          A filter expression that filters resources listed in the response.
+          The expression must specify:
+          1. The field name. Currently filtering can be applied to the [LogRecord.logs.hostname] field
+          2. A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
+          3. The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.
+          Examples of a filter `message.hostname='node1.db.cloud.yandex.net'`.
 
-            they appear. In essence it has 'tail -f' semantics.
-
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-            format.
-          schema:
-            type: string
-            format: date-time
-        - name: recordToken
-          in: query
-          description: >-
-            Record token. Set `record_token` to the `next_record_token` returned
-            by a previous StreamLogs
-
-            request to start streaming from next log record.
-
-
-            The maximum string length in characters is 100.
-          schema:
-            type: string
-        - name: filter
-          in: query
-          description: >-
-            A filter expression that filters resources listed in the response.
-
-            The expression must specify:
-
-            1. The field name. Currently filtering can be applied to the
-            [LogRecord.logs.hostname] field
-
-            2. A conditional operator. Can be either `=` or `!=` for single
-            values, `IN` or `NOT IN` for lists of values.
-
-            3. The value. Must be 3-63 characters long and match the regular
-            expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.
-
-            Examples of a filter `message.hostname='node1.db.cloud.yandex.net'`.
-
-
-            The maximum string length in characters is 1000.
-          schema:
-            type: string
+          The maximum string length in characters is 1000.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -723,55 +613,42 @@ paths:
   /managed-redis/v1/clusters/{clusterId}/operations:
     get:
       tags:
-        - Cluster
+      - Cluster
       summary: Retrieves the list of operations for the specified cluster.
       operationId: ClusterListOperations
       parameters:
-        - name: clusterId
-          in: path
-          description: |-
-            Required.
-            ID of the Redis cluster to list operations for.
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the Redis cluster to list operations for.
 
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            The maximum number of results per page to return. If the number of
-            available
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/managed-redis/api-ref/Cluster/listOperations#query_params), the service returns a [nextPageToken](/docs/managed-redis/api-ref/Cluster/listOperations#responses)
+          that can be used to get the next page of results in subsequent list requests.
 
-            results is larger than
-            [pageSize](/docs/managed-redis/api-ref/Cluster/listOperations#query_params),
-            the service returns a
-            [nextPageToken](/docs/managed-redis/api-ref/Cluster/listOperations#responses)
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token.  To get the next page of results, set [pageToken](/docs/managed-redis/api-ref/Cluster/listOperations#query_params) to the [nextPageToken](/docs/managed-redis/api-ref/Cluster/listOperations#responses)
+          returned by a previous list request.
 
-            that can be used to get the next page of results in subsequent list
-            requests.
-
-
-            Acceptable values are 0 to 1000, inclusive.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Page token.  To get the next page of results, set
-            [pageToken](/docs/managed-redis/api-ref/Cluster/listOperations#query_params)
-            to the
-            [nextPageToken](/docs/managed-redis/api-ref/Cluster/listOperations#responses)
-
-            returned by a previous list request.
-
-
-            The maximum string length in characters is 100.
-          schema:
-            type: string
+          The maximum string length in characters is 100.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -781,60 +658,43 @@ paths:
   /managed-redis/v1/clusters/{clusterId}/backups:
     get:
       tags:
-        - Cluster
+      - Cluster
       summary: Retrieves the list of available backups for the specified Redis cluster.
       operationId: ClusterListBackups
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Required.
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the Redis cluster.
+          To get the Redis cluster ID use a [list](/docs/managed-redis/api-ref/Cluster/list) request.
 
-            ID of the Redis cluster.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/managed-redis/api-ref/Cluster/listBackups#query_params), the service returns a [nextPageToken](/docs/managed-redis/api-ref/Cluster/listBackups#responses)
+          that can be used to get the next page of results in subsequent list requests.
 
-            To get the Redis cluster ID use a
-            [list](/docs/managed-redis/api-ref/Cluster/list) request.
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token.  To get the next page of results, set [pageToken](/docs/managed-redis/api-ref/Cluster/listBackups#query_params) to the [nextPageToken](/docs/managed-redis/api-ref/Cluster/listBackups#responses)
+          returned by a previous list request.
 
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            The maximum number of results per page to return. If the number of
-            available
-
-            results is larger than
-            [pageSize](/docs/managed-redis/api-ref/Cluster/listBackups#query_params),
-            the service returns a
-            [nextPageToken](/docs/managed-redis/api-ref/Cluster/listBackups#responses)
-
-            that can be used to get the next page of results in subsequent list
-            requests.
-
-
-            Acceptable values are 0 to 1000, inclusive.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Page token.  To get the next page of results, set
-            [pageToken](/docs/managed-redis/api-ref/Cluster/listBackups#query_params)
-            to the
-            [nextPageToken](/docs/managed-redis/api-ref/Cluster/listBackups#responses)
-
-            returned by a previous list request.
-
-
-            The maximum string length in characters is 100.
-          schema:
-            type: string
+          The maximum string length in characters is 100.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -844,60 +704,43 @@ paths:
   /managed-redis/v1/clusters/{clusterId}/hosts:
     get:
       tags:
-        - Cluster
+      - Cluster
       summary: Retrieves a list of hosts for the specified cluster.
       operationId: ClusterListHosts
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Required.
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the Redis cluster.
+          To get the Redis cluster ID use a [list](/docs/managed-redis/api-ref/Cluster/list) request.
 
-            ID of the Redis cluster.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/managed-redis/api-ref/Cluster/listHosts#query_params), the service returns a [nextPageToken](/docs/managed-redis/api-ref/Cluster/listHosts#responses)
+          that can be used to get the next page of results in subsequent list requests.
 
-            To get the Redis cluster ID use a
-            [list](/docs/managed-redis/api-ref/Cluster/list) request.
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token.  To get the next page of results, set [pageToken](/docs/managed-redis/api-ref/Cluster/listHosts#query_params) to the [nextPageToken](/docs/managed-redis/api-ref/Cluster/listHosts#responses)
+          returned by a previous list request.
 
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            The maximum number of results per page to return. If the number of
-            available
-
-            results is larger than
-            [pageSize](/docs/managed-redis/api-ref/Cluster/listHosts#query_params),
-            the service returns a
-            [nextPageToken](/docs/managed-redis/api-ref/Cluster/listHosts#responses)
-
-            that can be used to get the next page of results in subsequent list
-            requests.
-
-
-            Acceptable values are 0 to 1000, inclusive.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Page token.  To get the next page of results, set
-            [pageToken](/docs/managed-redis/api-ref/Cluster/listHosts#query_params)
-            to the
-            [nextPageToken](/docs/managed-redis/api-ref/Cluster/listHosts#responses)
-
-            returned by a previous list request.
-
-
-            The maximum string length in characters is 100.
-          schema:
-            type: string
+          The maximum string length in characters is 100.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -907,25 +750,21 @@ paths:
   /managed-redis/v1/clusters/{clusterId}/hosts:batchCreate:
     post:
       tags:
-        - Cluster
+      - Cluster
       summary: Creates new hosts for a cluster.
       operationId: ClusterAddHosts
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Required.
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the Redis cluster to add hosts to.
+          To get the Redis cluster ID, use a [list](/docs/managed-redis/api-ref/Cluster/list) request.
 
-            ID of the Redis cluster to add hosts to.
-
-            To get the Redis cluster ID, use a
-            [list](/docs/managed-redis/api-ref/Cluster/list) request.
-
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -933,7 +772,7 @@ paths:
               $ref: '#/components/schemas/AddClusterHostsRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -946,25 +785,21 @@ paths:
   /managed-redis/v1/clusters/{clusterId}/hosts:batchDelete:
     post:
       tags:
-        - Cluster
+      - Cluster
       summary: Deletes the specified hosts for a cluster.
       operationId: ClusterDeleteHosts
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Required.
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the Redis cluster to remove hosts from.
+          To get the Redis cluster ID, use a [list](/docs/managed-redis/api-ref/Cluster/list) request.
 
-            ID of the Redis cluster to remove hosts from.
-
-            To get the Redis cluster ID, use a
-            [list](/docs/managed-redis/api-ref/Cluster/list) request.
-
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -972,7 +807,7 @@ paths:
               $ref: '#/components/schemas/DeleteClusterHostsRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -985,45 +820,35 @@ paths:
   /managed-redis/v1/clusters/{clusterId}/shards/{shardName}:
     get:
       tags:
-        - Cluster
+      - Cluster
       summary: Returns the specified shard.
       operationId: ClusterGetShard
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Required.
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the Redis cluster the shard belongs to.
+          To get the cluster ID use a [list](/docs/managed-redis/api-ref/Cluster/list) request.
 
-            ID of the Redis cluster the shard belongs to.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: shardName
+        in: path
+        description: |-
+          Required.
+          Name of Redis shard to return.
+          To get the shard name use a [listShards](/docs/managed-redis/api-ref/Cluster/listShards) request.
 
-            To get the cluster ID use a
-            [list](/docs/managed-redis/api-ref/Cluster/list) request.
-
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
-        - name: shardName
-          in: path
-          description: >-
-            Required.
-
-            Name of Redis shard to return.
-
-            To get the shard name use a
-            [listShards](/docs/managed-redis/api-ref/Cluster/listShards)
-            request.
-
-
-            The maximum string length in characters is 63.
-
-            Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
-          required: true
-          schema:
-            type: string
+          The maximum string length in characters is 63.
+          Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1032,45 +857,35 @@ paths:
       x-y-navtitle: getShard
     delete:
       tags:
-        - Cluster
+      - Cluster
       summary: Deletes the specified shard.
       operationId: ClusterDeleteShard
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Required.
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the Redis cluster the shard belongs to.
+          To get the cluster ID use a [list](/docs/managed-redis/api-ref/Cluster/list) request.
 
-            ID of the Redis cluster the shard belongs to.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: shardName
+        in: path
+        description: |-
+          Required.
+          Name of the Redis shard to delete.
+          To get the shard name use a [listShards](/docs/managed-redis/api-ref/Cluster/listShards) request.
 
-            To get the cluster ID use a
-            [list](/docs/managed-redis/api-ref/Cluster/list) request.
-
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
-        - name: shardName
-          in: path
-          description: >-
-            Required.
-
-            Name of the Redis shard to delete.
-
-            To get the shard name use a
-            [listShards](/docs/managed-redis/api-ref/Cluster/listShards)
-            request.
-
-
-            The maximum string length in characters is 63.
-
-            Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
-          required: true
-          schema:
-            type: string
+          The maximum string length in characters is 63.
+          Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1083,63 +898,45 @@ paths:
   /managed-redis/v1/clusters/{clusterId}/shards:
     get:
       tags:
-        - Cluster
+      - Cluster
       summary: Retrieves a list of shards.
       operationId: ClusterListShards
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Required.
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the Redis cluster to list shards in.
+          To get the cluster ID use a [list](/docs/managed-redis/api-ref/Cluster/list) request.
 
-            ID of the Redis cluster to list shards in.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/managed-redis/api-ref/Cluster/listShards#query_params),
+          the service returns a [nextPageToken](/docs/managed-redis/api-ref/Cluster/listShards#responses)
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
 
-            To get the cluster ID use a
-            [list](/docs/managed-redis/api-ref/Cluster/list) request.
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/managed-redis/api-ref/Cluster/listShards#query_params) to the
+          [nextPageToken](/docs/managed-redis/api-ref/Cluster/listShards#responses) returned by a previous list request.
 
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            The maximum number of results per page to return. If the number of
-            available
-
-            results is larger than
-            [pageSize](/docs/managed-redis/api-ref/Cluster/listShards#query_params),
-
-            the service returns a
-            [nextPageToken](/docs/managed-redis/api-ref/Cluster/listShards#responses)
-
-            that can be used to get the next page of results in subsequent list
-            requests.
-
-            Default value: 100.
-
-
-            The maximum value is 1000.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Page token. To get the next page of results, set
-            [pageToken](/docs/managed-redis/api-ref/Cluster/listShards#query_params)
-            to the
-
-            [nextPageToken](/docs/managed-redis/api-ref/Cluster/listShards#responses)
-            returned by a previous list request.
-
-
-            The maximum string length in characters is 100.
-          schema:
-            type: string
+          The maximum string length in characters is 100.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1148,25 +945,21 @@ paths:
       x-y-navtitle: listShards
     post:
       tags:
-        - Cluster
+      - Cluster
       summary: Creates a new shard.
       operationId: ClusterAddShard
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Required.
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the Redis cluster to create a shard in.
+          To get the cluster ID use a [list](/docs/managed-redis/api-ref/Cluster/list) request.
 
-            ID of the Redis cluster to create a shard in.
-
-            To get the cluster ID use a
-            [list](/docs/managed-redis/api-ref/Cluster/list) request.
-
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -1174,7 +967,7 @@ paths:
               $ref: '#/components/schemas/AddClusterShardRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1187,29 +980,24 @@ paths:
   /managed-redis/v1/clusters/{clusterId}:rebalance:
     post:
       tags:
-        - Cluster
-      summary: >-
-        Rebalances the cluster. Evenly distributes all the hash slots between
+      - Cluster
+      summary: Rebalances the cluster. Evenly distributes all the hash slots between
         the shards.
       operationId: ClusterRebalance
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Required.
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the Redis cluster to rebalance.
+          To get the cluster ID use a [list](/docs/managed-redis/api-ref/Cluster/list) request.
 
-            ID of the Redis cluster to rebalance.
-
-            To get the cluster ID use a
-            [list](/docs/managed-redis/api-ref/Cluster/list) request.
-
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1222,27 +1010,23 @@ paths:
   /managed-redis/v1/resourcePresets/{resourcePresetId}:
     get:
       tags:
-        - ResourcePreset
+      - ResourcePreset
       summary: Returns the specified resource preset.
-      description: >-
-        To get the list of available resource presets, make a
-        [list](/docs/managed-redis/api-ref/ResourcePreset/list) request.
+      description: To get the list of available resource presets, make a [list](/docs/managed-redis/api-ref/ResourcePreset/list)
+        request.
       operationId: ResourcePresetGet
       parameters:
-        - name: resourcePresetId
-          in: path
-          description: >-
-            Required.
-
-            ID of the resource preset to return.
-
-            To get the resource preset ID, use a
-            [list](/docs/managed-redis/api-ref/ResourcePreset/list) request.
-          required: true
-          schema:
-            type: string
+      - name: resourcePresetId
+        in: path
+        description: |-
+          Required.
+          ID of the resource preset to return.
+          To get the resource preset ID, use a [list](/docs/managed-redis/api-ref/ResourcePreset/list) request.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1252,39 +1036,28 @@ paths:
   /managed-redis/v1/resourcePresets:
     get:
       tags:
-        - ResourcePreset
+      - ResourcePreset
       summary: Retrieves the list of available resource presets.
       operationId: ResourcePresetList
       parameters:
-        - name: pageSize
-          in: query
-          description: >-
-            The maximum number of results per page to return. If the number of
-            available
-
-            results is larger than
-            [pageSize](/docs/managed-redis/api-ref/ResourcePreset/list#query_params),
-            the service returns a
-            [nextPageToken](/docs/managed-redis/api-ref/ResourcePreset/list#responses)
-
-            that can be used to get the next page of results in subsequent list
-            requests.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Page token. To get the next page of results, set
-            [pageToken](/docs/managed-redis/api-ref/ResourcePreset/list#query_params)
-            to the
-            [nextPageToken](/docs/managed-redis/api-ref/ResourcePreset/list#responses)
-
-            returned by a previous list request.
-          schema:
-            type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/managed-redis/api-ref/ResourcePreset/list#query_params), the service returns a [nextPageToken](/docs/managed-redis/api-ref/ResourcePreset/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/managed-redis/api-ref/ResourcePreset/list#query_params) to the [nextPageToken](/docs/managed-redis/api-ref/ResourcePreset/list#responses)
+          returned by a previous list request.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1345,14 +1118,10 @@ components:
             Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
           type: string
         hostSpecs:
-          description: >-
+          description: |-
             Required.
-
-            Configurations for Redis hosts that should be created with the
-            shard.
-
+            Configurations for Redis hosts that should be created with the shard.
             Must contain at least one element.
-
 
             Must contain at least one element.
           type: array
@@ -1362,11 +1131,9 @@ components:
       type: object
       properties: {}
     Backup:
-      description: >-
+      description: |-
         Description of a Redis backup. For more information, see
-
-        the Managed Service for Redis
-        [documentation](/docs/managed-redis/concepts/backup).
+        the Managed Service for Redis [documentation](/docs/managed-redis/concepts/backup).
       type: object
       properties:
         id:
@@ -1376,30 +1143,22 @@ components:
           description: ID of the folder that the backup belongs to.
           type: string
         createdAt:
-          description: >-
-            Creation timestamp in
-            [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format
-
+          description: |-
+            Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format
             (i.e. when the backup operation was completed).
 
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-            format.
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
         sourceClusterId:
           description: ID of the Redis cluster that the backup was created for.
           type: string
         startedAt:
-          description: >-
-            Start timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
-            text format
-
+          description: |-
+            Start timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format
             (i.e. when the backup operation was started).
 
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-            format.
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
         sourceShardNames:
@@ -1414,11 +1173,9 @@ components:
           description: ID of the Redis cluster that is being backed up.
           type: string
     Cluster:
-      description: >-
+      description: |-
         Description of a Redis cluster. For more information, see
-
-        the Managed Service for Redis
-        [documentation](/docs/managed-redis/concepts/).
+        the Managed Service for Redis [documentation](/docs/managed-redis/concepts/).
       type: object
       properties:
         id:
@@ -1430,13 +1187,10 @@ components:
           description: ID of the folder that the Redis cluster belongs to.
           type: string
         createdAt:
-          description: >-
-            Creation timestamp in
-            [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          description: |-
+            Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
 
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-            format.
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
         name:
@@ -1476,40 +1230,43 @@ components:
         maintenanceWindow:
           $ref: '#/components/schemas/MaintenanceWindow_in_Cluster_maintenanceWindow'
         plannedOperation:
-          $ref: >-
-            #/components/schemas/MaintenanceOperation_in_Cluster_plannedOperation
+          $ref: '#/components/schemas/MaintenanceOperation_in_Cluster_plannedOperation'
         securityGroupIds:
           description: User security groups
           type: array
           items:
             type: string
+        tlsEnabled:
+          description: TLS port and functionality on\off
+          type: boolean
+          format: boolean
     ClusterConfig:
       type: object
       allOf:
-        - type: object
-          properties:
-            version:
-              description: Version of Redis server software.
-              type: string
-            resources:
-              $ref: '#/components/schemas/Resources'
-              description: Resources allocated to Redis hosts.
-            backupWindowStart:
-              $ref: '#/components/schemas/TimeOfDay'
-              description: Time to start the daily backup, in the UTC timezone.
-            access:
-              $ref: '#/components/schemas/Access'
-              description: Access policy to DB
-        - title: redis_config
-          type: object
-          maxProperties: 1
-          properties:
-            redisConfig_5_0:
-              $ref: '#/components/schemas/RedisConfigSet5_0'
-              description: Configuration of a Redis 5.0 server.
-            redisConfig_6_0:
-              $ref: '#/components/schemas/RedisConfigSet6_0'
-              description: Configuration of a Redis 6.0 server.
+      - type: object
+        properties:
+          version:
+            description: Version of Redis server software.
+            type: string
+          resources:
+            $ref: '#/components/schemas/Resources'
+            description: Resources allocated to Redis hosts.
+          backupWindowStart:
+            $ref: '#/components/schemas/TimeOfDay'
+            description: Time to start the daily backup, in the UTC timezone.
+          access:
+            $ref: '#/components/schemas/Access'
+            description: Access policy to DB
+      - title: redis_config
+        type: object
+        maxProperties: 1
+        properties:
+          redisConfig_5_0:
+            $ref: '#/components/schemas/RedisConfigSet5_0'
+            description: Configuration of a Redis 5.0 server.
+          redisConfig_6_0:
+            $ref: '#/components/schemas/RedisConfigSet6_0'
+            description: Configuration of a Redis 6.0 server.
     ClusterEnvironment:
       description: |2-
          - PRODUCTION: Stable environment with a conservative update policy:
@@ -1518,8 +1275,8 @@ components:
         are rolled out irrespective of backward compatibility.
       type: string
       enum:
-        - PRODUCTION
-        - PRESTABLE
+      - PRODUCTION
+      - PRESTABLE
     ClusterHealth:
       description: |2-
          - HEALTH_UNKNOWN: Cluster is in unknown state (we have no data)
@@ -1528,10 +1285,10 @@ components:
          - DEGRADED: Cluster is partially alive (it can perform some of its essential functions)
       type: string
       enum:
-        - HEALTH_UNKNOWN
-        - ALIVE
-        - DEAD
-        - DEGRADED
+      - HEALTH_UNKNOWN
+      - ALIVE
+      - DEAD
+      - DEGRADED
       default: HEALTH_UNKNOWN
     ClusterStatus:
       description: |2-
@@ -1545,40 +1302,40 @@ components:
          - STARTING: Cluster is starting.
       type: string
       enum:
-        - STATUS_UNKNOWN
-        - CREATING
-        - RUNNING
-        - ERROR
-        - UPDATING
-        - STOPPING
-        - STOPPED
-        - STARTING
+      - STATUS_UNKNOWN
+      - CREATING
+      - RUNNING
+      - ERROR
+      - UPDATING
+      - STOPPING
+      - STOPPED
+      - STARTING
       default: STATUS_UNKNOWN
     ConfigSpec:
       type: object
       allOf:
-        - type: object
-          properties:
-            version:
-              description: Version of Redis used in the cluster.
-              type: string
-            resources:
-              $ref: '#/components/schemas/Resources'
-              description: Resources allocated to Redis hosts.
-            backupWindowStart:
-              $ref: '#/components/schemas/TimeOfDay'
-              description: Time to start the daily backup, in the UTC timezone.
-            access:
-              $ref: '#/components/schemas/Access'
-              description: Access policy to DB
-        - title: redis_spec
-          type: object
-          maxProperties: 1
-          properties:
-            redisConfig_5_0:
-              $ref: '#/components/schemas/RedisConfig5_0'
-            redisConfig_6_0:
-              $ref: '#/components/schemas/RedisConfig6_0'
+      - type: object
+        properties:
+          version:
+            description: Version of Redis used in the cluster.
+            type: string
+          resources:
+            $ref: '#/components/schemas/Resources'
+            description: Resources allocated to Redis hosts.
+          backupWindowStart:
+            $ref: '#/components/schemas/TimeOfDay'
+            description: Time to start the daily backup, in the UTC timezone.
+          access:
+            $ref: '#/components/schemas/Access'
+            description: Access policy to DB
+      - title: redis_spec
+        type: object
+        maxProperties: 1
+        properties:
+          redisConfig_5_0:
+            $ref: '#/components/schemas/RedisConfig5_0'
+          redisConfig_6_0:
+            $ref: '#/components/schemas/RedisConfig6_0'
     CreateClusterMetadata:
       type: object
       properties:
@@ -1596,15 +1353,11 @@ components:
             The maximum string length in characters is 50.
           type: string
         name:
-          description: >-
+          description: |-
             Required.
-
-            Name of the Redis cluster. The name must be unique within the
-            folder.
-
+            Name of the Redis cluster. The name must be unique within the folder.
 
             The maximum string length in characters is 63.
-
             Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
           type: string
         description:
@@ -1614,37 +1367,26 @@ components:
             The maximum string length in characters is 256.
           type: string
         labels:
-          description: >-
-            Custom labels for the Redis cluster as `key:value` pairs. Maximum 64
-            per cluster.
-
+          description: |-
+            Custom labels for the Redis cluster as `key:value` pairs. Maximum 64 per cluster.
             For example, "project": "mvp" or "source": "dictionary".
 
-
             No more than 64 per resource.
-
             The maximum string length in characters for each key is 63.
-
             Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
-
             The maximum string length in characters for each value is 63.
-
             Each value must match the regular expression `` [-_0-9a-z]* ``.
           type: object
           additionalProperties:
             type: string
         environment:
-          $ref: >-
-            #/components/schemas/ClusterEnvironment_in_CreateClusterRequest_environment
+          $ref: '#/components/schemas/ClusterEnvironment_in_CreateClusterRequest_environment'
         configSpec:
           $ref: '#/components/schemas/ConfigSpec_in_CreateClusterRequest_configSpec'
         hostSpecs:
-          description: >-
+          description: |-
             Required.
-
-            Individual configurations for hosts that should be created for the
-            Redis cluster.
-
+            Individual configurations for hosts that should be created for the Redis cluster.
 
             Must contain at least one element.
           type: array
@@ -1666,6 +1408,10 @@ components:
           type: array
           items:
             type: string
+        tlsEnabled:
+          description: TLS port and functionality on\off
+          type: boolean
+          format: boolean
     DeleteClusterHostsMetadata:
       type: object
       properties:
@@ -1710,42 +1456,29 @@ components:
       type: object
       maxProperties: 0
     FieldMask:
-      description: >-
+      description: |-
         A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
 
-        Оnly the specified fields will be changed. The others will be left
-        untouched.
-
-        If the field is specified in `` updateMask `` and no value for that
-        field was sent in the request,
-
-        the field's value will be reset to the default. The default value for
-        most fields is null or 0.
-
-
-        If `` updateMask `` is not sent in the request, all fields' values will
-        be updated.
-
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
         Fields specified in the request will be updated to provided values.
-
         The rest of the fields will be reset to the default.
       type: string
     Host:
       type: object
       properties:
         name:
-          description: >-
-            Name of the Redis host. The host name is assigned by MDB at creation
-            time, and cannot be changed.
-
+          description: |-
+            Name of the Redis host. The host name is assigned by MDB at creation time, and cannot be changed.
             1-63 characters long.
 
-
-            The name is unique across all existing MDB hosts in Yandex.Cloud, as
-            it defines the FQDN of the host.
+            The name is unique across all existing MDB hosts in Yandex.Cloud, as it defines the FQDN of the host.
           type: string
         clusterId:
-          description: ID of the Redis cluster. The ID is assigned by MDB at creation time.
+          description: ID of the Redis cluster. The ID is assigned by MDB at creation
+            time.
           type: string
         zoneId:
           description: ID of the availability zone where the Redis host resides.
@@ -1774,10 +1507,10 @@ components:
          - DEGRADED: The host is degraded, and can perform only some of its essential functions.
       type: string
       enum:
-        - HEALTH_UNKNOWN
-        - ALIVE
-        - DEAD
-        - DEGRADED
+      - HEALTH_UNKNOWN
+      - ALIVE
+      - DEAD
+      - DEGRADED
       default: HEALTH_UNKNOWN
     HostRole:
       description: |2-
@@ -1786,41 +1519,30 @@ components:
          - REPLICA: Host is a replica (standby) Redis server in the cluster.
       type: string
       enum:
-        - ROLE_UNKNOWN
-        - MASTER
-        - REPLICA
+      - ROLE_UNKNOWN
+      - MASTER
+      - REPLICA
       default: ROLE_UNKNOWN
     HostSpec:
       type: object
       properties:
         zoneId:
-          description: >-
+          description: |-
             ID of the availability zone where the host resides.
-
-            To get a list of available zones, use the
-            [list](/docs/compute/api-ref/Zone/list) request.
+            To get a list of available zones, use the [list](/docs/compute/api-ref/Zone/list) request.
           type: string
         subnetId:
-          description: >-
-            ID of the subnet that the host should belong to. This subnet should
-            be a part
-
+          description: |-
+            ID of the subnet that the host should belong to. This subnet should be a part
             of the network that the cluster belongs to.
-
-            The ID of the network is set in the field
-            [Cluster.networkId](/docs/managed-redis/api-ref/Cluster#representation).
+            The ID of the network is set in the field [Cluster.networkId](/docs/managed-redis/api-ref/Cluster#representation).
           type: string
         shardName:
-          description: >-
+          description: |-
             ID of the Redis shard the host belongs to.
-
-            To get the shard ID use a
-            [listShards](/docs/managed-redis/api-ref/Cluster/listShards)
-            request.
-
+            To get the shard ID use a [listShards](/docs/managed-redis/api-ref/Cluster/listShards) request.
 
             The maximum string length in characters is 63.
-
             Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
           type: string
     ListBackupsResponse:
@@ -1832,23 +1554,11 @@ components:
           items:
             $ref: '#/components/schemas/Backup'
         nextPageToken:
-          description: >-
-            This token allows you to get the next page of results for list
-            requests. If the number of results
-
-            is larger than
-            [pageSize](/docs/managed-redis/api-ref/Backup/list#query_params),
-            use the
-            [nextPageToken](/docs/managed-redis/api-ref/Backup/list#responses)
-            as the value
-
-            for the
-            [pageToken](/docs/managed-redis/api-ref/Backup/list#query_params)
-            parameter in the next list request. Each subsequent
-
-            list request will have its own
-            [nextPageToken](/docs/managed-redis/api-ref/Backup/list#responses)
-            to continue paging through the results.
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/managed-redis/api-ref/Backup/list#query_params), use the [nextPageToken](/docs/managed-redis/api-ref/Backup/list#responses) as the value
+            for the [pageToken](/docs/managed-redis/api-ref/Backup/list#query_params) parameter in the next list request. Each subsequent
+            list request will have its own [nextPageToken](/docs/managed-redis/api-ref/Backup/list#responses) to continue paging through the results.
           type: string
     ListClusterBackupsResponse:
       type: object
@@ -1859,23 +1569,11 @@ components:
           items:
             $ref: '#/components/schemas/Backup'
         nextPageToken:
-          description: >-
-            This token allows you to get the next page of results for list
-            requests. If the number of results
-
-            is larger than
-            [pageSize](/docs/managed-redis/api-ref/Cluster/listBackups#query_params),
-            use the
-            [nextPageToken](/docs/managed-redis/api-ref/Cluster/listBackups#responses)
-            as the value
-
-            for the
-            [pageToken](/docs/managed-redis/api-ref/Cluster/listBackups#query_params)
-            query parameter in the next list request.
-
-            Each subsequent list request will have its own
-            [nextPageToken](/docs/managed-redis/api-ref/Cluster/listBackups#responses)
-            to continue paging through the results.
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/managed-redis/api-ref/Cluster/listBackups#query_params), use the [nextPageToken](/docs/managed-redis/api-ref/Cluster/listBackups#responses) as the value
+            for the [pageToken](/docs/managed-redis/api-ref/Cluster/listBackups#query_params) query parameter in the next list request.
+            Each subsequent list request will have its own [nextPageToken](/docs/managed-redis/api-ref/Cluster/listBackups#responses) to continue paging through the results.
           type: string
     ListClusterHostsResponse:
       type: object
@@ -1886,29 +1584,17 @@ components:
           items:
             $ref: '#/components/schemas/Host'
         nextPageToken:
-          description: >-
-            This token allows you to get the next page of results for list
-            requests. If the number of results
-
-            is larger than
-            [pageSize](/docs/managed-redis/api-ref/Cluster/listHosts#query_params),
-            use the
-            [nextPageToken](/docs/managed-redis/api-ref/Cluster/listHosts#responses)
-            as the value
-
-            for the
-            [pageToken](/docs/managed-redis/api-ref/Cluster/listHosts#query_params)
-            query parameter in the next list request.
-
-            Each subsequent list request will have its own
-            [nextPageToken](/docs/managed-redis/api-ref/Cluster/listHosts#responses)
-            to continue paging through the results.
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/managed-redis/api-ref/Cluster/listHosts#query_params), use the [nextPageToken](/docs/managed-redis/api-ref/Cluster/listHosts#responses) as the value
+            for the [pageToken](/docs/managed-redis/api-ref/Cluster/listHosts#query_params) query parameter in the next list request.
+            Each subsequent list request will have its own [nextPageToken](/docs/managed-redis/api-ref/Cluster/listHosts#responses) to continue paging through the results.
           type: string
     ListClusterLogsRequestServiceType:
       description: ' - REDIS: Logs of Redis activity.'
       type: string
       enum:
-        - REDIS
+      - REDIS
     ListClusterLogsResponse:
       type: object
       properties:
@@ -1918,26 +1604,12 @@ components:
           items:
             $ref: '#/components/schemas/LogRecord'
         nextPageToken:
-          description: >-
-            This token allows you to get the next page of results for list
-            requests. If the number of results
-
-            is larger than
-            [pageSize](/docs/managed-redis/api-ref/Cluster/listLogs#query_params),
-            use the
-            [nextPageToken](/docs/managed-redis/api-ref/Cluster/listLogs#responses)
-            as the value
-
-            for the
-            [pageToken](/docs/managed-redis/api-ref/Cluster/listLogs#query_params)
-            query parameter in the next list request.
-
-            Each subsequent list request will have its own
-            [nextPageToken](/docs/managed-redis/api-ref/Cluster/listLogs#responses)
-            to continue paging through the results.
-
-            This value is interchangeable with `next_record_token` from
-            StreamLogs method.
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/managed-redis/api-ref/Cluster/listLogs#query_params), use the [nextPageToken](/docs/managed-redis/api-ref/Cluster/listLogs#responses) as the value
+            for the [pageToken](/docs/managed-redis/api-ref/Cluster/listLogs#query_params) query parameter in the next list request.
+            Each subsequent list request will have its own [nextPageToken](/docs/managed-redis/api-ref/Cluster/listLogs#responses) to continue paging through the results.
+            This value is interchangeable with `next_record_token` from StreamLogs method.
           type: string
     ListClusterOperationsResponse:
       type: object
@@ -1948,23 +1620,11 @@ components:
           items:
             $ref: '#/components/schemas/Operation'
         nextPageToken:
-          description: >-
-            This token allows you to get the next page of results for list
-            requests. If the number of results
-
-            is larger than
-            [pageSize](/docs/managed-redis/api-ref/Cluster/listOperations#query_params),
-            use the
-            [nextPageToken](/docs/managed-redis/api-ref/Cluster/listOperations#responses)
-            as the value
-
-            for the
-            [pageToken](/docs/managed-redis/api-ref/Cluster/listOperations#query_params)
-            query parameter in the next list request.
-
-            Each subsequent list request will have its own
-            [nextPageToken](/docs/managed-redis/api-ref/Cluster/listOperations#responses)
-            to continue paging through the results.
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/managed-redis/api-ref/Cluster/listOperations#query_params), use the [nextPageToken](/docs/managed-redis/api-ref/Cluster/listOperations#responses) as the value
+            for the [pageToken](/docs/managed-redis/api-ref/Cluster/listOperations#query_params) query parameter in the next list request.
+            Each subsequent list request will have its own [nextPageToken](/docs/managed-redis/api-ref/Cluster/listOperations#responses) to continue paging through the results.
           type: string
     ListClusterShardsResponse:
       type: object
@@ -1975,27 +1635,13 @@ components:
           items:
             $ref: '#/components/schemas/Shard'
         nextPageToken:
-          description: >-
-            This token allows you to get the next page of results for list
-            requests. If the number of results
-
-            is larger than
-            [pageSize](/docs/managed-redis/api-ref/Cluster/listShards#query_params),
-            use
-
-            the
-            [nextPageToken](/docs/managed-redis/api-ref/Cluster/listShards#responses)
-            as the value
-
-            for the
-            [pageToken](/docs/managed-redis/api-ref/Cluster/listShards#query_params)
-            query parameter
-
-            in the next list request. Each subsequent list request will have its
-            own
-
-            [nextPageToken](/docs/managed-redis/api-ref/Cluster/listShards#responses)
-            to continue paging through the results.
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/managed-redis/api-ref/Cluster/listShards#query_params), use
+            the [nextPageToken](/docs/managed-redis/api-ref/Cluster/listShards#responses) as the value
+            for the [pageToken](/docs/managed-redis/api-ref/Cluster/listShards#query_params) query parameter
+            in the next list request. Each subsequent list request will have its own
+            [nextPageToken](/docs/managed-redis/api-ref/Cluster/listShards#responses) to continue paging through the results.
           type: string
     ListClustersResponse:
       type: object
@@ -2006,23 +1652,11 @@ components:
           items:
             $ref: '#/components/schemas/Cluster'
         nextPageToken:
-          description: >-
-            This token allows you to get the next page of results for list
-            requests. If the number of results
-
-            is larger than
-            [pageSize](/docs/managed-redis/api-ref/Cluster/list#query_params),
-            use the
-            [nextPageToken](/docs/managed-redis/api-ref/Cluster/list#responses)
-            as the value
-
-            for the
-            [pageToken](/docs/managed-redis/api-ref/Cluster/list#query_params)
-            parameter in the next list request. Each subsequent
-
-            list request will have its own
-            [nextPageToken](/docs/managed-redis/api-ref/Cluster/list#responses)
-            to continue paging through the results.
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/managed-redis/api-ref/Cluster/list#query_params), use the [nextPageToken](/docs/managed-redis/api-ref/Cluster/list#responses) as the value
+            for the [pageToken](/docs/managed-redis/api-ref/Cluster/list#query_params) parameter in the next list request. Each subsequent
+            list request will have its own [nextPageToken](/docs/managed-redis/api-ref/Cluster/list#responses) to continue paging through the results.
           type: string
     ListResourcePresetsResponse:
       type: object
@@ -2033,35 +1667,20 @@ components:
           items:
             $ref: '#/components/schemas/ResourcePreset'
         nextPageToken:
-          description: >-
-            This token allows you to get the next page of results for list
-            requests. If the number of results
-
-            is larger than
-            [pageSize](/docs/managed-redis/api-ref/ResourcePreset/list#query_params),
-            use the
-            [nextPageToken](/docs/managed-redis/api-ref/ResourcePreset/list#responses)
-            as the value
-
-            for the
-            [pageToken](/docs/managed-redis/api-ref/ResourcePreset/list#query_params)
-            parameter in the next list request. Each subsequent
-
-            list request will have its own
-            [nextPageToken](/docs/managed-redis/api-ref/ResourcePreset/list#responses)
-            to continue paging through the results.
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/managed-redis/api-ref/ResourcePreset/list#query_params), use the [nextPageToken](/docs/managed-redis/api-ref/ResourcePreset/list#responses) as the value
+            for the [pageToken](/docs/managed-redis/api-ref/ResourcePreset/list#query_params) parameter in the next list request. Each subsequent
+            list request will have its own [nextPageToken](/docs/managed-redis/api-ref/ResourcePreset/list#responses) to continue paging through the results.
           type: string
     LogRecord:
       type: object
       properties:
         timestamp:
-          description: >-
-            Log record timestamp in
-            [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          description: |-
+            Log record timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
 
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-            format.
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
         message:
@@ -2070,28 +1689,36 @@ components:
           additionalProperties:
             type: string
     MaintenanceOperation:
+      description: A planned maintenance operation.
       type: object
       properties:
         info:
-          description: The maximum string length in characters is 256.
+          description: |-
+            Information about this maintenance operation.
+
+            The maximum string length in characters is 256.
           type: string
         delayedUntil:
-          description: >-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-            format.
+          description: |-
+            Time until which this maintenance operation is delayed.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
     MaintenanceWindow:
+      description: A maintenance window settings.
       type: object
       allOf:
-        - title: policy
-          type: object
-          maxProperties: 1
-          properties:
-            anytime:
-              $ref: '#/components/schemas/AnytimeMaintenanceWindow'
-            weeklyMaintenanceWindow:
-              $ref: '#/components/schemas/WeeklyMaintenanceWindow'
+      - title: policy
+        type: object
+        maxProperties: 1
+        properties:
+          anytime:
+            $ref: '#/components/schemas/AnytimeMaintenanceWindow'
+            description: Maintenance operation can be scheduled anytime.
+          weeklyMaintenanceWindow:
+            $ref: '#/components/schemas/WeeklyMaintenanceWindow'
+            description: Maintenance operation can be scheduled on a weekly basis.
     Monitoring:
       type: object
       properties:
@@ -2127,85 +1754,62 @@ components:
             The maximum string length in characters is 50.
           type: string
     Operation:
-      description: >-
-        An Operation resource. For more information, see
-        [Operation](/docs/api-design-guide/concepts/operation).
+      description: An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
       type: object
       allOf:
-        - type: object
-          properties:
-            id:
-              description: ID of the operation.
-              type: string
-            description:
-              description: Description of the operation. 0-256 characters long.
-              type: string
-            createdAt:
-              description: >-
-                Creation timestamp.
+      - type: object
+        properties:
+          id:
+            description: ID of the operation.
+            type: string
+          description:
+            description: Description of the operation. 0-256 characters long.
+            type: string
+          createdAt:
+            description: |-
+              Creation timestamp.
 
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          createdBy:
+            description: ID of the user or service account who initiated the operation.
+            type: string
+          modifiedAt:
+            description: |-
+              The time when the Operation resource was last modified.
 
-                String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-                format.
-              type: string
-              format: date-time
-            createdBy:
-              description: ID of the user or service account who initiated the operation.
-              type: string
-            modifiedAt:
-              description: >-
-                The time when the Operation resource was last modified.
-
-
-                String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-                format.
-              type: string
-              format: date-time
-            done:
-              description: >-
-                If the value is `false`, it means the operation is still in
-                progress.
-
-                If `true`, the operation is completed, and either `error` or
-                `response` is available.
-              type: boolean
-              format: boolean
-            metadata:
-              description: >-
-                Service-specific metadata associated with the operation.
-
-                It typically contains the ID of the target resource that the
-                operation is performed on.
-
-                Any method that returns a long-running operation should document
-                the metadata type, if any.
-              type: object
-        - title: result
-          type: object
-          maxProperties: 1
-          properties:
-            error:
-              $ref: '#/components/schemas/rpcStatus'
-              description: >-
-                The error result of the operation in case of failure or
-                cancellation.
-            response:
-              description: >-
-                The normal response of the operation in case of success.
-
-                If the original method returns no data on success, such as
-                Delete,
-
-                the response is
-                [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty).
-
-                If the original method is the standard Create/Update,
-
-                the response should be the target resource of the operation.
-
-                Any method that returns a long-running operation should document
-                the response type, if any.
-              type: object
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          done:
+            description: |-
+              If the value is `false`, it means the operation is still in progress.
+              If `true`, the operation is completed, and either `error` or `response` is available.
+            type: boolean
+            format: boolean
+          metadata:
+            description: |-
+              Service-specific metadata associated with the operation.
+              It typically contains the ID of the target resource that the operation is performed on.
+              Any method that returns a long-running operation should document the metadata type, if any.
+            type: object
+      - title: result
+        type: object
+        maxProperties: 1
+        properties:
+          error:
+            $ref: '#/components/schemas/rpcStatus'
+            description: The error result of the operation in case of failure or cancellation.
+          response:
+            description: |-
+              The normal response of the operation in case of success.
+              If the original method returns no data on success, such as Delete,
+              the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty).
+              If the original method is the standard Create/Update,
+              the response should be the target resource of the operation.
+              Any method that returns a long-running operation should document the response type, if any.
+            type: object
     RebalanceClusterMetadata:
       type: object
       properties:
@@ -2219,23 +1823,45 @@ components:
       type: object
       properties:
         maxmemoryPolicy:
-          $ref: >-
-            #/components/schemas/RedisConfig5_0MaxmemoryPolicy_in_RedisConfig5_0_maxmemoryPolicy
+          $ref: '#/components/schemas/RedisConfig5_0MaxmemoryPolicy_in_RedisConfig5_0_maxmemoryPolicy'
         timeout:
-          description: >-
+          description: |-
             Time that Redis keeps the connection open while the client is idle.
-
-            If no new command is sent during that time, the connection is
-            closed.
+            If no new command is sent during that time, the connection is closed.
           type: integer
           format: int64
         password:
-          description: >-
+          description: |-
             Authentication password.
 
+            Value must match the regular expression `` [a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128} ``.
+          type: string
+        databases:
+          description: |-
+            Number of database buckets on a single redis-server process.
 
-            Value must match the regular expression ``
-            [a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128} ``.
+            Value must be greater than 0.
+          type: integer
+          format: int64
+        slowlogLogSlowerThan:
+          description: |-
+            Threshold for logging slow requests to server in microseconds (log only slower than it).
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        slowlogMaxLen:
+          description: |-
+            Max slow requests number to log.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        notifyKeyspaceEvents:
+          description: |-
+            String setting for pub\sub functionality; subset of KEg$lshzxeAt.
+
+            Value must match the regular expression `` [KEg$lshzxeAt]{0,12} ``.
           type: string
     RedisConfig5_0MaxmemoryPolicy:
       description: |2-
@@ -2251,14 +1877,14 @@ components:
         more memory to be used.
       type: string
       enum:
-        - VOLATILE_LRU
-        - ALLKEYS_LRU
-        - VOLATILE_LFU
-        - ALLKEYS_LFU
-        - VOLATILE_RANDOM
-        - ALLKEYS_RANDOM
-        - VOLATILE_TTL
-        - NOEVICTION
+      - VOLATILE_LRU
+      - ALLKEYS_LRU
+      - VOLATILE_LFU
+      - ALLKEYS_LFU
+      - VOLATILE_RANDOM
+      - ALLKEYS_RANDOM
+      - VOLATILE_TTL
+      - NOEVICTION
     RedisConfig6_0:
       description: |-
         Fields and structure of `RedisConfig` reflects Redis configuration file
@@ -2266,23 +1892,45 @@ components:
       type: object
       properties:
         maxmemoryPolicy:
-          $ref: >-
-            #/components/schemas/RedisConfig6_0MaxmemoryPolicy_in_RedisConfig6_0_maxmemoryPolicy
+          $ref: '#/components/schemas/RedisConfig6_0MaxmemoryPolicy_in_RedisConfig6_0_maxmemoryPolicy'
         timeout:
-          description: >-
+          description: |-
             Time that Redis keeps the connection open while the client is idle.
-
-            If no new command is sent during that time, the connection is
-            closed.
+            If no new command is sent during that time, the connection is closed.
           type: integer
           format: int64
         password:
-          description: >-
+          description: |-
             Authentication password.
 
+            Value must match the regular expression `` [a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128} ``.
+          type: string
+        databases:
+          description: |-
+            Number of database buckets on a single redis-server process.
 
-            Value must match the regular expression ``
-            [a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128} ``.
+            Value must be greater than 0.
+          type: integer
+          format: int64
+        slowlogLogSlowerThan:
+          description: |-
+            Threshold for logging slow requests to server in microseconds (log only slower than it).
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        slowlogMaxLen:
+          description: |-
+            Max slow requests number to log.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        notifyKeyspaceEvents:
+          description: |-
+            String setting for pub\sub functionality; subset of KEg$lshzxeAtm.
+
+            Value must match the regular expression `` [KEg$lshzxeAtm]{0,13} ``.
           type: string
     RedisConfig6_0MaxmemoryPolicy:
       description: |2-
@@ -2298,36 +1946,32 @@ components:
         more memory to be used.
       type: string
       enum:
-        - VOLATILE_LRU
-        - ALLKEYS_LRU
-        - VOLATILE_LFU
-        - ALLKEYS_LFU
-        - VOLATILE_RANDOM
-        - ALLKEYS_RANDOM
-        - VOLATILE_TTL
-        - NOEVICTION
+      - VOLATILE_LRU
+      - ALLKEYS_LRU
+      - VOLATILE_LFU
+      - ALLKEYS_LFU
+      - VOLATILE_RANDOM
+      - ALLKEYS_RANDOM
+      - VOLATILE_TTL
+      - NOEVICTION
     RedisConfigSet5_0:
       type: object
       properties:
         effectiveConfig:
-          $ref: >-
-            #/components/schemas/RedisConfig5_0_in_RedisConfigSet5_0_effectiveConfig
+          $ref: '#/components/schemas/RedisConfig5_0_in_RedisConfigSet5_0_effectiveConfig'
         userConfig:
           $ref: '#/components/schemas/RedisConfig5_0_in_RedisConfigSet5_0_userConfig'
         defaultConfig:
-          $ref: >-
-            #/components/schemas/RedisConfig5_0_in_RedisConfigSet5_0_defaultConfig
+          $ref: '#/components/schemas/RedisConfig5_0_in_RedisConfigSet5_0_defaultConfig'
     RedisConfigSet6_0:
       type: object
       properties:
         effectiveConfig:
-          $ref: >-
-            #/components/schemas/RedisConfig6_0_in_RedisConfigSet6_0_effectiveConfig
+          $ref: '#/components/schemas/RedisConfig6_0_in_RedisConfigSet6_0_effectiveConfig'
         userConfig:
           $ref: '#/components/schemas/RedisConfig6_0_in_RedisConfigSet6_0_userConfig'
         defaultConfig:
-          $ref: >-
-            #/components/schemas/RedisConfig6_0_in_RedisConfigSet6_0_defaultConfig
+          $ref: '#/components/schemas/RedisConfig6_0_in_RedisConfigSet6_0_defaultConfig'
     RescheduleMaintenanceMetadata:
       type: object
       properties:
@@ -2335,37 +1979,34 @@ components:
           description: Required. ID of the Redis cluster.
           type: string
         delayedUntil:
-          description: >-
-            Required. New time of the planned maintenance. Can be in the past
-            for rescheduled to "IMMEDIATE".
+          description: |-
+            Required. The time until which this maintenance operation is to be delayed.
 
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-            format.
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
     RescheduleMaintenanceRequest:
       type: object
       properties:
         rescheduleType:
-          $ref: >-
-            #/components/schemas/RescheduleMaintenanceRequestRescheduleType_in_RescheduleMaintenanceRequest_rescheduleType
+          $ref: '#/components/schemas/RescheduleMaintenanceRequestRescheduleType_in_RescheduleMaintenanceRequest_rescheduleType'
         delayedUntil:
-          description: >-
-            The time for SPECIFIC_TIME reschedule. Limited by two weeks since
-            first time scheduled.
+          description: |-
+            The time until which this maintenance operation should be delayed. The value should be ahead of the first time when the maintenance operation has been scheduled for no more than two weeks. The value can also point to the past moment of time if [reschedule_type.IMMEDIATE] reschedule type is chosen.
 
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-            format.
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
     RescheduleMaintenanceRequestRescheduleType:
+      description: |2-
+         - IMMEDIATE: Start the maintenance operation immediately.
+         - NEXT_AVAILABLE_WINDOW: Start the maintenance operation within the next available maintenance window.
+         - SPECIFIC_TIME: Start the maintenance operation at the specific time.
       type: string
       enum:
-        - IMMEDIATE
-        - NEXT_AVAILABLE_WINDOW
-        - SPECIFIC_TIME
+      - IMMEDIATE
+      - NEXT_AVAILABLE_WINDOW
+      - SPECIFIC_TIME
     ResourcePreset:
       description: A resource preset that describes hardware configuration for a host.
       type: object
@@ -2390,17 +2031,21 @@ components:
       type: object
       properties:
         resourcePresetId:
-          description: >-
-            ID of the preset for computational resources available to a host
-            (CPU, memory etc.).
-
-            All available presets are listed in the
-            [documentation](/docs/managed-redis/concepts/instance-types).
+          description: |-
+            ID of the preset for computational resources available to a host (CPU, memory etc.).
+            All available presets are listed in the [documentation](/docs/managed-redis/concepts/instance-types).
           type: string
         diskSize:
           description: Volume of the storage available to a host, in bytes.
           type: string
           format: int64
+        diskTypeId:
+          description: |-
+            Type of the storage environment for the host.
+            Possible values:
+            * network-ssd - network SSD drive,
+            * local-ssd - local SSD storage.
+          type: string
     RestoreClusterMetadata:
       type: object
       properties:
@@ -2414,25 +2059,17 @@ components:
       type: object
       properties:
         backupId:
-          description: >-
+          description: |-
             Required.
-
             ID of the backup to create a cluster from.
-
-            To get the backup ID, use a
-            [listBackups](/docs/managed-redis/api-ref/Cluster/listBackups)
-            request.
+            To get the backup ID, use a [listBackups](/docs/managed-redis/api-ref/Cluster/listBackups) request.
           type: string
         name:
-          description: >-
+          description: |-
             Required.
-
-            Name of the new Redis cluster. The name must be unique within the
-            folder.
-
+            Name of the new Redis cluster. The name must be unique within the folder.
 
             The maximum string length in characters is 63.
-
             Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
           type: string
         description:
@@ -2442,28 +2079,20 @@ components:
             The maximum string length in characters is 256.
           type: string
         labels:
-          description: >-
-            Custom labels for the Redis cluster as `` key:value `` pairs.
-            Maximum 64 per cluster.
-
+          description: |-
+            Custom labels for the Redis cluster as `` key:value `` pairs. Maximum 64 per cluster.
             For example, "project": "mvp" or "source": "dictionary".
 
-
             No more than 64 per resource.
-
             The maximum string length in characters for each key is 63.
-
             Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
-
             The maximum string length in characters for each value is 63.
-
             Each value must match the regular expression `` [-_0-9a-z]* ``.
           type: object
           additionalProperties:
             type: string
         environment:
-          $ref: >-
-            #/components/schemas/ClusterEnvironment_in_RestoreClusterRequest_environment
+          $ref: '#/components/schemas/ClusterEnvironment_in_RestoreClusterRequest_environment'
         configSpec:
           $ref: '#/components/schemas/ConfigSpec_in_RestoreClusterRequest_configSpec'
         hostSpecs:
@@ -2494,6 +2123,10 @@ components:
           type: array
           items:
             type: string
+        tlsEnabled:
+          description: TLS port and functionality on\off
+          type: boolean
+          format: boolean
     Service:
       type: object
       properties:
@@ -2508,9 +2141,9 @@ components:
          - DEAD: The server is dead or unresponsive.
       type: string
       enum:
-        - HEALTH_UNKNOWN
-        - ALIVE
-        - DEAD
+      - HEALTH_UNKNOWN
+      - ALIVE
+      - DEAD
       default: HEALTH_UNKNOWN
     ServiceType:
       description: |2-
@@ -2519,23 +2152,20 @@ components:
          - REDIS_CLUSTER: The host is a Redis Cluster node.
       type: string
       enum:
-        - REDIS
-        - ARBITER
-        - REDIS_CLUSTER
+      - REDIS
+      - ARBITER
+      - REDIS_CLUSTER
     Shard:
       type: object
       properties:
         name:
-          description: >-
-            Name of the Redis shard. The shard name is assigned by user at
-            creation time, and cannot be changed.
-
+          description: |-
+            Name of the Redis shard. The shard name is assigned by user at creation time, and cannot be changed.
             1-63 characters long.
           type: string
         clusterId:
-          description: >-
-            ID of the Redis cluster the shard belongs to. The ID is assigned by
-            MDB at creation time.
+          description: ID of the Redis cluster the shard belongs to. The ID is assigned
+            by MDB at creation time.
           type: string
     StartClusterFailoverMetadata:
       type: object
@@ -2559,47 +2189,30 @@ components:
       description: ' - REDIS: Logs of Redis activity.'
       type: string
       enum:
-        - REDIS
+      - REDIS
     StreamLogRecord:
       type: object
       properties:
         record:
           $ref: '#/components/schemas/LogRecord_in_StreamLogRecord_record'
         nextRecordToken:
-          description: >-
-            This token allows you to continue streaming logs starting from the
-            exact
-
-            same record. To continue streaming, specify value of
-            `next_record_token`
-
-            as value for `record_token` parameter in the next StreamLogs
-            request.
-
-            This value is interchangeable with `next_page_token` from ListLogs
-            method.
+          description: |-
+            This token allows you to continue streaming logs starting from the exact
+            same record. To continue streaming, specify value of `next_record_token`
+            as value for `record_token` parameter in the next StreamLogs request.
+            This value is interchangeable with `next_page_token` from ListLogs method.
           type: string
     TimeOfDay:
-      description: >-
-        Represents a time of day. The date and time zone are either not
-        significant
-
-        or are specified elsewhere. An API may choose to allow leap seconds.
-        Related
-
-        types are
-        [google.type.Date](https://github.com/googleapis/googleapis/blob/master/google/type/date.proto)
-        and
-        [google.protobuf.Timestamp](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto).
+      description: |-
+        Represents a time of day. The date and time zone are either not significant
+        or are specified elsewhere. An API may choose to allow leap seconds. Related
+        types are [google.type.Date](https://github.com/googleapis/googleapis/blob/master/google/type/date.proto) and [google.protobuf.Timestamp](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto).
       type: object
       properties:
         hours:
-          description: >-
-            Hours of day in 24 hour format. Should be from 0 to 23. An API may
-            choose
-
-            to allow the value "24:00:00" for scenarios like business closing
-            time.
+          description: |-
+            Hours of day in 24 hour format. Should be from 0 to 23. An API may choose
+            to allow the value "24:00:00" for scenarios like business closing time.
           type: integer
           format: int32
         minutes:
@@ -2607,10 +2220,8 @@ components:
           type: integer
           format: int32
         seconds:
-          description: >-
-            Seconds of minutes of the time. Must normally be from 0 to 59. An
-            API may
-
+          description: |-
+            Seconds of minutes of the time. Must normally be from 0 to 59. An API may
             allow the value 60 if it allows leap-seconds.
           type: integer
           format: int32
@@ -2636,29 +2247,17 @@ components:
             The maximum string length in characters is 256.
           type: string
         labels:
-          description: >-
-            Custom labels for the Redis cluster as `` key:value `` pairs.
-            Maximum 64 per cluster.
-
+          description: |-
+            Custom labels for the Redis cluster as `` key:value `` pairs. Maximum 64 per cluster.
             For example, "project": "mvp" or "source": "dictionary".
 
-
-            The new set of labels will completely replace the old ones. To add a
-            label, request the current
-
-            set with the [get](/docs/managed-redis/api-ref/Cluster/get) method,
-            then send an [update](/docs/managed-redis/api-ref/Cluster/update)
-            request with the new label added to the set.
-
+            The new set of labels will completely replace the old ones. To add a label, request the current
+            set with the [get](/docs/managed-redis/api-ref/Cluster/get) method, then send an [update](/docs/managed-redis/api-ref/Cluster/update) request with the new label added to the set.
 
             No more than 64 per resource.
-
             The maximum string length in characters for each key is 63.
-
             Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
-
             The maximum string length in characters for each value is 63.
-
             Each value must match the regular expression `` [-_0-9a-z]* ``.
           type: object
           additionalProperties:
@@ -2673,22 +2272,21 @@ components:
             Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
           type: string
         maintenanceWindow:
-          $ref: >-
-            #/components/schemas/MaintenanceWindow_in_UpdateClusterRequest_maintenanceWindow
+          $ref: '#/components/schemas/MaintenanceWindow_in_UpdateClusterRequest_maintenanceWindow'
         securityGroupIds:
           description: User security groups
           type: array
           items:
             type: string
     WeeklyMaintenanceWindow:
+      description: Weelky maintenance window settings.
       type: object
       properties:
         day:
-          $ref: >-
-            #/components/schemas/WeeklyMaintenanceWindowWeekDay_in_WeeklyMaintenanceWindow_day
+          $ref: '#/components/schemas/WeeklyMaintenanceWindowWeekDay_in_WeeklyMaintenanceWindow_day'
         hour:
           description: |-
-            Hour of the day in UTC.
+            Hour of the day in UTC (in `HH` format).
 
             Acceptable values are 1 to 24, inclusive.
           type: string
@@ -2696,21 +2294,19 @@ components:
     WeeklyMaintenanceWindowWeekDay:
       type: string
       enum:
-        - MON
-        - TUE
-        - WED
-        - THU
-        - FRI
-        - SAT
-        - SUN
+      - MON
+      - TUE
+      - WED
+      - THU
+      - FRI
+      - SAT
+      - SUN
     rpcStatus:
       description: The error result of the operation in case of failure or cancellation.
       type: object
       properties:
         code:
-          description: >-
-            Error code. An enum value of
-            [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
+          description: Error code. An enum value of [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
           type: integer
           format: int32
         message:
@@ -2731,36 +2327,36 @@ components:
         are rolled out irrespective of backward compatibility.
       type: string
       enum:
-        - PRODUCTION
-        - PRESTABLE
+      - PRODUCTION
+      - PRESTABLE
     ClusterConfig_in_Cluster_config:
       description: Configuration of the Redis cluster.
       type: object
       allOf:
-        - type: object
-          properties:
-            version:
-              description: Version of Redis server software.
-              type: string
-            resources:
-              $ref: '#/components/schemas/Resources'
-              description: Resources allocated to Redis hosts.
-            backupWindowStart:
-              $ref: '#/components/schemas/TimeOfDay'
-              description: Time to start the daily backup, in the UTC timezone.
-            access:
-              $ref: '#/components/schemas/Access'
-              description: Access policy to DB
-        - title: redis_config
-          type: object
-          maxProperties: 1
-          properties:
-            redisConfig_5_0:
-              $ref: '#/components/schemas/RedisConfigSet5_0'
-              description: Configuration of a Redis 5.0 server.
-            redisConfig_6_0:
-              $ref: '#/components/schemas/RedisConfigSet6_0'
-              description: Configuration of a Redis 6.0 server.
+      - type: object
+        properties:
+          version:
+            description: Version of Redis server software.
+            type: string
+          resources:
+            $ref: '#/components/schemas/Resources'
+            description: Resources allocated to Redis hosts.
+          backupWindowStart:
+            $ref: '#/components/schemas/TimeOfDay'
+            description: Time to start the daily backup, in the UTC timezone.
+          access:
+            $ref: '#/components/schemas/Access'
+            description: Access policy to DB
+      - title: redis_config
+        type: object
+        maxProperties: 1
+        properties:
+          redisConfig_5_0:
+            $ref: '#/components/schemas/RedisConfigSet5_0'
+            description: Configuration of a Redis 5.0 server.
+          redisConfig_6_0:
+            $ref: '#/components/schemas/RedisConfigSet6_0'
+            description: Configuration of a Redis 6.0 server.
     ClusterHealth_in_Cluster_health:
       description: |-
         Aggregated cluster health.
@@ -2771,10 +2367,10 @@ components:
          - DEGRADED: Cluster is partially alive (it can perform some of its essential functions)
       type: string
       enum:
-        - HEALTH_UNKNOWN
-        - ALIVE
-        - DEAD
-        - DEGRADED
+      - HEALTH_UNKNOWN
+      - ALIVE
+      - DEAD
+      - DEGRADED
       default: HEALTH_UNKNOWN
     ClusterStatus_in_Cluster_status:
       description: |-
@@ -2790,38 +2386,50 @@ components:
          - STARTING: Cluster is starting.
       type: string
       enum:
-        - STATUS_UNKNOWN
-        - CREATING
-        - RUNNING
-        - ERROR
-        - UPDATING
-        - STOPPING
-        - STOPPED
-        - STARTING
+      - STATUS_UNKNOWN
+      - CREATING
+      - RUNNING
+      - ERROR
+      - UPDATING
+      - STOPPING
+      - STOPPED
+      - STARTING
       default: STATUS_UNKNOWN
     MaintenanceWindow_in_Cluster_maintenanceWindow:
-      description: Window of maintenance operations.
+      description: |-
+        Maintenance window for the cluster.
+
+        A maintenance window settings.
       type: object
       allOf:
-        - title: policy
-          type: object
-          maxProperties: 1
-          properties:
-            anytime:
-              $ref: '#/components/schemas/AnytimeMaintenanceWindow'
-            weeklyMaintenanceWindow:
-              $ref: '#/components/schemas/WeeklyMaintenanceWindow'
+      - title: policy
+        type: object
+        maxProperties: 1
+        properties:
+          anytime:
+            $ref: '#/components/schemas/AnytimeMaintenanceWindow'
+            description: Maintenance operation can be scheduled anytime.
+          weeklyMaintenanceWindow:
+            $ref: '#/components/schemas/WeeklyMaintenanceWindow'
+            description: Maintenance operation can be scheduled on a weekly basis.
     MaintenanceOperation_in_Cluster_plannedOperation:
-      description: Maintenance operation planned at nearest maintenance_window.
+      description: |-
+        Planned maintenance operation to be started for the cluster within the nearest [maintenanceWindow](/docs/managed-redis/api-ref/Cluster#representation).
+
+        A planned maintenance operation.
       type: object
       properties:
         info:
-          description: The maximum string length in characters is 256.
+          description: |-
+            Information about this maintenance operation.
+
+            The maximum string length in characters is 256.
           type: string
         delayedUntil:
-          description: >-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-            format.
+          description: |-
+            Time until which this maintenance operation is delayed.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
     ClusterEnvironment_in_CreateClusterRequest_environment:
@@ -2835,54 +2443,56 @@ components:
         are rolled out irrespective of backward compatibility.
       type: string
       enum:
-        - PRODUCTION
-        - PRESTABLE
+      - PRODUCTION
+      - PRESTABLE
     ConfigSpec_in_CreateClusterRequest_configSpec:
-      description: >-
+      description: |-
         Required.
-
-        Configuration and resources for hosts that should be created for the
-        Redis cluster.
+        Configuration and resources for hosts that should be created for the Redis cluster.
       type: object
       allOf:
-        - type: object
-          properties:
-            version:
-              description: Version of Redis used in the cluster.
-              type: string
-            resources:
-              $ref: '#/components/schemas/Resources'
-              description: Resources allocated to Redis hosts.
-            backupWindowStart:
-              $ref: '#/components/schemas/TimeOfDay'
-              description: Time to start the daily backup, in the UTC timezone.
-            access:
-              $ref: '#/components/schemas/Access'
-              description: Access policy to DB
-        - title: redis_spec
-          type: object
-          maxProperties: 1
-          properties:
-            redisConfig_5_0:
-              $ref: '#/components/schemas/RedisConfig5_0'
-            redisConfig_6_0:
-              $ref: '#/components/schemas/RedisConfig6_0'
+      - type: object
+        properties:
+          version:
+            description: Version of Redis used in the cluster.
+            type: string
+          resources:
+            $ref: '#/components/schemas/Resources'
+            description: Resources allocated to Redis hosts.
+          backupWindowStart:
+            $ref: '#/components/schemas/TimeOfDay'
+            description: Time to start the daily backup, in the UTC timezone.
+          access:
+            $ref: '#/components/schemas/Access'
+            description: Access policy to DB
+      - title: redis_spec
+        type: object
+        maxProperties: 1
+        properties:
+          redisConfig_5_0:
+            $ref: '#/components/schemas/RedisConfig5_0'
+          redisConfig_6_0:
+            $ref: '#/components/schemas/RedisConfig6_0'
     Resources_in_Host_resources:
       description: Resources allocated to the Redis host.
       type: object
       properties:
         resourcePresetId:
-          description: >-
-            ID of the preset for computational resources available to a host
-            (CPU, memory etc.).
-
-            All available presets are listed in the
-            [documentation](/docs/managed-redis/concepts/instance-types).
+          description: |-
+            ID of the preset for computational resources available to a host (CPU, memory etc.).
+            All available presets are listed in the [documentation](/docs/managed-redis/concepts/instance-types).
           type: string
         diskSize:
           description: Volume of the storage available to a host, in bytes.
           type: string
           format: int64
+        diskTypeId:
+          description: |-
+            Type of the storage environment for the host.
+            Possible values:
+            * network-ssd - network SSD drive,
+            * local-ssd - local SSD storage.
+          type: string
     HostRole_in_Host_role:
       description: |-
         Role of the host in the cluster.
@@ -2892,9 +2502,9 @@ components:
          - REPLICA: Host is a replica (standby) Redis server in the cluster.
       type: string
       enum:
-        - ROLE_UNKNOWN
-        - MASTER
-        - REPLICA
+      - ROLE_UNKNOWN
+      - MASTER
+      - REPLICA
       default: ROLE_UNKNOWN
     HostHealth_in_Host_health:
       description: |-
@@ -2906,23 +2516,18 @@ components:
          - DEGRADED: The host is degraded, and can perform only some of its essential functions.
       type: string
       enum:
-        - HEALTH_UNKNOWN
-        - ALIVE
-        - DEAD
-        - DEGRADED
+      - HEALTH_UNKNOWN
+      - ALIVE
+      - DEAD
+      - DEGRADED
       default: HEALTH_UNKNOWN
     RedisConfig5_0MaxmemoryPolicy_in_RedisConfig5_0_maxmemoryPolicy:
-      description: >-
+      description: |-
         Redis key eviction policy for a dataset that reaches maximum memory,
-
         available to the host. Redis maxmemory setting depends on Managed
+        Service for Redis [host class](/docs/managed-redis/concepts/instance-types).
 
-        Service for Redis [host
-        class](/docs/managed-redis/concepts/instance-types).
-
-
-        All policies are described in detail in [Redis
-        documentation](https://redis.io/topics/lru-cache).
+        All policies are described in detail in [Redis documentation](https://redis.io/topics/lru-cache).
 
          - VOLATILE_LRU: Try to remove less recently used (LRU) keys with `expire set`.
          - ALLKEYS_LRU: Remove less recently used (LRU) keys.
@@ -2936,26 +2541,21 @@ components:
         more memory to be used.
       type: string
       enum:
-        - VOLATILE_LRU
-        - ALLKEYS_LRU
-        - VOLATILE_LFU
-        - ALLKEYS_LFU
-        - VOLATILE_RANDOM
-        - ALLKEYS_RANDOM
-        - VOLATILE_TTL
-        - NOEVICTION
+      - VOLATILE_LRU
+      - ALLKEYS_LRU
+      - VOLATILE_LFU
+      - ALLKEYS_LFU
+      - VOLATILE_RANDOM
+      - ALLKEYS_RANDOM
+      - VOLATILE_TTL
+      - NOEVICTION
     RedisConfig6_0MaxmemoryPolicy_in_RedisConfig6_0_maxmemoryPolicy:
-      description: >-
+      description: |-
         Redis key eviction policy for a dataset that reaches maximum memory,
-
         available to the host. Redis maxmemory setting depends on Managed
+        Service for Redis [host class](/docs/managed-redis/concepts/instance-types).
 
-        Service for Redis [host
-        class](/docs/managed-redis/concepts/instance-types).
-
-
-        All policies are described in detail in [Redis
-        documentation](https://redis.io/topics/lru-cache).
+        All policies are described in detail in [Redis documentation](https://redis.io/topics/lru-cache).
 
          - VOLATILE_LRU: Try to remove less recently used (LRU) keys with `expire set`.
          - ALLKEYS_LRU: Remove less recently used (LRU) keys.
@@ -2969,14 +2569,14 @@ components:
         more memory to be used.
       type: string
       enum:
-        - VOLATILE_LRU
-        - ALLKEYS_LRU
-        - VOLATILE_LFU
-        - ALLKEYS_LFU
-        - VOLATILE_RANDOM
-        - ALLKEYS_RANDOM
-        - VOLATILE_TTL
-        - NOEVICTION
+      - VOLATILE_LRU
+      - ALLKEYS_LRU
+      - VOLATILE_LFU
+      - ALLKEYS_LFU
+      - VOLATILE_RANDOM
+      - ALLKEYS_RANDOM
+      - VOLATILE_TTL
+      - NOEVICTION
     RedisConfig5_0_in_RedisConfigSet5_0_effectiveConfig:
       description: |-
         Effective settings for a Redis 5.0 cluster (a combination of settings
@@ -2987,23 +2587,45 @@ components:
       type: object
       properties:
         maxmemoryPolicy:
-          $ref: >-
-            #/components/schemas/RedisConfig5_0MaxmemoryPolicy_in_RedisConfig5_0_maxmemoryPolicy
+          $ref: '#/components/schemas/RedisConfig5_0MaxmemoryPolicy_in_RedisConfig5_0_maxmemoryPolicy'
         timeout:
-          description: >-
+          description: |-
             Time that Redis keeps the connection open while the client is idle.
-
-            If no new command is sent during that time, the connection is
-            closed.
+            If no new command is sent during that time, the connection is closed.
           type: integer
           format: int64
         password:
-          description: >-
+          description: |-
             Authentication password.
 
+            Value must match the regular expression `` [a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128} ``.
+          type: string
+        databases:
+          description: |-
+            Number of database buckets on a single redis-server process.
 
-            Value must match the regular expression ``
-            [a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128} ``.
+            Value must be greater than 0.
+          type: integer
+          format: int64
+        slowlogLogSlowerThan:
+          description: |-
+            Threshold for logging slow requests to server in microseconds (log only slower than it).
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        slowlogMaxLen:
+          description: |-
+            Max slow requests number to log.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        notifyKeyspaceEvents:
+          description: |-
+            String setting for pub\sub functionality; subset of KEg$lshzxeAt.
+
+            Value must match the regular expression `` [KEg$lshzxeAt]{0,12} ``.
           type: string
     RedisConfig5_0_in_RedisConfigSet5_0_userConfig:
       description: |-
@@ -3014,23 +2636,45 @@ components:
       type: object
       properties:
         maxmemoryPolicy:
-          $ref: >-
-            #/components/schemas/RedisConfig5_0MaxmemoryPolicy_in_RedisConfig5_0_maxmemoryPolicy
+          $ref: '#/components/schemas/RedisConfig5_0MaxmemoryPolicy_in_RedisConfig5_0_maxmemoryPolicy'
         timeout:
-          description: >-
+          description: |-
             Time that Redis keeps the connection open while the client is idle.
-
-            If no new command is sent during that time, the connection is
-            closed.
+            If no new command is sent during that time, the connection is closed.
           type: integer
           format: int64
         password:
-          description: >-
+          description: |-
             Authentication password.
 
+            Value must match the regular expression `` [a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128} ``.
+          type: string
+        databases:
+          description: |-
+            Number of database buckets on a single redis-server process.
 
-            Value must match the regular expression ``
-            [a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128} ``.
+            Value must be greater than 0.
+          type: integer
+          format: int64
+        slowlogLogSlowerThan:
+          description: |-
+            Threshold for logging slow requests to server in microseconds (log only slower than it).
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        slowlogMaxLen:
+          description: |-
+            Max slow requests number to log.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        notifyKeyspaceEvents:
+          description: |-
+            String setting for pub\sub functionality; subset of KEg$lshzxeAt.
+
+            Value must match the regular expression `` [KEg$lshzxeAt]{0,12} ``.
           type: string
     RedisConfig5_0_in_RedisConfigSet5_0_defaultConfig:
       description: |-
@@ -3041,23 +2685,45 @@ components:
       type: object
       properties:
         maxmemoryPolicy:
-          $ref: >-
-            #/components/schemas/RedisConfig5_0MaxmemoryPolicy_in_RedisConfig5_0_maxmemoryPolicy
+          $ref: '#/components/schemas/RedisConfig5_0MaxmemoryPolicy_in_RedisConfig5_0_maxmemoryPolicy'
         timeout:
-          description: >-
+          description: |-
             Time that Redis keeps the connection open while the client is idle.
-
-            If no new command is sent during that time, the connection is
-            closed.
+            If no new command is sent during that time, the connection is closed.
           type: integer
           format: int64
         password:
-          description: >-
+          description: |-
             Authentication password.
 
+            Value must match the regular expression `` [a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128} ``.
+          type: string
+        databases:
+          description: |-
+            Number of database buckets on a single redis-server process.
 
-            Value must match the regular expression ``
-            [a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128} ``.
+            Value must be greater than 0.
+          type: integer
+          format: int64
+        slowlogLogSlowerThan:
+          description: |-
+            Threshold for logging slow requests to server in microseconds (log only slower than it).
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        slowlogMaxLen:
+          description: |-
+            Max slow requests number to log.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        notifyKeyspaceEvents:
+          description: |-
+            String setting for pub\sub functionality; subset of KEg$lshzxeAt.
+
+            Value must match the regular expression `` [KEg$lshzxeAt]{0,12} ``.
           type: string
     RedisConfig6_0_in_RedisConfigSet6_0_effectiveConfig:
       description: |-
@@ -3069,23 +2735,45 @@ components:
       type: object
       properties:
         maxmemoryPolicy:
-          $ref: >-
-            #/components/schemas/RedisConfig6_0MaxmemoryPolicy_in_RedisConfig6_0_maxmemoryPolicy
+          $ref: '#/components/schemas/RedisConfig6_0MaxmemoryPolicy_in_RedisConfig6_0_maxmemoryPolicy'
         timeout:
-          description: >-
+          description: |-
             Time that Redis keeps the connection open while the client is idle.
-
-            If no new command is sent during that time, the connection is
-            closed.
+            If no new command is sent during that time, the connection is closed.
           type: integer
           format: int64
         password:
-          description: >-
+          description: |-
             Authentication password.
 
+            Value must match the regular expression `` [a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128} ``.
+          type: string
+        databases:
+          description: |-
+            Number of database buckets on a single redis-server process.
 
-            Value must match the regular expression ``
-            [a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128} ``.
+            Value must be greater than 0.
+          type: integer
+          format: int64
+        slowlogLogSlowerThan:
+          description: |-
+            Threshold for logging slow requests to server in microseconds (log only slower than it).
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        slowlogMaxLen:
+          description: |-
+            Max slow requests number to log.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        notifyKeyspaceEvents:
+          description: |-
+            String setting for pub\sub functionality; subset of KEg$lshzxeAtm.
+
+            Value must match the regular expression `` [KEg$lshzxeAtm]{0,13} ``.
           type: string
     RedisConfig6_0_in_RedisConfigSet6_0_userConfig:
       description: |-
@@ -3096,23 +2784,45 @@ components:
       type: object
       properties:
         maxmemoryPolicy:
-          $ref: >-
-            #/components/schemas/RedisConfig6_0MaxmemoryPolicy_in_RedisConfig6_0_maxmemoryPolicy
+          $ref: '#/components/schemas/RedisConfig6_0MaxmemoryPolicy_in_RedisConfig6_0_maxmemoryPolicy'
         timeout:
-          description: >-
+          description: |-
             Time that Redis keeps the connection open while the client is idle.
-
-            If no new command is sent during that time, the connection is
-            closed.
+            If no new command is sent during that time, the connection is closed.
           type: integer
           format: int64
         password:
-          description: >-
+          description: |-
             Authentication password.
 
+            Value must match the regular expression `` [a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128} ``.
+          type: string
+        databases:
+          description: |-
+            Number of database buckets on a single redis-server process.
 
-            Value must match the regular expression ``
-            [a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128} ``.
+            Value must be greater than 0.
+          type: integer
+          format: int64
+        slowlogLogSlowerThan:
+          description: |-
+            Threshold for logging slow requests to server in microseconds (log only slower than it).
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        slowlogMaxLen:
+          description: |-
+            Max slow requests number to log.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        notifyKeyspaceEvents:
+          description: |-
+            String setting for pub\sub functionality; subset of KEg$lshzxeAtm.
+
+            Value must match the regular expression `` [KEg$lshzxeAtm]{0,13} ``.
           type: string
     RedisConfig6_0_in_RedisConfigSet6_0_defaultConfig:
       description: |-
@@ -3123,33 +2833,59 @@ components:
       type: object
       properties:
         maxmemoryPolicy:
-          $ref: >-
-            #/components/schemas/RedisConfig6_0MaxmemoryPolicy_in_RedisConfig6_0_maxmemoryPolicy
+          $ref: '#/components/schemas/RedisConfig6_0MaxmemoryPolicy_in_RedisConfig6_0_maxmemoryPolicy'
         timeout:
-          description: >-
+          description: |-
             Time that Redis keeps the connection open while the client is idle.
-
-            If no new command is sent during that time, the connection is
-            closed.
+            If no new command is sent during that time, the connection is closed.
           type: integer
           format: int64
         password:
-          description: >-
+          description: |-
             Authentication password.
 
+            Value must match the regular expression `` [a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128} ``.
+          type: string
+        databases:
+          description: |-
+            Number of database buckets on a single redis-server process.
 
-            Value must match the regular expression ``
-            [a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128} ``.
+            Value must be greater than 0.
+          type: integer
+          format: int64
+        slowlogLogSlowerThan:
+          description: |-
+            Threshold for logging slow requests to server in microseconds (log only slower than it).
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        slowlogMaxLen:
+          description: |-
+            Max slow requests number to log.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        notifyKeyspaceEvents:
+          description: |-
+            String setting for pub\sub functionality; subset of KEg$lshzxeAtm.
+
+            Value must match the regular expression `` [KEg$lshzxeAtm]{0,13} ``.
           type: string
     RescheduleMaintenanceRequestRescheduleType_in_RescheduleMaintenanceRequest_rescheduleType:
       description: |-
         Required.
-        Required. The type of reschedule request.
+        The type of reschedule request.
+
+         - IMMEDIATE: Start the maintenance operation immediately.
+         - NEXT_AVAILABLE_WINDOW: Start the maintenance operation within the next available maintenance window.
+         - SPECIFIC_TIME: Start the maintenance operation at the specific time.
       type: string
       enum:
-        - IMMEDIATE
-        - NEXT_AVAILABLE_WINDOW
-        - SPECIFIC_TIME
+      - IMMEDIATE
+      - NEXT_AVAILABLE_WINDOW
+      - SPECIFIC_TIME
     ClusterEnvironment_in_RestoreClusterRequest_environment:
       description: |-
         Required.
@@ -3161,36 +2897,36 @@ components:
         are rolled out irrespective of backward compatibility.
       type: string
       enum:
-        - PRODUCTION
-        - PRESTABLE
+      - PRODUCTION
+      - PRESTABLE
     ConfigSpec_in_RestoreClusterRequest_configSpec:
       description: |-
         Required.
         Configuration for the Redis cluster to be created.
       type: object
       allOf:
-        - type: object
-          properties:
-            version:
-              description: Version of Redis used in the cluster.
-              type: string
-            resources:
-              $ref: '#/components/schemas/Resources'
-              description: Resources allocated to Redis hosts.
-            backupWindowStart:
-              $ref: '#/components/schemas/TimeOfDay'
-              description: Time to start the daily backup, in the UTC timezone.
-            access:
-              $ref: '#/components/schemas/Access'
-              description: Access policy to DB
-        - title: redis_spec
-          type: object
-          maxProperties: 1
-          properties:
-            redisConfig_5_0:
-              $ref: '#/components/schemas/RedisConfig5_0'
-            redisConfig_6_0:
-              $ref: '#/components/schemas/RedisConfig6_0'
+      - type: object
+        properties:
+          version:
+            description: Version of Redis used in the cluster.
+            type: string
+          resources:
+            $ref: '#/components/schemas/Resources'
+            description: Resources allocated to Redis hosts.
+          backupWindowStart:
+            $ref: '#/components/schemas/TimeOfDay'
+            description: Time to start the daily backup, in the UTC timezone.
+          access:
+            $ref: '#/components/schemas/Access'
+            description: Access policy to DB
+      - title: redis_spec
+        type: object
+        maxProperties: 1
+        properties:
+          redisConfig_5_0:
+            $ref: '#/components/schemas/RedisConfig5_0'
+          redisConfig_6_0:
+            $ref: '#/components/schemas/RedisConfig6_0'
     ServiceType_in_Service_type:
       description: |-
         Type of the service provided by the host.
@@ -3200,9 +2936,9 @@ components:
          - REDIS_CLUSTER: The host is a Redis Cluster node.
       type: string
       enum:
-        - REDIS
-        - ARBITER
-        - REDIS_CLUSTER
+      - REDIS
+      - ARBITER
+      - REDIS_CLUSTER
     ServiceHealth_in_Service_health:
       description: |-
         Status code of server availability.
@@ -3212,22 +2948,19 @@ components:
          - DEAD: The server is dead or unresponsive.
       type: string
       enum:
-        - HEALTH_UNKNOWN
-        - ALIVE
-        - DEAD
+      - HEALTH_UNKNOWN
+      - ALIVE
+      - DEAD
       default: HEALTH_UNKNOWN
     LogRecord_in_StreamLogRecord_record:
       description: One of the requested log records.
       type: object
       properties:
         timestamp:
-          description: >-
-            Log record timestamp in
-            [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          description: |-
+            Log record timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
 
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-            format.
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
         message:
@@ -3236,82 +2969,76 @@ components:
           additionalProperties:
             type: string
     FieldMask_in_UpdateClusterRequest_updateMask:
-      description: >-
-        Field mask that specifies which fields of the Redis cluster should be
-        updated.
-
+      description: |-
+        Field mask that specifies which fields of the Redis cluster should be updated.
 
         A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
 
-        Оnly the specified fields will be changed. The others will be left
-        untouched.
-
-        If the field is specified in `` updateMask `` and no value for that
-        field was sent in the request,
-
-        the field's value will be reset to the default. The default value for
-        most fields is null or 0.
-
-
-        If `` updateMask `` is not sent in the request, all fields' values will
-        be updated.
-
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
         Fields specified in the request will be updated to provided values.
-
         The rest of the fields will be reset to the default.
       type: string
     ConfigSpec_in_UpdateClusterRequest_configSpec:
       description: New configuration and resources for hosts in the cluster.
       type: object
       allOf:
-        - type: object
-          properties:
-            version:
-              description: Version of Redis used in the cluster.
-              type: string
-            resources:
-              $ref: '#/components/schemas/Resources'
-              description: Resources allocated to Redis hosts.
-            backupWindowStart:
-              $ref: '#/components/schemas/TimeOfDay'
-              description: Time to start the daily backup, in the UTC timezone.
-            access:
-              $ref: '#/components/schemas/Access'
-              description: Access policy to DB
-        - title: redis_spec
-          type: object
-          maxProperties: 1
-          properties:
-            redisConfig_5_0:
-              $ref: '#/components/schemas/RedisConfig5_0'
-            redisConfig_6_0:
-              $ref: '#/components/schemas/RedisConfig6_0'
+      - type: object
+        properties:
+          version:
+            description: Version of Redis used in the cluster.
+            type: string
+          resources:
+            $ref: '#/components/schemas/Resources'
+            description: Resources allocated to Redis hosts.
+          backupWindowStart:
+            $ref: '#/components/schemas/TimeOfDay'
+            description: Time to start the daily backup, in the UTC timezone.
+          access:
+            $ref: '#/components/schemas/Access'
+            description: Access policy to DB
+      - title: redis_spec
+        type: object
+        maxProperties: 1
+        properties:
+          redisConfig_5_0:
+            $ref: '#/components/schemas/RedisConfig5_0'
+          redisConfig_6_0:
+            $ref: '#/components/schemas/RedisConfig6_0'
     MaintenanceWindow_in_UpdateClusterRequest_maintenanceWindow:
-      description: Window of maintenance operations.
+      description: |-
+        New maintenance window settings for the cluster.
+
+        A maintenance window settings.
       type: object
       allOf:
-        - title: policy
-          type: object
-          maxProperties: 1
-          properties:
-            anytime:
-              $ref: '#/components/schemas/AnytimeMaintenanceWindow'
-            weeklyMaintenanceWindow:
-              $ref: '#/components/schemas/WeeklyMaintenanceWindow'
+      - title: policy
+        type: object
+        maxProperties: 1
+        properties:
+          anytime:
+            $ref: '#/components/schemas/AnytimeMaintenanceWindow'
+            description: Maintenance operation can be scheduled anytime.
+          weeklyMaintenanceWindow:
+            $ref: '#/components/schemas/WeeklyMaintenanceWindow'
+            description: Maintenance operation can be scheduled on a weekly basis.
     WeeklyMaintenanceWindowWeekDay_in_WeeklyMaintenanceWindow_day:
+      description: Day of the week (in `DDD` format).
       type: string
       enum:
-        - MON
-        - TUE
-        - WED
-        - THU
-        - FRI
-        - SAT
-        - SUN
+      - MON
+      - TUE
+      - WED
+      - THU
+      - FRI
+      - SAT
+      - SUN
 tags:
-  - name: Backup
-    description: A set of methods for managing Redis backups.
-  - name: Cluster
-    description: A set of methods for managing Redis clusters.
-  - name: ResourcePreset
-    description: A set of methods for working with resource presets.
+- name: Backup
+  description: A set of methods for managing Redis backups.
+- name: Cluster
+  description: A set of methods for managing Redis clusters.
+- name: ResourcePreset
+  description: A set of methods for working with resource presets.

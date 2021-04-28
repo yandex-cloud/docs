@@ -1,9 +1,8 @@
-openapi: '3.0'
+openapi: "3.0"
 info:
   title: Yandex Vision API
-  description: >-
-    The service does not operate with resources. All service's methods are
-    presented on the [Vision](Vision/) page.
+  description: The service does not operate with resources. All service's methods
+    are presented on the [Vision](Vision/) page.
   version: v1
   x-y-docUri: api-ref
   x-y-baseUrl: https://vision.api.cloud.yandex.net
@@ -11,7 +10,7 @@ paths:
   /vision/v1/batchAnalyze:
     post:
       tags:
-        - Vision
+      - Vision
       summary: Analyzes a batch of images and returns results with annotations.
       operationId: VisionBatchAnalyze
       requestBody:
@@ -21,7 +20,7 @@ paths:
               $ref: '#/components/schemas/BatchAnalyzeRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -45,80 +44,62 @@ components:
     AnalyzeSpec:
       type: object
       allOf:
-        - type: object
-          properties:
-            features:
-              description: |-
-                Required.
-                Requested features to use for analysis.
+      - type: object
+        properties:
+          features:
+            description: |-
+              Required.
+              Requested features to use for analysis.
 
-                Max count of requested features for one file is 8.
+              Max count of requested features for one file is 8.
 
-                The number of elements must be in the range 1-8.
-              type: array
-              items:
-                $ref: '#/components/schemas/Feature'
-            mimeType:
-              description: >-
-                [MIME type](https://en.wikipedia.org/wiki/Media_type) of content
-                (for example, `` application/pdf ``).
+              The number of elements must be in the range 1-8.
+            type: array
+            items:
+              $ref: '#/components/schemas/Feature'
+          mimeType:
+            description: |-
+              [MIME type](https://en.wikipedia.org/wiki/Media_type) of content (for example, `` application/pdf ``).
 
+              The maximum string length in characters is 255.
+            type: string
+      - title: source
+        type: object
+        maxProperties: 1
+        properties:
+          content:
+            description: |-
+              Image content, represented as a stream of bytes.
+              Note: As with all bytes fields, protobuffers use a pure binary representation, whereas JSON representations use base64.
 
-                The maximum string length in characters is 255.
-              type: string
-        - title: source
-          type: object
-          maxProperties: 1
-          properties:
-            content:
-              description: >-
-                Image content, represented as a stream of bytes.
-
-                Note: As with all bytes fields, protobuffers use a pure binary
-                representation, whereas JSON representations use base64.
-
-
-                The maximum string length in characters is 10485760.
-              type: string
-              format: byte
-            signature:
-              description: The maximum string length in characters is 16384.
-              type: string
+              The maximum string length in characters is 10485760.
+            type: string
+            format: byte
+          signature:
+            description: The maximum string length in characters is 16384.
+            type: string
     BatchAnalyzeRequest:
       type: object
       properties:
         analyzeSpecs:
-          description: >-
+          description: |-
             Required.
-
-            A list of specifications. Each specification contains the file to
-            analyze and features to use for analysis.
-
+            A list of specifications. Each specification contains the file to analyze and features to use for analysis.
 
             Restrictions:
-
             * Supported file formats: JPEG, PNG.
-
             * Maximum file size: 1 MB.
-
             * Image size should not exceed 20M pixels (length x width).
-
 
             The number of elements must be in the range 1-8.
           type: array
           items:
             $ref: '#/components/schemas/AnalyzeSpec'
         folderId:
-          description: >-
+          description: |-
             ID of the folder to which you have access.
-
-            Required for authorization with a user account (see
-            [UserAccount](/docs/iam/api-ref/UserAccount#representation)
-            resource).
-
-            Don't specify this field if you make the request on behalf of a
-            service account.
-
+            Required for authorization with a user account (see [UserAccount](/docs/iam/api-ref/UserAccount#representation) resource).
+            Don't specify this field if you make the request on behalf of a service account.
 
             The maximum string length in characters is 50.
           type: string
@@ -194,25 +175,23 @@ components:
     Feature:
       type: object
       allOf:
-        - type: object
-          properties:
-            type:
-              $ref: '#/components/schemas/FeatureType'
-              description: Type of requested feature.
-        - title: config
-          type: object
-          maxProperties: 1
-          properties:
-            classificationConfig:
-              $ref: '#/components/schemas/FeatureClassificationConfig'
-              description: >-
-                Required for the `CLASSIFICATION` type. Specifies configuration
-                for the classification feature.
-            textDetectionConfig:
-              $ref: '#/components/schemas/FeatureTextDetectionConfig'
-              description: >-
-                Required for the `TEXT_DETECTION` type. Specifies configuration
-                for the text detection (OCR) feature.
+      - type: object
+        properties:
+          type:
+            $ref: '#/components/schemas/FeatureType'
+            description: Type of requested feature.
+      - title: config
+        type: object
+        maxProperties: 1
+        properties:
+          classificationConfig:
+            $ref: '#/components/schemas/FeatureClassificationConfig'
+            description: Required for the `CLASSIFICATION` type. Specifies configuration
+              for the classification feature.
+          textDetectionConfig:
+            $ref: '#/components/schemas/FeatureTextDetectionConfig'
+            description: Required for the `TEXT_DETECTION` type. Specifies configuration
+              for the text detection (OCR) feature.
     FeatureClassificationConfig:
       type: object
       properties:
@@ -225,60 +204,48 @@ components:
     FeatureResult:
       type: object
       allOf:
-        - type: object
-          properties:
-            error:
-              $ref: '#/components/schemas/Status'
-              description: >-
-                Return error in case of error during the specified feature
-                processing.
-        - title: feature
-          type: object
-          maxProperties: 1
-          properties:
-            textDetection:
-              $ref: '#/components/schemas/TextAnnotation'
-              description: Text detection (OCR) result.
-            classification:
-              $ref: '#/components/schemas/ClassAnnotation'
-              description: Classification result.
-            faceDetection:
-              $ref: '#/components/schemas/FaceAnnotation'
-              description: Face detection result.
-            imageCopySearch:
-              $ref: '#/components/schemas/ImageCopySearchAnnotation'
-              description: Image Copy Search result.
+      - type: object
+        properties:
+          error:
+            $ref: '#/components/schemas/Status'
+            description: Return error in case of error during the specified feature
+              processing.
+      - title: feature
+        type: object
+        maxProperties: 1
+        properties:
+          textDetection:
+            $ref: '#/components/schemas/TextAnnotation'
+            description: Text detection (OCR) result.
+          classification:
+            $ref: '#/components/schemas/ClassAnnotation'
+            description: Classification result.
+          faceDetection:
+            $ref: '#/components/schemas/FaceAnnotation'
+            description: Face detection result.
+          imageCopySearch:
+            $ref: '#/components/schemas/ImageCopySearchAnnotation'
+            description: Image Copy Search result.
     FeatureTextDetectionConfig:
       type: object
       properties:
         languageCodes:
-          description: >-
+          description: |-
             Required.
-
             List of the languages to recognize text.
-
-            Specified in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1)
-            format (for example, `` ru ``).
-
+            Specified in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format (for example, `` ru ``).
 
             The number of elements must be in the range 1-8.
-
             The maximum string length in characters for each value is 3.
           type: array
           items:
             type: string
         model:
-          description: >-
+          description: |-
             Model to use for text detection.
-
             Possible values:
-
-            * page (default) — this model is suitable for detecting multiple
-            text entries in an image.
-
-            * line — this model is suitable for cropped images with one line of
-            text.
-
+            * page (default) - this model is suitable for detecting multiple text entries in an image.
+            * line - this model is suitable for cropped images with one line of text.
 
             The maximum string length in characters is 50.
           type: string
@@ -290,10 +257,10 @@ components:
          - IMAGE_COPY_SEARCH: Image copy search.
       type: string
       enum:
-        - TEXT_DETECTION
-        - CLASSIFICATION
-        - FACE_DETECTION
-        - IMAGE_COPY_SEARCH
+      - TEXT_DETECTION
+      - CLASSIFICATION
+      - FACE_DETECTION
+      - IMAGE_COPY_SEARCH
     ImageCopySearchAnnotation:
       type: object
       properties:
@@ -364,9 +331,7 @@ components:
       type: object
       properties:
         code:
-          description: >-
-            Error code. An enum value of
-            [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
+          description: Error code. An enum value of [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
           type: integer
           format: int32
         message:
@@ -395,7 +360,7 @@ components:
           description: X coordinate in pixels.
           type: string
           format: int64
-        'y':
+        "y":
           description: Y coordinate in pixels.
           type: string
           format: int64
@@ -438,9 +403,7 @@ components:
       type: object
       properties:
         code:
-          description: >-
-            Error code. An enum value of
-            [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
+          description: Error code. An enum value of [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
           type: integer
           format: int32
         message:
@@ -488,5 +451,5 @@ components:
           items:
             $ref: '#/components/schemas/Vertex'
 tags:
-  - name: Vision
-    description: A set of methods for the Yandex Vision service.
+- name: Vision
+  description: A set of methods for the Yandex Vision service.

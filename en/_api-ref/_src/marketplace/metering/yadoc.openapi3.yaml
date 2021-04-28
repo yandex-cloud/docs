@@ -1,4 +1,4 @@
-openapi: '3.0'
+openapi: "3.0"
 info:
   title: Yandex.Cloud Marketplace Metering API
   description: Description not set.
@@ -7,7 +7,7 @@ paths:
   /marketplace/v1/metering/imageProductUsage/write:
     post:
       tags:
-        - ImageProductUsage
+      - ImageProductUsage
       summary: Writes image product's usage (authenticated by user's service account)
       operationId: ImageProductUsageWrite
       requestBody:
@@ -17,7 +17,7 @@ paths:
               $ref: '#/components/schemas/WriteImageProductUsageRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -39,18 +39,17 @@ components:
           description: Unique identitifier of the usage record (UUID format)
           type: string
         reason:
-          $ref: >-
-            #/components/schemas/RejectedUsageRecordReason_in_RejectedUsageRecord_reason
+          $ref: '#/components/schemas/RejectedUsageRecordReason_in_RejectedUsageRecord_reason'
     RejectedUsageRecordReason:
       type: string
       enum:
-        - DUPLICATE
-        - EXPIRED
-        - INVALID_TIMESTAMP
-        - INVALID_SKU_ID
-        - INVALID_PRODUCT_ID
-        - INVALID_QUANTITY
-        - INVALID_ID
+      - DUPLICATE
+      - EXPIRED
+      - INVALID_TIMESTAMP
+      - INVALID_SKU_ID
+      - INVALID_PRODUCT_ID
+      - INVALID_QUANTITY
+      - INVALID_ID
     UsageRecord:
       type: object
       properties:
@@ -69,23 +68,18 @@ components:
             The maximum string length in characters is 50.
           type: string
         quantity:
-          description: >-
-            Quantity of sku consumed, measured in `sku.usage_unit` units (e.g.
-            bytes)
-
+          description: |-
+            Quantity of sku consumed, measured in `sku.usage_unit` units (e.g. bytes)
 
             Value must be greater than 0.
           type: string
           format: int64
         timestamp:
-          description: >-
+          description: |-
             Required.
-
             Timestamp in UTC for which the usage is being reported
 
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-            format.
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
     WriteImageProductUsageRequest:
@@ -128,12 +122,12 @@ components:
       description: The reason of rejection
       type: string
       enum:
-        - DUPLICATE
-        - EXPIRED
-        - INVALID_TIMESTAMP
-        - INVALID_SKU_ID
-        - INVALID_PRODUCT_ID
-        - INVALID_QUANTITY
-        - INVALID_ID
+      - DUPLICATE
+      - EXPIRED
+      - INVALID_TIMESTAMP
+      - INVALID_SKU_ID
+      - INVALID_PRODUCT_ID
+      - INVALID_QUANTITY
+      - INVALID_ID
 tags:
-  - name: ImageProductUsage
+- name: ImageProductUsage

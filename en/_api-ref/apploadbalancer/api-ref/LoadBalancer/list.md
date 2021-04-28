@@ -140,7 +140,8 @@ filter | The maximum string length in characters is 1000.
       "logGroupId": "string",
       "securityGroupIds": [
         "string"
-      ]
+      ],
+      "createdAt": "string"
     }
   ],
   "nextPageToken": "string"
@@ -204,4 +205,5 @@ loadBalancers[].<br>allocationPolicy.<br>locations[].<br>subnetId | **string**<b
 loadBalancers[].<br>allocationPolicy.<br>locations[].<br>disableTraffic | **boolean** (boolean)<br><p>If set, will disable all L7 instances in the zone for request handling.</p> 
 loadBalancers[].<br>logGroupId | **string**<br><p>Cloud log group used by the load balancer to store access logs.</p> 
 loadBalancers[].<br>securityGroupIds[] | **string**<br><p>ID's of security groups attached to the load balancer.</p> 
+loadBalancers[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp for the load balancer.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 nextPageToken | **string**<br>

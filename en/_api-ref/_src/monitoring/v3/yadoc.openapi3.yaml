@@ -1,0 +1,4024 @@
+openapi: "3.0"
+info:
+  title: Yandex.Cloud Monitoring API
+  description: This API reference is organized by resource. Actions are performed
+    by sending HTTP requests to resource URLs or making RPC calls. For more information
+    about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
+  version: v3
+  x-y-docUri: api-ref
+  x-y-baseUrl: https://monitoring.api.cloud.yandex.net
+paths:
+  /monitoring/v3/alerts/{alertId}:
+    get:
+      tags:
+      - Alert
+      summary: Returns the specified Alert resource.
+      description: To get the list of available Alert resources, make a [list](/docs/monitoring/api-ref/Alert/list)
+        request.
+      operationId: AlertGet
+      parameters:
+      - name: alertId
+        in: path
+        description: |-
+          Required.
+          ID of the Alert resource to return.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Alert'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - Alert
+      summary: Deletes the specified alert.
+      operationId: AlertDelete
+      parameters:
+      - name: alertId
+        in: path
+        description: |-
+          Required.
+          ID of the alert to delete.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteAlertMetadata'
+      x-y-operation-response: Empty
+    patch:
+      tags:
+      - Alert
+      summary: Updates the specified alert.
+      operationId: AlertUpdate
+      parameters:
+      - name: alertId
+        in: path
+        description: |-
+          Required.
+          ID of the alert.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateAlertRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateAlertMetadata'
+      x-y-operation-response: '[Alert](/docs/monitoring/api-ref/Alert#representation)'
+  /monitoring/v3/alerts:
+    get:
+      tags:
+      - Alert
+      summary: Retrieves the list of Alert resources.
+      operationId: AlertList
+      parameters:
+      - name: folderId
+        in: query
+        description: |-
+          Required.
+          ID of the folder to list alerts in.
+
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/monitoring/api-ref/Alert/list#query_params),
+          the service returns a [nextPageToken](/docs/monitoring/api-ref/Alert/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
+
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/monitoring/api-ref/Alert/list#query_params) to the
+          [nextPageToken](/docs/monitoring/api-ref/Alert/list#responses) returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          A filter expression that filters resources listed in the response.
+          Currently you can use filtering only on the [Alert.id](/docs/monitoring/api-ref/Alert#representation) or [Alert.name](/docs/monitoring/api-ref/Alert#representation) field.
+
+          The maximum string length in characters is 1000.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListAlertsResponse'
+      x-y-navtitle: list
+    post:
+      tags:
+      - Alert
+      summary: Creates a alert.
+      operationId: AlertCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateAlertRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateAlertMetadata'
+      x-y-operation-response: '[Alert](/docs/monitoring/api-ref/Alert#representation)'
+  /monitoring/v3/alerts/{alertId}:getEvaluationStats:
+    get:
+      tags:
+      - Alert
+      operationId: AlertGetEvaluationStats
+      parameters:
+      - name: alertId
+        in: path
+        description: |-
+          Required.
+          ID of the alert.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetAlertEvaluationStatsResponse'
+      x-y-navtitle: getEvaluationStats
+  /monitoring/v3/alerts/{alertId}:getNotificationStats:
+    get:
+      tags:
+      - Alert
+      operationId: AlertGetNotificationStats
+      parameters:
+      - name: alertId
+        in: path
+        description: |-
+          Required.
+          ID of the alert.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetAlertNotificationStatsResponse'
+      x-y-navtitle: getNotificationStats
+  /monitoring/v3/alerts/{alertId}:getEvaluationState:
+    get:
+      tags:
+      - Alert
+      operationId: AlertGetEvaluationState
+      parameters:
+      - name: alertId
+        in: path
+        description: |-
+          Required.
+          ID of the Alert.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetAlertEvaluationStateResponse'
+      x-y-navtitle: getEvaluationState
+  /monitoring/v3/alerts/{alertId}:getNotificationState:
+    get:
+      tags:
+      - Alert
+      operationId: AlertGetNotificationState
+      parameters:
+      - name: alertId
+        in: path
+        description: |-
+          Required.
+          ID of the alert.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetAlertNotificationStateResponse'
+      x-y-navtitle: getNotificationState
+  /monitoring/v3/alerts/{alertId}:explainEvaluation:
+    post:
+      tags:
+      - Alert
+      operationId: AlertExplainEvaluation
+      parameters:
+      - name: alertId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExplainAlertEvaluationRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExplainAlertEvaluationResponse'
+      x-y-navtitle: explainEvaluation
+  /monitoring/v3/alerts:explainEvaluation:
+    post:
+      tags:
+      - Alert
+      operationId: AlertExplainNewEvaluation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExplainNewAlertEvaluationRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExplainNewAlertEvaluationResponse'
+      x-y-navtitle: explainNewEvaluation
+  /monitoring/v3/alerts:getStats:
+    get:
+      tags:
+      - Alert
+      summary: Folder stats.
+      operationId: AlertGetStats
+      parameters:
+      - name: folderId
+        in: query
+        description: |-
+          Required.
+          Folder ID.
+
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetAlertStatsResponse'
+      x-y-navtitle: getStats
+  /monitoring/v3/alerts/{alertId}:mute:
+    post:
+      tags:
+      - Alert
+      summary: Mute the specified alert.
+      operationId: AlertMute
+      parameters:
+      - name: alertId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MuteAlertRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: mute
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/MuteAlertMetadata'
+      x-y-operation-response: '[Alert](/docs/monitoring/api-ref/Alert#representation)'
+  /monitoring/v3/alerts/{alertId}:unmute:
+    post:
+      tags:
+      - Alert
+      summary: Unmute the specified alert.
+      operationId: AlertUnmute
+      parameters:
+      - name: alertId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UnmuteAlertRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: unmute
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UnmuteAlertMetadata'
+      x-y-operation-response: '[Alert](/docs/monitoring/api-ref/Alert#representation)'
+  /monitoring/v3/alerts/{alertId}/operations:
+    get:
+      tags:
+      - Alert
+      summary: Lists operations for the specified alert.
+      operationId: AlertListOperations
+      parameters:
+      - name: alertId
+        in: path
+        description: |-
+          Required.
+          ID of the alert to list operations for.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/monitoring/api-ref/Alert/listOperations#query_params), the service returns a [nextPageToken](/docs/monitoring/api-ref/Alert/listOperations#responses)
+          that can be used to get the next page of results in subsequent list requests.
+
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/monitoring/api-ref/Alert/listOperations#query_params) to the
+          [nextPageToken](/docs/monitoring/api-ref/Alert/listOperations#responses) returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListAlertOperationsResponse'
+      x-y-navtitle: listOperations
+  /monitoring/v3/channels/{channelId}:
+    get:
+      tags:
+      - Channel
+      summary: Returns the specified Channel resource.
+      description: To get the list of available Channel resources, make a [list](/docs/monitoring/api-ref/Channel/list)
+        request.
+      operationId: ChannelGet
+      parameters:
+      - name: channelId
+        in: path
+        description: |-
+          Required.
+          ID of the Channel resource to return.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Channel'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - Channel
+      summary: Deletes the specified channel.
+      operationId: ChannelDelete
+      parameters:
+      - name: channelId
+        in: path
+        description: |-
+          Required.
+          ID of the channel to delete.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteChannelMetadata'
+      x-y-operation-response: Empty
+    patch:
+      tags:
+      - Channel
+      summary: Updates the specified channel.
+      operationId: ChannelUpdate
+      parameters:
+      - name: channelId
+        in: path
+        description: |-
+          Required.
+          ID of the Channel resource to update.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateChannelRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateChannelMetadata'
+      x-y-operation-response: '[Channel](/docs/monitoring/api-ref/Channel#representation)'
+  /monitoring/v3/channels:
+    get:
+      tags:
+      - Channel
+      summary: Retrieves the list of Channel resources.
+      operationId: ChannelList
+      parameters:
+      - name: folderId
+        in: query
+        description: |-
+          Required.
+          ID of the folder to list channels in.
+
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/monitoring/api-ref/Channel/list#query_params),
+          the service returns a [nextPageToken](/docs/monitoring/api-ref/Channel/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
+
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/monitoring/api-ref/Channel/list#query_params) to the
+          [nextPageToken](/docs/monitoring/api-ref/Channel/list#responses) returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          A filter expression that filters resources listed in the response.
+          Currently you can use filtering only on the [Channel.id](/docs/monitoring/api-ref/Channel#representation) or [Channel.name](/docs/monitoring/api-ref/Channel#representation) field.
+
+          The maximum string length in characters is 1000.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListChannelsResponse'
+      x-y-navtitle: list
+    post:
+      tags:
+      - Channel
+      summary: Creates a channel.
+      operationId: ChannelCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateChannelRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateChannelMetadata'
+      x-y-operation-response: '[Channel](/docs/monitoring/api-ref/Channel#representation)'
+  /monitoring/v3/channles/{channelId}/operations:
+    get:
+      tags:
+      - Channel
+      summary: Lists operations for the specified channel.
+      operationId: ChannelListOperations
+      parameters:
+      - name: channelId
+        in: path
+        description: |-
+          Required.
+          ID of the channel to list operations for.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/monitoring/api-ref/Channel/listOperations#query_params), the service returns a [nextPageToken](/docs/monitoring/api-ref/Channel/listOperations#responses)
+          that can be used to get the next page of results in subsequent list requests.
+
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/monitoring/api-ref/Channel/listOperations#query_params) to the
+          [nextPageToken](/docs/monitoring/api-ref/Channel/listOperations#responses) returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListChannelOperationsResponse'
+      x-y-navtitle: listOperations
+  /monitoring/v3/dashboards/{dashboardId}:
+    get:
+      tags:
+      - Dashboard
+      summary: Returns the specified dashboard.
+      operationId: DashboardGet
+      parameters:
+      - name: dashboardId
+        in: path
+        description: |-
+          Required.
+          Required. Dashboard ID.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Dashboard'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - Dashboard
+      summary: Deletes the specified dashboard.
+      operationId: DashboardDelete
+      parameters:
+      - name: dashboardId
+        in: path
+        description: |-
+          Required.
+          Required. Dashboard ID.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteDashboardMetadata'
+      x-y-operation-response: Empty
+    patch:
+      tags:
+      - Dashboard
+      summary: Updates the specified dashboard.
+      operationId: DashboardUpdate
+      parameters:
+      - name: dashboardId
+        in: path
+        description: |-
+          Required.
+          Required. Dashboard ID.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateDashboardRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateDashboardMetadata'
+      x-y-operation-response: '[Dashboard](/docs/monitoring/api-ref/Dashboard#representation)'
+  /monitoring/v3/dashboards:
+    get:
+      tags:
+      - Dashboard
+      summary: Retrieves the list of dashboards in the specified folder.
+      operationId: DashboardList
+      parameters:
+      - name: folderId
+        in: query
+        description: |-
+          Required.
+          Required. Folder ID.
+
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of dashboards to return.
+          If unspecified, at most 100 dashboards will be returned.
+          The maximum value is 1000; values above 1000 will be coerced to 1000.
+
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set `page_token` to the
+          [ListDashboardResponse.next_page_token] returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          The filter expression. Currently you can use filtering only on [Dashboard.name](/docs/monitoring/api-ref/Dashboard#representation) field.
+
+          The maximum string length in characters is 1000.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListDashboardsResponse'
+      x-y-navtitle: list
+    post:
+      tags:
+      - Dashboard
+      summary: Creates a new dashboard in the specified folder.
+      operationId: DashboardCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateDashboardRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateDashboardMetadata'
+      x-y-operation-response: '[Dashboard](/docs/monitoring/api-ref/Dashboard#representation)'
+  /monitoring/v3/dashboards/{dashboardId}/operations:
+    get:
+      tags:
+      - Dashboard
+      summary: Lists operations for the specified dashboard.
+      operationId: DashboardListOperations
+      parameters:
+      - name: dashboardId
+        in: path
+        description: |-
+          Required.
+          ID of the dashboard to list operations for.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/monitoring/api-ref/Dashboard/listOperations#query_params), the service returns a [nextPageToken](/docs/monitoring/api-ref/Dashboard/listOperations#responses)
+          that can be used to get the next page of results in subsequent list requests.
+
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/monitoring/api-ref/Dashboard/listOperations#query_params) to the
+          [nextPageToken](/docs/monitoring/api-ref/Dashboard/listOperations#responses) returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListDashboardOperationsResponse'
+      x-y-navtitle: listOperations
+  /monitoring/v3/data/read:
+    post:
+      tags:
+      - MetricsData
+      summary: Returns metric data from Monitoring.
+      operationId: MetricsDataRead
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReadMetricsDataRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReadMetricsDataResponse'
+      x-y-navtitle: read
+  /monitoring/v3/data/write:
+    post:
+      tags:
+      - MetricsData
+      summary: Writes metric data to Monitoring.
+      operationId: MetricsDataWrite
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WriteMetricsDataRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WriteMetricsDataResponse'
+      x-y-navtitle: write
+  /monitoring/v3/metrics:
+    get:
+      tags:
+      - MetricsMeta
+      summary: Retrieves the list of metrics.
+      operationId: MetricsMetaListMetrics
+      parameters:
+      - name: folderId
+        in: query
+        description: |-
+          Required.
+          ID of the folder that the metric belongs to.
+
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      - name: selectors
+        in: query
+        description: Metric selectors.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Maximum number of metrics in response.
+          0 means default page size = 30, maximum page size = 10000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/monitoring/api-ref/MetricsMeta/listMetrics#query_params) to the
+          [nextPageToken](/docs/monitoring/api-ref/MetricsMeta/listMetrics#responses) returned by a previous list request.
+          (Pagination works in concrete zone ID and concrete shard)
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListMetricsResponse'
+      x-y-navtitle: listMetrics
+  /monitoring/v3/metrics/names:
+    get:
+      tags:
+      - MetricsMeta
+      summary: Retrieves the list of metric names.
+      operationId: MetricsMetaListMetricNames
+      parameters:
+      - name: folderId
+        in: query
+        description: |-
+          Required.
+          ID of the folder that the metric belongs to.
+
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      - name: selectors
+        in: query
+        description: Metric selectors (for new format of metrics only).
+        schema:
+          type: string
+      - name: nameFilter
+        in: query
+        description: Substring name filter text.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Maximum number of metrics in response.
+          0 means default page size = 30, maximum page size = 10000.
+        schema:
+          type: string
+          format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListMetricNamesResponse'
+      x-y-navtitle: listMetricNames
+  /monitoring/v3/metrics/labels:
+    get:
+      tags:
+      - MetricsMeta
+      summary: Retrieves the list of label keys.
+      operationId: MetricsMetaListLabelKeys
+      parameters:
+      - name: folderId
+        in: query
+        description: |-
+          Required.
+          ID of the folder that the metric belongs to.
+
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      - name: selectors
+        in: query
+        description: Metric selectors.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListLabelKeysResponse'
+      x-y-navtitle: listLabelKeys
+  /monitoring/v3/metrics/labels/{labelKey}/values:
+    get:
+      tags:
+      - MetricsMeta
+      summary: Retries the list of values for a given label key.
+      operationId: MetricsMetaListLabelValues
+      parameters:
+      - name: labelKey
+        in: path
+        description: |-
+          Required.
+          For which label key perform values lookup.
+        required: true
+        schema:
+          type: string
+      - name: folderId
+        in: query
+        description: |-
+          Required.
+          ID of the folder that the metric belongs to.
+
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      - name: selectors
+        in: query
+        description: Metric selectors.
+        schema:
+          type: string
+      - name: valueFilter
+        in: query
+        description: Substring value filter text.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Maximum number of label values for concrete key in response.
+          0 means default page size = 30, maximum page size = 10000.
+        schema:
+          type: string
+          format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListLabelValuesResponse'
+      x-y-navtitle: listLabelValues
+  /monitoring/v3/metrics/labelValues:
+    get:
+      tags:
+      - MetricsMeta
+      summary: Retries the list of values for a given label key.
+      operationId: MetricsMetaListAllLabelValues
+      parameters:
+      - name: folderId
+        in: query
+        description: |-
+          Required.
+          ID of the fodler that the metric belongs to.
+
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      - name: labels
+        in: query
+        description: For which label key perform values lookup.
+        schema:
+          type: array
+          items:
+            type: string
+      - name: selectors
+        in: query
+        description: Metric selectors.
+        schema:
+          type: string
+      - name: valueFilter
+        in: query
+        description: Substring value filter text.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Maximum number of label values for concrete key in response.
+          0 means default page size = 30, maximum page size = 10000.
+        schema:
+          type: string
+          format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListAllLabelValuesResponse'
+      x-y-navtitle: listAllLabelValues
+components:
+  schemas:
+    Alert:
+      description: An Alert resource.
+      type: object
+      allOf:
+      - type: object
+        properties:
+          id:
+            description: ID of the alert.
+            type: string
+          folderId:
+            description: ID of the folder that the alert belongs on.
+            type: string
+          createdAt:
+            description: |-
+              Creation timestamp.
+
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          name:
+            description: Name of the alert.
+            type: string
+          description:
+            description: Description of the alert.
+            type: string
+          labels:
+            description: Resource labels as key:value pairs.
+            type: object
+            additionalProperties:
+              type: string
+          status:
+            $ref: '#/components/schemas/AlertStatus'
+            description: Status of current alert.
+          window:
+            description: Alert evaluation window in seconds.
+            type: string
+          delay:
+            description: Alert evaluation delay in seconds.
+            type: string
+          annotations:
+            description: Annotations.
+            type: object
+            additionalProperties:
+              type: string
+          channels:
+            description: Channels.
+            type: array
+            items:
+              $ref: '#/components/schemas/NotificationConfig'
+      - title: type
+        type: object
+        maxProperties: 1
+        properties:
+          threshold:
+            $ref: '#/components/schemas/ThresholdAlert'
+            description: Threshold alert.
+    AlertStatus:
+      description: |2-
+         - STATUS_ACTIVE: Active.
+         - STATUS_INACTIVE: Muted.
+         - STATUS_DELETED: Deleted.
+      type: string
+      enum:
+      - STATUS_ACTIVE
+      - STATUS_INACTIVE
+      - STATUS_DELETED
+    AlertTimeseries:
+      type: object
+      properties:
+        alias:
+          description: Alias of timeseries, or empty if not specified.
+          type: string
+        labels:
+          description: Labels of timeseries, or empty if absent by any reason.
+          type: object
+          additionalProperties:
+            type: string
+        timestamps:
+          description: Array with timestamps of timeseries.
+          type: array
+          items:
+            type: string
+            format: int64
+        values:
+          description: Array with values of timeseries.
+          type: array
+          items:
+            type: number
+            format: double
+    Channel:
+      description: An Channel resource.
+      type: object
+      allOf:
+      - type: object
+        properties:
+          id:
+            description: ID of the channel.
+            type: string
+          folderId:
+            description: ID of the folder that the channel belongs on.
+            type: string
+          createdAt:
+            description: |-
+              Creation timestamp.
+
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          name:
+            description: Name of the channel.
+            type: string
+          description:
+            description: Description of the channel.
+            type: string
+          labels:
+            description: Resource labels as `key:value` pairs.
+            type: object
+            additionalProperties:
+              type: string
+      - title: type
+        type: object
+        maxProperties: 1
+        properties:
+          cloudEmail:
+            $ref: '#/components/schemas/CloudEmailChannel'
+            description: E-Mail channel.
+          cloudSms:
+            $ref: '#/components/schemas/CloudSmsChannel'
+            description: Sms channel.
+          cloudMobilePush:
+            $ref: '#/components/schemas/CloudMobilePushChannel'
+            description: Mobile application push channel.
+    ChannelState:
+      type: object
+      properties:
+        folderId:
+          description: Reference to folder that contains alert.
+          type: string
+        channelId:
+          description: Reference to notification channel.
+          type: string
+        status:
+          $ref: '#/components/schemas/NotificationStatus_in_ChannelState_status'
+        latestEval:
+          description: |-
+            Time when notification was triggered latest time.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+    ChartWidget:
+      description: Chart widget.
+      type: object
+      properties:
+        id:
+          description: Required. Chart ID.
+          type: string
+        queries:
+          $ref: '#/components/schemas/ChartWidgetQueries_in_ChartWidget_queries'
+        visualizationSettings:
+          $ref: '#/components/schemas/ChartWidgetVisualizationSettings_in_ChartWidget_visualizationSettings'
+        seriesOverrides:
+          description: Override settings.
+          type: array
+          items:
+            $ref: '#/components/schemas/ChartWidgetSeriesOverrides'
+        nameHidingSettings:
+          $ref: '#/components/schemas/ChartWidgetNameHidingSettings_in_ChartWidget_nameHidingSettings'
+        description:
+          description: Chart description in dashboard (not enabled in UI).
+          type: string
+        title:
+          description: Chart widget title.
+          type: string
+        displayLegend:
+          description: Enable legend under chart.
+          type: boolean
+          format: boolean
+        freeze:
+          $ref: '#/components/schemas/ChartWidgetFreezeDuration_in_ChartWidget_freeze'
+    ChartWidgetFreezeDuration:
+      description: |2-
+         - FREEZE_DURATION_HOUR: Last hour.
+         - FREEZE_DURATION_DAY: Last day = last 24 hours.
+         - FREEZE_DURATION_WEEK: Last 7 days.
+         - FREEZE_DURATION_MONTH: Last 31 days.
+      type: string
+      enum:
+      - FREEZE_DURATION_HOUR
+      - FREEZE_DURATION_DAY
+      - FREEZE_DURATION_WEEK
+      - FREEZE_DURATION_MONTH
+    ChartWidgetNameHidingSettings:
+      description: Name hiding settings.
+      type: object
+      properties:
+        positive:
+          description: True if we want to show concrete series names only, false if
+            we want to hide concrete series names.
+          type: boolean
+          format: boolean
+        names:
+          description: Series names to show or hide.
+          type: array
+          items:
+            type: string
+    ChartWidgetQueries:
+      description: Query settings.
+      type: object
+      properties:
+        targets:
+          description: Required. List of targets.
+          type: array
+          items:
+            $ref: '#/components/schemas/ChartWidgetQueriesTarget'
+        downsampling:
+          $ref: '#/components/schemas/Downsampling_in_ChartWidgetQueries_downsampling'
+    ChartWidgetQueriesTarget:
+      description: Query target.
+      type: object
+      properties:
+        query:
+          description: Required. Query.
+          type: string
+        textMode:
+          description: Text mode.
+          type: boolean
+          format: boolean
+        hidden:
+          description: Checks that target is visible or invisible.
+          type: boolean
+          format: boolean
+    ChartWidgetSeriesOverrides:
+      description: Series override settings.
+      type: object
+      allOf:
+      - type: object
+        properties:
+          settings:
+            $ref: '#/components/schemas/ChartWidgetSeriesOverridesSeriesOverrideSettings'
+            description: Required. Override settings.
+      - title: type
+        type: object
+        maxProperties: 1
+        properties:
+          name:
+            description: Series name.
+            type: string
+          targetIndex:
+            description: Target index.
+            type: string
+    ChartWidgetSeriesOverridesSeriesOverrideSettings:
+      type: object
+      properties:
+        name:
+          description: Series name or empty.
+          type: string
+        color:
+          description: Series color or empty.
+          type: string
+        type:
+          $ref: '#/components/schemas/ChartWidgetSeriesOverridesSeriesVisualizationType_in_ChartWidgetSeriesOverridesSeriesOverrideSettings_type'
+        stackName:
+          description: Stack name or empty.
+          type: string
+        growDown:
+          description: Stack grow down.
+          type: boolean
+          format: boolean
+        yaxisPosition:
+          $ref: '#/components/schemas/ChartWidgetSeriesOverridesYaxisPosition_in_ChartWidgetSeriesOverridesSeriesOverrideSettings_yaxisPosition'
+    ChartWidgetSeriesOverridesSeriesVisualizationType:
+      description: |2-
+         - SERIES_VISUALIZATION_TYPE_UNSPECIFIED: Not specified (line by default).
+         - SERIES_VISUALIZATION_TYPE_LINE: Line chart.
+         - SERIES_VISUALIZATION_TYPE_STACK: Stack chart.
+         - SERIES_VISUALIZATION_TYPE_COLUMN: Points as columns chart.
+         - SERIES_VISUALIZATION_TYPE_POINTS: Points.
+      type: string
+      enum:
+      - SERIES_VISUALIZATION_TYPE_LINE
+      - SERIES_VISUALIZATION_TYPE_STACK
+      - SERIES_VISUALIZATION_TYPE_COLUMN
+      - SERIES_VISUALIZATION_TYPE_POINTS
+    ChartWidgetSeriesOverridesYaxisPosition:
+      description: |2-
+         - YAXIS_POSITION_UNSPECIFIED: Not specified (left by default).
+         - YAXIS_POSITION_LEFT: Left.
+         - YAXIS_POSITION_RIGHT: Right.
+      type: string
+      enum:
+      - YAXIS_POSITION_LEFT
+      - YAXIS_POSITION_RIGHT
+    ChartWidgetVisualizationSettings:
+      description: Visualization settings.
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/ChartWidgetVisualizationSettingsVisualizationType_in_ChartWidgetVisualizationSettings_type'
+        normalize:
+          description: Normalize.
+          type: boolean
+          format: boolean
+        interpolate:
+          $ref: '#/components/schemas/ChartWidgetVisualizationSettingsInterpolate_in_ChartWidgetVisualizationSettings_interpolate'
+        aggregation:
+          $ref: '#/components/schemas/ChartWidgetVisualizationSettingsSeriesAggregation_in_ChartWidgetVisualizationSettings_aggregation'
+        colorSchemeSettings:
+          $ref: '#/components/schemas/ChartWidgetVisualizationSettingsColorSchemeSettings_in_ChartWidgetVisualizationSettings_colorSchemeSettings'
+        heatmapSettings:
+          $ref: '#/components/schemas/ChartWidgetVisualizationSettingsHeatmapSettings_in_ChartWidgetVisualizationSettings_heatmapSettings'
+        yaxisSettings:
+          $ref: '#/components/schemas/ChartWidgetVisualizationSettingsYaxisSettings_in_ChartWidgetVisualizationSettings_yaxisSettings'
+        title:
+          description: Inside chart title.
+          type: string
+    ChartWidgetVisualizationSettingsColorSchemeSettings:
+      type: object
+      allOf:
+      - title: scheme
+        type: object
+        maxProperties: 1
+        properties:
+          automatic:
+            $ref: '#/components/schemas/ChartWidgetVisualizationSettingsColorSchemeSettingsAutomaticColorScheme'
+            description: Automatic color scheme.
+          standard:
+            $ref: '#/components/schemas/ChartWidgetVisualizationSettingsColorSchemeSettingsStandardColorScheme'
+            description: Standard color scheme.
+          gradient:
+            $ref: '#/components/schemas/ChartWidgetVisualizationSettingsColorSchemeSettingsGradientColorScheme'
+            description: Gradient color scheme.
+    ChartWidgetVisualizationSettingsColorSchemeSettingsAutomaticColorScheme:
+      type: object
+      properties: {}
+    ChartWidgetVisualizationSettingsColorSchemeSettingsGradientColorScheme:
+      type: object
+      properties:
+        greenValue:
+          description: Gradient green value.
+          type: string
+        yellowValue:
+          description: Gradient yellow value.
+          type: string
+        redValue:
+          description: Gradient red value.
+          type: string
+        violetValue:
+          description: Gradient violet_value.
+          type: string
+    ChartWidgetVisualizationSettingsColorSchemeSettingsStandardColorScheme:
+      type: object
+      properties: {}
+    ChartWidgetVisualizationSettingsHeatmapSettings:
+      type: object
+      properties:
+        greenValue:
+          description: Heatmap green value.
+          type: string
+        yellowValue:
+          description: Heatmap yellow value.
+          type: string
+        redValue:
+          description: Heatmap red value.
+          type: string
+        violetValue:
+          description: Heatmap violet_value.
+          type: string
+    ChartWidgetVisualizationSettingsInterpolate:
+      description: |2-
+         - INTERPOLATE_UNSPECIFIED: Not specified (linear by default).
+         - INTERPOLATE_LINEAR: Linear.
+         - INTERPOLATE_LEFT: Left.
+         - INTERPOLATE_RIGHT: Right.
+      type: string
+      enum:
+      - INTERPOLATE_LINEAR
+      - INTERPOLATE_LEFT
+      - INTERPOLATE_RIGHT
+    ChartWidgetVisualizationSettingsSeriesAggregation:
+      description: |2-
+         - SERIES_AGGREGATION_UNSPECIFIED: Not specified (avg by default).
+         - SERIES_AGGREGATION_AVG: Average.
+         - SERIES_AGGREGATION_MIN: Minimum.
+         - SERIES_AGGREGATION_MAX: Maximum.
+         - SERIES_AGGREGATION_LAST: Last non-NaN value.
+         - SERIES_AGGREGATION_SUM: Sum.
+      type: string
+      enum:
+      - SERIES_AGGREGATION_AVG
+      - SERIES_AGGREGATION_MIN
+      - SERIES_AGGREGATION_MAX
+      - SERIES_AGGREGATION_LAST
+      - SERIES_AGGREGATION_SUM
+    ChartWidgetVisualizationSettingsUnitFormat:
+      description: |-
+        Unit format.
+
+         - UNIT_NONE: None (show tick values as-is).
+         - UNIT_COUNT: Count.
+         - UNIT_PERCENT: Percent (0-100).
+         - UNIT_PERCENT_UNIT: Percent (0-1).
+         - UNIT_NANOSECONDS: Nanoseconds (ns).
+         - UNIT_MICROSECONDS: Microseconds (µs).
+         - UNIT_MILLISECONDS: Milliseconds (ms).
+         - UNIT_SECONDS: Seconds (s).
+         - UNIT_MINUTES: Minutes (m).
+         - UNIT_HOURS: Hours (h).
+         - UNIT_DAYS: Days (d).
+         - UNIT_BITS_SI: Bits (SI).
+         - UNIT_BYTES_SI: Bytes (SI).
+         - UNIT_KILOBYTES: Kilobytes (KB).
+         - UNIT_MEGABYTES: Megabytes (MB).
+         - UNIT_GIGABYTES: Gigabytes (GB).
+         - UNIT_TERABYTES: Terabytes (TB)
+         - UNIT_PETABYTES: Petabytes (PB).
+         - UNIT_EXABYTES: Exabytes (EB).
+         - UNIT_BITS_IEC: Bits (IEC).
+         - UNIT_BYTES_IEC: Bytes (IEC).
+         - UNIT_KIBIBYTES: Kibibytes (KiB).
+         - UNIT_MEBIBYTES: Mebibytes (MiB).
+         - UNIT_GIBIBYTES: Gigibytes (GiB).
+         - UNIT_TEBIBYTES: Tebibytes (TiB).
+         - UNIT_PEBIBYTES: Pebibytes (PiB).
+         - UNIT_EXBIBYTES: Exbibytes (EiB).
+         - UNIT_REQUESTS_PER_SECOND: Requests per second (reqps).
+         - UNIT_OPERATIONS_PER_SECOND: Operations per second (ops).
+         - UNIT_WRITES_PER_SECOND: Writes per second (wps).
+         - UNIT_READS_PER_SECOND: Reads per second (rps).
+         - UNIT_PACKETS_PER_SECOND: Packets per second (pps).
+         - UNIT_IO_OPERATIONS_PER_SECOND: IO operations per second (iops).
+         - UNIT_COUNTS_PER_SECOND: Counts per second (counts/sec).
+         - UNIT_BITS_SI_PER_SECOND: Bits (SI) per second (bits/sec).
+         - UNIT_BYTES_SI_PER_SECOND: Bytes (SI) per second (bytes/sec).
+         - UNIT_KILOBITS_PER_SECOND: Kilobits per second (KBits/sec).
+         - UNIT_KILOBYTES_PER_SECOND: Kilobytes per second (KB/sec).
+         - UNIT_MEGABITS_PER_SECOND: Megabits per second (MBits/sec).
+         - UNIT_MEGABYTES_PER_SECOND: Megabytes per second (MB/sec).
+         - UNIT_GIGABITS_PER_SECOND: Gigabits per second (GBits/sec).
+         - UNIT_GIGABYTES_PER_SECOND: Gigabytes per second (GB/sec).
+         - UNIT_TERABITS_PER_SECOND: Terabits per second (TBits/sec).
+         - UNIT_TERABYTES_PER_SECOND: Terabytes per second (TB/sec).
+         - UNIT_PETABITS_PER_SECOND: Petabits per second (Pbits/sec).
+         - UNIT_PETABYTES_PER_SECOND: Petabytes per second (PB/sec).
+         - UNIT_BITS_IEC_PER_SECOND: Bits (IEC) per second (bits/sec).
+         - UNIT_BYTES_IEC_PER_SECOND: Bytes (IEC) per second (bytes/sec).
+         - UNIT_KIBIBITS_PER_SECOND: Kibibits per second (KiBits/sec).
+         - UNIT_KIBIBYTES_PER_SECOND: Kibibytes per second (KiB/sec).
+         - UNIT_MEBIBITS_PER_SECOND: Mebibits per second (MiBits/sec).
+         - UNIT_MEBIBYTES_PER_SECOND: Mebibytes per second (MiB/sec).
+         - UNIT_GIBIBITS_PER_SECOND: Gibibits per second (GiBits/sec).
+         - UNIT_GIBIBYTES_PER_SECOND: Gibibytes per second (GiB/sec).
+         - UNIT_TEBIBITS_PER_SECOND: Tebibits per second (TiBits/sec).
+         - UNIT_TEBIBYTES_PER_SECOND: Tebibytes per second (TiB/sec).
+         - UNIT_PEBIBITS_PER_SECOND: Pebibits per second (PiBits/sec).
+         - UNIT_PEBIBYTES_PER_SECOND: Pebibytes per second (PiB/sec).
+         - UNIT_DATETIME_UTC: Datetime (UTC).
+         - UNIT_DATETIME_LOCAL: Datetime (local).
+         - UNIT_HERTZ: Hertz (Hz).
+         - UNIT_KILOHERTZ: Kilohertz (KHz).
+         - UNIT_MEGAHERTZ: Megahertz (MHz).
+         - UNIT_GIGAHERTZ: Gigahertz (GHz).
+         - UNIT_DOLLAR: Dollar.
+         - UNIT_EURO: Euro.
+         - UNIT_ROUBLE: Rouble.
+         - UNIT_CELSIUS: Celsius (°C).
+         - UNIT_FAHRENHEIT: Fahrenheit (°F).
+         - UNIT_KELVIN: Kelvin (K).
+         - UNIT_FLOP_PER_SECOND: Flop per second (FLOP/sec).
+         - UNIT_KILOFLOP_PER_SECOND: Kiloflop per second (KFLOP/sec).
+         - UNIT_MEGAFLOP_PER_SECOND: Megaflop per second (MFLOP/sec).
+         - UNIT_GIGAFLOP_PER_SECOND: Gigaflop per second (GFLOP/sec).
+         - UNIT_PETAFLOP_PER_SECOND: Petaflop per second (PFLOP/sec).
+         - UNIT_EXAFLOP_PER_SECOND: Exaflop per second (EFLOP/sec).
+         - UNIT_METERS_PER_SECOND: Meters per second (m/sec).
+         - UNIT_KILOMETERS_PER_HOUR: Kilometers per hour (km/h).
+         - UNIT_MILES_PER_HOUR: Miles per hour (mi/h).
+         - UNIT_MILLIMETER: Millimeter.
+         - UNIT_CENTIMETER: Centimeter.
+         - UNIT_METER: Meter.
+         - UNIT_KILOMETER: Kilometer.
+         - UNIT_MILE: Mile.
+         - UNIT_PPM: Parts per million (ppm).
+      type: string
+      enum:
+      - UNIT_NONE
+      - UNIT_COUNT
+      - UNIT_PERCENT
+      - UNIT_PERCENT_UNIT
+      - UNIT_NANOSECONDS
+      - UNIT_MICROSECONDS
+      - UNIT_MILLISECONDS
+      - UNIT_SECONDS
+      - UNIT_MINUTES
+      - UNIT_HOURS
+      - UNIT_DAYS
+      - UNIT_BITS_SI
+      - UNIT_BYTES_SI
+      - UNIT_KILOBYTES
+      - UNIT_MEGABYTES
+      - UNIT_GIGABYTES
+      - UNIT_TERABYTES
+      - UNIT_PETABYTES
+      - UNIT_EXABYTES
+      - UNIT_BITS_IEC
+      - UNIT_BYTES_IEC
+      - UNIT_KIBIBYTES
+      - UNIT_MEBIBYTES
+      - UNIT_GIBIBYTES
+      - UNIT_TEBIBYTES
+      - UNIT_PEBIBYTES
+      - UNIT_EXBIBYTES
+      - UNIT_REQUESTS_PER_SECOND
+      - UNIT_OPERATIONS_PER_SECOND
+      - UNIT_WRITES_PER_SECOND
+      - UNIT_READS_PER_SECOND
+      - UNIT_PACKETS_PER_SECOND
+      - UNIT_IO_OPERATIONS_PER_SECOND
+      - UNIT_COUNTS_PER_SECOND
+      - UNIT_BITS_SI_PER_SECOND
+      - UNIT_BYTES_SI_PER_SECOND
+      - UNIT_KILOBITS_PER_SECOND
+      - UNIT_KILOBYTES_PER_SECOND
+      - UNIT_MEGABITS_PER_SECOND
+      - UNIT_MEGABYTES_PER_SECOND
+      - UNIT_GIGABITS_PER_SECOND
+      - UNIT_GIGABYTES_PER_SECOND
+      - UNIT_TERABITS_PER_SECOND
+      - UNIT_TERABYTES_PER_SECOND
+      - UNIT_PETABITS_PER_SECOND
+      - UNIT_PETABYTES_PER_SECOND
+      - UNIT_BITS_IEC_PER_SECOND
+      - UNIT_BYTES_IEC_PER_SECOND
+      - UNIT_KIBIBITS_PER_SECOND
+      - UNIT_KIBIBYTES_PER_SECOND
+      - UNIT_MEBIBITS_PER_SECOND
+      - UNIT_MEBIBYTES_PER_SECOND
+      - UNIT_GIBIBITS_PER_SECOND
+      - UNIT_GIBIBYTES_PER_SECOND
+      - UNIT_TEBIBITS_PER_SECOND
+      - UNIT_TEBIBYTES_PER_SECOND
+      - UNIT_PEBIBITS_PER_SECOND
+      - UNIT_PEBIBYTES_PER_SECOND
+      - UNIT_DATETIME_UTC
+      - UNIT_DATETIME_LOCAL
+      - UNIT_HERTZ
+      - UNIT_KILOHERTZ
+      - UNIT_MEGAHERTZ
+      - UNIT_GIGAHERTZ
+      - UNIT_DOLLAR
+      - UNIT_EURO
+      - UNIT_ROUBLE
+      - UNIT_CELSIUS
+      - UNIT_FAHRENHEIT
+      - UNIT_KELVIN
+      - UNIT_FLOP_PER_SECOND
+      - UNIT_KILOFLOP_PER_SECOND
+      - UNIT_MEGAFLOP_PER_SECOND
+      - UNIT_GIGAFLOP_PER_SECOND
+      - UNIT_PETAFLOP_PER_SECOND
+      - UNIT_EXAFLOP_PER_SECOND
+      - UNIT_METERS_PER_SECOND
+      - UNIT_KILOMETERS_PER_HOUR
+      - UNIT_MILES_PER_HOUR
+      - UNIT_MILLIMETER
+      - UNIT_CENTIMETER
+      - UNIT_METER
+      - UNIT_KILOMETER
+      - UNIT_MILE
+      - UNIT_PPM
+    ChartWidgetVisualizationSettingsVisualizationType:
+      description: |-
+        Chart visualization type.
+
+         - VISUALIZATION_TYPE_UNSPECIFIED: Not specified (line by default).
+         - VISUALIZATION_TYPE_LINE: Line chart.
+         - VISUALIZATION_TYPE_STACK: Stack chart.
+         - VISUALIZATION_TYPE_COLUMN: Points as columns chart.
+         - VISUALIZATION_TYPE_POINTS: Points.
+         - VISUALIZATION_TYPE_PIE: Pie aggregation chart.
+         - VISUALIZATION_TYPE_BARS: Bars aggregation chart.
+         - VISUALIZATION_TYPE_DISTRIBUTION: Distribution aggregation chart.
+         - VISUALIZATION_TYPE_HEATMAP: Heatmap aggregation chart.
+      type: string
+      enum:
+      - VISUALIZATION_TYPE_LINE
+      - VISUALIZATION_TYPE_STACK
+      - VISUALIZATION_TYPE_COLUMN
+      - VISUALIZATION_TYPE_POINTS
+      - VISUALIZATION_TYPE_PIE
+      - VISUALIZATION_TYPE_BARS
+      - VISUALIZATION_TYPE_DISTRIBUTION
+      - VISUALIZATION_TYPE_HEATMAP
+    ChartWidgetVisualizationSettingsYaxis:
+      description: Y axis settings.
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/ChartWidgetVisualizationSettingsYaxisType_in_ChartWidgetVisualizationSettingsYaxis_type'
+        title:
+          description: Title or empty.
+          type: string
+        min:
+          description: Min value in extended number format or empty.
+          type: string
+        max:
+          description: Max value in extended number format or empty.
+          type: string
+        unitFormat:
+          $ref: '#/components/schemas/ChartWidgetVisualizationSettingsUnitFormat_in_ChartWidgetVisualizationSettingsYaxis_unitFormat'
+        precision:
+          description: Tick value precision (null as default, 0-7 in other cases).
+          type: integer
+          format: int64
+    ChartWidgetVisualizationSettingsYaxisSettings:
+      type: object
+      properties:
+        left:
+          $ref: '#/components/schemas/ChartWidgetVisualizationSettingsYaxis_in_ChartWidgetVisualizationSettingsYaxisSettings_left'
+        right:
+          $ref: '#/components/schemas/ChartWidgetVisualizationSettingsYaxis_in_ChartWidgetVisualizationSettingsYaxisSettings_right'
+    ChartWidgetVisualizationSettingsYaxisType:
+      description: |-
+        Y axis type.
+        N.B. _TYPE prefix is necessary to expect name clash with Interpolate LINEAR value.
+
+         - YAXIS_TYPE_UNSPECIFIED: Not specified (linear by default).
+         - YAXIS_TYPE_LINEAR: Linear.
+         - YAXIS_TYPE_LOGARITHMIC: Logarithmic.
+      type: string
+      enum:
+      - YAXIS_TYPE_LINEAR
+      - YAXIS_TYPE_LOGARITHMIC
+    CloudEmailChannel:
+      type: object
+      properties:
+        recipients:
+          type: array
+          items:
+            type: string
+    CloudMobilePushChannel:
+      type: object
+      properties:
+        recipients:
+          type: array
+          items:
+            type: string
+    CloudSmsChannel:
+      type: object
+      properties:
+        recipients:
+          type: array
+          items:
+            type: string
+    Comparison:
+      description: |2-
+         - COMPARISON_EQ: Equal the specified value.
+         - COMPARISON_NE: Not equal the specified value.
+         - COMPARISON_GT: Greater than the specified value.
+         - COMPARISON_LT: Less than the specified value.
+         - COMPARISON_GTE: Greater than or equal to the specified value.
+         - COMPARISON_LTE: Less than or equal to the specified value.
+      type: string
+      enum:
+      - COMPARISON_EQ
+      - COMPARISON_NE
+      - COMPARISON_GT
+      - COMPARISON_LT
+      - COMPARISON_GTE
+      - COMPARISON_LTE
+    CreateAlertMetadata:
+      type: object
+      properties:
+        alertId:
+          description: ID of the alert.
+          type: string
+    CreateAlertRequest:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          folderId:
+            description: |-
+              Required.
+              ID of the folder to create alert in.
+
+              The maximum string length in characters is 50.
+            type: string
+          name:
+            description: |-
+              Name of the alert.
+
+              Value must match the regular expression `` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
+            type: string
+          description:
+            description: |-
+              Description of the alert.
+
+              The maximum string length in characters is 256.
+            type: string
+          labels:
+            description: |-
+              Resource labels as `key:value` pairs.
+
+              No more than 64 per resource.
+              The string length in characters for each key must be 1-63.
+              Each key must match the regular expression `` [a-z][-_./\@0-9a-z]* ``.
+              The maximum string length in characters for each value is 63.
+              Each value must match the regular expression `` [-_./\@0-9a-z]* ``.
+            type: object
+            additionalProperties:
+              type: string
+          window:
+            description: Alert evaluation window in seconds.
+            type: string
+          delay:
+            description: Alert evaluation delay in seconds.
+            type: string
+          annotations:
+            description: Annotations.
+            type: object
+            additionalProperties:
+              type: string
+          channels:
+            type: array
+            items:
+              $ref: '#/components/schemas/NotificationConfig'
+      - title: type
+        type: object
+        maxProperties: 1
+        properties:
+          threshold:
+            $ref: '#/components/schemas/ThresholdAlert'
+            description: Threshold alert.
+    CreateChannelMetadata:
+      type: object
+      properties:
+        channelId:
+          description: ID of the channel.
+          type: string
+    CreateChannelRequest:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          folderId:
+            description: |-
+              Required.
+              ID of the folder to create channel in.
+
+              The maximum string length in characters is 50.
+            type: string
+          name:
+            description: |-
+              Name of the channel.
+
+              Value must match the regular expression `` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
+            type: string
+          description:
+            description: |-
+              Description of the channel.
+
+              The maximum string length in characters is 256.
+            type: string
+          labels:
+            description: |-
+              Resource labels as `key:value` pairs.
+
+              No more than 64 per resource.
+              The string length in characters for each key must be 1-63.
+              Each key must match the regular expression `` [a-z][-_./\@0-9a-z]* ``.
+              The maximum string length in characters for each value is 63.
+              Each value must match the regular expression `` [-_./\@0-9a-z]* ``.
+            type: object
+            additionalProperties:
+              type: string
+      - title: type
+        type: object
+        maxProperties: 1
+        properties:
+          cloudEmail:
+            $ref: '#/components/schemas/CloudEmailChannel'
+            description: E-Mail channel.
+          cloudSms:
+            $ref: '#/components/schemas/CloudSmsChannel'
+            description: SMS channel.
+          cloudMobilePush:
+            $ref: '#/components/schemas/CloudMobilePushChannel'
+            description: Mobile application push channel.
+    CreateDashboardMetadata:
+      type: object
+      properties:
+        dashboardId:
+          description: Dashboard ID.
+          type: string
+    CreateDashboardRequest:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            Required.
+            Required. Folder ID.
+
+            The maximum string length in characters is 50.
+          type: string
+        name:
+          description: |-
+            Required. Dashboard name.
+
+            Value must match the regular expression `` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
+          type: string
+        description:
+          description: |-
+            Dashboard description.
+
+            The maximum string length in characters is 256.
+          type: string
+        labels:
+          description: |-
+            Resource labels as `key:value` pairs.
+
+            No more than 64 per resource.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `` [a-z][-_./\@0-9a-z]* ``.
+            The maximum string length in characters for each value is 63.
+            Each value must match the regular expression `` [-_./\@0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+        title:
+          description: Dashboard title.
+          type: string
+        widgets:
+          description: List of dashboard widgets.
+          type: array
+          items:
+            $ref: '#/components/schemas/Widget'
+        parametrization:
+          $ref: '#/components/schemas/Parametrization_in_CreateDashboardRequest_parametrization'
+    CustomParameter:
+      description: Custom parameter.
+      type: object
+      properties:
+        values:
+          description: Required. List of parameter values.
+          type: array
+          items:
+            type: string
+        multiselectable:
+          description: Specifies the multiselectable values of parameter.
+          type: boolean
+          format: boolean
+        defaultValues:
+          description: Default values.
+          type: array
+          items:
+            type: string
+    Dashboard:
+      description: Dashboard resource.
+      type: object
+      properties:
+        id:
+          description: Dashboard ID.
+          type: string
+        folderId:
+          description: Folder ID.
+          type: string
+        createdAt:
+          description: |-
+            Creation timestamp.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        name:
+          description: Dashboard name.
+          type: string
+        description:
+          description: Dashboard description.
+          type: string
+        labels:
+          description: Resource labels as key:value pairs.
+          type: object
+          additionalProperties:
+            type: string
+        title:
+          description: Dashboard title.
+          type: string
+        widgets:
+          description: List of dashboard widgets.
+          type: array
+          items:
+            $ref: '#/components/schemas/Widget'
+        parametrization:
+          $ref: '#/components/schemas/Parametrization_in_Dashboard_parametrization'
+    DeleteAlertMetadata:
+      type: object
+      properties:
+        alertId:
+          description: ID of the alert that is being deleted.
+          type: string
+    DeleteChannelMetadata:
+      type: object
+      properties:
+        channelId:
+          description: ID of the channel that is being deleted.
+          type: string
+    DeleteDashboardMetadata:
+      type: object
+      properties:
+        dashboardId:
+          description: Dashboard ID.
+          type: string
+    Downsampling:
+      description: List of available aggregate functions for downsampling.
+      type: object
+      allOf:
+      - type: object
+        properties:
+          gridAggregation:
+            $ref: '#/components/schemas/DownsamplingGridAggregation'
+            description: Function that is used for downsampling.
+          gapFilling:
+            $ref: '#/components/schemas/DownsamplingGapFilling'
+            description: Parameters for filling gaps in data.
+      - title: mode
+        type: object
+        maxProperties: 1
+        properties:
+          maxPoints:
+            description: Maximum number of points to be returned.
+            type: string
+            format: int64
+          gridInterval:
+            description: |-
+              Time interval (grid) for downsampling in milliseconds.
+              Points in the specified range are aggregated into one time point.
+            type: string
+            format: int64
+          disabled:
+            description: Disable downsampling.
+            type: boolean
+            format: boolean
+    DownsamplingGapFilling:
+      description: |-
+        List of available gap filling policy for downsampling.
+
+         - GAP_FILLING_NULL: Returns `null` as a metric value and `timestamp` as a time series value.
+         - GAP_FILLING_NONE: Returns no value and no timestamp.
+         - GAP_FILLING_PREVIOUS: Returns the value from the previous time interval.
+      type: string
+      enum:
+      - GAP_FILLING_NULL
+      - GAP_FILLING_NONE
+      - GAP_FILLING_PREVIOUS
+    DownsamplingGridAggregation:
+      description: |-
+        List of available aggregate functions for downsampling.
+
+         - GRID_AGGREGATION_MAX: Max value.
+         - GRID_AGGREGATION_MIN: Min value.
+         - GRID_AGGREGATION_SUM: Sum of values.
+         - GRID_AGGREGATION_AVG: Average value.
+         - GRID_AGGREGATION_LAST: Last value.
+         - GRID_AGGREGATION_COUNT: Total count of points.
+      type: string
+      enum:
+      - GRID_AGGREGATION_MAX
+      - GRID_AGGREGATION_MIN
+      - GRID_AGGREGATION_SUM
+      - GRID_AGGREGATION_AVG
+      - GRID_AGGREGATION_LAST
+      - GRID_AGGREGATION_COUNT
+    Empty:
+      description: Empty JSON object `` {} ``.
+      type: object
+      maxProperties: 0
+    EvaluationStats:
+      type: object
+      properties:
+        okCount:
+          type: string
+          format: int64
+        warnCount:
+          type: string
+          format: int64
+        alarmCount:
+          type: string
+          format: int64
+        errorCount:
+          type: string
+          format: int64
+        noDataCount:
+          type: string
+          format: int64
+    EvaluationStatus:
+      description: |2-
+         - EVALUATION_STATUS_OK: OK.
+         - EVALUATION_STATUS_WARN: Warning.
+         - EVALUATION_STATUS_ALARM: Alarm.
+         - EVALUATION_STATUS_NO_DATA: No data.
+         - EVALUATION_STATUS_ERROR: Error.
+      type: string
+      enum:
+      - EVALUATION_STATUS_OK
+      - EVALUATION_STATUS_WARN
+      - EVALUATION_STATUS_ALARM
+      - EVALUATION_STATUS_NO_DATA
+      - EVALUATION_STATUS_ERROR
+    ExplainAlertEvaluationRequest:
+      type: object
+      properties:
+        time:
+          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
+            format.
+          type: string
+          format: date-time
+    ExplainAlertEvaluationResponse:
+      type: object
+      properties:
+        evaluationStatus:
+          $ref: '#/components/schemas/EvaluationStatus_in_ExplainAlertEvaluationResponse_evaluationStatus'
+        series:
+          type: array
+          items:
+            $ref: '#/components/schemas/AlertTimeseries'
+    ExplainNewAlertEvaluationRequest:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          folderId:
+            description: |-
+              Required.
+              The maximum string length in characters is 50.
+            type: string
+          time:
+            description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+              text format.
+            type: string
+            format: date-time
+          name:
+            description: |-
+              Name of the alert.
+
+              Value must match the regular expression `` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
+            type: string
+          description:
+            description: |-
+              Description of the alert.
+
+              The maximum string length in characters is 256.
+            type: string
+          status:
+            $ref: '#/components/schemas/AlertStatus'
+            description: Status of current alert.
+          window:
+            description: Alert evaluation window in seconds.
+            type: string
+          delay:
+            description: Alert evaluation delay in seconds.
+            type: string
+          annotations:
+            description: Annotations.
+            type: object
+            additionalProperties:
+              type: string
+          channels:
+            type: array
+            items:
+              $ref: '#/components/schemas/NotificationConfig'
+      - title: type
+        type: object
+        maxProperties: 1
+        properties:
+          threshold:
+            $ref: '#/components/schemas/ThresholdAlert'
+            description: Threshold alert.
+    ExplainNewAlertEvaluationResponse:
+      type: object
+      properties:
+        evaluationStatus:
+          $ref: '#/components/schemas/EvaluationStatus_in_ExplainNewAlertEvaluationResponse_evaluationStatus'
+        series:
+          type: array
+          items:
+            $ref: '#/components/schemas/AlertTimeseries'
+    FieldMask:
+      description: |-
+        A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
+
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
+        Fields specified in the request will be updated to provided values.
+        The rest of the fields will be reset to the default.
+      type: string
+    GetAlertEvaluationStateResponse:
+      type: object
+      properties:
+        folderId:
+          description: Reference to folder that contains alert.
+          type: string
+        alertId:
+          description: Unique identity for alert.
+          type: string
+        alertVersion:
+          description: Version of alert that will be use to evaluate latest time.
+            Each change of alert reset state.
+          type: string
+          format: int64
+        status:
+          $ref: '#/components/schemas/EvaluationStatus_in_GetAlertEvaluationStateResponse_status'
+        since:
+          description: |-
+            Time when evaluation state will changed latest time, for example from OK to ALARM.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        latestEval:
+          description: |-
+            UNIX time when latest alert evaluation occurs.
+            Since - LatestEval = how much time alert in particular state.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        previousStatus:
+          $ref: '#/components/schemas/EvaluationStatus_in_GetAlertEvaluationStateResponse_previousStatus'
+    GetAlertEvaluationStatsResponse:
+      type: object
+      properties:
+        evaluationStats:
+          $ref: '#/components/schemas/EvaluationStats_in_GetAlertEvaluationStatsResponse_evaluationStats'
+    GetAlertNotificationStateResponse:
+      type: object
+      properties:
+        channelStates:
+          type: array
+          items:
+            $ref: '#/components/schemas/ChannelState'
+    GetAlertNotificationStatsResponse:
+      type: object
+      properties:
+        notificationStats:
+          $ref: '#/components/schemas/NotificationStats_in_GetAlertNotificationStatsResponse_notificationStats'
+    GetAlertStatsResponse:
+      type: object
+      properties:
+        alertCount:
+          type: string
+          format: int64
+        evaluationStats:
+          $ref: '#/components/schemas/EvaluationStats_in_GetAlertStatsResponse_evaluationStats'
+        notificationStats:
+          $ref: '#/components/schemas/NotificationStats_in_GetAlertStatsResponse_notificationStats'
+    LabelValuesParameter:
+      description: Label values parameter.
+      type: object
+      properties:
+        folderId:
+          description: Required. Folder ID.
+          type: string
+        selectors:
+          description: Required. Selectors to select metric label values.
+          type: string
+        labelKey:
+          description: Required. Label key to list label values.
+          type: string
+        multiselectable:
+          description: Specifies the multiselectable values of parameter.
+          type: boolean
+          format: boolean
+        defaultValues:
+          description: Default values.
+          type: array
+          items:
+            type: string
+    ListAlertOperationsResponse:
+      type: object
+      properties:
+        operations:
+          description: List of operations for the specified alert.
+          type: array
+          items:
+            $ref: '#/components/schemas/Operation'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/monitoring/api-ref/Alert/listOperations#query_params), use the [nextPageToken](/docs/monitoring/api-ref/Alert/listOperations#responses) as the value
+            for the [pageToken](/docs/monitoring/api-ref/Alert/listOperations#query_params) query parameter in the next list request.
+            Each subsequent list request will have its own [nextPageToken](/docs/monitoring/api-ref/Alert/listOperations#responses) to continue paging through the results.
+          type: string
+    ListAlertsResponse:
+      type: object
+      properties:
+        alerts:
+          description: List of Alert resources.
+          type: array
+          items:
+            $ref: '#/components/schemas/Alert'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/monitoring/api-ref/Alert/list#query_params), use
+            the [nextPageToken](/docs/monitoring/api-ref/Alert/list#responses) as the value
+            for the [pageToken](/docs/monitoring/api-ref/Alert/list#query_params) query parameter
+            in the next list request. Each subsequent list request will have its own
+            [nextPageToken](/docs/monitoring/api-ref/Alert/list#responses) to continue paging through the results.
+          type: string
+    ListAllLabelValuesResponse:
+      type: object
+      properties:
+        labels:
+          description: List of labels with values.
+          type: array
+          items:
+            $ref: '#/components/schemas/ListAllLabelValuesResponseLabelValues'
+        maxMetricsCount:
+          description: Max metrics count given by selectors.
+          type: string
+          format: int64
+    ListAllLabelValuesResponseLabelValues:
+      type: object
+      properties:
+        key:
+          description: Label key.
+          type: string
+        values:
+          description: List of values by given label key.
+          type: array
+          items:
+            type: string
+        absent:
+          description: Flag determining that there are has some metrics without the
+            given label.
+          type: boolean
+          format: boolean
+        truncated:
+          description: Flag determining that label values response is truncated.
+          type: boolean
+          format: boolean
+    ListChannelOperationsResponse:
+      type: object
+      properties:
+        operations:
+          description: List of operations for the specified channel.
+          type: array
+          items:
+            $ref: '#/components/schemas/Operation'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/monitoring/api-ref/Channel/listOperations#query_params), use the [nextPageToken](/docs/monitoring/api-ref/Channel/listOperations#responses) as the value
+            for the [pageToken](/docs/monitoring/api-ref/Channel/listOperations#query_params) query parameter in the next list request.
+            Each subsequent list request will have its own [nextPageToken](/docs/monitoring/api-ref/Channel/listOperations#responses) to continue paging through the results.
+          type: string
+    ListChannelsResponse:
+      type: object
+      properties:
+        channels:
+          description: List of Channel resources.
+          type: array
+          items:
+            $ref: '#/components/schemas/Channel'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/monitoring/api-ref/Channel/list#query_params), use
+            the [nextPageToken](/docs/monitoring/api-ref/Channel/list#responses) as the value
+            for the [pageToken](/docs/monitoring/api-ref/Channel/list#query_params) query parameter
+            in the next list request. Each subsequent list request will have its own
+            [nextPageToken](/docs/monitoring/api-ref/Channel/list#responses) to continue paging through the results.
+          type: string
+    ListDashboardOperationsResponse:
+      type: object
+      properties:
+        operations:
+          description: List of operations for the specified dashboard.
+          type: array
+          items:
+            $ref: '#/components/schemas/Operation'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/monitoring/api-ref/Dashboard/listOperations#query_params), use the [nextPageToken](/docs/monitoring/api-ref/Dashboard/listOperations#responses) as the value
+            for the [pageToken](/docs/monitoring/api-ref/Dashboard/listOperations#query_params) query parameter in the next list request.
+            Each subsequent list request will have its own [nextPageToken](/docs/monitoring/api-ref/Dashboard/listOperations#responses) to continue paging through the results.
+          type: string
+    ListDashboardsResponse:
+      type: object
+      properties:
+        dashboards:
+          description: List of dashboards.
+          type: array
+          items:
+            $ref: '#/components/schemas/Dashboard'
+        nextPageToken:
+          description: Token to retrieve the next page of results, or empty if there
+            are no more results in the list.
+          type: string
+    ListLabelKeysResponse:
+      type: object
+      properties:
+        keys:
+          description: Found label keys.
+          type: array
+          items:
+            type: string
+    ListLabelValuesResponse:
+      type: object
+      properties:
+        values:
+          description: List of values by given label key.
+          type: array
+          items:
+            type: string
+        maxMetricsCount:
+          description: Max metrics count given by selectors.
+          type: string
+          format: int64
+        absent:
+          description: Flag determining that there are has some metrics without the
+            given label.
+          type: boolean
+          format: boolean
+        truncated:
+          description: Flag determining that label values response is truncated.
+          type: boolean
+          format: boolean
+    ListMetricNamesResponse:
+      type: object
+      properties:
+        names:
+          description: List of metric names.
+          type: array
+          items:
+            type: string
+        truncated:
+          description: Flag determining that label values response is truncated.
+          type: boolean
+          format: boolean
+    ListMetricsResponse:
+      type: object
+      properties:
+        metrics:
+          description: List of metrics.
+          type: array
+          items:
+            $ref: '#/components/schemas/ListMetricsResponseMetricMeta'
+        nextPageToken:
+          description: This token allows you to get the next page of results for list
+            requests.
+          type: string
+    ListMetricsResponseMetricMeta:
+      type: object
+      properties:
+        name:
+          description: Name of the metric.
+          type: string
+        labels:
+          description: Metric labels as `key:value` pairs.
+          type: object
+          additionalProperties:
+            type: string
+        type:
+          $ref: '#/components/schemas/MetricType_in_ListMetricsResponseMetricMeta_type'
+        createdAt:
+          description: |-
+            When metric was created.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+    MetricType:
+      description: |2-
+         - DGAUGE: Gauge with fractional values.
+         - IGAUGE: Gauge with integer values.
+         - COUNTER: Counter.
+         - RATE: Rate.
+      type: string
+      enum:
+      - DGAUGE
+      - IGAUGE
+      - COUNTER
+      - RATE
+    MuteAlertMetadata:
+      type: object
+      properties:
+        alertId:
+          type: string
+    MuteAlertRequest:
+      type: object
+      properties: {}
+    NotificationConfig:
+      type: object
+      properties:
+        channelId:
+          description: ID of the channel.
+          type: string
+        notifyAboutStatuses:
+          type: array
+          items:
+            $ref: '#/components/schemas/EvaluationStatus'
+        repeatPeriod:
+          description: Repeat notification period in seconds. Zero means no repeating.
+          type: string
+    NotificationStats:
+      type: object
+      properties:
+        unknown:
+          type: string
+          format: int64
+        success:
+          type: string
+          format: int64
+        error:
+          type: string
+          format: int64
+        invalidRequest:
+          type: string
+          format: int64
+        absentNotificationChannel:
+          type: string
+          format: int64
+        retryError:
+          type: string
+          format: int64
+        resourceExhausted:
+          type: string
+          format: int64
+        permissionDenied:
+          type: string
+          format: int64
+        notSubscribed:
+          type: string
+          format: int64
+    NotificationStatus:
+      description: |2-
+         - SKIP_REPEAT: Send notification was skipped because already notified.
+         - SKIP_BY_STATUS: Skip notification because status absent in subscribe list.
+         - SUCCESS: Notification successfully delivered.
+         - ERROR: Not classified kind of error occurs.
+         - INVALID_REQUEST: Target service reject notification because it not valid or notification channel configured.
+        not correctly
+         - OBSOLETE: Notification not valid any more.
+         - ABSENT_NOTIFICATION_CHANNEL: Notification was send to /dev/null because reference notificaiton channel not exists.
+         - ERROR_ABLE_TO_RETRY: Notification should be repeated because target destination not ready yet accept it.
+         - RESOURCE_EXHAUSTED: One of the quote exhausted.
+         - PERMISSION_DENIED: User have no rights to receive notifications.
+         - NOT_SUBSCRIBED: User unsubscribed or missing settings (e.g. no phone specified).
+      type: string
+      enum:
+      - SKIP_REPEAT
+      - SKIP_BY_STATUS
+      - SUCCESS
+      - ERROR
+      - INVALID_REQUEST
+      - OBSOLETE
+      - ABSENT_NOTIFICATION_CHANNEL
+      - ERROR_ABLE_TO_RETRY
+      - RESOURCE_EXHAUSTED
+      - PERMISSION_DENIED
+      - NOT_SUBSCRIBED
+    Operation:
+      description: An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
+      type: object
+      allOf:
+      - type: object
+        properties:
+          id:
+            description: ID of the operation.
+            type: string
+          description:
+            description: Description of the operation. 0-256 characters long.
+            type: string
+          createdAt:
+            description: |-
+              Creation timestamp.
+
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          createdBy:
+            description: ID of the user or service account who initiated the operation.
+            type: string
+          modifiedAt:
+            description: |-
+              The time when the Operation resource was last modified.
+
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          done:
+            description: |-
+              If the value is `false`, it means the operation is still in progress.
+              If `true`, the operation is completed, and either `error` or `response` is available.
+            type: boolean
+            format: boolean
+          metadata:
+            description: |-
+              Service-specific metadata associated with the operation.
+              It typically contains the ID of the target resource that the operation is performed on.
+              Any method that returns a long-running operation should document the metadata type, if any.
+            type: object
+      - title: result
+        type: object
+        maxProperties: 1
+        properties:
+          error:
+            $ref: '#/components/schemas/rpcStatus'
+            description: The error result of the operation in case of failure or cancellation.
+          response:
+            description: |-
+              The normal response of the operation in case of success.
+              If the original method returns no data on success, such as Delete,
+              the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty).
+              If the original method is the standard Create/Update,
+              the response should be the target resource of the operation.
+              Any method that returns a long-running operation should document the response type, if any.
+            type: object
+    Parameter:
+      description: Parameter.
+      type: object
+      allOf:
+      - type: object
+        properties:
+          name:
+            description: Parameter identifier.
+            type: string
+          title:
+            description: UI-visible title of the parameter.
+            type: string
+      - title: data
+        type: object
+        maxProperties: 1
+        properties:
+          labelValues:
+            $ref: '#/components/schemas/LabelValuesParameter'
+            description: Label values parameter.
+          custom:
+            $ref: '#/components/schemas/CustomParameter'
+            description: Custom parameter.
+          text:
+            $ref: '#/components/schemas/TextParameter'
+            description: Text parameter.
+    Parametrization:
+      description: Parametrization.
+      type: object
+      properties:
+        parameters:
+          description: Parameters.
+          type: array
+          items:
+            $ref: '#/components/schemas/Parameter'
+        selectors:
+          description: Predefined selectors.
+          type: string
+    PredicateRule:
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/ThresholdType_in_PredicateRule_type'
+        comparison:
+          $ref: '#/components/schemas/Comparison_in_PredicateRule_comparison'
+        threshold:
+          description: Threshold value.
+          type: number
+          format: double
+        targetStatus:
+          $ref: '#/components/schemas/TargetStatus_in_PredicateRule_targetStatus'
+    ReadMetricData:
+      type: object
+      properties:
+        alias:
+          description: Alias.
+          type: string
+        name:
+          description: Name of the metric.
+          type: string
+        labels:
+          description: List of metric labels as `key:value` pairs.
+          type: object
+          additionalProperties:
+            type: string
+        type:
+          $ref: '#/components/schemas/MetricType_in_ReadMetricData_type'
+        timeseries:
+          $ref: '#/components/schemas/Timeseries_in_ReadMetricData_timeseries'
+    ReadMetricsDataRequest:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            Required.
+            ID of the folder that the metric belongs to.
+
+            The maximum string length in characters is 50.
+          type: string
+        query:
+          description: |-
+            Required.
+            Query text.
+          type: string
+        fromTime:
+          description: |-
+            Required.
+            The beginning of the time interval, in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        toTime:
+          description: |-
+            Required.
+            The end of the time interval, in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        downsampling:
+          $ref: '#/components/schemas/Downsampling_in_ReadMetricsDataRequest_downsampling'
+    ReadMetricsDataResponse:
+      type: object
+      properties:
+        metrics:
+          description: List of metrics with timeseries.
+          type: array
+          items:
+            $ref: '#/components/schemas/ReadMetricData'
+    TargetStatus:
+      description: |2-
+         - TARGET_STATUS_OK: OK.
+         - TARGET_STATUS_WARN: Warn.
+         - TARGET_STATUS_ALARM: Alarm.
+         - TARGET_STATUS_NO_DATA: No data.
+      type: string
+      enum:
+      - TARGET_STATUS_OK
+      - TARGET_STATUS_WARN
+      - TARGET_STATUS_ALARM
+      - TARGET_STATUS_NO_DATA
+    TextParameter:
+      description: Text parameter.
+      type: object
+      properties:
+        defaultValue:
+          description: Default value.
+          type: string
+    TextWidget:
+      description: Text widget.
+      type: object
+      properties:
+        text:
+          description: Text.
+          type: string
+    ThresholdAlert:
+      type: object
+      properties:
+        selectors:
+          description: Selectors that query data to be checked.
+          type: string
+        transformations:
+          description: Transformations to be applied to the data before checking.
+          type: string
+        predicateRules:
+          description: A list of predicate rules to test against the data.
+          type: array
+          items:
+            $ref: '#/components/schemas/PredicateRule'
+    ThresholdType:
+      description: |2-
+         - THRESHOLD_TYPE_AT_LEAST_ONE: At least one.
+         - THRESHOLD_TYPE_AT_ALL_TIMES: At all times.
+         - THRESHOLD_TYPE_LAST_NON_NAN: Last non-NaN value.
+         - THRESHOLD_TYPE_AVG: Average.
+         - THRESHOLD_TYPE_MIN: Minimum.
+         - THRESHOLD_TYPE_MAX: Maximum.
+         - THRESHOLD_TYPE_SUM: Sum.
+         - THRESHOLD_TYPE_COUNT: Count.
+      type: string
+      enum:
+      - THRESHOLD_TYPE_AT_LEAST_ONE
+      - THRESHOLD_TYPE_AT_ALL_TIMES
+      - THRESHOLD_TYPE_LAST_NON_NAN
+      - THRESHOLD_TYPE_AVG
+      - THRESHOLD_TYPE_MIN
+      - THRESHOLD_TYPE_MAX
+      - THRESHOLD_TYPE_SUM
+      - THRESHOLD_TYPE_COUNT
+    Timeseries:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          timestamps:
+            description: |-
+              List of timestamps.
+
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: array
+            items:
+              type: string
+              format: date-time
+      - title: values
+        type: object
+        maxProperties: 1
+        properties:
+          doubleValues:
+            $ref: '#/components/schemas/TimeseriesDoubleValues'
+            description: List of double values.
+          int64Values:
+            $ref: '#/components/schemas/TimeseriesInt64Values'
+            description: List of int64 values. Only for `IGAUGE` or 'COUNTER' metric
+              type.
+    TimeseriesDoubleValues:
+      type: object
+      properties:
+        values:
+          type: array
+          items:
+            type: number
+            format: double
+    TimeseriesInt64Values:
+      type: object
+      properties:
+        values:
+          type: array
+          items:
+            type: string
+            format: int64
+    TitleWidget:
+      description: Title widget.
+      type: object
+      properties:
+        text:
+          description: Title text.
+          type: string
+        size:
+          $ref: '#/components/schemas/TitleWidgetTitleSize_in_TitleWidget_size'
+    TitleWidgetTitleSize:
+      description: |-
+        Title size.
+
+         - TITLE_SIZE_XS: Extra small size.
+         - TITLE_SIZE_S: Small size.
+         - TITLE_SIZE_M: Middle size.
+         - TITLE_SIZE_L: Large size.
+      type: string
+      enum:
+      - TITLE_SIZE_XS
+      - TITLE_SIZE_S
+      - TITLE_SIZE_M
+      - TITLE_SIZE_L
+    UnmuteAlertMetadata:
+      type: object
+      properties:
+        alertId:
+          type: string
+    UnmuteAlertRequest:
+      type: object
+      properties: {}
+    UpdateAlertMetadata:
+      type: object
+      properties:
+        alertId:
+          description: ID of the alert that is being updated.
+          type: string
+    UpdateAlertRequest:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          updateMask:
+            $ref: '#/components/schemas/FieldMask'
+            description: Field mask that specifies which fields of the Alert resource
+              are going to be updated.
+          name:
+            description: |-
+              Name of the alert.
+
+              Value must match the regular expression `` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
+            type: string
+          description:
+            description: |-
+              Description of the alert.
+
+              The maximum string length in characters is 256.
+            type: string
+          labels:
+            description: |-
+              Resource labels as `key:value` pairs.
+
+              Existing set of `labels` is completely replaced by the provided set.
+
+              No more than 64 per resource.
+              The string length in characters for each key must be 1-63.
+              Each key must match the regular expression `` [a-z][-_./\@0-9a-z]* ``.
+              The maximum string length in characters for each value is 63.
+              Each value must match the regular expression `` [-_./\@0-9a-z]* ``.
+            type: object
+            additionalProperties:
+              type: string
+          window:
+            description: Alert evaluation window in seconds.
+            type: string
+          delay:
+            description: Alert evaluation delay in seconds.
+            type: string
+          annotations:
+            description: Annotations.
+            type: object
+            additionalProperties:
+              type: string
+          channels:
+            type: array
+            items:
+              $ref: '#/components/schemas/NotificationConfig'
+      - title: type
+        type: object
+        maxProperties: 1
+        properties:
+          threshold:
+            $ref: '#/components/schemas/ThresholdAlert'
+            description: Threshold alert.
+    UpdateChannelMetadata:
+      type: object
+      properties:
+        channelId:
+          description: ID of the channel that is being updated.
+          type: string
+    UpdateChannelRequest:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          updateMask:
+            $ref: '#/components/schemas/FieldMask'
+            description: Field mask that specifies which fields of the Channel resource
+              are going to be updated.
+          name:
+            description: |-
+              Name of the channel.
+
+              Value must match the regular expression `` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
+            type: string
+          description:
+            description: |-
+              Description of the channel.
+
+              The maximum string length in characters is 256.
+            type: string
+          labels:
+            description: |-
+              Resource labels as `key:value` pairs.
+
+              Existing set of `labels` is completely replaced by the provided set.
+
+              No more than 64 per resource.
+              The string length in characters for each key must be 1-63.
+              Each key must match the regular expression `` [a-z][-_./\@0-9a-z]* ``.
+              The maximum string length in characters for each value is 63.
+              Each value must match the regular expression `` [-_./\@0-9a-z]* ``.
+            type: object
+            additionalProperties:
+              type: string
+      - title: type
+        type: object
+        maxProperties: 1
+        properties:
+          cloudEmail:
+            $ref: '#/components/schemas/CloudEmailChannel'
+            description: E-Mail channel.
+          cloudSms:
+            $ref: '#/components/schemas/CloudSmsChannel'
+            description: SMS channel.
+          cloudMobilePush:
+            $ref: '#/components/schemas/CloudMobilePushChannel'
+            description: Mobile application push channel.
+    UpdateDashboardMetadata:
+      type: object
+      properties:
+        dashboardId:
+          description: Dashboard ID.
+          type: string
+    UpdateDashboardRequest:
+      type: object
+      properties:
+        updateMask:
+          $ref: '#/components/schemas/FieldMask_in_UpdateDashboardRequest_updateMask'
+        name:
+          description: |-
+            Required. Dashboard name.
+
+            Value must match the regular expression `` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
+          type: string
+        description:
+          description: |-
+            Dashboard description.
+
+            The maximum string length in characters is 256.
+          type: string
+        labels:
+          description: |-
+            Resource labels as `key:value` pairs.
+
+            Existing set of `labels` is completely replaced by the provided set.
+
+            No more than 64 per resource.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `` [a-z][-_./\@0-9a-z]* ``.
+            The maximum string length in characters for each value is 63.
+            Each value must match the regular expression `` [-_./\@0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+        title:
+          description: Dashboard title.
+          type: string
+        widgets:
+          description: List of dashboard widgets.
+          type: array
+          items:
+            $ref: '#/components/schemas/Widget'
+        parametrization:
+          $ref: '#/components/schemas/Parametrization_in_UpdateDashboardRequest_parametrization'
+    Widget:
+      description: Widget.
+      type: object
+      allOf:
+      - type: object
+        properties:
+          position:
+            $ref: '#/components/schemas/WidgetLayoutPosition'
+            description: Required. Widget layout position.
+      - title: widget
+        type: object
+        maxProperties: 1
+        properties:
+          text:
+            $ref: '#/components/schemas/TextWidget'
+            description: Text widget.
+          title:
+            $ref: '#/components/schemas/TitleWidget'
+            description: Title widget.
+          chart:
+            $ref: '#/components/schemas/ChartWidget'
+            description: Chart widget.
+    WidgetLayoutPosition:
+      description: Layout item for widget item positioning.
+      type: object
+      properties:
+        x:
+          description: Required. X-axis top-left corner coordinate.
+          type: string
+          format: int64
+        "y":
+          description: Required. Y-axis top-left corner coordinate.
+          type: string
+          format: int64
+        w:
+          description: Required. Weight.
+          type: string
+          format: int64
+        h:
+          description: Required. Height.
+          type: string
+          format: int64
+    WriteMetricsDataRequest:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          folderId:
+            description: |-
+              Required.
+              ID of the folder that the metric belongs to.
+
+              The maximum string length in characters is 50.
+            type: string
+          service:
+            description: |-
+              Required.
+              ID of the service that the metric belongs to. Use `service=custom` for custom metrics.
+
+              The maximum string length in characters is 50.
+            type: string
+      - title: data
+        type: object
+        maxProperties: 1
+        properties:
+          rawData:
+            $ref: '#/components/schemas/WriteMetricsDataRequestRawData'
+            description: Raw metrics data.
+    WriteMetricsDataRequestRawData:
+      type: object
+      properties:
+        contentType:
+          description: |-
+            Required.
+            Query content type. Use "application/json".
+          type: string
+        content:
+          description: |-
+            Required.
+            Query content.
+          type: string
+          format: byte
+    WriteMetricsDataResponse:
+      type: object
+      properties:
+        writtenMetricsCount:
+          description: Number of successfully written metrics.
+          type: string
+          format: int64
+    rpcStatus:
+      description: The error result of the operation in case of failure or cancellation.
+      type: object
+      properties:
+        code:
+          description: Error code. An enum value of [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
+          type: integer
+          format: int32
+        message:
+          description: An error message.
+          type: string
+        details:
+          description: A list of messages that carry the error details.
+          type: array
+          items:
+            type: object
+    NotificationStatus_in_ChannelState_status:
+      description: |-
+        Latest notification status.
+
+         - SKIP_REPEAT: Send notification was skipped because already notified.
+         - SKIP_BY_STATUS: Skip notification because status absent in subscribe list.
+         - SUCCESS: Notification successfully delivered.
+         - ERROR: Not classified kind of error occurs.
+         - INVALID_REQUEST: Target service reject notification because it not valid or notification channel configured.
+        not correctly
+         - OBSOLETE: Notification not valid any more.
+         - ABSENT_NOTIFICATION_CHANNEL: Notification was send to /dev/null because reference notificaiton channel not exists.
+         - ERROR_ABLE_TO_RETRY: Notification should be repeated because target destination not ready yet accept it.
+         - RESOURCE_EXHAUSTED: One of the quote exhausted.
+         - PERMISSION_DENIED: User have no rights to receive notifications.
+         - NOT_SUBSCRIBED: User unsubscribed or missing settings (e.g. no phone specified).
+      type: string
+      enum:
+      - SKIP_REPEAT
+      - SKIP_BY_STATUS
+      - SUCCESS
+      - ERROR
+      - INVALID_REQUEST
+      - OBSOLETE
+      - ABSENT_NOTIFICATION_CHANNEL
+      - ERROR_ABLE_TO_RETRY
+      - RESOURCE_EXHAUSTED
+      - PERMISSION_DENIED
+      - NOT_SUBSCRIBED
+    ChartWidgetQueries_in_ChartWidget_queries:
+      description: |-
+        Queries.
+
+        Query settings.
+      type: object
+      properties:
+        targets:
+          description: Required. List of targets.
+          type: array
+          items:
+            $ref: '#/components/schemas/ChartWidgetQueriesTarget'
+        downsampling:
+          $ref: '#/components/schemas/Downsampling_in_ChartWidgetQueries_downsampling'
+    ChartWidgetVisualizationSettings_in_ChartWidget_visualizationSettings:
+      description: |-
+        Visualization settings.
+
+        Visualization settings.
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/ChartWidgetVisualizationSettingsVisualizationType_in_ChartWidgetVisualizationSettings_type'
+        normalize:
+          description: Normalize.
+          type: boolean
+          format: boolean
+        interpolate:
+          $ref: '#/components/schemas/ChartWidgetVisualizationSettingsInterpolate_in_ChartWidgetVisualizationSettings_interpolate'
+        aggregation:
+          $ref: '#/components/schemas/ChartWidgetVisualizationSettingsSeriesAggregation_in_ChartWidgetVisualizationSettings_aggregation'
+        colorSchemeSettings:
+          $ref: '#/components/schemas/ChartWidgetVisualizationSettingsColorSchemeSettings_in_ChartWidgetVisualizationSettings_colorSchemeSettings'
+        heatmapSettings:
+          $ref: '#/components/schemas/ChartWidgetVisualizationSettingsHeatmapSettings_in_ChartWidgetVisualizationSettings_heatmapSettings'
+        yaxisSettings:
+          $ref: '#/components/schemas/ChartWidgetVisualizationSettingsYaxisSettings_in_ChartWidgetVisualizationSettings_yaxisSettings'
+        title:
+          description: Inside chart title.
+          type: string
+    ChartWidgetNameHidingSettings_in_ChartWidget_nameHidingSettings:
+      description: |-
+        Name hiding settings.
+
+        Name hiding settings.
+      type: object
+      properties:
+        positive:
+          description: True if we want to show concrete series names only, false if
+            we want to hide concrete series names.
+          type: boolean
+          format: boolean
+        names:
+          description: Series names to show or hide.
+          type: array
+          items:
+            type: string
+    ChartWidgetFreezeDuration_in_ChartWidget_freeze:
+      description: |-
+        Fixed time interval for chart.
+
+         - FREEZE_DURATION_HOUR: Last hour.
+         - FREEZE_DURATION_DAY: Last day = last 24 hours.
+         - FREEZE_DURATION_WEEK: Last 7 days.
+         - FREEZE_DURATION_MONTH: Last 31 days.
+      type: string
+      enum:
+      - FREEZE_DURATION_HOUR
+      - FREEZE_DURATION_DAY
+      - FREEZE_DURATION_WEEK
+      - FREEZE_DURATION_MONTH
+    Downsampling_in_ChartWidgetQueries_downsampling:
+      description: |-
+        Required. Downsampling settings.
+
+        List of available aggregate functions for downsampling.
+      type: object
+      allOf:
+      - type: object
+        properties:
+          gridAggregation:
+            $ref: '#/components/schemas/DownsamplingGridAggregation'
+            description: Function that is used for downsampling.
+          gapFilling:
+            $ref: '#/components/schemas/DownsamplingGapFilling'
+            description: Parameters for filling gaps in data.
+      - title: mode
+        type: object
+        maxProperties: 1
+        properties:
+          maxPoints:
+            description: Maximum number of points to be returned.
+            type: string
+            format: int64
+          gridInterval:
+            description: |-
+              Time interval (grid) for downsampling in milliseconds.
+              Points in the specified range are aggregated into one time point.
+            type: string
+            format: int64
+          disabled:
+            description: Disable downsampling.
+            type: boolean
+            format: boolean
+    ChartWidgetSeriesOverridesSeriesVisualizationType_in_ChartWidgetSeriesOverridesSeriesOverrideSettings_type:
+      description: |-
+        Type.
+
+         - SERIES_VISUALIZATION_TYPE_UNSPECIFIED: Not specified (line by default).
+         - SERIES_VISUALIZATION_TYPE_LINE: Line chart.
+         - SERIES_VISUALIZATION_TYPE_STACK: Stack chart.
+         - SERIES_VISUALIZATION_TYPE_COLUMN: Points as columns chart.
+         - SERIES_VISUALIZATION_TYPE_POINTS: Points.
+      type: string
+      enum:
+      - SERIES_VISUALIZATION_TYPE_LINE
+      - SERIES_VISUALIZATION_TYPE_STACK
+      - SERIES_VISUALIZATION_TYPE_COLUMN
+      - SERIES_VISUALIZATION_TYPE_POINTS
+    ChartWidgetSeriesOverridesYaxisPosition_in_ChartWidgetSeriesOverridesSeriesOverrideSettings_yaxisPosition:
+      description: |-
+        Yaxis position.
+
+         - YAXIS_POSITION_UNSPECIFIED: Not specified (left by default).
+         - YAXIS_POSITION_LEFT: Left.
+         - YAXIS_POSITION_RIGHT: Right.
+      type: string
+      enum:
+      - YAXIS_POSITION_LEFT
+      - YAXIS_POSITION_RIGHT
+    ChartWidgetVisualizationSettingsVisualizationType_in_ChartWidgetVisualizationSettings_type:
+      description: |-
+        Visualization type.
+
+        Chart visualization type.
+
+         - VISUALIZATION_TYPE_UNSPECIFIED: Not specified (line by default).
+         - VISUALIZATION_TYPE_LINE: Line chart.
+         - VISUALIZATION_TYPE_STACK: Stack chart.
+         - VISUALIZATION_TYPE_COLUMN: Points as columns chart.
+         - VISUALIZATION_TYPE_POINTS: Points.
+         - VISUALIZATION_TYPE_PIE: Pie aggregation chart.
+         - VISUALIZATION_TYPE_BARS: Bars aggregation chart.
+         - VISUALIZATION_TYPE_DISTRIBUTION: Distribution aggregation chart.
+         - VISUALIZATION_TYPE_HEATMAP: Heatmap aggregation chart.
+      type: string
+      enum:
+      - VISUALIZATION_TYPE_LINE
+      - VISUALIZATION_TYPE_STACK
+      - VISUALIZATION_TYPE_COLUMN
+      - VISUALIZATION_TYPE_POINTS
+      - VISUALIZATION_TYPE_PIE
+      - VISUALIZATION_TYPE_BARS
+      - VISUALIZATION_TYPE_DISTRIBUTION
+      - VISUALIZATION_TYPE_HEATMAP
+    ChartWidgetVisualizationSettingsInterpolate_in_ChartWidgetVisualizationSettings_interpolate:
+      description: |-
+        Interpolate.
+
+         - INTERPOLATE_UNSPECIFIED: Not specified (linear by default).
+         - INTERPOLATE_LINEAR: Linear.
+         - INTERPOLATE_LEFT: Left.
+         - INTERPOLATE_RIGHT: Right.
+      type: string
+      enum:
+      - INTERPOLATE_LINEAR
+      - INTERPOLATE_LEFT
+      - INTERPOLATE_RIGHT
+    ChartWidgetVisualizationSettingsSeriesAggregation_in_ChartWidgetVisualizationSettings_aggregation:
+      description: |-
+        Aggregation.
+
+         - SERIES_AGGREGATION_UNSPECIFIED: Not specified (avg by default).
+         - SERIES_AGGREGATION_AVG: Average.
+         - SERIES_AGGREGATION_MIN: Minimum.
+         - SERIES_AGGREGATION_MAX: Maximum.
+         - SERIES_AGGREGATION_LAST: Last non-NaN value.
+         - SERIES_AGGREGATION_SUM: Sum.
+      type: string
+      enum:
+      - SERIES_AGGREGATION_AVG
+      - SERIES_AGGREGATION_MIN
+      - SERIES_AGGREGATION_MAX
+      - SERIES_AGGREGATION_LAST
+      - SERIES_AGGREGATION_SUM
+    ChartWidgetVisualizationSettingsColorSchemeSettings_in_ChartWidgetVisualizationSettings_colorSchemeSettings:
+      description: Color scheme settings.
+      type: object
+      allOf:
+      - title: scheme
+        type: object
+        maxProperties: 1
+        properties:
+          automatic:
+            $ref: '#/components/schemas/ChartWidgetVisualizationSettingsColorSchemeSettingsAutomaticColorScheme'
+            description: Automatic color scheme.
+          standard:
+            $ref: '#/components/schemas/ChartWidgetVisualizationSettingsColorSchemeSettingsStandardColorScheme'
+            description: Standard color scheme.
+          gradient:
+            $ref: '#/components/schemas/ChartWidgetVisualizationSettingsColorSchemeSettingsGradientColorScheme'
+            description: Gradient color scheme.
+    ChartWidgetVisualizationSettingsHeatmapSettings_in_ChartWidgetVisualizationSettings_heatmapSettings:
+      description: Heatmap settings.
+      type: object
+      properties:
+        greenValue:
+          description: Heatmap green value.
+          type: string
+        yellowValue:
+          description: Heatmap yellow value.
+          type: string
+        redValue:
+          description: Heatmap red value.
+          type: string
+        violetValue:
+          description: Heatmap violet_value.
+          type: string
+    ChartWidgetVisualizationSettingsYaxisSettings_in_ChartWidgetVisualizationSettings_yaxisSettings:
+      description: Y axis settings.
+      type: object
+      properties:
+        left:
+          $ref: '#/components/schemas/ChartWidgetVisualizationSettingsYaxis_in_ChartWidgetVisualizationSettingsYaxisSettings_left'
+        right:
+          $ref: '#/components/schemas/ChartWidgetVisualizationSettingsYaxis_in_ChartWidgetVisualizationSettingsYaxisSettings_right'
+    ChartWidgetVisualizationSettingsYaxisType_in_ChartWidgetVisualizationSettingsYaxis_type:
+      description: |-
+        Type.
+
+        Y axis type.
+        N.B. _TYPE prefix is necessary to expect name clash with Interpolate LINEAR value.
+
+         - YAXIS_TYPE_UNSPECIFIED: Not specified (linear by default).
+         - YAXIS_TYPE_LINEAR: Linear.
+         - YAXIS_TYPE_LOGARITHMIC: Logarithmic.
+      type: string
+      enum:
+      - YAXIS_TYPE_LINEAR
+      - YAXIS_TYPE_LOGARITHMIC
+    ChartWidgetVisualizationSettingsUnitFormat_in_ChartWidgetVisualizationSettingsYaxis_unitFormat:
+      description: |-
+        Unit format.
+
+        Unit format.
+
+         - UNIT_NONE: None (show tick values as-is).
+         - UNIT_COUNT: Count.
+         - UNIT_PERCENT: Percent (0-100).
+         - UNIT_PERCENT_UNIT: Percent (0-1).
+         - UNIT_NANOSECONDS: Nanoseconds (ns).
+         - UNIT_MICROSECONDS: Microseconds (µs).
+         - UNIT_MILLISECONDS: Milliseconds (ms).
+         - UNIT_SECONDS: Seconds (s).
+         - UNIT_MINUTES: Minutes (m).
+         - UNIT_HOURS: Hours (h).
+         - UNIT_DAYS: Days (d).
+         - UNIT_BITS_SI: Bits (SI).
+         - UNIT_BYTES_SI: Bytes (SI).
+         - UNIT_KILOBYTES: Kilobytes (KB).
+         - UNIT_MEGABYTES: Megabytes (MB).
+         - UNIT_GIGABYTES: Gigabytes (GB).
+         - UNIT_TERABYTES: Terabytes (TB)
+         - UNIT_PETABYTES: Petabytes (PB).
+         - UNIT_EXABYTES: Exabytes (EB).
+         - UNIT_BITS_IEC: Bits (IEC).
+         - UNIT_BYTES_IEC: Bytes (IEC).
+         - UNIT_KIBIBYTES: Kibibytes (KiB).
+         - UNIT_MEBIBYTES: Mebibytes (MiB).
+         - UNIT_GIBIBYTES: Gigibytes (GiB).
+         - UNIT_TEBIBYTES: Tebibytes (TiB).
+         - UNIT_PEBIBYTES: Pebibytes (PiB).
+         - UNIT_EXBIBYTES: Exbibytes (EiB).
+         - UNIT_REQUESTS_PER_SECOND: Requests per second (reqps).
+         - UNIT_OPERATIONS_PER_SECOND: Operations per second (ops).
+         - UNIT_WRITES_PER_SECOND: Writes per second (wps).
+         - UNIT_READS_PER_SECOND: Reads per second (rps).
+         - UNIT_PACKETS_PER_SECOND: Packets per second (pps).
+         - UNIT_IO_OPERATIONS_PER_SECOND: IO operations per second (iops).
+         - UNIT_COUNTS_PER_SECOND: Counts per second (counts/sec).
+         - UNIT_BITS_SI_PER_SECOND: Bits (SI) per second (bits/sec).
+         - UNIT_BYTES_SI_PER_SECOND: Bytes (SI) per second (bytes/sec).
+         - UNIT_KILOBITS_PER_SECOND: Kilobits per second (KBits/sec).
+         - UNIT_KILOBYTES_PER_SECOND: Kilobytes per second (KB/sec).
+         - UNIT_MEGABITS_PER_SECOND: Megabits per second (MBits/sec).
+         - UNIT_MEGABYTES_PER_SECOND: Megabytes per second (MB/sec).
+         - UNIT_GIGABITS_PER_SECOND: Gigabits per second (GBits/sec).
+         - UNIT_GIGABYTES_PER_SECOND: Gigabytes per second (GB/sec).
+         - UNIT_TERABITS_PER_SECOND: Terabits per second (TBits/sec).
+         - UNIT_TERABYTES_PER_SECOND: Terabytes per second (TB/sec).
+         - UNIT_PETABITS_PER_SECOND: Petabits per second (Pbits/sec).
+         - UNIT_PETABYTES_PER_SECOND: Petabytes per second (PB/sec).
+         - UNIT_BITS_IEC_PER_SECOND: Bits (IEC) per second (bits/sec).
+         - UNIT_BYTES_IEC_PER_SECOND: Bytes (IEC) per second (bytes/sec).
+         - UNIT_KIBIBITS_PER_SECOND: Kibibits per second (KiBits/sec).
+         - UNIT_KIBIBYTES_PER_SECOND: Kibibytes per second (KiB/sec).
+         - UNIT_MEBIBITS_PER_SECOND: Mebibits per second (MiBits/sec).
+         - UNIT_MEBIBYTES_PER_SECOND: Mebibytes per second (MiB/sec).
+         - UNIT_GIBIBITS_PER_SECOND: Gibibits per second (GiBits/sec).
+         - UNIT_GIBIBYTES_PER_SECOND: Gibibytes per second (GiB/sec).
+         - UNIT_TEBIBITS_PER_SECOND: Tebibits per second (TiBits/sec).
+         - UNIT_TEBIBYTES_PER_SECOND: Tebibytes per second (TiB/sec).
+         - UNIT_PEBIBITS_PER_SECOND: Pebibits per second (PiBits/sec).
+         - UNIT_PEBIBYTES_PER_SECOND: Pebibytes per second (PiB/sec).
+         - UNIT_DATETIME_UTC: Datetime (UTC).
+         - UNIT_DATETIME_LOCAL: Datetime (local).
+         - UNIT_HERTZ: Hertz (Hz).
+         - UNIT_KILOHERTZ: Kilohertz (KHz).
+         - UNIT_MEGAHERTZ: Megahertz (MHz).
+         - UNIT_GIGAHERTZ: Gigahertz (GHz).
+         - UNIT_DOLLAR: Dollar.
+         - UNIT_EURO: Euro.
+         - UNIT_ROUBLE: Rouble.
+         - UNIT_CELSIUS: Celsius (°C).
+         - UNIT_FAHRENHEIT: Fahrenheit (°F).
+         - UNIT_KELVIN: Kelvin (K).
+         - UNIT_FLOP_PER_SECOND: Flop per second (FLOP/sec).
+         - UNIT_KILOFLOP_PER_SECOND: Kiloflop per second (KFLOP/sec).
+         - UNIT_MEGAFLOP_PER_SECOND: Megaflop per second (MFLOP/sec).
+         - UNIT_GIGAFLOP_PER_SECOND: Gigaflop per second (GFLOP/sec).
+         - UNIT_PETAFLOP_PER_SECOND: Petaflop per second (PFLOP/sec).
+         - UNIT_EXAFLOP_PER_SECOND: Exaflop per second (EFLOP/sec).
+         - UNIT_METERS_PER_SECOND: Meters per second (m/sec).
+         - UNIT_KILOMETERS_PER_HOUR: Kilometers per hour (km/h).
+         - UNIT_MILES_PER_HOUR: Miles per hour (mi/h).
+         - UNIT_MILLIMETER: Millimeter.
+         - UNIT_CENTIMETER: Centimeter.
+         - UNIT_METER: Meter.
+         - UNIT_KILOMETER: Kilometer.
+         - UNIT_MILE: Mile.
+         - UNIT_PPM: Parts per million (ppm).
+      type: string
+      enum:
+      - UNIT_NONE
+      - UNIT_COUNT
+      - UNIT_PERCENT
+      - UNIT_PERCENT_UNIT
+      - UNIT_NANOSECONDS
+      - UNIT_MICROSECONDS
+      - UNIT_MILLISECONDS
+      - UNIT_SECONDS
+      - UNIT_MINUTES
+      - UNIT_HOURS
+      - UNIT_DAYS
+      - UNIT_BITS_SI
+      - UNIT_BYTES_SI
+      - UNIT_KILOBYTES
+      - UNIT_MEGABYTES
+      - UNIT_GIGABYTES
+      - UNIT_TERABYTES
+      - UNIT_PETABYTES
+      - UNIT_EXABYTES
+      - UNIT_BITS_IEC
+      - UNIT_BYTES_IEC
+      - UNIT_KIBIBYTES
+      - UNIT_MEBIBYTES
+      - UNIT_GIBIBYTES
+      - UNIT_TEBIBYTES
+      - UNIT_PEBIBYTES
+      - UNIT_EXBIBYTES
+      - UNIT_REQUESTS_PER_SECOND
+      - UNIT_OPERATIONS_PER_SECOND
+      - UNIT_WRITES_PER_SECOND
+      - UNIT_READS_PER_SECOND
+      - UNIT_PACKETS_PER_SECOND
+      - UNIT_IO_OPERATIONS_PER_SECOND
+      - UNIT_COUNTS_PER_SECOND
+      - UNIT_BITS_SI_PER_SECOND
+      - UNIT_BYTES_SI_PER_SECOND
+      - UNIT_KILOBITS_PER_SECOND
+      - UNIT_KILOBYTES_PER_SECOND
+      - UNIT_MEGABITS_PER_SECOND
+      - UNIT_MEGABYTES_PER_SECOND
+      - UNIT_GIGABITS_PER_SECOND
+      - UNIT_GIGABYTES_PER_SECOND
+      - UNIT_TERABITS_PER_SECOND
+      - UNIT_TERABYTES_PER_SECOND
+      - UNIT_PETABITS_PER_SECOND
+      - UNIT_PETABYTES_PER_SECOND
+      - UNIT_BITS_IEC_PER_SECOND
+      - UNIT_BYTES_IEC_PER_SECOND
+      - UNIT_KIBIBITS_PER_SECOND
+      - UNIT_KIBIBYTES_PER_SECOND
+      - UNIT_MEBIBITS_PER_SECOND
+      - UNIT_MEBIBYTES_PER_SECOND
+      - UNIT_GIBIBITS_PER_SECOND
+      - UNIT_GIBIBYTES_PER_SECOND
+      - UNIT_TEBIBITS_PER_SECOND
+      - UNIT_TEBIBYTES_PER_SECOND
+      - UNIT_PEBIBITS_PER_SECOND
+      - UNIT_PEBIBYTES_PER_SECOND
+      - UNIT_DATETIME_UTC
+      - UNIT_DATETIME_LOCAL
+      - UNIT_HERTZ
+      - UNIT_KILOHERTZ
+      - UNIT_MEGAHERTZ
+      - UNIT_GIGAHERTZ
+      - UNIT_DOLLAR
+      - UNIT_EURO
+      - UNIT_ROUBLE
+      - UNIT_CELSIUS
+      - UNIT_FAHRENHEIT
+      - UNIT_KELVIN
+      - UNIT_FLOP_PER_SECOND
+      - UNIT_KILOFLOP_PER_SECOND
+      - UNIT_MEGAFLOP_PER_SECOND
+      - UNIT_GIGAFLOP_PER_SECOND
+      - UNIT_PETAFLOP_PER_SECOND
+      - UNIT_EXAFLOP_PER_SECOND
+      - UNIT_METERS_PER_SECOND
+      - UNIT_KILOMETERS_PER_HOUR
+      - UNIT_MILES_PER_HOUR
+      - UNIT_MILLIMETER
+      - UNIT_CENTIMETER
+      - UNIT_METER
+      - UNIT_KILOMETER
+      - UNIT_MILE
+      - UNIT_PPM
+    ChartWidgetVisualizationSettingsYaxis_in_ChartWidgetVisualizationSettingsYaxisSettings_left:
+      description: |-
+        Left Y axis settings.
+
+        Y axis settings.
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/ChartWidgetVisualizationSettingsYaxisType_in_ChartWidgetVisualizationSettingsYaxis_type'
+        title:
+          description: Title or empty.
+          type: string
+        min:
+          description: Min value in extended number format or empty.
+          type: string
+        max:
+          description: Max value in extended number format or empty.
+          type: string
+        unitFormat:
+          $ref: '#/components/schemas/ChartWidgetVisualizationSettingsUnitFormat_in_ChartWidgetVisualizationSettingsYaxis_unitFormat'
+        precision:
+          description: Tick value precision (null as default, 0-7 in other cases).
+          type: integer
+          format: int64
+    ChartWidgetVisualizationSettingsYaxis_in_ChartWidgetVisualizationSettingsYaxisSettings_right:
+      description: |-
+        Right Y axis settings.
+
+        Y axis settings.
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/ChartWidgetVisualizationSettingsYaxisType_in_ChartWidgetVisualizationSettingsYaxis_type'
+        title:
+          description: Title or empty.
+          type: string
+        min:
+          description: Min value in extended number format or empty.
+          type: string
+        max:
+          description: Max value in extended number format or empty.
+          type: string
+        unitFormat:
+          $ref: '#/components/schemas/ChartWidgetVisualizationSettingsUnitFormat_in_ChartWidgetVisualizationSettingsYaxis_unitFormat'
+        precision:
+          description: Tick value precision (null as default, 0-7 in other cases).
+          type: integer
+          format: int64
+    Parametrization_in_CreateDashboardRequest_parametrization:
+      description: |-
+        Dashboard parametrization.
+
+        Parametrization.
+      type: object
+      properties:
+        parameters:
+          description: Parameters.
+          type: array
+          items:
+            $ref: '#/components/schemas/Parameter'
+        selectors:
+          description: Predefined selectors.
+          type: string
+    Parametrization_in_Dashboard_parametrization:
+      description: |-
+        Dashboard parametrization.
+
+        Parametrization.
+      type: object
+      properties:
+        parameters:
+          description: Parameters.
+          type: array
+          items:
+            $ref: '#/components/schemas/Parameter'
+        selectors:
+          description: Predefined selectors.
+          type: string
+    EvaluationStatus_in_ExplainAlertEvaluationResponse_evaluationStatus:
+      description: |2-
+         - EVALUATION_STATUS_OK: OK.
+         - EVALUATION_STATUS_WARN: Warning.
+         - EVALUATION_STATUS_ALARM: Alarm.
+         - EVALUATION_STATUS_NO_DATA: No data.
+         - EVALUATION_STATUS_ERROR: Error.
+      type: string
+      enum:
+      - EVALUATION_STATUS_OK
+      - EVALUATION_STATUS_WARN
+      - EVALUATION_STATUS_ALARM
+      - EVALUATION_STATUS_NO_DATA
+      - EVALUATION_STATUS_ERROR
+    EvaluationStatus_in_ExplainNewAlertEvaluationResponse_evaluationStatus:
+      description: |2-
+         - EVALUATION_STATUS_OK: OK.
+         - EVALUATION_STATUS_WARN: Warning.
+         - EVALUATION_STATUS_ALARM: Alarm.
+         - EVALUATION_STATUS_NO_DATA: No data.
+         - EVALUATION_STATUS_ERROR: Error.
+      type: string
+      enum:
+      - EVALUATION_STATUS_OK
+      - EVALUATION_STATUS_WARN
+      - EVALUATION_STATUS_ALARM
+      - EVALUATION_STATUS_NO_DATA
+      - EVALUATION_STATUS_ERROR
+    EvaluationStatus_in_GetAlertEvaluationStateResponse_status:
+      description: |-
+        Evaluation status and details. It's status of latest change between statuses, for example from OK to ALARM.
+
+         - EVALUATION_STATUS_OK: OK.
+         - EVALUATION_STATUS_WARN: Warning.
+         - EVALUATION_STATUS_ALARM: Alarm.
+         - EVALUATION_STATUS_NO_DATA: No data.
+         - EVALUATION_STATUS_ERROR: Error.
+      type: string
+      enum:
+      - EVALUATION_STATUS_OK
+      - EVALUATION_STATUS_WARN
+      - EVALUATION_STATUS_ALARM
+      - EVALUATION_STATUS_NO_DATA
+      - EVALUATION_STATUS_ERROR
+    EvaluationStatus_in_GetAlertEvaluationStateResponse_previousStatus:
+      description: |-
+        Evaluation status and details.
+        It's status of previous change between statuses, for example from OK to ALARM.
+
+         - EVALUATION_STATUS_OK: OK.
+         - EVALUATION_STATUS_WARN: Warning.
+         - EVALUATION_STATUS_ALARM: Alarm.
+         - EVALUATION_STATUS_NO_DATA: No data.
+         - EVALUATION_STATUS_ERROR: Error.
+      type: string
+      enum:
+      - EVALUATION_STATUS_OK
+      - EVALUATION_STATUS_WARN
+      - EVALUATION_STATUS_ALARM
+      - EVALUATION_STATUS_NO_DATA
+      - EVALUATION_STATUS_ERROR
+    EvaluationStats_in_GetAlertEvaluationStatsResponse_evaluationStats:
+      type: object
+      properties:
+        okCount:
+          type: string
+          format: int64
+        warnCount:
+          type: string
+          format: int64
+        alarmCount:
+          type: string
+          format: int64
+        errorCount:
+          type: string
+          format: int64
+        noDataCount:
+          type: string
+          format: int64
+    NotificationStats_in_GetAlertNotificationStatsResponse_notificationStats:
+      type: object
+      properties:
+        unknown:
+          type: string
+          format: int64
+        success:
+          type: string
+          format: int64
+        error:
+          type: string
+          format: int64
+        invalidRequest:
+          type: string
+          format: int64
+        absentNotificationChannel:
+          type: string
+          format: int64
+        retryError:
+          type: string
+          format: int64
+        resourceExhausted:
+          type: string
+          format: int64
+        permissionDenied:
+          type: string
+          format: int64
+        notSubscribed:
+          type: string
+          format: int64
+    EvaluationStats_in_GetAlertStatsResponse_evaluationStats:
+      type: object
+      properties:
+        okCount:
+          type: string
+          format: int64
+        warnCount:
+          type: string
+          format: int64
+        alarmCount:
+          type: string
+          format: int64
+        errorCount:
+          type: string
+          format: int64
+        noDataCount:
+          type: string
+          format: int64
+    NotificationStats_in_GetAlertStatsResponse_notificationStats:
+      type: object
+      properties:
+        unknown:
+          type: string
+          format: int64
+        success:
+          type: string
+          format: int64
+        error:
+          type: string
+          format: int64
+        invalidRequest:
+          type: string
+          format: int64
+        absentNotificationChannel:
+          type: string
+          format: int64
+        retryError:
+          type: string
+          format: int64
+        resourceExhausted:
+          type: string
+          format: int64
+        permissionDenied:
+          type: string
+          format: int64
+        notSubscribed:
+          type: string
+          format: int64
+    MetricType_in_ListMetricsResponseMetricMeta_type:
+      description: |-
+        Type of the metric.
+
+         - DGAUGE: Gauge with fractional values.
+         - IGAUGE: Gauge with integer values.
+         - COUNTER: Counter.
+         - RATE: Rate.
+      type: string
+      enum:
+      - DGAUGE
+      - IGAUGE
+      - COUNTER
+      - RATE
+    ThresholdType_in_PredicateRule_type:
+      description: |-
+        Criteria by which the alert will be checked.
+
+         - THRESHOLD_TYPE_AT_LEAST_ONE: At least one.
+         - THRESHOLD_TYPE_AT_ALL_TIMES: At all times.
+         - THRESHOLD_TYPE_LAST_NON_NAN: Last non-NaN value.
+         - THRESHOLD_TYPE_AVG: Average.
+         - THRESHOLD_TYPE_MIN: Minimum.
+         - THRESHOLD_TYPE_MAX: Maximum.
+         - THRESHOLD_TYPE_SUM: Sum.
+         - THRESHOLD_TYPE_COUNT: Count.
+      type: string
+      enum:
+      - THRESHOLD_TYPE_AT_LEAST_ONE
+      - THRESHOLD_TYPE_AT_ALL_TIMES
+      - THRESHOLD_TYPE_LAST_NON_NAN
+      - THRESHOLD_TYPE_AVG
+      - THRESHOLD_TYPE_MIN
+      - THRESHOLD_TYPE_MAX
+      - THRESHOLD_TYPE_SUM
+      - THRESHOLD_TYPE_COUNT
+    Comparison_in_PredicateRule_comparison:
+      description: |-
+        Operation used to compare with threshold value.
+
+         - COMPARISON_EQ: Equal the specified value.
+         - COMPARISON_NE: Not equal the specified value.
+         - COMPARISON_GT: Greater than the specified value.
+         - COMPARISON_LT: Less than the specified value.
+         - COMPARISON_GTE: Greater than or equal to the specified value.
+         - COMPARISON_LTE: Less than or equal to the specified value.
+      type: string
+      enum:
+      - COMPARISON_EQ
+      - COMPARISON_NE
+      - COMPARISON_GT
+      - COMPARISON_LT
+      - COMPARISON_GTE
+      - COMPARISON_LTE
+    TargetStatus_in_PredicateRule_targetStatus:
+      description: |-
+        Target status of the alert if the predicate is true.
+
+         - TARGET_STATUS_OK: OK.
+         - TARGET_STATUS_WARN: Warn.
+         - TARGET_STATUS_ALARM: Alarm.
+         - TARGET_STATUS_NO_DATA: No data.
+      type: string
+      enum:
+      - TARGET_STATUS_OK
+      - TARGET_STATUS_WARN
+      - TARGET_STATUS_ALARM
+      - TARGET_STATUS_NO_DATA
+    MetricType_in_ReadMetricData_type:
+      description: |-
+        Type of the metric.
+
+         - DGAUGE: Gauge with fractional values.
+         - IGAUGE: Gauge with integer values.
+         - COUNTER: Counter.
+         - RATE: Rate.
+      type: string
+      enum:
+      - DGAUGE
+      - IGAUGE
+      - COUNTER
+      - RATE
+    Timeseries_in_ReadMetricData_timeseries:
+      description: Metric timeseries.
+      type: object
+      allOf:
+      - type: object
+        properties:
+          timestamps:
+            description: |-
+              List of timestamps.
+
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: array
+            items:
+              type: string
+              format: date-time
+      - title: values
+        type: object
+        maxProperties: 1
+        properties:
+          doubleValues:
+            $ref: '#/components/schemas/TimeseriesDoubleValues'
+            description: List of double values.
+          int64Values:
+            $ref: '#/components/schemas/TimeseriesInt64Values'
+            description: List of int64 values. Only for `IGAUGE` or 'COUNTER' metric
+              type.
+    Downsampling_in_ReadMetricsDataRequest_downsampling:
+      description: |-
+        Required.
+        Downsampling parameters.
+
+        List of available aggregate functions for downsampling.
+      type: object
+      allOf:
+      - type: object
+        properties:
+          gridAggregation:
+            $ref: '#/components/schemas/DownsamplingGridAggregation'
+            description: Function that is used for downsampling.
+          gapFilling:
+            $ref: '#/components/schemas/DownsamplingGapFilling'
+            description: Parameters for filling gaps in data.
+      - title: mode
+        type: object
+        maxProperties: 1
+        properties:
+          maxPoints:
+            description: Maximum number of points to be returned.
+            type: string
+            format: int64
+          gridInterval:
+            description: |-
+              Time interval (grid) for downsampling in milliseconds.
+              Points in the specified range are aggregated into one time point.
+            type: string
+            format: int64
+          disabled:
+            description: Disable downsampling.
+            type: boolean
+            format: boolean
+    TitleWidgetTitleSize_in_TitleWidget_size:
+      description: |-
+        Title size.
+
+        Title size.
+
+         - TITLE_SIZE_XS: Extra small size.
+         - TITLE_SIZE_S: Small size.
+         - TITLE_SIZE_M: Middle size.
+         - TITLE_SIZE_L: Large size.
+      type: string
+      enum:
+      - TITLE_SIZE_XS
+      - TITLE_SIZE_S
+      - TITLE_SIZE_M
+      - TITLE_SIZE_L
+    FieldMask_in_UpdateDashboardRequest_updateMask:
+      description: |-
+        Field mask that specifies which fields of the Dashboard resource are going to be updated.
+
+        A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
+
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
+        Fields specified in the request will be updated to provided values.
+        The rest of the fields will be reset to the default.
+      type: string
+    Parametrization_in_UpdateDashboardRequest_parametrization:
+      description: |-
+        Dashboard parametrization.
+
+        Parametrization.
+      type: object
+      properties:
+        parameters:
+          description: Parameters.
+          type: array
+          items:
+            $ref: '#/components/schemas/Parameter'
+        selectors:
+          description: Predefined selectors.
+          type: string
+tags:
+- name: Alert
+  description: A set of methods for managing Alert resources.
+- name: Channel
+  description: A set of methods for managing Channel resources.
+- name: Dashboard
+  description: A set of methods for managing dashboards.
+- name: MetricsData
+  description: A set of methods for managing metric data.
+- name: MetricsMeta
+  description: A set of methods for managing metric metadata.

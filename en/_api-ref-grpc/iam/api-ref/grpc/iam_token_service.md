@@ -9,6 +9,7 @@ A set of methods for managing IAM tokens.
 | Call | Description |
 | --- | --- |
 | [Create](#Create) | Creates an IAM token for the specified identity. |
+| [CreateForServiceAccount](#CreateForServiceAccount) | Create iam token for service account. |
 
 ## Calls IamTokenService {#calls}
 
@@ -28,6 +29,27 @@ identity | **oneof:** `yandex_passport_oauth_token` or `jwt`<br>
 
 
 ### CreateIamTokenResponse {#CreateIamTokenResponse}
+
+Field | Description
+--- | ---
+iam_token | **string**<br>IAM token for the specified identity. <br>You should pass the token in the `Authorization` header for any further API requests. For example, `Authorization: Bearer `iam_token``. 
+expires_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>IAM token expiration time. 
+
+
+## CreateForServiceAccount {#CreateForServiceAccount}
+
+Create iam token for service account.
+
+**rpc CreateForServiceAccount ([CreateIamTokenForServiceAccountRequest](#CreateIamTokenForServiceAccountRequest)) returns ([CreateIamTokenResponse](#CreateIamTokenResponse))**
+
+### CreateIamTokenForServiceAccountRequest {#CreateIamTokenForServiceAccountRequest}
+
+Field | Description
+--- | ---
+service_account_id | **string**<br>Required.  The maximum string length in characters is 50.
+
+
+### CreateIamTokenResponse {#CreateIamTokenResponse1}
 
 Field | Description
 --- | ---

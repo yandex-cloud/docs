@@ -1,11 +1,9 @@
-openapi: '3.0'
+openapi: "3.0"
 info:
   title: Yandex Cloud Triggers Service
-  description: >-
-    This API reference is organized by resource. Actions are performed by
-    sending HTTP requests to resource URLs or making RPC calls. For more
-    information about Yandex.Cloud API architecture, see [API
-    Concepts](/docs/api-design-guide/).
+  description: This API reference is organized by resource. Actions are performed
+    by sending HTTP requests to resource URLs or making RPC calls. For more information
+    about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
   version: v1
   x-y-docUri: triggers/api-ref
   x-y-baseUrl: https://serverless-triggers.api.cloud.yandex.net
@@ -13,28 +11,24 @@ paths:
   /triggers/v1/triggers/{triggerId}:
     get:
       tags:
-        - Trigger
+      - Trigger
       summary: Returns the specified trigger.
-      description: >-
-        To get the list of all available triggers, make a
-        [list](/docs/functions/triggers/api-ref/Trigger/list) request.
+      description: To get the list of all available triggers, make a [list](/docs/functions/triggers/api-ref/Trigger/list)
+        request.
       operationId: TriggerGet
       parameters:
-        - name: triggerId
-          in: path
-          description: >-
-            Required.
+      - name: triggerId
+        in: path
+        description: |-
+          Required.
+          ID of the trigger to return.
 
-            ID of the trigger to return.
-
-
-            To get a trigger ID make a
-            [list](/docs/functions/triggers/api-ref/Trigger/list) request.
-          required: true
-          schema:
-            type: string
+          To get a trigger ID make a [list](/docs/functions/triggers/api-ref/Trigger/list) request.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -43,25 +37,22 @@ paths:
       x-y-navtitle: get
     delete:
       tags:
-        - Trigger
+      - Trigger
       summary: Deletes the specified trigger.
       operationId: TriggerDelete
       parameters:
-        - name: triggerId
-          in: path
-          description: >-
-            Required.
+      - name: triggerId
+        in: path
+        description: |-
+          Required.
+          ID of the trigger to delete.
 
-            ID of the trigger to delete.
-
-
-            To get a trigger ID make a
-            [list](/docs/functions/triggers/api-ref/Trigger/list) request.
-          required: true
-          schema:
-            type: string
+          To get a trigger ID make a [list](/docs/functions/triggers/api-ref/Trigger/list) request.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -73,23 +64,20 @@ paths:
       x-y-operation-response: Empty
     patch:
       tags:
-        - Trigger
+      - Trigger
       summary: Updates the specified trigger.
       operationId: TriggerUpdate
       parameters:
-        - name: triggerId
-          in: path
-          description: >-
-            Required.
+      - name: triggerId
+        in: path
+        description: |-
+          Required.
+          ID of the trigger to update.
 
-            ID of the trigger to update.
-
-
-            To get a trigger ID make a
-            [list](/docs/functions/triggers/api-ref/Trigger/list) request.
-          required: true
-          schema:
-            type: string
+          To get a trigger ID make a [list](/docs/functions/triggers/api-ref/Trigger/list) request.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -97,7 +85,7 @@ paths:
               $ref: '#/components/schemas/UpdateTriggerRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -110,73 +98,52 @@ paths:
   /triggers/v1/triggers:
     get:
       tags:
-        - Trigger
+      - Trigger
       summary: Retrieves the list of triggers in the specified folder.
       operationId: TriggerList
       parameters:
-        - name: folderId
-          in: query
-          description: >-
-            Required.
+      - name: folderId
+        in: query
+        description: |-
+          Required.
+          ID of the folder to list triggers in.
 
-            ID of the folder to list triggers in.
+          To get a folder ID use a [list](/docs/resource-manager/api-ref/Folder/list) request.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than `pageSize`, the service returns a [nextPageToken](/docs/functions/triggers/api-ref/Trigger/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
 
+          Default value: 100.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set `pageToken` to the
+          [nextPageToken](/docs/functions/triggers/api-ref/Trigger/list#responses) returned by a previous list request.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          A filter expression that filters triggers listed in the response.
 
-            To get a folder ID use a
-            [list](/docs/resource-manager/api-ref/Folder/list) request.
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            The maximum number of results per page to return. If the number of
-            available
-
-            results is larger than `pageSize`, the service returns a
-            [nextPageToken](/docs/functions/triggers/api-ref/Trigger/list#responses)
-
-            that can be used to get the next page of results in subsequent list
-            requests.
-
-
-            Default value: 100.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Page token. To get the next page of results, set `pageToken` to the
-
-            [nextPageToken](/docs/functions/triggers/api-ref/Trigger/list#responses)
-            returned by a previous list request.
-          schema:
-            type: string
-        - name: filter
-          in: query
-          description: >-
-            A filter expression that filters triggers listed in the response.
-
-
-            The expression must specify:
-
-            1. The field name. Currently filtering can only be applied to the
-            [Trigger.name](/docs/functions/triggers/api-ref/Trigger#representation)
-            field.
-
-            2. A conditional operator. Can be either `=` or `!=` for single
-            values, `IN` or `NOT IN`
-
-            for lists of values.
-
-            3. The value. Must be 3-63 characters long and match the regular
-            expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.
-
-            Example of a filter: `name=my-trigger`.
-          schema:
-            type: string
+          The expression must specify:
+          1. The field name. Currently filtering can only be applied to the [Trigger.name](/docs/functions/triggers/api-ref/Trigger#representation) field.
+          2. A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN`
+          for lists of values.
+          3. The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.
+          Example of a filter: `name=my-trigger`.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -185,7 +152,7 @@ paths:
       x-y-navtitle: list
     post:
       tags:
-        - Trigger
+      - Trigger
       summary: Creates a trigger in the specified folder.
       operationId: TriggerCreate
       requestBody:
@@ -195,7 +162,7 @@ paths:
               $ref: '#/components/schemas/CreateTriggerRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -208,23 +175,20 @@ paths:
   /triggers/v1/triggers/{triggerId}:pause:
     post:
       tags:
-        - Trigger
+      - Trigger
       summary: Pauses the specified trigger.
       operationId: TriggerPause
       parameters:
-        - name: triggerId
-          in: path
-          description: >-
-            Required.
+      - name: triggerId
+        in: path
+        description: |-
+          Required.
+          ID of the trigger to pause
 
-            ID of the trigger to pause
-
-
-            To get a trigger ID make a
-            [list](/docs/functions/triggers/api-ref/Trigger/list) request.
-          required: true
-          schema:
-            type: string
+          To get a trigger ID make a [list](/docs/functions/triggers/api-ref/Trigger/list) request.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -232,7 +196,7 @@ paths:
               $ref: '#/components/schemas/PauseTriggerRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -245,23 +209,20 @@ paths:
   /triggers/v1/triggers/{triggerId}:resume:
     post:
       tags:
-        - Trigger
+      - Trigger
       summary: Restarts the specified trigger.
       operationId: TriggerResume
       parameters:
-        - name: triggerId
-          in: path
-          description: >-
-            Required.
+      - name: triggerId
+        in: path
+        description: |-
+          Required.
+          ID of the trigger to pause
 
-            ID of the trigger to pause
-
-
-            To get a trigger ID make a
-            [list](/docs/functions/triggers/api-ref/Trigger/list) request.
-          required: true
-          schema:
-            type: string
+          To get a trigger ID make a [list](/docs/functions/triggers/api-ref/Trigger/list) request.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -269,7 +230,7 @@ paths:
               $ref: '#/components/schemas/ResumeTriggerRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -282,78 +243,57 @@ paths:
   /triggers/v1/triggers/{triggerId}/operations:
     get:
       tags:
-        - Trigger
+      - Trigger
       summary: Lists operations for the specified trigger.
       operationId: TriggerListOperations
       parameters:
-        - name: triggerId
-          in: path
-          description: |-
-            Required.
-            ID of the trigger to list operations for.
-          required: true
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            The maximum number of results per page that should be returned. If
-            the number of available
+      - name: triggerId
+        in: path
+        description: |-
+          Required.
+          ID of the trigger to list operations for.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page that should be returned. If the number of available
+          results is larger than `pageSize`, the service returns a [nextPageToken](/docs/functions/triggers/api-ref/Trigger/listOperations#responses)
+          that can be used to get the next page of results in subsequent list requests.
 
-            results is larger than `pageSize`, the service returns a
-            [nextPageToken](/docs/functions/triggers/api-ref/Trigger/listOperations#responses)
+          Default value: 100.
 
-            that can be used to get the next page of results in subsequent list
-            requests.
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set `pageToken` to the
+          [nextPageToken](/docs/functions/triggers/api-ref/Trigger/listOperations#responses) returned by a previous list request.
 
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          A filter expression that filters resources listed in the response.
 
-            Default value: 100.
+          The expression must specify:
+          1. The field name. Currently filtering can only be applied to the [Trigger.name](/docs/functions/triggers/api-ref/Trigger#representation) field.
+          2. A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN`
+          for lists of values.
+          3. The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.
+          Example of a filter: `name=my-function`.
 
-
-            Acceptable values are 0 to 1000, inclusive.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Page token. To get the next page of results, set `pageToken` to the
-
-            [nextPageToken](/docs/functions/triggers/api-ref/Trigger/listOperations#responses)
-            returned by a previous list request.
-
-
-            The maximum string length in characters is 100.
-          schema:
-            type: string
-        - name: filter
-          in: query
-          description: >-
-            A filter expression that filters resources listed in the response.
-
-
-            The expression must specify:
-
-            1. The field name. Currently filtering can only be applied to the
-            [Trigger.name](/docs/functions/triggers/api-ref/Trigger#representation)
-            field.
-
-            2. A conditional operator. Can be either `=` or `!=` for single
-            values, `IN` or `NOT IN`
-
-            for lists of values.
-
-            3. The value. Must be 3-63 characters long and match the regular
-            expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.
-
-            Example of a filter: `name=my-function`.
-
-
-            The maximum string length in characters is 1000.
-          schema:
-            type: string
+          The maximum string length in characters is 1000.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -367,48 +307,34 @@ components:
       type: object
       properties:
         size:
-          description: >-
+          description: |-
             Batch size. Trigger will send the batch of messages to the function
-
-            when the number of messages in the queue reaches `size`, or the
-            `cutoff` time has passed.
-
+            when the number of messages in the queue reaches `size`, or the `cutoff` time has passed.
 
             Acceptable values are 0 to 10, inclusive.
           type: string
           format: int64
         cutoff:
-          description: >-
+          description: |-
             Required.
-
-            Maximum wait time. Trigger will send the batch of messages to the
-            function when
-
-            the number of messages in the queue reaches `size`, or the `cutoff`
-            time has passed.
+            Maximum wait time. Trigger will send the batch of messages to the function when
+            the number of messages in the queue reaches `size`, or the `cutoff` time has passed.
           type: string
     CloudLogsBatchSettings:
       type: object
       properties:
         size:
-          description: >-
+          description: |-
             Batch size. Trigger will send the batch of messages to the function
-
-            when the number of messages in the log group reaches `size`, or the
-            `cutoff` time has passed.
-
+            when the number of messages in the log group reaches `size`, or the `cutoff` time has passed.
 
             Acceptable values are 0 to 100, inclusive.
           type: string
           format: int64
         cutoff:
-          description: >-
-            Maximum wait time. Trigger will send the batch of messages to the
-            function when
-
-            the number of messages in the log group reaches `size`, or the
-            `cutoff` time has passed.
-
+          description: |-
+            Maximum wait time. Trigger will send the batch of messages to the function when
+            the number of messages in the log group reaches `size`, or the `cutoff` time has passed.
 
             Acceptable values are 1 seconds to 60 seconds, inclusive.
           type: string
@@ -422,24 +348,18 @@ components:
       type: object
       properties:
         folderId:
-          description: >-
+          description: |-
             Required.
-
             ID of the folder to create a trigger in.
 
-
-            To get a folder ID make a
-            [list](/docs/resource-manager/api-ref/Folder/list) request.
+            To get a folder ID make a [list](/docs/resource-manager/api-ref/Folder/list) request.
           type: string
         name:
-          description: >-
+          description: |-
             Name of the trigger.
-
             The name must be unique within the folder.
 
-
-            Value must match the regular expression ``
-            |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+            Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
           type: string
         description:
           description: |-
@@ -474,24 +394,14 @@ components:
       type: object
       maxProperties: 0
     FieldMask:
-      description: >-
+      description: |-
         A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
 
-        Оnly the specified fields will be changed. The others will be left
-        untouched.
-
-        If the field is specified in `` updateMask `` and no value for that
-        field was sent in the request,
-
-        the field's value will be reset to the default. The default value for
-        most fields is null or 0.
-
-
-        If `` updateMask `` is not sent in the request, all fields' values will
-        be updated.
-
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
         Fields specified in the request will be updated to provided values.
-
         The rest of the fields will be reset to the default.
       type: string
     InvokeFunctionOnce:
@@ -509,8 +419,7 @@ components:
           description: Version tag of the function to execute.
           type: string
         serviceAccountId:
-          description: >-
-            ID of the service account that should be used to invoke the
+          description: ID of the service account that should be used to invoke the
             function.
           type: string
     InvokeFunctionWithRetry:
@@ -528,16 +437,13 @@ components:
           description: Version tag of the function to execute.
           type: string
         serviceAccountId:
-          description: >-
-            ID of the service account which has permission to invoke the
+          description: ID of the service account which has permission to invoke the
             function.
           type: string
         retrySettings:
-          $ref: >-
-            #/components/schemas/RetrySettings_in_InvokeFunctionWithRetry_retrySettings
+          $ref: '#/components/schemas/RetrySettings_in_InvokeFunctionWithRetry_retrySettings'
         deadLetterQueue:
-          $ref: >-
-            #/components/schemas/PutQueueMessage_in_InvokeFunctionWithRetry_deadLetterQueue
+          $ref: '#/components/schemas/PutQueueMessage_in_InvokeFunctionWithRetry_deadLetterQueue'
     ListTriggerOperationsResponse:
       type: object
       properties:
@@ -547,21 +453,12 @@ components:
           items:
             $ref: '#/components/schemas/Operation'
         nextPageToken:
-          description: >-
-            Token for getting the next page of the list. If the number of
-            results is greater than
+          description: |-
+            Token for getting the next page of the list. If the number of results is greater than
+            the specified [pageSize](/docs/functions/triggers/api-ref/Trigger/listOperations#query_params), use `nextPageToken` as the value
+            for the [pageToken](/docs/functions/triggers/api-ref/Trigger/listOperations#query_params) parameter in the next list request.
 
-            the specified
-            [pageSize](/docs/functions/triggers/api-ref/Trigger/listOperations#query_params),
-            use `nextPageToken` as the value
-
-            for the
-            [pageToken](/docs/functions/triggers/api-ref/Trigger/listOperations#query_params)
-            parameter in the next list request.
-
-
-            Each subsequent page will have its own `nextPageToken` to continue
-            paging through the results.
+            Each subsequent page will have its own `nextPageToken` to continue paging through the results.
           type: string
     ListTriggersResponse:
       type: object
@@ -572,102 +469,70 @@ components:
           items:
             $ref: '#/components/schemas/Trigger'
         nextPageToken:
-          description: >-
-            Token for getting the next page of the list. If the number of
-            results is greater than
+          description: |-
+            Token for getting the next page of the list. If the number of results is greater than
+            the specified [pageSize](/docs/functions/triggers/api-ref/Trigger/list#query_params), use `nextPageToken` as the value
+            for the [pageToken](/docs/functions/triggers/api-ref/Trigger/list#query_params) parameter in the next list request.
 
-            the specified
-            [pageSize](/docs/functions/triggers/api-ref/Trigger/list#query_params),
-            use `nextPageToken` as the value
-
-            for the
-            [pageToken](/docs/functions/triggers/api-ref/Trigger/list#query_params)
-            parameter in the next list request.
-
-
-            Each subsequent page will have its own `nextPageToken` to continue
-            paging through the results.
+            Each subsequent page will have its own `nextPageToken` to continue paging through the results.
           type: string
     Operation:
-      description: >-
-        An Operation resource. For more information, see
-        [Operation](/docs/api-design-guide/concepts/operation).
+      description: An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
       type: object
       allOf:
-        - type: object
-          properties:
-            id:
-              description: ID of the operation.
-              type: string
-            description:
-              description: Description of the operation. 0-256 characters long.
-              type: string
-            createdAt:
-              description: >-
-                Creation timestamp.
+      - type: object
+        properties:
+          id:
+            description: ID of the operation.
+            type: string
+          description:
+            description: Description of the operation. 0-256 characters long.
+            type: string
+          createdAt:
+            description: |-
+              Creation timestamp.
 
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          createdBy:
+            description: ID of the user or service account who initiated the operation.
+            type: string
+          modifiedAt:
+            description: |-
+              The time when the Operation resource was last modified.
 
-                String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-                format.
-              type: string
-              format: date-time
-            createdBy:
-              description: ID of the user or service account who initiated the operation.
-              type: string
-            modifiedAt:
-              description: >-
-                The time when the Operation resource was last modified.
-
-
-                String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-                format.
-              type: string
-              format: date-time
-            done:
-              description: >-
-                If the value is `false`, it means the operation is still in
-                progress.
-
-                If `true`, the operation is completed, and either `error` or
-                `response` is available.
-              type: boolean
-              format: boolean
-            metadata:
-              description: >-
-                Service-specific metadata associated with the operation.
-
-                It typically contains the ID of the target resource that the
-                operation is performed on.
-
-                Any method that returns a long-running operation should document
-                the metadata type, if any.
-              type: object
-        - title: result
-          type: object
-          maxProperties: 1
-          properties:
-            error:
-              $ref: '#/components/schemas/rpcStatus'
-              description: >-
-                The error result of the operation in case of failure or
-                cancellation.
-            response:
-              description: >-
-                The normal response of the operation in case of success.
-
-                If the original method returns no data on success, such as
-                Delete,
-
-                the response is
-                [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty).
-
-                If the original method is the standard Create/Update,
-
-                the response should be the target resource of the operation.
-
-                Any method that returns a long-running operation should document
-                the response type, if any.
-              type: object
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          done:
+            description: |-
+              If the value is `false`, it means the operation is still in progress.
+              If `true`, the operation is completed, and either `error` or `response` is available.
+            type: boolean
+            format: boolean
+          metadata:
+            description: |-
+              Service-specific metadata associated with the operation.
+              It typically contains the ID of the target resource that the operation is performed on.
+              Any method that returns a long-running operation should document the metadata type, if any.
+            type: object
+      - title: result
+        type: object
+        maxProperties: 1
+        properties:
+          error:
+            $ref: '#/components/schemas/rpcStatus'
+            description: The error result of the operation in case of failure or cancellation.
+          response:
+            description: |-
+              The normal response of the operation in case of success.
+              If the original method returns no data on success, such as Delete,
+              the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty).
+              If the original method is the standard Create/Update,
+              the response should be the target resource of the operation.
+              Any method that returns a long-running operation should document the response type, if any.
+            type: object
     PauseTriggerMetadata:
       type: object
       properties:
@@ -708,10 +573,8 @@ components:
       type: object
       properties:
         retryAttempts:
-          description: >-
-            Maximum number of retries (extra invokes) before the action is
-            considered failed.
-
+          description: |-
+            Maximum number of retries (extra invokes) before the action is considered failed.
 
             Acceptable values are 1 to 5, inclusive.
           type: string
@@ -722,9 +585,8 @@ components:
             Time in seconds to wait between individual retries.
           type: string
     Trigger:
-      description: >-
-        A trigger to invoke a serverless function. For more information, see
-        [Triggers](/docs/functions/concepts/trigger).
+      description: A trigger to invoke a serverless function. For more information,
+        see [Triggers](/docs/functions/concepts/trigger).
       type: object
       properties:
         id:
@@ -738,12 +600,10 @@ components:
             The maximum string length in characters is 50.
           type: string
         createdAt:
-          description: >-
+          description: |-
             Creation timestamp for the trigger.
 
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-            format.
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
         name:
@@ -770,211 +630,205 @@ components:
     TriggerCloudLogs:
       type: object
       allOf:
-        - type: object
-          properties:
-            logGroupId:
-              description: Log group identifiers, at least one value is required.
-              type: array
-              items:
-                type: string
-            batchSettings:
-              $ref: '#/components/schemas/CloudLogsBatchSettings'
-              description: |-
-                Required.
-                Batch settings for processing log events.
-        - title: action
-          type: object
-          maxProperties: 1
-          properties:
-            invokeFunction:
-              $ref: '#/components/schemas/InvokeFunctionWithRetry'
+      - type: object
+        properties:
+          logGroupId:
+            description: Log group identifiers, at least one value is required.
+            type: array
+            items:
+              type: string
+          batchSettings:
+            $ref: '#/components/schemas/CloudLogsBatchSettings'
+            description: |-
+              Required.
+              Batch settings for processing log events.
+      - title: action
+        type: object
+        maxProperties: 1
+        properties:
+          invokeFunction:
+            $ref: '#/components/schemas/InvokeFunctionWithRetry'
     TriggerContainerRegistry:
       type: object
       allOf:
-        - type: object
-          properties:
-            eventType:
-              description: |-
-                Required.
-                Type (name) of events, at least one value is required.
+      - type: object
+        properties:
+          eventType:
+            description: |-
+              Required.
+              Type (name) of events, at least one value is required.
 
-                Must contain at least one element.
-              type: array
-              items:
-                $ref: '#/components/schemas/TriggerContainerRegistryEventType'
-            registryId:
-              description: ID of the registry.
-              type: string
-            imageName:
-              description: Docker-image name. Filter, optional.
-              type: string
-            tag:
-              description: Docker-image tag. Filter, optional.
-              type: string
-        - title: action
-          type: object
-          maxProperties: 1
-          properties:
-            invokeFunction:
-              $ref: '#/components/schemas/InvokeFunctionWithRetry'
+              Must contain at least one element.
+            type: array
+            items:
+              $ref: '#/components/schemas/TriggerContainerRegistryEventType'
+          registryId:
+            description: ID of the registry.
+            type: string
+          imageName:
+            description: Docker-image name. Filter, optional.
+            type: string
+          tag:
+            description: Docker-image tag. Filter, optional.
+            type: string
+      - title: action
+        type: object
+        maxProperties: 1
+        properties:
+          invokeFunction:
+            $ref: '#/components/schemas/InvokeFunctionWithRetry'
     TriggerContainerRegistryEventType:
       type: string
       enum:
-        - CONTAINER_REGISTRY_EVENT_TYPE_CREATE_IMAGE
-        - CONTAINER_REGISTRY_EVENT_TYPE_DELETE_IMAGE
-        - CONTAINER_REGISTRY_EVENT_TYPE_CREATE_IMAGE_TAG
-        - CONTAINER_REGISTRY_EVENT_TYPE_DELETE_IMAGE_TAG
+      - CONTAINER_REGISTRY_EVENT_TYPE_CREATE_IMAGE
+      - CONTAINER_REGISTRY_EVENT_TYPE_DELETE_IMAGE
+      - CONTAINER_REGISTRY_EVENT_TYPE_CREATE_IMAGE_TAG
+      - CONTAINER_REGISTRY_EVENT_TYPE_DELETE_IMAGE_TAG
     TriggerIoTMessage:
       description: Rule for activating a Yandex IoT Core trigger.
       type: object
       allOf:
-        - type: object
-          properties:
-            registryId:
-              description: |-
-                Required.
-                ID of the Yandex IoT Core registry.
-              type: string
-            deviceId:
-              description: ID of the Yandex IoT Core device in the registry.
-              type: string
-            mqttTopic:
-              description: MQTT topic whose messages activate the trigger.
-              type: string
-        - title: action
-          type: object
-          maxProperties: 1
-          properties:
-            invokeFunction:
-              $ref: '#/components/schemas/InvokeFunctionWithRetry'
-              description: Instructions for invoking a function with retries as needed.
+      - type: object
+        properties:
+          registryId:
+            description: |-
+              Required.
+              ID of the Yandex IoT Core registry.
+            type: string
+          deviceId:
+            description: ID of the Yandex IoT Core device in the registry.
+            type: string
+          mqttTopic:
+            description: MQTT topic whose messages activate the trigger.
+            type: string
+      - title: action
+        type: object
+        maxProperties: 1
+        properties:
+          invokeFunction:
+            $ref: '#/components/schemas/InvokeFunctionWithRetry'
+            description: Instructions for invoking a function with retries as needed.
     TriggerMessageQueue:
       description: Rule for activating a message queue trigger.
       type: object
       allOf:
-        - type: object
-          properties:
-            queueId:
-              description: |-
-                Required.
-                ID of the message queue in Yandex Message Queue.
-              type: string
-            serviceAccountId:
-              description: >-
-                Required.
+      - type: object
+        properties:
+          queueId:
+            description: |-
+              Required.
+              ID of the message queue in Yandex Message Queue.
+            type: string
+          serviceAccountId:
+            description: |-
+              Required.
+              ID of the service account which has read access to the message queue.
 
-                ID of the service account which has read access to the message
-                queue.
+              The maximum string length in characters is 50.
+            type: string
+          batchSettings:
+            $ref: '#/components/schemas/BatchSettings'
+            description: |-
+              Required.
+              Batch settings for processing messages in the queue.
+          visibilityTimeout:
+            description: |-
+              Queue visibility timeout override.
 
-
-                The maximum string length in characters is 50.
-              type: string
-            batchSettings:
-              $ref: '#/components/schemas/BatchSettings'
-              description: |-
-                Required.
-                Batch settings for processing messages in the queue.
-            visibilityTimeout:
-              description: |-
-                Queue visibility timeout override.
-
-                The maximum value is 43200 seconds.
-              type: string
-        - title: action
-          type: object
-          maxProperties: 1
-          properties:
-            invokeFunction:
-              $ref: '#/components/schemas/InvokeFunctionOnce'
-              description: Instructions for invoking a function once.
+              The maximum value is 43200 seconds.
+            type: string
+      - title: action
+        type: object
+        maxProperties: 1
+        properties:
+          invokeFunction:
+            $ref: '#/components/schemas/InvokeFunctionOnce'
+            description: Instructions for invoking a function once.
     TriggerObjectStorage:
       type: object
       allOf:
-        - type: object
-          properties:
-            eventType:
-              description: |-
-                Required.
-                Type (name) of events, at least one value is required.
+      - type: object
+        properties:
+          eventType:
+            description: |-
+              Required.
+              Type (name) of events, at least one value is required.
 
-                Must contain at least one element.
-              type: array
-              items:
-                $ref: '#/components/schemas/TriggerObjectStorageEventType'
-            bucketId:
-              description: ID of the bucket.
-              type: string
-            prefix:
-              description: Prefix of the object key. Filter, optional.
-              type: string
-            suffix:
-              description: Suffix of the object key. Filter, optional.
-              type: string
-        - title: action
-          type: object
-          maxProperties: 1
-          properties:
-            invokeFunction:
-              $ref: '#/components/schemas/InvokeFunctionWithRetry'
+              Must contain at least one element.
+            type: array
+            items:
+              $ref: '#/components/schemas/TriggerObjectStorageEventType'
+          bucketId:
+            description: ID of the bucket.
+            type: string
+          prefix:
+            description: Prefix of the object key. Filter, optional.
+            type: string
+          suffix:
+            description: Suffix of the object key. Filter, optional.
+            type: string
+      - title: action
+        type: object
+        maxProperties: 1
+        properties:
+          invokeFunction:
+            $ref: '#/components/schemas/InvokeFunctionWithRetry'
     TriggerObjectStorageEventType:
       type: string
       enum:
-        - OBJECT_STORAGE_EVENT_TYPE_CREATE_OBJECT
-        - OBJECT_STORAGE_EVENT_TYPE_UPDATE_OBJECT
-        - OBJECT_STORAGE_EVENT_TYPE_DELETE_OBJECT
+      - OBJECT_STORAGE_EVENT_TYPE_CREATE_OBJECT
+      - OBJECT_STORAGE_EVENT_TYPE_UPDATE_OBJECT
+      - OBJECT_STORAGE_EVENT_TYPE_DELETE_OBJECT
     TriggerRule:
       description: Description of a rule for trigger activation.
       type: object
       allOf:
-        - title: rule
-          type: object
-          maxProperties: 1
-          properties:
-            timer:
-              $ref: '#/components/schemas/TriggerTimer'
-              description: Rule for a timed trigger.
-            messageQueue:
-              $ref: '#/components/schemas/TriggerMessageQueue'
-              description: Rule for a message queue trigger.
-            iotMessage:
-              $ref: '#/components/schemas/TriggerIoTMessage'
-              description: Rule for a Yandex IoT Core trigger.
-            objectStorage:
-              $ref: '#/components/schemas/TriggerObjectStorage'
-            containerRegistry:
-              $ref: '#/components/schemas/TriggerContainerRegistry'
-            cloudLogs:
-              $ref: '#/components/schemas/TriggerCloudLogs'
+      - title: rule
+        type: object
+        maxProperties: 1
+        properties:
+          timer:
+            $ref: '#/components/schemas/TriggerTimer'
+            description: Rule for a timed trigger.
+          messageQueue:
+            $ref: '#/components/schemas/TriggerMessageQueue'
+            description: Rule for a message queue trigger.
+          iotMessage:
+            $ref: '#/components/schemas/TriggerIoTMessage'
+            description: Rule for a Yandex IoT Core trigger.
+          objectStorage:
+            $ref: '#/components/schemas/TriggerObjectStorage'
+          containerRegistry:
+            $ref: '#/components/schemas/TriggerContainerRegistry'
+          cloudLogs:
+            $ref: '#/components/schemas/TriggerCloudLogs'
     TriggerStatus:
       type: string
       enum:
-        - ACTIVE
-        - PAUSED
+      - ACTIVE
+      - PAUSED
     TriggerTimer:
       description: Rule for activating a timed trigger.
       type: object
       allOf:
-        - type: object
-          properties:
-            cronExpression:
-              description: >-
-                Required.
+      - type: object
+        properties:
+          cronExpression:
+            description: |-
+              Required.
+              Description of a schedule as a [cron expression](/docs/functions/concepts/trigger/timer).
 
-                Description of a schedule as a [cron
-                expression](/docs/functions/concepts/trigger/timer).
-
-
-                The maximum string length in characters is 100.
-              type: string
-        - title: action
-          type: object
-          maxProperties: 1
-          properties:
-            invokeFunction:
-              $ref: '#/components/schemas/InvokeFunctionOnce'
-              description: Instructions for invoking a function once.
-            invokeFunctionWithRetry:
-              $ref: '#/components/schemas/InvokeFunctionWithRetry'
+              The maximum string length in characters is 100.
+            type: string
+      - title: action
+        type: object
+        maxProperties: 1
+        properties:
+          invokeFunction:
+            $ref: '#/components/schemas/InvokeFunctionOnce'
+            description: Instructions for invoking a function once.
+          invokeFunctionWithRetry:
+            $ref: '#/components/schemas/InvokeFunctionWithRetry'
     UpdateTriggerMetadata:
       type: object
       properties:
@@ -989,14 +843,11 @@ components:
         updateMask:
           $ref: '#/components/schemas/FieldMask_in_UpdateTriggerRequest_updateMask'
         name:
-          description: >-
+          description: |-
             New name for the trigger.
-
             The name must be unique within the folder.
 
-
-            Value must match the regular expression ``
-            |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+            Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
           type: string
         description:
           description: |-
@@ -1005,25 +856,16 @@ components:
             The maximum string length in characters is 256.
           type: string
         labels:
-          description: >-
+          description: |-
             Trigger labels as `key:value` pairs.
 
-
-            Existing set of labels is completely replaced by the provided set,
-            so if you just want
-
-            to add or remove a label, request the current set of labels with a
-            [get](/docs/functions/triggers/api-ref/Trigger/get) request.
-
+            Existing set of labels is completely replaced by the provided set, so if you just want
+            to add or remove a label, request the current set of labels with a [get](/docs/functions/triggers/api-ref/Trigger/get) request.
 
             No more than 64 per resource.
-
             The string length in characters for each key must be 1-63.
-
             Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
-
             The maximum string length in characters for each value is 63.
-
             Each value must match the regular expression `` [-_0-9a-z]* ``.
           type: object
           additionalProperties:
@@ -1033,9 +875,7 @@ components:
       type: object
       properties:
         code:
-          description: >-
-            Error code. An enum value of
-            [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
+          description: Error code. An enum value of [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
           type: integer
           format: int32
         message:
@@ -1054,39 +894,35 @@ components:
         Description of a rule for trigger activation.
       type: object
       allOf:
-        - title: rule
-          type: object
-          maxProperties: 1
-          properties:
-            timer:
-              $ref: '#/components/schemas/TriggerTimer'
-              description: Rule for a timed trigger.
-            messageQueue:
-              $ref: '#/components/schemas/TriggerMessageQueue'
-              description: Rule for a message queue trigger.
-            iotMessage:
-              $ref: '#/components/schemas/TriggerIoTMessage'
-              description: Rule for a Yandex IoT Core trigger.
-            objectStorage:
-              $ref: '#/components/schemas/TriggerObjectStorage'
-            containerRegistry:
-              $ref: '#/components/schemas/TriggerContainerRegistry'
-            cloudLogs:
-              $ref: '#/components/schemas/TriggerCloudLogs'
+      - title: rule
+        type: object
+        maxProperties: 1
+        properties:
+          timer:
+            $ref: '#/components/schemas/TriggerTimer'
+            description: Rule for a timed trigger.
+          messageQueue:
+            $ref: '#/components/schemas/TriggerMessageQueue'
+            description: Rule for a message queue trigger.
+          iotMessage:
+            $ref: '#/components/schemas/TriggerIoTMessage'
+            description: Rule for a Yandex IoT Core trigger.
+          objectStorage:
+            $ref: '#/components/schemas/TriggerObjectStorage'
+          containerRegistry:
+            $ref: '#/components/schemas/TriggerContainerRegistry'
+          cloudLogs:
+            $ref: '#/components/schemas/TriggerCloudLogs'
     RetrySettings_in_InvokeFunctionWithRetry_retrySettings:
-      description: >-
-        Retry policy. If the field is not specified, or the value is empty, no
-        retries will be attempted.
-
+      description: |-
+        Retry policy. If the field is not specified, or the value is empty, no retries will be attempted.
 
         Settings for retrying to invoke a function.
       type: object
       properties:
         retryAttempts:
-          description: >-
-            Maximum number of retries (extra invokes) before the action is
-            considered failed.
-
+          description: |-
+            Maximum number of retries (extra invokes) before the action is considered failed.
 
             Acceptable values are 1 to 5, inclusive.
           type: string
@@ -1118,56 +954,44 @@ components:
         Description of a rule for trigger activation.
       type: object
       allOf:
-        - title: rule
-          type: object
-          maxProperties: 1
-          properties:
-            timer:
-              $ref: '#/components/schemas/TriggerTimer'
-              description: Rule for a timed trigger.
-            messageQueue:
-              $ref: '#/components/schemas/TriggerMessageQueue'
-              description: Rule for a message queue trigger.
-            iotMessage:
-              $ref: '#/components/schemas/TriggerIoTMessage'
-              description: Rule for a Yandex IoT Core trigger.
-            objectStorage:
-              $ref: '#/components/schemas/TriggerObjectStorage'
-            containerRegistry:
-              $ref: '#/components/schemas/TriggerContainerRegistry'
-            cloudLogs:
-              $ref: '#/components/schemas/TriggerCloudLogs'
+      - title: rule
+        type: object
+        maxProperties: 1
+        properties:
+          timer:
+            $ref: '#/components/schemas/TriggerTimer'
+            description: Rule for a timed trigger.
+          messageQueue:
+            $ref: '#/components/schemas/TriggerMessageQueue'
+            description: Rule for a message queue trigger.
+          iotMessage:
+            $ref: '#/components/schemas/TriggerIoTMessage'
+            description: Rule for a Yandex IoT Core trigger.
+          objectStorage:
+            $ref: '#/components/schemas/TriggerObjectStorage'
+          containerRegistry:
+            $ref: '#/components/schemas/TriggerContainerRegistry'
+          cloudLogs:
+            $ref: '#/components/schemas/TriggerCloudLogs'
     TriggerStatus_in_Trigger_status:
       description: Trigger status.
       type: string
       enum:
-        - ACTIVE
-        - PAUSED
+      - ACTIVE
+      - PAUSED
     FieldMask_in_UpdateTriggerRequest_updateMask:
-      description: >-
-        Field mask that specifies which attributes of the trigger should be
-        updated.
-
+      description: |-
+        Field mask that specifies which attributes of the trigger should be updated.
 
         A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
 
-        Оnly the specified fields will be changed. The others will be left
-        untouched.
-
-        If the field is specified in `` updateMask `` and no value for that
-        field was sent in the request,
-
-        the field's value will be reset to the default. The default value for
-        most fields is null or 0.
-
-
-        If `` updateMask `` is not sent in the request, all fields' values will
-        be updated.
-
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
         Fields specified in the request will be updated to provided values.
-
         The rest of the fields will be reset to the default.
       type: string
 tags:
-  - name: Trigger
-    description: A set of methods for managing triggers for serverless functions.
+- name: Trigger
+  description: A set of methods for managing triggers for serverless functions.

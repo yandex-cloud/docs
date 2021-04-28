@@ -42,8 +42,8 @@ cloud_id | **string**<br>ID of the cloud that the folder belongs to.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
 name | **string**<br>Name of the folder. The name is unique within the cloud. 3-63 characters long. 
 description | **string**<br>Description of the folder. 0-256 characters long. 
-labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Мaximum of 64 per resource. 
-status | enum **Status**<br>Status of the folder. <ul><li>`ACTIVE`: The folder is active.</li><li>`DELETING`: The folder is being deleted.</li><ul/>
+labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
+status | enum **Status**<br>Status of the folder. <ul><li>`ACTIVE`: The folder is active.</li><li>`DELETING`: The folder is being deleted.</li><li>`PENDING_DELETION`: Stopping folder resources and waiting for the deletion start timestamp.</li><ul/>
 
 
 ## List {#List}
@@ -79,8 +79,8 @@ cloud_id | **string**<br>ID of the cloud that the folder belongs to.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
 name | **string**<br>Name of the folder. The name is unique within the cloud. 3-63 characters long. 
 description | **string**<br>Description of the folder. 0-256 characters long. 
-labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Мaximum of 64 per resource. 
-status | enum **Status**<br>Status of the folder. <ul><li>`ACTIVE`: The folder is active.</li><li>`DELETING`: The folder is being deleted.</li><ul/>
+labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
+status | enum **Status**<br>Status of the folder. <ul><li>`ACTIVE`: The folder is active.</li><li>`DELETING`: The folder is being deleted.</li><li>`PENDING_DELETION`: Stopping folder resources and waiting for the deletion start timestamp.</li><ul/>
 
 
 ## Create {#Create}
@@ -135,8 +135,8 @@ cloud_id | **string**<br>ID of the cloud that the folder belongs to.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
 name | **string**<br>Name of the folder. The name is unique within the cloud. 3-63 characters long. 
 description | **string**<br>Description of the folder. 0-256 characters long. 
-labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Мaximum of 64 per resource. 
-status | enum **Status**<br>Status of the folder. <ul><li>`ACTIVE`: The folder is active.</li><li>`DELETING`: The folder is being deleted.</li><ul/>
+labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
+status | enum **Status**<br>Status of the folder. <ul><li>`ACTIVE`: The folder is active.</li><li>`DELETING`: The folder is being deleted.</li><li>`PENDING_DELETION`: Stopping folder resources and waiting for the deletion start timestamp.</li><ul/>
 
 
 ## Update {#Update}
@@ -192,8 +192,8 @@ cloud_id | **string**<br>ID of the cloud that the folder belongs to.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
 name | **string**<br>Name of the folder. The name is unique within the cloud. 3-63 characters long. 
 description | **string**<br>Description of the folder. 0-256 characters long. 
-labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Мaximum of 64 per resource. 
-status | enum **Status**<br>Status of the folder. <ul><li>`ACTIVE`: The folder is active.</li><li>`DELETING`: The folder is being deleted.</li><ul/>
+labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
+status | enum **Status**<br>Status of the folder. <ul><li>`ACTIVE`: The folder is active.</li><li>`DELETING`: The folder is being deleted.</li><li>`PENDING_DELETION`: Stopping folder resources and waiting for the deletion start timestamp.</li><ul/>
 
 
 ## Delete {#Delete}
@@ -211,6 +211,7 @@ Metadata and response of Operation:<br>
 Field | Description
 --- | ---
 folder_id | **string**<br>Required. ID of the folder to delete. To get the folder ID, use a [FolderService.List](#List) request. The maximum string length in characters is 50.
+delete_after | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The timestamp after which the process of deleting the folder should begin. Until this timestamp, the folder goes into the [Folder.Status.PENDING_DELETION](#Folder4) state and all resources in this folder are stopped. In this state, it is possible to cancel the delete operation without any loss. After this timestamp, the status of the folder will become [Folder.Status.DELETING](#Folder4) and the process of deleting all the resources  of the folder will be started. If `delete_after` is not specified it will be (now + 24 hours). To initiate an immediate deletion `delete_after` must be <= now. 
 
 
 ### Operation {#Operation2}
@@ -234,6 +235,7 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 Field | Description
 --- | ---
 folder_id | **string**<br>ID of the folder that is being deleted. 
+delete_after | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The timestamp after which the process of deleting the folder should begin. 
 
 
 ## ListOperations {#ListOperations}

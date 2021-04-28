@@ -38,7 +38,8 @@ filter | The maximum string length in characters is 1000.
           "subnetId": "string",
           "ipAddress": "string"
         }
-      ]
+      ],
+      "createdAt": "string"
     }
   ],
   "nextPageToken": "string"
@@ -57,4 +58,5 @@ targetGroups[].<br>labels | **object**<br><p>Resource labels as `key:value` pair
 targetGroups[].<br>targets[] | **object**<br><p>NOTE: all endpoints must use the same address_type - either ip or hostname.</p> 
 targetGroups[].<br>targets[].<br>subnetId | **string**<br><p>ID of the subnet that target connected to.</p> 
 targetGroups[].<br>targets[].<br>ipAddress | **string**<br>
+targetGroups[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp for the target group.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 nextPageToken | **string**<br>

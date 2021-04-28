@@ -32,7 +32,15 @@ apiGatewayId | Required. ID of the API gateway to return.  To get a API gateway 
   "labels": "object",
   "status": "string",
   "domain": "string",
-  "logGroupId": "string"
+  "logGroupId": "string",
+  "attachedDomains": [
+    {
+      "domainId": "string",
+      "certificateId": "string",
+      "enabled": true,
+      "domain": "string"
+    }
+  ]
 }
 ```
 
@@ -48,3 +56,8 @@ labels | **object**<br><p>API gateway labels as `key:value` pairs.</p>
 status | **string**<br><p>Status of the API gateway.</p> <ul> <li>CREATING: API gateway is being created.</li> <li>ACTIVE: API gateway is ready for use.</li> <li>DELETING: API gateway is being deleted.</li> <li>ERROR: API gateway failed. The only allowed action is delete.</li> <li>UPDATING: API gateway is being updated.</li> </ul> 
 domain | **string**<br><p>Default domain for the API gateway. Generated at creation time.</p> 
 logGroupId | **string**<br><p>ID of the log group for the API gateway.</p> 
+attachedDomains[] | **object**<br><p>List of domains attached to API gateway.</p> 
+attachedDomains[].<br>domainId | **string**<br><p>ID of the domain.</p> 
+attachedDomains[].<br>certificateId | **string**<br><p>ID of the domain certificate.</p> 
+attachedDomains[].<br>enabled | **boolean** (boolean)<br><p>Enabling flag.</p> 
+attachedDomains[].<br>domain | **string**<br><p>Name of the domain.</p> 

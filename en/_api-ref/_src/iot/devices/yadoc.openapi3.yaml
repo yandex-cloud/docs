@@ -1,11 +1,9 @@
-openapi: '3.0'
+openapi: "3.0"
 info:
   title: Yandex IoT Core Service
-  description: >-
-    This API reference is organized by resource. Actions are performed by
-    sending HTTP requests to resource URLs or making RPC calls. For more
-    information about Yandex.Cloud API architecture, see [API
-    Concepts](/docs/api-design-guide/).
+  description: This API reference is organized by resource. Actions are performed
+    by sending HTTP requests to resource URLs or making RPC calls. For more information
+    about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
   version: v1
   x-y-docUri: api-ref
   x-y-baseUrl: https://iot-devices.api.cloud.yandex.net
@@ -13,20 +11,20 @@ paths:
   /iot-devices/v1/devices/{deviceId}/publish:
     post:
       tags:
-        - DeviceData
+      - DeviceData
       summary: Publishes message on behalf of specified device
       operationId: DeviceDataPublish
       parameters:
-        - name: deviceId
-          in: path
-          description: |-
-            Required.
-            ID of device publishing message
+      - name: deviceId
+        in: path
+        description: |-
+          Required.
+          ID of device publishing message
 
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -34,7 +32,7 @@ paths:
               $ref: '#/components/schemas/PublishDeviceDataRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -44,38 +42,33 @@ paths:
   /iot-devices/v1/devices/{deviceId}:
     get:
       tags:
-        - Device
+      - Device
       summary: Returns the specified device.
-      description: >-
-        To get the list of available devices, make a
-        [list](/docs/iot-core/api-ref/Device/list) request.
+      description: To get the list of available devices, make a [list](/docs/iot-core/api-ref/Device/list)
+        request.
       operationId: DeviceGet
       parameters:
-        - name: deviceId
-          in: path
-          description: >-
-            Required.
+      - name: deviceId
+        in: path
+        description: |-
+          Required.
+          ID of the device to return.
 
-            ID of the device to return.
+          To get a device ID make a [list](/docs/iot-core/api-ref/Device/list) request.
 
-
-            To get a device ID make a [list](/docs/iot-core/api-ref/Device/list)
-            request.
-
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
-        - name: deviceView
-          in: query
-          description: |-
-            Specifies which parts of the device resource should be returned
-            in the response.
-          schema:
-            $ref: '#/components/schemas/DeviceView'
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: deviceView
+        in: query
+        description: |-
+          Specifies which parts of the device resource should be returned
+          in the response.
+        schema:
+          $ref: '#/components/schemas/DeviceView'
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -84,28 +77,24 @@ paths:
       x-y-navtitle: get
     delete:
       tags:
-        - Device
+      - Device
       summary: Deletes the specified device.
       operationId: DeviceDelete
       parameters:
-        - name: deviceId
-          in: path
-          description: >-
-            Required.
+      - name: deviceId
+        in: path
+        description: |-
+          Required.
+          ID of the device to delete.
 
-            ID of the device to delete.
+          To get a device ID make a [list](/docs/iot-core/api-ref/Device/list) request.
 
-
-            To get a device ID make a [list](/docs/iot-core/api-ref/Device/list)
-            request.
-
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -117,26 +106,22 @@ paths:
       x-y-operation-response: Empty
     patch:
       tags:
-        - Device
+      - Device
       summary: Updates the specified device.
       operationId: DeviceUpdate
       parameters:
-        - name: deviceId
-          in: path
-          description: >-
-            Required.
+      - name: deviceId
+        in: path
+        description: |-
+          Required.
+          ID of the device to update.
 
-            ID of the device to update.
+          To get a device ID make a [list](/docs/iot-core/api-ref/Device/list) request.
 
-
-            To get a device ID make a [list](/docs/iot-core/api-ref/Device/list)
-            request.
-
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -144,7 +129,7 @@ paths:
               $ref: '#/components/schemas/UpdateDeviceRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -157,76 +142,60 @@ paths:
   /iot-devices/v1/devices:
     get:
       tags:
-        - Device
+      - Device
       summary: Retrieves the list of devices in the specified registry.
       operationId: DeviceList
       parameters:
-        - name: registryId
-          in: query
-          description: >-
-            ID of the registry to list devices in.
+      - name: registryId
+        in: query
+        description: |-
+          ID of the registry to list devices in.
 
+          To get a registry ID make a [list](/docs/iot-core/api-ref/Registry/list) request.
 
-            To get a registry ID make a
-            [list](/docs/iot-core/api-ref/Registry/list) request.
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      - name: folderId
+        in: query
+        description: |-
+          ID of the folder to list devices in.
 
+          To get a folder ID make a [list](/docs/resource-manager/api-ref/Folder/list) request.
 
-            The maximum string length in characters is 50.
-          schema:
-            type: string
-        - name: folderId
-          in: query
-          description: >-
-            ID of the folder to list devices in.
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than `page_size`, the service returns a [nextPageToken](/docs/iot-core/api-ref/Device/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
 
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set `page_token` to the
+          [nextPageToken](/docs/iot-core/api-ref/Device/list#responses) returned by a previous list request.
 
-            To get a folder ID make a
-            [list](/docs/resource-manager/api-ref/Folder/list) request.
-
-
-            The maximum string length in characters is 50.
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            The maximum number of results per page to return. If the number of
-            available
-
-            results is larger than `page_size`, the service returns a
-            [nextPageToken](/docs/iot-core/api-ref/Device/list#responses)
-
-            that can be used to get the next page of results in subsequent list
-            requests.
-
-            Default value: 100.
-
-
-            Acceptable values are 0 to 1000, inclusive.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Page token. To get the next page of results, set `page_token` to the
-
-            [nextPageToken](/docs/iot-core/api-ref/Device/list#responses)
-            returned by a previous list request.
-
-
-            The maximum string length in characters is 100.
-          schema:
-            type: string
-        - name: deviceView
-          in: query
-          description: |-
-            Specifies which parts of the device resource should be returned
-            in the response.
-          schema:
-            $ref: '#/components/schemas/DeviceView'
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: deviceView
+        in: query
+        description: |-
+          Specifies which parts of the device resource should be returned
+          in the response.
+        schema:
+          $ref: '#/components/schemas/DeviceView'
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -235,7 +204,7 @@ paths:
       x-y-navtitle: list
     post:
       tags:
-        - Device
+      - Device
       summary: Creates a device in the specified registry.
       operationId: DeviceCreate
       requestBody:
@@ -245,7 +214,7 @@ paths:
               $ref: '#/components/schemas/CreateDeviceRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -258,22 +227,22 @@ paths:
   /iot-devices/v1/devices/{deviceId}/certificates:
     get:
       tags:
-        - Device
+      - Device
       summary: Retrieves the list of device certificates for the specified device.
       operationId: DeviceListCertificates
       parameters:
-        - name: deviceId
-          in: path
-          description: |-
-            Required.
-            ID of the device to list certificates for.
+      - name: deviceId
+        in: path
+        description: |-
+          Required.
+          ID of the device to list certificates for.
 
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -282,26 +251,22 @@ paths:
       x-y-navtitle: listCertificates
     post:
       tags:
-        - Device
+      - Device
       summary: Adds a certificate.
       operationId: DeviceAddCertificate
       parameters:
-        - name: deviceId
-          in: path
-          description: >-
-            Required.
+      - name: deviceId
+        in: path
+        description: |-
+          Required.
+          ID of the device for which the certificate is being added.
 
-            ID of the device for which the certificate is being added.
+          To get a device ID make a [list](/docs/iot-core/api-ref/Device/list) request.
 
-
-            To get a device ID make a [list](/docs/iot-core/api-ref/Device/list)
-            request.
-
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -309,7 +274,7 @@ paths:
               $ref: '#/components/schemas/AddDeviceCertificateRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -322,38 +287,34 @@ paths:
   /iot-devices/v1/devices/{deviceId}/certificates/{fingerprint}:
     delete:
       tags:
-        - Device
+      - Device
       summary: Deletes the specified device certificate.
       operationId: DeviceDeleteCertificate
       parameters:
-        - name: deviceId
-          in: path
-          description: >-
-            Required.
+      - name: deviceId
+        in: path
+        description: |-
+          Required.
+          ID of the device to delete a certificate for.
 
-            ID of the device to delete a certificate for.
+          To get a device ID make a [list](/docs/iot-core/api-ref/Device/list) request.
 
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: fingerprint
+        in: path
+        description: |-
+          Required.
+          Fingerprint of the certificate to delete.
 
-            To get a device ID make a [list](/docs/iot-core/api-ref/Device/list)
-            request.
-
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
-        - name: fingerprint
-          in: path
-          description: |-
-            Required.
-            Fingerprint of the certificate to delete.
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -366,28 +327,24 @@ paths:
   /iot-devices/v1/devices/{deviceId}/passwords:
     get:
       tags:
-        - Device
+      - Device
       summary: Retrieves the list of passwords for the specified device.
       operationId: DeviceListPasswords
       parameters:
-        - name: deviceId
-          in: path
-          description: >-
-            Required.
+      - name: deviceId
+        in: path
+        description: |-
+          Required.
+          ID of the registry to list passwords in.
 
-            ID of the registry to list passwords in.
+          To get a registry ID make a [list](/docs/iot-core/api-ref/Registry/list) request.
 
-
-            To get a registry ID make a
-            [list](/docs/iot-core/api-ref/Registry/list) request.
-
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -396,26 +353,22 @@ paths:
       x-y-navtitle: listPasswords
     post:
       tags:
-        - Device
+      - Device
       summary: Adds password for the specified device.
       operationId: DeviceAddPassword
       parameters:
-        - name: deviceId
-          in: path
-          description: >-
-            Required.
+      - name: deviceId
+        in: path
+        description: |-
+          Required.
+          ID of the device to add a password for.
 
-            ID of the device to add a password for.
+          To get a device ID make a [list](/docs/iot-core/api-ref/Device/list) request.
 
-
-            To get a device ID make a [list](/docs/iot-core/api-ref/Device/list)
-            request.
-
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -423,7 +376,7 @@ paths:
               $ref: '#/components/schemas/AddDevicePasswordRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -436,45 +389,36 @@ paths:
   /iot-devices/v1/devices/{deviceId}/passwords/{passwordId}:
     delete:
       tags:
-        - Device
+      - Device
       summary: Deletes the specified password.
       operationId: DeviceDeletePassword
       parameters:
-        - name: deviceId
-          in: path
-          description: >-
-            Required.
+      - name: deviceId
+        in: path
+        description: |-
+          Required.
+          ID of the device to delete a password for.
 
-            ID of the device to delete a password for.
+          To get a device ID make a [list](/docs/iot-core/api-ref/Device/list) request.
 
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: passwordId
+        in: path
+        description: |-
+          Required.
+          ID of the password to delete.
 
-            To get a device ID make a [list](/docs/iot-core/api-ref/Device/list)
-            request.
+          To get a password ID make a [listPasswords](/docs/iot-core/api-ref/Device/listPasswords) request.
 
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
-        - name: passwordId
-          in: path
-          description: >-
-            Required.
-
-            ID of the password to delete.
-
-
-            To get a password ID make a
-            [listPasswords](/docs/iot-core/api-ref/Device/listPasswords)
-            request.
-
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -487,68 +431,52 @@ paths:
   /iot-devices/v1/devices/{deviceId}/operations:
     get:
       tags:
-        - Device
+      - Device
       summary: Lists operations for the specified device.
       operationId: DeviceListOperations
       parameters:
-        - name: deviceId
-          in: path
-          description: >-
-            Required.
+      - name: deviceId
+        in: path
+        description: |-
+          Required.
+          ID of the device to list operations for.
 
-            ID of the device to list operations for.
+          To get a device ID make a [list](/docs/iot-core/api-ref/Device/list) request.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page that should be returned. If the number of available
+          results is larger than `page_size`, the service returns a [nextPageToken](/docs/iot-core/api-ref/Device/listOperations#responses)
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
 
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set `page_token` to the
+          [nextPageToken](/docs/iot-core/api-ref/Device/listOperations#responses) returned by a previous list request.
 
-            To get a device ID make a [list](/docs/iot-core/api-ref/Device/list)
-            request.
-          required: true
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            The maximum number of results per page that should be returned. If
-            the number of available
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          A filter expression that filters resources listed in the response.
+          Currently you can use filtering only on [Device.name](/docs/iot-core/api-ref/Device#representation) field.
 
-            results is larger than `page_size`, the service returns a
-            [nextPageToken](/docs/iot-core/api-ref/Device/listOperations#responses)
-
-            that can be used to get the next page of results in subsequent list
-            requests.
-
-            Default value: 100.
-
-
-            Acceptable values are 0 to 1000, inclusive.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Page token. To get the next page of results, set `page_token` to the
-
-            [nextPageToken](/docs/iot-core/api-ref/Device/listOperations#responses)
-            returned by a previous list request.
-
-
-            The maximum string length in characters is 100.
-          schema:
-            type: string
-        - name: filter
-          in: query
-          description: >-
-            A filter expression that filters resources listed in the response.
-
-            Currently you can use filtering only on
-            [Device.name](/docs/iot-core/api-ref/Device#representation) field.
-
-
-            The maximum string length in characters is 1000.
-          schema:
-            type: string
+          The maximum string length in characters is 1000.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -558,20 +486,20 @@ paths:
   /iot-devices/v1/registries/{registryId}/publish:
     post:
       tags:
-        - RegistryData
+      - RegistryData
       summary: Publishes message on behalf of specified registry
       operationId: RegistryDataPublish
       parameters:
-        - name: registryId
-          in: path
-          description: |-
-            Required.
-            ID of registry publishing message
+      - name: registryId
+        in: path
+        description: |-
+          Required.
+          ID of registry publishing message
 
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -579,7 +507,7 @@ paths:
               $ref: '#/components/schemas/PublishRegistryDataRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -589,31 +517,26 @@ paths:
   /iot-devices/v1/registries/{registryId}:
     get:
       tags:
-        - Registry
+      - Registry
       summary: Returns the specified registry.
-      description: >-
-        To get the list of available registries, make a
-        [list](/docs/iot-core/api-ref/Registry/list) request.
+      description: To get the list of available registries, make a [list](/docs/iot-core/api-ref/Registry/list)
+        request.
       operationId: RegistryGet
       parameters:
-        - name: registryId
-          in: path
-          description: >-
-            Required.
+      - name: registryId
+        in: path
+        description: |-
+          Required.
+          ID of the registry to return.
 
-            ID of the registry to return.
+          To get a registry ID make a [list](/docs/iot-core/api-ref/Registry/list) request.
 
-
-            To get a registry ID make a
-            [list](/docs/iot-core/api-ref/Registry/list) request.
-
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -622,28 +545,24 @@ paths:
       x-y-navtitle: get
     delete:
       tags:
-        - Registry
+      - Registry
       summary: Deletes the specified registry.
       operationId: RegistryDelete
       parameters:
-        - name: registryId
-          in: path
-          description: >-
-            Required.
+      - name: registryId
+        in: path
+        description: |-
+          Required.
+          ID of the registry to delete.
 
-            ID of the registry to delete.
+          To get a registry ID make a [list](/docs/iot-core/api-ref/Registry/list) request.
 
-
-            To get a registry ID make a
-            [list](/docs/iot-core/api-ref/Registry/list) request.
-
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -655,26 +574,22 @@ paths:
       x-y-operation-response: Empty
     patch:
       tags:
-        - Registry
+      - Registry
       summary: Updates the specified registry.
       operationId: RegistryUpdate
       parameters:
-        - name: registryId
-          in: path
-          description: >-
-            Required.
+      - name: registryId
+        in: path
+        description: |-
+          Required.
+          ID of the registry to update.
 
-            ID of the registry to update.
+          To get a registry ID make a [list](/docs/iot-core/api-ref/Registry/list) request.
 
-
-            To get a registry ID make a
-            [list](/docs/iot-core/api-ref/Registry/list) request.
-
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -682,7 +597,7 @@ paths:
               $ref: '#/components/schemas/UpdateRegistryRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -695,58 +610,44 @@ paths:
   /iot-devices/v1/registries:
     get:
       tags:
-        - Registry
+      - Registry
       summary: Retrieves the list of registries in the specified folder.
       operationId: RegistryList
       parameters:
-        - name: folderId
-          in: query
-          description: >-
-            Required.
+      - name: folderId
+        in: query
+        description: |-
+          Required.
+          ID of the folder to list registries in.
 
-            ID of the folder to list registries in.
+          To get a folder ID make a [list](/docs/resource-manager/api-ref/Folder/list) request.
 
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page that should be returned. If the number of available
+          results is larger than `page_size`, the service returns a [nextPageToken](/docs/iot-core/api-ref/Registry/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
 
-            To get a folder ID make a
-            [list](/docs/resource-manager/api-ref/Folder/list) request.
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set `page_token` to the
+          [nextPageToken](/docs/iot-core/api-ref/Registry/list#responses) returned by a previous list request.
 
-
-            The maximum string length in characters is 50.
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            The maximum number of results per page that should be returned. If
-            the number of available
-
-            results is larger than `page_size`, the service returns a
-            [nextPageToken](/docs/iot-core/api-ref/Registry/list#responses)
-
-            that can be used to get the next page of results in subsequent list
-            requests.
-
-            Default value: 100.
-
-
-            Acceptable values are 0 to 1000, inclusive.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Page token. To get the next page of results, set `page_token` to the
-
-            [nextPageToken](/docs/iot-core/api-ref/Registry/list#responses)
-            returned by a previous list request.
-
-
-            The maximum string length in characters is 100.
-          schema:
-            type: string
+          The maximum string length in characters is 100.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -755,7 +656,7 @@ paths:
       x-y-navtitle: list
     post:
       tags:
-        - Registry
+      - Registry
       summary: Creates a registry in the specified folder.
       operationId: RegistryCreate
       requestBody:
@@ -765,7 +666,7 @@ paths:
               $ref: '#/components/schemas/CreateRegistryRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -778,22 +679,22 @@ paths:
   /iot-devices/v1/registries/{registryId}/certificates:
     get:
       tags:
-        - Registry
+      - Registry
       summary: Retrieves the list of registry certificates for the specified registry.
       operationId: RegistryListCertificates
       parameters:
-        - name: registryId
-          in: path
-          description: |-
-            Required.
-            ID of the registry to list certificates for.
+      - name: registryId
+        in: path
+        description: |-
+          Required.
+          ID of the registry to list certificates for.
 
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -802,26 +703,22 @@ paths:
       x-y-navtitle: listCertificates
     post:
       tags:
-        - Registry
+      - Registry
       summary: Adds a certificate.
       operationId: RegistryAddCertificate
       parameters:
-        - name: registryId
-          in: path
-          description: >-
-            Required.
+      - name: registryId
+        in: path
+        description: |-
+          Required.
+          ID of the registry for which the certificate is being added.
 
-            ID of the registry for which the certificate is being added.
+          To get a registry ID make a [list](/docs/iot-core/api-ref/Registry/list) request.
 
-
-            To get a registry ID make a
-            [list](/docs/iot-core/api-ref/Registry/list) request.
-
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -829,7 +726,7 @@ paths:
               $ref: '#/components/schemas/AddRegistryCertificateRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -842,38 +739,34 @@ paths:
   /iot-devices/v1/registries/{registryId}/certificates/{fingerprint}:
     delete:
       tags:
-        - Registry
+      - Registry
       summary: Deletes the specified registry certificate.
       operationId: RegistryDeleteCertificate
       parameters:
-        - name: registryId
-          in: path
-          description: >-
-            Required.
+      - name: registryId
+        in: path
+        description: |-
+          Required.
+          ID of the registry to delete a certificate for.
 
-            ID of the registry to delete a certificate for.
+          To get a registry ID make a [list](/docs/iot-core/api-ref/Registry/list) request.
 
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: fingerprint
+        in: path
+        description: |-
+          Required.
+          Fingerprint of the certificate that is being deleted.
 
-            To get a registry ID make a
-            [list](/docs/iot-core/api-ref/Registry/list) request.
-
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
-        - name: fingerprint
-          in: path
-          description: |-
-            Required.
-            Fingerprint of the certificate that is being deleted.
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -886,28 +779,24 @@ paths:
   /iot-devices/v1/registries/{registryId}/passwords:
     get:
       tags:
-        - Registry
+      - Registry
       summary: Retrieves the list of passwords for the specified registry.
       operationId: RegistryListPasswords
       parameters:
-        - name: registryId
-          in: path
-          description: >-
-            Required.
+      - name: registryId
+        in: path
+        description: |-
+          Required.
+          ID of the registry to list passwords in.
 
-            ID of the registry to list passwords in.
+          To get a registry ID make a [list](/docs/iot-core/api-ref/Registry/list) request.
 
-
-            To get a registry ID make a
-            [list](/docs/iot-core/api-ref/Registry/list) request.
-
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -916,26 +805,22 @@ paths:
       x-y-navtitle: listPasswords
     post:
       tags:
-        - Registry
+      - Registry
       summary: Adds password for the specified registry.
       operationId: RegistryAddPassword
       parameters:
-        - name: registryId
-          in: path
-          description: >-
-            Required.
+      - name: registryId
+        in: path
+        description: |-
+          Required.
+          ID of the registry to add a password for.
 
-            ID of the registry to add a password for.
+          To get a registry ID make a [list](/docs/iot-core/api-ref/Registry/list) request.
 
-
-            To get a registry ID make a
-            [list](/docs/iot-core/api-ref/Registry/list) request.
-
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -943,7 +828,7 @@ paths:
               $ref: '#/components/schemas/AddRegistryPasswordRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -956,45 +841,36 @@ paths:
   /iot-devices/v1/registries/{registryId}/passwords/{passwordId}:
     delete:
       tags:
-        - Registry
+      - Registry
       summary: Deletes the specified password.
       operationId: RegistryDeletePassword
       parameters:
-        - name: registryId
-          in: path
-          description: >-
-            Required.
+      - name: registryId
+        in: path
+        description: |-
+          Required.
+          ID of the registry to delete a password for.
 
-            ID of the registry to delete a password for.
+          To get a registry ID make a [list](/docs/iot-core/api-ref/Device/list) request.
 
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: passwordId
+        in: path
+        description: |-
+          Required.
+          ID of the password to delete.
 
-            To get a registry ID make a
-            [list](/docs/iot-core/api-ref/Device/list) request.
+          To get a password ID make a [listPasswords](/docs/iot-core/api-ref/Registry/listPasswords) request.
 
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
-        - name: passwordId
-          in: path
-          description: >-
-            Required.
-
-            ID of the password to delete.
-
-
-            To get a password ID make a
-            [listPasswords](/docs/iot-core/api-ref/Registry/listPasswords)
-            request.
-
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1007,59 +883,45 @@ paths:
   /iot-devices/v1/registries/{registryId}:listDeviceTopicAliases:
     get:
       tags:
-        - Registry
+      - Registry
       summary: Retrieves the list of device topic aliases for the specified registry.
       operationId: RegistryListDeviceTopicAliases
       parameters:
-        - name: registryId
-          in: path
-          description: >-
-            Required.
+      - name: registryId
+        in: path
+        description: |-
+          Required.
+          ID of the registry to list aliases for device topic.
 
-            ID of the registry to list aliases for device topic.
+          To get a registry ID make a [list](/docs/iot-core/api-ref/Registry/list) request.
 
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page that should be returned. If the number of available
+          results is larger than `page_size`, the service returns a [nextPageToken](/docs/iot-core/api-ref/Registry/listDeviceTopicAliases#responses)
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
 
-            To get a registry ID make a
-            [list](/docs/iot-core/api-ref/Registry/list) request.
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set `page_token` to the
+          [nextPageToken](/docs/iot-core/api-ref/Registry/listDeviceTopicAliases#responses) returned by a previous list request.
 
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            The maximum number of results per page that should be returned. If
-            the number of available
-
-            results is larger than `page_size`, the service returns a
-            [nextPageToken](/docs/iot-core/api-ref/Registry/listDeviceTopicAliases#responses)
-
-            that can be used to get the next page of results in subsequent list
-            requests.
-
-            Default value: 100.
-
-
-            Acceptable values are 0 to 1000, inclusive.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Page token. To get the next page of results, set `page_token` to the
-
-            [nextPageToken](/docs/iot-core/api-ref/Registry/listDeviceTopicAliases#responses)
-            returned by a previous list request.
-
-
-            The maximum string length in characters is 100.
-          schema:
-            type: string
+          The maximum string length in characters is 100.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1069,64 +931,50 @@ paths:
   /iot-devices/v1/registries/{registryId}/operations:
     get:
       tags:
-        - Registry
+      - Registry
       summary: Lists operations for the specified registry.
       operationId: RegistryListOperations
       parameters:
-        - name: registryId
-          in: path
-          description: |-
-            Required.
-            ID of the registry to list operations for.
-          required: true
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            The maximum number of results per page that should be returned. If
-            the number of available
+      - name: registryId
+        in: path
+        description: |-
+          Required.
+          ID of the registry to list operations for.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page that should be returned. If the number of available
+          results is larger than `page_size`, the service returns a [nextPageToken](/docs/iot-core/api-ref/Registry/listOperations#responses)
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
 
-            results is larger than `page_size`, the service returns a
-            [nextPageToken](/docs/iot-core/api-ref/Registry/listOperations#responses)
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set `page_token` to the
+          [nextPageToken](/docs/iot-core/api-ref/Registry/listOperations#responses) returned by a previous list request.
 
-            that can be used to get the next page of results in subsequent list
-            requests.
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          A filter expression that filters resources listed in the response.
+          Currently you can use filtering only on [Registry.name](/docs/iot-core/api-ref/Registry#representation) field.
 
-            Default value: 100.
-
-
-            Acceptable values are 0 to 1000, inclusive.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Page token. To get the next page of results, set `page_token` to the
-
-            [nextPageToken](/docs/iot-core/api-ref/Registry/listOperations#responses)
-            returned by a previous list request.
-
-
-            The maximum string length in characters is 100.
-          schema:
-            type: string
-        - name: filter
-          in: query
-          description: >-
-            A filter expression that filters resources listed in the response.
-
-            Currently you can use filtering only on
-            [Registry.name](/docs/iot-core/api-ref/Registry#representation)
-            field.
-
-
-            The maximum string length in characters is 1000.
-          schema:
-            type: string
+          The maximum string length in characters is 1000.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1163,14 +1011,10 @@ components:
       type: object
       properties:
         password:
-          description: >-
+          description: |-
             Passwords for the device.
 
-
-            The password must contain at least three character categories among
-            the following: upper case latin, lower case latin, numbers and
-            special symbols.
-
+            The password must contain at least three character categories among the following: upper case latin, lower case latin, numbers and special symbols.
 
             The minimum string length in characters is 14.
           type: string
@@ -1202,14 +1046,10 @@ components:
       type: object
       properties:
         password:
-          description: >-
+          description: |-
             Passwords for the registry.
 
-
-            The password must contain at least three character categories among
-            the following: upper case latin, lower case latin, numbers and
-            special symbols.
-
+            The password must contain at least three character categories among the following: upper case latin, lower case latin, numbers and special symbols.
 
             The minimum string length in characters is 14.
           type: string
@@ -1223,15 +1063,11 @@ components:
       type: object
       properties:
         registryId:
-          description: >-
+          description: |-
             Required.
-
             ID of the registry to create a device in.
 
-
-            To get a registry ID, make a
-            [list](/docs/iot-core/api-ref/Registry/list) request.
-
+            To get a registry ID, make a [list](/docs/iot-core/api-ref/Registry/list) request.
 
             The maximum string length in characters is 50.
           type: string
@@ -1255,24 +1091,18 @@ components:
           items:
             $ref: '#/components/schemas/CreateDeviceRequestCertificate'
         topicAliases:
-          description: >-
+          description: |-
             Alias of a device topic.
 
-
-            Alias is an alternate name of a device topic assigned by the user.
-            Map alias to canonical topic name prefix, e.g. `my/custom/alias`
-            match to `$device/{id}/events`.
+            Alias is an alternate name of a device topic assigned by the user. Map alias to canonical topic name prefix, e.g. `my/custom/alias` match to `$device/{id}/events`.
           type: object
           additionalProperties:
             type: string
         password:
-          description: >-
+          description: |-
             Device password.
 
-
-            The password must contain at least three character categories among
-            the following: upper case latin, lower case latin, numbers and
-            special symbols.
+            The password must contain at least three character categories among the following: upper case latin, lower case latin, numbers and special symbols.
           type: string
     CreateDeviceRequestCertificate:
       description: Specification of a device certificate.
@@ -1291,15 +1121,11 @@ components:
       type: object
       properties:
         folderId:
-          description: >-
+          description: |-
             Required.
-
             ID of the folder to create a registry in.
 
-
-            To get a folder ID, make a
-            [list](/docs/resource-manager/api-ref/Folder/list) request.
-
+            To get a folder ID, make a [list](/docs/resource-manager/api-ref/Folder/list) request.
 
             The maximum string length in characters is 50.
           type: string
@@ -1335,13 +1161,10 @@ components:
           items:
             $ref: '#/components/schemas/CreateRegistryRequestCertificate'
         password:
-          description: >-
+          description: |-
             Registry passwords.
 
-
-            The password must contain at least three character categories among
-            the following: upper case latin, lower case latin, numbers and
-            special symbols.
+            The password must contain at least three character categories among the following: upper case latin, lower case latin, numbers and special symbols.
           type: string
     CreateRegistryRequestCertificate:
       description: Specification of a registry certificate.
@@ -1424,23 +1247,16 @@ components:
             The maximum string length in characters is 50.
           type: string
         passwordId:
-          description: >-
+          description: |-
             Required.
-
             ID of the password to delete.
 
-
-            To get a password ID make a
-            [listPasswords](/docs/iot-core/api-ref/Registry/listPasswords)
-            request.
-
+            To get a password ID make a [listPasswords](/docs/iot-core/api-ref/Registry/listPasswords) request.
 
             The maximum string length in characters is 50.
           type: string
     Device:
-      description: >-
-        A device. For more information, see
-        [Device](/docs/iot-core/concepts/index#device).
+      description: A device. For more information, see [Device](/docs/iot-core/concepts/index#device).
       type: object
       properties:
         id:
@@ -1450,12 +1266,10 @@ components:
           description: ID of the registry that the device belongs to.
           type: string
         createdAt:
-          description: >-
+          description: |-
             Creation timestamp.
 
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-            format.
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
         name:
@@ -1465,13 +1279,10 @@ components:
           description: Description of the device. 0-256 characters long.
           type: string
         topicAliases:
-          description: >-
+          description: |-
             Alias of a device topic.
 
-
-            Alias is an alternate name of a device topic assigned by the user.
-            Map alias to canonical topic name prefix, e.g. `my/custom/alias`
-            match to `$device/abcdef/events`.
+            Alias is an alternate name of a device topic assigned by the user. Map alias to canonical topic name prefix, e.g. `my/custom/alias` match to `$device/abcdef/events`.
           type: object
           additionalProperties:
             type: string
@@ -1480,30 +1291,23 @@ components:
         monitoringData:
           $ref: '#/components/schemas/DeviceMonitoringData_in_Device_monitoringData'
     DeviceAlias:
-      description: >-
+      description: |-
         A device topic alias.
 
-
-        Alias is an alternate name of a device topic assigned by the user. Map
-        alias to canonical topic name prefix, e.g. `my/custom/alias` match to
-        `$device/abcdef/events`. For more information, see [Using topic
-        aliases](/docs/iot-core/concepts/topic#aliases).
+        Alias is an alternate name of a device topic assigned by the user. Map alias to canonical topic name prefix, e.g. `my/custom/alias` match to `$device/abcdef/events`. For more information, see [Using topic aliases](/docs/iot-core/concepts/topic#aliases).
       type: object
       properties:
         deviceId:
           description: ID of the device that the alias belongs to.
           type: string
         topicPrefix:
-          description: >-
-            Prefix of a canonical topic name to be aliased, e.g.
-            `$devices/abcdef`.
+          description: Prefix of a canonical topic name to be aliased, e.g. `$devices/abcdef`.
           type: string
         alias:
           description: Alias of a device topic.
           type: string
     DeviceCertificate:
-      description: >-
-        A device certificate. For more information, see [Managing device
+      description: A device certificate. For more information, see [Managing device
         certificates](/docs/iot-core/operations/certificates/device-certificates).
       type: object
       properties:
@@ -1517,12 +1321,10 @@ components:
           description: Public part of the certificate.
           type: string
         createdAt:
-          description: >-
+          description: |-
             Creation timestamp.
 
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-            format.
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
     DeviceMonitoringData:
@@ -1531,26 +1333,22 @@ components:
         lastAuthIp:
           type: string
         lastAuthTime:
-          description: >-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
+          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
             format.
           type: string
           format: date-time
         lastPubActivityTime:
-          description: >-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
+          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
             format.
           type: string
           format: date-time
         lastSubActivityTime:
-          description: >-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
+          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
             format.
           type: string
           format: date-time
         lastOnlineTime:
-          description: >-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
+          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
             format.
           type: string
           format: date-time
@@ -1565,12 +1363,10 @@ components:
           description: ID of the password.
           type: string
         createdAt:
-          description: >-
+          description: |-
             Creation timestamp.
 
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-            format.
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
     DeviceStatus:
@@ -1580,9 +1376,9 @@ components:
          - DELETING: Device is being deleted.
       type: string
       enum:
-        - CREATING
-        - ACTIVE
-        - DELETING
+      - CREATING
+      - ACTIVE
+      - DELETING
     DeviceView:
       description: |2-
          - BASIC: Server responses without monitoring data.
@@ -1590,32 +1386,22 @@ components:
          - FULL: Server responses with monitoring data.
       type: string
       enum:
-        - BASIC
-        - FULL
+      - BASIC
+      - FULL
       default: BASIC
     Empty:
       description: Empty JSON object `` {} ``.
       type: object
       maxProperties: 0
     FieldMask:
-      description: >-
+      description: |-
         A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
 
-        Оnly the specified fields will be changed. The others will be left
-        untouched.
-
-        If the field is specified in `` updateMask `` and no value for that
-        field was sent in the request,
-
-        the field's value will be reset to the default. The default value for
-        most fields is null or 0.
-
-
-        If `` updateMask `` is not sent in the request, all fields' values will
-        be updated.
-
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
         Fields specified in the request will be updated to provided values.
-
         The rest of the fields will be reset to the default.
       type: string
     ListDeviceCertificatesResponse:
@@ -1635,21 +1421,12 @@ components:
           items:
             $ref: '#/components/schemas/Operation'
         nextPageToken:
-          description: >-
-            Token for getting the next page of the list. If the number of
-            results is greater than
+          description: |-
+            Token for getting the next page of the list. If the number of results is greater than
+            the specified [pageSize](/docs/iot-core/api-ref/Device/listOperations#query_params), use `next_page_token` as the value
+            for the [pageToken](/docs/iot-core/api-ref/Device/listOperations#query_params) parameter in the next list request.
 
-            the specified
-            [pageSize](/docs/iot-core/api-ref/Device/listOperations#query_params),
-            use `next_page_token` as the value
-
-            for the
-            [pageToken](/docs/iot-core/api-ref/Device/listOperations#query_params)
-            parameter in the next list request.
-
-
-            Each subsequent page will have its own `next_page_token` to continue
-            paging through the results.
+            Each subsequent page will have its own `next_page_token` to continue paging through the results.
           type: string
     ListDevicePasswordsResponse:
       type: object
@@ -1668,21 +1445,12 @@ components:
           items:
             $ref: '#/components/schemas/DeviceAlias'
         nextPageToken:
-          description: >-
-            Token for getting the next page of the list. If the number of
-            results is greater than
+          description: |-
+            Token for getting the next page of the list. If the number of results is greater than
+            the specified [pageSize](/docs/iot-core/api-ref/Registry/listDeviceTopicAliases#query_params), use `next_page_token` as the value
+            for the [pageToken](/docs/iot-core/api-ref/Registry/listDeviceTopicAliases#query_params) parameter in the next list request.
 
-            the specified
-            [pageSize](/docs/iot-core/api-ref/Registry/listDeviceTopicAliases#query_params),
-            use `next_page_token` as the value
-
-            for the
-            [pageToken](/docs/iot-core/api-ref/Registry/listDeviceTopicAliases#query_params)
-            parameter in the next list request.
-
-
-            Each subsequent page will have its own `next_page_token` to continue
-            paging through the results.
+            Each subsequent page will have its own `next_page_token` to continue paging through the results.
           type: string
     ListDevicesResponse:
       type: object
@@ -1693,20 +1461,12 @@ components:
           items:
             $ref: '#/components/schemas/Device'
         nextPageToken:
-          description: >-
-            Token for getting the next page of the list. If the number of
-            results is greater than
+          description: |-
+            Token for getting the next page of the list. If the number of results is greater than
+            the specified [pageSize](/docs/iot-core/api-ref/Device/list#query_params), use `next_page_token` as the value
+            for the [pageToken](/docs/iot-core/api-ref/Device/list#query_params) parameter in the next list request.
 
-            the specified
-            [pageSize](/docs/iot-core/api-ref/Device/list#query_params), use
-            `next_page_token` as the value
-
-            for the [pageToken](/docs/iot-core/api-ref/Device/list#query_params)
-            parameter in the next list request.
-
-
-            Each subsequent page will have its own `next_page_token` to continue
-            paging through the results.
+            Each subsequent page will have its own `next_page_token` to continue paging through the results.
           type: string
     ListRegistriesResponse:
       type: object
@@ -1717,21 +1477,12 @@ components:
           items:
             $ref: '#/components/schemas/Registry'
         nextPageToken:
-          description: >-
-            Token for getting the next page of the list. If the number of
-            results is greater than
+          description: |-
+            Token for getting the next page of the list. If the number of results is greater than
+            the specified [pageSize](/docs/iot-core/api-ref/Registry/list#query_params), use `next_page_token` as the value
+            for the [pageToken](/docs/iot-core/api-ref/Registry/list#query_params) parameter in the next list request.
 
-            the specified
-            [pageSize](/docs/iot-core/api-ref/Registry/list#query_params), use
-            `next_page_token` as the value
-
-            for the
-            [pageToken](/docs/iot-core/api-ref/Registry/list#query_params)
-            parameter in the next list request.
-
-
-            Each subsequent page will have its own `next_page_token` to continue
-            paging through the results.
+            Each subsequent page will have its own `next_page_token` to continue paging through the results.
           type: string
     ListRegistryCertificatesResponse:
       type: object
@@ -1750,21 +1501,12 @@ components:
           items:
             $ref: '#/components/schemas/Operation'
         nextPageToken:
-          description: >-
-            Token for getting the next page of the list. If the number of
-            results is greater than
+          description: |-
+            Token for getting the next page of the list. If the number of results is greater than
+            the specified [pageSize](/docs/iot-core/api-ref/Registry/listOperations#query_params), use `next_page_token` as the value
+            for the [pageToken](/docs/iot-core/api-ref/Registry/listOperations#query_params) parameter in the next list request.
 
-            the specified
-            [pageSize](/docs/iot-core/api-ref/Registry/listOperations#query_params),
-            use `next_page_token` as the value
-
-            for the
-            [pageToken](/docs/iot-core/api-ref/Registry/listOperations#query_params)
-            parameter in the next list request.
-
-
-            Each subsequent page will have its own `next_page_token` to continue
-            paging through the results.
+            Each subsequent page will have its own `next_page_token` to continue paging through the results.
           type: string
     ListRegistryPasswordsResponse:
       type: object
@@ -1775,85 +1517,62 @@ components:
           items:
             $ref: '#/components/schemas/RegistryPassword'
     Operation:
-      description: >-
-        An Operation resource. For more information, see
-        [Operation](/docs/api-design-guide/concepts/operation).
+      description: An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
       type: object
       allOf:
-        - type: object
-          properties:
-            id:
-              description: ID of the operation.
-              type: string
-            description:
-              description: Description of the operation. 0-256 characters long.
-              type: string
-            createdAt:
-              description: >-
-                Creation timestamp.
+      - type: object
+        properties:
+          id:
+            description: ID of the operation.
+            type: string
+          description:
+            description: Description of the operation. 0-256 characters long.
+            type: string
+          createdAt:
+            description: |-
+              Creation timestamp.
 
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          createdBy:
+            description: ID of the user or service account who initiated the operation.
+            type: string
+          modifiedAt:
+            description: |-
+              The time when the Operation resource was last modified.
 
-                String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-                format.
-              type: string
-              format: date-time
-            createdBy:
-              description: ID of the user or service account who initiated the operation.
-              type: string
-            modifiedAt:
-              description: >-
-                The time when the Operation resource was last modified.
-
-
-                String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-                format.
-              type: string
-              format: date-time
-            done:
-              description: >-
-                If the value is `false`, it means the operation is still in
-                progress.
-
-                If `true`, the operation is completed, and either `error` or
-                `response` is available.
-              type: boolean
-              format: boolean
-            metadata:
-              description: >-
-                Service-specific metadata associated with the operation.
-
-                It typically contains the ID of the target resource that the
-                operation is performed on.
-
-                Any method that returns a long-running operation should document
-                the metadata type, if any.
-              type: object
-        - title: result
-          type: object
-          maxProperties: 1
-          properties:
-            error:
-              $ref: '#/components/schemas/rpcStatus'
-              description: >-
-                The error result of the operation in case of failure or
-                cancellation.
-            response:
-              description: >-
-                The normal response of the operation in case of success.
-
-                If the original method returns no data on success, such as
-                Delete,
-
-                the response is
-                [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty).
-
-                If the original method is the standard Create/Update,
-
-                the response should be the target resource of the operation.
-
-                Any method that returns a long-running operation should document
-                the response type, if any.
-              type: object
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          done:
+            description: |-
+              If the value is `false`, it means the operation is still in progress.
+              If `true`, the operation is completed, and either `error` or `response` is available.
+            type: boolean
+            format: boolean
+          metadata:
+            description: |-
+              Service-specific metadata associated with the operation.
+              It typically contains the ID of the target resource that the operation is performed on.
+              Any method that returns a long-running operation should document the metadata type, if any.
+            type: object
+      - title: result
+        type: object
+        maxProperties: 1
+        properties:
+          error:
+            $ref: '#/components/schemas/rpcStatus'
+            description: The error result of the operation in case of failure or cancellation.
+          response:
+            description: |-
+              The normal response of the operation in case of success.
+              If the original method returns no data on success, such as Delete,
+              the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty).
+              If the original method is the standard Create/Update,
+              the response should be the target resource of the operation.
+              Any method that returns a long-running operation should document the response type, if any.
+            type: object
     PublishDeviceDataRequest:
       type: object
       properties:
@@ -1895,9 +1614,7 @@ components:
       type: object
       properties: {}
     Registry:
-      description: >-
-        A registry. For more information, see
-        [Registry](/docs/iot-core/concepts/index#registry).
+      description: A registry. For more information, see [Registry](/docs/iot-core/concepts/index#registry).
       type: object
       properties:
         id:
@@ -1907,12 +1624,10 @@ components:
           description: ID of the folder that the registry belongs to.
           type: string
         createdAt:
-          description: >-
+          description: |-
             Creation timestamp.
 
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-            format.
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
         name:
@@ -1922,7 +1637,7 @@ components:
           description: Description of the registry. 0-256 characters long.
           type: string
         labels:
-          description: Resource labels as `key:value` pairs. Мaximum of 64 per resource.
+          description: Resource labels as `key:value` pairs. Maximum of 64 per resource.
           type: object
           additionalProperties:
             type: string
@@ -1932,8 +1647,7 @@ components:
           description: ID of the logs group for the specified registry.
           type: string
     RegistryCertificate:
-      description: >-
-        A registry certificate. For more information, see [Managing registry
+      description: A registry certificate. For more information, see [Managing registry
         certificates](/docs/iot-core/operations/certificates/registry-certificates).
       type: object
       properties:
@@ -1947,12 +1661,10 @@ components:
           description: Public part of the certificate.
           type: string
         createdAt:
-          description: >-
+          description: |-
             Creation timestamp.
 
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-            format.
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
     RegistryPassword:
@@ -1966,12 +1678,10 @@ components:
           description: ID of the password.
           type: string
         createdAt:
-          description: >-
+          description: |-
             Creation timestamp.
 
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-            format.
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
     RegistryStatus:
@@ -1981,9 +1691,9 @@ components:
          - DELETING: Registry is being deleted.
       type: string
       enum:
-        - CREATING
-        - ACTIVE
-        - DELETING
+      - CREATING
+      - ACTIVE
+      - DELETING
     UpdateDeviceMetadata:
       type: object
       properties:
@@ -2009,13 +1719,10 @@ components:
             The maximum string length in characters is 256.
           type: string
         topicAliases:
-          description: >-
+          description: |-
             Alias of a device topic.
 
-
-            Alias is an alternate name of a device topic assigned by the user.
-            Map alias to canonical topic name prefix, e.g. `my/custom/alias`
-            match to `$device/{id}/events`.
+            Alias is an alternate name of a device topic assigned by the user. Map alias to canonical topic name prefix, e.g. `my/custom/alias` match to `$device/{id}/events`.
           type: object
           additionalProperties:
             type: string
@@ -2062,9 +1769,7 @@ components:
       type: object
       properties:
         code:
-          description: >-
-            Error code. An enum value of
-            [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
+          description: Error code. An enum value of [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
           type: integer
           format: int32
         message:
@@ -2084,9 +1789,9 @@ components:
          - DELETING: Device is being deleted.
       type: string
       enum:
-        - CREATING
-        - ACTIVE
-        - DELETING
+      - CREATING
+      - ACTIVE
+      - DELETING
     DeviceMonitoringData_in_Device_monitoringData:
       description: Device monitoring data, returns if FULL view specified.
       type: object
@@ -2094,26 +1799,22 @@ components:
         lastAuthIp:
           type: string
         lastAuthTime:
-          description: >-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
+          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
             format.
           type: string
           format: date-time
         lastPubActivityTime:
-          description: >-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
+          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
             format.
           type: string
           format: date-time
         lastSubActivityTime:
-          description: >-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
+          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
             format.
           type: string
           format: date-time
         lastOnlineTime:
-          description: >-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
+          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
             format.
           type: string
           format: date-time
@@ -2126,65 +1827,41 @@ components:
          - DELETING: Registry is being deleted.
       type: string
       enum:
-        - CREATING
-        - ACTIVE
-        - DELETING
+      - CREATING
+      - ACTIVE
+      - DELETING
     FieldMask_in_UpdateDeviceRequest_updateMask:
-      description: >-
-        Field mask that specifies which fields of the device are going to be
-        updated.
-
+      description: |-
+        Field mask that specifies which fields of the device are going to be updated.
 
         A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
 
-        Оnly the specified fields will be changed. The others will be left
-        untouched.
-
-        If the field is specified in `` updateMask `` and no value for that
-        field was sent in the request,
-
-        the field's value will be reset to the default. The default value for
-        most fields is null or 0.
-
-
-        If `` updateMask `` is not sent in the request, all fields' values will
-        be updated.
-
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
         Fields specified in the request will be updated to provided values.
-
         The rest of the fields will be reset to the default.
       type: string
     FieldMask_in_UpdateRegistryRequest_updateMask:
-      description: >-
-        Field mask that specifies which fields of the registry are going to be
-        updated.
-
+      description: |-
+        Field mask that specifies which fields of the registry are going to be updated.
 
         A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
 
-        Оnly the specified fields will be changed. The others will be left
-        untouched.
-
-        If the field is specified in `` updateMask `` and no value for that
-        field was sent in the request,
-
-        the field's value will be reset to the default. The default value for
-        most fields is null or 0.
-
-
-        If `` updateMask `` is not sent in the request, all fields' values will
-        be updated.
-
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
         Fields specified in the request will be updated to provided values.
-
         The rest of the fields will be reset to the default.
       type: string
 tags:
-  - name: DeviceData
-    description: A set of methods to work with IoT Core messages on behalf of device
-  - name: Device
-    description: A set of methods for managing devices.
-  - name: RegistryData
-    description: A set of methods to work with IoT Core messages on behalf of registry
-  - name: Registry
-    description: A set of methods for managing registry.
+- name: DeviceData
+  description: A set of methods to work with IoT Core messages on behalf of device
+- name: Device
+  description: A set of methods for managing devices.
+- name: RegistryData
+  description: A set of methods to work with IoT Core messages on behalf of registry
+- name: Registry
+  description: A set of methods for managing registry.

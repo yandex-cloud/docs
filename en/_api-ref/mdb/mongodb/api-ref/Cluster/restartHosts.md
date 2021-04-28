@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method restartHosts
-Restart hosts.
+Restarts hosts.
  
 
  

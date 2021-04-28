@@ -23,6 +23,8 @@ items:
         href: api-ref/IamToken/index.md
       - name: create
         href: api-ref/IamToken/create.md
+      - name: createForServiceAccount
+        href: api-ref/IamToken/createForServiceAccount.md
   - name: Key
     items:
       - name: Overview

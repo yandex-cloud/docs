@@ -35,6 +35,7 @@ POST https://serverless-functions.api.cloud.yandex.net/functions/v1/versions
       "string"
     ]
   },
+  "namedServiceAccounts": "object",
 
   //  includes only one of the fields `package`, `content`, `versionId`
   "package": {
@@ -65,6 +66,7 @@ tag[] | **string**<br><p>Function version tags. For details, see <a href="/docs/
 connectivity | **object**<br>Function version connectivity. If specified the version will be attached to specified network/subnet(s).<br><p>Version connectivity specification.</p> 
 connectivity.<br>networkId | **string**<br><p>Network the version will have access to. It's essential to specify network with subnets in all availability zones.</p> 
 connectivity.<br>subnetId[] | **string**<br><p>Complete list of subnets (from the same network) the version can be attached to. It's essential to specify at least one subnet for each availability zones.</p> 
+namedServiceAccounts | **object**<br><p>Additional service accounts to be used by the version.</p> 
 package | **object**<br>Functions deployment package. <br> includes only one of the fields `package`, `content`, `versionId`<br><br><p>Version deployment package.</p> 
 package.<br>bucketName | **string**<br><p>Required. Name of the bucket that stores the code for the version.</p> 
 package.<br>objectName | **string**<br><p>Required. Name of the object in the bucket that stores the code for the version.</p> 

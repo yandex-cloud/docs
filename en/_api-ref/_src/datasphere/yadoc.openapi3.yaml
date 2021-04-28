@@ -1,0 +1,559 @@
+openapi: "3.0"
+info:
+  title: Yandex Datasphere API
+  description: This API reference is organized by resource. Actions are performed
+    by sending HTTP requests to resource URLs or making RPC calls. For more information
+    about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
+  version: v1
+  x-y-docUri: api-ref
+  x-y-baseUrl: https://datasphere.api.cloud.yandex.net
+paths:
+  /datasphere/v1/nodes/{nodeId}:execute:
+    post:
+      tags:
+      - Node
+      summary: Executes deployed Node
+      operationId: NodeExecute
+      parameters:
+      - name: nodeId
+        in: path
+        description: ID of the Node to perform request on
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NodeExecutionRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NodeExecutionResponse'
+      x-y-navtitle: execute
+  /datasphere/v1/projects:
+    get:
+      tags:
+      - Project
+      summary: Lists projects for the specified folder.
+      operationId: ProjectList
+      parameters:
+      - name: folderId
+        in: query
+        description: |-
+          Required.
+          ID of the folder to list projects in.
+          To get the folder ID use a [list](/docs/resource-manager/api-ref/Folder/list) request.
+
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/datasphere/api-ref/Project/list#query_params),
+          the service returns a [nextPageToken](/docs/datasphere/api-ref/Project/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
+
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/datasphere/api-ref/Project/list#query_params) to the
+          [nextPageToken](/docs/datasphere/api-ref/Project/list#responses) returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListProjectsResponse'
+      x-y-navtitle: list
+    post:
+      tags:
+      - Project
+      summary: Creates a project in the specified folder.
+      operationId: ProjectCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateProjectRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateProjectMetadata'
+      x-y-operation-response: '[Project](/docs/datasphere/api-ref/Project#representation)'
+  /datasphere/v1/projects/{projectId}:
+    get:
+      tags:
+      - Project
+      summary: Returns the specified project.
+      operationId: ProjectGet
+      parameters:
+      - name: projectId
+        in: path
+        description: |-
+          Required.
+          ID of the Project resource to return.
+          To get the project ID use a [list](/docs/datasphere/api-ref/Project/list) request.
+
+          The maximum string length in characters is 200.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - Project
+      summary: Deletes the specified project.
+      operationId: ProjectDelete
+      parameters:
+      - name: projectId
+        in: path
+        description: |-
+          Required.
+          ID of the Project resource to delete.
+          To get the project ID use a [list](/docs/datasphere/api-ref/Project/list) request.
+
+          The maximum string length in characters is 200.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteProjectMetadata'
+      x-y-operation-response: Empty
+    patch:
+      tags:
+      - Project
+      summary: Updates the specified project.
+      operationId: ProjectUpdate
+      parameters:
+      - name: projectId
+        in: path
+        description: |-
+          Required.
+          ID of the Project resource to update.
+          To get the project ID use a [list](/docs/datasphere/api-ref/Project/list) request.
+
+          The maximum string length in characters is 200.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateProjectRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateProjectMetadata'
+      x-y-operation-response: '[Project](/docs/datasphere/api-ref/Project#representation)'
+  /datasphere/v1/projects/{projectId}:open:
+    post:
+      tags:
+      - Project
+      summary: Opens the specified project.
+      operationId: ProjectOpen
+      parameters:
+      - name: projectId
+        in: path
+        description: |-
+          Required.
+          ID of the Project resource to open.
+          To get the project ID use a [list](/docs/datasphere/api-ref/Project/list) request.
+
+          The maximum string length in characters is 200.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: open
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/OpenProjectMetadata'
+      x-y-operation-response: '`OpenProjectResponse`'
+components:
+  schemas:
+    CreateProjectMetadata:
+      type: object
+      properties:
+        projectId:
+          description: ID of the project that is being created.
+          type: string
+    CreateProjectRequest:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            Required.
+            ID of the folder to create a project in.
+            To get the folder ID use a [list](/docs/resource-manager/api-ref/Folder/list) request.
+
+            The maximum string length in characters is 50.
+          type: string
+        name:
+          description: |-
+            Name of the project.
+
+            The maximum string length in characters is 63.
+            Value must match the regular expression `` [a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
+          type: string
+        description:
+          description: |-
+            Description of the project.
+
+            The maximum string length in characters is 256.
+          type: string
+        settings:
+          $ref: '#/components/schemas/ProjectSettings_in_CreateProjectRequest_settings'
+    DeleteProjectMetadata:
+      type: object
+      properties:
+        projectId:
+          description: ID of the project that is being deleted.
+          type: string
+    Empty:
+      description: Empty JSON object `` {} ``.
+      type: object
+      maxProperties: 0
+    FieldMask:
+      description: |-
+        A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
+
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
+        Fields specified in the request will be updated to provided values.
+        The rest of the fields will be reset to the default.
+      type: string
+    ListProjectsResponse:
+      type: object
+      properties:
+        projects:
+          description: List of Project resources.
+          type: array
+          items:
+            $ref: '#/components/schemas/Project'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/datasphere/api-ref/Project/list#query_params), use
+            the [nextPageToken](/docs/datasphere/api-ref/Project/list#responses) as the value
+            for the [pageToken](/docs/datasphere/api-ref/Project/list#query_params) query parameter
+            in the next list request. Each subsequent list request will have its own
+            [nextPageToken](/docs/datasphere/api-ref/Project/list#responses) to continue paging through the results.
+          type: string
+    NodeExecutionRequest:
+      type: object
+      properties:
+        folderId:
+          description: ID of the folder that will be matched with Node ACL
+          type: string
+        input:
+          description: Input data for the execution
+          type: object
+    NodeExecutionResponse:
+      type: object
+      properties:
+        output:
+          description: Result of the execution
+          type: object
+    OpenProjectMetadata:
+      type: object
+      properties:
+        projectId:
+          description: ID of the project that is being opened.
+          type: string
+    OpenProjectResponse:
+      type: object
+      properties:
+        projectUrl:
+          description: |-
+            URL of the project that is being opened.
+            Make GET request to `projectUrl` with sessionToken query parameter equals to `sessionToken`
+            or POST request to `projectUrl` with sessionToken body parameter equals to `sessionToken`
+            to fetch Datasphere web interface
+          type: string
+        sessionToken:
+          description: Session token of the project that is being opened.
+          type: string
+    Operation:
+      description: An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
+      type: object
+      allOf:
+      - type: object
+        properties:
+          id:
+            description: ID of the operation.
+            type: string
+          description:
+            description: Description of the operation. 0-256 characters long.
+            type: string
+          createdAt:
+            description: |-
+              Creation timestamp.
+
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          createdBy:
+            description: ID of the user or service account who initiated the operation.
+            type: string
+          modifiedAt:
+            description: |-
+              The time when the Operation resource was last modified.
+
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          done:
+            description: |-
+              If the value is `false`, it means the operation is still in progress.
+              If `true`, the operation is completed, and either `error` or `response` is available.
+            type: boolean
+            format: boolean
+          metadata:
+            description: |-
+              Service-specific metadata associated with the operation.
+              It typically contains the ID of the target resource that the operation is performed on.
+              Any method that returns a long-running operation should document the metadata type, if any.
+            type: object
+      - title: result
+        type: object
+        maxProperties: 1
+        properties:
+          error:
+            $ref: '#/components/schemas/Status'
+            description: The error result of the operation in case of failure or cancellation.
+          response:
+            description: |-
+              The normal response of the operation in case of success.
+              If the original method returns no data on success, such as Delete,
+              the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty).
+              If the original method is the standard Create/Update,
+              the response should be the target resource of the operation.
+              Any method that returns a long-running operation should document the response type, if any.
+            type: object
+    Project:
+      description: A Project resource.
+      type: object
+      properties:
+        id:
+          description: ID of the project.
+          type: string
+        folderId:
+          description: ID of the folder that the project belongs to.
+          type: string
+        createdAt:
+          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
+            format.
+          type: string
+          format: date-time
+        name:
+          description: Name of the project. 1-63 characters long.
+          type: string
+        description:
+          description: Description of the project. 0-256 characters long.
+          type: string
+        settings:
+          $ref: '#/components/schemas/ProjectSettings_in_Project_settings'
+    ProjectSettings:
+      type: object
+      properties:
+        serviceAccountId:
+          description: ID of the service account, on whose behalf all operations with
+            clusters will be performed.
+          type: string
+        subnetId:
+          description: |-
+            ID of the subnet where the DataProc cluster resides.
+            Currently only subnets created in the availability zone ru-central1-a are supported.
+          type: string
+        dataProcClusterId:
+          description: ID of the DataProc cluster.
+          type: string
+        commitMode:
+          $ref: '#/components/schemas/ProjectSettingsCommitMode_in_ProjectSettings_commitMode'
+    ProjectSettingsCommitMode:
+      description: |2-
+         - STANDARD: Commit happens after the execution of a cell or group of cells or after completion with an error.
+         - AUTO: Commit happens periodically.
+        Also, automatic saving of state occurs when switching to another type of computing resource.
+      type: string
+      enum:
+      - STANDARD
+      - AUTO
+    Status:
+      description: The error result of the operation in case of failure or cancellation.
+      type: object
+      properties:
+        code:
+          description: Error code. An enum value of [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
+          type: integer
+          format: int32
+        message:
+          description: An error message.
+          type: string
+        details:
+          description: A list of messages that carry the error details.
+          type: array
+          items:
+            type: object
+    UpdateProjectMetadata:
+      type: object
+      properties:
+        projectId:
+          description: ID of the project that is being updated.
+          type: string
+    UpdateProjectRequest:
+      type: object
+      properties:
+        updateMask:
+          $ref: '#/components/schemas/FieldMask_in_UpdateProjectRequest_updateMask'
+        name:
+          description: |-
+            Name of the project.
+
+            The maximum string length in characters is 63.
+            Value must match the regular expression `` [a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
+          type: string
+        description:
+          description: |-
+            Description of the project.
+
+            The maximum string length in characters is 256.
+          type: string
+        settings:
+          $ref: '#/components/schemas/ProjectSettings_in_UpdateProjectRequest_settings'
+    ProjectSettings_in_CreateProjectRequest_settings:
+      description: Settings of the project.
+      type: object
+      properties:
+        serviceAccountId:
+          description: ID of the service account, on whose behalf all operations with
+            clusters will be performed.
+          type: string
+        subnetId:
+          description: |-
+            ID of the subnet where the DataProc cluster resides.
+            Currently only subnets created in the availability zone ru-central1-a are supported.
+          type: string
+        dataProcClusterId:
+          description: ID of the DataProc cluster.
+          type: string
+        commitMode:
+          $ref: '#/components/schemas/ProjectSettingsCommitMode_in_ProjectSettings_commitMode'
+    ProjectSettings_in_Project_settings:
+      description: Settings of the project.
+      type: object
+      properties:
+        serviceAccountId:
+          description: ID of the service account, on whose behalf all operations with
+            clusters will be performed.
+          type: string
+        subnetId:
+          description: |-
+            ID of the subnet where the DataProc cluster resides.
+            Currently only subnets created in the availability zone ru-central1-a are supported.
+          type: string
+        dataProcClusterId:
+          description: ID of the DataProc cluster.
+          type: string
+        commitMode:
+          $ref: '#/components/schemas/ProjectSettingsCommitMode_in_ProjectSettings_commitMode'
+    ProjectSettingsCommitMode_in_ProjectSettings_commitMode:
+      description: |-
+        Commit mode that is assigned to the project.
+
+         - STANDARD: Commit happens after the execution of a cell or group of cells or after completion with an error.
+         - AUTO: Commit happens periodically.
+        Also, automatic saving of state occurs when switching to another type of computing resource.
+      type: string
+      enum:
+      - STANDARD
+      - AUTO
+    FieldMask_in_UpdateProjectRequest_updateMask:
+      description: |-
+        Field mask that specifies which fields of the Project resource are going to be updated.
+
+        A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
+
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
+        Fields specified in the request will be updated to provided values.
+        The rest of the fields will be reset to the default.
+      type: string
+    ProjectSettings_in_UpdateProjectRequest_settings:
+      description: Settings of the project.
+      type: object
+      properties:
+        serviceAccountId:
+          description: ID of the service account, on whose behalf all operations with
+            clusters will be performed.
+          type: string
+        subnetId:
+          description: |-
+            ID of the subnet where the DataProc cluster resides.
+            Currently only subnets created in the availability zone ru-central1-a are supported.
+          type: string
+        dataProcClusterId:
+          description: ID of the DataProc cluster.
+          type: string
+        commitMode:
+          $ref: '#/components/schemas/ProjectSettingsCommitMode_in_ProjectSettings_commitMode'
+tags:
+- name: Node
+  description: A set of methods for managing Node resources.
+- name: Project
+  description: A set of methods for managing Project resources.

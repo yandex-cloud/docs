@@ -42,6 +42,7 @@ description | **string**<br>Description of the target group. 0-256 characters lo
 folder_id | **string**<br>ID of the folder that the target group belongs to. 
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
 targets[] | **[Target](#Target)**<br>NOTE: all endpoints must use the same address_type - either ip or hostname. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp for the target group. 
 
 
 ### Target {#Target}
@@ -87,6 +88,7 @@ description | **string**<br>Description of the target group. 0-256 characters lo
 folder_id | **string**<br>ID of the folder that the target group belongs to. 
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
 targets[] | **[Target](#Target1)**<br>NOTE: all endpoints must use the same address_type - either ip or hostname. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp for the target group. 
 
 
 ### Target {#Target1}
@@ -161,6 +163,7 @@ description | **string**<br>Description of the target group. 0-256 characters lo
 folder_id | **string**<br>ID of the folder that the target group belongs to. 
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
 targets[] | **[Target](#Target3)**<br>NOTE: all endpoints must use the same address_type - either ip or hostname. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp for the target group. 
 
 
 ### Target {#Target3}
@@ -236,6 +239,7 @@ description | **string**<br>Description of the target group. 0-256 characters lo
 folder_id | **string**<br>ID of the folder that the target group belongs to. 
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
 targets[] | **[Target](#Target5)**<br>NOTE: all endpoints must use the same address_type - either ip or hostname. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp for the target group. 
 
 
 ### Target {#Target5}
@@ -347,6 +351,7 @@ description | **string**<br>Description of the target group. 0-256 characters lo
 folder_id | **string**<br>ID of the folder that the target group belongs to. 
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
 targets[] | **[Target](#Target7)**<br>NOTE: all endpoints must use the same address_type - either ip or hostname. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp for the target group. 
 
 
 ### Target {#Target7}
@@ -418,6 +423,7 @@ description | **string**<br>Description of the target group. 0-256 characters lo
 folder_id | **string**<br>ID of the folder that the target group belongs to. 
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
 targets[] | **[Target](#Target9)**<br>NOTE: all endpoints must use the same address_type - either ip or hostname. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp for the target group. 
 
 
 ### Target {#Target9}

@@ -1,11 +1,9 @@
-openapi: '3.0'
+openapi: "3.0"
 info:
   title: Yandex Text To Speech Service API
-  description: >-
-    This API reference is organized by resource. Actions are performed by
-    sending HTTP requests to resource URLs or making RPC calls. For more
-    information about Yandex.Cloud API architecture, see [API
-    Concepts](/docs/api-design-guide/).
+  description: This API reference is organized by resource. Actions are performed
+    by sending HTTP requests to resource URLs or making RPC calls. For more information
+    about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
   version: v1
   x-y-docUri: api-ref
   x-y-baseUrl: https://tts.api.cloud.yandex.net
@@ -16,80 +14,105 @@ components:
       type: object
       properties:
         audioChunk:
-          $ref: >-
-            #/components/schemas/AudioChunk_in_AdaptiveSynthesizeResponse_audioChunk
+          $ref: '#/components/schemas/AudioChunk_in_AdaptiveSynthesizeResponse_audioChunk'
     AudioChunk:
       type: object
       properties:
         data:
+          description: Sequence of bytes of the synthesized audio in format specified
+            in output_audio_spec
           type: string
           format: byte
     AudioContent:
       type: object
       allOf:
-        - type: object
-          properties:
-            audioSpec:
-              $ref: '#/components/schemas/AudioSpec'
-              description: Required.
-        - title: audio_source
-          type: object
-          maxProperties: 1
-          properties:
-            content:
-              description: The maximum string length in characters is 10485760.
-              type: string
-              format: byte
+      - type: object
+        properties:
+          audioSpec:
+            $ref: '#/components/schemas/AudioSpec'
+            description: |-
+              Required.
+              Description of the audio format.
+      - title: audio_source
+        type: object
+        maxProperties: 1
+        properties:
+          content:
+            description: The maximum string length in characters is 10485760.
+            type: string
+            format: byte
     AudioSpec:
       type: object
       properties:
         audioEncoding:
-          $ref: >-
-            #/components/schemas/AudioSpecAudioEncoding_in_AudioSpec_audioEncoding
+          $ref: '#/components/schemas/AudioSpecAudioEncoding_in_AudioSpec_audioEncoding'
         sampleRateHertz:
+          description: Sampling frequency of the signal.
           type: string
           format: int64
         voice:
+          description: The hint for specifying the voice that need to synthesize in
+            the audio.
           type: string
     AudioSpecAudioEncoding:
       description: ' - LINEAR16_PCM: 16-bit signed little-endian (Linear PCM)'
       type: string
       enum:
-        - LINEAR16_PCM
+      - LINEAR16_PCM
     ReplacementUnit:
       type: object
       properties:
         wordIndexStart:
-          description: Acceptable values are 0 to 128, inclusive.
+          description: |-
+            The position of the beginning of the template in characters.
+
+            Acceptable values are 0 to 128, inclusive.
           type: string
           format: int64
         wordIndexEnd:
-          description: Acceptable values are 0 to 128, inclusive.
+          description: |-
+            The position of the ending of the template in characters.
+
+            Acceptable values are 0 to 128, inclusive.
           type: string
           format: int64
         replacementText:
           description: |-
             Required.
+            The text of the variable to be synthesized instead of the template.
+
             The maximum string length in characters is 100.
           type: string
         audioUnitStartMs:
-          description: The minimum value is 0.
+          description: |-
+            The position of the beggining of the template in audio in milliseconds.
+
+            The minimum value is 0.
           type: string
           format: int64
         audioUnitEndMs:
-          description: The minimum value is 0.
+          description: |-
+            End of the template in audio in milliseconds.
+
+            The minimum value is 0.
           type: string
           format: int64
     AudioChunk_in_AdaptiveSynthesizeResponse_audioChunk:
+      description: Part of synthesized audio.
       type: object
       properties:
         data:
+          description: Sequence of bytes of the synthesized audio in format specified
+            in output_audio_spec
           type: string
           format: byte
     AudioSpecAudioEncoding_in_AudioSpec_audioEncoding:
-      description: ' - LINEAR16_PCM: 16-bit signed little-endian (Linear PCM)'
+      description: |-
+        Encoding type.
+
+         - LINEAR16_PCM: 16-bit signed little-endian (Linear PCM)
       type: string
       enum:
-        - LINEAR16_PCM
+      - LINEAR16_PCM
 tags:
-  - name: Tts
+- name: Tts

@@ -1,9 +1,8 @@
-openapi: '3.0'
+openapi: "3.0"
 info:
   title: Yandex Translation API v2
-  description: >-
-    The service does not operate with resources. All service's methods are
-    presented on the [Translation](Translation/) page.
+  description: The service does not operate with resources. All service's methods
+    are presented on the [Translation](Translation/) page.
   version: v2
   x-y-docUri: api-ref
   x-y-baseUrl: https://translate.api.cloud.yandex.net
@@ -11,7 +10,7 @@ paths:
   /translate/v2/translate:
     post:
       tags:
-        - Translation
+      - Translation
       summary: Translates the text to the specified language.
       operationId: TranslationTranslate
       requestBody:
@@ -21,7 +20,7 @@ paths:
               $ref: '#/components/schemas/TranslateRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -31,7 +30,7 @@ paths:
   /translate/v2/detect:
     post:
       tags:
-        - Translation
+      - Translation
       summary: Detects the language of the text.
       operationId: TranslationDetectLanguage
       requestBody:
@@ -41,7 +40,7 @@ paths:
               $ref: '#/components/schemas/DetectLanguageRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -51,7 +50,7 @@ paths:
   /translate/v2/languages:
     post:
       tags:
-        - Translation
+      - Translation
       summary: Retrieves the list of supported languages.
       operationId: TranslationListLanguages
       requestBody:
@@ -61,7 +60,7 @@ paths:
               $ref: '#/components/schemas/ListLanguagesRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -81,36 +80,22 @@ components:
             The maximum string length in characters is 1000.
           type: string
         languageCodeHints:
-          description: >-
-            List of the most likely languages. These languages will be given
-            preference when detecting the text language.
+          description: |-
+            List of the most likely languages. These languages will be given preference when detecting the text language.
+            Specified in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format (for example, `` ru ``).
 
-            Specified in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1)
-            format (for example, `` ru ``).
-
-
-            To get the list of supported languages, use a
-            [listLanguages](/docs/translate/api-ref/Translation/listLanguages)
-            request.
-
+            To get the list of supported languages, use a [listLanguages](/docs/translate/api-ref/Translation/listLanguages) request.
 
             The maximum number of elements is 10.
-
             The maximum string length in characters for each value is 3.
           type: array
           items:
             type: string
         folderId:
-          description: >-
+          description: |-
             ID of the folder to which you have access.
-
-            Required for authorization with a user account (see
-            [UserAccount](/docs/iam/api-ref/UserAccount#representation)
-            resource).
-
-            Don't specify this field if you make the request on behalf of a
-            service account.
-
+            Required for authorization with a user account (see [UserAccount](/docs/iam/api-ref/UserAccount#representation) resource).
+            Don't specify this field if you make the request on behalf of a service account.
 
             The maximum string length in characters is 50.
           type: string
@@ -118,31 +103,21 @@ components:
       type: object
       properties:
         languageCode:
-          description: >-
-            The text language in [ISO
-            639-1](https://en.wikipedia.org/wiki/ISO_639-1) format (for example,
-            `` ru ``).
+          description: |-
+            The text language in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format (for example, `` ru ``).
 
-
-            To get the language name, use a
-            [listLanguages](/docs/translate/api-ref/Translation/listLanguages)
-            request.
+            To get the language name, use a [listLanguages](/docs/translate/api-ref/Translation/listLanguages) request.
           type: string
     GlossaryData:
       type: object
       properties:
         glossaryPairs:
-          description: >-
+          description: |-
             Required.
-
             Array of text pairs.
 
-
             The maximum total length of all source texts is 10000 characters.
-
-            The maximum total length of all translated texts is 10000
-            characters.
-
+            The maximum total length of all translated texts is 10000 characters.
 
             The number of elements must be in the range 1-50.
           type: array
@@ -165,11 +140,9 @@ components:
       type: object
       properties:
         code:
-          description: >-
+          description: |-
             The language code.
-
-            Specified in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1)
-            format (for example, `` en ``).
+            Specified in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format (for example, `` en ``).
           type: string
         name:
           description: The name of the language (for example, `` English ``).
@@ -178,16 +151,10 @@ components:
       type: object
       properties:
         folderId:
-          description: >-
+          description: |-
             ID of the folder to which you have access.
-
-            Required for authorization with a user account (see
-            [UserAccount](/docs/iam/api-ref/UserAccount#representation)
-            resource).
-
-            Don't specify this field if you make the request on behalf of a
-            service account.
-
+            Required for authorization with a user account (see [UserAccount](/docs/iam/api-ref/UserAccount#representation) resource).
+            Don't specify this field if you make the request on behalf of a service account.
 
             The maximum string length in characters is 50.
           type: string
@@ -202,46 +169,36 @@ components:
     TranslateGlossaryConfig:
       type: object
       allOf:
-        - title: glossary_source
-          type: object
-          maxProperties: 1
-          properties:
-            glossaryData:
-              $ref: '#/components/schemas/GlossaryData'
-              description: >-
-                Pass glossary data in the request. Currently, only this way to
-                pass glossary is supported.
+      - title: glossary_source
+        type: object
+        maxProperties: 1
+        properties:
+          glossaryData:
+            $ref: '#/components/schemas/GlossaryData'
+            description: Pass glossary data in the request. Currently, only this way
+              to pass glossary is supported.
     TranslateRequest:
       type: object
       properties:
         sourceLanguageCode:
-          description: >-
+          description: |-
             The text language to translate from.
-
-            Specified in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1)
-            format (for example, `` ru ``).
-
+            Specified in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format (for example, `` ru ``).
 
             Required for translating with glossary.
-
 
             The maximum string length in characters is 3.
           type: string
         targetLanguageCode:
-          description: >-
+          description: |-
             Required.
-
             The target language to translate the text.
-
-            Specified in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1)
-            format (for example, `` en ``).
-
+            Specified in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format (for example, `` en ``).
 
             The maximum string length in characters is 3.
           type: string
         format:
-          $ref: >-
-            #/components/schemas/TranslateRequestFormat_in_TranslateRequest_format
+          $ref: '#/components/schemas/TranslateRequestFormat_in_TranslateRequest_format'
         texts:
           description: |-
             Required.
@@ -253,16 +210,10 @@ components:
           items:
             type: string
         folderId:
-          description: >-
+          description: |-
             ID of the folder to which you have access.
-
-            Required for authorization with a user account (see
-            [UserAccount](/docs/iam/api-ref/UserAccount#representation)
-            resource).
-
-            Don't specify this field if you make the request on behalf of a
-            service account.
-
+            Required for authorization with a user account (see [UserAccount](/docs/iam/api-ref/UserAccount#representation) resource).
+            Don't specify this field if you make the request on behalf of a service account.
 
             The maximum string length in characters is 50.
           type: string
@@ -273,16 +224,15 @@ components:
             The maximum string length in characters is 50.
           type: string
         glossaryConfig:
-          $ref: >-
-            #/components/schemas/TranslateGlossaryConfig_in_TranslateRequest_glossaryConfig
+          $ref: '#/components/schemas/TranslateGlossaryConfig_in_TranslateRequest_glossaryConfig'
     TranslateRequestFormat:
       description: |2-
          - PLAIN_TEXT: Text without markup. Default value.
          - HTML: Text in the HTML format.
       type: string
       enum:
-        - PLAIN_TEXT
-        - HTML
+      - PLAIN_TEXT
+      - HTML
     TranslateResponse:
       type: object
       properties:
@@ -298,11 +248,9 @@ components:
           description: Translated text.
           type: string
         detectedLanguageCode:
-          description: >-
+          description: |-
             The language code of the source text.
-
-            Specified in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1)
-            format (for example, `` en ``).
+            Specified in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format (for example, `` en ``).
           type: string
     TranslateRequestFormat_in_TranslateRequest_format:
       description: |-
@@ -312,23 +260,21 @@ components:
          - HTML: Text in the HTML format.
       type: string
       enum:
-        - PLAIN_TEXT
-        - HTML
+      - PLAIN_TEXT
+      - HTML
     TranslateGlossaryConfig_in_TranslateRequest_glossaryConfig:
-      description: >-
-        Glossary to be applied for the translation. For more information, see
-        [Glossaries](/docs/translate/concepts/glossary).
+      description: Glossary to be applied for the translation. For more information,
+        see [Glossaries](/docs/translate/concepts/glossary).
       type: object
       allOf:
-        - title: glossary_source
-          type: object
-          maxProperties: 1
-          properties:
-            glossaryData:
-              $ref: '#/components/schemas/GlossaryData'
-              description: >-
-                Pass glossary data in the request. Currently, only this way to
-                pass glossary is supported.
+      - title: glossary_source
+        type: object
+        maxProperties: 1
+        properties:
+          glossaryData:
+            $ref: '#/components/schemas/GlossaryData'
+            description: Pass glossary data in the request. Currently, only this way
+              to pass glossary is supported.
 tags:
-  - name: Translation
-    description: A set of methods for the Yandex Translate service.
+- name: Translation
+  description: A set of methods for the Yandex Translate service.

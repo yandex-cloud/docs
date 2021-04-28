@@ -40,7 +40,7 @@ folder_id | **string**<br>ID of the folder that the route table belongs to.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
 name | **string**<br>Name of the route table. The name is unique within the project. 3-63 characters long. 
 description | **string**<br>Optional description of the route table. 0-256 characters long. 
-labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Мaximum of 64 per resource. 
+labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
 network_id | **string**<br>ID of the network the route table belongs to. 
 static_routes[] | **[StaticRoute](#StaticRoute)**<br>List of static routes. 
 
@@ -53,7 +53,7 @@ destination | **oneof:** `destination_prefix`<br>
 &nbsp;&nbsp;destination_prefix | **string**<br>Destination subnet in CIDR notation 
 next_hop | **oneof:** `next_hop_address`<br>
 &nbsp;&nbsp;next_hop_address | **string**<br>Next hop IP address 
-labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Мaximum of 64 per resource. 
+labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
 
 
 ## List {#List}
@@ -89,7 +89,7 @@ folder_id | **string**<br>ID of the folder that the route table belongs to.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
 name | **string**<br>Name of the route table. The name is unique within the project. 3-63 characters long. 
 description | **string**<br>Optional description of the route table. 0-256 characters long. 
-labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Мaximum of 64 per resource. 
+labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
 network_id | **string**<br>ID of the network the route table belongs to. 
 static_routes[] | **[StaticRoute](#StaticRoute1)**<br>List of static routes. 
 
@@ -102,7 +102,7 @@ destination | **oneof:** `destination_prefix`<br>
 &nbsp;&nbsp;destination_prefix | **string**<br>Destination subnet in CIDR notation 
 next_hop | **oneof:** `next_hop_address`<br>
 &nbsp;&nbsp;next_hop_address | **string**<br>Next hop IP address 
-labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Мaximum of 64 per resource. 
+labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
 
 
 ## Create {#Create}
@@ -135,7 +135,7 @@ destination | **oneof:** `destination_prefix`<br>
 &nbsp;&nbsp;destination_prefix | **string**<br>Destination subnet in CIDR notation 
 next_hop | **oneof:** `next_hop_address`<br>
 &nbsp;&nbsp;next_hop_address | **string**<br>Next hop IP address 
-labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Мaximum of 64 per resource. 
+labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
 
 
 ### Operation {#Operation}
@@ -170,7 +170,7 @@ folder_id | **string**<br>ID of the folder that the route table belongs to.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
 name | **string**<br>Name of the route table. The name is unique within the project. 3-63 characters long. 
 description | **string**<br>Optional description of the route table. 0-256 characters long. 
-labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Мaximum of 64 per resource. 
+labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
 network_id | **string**<br>ID of the network the route table belongs to. 
 static_routes[] | **[StaticRoute](#StaticRoute3)**<br>List of static routes. 
 
@@ -183,7 +183,7 @@ destination | **oneof:** `destination_prefix`<br>
 &nbsp;&nbsp;destination_prefix | **string**<br>Destination subnet in CIDR notation 
 next_hop | **oneof:** `next_hop_address`<br>
 &nbsp;&nbsp;next_hop_address | **string**<br>Next hop IP address 
-labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Мaximum of 64 per resource. 
+labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
 
 
 ## Update {#Update}
@@ -216,7 +216,7 @@ destination | **oneof:** `destination_prefix`<br>
 &nbsp;&nbsp;destination_prefix | **string**<br>Destination subnet in CIDR notation 
 next_hop | **oneof:** `next_hop_address`<br>
 &nbsp;&nbsp;next_hop_address | **string**<br>Next hop IP address 
-labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Мaximum of 64 per resource. 
+labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
 
 
 ### Operation {#Operation1}
@@ -251,7 +251,7 @@ folder_id | **string**<br>ID of the folder that the route table belongs to.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
 name | **string**<br>Name of the route table. The name is unique within the project. 3-63 characters long. 
 description | **string**<br>Optional description of the route table. 0-256 characters long. 
-labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Мaximum of 64 per resource. 
+labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
 network_id | **string**<br>ID of the network the route table belongs to. 
 static_routes[] | **[StaticRoute](#StaticRoute5)**<br>List of static routes. 
 
@@ -264,7 +264,7 @@ destination | **oneof:** `destination_prefix`<br>
 &nbsp;&nbsp;destination_prefix | **string**<br>Destination subnet in CIDR notation 
 next_hop | **oneof:** `next_hop_address`<br>
 &nbsp;&nbsp;next_hop_address | **string**<br>Next hop IP address 
-labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Мaximum of 64 per resource. 
+labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
 
 
 ## Delete {#Delete}
@@ -396,7 +396,7 @@ folder_id | **string**<br>ID of the folder that the route table belongs to.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
 name | **string**<br>Name of the route table. The name is unique within the project. 3-63 characters long. 
 description | **string**<br>Optional description of the route table. 0-256 characters long. 
-labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Мaximum of 64 per resource. 
+labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
 network_id | **string**<br>ID of the network the route table belongs to. 
 static_routes[] | **[StaticRoute](#StaticRoute6)**<br>List of static routes. 
 
@@ -409,6 +409,6 @@ destination | **oneof:** `destination_prefix`<br>
 &nbsp;&nbsp;destination_prefix | **string**<br>Destination subnet in CIDR notation 
 next_hop | **oneof:** `next_hop_address`<br>
 &nbsp;&nbsp;next_hop_address | **string**<br>Next hop IP address 
-labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Мaximum of 64 per resource. 
+labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
 
 

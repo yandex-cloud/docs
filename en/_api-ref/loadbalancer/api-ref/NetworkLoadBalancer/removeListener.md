@@ -9,14 +9,14 @@ Removes the listener from the specified network load balancer.
  
 ## HTTP request {#https-request}
 ```
-POST https://load-balancer.api.cloud.yandex.net/network-load-balancer/v1alpha/networkLoadBalancers/{networkLoadBalancerId}:removeListener
+POST https://load-balancer.api.cloud.yandex.net/load-balancer/v1alpha/networkLoadBalancers/{networkLoadBalancerId}:removeListener
 ```
  
 ## Path parameters {#path_params}
  
 Parameter | Description
 --- | ---
-networkLoadBalancerId | Required. ID of the network load balancer to remove the listener from. To get the network load balancer ID, use a [list](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list) request.  The maximum string length in characters is 50.
+networkLoadBalancerId | Required. ID of the network load balancer to remove the listener from. To get the network load balancer ID, use a [list](/docs/load-balancer/api-ref/NetworkLoadBalancer/list) request.  The maximum string length in characters is 50.
  
 ## Body parameters {#body_params}
  

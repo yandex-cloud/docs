@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method rescheduleMaintenance
-Reschedule planned maintenance operation.
+Reschedules planned maintenance operation.
  
 
  
@@ -16,7 +16,7 @@ POST https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}:re
  
 Parameter | Description
 --- | ---
-clusterId | Required. Required. ID of the MongoDB cluster to maintenance reschedule.  The maximum string length in characters is 50.
+clusterId | Required. ID of the MongoDB cluster to reschedule the maintenance operation for.  The maximum string length in characters is 50.
  
 ## Body parameters {#body_params}
  
@@ -30,8 +30,8 @@ clusterId | Required. Required. ID of the MongoDB cluster to maintenance resched
  
 Field | Description
 --- | ---
-rescheduleType | **string**<br><p>Required. Required. The type of reschedule request.</p> 
-delayedUntil | **string** (date-time)<br><p>The time for SPECIFIC_TIME reschedule. Limited by two weeks since first time scheduled.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+rescheduleType | **string**<br><p>Required. The type of reschedule request.</p> <ul> <li>IMMEDIATE: Start the maintenance operation immediately.</li> <li>NEXT_AVAILABLE_WINDOW: Start the maintenance operation within the next available maintenance window.</li> <li>SPECIFIC_TIME: Start the maintenance operation at the specific time.</li> </ul> 
+delayedUntil | **string** (date-time)<br><p>The time until which this maintenance operation should be delayed. The value should be ahead of the first time when the maintenance operation has been scheduled for no more than two weeks. The value can also point to the past moment of time if [reschedule_type.IMMEDIATE] reschedule type is chosen.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

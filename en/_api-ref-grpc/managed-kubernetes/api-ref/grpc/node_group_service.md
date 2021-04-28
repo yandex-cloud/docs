@@ -40,7 +40,7 @@ cluster_id | **string**<br>ID of the cluster that the node group belongs to.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
 name | **string**<br>Name of the node group. The name is unique within the folder. 
 description | **string**<br>Description of the node group. 0-256 characters long. 
-labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Мaximum of 64 per resource. 
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
 status | enum **Status**<br>Status of the node group. <ul><li>`PROVISIONING`: Node group is waiting for resources to be allocated.</li><li>`RUNNING`: Node group is running.</li><li>`RECONCILING`: Node group is waiting for some work to be done, such as upgrading node software.</li><li>`STOPPING`: Node group is being stopped.</li><li>`STOPPED`: Node group stopped.</li><li>`DELETING`: Node group is being deleted.</li><li>`STARTING`: Node group is being started.</li><ul/>
 node_template | **[NodeTemplate](#NodeTemplate)**<br>Node template that specifies parameters of the compute instances for the node group. 
 scale_policy | **[ScalePolicy](#ScalePolicy)**<br>Scale policy of the node group.  For more information, see [Scaling policy](/docs/compute/concepts/instance-groups/policies#scale-policy). 
@@ -66,6 +66,7 @@ metadata | **map<string,string>**<br>The metadata as `key:value` pairs assigned 
 v4_address_spec | **[NodeAddressSpec](#NodeAddressSpec)**<br>Specification for the create network interfaces for the node group compute instances. Deprecated, please use network_interface_specs. 
 scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy)**<br>Scheduling policy configuration. 
 network_interface_specs[] | **[NetworkInterfaceSpec](#NetworkInterfaceSpec)**<br>New api, to specify network interfaces for the node group compute instances. Can not be used together with 'v4_address_spec' 
+placement_policy | **[PlacementPolicy](#PlacementPolicy)**<br> 
 
 
 ### ResourcesSpec {#ResourcesSpec}
@@ -131,6 +132,13 @@ Field | Description
 ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
 
 
+### PlacementPolicy {#PlacementPolicy}
+
+Field | Description
+--- | ---
+placement_group_id | **string**<br>Identifier of placement group 
+
+
 ### ScalePolicy {#ScalePolicy}
 
 Field | Description
@@ -184,7 +192,7 @@ max_expansion | **int64**<br>The maximum number of instances that can be tempora
 Field | Description
 --- | ---
 current_version | **string**<br>Current Kubernetes version, format: major.minor (e.g. 1.15). 
-new_revision_available | **bool**<br>Newer revisions may include Kubernetes patches (e.g 1.15.1 -> 1.15.2) as well as some internal component updates — new features or bug fixes in Yandex specific components either on the master or nodes. 
+new_revision_available | **bool**<br>Newer revisions may include Kubernetes patches (e.g 1.15.1 -> 1.15.2) as well as some internal component updates - new features or bug fixes in Yandex specific components either on the master or nodes. 
 new_revision_summary | **string**<br>Description of the changes to be applied when updating to the latest revision. Empty if new_revision_available is false. 
 version_deprecated | **bool**<br>The current version is on the deprecation schedule, component (master or node group) should be upgraded. 
 
@@ -278,7 +286,7 @@ cluster_id | **string**<br>ID of the cluster that the node group belongs to.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
 name | **string**<br>Name of the node group. The name is unique within the folder. 
 description | **string**<br>Description of the node group. 0-256 characters long. 
-labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Мaximum of 64 per resource. 
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
 status | enum **Status**<br>Status of the node group. <ul><li>`PROVISIONING`: Node group is waiting for resources to be allocated.</li><li>`RUNNING`: Node group is running.</li><li>`RECONCILING`: Node group is waiting for some work to be done, such as upgrading node software.</li><li>`STOPPING`: Node group is being stopped.</li><li>`STOPPED`: Node group stopped.</li><li>`DELETING`: Node group is being deleted.</li><li>`STARTING`: Node group is being started.</li><ul/>
 node_template | **[NodeTemplate](#NodeTemplate1)**<br>Node template that specifies parameters of the compute instances for the node group. 
 scale_policy | **[ScalePolicy](#ScalePolicy1)**<br>Scale policy of the node group.  For more information, see [Scaling policy](/docs/compute/concepts/instance-groups/policies#scale-policy). 
@@ -304,6 +312,7 @@ metadata | **map<string,string>**<br>The metadata as `key:value` pairs assigned 
 v4_address_spec | **[NodeAddressSpec](#NodeAddressSpec2)**<br>Specification for the create network interfaces for the node group compute instances. Deprecated, please use network_interface_specs. 
 scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy1)**<br>Scheduling policy configuration. 
 network_interface_specs[] | **[NetworkInterfaceSpec](#NetworkInterfaceSpec1)**<br>New api, to specify network interfaces for the node group compute instances. Can not be used together with 'v4_address_spec' 
+placement_policy | **[PlacementPolicy](#PlacementPolicy1)**<br> 
 
 
 ### ResourcesSpec {#ResourcesSpec1}
@@ -369,6 +378,13 @@ Field | Description
 ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
 
 
+### PlacementPolicy {#PlacementPolicy1}
+
+Field | Description
+--- | ---
+placement_group_id | **string**<br>Identifier of placement group 
+
+
 ### ScalePolicy {#ScalePolicy1}
 
 Field | Description
@@ -422,7 +438,7 @@ max_expansion | **int64**<br>The maximum number of instances that can be tempora
 Field | Description
 --- | ---
 current_version | **string**<br>Current Kubernetes version, format: major.minor (e.g. 1.15). 
-new_revision_available | **bool**<br>Newer revisions may include Kubernetes patches (e.g 1.15.1 -> 1.15.2) as well as some internal component updates — new features or bug fixes in Yandex specific components either on the master or nodes. 
+new_revision_available | **bool**<br>Newer revisions may include Kubernetes patches (e.g 1.15.1 -> 1.15.2) as well as some internal component updates - new features or bug fixes in Yandex specific components either on the master or nodes. 
 new_revision_summary | **string**<br>Description of the changes to be applied when updating to the latest revision. Empty if new_revision_available is false. 
 version_deprecated | **bool**<br>The current version is on the deprecation schedule, component (master or node group) should be upgraded. 
 
@@ -523,6 +539,7 @@ metadata | **map<string,string>**<br>The metadata as `key:value` pairs assigned 
 v4_address_spec | **[NodeAddressSpec](#NodeAddressSpec4)**<br>Specification for the create network interfaces for the node group compute instances. Deprecated, please use network_interface_specs. 
 scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy2)**<br>Scheduling policy configuration. 
 network_interface_specs[] | **[NetworkInterfaceSpec](#NetworkInterfaceSpec2)**<br>New api, to specify network interfaces for the node group compute instances. Can not be used together with 'v4_address_spec' 
+placement_policy | **[PlacementPolicy](#PlacementPolicy2)**<br> 
 
 
 ### ResourcesSpec {#ResourcesSpec2}
@@ -586,6 +603,13 @@ one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec5)**<br>One-to-one NAT
 Field | Description
 --- | ---
 ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
+
+
+### PlacementPolicy {#PlacementPolicy2}
+
+Field | Description
+--- | ---
+placement_group_id | **string**<br>Identifier of placement group 
 
 
 ### ScalePolicy {#ScalePolicy2}
@@ -724,7 +748,7 @@ cluster_id | **string**<br>ID of the cluster that the node group belongs to.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
 name | **string**<br>Name of the node group. The name is unique within the folder. 
 description | **string**<br>Description of the node group. 0-256 characters long. 
-labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Мaximum of 64 per resource. 
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
 status | enum **Status**<br>Status of the node group. <ul><li>`PROVISIONING`: Node group is waiting for resources to be allocated.</li><li>`RUNNING`: Node group is running.</li><li>`RECONCILING`: Node group is waiting for some work to be done, such as upgrading node software.</li><li>`STOPPING`: Node group is being stopped.</li><li>`STOPPED`: Node group stopped.</li><li>`DELETING`: Node group is being deleted.</li><li>`STARTING`: Node group is being started.</li><ul/>
 node_template | **[NodeTemplate](#NodeTemplate3)**<br>Node template that specifies parameters of the compute instances for the node group. 
 scale_policy | **[ScalePolicy](#ScalePolicy3)**<br>Scale policy of the node group.  For more information, see [Scaling policy](/docs/compute/concepts/instance-groups/policies#scale-policy). 
@@ -750,6 +774,7 @@ metadata | **map<string,string>**<br>The metadata as `key:value` pairs assigned 
 v4_address_spec | **[NodeAddressSpec](#NodeAddressSpec6)**<br>Specification for the create network interfaces for the node group compute instances. Deprecated, please use network_interface_specs. 
 scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy3)**<br>Scheduling policy configuration. 
 network_interface_specs[] | **[NetworkInterfaceSpec](#NetworkInterfaceSpec3)**<br>New api, to specify network interfaces for the node group compute instances. Can not be used together with 'v4_address_spec' 
+placement_policy | **[PlacementPolicy](#PlacementPolicy3)**<br> 
 
 
 ### ResourcesSpec {#ResourcesSpec3}
@@ -815,6 +840,13 @@ Field | Description
 ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
 
 
+### PlacementPolicy {#PlacementPolicy3}
+
+Field | Description
+--- | ---
+placement_group_id | **string**<br>Identifier of placement group 
+
+
 ### ScalePolicy {#ScalePolicy3}
 
 Field | Description
@@ -868,7 +900,7 @@ max_expansion | **int64**<br>The maximum number of instances that can be tempora
 Field | Description
 --- | ---
 current_version | **string**<br>Current Kubernetes version, format: major.minor (e.g. 1.15). 
-new_revision_available | **bool**<br>Newer revisions may include Kubernetes patches (e.g 1.15.1 -> 1.15.2) as well as some internal component updates — new features or bug fixes in Yandex specific components either on the master or nodes. 
+new_revision_available | **bool**<br>Newer revisions may include Kubernetes patches (e.g 1.15.1 -> 1.15.2) as well as some internal component updates - new features or bug fixes in Yandex specific components either on the master or nodes. 
 new_revision_summary | **string**<br>Description of the changes to be applied when updating to the latest revision. Empty if new_revision_available is false. 
 version_deprecated | **bool**<br>The current version is on the deprecation schedule, component (master or node group) should be upgraded. 
 
@@ -970,6 +1002,7 @@ metadata | **map<string,string>**<br>The metadata as `key:value` pairs assigned 
 v4_address_spec | **[NodeAddressSpec](#NodeAddressSpec8)**<br>Specification for the create network interfaces for the node group compute instances. Deprecated, please use network_interface_specs. 
 scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy4)**<br>Scheduling policy configuration. 
 network_interface_specs[] | **[NetworkInterfaceSpec](#NetworkInterfaceSpec4)**<br>New api, to specify network interfaces for the node group compute instances. Can not be used together with 'v4_address_spec' 
+placement_policy | **[PlacementPolicy](#PlacementPolicy4)**<br> 
 
 
 ### ResourcesSpec {#ResourcesSpec4}
@@ -1033,6 +1066,13 @@ one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec9)**<br>One-to-one NAT
 Field | Description
 --- | ---
 ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
+
+
+### PlacementPolicy {#PlacementPolicy4}
+
+Field | Description
+--- | ---
+placement_group_id | **string**<br>Identifier of placement group 
 
 
 ### ScalePolicy {#ScalePolicy4}
@@ -1180,7 +1220,7 @@ cluster_id | **string**<br>ID of the cluster that the node group belongs to.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
 name | **string**<br>Name of the node group. The name is unique within the folder. 
 description | **string**<br>Description of the node group. 0-256 characters long. 
-labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Мaximum of 64 per resource. 
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
 status | enum **Status**<br>Status of the node group. <ul><li>`PROVISIONING`: Node group is waiting for resources to be allocated.</li><li>`RUNNING`: Node group is running.</li><li>`RECONCILING`: Node group is waiting for some work to be done, such as upgrading node software.</li><li>`STOPPING`: Node group is being stopped.</li><li>`STOPPED`: Node group stopped.</li><li>`DELETING`: Node group is being deleted.</li><li>`STARTING`: Node group is being started.</li><ul/>
 node_template | **[NodeTemplate](#NodeTemplate5)**<br>Node template that specifies parameters of the compute instances for the node group. 
 scale_policy | **[ScalePolicy](#ScalePolicy5)**<br>Scale policy of the node group.  For more information, see [Scaling policy](/docs/compute/concepts/instance-groups/policies#scale-policy). 
@@ -1206,6 +1246,7 @@ metadata | **map<string,string>**<br>The metadata as `key:value` pairs assigned 
 v4_address_spec | **[NodeAddressSpec](#NodeAddressSpec10)**<br>Specification for the create network interfaces for the node group compute instances. Deprecated, please use network_interface_specs. 
 scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy5)**<br>Scheduling policy configuration. 
 network_interface_specs[] | **[NetworkInterfaceSpec](#NetworkInterfaceSpec5)**<br>New api, to specify network interfaces for the node group compute instances. Can not be used together with 'v4_address_spec' 
+placement_policy | **[PlacementPolicy](#PlacementPolicy5)**<br> 
 
 
 ### ResourcesSpec {#ResourcesSpec5}
@@ -1271,6 +1312,13 @@ Field | Description
 ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
 
 
+### PlacementPolicy {#PlacementPolicy5}
+
+Field | Description
+--- | ---
+placement_group_id | **string**<br>Identifier of placement group 
+
+
 ### ScalePolicy {#ScalePolicy5}
 
 Field | Description
@@ -1324,7 +1372,7 @@ max_expansion | **int64**<br>The maximum number of instances that can be tempora
 Field | Description
 --- | ---
 current_version | **string**<br>Current Kubernetes version, format: major.minor (e.g. 1.15). 
-new_revision_available | **bool**<br>Newer revisions may include Kubernetes patches (e.g 1.15.1 -> 1.15.2) as well as some internal component updates — new features or bug fixes in Yandex specific components either on the master or nodes. 
+new_revision_available | **bool**<br>Newer revisions may include Kubernetes patches (e.g 1.15.1 -> 1.15.2) as well as some internal component updates - new features or bug fixes in Yandex specific components either on the master or nodes. 
 new_revision_summary | **string**<br>Description of the changes to be applied when updating to the latest revision. Empty if new_revision_available is false. 
 version_deprecated | **bool**<br>The current version is on the deprecation schedule, component (master or node group) should be upgraded. 
 

@@ -47,7 +47,8 @@ tag | Version tag.  To get the history of version tags make a [listTagHistory](/
     "subnetId": [
       "string"
     ]
-  }
+  },
+  "namedServiceAccounts": "object"
 }
 ```
 Version of a function. For details about the concept, see [Function versions](/docs/functions/concepts/function#version).
@@ -72,3 +73,4 @@ environment | **object**<br><p>Environment settings for the version.</p>
 connectivity | **object**<br><p>Network access. If specified the version will be attached to specified network/subnet(s).</p> <p>Version connectivity specification.</p> 
 connectivity.<br>networkId | **string**<br><p>Network the version will have access to. It's essential to specify network with subnets in all availability zones.</p> 
 connectivity.<br>subnetId[] | **string**<br><p>Complete list of subnets (from the same network) the version can be attached to. It's essential to specify at least one subnet for each availability zones.</p> 
+namedServiceAccounts | **object**<br><p>Additional service accounts to be used by the version.</p> 

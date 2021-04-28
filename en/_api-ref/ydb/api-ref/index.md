@@ -7,6 +7,7 @@ This API reference is organized by resource. Actions are performed by sending HT
 
 Resource | Description
 --- | ---
+[Backup](Backup/index.md) | A set of methods for managing backups.
 [Database](Database/index.md) | A set of methods for managing databases.
 [Location](Location/index.md) | 
 [ResourcePreset](ResourcePreset/index.md) | 
