@@ -71,9 +71,7 @@ items:
         href: infrastructure-management/jenkins.md
       - name: Continuous deployment of containerized applications using GitLab
         href: infrastructure-management/gitlab-containers.md
-      - name: >-
-          Creating a cluster of 1C:Enterprise Linux servers with a Managed
-          Service for PostgreSQL cluster
+      - name: Creating a cluster of 1C:Enterprise Linux servers with a Managed Service for PostgreSQL cluster
         href: infrastructure-management/1c-postgresql-linux.md
       - name: Creating a cluster of 1C:Enterprise Windows servers with MS SQL Server
         href: infrastructure-management/1c-mssql-windows.md
@@ -131,6 +129,8 @@ items:
         href: datalens/data-from-appmetrica-visualization.md
       - name: Visualizing geodata from a CSV file
         href: datalens/data-from-csv-geo-visualization.md
+      - name: Visualizing data from a ClickHouse database with geolayers from the Marketplace
+        href: datalens/data-from-ch-to-geolayers-visualization.md
   - name: Internet of things
     items:
       - name: Use cases for the internet of things

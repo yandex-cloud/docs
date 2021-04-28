@@ -7,9 +7,9 @@ If no tags are available in your list, gain access to a tag or use the Yandex.Me
 To visualize your data, follow these steps:
 
 1. [Before you start](#before-you-begin).
-1. [Create a connection and a standard dashboard](data-from-metrica-visualization#step1).
-1. [Edit the standard dashboard](data-from-metrica-visualization#step2).
-1. [Edit the chart](data-from-metrica-visualization#step3).
+1. [Create a connection and a standard dashboard](#step1).
+1. [Edit the standard dashboard](#step2).
+1. [Edit the chart](#step3).
 
 ## Before you start {#before-you-begin}
 

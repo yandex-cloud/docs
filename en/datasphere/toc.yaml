@@ -59,6 +59,8 @@ items:
     items:
       - name: Voice recognition
         href: tutorials/speech-recognition.md
+      - name: Classification of images in video frames
+        href: tutorials/video-recognition.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy
