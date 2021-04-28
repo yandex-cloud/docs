@@ -44,9 +44,7 @@ An instance of the service is created in the selected folder and you can go dire
 
 ## Step 1. Create a connection to a CSV file {#step1}
 
-1. Download [public accident statistics](https://xn--80abhddbmm5bieahtk5n.xn--p1ai/opendata) in CSV format. As of writing these instructions in February 2020, the most current dataset was for 2018. Unpack the downloaded archive. You can also download a [ready-to-use file](https://yadi.sk/d/zgo7RgjFWSMiyg) with data for 2018.
-
-   ![image](../../_assets/datalens/solution-07/01-files.png)
+1. Download a [file with accident statistics](https://yadi.sk/d/zgo7RgjFWSMiyg) for 2018 in CSV format.
 
 1. Open the [{{ datalens-short-name }}](https://datalens.yandex.com/) homepage and click **Create connection**.
 
