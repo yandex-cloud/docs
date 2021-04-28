@@ -8,21 +8,21 @@ This scenario analyzes public data on road accidents in Russia. In addition to i
 - Work with geodata: geopoints and geopolygons.
 - Create public dashboards that will be available to everyone from any device without authentication.
 
-To visualize and analyze the data, [make sure you have a ready-to-use cloud](data-from-csv-geo-visualization.md#before-you-begin) and follow these steps:
+To visualize and analyze the data, [make sure you have a ready-to-use cloud](#before-you-begin) and follow these steps:
 
-1. [Create a connection to a CSV file](data-from-csv-geo-visualization.md#step1).
-1. [Create a dataset and configure its fields](data-from-csv-geo-visualization.md#step2).
-1. [Create your first chart: a heat map](data-from-csv-geo-visualization.md#step3).
-1. [Create your second chart: a bar chart](data-from-csv-geo-visualization.md#step4).
-1. [Create line charts](data-from-csv-geo-visualization.md#step5).
-1. [Create a dashboard](data-from-csv-geo-visualization.md#step6).
-1. [Add charts to the dashboard](data-from-csv-geo-visualization.md#step7).
-1. [Add selectors and create a dashboard](data-from-csv-geo-visualization.md#step8).
-1. [Connect an additional source with region geolayers](data-from-csv-geo-visualization.md#step9).
-1. [Add new fields to the dataset](data-from-csv-geo-visualization.md#step10).
-1. [Create a chart using the new fields](data-from-csv-geo-visualization.md#step11).
-1. [Add the new chart to the dashboard](data-from-csv-geo-visualization.md#step12).
-1. [Publish the dashboard](data-from-csv-geo-visualization.md#step13).
+1. [Create a connection to a CSV file](#step1).
+1. [Create a dataset and configure its fields](#step2).
+1. [Create your first chart: a heat map](#step3).
+1. [Create your second chart: a bar chart](#step4).
+1. [Create line charts](#step5).
+1. [Create a dashboard](#step6).
+1. [Add charts to the dashboard](#step7).
+1. [Add selectors and create a dashboard](#step8).
+1. [Connect an additional source with region geolayers](#step9).
+1. [Add new fields to the dataset](#step10).
+1. [Create a chart using the new fields](#step11).
+1. [Add the new chart to the dashboard](#step12).
+1. [Publish the dashboard](#step13).
 
 ## Before you start {#before-you-begin}
 

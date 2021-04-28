@@ -16,9 +16,9 @@ You can find instructions for creating a ClickHouse cluster in the [Managed Serv
 To visualize the data, follow these steps:
 
 1. [Before you start](#before-you-begin).
-1. [Create a connection and a standard dashboard](data-from-metrica-logsapi-visualization#step1).
-1. [Edit the standard dashboard](data-from-metrica-logsapi-visualization#step2).
-1. [Edit the chart](data-from-metrica-logsapi-visualization#step3).
+1. [Create a connection and a standard dashboard](#step1).
+1. [Edit the standard dashboard](#step2).
+1. [Edit the chart](#step3).
 
 ## Before you start {#before-you-begin}
 

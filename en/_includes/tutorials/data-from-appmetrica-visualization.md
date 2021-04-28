@@ -7,8 +7,8 @@ If you don't have any apps available, then before performing this scenario, [add
 To visualize data:
 
 1. [Before you start](#before-you-begin).
-1. [Create a connection and standard dashboard](data-from-appmetrica-visualization.md#create-dashboard).
-1. [Edit the standard dashboard](data-from-appmetrica-visualization.md#edit-dashboard).
+1. [Create a connection and standard dashboard](#create-dashboard).
+1. [Edit the standard dashboard](#edit-dashboard).
 
 ## Before you start {#before-you-begin}
 
@@ -18,7 +18,7 @@ To visualize data:
 
 {% note warning %}
 
-This step is available to users who have an app in AppMetrica. If you don't have any apps, open the standard **AppMetrica dashboard** and go to the [next step](data-from-appmetrica-visualization.md#edit-dashboard).
+This step is available to users who have an app in AppMetrica. If you don't have any apps, open the standard **AppMetrica dashboard** and go to the [next step](#edit-dashboard).
 
 {% endnote %}
 
