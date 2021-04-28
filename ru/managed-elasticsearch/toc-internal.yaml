@@ -47,7 +47,7 @@ items:
     href: security/index.md
   - name: Ресурсы и квоты
     href: quotas.md
-  - name: Справочник API
+  - name: Справочник API (англ.)
     items:
-      - name: Аутентификация в API
+      - name: Authentication
         href: api-ref/authentication.md

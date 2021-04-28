@@ -27,15 +27,15 @@ items:
         href: concepts/glossary.md
       - name: Поддержка глоссариев
         href: concepts/glossary-supported-pairs.md
-  - name: Справочник API
+  - name: Справочник API (англ.)
     items:
-      - name: Аутентификация в API
+      - name: Authentication
         href: api-ref/authentication.md
       - name: gRPC
         items: null
         include:
           repo: docs
-          path: ru/_api-ref-grpc/translate/api-ref/toc.yaml
+          path: en/_api-ref-grpc/translate/api-ref/toc.yaml
       - name: REST
         items:
           - name: v2
@@ -46,7 +46,7 @@ items:
                 href: api-ref/support-headers.md
             include:
               repo: docs
-              path: ru/_api-ref/ai/translate/toc.yaml
+              path: en/_api-ref/ai/translate/toc.yaml
           - name: v1 (DEPRECATED)
             items:
               - name: Обзор

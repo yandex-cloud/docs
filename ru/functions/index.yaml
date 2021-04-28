@@ -43,10 +43,10 @@ links:
   - title: C#
     description: Разработка функций на языке C#
     href: lang/csharp/
-  - title: Справочник API Functions
+  - title: Справочник API Functions (англ.)
     description: Описание методов HTTP API
     href: functions/api-ref/
-  - title: Справочник API Triggers
+  - title: Справочник API Triggers (англ.)
     description: Описание методов HTTP API
     href: triggers/api-ref/
   - title: Квоты и лимиты

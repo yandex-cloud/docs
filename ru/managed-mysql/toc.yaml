@@ -73,20 +73,20 @@ items:
         items:
           - name: До 1 февраля 2020 года
             href: pricing-archive/pricing-01022020.md
-  - name: Справочник API
+  - name: Справочник API (англ.)
     items:
-      - name: Аутентификация в API
+      - name: Authentication
         href: api-ref/authentication.md
       - name: gRPC
         items: null
         include:
           repo: docs
-          path: ru/_api-ref-grpc/managed-mysql/api-ref/toc.yaml
+          path: en/_api-ref-grpc/managed-mysql/api-ref/toc.yaml
       - name: REST
         items: null
         include:
           repo: docs
-          path: ru/_api-ref/mdb/mysql/toc.yaml
+          path: en/_api-ref/mdb/mysql/toc.yaml
   - name: Вопросы и ответы
     items:
       - name: Общие вопросы

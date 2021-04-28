@@ -35,7 +35,7 @@ items:
     href: concepts/ivr-integration.md
   - name: Использование API
     items:
-      - name: Аутентификация в API
+      - name: Authentication
         href: concepts/auth.md
       - name: Формат ответа
         href: concepts/response.md

@@ -57,18 +57,18 @@ items:
     href: quotas.md
   - name: Справочник gRPC API
     items:
-      - name: Аутентификация в API
+      - name: Authentication
         href: api-ref/gRPC/authentication.md
     include:
       repo: docs
-      path: ru/_api-ref-grpc/managed-mysql/api-ref/toc.yaml
+      path: en/_api-ref-grpc/managed-mysql/api-ref/toc.yaml
   - name: Справочник REST API
     items:
-      - name: Аутентификация в API
+      - name: Authentication
         href: api-ref/REST/authentication.md
     include:
       repo: docs
-      path: ru/_api-ref/mdb/mysql/toc.yaml
+      path: en/_api-ref/mdb/mysql/toc.yaml
   - name: Вопросы и ответы
     items:
       - name: Общие вопросы

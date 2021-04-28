@@ -26,7 +26,7 @@ links:
   - title: Синтез речи
     description: Узнайте, как преобразуется текст в речь
     href: tts/
-  - title: Аутентификация в API
+  - title: Authentication
     description: Получите токен авторизации и используйте его в запросах
     href: concepts/auth
   - title: Формат ответа

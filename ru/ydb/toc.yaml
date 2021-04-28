@@ -289,7 +289,7 @@ items:
   - name: HTTP API, совместимый с Amazon DynamoDB
     when: audience == "external"
     items:
-      - name: Справочник API
+      - name: Справочник API (англ.)
         items:
           - name: Все методы
             href: docapi/api-ref/index.md

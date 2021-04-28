@@ -231,7 +231,7 @@ items:
     items: null
     include:
       repo: docs
-      path: ru/_api-ref/datalens/toc.yaml
+      path: en/_api-ref/datalens/toc.yaml
   - name: ChartEditor
     when: audience == "internal"
     items:

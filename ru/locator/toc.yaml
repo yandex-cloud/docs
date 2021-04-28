@@ -12,12 +12,12 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
-  - name: Справочник API
+  - name: Справочник API (англ.)
     items:
-      - name: Аутентификация в API
+      - name: Authentication
         href: api-ref/authentication.md
       - name: Обработка ошибок
         href: api-ref/errors-handling.md
     include:
       repo: docs
-      path: ru/_api-ref/locator/toc.yaml
+      path: en/_api-ref/locator/toc.yaml

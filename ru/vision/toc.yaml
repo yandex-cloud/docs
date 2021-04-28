@@ -52,15 +52,15 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
-  - name: Справочник API
+  - name: Справочник API (англ.)
     items:
-      - name: Аутентификация в API
+      - name: Authentication
         href: api-ref/authentication.md
       - name: gRPC
         items: null
         include:
           repo: docs
-          path: ru/_api-ref-grpc/vision/api-ref/toc.yaml
+          path: en/_api-ref-grpc/vision/api-ref/toc.yaml
       - name: REST
         items:
           - name: Обработка ошибок
@@ -69,6 +69,6 @@ items:
             href: api-ref/support-headers.md
         include:
           repo: docs
-          path: ru/_api-ref/ai/vision/toc.yaml
+          path: en/_api-ref/ai/vision/toc.yaml
   - name: Вопросы и ответы
     href: qa/index.md

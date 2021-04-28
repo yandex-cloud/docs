@@ -4,9 +4,9 @@ href: index.yaml
 items:
   - name: Принцип работы
     href: overview.md
-  - name: Аутентификация в API
+  - name: Authentication
     href: authentication.md
-  - name: Справочник API
+  - name: Справочник API (англ.)
     items:
       - name: Обзор
         href: api-ref/index.md

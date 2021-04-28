@@ -92,8 +92,8 @@ items:
     href: security/index.md
   - name: Справочник функций
     items:
-      - name: Аутентификация в API
+      - name: Authentication
         href: api-ref/authentication.md
     include:
       repo: docs
-      path: ru/_api-ref/datalens/toc.yaml
+      path: en/_api-ref/datalens/toc.yaml

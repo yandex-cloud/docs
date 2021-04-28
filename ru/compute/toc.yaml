@@ -289,20 +289,20 @@ items:
             href: pricing-archive/pricing-01032019.md
           - name: С 1 марта до 1 мая 2019 года
             href: pricing-archive/pricing-30042019.md
-  - name: Справочник API
+  - name: Справочник API (англ.)
     items:
-      - name: Аутентификация в API
+      - name: Authentication
         href: api-ref/authentication.md
       - name: gRPC
         items: null
         include:
           repo: docs
-          path: ru/_api-ref-grpc/compute/api-ref/toc.yaml
+          path: en/_api-ref-grpc/compute/api-ref/toc.yaml
       - name: REST
         items: null
         include:
           repo: docs
-          path: ru/_api-ref/compute/toc.yaml
+          path: en/_api-ref/compute/toc.yaml
   - name: Вопросы и ответы
     items:
       - name: Общие вопросы

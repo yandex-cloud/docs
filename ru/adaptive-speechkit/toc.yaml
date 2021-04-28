@@ -5,12 +5,12 @@ editable: false
 items:
 - name: Синтез переменных
   href: adaptive.md
-- name: Справочник API
+- name: Справочник API (англ.)
   items:
-    - name: Аутентификация в API
+    - name: Authentication
       href: api-ref/authentication.md
     - name: GRPC
       items: null
       include:
         repo: docs
-        path: ru/_api-ref-grpc/adaptive-speechkit/adaptive/toc.yaml
+        path: en/_api-ref-grpc/adaptive-speechkit/adaptive/toc.yaml

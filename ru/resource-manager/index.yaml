@@ -19,7 +19,7 @@ links:
   - title: Концепции
     description: Узнайте про ресурсную модель Yandex.Cloud
     href: concepts/resources-hierarchy
-  - title: Справочник API
+  - title: Справочник API (англ.)
     description: Описание методов HTTP API
     href: api-ref/
   - title: Квоты и лимиты
