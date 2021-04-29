@@ -363,7 +363,7 @@ items:
 #  items:
 #    - name: Оплата
 #      href: payment.md
-- name: Справочник API (англ.)
+- name: Справочник API
   items: null
   include:
     repo: docs

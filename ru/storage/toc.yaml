@@ -125,7 +125,7 @@ items:
         href: s3/index.md
       - name: Подписывание запросов
         href: s3/signing-requests.md
-      - name: Справочник API (англ.)
+      - name: Справочник API
         items:
           - name: Все сервисы и методы
             href: s3/api-ref/index.md
