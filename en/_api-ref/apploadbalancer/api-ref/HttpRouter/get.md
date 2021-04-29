@@ -153,7 +153,8 @@ httpRouterId | Required.
         }
       ]
     }
-  ]
+  ],
+  "createdAt": "string"
 }
 ```
 
@@ -221,3 +222,4 @@ virtualHosts[].<br>modifyResponseHeaders[].<br>append | **string** <br>`virtualH
 virtualHosts[].<br>modifyResponseHeaders[].<br>replace | **string** <br>`virtualHosts[].modifyResponseHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`<br><br><p>New value for a header.</p> 
 virtualHosts[].<br>modifyResponseHeaders[].<br>remove | **boolean** (boolean) <br>`virtualHosts[].modifyResponseHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`<br><br><p>Remove the header.</p> 
 virtualHosts[].<br>modifyResponseHeaders[].<br>rename | **string** <br>`virtualHosts[].modifyResponseHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`<br><br><p>New name for a header.</p> 
+createdAt | **string** (date-time)<br><p>Creation timestamp for the http router.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 

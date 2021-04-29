@@ -1,0 +1,1244 @@
+openapi: "3.0"
+info:
+  title: Yandex Organization Management SAML API
+  description: This API reference is organized by resource. Actions are performed
+    by sending HTTP requests to resource URLs or making RPC calls. For more information
+    about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
+  version: v1
+  x-y-docUri: api-ref
+  x-y-baseUrl: https://organization-manager.api.cloud.yandex.net
+paths:
+  /organization-manager/v1/saml/certificates/{certificateId}:
+    get:
+      tags:
+      - Certificate
+      summary: Returns the specified certificate.
+      description: To get the list of available certificates, make a [list](/docs/organization-manager/api-ref/Certificate/list)
+        request.
+      operationId: CertificateGet
+      parameters:
+      - name: certificateId
+        in: path
+        description: |-
+          ID of the certificate to return.
+          To get the certificate ID, make a [list](/docs/organization-manager/api-ref/Certificate/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Certificate'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - Certificate
+      summary: Deletes the specified certificate.
+      operationId: CertificateDelete
+      parameters:
+      - name: certificateId
+        in: path
+        description: |-
+          ID of the certificate to delete.
+          To get the certificate ID, make a [list](/docs/organization-manager/api-ref/Certificate/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteCertificateMetadata'
+      x-y-operation-response: Empty
+    patch:
+      tags:
+      - Certificate
+      summary: Updates the specified certificate.
+      operationId: CertificateUpdate
+      parameters:
+      - name: certificateId
+        in: path
+        description: |-
+          ID of the certificate to update.
+          To get the certificate ID, make a [list](/docs/organization-manager/api-ref/Certificate/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateCertificateRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateCertificateMetadata'
+      x-y-operation-response: '[Certificate](/docs/organization-manager/api-ref/Certificate#representation)'
+  /organization-manager/v1/saml/certificates:
+    get:
+      tags:
+      - Certificate
+      summary: Retrieves the list of certificates in the specified federation.
+      operationId: CertificateList
+      parameters:
+      - name: federationId
+        in: query
+        description: |-
+          Required.
+          ID of the federation to list certificates in.
+          To get the federation ID make a [list](/docs/organization-manager/api-ref/Federation/list) request.
+
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/organization-manager/api-ref/Certificate/list#query_params), the service returns a [nextPageToken](/docs/organization-manager/api-ref/Certificate/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
+
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/organization-manager/api-ref/Certificate/list#query_params)
+          to the [nextPageToken](/docs/organization-manager/api-ref/Certificate/list#responses)
+          returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          A filter expression that filters resources listed in the response.
+          The expression must specify:
+          1. The field name. Currently you can use filtering only on [Certificate.name](/docs/organization-manager/api-ref/Certificate#representation) field.
+          2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
+          3. The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.
+
+          The maximum string length in characters is 1000.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListCertificatesResponse'
+      x-y-navtitle: list
+    post:
+      tags:
+      - Certificate
+      summary: Creates a certificate in the specified federation.
+      operationId: CertificateCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateCertificateRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateCertificateMetadata'
+      x-y-operation-response: '[Certificate](/docs/organization-manager/api-ref/Certificate#representation)'
+  /organization-manager/v1/saml/certificates/{certificateId}/operations:
+    get:
+      tags:
+      - Certificate
+      summary: Lists operations for the specified certificate.
+      operationId: CertificateListOperations
+      parameters:
+      - name: certificateId
+        in: path
+        description: |-
+          ID of the certificate to list operations for.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/organization-manager/api-ref/Certificate/listOperations#query_params), the service returns a [nextPageToken](/docs/organization-manager/api-ref/Certificate/listOperations#responses)
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
+
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/organization-manager/api-ref/Certificate/listOperations#query_params)
+          to the [nextPageToken](/docs/organization-manager/api-ref/Certificate/listOperations#responses)
+          returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListCertificateOperationsResponse'
+      x-y-navtitle: listOperations
+  /organization-manager/v1/saml/federations/{federationId}:
+    get:
+      tags:
+      - Federation
+      summary: Returns the specified federation.
+      description: To get the list of available federations, make a [list](/docs/organization-manager/api-ref/Federation/list)
+        request.
+      operationId: FederationGet
+      parameters:
+      - name: federationId
+        in: path
+        description: |-
+          ID of the federation to return.
+          To get the federation ID, make a [list](/docs/organization-manager/api-ref/Federation/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Federation'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - Federation
+      summary: Deletes the specified federation.
+      operationId: FederationDelete
+      parameters:
+      - name: federationId
+        in: path
+        description: |-
+          ID of the federation to delete.
+          To get the federation ID, make a [list](/docs/organization-manager/api-ref/Federation/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteFederationMetadata'
+      x-y-operation-response: Empty
+    patch:
+      tags:
+      - Federation
+      summary: Updates the specified federation.
+      operationId: FederationUpdate
+      parameters:
+      - name: federationId
+        in: path
+        description: |-
+          ID of the federation to update.
+          To get the federation ID, make a [list](/docs/organization-manager/api-ref/Federation/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateFederationRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateFederationMetadata'
+      x-y-operation-response: '[Federation](/docs/organization-manager/api-ref/Federation#representation)'
+  /organization-manager/v1/saml/federations:
+    get:
+      tags:
+      - Federation
+      summary: Retrieves the list of federations in the specified folder.
+      operationId: FederationList
+      parameters:
+      - name: organizationId
+        in: query
+        description: |-
+          Required.
+          ID of the organization to list federations in.
+          To get the organization ID, make a [list](/docs/organization-manager/api-ref/Organization/list) request.
+
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/organization-manager/api-ref/Federation/list#query_params),
+          the service returns a [nextPageToken](/docs/organization-manager/api-ref/Federation/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100
+
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/organization-manager/api-ref/Federation/list#query_params)
+          to the [nextPageToken](/docs/organization-manager/api-ref/Federation/list#responses)
+          returned by a previous list request.
+
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          A filter expression that filters resources listed in the response.
+          The expression must specify:
+          1. The field name. Currently you can use filtering only on the [Federation.name](/docs/organization-manager/api-ref/Federation#representation) field.
+          2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
+          3. The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.
+
+          The maximum string length in characters is 1000.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListFederationsResponse'
+      x-y-navtitle: list
+    post:
+      tags:
+      - Federation
+      summary: Creates a federation in the specified folder.
+      operationId: FederationCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateFederationRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateFederationMetadata'
+      x-y-operation-response: '[Federation](/docs/organization-manager/api-ref/Federation#representation)'
+  /organization-manager/v1/saml/federations/{federationId}:addUserAccounts:
+    post:
+      tags:
+      - Federation
+      summary: Adds users to the specified federation.
+      operationId: FederationAddUserAccounts
+      parameters:
+      - name: federationId
+        in: path
+        description: |-
+          ID of the federation to add users.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddFederatedUserAccountsRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: addUserAccounts
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/AddFederatedUserAccountsMetadata'
+      x-y-operation-response: '`AddFederatedUserAccountsResponse`'
+  /organization-manager/v1/saml/federations/{federationId}:listUserAccounts:
+    get:
+      tags:
+      - Federation
+      summary: Lists users for the specified federation.
+      operationId: FederationListUserAccounts
+      parameters:
+      - name: federationId
+        in: path
+        description: |-
+          Required.
+          ID of the federation to list user accounts for.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/organization-manager/api-ref/Federation/listUserAccounts#query_params), the service returns a [nextPageToken](/docs/organization-manager/api-ref/Federation/listUserAccounts#responses)
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
+
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/organization-manager/api-ref/Federation/listUserAccounts#query_params)
+          to the [nextPageToken](/docs/organization-manager/api-ref/Federation/listUserAccounts#responses)
+          returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListFederatedUserAccountsResponse'
+      x-y-navtitle: listUserAccounts
+  /organization-manager/v1/saml/federations/{federationId}/operations:
+    get:
+      tags:
+      - Federation
+      summary: Lists operations for the specified federation.
+      operationId: FederationListOperations
+      parameters:
+      - name: federationId
+        in: path
+        description: |-
+          ID of the federation to list operations for.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/organization-manager/api-ref/Federation/listOperations#query_params), the service returns a [nextPageToken](/docs/organization-manager/api-ref/Federation/listOperations#responses)
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
+
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/organization-manager/api-ref/Federation/listOperations#query_params)
+          to the [nextPageToken](/docs/organization-manager/api-ref/Federation/listOperations#responses)
+          returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListFederationOperationsResponse'
+      x-y-navtitle: listOperations
+components:
+  schemas:
+    AddFederatedUserAccountsMetadata:
+      type: object
+      properties:
+        federationId:
+          description: ID of the federation that is being altered.
+          type: string
+    AddFederatedUserAccountsRequest:
+      type: object
+      properties:
+        nameIds:
+          description: |-
+            Name IDs returned by the Identity Provider (IdP) on successful authentication.
+            These may be UPNs or user email addresses.
+
+            The maximum string length in characters for each value is 1000.
+          type: array
+          items:
+            type: string
+    AddFederatedUserAccountsResponse:
+      type: object
+      properties:
+        userAccounts:
+          description: List of users created by [addUserAccounts](/docs/organization-manager/api-ref/Federation/addUserAccounts)
+            request.
+          type: array
+          items:
+            $ref: '#/components/schemas/UserAccount'
+    BindingType:
+      description: |2-
+         - POST: HTTP POST binding.
+         - REDIRECT: HTTP redirect binding.
+         - ARTIFACT: HTTP artifact binding.
+      type: string
+      enum:
+      - POST
+      - REDIRECT
+      - ARTIFACT
+    Certificate:
+      description: A certificate.
+      type: object
+      properties:
+        id:
+          description: |-
+            Required.
+            ID of the certificate.
+
+            The maximum string length in characters is 50.
+          type: string
+        federationId:
+          description: |-
+            Required.
+            ID of the federation that the certificate belongs to.
+
+            The maximum string length in characters is 50.
+          type: string
+        name:
+          description: |-
+            Name of the certificate.
+
+            Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+          type: string
+        description:
+          description: |-
+            Description of the certificate.
+
+            The maximum string length in characters is 256.
+          type: string
+        createdAt:
+          description: |-
+            Creation timestamp.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        data:
+          description: |-
+            Required.
+            Certificate data in PEM format.
+
+            The maximum string length in characters is 32000.
+          type: string
+    CreateCertificateMetadata:
+      type: object
+      properties:
+        certificateId:
+          description: ID of the certificate that is being created.
+          type: string
+    CreateCertificateRequest:
+      type: object
+      properties:
+        federationId:
+          description: |-
+            ID of the federation to add new certificate.
+            To get the federation ID make a [list](/docs/organization-manager/api-ref/Federation/list) request.
+
+            The maximum string length in characters is 50.
+          type: string
+        name:
+          description: |-
+            Name of the certificate.
+            The name must be unique within the federation.
+
+            Value must match the regular expression `` [a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
+          type: string
+        description:
+          description: |-
+            Description of the certificate.
+
+            The maximum string length in characters is 256.
+          type: string
+        data:
+          description: |-
+            Certificate data in PEM format.
+
+            The maximum string length in characters is 32000.
+          type: string
+    CreateFederationMetadata:
+      type: object
+      properties:
+        federationId:
+          description: ID of the federation that is being created.
+          type: string
+    CreateFederationRequest:
+      type: object
+      properties:
+        organizationId:
+          description: |-
+            ID of the organization to create a federation in.
+            To get the organization ID, make a [list](/docs/organization-manager/api-ref/Organization/list) request.
+
+            The maximum string length in characters is 50.
+          type: string
+        name:
+          description: |-
+            Name of the federation.
+            The name must be unique within the organization.
+
+            Value must match the regular expression `` [a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
+          type: string
+        description:
+          description: |-
+            Description of the federation.
+
+            The maximum string length in characters is 256.
+          type: string
+        cookieMaxAge:
+          description: |-
+            Browser cookie lifetime in seconds.
+            If the cookie is still valid, the management console
+            authenticates the user immediately and redirects them to the home page.
+            The default value is `8h`.
+
+            Acceptable values are 600 seconds to 43200 seconds, inclusive.
+          type: string
+        autoCreateAccountOnLogin:
+          description: |-
+            Add new users automatically on successful authentication.
+            The user becomes member of the organization automatically,
+            but you need to grant other roles to them.
+
+            If the value is `false`, users who aren't added to the cloud
+            can't log in, even if they have authenticated on your server.
+          type: boolean
+          format: boolean
+        issuer:
+          description: |-
+            Required.
+            ID of the IdP server to be used for authentication.
+            The IdP server also responds to IAM with this ID after the user authenticates.
+
+            The maximum string length in characters is 8000.
+          type: string
+        ssoBinding:
+          $ref: '#/components/schemas/BindingType_in_CreateFederationRequest_ssoBinding'
+        ssoUrl:
+          description: |-
+            Required.
+            Single sign-on endpoint URL.
+            Specify the link to the IdP login page here.
+
+            The maximum string length in characters is 8000.
+          type: string
+        securitySettings:
+          $ref: '#/components/schemas/FederationSecuritySettings_in_CreateFederationRequest_securitySettings'
+        caseInsensitiveNameIds:
+          description: Use case insensitive Name IDs.
+          type: boolean
+          format: boolean
+    DeleteCertificateMetadata:
+      type: object
+      properties:
+        certificateId:
+          description: ID of the certificate that is being deleted.
+          type: string
+    DeleteFederationMetadata:
+      type: object
+      properties:
+        federationId:
+          description: ID of the federation that is being deleted.
+          type: string
+    Empty:
+      description: Empty JSON object `` {} ``.
+      type: object
+      maxProperties: 0
+    Federation:
+      description: |-
+        A federation.
+        For more information, see [SAML-compatible identity federations](/docs/iam/concepts/users/identity-federations).
+      type: object
+      properties:
+        id:
+          description: |-
+            Required.
+            ID of the federation.
+
+            The maximum string length in characters is 50.
+          type: string
+        organizationId:
+          description: ID of the organization that the federation belongs to.
+          type: string
+        name:
+          description: |-
+            Required.
+            Name of the federation.
+
+            Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+          type: string
+        description:
+          description: |-
+            Description of the federation.
+
+            The maximum string length in characters is 256.
+          type: string
+        createdAt:
+          description: |-
+            Creation timestamp.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        cookieMaxAge:
+          description: |-
+            Browser cookie lifetime in seconds.
+            If the cookie is still valid, the management console
+            authenticates the user immediately and redirects them to the home page.
+
+            Acceptable values are 600 seconds to 43200 seconds, inclusive.
+          type: string
+        autoCreateAccountOnLogin:
+          description: |-
+            Add new users automatically on successful authentication.
+            The user becomes member of the organization automatically,
+            but you need to grant other roles to them.
+
+            If the value is `false`, users who aren't added to the cloud
+            can't log in, even if they have authenticated on your server.
+          type: boolean
+          format: boolean
+        issuer:
+          description: |-
+            Required.
+            ID of the IdP server to be used for authentication.
+            The IdP server also responds to IAM with this ID after the user authenticates.
+
+            The maximum string length in characters is 8000.
+          type: string
+        ssoBinding:
+          $ref: '#/components/schemas/BindingType_in_Federation_ssoBinding'
+        ssoUrl:
+          description: |-
+            Required.
+            Single sign-on endpoint URL.
+            Specify the link to the IdP login page here.
+
+            The maximum string length in characters is 8000.
+          type: string
+        securitySettings:
+          $ref: '#/components/schemas/FederationSecuritySettings_in_Federation_securitySettings'
+        caseInsensitiveNameIds:
+          description: Use case insensitive Name IDs.
+          type: boolean
+          format: boolean
+    FederationSecuritySettings:
+      description: Federation security settings.
+      type: object
+      properties:
+        encryptedAssertions:
+          description: Enable encrypted assertions.
+          type: boolean
+          format: boolean
+    FieldMask:
+      description: |-
+        A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
+
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
+        Fields specified in the request will be updated to provided values.
+        The rest of the fields will be reset to the default.
+      type: string
+    ListCertificateOperationsResponse:
+      type: object
+      properties:
+        operations:
+          description: List of operations for the specified certificate.
+          type: array
+          items:
+            $ref: '#/components/schemas/Operation'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/organization-manager/api-ref/Certificate/listOperations#query_params), use the [nextPageToken](/docs/organization-manager/api-ref/Certificate/listOperations#responses) as the value
+            for the [pageToken](/docs/organization-manager/api-ref/Certificate/listOperations#query_params) query parameter in the next list request.
+            Each subsequent list request will have its own [nextPageToken](/docs/organization-manager/api-ref/Certificate/listOperations#responses) to continue paging through the results.
+          type: string
+    ListCertificatesResponse:
+      type: object
+      properties:
+        certificates:
+          description: List of certificates.
+          type: array
+          items:
+            $ref: '#/components/schemas/Certificate'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/organization-manager/api-ref/Certificate/list#query_params), use
+            the [nextPageToken](/docs/organization-manager/api-ref/Certificate/list#responses) as the value
+            for the [pageToken](/docs/organization-manager/api-ref/Certificate/list#query_params) query parameter
+            in the next list request. Each subsequent list request will have its own
+            [nextPageToken](/docs/organization-manager/api-ref/Certificate/list#responses) to continue paging through the results.
+          type: string
+    ListFederatedUserAccountsResponse:
+      type: object
+      properties:
+        userAccounts:
+          description: List of user accounts for the specified federation.
+          type: array
+          items:
+            $ref: '#/components/schemas/UserAccount'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/organization-manager/api-ref/Federation/listUserAccounts#query_params), use the [nextPageToken](/docs/organization-manager/api-ref/Federation/listUserAccounts#responses) as the value
+            for the [pageToken](/docs/organization-manager/api-ref/Federation/listUserAccounts#query_params) query parameter in the next list request.
+            Each subsequent list request will have its own [nextPageToken](/docs/organization-manager/api-ref/Federation/listUserAccounts#responses) to continue paging through the results.
+          type: string
+    ListFederationOperationsResponse:
+      type: object
+      properties:
+        operations:
+          description: List of operations for the specified federation.
+          type: array
+          items:
+            $ref: '#/components/schemas/Operation'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/organization-manager/api-ref/Federation/listOperations#query_params), use the [nextPageToken](/docs/organization-manager/api-ref/Federation/listOperations#responses) as the value
+            for the [pageToken](/docs/organization-manager/api-ref/Federation/listOperations#query_params) query parameter in the next list request.
+            Each subsequent list request will have its own [nextPageToken](/docs/organization-manager/api-ref/Federation/listOperations#responses) to continue paging through the results.
+          type: string
+    ListFederationsResponse:
+      type: object
+      properties:
+        federations:
+          description: List of federations.
+          type: array
+          items:
+            $ref: '#/components/schemas/Federation'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/organization-manager/api-ref/Federation/list#query_params), use
+            the [nextPageToken](/docs/organization-manager/api-ref/Federation/list#responses) as the value
+            for the [pageToken](/docs/organization-manager/api-ref/Federation/list#query_params) query parameter
+            in the next list request. Each subsequent list request will have its own
+            [nextPageToken](/docs/organization-manager/api-ref/Federation/list#responses) to continue paging through the results.
+          type: string
+    Operation:
+      description: An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
+      type: object
+      allOf:
+      - type: object
+        properties:
+          id:
+            description: ID of the operation.
+            type: string
+          description:
+            description: Description of the operation. 0-256 characters long.
+            type: string
+          createdAt:
+            description: |-
+              Creation timestamp.
+
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          createdBy:
+            description: ID of the user or service account who initiated the operation.
+            type: string
+          modifiedAt:
+            description: |-
+              The time when the Operation resource was last modified.
+
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          done:
+            description: |-
+              If the value is `false`, it means the operation is still in progress.
+              If `true`, the operation is completed, and either `error` or `response` is available.
+            type: boolean
+            format: boolean
+          metadata:
+            description: |-
+              Service-specific metadata associated with the operation.
+              It typically contains the ID of the target resource that the operation is performed on.
+              Any method that returns a long-running operation should document the metadata type, if any.
+            type: object
+      - title: result
+        type: object
+        maxProperties: 1
+        properties:
+          error:
+            $ref: '#/components/schemas/Status'
+            description: The error result of the operation in case of failure or cancellation.
+          response:
+            description: |-
+              The normal response of the operation in case of success.
+              If the original method returns no data on success, such as Delete,
+              the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty).
+              If the original method is the standard Create/Update,
+              the response should be the target resource of the operation.
+              Any method that returns a long-running operation should document the response type, if any.
+            type: object
+    SamlUserAccount:
+      description: |-
+        A SAML federated user.
+        For more information, see [federations](/docs/iam/concepts/users/saml-federations).
+      type: object
+      properties:
+        federationId:
+          description: |-
+            Required.
+            ID of the federation that the federation belongs to.
+
+            The maximum string length in characters is 50.
+          type: string
+        nameId:
+          description: |-
+            Required.
+            Name Id of the SAML federated user.
+            The name is unique within the federation. 1-256 characters long.
+
+            The string length in characters must be 1-256.
+          type: string
+        attributes:
+          description: Additional attributes of the SAML federated user.
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/SamlUserAccountAttribute'
+    SamlUserAccountAttribute:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            type: string
+    Status:
+      description: The error result of the operation in case of failure or cancellation.
+      type: object
+      properties:
+        code:
+          description: Error code. An enum value of [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
+          type: integer
+          format: int32
+        message:
+          description: An error message.
+          type: string
+        details:
+          description: A list of messages that carry the error details.
+          type: array
+          items:
+            type: object
+    UpdateCertificateMetadata:
+      type: object
+      properties:
+        certificateId:
+          description: ID of the certificate that is being updated.
+          type: string
+    UpdateCertificateRequest:
+      type: object
+      properties:
+        updateMask:
+          $ref: '#/components/schemas/FieldMask_in_UpdateCertificateRequest_updateMask'
+        name:
+          description: |-
+            Name of the certificate.
+            The name must be unique within the federation.
+
+            Value must match the regular expression `` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
+          type: string
+        description:
+          description: |-
+            Description of the certificate.
+
+            The maximum string length in characters is 256.
+          type: string
+        data:
+          description: |-
+            Certificate data in PEM format.
+
+            The maximum string length in characters is 32000.
+          type: string
+    UpdateFederationMetadata:
+      type: object
+      properties:
+        federationId:
+          description: ID of the federation that is being updated.
+          type: string
+    UpdateFederationRequest:
+      type: object
+      properties:
+        updateMask:
+          $ref: '#/components/schemas/FieldMask_in_UpdateFederationRequest_updateMask'
+        name:
+          description: |-
+            Name of the federation.
+            The name must be unique within the cloud.
+
+            Value must match the regular expression `` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
+          type: string
+        description:
+          description: |-
+            Description of the federation.
+
+            The maximum string length in characters is 256.
+          type: string
+        cookieMaxAge:
+          description: |-
+            Browser cookie lifetime in seconds.
+            If the cookie is still valid, the management console
+            authenticates the user immediately and redirects them to the home page.
+            The default value is `8h`.
+
+            Acceptable values are 600 seconds to 43200 seconds, inclusive.
+          type: string
+        autoCreateAccountOnLogin:
+          description: |-
+            Add new users automatically on successful authentication.
+            The user becomes member of the organization automatically,
+            but you need to grant other roles to them.
+
+            If the value is `false`, users who aren't added to the cloud
+            can't log in, even if they have authenticated on your server.
+          type: boolean
+          format: boolean
+        issuer:
+          description: |-
+            Required.
+            ID of the IdP server to be used for authentication.
+            The IdP server also responds to IAM with this ID after the user authenticates.
+
+            The maximum string length in characters is 8000.
+          type: string
+        ssoBinding:
+          $ref: '#/components/schemas/BindingType_in_UpdateFederationRequest_ssoBinding'
+        ssoUrl:
+          description: |-
+            Required.
+            Single sign-on endpoint URL.
+            Specify the link to the IdP login page here.
+
+            The maximum string length in characters is 8000.
+          type: string
+        securitySettings:
+          $ref: '#/components/schemas/FederationSecuritySettings_in_UpdateFederationRequest_securitySettings'
+        caseInsensitiveNameIds:
+          description: Use case insensitive name ids.
+          type: boolean
+          format: boolean
+    UserAccount:
+      description: Currently represents only [Yandex.Passport account](/docs/iam/concepts/#passport).
+      type: object
+      allOf:
+      - type: object
+        properties:
+          id:
+            description: ID of the user account.
+            type: string
+      - title: user_account
+        type: object
+        maxProperties: 1
+        properties:
+          yandexPassportUserAccount:
+            $ref: '#/components/schemas/YandexPassportUserAccount'
+            description: A YandexPassportUserAccount resource.
+          samlUserAccount:
+            $ref: '#/components/schemas/SamlUserAccount'
+            description: A SAML federated user.
+    YandexPassportUserAccount:
+      description: |-
+        A YandexPassportUserAccount resource.
+        For more information, see [Yandex.Passport account](/docs/iam/concepts/#passport).
+      type: object
+      properties:
+        login:
+          description: Login of the Yandex.Passport user account.
+          type: string
+        defaultEmail:
+          description: Default email of the Yandex.Passport user account.
+          type: string
+    BindingType_in_CreateFederationRequest_ssoBinding:
+      description: |-
+        Single sign-on endpoint binding type. Most Identity Providers support the `POST` binding type.
+
+        SAML Binding is a mapping of a SAML protocol message onto standard messaging
+        formats and/or communications protocols.
+
+         - POST: HTTP POST binding.
+         - REDIRECT: HTTP redirect binding.
+         - ARTIFACT: HTTP artifact binding.
+      type: string
+      enum:
+      - POST
+      - REDIRECT
+      - ARTIFACT
+    FederationSecuritySettings_in_CreateFederationRequest_securitySettings:
+      description: |-
+        Federation security settings.
+
+        Federation security settings.
+      type: object
+      properties:
+        encryptedAssertions:
+          description: Enable encrypted assertions.
+          type: boolean
+          format: boolean
+    BindingType_in_Federation_ssoBinding:
+      description: |-
+        Single sign-on endpoint binding type. Most Identity Providers support the `POST` binding type.
+
+        SAML Binding is a mapping of a SAML protocol message onto standard messaging
+        formats and/or communications protocols.
+
+         - POST: HTTP POST binding.
+         - REDIRECT: HTTP redirect binding.
+         - ARTIFACT: HTTP artifact binding.
+      type: string
+      enum:
+      - POST
+      - REDIRECT
+      - ARTIFACT
+    FederationSecuritySettings_in_Federation_securitySettings:
+      description: |-
+        Federation security settings.
+
+        Federation security settings.
+      type: object
+      properties:
+        encryptedAssertions:
+          description: Enable encrypted assertions.
+          type: boolean
+          format: boolean
+    FieldMask_in_UpdateCertificateRequest_updateMask:
+      description: |-
+        Field mask that specifies which fields of the certificate are going to be updated.
+
+        A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
+
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
+        Fields specified in the request will be updated to provided values.
+        The rest of the fields will be reset to the default.
+      type: string
+    FieldMask_in_UpdateFederationRequest_updateMask:
+      description: |-
+        Field mask that specifies which fields of the federation are going to be updated.
+
+        A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
+
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
+        Fields specified in the request will be updated to provided values.
+        The rest of the fields will be reset to the default.
+      type: string
+    BindingType_in_UpdateFederationRequest_ssoBinding:
+      description: |-
+        Single sign-on endpoint binding type. Most Identity Providers support the `POST` binding type.
+
+        SAML Binding is a mapping of a SAML protocol message onto standard messaging
+        formats and/or communications protocols.
+
+         - POST: HTTP POST binding.
+         - REDIRECT: HTTP redirect binding.
+         - ARTIFACT: HTTP artifact binding.
+      type: string
+      enum:
+      - POST
+      - REDIRECT
+      - ARTIFACT
+    FederationSecuritySettings_in_UpdateFederationRequest_securitySettings:
+      description: |-
+        Federation security settings.
+
+        Federation security settings.
+      type: object
+      properties:
+        encryptedAssertions:
+          description: Enable encrypted assertions.
+          type: boolean
+          format: boolean
+tags:
+- name: Certificate
+  description: A set of methods for managing certificates.
+- name: Federation
+  description: A set of methods for managing federations.

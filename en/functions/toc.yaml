@@ -283,7 +283,7 @@ items:
         items:
         include:
           repo: docs
-          path: en/_api-ref-grpc/functions/functions/api-ref/toc.yaml
+          path: en/_api-ref-grpc/functions/toc-functions.yaml
       - name: REST
         items:
         include:
@@ -297,7 +297,7 @@ items:
         items:
         include:
           repo: docs
-          path: en/_api-ref-grpc/functions/triggers/api-ref/toc.yaml
+          path: en/_api-ref-grpc/functions/toc-triggers.yaml
       - name: REST
         items:
         include:

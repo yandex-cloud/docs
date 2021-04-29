@@ -1,11 +1,9 @@
-openapi: '3.0'
+openapi: "3.0"
 info:
   title: Yandex Container Registry API
-  description: >-
-    This API reference is organized by resource. Actions are performed by
-    sending HTTP requests to resource URLs or making RPC calls. For more
-    information about Yandex.Cloud API architecture, see [API
-    Concepts](/docs/api-design-guide/).
+  description: This API reference is organized by resource. Actions are performed
+    by sending HTTP requests to resource URLs or making RPC calls. For more information
+    about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
   version: v1
   x-y-docUri: api-ref
   x-y-baseUrl: https://container-registry.api.cloud.yandex.net
@@ -13,131 +11,86 @@ paths:
   /container-registry/v1/images:
     get:
       tags:
-        - Image
-      summary: >-
-        Retrieves the list of Image resources in the specified registry or
+      - Image
+      summary: Retrieves the list of Image resources in the specified registry or
         repository.
       operationId: ImageList
       parameters:
-        - name: registryId
-          in: query
-          description: >-
-            ID of the registry to list Docker images in.
+      - name: registryId
+        in: query
+        description: |-
+          ID of the registry to list Docker images in.
 
+          [registryId](/docs/container-registry/api-ref/Image/list#query_params) is ignored if a [repositoryName](/docs/container-registry/api-ref/Image/list#query_params) is specified in the request.
 
-            [registryId](/docs/container-registry/api-ref/Image/list#query_params)
-            is ignored if a
-            [repositoryName](/docs/container-registry/api-ref/Image/list#query_params)
-            is specified in the request.
+          To get the registry ID use a [list](/docs/container-registry/api-ref/Registry/list) request.
 
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      - name: repositoryName
+        in: query
+        description: |-
+          Name of the repository to list Docker images in.
 
-            To get the registry ID use a
-            [list](/docs/container-registry/api-ref/Registry/list) request.
+          To get the repository name use a [list](/docs/container-registry/api-ref/Repository/list) request.
 
+          Value must match the regular expression `` |[a-z0-9]+(?:[._-][a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))* ``.
+        schema:
+          type: string
+      - name: folderId
+        in: query
+        description: |-
+          ID of the folder to list Docker images in.
 
-            The maximum string length in characters is 50.
-          schema:
-            type: string
-        - name: repositoryName
-          in: query
-          description: >-
-            Name of the repository to list Docker images in.
+          [folderId](/docs/container-registry/api-ref/Image/list#query_params) is ignored if a [repositoryName](/docs/container-registry/api-ref/Image/list#query_params) or a [registryId](/docs/container-registry/api-ref/Image/list#query_params) are specified in the request.
 
+          To get the folder ID use a [list](/docs/resource-manager/api-ref/Folder/list) request.
 
-            To get the repository name use a
-            [list](/docs/container-registry/api-ref/Repository/list) request.
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/container-registry/api-ref/Image/list#query_params),
+          the service returns a [nextPageToken](/docs/container-registry/api-ref/Image/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
 
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/container-registry/api-ref/Image/list#query_params) to the
+          [nextPageToken](/docs/container-registry/api-ref/Image/list#responses) returned by a previous list request.
 
-            Value must match the regular expression ``
-            |[a-z0-9]+(?:[._-][a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))* ``.
-          schema:
-            type: string
-        - name: folderId
-          in: query
-          description: >-
-            ID of the folder to list Docker images in.
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          A filter expression that filters resources listed in the response.
+          The expression must specify:
+          1. The field name. Currently you can use filtering only on [Image.name](/docs/container-registry/api-ref/Image#representation) field.
+          2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
+          3. The value. Must be a maximum of 256 characters and match the regular expression `[a-z0-9]+(?:[._-][a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))`.
 
-
-            [folderId](/docs/container-registry/api-ref/Image/list#query_params)
-            is ignored if a
-            [repositoryName](/docs/container-registry/api-ref/Image/list#query_params)
-            or a
-            [registryId](/docs/container-registry/api-ref/Image/list#query_params)
-            are specified in the request.
-
-
-            To get the folder ID use a
-            [list](/docs/resource-manager/api-ref/Folder/list) request.
-
-
-            The maximum string length in characters is 50.
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            The maximum number of results per page to return. If the number of
-            available
-
-            results is larger than
-            [pageSize](/docs/container-registry/api-ref/Image/list#query_params),
-
-            the service returns a
-            [nextPageToken](/docs/container-registry/api-ref/Image/list#responses)
-
-            that can be used to get the next page of results in subsequent list
-            requests.
-
-            Default value: 100.
-
-
-            The maximum value is 1000.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Page token. To get the next page of results, set
-            [pageToken](/docs/container-registry/api-ref/Image/list#query_params)
-            to the
-
-            [nextPageToken](/docs/container-registry/api-ref/Image/list#responses)
-            returned by a previous list request.
-
-
-            The maximum string length in characters is 100.
-          schema:
-            type: string
-        - name: filter
-          in: query
-          description: >-
-            A filter expression that filters resources listed in the response.
-
-            The expression must specify:
-
-            1. The field name. Currently you can use filtering only on
-            [Image.name](/docs/container-registry/api-ref/Image#representation)
-            field.
-
-            2. An operator. Can be either `=` or `!=` for single values, `IN` or
-            `NOT IN` for lists of values.
-
-            3. The value. Must be a maximum of 256 characters and match the
-            regular expression
-            `[a-z0-9]+(?:[._-][a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))`.
-
-
-            The maximum string length in characters is 1000.
-          schema:
-            type: string
-        - name: orderBy
-          in: query
-          description: The maximum string length in characters is 100.
-          schema:
-            type: string
+          The maximum string length in characters is 1000.
+        schema:
+          type: string
+      - name: orderBy
+        in: query
+        description: The maximum string length in characters is 100.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -147,31 +100,26 @@ paths:
   /container-registry/v1/images/{imageId}:
     get:
       tags:
-        - Image
+      - Image
       summary: Returns the specified Image resource.
-      description: >-
-        To get the list of available Image resources, make a
-        [list](/docs/container-registry/api-ref/Image/list) request.
+      description: To get the list of available Image resources, make a [list](/docs/container-registry/api-ref/Image/list)
+        request.
       operationId: ImageGet
       parameters:
-        - name: imageId
-          in: path
-          description: >-
-            Required.
+      - name: imageId
+        in: path
+        description: |-
+          Required.
+          ID of the Docker image resource to return.
 
-            ID of the Docker image resource to return.
+          To get the Docker image ID use a [list](/docs/container-registry/api-ref/Image/list) request.
 
-
-            To get the Docker image ID use a
-            [list](/docs/container-registry/api-ref/Image/list) request.
-
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -180,28 +128,24 @@ paths:
       x-y-navtitle: get
     delete:
       tags:
-        - Image
+      - Image
       summary: Deletes the specified Docker image.
       operationId: ImageDelete
       parameters:
-        - name: imageId
-          in: path
-          description: >-
-            Required.
+      - name: imageId
+        in: path
+        description: |-
+          Required.
+          ID of the Docker image to delete.
 
-            ID of the Docker image to delete.
+          To get Docker image ID use a [list](/docs/container-registry/api-ref/Image/list) request.
 
-
-            To get Docker image ID use a
-            [list](/docs/container-registry/api-ref/Image/list) request.
-
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -214,31 +158,26 @@ paths:
   /container-registry/v1/registries/{registryId}:
     get:
       tags:
-        - Registry
+      - Registry
       summary: Returns the specified Registry resource.
-      description: >-
-        To get the list of available Registry resources, make a
-        [list](/docs/container-registry/api-ref/Registry/list) request.
+      description: To get the list of available Registry resources, make a [list](/docs/container-registry/api-ref/Registry/list)
+        request.
       operationId: RegistryGet
       parameters:
-        - name: registryId
-          in: path
-          description: >-
-            Required.
+      - name: registryId
+        in: path
+        description: |-
+          Required.
+          ID of the Registry resource to return.
 
-            ID of the Registry resource to return.
+          To get the registry ID use a [list](/docs/container-registry/api-ref/Registry/list) request.
 
-
-            To get the registry ID use a
-            [list](/docs/container-registry/api-ref/Registry/list) request.
-
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -247,22 +186,22 @@ paths:
       x-y-navtitle: get
     delete:
       tags:
-        - Registry
+      - Registry
       summary: Deletes the specified registry.
       operationId: RegistryDelete
       parameters:
-        - name: registryId
-          in: path
-          description: |-
-            Required.
-            ID of the registry to delete.
+      - name: registryId
+        in: path
+        description: |-
+          Required.
+          ID of the registry to delete.
 
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -274,26 +213,22 @@ paths:
       x-y-operation-response: Empty
     patch:
       tags:
-        - Registry
+      - Registry
       summary: Updates the specified registry.
       operationId: RegistryUpdate
       parameters:
-        - name: registryId
-          in: path
-          description: >-
-            Required.
+      - name: registryId
+        in: path
+        description: |-
+          Required.
+          ID of the Registry resource to update.
 
-            ID of the Registry resource to update.
+          To get the registry ID use a [list](/docs/container-registry/api-ref/Registry/list) request.
 
-
-            To get the registry ID use a
-            [list](/docs/container-registry/api-ref/Registry/list) request.
-
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -301,7 +236,7 @@ paths:
               $ref: '#/components/schemas/UpdateRegistryRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -314,84 +249,57 @@ paths:
   /container-registry/v1/registries:
     get:
       tags:
-        - Registry
+      - Registry
       summary: Retrieves the list of Registry resources in the specified folder.
       operationId: RegistryList
       parameters:
-        - name: folderId
-          in: query
-          description: >-
-            Required.
+      - name: folderId
+        in: query
+        description: |-
+          Required.
+          ID of the folder to list registries in.
 
-            ID of the folder to list registries in.
+          To get the folder ID use a [list](/docs/resource-manager/api-ref/Folder/list) request.
 
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/container-registry/api-ref/Registry/list#query_params),
+          the service returns a [nextPageToken](/docs/container-registry/api-ref/Registry/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
 
-            To get the folder ID use a
-            [list](/docs/resource-manager/api-ref/Folder/list) request.
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/container-registry/api-ref/Registry/list#query_params) to the
+          [nextPageToken](/docs/container-registry/api-ref/Registry/list#responses) returned by a previous list request.
 
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          A filter expression that filters resources listed in the response.
+          The expression must specify:
+          1. The field name. Currently you can use filtering only on [Registry.name](/docs/container-registry/api-ref/Registry#representation) field.
+          2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
+          3. Value or a list of values to compare against the values of the field.
 
-            The maximum string length in characters is 50.
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            The maximum number of results per page to return. If the number of
-            available
-
-            results is larger than
-            [pageSize](/docs/container-registry/api-ref/Registry/list#query_params),
-
-            the service returns a
-            [nextPageToken](/docs/container-registry/api-ref/Registry/list#responses)
-
-            that can be used to get the next page of results in subsequent list
-            requests.
-
-            Default value: 100.
-
-
-            The maximum value is 1000.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Page token. To get the next page of results, set
-            [pageToken](/docs/container-registry/api-ref/Registry/list#query_params)
-            to the
-
-            [nextPageToken](/docs/container-registry/api-ref/Registry/list#responses)
-            returned by a previous list request.
-
-
-            The maximum string length in characters is 100.
-          schema:
-            type: string
-        - name: filter
-          in: query
-          description: >-
-            A filter expression that filters resources listed in the response.
-
-            The expression must specify:
-
-            1. The field name. Currently you can use filtering only on
-            [Registry.name](/docs/container-registry/api-ref/Registry#representation)
-            field.
-
-            2. An operator. Can be either `=` or `!=` for single values, `IN` or
-            `NOT IN` for lists of values.
-
-            3. Value or a list of values to compare against the values of the
-            field.
-
-
-            The maximum string length in characters is 1000.
-          schema:
-            type: string
+          The maximum string length in characters is 1000.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -400,7 +308,7 @@ paths:
       x-y-navtitle: list
     post:
       tags:
-        - Registry
+      - Registry
       summary: Creates a registry in the specified folder.
       operationId: RegistryCreate
       requestBody:
@@ -410,7 +318,7 @@ paths:
               $ref: '#/components/schemas/CreateRegistryRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -423,61 +331,48 @@ paths:
   /container-registry/v1/registries/{resourceId}:listAccessBindings:
     get:
       tags:
-        - Registry
+      - Registry
       summary: Lists access bindings for the specified registry.
       operationId: RegistryListAccessBindings
       parameters:
-        - name: resourceId
-          in: path
-          description: >-
-            Required.
+      - name: resourceId
+        in: path
+        description: |-
+          Required.
+          ID of the resource to list access bindings for.
 
-            ID of the resource to list access bindings for.
+          To get the resource ID, use a corresponding List request.
+          For example, use the [list](/docs/resource-manager/api-ref/Cloud/list) request to get the Cloud resource ID.
 
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page that should be returned. If the number of available
+          results is larger than pageSize,
+          the service returns a nextPageToken
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
 
-            To get the resource ID, use a corresponding List request.
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. Set pageToken
+          to the nextPageToken
+          returned by a previous list request to get the next page of results.
 
-            For example, use the
-            [list](/docs/resource-manager/api-ref/Cloud/list) request to get the
-            Cloud resource ID.
-
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            The maximum number of results per page that should be returned. If
-            the number of available
-
-            results is larger than pageSize,
-
-            the service returns a nextPageToken
-
-            that can be used to get the next page of results in subsequent list
-            requests.
-
-            Default value: 100.
-
-
-            The maximum value is 1000.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: |-
-            Page token. Set pageToken
-            to the nextPageToken
-            returned by a previous list request to get the next page of results.
-
-            The maximum string length in characters is 100.
-          schema:
-            type: string
+          The maximum string length in characters is 100.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -487,22 +382,22 @@ paths:
   /container-registry/v1/registries/{resourceId}:setAccessBindings:
     post:
       tags:
-        - Registry
+      - Registry
       summary: Sets access bindings for the specified registry.
       operationId: RegistrySetAccessBindings
       parameters:
-        - name: resourceId
-          in: path
-          description: |-
-            Required.
-            ID of the resource for which access bindings are being set.
+      - name: resourceId
+        in: path
+        description: |-
+          Required.
+          ID of the resource for which access bindings are being set.
 
-            To get the resource ID, use a corresponding List request.
+          To get the resource ID, use a corresponding List request.
 
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -510,7 +405,7 @@ paths:
               $ref: '#/components/schemas/SetAccessBindingsRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -523,20 +418,20 @@ paths:
   /container-registry/v1/registries/{resourceId}:updateAccessBindings:
     post:
       tags:
-        - Registry
+      - Registry
       summary: Updates access bindings for the specified registry.
       operationId: RegistryUpdateAccessBindings
       parameters:
-        - name: resourceId
-          in: path
-          description: |-
-            Required.
-            ID of the resource for which access bindings are being updated.
+      - name: resourceId
+        in: path
+        description: |-
+          Required.
+          ID of the resource for which access bindings are being updated.
 
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -544,7 +439,7 @@ paths:
               $ref: '#/components/schemas/UpdateAccessBindingsRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -554,207 +449,298 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/UpdateAccessBindingsMetadata'
       x-y-operation-response: Empty
+  /container-registry/v1/registries/{registryId}:listIpPermission:
+    get:
+      tags:
+      - Registry
+      summary: List ip permissions for the specified registry.
+      operationId: RegistryListIpPermission
+      parameters:
+      - name: registryId
+        in: path
+        description: |-
+          Required.
+          ID of the Registry to return ip permission list.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListIpPermissionsResponse'
+      x-y-navtitle: listIpPermission
+  /container-registry/v1/registries/{registryId}:setIpPermission:
+    post:
+      tags:
+      - Registry
+      summary: Set ip permissions for the specified registry.
+      operationId: RegistrySetIpPermission
+      parameters:
+      - name: registryId
+        in: path
+        description: |-
+          Required.
+          ID of the registry for which ip permissions are being set.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SetIpPermissionRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: setIpPermission
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/SetIpPermissionMetadata'
+      x-y-operation-response: Empty
+  /container-registry/v1/registries/{registryId}:updateIpPermission:
+    post:
+      tags:
+      - Registry
+      summary: Update ip permissions for the specified registry.
+      operationId: RegistryUpdateIpPermission
+      parameters:
+      - name: registryId
+        in: path
+        description: |-
+          Required.
+          ID of the registry for which ip permissions are being updated.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateIpPermissionRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: updateIpPermission
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateIpPermissionMetadata'
+      x-y-operation-response: Empty
   /container-registry/v1/repositories/{repositoryId}:
     get:
       tags:
-        - Repository
+      - Repository
       summary: Returns the specified Repository resource.
-      description: >-
-        To get the list of available Repository resources, make a
-        [list](/docs/container-registry/api-ref/Repository/list) request.
+      description: To get the list of available Repository resources, make a [list](/docs/container-registry/api-ref/Repository/list)
+        request.
       operationId: RepositoryGet
       parameters:
-        - name: repositoryId
-          in: path
-          description: >-
-            Required.
+      - name: repositoryId
+        in: path
+        description: |-
+          Required.
+          ID of the Repository resource to return.
 
-            ID of the Repository resource to return.
+          To get the repository ID use a [list](/docs/container-registry/api-ref/Repository/list) request.
 
-
-            To get the repository ID use a
-            [list](/docs/container-registry/api-ref/Repository/list) request.
-
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Repository'
       x-y-navtitle: get
+    delete:
+      tags:
+      - Repository
+      summary: Deletes the specified repository.
+      operationId: RepositoryDelete
+      parameters:
+      - name: repositoryId
+        in: path
+        description: |-
+          Required.
+          ID of the repository to delete.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteRepositoryMetadata'
+      x-y-operation-response: Empty
   /container-registry/v1/repositories:
     get:
       tags:
-        - Repository
+      - Repository
       summary: Retrieves the list of Repository resources in the specified registry.
       operationId: RepositoryList
       parameters:
-        - name: registryId
-          in: query
-          description: >-
-            ID of the registry to list repositories in.
+      - name: registryId
+        in: query
+        description: |-
+          ID of the registry to list repositories in.
 
+          To get the registry ID use a [list](/docs/container-registry/api-ref/Registry/list) request.
 
-            To get the registry ID use a
-            [list](/docs/container-registry/api-ref/Registry/list) request.
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      - name: folderId
+        in: query
+        description: |-
+          ID of the folder to list registries in.
 
+          [folderId](/docs/container-registry/api-ref/Repository/list#query_params) is ignored if a [registryId](/docs/container-registry/api-ref/Image/list#query_params) is specified in the request.
 
-            The maximum string length in characters is 50.
-          schema:
-            type: string
-        - name: folderId
-          in: query
-          description: >-
-            ID of the folder to list registries in.
+          To get the folder ID use a [list](/docs/resource-manager/api-ref/Folder/list) request.
 
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/container-registry/api-ref/Repository/list#query_params),
+          the service returns a [nextPageToken](/docs/container-registry/api-ref/Repository/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
 
-            [folderId](/docs/container-registry/api-ref/Repository/list#query_params)
-            is ignored if a
-            [registryId](/docs/container-registry/api-ref/Image/list#query_params)
-            is specified in the request.
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/container-registry/api-ref/Repository/list#query_params) to the
+          [nextPageToken](/docs/container-registry/api-ref/Repository/list#responses) returned by a previous list request.
 
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          A filter expression that filters resources listed in the response.
+          The expression must specify:
+          1. The field name. Currently you can use filtering only on [Repository.name](/docs/container-registry/api-ref/Repository#representation) field.
+          2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
+          3. Value or a list of values to compare against the values of the field.
 
-            To get the folder ID use a
-            [list](/docs/resource-manager/api-ref/Folder/list) request.
-
-
-            The maximum string length in characters is 50.
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            The maximum number of results per page to return. If the number of
-            available
-
-            results is larger than
-            [pageSize](/docs/container-registry/api-ref/Repository/list#query_params),
-
-            the service returns a
-            [nextPageToken](/docs/container-registry/api-ref/Repository/list#responses)
-
-            that can be used to get the next page of results in subsequent list
-            requests.
-
-            Default value: 100.
-
-
-            The maximum value is 1000.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Page token. To get the next page of results, set
-            [pageToken](/docs/container-registry/api-ref/Repository/list#query_params)
-            to the
-
-            [nextPageToken](/docs/container-registry/api-ref/Repository/list#responses)
-            returned by a previous list request.
-
-
-            The maximum string length in characters is 100.
-          schema:
-            type: string
-        - name: filter
-          in: query
-          description: >-
-            A filter expression that filters resources listed in the response.
-
-            The expression must specify:
-
-            1. The field name. Currently you can use filtering only on
-            [Repository.name](/docs/container-registry/api-ref/Repository#representation)
-            field.
-
-            2. An operator. Can be either `=` or `!=` for single values, `IN` or
-            `NOT IN` for lists of values.
-
-            3. Value or a list of values to compare against the values of the
-            field.
-
-
-            The maximum string length in characters is 1000.
-          schema:
-            type: string
-        - name: orderBy
-          in: query
-          description: The maximum string length in characters is 100.
-          schema:
-            type: string
+          The maximum string length in characters is 1000.
+        schema:
+          type: string
+      - name: orderBy
+        in: query
+        description: The maximum string length in characters is 100.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ListRepositoriesResponse'
       x-y-navtitle: list
+    post:
+      tags:
+      - Repository
+      summary: Upserts a repository in the specified registry.
+      operationId: RepositoryUpsert
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpsertRepositoryRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: upsert
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpsertRepositoryMetadata'
+      x-y-operation-response: '[Repository](/docs/container-registry/api-ref/Repository#representation)'
   /container-registry/v1/repositories/{resourceId}:listAccessBindings:
     get:
       tags:
-        - Repository
+      - Repository
       summary: Lists access bindings for the specified repository.
       operationId: RepositoryListAccessBindings
       parameters:
-        - name: resourceId
-          in: path
-          description: >-
-            Required.
+      - name: resourceId
+        in: path
+        description: |-
+          Required.
+          ID of the resource to list access bindings for.
 
-            ID of the resource to list access bindings for.
+          To get the resource ID, use a corresponding List request.
+          For example, use the [list](/docs/resource-manager/api-ref/Cloud/list) request to get the Cloud resource ID.
 
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page that should be returned. If the number of available
+          results is larger than pageSize,
+          the service returns a nextPageToken
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
 
-            To get the resource ID, use a corresponding List request.
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. Set pageToken
+          to the nextPageToken
+          returned by a previous list request to get the next page of results.
 
-            For example, use the
-            [list](/docs/resource-manager/api-ref/Cloud/list) request to get the
-            Cloud resource ID.
-
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            The maximum number of results per page that should be returned. If
-            the number of available
-
-            results is larger than pageSize,
-
-            the service returns a nextPageToken
-
-            that can be used to get the next page of results in subsequent list
-            requests.
-
-            Default value: 100.
-
-
-            The maximum value is 1000.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: |-
-            Page token. Set pageToken
-            to the nextPageToken
-            returned by a previous list request to get the next page of results.
-
-            The maximum string length in characters is 100.
-          schema:
-            type: string
+          The maximum string length in characters is 100.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -764,22 +750,22 @@ paths:
   /container-registry/v1/repositories/{resourceId}:setAccessBindings:
     post:
       tags:
-        - Repository
+      - Repository
       summary: Sets access bindings for the specified repository.
       operationId: RepositorySetAccessBindings
       parameters:
-        - name: resourceId
-          in: path
-          description: |-
-            Required.
-            ID of the resource for which access bindings are being set.
+      - name: resourceId
+        in: path
+        description: |-
+          Required.
+          ID of the resource for which access bindings are being set.
 
-            To get the resource ID, use a corresponding List request.
+          To get the resource ID, use a corresponding List request.
 
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -787,7 +773,7 @@ paths:
               $ref: '#/components/schemas/SetAccessBindingsRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -800,20 +786,20 @@ paths:
   /container-registry/v1/repositories/{resourceId}:updateAccessBindings:
     post:
       tags:
-        - Repository
+      - Repository
       summary: Updates access bindings for the specified repository.
       operationId: RepositoryUpdateAccessBindings
       parameters:
-        - name: resourceId
-          in: path
-          description: |-
-            Required.
-            ID of the resource for which access bindings are being updated.
+      - name: resourceId
+        in: path
+        description: |-
+          Required.
+          ID of the resource for which access bindings are being updated.
 
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -821,7 +807,7 @@ paths:
               $ref: '#/components/schemas/UpdateAccessBindingsRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -837,12 +823,9 @@ components:
       type: object
       properties:
         roleId:
-          description: >-
+          description: |-
             Required.
-
-            ID of the [Role](/docs/iam/api-ref/Role#representation) that is
-            assigned to the `subject`.
-
+            ID of the [Role](/docs/iam/api-ref/Role#representation) that is assigned to the `subject`.
 
             The maximum string length in characters is 50.
           type: string
@@ -854,17 +837,15 @@ components:
          - REMOVE: Removal of an access binding.
       type: string
       enum:
-        - ADD
-        - REMOVE
+      - ADD
+      - REMOVE
     AccessBindingDelta:
       type: object
       properties:
         action:
-          $ref: >-
-            #/components/schemas/AccessBindingAction_in_AccessBindingDelta_action
+          $ref: '#/components/schemas/AccessBindingAction_in_AccessBindingDelta_action'
         accessBinding:
-          $ref: >-
-            #/components/schemas/AccessBinding_in_AccessBindingDelta_accessBinding
+          $ref: '#/components/schemas/AccessBinding_in_AccessBindingDelta_accessBinding'
     Blob:
       description: A Blob resource.
       type: object
@@ -898,28 +879,21 @@ components:
       type: object
       properties:
         folderId:
-          description: >-
+          description: |-
             Required.
-
             ID of the folder to create a registry in.
 
-
-            To get the folder ID, use a
-            [list](/docs/resource-manager/api-ref/Folder/list) request.
-
+            To get the folder ID, use a [list](/docs/resource-manager/api-ref/Folder/list) request.
 
             The maximum string length in characters is 50.
           type: string
         name:
-          description: >-
+          description: |-
             Name of the registry.
-
 
             There may be only one registry per folder.
 
-
-            Value must match the regular expression ``
-            |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+            Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
           type: string
         labels:
           description: |-
@@ -950,6 +924,12 @@ components:
         registryId:
           description: ID of the registry that is being deleted.
           type: string
+    DeleteRepositoryMetadata:
+      type: object
+      properties:
+        repositoryId:
+          description: ID of the repository that is being deleted.
+          type: string
     DryRunLifecyclePolicyMetadata:
       type: object
       properties:
@@ -965,8 +945,7 @@ components:
         lifecyclePolicyId:
           type: string
         runAt:
-          description: >-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
+          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
             format.
           type: string
           format: date-time
@@ -978,30 +957,18 @@ components:
       type: object
       maxProperties: 0
     FieldMask:
-      description: >-
+      description: |-
         A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
 
-        Оnly the specified fields will be changed. The others will be left
-        untouched.
-
-        If the field is specified in `` updateMask `` and no value for that
-        field was sent in the request,
-
-        the field's value will be reset to the default. The default value for
-        most fields is null or 0.
-
-
-        If `` updateMask `` is not sent in the request, all fields' values will
-        be updated.
-
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
         Fields specified in the request will be updated to provided values.
-
         The rest of the fields will be reset to the default.
       type: string
     Image:
-      description: >-
-        An Image resource. For more information, see [Docker
-        image](/docs/cloud/container-registry/docker-image).
+      description: An Image resource. For more information, see [Docker image](/docs/cloud/container-registry/docker-image).
       type: object
       properties:
         id:
@@ -1035,15 +1002,39 @@ components:
           items:
             type: string
         createdAt:
-          description: >-
-            Output only. Creation timestamp in
-            [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          description: |-
+            Output only. Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
 
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-            format.
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
+    IpPermission:
+      type: object
+      properties:
+        action:
+          $ref: '#/components/schemas/IpPermissionAction_in_IpPermission_action'
+        ip:
+          type: string
+    IpPermissionAction:
+      type: string
+      enum:
+      - PULL
+      - PUSH
+    IpPermissionAction:
+      description: |2-
+         - ADD: Addition of an ip permission.
+         - REMOVE: Removal of an ip permission.
+      type: string
+      enum:
+      - ADD
+      - REMOVE
+    IpPermissionDelta:
+      type: object
+      properties:
+        action:
+          $ref: '#/components/schemas/IpPermissionAction_in_IpPermissionDelta_action'
+        ipPermission:
+          $ref: '#/components/schemas/IpPermission_in_IpPermissionDelta_ipPermission'
     LifecyclePolicy:
       type: object
       properties:
@@ -1058,8 +1049,7 @@ components:
         status:
           $ref: '#/components/schemas/LifecyclePolicyStatus_in_LifecyclePolicy_status'
         createdAt:
-          description: >-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
+          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
             format.
           type: string
           format: date-time
@@ -1070,8 +1060,8 @@ components:
     LifecyclePolicyStatus:
       type: string
       enum:
-        - ACTIVE
-        - DISABLED
+      - ACTIVE
+      - DISABLED
     LifecycleRule:
       type: object
       properties:
@@ -1100,19 +1090,12 @@ components:
           items:
             $ref: '#/components/schemas/AccessBinding'
         nextPageToken:
-          description: >-
-            This token allows you to get the next page of results for list
-            requests. If the number of results
-
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
             is larger than pageSize, use
-
             the nextPageToken as the value
-
             for the pageToken query parameter
-
-            in the next list request. Each subsequent list request will have its
-            own
-
+            in the next list request. Each subsequent list request will have its own
             nextPageToken to continue paging through the results.
           type: string
     ListDryRunLifecyclePolicyResultAffectedImagesResponse:
@@ -1142,28 +1125,22 @@ components:
           items:
             $ref: '#/components/schemas/Image'
         nextPageToken:
-          description: >-
-            This token allows you to get the next page of results for list
-            requests. If the number of results
-
-            is larger than
-            [pageSize](/docs/container-registry/api-ref/Image/list#query_params),
-            use
-
-            the
-            [nextPageToken](/docs/container-registry/api-ref/Image/list#responses)
-            as the value
-
-            for the
-            [pageToken](/docs/container-registry/api-ref/Image/list#query_params)
-            query parameter
-
-            in the next list request. Each subsequent list request will have its
-            own
-
-            [nextPageToken](/docs/container-registry/api-ref/Image/list#responses)
-            to continue paging through the results.
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/container-registry/api-ref/Image/list#query_params), use
+            the [nextPageToken](/docs/container-registry/api-ref/Image/list#responses) as the value
+            for the [pageToken](/docs/container-registry/api-ref/Image/list#query_params) query parameter
+            in the next list request. Each subsequent list request will have its own
+            [nextPageToken](/docs/container-registry/api-ref/Image/list#responses) to continue paging through the results.
           type: string
+    ListIpPermissionsResponse:
+      type: object
+      properties:
+        permissions:
+          description: List of ip permissions for registry
+          type: array
+          items:
+            $ref: '#/components/schemas/IpPermission'
     ListLifecyclePoliciesResponse:
       type: object
       properties:
@@ -1182,27 +1159,13 @@ components:
           items:
             $ref: '#/components/schemas/Registry'
         nextPageToken:
-          description: >-
-            This token allows you to get the next page of results for list
-            requests. If the number of results
-
-            is larger than
-            [pageSize](/docs/container-registry/api-ref/Registry/list#query_params),
-            use
-
-            the
-            [nextPageToken](/docs/container-registry/api-ref/Registry/list#responses)
-            as the value
-
-            for the
-            [pageToken](/docs/container-registry/api-ref/Registry/list#query_params)
-            query parameter
-
-            in the next list request. Each subsequent list request will have its
-            own
-
-            [nextPageToken](/docs/container-registry/api-ref/Registry/list#responses)
-            to continue paging through the results.
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/container-registry/api-ref/Registry/list#query_params), use
+            the [nextPageToken](/docs/container-registry/api-ref/Registry/list#responses) as the value
+            for the [pageToken](/docs/container-registry/api-ref/Registry/list#query_params) query parameter
+            in the next list request. Each subsequent list request will have its own
+            [nextPageToken](/docs/container-registry/api-ref/Registry/list#responses) to continue paging through the results.
           type: string
     ListRepositoriesResponse:
       type: object
@@ -1213,27 +1176,13 @@ components:
           items:
             $ref: '#/components/schemas/Repository'
         nextPageToken:
-          description: >-
-            This token allows you to get the next page of results for list
-            requests. If the number of results
-
-            is larger than
-            [pageSize](/docs/container-registry/api-ref/Repository/list#query_params),
-            use
-
-            the
-            [nextPageToken](/docs/container-registry/api-ref/Repository/list#responses)
-            as the value
-
-            for the
-            [pageToken](/docs/container-registry/api-ref/Repository/list#query_params)
-            query parameter
-
-            in the next list request. Each subsequent list request will have its
-            own
-
-            [nextPageToken](/docs/container-registry/api-ref/Repository/list#responses)
-            to continue paging through the results.
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/container-registry/api-ref/Repository/list#query_params), use
+            the [nextPageToken](/docs/container-registry/api-ref/Repository/list#responses) as the value
+            for the [pageToken](/docs/container-registry/api-ref/Repository/list#query_params) query parameter
+            in the next list request. Each subsequent list request will have its own
+            [nextPageToken](/docs/container-registry/api-ref/Repository/list#responses) to continue paging through the results.
           type: string
     ListScanResultsResponse:
       type: object
@@ -1244,27 +1193,13 @@ components:
           items:
             $ref: '#/components/schemas/ScanResult'
         nextPageToken:
-          description: >-
-            This token allows you to get the next page of results for list
-            requests. If the number of results
-
-            is larger than
-            [pageSize](/docs/container-registry/api-ref/Image/list#query_params),
-            use
-
-            the
-            [nextPageToken](/docs/container-registry/api-ref/Scanner/list#responses)
-            as the value
-
-            for the
-            [pageToken](/docs/container-registry/api-ref/Image/list#query_params)
-            query parameter
-
-            in the next list request. Each subsequent list request will have its
-            own
-
-            [nextPageToken](/docs/container-registry/api-ref/Scanner/list#responses)
-            to continue paging through the results.
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/container-registry/api-ref/Image/list#query_params), use
+            the [nextPageToken](/docs/container-registry/api-ref/Scanner/list#responses) as the value
+            for the [pageToken](/docs/container-registry/api-ref/Image/list#query_params) query parameter
+            in the next list request. Each subsequent list request will have its own
+            [nextPageToken](/docs/container-registry/api-ref/Scanner/list#responses) to continue paging through the results.
           type: string
     ListVulnerabilitiesResponse:
       type: object
@@ -1275,108 +1210,71 @@ components:
           items:
             $ref: '#/components/schemas/Vulnerability'
         nextPageToken:
-          description: >-
-            This token allows you to get the next page of results for list
-            requests. If the number of results
-
-            is larger than
-            [pageSize](/docs/container-registry/api-ref/Image/list#query_params),
-            use
-
-            the
-            [nextPageToken](/docs/container-registry/api-ref/Scanner/listVulnerabilities#responses)
-            as the value
-
-            for the
-            [pageToken](/docs/container-registry/api-ref/Image/list#query_params)
-            query parameter
-
-            in the next list request. Each subsequent list request will have its
-            own
-
-            [nextPageToken](/docs/container-registry/api-ref/Scanner/listVulnerabilities#responses)
-            to continue paging through the results.
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/container-registry/api-ref/Image/list#query_params), use
+            the [nextPageToken](/docs/container-registry/api-ref/Scanner/listVulnerabilities#responses) as the value
+            for the [pageToken](/docs/container-registry/api-ref/Image/list#query_params) query parameter
+            in the next list request. Each subsequent list request will have its own
+            [nextPageToken](/docs/container-registry/api-ref/Scanner/listVulnerabilities#responses) to continue paging through the results.
           type: string
     Operation:
-      description: >-
-        An Operation resource. For more information, see
-        [Operation](/docs/api-design-guide/concepts/operation).
+      description: An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
       type: object
       allOf:
-        - type: object
-          properties:
-            id:
-              description: ID of the operation.
-              type: string
-            description:
-              description: Description of the operation. 0-256 characters long.
-              type: string
-            createdAt:
-              description: >-
-                Creation timestamp.
+      - type: object
+        properties:
+          id:
+            description: ID of the operation.
+            type: string
+          description:
+            description: Description of the operation. 0-256 characters long.
+            type: string
+          createdAt:
+            description: |-
+              Creation timestamp.
 
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          createdBy:
+            description: ID of the user or service account who initiated the operation.
+            type: string
+          modifiedAt:
+            description: |-
+              The time when the Operation resource was last modified.
 
-                String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-                format.
-              type: string
-              format: date-time
-            createdBy:
-              description: ID of the user or service account who initiated the operation.
-              type: string
-            modifiedAt:
-              description: >-
-                The time when the Operation resource was last modified.
-
-
-                String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-                format.
-              type: string
-              format: date-time
-            done:
-              description: >-
-                If the value is `false`, it means the operation is still in
-                progress.
-
-                If `true`, the operation is completed, and either `error` or
-                `response` is available.
-              type: boolean
-              format: boolean
-            metadata:
-              description: >-
-                Service-specific metadata associated with the operation.
-
-                It typically contains the ID of the target resource that the
-                operation is performed on.
-
-                Any method that returns a long-running operation should document
-                the metadata type, if any.
-              type: object
-        - title: result
-          type: object
-          maxProperties: 1
-          properties:
-            error:
-              $ref: '#/components/schemas/rpcStatus'
-              description: >-
-                The error result of the operation in case of failure or
-                cancellation.
-            response:
-              description: >-
-                The normal response of the operation in case of success.
-
-                If the original method returns no data on success, such as
-                Delete,
-
-                the response is
-                [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty).
-
-                If the original method is the standard Create/Update,
-
-                the response should be the target resource of the operation.
-
-                Any method that returns a long-running operation should document
-                the response type, if any.
-              type: object
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          done:
+            description: |-
+              If the value is `false`, it means the operation is still in progress.
+              If `true`, the operation is completed, and either `error` or `response` is available.
+            type: boolean
+            format: boolean
+          metadata:
+            description: |-
+              Service-specific metadata associated with the operation.
+              It typically contains the ID of the target resource that the operation is performed on.
+              Any method that returns a long-running operation should document the metadata type, if any.
+            type: object
+      - title: result
+        type: object
+        maxProperties: 1
+        properties:
+          error:
+            $ref: '#/components/schemas/rpcStatus'
+            description: The error result of the operation in case of failure or cancellation.
+          response:
+            description: |-
+              The normal response of the operation in case of success.
+              If the original method returns no data on success, such as Delete,
+              the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty).
+              If the original method is the standard Create/Update,
+              the response should be the target resource of the operation.
+              Any method that returns a long-running operation should document the response type, if any.
+            type: object
     PackageVulnerability:
       description: A PackageVulnerability resource.
       type: object
@@ -1400,9 +1298,7 @@ components:
           description: The version of the package where vulnerability has been fixed.
           type: string
     Registry:
-      description: >-
-        A Registry resource. For more information, see
-        [Registry](/docs/cloud/containerregistry/registry).
+      description: A Registry resource. For more information, see [Registry](/docs/cloud/containerregistry/registry).
       type: object
       properties:
         id:
@@ -1417,17 +1313,14 @@ components:
         status:
           $ref: '#/components/schemas/RegistryStatus_in_Registry_status'
         createdAt:
-          description: >-
-            Output only. Creation timestamp in
-            [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          description: |-
+            Output only. Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
 
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-            format.
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
         labels:
-          description: Resource labels as `key:value` pairs. Мaximum of 64 per resource.
+          description: Resource labels as `key:value` pairs. Maximum of 64 per resource.
           type: object
           additionalProperties:
             type: string
@@ -1438,13 +1331,11 @@ components:
          - DELETING: Registry is being deleted.
       type: string
       enum:
-        - CREATING
-        - ACTIVE
-        - DELETING
+      - CREATING
+      - ACTIVE
+      - DELETING
     Repository:
-      description: >-
-        A Repository resource. For more information, see
-        [Repository](/docs/cloud/container-registry/repository).
+      description: A Repository resource. For more information, see [Repository](/docs/cloud/container-registry/repository).
       type: object
       properties:
         name:
@@ -1472,21 +1363,16 @@ components:
           description: Output only. ID of the Image that the ScanResult belongs to.
           type: string
         scannedAt:
-          description: >-
-            Output only. The timestamp in
-            [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format when the
-            scan been finished.
+          description: |-
+            Output only. The timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format when the scan been finished.
 
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-            format.
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
         status:
           $ref: '#/components/schemas/ScanResultStatus_in_ScanResult_status'
         vulnerabilities:
-          $ref: >-
-            #/components/schemas/VulnerabilityStats_in_ScanResult_vulnerabilities
+          $ref: '#/components/schemas/VulnerabilityStats_in_ScanResult_vulnerabilities'
     ScanResultStatus:
       description: |2-
          - RUNNING: Image scan is in progress.
@@ -1494,9 +1380,9 @@ components:
          - ERROR: Image scan is failed.
       type: string
       enum:
-        - RUNNING
-        - READY
-        - ERROR
+      - RUNNING
+      - READY
+      - ERROR
     SetAccessBindingsMetadata:
       type: object
       properties:
@@ -1507,64 +1393,56 @@ components:
       type: object
       properties:
         accessBindings:
-          description: >-
+          description: |-
             Required.
-
-            Access bindings to be set. For more information, see [Access
-            Bindings](/docs/iam/concepts/access-control/#access-bindings).
+            Access bindings to be set. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings).
           type: array
           items:
             $ref: '#/components/schemas/AccessBinding'
+    SetIpPermissionMetadata:
+      type: object
+      properties:
+        registryId:
+          description: ID of the registry that ip permission is being set.
+          type: string
+    SetIpPermissionRequest:
+      type: object
+      properties:
+        ipPermission:
+          description: IP permission to be set.
+          type: array
+          items:
+            $ref: '#/components/schemas/IpPermission'
     Subject:
       type: object
       properties:
         id:
-          description: >-
+          description: |-
             Required.
-
             ID of the subject.
 
-
             It can contain one of the following values:
-
-            * `allAuthenticatedUsers`: A special system identifier that
-            represents anyone
+            * `allAuthenticatedUsers`: A special system identifier that represents anyone
                who is authenticated. It can be used only if the `type` is `system`.
-            * `allUsers`: A special system identifier that represents anyone. No
-            authentication is required.
+            * `allUsers`: A special system identifier that represents anyone. No authentication is required.
                For example, you don't need to specify the IAM token in an API query.
-            * `<cloud generated id>`: An identifier that represents a user
-            account.
+            * `<cloud generated id>`: An identifier that represents a user account.
                It can be used only if the `type` is `userAccount`, `federatedUser` or `serviceAccount`.
 
             The maximum string length in characters is 50.
           type: string
         type:
-          description: >-
+          description: |-
             Required.
-
             Type of the subject.
 
-
             It can contain one of the following values:
+            * `userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud.
+            * `serviceAccount`: A service account. This type represents the [ServiceAccount](/docs/iam/api-ref/ServiceAccount#representation) resource.
+            * `federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory.
+            * `system`: System group. This type represents several accounts with a common system identifier.
 
-            * `userAccount`: An account on Yandex or Yandex.Connect, added to
-            Yandex.Cloud.
-
-            * `serviceAccount`: A service account. This type represents the
-            [ServiceAccount](/docs/iam/api-ref/ServiceAccount#representation)
-            resource.
-
-            * `federatedUser`: A federated account. This type represents a user
-            from an identity federation, like Active Directory.
-
-            * `system`: System group. This type represents several accounts with
-            a common system identifier.
-
-
-            For more information, see [Subject to which the role is
-            assigned](/docs/iam/concepts/access-control/#subject).
-
+            For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject).
 
             The maximum string length in characters is 100.
           type: string
@@ -1586,6 +1464,20 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/AccessBindingDelta'
+    UpdateIpPermissionMetadata:
+      type: object
+      properties:
+        registryId:
+          description: ID of the registry that ip permission is being updated.
+          type: string
+    UpdateIpPermissionRequest:
+      type: object
+      properties:
+        ipPermissionDeltas:
+          description: Updates to IP permissions.
+          type: array
+          items:
+            $ref: '#/components/schemas/IpPermissionDelta'
     UpdateLifecyclePolicyMetadata:
       type: object
       properties:
@@ -1603,15 +1495,12 @@ components:
         updateMask:
           $ref: '#/components/schemas/FieldMask_in_UpdateRegistryRequest_updateMask'
         name:
-          description: >-
+          description: |-
             Name of the registry.
-
 
             There may be only one registry per folder.
 
-
-            Value must match the regular expression ``
-            |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+            Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
           type: string
         labels:
           description: |-
@@ -1627,55 +1516,64 @@ components:
           type: object
           additionalProperties:
             type: string
+    UpsertRepositoryMetadata:
+      type: object
+      properties:
+        repositoryId:
+          description: ID of the repository that is being upserted.
+          type: string
+    UpsertRepositoryRequest:
+      type: object
+      properties:
+        name:
+          description: |-
+            Required.
+            Name of the repository.
+
+            The name of the repository should match the name of the images that will be pushed in the repository.
+
+            Value must match the regular expression `` [a-z0-9]+(?:[._-][a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))* ``.
+          type: string
     Vulnerability:
       description: A Vulnerability resource.
       type: object
       allOf:
-        - type: object
-          properties:
-            severity:
-              $ref: '#/components/schemas/VulnerabilitySeverity'
-              description: Output only. Severity of the Vulnerability.
-        - title: vulnerability
-          type: object
-          maxProperties: 1
-          properties:
-            package:
-              $ref: '#/components/schemas/PackageVulnerability'
+      - type: object
+        properties:
+          severity:
+            $ref: '#/components/schemas/VulnerabilitySeverity'
+            description: Output only. Severity of the Vulnerability.
+      - title: vulnerability
+        type: object
+        maxProperties: 1
+        properties:
+          package:
+            $ref: '#/components/schemas/PackageVulnerability'
     VulnerabilitySeverity:
-      description: >2-
+      description: |2-
          - CRITICAL: Critical severity is a world-burning problem, exploitable for nearly all users.
         Includes remote root privilege escalations, or massive data loss.
          - HIGH: High severity is a real problem, exploitable for many users in a default installation.
-        Includes serious remote denial of services, local root privilege
-        escalations, or data loss.
+        Includes serious remote denial of services, local root privilege escalations, or data loss.
          - MEDIUM: Medium severity is a real security problem, and is exploitable for many users.
-        Includes network daemon denial of service attacks, cross-site scripting,
-        and gaining user privileges.
-
+        Includes network daemon denial of service attacks, cross-site scripting, and gaining user privileges.
         Updates should be made soon for this priority of issue.
          - LOW: Low severity is a security problem, but is hard to exploit due to environment, requires a user-assisted attack,
-        a small install base, or does very little damage. These tend to be
-        included in security updates only when
-
-        higher priority issues require an update, or if many low priority issues
-        have built up.
+        a small install base, or does very little damage. These tend to be included in security updates only when
+        higher priority issues require an update, or if many low priority issues have built up.
          - NEGLIGIBLE: Negligible severity is technically a security problem, but is only theoretical in nature, requires a very special situation,
-        has almost no install base, or does no real damage. These tend not to
-        get backport from upstream,
-
-        and will likely not be included in security updates unless there is an
-        easy fix and some other issue causes an update.
+        has almost no install base, or does no real damage. These tend not to get backport from upstream,
+        and will likely not be included in security updates unless there is an easy fix and some other issue causes an update.
          - UNDEFINED: Unknown severity is either a security problem that has not been assigned to a priority yet or
         a priority that our system did not recognize.
       type: string
       enum:
-        - CRITICAL
-        - HIGH
-        - MEDIUM
-        - LOW
-        - NEGLIGIBLE
-        - UNDEFINED
+      - CRITICAL
+      - HIGH
+      - MEDIUM
+      - LOW
+      - NEGLIGIBLE
+      - UNDEFINED
     VulnerabilityStats:
       description: A VulnerabilityStats resource.
       type: object
@@ -1709,9 +1607,7 @@ components:
       type: object
       properties:
         code:
-          description: >-
-            Error code. An enum value of
-            [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
+          description: Error code. An enum value of [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
           type: integer
           format: int32
         message:
@@ -1723,62 +1619,39 @@ components:
           items:
             type: object
     Subject_in_AccessBinding_subject:
-      description: >-
+      description: |-
         Required.
-
         Identity for which access binding is being created.
-
-        It can represent an account with a unique ID or several accounts with a
-        system identifier.
+        It can represent an account with a unique ID or several accounts with a system identifier.
       type: object
       properties:
         id:
-          description: >-
+          description: |-
             Required.
-
             ID of the subject.
 
-
             It can contain one of the following values:
-
-            * `allAuthenticatedUsers`: A special system identifier that
-            represents anyone
+            * `allAuthenticatedUsers`: A special system identifier that represents anyone
                who is authenticated. It can be used only if the `type` is `system`.
-            * `allUsers`: A special system identifier that represents anyone. No
-            authentication is required.
+            * `allUsers`: A special system identifier that represents anyone. No authentication is required.
                For example, you don't need to specify the IAM token in an API query.
-            * `<cloud generated id>`: An identifier that represents a user
-            account.
+            * `<cloud generated id>`: An identifier that represents a user account.
                It can be used only if the `type` is `userAccount`, `federatedUser` or `serviceAccount`.
 
             The maximum string length in characters is 50.
           type: string
         type:
-          description: >-
+          description: |-
             Required.
-
             Type of the subject.
 
-
             It can contain one of the following values:
+            * `userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud.
+            * `serviceAccount`: A service account. This type represents the [ServiceAccount](/docs/iam/api-ref/ServiceAccount#representation) resource.
+            * `federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory.
+            * `system`: System group. This type represents several accounts with a common system identifier.
 
-            * `userAccount`: An account on Yandex or Yandex.Connect, added to
-            Yandex.Cloud.
-
-            * `serviceAccount`: A service account. This type represents the
-            [ServiceAccount](/docs/iam/api-ref/ServiceAccount#representation)
-            resource.
-
-            * `federatedUser`: A federated account. This type represents a user
-            from an identity federation, like Active Directory.
-
-            * `system`: System group. This type represents several accounts with
-            a common system identifier.
-
-
-            For more information, see [Subject to which the role is
-            assigned](/docs/iam/concepts/access-control/#subject).
-
+            For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject).
 
             The maximum string length in characters is 100.
           type: string
@@ -1791,23 +1664,18 @@ components:
          - REMOVE: Removal of an access binding.
       type: string
       enum:
-        - ADD
-        - REMOVE
+      - ADD
+      - REMOVE
     AccessBinding_in_AccessBindingDelta_accessBinding:
-      description: >-
+      description: |-
         Required.
-
-        Access binding. For more information, see [Access
-        Bindings](/docs/iam/concepts/access-control/#access-bindings).
+        Access binding. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings).
       type: object
       properties:
         roleId:
-          description: >-
+          description: |-
             Required.
-
-            ID of the [Role](/docs/iam/api-ref/Role#representation) that is
-            assigned to the `subject`.
-
+            ID of the [Role](/docs/iam/api-ref/Role#representation) that is assigned to the `subject`.
 
             The maximum string length in characters is 50.
           type: string
@@ -1834,11 +1702,40 @@ components:
           type: array
           items:
             type: string
+    IpPermissionAction_in_IpPermission_action:
+      description: |2-
+         - ADD: Addition of an ip permission.
+         - REMOVE: Removal of an ip permission.
+      type: string
+      enum:
+      - ADD
+      - REMOVE
+    IpPermissionAction_in_IpPermissionDelta_action:
+      description: |-
+        Required.
+        The action that is being performed on an ip permission.
+
+         - ADD: Addition of an ip permission.
+         - REMOVE: Removal of an ip permission.
+      type: string
+      enum:
+      - ADD
+      - REMOVE
+    IpPermission_in_IpPermissionDelta_ipPermission:
+      description: |-
+        Required.
+        Ip permission.
+      type: object
+      properties:
+        action:
+          $ref: '#/components/schemas/IpPermissionAction_in_IpPermission_action'
+        ip:
+          type: string
     LifecyclePolicyStatus_in_LifecyclePolicy_status:
       type: string
       enum:
-        - ACTIVE
-        - DISABLED
+      - ACTIVE
+      - DISABLED
     RegistryStatus_in_Registry_status:
       description: |-
         Output only. Status of the registry.
@@ -1848,9 +1745,9 @@ components:
          - DELETING: Registry is being deleted.
       type: string
       enum:
-        - CREATING
-        - ACTIVE
-        - DELETING
+      - CREATING
+      - ACTIVE
+      - DELETING
     ScanResultStatus_in_ScanResult_status:
       description: |-
         Output only. The status of the ScanResult.
@@ -1860,9 +1757,9 @@ components:
          - ERROR: Image scan is failed.
       type: string
       enum:
-        - RUNNING
-        - READY
-        - ERROR
+      - RUNNING
+      - READY
+      - ERROR
     VulnerabilityStats_in_ScanResult_vulnerabilities:
       description: |-
         Output only. Summary information about vulnerabilities found.
@@ -1895,37 +1792,25 @@ components:
           type: string
           format: int64
     FieldMask_in_UpdateRegistryRequest_updateMask:
-      description: >-
-        Field mask that specifies which fields of the Registry resource are
-        going to be updated.
-
+      description: |-
+        Field mask that specifies which fields of the Registry resource are going to be updated.
 
         A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
 
-        Оnly the specified fields will be changed. The others will be left
-        untouched.
-
-        If the field is specified in `` updateMask `` and no value for that
-        field was sent in the request,
-
-        the field's value will be reset to the default. The default value for
-        most fields is null or 0.
-
-
-        If `` updateMask `` is not sent in the request, all fields' values will
-        be updated.
-
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
         Fields specified in the request will be updated to provided values.
-
         The rest of the fields will be reset to the default.
       type: string
 tags:
-  - name: Image
-    description: A set of methods for managing Image resources.
-  - name: LifecyclePolicy
-  - name: Registry
-    description: A set of methods for managing Registry resources.
-  - name: Repository
-    description: A set of methods for managing Repository resources.
-  - name: Scanner
-    description: A set of methods for scanning Docker images.
+- name: Image
+  description: A set of methods for managing Image resources.
+- name: LifecyclePolicy
+- name: Registry
+  description: A set of methods for managing Registry resources.
+- name: Repository
+  description: A set of methods for managing Repository resources.
+- name: Scanner
+  description: A set of methods for scanning Docker images.

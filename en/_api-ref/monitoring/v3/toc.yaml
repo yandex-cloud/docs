@@ -1,0 +1,91 @@
+items:
+  - name: Overview
+    href: api-ref/index.md
+  - name: Alert
+    items:
+      - name: Overview
+        href: api-ref/Alert/index.md
+      - name: create
+        href: api-ref/Alert/create.md
+      - name: delete
+        href: api-ref/Alert/delete.md
+      - name: explainEvaluation
+        href: api-ref/Alert/explainEvaluation.md
+      - name: explainNewEvaluation
+        href: api-ref/Alert/explainNewEvaluation.md
+      - name: get
+        href: api-ref/Alert/get.md
+      - name: getEvaluationState
+        href: api-ref/Alert/getEvaluationState.md
+      - name: getEvaluationStats
+        href: api-ref/Alert/getEvaluationStats.md
+      - name: getNotificationState
+        href: api-ref/Alert/getNotificationState.md
+      - name: getNotificationStats
+        href: api-ref/Alert/getNotificationStats.md
+      - name: getStats
+        href: api-ref/Alert/getStats.md
+      - name: list
+        href: api-ref/Alert/list.md
+      - name: listOperations
+        href: api-ref/Alert/listOperations.md
+      - name: mute
+        href: api-ref/Alert/mute.md
+      - name: unmute
+        href: api-ref/Alert/unmute.md
+      - name: update
+        href: api-ref/Alert/update.md
+  - name: Channel
+    items:
+      - name: Overview
+        href: api-ref/Channel/index.md
+      - name: create
+        href: api-ref/Channel/create.md
+      - name: delete
+        href: api-ref/Channel/delete.md
+      - name: get
+        href: api-ref/Channel/get.md
+      - name: list
+        href: api-ref/Channel/list.md
+      - name: listOperations
+        href: api-ref/Channel/listOperations.md
+      - name: update
+        href: api-ref/Channel/update.md
+  - name: Dashboard
+    items:
+      - name: Overview
+        href: api-ref/Dashboard/index.md
+      - name: create
+        href: api-ref/Dashboard/create.md
+      - name: delete
+        href: api-ref/Dashboard/delete.md
+      - name: get
+        href: api-ref/Dashboard/get.md
+      - name: list
+        href: api-ref/Dashboard/list.md
+      - name: listOperations
+        href: api-ref/Dashboard/listOperations.md
+      - name: update
+        href: api-ref/Dashboard/update.md
+  - name: MetricsData
+    items:
+      - name: Overview
+        href: api-ref/MetricsData/index.md
+      - name: read
+        href: api-ref/MetricsData/read.md
+      - name: write
+        href: api-ref/MetricsData/write.md
+  - name: MetricsMeta
+    items:
+      - name: Overview
+        href: api-ref/MetricsMeta/index.md
+      - name: listAllLabelValues
+        href: api-ref/MetricsMeta/listAllLabelValues.md
+      - name: listLabelKeys
+        href: api-ref/MetricsMeta/listLabelKeys.md
+      - name: listLabelValues
+        href: api-ref/MetricsMeta/listLabelValues.md
+      - name: listMetricNames
+        href: api-ref/MetricsMeta/listMetricNames.md
+      - name: listMetrics
+        href: api-ref/MetricsMeta/listMetrics.md

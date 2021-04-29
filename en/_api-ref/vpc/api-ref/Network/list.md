@@ -50,6 +50,6 @@ networks[].<br>folderId | **string**<br><p>ID of the folder that the network bel
 networks[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 networks[].<br>name | **string**<br><p>Name of the network. The name is unique within the folder. 3-63 characters long.</p> 
 networks[].<br>description | **string**<br><p>Optional description of the network. 0-256 characters long.</p> 
-networks[].<br>labels | **object**<br><p>Resource labels as `` key:value `` pairs. Мaximum of 64 per resource.</p> 
+networks[].<br>labels | **object**<br><p>Resource labels as `` key:value `` pairs. Maximum of 64 per resource.</p> 
 networks[].<br>defaultSecurityGroupId | **string**<br><p>ID of default security group for network.</p> 
 nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/vpc/api-ref/Network/list#query_params">pageSize</a>, use the <a href="/docs/vpc/api-ref/Network/list#responses">nextPageToken</a> as the value for the <a href="/docs/vpc/api-ref/Network/list#query_params">pageToken</a> query parameter in the next list request. Subsequent list requests will have their own <a href="/docs/vpc/api-ref/Network/list#responses">nextPageToken</a> to continue paging through the results.</p> 

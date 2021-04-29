@@ -1,11 +1,9 @@
-openapi: '3.0'
+openapi: "3.0"
 info:
   title: Yandex IAM API
-  description: >-
-    This API reference is organized by resource. Actions are performed by
-    sending HTTP requests to resource URLs or making RPC calls. For more
-    information about Yandex.Cloud API architecture, see [API
-    Concepts](/docs/api-design-guide/).
+  description: This API reference is organized by resource. Actions are performed
+    by sending HTTP requests to resource URLs or making RPC calls. For more information
+    about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
   version: v1
   x-y-docUri: api-ref
   x-y-baseUrl: https://iam.api.cloud.yandex.net
@@ -13,62 +11,45 @@ paths:
   /iam/aws-compatibility/v1/accessKeys:
     get:
       tags:
-        - AccessKey
+      - AccessKey
       summary: Retrieves the list of access keys for the specified service account.
       operationId: AccessKeyList
       parameters:
-        - name: serviceAccountId
-          in: query
-          description: >-
-            ID of the service account to list access keys for.
+      - name: serviceAccountId
+        in: query
+        description: |-
+          ID of the service account to list access keys for.
+          To get the service account ID, use a [list](/docs/iam/api-ref/ServiceAccount/list) request.
+          If not specified, it defaults to the subject that made the request.
 
-            To get the service account ID, use a
-            [list](/docs/iam/api-ref/ServiceAccount/list) request.
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/iam/api-ref/AccessKey/list#query_params),
+          the service returns a [nextPageToken](/docs/iam/api-ref/AccessKey/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
 
-            If not specified, it defaults to the subject that made the request.
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/iam/api-ref/AccessKey/list#query_params)
+          to the [nextPageToken](/docs/iam/api-ref/AccessKey/list#responses)
+          returned by a previous list request.
 
-
-            The maximum string length in characters is 50.
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            The maximum number of results per page to return. If the number of
-            available
-
-            results is larger than
-            [pageSize](/docs/iam/api-ref/AccessKey/list#query_params),
-
-            the service returns a
-            [nextPageToken](/docs/iam/api-ref/AccessKey/list#responses)
-
-            that can be used to get the next page of results in subsequent list
-            requests.
-
-            Default value: 100.
-
-
-            The maximum value is 1000.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Page token. To get the next page of results, set
-            [pageToken](/docs/iam/api-ref/AccessKey/list#query_params)
-
-            to the [nextPageToken](/docs/iam/api-ref/AccessKey/list#responses)
-
-            returned by a previous list request.
-
-
-            The maximum string length in characters is 100.
-          schema:
-            type: string
+          The maximum string length in characters is 100.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -77,7 +58,7 @@ paths:
       x-y-navtitle: list
     post:
       tags:
-        - AccessKey
+      - AccessKey
       summary: Creates an access key for the specified service account.
       operationId: AccessKeyCreate
       requestBody:
@@ -87,7 +68,7 @@ paths:
               $ref: '#/components/schemas/CreateAccessKeyRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -97,30 +78,25 @@ paths:
   /iam/aws-compatibility/v1/accessKeys/{accessKeyId}:
     get:
       tags:
-        - AccessKey
+      - AccessKey
       summary: Returns the specified access key.
-      description: >-
-        To get the list of available access keys, make a
-        [list](/docs/iam/api-ref/AccessKey/list) request.
+      description: To get the list of available access keys, make a [list](/docs/iam/api-ref/AccessKey/list)
+        request.
       operationId: AccessKeyGet
       parameters:
-        - name: accessKeyId
-          in: path
-          description: >-
-            Required.
+      - name: accessKeyId
+        in: path
+        description: |-
+          Required.
+          ID of the AccessKey resource to return.
+          To get the access key ID, use a [list](/docs/iam/api-ref/AccessKey/list) request.
 
-            ID of the AccessKey resource to return.
-
-            To get the access key ID, use a
-            [list](/docs/iam/api-ref/AccessKey/list) request.
-
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -129,27 +105,23 @@ paths:
       x-y-navtitle: get
     delete:
       tags:
-        - AccessKey
+      - AccessKey
       summary: Deletes the specified access key.
       operationId: AccessKeyDelete
       parameters:
-        - name: accessKeyId
-          in: path
-          description: >-
-            Required.
+      - name: accessKeyId
+        in: path
+        description: |-
+          Required.
+          ID of the access key to delete.
+          To get the access key ID, use a [list](/docs/iam/api-ref/AccessKey/list) request.
 
-            ID of the access key to delete.
-
-            To get the access key ID, use a
-            [list](/docs/iam/api-ref/AccessKey/list) request.
-
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -161,25 +133,21 @@ paths:
       x-y-operation-response: Empty
     patch:
       tags:
-        - AccessKey
+      - AccessKey
       summary: Updates the specified access key.
       operationId: AccessKeyUpdate
       parameters:
-        - name: accessKeyId
-          in: path
-          description: >-
-            Required.
+      - name: accessKeyId
+        in: path
+        description: |-
+          Required.
+          ID of the AccessKey resource to update.
+          To get the access key ID, use a [list](/docs/iam/api-ref/AccessKey/list) request.
 
-            ID of the AccessKey resource to update.
-
-            To get the access key ID, use a
-            [list](/docs/iam/api-ref/AccessKey/list) request.
-
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -187,7 +155,7 @@ paths:
               $ref: '#/components/schemas/UpdateAccessKeyRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -200,58 +168,44 @@ paths:
   /iam/aws-compatibility/v1/accessKeys/{accessKeyId}/operations:
     get:
       tags:
-        - AccessKey
+      - AccessKey
       summary: Retrieves the list of operations for the specified access key.
       operationId: AccessKeyListOperations
       parameters:
-        - name: accessKeyId
-          in: path
-          description: |-
-            Required.
-            ID of the key to list operations for.
+      - name: accessKeyId
+        in: path
+        description: |-
+          Required.
+          ID of the key to list operations for.
 
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            The maximum number of results per page to return. If the number of
-            available
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/iam/api-ref/AccessKey/listOperations#query_params),
+          the service returns a [nextPageToken](/docs/iam/api-ref/AccessKey/listOperations#responses)
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
 
-            results is larger than
-            [pageSize](/docs/iam/api-ref/AccessKey/listOperations#query_params),
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/iam/api-ref/AccessKey/listOperations#query_params) to the
+          [nextPageToken](/docs/iam/api-ref/AccessKey/listOperations#responses) returned by a previous list request.
 
-            the service returns a
-            [nextPageToken](/docs/iam/api-ref/AccessKey/listOperations#responses)
-
-            that can be used to get the next page of results in subsequent list
-            requests.
-
-            Default value: 100.
-
-
-            Acceptable values are 0 to 1000, inclusive.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Page token. To get the next page of results, set
-            [pageToken](/docs/iam/api-ref/AccessKey/listOperations#query_params)
-            to the
-
-            [nextPageToken](/docs/iam/api-ref/AccessKey/listOperations#responses)
-            returned by a previous list request.
-
-
-            The maximum string length in characters is 100.
-          schema:
-            type: string
+          The maximum string length in characters is 100.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -261,30 +215,24 @@ paths:
 components:
   schemas:
     AccessKey:
-      description: >-
+      description: |-
         An access key.
-
-        For more information, see [AWS-compatible access
-        keys](/docs/iam/concepts/authorization/access-key).
+        For more information, see [AWS-compatible access keys](/docs/iam/concepts/authorization/access-key).
       type: object
       properties:
         id:
-          description: >-
+          description: |-
             ID of the AccessKey resource.
-
-            It is used to manage secret credentials: an access key ID and a
-            secret access key.
+            It is used to manage secret credentials: an access key ID and a secret access key.
           type: string
         serviceAccountId:
           description: ID of the service account that the access key belongs to.
           type: string
         createdAt:
-          description: >-
+          description: |-
             Creation timestamp.
 
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-            format.
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
         description:
@@ -299,14 +247,10 @@ components:
       type: object
       properties:
         serviceAccountId:
-          description: >-
+          description: |-
             ID of the service account to create an access key for.
-
-            To get the service account ID, use a
-            [list](/docs/iam/api-ref/ServiceAccount/list) request.
-
+            To get the service account ID, use a [list](/docs/iam/api-ref/ServiceAccount/list) request.
             If not specified, it defaults to the subject that made the request.
-
 
             The maximum string length in characters is 50.
           type: string
@@ -337,24 +281,14 @@ components:
       type: object
       maxProperties: 0
     FieldMask:
-      description: >-
+      description: |-
         A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
 
-        Оnly the specified fields will be changed. The others will be left
-        untouched.
-
-        If the field is specified in `` updateMask `` and no value for that
-        field was sent in the request,
-
-        the field's value will be reset to the default. The default value for
-        most fields is null or 0.
-
-
-        If `` updateMask `` is not sent in the request, all fields' values will
-        be updated.
-
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
         Fields specified in the request will be updated to provided values.
-
         The rest of the fields will be reset to the default.
       type: string
     ListAccessKeyOperationsResponse:
@@ -366,23 +300,11 @@ components:
           items:
             $ref: '#/components/schemas/Operation'
         nextPageToken:
-          description: >-
-            This token allows you to get the next page of results for list
-            requests. If the number of results
-
-            is larger than
-            [pageSize](/docs/iam/api-ref/AccessKey/listOperations#query_params),
-            use the
-            [nextPageToken](/docs/iam/api-ref/AccessKey/listOperations#responses)
-            as the value
-
-            for the
-            [pageToken](/docs/iam/api-ref/AccessKey/listOperations#query_params)
-            query parameter in the next list request.
-
-            Each subsequent list request will have its own
-            [nextPageToken](/docs/iam/api-ref/AccessKey/listOperations#responses)
-            to continue paging through the results.
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/iam/api-ref/AccessKey/listOperations#query_params), use the [nextPageToken](/docs/iam/api-ref/AccessKey/listOperations#responses) as the value
+            for the [pageToken](/docs/iam/api-ref/AccessKey/listOperations#query_params) query parameter in the next list request.
+            Each subsequent list request will have its own [nextPageToken](/docs/iam/api-ref/AccessKey/listOperations#responses) to continue paging through the results.
           type: string
     ListAccessKeysResponse:
       type: object
@@ -393,113 +315,77 @@ components:
           items:
             $ref: '#/components/schemas/AccessKey'
         nextPageToken:
-          description: >-
-            This token allows you to get the next page of results for list
-            requests. If the number of results
-
-            is larger than
-            [pageSize](/docs/iam/api-ref/AccessKey/list#query_params), use
-
-            the [nextPageToken](/docs/iam/api-ref/AccessKey/list#responses) as
-            the value
-
-            for the [pageToken](/docs/iam/api-ref/AccessKey/list#query_params)
-            query parameter
-
-            in the next list request. Each subsequent list request will have its
-            own
-
-            [nextPageToken](/docs/iam/api-ref/AccessKey/list#responses) to
-            continue paging through the results.
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/iam/api-ref/AccessKey/list#query_params), use
+            the [nextPageToken](/docs/iam/api-ref/AccessKey/list#responses) as the value
+            for the [pageToken](/docs/iam/api-ref/AccessKey/list#query_params) query parameter
+            in the next list request. Each subsequent list request will have its own
+            [nextPageToken](/docs/iam/api-ref/AccessKey/list#responses) to continue paging through the results.
           type: string
     Operation:
-      description: >-
-        An Operation resource. For more information, see
-        [Operation](/docs/api-design-guide/concepts/operation).
+      description: An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
       type: object
       allOf:
-        - type: object
-          properties:
-            id:
-              description: ID of the operation.
-              type: string
-            description:
-              description: Description of the operation. 0-256 characters long.
-              type: string
-            createdAt:
-              description: >-
-                Creation timestamp.
+      - type: object
+        properties:
+          id:
+            description: ID of the operation.
+            type: string
+          description:
+            description: Description of the operation. 0-256 characters long.
+            type: string
+          createdAt:
+            description: |-
+              Creation timestamp.
 
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          createdBy:
+            description: ID of the user or service account who initiated the operation.
+            type: string
+          modifiedAt:
+            description: |-
+              The time when the Operation resource was last modified.
 
-                String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-                format.
-              type: string
-              format: date-time
-            createdBy:
-              description: ID of the user or service account who initiated the operation.
-              type: string
-            modifiedAt:
-              description: >-
-                The time when the Operation resource was last modified.
-
-
-                String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-                format.
-              type: string
-              format: date-time
-            done:
-              description: >-
-                If the value is `false`, it means the operation is still in
-                progress.
-
-                If `true`, the operation is completed, and either `error` or
-                `response` is available.
-              type: boolean
-              format: boolean
-            metadata:
-              description: >-
-                Service-specific metadata associated with the operation.
-
-                It typically contains the ID of the target resource that the
-                operation is performed on.
-
-                Any method that returns a long-running operation should document
-                the metadata type, if any.
-              type: object
-        - title: result
-          type: object
-          maxProperties: 1
-          properties:
-            error:
-              $ref: '#/components/schemas/Status'
-              description: >-
-                The error result of the operation in case of failure or
-                cancellation.
-            response:
-              description: >-
-                The normal response of the operation in case of success.
-
-                If the original method returns no data on success, such as
-                Delete,
-
-                the response is
-                [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty).
-
-                If the original method is the standard Create/Update,
-
-                the response should be the target resource of the operation.
-
-                Any method that returns a long-running operation should document
-                the response type, if any.
-              type: object
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          done:
+            description: |-
+              If the value is `false`, it means the operation is still in progress.
+              If `true`, the operation is completed, and either `error` or `response` is available.
+            type: boolean
+            format: boolean
+          metadata:
+            description: |-
+              Service-specific metadata associated with the operation.
+              It typically contains the ID of the target resource that the operation is performed on.
+              Any method that returns a long-running operation should document the metadata type, if any.
+            type: object
+      - title: result
+        type: object
+        maxProperties: 1
+        properties:
+          error:
+            $ref: '#/components/schemas/Status'
+            description: The error result of the operation in case of failure or cancellation.
+          response:
+            description: |-
+              The normal response of the operation in case of success.
+              If the original method returns no data on success, such as Delete,
+              the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty).
+              If the original method is the standard Create/Update,
+              the response should be the target resource of the operation.
+              Any method that returns a long-running operation should document the response type, if any.
+            type: object
     Status:
       description: The error result of the operation in case of failure or cancellation.
       type: object
       properties:
         code:
-          description: >-
-            Error code. An enum value of
-            [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
+          description: Error code. An enum value of [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
           type: integer
           format: int32
         message:
@@ -528,33 +414,26 @@ components:
             The maximum string length in characters is 256.
           type: string
     AccessKey_in_CreateAccessKeyResponse_accessKey:
-      description: >-
+      description: |-
         AccessKey resource.
 
-
         An access key.
-
-        For more information, see [AWS-compatible access
-        keys](/docs/iam/concepts/authorization/access-key).
+        For more information, see [AWS-compatible access keys](/docs/iam/concepts/authorization/access-key).
       type: object
       properties:
         id:
-          description: >-
+          description: |-
             ID of the AccessKey resource.
-
-            It is used to manage secret credentials: an access key ID and a
-            secret access key.
+            It is used to manage secret credentials: an access key ID and a secret access key.
           type: string
         serviceAccountId:
           description: ID of the service account that the access key belongs to.
           type: string
         createdAt:
-          description: >-
+          description: |-
             Creation timestamp.
 
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-            format.
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
         description:
@@ -566,30 +445,18 @@ components:
             The key is AWS compatible.
           type: string
     FieldMask_in_UpdateAccessKeyRequest_updateMask:
-      description: >-
-        Field mask that specifies which fields of the Accesskey resource are
-        going to be updated.
-
+      description: |-
+        Field mask that specifies which fields of the Accesskey resource are going to be updated.
 
         A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
 
-        Оnly the specified fields will be changed. The others will be left
-        untouched.
-
-        If the field is specified in `` updateMask `` and no value for that
-        field was sent in the request,
-
-        the field's value will be reset to the default. The default value for
-        most fields is null or 0.
-
-
-        If `` updateMask `` is not sent in the request, all fields' values will
-        be updated.
-
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
         Fields specified in the request will be updated to provided values.
-
         The rest of the fields will be reset to the default.
       type: string
 tags:
-  - name: AccessKey
-    description: A set of methods for managing access keys.
+- name: AccessKey
+  description: A set of methods for managing access keys.

@@ -55,6 +55,7 @@ network_id | **string**<br>ID of the network that the cluster belongs to.
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: state of the cluster is unknown ([Host.health](#Host) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: cluster is alive and well ([Host.health](#Host) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: cluster is inoperable ([Host.health](#Host) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: cluster is in degraded state ([Host.health](#Host) of at least one of the hosts in the cluster is not `ALIVE`).</li><ul/>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: cluster state is unknown.</li><li>`CREATING`: cluster is being created.</li><li>`RUNNING`: cluster is running normally.</li><li>`ERROR`: cluster encountered a problem and cannot operate.</li><li>`UPDATING`: cluster is being updated.</li><li>`STOPPING`: cluster is stopping.</li><li>`STOPPED`: cluster stopped.</li><li>`STARTING`: cluster is starting.</li><ul/>
 security_group_ids[] | **string**<br>User security groups 
+service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
 
 
 ### Monitoring {#Monitoring}
@@ -72,6 +73,7 @@ Field | Description
 --- | ---
 version | **string**<br>Elasticsearch version. 
 elasticsearch | **[Elasticsearch](#Elasticsearch)**<br>Configuration and resource allocation for Elasticsearch nodes. 
+edition | **string**<br>ElasticSearch edition. 
 
 
 ### Elasticsearch {#Elasticsearch}
@@ -80,6 +82,7 @@ Field | Description
 --- | ---
 data_node | **[DataNode](#DataNode)**<br>Configuration and resource allocation for Elasticsearch data nodes. 
 master_node | **[MasterNode](#MasterNode)**<br>Configuration and resource allocation for Elasticsearch master nodes. 
+plugins[] | **string**<br>Cluster wide plugins 
 
 
 ### DataNode {#DataNode}
@@ -111,7 +114,7 @@ Field | Description
 folder_id | **string**<br>Required. ID of the folder to list Elasticsearch clusters in. <br>To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClustersResponse.next_page_token](#ListClustersResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListClustersResponse.next_page_token](#ListClustersResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name to filter by. Currently you can only use filtering with the [Cluster.name](#Cluster1) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Мust be 1-63 characters long and match the regular expression `^[a-zA-Z0-9_-]+$`. </li></ol> The maximum string length in characters is 1000.
+filter | **string**<br><ol><li>The field name to filter by. Currently you can only use filtering with the [Cluster.name](#Cluster1) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 1-63 characters long and match the regular expression `^[a-zA-Z0-9_-]+$`. </li></ol> The maximum string length in characters is 1000.
 
 
 ### ListClustersResponse {#ListClustersResponse}
@@ -139,6 +142,7 @@ network_id | **string**<br>ID of the network that the cluster belongs to.
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: state of the cluster is unknown ([Host.health](#Host) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: cluster is alive and well ([Host.health](#Host) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: cluster is inoperable ([Host.health](#Host) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: cluster is in degraded state ([Host.health](#Host) of at least one of the hosts in the cluster is not `ALIVE`).</li><ul/>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: cluster state is unknown.</li><li>`CREATING`: cluster is being created.</li><li>`RUNNING`: cluster is running normally.</li><li>`ERROR`: cluster encountered a problem and cannot operate.</li><li>`UPDATING`: cluster is being updated.</li><li>`STOPPING`: cluster is stopping.</li><li>`STOPPED`: cluster stopped.</li><li>`STARTING`: cluster is starting.</li><ul/>
 security_group_ids[] | **string**<br>User security groups 
+service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
 
 
 ### Monitoring {#Monitoring1}
@@ -156,6 +160,7 @@ Field | Description
 --- | ---
 version | **string**<br>Elasticsearch version. 
 elasticsearch | **[Elasticsearch](#Elasticsearch1)**<br>Configuration and resource allocation for Elasticsearch nodes. 
+edition | **string**<br>ElasticSearch edition. 
 
 
 ### Elasticsearch {#Elasticsearch1}
@@ -164,6 +169,7 @@ Field | Description
 --- | ---
 data_node | **[DataNode](#DataNode1)**<br>Configuration and resource allocation for Elasticsearch data nodes. 
 master_node | **[MasterNode](#MasterNode1)**<br>Configuration and resource allocation for Elasticsearch master nodes. 
+plugins[] | **string**<br>Cluster wide plugins 
 
 
 ### DataNode {#DataNode1}
@@ -202,10 +208,11 @@ description | **string**<br>Description of the Elasticsearch cluster. The maximu
 labels | **map<string,string>**<br>Custom labels for the Elasticsearch cluster as `key:value` pairs. <br>For example, "project": "mvp" or "source": "dictionary". No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 environment | **[Cluster.Environment](#Cluster2)**<br>Deployment environment of the Elasticsearch cluster. 
 config_spec | **[ConfigSpec](#ConfigSpec)**<br>Required. Elasticsearch and hosts configuration for the cluster. 
-user_specs[] | **[UserSpec](#UserSpec)**<br>One or more descriptions of users to be created in Elasticsearch cluster. The number of elements must be greater than 0.
+user_specs[] | **[UserSpec](#UserSpec)**<br>One or more descriptions of users to be created in Elasticsearch cluster. 
 host_specs[] | **[HostSpec](#HostSpec)**<br>One or more configurations of hosts to be created in the Elasticsearch cluster. The number of elements must be greater than 0.
 network_id | **string**<br>Required. ID of the network to create the Elasticsearch cluster in. The maximum string length in characters is 50.
 security_group_ids[] | **string**<br>User security groups 
+service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
 
 
 ### ConfigSpec {#ConfigSpec}
@@ -214,6 +221,8 @@ Field | Description
 --- | ---
 version | **string**<br>Elasticsearch version. 
 elasticsearch_spec | **[ElasticsearchSpec](#ElasticsearchSpec)**<br>Configuration and resource allocation for Elasticsearch nodes. 
+edition | **string**<br>ElasticSearch edition. 
+admin_password | **string**<br>ElasticSearch admin password. 
 
 
 ### ElasticsearchSpec {#ElasticsearchSpec}
@@ -222,6 +231,7 @@ Field | Description
 --- | ---
 data_node | **[DataNode](#DataNode2)**<br>Configuration and resource allocation for Elasticsearch data nodes. 
 master_node | **[MasterNode](#MasterNode2)**<br>Configuration and resource allocation for Elasticsearch master nodes. 
+plugins[] | **string**<br>Cluster wide plugins The maximum string length in characters for each value is 50.
 
 
 ### DataNode {#DataNode2}
@@ -299,6 +309,7 @@ network_id | **string**<br>ID of the network that the cluster belongs to.
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: state of the cluster is unknown ([Host.health](#Host) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: cluster is alive and well ([Host.health](#Host) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: cluster is inoperable ([Host.health](#Host) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: cluster is in degraded state ([Host.health](#Host) of at least one of the hosts in the cluster is not `ALIVE`).</li><ul/>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: cluster state is unknown.</li><li>`CREATING`: cluster is being created.</li><li>`RUNNING`: cluster is running normally.</li><li>`ERROR`: cluster encountered a problem and cannot operate.</li><li>`UPDATING`: cluster is being updated.</li><li>`STOPPING`: cluster is stopping.</li><li>`STOPPED`: cluster stopped.</li><li>`STARTING`: cluster is starting.</li><ul/>
 security_group_ids[] | **string**<br>User security groups 
+service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
 
 
 ### Monitoring {#Monitoring2}
@@ -316,6 +327,7 @@ Field | Description
 --- | ---
 version | **string**<br>Elasticsearch version. 
 elasticsearch | **[Elasticsearch](#Elasticsearch2)**<br>Configuration and resource allocation for Elasticsearch nodes. 
+edition | **string**<br>ElasticSearch edition. 
 
 
 ### Elasticsearch {#Elasticsearch2}
@@ -324,6 +336,7 @@ Field | Description
 --- | ---
 data_node | **[DataNode](#DataNode3)**<br>Configuration and resource allocation for Elasticsearch data nodes. 
 master_node | **[MasterNode](#MasterNode3)**<br>Configuration and resource allocation for Elasticsearch master nodes. 
+plugins[] | **string**<br>Cluster wide plugins 
 
 
 ### DataNode {#DataNode3}
@@ -363,6 +376,7 @@ labels | **map<string,string>**<br>Custom labels for the Elasticsearch cluster a
 config_spec | **[ConfigSpec](#ConfigSpec)**<br>New configuration and resources for hosts in the Elasticsearch cluster. <br>Use `update_mask` to prevent reverting all cluster settings that are not listed in `config_spec` to their default values. 
 name | **string**<br>New name for the Elasticsearch cluster. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 security_group_ids[] | **string**<br>User security groups 
+service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
 
 
 ### ConfigSpec {#ConfigSpec1}
@@ -371,6 +385,8 @@ Field | Description
 --- | ---
 version | **string**<br>Elasticsearch version. 
 elasticsearch_spec | **[ElasticsearchSpec](#ElasticsearchSpec)**<br>Configuration and resource allocation for Elasticsearch nodes. 
+edition | **string**<br>ElasticSearch edition. 
+admin_password | **string**<br>ElasticSearch admin password. 
 
 
 ### ElasticsearchSpec {#ElasticsearchSpec1}
@@ -379,6 +395,7 @@ Field | Description
 --- | ---
 data_node | **[DataNode](#DataNode4)**<br>Configuration and resource allocation for Elasticsearch data nodes. 
 master_node | **[MasterNode](#MasterNode4)**<br>Configuration and resource allocation for Elasticsearch master nodes. 
+plugins[] | **string**<br>Cluster wide plugins The maximum string length in characters for each value is 50.
 
 
 ### DataNode {#DataNode4}
@@ -437,6 +454,7 @@ network_id | **string**<br>ID of the network that the cluster belongs to.
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: state of the cluster is unknown ([Host.health](#Host) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: cluster is alive and well ([Host.health](#Host) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: cluster is inoperable ([Host.health](#Host) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: cluster is in degraded state ([Host.health](#Host) of at least one of the hosts in the cluster is not `ALIVE`).</li><ul/>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: cluster state is unknown.</li><li>`CREATING`: cluster is being created.</li><li>`RUNNING`: cluster is running normally.</li><li>`ERROR`: cluster encountered a problem and cannot operate.</li><li>`UPDATING`: cluster is being updated.</li><li>`STOPPING`: cluster is stopping.</li><li>`STOPPED`: cluster stopped.</li><li>`STARTING`: cluster is starting.</li><ul/>
 security_group_ids[] | **string**<br>User security groups 
+service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
 
 
 ### Monitoring {#Monitoring3}
@@ -454,6 +472,7 @@ Field | Description
 --- | ---
 version | **string**<br>Elasticsearch version. 
 elasticsearch | **[Elasticsearch](#Elasticsearch3)**<br>Configuration and resource allocation for Elasticsearch nodes. 
+edition | **string**<br>ElasticSearch edition. 
 
 
 ### Elasticsearch {#Elasticsearch3}
@@ -462,6 +481,7 @@ Field | Description
 --- | ---
 data_node | **[DataNode](#DataNode5)**<br>Configuration and resource allocation for Elasticsearch data nodes. 
 master_node | **[MasterNode](#MasterNode5)**<br>Configuration and resource allocation for Elasticsearch master nodes. 
+plugins[] | **string**<br>Cluster wide plugins 
 
 
 ### DataNode {#DataNode5}
@@ -580,6 +600,7 @@ network_id | **string**<br>ID of the network that the cluster belongs to.
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: state of the cluster is unknown ([Host.health](#Host) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: cluster is alive and well ([Host.health](#Host) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: cluster is inoperable ([Host.health](#Host) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: cluster is in degraded state ([Host.health](#Host) of at least one of the hosts in the cluster is not `ALIVE`).</li><ul/>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: cluster state is unknown.</li><li>`CREATING`: cluster is being created.</li><li>`RUNNING`: cluster is running normally.</li><li>`ERROR`: cluster encountered a problem and cannot operate.</li><li>`UPDATING`: cluster is being updated.</li><li>`STOPPING`: cluster is stopping.</li><li>`STOPPED`: cluster stopped.</li><li>`STARTING`: cluster is starting.</li><ul/>
 security_group_ids[] | **string**<br>User security groups 
+service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
 
 
 ### Monitoring {#Monitoring4}
@@ -597,6 +618,7 @@ Field | Description
 --- | ---
 version | **string**<br>Elasticsearch version. 
 elasticsearch | **[Elasticsearch](#Elasticsearch4)**<br>Configuration and resource allocation for Elasticsearch nodes. 
+edition | **string**<br>ElasticSearch edition. 
 
 
 ### Elasticsearch {#Elasticsearch4}
@@ -605,6 +627,7 @@ Field | Description
 --- | ---
 data_node | **[DataNode](#DataNode6)**<br>Configuration and resource allocation for Elasticsearch data nodes. 
 master_node | **[MasterNode](#MasterNode6)**<br>Configuration and resource allocation for Elasticsearch master nodes. 
+plugins[] | **string**<br>Cluster wide plugins 
 
 
 ### DataNode {#DataNode6}
@@ -680,6 +703,7 @@ network_id | **string**<br>ID of the network that the cluster belongs to.
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: state of the cluster is unknown ([Host.health](#Host) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: cluster is alive and well ([Host.health](#Host) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: cluster is inoperable ([Host.health](#Host) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: cluster is in degraded state ([Host.health](#Host) of at least one of the hosts in the cluster is not `ALIVE`).</li><ul/>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: cluster state is unknown.</li><li>`CREATING`: cluster is being created.</li><li>`RUNNING`: cluster is running normally.</li><li>`ERROR`: cluster encountered a problem and cannot operate.</li><li>`UPDATING`: cluster is being updated.</li><li>`STOPPING`: cluster is stopping.</li><li>`STOPPED`: cluster stopped.</li><li>`STARTING`: cluster is starting.</li><ul/>
 security_group_ids[] | **string**<br>User security groups 
+service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
 
 
 ### Monitoring {#Monitoring5}
@@ -697,6 +721,7 @@ Field | Description
 --- | ---
 version | **string**<br>Elasticsearch version. 
 elasticsearch | **[Elasticsearch](#Elasticsearch5)**<br>Configuration and resource allocation for Elasticsearch nodes. 
+edition | **string**<br>ElasticSearch edition. 
 
 
 ### Elasticsearch {#Elasticsearch5}
@@ -705,6 +730,7 @@ Field | Description
 --- | ---
 data_node | **[DataNode](#DataNode7)**<br>Configuration and resource allocation for Elasticsearch data nodes. 
 master_node | **[MasterNode](#MasterNode7)**<br>Configuration and resource allocation for Elasticsearch master nodes. 
+plugins[] | **string**<br>Cluster wide plugins 
 
 
 ### DataNode {#DataNode7}
@@ -780,6 +806,7 @@ network_id | **string**<br>ID of the network that the cluster belongs to.
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: state of the cluster is unknown ([Host.health](#Host) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: cluster is alive and well ([Host.health](#Host) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: cluster is inoperable ([Host.health](#Host) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: cluster is in degraded state ([Host.health](#Host) of at least one of the hosts in the cluster is not `ALIVE`).</li><ul/>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: cluster state is unknown.</li><li>`CREATING`: cluster is being created.</li><li>`RUNNING`: cluster is running normally.</li><li>`ERROR`: cluster encountered a problem and cannot operate.</li><li>`UPDATING`: cluster is being updated.</li><li>`STOPPING`: cluster is stopping.</li><li>`STOPPED`: cluster stopped.</li><li>`STARTING`: cluster is starting.</li><ul/>
 security_group_ids[] | **string**<br>User security groups 
+service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
 
 
 ### Monitoring {#Monitoring6}
@@ -797,6 +824,7 @@ Field | Description
 --- | ---
 version | **string**<br>Elasticsearch version. 
 elasticsearch | **[Elasticsearch](#Elasticsearch6)**<br>Configuration and resource allocation for Elasticsearch nodes. 
+edition | **string**<br>ElasticSearch edition. 
 
 
 ### Elasticsearch {#Elasticsearch6}
@@ -805,6 +833,7 @@ Field | Description
 --- | ---
 data_node | **[DataNode](#DataNode8)**<br>Configuration and resource allocation for Elasticsearch data nodes. 
 master_node | **[MasterNode](#MasterNode8)**<br>Configuration and resource allocation for Elasticsearch master nodes. 
+plugins[] | **string**<br>Cluster wide plugins 
 
 
 ### DataNode {#DataNode8}
@@ -841,6 +870,7 @@ page_size | **int64**<br>The maximum number of results per page to return. <br>I
 page_token | **string**<br>Page token. <br>To get the next page of results, set `page_token` to the [ListClusterLogsResponse.next_page_token](#ListClusterLogsResponse) returned by a previous list request. The maximum string length in characters is 100.
 always_next_page_token | **bool**<br>The flag that defines behavior of providing the next page token. <br>If this flag is set to `true`, this API method will always return [ListClusterLogsResponse.next_page_token](#ListClusterLogsResponse), even if current page is empty. 
 filter | **string**<br><ol><li>The field name to filter by. Currently filtering can be applied to the `hostname` field. </li><li>A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 1-63 characters long and match the regular expression `^[a-z0-9.-]{1,61}$`. </li></ol> The maximum string length in characters is 1000.
+service_type | enum **ServiceType**<br>Type of the service to request logs about. <ul><ul/>
 
 
 ### ListClusterLogsResponse {#ListClusterLogsResponse}
@@ -875,6 +905,7 @@ from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol
 to_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>End timestamp for the logs request. <br>If this field is not set, all existing logs will be sent and then the new ones asthey appear. In essence it has `tail -f` semantics. 
 record_token | **string**<br>Record token. <br>Set `record_token` to the [StreamLogRecord.next_record_token](#StreamLogRecord) returned by a previous [ClusterService.StreamLogs](#StreamLogs) request to start streaming from next log record. The maximum string length in characters is 100.
 filter | **string**<br><ol><li>The field name to filter by. Currently filtering can be applied to the `hostname` field. </li><li>A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`. </li></ol> The maximum string length in characters is 1000.
+service_type | enum **ServiceType**<br>Type of the service to request logs about. <ul><ul/>
 
 
 ### StreamLogRecord {#StreamLogRecord}

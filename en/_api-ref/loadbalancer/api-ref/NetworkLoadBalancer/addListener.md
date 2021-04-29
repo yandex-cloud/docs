@@ -9,7 +9,7 @@ Adds a listener to the specified network load balancer.
  
 ## HTTP request {#https-request}
 ```
-POST https://load-balancer.api.cloud.yandex.net/network-load-balancer/v1alpha/networkLoadBalancers/{networkLoadBalancerId}:addListener
+POST https://load-balancer.api.cloud.yandex.net/load-balancer/v1alpha/networkLoadBalancers/{networkLoadBalancerId}:addListener
 ```
  
 ## Path parameters {#path_params}

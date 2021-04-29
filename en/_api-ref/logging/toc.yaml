@@ -1,0 +1,39 @@
+items:
+  - name: Overview
+    href: undefined/index.md
+  - name: LogGroup
+    items:
+      - name: Overview
+        href: undefined/LogGroup/index.md
+      - name: get
+        href: undefined/LogGroup/get.md
+      - name: getDefault
+        href: undefined/LogGroup/getDefault.md
+      - name: list
+        href: undefined/LogGroup/list.md
+      - name: listAccessBindings
+        href: undefined/LogGroup/listAccessBindings.md
+      - name: listOperations
+        href: undefined/LogGroup/listOperations.md
+      - name: listResources
+        href: undefined/LogGroup/listResources.md
+      - name: setAccessBindings
+        href: undefined/LogGroup/setAccessBindings.md
+      - name: stats
+        href: undefined/LogGroup/stats.md
+      - name: update
+        href: undefined/LogGroup/update.md
+      - name: updateAccessBindings
+        href: undefined/LogGroup/updateAccessBindings.md
+  - name: LogIngestion
+    items:
+      - name: Overview
+        href: undefined/LogIngestion/index.md
+      - name: write
+        href: undefined/LogIngestion/write.md
+  - name: LogReading
+    items:
+      - name: Overview
+        href: undefined/LogReading/index.md
+      - name: read
+        href: undefined/LogReading/read.md

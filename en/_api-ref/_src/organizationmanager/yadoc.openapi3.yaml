@@ -1,0 +1,861 @@
+openapi: "3.0"
+info:
+  title: Yandex Organization Management API
+  description: This API reference is organized by resource. Actions are performed
+    by sending HTTP requests to resource URLs or making RPC calls. For more information
+    about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
+  version: v1
+  x-y-docUri: api-ref
+  x-y-baseUrl: https://organization-manager.api.cloud.yandex.net
+paths:
+  /organization-manager/v1/organizations/{organizationId}:
+    get:
+      tags:
+      - Organization
+      summary: Returns the specified Organization resource.
+      description: To get the list of available Organization resources, make a [list](/docs/organization-manager/api-ref/Organization/list)
+        request.
+      operationId: OrganizationGet
+      parameters:
+      - name: organizationId
+        in: path
+        description: |-
+          Required.
+          ID of the Organization resource to return.
+          To get the organization ID, use a [list](/docs/organization-manager/api-ref/Organization/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Organization'
+      x-y-navtitle: get
+    patch:
+      tags:
+      - Organization
+      summary: Updates the specified organization.
+      operationId: OrganizationUpdate
+      parameters:
+      - name: organizationId
+        in: path
+        description: |-
+          Required.
+          ID of the organization to update.
+          To get the organization ID, use a [list](/docs/organization-manager/api-ref/Organization/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateOrganizationRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateOrganizationMetadata'
+      x-y-operation-response: '[Organization](/docs/organization-manager/api-ref/Organization#representation)'
+  /organization-manager/v1/organizations:
+    get:
+      tags:
+      - Organization
+      summary: Retrieves the list of Organization resources.
+      operationId: OrganizationList
+      parameters:
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/organization-manager/api-ref/Organization/list#query_params),
+          the service returns a [nextPageToken](/docs/organization-manager/api-ref/Organization/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
+
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. Set [pageToken](/docs/organization-manager/api-ref/Organization/list#query_params)
+          to the [nextPageToken](/docs/organization-manager/api-ref/Organization/list#responses)
+          returned by a previous list request to get the next page of results.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          A filter expression that filters resources listed in the response.
+          The expression must specify:
+          1. The field name. Currently you can use filtering only on the [Organization.name](/docs/organization-manager/api-ref/Organization#representation) field.
+          2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
+          3. The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.
+
+          The maximum string length in characters is 1000.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListOrganizationsResponse'
+      x-y-navtitle: list
+  /organization-manager/v1/organizations/{organizationId}/operations:
+    get:
+      tags:
+      - Organization
+      summary: Lists operations for the specified organization.
+      operationId: OrganizationListOperations
+      parameters:
+      - name: organizationId
+        in: path
+        description: |-
+          Required.
+          ID of the Organization resource to list operations for.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/organization-manager/api-ref/Organization/listOperations#query_params), the service returns a [nextPageToken](/docs/organization-manager/api-ref/Organization/listOperations#responses)
+          that can be used to get the next page of results in subsequent list requests.
+          Acceptable values are 0 to 1000, inclusive. Default value: 100.
+
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. Set [pageToken](/docs/organization-manager/api-ref/Organization/listOperations#query_params)
+          to the [nextPageToken](/docs/organization-manager/api-ref/Organization/listOperations#responses)
+          returned by a previous list request to get the next page of results.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListOrganizationOperationsResponse'
+      x-y-navtitle: listOperations
+  /organization-manager/v1/organizations/{resourceId}:listAccessBindings:
+    get:
+      tags:
+      - Organization
+      summary: Lists access bindings for the specified organization.
+      operationId: OrganizationListAccessBindings
+      parameters:
+      - name: resourceId
+        in: path
+        description: |-
+          Required.
+          ID of the resource to list access bindings for.
+
+          To get the resource ID, use a corresponding List request.
+          For example, use the [list](/docs/resource-manager/api-ref/Cloud/list) request to get the Cloud resource ID.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page that should be returned. If the number of available
+          results is larger than pageSize,
+          the service returns a nextPageToken
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
+
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. Set pageToken
+          to the nextPageToken
+          returned by a previous list request to get the next page of results.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListAccessBindingsResponse'
+      x-y-navtitle: listAccessBindings
+  /organization-manager/v1/organizations/{resourceId}:setAccessBindings:
+    post:
+      tags:
+      - Organization
+      summary: Sets access bindings for the specified organization.
+      operationId: OrganizationSetAccessBindings
+      parameters:
+      - name: resourceId
+        in: path
+        description: |-
+          Required.
+          ID of the resource for which access bindings are being set.
+
+          To get the resource ID, use a corresponding List request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SetAccessBindingsRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: setAccessBindings
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/SetAccessBindingsMetadata'
+      x-y-operation-response: Empty
+  /organization-manager/v1/organizations/{resourceId}:updateAccessBindings:
+    post:
+      tags:
+      - Organization
+      summary: Updates access bindings for the specified organization.
+      operationId: OrganizationUpdateAccessBindings
+      parameters:
+      - name: resourceId
+        in: path
+        description: |-
+          Required.
+          ID of the resource for which access bindings are being updated.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateAccessBindingsRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: updateAccessBindings
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateAccessBindingsMetadata'
+      x-y-operation-response: Empty
+components:
+  schemas:
+    AccessBinding:
+      type: object
+      properties:
+        roleId:
+          description: |-
+            Required.
+            ID of the [Role](/docs/iam/api-ref/Role#representation) that is assigned to the `subject`.
+
+            The maximum string length in characters is 50.
+          type: string
+        subject:
+          $ref: '#/components/schemas/Subject_in_AccessBinding_subject'
+    AccessBindingAction:
+      description: |2-
+         - ADD: Addition of an access binding.
+         - REMOVE: Removal of an access binding.
+      type: string
+      enum:
+      - ADD
+      - REMOVE
+    AccessBindingDelta:
+      type: object
+      properties:
+        action:
+          $ref: '#/components/schemas/AccessBindingAction_in_AccessBindingDelta_action'
+        accessBinding:
+          $ref: '#/components/schemas/AccessBinding_in_AccessBindingDelta_accessBinding'
+    DeleteMembershipMetadata:
+      type: object
+      properties:
+        organizationId:
+          description: |-
+            Required.
+            ID of the organization to delete membership.
+
+            The maximum string length in characters is 50.
+          type: string
+        subjectId:
+          description: |-
+            Required.
+            ID of the subject that is being deleted from organization.
+
+            The maximum string length in characters is 50.
+          type: string
+    DeleteMembershipResponse:
+      type: object
+      properties:
+        organizationId:
+          description: |-
+            Required.
+            ID of the organization to delete membership.
+
+            The maximum string length in characters is 50.
+          type: string
+        subjectId:
+          description: |-
+            Required.
+            ID of the subject that is being deleted from organization.
+
+            The maximum string length in characters is 50.
+          type: string
+    Empty:
+      description: Empty JSON object `` {} ``.
+      type: object
+      maxProperties: 0
+    Federation:
+      description: Minimalistic analog of yandex.cloud.organizationmanager.v1.saml.Federation
+      type: object
+      properties:
+        id:
+          description: |-
+            Required.
+            ID of the federation.
+
+            The maximum string length in characters is 50.
+          type: string
+        name:
+          description: Name of the federation. The name is unique within the cloud
+            or organization
+          type: string
+    FieldMask:
+      description: |-
+        A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
+
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
+        Fields specified in the request will be updated to provided values.
+        The rest of the fields will be reset to the default.
+      type: string
+    ListAccessBindingsResponse:
+      type: object
+      properties:
+        accessBindings:
+          description: List of access bindings for the specified resource.
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessBinding'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than pageSize, use
+            the nextPageToken as the value
+            for the pageToken query parameter
+            in the next list request. Each subsequent list request will have its own
+            nextPageToken to continue paging through the results.
+          type: string
+    ListMembersResponse:
+      type: object
+      properties:
+        users:
+          description: List of users for the specified organization.
+          type: array
+          items:
+            $ref: '#/components/schemas/ListMembersResponseOrganizationUser'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [ListMembersResponse.page_size], use the [nextPageToken](/docs/organization-manager/api-ref/User/listMembers#responses) as the value
+            for the [ListMembersRequest.page_token] query parameter in the next list request.
+            Each subsequent list request will have its own [nextPageToken](/docs/organization-manager/api-ref/User/listMembers#responses) to continue paging through the results.
+          type: string
+    ListMembersResponseOrganizationUser:
+      type: object
+      properties:
+        subjectClaims:
+          $ref: '#/components/schemas/SubjectClaims_in_ListMembersResponseOrganizationUser_subjectClaims'
+    ListOrganizationOperationsResponse:
+      type: object
+      properties:
+        operations:
+          description: List of operations for the specified organization.
+          type: array
+          items:
+            $ref: '#/components/schemas/Operation'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [ListOrganizationOperationsResponse.page_size], use the [nextPageToken](/docs/organization-manager/api-ref/Organization/listOperations#responses) as the value
+            for the [pageToken](/docs/organization-manager/api-ref/Organization/listOperations#query_params) query parameter in the next list request.
+            Each subsequent list request will have its own [nextPageToken](/docs/organization-manager/api-ref/Organization/listOperations#responses) to continue paging through the results.
+          type: string
+    ListOrganizationsResponse:
+      type: object
+      properties:
+        organizations:
+          description: List of Organization resources.
+          type: array
+          items:
+            $ref: '#/components/schemas/Organization'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/organization-manager/api-ref/Organization/list#query_params), use
+            the [nextPageToken](/docs/organization-manager/api-ref/Organization/list#responses) as the value
+            for the [pageToken](/docs/organization-manager/api-ref/Organization/list#query_params) query parameter
+            in the next list request. Each subsequent list request will have its own
+            [nextPageToken](/docs/organization-manager/api-ref/Organization/list#responses) to continue paging through the results.
+          type: string
+    Operation:
+      description: An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
+      type: object
+      allOf:
+      - type: object
+        properties:
+          id:
+            description: ID of the operation.
+            type: string
+          description:
+            description: Description of the operation. 0-256 characters long.
+            type: string
+          createdAt:
+            description: |-
+              Creation timestamp.
+
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          createdBy:
+            description: ID of the user or service account who initiated the operation.
+            type: string
+          modifiedAt:
+            description: |-
+              The time when the Operation resource was last modified.
+
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          done:
+            description: |-
+              If the value is `false`, it means the operation is still in progress.
+              If `true`, the operation is completed, and either `error` or `response` is available.
+            type: boolean
+            format: boolean
+          metadata:
+            description: |-
+              Service-specific metadata associated with the operation.
+              It typically contains the ID of the target resource that the operation is performed on.
+              Any method that returns a long-running operation should document the metadata type, if any.
+            type: object
+      - title: result
+        type: object
+        maxProperties: 1
+        properties:
+          error:
+            $ref: '#/components/schemas/Status'
+            description: The error result of the operation in case of failure or cancellation.
+          response:
+            description: |-
+              The normal response of the operation in case of success.
+              If the original method returns no data on success, such as Delete,
+              the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty).
+              If the original method is the standard Create/Update,
+              the response should be the target resource of the operation.
+              Any method that returns a long-running operation should document the response type, if any.
+            type: object
+    Organization:
+      description: An Organization resource. For more information, see [Organization](/docs/organization/enable-org).
+      type: object
+      properties:
+        id:
+          description: ID of the organization.
+          type: string
+        createdAt:
+          description: |-
+            Creation timestamp.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        name:
+          description: Name of the organization. 3-63 characters long.
+          type: string
+        description:
+          description: Description of the organization. 0-256 characters long.
+          type: string
+        title:
+          description: Display name of the organization. 0-256 characters long.
+          type: string
+    SetAccessBindingsMetadata:
+      type: object
+      properties:
+        resourceId:
+          description: ID of the resource for which access bindings are being set.
+          type: string
+    SetAccessBindingsRequest:
+      type: object
+      properties:
+        accessBindings:
+          description: |-
+            Required.
+            Access bindings to be set. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings).
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessBinding'
+    Status:
+      description: The error result of the operation in case of failure or cancellation.
+      type: object
+      properties:
+        code:
+          description: Error code. An enum value of [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
+          type: integer
+          format: int32
+        message:
+          description: An error message.
+          type: string
+        details:
+          description: A list of messages that carry the error details.
+          type: array
+          items:
+            type: object
+    Subject:
+      type: object
+      properties:
+        id:
+          description: |-
+            Required.
+            ID of the subject.
+
+            It can contain one of the following values:
+            * `allAuthenticatedUsers`: A special system identifier that represents anyone
+               who is authenticated. It can be used only if the `type` is `system`.
+            * `allUsers`: A special system identifier that represents anyone. No authentication is required.
+               For example, you don't need to specify the IAM token in an API query.
+            * `<cloud generated id>`: An identifier that represents a user account.
+               It can be used only if the `type` is `userAccount`, `federatedUser` or `serviceAccount`.
+
+            The maximum string length in characters is 50.
+          type: string
+        type:
+          description: |-
+            Required.
+            Type of the subject.
+
+            It can contain one of the following values:
+            * `userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud.
+            * `serviceAccount`: A service account. This type represents the [ServiceAccount](/docs/iam/api-ref/ServiceAccount#representation) resource.
+            * `federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory.
+            * `system`: System group. This type represents several accounts with a common system identifier.
+
+            For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject).
+
+            The maximum string length in characters is 100.
+          type: string
+    SubjectClaims:
+      description: Claims representation, see https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims
+        for details.
+      type: object
+      properties:
+        sub:
+          description: |-
+            Required.
+            Subject - Identifier for the End-User at the Issuer.
+
+            The maximum string length in characters is 50.
+          type: string
+        name:
+          description: End-User's full name in displayable form including all name
+            parts, possibly including titles and suffixes, ordered according to the
+            End-User's locale and preferences.
+          type: string
+        givenName:
+          description: Given name(s) or first name(s) of the End-User. Note that in
+            some cultures, people can have multiple given names; all can be present,
+            with the names being separated by space characters.
+          type: string
+        familyName:
+          description: Surname(s) or last name(s) of the End-User. Note that in some
+            cultures, people can have multiple family names or no family name; all
+            can be present, with the names being separated by space characters.
+          type: string
+        preferredUsername:
+          description: |-
+            Shorthand name by which the End-User wishes to be referred to at the RP, such as janedoe or j.doe.
+            This value MAY be any valid JSON string including special characters such as @, /, or whitespace. The RP MUST NOT rely upon this value being unique, as discussed in Section 5.7.
+          type: string
+        picture:
+          description: |-
+            URL of the End-User's profile picture. This URL MUST refer to an image file (for example, a PNG, JPEG, or GIF image file),
+            rather than to a Web page containing an image. Note that this URL SHOULD specifically reference a profile photo of the End-User suitable for displaying when describing the End-User, rather than an arbitrary photo taken by the End-User.
+          type: string
+        email:
+          description: |-
+            End-User's preferred e-mail address. Its value MUST conform to the RFC 5322 [RFC5322] addr-spec syntax.
+            The RP MUST NOT rely upon this value being unique, as discussed in Section 5.7.
+          type: string
+        zoneinfo:
+          description: String from zoneinfo `zoneinfo` time zone database representing
+            the End-User's time zone. For example, Europe/Paris or America/Los_Angeles.
+          type: string
+        locale:
+          description: |-
+            End-User's locale, represented as a BCP47 [RFC5646] language tag. This is typically an ISO 639-1 Alpha-2 [ISO639-1] language code in lowercase and an ISO 3166-1 Alpha-2 [ISO3166-1] country code in uppercase, separated by a dash.
+            For example, en-US or fr-CA. As a compatibility note, some implementations have used an underscore as the separator rather than a dash, for example, en_US; Relying Parties MAY choose to accept this locale syntax as well.
+          type: string
+        phoneNumber:
+          description: |-
+            End-User's preferred telephone number. E.164 [E.164] is RECOMMENDED as the format of this Claim, for example, +1 (425) 555-1212 or +56 (2) 687 2400.
+            If the phone number contains an extension, it is RECOMMENDED that the extension be represented using the RFC 3966 [RFC3966] extension syntax, for example, +1 (604) 555-1234;ext=5678.
+          type: string
+        federation:
+          $ref: '#/components/schemas/Federation_in_SubjectClaims_federation'
+    UpdateAccessBindingsMetadata:
+      type: object
+      properties:
+        resourceId:
+          description: ID of the resource for which access bindings are being updated.
+          type: string
+    UpdateAccessBindingsRequest:
+      type: object
+      properties:
+        accessBindingDeltas:
+          description: |-
+            Required.
+            Updates to access bindings.
+
+            Must contain at least one element.
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessBindingDelta'
+    UpdateOrganizationMetadata:
+      type: object
+      properties:
+        organizationId:
+          description: ID of the organization that is being updated.
+          type: string
+    UpdateOrganizationRequest:
+      type: object
+      properties:
+        updateMask:
+          $ref: '#/components/schemas/FieldMask_in_UpdateOrganizationRequest_updateMask'
+        name:
+          description: |-
+            Name of the organization.
+
+            Value must match the regular expression `` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
+          type: string
+        description:
+          description: |-
+            Description of the organization.
+
+            The maximum string length in characters is 256.
+          type: string
+        title:
+          description: |-
+            Display name of the organization.
+
+            The maximum string length in characters is 256.
+          type: string
+    Subject_in_AccessBinding_subject:
+      description: |-
+        Required.
+        Identity for which access binding is being created.
+        It can represent an account with a unique ID or several accounts with a system identifier.
+      type: object
+      properties:
+        id:
+          description: |-
+            Required.
+            ID of the subject.
+
+            It can contain one of the following values:
+            * `allAuthenticatedUsers`: A special system identifier that represents anyone
+               who is authenticated. It can be used only if the `type` is `system`.
+            * `allUsers`: A special system identifier that represents anyone. No authentication is required.
+               For example, you don't need to specify the IAM token in an API query.
+            * `<cloud generated id>`: An identifier that represents a user account.
+               It can be used only if the `type` is `userAccount`, `federatedUser` or `serviceAccount`.
+
+            The maximum string length in characters is 50.
+          type: string
+        type:
+          description: |-
+            Required.
+            Type of the subject.
+
+            It can contain one of the following values:
+            * `userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud.
+            * `serviceAccount`: A service account. This type represents the [ServiceAccount](/docs/iam/api-ref/ServiceAccount#representation) resource.
+            * `federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory.
+            * `system`: System group. This type represents several accounts with a common system identifier.
+
+            For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject).
+
+            The maximum string length in characters is 100.
+          type: string
+    AccessBindingAction_in_AccessBindingDelta_action:
+      description: |-
+        Required.
+        The action that is being performed on an access binding.
+
+         - ADD: Addition of an access binding.
+         - REMOVE: Removal of an access binding.
+      type: string
+      enum:
+      - ADD
+      - REMOVE
+    AccessBinding_in_AccessBindingDelta_accessBinding:
+      description: |-
+        Required.
+        Access binding. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings).
+      type: object
+      properties:
+        roleId:
+          description: |-
+            Required.
+            ID of the [Role](/docs/iam/api-ref/Role#representation) that is assigned to the `subject`.
+
+            The maximum string length in characters is 50.
+          type: string
+        subject:
+          $ref: '#/components/schemas/Subject_in_AccessBinding_subject'
+    SubjectClaims_in_ListMembersResponseOrganizationUser_subjectClaims:
+      description: |-
+        OpenID standard claims with additional Yandex.Organization claims.
+
+        Claims representation, see https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims for details.
+      type: object
+      properties:
+        sub:
+          description: |-
+            Required.
+            Subject - Identifier for the End-User at the Issuer.
+
+            The maximum string length in characters is 50.
+          type: string
+        name:
+          description: End-User's full name in displayable form including all name
+            parts, possibly including titles and suffixes, ordered according to the
+            End-User's locale and preferences.
+          type: string
+        givenName:
+          description: Given name(s) or first name(s) of the End-User. Note that in
+            some cultures, people can have multiple given names; all can be present,
+            with the names being separated by space characters.
+          type: string
+        familyName:
+          description: Surname(s) or last name(s) of the End-User. Note that in some
+            cultures, people can have multiple family names or no family name; all
+            can be present, with the names being separated by space characters.
+          type: string
+        preferredUsername:
+          description: |-
+            Shorthand name by which the End-User wishes to be referred to at the RP, such as janedoe or j.doe.
+            This value MAY be any valid JSON string including special characters such as @, /, or whitespace. The RP MUST NOT rely upon this value being unique, as discussed in Section 5.7.
+          type: string
+        picture:
+          description: |-
+            URL of the End-User's profile picture. This URL MUST refer to an image file (for example, a PNG, JPEG, or GIF image file),
+            rather than to a Web page containing an image. Note that this URL SHOULD specifically reference a profile photo of the End-User suitable for displaying when describing the End-User, rather than an arbitrary photo taken by the End-User.
+          type: string
+        email:
+          description: |-
+            End-User's preferred e-mail address. Its value MUST conform to the RFC 5322 [RFC5322] addr-spec syntax.
+            The RP MUST NOT rely upon this value being unique, as discussed in Section 5.7.
+          type: string
+        zoneinfo:
+          description: String from zoneinfo `zoneinfo` time zone database representing
+            the End-User's time zone. For example, Europe/Paris or America/Los_Angeles.
+          type: string
+        locale:
+          description: |-
+            End-User's locale, represented as a BCP47 [RFC5646] language tag. This is typically an ISO 639-1 Alpha-2 [ISO639-1] language code in lowercase and an ISO 3166-1 Alpha-2 [ISO3166-1] country code in uppercase, separated by a dash.
+            For example, en-US or fr-CA. As a compatibility note, some implementations have used an underscore as the separator rather than a dash, for example, en_US; Relying Parties MAY choose to accept this locale syntax as well.
+          type: string
+        phoneNumber:
+          description: |-
+            End-User's preferred telephone number. E.164 [E.164] is RECOMMENDED as the format of this Claim, for example, +1 (425) 555-1212 or +56 (2) 687 2400.
+            If the phone number contains an extension, it is RECOMMENDED that the extension be represented using the RFC 3966 [RFC3966] extension syntax, for example, +1 (604) 555-1234;ext=5678.
+          type: string
+        federation:
+          $ref: '#/components/schemas/Federation_in_SubjectClaims_federation'
+    Federation_in_SubjectClaims_federation:
+      description: |-
+        User federation, non-empty only for federated users.
+
+        Minimalistic analog of yandex.cloud.organizationmanager.v1.saml.Federation
+      type: object
+      properties:
+        id:
+          description: |-
+            Required.
+            ID of the federation.
+
+            The maximum string length in characters is 50.
+          type: string
+        name:
+          description: Name of the federation. The name is unique within the cloud
+            or organization
+          type: string
+    FieldMask_in_UpdateOrganizationRequest_updateMask:
+      description: |-
+        Field mask that specifies which fields of the cloud are going to be updated.
+
+        A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
+
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
+        Fields specified in the request will be updated to provided values.
+        The rest of the fields will be reset to the default.
+      type: string
+tags:
+- name: Organization
+  description: A set of methods for managing Organization resources.
+- name: User
+  description: A set of methods for managing Organization users.

@@ -289,6 +289,7 @@ tags[] | **string**<br>Version tags. For details, see [Version tag](/docs/functi
 log_group_id | **string**<br>ID of the log group for the version. 
 environment | **map<string,string>**<br>Environment settings for the version. 
 connectivity | **[Connectivity](#Connectivity)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
+named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
 
 
 ### Resources {#Resources}
@@ -338,6 +339,7 @@ tags[] | **string**<br>Version tags. For details, see [Version tag](/docs/functi
 log_group_id | **string**<br>ID of the log group for the version. 
 environment | **map<string,string>**<br>Environment settings for the version. 
 connectivity | **[Connectivity](#Connectivity1)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
+named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
 
 
 ### Resources {#Resources1}
@@ -388,6 +390,7 @@ tags[] | **string**<br>Version tags. For details, see [Version tag](/docs/functi
 log_group_id | **string**<br>ID of the log group for the version. 
 environment | **map<string,string>**<br>Environment settings for the version. 
 connectivity | **[Connectivity](#Connectivity2)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
+named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
 
 
 ### Resources {#Resources2}
@@ -438,6 +441,7 @@ tags[] | **string**<br>Version tags. For details, see [Version tag](/docs/functi
 log_group_id | **string**<br>ID of the log group for the version. 
 environment | **map<string,string>**<br>Environment settings for the version. 
 connectivity | **[Connectivity](#Connectivity3)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
+named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
 
 
 ### Resources {#Resources3}
@@ -500,6 +504,7 @@ tags[] | **string**<br>Version tags. For details, see [Version tag](/docs/functi
 log_group_id | **string**<br>ID of the log group for the version. 
 environment | **map<string,string>**<br>Environment settings for the version. 
 connectivity | **[Connectivity](#Connectivity4)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
+named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
 
 
 ### Resources {#Resources4}
@@ -562,6 +567,7 @@ tags[] | **string**<br>Version tags. For details, see [Version tag](/docs/functi
 log_group_id | **string**<br>ID of the log group for the version. 
 environment | **map<string,string>**<br>Environment settings for the version. 
 connectivity | **[Connectivity](#Connectivity5)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
+named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
 
 
 ### Resources {#Resources5}
@@ -639,6 +645,7 @@ tags[] | **string**<br>Version tags. For details, see [Version tag](/docs/functi
 log_group_id | **string**<br>ID of the log group for the version. 
 environment | **map<string,string>**<br>Environment settings for the version. 
 connectivity | **[Connectivity](#Connectivity6)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
+named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
 
 
 ### Resources {#Resources6}
@@ -716,6 +723,7 @@ tags[] | **string**<br>Version tags. For details, see [Version tag](/docs/functi
 log_group_id | **string**<br>ID of the log group for the version. 
 environment | **map<string,string>**<br>Environment settings for the version. 
 connectivity | **[Connectivity](#Connectivity7)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
+named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
 
 
 ### Resources {#Resources7}
@@ -833,6 +841,7 @@ package_source | **oneof:** `package`, `content` or `version_id`<br>Source of th
 environment | **map<string,string>**<br>Environment settings for the version. The maximum string length in characters for each value is 4096. Each key must match the regular expression ` [a-zA-Z][a-zA-Z0-9_]* `.
 tag[] | **string**<br>Function version tags. For details, see [Version tag](/docs/functions/concepts/function#tag). Each value must match the regular expression ` [a-z][-_0-9a-z]* `.
 connectivity | **[Connectivity](#Connectivity8)**<br>Function version connectivity. If specified the version will be attached to specified network/subnet(s). 
+named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
 
 
 ### Resources {#Resources8}
@@ -901,6 +910,7 @@ tags[] | **string**<br>Version tags. For details, see [Version tag](/docs/functi
 log_group_id | **string**<br>ID of the log group for the version. 
 environment | **map<string,string>**<br>Environment settings for the version. 
 connectivity | **[Connectivity](#Connectivity9)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
+named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
 
 
 ### Resources {#Resources9}
@@ -946,6 +956,7 @@ package_source | **oneof:** `package`, `content` or `version_id`<br>Source of th
 environment | **map<string,string>**<br>Environment settings for the version. The maximum string length in characters for each value is 4096. Each key must match the regular expression ` [a-zA-Z][a-zA-Z0-9_]* `.
 tag[] | **string**<br>Function version tags. For details, see [Version tag](/docs/functions/concepts/function#tag). Each value must match the regular expression ` [a-z][-_0-9a-z]* `.
 connectivity | **[Connectivity](#Connectivity10)**<br>Function version connectivity. If specified the version will be attached to specified network/subnet(s). 
+named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
 
 
 ### Resources {#Resources10}
@@ -1014,6 +1025,7 @@ tags[] | **string**<br>Version tags. For details, see [Version tag](/docs/functi
 log_group_id | **string**<br>ID of the log group for the version. 
 environment | **map<string,string>**<br>Environment settings for the version. 
 connectivity | **[Connectivity](#Connectivity11)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
+named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
 
 
 ### Resources {#Resources11}

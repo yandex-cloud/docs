@@ -1,11 +1,9 @@
-openapi: '3.0'
+openapi: "3.0"
 info:
   title: Yandex Managed Services for Kubernetes API
-  description: >-
-    This API reference is organized by resource. Actions are performed by
-    sending HTTP requests to resource URLs or making RPC calls. For more
-    information about Yandex.Cloud API architecture, see [API
-    Concepts](/docs/api-design-guide/).
+  description: This API reference is organized by resource. Actions are performed
+    by sending HTTP requests to resource URLs or making RPC calls. For more information
+    about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
   version: v1
   x-y-docUri: api-ref
   x-y-baseUrl: https://mks.api.cloud.yandex.net
@@ -13,23 +11,22 @@ paths:
   /managed-kubernetes/v1/clusters/{clusterId}:
     get:
       tags:
-        - Cluster
+      - Cluster
       summary: Returns the specified Kubernetes cluster.
-      description: >-
-        To get the list of available Kubernetes cluster, make a
-        [list](/docs/managed-kubernetes/api-ref/Cluster/list) request.
+      description: To get the list of available Kubernetes cluster, make a [list](/docs/managed-kubernetes/api-ref/Cluster/list)
+        request.
       operationId: ClusterGet
       parameters:
-        - name: clusterId
-          in: path
-          description: |-
-            Required.
-            ID of the Kubernetes cluster to return.
-          required: true
-          schema:
-            type: string
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the Kubernetes cluster to return.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -38,24 +35,21 @@ paths:
       x-y-navtitle: get
     delete:
       tags:
-        - Cluster
+      - Cluster
       summary: Deletes the specified Kubernetes cluster.
       operationId: ClusterDelete
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Required.
-
-            ID of the Kubernetes cluster to delete.
-
-            To get Kubernetes cluster ID use a
-            [list](/docs/managed-kubernetes/api-ref/Cluster/list) request.
-          required: true
-          schema:
-            type: string
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the Kubernetes cluster to delete.
+          To get Kubernetes cluster ID use a [list](/docs/managed-kubernetes/api-ref/Cluster/list) request.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -67,22 +61,19 @@ paths:
       x-y-operation-response: Empty
     patch:
       tags:
-        - Cluster
+      - Cluster
       summary: Updates the specified Kubernetes cluster.
       operationId: ClusterUpdate
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Required.
-
-            ID of the Kubernetes cluster to update.
-
-            To get the Kubernetes cluster ID use a
-            [list](/docs/managed-kubernetes/api-ref/Cluster/list) request.
-          required: true
-          schema:
-            type: string
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the Kubernetes cluster to update.
+          To get the Kubernetes cluster ID use a [list](/docs/managed-kubernetes/api-ref/Cluster/list) request.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -90,7 +81,7 @@ paths:
               $ref: '#/components/schemas/UpdateClusterRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -103,78 +94,54 @@ paths:
   /managed-kubernetes/v1/clusters:
     get:
       tags:
-        - Cluster
+      - Cluster
       summary: Retrieves the list of Kubernetes cluster in the specified folder.
       operationId: ClusterList
       parameters:
-        - name: folderId
-          in: query
-          description: >-
-            Required.
+      - name: folderId
+        in: query
+        description: |-
+          Required.
+          ID of the folder to list Kubernetes cluster in.
+          To get the folder ID use a [list](/docs/resource-manager/api-ref/Folder/list) request.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/managed-kubernetes/api-ref/Cluster/list#query_params),
+          the service returns a [nextPageToken](/docs/managed-kubernetes/api-ref/Cluster/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
 
-            ID of the folder to list Kubernetes cluster in.
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set `page_token` to the
+          [nextPageToken](/docs/managed-kubernetes/api-ref/Cluster/list#responses) returned by a previous list request.
 
-            To get the folder ID use a
-            [list](/docs/resource-manager/api-ref/Folder/list) request.
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            The maximum number of results per page to return. If the number of
-            available
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          A filter expression that filters resources listed in the response.
+          The expression must specify:
+          1. The field name. Currently you can use filtering only on [Cluster.name](/docs/managed-kubernetes/api-ref/Cluster#representation) field.
+          2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
+          3. The value. Must be 1-61 characters long and match the regular expression `|[a-z][-a-z0-9]{1,61}[a-z0-9]`.
 
-            results is larger than
-            [pageSize](/docs/managed-kubernetes/api-ref/Cluster/list#query_params),
-
-            the service returns a
-            [nextPageToken](/docs/managed-kubernetes/api-ref/Cluster/list#responses)
-
-            that can be used to get the next page of results in subsequent list
-            requests.
-
-            Default value: 100.
-
-
-            Acceptable values are 0 to 1000, inclusive.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Page token. To get the next page of results, set `page_token` to the
-
-            [nextPageToken](/docs/managed-kubernetes/api-ref/Cluster/list#responses)
-            returned by a previous list request.
-
-
-            The maximum string length in characters is 100.
-          schema:
-            type: string
-        - name: filter
-          in: query
-          description: >-
-            A filter expression that filters resources listed in the response.
-
-            The expression must specify:
-
-            1. The field name. Currently you can use filtering only on
-            [Cluster.name](/docs/managed-kubernetes/api-ref/Cluster#representation)
-            field.
-
-            2. An operator. Can be either `=` or `!=` for single values, `IN` or
-            `NOT IN` for lists of values.
-
-            3. The value. Must be 1-61 characters long and match the regular
-            expression `|[a-z][-a-z0-9]{1,61}[a-z0-9]`.
-
-
-            The maximum string length in characters is 1000.
-          schema:
-            type: string
+          The maximum string length in characters is 1000.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -183,7 +150,7 @@ paths:
       x-y-navtitle: list
     post:
       tags:
-        - Cluster
+      - Cluster
       summary: Creates a Kubernetes cluster in the specified folder.
       operationId: ClusterCreate
       requestBody:
@@ -193,7 +160,7 @@ paths:
               $ref: '#/components/schemas/CreateClusterRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -206,22 +173,19 @@ paths:
   /managed-kubernetes/v1/clusters/{clusterId}:stop:
     post:
       tags:
-        - Cluster
+      - Cluster
       summary: Stops the specified Kubernetes cluster.
       operationId: ClusterStop
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Required.
-
-            ID of the Kubernetes cluster to stop.
-
-            To get Kubernetes cluster ID use a
-            [list](/docs/managed-kubernetes/api-ref/Cluster/list) request.
-          required: true
-          schema:
-            type: string
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the Kubernetes cluster to stop.
+          To get Kubernetes cluster ID use a [list](/docs/managed-kubernetes/api-ref/Cluster/list) request.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -229,7 +193,7 @@ paths:
               $ref: '#/components/schemas/StopClusterRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -242,22 +206,19 @@ paths:
   /managed-kubernetes/v1/clusters/{clusterId}:start:
     post:
       tags:
-        - Cluster
+      - Cluster
       summary: Starts the specified Kubernetes cluster.
       operationId: ClusterStart
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Required.
-
-            ID of the Kubernetes cluster to start.
-
-            To get Kubernetes cluster ID use a
-            [list](/docs/managed-kubernetes/api-ref/Cluster/list) request.
-          required: true
-          schema:
-            type: string
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the Kubernetes cluster to start.
+          To get Kubernetes cluster ID use a [list](/docs/managed-kubernetes/api-ref/Cluster/list) request.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -265,7 +226,7 @@ paths:
               $ref: '#/components/schemas/StartClusterRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -278,71 +239,52 @@ paths:
   /managed-kubernetes/v1/clusters/{clusterId}/nodeGroups:
     get:
       tags:
-        - Cluster
+      - Cluster
       summary: Lists nodegroup for the specified Kubernetes cluster.
       operationId: ClusterListNodeGroups
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Required.
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the Kubernetes cluster to list node groups in.
+          To get the Kubernetes cluster ID use a [list](/docs/managed-kubernetes/api-ref/Cluster/list) request.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/managed-kubernetes/api-ref/Cluster/listNodeGroups#query_params),
+          the service returns a [nextPageToken](/docs/managed-kubernetes/api-ref/Cluster/listNodeGroups#responses)
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
 
-            ID of the Kubernetes cluster to list node groups in.
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set `page_token` to the
+          [nextPageToken](/docs/managed-kubernetes/api-ref/Cluster/listNodeGroups#responses) returned by a previous list request.
 
-            To get the Kubernetes cluster ID use a
-            [list](/docs/managed-kubernetes/api-ref/Cluster/list) request.
-          required: true
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            The maximum number of results per page to return. If the number of
-            available
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          A filter expression that filters resources listed in the response.
+          Currently you can use filtering only on [Cluster.name](/docs/managed-kubernetes/api-ref/Cluster#representation) field.
 
-            results is larger than
-            [pageSize](/docs/managed-kubernetes/api-ref/Cluster/listNodeGroups#query_params),
-
-            the service returns a
-            [nextPageToken](/docs/managed-kubernetes/api-ref/Cluster/listNodeGroups#responses)
-
-            that can be used to get the next page of results in subsequent list
-            requests.
-
-            Default value: 100.
-
-
-            Acceptable values are 0 to 1000, inclusive.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Page token. To get the next page of results, set `page_token` to the
-
-            [nextPageToken](/docs/managed-kubernetes/api-ref/Cluster/listNodeGroups#responses)
-            returned by a previous list request.
-
-
-            The maximum string length in characters is 100.
-          schema:
-            type: string
-        - name: filter
-          in: query
-          description: >-
-            A filter expression that filters resources listed in the response.
-
-            Currently you can use filtering only on
-            [Cluster.name](/docs/managed-kubernetes/api-ref/Cluster#representation)
-            field.
-
-
-            The maximum string length in characters is 1000.
-          schema:
-            type: string
+          The maximum string length in characters is 1000.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -352,66 +294,50 @@ paths:
   /managed-kubernetes/v1/clusters/{clusterId}/operations:
     get:
       tags:
-        - Cluster
+      - Cluster
       summary: Lists operations for the specified Kubernetes cluster.
       operationId: ClusterListOperations
       parameters:
-        - name: clusterId
-          in: path
-          description: |-
-            Required.
-            ID of the Kubernetes cluster to list operations for.
-          required: true
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            The maximum number of results per page that should be returned. If
-            the number of available
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the Kubernetes cluster to list operations for.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page that should be returned. If the number of available
+          results is larger than [pageSize](/docs/managed-kubernetes/api-ref/Cluster/listOperations#query_params), the service returns a [nextPageToken](/docs/managed-kubernetes/api-ref/Cluster/listOperations#responses)
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
 
-            results is larger than
-            [pageSize](/docs/managed-kubernetes/api-ref/Cluster/listOperations#query_params),
-            the service returns a
-            [nextPageToken](/docs/managed-kubernetes/api-ref/Cluster/listOperations#responses)
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set `page_token` to the
+          [nextPageToken](/docs/managed-kubernetes/api-ref/Cluster/listOperations#responses) returned by a previous list request.
 
-            that can be used to get the next page of results in subsequent list
-            requests.
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          A filter expression that filters resources listed in the response.
+          Currently you can use filtering only on [Cluster.name](/docs/managed-kubernetes/api-ref/Cluster#representation) field.
 
-            Default value: 100.
-
-
-            Acceptable values are 0 to 1000, inclusive.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Page token. To get the next page of results, set `page_token` to the
-
-            [nextPageToken](/docs/managed-kubernetes/api-ref/Cluster/listOperations#responses)
-            returned by a previous list request.
-
-
-            The maximum string length in characters is 100.
-          schema:
-            type: string
-        - name: filter
-          in: query
-          description: >-
-            A filter expression that filters resources listed in the response.
-
-            Currently you can use filtering only on
-            [Cluster.name](/docs/managed-kubernetes/api-ref/Cluster#representation)
-            field.
-
-
-            The maximum string length in characters is 1000.
-          schema:
-            type: string
+          The maximum string length in characters is 1000.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -421,58 +347,43 @@ paths:
   /managed-kubernetes/v1/clusters/{clusterId}/nodes:
     get:
       tags:
-        - Cluster
+      - Cluster
       summary: Lists cluster's nodes.
       operationId: ClusterListNodes
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Required.
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the Kubernetes cluster to list nodes in.
+          To get the Kubernetes cluster ID use a [list](/docs/managed-kubernetes/api-ref/Cluster/list) request.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/managed-kubernetes/api-ref/Cluster/listNodes#query_params),
+          the service returns a [nextPageToken](/docs/managed-kubernetes/api-ref/Cluster/listNodes#responses)
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
 
-            ID of the Kubernetes cluster to list nodes in.
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set `page_token` to the
+          [nextPageToken](/docs/managed-kubernetes/api-ref/Cluster/listNodeGroups#responses) returned by a previous list request.
 
-            To get the Kubernetes cluster ID use a
-            [list](/docs/managed-kubernetes/api-ref/Cluster/list) request.
-          required: true
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            The maximum number of results per page to return. If the number of
-            available
-
-            results is larger than
-            [pageSize](/docs/managed-kubernetes/api-ref/Cluster/listNodes#query_params),
-
-            the service returns a
-            [nextPageToken](/docs/managed-kubernetes/api-ref/Cluster/listNodes#responses)
-
-            that can be used to get the next page of results in subsequent list
-            requests.
-
-            Default value: 100.
-
-
-            Acceptable values are 0 to 1000, inclusive.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Page token. To get the next page of results, set `page_token` to the
-
-            [nextPageToken](/docs/managed-kubernetes/api-ref/Cluster/listNodeGroups#responses)
-            returned by a previous list request.
-
-
-            The maximum string length in characters is 100.
-          schema:
-            type: string
+          The maximum string length in characters is 100.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -482,27 +393,23 @@ paths:
   /managed-kubernetes/v1/nodeGroups/{nodeGroupId}:
     get:
       tags:
-        - NodeGroup
+      - NodeGroup
       summary: Returns the specified node group.
-      description: >-
-        To get the list of available node group, make a
-        [list](/docs/managed-kubernetes/api-ref/NodeGroup/list) request.
+      description: To get the list of available node group, make a [list](/docs/managed-kubernetes/api-ref/NodeGroup/list)
+        request.
       operationId: NodeGroupGet
       parameters:
-        - name: nodeGroupId
-          in: path
-          description: >-
-            Required.
-
-            ID of the node group to return.
-
-            To get the node group ID use a
-            [list](/docs/managed-kubernetes/api-ref/NodeGroup/list) request.
-          required: true
-          schema:
-            type: string
+      - name: nodeGroupId
+        in: path
+        description: |-
+          Required.
+          ID of the node group to return.
+          To get the node group ID use a [list](/docs/managed-kubernetes/api-ref/NodeGroup/list) request.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -511,24 +418,21 @@ paths:
       x-y-navtitle: get
     delete:
       tags:
-        - NodeGroup
+      - NodeGroup
       summary: Deletes the specified node group.
       operationId: NodeGroupDelete
       parameters:
-        - name: nodeGroupId
-          in: path
-          description: >-
-            Required.
-
-            ID of the node group to delete.
-
-            To get node group ID use a
-            [list](/docs/managed-kubernetes/api-ref/NodeGroup/list) request.
-          required: true
-          schema:
-            type: string
+      - name: nodeGroupId
+        in: path
+        description: |-
+          Required.
+          ID of the node group to delete.
+          To get node group ID use a [list](/docs/managed-kubernetes/api-ref/NodeGroup/list) request.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -540,22 +444,19 @@ paths:
       x-y-operation-response: Empty
     patch:
       tags:
-        - NodeGroup
+      - NodeGroup
       summary: Updates the specified node group.
       operationId: NodeGroupUpdate
       parameters:
-        - name: nodeGroupId
-          in: path
-          description: >-
-            Required.
-
-            ID of the node group to update.
-
-            To get the node group ID use a
-            [list](/docs/managed-kubernetes/api-ref/NodeGroup/list) request.
-          required: true
-          schema:
-            type: string
+      - name: nodeGroupId
+        in: path
+        description: |-
+          Required.
+          ID of the node group to update.
+          To get the node group ID use a [list](/docs/managed-kubernetes/api-ref/NodeGroup/list) request.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -563,7 +464,7 @@ paths:
               $ref: '#/components/schemas/UpdateNodeGroupRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -576,78 +477,54 @@ paths:
   /managed-kubernetes/v1/nodeGroups:
     get:
       tags:
-        - NodeGroup
+      - NodeGroup
       summary: Retrieves the list of node group in the specified Kubernetes cluster.
       operationId: NodeGroupList
       parameters:
-        - name: folderId
-          in: query
-          description: >-
-            Required.
+      - name: folderId
+        in: query
+        description: |-
+          Required.
+          ID of the folder to list node groups in.
+          To get the folder ID use a [list](/docs/resource-manager/api-ref/Folder/list) request.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/managed-kubernetes/api-ref/NodeGroup/list#query_params),
+          the service returns a [nextPageToken](/docs/managed-kubernetes/api-ref/NodeGroup/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
 
-            ID of the folder to list node groups in.
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set `page_token` to the
+          [nextPageToken](/docs/managed-kubernetes/api-ref/NodeGroup/list#responses) returned by a previous list request.
 
-            To get the folder ID use a
-            [list](/docs/resource-manager/api-ref/Folder/list) request.
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            The maximum number of results per page to return. If the number of
-            available
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          A filter expression that filters resources listed in the response.
+          The expression must specify:
+          1. The field name. Currently you can use filtering only on [NodeGroup.name](/docs/managed-kubernetes/api-ref/NodeGroup#representation) field.
+          2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
+          3. The value. Must be 1-61 characters long and match the regular expression `|[a-z][-a-z0-9]{1,61}[a-z0-9]`.
 
-            results is larger than
-            [pageSize](/docs/managed-kubernetes/api-ref/NodeGroup/list#query_params),
-
-            the service returns a
-            [nextPageToken](/docs/managed-kubernetes/api-ref/NodeGroup/list#responses)
-
-            that can be used to get the next page of results in subsequent list
-            requests.
-
-            Default value: 100.
-
-
-            Acceptable values are 0 to 1000, inclusive.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Page token. To get the next page of results, set `page_token` to the
-
-            [nextPageToken](/docs/managed-kubernetes/api-ref/NodeGroup/list#responses)
-            returned by a previous list request.
-
-
-            The maximum string length in characters is 100.
-          schema:
-            type: string
-        - name: filter
-          in: query
-          description: >-
-            A filter expression that filters resources listed in the response.
-
-            The expression must specify:
-
-            1. The field name. Currently you can use filtering only on
-            [NodeGroup.name](/docs/managed-kubernetes/api-ref/NodeGroup#representation)
-            field.
-
-            2. An operator. Can be either `=` or `!=` for single values, `IN` or
-            `NOT IN` for lists of values.
-
-            3. The value. Must be 1-61 characters long and match the regular
-            expression `|[a-z][-a-z0-9]{1,61}[a-z0-9]`.
-
-
-            The maximum string length in characters is 1000.
-          schema:
-            type: string
+          The maximum string length in characters is 1000.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -656,7 +533,7 @@ paths:
       x-y-navtitle: list
     post:
       tags:
-        - NodeGroup
+      - NodeGroup
       summary: Creates a node group in the specified Kubernetes cluster.
       operationId: NodeGroupCreate
       requestBody:
@@ -666,7 +543,7 @@ paths:
               $ref: '#/components/schemas/CreateNodeGroupRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -679,66 +556,50 @@ paths:
   /managed-kubernetes/v1/nodeGroups/{nodeGroupId}/operations:
     get:
       tags:
-        - NodeGroup
+      - NodeGroup
       summary: Lists operations for the specified node group.
       operationId: NodeGroupListOperations
       parameters:
-        - name: nodeGroupId
-          in: path
-          description: |-
-            Required.
-            ID of the node group to list operations for.
-          required: true
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            The maximum number of results per page that should be returned. If
-            the number of available
+      - name: nodeGroupId
+        in: path
+        description: |-
+          Required.
+          ID of the node group to list operations for.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page that should be returned. If the number of available
+          results is larger than [pageSize](/docs/managed-kubernetes/api-ref/NodeGroup/listOperations#query_params), the service returns a [nextPageToken](/docs/managed-kubernetes/api-ref/NodeGroup/listOperations#responses)
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
 
-            results is larger than
-            [pageSize](/docs/managed-kubernetes/api-ref/NodeGroup/listOperations#query_params),
-            the service returns a
-            [nextPageToken](/docs/managed-kubernetes/api-ref/NodeGroup/listOperations#responses)
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set `page_token` to the
+          [nextPageToken](/docs/managed-kubernetes/api-ref/NodeGroup/listOperations#responses) returned by a previous list request.
 
-            that can be used to get the next page of results in subsequent list
-            requests.
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          A filter expression that filters resources listed in the response.
+          Currently you can use filtering only on [NodeGroup.name](/docs/managed-kubernetes/api-ref/NodeGroup#representation) field.
 
-            Default value: 100.
-
-
-            Acceptable values are 0 to 1000, inclusive.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Page token. To get the next page of results, set `page_token` to the
-
-            [nextPageToken](/docs/managed-kubernetes/api-ref/NodeGroup/listOperations#responses)
-            returned by a previous list request.
-
-
-            The maximum string length in characters is 100.
-          schema:
-            type: string
-        - name: filter
-          in: query
-          description: >-
-            A filter expression that filters resources listed in the response.
-
-            Currently you can use filtering only on
-            [NodeGroup.name](/docs/managed-kubernetes/api-ref/NodeGroup#representation)
-            field.
-
-
-            The maximum string length in characters is 1000.
-          schema:
-            type: string
+          The maximum string length in characters is 1000.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -748,57 +609,42 @@ paths:
   /managed-kubernetes/v1/nodes:
     get:
       tags:
-        - NodeGroup
+      - NodeGroup
       summary: Retrieves the list of nodes in the specified Kubernetes cluster.
       operationId: NodeGroupListNodes
       parameters:
-        - name: nodeGroupId
-          in: query
-          description: >-
-            Required.
+      - name: nodeGroupId
+        in: query
+        description: |-
+          Required.
+          ID of the node group to list.
+          To get the node group ID use a [list](/docs/managed-kubernetes/api-ref/NodeGroup/list) request.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/managed-kubernetes/api-ref/NodeGroup/listNodes#query_params),
+          the service returns a [nextPageToken](/docs/managed-kubernetes/api-ref/NodeGroup/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
 
-            ID of the node group to list.
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set `page_token` to the
+          [nextPageToken](/docs/managed-kubernetes/api-ref/NodeGroup/listNodes#responses) returned by a previous list request.
 
-            To get the node group ID use a
-            [list](/docs/managed-kubernetes/api-ref/NodeGroup/list) request.
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            The maximum number of results per page to return. If the number of
-            available
-
-            results is larger than
-            [pageSize](/docs/managed-kubernetes/api-ref/NodeGroup/listNodes#query_params),
-
-            the service returns a
-            [nextPageToken](/docs/managed-kubernetes/api-ref/NodeGroup/list#responses)
-
-            that can be used to get the next page of results in subsequent list
-            requests.
-
-            Default value: 100.
-
-
-            Acceptable values are 0 to 1000, inclusive.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Page token. To get the next page of results, set `page_token` to the
-
-            [nextPageToken](/docs/managed-kubernetes/api-ref/NodeGroup/listNodes#responses)
-            returned by a previous list request.
-
-
-            The maximum string length in characters is 100.
-          schema:
-            type: string
+          The maximum string length in characters is 100.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -808,11 +654,11 @@ paths:
   /managed-kubernetes/v1/versions:
     get:
       tags:
-        - Version
+      - Version
       summary: Retrieves the list of versions in the specified release channel.
       operationId: VersionList
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -838,8 +684,7 @@ components:
       type: object
       properties:
         releaseChannel:
-          $ref: >-
-            #/components/schemas/ReleaseChannel_in_AvailableVersions_releaseChannel
+          $ref: '#/components/schemas/ReleaseChannel_in_AvailableVersions_releaseChannel'
         versions:
           description: Version of Kubernetes components.
           type: array
@@ -849,108 +694,90 @@ components:
       description: A Kubernetes cluster.
       type: object
       allOf:
-        - type: object
-          properties:
-            id:
-              description: ID of the Kubernetes cluster.
-              type: string
-            folderId:
-              description: ID of the folder that the Kubernetes cluster belongs to.
-              type: string
-            createdAt:
-              description: >-
-                Creation timestamp.
+      - type: object
+        properties:
+          id:
+            description: ID of the Kubernetes cluster.
+            type: string
+          folderId:
+            description: ID of the folder that the Kubernetes cluster belongs to.
+            type: string
+          createdAt:
+            description: |-
+              Creation timestamp.
 
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          name:
+            description: Name of the Kubernetes cluster.
+            type: string
+          description:
+            description: Description of the Kubernetes cluster. 0-256 characters long.
+            type: string
+          labels:
+            description: Resource labels as `key:value` pairs. Maximum of 64 per resource.
+            type: object
+            additionalProperties:
+              type: string
+          status:
+            $ref: '#/components/schemas/ClusterStatus'
+            description: Status of the Kubernetes cluster.
+          health:
+            $ref: '#/components/schemas/ClusterHealth'
+            description: Health of the Kubernetes cluster.
+          networkId:
+            description: ID of the network the Kubernetes cluster belongs to.
+            type: string
+          master:
+            $ref: '#/components/schemas/Master'
+            description: Properties of the master for the Kubernetes cluster.
+          ipAllocationPolicy:
+            $ref: '#/components/schemas/IPAllocationPolicy'
+            description: Allocation policy for IP addresses of services and pods inside
+              the Kubernetes cluster in different availability zones.
+          serviceAccountId:
+            description: Service account to be used for provisioning Compute Cloud
+              and VPC resources for Kubernetes cluster.
+            type: string
+          nodeServiceAccountId:
+            description: Service account to be used by the worker nodes of the Kubernetes
+              cluster to access Container Registry or to push node logs and metrics.
+            type: string
+          releaseChannel:
+            $ref: '#/components/schemas/ReleaseChannel'
+            description: |-
+              When creating a Kubernetes cluster, you should specify one of three release channels. The release channel contains several Kubernetes versions.
+              Channels differ in the set of available versions, the management of auto-updates, and the updates received.
+              You can't change the channel once the Kubernetes cluster is created, you can only recreate the Kubernetes cluster and specify a new release channel.
+              For more details see [documentation](https://cloud.yandex.com/docs/managed-kubernetes/concepts/release-channels-and-updates).
+          networkPolicy:
+            $ref: '#/components/schemas/NetworkPolicy'
+          kmsProvider:
+            $ref: '#/components/schemas/KMSProvider'
+            description: KMS provider configuration.
+          logGroupId:
+            description: Log group where cluster stores cluster system logs, like
+              audit, events, or controlplane logs.
+            type: string
+      - title: internet_gateway
+        type: object
+        maxProperties: 1
+        properties:
+          gatewayIpv4Address:
+            description: |-
+              Gateway IPv4 address.
 
-                String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-                format.
-              type: string
-              format: date-time
-            name:
-              description: Name of the Kubernetes cluster.
-              type: string
-            description:
-              description: Description of the Kubernetes cluster. 0-256 characters long.
-              type: string
-            labels:
-              description: >-
-                Resource labels as `key:value` pairs. Мaximum of 64 per
-                resource.
-              type: object
-              additionalProperties:
-                type: string
-            status:
-              $ref: '#/components/schemas/ClusterStatus'
-              description: Status of the Kubernetes cluster.
-            health:
-              $ref: '#/components/schemas/ClusterHealth'
-              description: Health of the Kubernetes cluster.
-            networkId:
-              description: ID of the network the Kubernetes cluster belongs to.
-              type: string
-            master:
-              $ref: '#/components/schemas/Master'
-              description: Properties of the master for the Kubernetes cluster.
-            ipAllocationPolicy:
-              $ref: '#/components/schemas/IPAllocationPolicy'
-              description: >-
-                Allocation policy for IP addresses of services and pods inside
-                the Kubernetes cluster in different availability zones.
-            serviceAccountId:
-              description: >-
-                Service account to be used for provisioning Compute Cloud and
-                VPC resources for Kubernetes cluster.
-              type: string
-            nodeServiceAccountId:
-              description: >-
-                Service account to be used by the worker nodes of the Kubernetes
-                cluster to access Container Registry or to push node logs and
-                metrics.
-              type: string
-            releaseChannel:
-              $ref: '#/components/schemas/ReleaseChannel'
-              description: >-
-                When creating a Kubernetes cluster, you should specify one of
-                three release channels. The release channel contains several
-                Kubernetes versions.
-
-                Channels differ in the set of available versions, the management
-                of auto-updates, and the updates received.
-
-                You can't change the channel once the Kubernetes cluster is
-                created, you can only recreate the Kubernetes cluster and
-                specify a new release channel.
-
-                For more details see
-                [documentation](https://cloud.yandex.com/docs/managed-kubernetes/concepts/release-channels-and-updates).
-            networkPolicy:
-              $ref: '#/components/schemas/NetworkPolicy'
-            kmsProvider:
-              $ref: '#/components/schemas/KMSProvider'
-              description: KMS provider configuration.
-            logGroupId:
-              description: >-
-                Log group where cluster stores cluster system logs, like audit,
-                events, or controlplane logs.
-              type: string
-        - title: internet_gateway
-          type: object
-          maxProperties: 1
-          properties:
-            gatewayIpv4Address:
-              description: |-
-                Gateway IPv4 address.
-
-                The maximum string length in characters is 15.
-              type: string
+              The maximum string length in characters is 15.
+            type: string
     ClusterHealth:
       description: |2-
          - HEALTHY: Kubernetes cluster is alive and well.
          - UNHEALTHY: Kubernetes cluster is inoperable.
       type: string
       enum:
-        - HEALTHY
-        - UNHEALTHY
+      - HEALTHY
+      - UNHEALTHY
     ClusterStatus:
       description: |2-
          - PROVISIONING: Kubernetes cluster is waiting for resources to be allocated.
@@ -962,13 +789,13 @@ components:
          - STARTING: Kubernetes cluster is being started.
       type: string
       enum:
-        - PROVISIONING
-        - RUNNING
-        - RECONCILING
-        - STOPPING
-        - STOPPED
-        - DELETING
-        - STARTING
+      - PROVISIONING
+      - RUNNING
+      - RECONCILING
+      - STOPPING
+      - STOPPED
+      - DELETING
+      - STARTING
     Condition:
       type: object
       properties:
@@ -982,21 +809,17 @@ components:
           description: Human-readable message indicating details about last transition.
           type: string
         lastHeartbeatTime:
-          description: >-
+          description: |-
             Last time we got an update on a given condition.
 
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-            format.
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
         lastTransitionTime:
-          description: >-
+          description: |-
             Last time the condition transit from one status to another.
 
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-            format.
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
     CreateClusterMetadata:
@@ -1008,100 +831,79 @@ components:
     CreateClusterRequest:
       type: object
       allOf:
-        - type: object
-          properties:
-            folderId:
-              description: >-
-                Required.
+      - type: object
+        properties:
+          folderId:
+            description: |-
+              Required.
+              ID of the folder to create a Kubernetes cluster in.
+              To get the folder ID use a [list](/docs/resource-manager/api-ref/Folder/list) request.
+            type: string
+          name:
+            description: |-
+              Name of the Kubernetes cluster.
+              The name must be unique within the folder.
 
-                ID of the folder to create a Kubernetes cluster in.
+              Value must match the regular expression `` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
+            type: string
+          description:
+            description: |-
+              Description of the Kubernetes cluster.
 
-                To get the folder ID use a
-                [list](/docs/resource-manager/api-ref/Folder/list) request.
+              The maximum string length in characters is 256.
+            type: string
+          labels:
+            description: |-
+              Resource labels as `key:value` pairs.
+
+              No more than 64 per resource.
+              The string length in characters for each key must be 1-63.
+              Each key must match the regular expression `` [a-z][-_./\@0-9a-z]* ``.
+              The maximum string length in characters for each value is 63.
+              Each value must match the regular expression `` [-_./\@0-9a-z]* ``.
+            type: object
+            additionalProperties:
               type: string
-            name:
-              description: >-
-                Name of the Kubernetes cluster.
-
-                The name must be unique within the folder.
-
-
-                Value must match the regular expression ``
-                |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
-              type: string
-            description:
-              description: |-
-                Description of the Kubernetes cluster.
-
-                The maximum string length in characters is 256.
-              type: string
-            labels:
-              description: >-
-                Resource labels as `key:value` pairs.
-
-
-                No more than 64 per resource.
-
-                The string length in characters for each key must be 1-63.
-
-                Each key must match the regular expression ``
-                [a-z][-_./\@0-9a-z]* ``.
-
-                The maximum string length in characters for each value is 63.
-
-                Each value must match the regular expression `` [-_./\@0-9a-z]*
-                ``.
-              type: object
-              additionalProperties:
-                type: string
-            networkId:
-              description: |-
-                Required.
-                ID of the network.
-              type: string
-            masterSpec:
-              $ref: '#/components/schemas/MasterSpec'
-              description: |-
-                Required.
-                IP allocation policy of the Kubernetes cluster.
-            ipAllocationPolicy:
-              $ref: '#/components/schemas/IPAllocationPolicy'
-              description: IP allocation policy of the Kubernetes cluster.
-            serviceAccountId:
-              description: >-
-                Required.
-
-                Service account to be used for provisioning Compute Cloud and
-                VPC resources for Kubernetes cluster.
-
-                Selected service account should have `edit` role on the folder
-                where the Kubernetes cluster will be
-
-                located and on the folder where selected network resides.
-              type: string
-            nodeServiceAccountId:
-              description: >-
-                Required.
-
-                Service account to be used by the worker nodes of the Kubernetes
-                cluster to access Container Registry or to push node logs and
-                metrics.
-              type: string
-            releaseChannel:
-              $ref: '#/components/schemas/ReleaseChannel'
-              description: Release channel for the master.
-            networkPolicy:
-              $ref: '#/components/schemas/NetworkPolicy'
-            kmsProvider:
-              $ref: '#/components/schemas/KMSProvider'
-              description: KMS provider configuration.
-        - title: internet_gateway
-          type: object
-          maxProperties: 1
-          properties:
-            gatewayIpv4Address:
-              description: Gateway IPv4 address.
-              type: string
+          networkId:
+            description: |-
+              Required.
+              ID of the network.
+            type: string
+          masterSpec:
+            $ref: '#/components/schemas/MasterSpec'
+            description: |-
+              Required.
+              IP allocation policy of the Kubernetes cluster.
+          ipAllocationPolicy:
+            $ref: '#/components/schemas/IPAllocationPolicy'
+            description: IP allocation policy of the Kubernetes cluster.
+          serviceAccountId:
+            description: |-
+              Required.
+              Service account to be used for provisioning Compute Cloud and VPC resources for Kubernetes cluster.
+              Selected service account should have `edit` role on the folder where the Kubernetes cluster will be
+              located and on the folder where selected network resides.
+            type: string
+          nodeServiceAccountId:
+            description: |-
+              Required.
+              Service account to be used by the worker nodes of the Kubernetes cluster to access Container Registry or to push node logs and metrics.
+            type: string
+          releaseChannel:
+            $ref: '#/components/schemas/ReleaseChannel'
+            description: Release channel for the master.
+          networkPolicy:
+            $ref: '#/components/schemas/NetworkPolicy'
+          kmsProvider:
+            $ref: '#/components/schemas/KMSProvider'
+            description: KMS provider configuration.
+      - title: internet_gateway
+        type: object
+        maxProperties: 1
+        properties:
+          gatewayIpv4Address:
+            description: Gateway IPv4 address.
+            type: string
     CreateNodeGroupMetadata:
       type: object
       properties:
@@ -1112,23 +914,17 @@ components:
       type: object
       properties:
         clusterId:
-          description: >-
+          description: |-
             Required.
-
             ID of the Kubernetes cluster to create a node group in.
-
-            To get the Kubernetes cluster ID, use a
-            [list](/docs/managed-kubernetes/api-ref/Cluster/list) request.
+            To get the Kubernetes cluster ID, use a [list](/docs/managed-kubernetes/api-ref/Cluster/list) request.
           type: string
         name:
-          description: >-
+          description: |-
             Name of the node group.
-
             The name must be unique within the folder.
 
-
-            Value must match the regular expression ``
-            |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
+            Value must match the regular expression `` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
           type: string
         description:
           description: |-
@@ -1137,66 +933,48 @@ components:
             The maximum string length in characters is 256.
           type: string
         labels:
-          description: >-
+          description: |-
             Resource labels as `key:value` pairs.
 
-
             No more than 64 per resource.
-
             The string length in characters for each key must be 1-63.
-
-            Each key must match the regular expression `` [a-z][-_./\@0-9a-z]*
-            ``.
-
+            Each key must match the regular expression `` [a-z][-_./\@0-9a-z]* ``.
             The maximum string length in characters for each value is 63.
-
             Each value must match the regular expression `` [-_./\@0-9a-z]* ``.
           type: object
           additionalProperties:
             type: string
         nodeTemplate:
-          $ref: >-
-            #/components/schemas/NodeTemplate_in_CreateNodeGroupRequest_nodeTemplate
+          $ref: '#/components/schemas/NodeTemplate_in_CreateNodeGroupRequest_nodeTemplate'
         scalePolicy:
-          $ref: >-
-            #/components/schemas/ScalePolicy_in_CreateNodeGroupRequest_scalePolicy
+          $ref: '#/components/schemas/ScalePolicy_in_CreateNodeGroupRequest_scalePolicy'
         allocationPolicy:
-          $ref: >-
-            #/components/schemas/NodeGroupAllocationPolicy_in_CreateNodeGroupRequest_allocationPolicy
+          $ref: '#/components/schemas/NodeGroupAllocationPolicy_in_CreateNodeGroupRequest_allocationPolicy'
         deployPolicy:
-          $ref: >-
-            #/components/schemas/DeployPolicy_in_CreateNodeGroupRequest_deployPolicy
+          $ref: '#/components/schemas/DeployPolicy_in_CreateNodeGroupRequest_deployPolicy'
         version:
           description: Version of Kubernetes components that runs on the nodes.
           type: string
         maintenancePolicy:
-          $ref: >-
-            #/components/schemas/NodeGroupMaintenancePolicy_in_CreateNodeGroupRequest_maintenancePolicy
+          $ref: '#/components/schemas/NodeGroupMaintenancePolicy_in_CreateNodeGroupRequest_maintenancePolicy'
         allowedUnsafeSysctls:
-          description: >-
-            Support for unsafe sysctl parameters. For more details see
-            [documentation](https://kubernetes.io/docs/tasks/administer-cluster/sysctl-cluster/).
-
+          description: |-
+            Support for unsafe sysctl parameters. For more details see [documentation](https://kubernetes.io/docs/tasks/administer-cluster/sysctl-cluster/).
 
             The maximum string length in characters for each value is 253.
-
-            Each value must match the regular expression ``
-            ([a-z0-9]([-_a-z0-9]*[a-z0-9])?\.)*([a-z0-9][-_a-z0-9]*)?[a-z0-9*]
-            ``.
+            Each value must match the regular expression `` ([a-z0-9]([-_a-z0-9]*[a-z0-9])?\.)*([a-z0-9][-_a-z0-9]*)?[a-z0-9*] ``.
           type: array
           items:
             type: string
         nodeTaints:
-          description: >-
-            Taints that are applied to the nodes of the node group at creation
+          description: Taints that are applied to the nodes of the node group at creation
             time.
           type: array
           items:
             $ref: '#/components/schemas/Taint'
         nodeLabels:
-          description: >-
-            Labels that are assigned to the nodes of the node group at creation
-            time.
+          description: Labels that are assigned to the nodes of the node group at
+            creation time.
           type: object
           additionalProperties:
             type: string
@@ -1225,13 +1003,13 @@ components:
          - SUNDAY: The day-of-week of Sunday.
       type: string
       enum:
-        - MONDAY
-        - TUESDAY
-        - WEDNESDAY
-        - THURSDAY
-        - FRIDAY
-        - SATURDAY
-        - SUNDAY
+      - MONDAY
+      - TUESDAY
+      - WEDNESDAY
+      - THURSDAY
+      - FRIDAY
+      - SATURDAY
+      - SUNDAY
     DaysOfWeekMaintenanceWindow:
       type: object
       properties:
@@ -1245,8 +1023,7 @@ components:
           items:
             $ref: '#/components/schemas/DayOfWeek'
         startTime:
-          $ref: >-
-            #/components/schemas/TimeOfDay_in_DaysOfWeekMaintenanceWindow_startTime
+          $ref: '#/components/schemas/TimeOfDay_in_DaysOfWeekMaintenanceWindow_startTime'
         duration:
           description: |-
             Window duration.
@@ -1269,33 +1046,21 @@ components:
       type: object
       properties:
         maxUnavailable:
-          description: >-
-            The maximum number of running instances that can be taken offline
-            (i.e.,
-
+          description: |-
+            The maximum number of running instances that can be taken offline (i.e.,
             stopped or deleted) at the same time during the update process.
-
-            If `maxExpansion` is not specified or set to zero, `maxUnavailable`
-            must
-
+            If `maxExpansion` is not specified or set to zero, `maxUnavailable` must
             be set to a non-zero value.
-
 
             Acceptable values are 0 to 100, inclusive.
           type: string
           format: int64
         maxExpansion:
-          description: >-
-            The maximum number of instances that can be temporarily allocated
-            above
-
+          description: |-
+            The maximum number of instances that can be temporarily allocated above
             the group's target size during the update process.
-
-            If `maxUnavailable` is not specified or set to zero, `maxExpansion`
-            must
-
+            If `maxUnavailable` is not specified or set to zero, `maxExpansion` must
             be set to a non-zero value.
-
 
             Acceptable values are 0 to 100, inclusive.
           type: string
@@ -1304,12 +1069,10 @@ components:
       type: object
       properties:
         diskTypeId:
-          description: >-
+          description: |-
             ID of the disk type.
 
-
-            Value must match the regular expression `` |network-ssd|network-hdd
-            ``.
+            Value must match the regular expression `` |network-ssd|network-hdd ``.
           type: string
         diskSize:
           description: |-
@@ -1326,37 +1089,24 @@ components:
       type: object
       properties: {}
     FieldMask:
-      description: >-
+      description: |-
         A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
 
-        Оnly the specified fields will be changed. The others will be left
-        untouched.
-
-        If the field is specified in `` updateMask `` and no value for that
-        field was sent in the request,
-
-        the field's value will be reset to the default. The default value for
-        most fields is null or 0.
-
-
-        If `` updateMask `` is not sent in the request, all fields' values will
-        be updated.
-
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
         Fields specified in the request will be updated to provided values.
-
         The rest of the fields will be reset to the default.
       type: string
     IPAllocationPolicy:
       type: object
       properties:
         clusterIpv4CidrBlock:
-          description: >-
+          description: |-
             CIDR block. IP range for allocating pod addresses.
 
-
-            It should not overlap with any subnet in the network the Kubernetes
-            cluster located in. Static routes will be
-
+            It should not overlap with any subnet in the network the Kubernetes cluster located in. Static routes will be
             set up for this CIDR blocks in node subnets.
           type: string
         nodeIpv4CidrMaskSize:
@@ -1369,13 +1119,10 @@ components:
           type: string
           format: int64
         serviceIpv4CidrBlock:
-          description: >-
-            CIDR block. IP range Kubernetes service Kubernetes cluster IP
-            addresses will be allocated from.
+          description: |-
+            CIDR block. IP range Kubernetes service Kubernetes cluster IP addresses will be allocated from.
 
-
-            It should not overlap with any subnet in the network the Kubernetes
-            cluster located in.
+            It should not overlap with any subnet in the network the Kubernetes cluster located in.
           type: string
         clusterIpv6CidrBlock:
           description: IPv6 range for allocating pod IP addresses.
@@ -1387,9 +1134,8 @@ components:
       type: object
       properties:
         subnetId:
-          description: >-
-            ID of the subnet. If no ID is specified, and there only one subnet
-            in specified zone, an address in this subnet will be allocated.
+          description: ID of the subnet. If no ID is specified, and there only one
+            subnet in specified zone, an address in this subnet will be allocated.
           type: string
     IpVersion:
       description: |2-
@@ -1397,17 +1143,15 @@ components:
          - IPV6: IPv6 address, not available yet.
       type: string
       enum:
-        - IPV4
-        - IPV6
+      - IPV4
+      - IPV6
     KMSProvider:
       type: object
       properties:
         keyId:
-          description: >-
+          description: |-
             KMS key ID for secrets encryption.
-
-            To obtain a KMS key ID use a
-            [list](/docs/kms/api-ref/SymmetricKey/list) request.
+            To obtain a KMS key ID use a [list](/docs/kms/api-ref/SymmetricKey/list) request.
           type: string
     ListClusterNodeGroupsResponse:
       type: object
@@ -1418,23 +1162,12 @@ components:
           items:
             $ref: '#/components/schemas/NodeGroup'
         nextPageToken:
-          description: >-
-            This token allows you to get the next page of results for list
-            requests. If the number of results
-
-            is larger than
-            [pageSize](/docs/managed-kubernetes/api-ref/Cluster/listNodeGroups#query_params),
-            use
-
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/managed-kubernetes/api-ref/Cluster/listNodeGroups#query_params), use
             the `next_page_token` as the value
-
-            for the
-            [pageToken](/docs/managed-kubernetes/api-ref/Cluster/listNodeGroups#query_params)
-            query parameter
-
-            in the next list request. Each subsequent list request will have its
-            own
-
+            for the [pageToken](/docs/managed-kubernetes/api-ref/Cluster/listNodeGroups#query_params) query parameter
+            in the next list request. Each subsequent list request will have its own
             `next_page_token` to continue paging through the results.
           type: string
     ListClusterNodesResponse:
@@ -1446,23 +1179,12 @@ components:
           items:
             $ref: '#/components/schemas/Node'
         nextPageToken:
-          description: >-
-            This token allows you to get the next page of results for list
-            requests. If the number of results
-
-            is larger than
-            [pageSize](/docs/managed-kubernetes/api-ref/Cluster/listNodes#query_params),
-            use
-
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/managed-kubernetes/api-ref/Cluster/listNodes#query_params), use
             the `next_page_token` as the value
-
-            for the
-            [pageToken](/docs/managed-kubernetes/api-ref/Cluster/listNodes#query_params)
-            query parameter
-
-            in the next list request. Each subsequent list request will have its
-            own
-
+            for the [pageToken](/docs/managed-kubernetes/api-ref/Cluster/listNodes#query_params) query parameter
+            in the next list request. Each subsequent list request will have its own
             `next_page_token` to continue paging through the results.
           type: string
     ListClusterOperationsResponse:
@@ -1474,20 +1196,11 @@ components:
           items:
             $ref: '#/components/schemas/Operation'
         nextPageToken:
-          description: >-
-            This token allows you to get the next page of results for list
-            requests. If the number of results
-
-            is larger than
-            [pageSize](/docs/managed-kubernetes/api-ref/Cluster/listOperations#query_params),
-            use the `next_page_token` as the value
-
-            for the
-            [pageToken](/docs/managed-kubernetes/api-ref/Cluster/listOperations#query_params)
-            query parameter in the next list request.
-
-            Each subsequent list request will have its own `next_page_token` to
-            continue paging through the results.
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/managed-kubernetes/api-ref/Cluster/listOperations#query_params), use the `next_page_token` as the value
+            for the [pageToken](/docs/managed-kubernetes/api-ref/Cluster/listOperations#query_params) query parameter in the next list request.
+            Each subsequent list request will have its own `next_page_token` to continue paging through the results.
           type: string
     ListClustersResponse:
       type: object
@@ -1498,23 +1211,12 @@ components:
           items:
             $ref: '#/components/schemas/Cluster'
         nextPageToken:
-          description: >-
-            This token allows you to get the next page of results for list
-            requests. If the number of results
-
-            is larger than
-            [pageSize](/docs/managed-kubernetes/api-ref/Cluster/list#query_params),
-            use
-
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/managed-kubernetes/api-ref/Cluster/list#query_params), use
             the `next_page_token` as the value
-
-            for the
-            [pageToken](/docs/managed-kubernetes/api-ref/Cluster/list#query_params)
-            query parameter
-
-            in the next list request. Each subsequent list request will have its
-            own
-
+            for the [pageToken](/docs/managed-kubernetes/api-ref/Cluster/list#query_params) query parameter
+            in the next list request. Each subsequent list request will have its own
             `next_page_token` to continue paging through the results.
           type: string
     ListNodeGroupNodesResponse:
@@ -1526,23 +1228,12 @@ components:
           items:
             $ref: '#/components/schemas/Node'
         nextPageToken:
-          description: >-
-            This token allows you to get the next page of results for list
-            requests. If the number of results
-
-            is larger than
-            [pageSize](/docs/managed-kubernetes/api-ref/NodeGroup/listNodes#query_params),
-            use
-
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/managed-kubernetes/api-ref/NodeGroup/listNodes#query_params), use
             the `next_page_token` as the value
-
-            for the
-            [pageToken](/docs/managed-kubernetes/api-ref/NodeGroup/listNodes#query_params)
-            query parameter
-
-            in the next list request. Each subsequent list request will have its
-            own
-
+            for the [pageToken](/docs/managed-kubernetes/api-ref/NodeGroup/listNodes#query_params) query parameter
+            in the next list request. Each subsequent list request will have its own
             `next_page_token` to continue paging through the results.
           type: string
     ListNodeGroupOperationsResponse:
@@ -1554,20 +1245,11 @@ components:
           items:
             $ref: '#/components/schemas/Operation'
         nextPageToken:
-          description: >-
-            This token allows you to get the next page of results for list
-            requests. If the number of results
-
-            is larger than
-            [pageSize](/docs/managed-kubernetes/api-ref/NodeGroup/listOperations#query_params),
-            use the `next_page_token` as the value
-
-            for the
-            [pageToken](/docs/managed-kubernetes/api-ref/NodeGroup/listOperations#query_params)
-            query parameter in the next list request.
-
-            Each subsequent list request will have its own `next_page_token` to
-            continue paging through the results.
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/managed-kubernetes/api-ref/NodeGroup/listOperations#query_params), use the `next_page_token` as the value
+            for the [pageToken](/docs/managed-kubernetes/api-ref/NodeGroup/listOperations#query_params) query parameter in the next list request.
+            Each subsequent list request will have its own `next_page_token` to continue paging through the results.
           type: string
     ListNodeGroupsResponse:
       type: object
@@ -1578,23 +1260,12 @@ components:
           items:
             $ref: '#/components/schemas/NodeGroup'
         nextPageToken:
-          description: >-
-            This token allows you to get the next page of results for list
-            requests. If the number of results
-
-            is larger than
-            [pageSize](/docs/managed-kubernetes/api-ref/NodeGroup/list#query_params),
-            use
-
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/managed-kubernetes/api-ref/NodeGroup/list#query_params), use
             the `next_page_token` as the value
-
-            for the
-            [pageToken](/docs/managed-kubernetes/api-ref/NodeGroup/list#query_params)
-            query parameter
-
-            in the next list request. Each subsequent list request will have its
-            own
-
+            for the [pageToken](/docs/managed-kubernetes/api-ref/NodeGroup/list#query_params) query parameter
+            in the next list request. Each subsequent list request will have its own
             `next_page_token` to continue paging through the results.
           type: string
     ListVersionsResponse:
@@ -1608,85 +1279,77 @@ components:
     MaintenanceWindow:
       type: object
       allOf:
-        - title: policy
-          type: object
-          maxProperties: 1
-          properties:
-            anytime:
-              $ref: '#/components/schemas/AnytimeMaintenanceWindow'
-              description: Updating the master at any time.
-            dailyMaintenanceWindow:
-              $ref: '#/components/schemas/DailyMaintenanceWindow'
-              description: Updating the master on any day during the specified time window.
-            weeklyMaintenanceWindow:
-              $ref: '#/components/schemas/WeeklyMaintenanceWindow'
-              description: >-
-                Updating the master on selected days during the specified time
-                window.
+      - title: policy
+        type: object
+        maxProperties: 1
+        properties:
+          anytime:
+            $ref: '#/components/schemas/AnytimeMaintenanceWindow'
+            description: Updating the master at any time.
+          dailyMaintenanceWindow:
+            $ref: '#/components/schemas/DailyMaintenanceWindow'
+            description: Updating the master on any day during the specified time
+              window.
+          weeklyMaintenanceWindow:
+            $ref: '#/components/schemas/WeeklyMaintenanceWindow'
+            description: Updating the master on selected days during the specified
+              time window.
     Master:
       type: object
       allOf:
-        - type: object
-          properties:
-            version:
-              description: Version of Kubernetes components that runs on the master.
+      - type: object
+        properties:
+          version:
+            description: Version of Kubernetes components that runs on the master.
+            type: string
+          endpoints:
+            $ref: '#/components/schemas/MasterEndpoints'
+            description: |-
+              Endpoints of the master. Endpoints constitute of scheme and port (i.e. `https://ip-address:port`)
+              and can be used by the clients to communicate with the Kubernetes API of the Kubernetes cluster.
+          masterAuth:
+            $ref: '#/components/schemas/MasterAuth'
+            description: Master authentication parameters are used to establish trust
+              between the master and a client.
+          versionInfo:
+            $ref: '#/components/schemas/VersionInfo'
+            description: Detailed information about the Kubernetes version that is
+              running on the master.
+          maintenancePolicy:
+            $ref: '#/components/schemas/MasterMaintenancePolicy'
+            description: Maintenance policy of the master.
+          securityGroupIds:
+            description: Master security groups.
+            type: array
+            items:
               type: string
-            endpoints:
-              $ref: '#/components/schemas/MasterEndpoints'
-              description: >-
-                Endpoints of the master. Endpoints constitute of scheme and port
-                (i.e. `https://ip-address:port`)
-
-                and can be used by the clients to communicate with the
-                Kubernetes API of the Kubernetes cluster.
-            masterAuth:
-              $ref: '#/components/schemas/MasterAuth'
-              description: >-
-                Master authentication parameters are used to establish trust
-                between the master and a client.
-            versionInfo:
-              $ref: '#/components/schemas/VersionInfo'
-              description: >-
-                Detailed information about the Kubernetes version that is
-                running on the master.
-            maintenancePolicy:
-              $ref: '#/components/schemas/MasterMaintenancePolicy'
-              description: Maintenance policy of the master.
-            securityGroupIds:
-              description: Master security groups.
-              type: array
-              items:
-                type: string
-        - title: master_type
-          type: object
-          maxProperties: 1
-          properties:
-            zonalMaster:
-              $ref: '#/components/schemas/ZonalMaster'
-              description: Parameters of the availability zone for the master.
-            regionalMaster:
-              $ref: '#/components/schemas/RegionalMaster'
-              description: Parameters of the region for the master.
+      - title: master_type
+        type: object
+        maxProperties: 1
+        properties:
+          zonalMaster:
+            $ref: '#/components/schemas/ZonalMaster'
+            description: Parameters of the availability zone for the master.
+          regionalMaster:
+            $ref: '#/components/schemas/RegionalMaster'
+            description: Parameters of the region for the master.
     MasterAuth:
       type: object
       properties:
         clusterCaCertificate:
-          description: >-
-            PEM-encoded public certificate that is the root of trust for the
-            Kubernetes cluster.
+          description: PEM-encoded public certificate that is the root of trust for
+            the Kubernetes cluster.
           type: string
     MasterEndpoints:
       type: object
       properties:
         internalV4Endpoint:
-          description: >-
-            Internal endpoint that can be used to connect to the master from
-            cloud networks.
+          description: Internal endpoint that can be used to connect to the master
+            from cloud networks.
           type: string
         externalV4Endpoint:
-          description: >-
-            External endpoint that can be used to access Kubernetes cluster API
-            from the internet (outside of the cloud).
+          description: External endpoint that can be used to access Kubernetes cluster
+            API from the internet (outside of the cloud).
           type: string
     MasterLocation:
       type: object
@@ -1697,56 +1360,51 @@ components:
             ID of the availability zone.
           type: string
         internalV4AddressSpec:
-          $ref: >-
-            #/components/schemas/InternalAddressSpec_in_MasterLocation_internalV4AddressSpec
+          $ref: '#/components/schemas/InternalAddressSpec_in_MasterLocation_internalV4AddressSpec'
     MasterMaintenancePolicy:
       type: object
       properties:
         autoUpgrade:
-          description: >-
-            If set to true, automatic updates are installed in the specified
-            period of time with no interaction from the user.
-
+          description: |-
+            If set to true, automatic updates are installed in the specified period of time with no interaction from the user.
             If set to false, automatic upgrades are disabled.
           type: boolean
           format: boolean
         maintenanceWindow:
-          $ref: >-
-            #/components/schemas/MaintenanceWindow_in_MasterMaintenancePolicy_maintenanceWindow
+          $ref: '#/components/schemas/MaintenanceWindow_in_MasterMaintenancePolicy_maintenanceWindow'
     MasterSpec:
       type: object
       allOf:
-        - type: object
-          properties:
-            version:
-              description: Version of Kubernetes components that runs on the master.
+      - type: object
+        properties:
+          version:
+            description: Version of Kubernetes components that runs on the master.
+            type: string
+          maintenancePolicy:
+            $ref: '#/components/schemas/MasterMaintenancePolicy'
+            description: Maintenance policy of the master.
+          securityGroupIds:
+            description: Master security groups.
+            type: array
+            items:
               type: string
-            maintenancePolicy:
-              $ref: '#/components/schemas/MasterMaintenancePolicy'
-              description: Maintenance policy of the master.
-            securityGroupIds:
-              description: Master security groups.
-              type: array
-              items:
-                type: string
-        - title: master_type
-          type: object
-          maxProperties: 1
-          properties:
-            zonalMasterSpec:
-              $ref: '#/components/schemas/ZonalMasterSpec'
-              description: Specification of the zonal master.
-            regionalMasterSpec:
-              $ref: '#/components/schemas/RegionalMasterSpec'
-              description: Specification of the regional master.
+      - title: master_type
+        type: object
+        maxProperties: 1
+        properties:
+          zonalMasterSpec:
+            $ref: '#/components/schemas/ZonalMasterSpec'
+            description: Specification of the zonal master.
+          regionalMasterSpec:
+            $ref: '#/components/schemas/RegionalMasterSpec'
+            description: Specification of the regional master.
     MasterUpdateSpec:
       type: object
       properties:
         version:
           $ref: '#/components/schemas/UpdateVersionSpec_in_MasterUpdateSpec_version'
         maintenancePolicy:
-          $ref: >-
-            #/components/schemas/MasterMaintenancePolicy_in_MasterUpdateSpec_maintenancePolicy
+          $ref: '#/components/schemas/MasterMaintenancePolicy_in_MasterUpdateSpec_maintenancePolicy'
         securityGroupIds:
           description: Master security groups.
           type: array
@@ -1761,11 +1419,9 @@ components:
           items:
             type: string
         primaryV4AddressSpec:
-          $ref: >-
-            #/components/schemas/NodeAddressSpec_in_NetworkInterfaceSpec_primaryV4AddressSpec
+          $ref: '#/components/schemas/NodeAddressSpec_in_NetworkInterfaceSpec_primaryV4AddressSpec'
         primaryV6AddressSpec:
-          $ref: >-
-            #/components/schemas/NodeAddressSpec_in_NetworkInterfaceSpec_primaryV6AddressSpec
+          $ref: '#/components/schemas/NodeAddressSpec_in_NetworkInterfaceSpec_primaryV6AddressSpec'
         securityGroupIds:
           description: IDs of security groups.
           type: array
@@ -1779,7 +1435,7 @@ components:
     NetworkPolicyProvider:
       type: string
       enum:
-        - CALICO
+      - CALICO
     Node:
       type: object
       properties:
@@ -1795,8 +1451,7 @@ components:
       type: object
       properties:
         oneToOneNatSpec:
-          $ref: >-
-            #/components/schemas/OneToOneNatSpec_in_NodeAddressSpec_oneToOneNatSpec
+          $ref: '#/components/schemas/OneToOneNatSpec_in_NodeAddressSpec_oneToOneNatSpec'
     NodeCloudStatus:
       description: Cloud instance info
       type: object
@@ -1820,12 +1475,10 @@ components:
           description: ID of the cluster that the node group belongs to.
           type: string
         createdAt:
-          description: >-
+          description: |-
             Creation timestamp.
 
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-            format.
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
         name:
@@ -1837,7 +1490,7 @@ components:
           description: Description of the node group. 0-256 characters long.
           type: string
         labels:
-          description: Resource labels as `key:value` pairs. Мaximum of 64 per resource.
+          description: Resource labels as `key:value` pairs. Maximum of 64 per resource.
           type: object
           additionalProperties:
             type: string
@@ -1848,12 +1501,12 @@ components:
         scalePolicy:
           $ref: '#/components/schemas/ScalePolicy_in_NodeGroup_scalePolicy'
         allocationPolicy:
-          $ref: >-
-            #/components/schemas/NodeGroupAllocationPolicy_in_NodeGroup_allocationPolicy
+          $ref: '#/components/schemas/NodeGroupAllocationPolicy_in_NodeGroup_allocationPolicy'
         deployPolicy:
           $ref: '#/components/schemas/DeployPolicy_in_NodeGroup_deployPolicy'
         instanceGroupId:
-          description: ID of the managed instance group associated with this node group.
+          description: ID of the managed instance group associated with this node
+            group.
           type: string
         nodeVersion:
           description: |-
@@ -1863,26 +1516,22 @@ components:
         versionInfo:
           $ref: '#/components/schemas/VersionInfo_in_NodeGroup_versionInfo'
         maintenancePolicy:
-          $ref: >-
-            #/components/schemas/NodeGroupMaintenancePolicy_in_NodeGroup_maintenancePolicy
+          $ref: '#/components/schemas/NodeGroupMaintenancePolicy_in_NodeGroup_maintenancePolicy'
         allowedUnsafeSysctls:
-          description: >-
-            Support for unsafe sysctl parameters. For more details see
+          description: Support for unsafe sysctl parameters. For more details see
             [documentation](https://kubernetes.io/docs/tasks/administer-cluster/sysctl-cluster/).
           type: array
           items:
             type: string
         nodeTaints:
-          description: >-
-            Taints that are applied to the nodes of the node group at creation
+          description: Taints that are applied to the nodes of the node group at creation
             time.
           type: array
           items:
             $ref: '#/components/schemas/Taint'
         nodeLabels:
-          description: >-
-            Labels that are assigned to the nodes of the node group at creation
-            time.
+          description: Labels that are assigned to the nodes of the node group at
+            creation time.
           type: object
           additionalProperties:
             type: string
@@ -1890,8 +1539,7 @@ components:
       type: object
       properties:
         locations:
-          description: >-
-            List of locations where resources for the node group will be
+          description: List of locations where resources for the node group will be
             allocated.
           type: array
           items:
@@ -1905,30 +1553,25 @@ components:
             ID of the availability zone where the nodes may reside.
           type: string
         subnetId:
-          description: >-
-            ID of the subnet. If a network chosen for the Kubernetes cluster has
-            only one subnet in the specified zone, subnet ID may be omitted.
+          description: ID of the subnet. If a network chosen for the Kubernetes cluster
+            has only one subnet in the specified zone, subnet ID may be omitted.
           type: string
     NodeGroupMaintenancePolicy:
       type: object
       properties:
         autoUpgrade:
-          description: >-
-            If set to true, automatic updates are installed in the specified
-            period of time with no interaction from the user.
-
+          description: |-
+            If set to true, automatic updates are installed in the specified period of time with no interaction from the user.
             If set to false, automatic upgrades are disabled.
           type: boolean
           format: boolean
         autoRepair:
-          description: >-
-            If set to true, automatic repairs are enabled. Default value is
-            false.
+          description: If set to true, automatic repairs are enabled. Default value
+            is false.
           type: boolean
           format: boolean
         maintenanceWindow:
-          $ref: >-
-            #/components/schemas/MaintenanceWindow_in_NodeGroupMaintenancePolicy_maintenanceWindow
+          $ref: '#/components/schemas/MaintenanceWindow_in_NodeGroupMaintenancePolicy_maintenanceWindow'
     NodeGroupStatus:
       description: |2-
          - PROVISIONING: Node group is waiting for resources to be allocated.
@@ -1940,13 +1583,13 @@ components:
          - STARTING: Node group is being started.
       type: string
       enum:
-        - PROVISIONING
-        - RUNNING
-        - RECONCILING
-        - STOPPING
-        - STOPPED
-        - DELETING
-        - STARTING
+      - PROVISIONING
+      - RUNNING
+      - RECONCILING
+      - STOPPING
+      - STOPPED
+      - DELETING
+      - STARTING
     NodeKubernetesStatus:
       description: Kubernetes node info
       type: object
@@ -1993,11 +1636,11 @@ components:
         is deleted (this is our bug).
       type: string
       enum:
-        - PROVISIONING
-        - NOT_CONNECTED
-        - NOT_READY
-        - READY
-        - MISSING
+      - PROVISIONING
+      - NOT_CONNECTED
+      - NOT_READY
+      - READY
+      - MISSING
     NodeTemplate:
       type: object
       properties:
@@ -2009,24 +1652,15 @@ components:
         bootDiskSpec:
           $ref: '#/components/schemas/DiskSpec_in_NodeTemplate_bootDiskSpec'
         metadata:
-          description: >-
-            The metadata as `key:value` pairs assigned to this instance
-            template. This includes custom metadata and predefined keys.
+          description: |-
+            The metadata as `key:value` pairs assigned to this instance template. This includes custom metadata and predefined keys.
 
-
-            For example, you may use the metadata in order to provide your
-            public SSH key to the node.
-
-            For more information, see
-            [Metadata](/docs/compute/concepts/vm-metadata).
-
+            For example, you may use the metadata in order to provide your public SSH key to the node.
+            For more information, see [Metadata](/docs/compute/concepts/vm-metadata).
 
             No more than 64 per resource.
-
             The string length in characters for each key must be 1-63.
-
             Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
-
             The maximum string length in characters for each value is 131072.
           type: object
           additionalProperties:
@@ -2034,102 +1668,84 @@ components:
         v4AddressSpec:
           $ref: '#/components/schemas/NodeAddressSpec_in_NodeTemplate_v4AddressSpec'
         schedulingPolicy:
-          $ref: >-
-            #/components/schemas/SchedulingPolicy_in_NodeTemplate_schedulingPolicy
+          $ref: '#/components/schemas/SchedulingPolicy_in_NodeTemplate_schedulingPolicy'
         networkInterfaceSpecs:
-          description: >-
-            New api, to specify network interfaces for the node group compute
-            instances.
-
+          description: |-
+            New api, to specify network interfaces for the node group compute instances.
             Can not be used together with 'v4_address_spec'
           type: array
           items:
             $ref: '#/components/schemas/NetworkInterfaceSpec'
+        placementPolicy:
+          $ref: '#/components/schemas/PlacementPolicy_in_NodeTemplate_placementPolicy'
     OneToOneNatSpec:
       type: object
       properties:
         ipVersion:
           $ref: '#/components/schemas/IpVersion_in_OneToOneNatSpec_ipVersion'
     Operation:
-      description: >-
-        An Operation resource. For more information, see
-        [Operation](/docs/api-design-guide/concepts/operation).
+      description: An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
       type: object
       allOf:
-        - type: object
-          properties:
-            id:
-              description: ID of the operation.
-              type: string
-            description:
-              description: Description of the operation. 0-256 characters long.
-              type: string
-            createdAt:
-              description: >-
-                Creation timestamp.
+      - type: object
+        properties:
+          id:
+            description: ID of the operation.
+            type: string
+          description:
+            description: Description of the operation. 0-256 characters long.
+            type: string
+          createdAt:
+            description: |-
+              Creation timestamp.
 
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          createdBy:
+            description: ID of the user or service account who initiated the operation.
+            type: string
+          modifiedAt:
+            description: |-
+              The time when the Operation resource was last modified.
 
-                String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-                format.
-              type: string
-              format: date-time
-            createdBy:
-              description: ID of the user or service account who initiated the operation.
-              type: string
-            modifiedAt:
-              description: >-
-                The time when the Operation resource was last modified.
-
-
-                String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-                format.
-              type: string
-              format: date-time
-            done:
-              description: >-
-                If the value is `false`, it means the operation is still in
-                progress.
-
-                If `true`, the operation is completed, and either `error` or
-                `response` is available.
-              type: boolean
-              format: boolean
-            metadata:
-              description: >-
-                Service-specific metadata associated with the operation.
-
-                It typically contains the ID of the target resource that the
-                operation is performed on.
-
-                Any method that returns a long-running operation should document
-                the metadata type, if any.
-              type: object
-        - title: result
-          type: object
-          maxProperties: 1
-          properties:
-            error:
-              $ref: '#/components/schemas/rpcStatus'
-              description: >-
-                The error result of the operation in case of failure or
-                cancellation.
-            response:
-              description: >-
-                The normal response of the operation in case of success.
-
-                If the original method returns no data on success, such as
-                Delete,
-
-                the response is
-                [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty).
-
-                If the original method is the standard Create/Update,
-
-                the response should be the target resource of the operation.
-
-                Any method that returns a long-running operation should document
-                the response type, if any.
-              type: object
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          done:
+            description: |-
+              If the value is `false`, it means the operation is still in progress.
+              If `true`, the operation is completed, and either `error` or `response` is available.
+            type: boolean
+            format: boolean
+          metadata:
+            description: |-
+              Service-specific metadata associated with the operation.
+              It typically contains the ID of the target resource that the operation is performed on.
+              Any method that returns a long-running operation should document the metadata type, if any.
+            type: object
+      - title: result
+        type: object
+        maxProperties: 1
+        properties:
+          error:
+            $ref: '#/components/schemas/rpcStatus'
+            description: The error result of the operation in case of failure or cancellation.
+          response:
+            description: |-
+              The normal response of the operation in case of success.
+              If the original method returns no data on success, such as Delete,
+              the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty).
+              If the original method is the standard Create/Update,
+              the response should be the target resource of the operation.
+              Any method that returns a long-running operation should document the response type, if any.
+            type: object
+    PlacementPolicy:
+      type: object
+      properties:
+        placementGroupId:
+          description: Identifier of placement group
+          type: string
     RegionalMaster:
       type: object
       properties:
@@ -2156,20 +1772,18 @@ components:
           items:
             $ref: '#/components/schemas/MasterLocation'
         externalV4AddressSpec:
-          $ref: >-
-            #/components/schemas/ExternalAddressSpec_in_RegionalMasterSpec_externalV4AddressSpec
+          $ref: '#/components/schemas/ExternalAddressSpec_in_RegionalMasterSpec_externalV4AddressSpec'
     ReleaseChannel:
-      description: >2-
+      description: |2-
          - RAPID: Minor updates with new functions and improvements are often added.
-        You can't disable automatic updates in this channel, but you can specify
-        a time period for automatic updates.
+        You can't disable automatic updates in this channel, but you can specify a time period for automatic updates.
          - REGULAR: New functions and improvements are added in chunks shortly after they appear on `RAPID`.
          - STABLE: Only updates related to bug fixes or security improvements are added.
       type: string
       enum:
-        - RAPID
-        - REGULAR
-        - STABLE
+      - RAPID
+      - REGULAR
+      - STABLE
     ResourcesSpec:
       type: object
       properties:
@@ -2188,12 +1802,9 @@ components:
           type: string
           format: int64
         coreFraction:
-          description: >-
-            Baseline level of CPU performance with the possibility to burst
-            performance above that baseline level.
-
+          description: |-
+            Baseline level of CPU performance with the possibility to burst performance above that baseline level.
             This field sets baseline performance for each core.
-
 
             Acceptable values are 0 to 100, inclusive.
           type: string
@@ -2208,16 +1819,16 @@ components:
     ScalePolicy:
       type: object
       allOf:
-        - title: scale_type
-          type: object
-          maxProperties: 1
-          properties:
-            fixedScale:
-              $ref: '#/components/schemas/ScalePolicyFixedScale'
-              description: Fixed scale policy of the node group.
-            autoScale:
-              $ref: '#/components/schemas/ScalePolicyAutoScale'
-              description: Auto scale policy of the node group.
+      - title: scale_type
+        type: object
+        maxProperties: 1
+        properties:
+          fixedScale:
+            $ref: '#/components/schemas/ScalePolicyFixedScale'
+            description: Fixed scale policy of the node group.
+          autoScale:
+            $ref: '#/components/schemas/ScalePolicyAutoScale'
+            description: Auto scale policy of the node group.
     ScalePolicyAutoScale:
       type: object
       properties:
@@ -2256,15 +1867,10 @@ components:
       type: object
       properties:
         preemptible:
-          description: >-
-            True for preemptible compute instances. Default value is false.
-            Preemptible compute instances are stopped at least once every 24
-            hours, and can be stopped at any time
-
+          description: |-
+            True for preemptible compute instances. Default value is false. Preemptible compute instances are stopped at least once every 24 hours, and can be stopped at any time
             if their resources are needed by Compute.
-
-            For more information, see [Preemptible Virtual
-            Machines](/docs/compute/concepts/preemptible-vm).
+            For more information, see [Preemptible Virtual Machines](/docs/compute/concepts/preemptible-vm).
           type: boolean
           format: boolean
     StartClusterMetadata:
@@ -2297,43 +1903,30 @@ components:
         effect:
           $ref: '#/components/schemas/TaintEffect_in_Taint_effect'
     TaintEffect:
-      description: >2-
+      description: |2-
          - NO_SCHEDULE: Do not allow new pods to schedule onto the node unless they tolerate the taint,
-        but allow all pods submitted to Kubelet without going through the
-        scheduler
-
+        but allow all pods submitted to Kubelet without going through the scheduler
         to start, and allow all already-running pods to continue running.
          - PREFER_NO_SCHEDULE: Like NO_SCHEDULE, but the scheduler tries not to schedule
         new pods onto the node, rather than prohibiting new pods from scheduling
-
         onto the node entirely. Enforced by the scheduler.
          - NO_EXECUTE: Evict any already-running pods that do not tolerate the taint.
       type: string
       enum:
-        - NO_SCHEDULE
-        - PREFER_NO_SCHEDULE
-        - NO_EXECUTE
+      - NO_SCHEDULE
+      - PREFER_NO_SCHEDULE
+      - NO_EXECUTE
     TimeOfDay:
-      description: >-
-        Represents a time of day. The date and time zone are either not
-        significant
-
-        or are specified elsewhere. An API may choose to allow leap seconds.
-        Related
-
-        types are
-        [google.type.Date](https://github.com/googleapis/googleapis/blob/master/google/type/date.proto)
-        and
-        [google.protobuf.Timestamp](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto).
+      description: |-
+        Represents a time of day. The date and time zone are either not significant
+        or are specified elsewhere. An API may choose to allow leap seconds. Related
+        types are [google.type.Date](https://github.com/googleapis/googleapis/blob/master/google/type/date.proto) and [google.protobuf.Timestamp](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto).
       type: object
       properties:
         hours:
-          description: >-
-            Hours of day in 24 hour format. Should be from 0 to 23. An API may
-            choose
-
-            to allow the value "24:00:00" for scenarios like business closing
-            time.
+          description: |-
+            Hours of day in 24 hour format. Should be from 0 to 23. An API may choose
+            to allow the value "24:00:00" for scenarios like business closing time.
           type: integer
           format: int32
         minutes:
@@ -2341,10 +1934,8 @@ components:
           type: integer
           format: int32
         seconds:
-          description: >-
-            Seconds of minutes of the time. Must normally be from 0 to 59. An
-            API may
-
+          description: |-
+            Seconds of minutes of the time. Must normally be from 0 to 59. An API may
             allow the value 60 if it allows leap-seconds.
           type: integer
           format: int32
@@ -2361,81 +1952,63 @@ components:
     UpdateClusterRequest:
       type: object
       allOf:
-        - type: object
-          properties:
-            updateMask:
-              $ref: '#/components/schemas/FieldMask'
-            name:
-              description: >-
-                Name of the Kubernetes cluster.
+      - type: object
+        properties:
+          updateMask:
+            $ref: '#/components/schemas/FieldMask'
+          name:
+            description: |-
+              Name of the Kubernetes cluster.
+              The name must be unique within the folder.
 
-                The name must be unique within the folder.
+              Value must match the regular expression `` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
+            type: string
+          description:
+            description: |-
+              Description of the Kubernetes cluster.
 
+              The maximum string length in characters is 256.
+            type: string
+          labels:
+            description: |-
+              Resource labels as `key:value` pairs.
 
-                Value must match the regular expression ``
-                |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
+              Existing set of `labels` is completely replaced by the provided set.
+
+              No more than 64 per resource.
+              The string length in characters for each key must be 1-63.
+              Each key must match the regular expression `` [a-z][-_./\@0-9a-z]* ``.
+              The maximum string length in characters for each value is 63.
+              Each value must match the regular expression `` [-_./\@0-9a-z]* ``.
+            type: object
+            additionalProperties:
               type: string
-            description:
-              description: |-
-                Description of the Kubernetes cluster.
+          masterSpec:
+            $ref: '#/components/schemas/MasterUpdateSpec'
+            description: Specification of the master update.
+          serviceAccountId:
+            description: |-
+              Service account to be used for provisioning Compute Cloud and VPC resources for Kubernetes cluster.
+              Selected service account should have `edit` role on the folder where the Kubernetes cluster will be
+              located and on the folder where selected network resides.
+            type: string
+          nodeServiceAccountId:
+            description: |-
+              Service account to be used by the worker nodes of the Kubernetes cluster to access Container Registry
+              or to push node logs and metrics.
+            type: string
+          networkPolicy:
+            $ref: '#/components/schemas/NetworkPolicy'
+      - title: internet_gateway
+        type: object
+        maxProperties: 1
+        properties:
+          gatewayIpv4Address:
+            description: |-
+              Gateway IPv4 address.
 
-                The maximum string length in characters is 256.
-              type: string
-            labels:
-              description: >-
-                Resource labels as `key:value` pairs.
-
-
-                Existing set of `labels` is completely replaced by the provided
-                set.
-
-
-                No more than 64 per resource.
-
-                The string length in characters for each key must be 1-63.
-
-                Each key must match the regular expression ``
-                [a-z][-_./\@0-9a-z]* ``.
-
-                The maximum string length in characters for each value is 63.
-
-                Each value must match the regular expression `` [-_./\@0-9a-z]*
-                ``.
-              type: object
-              additionalProperties:
-                type: string
-            masterSpec:
-              $ref: '#/components/schemas/MasterUpdateSpec'
-              description: Specification of the master update.
-            serviceAccountId:
-              description: >-
-                Service account to be used for provisioning Compute Cloud and
-                VPC resources for Kubernetes cluster.
-
-                Selected service account should have `edit` role on the folder
-                where the Kubernetes cluster will be
-
-                located and on the folder where selected network resides.
-              type: string
-            nodeServiceAccountId:
-              description: >-
-                Service account to be used by the worker nodes of the Kubernetes
-                cluster to access Container Registry
-
-                or to push node logs and metrics.
-              type: string
-            networkPolicy:
-              $ref: '#/components/schemas/NetworkPolicy'
-        - title: internet_gateway
-          type: object
-          maxProperties: 1
-          properties:
-            gatewayIpv4Address:
-              description: |-
-                Gateway IPv4 address.
-
-                The maximum string length in characters is 15.
-              type: string
+              The maximum string length in characters is 15.
+            type: string
     UpdateNodeGroupMetadata:
       type: object
       properties:
@@ -2450,14 +2023,11 @@ components:
         updateMask:
           $ref: '#/components/schemas/FieldMask_in_UpdateNodeGroupRequest_updateMask'
         name:
-          description: >-
+          description: |-
             Name of the node group.
-
             The name must be unique within the folder.
 
-
-            Value must match the regular expression ``
-            |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
+            Value must match the regular expression `` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
           type: string
         description:
           description: |-
@@ -2466,86 +2036,66 @@ components:
             The maximum string length in characters is 256.
           type: string
         labels:
-          description: >-
+          description: |-
             Resource labels as `key:value` pairs.
-
 
             Existing set of `labels` is completely replaced by the provided set.
 
-
             No more than 64 per resource.
-
             The string length in characters for each key must be 1-63.
-
-            Each key must match the regular expression `` [a-z][-_./\@0-9a-z]*
-            ``.
-
+            Each key must match the regular expression `` [a-z][-_./\@0-9a-z]* ``.
             The maximum string length in characters for each value is 63.
-
             Each value must match the regular expression `` [-_./\@0-9a-z]* ``.
           type: object
           additionalProperties:
             type: string
         nodeTemplate:
-          $ref: >-
-            #/components/schemas/NodeTemplate_in_UpdateNodeGroupRequest_nodeTemplate
+          $ref: '#/components/schemas/NodeTemplate_in_UpdateNodeGroupRequest_nodeTemplate'
         scalePolicy:
-          $ref: >-
-            #/components/schemas/ScalePolicy_in_UpdateNodeGroupRequest_scalePolicy
+          $ref: '#/components/schemas/ScalePolicy_in_UpdateNodeGroupRequest_scalePolicy'
         allocationPolicy:
-          $ref: >-
-            #/components/schemas/NodeGroupAllocationPolicy_in_UpdateNodeGroupRequest_allocationPolicy
+          $ref: '#/components/schemas/NodeGroupAllocationPolicy_in_UpdateNodeGroupRequest_allocationPolicy'
         deployPolicy:
-          $ref: >-
-            #/components/schemas/DeployPolicy_in_UpdateNodeGroupRequest_deployPolicy
+          $ref: '#/components/schemas/DeployPolicy_in_UpdateNodeGroupRequest_deployPolicy'
         version:
-          $ref: >-
-            #/components/schemas/UpdateVersionSpec_in_UpdateNodeGroupRequest_version
+          $ref: '#/components/schemas/UpdateVersionSpec_in_UpdateNodeGroupRequest_version'
         maintenancePolicy:
-          $ref: >-
-            #/components/schemas/NodeGroupMaintenancePolicy_in_UpdateNodeGroupRequest_maintenancePolicy
+          $ref: '#/components/schemas/NodeGroupMaintenancePolicy_in_UpdateNodeGroupRequest_maintenancePolicy'
         allowedUnsafeSysctls:
-          description: >-
-            Support for unsafe sysctl parameters. For more details see
-            [documentation](https://kubernetes.io/docs/tasks/administer-cluster/sysctl-cluster/).
-
+          description: |-
+            Support for unsafe sysctl parameters. For more details see [documentation](https://kubernetes.io/docs/tasks/administer-cluster/sysctl-cluster/).
 
             The maximum string length in characters for each value is 253.
-
-            Each value must match the regular expression ``
-            ([a-z0-9]([-_a-z0-9]*[a-z0-9])?\.)*([a-z0-9][-_a-z0-9]*)?[a-z0-9*]
-            ``.
+            Each value must match the regular expression `` ([a-z0-9]([-_a-z0-9]*[a-z0-9])?\.)*([a-z0-9][-_a-z0-9]*)?[a-z0-9*] ``.
           type: array
           items:
             type: string
         nodeTaints:
-          description: >-
-            Taints that are applied to the nodes of the node group at creation
+          description: Taints that are applied to the nodes of the node group at creation
             time.
           type: array
           items:
             $ref: '#/components/schemas/Taint'
         nodeLabels:
-          description: >-
-            Labels that are assigned to the nodes of the node group at creation
-            time.
+          description: Labels that are assigned to the nodes of the node group at
+            creation time.
           type: object
           additionalProperties:
             type: string
     UpdateVersionSpec:
       type: object
       allOf:
-        - title: specifier
-          type: object
-          maxProperties: 1
-          properties:
-            version:
-              description: Request update to a newer version of Kubernetes (1.x -> 1.y).
-              type: string
-            latestRevision:
-              description: Request update to the latest revision for the current version.
-              type: boolean
-              format: boolean
+      - title: specifier
+        type: object
+        maxProperties: 1
+        properties:
+          version:
+            description: Request update to a newer version of Kubernetes (1.x -> 1.y).
+            type: string
+          latestRevision:
+            description: Request update to the latest revision for the current version.
+            type: boolean
+            format: boolean
     VersionInfo:
       type: object
       properties:
@@ -2553,13 +2103,9 @@ components:
           description: 'Current Kubernetes version, format: major.minor (e.g. 1.15).'
           type: string
         newRevisionAvailable:
-          description: >-
-            Newer revisions may include Kubernetes patches (e.g 1.15.1 ->
-            1.15.2) as well
-
-            as some internal component updates — new features or bug fixes in
-            Yandex specific
-
+          description: |-
+            Newer revisions may include Kubernetes patches (e.g 1.15.1 -> 1.15.2) as well
+            as some internal component updates - new features or bug fixes in Yandex specific
             components either on the master or nodes.
           type: boolean
           format: boolean
@@ -2569,10 +2115,8 @@ components:
             revision. Empty if new_revision_available is false.
           type: string
         versionDeprecated:
-          description: >-
-            The current version is on the deprecation schedule, component
-            (master or node group)
-
+          description: |-
+            The current version is on the deprecation schedule, component (master or node group)
             should be upgraded.
           type: boolean
           format: boolean
@@ -2580,12 +2124,9 @@ components:
       type: object
       properties:
         daysOfWeek:
-          description: >-
+          description: |-
             Required.
-
-            Days of the week and the maintenance window for these days when
-            automatic updates are allowed.
-
+            Days of the week and the maintenance window for these days when automatic updates are allowed.
 
             The number of elements must be in the range 1-7.
           type: array
@@ -2612,19 +2153,15 @@ components:
             ID of the availability zone.
           type: string
         internalV4AddressSpec:
-          $ref: >-
-            #/components/schemas/InternalAddressSpec_in_ZonalMasterSpec_internalV4AddressSpec
+          $ref: '#/components/schemas/InternalAddressSpec_in_ZonalMasterSpec_internalV4AddressSpec'
         externalV4AddressSpec:
-          $ref: >-
-            #/components/schemas/ExternalAddressSpec_in_ZonalMasterSpec_externalV4AddressSpec
+          $ref: '#/components/schemas/ExternalAddressSpec_in_ZonalMasterSpec_externalV4AddressSpec'
     rpcStatus:
       description: The error result of the operation in case of failure or cancellation.
       type: object
       properties:
         code:
-          description: >-
-            Error code. An enum value of
-            [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
+          description: Error code. An enum value of [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
           type: integer
           format: int32
         message:
@@ -2636,20 +2173,18 @@ components:
           items:
             type: object
     ReleaseChannel_in_AvailableVersions_releaseChannel:
-      description: >-
-        Release channel: `RAPID`, `REGULAR` or `STABLE`. For more details see
-        [documentation](https://cloud.yandex.ru/docs/managed-kubernetes/concepts/release-channels-and-updates).
+      description: |-
+        Release channel: `RAPID`, `REGULAR` or `STABLE`. For more details see [documentation](https://cloud.yandex.ru/docs/managed-kubernetes/concepts/release-channels-and-updates).
 
          - RAPID: Minor updates with new functions and improvements are often added.
-        You can't disable automatic updates in this channel, but you can specify
-        a time period for automatic updates.
+        You can't disable automatic updates in this channel, but you can specify a time period for automatic updates.
          - REGULAR: New functions and improvements are added in chunks shortly after they appear on `RAPID`.
          - STABLE: Only updates related to bug fixes or security improvements are added.
       type: string
       enum:
-        - RAPID
-        - REGULAR
-        - STABLE
+      - RAPID
+      - REGULAR
+      - STABLE
     NodeTemplate_in_CreateNodeGroupRequest_nodeTemplate:
       description: |-
         Required.
@@ -2664,24 +2199,15 @@ components:
         bootDiskSpec:
           $ref: '#/components/schemas/DiskSpec_in_NodeTemplate_bootDiskSpec'
         metadata:
-          description: >-
-            The metadata as `key:value` pairs assigned to this instance
-            template. This includes custom metadata and predefined keys.
+          description: |-
+            The metadata as `key:value` pairs assigned to this instance template. This includes custom metadata and predefined keys.
 
-
-            For example, you may use the metadata in order to provide your
-            public SSH key to the node.
-
-            For more information, see
-            [Metadata](/docs/compute/concepts/vm-metadata).
-
+            For example, you may use the metadata in order to provide your public SSH key to the node.
+            For more information, see [Metadata](/docs/compute/concepts/vm-metadata).
 
             No more than 64 per resource.
-
             The string length in characters for each key must be 1-63.
-
             Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
-
             The maximum string length in characters for each value is 131072.
           type: object
           additionalProperties:
@@ -2689,80 +2215,64 @@ components:
         v4AddressSpec:
           $ref: '#/components/schemas/NodeAddressSpec_in_NodeTemplate_v4AddressSpec'
         schedulingPolicy:
-          $ref: >-
-            #/components/schemas/SchedulingPolicy_in_NodeTemplate_schedulingPolicy
+          $ref: '#/components/schemas/SchedulingPolicy_in_NodeTemplate_schedulingPolicy'
         networkInterfaceSpecs:
-          description: >-
-            New api, to specify network interfaces for the node group compute
-            instances.
-
+          description: |-
+            New api, to specify network interfaces for the node group compute instances.
             Can not be used together with 'v4_address_spec'
           type: array
           items:
             $ref: '#/components/schemas/NetworkInterfaceSpec'
+        placementPolicy:
+          $ref: '#/components/schemas/PlacementPolicy_in_NodeTemplate_placementPolicy'
     ScalePolicy_in_CreateNodeGroupRequest_scalePolicy:
       description: |-
         Required.
         Scale policy of the node group.
       type: object
       allOf:
-        - title: scale_type
-          type: object
-          maxProperties: 1
-          properties:
-            fixedScale:
-              $ref: '#/components/schemas/ScalePolicyFixedScale'
-              description: Fixed scale policy of the node group.
-            autoScale:
-              $ref: '#/components/schemas/ScalePolicyAutoScale'
-              description: Auto scale policy of the node group.
+      - title: scale_type
+        type: object
+        maxProperties: 1
+        properties:
+          fixedScale:
+            $ref: '#/components/schemas/ScalePolicyFixedScale'
+            description: Fixed scale policy of the node group.
+          autoScale:
+            $ref: '#/components/schemas/ScalePolicyAutoScale'
+            description: Auto scale policy of the node group.
     NodeGroupAllocationPolicy_in_CreateNodeGroupRequest_allocationPolicy:
       description: Allocation policy of the node group by the zones and regions.
       type: object
       properties:
         locations:
-          description: >-
-            List of locations where resources for the node group will be
+          description: List of locations where resources for the node group will be
             allocated.
           type: array
           items:
             $ref: '#/components/schemas/NodeGroupLocation'
     DeployPolicy_in_CreateNodeGroupRequest_deployPolicy:
-      description: >-
-        Deploy policy according to which the updates are rolled out. If not
-        specified,
-
+      description: |-
+        Deploy policy according to which the updates are rolled out. If not specified,
         the default is used.
       type: object
       properties:
         maxUnavailable:
-          description: >-
-            The maximum number of running instances that can be taken offline
-            (i.e.,
-
+          description: |-
+            The maximum number of running instances that can be taken offline (i.e.,
             stopped or deleted) at the same time during the update process.
-
-            If `maxExpansion` is not specified or set to zero, `maxUnavailable`
-            must
-
+            If `maxExpansion` is not specified or set to zero, `maxUnavailable` must
             be set to a non-zero value.
-
 
             Acceptable values are 0 to 100, inclusive.
           type: string
           format: int64
         maxExpansion:
-          description: >-
-            The maximum number of instances that can be temporarily allocated
-            above
-
+          description: |-
+            The maximum number of instances that can be temporarily allocated above
             the group's target size during the update process.
-
-            If `maxUnavailable` is not specified or set to zero, `maxExpansion`
-            must
-
+            If `maxUnavailable` is not specified or set to zero, `maxExpansion` must
             be set to a non-zero value.
-
 
             Acceptable values are 0 to 100, inclusive.
           type: string
@@ -2772,48 +2282,32 @@ components:
       type: object
       properties:
         autoUpgrade:
-          description: >-
-            If set to true, automatic updates are installed in the specified
-            period of time with no interaction from the user.
-
+          description: |-
+            If set to true, automatic updates are installed in the specified period of time with no interaction from the user.
             If set to false, automatic upgrades are disabled.
           type: boolean
           format: boolean
         autoRepair:
-          description: >-
-            If set to true, automatic repairs are enabled. Default value is
-            false.
+          description: If set to true, automatic repairs are enabled. Default value
+            is false.
           type: boolean
           format: boolean
         maintenanceWindow:
-          $ref: >-
-            #/components/schemas/MaintenanceWindow_in_NodeGroupMaintenancePolicy_maintenanceWindow
+          $ref: '#/components/schemas/MaintenanceWindow_in_NodeGroupMaintenancePolicy_maintenanceWindow'
     TimeOfDay_in_DailyMaintenanceWindow_startTime:
-      description: >-
+      description: |-
         Required.
-
         Window start time, in the UTC timezone.
 
-
-        Represents a time of day. The date and time zone are either not
-        significant
-
-        or are specified elsewhere. An API may choose to allow leap seconds.
-        Related
-
-        types are
-        [google.type.Date](https://github.com/googleapis/googleapis/blob/master/google/type/date.proto)
-        and
-        [google.protobuf.Timestamp](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto).
+        Represents a time of day. The date and time zone are either not significant
+        or are specified elsewhere. An API may choose to allow leap seconds. Related
+        types are [google.type.Date](https://github.com/googleapis/googleapis/blob/master/google/type/date.proto) and [google.protobuf.Timestamp](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto).
       type: object
       properties:
         hours:
-          description: >-
-            Hours of day in 24 hour format. Should be from 0 to 23. An API may
-            choose
-
-            to allow the value "24:00:00" for scenarios like business closing
-            time.
+          description: |-
+            Hours of day in 24 hour format. Should be from 0 to 23. An API may choose
+            to allow the value "24:00:00" for scenarios like business closing time.
           type: integer
           format: int32
         minutes:
@@ -2821,10 +2315,8 @@ components:
           type: integer
           format: int32
         seconds:
-          description: >-
-            Seconds of minutes of the time. Must normally be from 0 to 59. An
-            API may
-
+          description: |-
+            Seconds of minutes of the time. Must normally be from 0 to 59. An API may
             allow the value 60 if it allows leap-seconds.
           type: integer
           format: int32
@@ -2833,31 +2325,19 @@ components:
           type: integer
           format: int32
     TimeOfDay_in_DaysOfWeekMaintenanceWindow_startTime:
-      description: >-
+      description: |-
         Required.
-
         Window start time, in the UTC timezone.
 
-
-        Represents a time of day. The date and time zone are either not
-        significant
-
-        or are specified elsewhere. An API may choose to allow leap seconds.
-        Related
-
-        types are
-        [google.type.Date](https://github.com/googleapis/googleapis/blob/master/google/type/date.proto)
-        and
-        [google.protobuf.Timestamp](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto).
+        Represents a time of day. The date and time zone are either not significant
+        or are specified elsewhere. An API may choose to allow leap seconds. Related
+        types are [google.type.Date](https://github.com/googleapis/googleapis/blob/master/google/type/date.proto) and [google.protobuf.Timestamp](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto).
       type: object
       properties:
         hours:
-          description: >-
-            Hours of day in 24 hour format. Should be from 0 to 23. An API may
-            choose
-
-            to allow the value "24:00:00" for scenarios like business closing
-            time.
+          description: |-
+            Hours of day in 24 hour format. Should be from 0 to 23. An API may choose
+            to allow the value "24:00:00" for scenarios like business closing time.
           type: integer
           format: int32
         minutes:
@@ -2865,10 +2345,8 @@ components:
           type: integer
           format: int32
         seconds:
-          description: >-
-            Seconds of minutes of the time. Must normally be from 0 to 59. An
-            API may
-
+          description: |-
+            Seconds of minutes of the time. Must normally be from 0 to 59. An API may
             allow the value 60 if it allows leap-seconds.
           type: integer
           format: int32
@@ -2883,85 +2361,75 @@ components:
       type: object
       properties:
         subnetId:
-          description: >-
-            ID of the subnet. If no ID is specified, and there only one subnet
-            in specified zone, an address in this subnet will be allocated.
+          description: ID of the subnet. If no ID is specified, and there only one
+            subnet in specified zone, an address in this subnet will be allocated.
           type: string
     MaintenanceWindow_in_MasterMaintenancePolicy_maintenanceWindow:
-      description: >-
-        Maintenance window settings. Update will start at the specified time and
-        last no more than the specified duration.
-
+      description: |-
+        Maintenance window settings. Update will start at the specified time and last no more than the specified duration.
         The time is set in UTC.
       type: object
       allOf:
-        - title: policy
-          type: object
-          maxProperties: 1
-          properties:
-            anytime:
-              $ref: '#/components/schemas/AnytimeMaintenanceWindow'
-              description: Updating the master at any time.
-            dailyMaintenanceWindow:
-              $ref: '#/components/schemas/DailyMaintenanceWindow'
-              description: Updating the master on any day during the specified time window.
-            weeklyMaintenanceWindow:
-              $ref: '#/components/schemas/WeeklyMaintenanceWindow'
-              description: >-
-                Updating the master on selected days during the specified time
-                window.
+      - title: policy
+        type: object
+        maxProperties: 1
+        properties:
+          anytime:
+            $ref: '#/components/schemas/AnytimeMaintenanceWindow'
+            description: Updating the master at any time.
+          dailyMaintenanceWindow:
+            $ref: '#/components/schemas/DailyMaintenanceWindow'
+            description: Updating the master on any day during the specified time
+              window.
+          weeklyMaintenanceWindow:
+            $ref: '#/components/schemas/WeeklyMaintenanceWindow'
+            description: Updating the master on selected days during the specified
+              time window.
     UpdateVersionSpec_in_MasterUpdateSpec_version:
       description: Specification of the master update.
       type: object
       allOf:
-        - title: specifier
-          type: object
-          maxProperties: 1
-          properties:
-            version:
-              description: Request update to a newer version of Kubernetes (1.x -> 1.y).
-              type: string
-            latestRevision:
-              description: Request update to the latest revision for the current version.
-              type: boolean
-              format: boolean
+      - title: specifier
+        type: object
+        maxProperties: 1
+        properties:
+          version:
+            description: Request update to a newer version of Kubernetes (1.x -> 1.y).
+            type: string
+          latestRevision:
+            description: Request update to the latest revision for the current version.
+            type: boolean
+            format: boolean
     MasterMaintenancePolicy_in_MasterUpdateSpec_maintenancePolicy:
       description: Maintenance policy of the master.
       type: object
       properties:
         autoUpgrade:
-          description: >-
-            If set to true, automatic updates are installed in the specified
-            period of time with no interaction from the user.
-
+          description: |-
+            If set to true, automatic updates are installed in the specified period of time with no interaction from the user.
             If set to false, automatic upgrades are disabled.
           type: boolean
           format: boolean
         maintenanceWindow:
-          $ref: >-
-            #/components/schemas/MaintenanceWindow_in_MasterMaintenancePolicy_maintenanceWindow
+          $ref: '#/components/schemas/MaintenanceWindow_in_MasterMaintenancePolicy_maintenanceWindow'
     NodeAddressSpec_in_NetworkInterfaceSpec_primaryV4AddressSpec:
-      description: >-
-        Primary IPv4 address that is assigned to the instance for this network
-        interface.
+      description: Primary IPv4 address that is assigned to the instance for this
+        network interface.
       type: object
       properties:
         oneToOneNatSpec:
-          $ref: >-
-            #/components/schemas/OneToOneNatSpec_in_NodeAddressSpec_oneToOneNatSpec
+          $ref: '#/components/schemas/OneToOneNatSpec_in_NodeAddressSpec_oneToOneNatSpec'
     NodeAddressSpec_in_NetworkInterfaceSpec_primaryV6AddressSpec:
-      description: >-
-        Primary IPv6 address that is assigned to the instance for this network
-        interface.
+      description: Primary IPv6 address that is assigned to the instance for this
+        network interface.
       type: object
       properties:
         oneToOneNatSpec:
-          $ref: >-
-            #/components/schemas/OneToOneNatSpec_in_NodeAddressSpec_oneToOneNatSpec
+          $ref: '#/components/schemas/OneToOneNatSpec_in_NodeAddressSpec_oneToOneNatSpec'
     NetworkPolicyProvider_in_NetworkPolicy_provider:
       type: string
       enum:
-        - CALICO
+      - CALICO
     NodeStatus_in_Node_status:
       description: |-
         Computed node status.
@@ -2978,11 +2446,11 @@ components:
         is deleted (this is our bug).
       type: string
       enum:
-        - PROVISIONING
-        - NOT_CONNECTED
-        - NOT_READY
-        - READY
-        - MISSING
+      - PROVISIONING
+      - NOT_CONNECTED
+      - NOT_READY
+      - READY
+      - MISSING
     NodeSpec_in_Node_spec:
       description: |-
         Node specificaion.
@@ -3040,11 +2508,10 @@ components:
           items:
             $ref: '#/components/schemas/AttachedVolume'
     OneToOneNatSpec_in_NodeAddressSpec_oneToOneNatSpec:
-      description: >-
-        One-to-one NAT configuration. Setting up one-to-one NAT ensures that
-        public IP addresses are assigned to nodes, and therefore internet is
-        accessible for all nodes of the node group. If the field is not set, NAT
-        will not be set up.
+      description: One-to-one NAT configuration. Setting up one-to-one NAT ensures
+        that public IP addresses are assigned to nodes, and therefore internet is
+        accessible for all nodes of the node group. If the field is not set, NAT will
+        not be set up.
       type: object
       properties:
         ipVersion:
@@ -3062,17 +2529,16 @@ components:
          - STARTING: Node group is being started.
       type: string
       enum:
-        - PROVISIONING
-        - RUNNING
-        - RECONCILING
-        - STOPPING
-        - STOPPED
-        - DELETING
-        - STARTING
+      - PROVISIONING
+      - RUNNING
+      - RECONCILING
+      - STOPPING
+      - STOPPED
+      - DELETING
+      - STARTING
     NodeTemplate_in_NodeGroup_nodeTemplate:
-      description: >-
-        Node template that specifies parameters of the compute instances for the
-        node group.
+      description: Node template that specifies parameters of the compute instances
+        for the node group.
       type: object
       properties:
         platformId:
@@ -3083,24 +2549,15 @@ components:
         bootDiskSpec:
           $ref: '#/components/schemas/DiskSpec_in_NodeTemplate_bootDiskSpec'
         metadata:
-          description: >-
-            The metadata as `key:value` pairs assigned to this instance
-            template. This includes custom metadata and predefined keys.
+          description: |-
+            The metadata as `key:value` pairs assigned to this instance template. This includes custom metadata and predefined keys.
 
-
-            For example, you may use the metadata in order to provide your
-            public SSH key to the node.
-
-            For more information, see
-            [Metadata](/docs/compute/concepts/vm-metadata).
-
+            For example, you may use the metadata in order to provide your public SSH key to the node.
+            For more information, see [Metadata](/docs/compute/concepts/vm-metadata).
 
             No more than 64 per resource.
-
             The string length in characters for each key must be 1-63.
-
             Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
-
             The maximum string length in characters for each value is 131072.
           type: object
           additionalProperties:
@@ -3108,42 +2565,38 @@ components:
         v4AddressSpec:
           $ref: '#/components/schemas/NodeAddressSpec_in_NodeTemplate_v4AddressSpec'
         schedulingPolicy:
-          $ref: >-
-            #/components/schemas/SchedulingPolicy_in_NodeTemplate_schedulingPolicy
+          $ref: '#/components/schemas/SchedulingPolicy_in_NodeTemplate_schedulingPolicy'
         networkInterfaceSpecs:
-          description: >-
-            New api, to specify network interfaces for the node group compute
-            instances.
-
+          description: |-
+            New api, to specify network interfaces for the node group compute instances.
             Can not be used together with 'v4_address_spec'
           type: array
           items:
             $ref: '#/components/schemas/NetworkInterfaceSpec'
+        placementPolicy:
+          $ref: '#/components/schemas/PlacementPolicy_in_NodeTemplate_placementPolicy'
     ScalePolicy_in_NodeGroup_scalePolicy:
-      description: >-
-        Scale policy of the node group.  For more information, see [Scaling
+      description: Scale policy of the node group.  For more information, see [Scaling
         policy](/docs/compute/concepts/instance-groups/policies#scale-policy).
       type: object
       allOf:
-        - title: scale_type
-          type: object
-          maxProperties: 1
-          properties:
-            fixedScale:
-              $ref: '#/components/schemas/ScalePolicyFixedScale'
-              description: Fixed scale policy of the node group.
-            autoScale:
-              $ref: '#/components/schemas/ScalePolicyAutoScale'
-              description: Auto scale policy of the node group.
+      - title: scale_type
+        type: object
+        maxProperties: 1
+        properties:
+          fixedScale:
+            $ref: '#/components/schemas/ScalePolicyFixedScale'
+            description: Fixed scale policy of the node group.
+          autoScale:
+            $ref: '#/components/schemas/ScalePolicyAutoScale'
+            description: Auto scale policy of the node group.
     NodeGroupAllocationPolicy_in_NodeGroup_allocationPolicy:
-      description: >-
-        Allocation policy by which resources for node group are allocated to
-        zones and regions.
+      description: Allocation policy by which resources for node group are allocated
+        to zones and regions.
       type: object
       properties:
         locations:
-          description: >-
-            List of locations where resources for the node group will be
+          description: List of locations where resources for the node group will be
             allocated.
           type: array
           items:
@@ -3153,54 +2606,37 @@ components:
       type: object
       properties:
         maxUnavailable:
-          description: >-
-            The maximum number of running instances that can be taken offline
-            (i.e.,
-
+          description: |-
+            The maximum number of running instances that can be taken offline (i.e.,
             stopped or deleted) at the same time during the update process.
-
-            If `maxExpansion` is not specified or set to zero, `maxUnavailable`
-            must
-
+            If `maxExpansion` is not specified or set to zero, `maxUnavailable` must
             be set to a non-zero value.
-
 
             Acceptable values are 0 to 100, inclusive.
           type: string
           format: int64
         maxExpansion:
-          description: >-
-            The maximum number of instances that can be temporarily allocated
-            above
-
+          description: |-
+            The maximum number of instances that can be temporarily allocated above
             the group's target size during the update process.
-
-            If `maxUnavailable` is not specified or set to zero, `maxExpansion`
-            must
-
+            If `maxUnavailable` is not specified or set to zero, `maxExpansion` must
             be set to a non-zero value.
-
 
             Acceptable values are 0 to 100, inclusive.
           type: string
           format: int64
     VersionInfo_in_NodeGroup_versionInfo:
-      description: >-
-        Detailed information about the Kubernetes version that is running on the
-        node.
+      description: Detailed information about the Kubernetes version that is running
+        on the node.
       type: object
       properties:
         currentVersion:
           description: 'Current Kubernetes version, format: major.minor (e.g. 1.15).'
           type: string
         newRevisionAvailable:
-          description: >-
-            Newer revisions may include Kubernetes patches (e.g 1.15.1 ->
-            1.15.2) as well
-
-            as some internal component updates — new features or bug fixes in
-            Yandex specific
-
+          description: |-
+            Newer revisions may include Kubernetes patches (e.g 1.15.1 -> 1.15.2) as well
+            as some internal component updates - new features or bug fixes in Yandex specific
             components either on the master or nodes.
           type: boolean
           format: boolean
@@ -3210,10 +2646,8 @@ components:
             revision. Empty if new_revision_available is false.
           type: string
         versionDeprecated:
-          description: >-
-            The current version is on the deprecation schedule, component
-            (master or node group)
-
+          description: |-
+            The current version is on the deprecation schedule, component (master or node group)
             should be upgraded.
           type: boolean
           format: boolean
@@ -3222,45 +2656,39 @@ components:
       type: object
       properties:
         autoUpgrade:
-          description: >-
-            If set to true, automatic updates are installed in the specified
-            period of time with no interaction from the user.
-
+          description: |-
+            If set to true, automatic updates are installed in the specified period of time with no interaction from the user.
             If set to false, automatic upgrades are disabled.
           type: boolean
           format: boolean
         autoRepair:
-          description: >-
-            If set to true, automatic repairs are enabled. Default value is
-            false.
+          description: If set to true, automatic repairs are enabled. Default value
+            is false.
           type: boolean
           format: boolean
         maintenanceWindow:
-          $ref: >-
-            #/components/schemas/MaintenanceWindow_in_NodeGroupMaintenancePolicy_maintenanceWindow
+          $ref: '#/components/schemas/MaintenanceWindow_in_NodeGroupMaintenancePolicy_maintenanceWindow'
     MaintenanceWindow_in_NodeGroupMaintenancePolicy_maintenanceWindow:
-      description: >-
-        Maintenance window settings. Update will start at the specified time and
-        last no more than the specified duration.
-
+      description: |-
+        Maintenance window settings. Update will start at the specified time and last no more than the specified duration.
         The time is set in UTC.
       type: object
       allOf:
-        - title: policy
-          type: object
-          maxProperties: 1
-          properties:
-            anytime:
-              $ref: '#/components/schemas/AnytimeMaintenanceWindow'
-              description: Updating the master at any time.
-            dailyMaintenanceWindow:
-              $ref: '#/components/schemas/DailyMaintenanceWindow'
-              description: Updating the master on any day during the specified time window.
-            weeklyMaintenanceWindow:
-              $ref: '#/components/schemas/WeeklyMaintenanceWindow'
-              description: >-
-                Updating the master on selected days during the specified time
-                window.
+      - title: policy
+        type: object
+        maxProperties: 1
+        properties:
+          anytime:
+            $ref: '#/components/schemas/AnytimeMaintenanceWindow'
+            description: Updating the master at any time.
+          dailyMaintenanceWindow:
+            $ref: '#/components/schemas/DailyMaintenanceWindow'
+            description: Updating the master on any day during the specified time
+              window.
+          weeklyMaintenanceWindow:
+            $ref: '#/components/schemas/WeeklyMaintenanceWindow'
+            description: Updating the master on selected days during the specified
+              time window.
     ResourcesSpec_in_NodeSpec_resources:
       description: Node group specified resources.
       type: object
@@ -3280,12 +2708,9 @@ components:
           type: string
           format: int64
         coreFraction:
-          description: >-
-            Baseline level of CPU performance with the possibility to burst
-            performance above that baseline level.
-
+          description: |-
+            Baseline level of CPU performance with the possibility to burst performance above that baseline level.
             This field sets baseline performance for each core.
-
 
             Acceptable values are 0 to 100, inclusive.
           type: string
@@ -3302,12 +2727,10 @@ components:
       type: object
       properties:
         diskTypeId:
-          description: >-
+          description: |-
             ID of the disk type.
 
-
-            Value must match the regular expression `` |network-ssd|network-hdd
-            ``.
+            Value must match the regular expression `` |network-ssd|network-hdd ``.
           type: string
         diskSize:
           description: |-
@@ -3317,9 +2740,8 @@ components:
           type: string
           format: int64
     ResourcesSpec_in_NodeTemplate_resourcesSpec:
-      description: >-
-        Computing resources of the node such as the amount of memory and number
-        of cores.
+      description: Computing resources of the node such as the amount of memory and
+        number of cores.
       type: object
       properties:
         memory:
@@ -3337,12 +2759,9 @@ components:
           type: string
           format: int64
         coreFraction:
-          description: >-
-            Baseline level of CPU performance with the possibility to burst
-            performance above that baseline level.
-
+          description: |-
+            Baseline level of CPU performance with the possibility to burst performance above that baseline level.
             This field sets baseline performance for each core.
-
 
             Acceptable values are 0 to 100, inclusive.
           type: string
@@ -3359,12 +2778,10 @@ components:
       type: object
       properties:
         diskTypeId:
-          description: >-
+          description: |-
             ID of the disk type.
 
-
-            Value must match the regular expression `` |network-ssd|network-hdd
-            ``.
+            Value must match the regular expression `` |network-ssd|network-hdd ``.
           type: string
         diskSize:
           description: |-
@@ -3374,32 +2791,30 @@ components:
           type: string
           format: int64
     NodeAddressSpec_in_NodeTemplate_v4AddressSpec:
-      description: >-
-        Specification for the create network interfaces for the node group
-        compute instances.
-
+      description: |-
+        Specification for the create network interfaces for the node group compute instances.
         Deprecated, please use network_interface_specs.
       type: object
       properties:
         oneToOneNatSpec:
-          $ref: >-
-            #/components/schemas/OneToOneNatSpec_in_NodeAddressSpec_oneToOneNatSpec
+          $ref: '#/components/schemas/OneToOneNatSpec_in_NodeAddressSpec_oneToOneNatSpec'
     SchedulingPolicy_in_NodeTemplate_schedulingPolicy:
       description: Scheduling policy configuration.
       type: object
       properties:
         preemptible:
-          description: >-
-            True for preemptible compute instances. Default value is false.
-            Preemptible compute instances are stopped at least once every 24
-            hours, and can be stopped at any time
-
+          description: |-
+            True for preemptible compute instances. Default value is false. Preemptible compute instances are stopped at least once every 24 hours, and can be stopped at any time
             if their resources are needed by Compute.
-
-            For more information, see [Preemptible Virtual
-            Machines](/docs/compute/concepts/preemptible-vm).
+            For more information, see [Preemptible Virtual Machines](/docs/compute/concepts/preemptible-vm).
           type: boolean
           format: boolean
+    PlacementPolicy_in_NodeTemplate_placementPolicy:
+      type: object
+      properties:
+        placementGroupId:
+          description: Identifier of placement group
+          type: string
     IpVersion_in_OneToOneNatSpec_ipVersion:
       description: |-
         IP version for the public IP address.
@@ -3408,54 +2823,39 @@ components:
          - IPV6: IPv6 address, not available yet.
       type: string
       enum:
-        - IPV4
-        - IPV6
+      - IPV4
+      - IPV6
     ExternalAddressSpec_in_RegionalMasterSpec_externalV4AddressSpec:
       description: Specify to allocate a static public IP for the master.
       type: object
       properties: {}
     TaintEffect_in_Taint_effect:
-      description: >-
+      description: |-
         The effect of the taint on pods that do not tolerate the taint.
 
          - NO_SCHEDULE: Do not allow new pods to schedule onto the node unless they tolerate the taint,
-        but allow all pods submitted to Kubelet without going through the
-        scheduler
-
+        but allow all pods submitted to Kubelet without going through the scheduler
         to start, and allow all already-running pods to continue running.
          - PREFER_NO_SCHEDULE: Like NO_SCHEDULE, but the scheduler tries not to schedule
         new pods onto the node, rather than prohibiting new pods from scheduling
-
         onto the node entirely. Enforced by the scheduler.
          - NO_EXECUTE: Evict any already-running pods that do not tolerate the taint.
       type: string
       enum:
-        - NO_SCHEDULE
-        - PREFER_NO_SCHEDULE
-        - NO_EXECUTE
+      - NO_SCHEDULE
+      - PREFER_NO_SCHEDULE
+      - NO_EXECUTE
     FieldMask_in_UpdateNodeGroupRequest_updateMask:
-      description: >-
-        Field mask that specifies which fields of the node group are going to be
-        updated.
-
+      description: |-
+        Field mask that specifies which fields of the node group are going to be updated.
 
         A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
 
-        Оnly the specified fields will be changed. The others will be left
-        untouched.
-
-        If the field is specified in `` updateMask `` and no value for that
-        field was sent in the request,
-
-        the field's value will be reset to the default. The default value for
-        most fields is null or 0.
-
-
-        If `` updateMask `` is not sent in the request, all fields' values will
-        be updated.
-
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
         Fields specified in the request will be updated to provided values.
-
         The rest of the fields will be reset to the default.
       type: string
     NodeTemplate_in_UpdateNodeGroupRequest_nodeTemplate:
@@ -3472,24 +2872,15 @@ components:
         bootDiskSpec:
           $ref: '#/components/schemas/DiskSpec_in_NodeTemplate_bootDiskSpec'
         metadata:
-          description: >-
-            The metadata as `key:value` pairs assigned to this instance
-            template. This includes custom metadata and predefined keys.
+          description: |-
+            The metadata as `key:value` pairs assigned to this instance template. This includes custom metadata and predefined keys.
 
-
-            For example, you may use the metadata in order to provide your
-            public SSH key to the node.
-
-            For more information, see
-            [Metadata](/docs/compute/concepts/vm-metadata).
-
+            For example, you may use the metadata in order to provide your public SSH key to the node.
+            For more information, see [Metadata](/docs/compute/concepts/vm-metadata).
 
             No more than 64 per resource.
-
             The string length in characters for each key must be 1-63.
-
             Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
-
             The maximum string length in characters for each value is 131072.
           type: object
           additionalProperties:
@@ -3497,78 +2888,62 @@ components:
         v4AddressSpec:
           $ref: '#/components/schemas/NodeAddressSpec_in_NodeTemplate_v4AddressSpec'
         schedulingPolicy:
-          $ref: >-
-            #/components/schemas/SchedulingPolicy_in_NodeTemplate_schedulingPolicy
+          $ref: '#/components/schemas/SchedulingPolicy_in_NodeTemplate_schedulingPolicy'
         networkInterfaceSpecs:
-          description: >-
-            New api, to specify network interfaces for the node group compute
-            instances.
-
+          description: |-
+            New api, to specify network interfaces for the node group compute instances.
             Can not be used together with 'v4_address_spec'
           type: array
           items:
             $ref: '#/components/schemas/NetworkInterfaceSpec'
+        placementPolicy:
+          $ref: '#/components/schemas/PlacementPolicy_in_NodeTemplate_placementPolicy'
     ScalePolicy_in_UpdateNodeGroupRequest_scalePolicy:
       description: Scale policy of the node group.
       type: object
       allOf:
-        - title: scale_type
-          type: object
-          maxProperties: 1
-          properties:
-            fixedScale:
-              $ref: '#/components/schemas/ScalePolicyFixedScale'
-              description: Fixed scale policy of the node group.
-            autoScale:
-              $ref: '#/components/schemas/ScalePolicyAutoScale'
-              description: Auto scale policy of the node group.
+      - title: scale_type
+        type: object
+        maxProperties: 1
+        properties:
+          fixedScale:
+            $ref: '#/components/schemas/ScalePolicyFixedScale'
+            description: Fixed scale policy of the node group.
+          autoScale:
+            $ref: '#/components/schemas/ScalePolicyAutoScale'
+            description: Auto scale policy of the node group.
     NodeGroupAllocationPolicy_in_UpdateNodeGroupRequest_allocationPolicy:
       description: Allocation policy of the node group by the zones and regions.
       type: object
       properties:
         locations:
-          description: >-
-            List of locations where resources for the node group will be
+          description: List of locations where resources for the node group will be
             allocated.
           type: array
           items:
             $ref: '#/components/schemas/NodeGroupLocation'
     DeployPolicy_in_UpdateNodeGroupRequest_deployPolicy:
-      description: >-
-        Deploy policy according to which the updates are rolled out. If not
-        specified,
-
+      description: |-
+        Deploy policy according to which the updates are rolled out. If not specified,
         the default is used.
       type: object
       properties:
         maxUnavailable:
-          description: >-
-            The maximum number of running instances that can be taken offline
-            (i.e.,
-
+          description: |-
+            The maximum number of running instances that can be taken offline (i.e.,
             stopped or deleted) at the same time during the update process.
-
-            If `maxExpansion` is not specified or set to zero, `maxUnavailable`
-            must
-
+            If `maxExpansion` is not specified or set to zero, `maxUnavailable` must
             be set to a non-zero value.
-
 
             Acceptable values are 0 to 100, inclusive.
           type: string
           format: int64
         maxExpansion:
-          description: >-
-            The maximum number of instances that can be temporarily allocated
-            above
-
+          description: |-
+            The maximum number of instances that can be temporarily allocated above
             the group's target size during the update process.
-
-            If `maxUnavailable` is not specified or set to zero, `maxExpansion`
-            must
-
+            If `maxUnavailable` is not specified or set to zero, `maxExpansion` must
             be set to a non-zero value.
-
 
             Acceptable values are 0 to 100, inclusive.
           type: string
@@ -3577,55 +2952,50 @@ components:
       description: Version of Kubernetes components that runs on the nodes.
       type: object
       allOf:
-        - title: specifier
-          type: object
-          maxProperties: 1
-          properties:
-            version:
-              description: Request update to a newer version of Kubernetes (1.x -> 1.y).
-              type: string
-            latestRevision:
-              description: Request update to the latest revision for the current version.
-              type: boolean
-              format: boolean
+      - title: specifier
+        type: object
+        maxProperties: 1
+        properties:
+          version:
+            description: Request update to a newer version of Kubernetes (1.x -> 1.y).
+            type: string
+          latestRevision:
+            description: Request update to the latest revision for the current version.
+            type: boolean
+            format: boolean
     NodeGroupMaintenancePolicy_in_UpdateNodeGroupRequest_maintenancePolicy:
       description: Maintenance policy of the node group.
       type: object
       properties:
         autoUpgrade:
-          description: >-
-            If set to true, automatic updates are installed in the specified
-            period of time with no interaction from the user.
-
+          description: |-
+            If set to true, automatic updates are installed in the specified period of time with no interaction from the user.
             If set to false, automatic upgrades are disabled.
           type: boolean
           format: boolean
         autoRepair:
-          description: >-
-            If set to true, automatic repairs are enabled. Default value is
-            false.
+          description: If set to true, automatic repairs are enabled. Default value
+            is false.
           type: boolean
           format: boolean
         maintenanceWindow:
-          $ref: >-
-            #/components/schemas/MaintenanceWindow_in_NodeGroupMaintenancePolicy_maintenanceWindow
+          $ref: '#/components/schemas/MaintenanceWindow_in_NodeGroupMaintenancePolicy_maintenanceWindow'
     InternalAddressSpec_in_ZonalMasterSpec_internalV4AddressSpec:
       description: Specification of parameters for internal IPv4 networking.
       type: object
       properties:
         subnetId:
-          description: >-
-            ID of the subnet. If no ID is specified, and there only one subnet
-            in specified zone, an address in this subnet will be allocated.
+          description: ID of the subnet. If no ID is specified, and there only one
+            subnet in specified zone, an address in this subnet will be allocated.
           type: string
     ExternalAddressSpec_in_ZonalMasterSpec_externalV4AddressSpec:
       description: Specification of parameters for external IPv4 networking.
       type: object
       properties: {}
 tags:
-  - name: Cluster
-    description: A set of methods for managing Kubernetes cluster.
-  - name: NodeGroup
-    description: A set of methods for managing node groups.
-  - name: Version
-    description: A set of methods for managing Kubernetes versions.
+- name: Cluster
+  description: A set of methods for managing Kubernetes cluster.
+- name: NodeGroup
+  description: A set of methods for managing node groups.
+- name: Version
+  description: A set of methods for managing Kubernetes versions.

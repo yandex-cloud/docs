@@ -16,7 +16,7 @@ POST https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of the ClickHouse cluster to add a shard group to. To get the ClickHouse cluster ID, use a [list](/docs/managed-clickhouse/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
+clusterId | Required. ID of the ClickHouse cluster to add a shard group to.  To get the cluster ID, make a [list](/docs/managed-clickhouse/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
  
 ## Body parameters {#body_params}
  
@@ -34,8 +34,8 @@ clusterId | Required. ID of the ClickHouse cluster to add a shard group to. To g
 Field | Description
 --- | ---
 shardGroupName | **string**<br><p>Required. Name for the new shard group.</p> <p>The maximum string length in characters is 63. Value must match the regular expression `` [a-zA-Z0-9_-]* ``.</p> 
-description | **string**<br><p>Description of the ClickHouse cluster shard group. 0-256 characters long.</p> 
-shardNames[] | **string**<br><p>List of shard names that belongs to the new group.</p> 
+description | **string**<br><p>Description of the new shard group. 0-256 characters long.</p> 
+shardNames[] | **string**<br><p>List of shard names that should be put into the new group.</p> <p>To get the list, make a <a href="/docs/managed-clickhouse/api-ref/Cluster/listShardGroups">listShardGroups</a> request.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

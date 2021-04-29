@@ -59,7 +59,7 @@ model | **string**<br>Model to use for image classification. The maximum string 
 Field | Description
 --- | ---
 language_codes[] | **string**<br>List of the languages to recognize text. Specified in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format (for example, `` ru ``). The number of elements must be in the range 1-8. The maximum string length in characters for each value is 3.
-model | **string**<br><ul><li>page (default) — this model is suitable for detecting multiple text entries in an image. </li><li>line — this model is suitable for cropped images with one line of text.</li></ul> The maximum string length in characters is 50.
+model | **string**<br><ul><li>page (default) - this model is suitable for detecting multiple text entries in an image. </li><li>line - this model is suitable for cropped images with one line of text.</li></ul> The maximum string length in characters is 50.
 
 
 ### BatchAnalyzeResponse {#BatchAnalyzeResponse}

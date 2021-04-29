@@ -33,6 +33,7 @@ filter | The maximum string length in characters is 1000.
       "description": "string",
       "folderId": "string",
       "labels": "object",
+      "createdAt": "string",
 
       // `backendGroups[]` includes only one of the fields `http`, `grpc`
       "http": {
@@ -173,6 +174,7 @@ backendGroups[].<br>name | **string**<br><p>The name is unique within the folder
 backendGroups[].<br>description | **string**<br><p>Description of the backend group. 0-256 characters long.</p> 
 backendGroups[].<br>folderId | **string**<br><p>ID of the folder that the backend group belongs to.</p> 
 backendGroups[].<br>labels | **object**<br><p>Resource labels as `key:value` pairs. Maximum of 64 per resource.</p> 
+backendGroups[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp for the backend group.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 backendGroups[].<br>http | **object** <br>`backendGroups[]` includes only one of the fields `http`, `grpc`<br><br>
 backendGroups[].<br>http.<br>backends[] | **object**<br>
 backendGroups[].<br>http.<br>backends[].<br>name | **string**<br><p>Required. Name.</p> 

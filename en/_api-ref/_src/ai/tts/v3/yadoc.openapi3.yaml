@@ -1,0 +1,180 @@
+openapi: "3.0"
+info:
+  title: Yandex Text To Speech Service API
+  description: This API reference is organized by resource. Actions are performed
+    by sending HTTP requests to resource URLs or making RPC calls. For more information
+    about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
+  version: v3
+  x-y-docUri: api-ref
+  x-y-baseUrl: https://tts.api.cloud.yandex.net
+paths: {}
+components:
+  schemas:
+    AudioChunk:
+      type: object
+      properties:
+        data:
+          description: Sequence of bytes of the synthesized audio in format specified
+            in output_audio_spec
+          type: string
+          format: byte
+    AudioContent:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          audioSpec:
+            $ref: '#/components/schemas/AudioFormatOptions'
+            description: Description of the audio format.
+      - title: AudioSource
+        type: object
+        maxProperties: 1
+        properties:
+          content:
+            type: string
+            format: byte
+    AudioFormatOptions:
+      type: object
+      allOf:
+      - title: AudioFormat
+        type: object
+        maxProperties: 1
+        properties:
+          rawAudio:
+            $ref: '#/components/schemas/RawAudio'
+            description: The audio format specified in request parameters.
+          containerAudio:
+            $ref: '#/components/schemas/ContainerAudio'
+            description: The audio format specified inside the file header.
+    AudioTemplate:
+      type: object
+      properties:
+        audio:
+          $ref: '#/components/schemas/AudioContent_in_AudioTemplate_audio'
+        textTemplate:
+          $ref: '#/components/schemas/TextTemplate_in_AudioTemplate_textTemplate'
+        variables:
+          type: array
+          items:
+            $ref: '#/components/schemas/AudioVariable'
+    AudioVariable:
+      type: object
+      properties:
+        variableName:
+          type: string
+        variableStartMs:
+          type: string
+          format: int64
+        variableLengthMs:
+          type: string
+          format: int64
+    ContainerAudio:
+      type: object
+      properties:
+        containerAudioType:
+          $ref: '#/components/schemas/ContainerAudioContainerAudioType_in_ContainerAudio_containerAudioType'
+    ContainerAudioContainerAudioType:
+      description: ' - WAV: RIFF linear pcm with header audio file format.'
+      type: string
+      enum:
+      - WAV
+    Hints:
+      type: object
+      allOf:
+      - title: Hint
+        type: object
+        maxProperties: 1
+        properties:
+          voice:
+            type: string
+          audioTemplate:
+            $ref: '#/components/schemas/AudioTemplate'
+    RawAudio:
+      type: object
+      properties:
+        audioEncoding:
+          $ref: '#/components/schemas/RawAudioAudioEncoding_in_RawAudio_audioEncoding'
+        sampleRateHertz:
+          description: Sampling frequency of the signal.
+          type: string
+          format: int64
+    RawAudioAudioEncoding:
+      description: ' - LINEAR16_PCM: 16-bit signed little-endian (Linear PCM)'
+      type: string
+      enum:
+      - LINEAR16_PCM
+    TextTemplate:
+      type: object
+      properties:
+        textTemplate:
+          description: hello, {user}
+          type: string
+        variables:
+          description: '{user: Adam}'
+          type: array
+          items:
+            $ref: '#/components/schemas/TextVariable'
+    TextVariable:
+      type: object
+      properties:
+        variableName:
+          type: string
+        variableValue:
+          description: The text of the variable to be synthesized instead of the template.
+          type: string
+    UtteranceSynthesisResponse:
+      type: object
+      properties:
+        audioChunk:
+          $ref: '#/components/schemas/AudioChunk_in_UtteranceSynthesisResponse_audioChunk'
+    AudioContent_in_AudioTemplate_audio:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          audioSpec:
+            $ref: '#/components/schemas/AudioFormatOptions'
+            description: Description of the audio format.
+      - title: AudioSource
+        type: object
+        maxProperties: 1
+        properties:
+          content:
+            type: string
+            format: byte
+    TextTemplate_in_AudioTemplate_textTemplate:
+      type: object
+      properties:
+        textTemplate:
+          description: hello, {user}
+          type: string
+        variables:
+          description: '{user: Adam}'
+          type: array
+          items:
+            $ref: '#/components/schemas/TextVariable'
+    ContainerAudioContainerAudioType_in_ContainerAudio_containerAudioType:
+      description: ' - WAV: RIFF linear pcm with header audio file format.'
+      type: string
+      enum:
+      - WAV
+    RawAudioAudioEncoding_in_RawAudio_audioEncoding:
+      description: |-
+        Encoding type.
+
+         - LINEAR16_PCM: 16-bit signed little-endian (Linear PCM)
+      type: string
+      enum:
+      - LINEAR16_PCM
+    AudioChunk_in_UtteranceSynthesisResponse_audioChunk:
+      description: Part of synthesized audio.
+      type: object
+      properties:
+        data:
+          description: Sequence of bytes of the synthesized audio in format specified
+            in output_audio_spec
+          type: string
+          format: byte
+tags:
+- name: Synthesizer
+  description: Service for adaptive synthesis from template with variable parts

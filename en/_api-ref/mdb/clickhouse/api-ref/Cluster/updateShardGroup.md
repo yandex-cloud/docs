@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method updateShardGroup
-Modifies the specified shard group.
+Updates the specified shard group.
  
 
  
@@ -16,8 +16,8 @@ PATCH https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of the cluster that contains the shard group being updated.  The maximum string length in characters is 50.
-shardGroupName | Required. Name of the shard group that should be updated.  The maximum string length in characters is 63. Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
+clusterId | Required. ID of the ClickHouse cluster that contains the shard group to update.  To get the cluster ID, make a [list](/docs/managed-clickhouse/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
+shardGroupName | Required. Name of the shard group that should be updated.  To get the name, make a [listShardGroups](/docs/managed-clickhouse/api-ref/Cluster/listShardGroups) request.  The maximum string length in characters is 63. Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
  
 ## Body parameters {#body_params}
  
@@ -34,9 +34,9 @@ shardGroupName | Required. Name of the shard group that should be updated.  The 
  
 Field | Description
 --- | ---
-updateMask | **string**<br><p>Field mask that specifies which attributes of the ClickHouse shard group should be updated.</p> <p>A comma-separated names off ALL fields to be updated. Оnly the specified fields will be changed. The others will be left untouched. If the field is specified in `` updateMask `` and no value for that field was sent in the request, the field's value will be reset to the default. The default value for most fields is null or 0.</p> <p>If `` updateMask `` is not sent in the request, all fields' values will be updated. Fields specified in the request will be updated to provided values. The rest of the fields will be reset to the default.</p> 
-description | **string**<br><p>Description of the ClickHouse cluster shard group. 0-256 characters long.</p> 
-shardNames[] | **string**<br><p>Updated list of shard names that belongs to the new group.</p> 
+updateMask | **string**<br><p>A comma-separated names off ALL fields to be updated. Оnly the specified fields will be changed. The others will be left untouched. If the field is specified in `` updateMask `` and no value for that field was sent in the request, the field's value will be reset to the default. The default value for most fields is null or 0.</p> <p>If `` updateMask `` is not sent in the request, all fields' values will be updated. Fields specified in the request will be updated to provided values. The rest of the fields will be reset to the default.</p> 
+description | **string**<br><p>Updated description of the shard group. 0-256 characters long.</p> 
+shardNames[] | **string**<br><p>Updated list of shard names that belongs to the shard group.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

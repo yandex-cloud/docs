@@ -158,7 +158,8 @@ filter | The maximum string length in characters is 1000.
             }
           ]
         }
-      ]
+      ],
+      "createdAt": "string"
     }
   ],
   "nextPageToken": "string"
@@ -230,4 +231,5 @@ httpRouters[].<br>virtualHosts[].<br>modifyResponseHeaders[].<br>append | **stri
 httpRouters[].<br>virtualHosts[].<br>modifyResponseHeaders[].<br>replace | **string** <br>`httpRouters[].virtualHosts[].modifyResponseHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`<br><br><p>New value for a header.</p> 
 httpRouters[].<br>virtualHosts[].<br>modifyResponseHeaders[].<br>remove | **boolean** (boolean) <br>`httpRouters[].virtualHosts[].modifyResponseHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`<br><br><p>Remove the header.</p> 
 httpRouters[].<br>virtualHosts[].<br>modifyResponseHeaders[].<br>rename | **string** <br>`httpRouters[].virtualHosts[].modifyResponseHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`<br><br><p>New name for a header.</p> 
+httpRouters[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp for the http router.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 nextPageToken | **string**<br>

@@ -45,6 +45,7 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum
 backend | **oneof:** `http` or `grpc`<br>
 &nbsp;&nbsp;http | **[HttpBackendGroup](#HttpBackendGroup)**<br> 
 &nbsp;&nbsp;grpc | **[GrpcBackendGroup](#GrpcBackendGroup)**<br> 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp for the backend group. 
 
 
 ### HttpBackendGroup {#HttpBackendGroup}
@@ -272,6 +273,7 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum
 backend | **oneof:** `http` or `grpc`<br>
 &nbsp;&nbsp;http | **[HttpBackendGroup](#HttpBackendGroup1)**<br> 
 &nbsp;&nbsp;grpc | **[GrpcBackendGroup](#GrpcBackendGroup1)**<br> 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp for the backend group. 
 
 
 ### HttpBackendGroup {#HttpBackendGroup1}
@@ -710,6 +712,7 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum
 backend | **oneof:** `http` or `grpc`<br>
 &nbsp;&nbsp;http | **[HttpBackendGroup](#HttpBackendGroup3)**<br> 
 &nbsp;&nbsp;grpc | **[GrpcBackendGroup](#GrpcBackendGroup3)**<br> 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp for the backend group. 
 
 
 ### HttpBackendGroup {#HttpBackendGroup3}
@@ -1149,6 +1152,7 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum
 backend | **oneof:** `http` or `grpc`<br>
 &nbsp;&nbsp;http | **[HttpBackendGroup](#HttpBackendGroup5)**<br> 
 &nbsp;&nbsp;grpc | **[GrpcBackendGroup](#GrpcBackendGroup5)**<br> 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp for the backend group. 
 
 
 ### HttpBackendGroup {#HttpBackendGroup5}
@@ -1611,6 +1615,7 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum
 backend | **oneof:** `http` or `grpc`<br>
 &nbsp;&nbsp;http | **[HttpBackendGroup](#HttpBackendGroup6)**<br> 
 &nbsp;&nbsp;grpc | **[GrpcBackendGroup](#GrpcBackendGroup6)**<br> 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp for the backend group. 
 
 
 ### HttpBackendGroup {#HttpBackendGroup6}
@@ -1856,6 +1861,7 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum
 backend | **oneof:** `http` or `grpc`<br>
 &nbsp;&nbsp;http | **[HttpBackendGroup](#HttpBackendGroup7)**<br> 
 &nbsp;&nbsp;grpc | **[GrpcBackendGroup](#GrpcBackendGroup7)**<br> 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp for the backend group. 
 
 
 ### HttpBackendGroup {#HttpBackendGroup7}
@@ -2279,6 +2285,7 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum
 backend | **oneof:** `http` or `grpc`<br>
 &nbsp;&nbsp;http | **[HttpBackendGroup](#HttpBackendGroup8)**<br> 
 &nbsp;&nbsp;grpc | **[GrpcBackendGroup](#GrpcBackendGroup8)**<br> 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp for the backend group. 
 
 
 ### HttpBackendGroup {#HttpBackendGroup8}

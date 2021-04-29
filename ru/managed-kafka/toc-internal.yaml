@@ -55,9 +55,9 @@ items:
     href: quotas.md
   - name: Справочник gRPC API
     items:
-      - name: Аутентификация в API
+      - name: Authentication
         href: api-ref/gRPC/authentication.md
   - name: Справочник REST API
     items:
-      - name: Аутентификация в API
+      - name: Authentication
         href: api-ref/REST/authentication.md

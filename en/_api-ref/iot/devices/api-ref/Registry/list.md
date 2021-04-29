@@ -50,7 +50,7 @@ registries[].<br>folderId | **string**<br><p>ID of the folder that the registry 
 registries[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 registries[].<br>name | **string**<br><p>Name of the registry. The name is unique within the folder.</p> 
 registries[].<br>description | **string**<br><p>Description of the registry. 0-256 characters long.</p> 
-registries[].<br>labels | **object**<br><p>Resource labels as `key:value` pairs. Мaximum of 64 per resource.</p> 
+registries[].<br>labels | **object**<br><p>Resource labels as `key:value` pairs. Maximum of 64 per resource.</p> 
 registries[].<br>status | **string**<br><p>Status of the registry.</p> <ul> <li>CREATING: Registry is being created.</li> <li>ACTIVE: Registry is ready to use.</li> <li>DELETING: Registry is being deleted.</li> </ul> 
 registries[].<br>logGroupId | **string**<br><p>ID of the logs group for the specified registry.</p> 
 nextPageToken | **string**<br><p>Token for getting the next page of the list. If the number of results is greater than the specified <a href="/docs/iot-core/api-ref/Registry/list#query_params">pageSize</a>, use `next_page_token` as the value for the <a href="/docs/iot-core/api-ref/Registry/list#query_params">pageToken</a> parameter in the next list request.</p> <p>Each subsequent page will have its own `next_page_token` to continue paging through the results.</p> 

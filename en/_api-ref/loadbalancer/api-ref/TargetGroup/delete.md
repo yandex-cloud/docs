@@ -9,7 +9,7 @@ Deletes the specified target group.
  
 ## HTTP request {#https-request}
 ```
-DELETE https://load-balancer.api.cloud.yandex.net/network-load-balancer/v1alpha/targetGroups/{targetGroupId}
+DELETE https://load-balancer.api.cloud.yandex.net/load-balancer/v1alpha/targetGroups/{targetGroupId}
 ```
  
 ## Path parameters {#path_params}

@@ -1,6 +1,24 @@
 items:
   - name: Overview
     href: api-ref/index.md
+  - name: Auth
+    items:
+      - name: Overview
+        href: api-ref/Auth/index.md
+      - name: addProviders
+        href: api-ref/Auth/addProviders.md
+      - name: deleteProvider
+        href: api-ref/Auth/deleteProvider.md
+      - name: deleteProviders
+        href: api-ref/Auth/deleteProviders.md
+      - name: getProvider
+        href: api-ref/Auth/getProvider.md
+      - name: listProviders
+        href: api-ref/Auth/listProviders.md
+      - name: updateProvider
+        href: api-ref/Auth/updateProvider.md
+      - name: updateProviders
+        href: api-ref/Auth/updateProviders.md
   - name: Cluster
     items:
       - name: Overview

@@ -15,6 +15,8 @@ A set of methods for managing Address resources.
   "labels": "object",
   "reserved": true,
   "used": true,
+  "type": "string",
+  "ipVersion": "string",
   "externalIpv4Address": {
     "address": "string",
     "zoneId": "string",
@@ -36,6 +38,8 @@ description | **string**<br><p>Description of the address.</p>
 labels | **object**<br><p>Resource labels as `key:value` pairs.</p> 
 reserved | **boolean** (boolean)<br><p>Specifies if address is reserved or not.</p> 
 used | **boolean** (boolean)<br><p>Specifies if address is used or not.</p> 
+type | **string**<br>Type of the IP address.<br><ul> <li>INTERNAL: Internal IP address.</li> <li>EXTERNAL: Public IP address.</li> </ul> 
+ipVersion | **string**<br>Vervion of the IP address.<br><ul> <li>IPV4: IPv4 address.</li> <li>IPV6: IPv6 address.</li> </ul> 
 externalIpv4Address | **object**<br>
 externalIpv4Address.<br>address | **string**<br><p>Value of address.</p> 
 externalIpv4Address.<br>zoneId | **string**<br><p>Availability zone from which the address will be allocated.</p> 

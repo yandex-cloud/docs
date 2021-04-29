@@ -9,19 +9,19 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
-  - name: Справочник API
+  - name: Справочник API (англ.)
     items:
-      - name: Аутентификация в API
+      - name: Authentication
         href: api-ref/authentication.md
       - name: gRPC
         items: null
         include:
           repo: docs
-          path: ru/_api-ref-grpc/lockbox/api-ref/toc.yaml
+          path: en/_api-ref-grpc/lockbox/api-ref/toc.yaml
       - name: REST
         items: null
         include:
           repo: docs
-          path: ru/_api-ref/lockbox/toc.yaml
+          path: en/_api-ref/lockbox/toc.yaml
   - name: Вопросы и ответы
     href: qa/index.md

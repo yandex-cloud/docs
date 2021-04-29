@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method resetupHosts
-Resetup hosts.
+Resetups hosts.
  
 
  

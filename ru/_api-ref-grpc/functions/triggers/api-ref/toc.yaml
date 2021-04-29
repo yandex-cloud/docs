@@ -1,7 +1,0 @@
-items:
-  - name: Обзор
-    href: grpc/index.md
-  - name: TriggerService
-    href: grpc/trigger_service.md
-  - name: OperationService
-    href: grpc/operation_service.md

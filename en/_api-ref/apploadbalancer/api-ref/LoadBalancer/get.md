@@ -135,7 +135,8 @@ loadBalancerId | Required.
   "logGroupId": "string",
   "securityGroupIds": [
     "string"
-  ]
+  ],
+  "createdAt": "string"
 }
 ```
 A LoadBalancer resource.
@@ -195,3 +196,4 @@ allocationPolicy.<br>locations[].<br>subnetId | **string**<br>
 allocationPolicy.<br>locations[].<br>disableTraffic | **boolean** (boolean)<br><p>If set, will disable all L7 instances in the zone for request handling.</p> 
 logGroupId | **string**<br><p>Cloud log group used by the load balancer to store access logs.</p> 
 securityGroupIds[] | **string**<br><p>ID's of security groups attached to the load balancer.</p> 
+createdAt | **string** (date-time)<br><p>Creation timestamp for the load balancer.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 

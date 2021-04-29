@@ -1,10 +1,24 @@
 items:
   - name: Overview
     href: api-ref/index.md
+  - name: Backup
+    items:
+      - name: Overview
+        href: api-ref/Backup/index.md
+      - name: delete
+        href: api-ref/Backup/delete.md
+      - name: get
+        href: api-ref/Backup/get.md
+      - name: list
+        href: api-ref/Backup/list.md
+      - name: listPaths
+        href: api-ref/Backup/listPaths.md
   - name: Database
     items:
       - name: Overview
         href: api-ref/Database/index.md
+      - name: backup
+        href: api-ref/Database/backup.md
       - name: create
         href: api-ref/Database/create.md
       - name: delete
@@ -13,6 +27,12 @@ items:
         href: api-ref/Database/get.md
       - name: list
         href: api-ref/Database/list.md
+      - name: restore
+        href: api-ref/Database/restore.md
+      - name: start
+        href: api-ref/Database/start.md
+      - name: stop
+        href: api-ref/Database/stop.md
       - name: update
         href: api-ref/Database/update.md
   - name: Location

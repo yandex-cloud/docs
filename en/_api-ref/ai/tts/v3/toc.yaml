@@ -1,0 +1,7 @@
+items:
+  - name: Overview
+    href: api-ref/index.md
+  - name: Synthesizer
+    items:
+      - name: Overview
+        href: api-ref/Synthesizer/index.md

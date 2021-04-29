@@ -96,19 +96,19 @@ items:
         items:
           - name: До 1 января 2019 года
             href: pricing-archive/pricing-01012019.md
-  - name: Справочник API
+  - name: Справочник API (англ.)
     items:
-      - name: Аутентификация в API
+      - name: Authentication
         href: api-ref/authentication.md
       - name: REST
         items: null
         include:
           repo: docs
-          path: ru/_api-ref/vpc/toc.yaml
+          path: en/_api-ref/vpc/toc.yaml
       - name: gRPC
         items: null
         include:
           repo: docs
-          path: ru/_api-ref-grpc/vpc/api-ref/toc.yaml
+          path: en/_api-ref-grpc/vpc/api-ref/toc.yaml
   - name: Вопросы и ответы
     href: qa/index.md

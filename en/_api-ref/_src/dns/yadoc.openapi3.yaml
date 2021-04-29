@@ -1,0 +1,1152 @@
+openapi: "3.0"
+info:
+  title: Yandex Cloud DNS API
+  description: This API reference is organized by resource. Actions are performed
+    by sending HTTP requests to resource URLs or making RPC calls. For more information
+    about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
+  version: v1
+  x-y-docUri: api-ref
+  x-y-baseUrl: https://dns.api.cloud.yandex.net
+paths:
+  /dns/v1/zones/{dnsZoneId}:
+    get:
+      tags:
+      - DnsZone
+      summary: Returns the specified DNS zone.
+      description: To get the list of all available DNS zones, make a [list](/docs/dns/api-ref/DnsZone/list)
+        request.
+      operationId: DnsZoneGet
+      parameters:
+      - name: dnsZoneId
+        in: path
+        description: |-
+          Required.
+          ID of the DNS zone to return.
+
+          To get a DNS zone ID, make a [list](/docs/dns/api-ref/DnsZone/list) request.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DnsZone'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - DnsZone
+      summary: Deletes the specified DNS zone.
+      operationId: DnsZoneDelete
+      parameters:
+      - name: dnsZoneId
+        in: path
+        description: |-
+          ID of the DNS zone to delete.
+
+          To get a DNS zone ID, make a [list](/docs/dns/api-ref/DnsZone/list) request.
+
+          The string length in characters must be equal to 20.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteDnsZoneMetadata'
+      x-y-operation-response: Empty
+    patch:
+      tags:
+      - DnsZone
+      summary: Updates the specified DNS zone.
+      operationId: DnsZoneUpdate
+      parameters:
+      - name: dnsZoneId
+        in: path
+        description: "ID of the DNS zone to update.\n \nTo get the DNS zone ID, make
+          a [list](/docs/dns/api-ref/DnsZone/list) request.\n\nThe string length in
+          characters must be equal to 20."
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateDnsZoneRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateDnsZoneMetadata'
+      x-y-operation-response: '[DnsZone](/docs/dns/api-ref/DnsZone#representation)'
+  /dns/v1/zones:
+    get:
+      tags:
+      - DnsZone
+      summary: Retrieves the list of DNS zones in the specified folder.
+      operationId: DnsZoneList
+      parameters:
+      - name: folderId
+        in: query
+        description: "Required.\nID of the folder to list DNS zones in. \n\nTo get
+          the folder ID use a [list](/docs/resource-manager/api-ref/Folder/list) request."
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than `page_size`, the service returns a [nextPageToken](/docs/dns/api-ref/DnsZone/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
+
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: "Page token. To get the next page of results, set `page_token`
+          to the \n[nextPageToken](/docs/dns/api-ref/DnsZone/list#responses) returned
+          by a previous list request.\n\nThe maximum string length in characters is
+          1000."
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: "A filter expression that filters DNS zones listed in the response.\n\nThe
+          expression must specify: \n1. The field name. Currently you can use filtering
+          only on the [DnsZone.name](/docs/dns/api-ref/DnsZone#representation) field.
+          \n2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT
+          IN` for lists of values.\n3. The value or lists of values. Must be 3-63
+          characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]`.\nExample
+          of a filter: `name=my-dns-zone`.\n\nThe maximum string length in characters
+          is 1000."
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListDnsZonesResponse'
+      x-y-navtitle: list
+    post:
+      tags:
+      - DnsZone
+      summary: Creates a DNS zone in the specified folder.
+      operationId: DnsZoneCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateDnsZoneRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateDnsZoneMetadata'
+      x-y-operation-response: '[DnsZone](/docs/dns/api-ref/DnsZone#representation)'
+  /dns/v1/zones/{dnsZoneId}:getRecordSet:
+    get:
+      tags:
+      - DnsZone
+      summary: Returns the specified record set.
+      operationId: DnsZoneGetRecordSet
+      parameters:
+      - name: dnsZoneId
+        in: path
+        description: |-
+          ID of the DNS zone to get record set from.
+
+          To get a DNS zone ID, make a [list](/docs/dns/api-ref/DnsZone/list) request.
+
+          The string length in characters must be equal to 20.
+        required: true
+        schema:
+          type: string
+      - name: name
+        in: query
+        description: |-
+          Required.
+          Name of the record set.
+
+          The maximum string length in characters is 255.
+        schema:
+          type: string
+      - name: type
+        in: query
+        description: |-
+          Required.
+          Type of the record set.
+
+          The maximum string length in characters is 10.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RecordSet'
+      x-y-navtitle: getRecordSet
+  /dns/v1/zones/{dnsZoneId}:listRecordSets:
+    get:
+      tags:
+      - DnsZone
+      summary: Retrieves the list of record sets in the specified folder.
+      operationId: DnsZoneListRecordSets
+      parameters:
+      - name: dnsZoneId
+        in: path
+        description: "ID of the DNS zone to list record sets in. \n\nTo get a DNS
+          zone ID, make a [list](/docs/dns/api-ref/DnsZone/list) request.\n\nThe string
+          length in characters must be equal to 20."
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than `page_size`, the service returns a [nextPageToken](/docs/dns/api-ref/DnsZone/listRecordSets#responses)
+          that can be used to get the next page of results in subsequent list requests.
+
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: "Page token. To get the next page of results, set `page_token`
+          to the \n[nextPageToken](/docs/dns/api-ref/DnsZone/listRecordSets#responses)
+          returned by a previous list request.\n\nThe maximum string length in characters
+          is 1000."
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: "A filter expression that filters record sets listed in the response.\n\nThe
+          expression must specify: \n1. The field name. Currently you can use filtering
+          only on the `name` and `type` fields. \n2. An operator. Can be either `=`
+          or `!=` for single values, `IN` or `NOT IN` for lists of values.\n3. The
+          value or lists of values. Must be 3-63 characters long and match the regular
+          expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]`.\nExample of a filter: `name=my-record-set`.\n\nThe
+          maximum string length in characters is 1000."
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListDnsZoneRecordSetsResponse'
+      x-y-navtitle: listRecordSets
+  /dns/v1/zones/{dnsZoneId}:updateRecordSets:
+    post:
+      tags:
+      - DnsZone
+      summary: |-
+        Method with strict control for changing zone state. Returns error when:
+        1. Deleted record is not found.
+        2. Found record with matched type and name but different TTL or value.
+        3. Attempted to add record with existing name and type.
+        Deletions happen first. If a record with the same name and type exists in both lists,
+        then the existing record will be deleted, and a new one added.
+      operationId: DnsZoneUpdateRecordSets
+      parameters:
+      - name: dnsZoneId
+        in: path
+        description: "ID of the DNS zone to update record sets in.\n \nTo get a DNS
+          zone ID, make a [list](/docs/dns/api-ref/DnsZone/list) request.\n\nThe string
+          length in characters must be equal to 20."
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateRecordSetsRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: updateRecordSets
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateRecordSetsMetadata'
+      x-y-operation-response: Empty
+  /dns/v1/zones/{dnsZoneId}:upsertRecordSets:
+    post:
+      tags:
+      - DnsZone
+      summary: |-
+        Method without strict control for changing zone state. Nothing happens if deleted record doesn't exist.
+        Deletes records that match all specified fields which allows to delete only specified records from a record set.
+      operationId: DnsZoneUpsertRecordSets
+      parameters:
+      - name: dnsZoneId
+        in: path
+        description: "ID of the DNS zone to upsert record sets to.\n \nTo get a DNS
+          zone ID, make a [list](/docs/dns/api-ref/DnsZone/list) request.\n\nThe string
+          length in characters must be equal to 20."
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpsertRecordSetsRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: upsertRecordSets
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpsertRecordSetsMetadata'
+      x-y-operation-response: Empty
+  /dns/v1/zones/{dnsZoneId}/operations:
+    get:
+      tags:
+      - DnsZone
+      summary: Lists operations for the specified DNS zone.
+      operationId: DnsZoneListOperations
+      parameters:
+      - name: dnsZoneId
+        in: path
+        description: |-
+          ID of the DNS zone to list operations for.
+
+          To get a DNS zone ID, make a [list](/docs/dns/api-ref/DnsZone/list) request.
+
+          The string length in characters must be equal to 20.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/dns/api-ref/DnsZone/listOperations#query_params), the service returns a [nextPageToken](/docs/dns/api-ref/DnsZone/listOperations#responses)
+          that can be used to get the next page of results in subsequent list requests.
+
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: "Page token. To get the next page of results, set [pageToken](/docs/dns/api-ref/DnsZone/listOperations#query_params)
+          to the \n[nextPageToken](/docs/dns/api-ref/DnsZone/listOperations#responses)
+          returned by a previous list request.\n\nThe maximum string length in characters
+          is 1000."
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: "A filter expression that filters DNS zones listed in the response.\n\nThe
+          expression must specify: \n1. The field name. Currently you can use filtering
+          only on the [DnsZone.name](/docs/dns/api-ref/DnsZone#representation) field.
+          \n2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT
+          IN` for lists of values.\n3. The value or lists of values. Must be 3-63
+          characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]`.\nExample
+          of a filter: `name=my-dns-zone`.\n\nThe maximum string length in characters
+          is 1000."
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListDnsZoneOperationsResponse'
+      x-y-navtitle: listOperations
+  /dns/v1/zones/{resourceId}:listAccessBindings:
+    get:
+      tags:
+      - DnsZone
+      summary: Lists existing access bindings for the specified DNS zone.
+      operationId: DnsZoneListAccessBindings
+      parameters:
+      - name: resourceId
+        in: path
+        description: |-
+          Required.
+          ID of the resource to list access bindings for.
+
+          To get the resource ID, use a corresponding List request.
+          For example, use the [list](/docs/resource-manager/api-ref/Cloud/list) request to get the Cloud resource ID.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page that should be returned. If the number of available
+          results is larger than pageSize,
+          the service returns a nextPageToken
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
+
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. Set pageToken
+          to the nextPageToken
+          returned by a previous list request to get the next page of results.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListAccessBindingsResponse'
+      x-y-navtitle: listAccessBindings
+  /dns/v1/zones/{resourceId}:setAccessBindings:
+    post:
+      tags:
+      - DnsZone
+      summary: Sets access bindings for the specified DNS zone.
+      operationId: DnsZoneSetAccessBindings
+      parameters:
+      - name: resourceId
+        in: path
+        description: |-
+          Required.
+          ID of the resource for which access bindings are being set.
+
+          To get the resource ID, use a corresponding List request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SetAccessBindingsRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: setAccessBindings
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/SetAccessBindingsMetadata'
+      x-y-operation-response: Empty
+  /dns/v1/zones/{resourceId}:updateAccessBindings:
+    post:
+      tags:
+      - DnsZone
+      summary: Updates access bindings for the specified DNS zone.
+      operationId: DnsZoneUpdateAccessBindings
+      parameters:
+      - name: resourceId
+        in: path
+        description: |-
+          Required.
+          ID of the resource for which access bindings are being updated.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateAccessBindingsRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: updateAccessBindings
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateAccessBindingsMetadata'
+      x-y-operation-response: Empty
+components:
+  schemas:
+    AccessBinding:
+      type: object
+      properties:
+        roleId:
+          description: |-
+            Required.
+            ID of the [Role](/docs/iam/api-ref/Role#representation) that is assigned to the `subject`.
+
+            The maximum string length in characters is 50.
+          type: string
+        subject:
+          $ref: '#/components/schemas/Subject_in_AccessBinding_subject'
+    AccessBindingAction:
+      description: |2-
+         - ADD: Addition of an access binding.
+         - REMOVE: Removal of an access binding.
+      type: string
+      enum:
+      - ADD
+      - REMOVE
+    AccessBindingDelta:
+      type: object
+      properties:
+        action:
+          $ref: '#/components/schemas/AccessBindingAction_in_AccessBindingDelta_action'
+        accessBinding:
+          $ref: '#/components/schemas/AccessBinding_in_AccessBindingDelta_accessBinding'
+    CreateDnsZoneMetadata:
+      type: object
+      properties:
+        dnsZoneId:
+          description: ID of the DNS zone that is being created.
+          type: string
+    CreateDnsZoneRequest:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            Required.
+            ID of the folder to create DNS zones in.
+
+            To get a folder ID, make a [list](/docs/resource-manager/api-ref/Folder/list) request.
+
+            The maximum string length in characters is 50.
+          type: string
+        name:
+          description: "Name of the DNS zone. \nThe name must be unique within the
+            folder.\n\nValue must match the regular expression `` |[a-z]([-a-z0-9]{0,61}[a-z0-9])?
+            ``."
+          type: string
+        description:
+          description: |-
+            Description of the DNS zone.
+
+            The maximum string length in characters is 256.
+          type: string
+        labels:
+          description: |-
+            DNS zone labels as `key:value` pairs.
+
+            No more than 64 per resource.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `` [a-z][-_./\@0-9a-z]* ``.
+            The maximum string length in characters for each value is 63.
+            Each value must match the regular expression `` [-_./\@0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+        zone:
+          description: |-
+            Required.
+            DNS zone suffix.
+
+            The maximum string length in characters is 255.
+            Value must match the regular expression `` [.]|[a-z0-9][-a-z0-9.]*\. ``.
+          type: string
+        privateVisibility:
+          $ref: '#/components/schemas/PrivateVisibility_in_CreateDnsZoneRequest_privateVisibility'
+        publicVisibility:
+          $ref: '#/components/schemas/PublicVisibility_in_CreateDnsZoneRequest_publicVisibility'
+    DeleteDnsZoneMetadata:
+      type: object
+      properties:
+        dnsZoneId:
+          description: ID of the DNS zone that is being deleted.
+          type: string
+    DnsZone:
+      description: A DNS zone. For details about the concept, see [DNS zones](/docs/dns/concepts/dns-zone).
+      type: object
+      properties:
+        id:
+          description: ID of the DNS zone. Generated at creation time.
+          type: string
+        folderId:
+          description: ID of the folder that the DNS zone belongs to.
+          type: string
+        createdAt:
+          description: |-
+            Creation timestamp.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        name:
+          description: "Name of the DNS zone. \nThe name is unique within the folder."
+          type: string
+        description:
+          description: Description of the DNS zone.
+          type: string
+        labels:
+          description: DNS zone labels as `key:value` pairs.
+          type: object
+          additionalProperties:
+            type: string
+        zone:
+          description: DNS zone suffix.
+          type: string
+        privateVisibility:
+          $ref: '#/components/schemas/PrivateVisibility_in_DnsZone_privateVisibility'
+        publicVisibility:
+          $ref: '#/components/schemas/PublicVisibility_in_DnsZone_publicVisibility'
+    Empty:
+      description: Empty JSON object `` {} ``.
+      type: object
+      maxProperties: 0
+    FieldMask:
+      description: |-
+        A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
+
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
+        Fields specified in the request will be updated to provided values.
+        The rest of the fields will be reset to the default.
+      type: string
+    ListAccessBindingsResponse:
+      type: object
+      properties:
+        accessBindings:
+          description: List of access bindings for the specified resource.
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessBinding'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than pageSize, use
+            the nextPageToken as the value
+            for the pageToken query parameter
+            in the next list request. Each subsequent list request will have its own
+            nextPageToken to continue paging through the results.
+          type: string
+    ListDnsZoneOperationsResponse:
+      type: object
+      properties:
+        operations:
+          description: List of operations for the specified DNS zone.
+          type: array
+          items:
+            $ref: '#/components/schemas/Operation'
+        nextPageToken:
+          description: |-
+            Token for getting the next page of the list. If the number of results is greater than
+            the specified [pageSize](/docs/dns/api-ref/DnsZone/listOperations#query_params), use `next_page_token` as the value
+            for the [pageToken](/docs/dns/api-ref/DnsZone/listOperations#query_params) parameter in the next list request.
+
+            Each subsequent page will have its own `next_page_token` to continue paging through the results.
+          type: string
+    ListDnsZoneRecordSetsResponse:
+      type: object
+      properties:
+        recordSets:
+          description: List of record sets in the specified DNS zone.
+          type: array
+          items:
+            $ref: '#/components/schemas/RecordSet'
+        nextPageToken:
+          description: |-
+            Token for getting the next page of the list. If the number of results is greater than
+            the specified [pageSize](/docs/dns/api-ref/DnsZone/listRecordSets#query_params), use `next_page_token` as the value
+            for the [pageToken](/docs/dns/api-ref/DnsZone/listRecordSets#query_params) parameter in the next list request.
+
+            Each subsequent page will have its own `next_page_token` to continue paging through the results.
+          type: string
+    ListDnsZonesResponse:
+      type: object
+      properties:
+        dnsZones:
+          description: List of DNS zones in the specified folder.
+          type: array
+          items:
+            $ref: '#/components/schemas/DnsZone'
+        nextPageToken:
+          description: |-
+            Token for getting the next page of the list. If the number of results is greater than
+            the specified [pageSize](/docs/dns/api-ref/DnsZone/list#query_params), use `next_page_token` as the value
+            for the [pageToken](/docs/dns/api-ref/DnsZone/list#query_params) parameter in the next list request.
+
+            Each subsequent page will have its own `next_page_token` to continue paging through the results.
+          type: string
+    Operation:
+      description: An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
+      type: object
+      allOf:
+      - type: object
+        properties:
+          id:
+            description: ID of the operation.
+            type: string
+          description:
+            description: Description of the operation. 0-256 characters long.
+            type: string
+          createdAt:
+            description: |-
+              Creation timestamp.
+
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          createdBy:
+            description: ID of the user or service account who initiated the operation.
+            type: string
+          modifiedAt:
+            description: |-
+              The time when the Operation resource was last modified.
+
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          done:
+            description: |-
+              If the value is `false`, it means the operation is still in progress.
+              If `true`, the operation is completed, and either `error` or `response` is available.
+            type: boolean
+            format: boolean
+          metadata:
+            description: |-
+              Service-specific metadata associated with the operation.
+              It typically contains the ID of the target resource that the operation is performed on.
+              Any method that returns a long-running operation should document the metadata type, if any.
+            type: object
+      - title: result
+        type: object
+        maxProperties: 1
+        properties:
+          error:
+            $ref: '#/components/schemas/Status'
+            description: The error result of the operation in case of failure or cancellation.
+          response:
+            description: |-
+              The normal response of the operation in case of success.
+              If the original method returns no data on success, such as Delete,
+              the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty).
+              If the original method is the standard Create/Update,
+              the response should be the target resource of the operation.
+              Any method that returns a long-running operation should document the response type, if any.
+            type: object
+    PrivateVisibility:
+      description: Configuration for privately visible zones.
+      type: object
+      properties:
+        networkIds:
+          description: |-
+            Network IDs.
+
+            The number of elements must be in the range 0-10.
+            The string length in characters for each value must be equal to 20.
+          type: array
+          items:
+            type: string
+    PublicVisibility:
+      description: Configuration for publicly visible zones.
+      type: object
+      properties: {}
+    RecordSet:
+      description: A record set. For details about the concept, see [Resource record](/docs/dns/concepts/resource-record).
+      type: object
+      properties:
+        name:
+          description: |-
+            Domain name.
+
+            The string length in characters must be 1-254.
+          type: string
+        type:
+          description: |-
+            Record type.
+
+            The string length in characters must be 1-20.
+          type: string
+        ttl:
+          description: |-
+            Time to live in seconds.
+
+            Acceptable values are 0 to 2147483647, inclusive.
+          type: string
+          format: int64
+        data:
+          description: |-
+            Required.
+            Data of the record set.
+
+            The number of elements must be in the range 1-100.
+            The string length in characters for each value must be 1-255.
+          type: array
+          items:
+            type: string
+    SetAccessBindingsMetadata:
+      type: object
+      properties:
+        resourceId:
+          description: ID of the resource for which access bindings are being set.
+          type: string
+    SetAccessBindingsRequest:
+      type: object
+      properties:
+        accessBindings:
+          description: |-
+            Required.
+            Access bindings to be set. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings).
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessBinding'
+    Status:
+      description: The error result of the operation in case of failure or cancellation.
+      type: object
+      properties:
+        code:
+          description: Error code. An enum value of [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
+          type: integer
+          format: int32
+        message:
+          description: An error message.
+          type: string
+        details:
+          description: A list of messages that carry the error details.
+          type: array
+          items:
+            type: object
+    Subject:
+      type: object
+      properties:
+        id:
+          description: |-
+            Required.
+            ID of the subject.
+
+            It can contain one of the following values:
+            * `allAuthenticatedUsers`: A special system identifier that represents anyone
+               who is authenticated. It can be used only if the `type` is `system`.
+            * `allUsers`: A special system identifier that represents anyone. No authentication is required.
+               For example, you don't need to specify the IAM token in an API query.
+            * `<cloud generated id>`: An identifier that represents a user account.
+               It can be used only if the `type` is `userAccount`, `federatedUser` or `serviceAccount`.
+
+            The maximum string length in characters is 50.
+          type: string
+        type:
+          description: |-
+            Required.
+            Type of the subject.
+
+            It can contain one of the following values:
+            * `userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud.
+            * `serviceAccount`: A service account. This type represents the [ServiceAccount](/docs/iam/api-ref/ServiceAccount#representation) resource.
+            * `federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory.
+            * `system`: System group. This type represents several accounts with a common system identifier.
+
+            For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject).
+
+            The maximum string length in characters is 100.
+          type: string
+    UpdateAccessBindingsMetadata:
+      type: object
+      properties:
+        resourceId:
+          description: ID of the resource for which access bindings are being updated.
+          type: string
+    UpdateAccessBindingsRequest:
+      type: object
+      properties:
+        accessBindingDeltas:
+          description: |-
+            Required.
+            Updates to access bindings.
+
+            Must contain at least one element.
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessBindingDelta'
+    UpdateDnsZoneMetadata:
+      type: object
+      properties:
+        dnsZoneId:
+          description: ID of the DNS zone that is being updated.
+          type: string
+    UpdateDnsZoneRequest:
+      type: object
+      properties:
+        updateMask:
+          $ref: '#/components/schemas/FieldMask_in_UpdateDnsZoneRequest_updateMask'
+        name:
+          description: "New name for the DNS zone. \nThe name must be unique within
+            the folder.\n\nValue must match the regular expression `` |[a-z]([-a-z0-9]{0,61}[a-z0-9])?
+            ``."
+          type: string
+        description:
+          description: |-
+            New description of the DNS zone.
+
+            The maximum string length in characters is 256.
+          type: string
+        labels:
+          description: |-
+            DNS zone labels as `key:value` pairs.
+
+            Existing set of labels is completely replaced by the provided set, so if you just want
+            to add or remove a label:
+            1. Get the current set of labels with a [get](/docs/dns/api-ref/DnsZone/get) request.
+            2. Add or remove a label in this set.
+            3. Send the new set in this field.
+
+            No more than 64 per resource.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `` [a-z][-_./\@0-9a-z]* ``.
+            The maximum string length in characters for each value is 63.
+            Each value must match the regular expression `` [-_./\@0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+        privateVisibility:
+          $ref: '#/components/schemas/PrivateVisibility_in_UpdateDnsZoneRequest_privateVisibility'
+        publicVisibility:
+          $ref: '#/components/schemas/PublicVisibility_in_UpdateDnsZoneRequest_publicVisibility'
+    UpdateRecordSetsMetadata:
+      type: object
+      properties: {}
+    UpdateRecordSetsRequest:
+      type: object
+      properties:
+        deletions:
+          description: |-
+            List of record sets to delete.
+
+            The maximum number of elements is 1000.
+          type: array
+          items:
+            $ref: '#/components/schemas/RecordSet'
+        additions:
+          description: |-
+            List of record sets to add.
+
+            The maximum number of elements is 1000.
+          type: array
+          items:
+            $ref: '#/components/schemas/RecordSet'
+    UpsertRecordSetsMetadata:
+      type: object
+      properties: {}
+    UpsertRecordSetsRequest:
+      type: object
+      properties:
+        deletions:
+          description: |-
+            Delete only specified records from corresponding record sets.
+
+            The maximum number of elements is 1000.
+          type: array
+          items:
+            $ref: '#/components/schemas/RecordSet'
+        replacements:
+          description: |-
+            Entirely replace specified record sets.
+
+            The maximum number of elements is 1000.
+          type: array
+          items:
+            $ref: '#/components/schemas/RecordSet'
+        merges:
+          description: |-
+            Replace specified records or add new ones if no such record sets exists.
+
+            The maximum number of elements is 1000.
+          type: array
+          items:
+            $ref: '#/components/schemas/RecordSet'
+    Subject_in_AccessBinding_subject:
+      description: |-
+        Required.
+        Identity for which access binding is being created.
+        It can represent an account with a unique ID or several accounts with a system identifier.
+      type: object
+      properties:
+        id:
+          description: |-
+            Required.
+            ID of the subject.
+
+            It can contain one of the following values:
+            * `allAuthenticatedUsers`: A special system identifier that represents anyone
+               who is authenticated. It can be used only if the `type` is `system`.
+            * `allUsers`: A special system identifier that represents anyone. No authentication is required.
+               For example, you don't need to specify the IAM token in an API query.
+            * `<cloud generated id>`: An identifier that represents a user account.
+               It can be used only if the `type` is `userAccount`, `federatedUser` or `serviceAccount`.
+
+            The maximum string length in characters is 50.
+          type: string
+        type:
+          description: |-
+            Required.
+            Type of the subject.
+
+            It can contain one of the following values:
+            * `userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud.
+            * `serviceAccount`: A service account. This type represents the [ServiceAccount](/docs/iam/api-ref/ServiceAccount#representation) resource.
+            * `federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory.
+            * `system`: System group. This type represents several accounts with a common system identifier.
+
+            For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject).
+
+            The maximum string length in characters is 100.
+          type: string
+    AccessBindingAction_in_AccessBindingDelta_action:
+      description: |-
+        Required.
+        The action that is being performed on an access binding.
+
+         - ADD: Addition of an access binding.
+         - REMOVE: Removal of an access binding.
+      type: string
+      enum:
+      - ADD
+      - REMOVE
+    AccessBinding_in_AccessBindingDelta_accessBinding:
+      description: |-
+        Required.
+        Access binding. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings).
+      type: object
+      properties:
+        roleId:
+          description: |-
+            Required.
+            ID of the [Role](/docs/iam/api-ref/Role#representation) that is assigned to the `subject`.
+
+            The maximum string length in characters is 50.
+          type: string
+        subject:
+          $ref: '#/components/schemas/Subject_in_AccessBinding_subject'
+    PrivateVisibility_in_CreateDnsZoneRequest_privateVisibility:
+      description: "Privately visible zone settings. \nAt least one of two visibility
+        fields must be set.\n\nConfiguration for privately visible zones."
+      type: object
+      properties:
+        networkIds:
+          description: |-
+            Network IDs.
+
+            The number of elements must be in the range 0-10.
+            The string length in characters for each value must be equal to 20.
+          type: array
+          items:
+            type: string
+    PublicVisibility_in_CreateDnsZoneRequest_publicVisibility:
+      description: |-
+        Publicly visible zone settings.
+        At least one of two visibility fields must be set.
+
+        Configuration for publicly visible zones.
+      type: object
+      properties: {}
+    PrivateVisibility_in_DnsZone_privateVisibility:
+      description: |-
+        Privately visible zone settings.
+        Specifies whether records within the zone are visible from a VPC networks only.
+
+        Configuration for privately visible zones.
+      type: object
+      properties:
+        networkIds:
+          description: |-
+            Network IDs.
+
+            The number of elements must be in the range 0-10.
+            The string length in characters for each value must be equal to 20.
+          type: array
+          items:
+            type: string
+    PublicVisibility_in_DnsZone_publicVisibility:
+      description: "Publicly visible zone settings. \nIndicates whether records within
+        the zone are publicly visible.\n\nConfiguration for publicly visible zones."
+      type: object
+      properties: {}
+    FieldMask_in_UpdateDnsZoneRequest_updateMask:
+      description: |-
+        Field mask specifying which fields of the DNS zone resource are going to be updated.
+
+        A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
+
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
+        Fields specified in the request will be updated to provided values.
+        The rest of the fields will be reset to the default.
+      type: string
+    PrivateVisibility_in_UpdateDnsZoneRequest_privateVisibility:
+      description: |-
+        Change network IDs for private visibility.
+
+        Configuration for privately visible zones.
+      type: object
+      properties:
+        networkIds:
+          description: |-
+            Network IDs.
+
+            The number of elements must be in the range 0-10.
+            The string length in characters for each value must be equal to 20.
+          type: array
+          items:
+            type: string
+    PublicVisibility_in_UpdateDnsZoneRequest_publicVisibility:
+      description: |-
+        Public visibility configuration.
+
+        Configuration for publicly visible zones.
+      type: object
+      properties: {}
+tags:
+- name: DnsZone
+  description: A set of methods for managing DNS zones.

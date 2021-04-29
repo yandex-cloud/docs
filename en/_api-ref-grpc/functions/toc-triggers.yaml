@@ -1,0 +1,7 @@
+items:
+  - name: Overview
+    href: triggers/api-ref/grpc/index.md
+  - name: TriggerService
+    href: triggers/api-ref/grpc/trigger_service.md
+  - name: OperationService
+    href: triggers/api-ref/grpc/operation_service.md

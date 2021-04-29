@@ -1,9 +1,8 @@
-openapi: '3.0'
+openapi: "3.0"
 info:
   title: Yandex Locator API
-  description: >-
-    The service does not operate with resources. All service's methods are
-    presented on the [Locator](Locator/) page.
+  description: The service does not operate with resources. All service's methods
+    are presented on the [Locator](Locator/) page.
   version: v1
   x-y-docUri: api-ref
   x-y-baseUrl: https://locator.api.cloud.yandex.net
@@ -11,11 +10,9 @@ paths:
   /locator/v1/getLocation:
     post:
       tags:
-        - Locator
-      summary: >-
-        Returns a location and accuracy radius based on information about IP
-        address,
-
+      - Locator
+      summary: |-
+        Returns a location and accuracy radius based on information about IP address,
         cell towers and WiFi access points that the mobile client can detect.
       operationId: LocatorGetLocation
       requestBody:
@@ -25,7 +22,7 @@ paths:
               $ref: '#/components/schemas/LocationRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -38,60 +35,40 @@ components:
       type: object
       properties:
         mobileCountryCode:
-          description: >-
-            Required. Mobile Country Code
-            ([MCC](https://en.wikipedia.org/wiki/Mobile_country_code)).
-
+          description: |-
+            Required. Mobile Country Code ([MCC](https://en.wikipedia.org/wiki/Mobile_country_code)).
 
             Acceptable values are 1 to 999, inclusive.
           type: string
           format: int64
         mobileNetworkCode:
-          description: >-
+          description: |-
             Required. The cell tower's Mobile Network Code:
 
-
-            * For GSM and WCDMA networks —
-            [MNC](https://en.wikipedia.org/wiki/Mobile_country_code).
-
-            * For CDMA — System ID (SID).
-
+            * For GSM and WCDMA networks - [MNC](https://en.wikipedia.org/wiki/Mobile_country_code).
+            * For CDMA - System ID (SID).
 
             Value must be greater than 0.
           type: string
           format: int64
         cellId:
-          description: >-
+          description: |-
             Required. Unique identifier of the cell:
 
-
-            * For GSM — Cell ID ([CID](https://en.wikipedia.org/wiki/Cell_ID).
-
-            * For CDMA — Base Station ID (BID).
-
-            * For WCDMA — UTRAN Cell ID which is a concatenation of the [Radio
-            Network
-            Controller](https://en.wikipedia.org/wiki/Radio_Network_Controller)
-            ID and Cell ID. Specifying only the Cell ID value in WCDMA networks
-            may return inaccurate results.
-
+            * For GSM - Cell ID ([CID](https://en.wikipedia.org/wiki/Cell_ID).
+            * For CDMA - Base Station ID (BID).
+            * For WCDMA - UTRAN Cell ID which is a concatenation of the [Radio Network Controller](https://en.wikipedia.org/wiki/Radio_Network_Controller) ID and Cell ID. Specifying only the Cell ID value in WCDMA networks may return inaccurate results.
 
             Value must be greater than 0.
           type: string
           format: int64
         locationAreaCode:
-          description: >-
+          description: |-
             Required.
 
-
-            * For GSM and WCDMA — Location Area Code
-            ([LAC](https://en.wikipedia.org/wiki/Mobility_management#Location_area)).
-
-            * For CDMA — Network ID (NID).
-
-            * For LTE — [Tracking Area
-            Code](https://en.wikipedia.org/wiki/Mobility_management#Tracking_area).
-
+            * For GSM and WCDMA - Location Area Code ([LAC](https://en.wikipedia.org/wiki/Mobility_management#Location_area)).
+            * For CDMA - Network ID (NID).
+            * For LTE - [Tracking Area Code](https://en.wikipedia.org/wiki/Mobility_management#Tracking_area).
 
             Value must be greater than 0.
           type: string
@@ -130,16 +107,10 @@ components:
       type: object
       properties:
         folderId:
-          description: >-
+          description: |-
             ID of the folder to which you have access.
-
-            Required for authorization with a user account (see
-            [UserAccount](/docs/iam/api-ref/UserAccount#representation)
-            resource).
-
-            Don't specify this field if you make the request on behalf of a
-            service account.
-
+            Required for authorization with a user account (see [UserAccount](/docs/iam/api-ref/UserAccount#representation) resource).
+            Don't specify this field if you make the request on behalf of a service account.
 
             The maximum string length in characters is 50.
           type: string
@@ -166,29 +137,25 @@ components:
     LocationResponse:
       type: object
       allOf:
-        - title: response
-          type: object
-          maxProperties: 1
-          properties:
-            location:
-              $ref: '#/components/schemas/Location'
-              description: The user’s estimated location.
-            locationNotFound:
-              $ref: '#/components/schemas/LocationNotFound'
-              description: An error description if the user's location was not found.
+      - title: response
+        type: object
+        maxProperties: 1
+        properties:
+          location:
+            $ref: '#/components/schemas/Location'
+            description: The user's estimated location.
+          locationNotFound:
+            $ref: '#/components/schemas/LocationNotFound'
+            description: An error description if the user's location was not found.
     WifiInfo:
       type: object
       properties:
         bssid:
-          description: >-
+          description: |-
             Required.
-
-            The MAC address of the WiFi access point. It's typically called a
-            BSS, BSSID or MAC address.
-
+            The MAC address of the WiFi access point. It's typically called a BSS, BSSID or MAC address.
 
             The value is 12 hexadecimal digits without `:` (colon) separators.
-
 
             Value must match the regular expression `` [0-9a-fA-F]{12} ``.
           type: string
@@ -200,5 +167,5 @@ components:
           type: string
           format: int64
 tags:
-  - name: Locator
-    description: A set of methods for the Yandex Locator service.
+- name: Locator
+  description: A set of methods for the Yandex Locator service.

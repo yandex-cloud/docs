@@ -1,11 +1,9 @@
-openapi: '3.0'
+openapi: "3.0"
 info:
   title: Yandex Managed Service for Apache Kafka® API
-  description: >-
-    This API reference is organized by resource. Actions are performed by
-    sending HTTP requests to resource URLs or making RPC calls. For more
-    information about Yandex.Cloud API architecture, see [API
-    Concepts](/docs/api-design-guide/).
+  description: This API reference is organized by resource. Actions are performed
+    by sending HTTP requests to resource URLs or making RPC calls. For more information
+    about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
   version: v1
   x-y-docUri: api-ref
   x-y-baseUrl: https://mdb.api.cloud.yandex.net
@@ -13,31 +11,26 @@ paths:
   /managed-kafka/v1/clusters/{clusterId}:
     get:
       tags:
-        - Cluster
+      - Cluster
       summary: Returns the specified Apache Kafka® cluster.
-      description: >-
-        To get the list of available Apache Kafka® clusters, make a
-        [list](/docs/managed-kafka/api-ref/Cluster/list) request.
+      description: To get the list of available Apache Kafka® clusters, make a [list](/docs/managed-kafka/api-ref/Cluster/list)
+        request.
       operationId: ClusterGet
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Required.
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the Apache Kafka® Cluster resource to return.
 
-            ID of the Apache Kafka® Cluster resource to return.
+          To get the cluster ID, make a [list](/docs/managed-kafka/api-ref/Cluster/list) request.
 
-
-            To get the cluster ID, make a
-            [list](/docs/managed-kafka/api-ref/Cluster/list) request.
-
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -46,28 +39,24 @@ paths:
       x-y-navtitle: get
     delete:
       tags:
-        - Cluster
+      - Cluster
       summary: Deletes the specified Apache Kafka® cluster.
       operationId: ClusterDelete
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Required.
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the Apache Kafka® cluster to delete.
 
-            ID of the Apache Kafka® cluster to delete.
+          To get the Apache Kafka® cluster ID, make a [list](/docs/managed-kafka/api-ref/Cluster/list) request.
 
-
-            To get the Apache Kafka® cluster ID, make a
-            [list](/docs/managed-kafka/api-ref/Cluster/list) request.
-
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -79,26 +68,22 @@ paths:
       x-y-operation-response: Empty
     patch:
       tags:
-        - Cluster
+      - Cluster
       summary: Updates the specified Apache Kafka® cluster.
       operationId: ClusterUpdate
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Required.
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the Apache Kafka® cluster to update.
 
-            ID of the Apache Kafka® cluster to update.
+          To get the Apache Kafka® cluster ID, make a [list](/docs/managed-kafka/api-ref/Cluster/list) request.
 
-
-            To get the Apache Kafka® cluster ID, make a
-            [list](/docs/managed-kafka/api-ref/Cluster/list) request.
-
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -106,7 +91,7 @@ paths:
               $ref: '#/components/schemas/UpdateClusterRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -119,73 +104,53 @@ paths:
   /managed-kafka/v1/clusters:
     get:
       tags:
-        - Cluster
-      summary: >-
-        Retrieves the list of Apache Kafka® clusters that belong to the
-        specified folder.
+      - Cluster
+      summary: Retrieves the list of Apache Kafka® clusters that belong to the specified
+        folder.
       operationId: ClusterList
       parameters:
-        - name: folderId
-          in: query
-          description: >-
-            Required.
+      - name: folderId
+        in: query
+        description: |-
+          Required.
+          ID of the folder to list Apache Kafka® clusters in.
 
-            ID of the folder to list Apache Kafka® clusters in.
+          To get the folder ID, make a [list](/docs/resource-manager/api-ref/Folder/list) request.
 
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return.
 
-            To get the folder ID, make a
-            [list](/docs/resource-manager/api-ref/Folder/list) request.
+          If the number of available results is larger than [pageSize](/docs/managed-kafka/api-ref/Cluster/list#query_params), the service returns a [nextPageToken](/docs/managed-kafka/api-ref/Cluster/list#responses) that can be used to get the next page of results in subsequent list requests.
 
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token.
 
-            The maximum string length in characters is 50.
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            The maximum number of results per page to return.
+          To get the next page of results, set [pageToken](/docs/managed-kafka/api-ref/Cluster/list#query_params) to the [nextPageToken](/docs/managed-kafka/api-ref/Cluster/list#responses) returned by a previous list request.
 
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          Filter support is not currently implemented. Any filters are ignored.
 
-            If the number of available results is larger than
-            [pageSize](/docs/managed-kafka/api-ref/Cluster/list#query_params),
-            the service returns a
-            [nextPageToken](/docs/managed-kafka/api-ref/Cluster/list#responses)
-            that can be used to get the next page of results in subsequent list
-            requests.
-
-
-            The maximum value is 1000.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Page token.
-
-
-            To get the next page of results, set
-            [pageToken](/docs/managed-kafka/api-ref/Cluster/list#query_params)
-            to the
-            [nextPageToken](/docs/managed-kafka/api-ref/Cluster/list#responses)
-            returned by a previous list request.
-
-
-            The maximum string length in characters is 100.
-          schema:
-            type: string
-        - name: filter
-          in: query
-          description: >-
-            Filter support is not currently implemented. Any filters are
-            ignored.
-
-
-            The maximum string length in characters is 1000.
-          schema:
-            type: string
+          The maximum string length in characters is 1000.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -194,7 +159,7 @@ paths:
       x-y-navtitle: list
     post:
       tags:
-        - Cluster
+      - Cluster
       summary: Creates a new Apache Kafka® cluster in the specified folder.
       operationId: ClusterCreate
       requestBody:
@@ -204,7 +169,7 @@ paths:
               $ref: '#/components/schemas/CreateClusterRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -217,26 +182,22 @@ paths:
   /managed-kafka/v1/clusters/{clusterId}:move:
     post:
       tags:
-        - Cluster
+      - Cluster
       summary: Moves the specified Apache Kafka® cluster to the specified folder.
       operationId: ClusterMove
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Required.
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the Apache Kafka® cluster to move.
 
-            ID of the Apache Kafka® cluster to move.
+          To get the Apache Kafka® cluster ID, make a [list](/docs/managed-kafka/api-ref/Cluster/list) request.
 
-
-            To get the Apache Kafka® cluster ID, make a
-            [list](/docs/managed-kafka/api-ref/Cluster/list) request.
-
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -244,7 +205,7 @@ paths:
               $ref: '#/components/schemas/MoveClusterRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -257,28 +218,24 @@ paths:
   /managed-kafka/v1/clusters/{clusterId}:start:
     post:
       tags:
-        - Cluster
+      - Cluster
       summary: Starts the specified Apache Kafka® cluster.
       operationId: ClusterStart
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Required.
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the Apache Kafka® cluster to start.
 
-            ID of the Apache Kafka® cluster to start.
+          To get the Apache Kafka® cluster ID, make a [list](/docs/managed-kafka/api-ref/Cluster/list) request.
 
-
-            To get the Apache Kafka® cluster ID, make a
-            [list](/docs/managed-kafka/api-ref/Cluster/list) request.
-
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -291,28 +248,24 @@ paths:
   /managed-kafka/v1/clusters/{clusterId}:stop:
     post:
       tags:
-        - Cluster
+      - Cluster
       summary: Stops the specified Apache Kafka® cluster.
       operationId: ClusterStop
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Required.
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the Apache Kafka® cluster to stop.
 
-            ID of the Apache Kafka® cluster to stop.
+          To get the Apache Kafka® cluster ID, make a [list](/docs/managed-kafka/api-ref/Cluster/list) request.
 
-
-            To get the Apache Kafka® cluster ID, make a
-            [list](/docs/managed-kafka/api-ref/Cluster/list) request.
-
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -325,134 +278,99 @@ paths:
   /managed-kafka/v1/clusters/{clusterId}:logs:
     get:
       tags:
-        - Cluster
+      - Cluster
       summary: Retrieves logs for the specified Apache Kafka® cluster.
-      description: >-
-        For more information about logs, see the
-        [Logs](/docs/managed-kafka/operations/cluster-logs) section in the
-        documentation.
+      description: For more information about logs, see the [Logs](/docs/managed-kafka/operations/cluster-logs)
+        section in the documentation.
       operationId: ClusterListLogs
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Required.
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the Apache Kafka® cluster to request logs for.
 
-            ID of the Apache Kafka® cluster to request logs for.
+          To get the Apache Kafka® cluster ID, make a [list](/docs/managed-kafka/api-ref/Cluster/list) request.
 
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: columnFilter
+        in: query
+        description: |-
+          Columns from the logs table to request.
 
-            To get the Apache Kafka® cluster ID, make a
-            [list](/docs/managed-kafka/api-ref/Cluster/list) request.
-
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
+          If no columns are specified, full log records are returned.
+        schema:
+          type: array
+          items:
             type: string
-        - name: columnFilter
-          in: query
-          description: |-
-            Columns from the logs table to request.
+      - name: fromTime
+        in: query
+        description: |-
+          Start timestamp for the logs request.
 
-            If no columns are specified, full log records are returned.
-          schema:
-            type: array
-            items:
-              type: string
-        - name: fromTime
-          in: query
-          description: >-
-            Start timestamp for the logs request.
+          String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+        schema:
+          type: string
+          format: date-time
+      - name: toTime
+        in: query
+        description: |-
+          End timestamp for the logs request.
 
+          String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+        schema:
+          type: string
+          format: date-time
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return.
 
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-            format.
-          schema:
-            type: string
-            format: date-time
-        - name: toTime
-          in: query
-          description: >-
-            End timestamp for the logs request.
+          If the number of available results is larger than [pageSize](/docs/managed-kafka/api-ref/Cluster/listLogs#query_params), the service returns a [nextPageToken](/docs/managed-kafka/api-ref/Cluster/listLogs#responses) that can be used to get the next page of results in subsequent list requests.
 
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token.
 
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-            format.
-          schema:
-            type: string
-            format: date-time
-        - name: pageSize
-          in: query
-          description: >-
-            The maximum number of results per page to return.
+          To get the next page of results, set [pageToken](/docs/managed-kafka/api-ref/Cluster/listLogs#query_params) to the [nextPageToken](/docs/managed-kafka/api-ref/Cluster/listLogs#responses) returned by a previous list request.
 
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: alwaysNextPageToken
+        in: query
+        description: |-
+          The flag that defines behavior of providing the next page token.
 
-            If the number of available results is larger than
-            [pageSize](/docs/managed-kafka/api-ref/Cluster/listLogs#query_params),
-            the service returns a
-            [nextPageToken](/docs/managed-kafka/api-ref/Cluster/listLogs#responses)
-            that can be used to get the next page of results in subsequent list
-            requests.
+          If this flag is set to `true`, this API method will always return [nextPageToken](/docs/managed-kafka/api-ref/Cluster/listLogs#responses), even if current page is empty.
+        schema:
+          type: boolean
+          format: boolean
+      - name: filter
+        in: query
+        description: |-
+          A filter expression that filters resources listed in the response.
 
+          The expression must specify:
+          1. The field name to filter by. Currently filtering can be applied to the `hostname` field.
+          2. A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
+          3. The value. Must be 1-63 characters long and match the regular expression `^[a-z0-9.-]{1,61}$`.
 
-            The maximum value is 1000.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Page token.
+          Example of a filter: `message.hostname='node1.db.cloud.yandex.net'`
 
-
-            To get the next page of results, set
-            [pageToken](/docs/managed-kafka/api-ref/Cluster/listLogs#query_params)
-            to the
-            [nextPageToken](/docs/managed-kafka/api-ref/Cluster/listLogs#responses)
-            returned by a previous list request.
-
-
-            The maximum string length in characters is 100.
-          schema:
-            type: string
-        - name: alwaysNextPageToken
-          in: query
-          description: >-
-            The flag that defines behavior of providing the next page token.
-
-
-            If this flag is set to `true`, this API method will always return
-            [nextPageToken](/docs/managed-kafka/api-ref/Cluster/listLogs#responses),
-            even if current page is empty.
-          schema:
-            type: boolean
-            format: boolean
-        - name: filter
-          in: query
-          description: >-
-            A filter expression that filters resources listed in the response.
-
-
-            The expression must specify:
-
-            1. The field name to filter by. Currently filtering can be applied
-            to the `hostname` field.
-
-            2. A conditional operator. Can be either `=` or `!=` for single
-            values, `IN` or `NOT IN` for lists of values.
-
-            3. The value. Must be 1-63 characters long and match the regular
-            expression `^[a-z0-9.-]{1,61}$`.
-
-
-            Example of a filter: `message.hostname='node1.db.cloud.yandex.net'`
-
-
-            The maximum string length in characters is 1000.
-          schema:
-            type: string
+          The maximum string length in characters is 1000.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -462,108 +380,81 @@ paths:
   /managed-kafka/v1/clusters/{clusterId}:stream_logs:
     get:
       tags:
-        - Cluster
-      summary: >-
-        Same as [listLogs](/docs/managed-kafka/api-ref/Cluster/listLogs) but
+      - Cluster
+      summary: Same as [listLogs](/docs/managed-kafka/api-ref/Cluster/listLogs) but
         using server-side streaming. Also allows for `tail -f` semantics.
       operationId: ClusterStreamLogs
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Required.
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the Apache Kafka® cluster.
 
-            ID of the Apache Kafka® cluster.
+          To get the Apache Kafka® cluster ID, make a [list](/docs/managed-kafka/api-ref/Cluster/list) request.
 
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: columnFilter
+        in: query
+        description: |-
+          Columns from logs table to get in the response.
 
-            To get the Apache Kafka® cluster ID, make a
-            [list](/docs/managed-kafka/api-ref/Cluster/list) request.
-
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
+          If no columns are specified, full log records are returned.
+        schema:
+          type: array
+          items:
             type: string
-        - name: columnFilter
-          in: query
-          description: |-
-            Columns from logs table to get in the response.
+      - name: fromTime
+        in: query
+        description: |-
+          Start timestamp for the logs request.
 
-            If no columns are specified, full log records are returned.
-          schema:
-            type: array
-            items:
-              type: string
-        - name: fromTime
-          in: query
-          description: >-
-            Start timestamp for the logs request.
+          String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+        schema:
+          type: string
+          format: date-time
+      - name: toTime
+        in: query
+        description: |-
+          End timestamp for the logs request.
 
+          If this field is not set, all existing logs will be sent and then the new ones as they appear.
+          In essence it has `tail -f` semantics.
 
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-            format.
-          schema:
-            type: string
-            format: date-time
-        - name: toTime
-          in: query
-          description: >-
-            End timestamp for the logs request.
+          String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+        schema:
+          type: string
+          format: date-time
+      - name: recordToken
+        in: query
+        description: |-
+          Record token.
 
+          Set [recordToken](/docs/managed-kafka/api-ref/Cluster/streamLogs#query_params) to the `nextRecordToken` returned by a previous [streamLogs](/docs/managed-kafka/api-ref/Cluster/streamLogs) request to start streaming from next log record.
 
-            If this field is not set, all existing logs will be sent and then
-            the new ones as they appear.
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          A filter expression that filters resources listed in the response.
 
-            In essence it has `tail -f` semantics.
+          The expression must specify:
+          1. The field name to filter by. Currently filtering can be applied to the `hostname` field.
+          2. A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
+          3. The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.
 
+          Example of a filter: `message.hostname='node1.db.cloud.yandex.net'`
 
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-            format.
-          schema:
-            type: string
-            format: date-time
-        - name: recordToken
-          in: query
-          description: >-
-            Record token.
-
-
-            Set
-            [recordToken](/docs/managed-kafka/api-ref/Cluster/streamLogs#query_params)
-            to the `nextRecordToken` returned by a previous
-            [streamLogs](/docs/managed-kafka/api-ref/Cluster/streamLogs) request
-            to start streaming from next log record.
-
-
-            The maximum string length in characters is 100.
-          schema:
-            type: string
-        - name: filter
-          in: query
-          description: >-
-            A filter expression that filters resources listed in the response.
-
-
-            The expression must specify:
-
-            1. The field name to filter by. Currently filtering can be applied
-            to the `hostname` field.
-
-            2. A conditional operator. Can be either `=` or `!=` for single
-            values, `IN` or `NOT IN` for lists of values.
-
-            3. The value. Must be 3-63 characters long and match the regular
-            expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.
-
-
-            Example of a filter: `message.hostname='node1.db.cloud.yandex.net'`
-
-
-            The maximum string length in characters is 1000.
-          schema:
-            type: string
+          The maximum string length in characters is 1000.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -573,58 +464,43 @@ paths:
   /managed-kafka/v1/clusters/{clusterId}/operations:
     get:
       tags:
-        - Cluster
-      summary: >-
-        Retrieves the list of operations for the specified Apache Kafka®
-        cluster.
+      - Cluster
+      summary: Retrieves the list of operations for the specified Apache Kafka® cluster.
       operationId: ClusterListOperations
       parameters:
-        - name: clusterId
-          in: path
-          description: |-
-            Required.
-            ID of the Apache Kafka® cluster to list operations for.
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the Apache Kafka® cluster to list operations for.
 
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            The maximum number of results per page to return.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return.
 
+          If the number of available results is larger than [pageSize](/docs/managed-kafka/api-ref/Cluster/listOperations#query_params), the service returns a [nextPageToken](/docs/managed-kafka/api-ref/Cluster/listOperations#responses) that can be used to get the next page of results in subsequent list requests.
 
-            If the number of available results is larger than
-            [pageSize](/docs/managed-kafka/api-ref/Cluster/listOperations#query_params),
-            the service returns a
-            [nextPageToken](/docs/managed-kafka/api-ref/Cluster/listOperations#responses)
-            that can be used to get the next page of results in subsequent list
-            requests.
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token.
 
+          To get the next page of results, set [pageToken](/docs/managed-kafka/api-ref/Cluster/listOperations#query_params) to the [nextPageToken](/docs/managed-kafka/api-ref/Cluster/listOperations#responses) returned by a previous list request.
 
-            The maximum value is 1000.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Page token.
-
-
-            To get the next page of results, set
-            [pageToken](/docs/managed-kafka/api-ref/Cluster/listOperations#query_params)
-            to the
-            [nextPageToken](/docs/managed-kafka/api-ref/Cluster/listOperations#responses)
-            returned by a previous list request.
-
-
-            The maximum string length in characters is 100.
-          schema:
-            type: string
+          The maximum string length in characters is 100.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -634,62 +510,45 @@ paths:
   /managed-kafka/v1/clusters/{clusterId}/hosts:
     get:
       tags:
-        - Cluster
+      - Cluster
       summary: Retrieves a list of hosts for the specified Apache Kafka® cluster.
       operationId: ClusterListHosts
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Required.
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the Apache Kafka® cluster.
 
-            ID of the Apache Kafka® cluster.
+          To get the Apache Kafka® cluster ID, make a [list](/docs/managed-kafka/api-ref/Cluster/list) request.
 
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return.
 
-            To get the Apache Kafka® cluster ID, make a
-            [list](/docs/managed-kafka/api-ref/Cluster/list) request.
+          If the number of available results is larger than [pageSize](/docs/managed-kafka/api-ref/Cluster/listHosts#query_params), the service returns a [nextPageToken](/docs/managed-kafka/api-ref/Cluster/listHosts#responses) that can be used to get the next page of results in subsequent list requests.
 
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token.
 
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            The maximum number of results per page to return.
+          To get the next page of results, set [pageToken](/docs/managed-kafka/api-ref/Cluster/listHosts#query_params) to the [nextPageToken](/docs/managed-kafka/api-ref/Cluster/listHosts#responses) returned by a previous list request.
 
-
-            If the number of available results is larger than
-            [pageSize](/docs/managed-kafka/api-ref/Cluster/listHosts#query_params),
-            the service returns a
-            [nextPageToken](/docs/managed-kafka/api-ref/Cluster/listHosts#responses)
-            that can be used to get the next page of results in subsequent list
-            requests.
-
-
-            The maximum value is 1000.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Page token.
-
-
-            To get the next page of results, set
-            [pageToken](/docs/managed-kafka/api-ref/Cluster/listHosts#query_params)
-            to the
-            [nextPageToken](/docs/managed-kafka/api-ref/Cluster/listHosts#responses)
-            returned by a previous list request.
-
-
-            The maximum string length in characters is 100.
-          schema:
-            type: string
+          The maximum string length in characters is 100.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -699,28 +558,24 @@ paths:
   /managed-kafka/v1/resourcePresets/{resourcePresetId}:
     get:
       tags:
-        - ResourcePreset
+      - ResourcePreset
       summary: Returns the specified resource preset.
-      description: >-
-        To get the list of available resource presets, make a
-        [list](/docs/managed-kafka/api-ref/ResourcePreset/list) request.
+      description: To get the list of available resource presets, make a [list](/docs/managed-kafka/api-ref/ResourcePreset/list)
+        request.
       operationId: ResourcePresetGet
       parameters:
-        - name: resourcePresetId
-          in: path
-          description: >-
-            Required.
+      - name: resourcePresetId
+        in: path
+        description: |-
+          Required.
+          ID of the resource preset to return.
 
-            ID of the resource preset to return.
-
-
-            To get the resource preset ID, use a
-            [list](/docs/managed-kafka/api-ref/ResourcePreset/list) request.
-          required: true
-          schema:
-            type: string
+          To get the resource preset ID, use a [list](/docs/managed-kafka/api-ref/ResourcePreset/list) request.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -730,46 +585,33 @@ paths:
   /managed-kafka/v1/resourcePresets:
     get:
       tags:
-        - ResourcePreset
+      - ResourcePreset
       summary: Retrieves the list of available resource presets.
       operationId: ResourcePresetList
       parameters:
-        - name: pageSize
-          in: query
-          description: >-
-            The maximum number of results per page to return.
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return.
 
+          If the number of available results is larger than [pageSize](/docs/managed-kafka/api-ref/ResourcePreset/list#query_params), the service returns a [nextPageToken](/docs/managed-kafka/api-ref/ResourcePreset/list#responses) that can be used to get the next page of results in subsequent list requests.
 
-            If the number of available results is larger than
-            [pageSize](/docs/managed-kafka/api-ref/ResourcePreset/list#query_params),
-            the service returns a
-            [nextPageToken](/docs/managed-kafka/api-ref/ResourcePreset/list#responses)
-            that can be used to get the next page of results in subsequent list
-            requests.
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token.
 
+          To get the next page of results, set [pageToken](/docs/managed-kafka/api-ref/ResourcePreset/list#query_params) to the [nextPageToken](/docs/managed-kafka/api-ref/ResourcePreset/list#responses), returned by a previous list request.
 
-            The maximum value is 1000.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Page token.
-
-
-            To get the next page of results, set
-            [pageToken](/docs/managed-kafka/api-ref/ResourcePreset/list#query_params)
-            to the
-            [nextPageToken](/docs/managed-kafka/api-ref/ResourcePreset/list#responses),
-            returned by a previous list request.
-
-
-            The maximum string length in characters is 100.
-          schema:
-            type: string
+          The maximum string length in characters is 100.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -779,49 +621,39 @@ paths:
   /managed-kafka/v1/clusters/{clusterId}/topics/{topicName}:
     get:
       tags:
-        - Topic
+      - Topic
       summary: Returns the specified Kafka topic.
-      description: >-
-        To get the list of available Kafka topics, make a
-        [list](/docs/managed-kafka/api-ref/Topic/list) request.
+      description: To get the list of available Kafka topics, make a [list](/docs/managed-kafka/api-ref/Topic/list)
+        request.
       operationId: TopicGet
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Required.
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the Apache Kafka® cluster that the topic belongs to.
 
-            ID of the Apache Kafka® cluster that the topic belongs to.
+          To get the cluster ID, make a [list](/docs/managed-kafka/api-ref/Cluster/list) request.
 
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: topicName
+        in: path
+        description: |-
+          Required.
+          Name of the Kafka topic resource to return.
 
-            To get the cluster ID, make a
-            [list](/docs/managed-kafka/api-ref/Cluster/list) request.
+          To get the name of the topic, make a [list](/docs/managed-kafka/api-ref/Topic/list) request.
 
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
-        - name: topicName
-          in: path
-          description: >-
-            Required.
-
-            Name of the Kafka topic resource to return.
-
-
-            To get the name of the topic, make a
-            [list](/docs/managed-kafka/api-ref/Topic/list) request.
-
-
-            The string length in characters must be 1-63.
-
-            Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
-          required: true
-          schema:
-            type: string
+          The string length in characters must be 1-63.
+          Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -830,46 +662,37 @@ paths:
       x-y-navtitle: get
     delete:
       tags:
-        - Topic
+      - Topic
       summary: Deletes the specified Kafka topic.
       operationId: TopicDelete
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Required.
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the Apache Kafka® cluster to delete a topic in.
 
-            ID of the Apache Kafka® cluster to delete a topic in.
+          To get the cluster ID, make a [list](/docs/managed-kafka/api-ref/Cluster/list) request.
 
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: topicName
+        in: path
+        description: |-
+          Required.
+          Name of the topic to delete.
 
-            To get the cluster ID, make a
-            [list](/docs/managed-kafka/api-ref/Cluster/list) request.
+          To get the name of the topic, make a [list](/docs/managed-kafka/api-ref/Topic/list) request.
 
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
-        - name: topicName
-          in: path
-          description: >-
-            Required.
-
-            Name of the topic to delete.
-
-
-            To get the name of the topic, make a
-            [list](/docs/managed-kafka/api-ref/Topic/list) request.
-
-
-            The string length in characters must be 1-63.
-
-            Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
-          required: true
-          schema:
-            type: string
+          The string length in characters must be 1-63.
+          Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -881,44 +704,35 @@ paths:
       x-y-operation-response: Empty
     patch:
       tags:
-        - Topic
+      - Topic
       summary: Updates the specified Kafka topic.
       operationId: TopicUpdate
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Required.
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the Apache Kafka® cluster to update a topic in.
 
-            ID of the Apache Kafka® cluster to update a topic in.
+          To get the cluster ID, make a [list](/docs/managed-kafka/api-ref/Cluster/list) request.
 
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: topicName
+        in: path
+        description: |-
+          Required.
+          Name of the topic to update.
 
-            To get the cluster ID, make a
-            [list](/docs/managed-kafka/api-ref/Cluster/list) request.
+          To get the name of the topic, make a [list](/docs/managed-kafka/api-ref/Topic/list) request.
 
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
-        - name: topicName
-          in: path
-          description: >-
-            Required.
-
-            Name of the topic to update.
-
-
-            To get the name of the topic, make a
-            [list](/docs/managed-kafka/api-ref/Topic/list) request.
-
-
-            The string length in characters must be 1-63.
-
-            Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
-          required: true
-          schema:
-            type: string
+          The string length in characters must be 1-63.
+          Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -926,7 +740,7 @@ paths:
               $ref: '#/components/schemas/UpdateTopicRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -939,62 +753,45 @@ paths:
   /managed-kafka/v1/clusters/{clusterId}/topics:
     get:
       tags:
-        - Topic
+      - Topic
       summary: Retrieves the list of Kafka topics in the specified cluster.
       operationId: TopicList
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Required.
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the Apache Kafka® cluster to list topics in.
 
-            ID of the Apache Kafka® cluster to list topics in.
+          To get the cluster ID, make a [list](/docs/managed-kafka/api-ref/Cluster/list) request.
 
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return.
 
-            To get the cluster ID, make a
-            [list](/docs/managed-kafka/api-ref/Cluster/list) request.
+          If the number of available results is larger than [pageSize](/docs/managed-kafka/api-ref/Topic/list#query_params), the service returns a [nextPageToken](/docs/managed-kafka/api-ref/Topic/list#responses) that can be used to get the next page of results in subsequent list requests.
 
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token.
 
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            The maximum number of results per page to return.
+          To get the next page of results, set [pageToken](/docs/managed-kafka/api-ref/Topic/list#query_params) to the [nextPageToken](/docs/managed-kafka/api-ref/Topic/list#responses) returned by a previous list request.
 
-
-            If the number of available results is larger than
-            [pageSize](/docs/managed-kafka/api-ref/Topic/list#query_params), the
-            service returns a
-            [nextPageToken](/docs/managed-kafka/api-ref/Topic/list#responses)
-            that can be used to get the next page of results in subsequent list
-            requests.
-
-
-            The maximum value is 1000.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Page token.
-
-
-            To get the next page of results, set
-            [pageToken](/docs/managed-kafka/api-ref/Topic/list#query_params) to
-            the
-            [nextPageToken](/docs/managed-kafka/api-ref/Topic/list#responses)
-            returned by a previous list request.
-
-
-            The maximum string length in characters is 100.
-          schema:
-            type: string
+          The maximum string length in characters is 100.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1003,26 +800,22 @@ paths:
       x-y-navtitle: list
     post:
       tags:
-        - Topic
+      - Topic
       summary: Creates a new Kafka topic in the specified cluster.
       operationId: TopicCreate
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Required.
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the Apache Kafka® cluster to create a topic in.
 
-            ID of the Apache Kafka® cluster to create a topic in.
+          To get the cluster ID, make a [list](/docs/managed-kafka/api-ref/Cluster/list) request.
 
-
-            To get the cluster ID, make a
-            [list](/docs/managed-kafka/api-ref/Cluster/list) request.
-
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -1030,7 +823,7 @@ paths:
               $ref: '#/components/schemas/CreateTopicRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1043,49 +836,39 @@ paths:
   /managed-kafka/v1/clusters/{clusterId}/users/{userName}:
     get:
       tags:
-        - User
+      - User
       summary: Returns the specified Kafka user.
-      description: >-
-        To get the list of available Kafka users, make a
-        [list](/docs/managed-kafka/api-ref/User/list) request.
+      description: To get the list of available Kafka users, make a [list](/docs/managed-kafka/api-ref/User/list)
+        request.
       operationId: UserGet
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Required.
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the Apache Kafka® cluster the user belongs to.
 
-            ID of the Apache Kafka® cluster the user belongs to.
+          To get the cluster ID, make a [list](/docs/managed-kafka/api-ref/Cluster/list) request.
 
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: userName
+        in: path
+        description: |-
+          Required.
+          Name of the Kafka user to return.
 
-            To get the cluster ID, make a
-            [list](/docs/managed-kafka/api-ref/Cluster/list) request.
+          To get the name of the user, make a [list](/docs/managed-kafka/api-ref/User/list) request.
 
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
-        - name: userName
-          in: path
-          description: >-
-            Required.
-
-            Name of the Kafka user to return.
-
-
-            To get the name of the user, make a
-            [list](/docs/managed-kafka/api-ref/User/list) request.
-
-
-            The string length in characters must be 1-63.
-
-            Value must match the regular expression `` [a-zA-Z0-9_]* ``.
-          required: true
-          schema:
-            type: string
+          The string length in characters must be 1-63.
+          Value must match the regular expression `` [a-zA-Z0-9_]* ``.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1094,44 +877,35 @@ paths:
       x-y-navtitle: get
     delete:
       tags:
-        - User
+      - User
       summary: Deletes the specified Kafka user.
       operationId: UserDelete
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Required.
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the Apache Kafka® cluster the user belongs to.
+          To get the cluster ID, make a [list](/docs/managed-kafka/api-ref/Cluster/list) request.
 
-            ID of the Apache Kafka® cluster the user belongs to.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: userName
+        in: path
+        description: |-
+          Required.
+          Name of the user to delete.
+          To get the name of the user, make a [list](/docs/managed-kafka/api-ref/User/list) request.
 
-            To get the cluster ID, make a
-            [list](/docs/managed-kafka/api-ref/Cluster/list) request.
-
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
-        - name: userName
-          in: path
-          description: >-
-            Required.
-
-            Name of the user to delete.
-
-            To get the name of the user, make a
-            [list](/docs/managed-kafka/api-ref/User/list) request.
-
-
-            The string length in characters must be 1-63.
-
-            Value must match the regular expression `` [a-zA-Z0-9_]* ``.
-          required: true
-          schema:
-            type: string
+          The string length in characters must be 1-63.
+          Value must match the regular expression `` [a-zA-Z0-9_]* ``.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1143,44 +917,35 @@ paths:
       x-y-operation-response: Empty
     patch:
       tags:
-        - User
+      - User
       summary: Updates the specified Kafka user.
       operationId: UserUpdate
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Required.
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the Apache Kafka® cluster the user belongs to.
 
-            ID of the Apache Kafka® cluster the user belongs to.
+          To get the cluster ID, make a [list](/docs/managed-kafka/api-ref/Cluster/list) request.
 
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: userName
+        in: path
+        description: |-
+          Required.
+          Name of the user to be updated.
 
-            To get the cluster ID, make a
-            [list](/docs/managed-kafka/api-ref/Cluster/list) request.
+          To get the name of the user, make a [list](/docs/managed-kafka/api-ref/User/list) request.
 
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
-        - name: userName
-          in: path
-          description: >-
-            Required.
-
-            Name of the user to be updated.
-
-
-            To get the name of the user, make a
-            [list](/docs/managed-kafka/api-ref/User/list) request.
-
-
-            The string length in characters must be 1-63.
-
-            Value must match the regular expression `` [a-zA-Z0-9_]* ``.
-          required: true
-          schema:
-            type: string
+          The string length in characters must be 1-63.
+          Value must match the regular expression `` [a-zA-Z0-9_]* ``.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -1188,7 +953,7 @@ paths:
               $ref: '#/components/schemas/UpdateUserRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1201,51 +966,45 @@ paths:
   /managed-kafka/v1/clusters/{clusterId}/users:
     get:
       tags:
-        - User
+      - User
       summary: Retrieves the list of Kafka users in the specified cluster.
       operationId: UserList
       parameters:
-        - name: clusterId
-          in: path
-          description: "Required.\nID of the Apache Kafka® cluster to list Kafka users in.\n\nTo get the Apache Kafka®\_cluster ID, make a [list](/docs/managed-kafka/api-ref/Cluster/list) request.\n\nThe maximum string length in characters is 50."
-          required: true
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            The maximum number of results per page to return.
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the Apache Kafka® cluster to list Kafka users in.
 
+          To get the Apache Kafka® cluster ID, make a [list](/docs/managed-kafka/api-ref/Cluster/list) request.
 
-            If the number of available results is larger than
-            [pageSize](/docs/managed-kafka/api-ref/User/list#query_params), the
-            service returns a
-            [nextPageToken](/docs/managed-kafka/api-ref/User/list#responses)
-            that can be used to get the next page of results in subsequent list
-            requests.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return.
 
+          If the number of available results is larger than [pageSize](/docs/managed-kafka/api-ref/User/list#query_params), the service returns a [nextPageToken](/docs/managed-kafka/api-ref/User/list#responses) that can be used to get the next page of results in subsequent list requests.
 
-            The maximum value is 1000.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Page token.
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token.
 
+          To get the next page of results, set [pageToken](/docs/managed-kafka/api-ref/User/list#query_params) to the [nextPageToken](/docs/managed-kafka/api-ref/User/list#responses) returned by a previous list request.
 
-            To get the next page of results, set
-            [pageToken](/docs/managed-kafka/api-ref/User/list#query_params) to
-            the [nextPageToken](/docs/managed-kafka/api-ref/User/list#responses)
-            returned by a previous list request.
-
-
-            The maximum string length in characters is 100.
-          schema:
-            type: string
+          The maximum string length in characters is 100.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1254,26 +1013,22 @@ paths:
       x-y-navtitle: list
     post:
       tags:
-        - User
+      - User
       summary: Creates a Kafka user in the specified cluster.
       operationId: UserCreate
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Required.
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the Apache Kafka® cluster to create a user in.
 
-            ID of the Apache Kafka® cluster to create a user in.
+          To get the cluster ID, make a [list](/docs/managed-kafka/api-ref/Cluster/list) request.
 
-
-            To get the cluster ID, make a
-            [list](/docs/managed-kafka/api-ref/Cluster/list) request.
-
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -1281,7 +1036,7 @@ paths:
               $ref: '#/components/schemas/CreateUserRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1294,44 +1049,35 @@ paths:
   /managed-kafka/v1/clusters/{clusterId}/users/{userName}:grantPermission:
     post:
       tags:
-        - User
+      - User
       summary: Grants permission to the specified Kafka user.
       operationId: UserGrantPermission
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Required.
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the Apache Kafka® cluster the user belongs to.
 
-            ID of the Apache Kafka® cluster the user belongs to.
+          To get the cluster ID, make a [list](/docs/managed-kafka/api-ref/Cluster/list) request.
 
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: userName
+        in: path
+        description: |-
+          Required.
+          Name of the user to grant the permission to.
 
-            To get the cluster ID, make a
-            [list](/docs/managed-kafka/api-ref/Cluster/list) request.
+          To get the name of the user, make a [list](/docs/managed-kafka/api-ref/User/list) request.
 
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
-        - name: userName
-          in: path
-          description: >-
-            Required.
-
-            Name of the user to grant the permission to.
-
-
-            To get the name of the user, make a
-            [list](/docs/managed-kafka/api-ref/User/list) request.
-
-
-            The string length in characters must be 1-63.
-
-            Value must match the regular expression `` [a-zA-Z0-9_]* ``.
-          required: true
-          schema:
-            type: string
+          The string length in characters must be 1-63.
+          Value must match the regular expression `` [a-zA-Z0-9_]* ``.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -1339,7 +1085,7 @@ paths:
               $ref: '#/components/schemas/GrantUserPermissionRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1352,44 +1098,35 @@ paths:
   /managed-kafka/v1/clusters/{clusterId}/users/{userName}:revokePermission:
     post:
       tags:
-        - User
+      - User
       summary: Revokes permission from the specified Kafka user.
       operationId: UserRevokePermission
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Required.
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the Apache Kafka® cluster the user belongs to.
 
-            ID of the Apache Kafka® cluster the user belongs to.
+          To get the cluster ID, make a [list](/docs/managed-kafka/api-ref/Cluster/list) request.
 
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: userName
+        in: path
+        description: |-
+          Required.
+          Name of the user to revoke a permission from.
 
-            To get the cluster ID, make a
-            [list](/docs/managed-kafka/api-ref/Cluster/list) request.
+          To get the name of the user, make a [list](/docs/managed-kafka/api-ref/User/list) request.
 
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
-        - name: userName
-          in: path
-          description: >-
-            Required.
-
-            Name of the user to revoke a permission from.
-
-
-            To get the name of the user, make a
-            [list](/docs/managed-kafka/api-ref/User/list) request.
-
-
-            The string length in characters must be 1-63.
-
-            Value must match the regular expression `` [a-zA-Z0-9_]* ``.
-          required: true
-          schema:
-            type: string
+          The string length in characters must be 1-63.
+          Value must match the regular expression `` [a-zA-Z0-9_]* ``.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -1397,7 +1134,7 @@ paths:
               $ref: '#/components/schemas/RevokeUserPermissionRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1410,11 +1147,9 @@ paths:
 components:
   schemas:
     Cluster:
-      description: >-
+      description: |-
         An Apache Kafka® cluster resource.
-
-        For more information, see the [Concepts](/docs/managed-kafka/concepts)
-        section of the documentation.
+        For more information, see the [Concepts](/docs/managed-kafka/concepts) section of the documentation.
       type: object
       properties:
         id:
@@ -1426,23 +1161,20 @@ components:
           description: ID of the folder that the Apache Kafka® cluster belongs to.
           type: string
         createdAt:
-          description: >-
+          description: |-
             Creation timestamp.
 
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-            format.
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
         name:
-          description: >-
+          description: |-
             Name of the Apache Kafka® cluster.
-
-            The name must be unique within the folder. 1-63 characters long.
-            Value must match the regular expression `[a-zA-Z0-9_-]*`.
+            The name must be unique within the folder. 1-63 characters long. Value must match the regular expression `[a-zA-Z0-9_-]*`.
           type: string
         description:
-          description: Description of the Apache Kafka® cluster. 0-256 characters long.
+          description: Description of the Apache Kafka® cluster. 0-256 characters
+            long.
           type: string
         labels:
           description: |-
@@ -1454,8 +1186,7 @@ components:
         environment:
           $ref: '#/components/schemas/ClusterEnvironment_in_Cluster_environment'
         monitoring:
-          description: >-
-            Description of monitoring systems relevant to the Apache Kafka®
+          description: Description of monitoring systems relevant to the Apache Kafka®
             cluster.
           type: array
           items:
@@ -1474,14 +1205,19 @@ components:
           type: array
           items:
             type: string
+        hostGroupIds:
+          description: Host groups hosting VMs of the cluster.
+          type: array
+          items:
+            type: string
     ClusterEnvironment:
       description: |2-
          - PRODUCTION: stable environment with a conservative update policy when only hotfixes are applied during regular maintenance.
          - PRESTABLE: environment with a more aggressive update policy when new versions are rolled out irrespective of backward compatibility.
       type: string
       enum:
-        - PRODUCTION
-        - PRESTABLE
+      - PRODUCTION
+      - PRESTABLE
     ClusterHealth:
       description: |2-
          - HEALTH_UNKNOWN: state of the cluster is unknown (`health` of all hosts in the cluster is `UNKNOWN`).
@@ -1490,10 +1226,10 @@ components:
          - DEGRADED: cluster is in degraded state (`health` of at least one of the hosts in the cluster is not `ALIVE`).
       type: string
       enum:
-        - HEALTH_UNKNOWN
-        - ALIVE
-        - DEAD
-        - DEGRADED
+      - HEALTH_UNKNOWN
+      - ALIVE
+      - DEAD
+      - DEGRADED
       default: HEALTH_UNKNOWN
     ClusterStatus:
       description: |2-
@@ -1507,14 +1243,14 @@ components:
          - STARTING: cluster is starting.
       type: string
       enum:
-        - STATUS_UNKNOWN
-        - CREATING
-        - RUNNING
-        - ERROR
-        - UPDATING
-        - STOPPING
-        - STOPPED
-        - STARTING
+      - STATUS_UNKNOWN
+      - CREATING
+      - RUNNING
+      - ERROR
+      - UPDATING
+      - STOPPING
+      - STOPPED
+      - STARTING
       default: STATUS_UNKNOWN
     CompressionType:
       description: |2-
@@ -1526,19 +1262,18 @@ components:
          - COMPRESSION_TYPE_PRODUCER: the codec to use is set by a producer (can be any of `ZSTD`, `LZ4`, `GZIP` or `SNAPPY` codecs).
       type: string
       enum:
-        - COMPRESSION_TYPE_UNCOMPRESSED
-        - COMPRESSION_TYPE_ZSTD
-        - COMPRESSION_TYPE_LZ4
-        - COMPRESSION_TYPE_SNAPPY
-        - COMPRESSION_TYPE_GZIP
-        - COMPRESSION_TYPE_PRODUCER
+      - COMPRESSION_TYPE_UNCOMPRESSED
+      - COMPRESSION_TYPE_ZSTD
+      - COMPRESSION_TYPE_LZ4
+      - COMPRESSION_TYPE_SNAPPY
+      - COMPRESSION_TYPE_GZIP
+      - COMPRESSION_TYPE_PRODUCER
     ConfigSpec:
       type: object
       properties:
         version:
-          description: >-
-            Version of Apache Kafka® used in the cluster. Possible values:
-            `2.1`, `2.6`.
+          description: 'Version of Apache Kafka® used in the cluster. Possible values:
+            `2.1`, `2.6`.'
           type: string
         kafka:
           $ref: '#/components/schemas/ConfigSpecKafka_in_ConfigSpec_kafka'
@@ -1554,30 +1289,31 @@ components:
           type: integer
           format: int64
         assignPublicIp:
-          description: >-
-            The flag that defines whether a public IP address is assigned to the
-            cluster.
-
-            If the value is `true`, then Apache Kafka® cluster is available on
-            the Internet via it's public IP address.
+          description: |-
+            The flag that defines whether a public IP address is assigned to the cluster.
+            If the value is `true`, then Apache Kafka® cluster is available on the Internet via it's public IP address.
+          type: boolean
+          format: boolean
+        unmanagedTopics:
+          description: Allows to manage topics via AdminAPI
           type: boolean
           format: boolean
     ConfigSpecKafka:
       type: object
       allOf:
-        - type: object
-          properties:
-            resources:
-              $ref: '#/components/schemas/Resources'
-              description: Resources allocated to Kafka brokers.
-        - title: kafka_config
-          type: object
-          maxProperties: 1
-          properties:
-            kafkaConfig_2_1:
-              $ref: '#/components/schemas/KafkaConfig2_1'
-            kafkaConfig_2_6:
-              $ref: '#/components/schemas/KafkaConfig2_6'
+      - type: object
+        properties:
+          resources:
+            $ref: '#/components/schemas/Resources'
+            description: Resources allocated to Kafka brokers.
+      - title: kafka_config
+        type: object
+        maxProperties: 1
+        properties:
+          kafkaConfig_2_1:
+            $ref: '#/components/schemas/KafkaConfig2_1'
+          kafkaConfig_2_6:
+            $ref: '#/components/schemas/KafkaConfig2_6'
     ConfigSpecZookeeper:
       type: object
       properties:
@@ -1593,30 +1329,21 @@ components:
       type: object
       properties:
         folderId:
-          description: >-
+          description: |-
             Required.
-
             ID of the folder to create the Apache Kafka® cluster in.
 
-
-            To get the folder ID, make a
-            [list](/docs/resource-manager/api-ref/Folder/list) request.
-
+            To get the folder ID, make a [list](/docs/resource-manager/api-ref/Folder/list) request.
 
             The maximum string length in characters is 50.
           type: string
         name:
-          description: >-
+          description: |-
             Required.
-
-            Name of the Apache Kafka® cluster. The name must be unique within
-            the folder.
-
+            Name of the Apache Kafka® cluster. The name must be unique within the folder.
 
             The string length in characters must be 1-63.
-
-            Value must match the regular expression ``
-            [a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
+            Value must match the regular expression `` [a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
           type: string
         description:
           description: |-
@@ -1625,41 +1352,31 @@ components:
             The maximum string length in characters is 256.
           type: string
         labels:
-          description: >-
+          description: |-
             Custom labels for the Apache Kafka® cluster as `key:value` pairs.
-
 
             For example, "project": "mvp" or "source": "dictionary".
 
-
             No more than 64 per resource.
-
             The string length in characters for each key must be 1-63.
-
-            Each key must match the regular expression `` [a-z][-_./\@0-9a-z]*
-            ``.
-
+            Each key must match the regular expression `` [a-z][-_./\@0-9a-z]* ``.
             The maximum string length in characters for each value is 63.
-
             Each value must match the regular expression `` [-_./\@0-9a-z]* ``.
           type: object
           additionalProperties:
             type: string
         environment:
-          $ref: >-
-            #/components/schemas/ClusterEnvironment_in_CreateClusterRequest_environment
+          $ref: '#/components/schemas/ClusterEnvironment_in_CreateClusterRequest_environment'
         configSpec:
           $ref: '#/components/schemas/ConfigSpec_in_CreateClusterRequest_configSpec'
         topicSpecs:
-          description: >-
-            One or more configurations of topics to be created in the Apache
+          description: One or more configurations of topics to be created in the Apache
             Kafka® cluster.
           type: array
           items:
             $ref: '#/components/schemas/TopicSpec'
         userSpecs:
-          description: >-
-            Configurations of accounts to be created in the Apache Kafka®
+          description: Configurations of accounts to be created in the Apache Kafka®
             cluster.
           type: array
           items:
@@ -1677,6 +1394,11 @@ components:
             type: string
         securityGroupIds:
           description: User security groups
+          type: array
+          items:
+            type: string
+        hostGroupIds:
+          description: Host groups to place VMs of cluster on.
           type: array
           items:
             type: string
@@ -1742,36 +1464,24 @@ components:
       type: object
       maxProperties: 0
     FieldMask:
-      description: >-
+      description: |-
         A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
 
-        Оnly the specified fields will be changed. The others will be left
-        untouched.
-
-        If the field is specified in `` updateMask `` and no value for that
-        field was sent in the request,
-
-        the field's value will be reset to the default. The default value for
-        most fields is null or 0.
-
-
-        If `` updateMask `` is not sent in the request, all fields' values will
-        be updated.
-
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
         Fields specified in the request will be updated to provided values.
-
         The rest of the fields will be reset to the default.
       type: string
     GrantUserPermissionMetadata:
       type: object
       properties:
         clusterId:
-          description: >-
+          description: |-
             ID of the Apache Kafka® cluster the user belongs to.
 
-
-            To get the cluster ID, make a
-            [list](/docs/managed-kafka/api-ref/Cluster/list) request.
+            To get the cluster ID, make a [list](/docs/managed-kafka/api-ref/Cluster/list) request.
           type: string
         userName:
           description: Name of the user that is being granted a permission.
@@ -1780,8 +1490,7 @@ components:
       type: object
       properties:
         permission:
-          $ref: >-
-            #/components/schemas/Permission_in_GrantUserPermissionRequest_permission
+          $ref: '#/components/schemas/Permission_in_GrantUserPermissionRequest_permission'
     Host:
       description: Cluster host metadata.
       type: object
@@ -1805,13 +1514,10 @@ components:
           description: ID of the subnet the host resides in.
           type: string
         assignPublicIp:
-          description: >-
-            The flag that defines whether a public IP address is assigned to the
-            node.
+          description: |-
+            The flag that defines whether a public IP address is assigned to the node.
 
-
-            If the value is `true`, then this node is available on the Internet
-            via it's public IP address.
+            If the value is `true`, then this node is available on the Internet via it's public IP address.
           type: boolean
           format: boolean
     HostHealth:
@@ -1822,10 +1528,10 @@ components:
          - DEGRADED: the host is degraded and can perform only some of its essential functions.
       type: string
       enum:
-        - UNKNOWN
-        - ALIVE
-        - DEAD
-        - DEGRADED
+      - UNKNOWN
+      - ALIVE
+      - DEAD
+      - DEGRADED
       default: UNKNOWN
     HostRole:
       description: |2-
@@ -1833,60 +1539,46 @@ components:
          - ZOOKEEPER: the host is a ZooKeeper server.
       type: string
       enum:
-        - KAFKA
-        - ZOOKEEPER
+      - KAFKA
+      - ZOOKEEPER
     KafkaConfig2_1:
       description: Kafka version 2.1 broker configuration.
       type: object
       properties:
         compressionType:
-          $ref: >-
-            #/components/schemas/CompressionType_in_KafkaConfig2_1_compressionType
+          $ref: '#/components/schemas/CompressionType_in_KafkaConfig2_1_compressionType'
         logFlushIntervalMessages:
-          description: >-
-            The number of messages accumulated on a log partition before
-            messages are flushed to disk.
+          description: |-
+            The number of messages accumulated on a log partition before messages are flushed to disk.
 
-
-            This is the global cluster-level setting that can be overridden on a
-            topic level by using the `flushMessages` setting.
+            This is the global cluster-level setting that can be overridden on a topic level by using the `flushMessages` setting.
           type: integer
           format: int64
         logFlushIntervalMs:
-          description: >-
-            The maximum time (in milliseconds) that a message in any topic is
-            kept in memory before flushed to disk.
-
+          description: |-
+            The maximum time (in milliseconds) that a message in any topic is kept in memory before flushed to disk.
             If not set, the value of `logFlushSchedulerIntervalMs` is used.
 
-
-            This is the global cluster-level setting that can be overridden on a
-            topic level by using the `flushMs` setting.
+            This is the global cluster-level setting that can be overridden on a topic level by using the `flushMs` setting.
           type: integer
           format: int64
         logFlushSchedulerIntervalMs:
-          description: >-
-            The frequency of checks (in milliseconds) for any logs that need to
-            be flushed to disk.
-
+          description: |-
+            The frequency of checks (in milliseconds) for any logs that need to be flushed to disk.
             This check is done by the log flusher.
           type: integer
           format: int64
         logRetentionBytes:
-          description: >-
-            Partition size limit; Kafka will discard old log segments to free up
-            space if `delete` `cleanupPolicy` is in effect.
+          description: |-
+            Partition size limit; Kafka will discard old log segments to free up space if `delete` `cleanupPolicy` is in effect.
+            This setting is helpful if you need to control the size of a log due to limited disk space.
 
-            This setting is helpful if you need to control the size of a log due
-            to limited disk space.
-
-
-            This is the global cluster-level setting that can be overridden on a
-            topic level by using the `retentionBytes` setting.
+            This is the global cluster-level setting that can be overridden on a topic level by using the `retentionBytes` setting.
           type: integer
           format: int64
         logRetentionHours:
-          description: The number of hours to keep a log segment file before deleting it.
+          description: The number of hours to keep a log segment file before deleting
+            it.
           type: integer
           format: int64
         logRetentionMinutes:
@@ -1897,34 +1589,40 @@ components:
           type: integer
           format: int64
         logRetentionMs:
-          description: >-
-            The number of milliseconds to keep a log segment file before
-            deleting it.
-
+          description: |-
+            The number of milliseconds to keep a log segment file before deleting it.
 
             If not set, the value of `logRetentionMinutes` is used.
 
-
-            This is the global cluster-level setting that can be overridden on a
-            topic level by using the `retentionMs` setting.
+            This is the global cluster-level setting that can be overridden on a topic level by using the `retentionMs` setting.
           type: integer
           format: int64
         logSegmentBytes:
-          description: >-
+          description: |-
             The maximum size of a single log file.
 
-
-            This is the global cluster-level setting that can be overridden on a
-            topic level by using the `segmentBytes` setting.
+            This is the global cluster-level setting that can be overridden on a topic level by using the `segmentBytes` setting.
           type: integer
           format: int64
         logPreallocate:
-          description: >-
+          description: |-
             Should pre allocate file when create new segment?
 
-
-            This is the global cluster-level setting that can be overridden on a
-            topic level by using the `preallocate` setting.
+            This is the global cluster-level setting that can be overridden on a topic level by using the `preallocate` setting.
+          type: boolean
+          format: boolean
+        socketSendBufferBytes:
+          description: The SO_SNDBUF buffer of the socket server sockets. If the value
+            is -1, the OS default will be used.
+          type: integer
+          format: int64
+        socketReceiveBufferBytes:
+          description: The SO_RCVBUF buffer of the socket server sockets. If the value
+            is -1, the OS default will be used.
+          type: integer
+          format: int64
+        autoCreateTopicsEnable:
+          description: Enable auto creation of topic on the server
           type: boolean
           format: boolean
     KafkaConfig2_6:
@@ -1932,53 +1630,39 @@ components:
       type: object
       properties:
         compressionType:
-          $ref: >-
-            #/components/schemas/CompressionType_in_KafkaConfig2_6_compressionType
+          $ref: '#/components/schemas/CompressionType_in_KafkaConfig2_6_compressionType'
         logFlushIntervalMessages:
-          description: >-
-            The number of messages accumulated on a log partition before
-            messages are flushed to disk.
+          description: |-
+            The number of messages accumulated on a log partition before messages are flushed to disk.
 
-
-            This is the global cluster-level setting that can be overridden on a
-            topic level by using the `flushMessages` setting.
+            This is the global cluster-level setting that can be overridden on a topic level by using the `flushMessages` setting.
           type: integer
           format: int64
         logFlushIntervalMs:
-          description: >-
-            The maximum time (in milliseconds) that a message in any topic is
-            kept in memory before flushed to disk.
-
+          description: |-
+            The maximum time (in milliseconds) that a message in any topic is kept in memory before flushed to disk.
             If not set, the value of `logFlushSchedulerIntervalMs` is used.
 
-
-            This is the global cluster-level setting that can be overridden on a
-            topic level by using the `flushMs` setting.
+            This is the global cluster-level setting that can be overridden on a topic level by using the `flushMs` setting.
           type: integer
           format: int64
         logFlushSchedulerIntervalMs:
-          description: >-
-            The frequency of checks (in milliseconds) for any logs that need to
-            be flushed to disk.
-
+          description: |-
+            The frequency of checks (in milliseconds) for any logs that need to be flushed to disk.
             This check is done by the log flusher.
           type: integer
           format: int64
         logRetentionBytes:
-          description: >-
-            Partition size limit; Kafka will discard old log segments to free up
-            space if `delete` `cleanupPolicy` is in effect.
+          description: |-
+            Partition size limit; Kafka will discard old log segments to free up space if `delete` `cleanupPolicy` is in effect.
+            This setting is helpful if you need to control the size of a log due to limited disk space.
 
-            This setting is helpful if you need to control the size of a log due
-            to limited disk space.
-
-
-            This is the global cluster-level setting that can be overridden on a
-            topic level by using the `retentionBytes` setting.
+            This is the global cluster-level setting that can be overridden on a topic level by using the `retentionBytes` setting.
           type: integer
           format: int64
         logRetentionHours:
-          description: The number of hours to keep a log segment file before deleting it.
+          description: The number of hours to keep a log segment file before deleting
+            it.
           type: integer
           format: int64
         logRetentionMinutes:
@@ -1989,34 +1673,40 @@ components:
           type: integer
           format: int64
         logRetentionMs:
-          description: >-
-            The number of milliseconds to keep a log segment file before
-            deleting it.
-
+          description: |-
+            The number of milliseconds to keep a log segment file before deleting it.
 
             If not set, the value of `logRetentionMinutes` is used.
 
-
-            This is the global cluster-level setting that can be overridden on a
-            topic level by using the `retentionMs` setting.
+            This is the global cluster-level setting that can be overridden on a topic level by using the `retentionMs` setting.
           type: integer
           format: int64
         logSegmentBytes:
-          description: >-
+          description: |-
             The maximum size of a single log file.
 
-
-            This is the global cluster-level setting that can be overridden on a
-            topic level by using the `segmentBytes` setting.
+            This is the global cluster-level setting that can be overridden on a topic level by using the `segmentBytes` setting.
           type: integer
           format: int64
         logPreallocate:
-          description: >-
+          description: |-
             Should pre allocate file when create new segment?
 
-
-            This is the global cluster-level setting that can be overridden on a
-            topic level by using the `preallocate` setting.
+            This is the global cluster-level setting that can be overridden on a topic level by using the `preallocate` setting.
+          type: boolean
+          format: boolean
+        socketSendBufferBytes:
+          description: The SO_SNDBUF buffer of the socket server sockets. If the value
+            is -1, the OS default will be used.
+          type: integer
+          format: int64
+        socketReceiveBufferBytes:
+          description: The SO_RCVBUF buffer of the socket server sockets. If the value
+            is -1, the OS default will be used.
+          type: integer
+          format: int64
+        autoCreateTopicsEnable:
+          description: Enable auto creation of topic on the server
           type: boolean
           format: boolean
     ListClusterHostsResponse:
@@ -2028,22 +1718,11 @@ components:
           items:
             $ref: '#/components/schemas/Host'
         nextPageToken:
-          description: >-
-            Token that allows you to get the next page of results for list
-            requests.
+          description: |-
+            Token that allows you to get the next page of results for list requests.
 
-
-            If the number of results is larger than
-            [pageSize](/docs/managed-kafka/api-ref/Cluster/listHosts#query_params),
-            use the
-            [nextPageToken](/docs/managed-kafka/api-ref/Cluster/listHosts#responses)
-            as the value for the
-            [pageToken](/docs/managed-kafka/api-ref/Cluster/listHosts#query_params)
-            query parameter in the next list request.
-
-            Each subsequent list request will have its own
-            [nextPageToken](/docs/managed-kafka/api-ref/Cluster/listHosts#responses)
-            to continue paging through the results.
+            If the number of results is larger than [pageSize](/docs/managed-kafka/api-ref/Cluster/listHosts#query_params), use the [nextPageToken](/docs/managed-kafka/api-ref/Cluster/listHosts#responses) as the value for the [pageToken](/docs/managed-kafka/api-ref/Cluster/listHosts#query_params) query parameter in the next list request.
+            Each subsequent list request will have its own [nextPageToken](/docs/managed-kafka/api-ref/Cluster/listHosts#responses) to continue paging through the results.
           type: string
     ListClusterLogsResponse:
       type: object
@@ -2054,25 +1733,12 @@ components:
           items:
             $ref: '#/components/schemas/LogRecord'
         nextPageToken:
-          description: >-
-            Token that allows you to get the next page of results for list
-            requests.
+          description: |-
+            Token that allows you to get the next page of results for list requests.
 
-
-            If the number of results is larger than
-            [pageSize](/docs/managed-kafka/api-ref/Cluster/listLogs#query_params),
-            use
-            [nextPageToken](/docs/managed-kafka/api-ref/Cluster/listLogs#responses)
-            as the value for the
-            [pageToken](/docs/managed-kafka/api-ref/Cluster/listLogs#query_params)
-            query parameter in the next list request.
-
-            Each subsequent list request will have its own
-            [nextPageToken](/docs/managed-kafka/api-ref/Cluster/listLogs#responses)
-            to continue paging through the results.
-
-            This value is interchangeable with `nextRecordToken` from StreamLogs
-            method.
+            If the number of results is larger than [pageSize](/docs/managed-kafka/api-ref/Cluster/listLogs#query_params), use [nextPageToken](/docs/managed-kafka/api-ref/Cluster/listLogs#responses) as the value for the [pageToken](/docs/managed-kafka/api-ref/Cluster/listLogs#query_params) query parameter in the next list request.
+            Each subsequent list request will have its own [nextPageToken](/docs/managed-kafka/api-ref/Cluster/listLogs#responses) to continue paging through the results.
+            This value is interchangeable with `nextRecordToken` from StreamLogs method.
           type: string
     ListClusterOperationsResponse:
       type: object
@@ -2083,22 +1749,11 @@ components:
           items:
             $ref: '#/components/schemas/Operation'
         nextPageToken:
-          description: >-
-            Token that allows you to get the next page of results for list
-            requests.
+          description: |-
+            Token that allows you to get the next page of results for list requests.
 
-
-            If the number of results is larger than
-            [pageSize](/docs/managed-kafka/api-ref/Cluster/listOperations#query_params),
-            use
-            [nextPageToken](/docs/managed-kafka/api-ref/Cluster/listOperations#responses)
-            as the value for the
-            [pageToken](/docs/managed-kafka/api-ref/Cluster/listOperations#query_params)
-            query parameter in the next list request.
-
-            Each subsequent list request will have its own
-            [nextPageToken](/docs/managed-kafka/api-ref/Cluster/listOperations#responses)
-            to continue paging through the results.
+            If the number of results is larger than [pageSize](/docs/managed-kafka/api-ref/Cluster/listOperations#query_params), use [nextPageToken](/docs/managed-kafka/api-ref/Cluster/listOperations#responses) as the value for the [pageToken](/docs/managed-kafka/api-ref/Cluster/listOperations#query_params) query parameter in the next list request.
+            Each subsequent list request will have its own [nextPageToken](/docs/managed-kafka/api-ref/Cluster/listOperations#responses) to continue paging through the results.
           type: string
     ListClustersResponse:
       type: object
@@ -2109,22 +1764,11 @@ components:
           items:
             $ref: '#/components/schemas/Cluster'
         nextPageToken:
-          description: >-
-            Token that allows you to get the next page of results for list
-            requests.
+          description: |-
+            Token that allows you to get the next page of results for list requests.
 
-
-            If the number of results is larger than
-            [pageSize](/docs/managed-kafka/api-ref/Cluster/list#query_params),
-            use
-            [nextPageToken](/docs/managed-kafka/api-ref/Cluster/list#responses)
-            as the value for the
-            [pageToken](/docs/managed-kafka/api-ref/Cluster/list#query_params)
-            parameter in the next list request.
-
-            Each subsequent list request will have its own
-            [nextPageToken](/docs/managed-kafka/api-ref/Cluster/list#responses)
-            to continue paging through the results.
+            If the number of results is larger than [pageSize](/docs/managed-kafka/api-ref/Cluster/list#query_params), use [nextPageToken](/docs/managed-kafka/api-ref/Cluster/list#responses) as the value for the [pageToken](/docs/managed-kafka/api-ref/Cluster/list#query_params) parameter in the next list request.
+            Each subsequent list request will have its own [nextPageToken](/docs/managed-kafka/api-ref/Cluster/list#responses) to continue paging through the results.
           type: string
     ListResourcePresetsResponse:
       type: object
@@ -2135,23 +1779,11 @@ components:
           items:
             $ref: '#/components/schemas/ResourcePreset'
         nextPageToken:
-          description: >-
-            This token allows you to get the next page of results for list
-            requests.
+          description: |-
+            This token allows you to get the next page of results for list requests.
 
-
-            If the number of results is larger than
-            [pageSize](/docs/managed-kafka/api-ref/ResourcePreset/list#query_params),
-            use
-            [nextPageToken](/docs/managed-kafka/api-ref/ResourcePreset/list#responses)
-            as the value for the
-            [pageToken](/docs/managed-kafka/api-ref/ResourcePreset/list#query_params)
-            parameter in the next list request.
-
-            Each subsequent list request will have its own
-            [nextPageToken](/docs/managed-kafka/api-ref/ResourcePreset/list#responses)
-            to continue paging through the results.
-
+            If the number of results is larger than [pageSize](/docs/managed-kafka/api-ref/ResourcePreset/list#query_params), use [nextPageToken](/docs/managed-kafka/api-ref/ResourcePreset/list#responses) as the value for the [pageToken](/docs/managed-kafka/api-ref/ResourcePreset/list#query_params) parameter in the next list request.
+            Each subsequent list request will have its own [nextPageToken](/docs/managed-kafka/api-ref/ResourcePreset/list#responses) to continue paging through the results.
 
             The maximum string length in characters is 100.
           type: string
@@ -2164,22 +1796,11 @@ components:
           items:
             $ref: '#/components/schemas/Topic'
         nextPageToken:
-          description: >-
-            This token allows you to get the next page of results for list
-            requests.
+          description: |-
+            This token allows you to get the next page of results for list requests.
 
-
-            If the number of results is larger than
-            [pageSize](/docs/managed-kafka/api-ref/Topic/list#query_params), use
-            the
-            [nextPageToken](/docs/managed-kafka/api-ref/Topic/list#responses) as
-            the value for the
-            [pageToken](/docs/managed-kafka/api-ref/Topic/list#query_params)
-            parameter in the next list request.
-
-            Each subsequent list request will have its own
-            [nextPageToken](/docs/managed-kafka/api-ref/Topic/list#responses) to
-            continue paging through the results.
+            If the number of results is larger than [pageSize](/docs/managed-kafka/api-ref/Topic/list#query_params), use the [nextPageToken](/docs/managed-kafka/api-ref/Topic/list#responses) as the value for the [pageToken](/docs/managed-kafka/api-ref/Topic/list#query_params) parameter in the next list request.
+            Each subsequent list request will have its own [nextPageToken](/docs/managed-kafka/api-ref/Topic/list#responses) to continue paging through the results.
           type: string
     ListUsersResponse:
       type: object
@@ -2190,33 +1811,21 @@ components:
           items:
             $ref: '#/components/schemas/User'
         nextPageToken:
-          description: >-
-            This token allows you to get the next page of results for list
-            requests.
+          description: |-
+            This token allows you to get the next page of results for list requests.
 
-
-            If the number of results is larger than
-            [pageSize](/docs/managed-kafka/api-ref/User/list#query_params), use
-            the [nextPageToken](/docs/managed-kafka/api-ref/User/list#responses)
-            as the value for the
-            [pageToken](/docs/managed-kafka/api-ref/User/list#query_params)
-            parameter in the next list request.
-
-            Each subsequent list request will have its own
-            [nextPageToken](/docs/managed-kafka/api-ref/User/list#responses) to
-            continue paging through the results.
+            If the number of results is larger than [pageSize](/docs/managed-kafka/api-ref/User/list#query_params), use the [nextPageToken](/docs/managed-kafka/api-ref/User/list#responses) as the value for the [pageToken](/docs/managed-kafka/api-ref/User/list#query_params) parameter in the next list request.
+            Each subsequent list request will have its own [nextPageToken](/docs/managed-kafka/api-ref/User/list#responses) to continue paging through the results.
           type: string
     LogRecord:
       description: A single log record.
       type: object
       properties:
         timestamp:
-          description: >-
+          description: |-
             Log record timestamp.
 
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-            format.
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
         message:
@@ -2235,7 +1844,8 @@ components:
           description: Description of the monitoring system.
           type: string
         link:
-          description: Link to the monitoring system charts for the Apache Kafka® cluster.
+          description: Link to the monitoring system charts for the Apache Kafka®
+            cluster.
           type: string
     MoveClusterMetadata:
       type: object
@@ -2260,95 +1870,70 @@ components:
             The maximum string length in characters is 50.
           type: string
     Operation:
-      description: >-
-        An Operation resource. For more information, see
-        [Operation](/docs/api-design-guide/concepts/operation).
+      description: An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
       type: object
       allOf:
-        - type: object
-          properties:
-            id:
-              description: ID of the operation.
-              type: string
-            description:
-              description: Description of the operation. 0-256 characters long.
-              type: string
-            createdAt:
-              description: >-
-                Creation timestamp.
+      - type: object
+        properties:
+          id:
+            description: ID of the operation.
+            type: string
+          description:
+            description: Description of the operation. 0-256 characters long.
+            type: string
+          createdAt:
+            description: |-
+              Creation timestamp.
 
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          createdBy:
+            description: ID of the user or service account who initiated the operation.
+            type: string
+          modifiedAt:
+            description: |-
+              The time when the Operation resource was last modified.
 
-                String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-                format.
-              type: string
-              format: date-time
-            createdBy:
-              description: ID of the user or service account who initiated the operation.
-              type: string
-            modifiedAt:
-              description: >-
-                The time when the Operation resource was last modified.
-
-
-                String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-                format.
-              type: string
-              format: date-time
-            done:
-              description: >-
-                If the value is `false`, it means the operation is still in
-                progress.
-
-                If `true`, the operation is completed, and either `error` or
-                `response` is available.
-              type: boolean
-              format: boolean
-            metadata:
-              description: >-
-                Service-specific metadata associated with the operation.
-
-                It typically contains the ID of the target resource that the
-                operation is performed on.
-
-                Any method that returns a long-running operation should document
-                the metadata type, if any.
-              type: object
-        - title: result
-          type: object
-          maxProperties: 1
-          properties:
-            error:
-              $ref: '#/components/schemas/rpcStatus'
-              description: >-
-                The error result of the operation in case of failure or
-                cancellation.
-            response:
-              description: >-
-                The normal response of the operation in case of success.
-
-                If the original method returns no data on success, such as
-                Delete,
-
-                the response is
-                [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty).
-
-                If the original method is the standard Create/Update,
-
-                the response should be the target resource of the operation.
-
-                Any method that returns a long-running operation should document
-                the response type, if any.
-              type: object
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          done:
+            description: |-
+              If the value is `false`, it means the operation is still in progress.
+              If `true`, the operation is completed, and either `error` or `response` is available.
+            type: boolean
+            format: boolean
+          metadata:
+            description: |-
+              Service-specific metadata associated with the operation.
+              It typically contains the ID of the target resource that the operation is performed on.
+              Any method that returns a long-running operation should document the metadata type, if any.
+            type: object
+      - title: result
+        type: object
+        maxProperties: 1
+        properties:
+          error:
+            $ref: '#/components/schemas/rpcStatus'
+            description: The error result of the operation in case of failure or cancellation.
+          response:
+            description: |-
+              The normal response of the operation in case of success.
+              If the original method returns no data on success, such as Delete,
+              the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty).
+              If the original method is the standard Create/Update,
+              the response should be the target resource of the operation.
+              Any method that returns a long-running operation should document the response type, if any.
+            type: object
     Permission:
       type: object
       properties:
         topicName:
-          description: >-
-            Name of the topic that the permission grants access to.
+          description: |-
+            Name or prefix-pattern with wildcard for the topic that the permission grants access to.
 
-
-            To get the topic name, make a
-            [list](/docs/managed-kafka/api-ref/Topic/list) request.
+            To get the topic name, make a [list](/docs/managed-kafka/api-ref/Topic/list) request.
           type: string
         role:
           $ref: '#/components/schemas/PermissionAccessRole_in_Permission_role'
@@ -2356,12 +1941,15 @@ components:
       description: |2-
          - ACCESS_ROLE_PRODUCER: producer role for the user.
          - ACCESS_ROLE_CONSUMER: consumer role for the user.
+         - ACCESS_ROLE_ADMIN: admin role for the user.
       type: string
       enum:
-        - ACCESS_ROLE_PRODUCER
-        - ACCESS_ROLE_CONSUMER
+      - ACCESS_ROLE_PRODUCER
+      - ACCESS_ROLE_CONSUMER
+      - ACCESS_ROLE_ADMIN
     ResourcePreset:
-      description: A ResourcePreset resource for describing hardware configuration presets.
+      description: A ResourcePreset resource for describing hardware configuration
+        presets.
       type: object
       properties:
         id:
@@ -2384,12 +1972,9 @@ components:
       type: object
       properties:
         resourcePresetId:
-          description: >-
-            ID of the preset for computational resources available to a host
-            (CPU, memory, etc.).
-
-            All available presets are listed in the
-            [documentation](/docs/managed-kafka/concepts/instance-types).
+          description: |-
+            ID of the preset for computational resources available to a host (CPU, memory, etc.).
+            All available presets are listed in the [documentation](/docs/managed-kafka/concepts/instance-types).
           type: string
         diskSize:
           description: Volume of the storage available to a host, in bytes.
@@ -2411,8 +1996,7 @@ components:
       type: object
       properties:
         permission:
-          $ref: >-
-            #/components/schemas/Permission_in_RevokeUserPermissionRequest_permission
+          $ref: '#/components/schemas/Permission_in_RevokeUserPermissionRequest_permission'
     StartClusterMetadata:
       type: object
       properties:
@@ -2431,72 +2015,56 @@ components:
         record:
           $ref: '#/components/schemas/LogRecord_in_StreamLogRecord_record'
         nextRecordToken:
-          description: >-
-            This token allows you to continue streaming logs starting from the
-            exact same record.
+          description: |-
+            This token allows you to continue streaming logs starting from the exact same record.
 
+            To continue streaming, specify value of `nextRecordToken` as value for [recordToken](/docs/managed-kafka/api-ref/Cluster/streamLogs#query_params) parameter in the next StreamLogs request.
 
-            To continue streaming, specify value of `nextRecordToken` as value
-            for
-            [recordToken](/docs/managed-kafka/api-ref/Cluster/streamLogs#query_params)
-            parameter in the next StreamLogs request.
-
-
-            This value is interchangeable with
-            [nextPageToken](/docs/managed-kafka/api-ref/Cluster/listLogs#responses)
-            from ListLogs method.
+            This value is interchangeable with [nextPageToken](/docs/managed-kafka/api-ref/Cluster/listLogs#responses) from ListLogs method.
           type: string
     Topic:
-      description: >-
+      description: |-
         An Kafka topic.
-
-        For more information, see the [Concepts → Topics and
-        partitions](/docs/managed-kafka/concepts/topics) section of the
-        documentation.
+        For more information, see the [Concepts -> Topics and partitions](/docs/managed-kafka/concepts/topics) section of the documentation.
       type: object
       allOf:
-        - type: object
-          properties:
-            name:
-              description: Name of the topic.
-              type: string
-            clusterId:
-              description: >-
-                ID of an Apache Kafka® cluster that the topic belongs to.
+      - type: object
+        properties:
+          name:
+            description: Name of the topic.
+            type: string
+          clusterId:
+            description: |-
+              ID of an Apache Kafka® cluster that the topic belongs to.
 
-
-                To get the Apache Kafka® cluster ID, make a
-                [list](/docs/managed-kafka/api-ref/Cluster/list) request.
-              type: string
-            partitions:
-              description: The number of the topic's partitions.
-              type: integer
-              format: int64
-            replicationFactor:
-              description: Amount of data copies (replicas) for the topic in the cluster.
-              type: integer
-              format: int64
-        - title: topic_config
-          type: object
-          maxProperties: 1
-          properties:
-            topicConfig_2_1:
-              $ref: '#/components/schemas/TopicConfig2_1'
-            topicConfig_2_6:
-              $ref: '#/components/schemas/TopicConfig2_6'
+              To get the Apache Kafka® cluster ID, make a [list](/docs/managed-kafka/api-ref/Cluster/list) request.
+            type: string
+          partitions:
+            description: The number of the topic's partitions.
+            type: integer
+            format: int64
+          replicationFactor:
+            description: Amount of data copies (replicas) for the topic in the cluster.
+            type: integer
+            format: int64
+      - title: topic_config
+        type: object
+        maxProperties: 1
+        properties:
+          topicConfig_2_1:
+            $ref: '#/components/schemas/TopicConfig2_1'
+          topicConfig_2_6:
+            $ref: '#/components/schemas/TopicConfig2_6'
     TopicConfig2_1:
       description: A topic settings for 2.1.
       type: object
       properties:
         cleanupPolicy:
-          $ref: >-
-            #/components/schemas/TopicConfig2_1CleanupPolicy_in_TopicConfig2_1_cleanupPolicy
+          $ref: '#/components/schemas/TopicConfig2_1CleanupPolicy_in_TopicConfig2_1_cleanupPolicy'
         compressionType:
-          $ref: >-
-            #/components/schemas/CompressionType_in_TopicConfig2_1_compressionType
+          $ref: '#/components/schemas/CompressionType_in_TopicConfig2_1_compressionType'
         deleteRetentionMs:
-          description: >-
-            The amount of time in milliseconds to retain delete tombstone
+          description: The amount of time in milliseconds to retain delete tombstone
             markers for log compacted topics.
           type: integer
           format: int64
@@ -2505,53 +2073,37 @@ components:
           type: integer
           format: int64
         flushMessages:
-          description: >-
-            The number of messages accumulated on a log partition before
-            messages are flushed to disk.
+          description: |-
+            The number of messages accumulated on a log partition before messages are flushed to disk.
 
-
-            This setting overrides the cluster-level `logFlushIntervalMessages`
-            setting on the topic level.
+            This setting overrides the cluster-level `logFlushIntervalMessages` setting on the topic level.
           type: integer
           format: int64
         flushMs:
-          description: >-
-            The maximum time in milliseconds that a message in the topic is kept
-            in memory before flushed to disk.
+          description: |-
+            The maximum time in milliseconds that a message in the topic is kept in memory before flushed to disk.
 
-
-            This setting overrides the cluster-level `logFlushIntervalMs`
-            setting on the topic level.
+            This setting overrides the cluster-level `logFlushIntervalMs` setting on the topic level.
           type: integer
           format: int64
         minCompactionLagMs:
-          description: >-
-            The minimum time in milliseconds a message will remain uncompacted
+          description: The minimum time in milliseconds a message will remain uncompacted
             in the log.
           type: integer
           format: int64
         retentionBytes:
-          description: >-
-            The maximum size a partition can grow to before Kafka will discard
-            old log segments to free up space if the `delete` `cleanupPolicy` is
-            in effect.
+          description: |-
+            The maximum size a partition can grow to before Kafka will discard old log segments to free up space if the `delete` `cleanupPolicy` is in effect.
+            It is helpful if you need to control the size of log due to limited disk space.
 
-            It is helpful if you need to control the size of log due to limited
-            disk space.
-
-
-            This setting overrides the cluster-level `logRetentionBytes` setting
-            on the topic level.
+            This setting overrides the cluster-level `logRetentionBytes` setting on the topic level.
           type: integer
           format: int64
         retentionMs:
-          description: >-
-            The number of milliseconds to keep a log segment's file before
-            deleting it.
+          description: |-
+            The number of milliseconds to keep a log segment's file before deleting it.
 
-
-            This setting overrides the cluster-level `logRetentionMs` setting on
-            the topic level.
+            This setting overrides the cluster-level `logRetentionMs` setting on the topic level.
           type: integer
           format: int64
         maxMessageBytes:
@@ -2559,34 +2111,24 @@ components:
           type: integer
           format: int64
         minInsyncReplicas:
-          description: >-
-            This configuration specifies the minimum number of replicas that
-            must acknowledge a write to topic for the write
-
+          description: |-
+            This configuration specifies the minimum number of replicas that must acknowledge a write to topic for the write
             to be considered successful (when a producer sets acks to "all").
           type: integer
           format: int64
         segmentBytes:
-          description: >-
-            This configuration controls the segment file size for the log.
-            Retention and cleaning is always done a file
+          description: |-
+            This configuration controls the segment file size for the log. Retention and cleaning is always done a file
+            at a time so a larger segment size means fewer files but less granular control over retention.
 
-            at a time so a larger segment size means fewer files but less
-            granular control over retention.
-
-
-            This setting overrides the cluster-level `logSegmentBytes` setting
-            on the topic level.
+            This setting overrides the cluster-level `logSegmentBytes` setting on the topic level.
           type: integer
           format: int64
         preallocate:
-          description: >-
-            True if we should preallocate the file on disk when creating a new
-            log segment.
+          description: |-
+            True if we should preallocate the file on disk when creating a new log segment.
 
-
-            This setting overrides the cluster-level `logPreallocate` setting on
-            the topic level.
+            This setting overrides the cluster-level `logPreallocate` setting on the topic level.
           type: boolean
           format: boolean
     TopicConfig2_1CleanupPolicy:
@@ -2596,22 +2138,19 @@ components:
          - CLEANUP_POLICY_COMPACT_AND_DELETE: this policy use both compaction and deletion for messages and log segments.
       type: string
       enum:
-        - CLEANUP_POLICY_DELETE
-        - CLEANUP_POLICY_COMPACT
-        - CLEANUP_POLICY_COMPACT_AND_DELETE
+      - CLEANUP_POLICY_DELETE
+      - CLEANUP_POLICY_COMPACT
+      - CLEANUP_POLICY_COMPACT_AND_DELETE
     TopicConfig2_6:
       description: A topic settings for 2.6
       type: object
       properties:
         cleanupPolicy:
-          $ref: >-
-            #/components/schemas/TopicConfig2_6CleanupPolicy_in_TopicConfig2_6_cleanupPolicy
+          $ref: '#/components/schemas/TopicConfig2_6CleanupPolicy_in_TopicConfig2_6_cleanupPolicy'
         compressionType:
-          $ref: >-
-            #/components/schemas/CompressionType_in_TopicConfig2_6_compressionType
+          $ref: '#/components/schemas/CompressionType_in_TopicConfig2_6_compressionType'
         deleteRetentionMs:
-          description: >-
-            The amount of time in milliseconds to retain delete tombstone
+          description: The amount of time in milliseconds to retain delete tombstone
             markers for log compacted topics.
           type: integer
           format: int64
@@ -2620,53 +2159,37 @@ components:
           type: integer
           format: int64
         flushMessages:
-          description: >-
-            The number of messages accumulated on a log partition before
-            messages are flushed to disk.
+          description: |-
+            The number of messages accumulated on a log partition before messages are flushed to disk.
 
-
-            This setting overrides the cluster-level `logFlushIntervalMessages`
-            setting on the topic level.
+            This setting overrides the cluster-level `logFlushIntervalMessages` setting on the topic level.
           type: integer
           format: int64
         flushMs:
-          description: >-
-            The maximum time in milliseconds that a message in the topic is kept
-            in memory before flushed to disk.
+          description: |-
+            The maximum time in milliseconds that a message in the topic is kept in memory before flushed to disk.
 
-
-            This setting overrides the cluster-level `logFlushIntervalMs`
-            setting on the topic level.
+            This setting overrides the cluster-level `logFlushIntervalMs` setting on the topic level.
           type: integer
           format: int64
         minCompactionLagMs:
-          description: >-
-            The minimum time in milliseconds a message will remain uncompacted
+          description: The minimum time in milliseconds a message will remain uncompacted
             in the log.
           type: integer
           format: int64
         retentionBytes:
-          description: >-
-            The maximum size a partition can grow to before Kafka will discard
-            old log segments to free up space if the `delete` `cleanupPolicy` is
-            in effect.
+          description: |-
+            The maximum size a partition can grow to before Kafka will discard old log segments to free up space if the `delete` `cleanupPolicy` is in effect.
+            It is helpful if you need to control the size of log due to limited disk space.
 
-            It is helpful if you need to control the size of log due to limited
-            disk space.
-
-
-            This setting overrides the cluster-level `logRetentionBytes` setting
-            on the topic level.
+            This setting overrides the cluster-level `logRetentionBytes` setting on the topic level.
           type: integer
           format: int64
         retentionMs:
-          description: >-
-            The number of milliseconds to keep a log segment's file before
-            deleting it.
+          description: |-
+            The number of milliseconds to keep a log segment's file before deleting it.
 
-
-            This setting overrides the cluster-level `logRetentionMs` setting on
-            the topic level.
+            This setting overrides the cluster-level `logRetentionMs` setting on the topic level.
           type: integer
           format: int64
         maxMessageBytes:
@@ -2674,34 +2197,24 @@ components:
           type: integer
           format: int64
         minInsyncReplicas:
-          description: >-
-            This configuration specifies the minimum number of replicas that
-            must acknowledge a write to topic for the write
-
+          description: |-
+            This configuration specifies the minimum number of replicas that must acknowledge a write to topic for the write
             to be considered successful (when a producer sets acks to "all").
           type: integer
           format: int64
         segmentBytes:
-          description: >-
-            This configuration controls the segment file size for the log.
-            Retention and cleaning is always done a file
+          description: |-
+            This configuration controls the segment file size for the log. Retention and cleaning is always done a file
+            at a time so a larger segment size means fewer files but less granular control over retention.
 
-            at a time so a larger segment size means fewer files but less
-            granular control over retention.
-
-
-            This setting overrides the cluster-level `logSegmentBytes` setting
-            on the topic level.
+            This setting overrides the cluster-level `logSegmentBytes` setting on the topic level.
           type: integer
           format: int64
         preallocate:
-          description: >-
-            True if we should preallocate the file on disk when creating a new
-            log segment.
+          description: |-
+            True if we should preallocate the file on disk when creating a new log segment.
 
-
-            This setting overrides the cluster-level `logPreallocate` setting on
-            the topic level.
+            This setting overrides the cluster-level `logPreallocate` setting on the topic level.
           type: boolean
           format: boolean
     TopicConfig2_6CleanupPolicy:
@@ -2711,33 +2224,33 @@ components:
          - CLEANUP_POLICY_COMPACT_AND_DELETE: this policy use both compaction and deletion for messages and log segments.
       type: string
       enum:
-        - CLEANUP_POLICY_DELETE
-        - CLEANUP_POLICY_COMPACT
-        - CLEANUP_POLICY_COMPACT_AND_DELETE
+      - CLEANUP_POLICY_DELETE
+      - CLEANUP_POLICY_COMPACT
+      - CLEANUP_POLICY_COMPACT_AND_DELETE
     TopicSpec:
       type: object
       allOf:
-        - type: object
-          properties:
-            name:
-              description: Name of the topic.
-              type: string
-            partitions:
-              description: The number of the topic's partitions.
-              type: integer
-              format: int64
-            replicationFactor:
-              description: Amount of copies of a topic data kept in the cluster.
-              type: integer
-              format: int64
-        - title: topic_config
-          type: object
-          maxProperties: 1
-          properties:
-            topicConfig_2_1:
-              $ref: '#/components/schemas/TopicConfig2_1'
-            topicConfig_2_6:
-              $ref: '#/components/schemas/TopicConfig2_6'
+      - type: object
+        properties:
+          name:
+            description: Name of the topic.
+            type: string
+          partitions:
+            description: The number of the topic's partitions.
+            type: integer
+            format: int64
+          replicationFactor:
+            description: Amount of copies of a topic data kept in the cluster.
+            type: integer
+            format: int64
+      - title: topic_config
+        type: object
+        maxProperties: 1
+        properties:
+          topicConfig_2_1:
+            $ref: '#/components/schemas/TopicConfig2_1'
+          topicConfig_2_6:
+            $ref: '#/components/schemas/TopicConfig2_6'
     UpdateClusterMetadata:
       type: object
       properties:
@@ -2756,29 +2269,18 @@ components:
             The maximum string length in characters is 256.
           type: string
         labels:
-          description: >-
+          description: |-
             Custom labels for the Apache Kafka® cluster as `key:value` pairs.
-
 
             For example, "project": "mvp" or "source": "dictionary".
 
-
             The new set of labels will completely replace the old ones.
-
-            To add a label, request the current set with the
-            [get](/docs/managed-kafka/api-ref/Cluster/get) method, then send an
-            [update](/docs/managed-kafka/api-ref/Cluster/update) request with
-            the new label added to the set.
-
+            To add a label, request the current set with the [get](/docs/managed-kafka/api-ref/Cluster/get) method, then send an [update](/docs/managed-kafka/api-ref/Cluster/update) request with the new label added to the set.
 
             No more than 64 per resource.
-
             The string length in characters for each key must be 1-63.
-
             Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
-
             The maximum string length in characters for each value is 63.
-
             Each value must match the regular expression `` [-_0-9a-z]* ``.
           type: object
           additionalProperties:
@@ -2839,24 +2341,19 @@ components:
           items:
             $ref: '#/components/schemas/Permission'
     User:
-      description: >-
+      description: |-
         A Kafka user.
-
-        For more information, see the [Operations →
-        Accounts](/docs/managed-kafka/operations/cluster-accounts) section of
-        the documentation.
+        For more information, see the [Operations -> Accounts](/docs/managed-kafka/operations/cluster-accounts) section of the documentation.
       type: object
       properties:
         name:
           description: Name of the Kafka user.
           type: string
         clusterId:
-          description: >-
+          description: |-
             ID of the Apache Kafka® cluster the user belongs to.
 
-
-            To get the Apache Kafka® cluster ID, make a
-            [list](/docs/managed-kafka/api-ref/Cluster/list) request.
+            To get the Apache Kafka® cluster ID, make a [list](/docs/managed-kafka/api-ref/Cluster/list) request.
           type: string
         permissions:
           description: Set of permissions granted to this user.
@@ -2891,9 +2388,7 @@ components:
       type: object
       properties:
         code:
-          description: >-
-            Error code. An enum value of
-            [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
+          description: Error code. An enum value of [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
           type: integer
           format: int32
         message:
@@ -2912,16 +2407,15 @@ components:
          - PRESTABLE: environment with a more aggressive update policy when new versions are rolled out irrespective of backward compatibility.
       type: string
       enum:
-        - PRODUCTION
-        - PRESTABLE
+      - PRODUCTION
+      - PRESTABLE
     ConfigSpec_in_Cluster_config:
       description: Configuration of the Apache Kafka® cluster.
       type: object
       properties:
         version:
-          description: >-
-            Version of Apache Kafka® used in the cluster. Possible values:
-            `2.1`, `2.6`.
+          description: 'Version of Apache Kafka® used in the cluster. Possible values:
+            `2.1`, `2.6`.'
           type: string
         kafka:
           $ref: '#/components/schemas/ConfigSpecKafka_in_ConfigSpec_kafka'
@@ -2937,12 +2431,13 @@ components:
           type: integer
           format: int64
         assignPublicIp:
-          description: >-
-            The flag that defines whether a public IP address is assigned to the
-            cluster.
-
-            If the value is `true`, then Apache Kafka® cluster is available on
-            the Internet via it's public IP address.
+          description: |-
+            The flag that defines whether a public IP address is assigned to the cluster.
+            If the value is `true`, then Apache Kafka® cluster is available on the Internet via it's public IP address.
+          type: boolean
+          format: boolean
+        unmanagedTopics:
+          description: Allows to manage topics via AdminAPI
           type: boolean
           format: boolean
     ClusterHealth_in_Cluster_health:
@@ -2955,10 +2450,10 @@ components:
          - DEGRADED: cluster is in degraded state (`health` of at least one of the hosts in the cluster is not `ALIVE`).
       type: string
       enum:
-        - HEALTH_UNKNOWN
-        - ALIVE
-        - DEAD
-        - DEGRADED
+      - HEALTH_UNKNOWN
+      - ALIVE
+      - DEAD
+      - DEGRADED
       default: HEALTH_UNKNOWN
     ClusterStatus_in_Cluster_status:
       description: |-
@@ -2974,32 +2469,32 @@ components:
          - STARTING: cluster is starting.
       type: string
       enum:
-        - STATUS_UNKNOWN
-        - CREATING
-        - RUNNING
-        - ERROR
-        - UPDATING
-        - STOPPING
-        - STOPPED
-        - STARTING
+      - STATUS_UNKNOWN
+      - CREATING
+      - RUNNING
+      - ERROR
+      - UPDATING
+      - STOPPING
+      - STOPPED
+      - STARTING
       default: STATUS_UNKNOWN
     ConfigSpecKafka_in_ConfigSpec_kafka:
       description: Configuration and resource allocation for Kafka brokers.
       type: object
       allOf:
-        - type: object
-          properties:
-            resources:
-              $ref: '#/components/schemas/Resources'
-              description: Resources allocated to Kafka brokers.
-        - title: kafka_config
-          type: object
-          maxProperties: 1
-          properties:
-            kafkaConfig_2_1:
-              $ref: '#/components/schemas/KafkaConfig2_1'
-            kafkaConfig_2_6:
-              $ref: '#/components/schemas/KafkaConfig2_6'
+      - type: object
+        properties:
+          resources:
+            $ref: '#/components/schemas/Resources'
+            description: Resources allocated to Kafka brokers.
+      - title: kafka_config
+        type: object
+        maxProperties: 1
+        properties:
+          kafkaConfig_2_1:
+            $ref: '#/components/schemas/KafkaConfig2_1'
+          kafkaConfig_2_6:
+            $ref: '#/components/schemas/KafkaConfig2_6'
     ConfigSpecZookeeper_in_ConfigSpec_zookeeper:
       description: Configuration and resource allocation for ZooKeeper hosts.
       type: object
@@ -3011,12 +2506,9 @@ components:
       type: object
       properties:
         resourcePresetId:
-          description: >-
-            ID of the preset for computational resources available to a host
-            (CPU, memory, etc.).
-
-            All available presets are listed in the
-            [documentation](/docs/managed-kafka/concepts/instance-types).
+          description: |-
+            ID of the preset for computational resources available to a host (CPU, memory, etc.).
+            All available presets are listed in the [documentation](/docs/managed-kafka/concepts/instance-types).
           type: string
         diskSize:
           description: Volume of the storage available to a host, in bytes.
@@ -3033,16 +2525,15 @@ components:
          - PRESTABLE: environment with a more aggressive update policy when new versions are rolled out irrespective of backward compatibility.
       type: string
       enum:
-        - PRODUCTION
-        - PRESTABLE
+      - PRODUCTION
+      - PRESTABLE
     ConfigSpec_in_CreateClusterRequest_configSpec:
       description: Kafka and hosts configuration the Apache Kafka® cluster.
       type: object
       properties:
         version:
-          description: >-
-            Version of Apache Kafka® used in the cluster. Possible values:
-            `2.1`, `2.6`.
+          description: 'Version of Apache Kafka® used in the cluster. Possible values:
+            `2.1`, `2.6`.'
           type: string
         kafka:
           $ref: '#/components/schemas/ConfigSpecKafka_in_ConfigSpec_kafka'
@@ -3058,12 +2549,13 @@ components:
           type: integer
           format: int64
         assignPublicIp:
-          description: >-
-            The flag that defines whether a public IP address is assigned to the
-            cluster.
-
-            If the value is `true`, then Apache Kafka® cluster is available on
-            the Internet via it's public IP address.
+          description: |-
+            The flag that defines whether a public IP address is assigned to the cluster.
+            If the value is `true`, then Apache Kafka® cluster is available on the Internet via it's public IP address.
+          type: boolean
+          format: boolean
+        unmanagedTopics:
+          description: Allows to manage topics via AdminAPI
           type: boolean
           format: boolean
     TopicSpec_in_CreateTopicRequest_topicSpec:
@@ -3072,27 +2564,27 @@ components:
         Configuration of the topic to create.
       type: object
       allOf:
-        - type: object
-          properties:
-            name:
-              description: Name of the topic.
-              type: string
-            partitions:
-              description: The number of the topic's partitions.
-              type: integer
-              format: int64
-            replicationFactor:
-              description: Amount of copies of a topic data kept in the cluster.
-              type: integer
-              format: int64
-        - title: topic_config
-          type: object
-          maxProperties: 1
-          properties:
-            topicConfig_2_1:
-              $ref: '#/components/schemas/TopicConfig2_1'
-            topicConfig_2_6:
-              $ref: '#/components/schemas/TopicConfig2_6'
+      - type: object
+        properties:
+          name:
+            description: Name of the topic.
+            type: string
+          partitions:
+            description: The number of the topic's partitions.
+            type: integer
+            format: int64
+          replicationFactor:
+            description: Amount of copies of a topic data kept in the cluster.
+            type: integer
+            format: int64
+      - title: topic_config
+        type: object
+        maxProperties: 1
+        properties:
+          topicConfig_2_1:
+            $ref: '#/components/schemas/TopicConfig2_1'
+          topicConfig_2_6:
+            $ref: '#/components/schemas/TopicConfig2_6'
     UserSpec_in_CreateUserRequest_userSpec:
       description: |-
         Required.
@@ -3126,12 +2618,10 @@ components:
       type: object
       properties:
         topicName:
-          description: >-
-            Name of the topic that the permission grants access to.
+          description: |-
+            Name or prefix-pattern with wildcard for the topic that the permission grants access to.
 
-
-            To get the topic name, make a
-            [list](/docs/managed-kafka/api-ref/Topic/list) request.
+            To get the topic name, make a [list](/docs/managed-kafka/api-ref/Topic/list) request.
           type: string
         role:
           $ref: '#/components/schemas/PermissionAccessRole_in_Permission_role'
@@ -3143,19 +2633,16 @@ components:
          - ZOOKEEPER: the host is a ZooKeeper server.
       type: string
       enum:
-        - KAFKA
-        - ZOOKEEPER
+      - KAFKA
+      - ZOOKEEPER
     Resources_in_Host_resources:
       description: Computational resources allocated to the host.
       type: object
       properties:
         resourcePresetId:
-          description: >-
-            ID of the preset for computational resources available to a host
-            (CPU, memory, etc.).
-
-            All available presets are listed in the
-            [documentation](/docs/managed-kafka/concepts/instance-types).
+          description: |-
+            ID of the preset for computational resources available to a host (CPU, memory, etc.).
+            All available presets are listed in the [documentation](/docs/managed-kafka/concepts/instance-types).
           type: string
         diskSize:
           description: Volume of the storage available to a host, in bytes.
@@ -3174,14 +2661,14 @@ components:
          - DEGRADED: the host is degraded and can perform only some of its essential functions.
       type: string
       enum:
-        - UNKNOWN
-        - ALIVE
-        - DEAD
-        - DEGRADED
+      - UNKNOWN
+      - ALIVE
+      - DEAD
+      - DEGRADED
       default: UNKNOWN
     CompressionType_in_KafkaConfig2_1_compressionType:
       description: |-
-        Сluster topics compression type.
+        Cluster topics compression type.
 
          - COMPRESSION_TYPE_UNCOMPRESSED: no codec (uncompressed).
          - COMPRESSION_TYPE_ZSTD: Zstandard codec.
@@ -3191,15 +2678,15 @@ components:
          - COMPRESSION_TYPE_PRODUCER: the codec to use is set by a producer (can be any of `ZSTD`, `LZ4`, `GZIP` or `SNAPPY` codecs).
       type: string
       enum:
-        - COMPRESSION_TYPE_UNCOMPRESSED
-        - COMPRESSION_TYPE_ZSTD
-        - COMPRESSION_TYPE_LZ4
-        - COMPRESSION_TYPE_SNAPPY
-        - COMPRESSION_TYPE_GZIP
-        - COMPRESSION_TYPE_PRODUCER
+      - COMPRESSION_TYPE_UNCOMPRESSED
+      - COMPRESSION_TYPE_ZSTD
+      - COMPRESSION_TYPE_LZ4
+      - COMPRESSION_TYPE_SNAPPY
+      - COMPRESSION_TYPE_GZIP
+      - COMPRESSION_TYPE_PRODUCER
     CompressionType_in_KafkaConfig2_6_compressionType:
       description: |-
-        Сluster topics compression type.
+        Cluster topics compression type.
 
          - COMPRESSION_TYPE_UNCOMPRESSED: no codec (uncompressed).
          - COMPRESSION_TYPE_ZSTD: Zstandard codec.
@@ -3209,22 +2696,24 @@ components:
          - COMPRESSION_TYPE_PRODUCER: the codec to use is set by a producer (can be any of `ZSTD`, `LZ4`, `GZIP` or `SNAPPY` codecs).
       type: string
       enum:
-        - COMPRESSION_TYPE_UNCOMPRESSED
-        - COMPRESSION_TYPE_ZSTD
-        - COMPRESSION_TYPE_LZ4
-        - COMPRESSION_TYPE_SNAPPY
-        - COMPRESSION_TYPE_GZIP
-        - COMPRESSION_TYPE_PRODUCER
+      - COMPRESSION_TYPE_UNCOMPRESSED
+      - COMPRESSION_TYPE_ZSTD
+      - COMPRESSION_TYPE_LZ4
+      - COMPRESSION_TYPE_SNAPPY
+      - COMPRESSION_TYPE_GZIP
+      - COMPRESSION_TYPE_PRODUCER
     PermissionAccessRole_in_Permission_role:
       description: |-
         Access role type to grant to the user.
 
          - ACCESS_ROLE_PRODUCER: producer role for the user.
          - ACCESS_ROLE_CONSUMER: consumer role for the user.
+         - ACCESS_ROLE_ADMIN: admin role for the user.
       type: string
       enum:
-        - ACCESS_ROLE_PRODUCER
-        - ACCESS_ROLE_CONSUMER
+      - ACCESS_ROLE_PRODUCER
+      - ACCESS_ROLE_CONSUMER
+      - ACCESS_ROLE_ADMIN
     Permission_in_RevokeUserPermissionRequest_permission:
       description: |-
         Required.
@@ -3232,12 +2721,10 @@ components:
       type: object
       properties:
         topicName:
-          description: >-
-            Name of the topic that the permission grants access to.
+          description: |-
+            Name or prefix-pattern with wildcard for the topic that the permission grants access to.
 
-
-            To get the topic name, make a
-            [list](/docs/managed-kafka/api-ref/Topic/list) request.
+            To get the topic name, make a [list](/docs/managed-kafka/api-ref/Topic/list) request.
           type: string
         role:
           $ref: '#/components/schemas/PermissionAccessRole_in_Permission_role'
@@ -3249,12 +2736,10 @@ components:
       type: object
       properties:
         timestamp:
-          description: >-
+          description: |-
             Log record timestamp.
 
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-            format.
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
         message:
@@ -3271,9 +2756,9 @@ components:
          - CLEANUP_POLICY_COMPACT_AND_DELETE: this policy use both compaction and deletion for messages and log segments.
       type: string
       enum:
-        - CLEANUP_POLICY_DELETE
-        - CLEANUP_POLICY_COMPACT
-        - CLEANUP_POLICY_COMPACT_AND_DELETE
+      - CLEANUP_POLICY_DELETE
+      - CLEANUP_POLICY_COMPACT
+      - CLEANUP_POLICY_COMPACT_AND_DELETE
     CompressionType_in_TopicConfig2_1_compressionType:
       description: |-
         The compression type for a given topic.
@@ -3286,12 +2771,12 @@ components:
          - COMPRESSION_TYPE_PRODUCER: the codec to use is set by a producer (can be any of `ZSTD`, `LZ4`, `GZIP` or `SNAPPY` codecs).
       type: string
       enum:
-        - COMPRESSION_TYPE_UNCOMPRESSED
-        - COMPRESSION_TYPE_ZSTD
-        - COMPRESSION_TYPE_LZ4
-        - COMPRESSION_TYPE_SNAPPY
-        - COMPRESSION_TYPE_GZIP
-        - COMPRESSION_TYPE_PRODUCER
+      - COMPRESSION_TYPE_UNCOMPRESSED
+      - COMPRESSION_TYPE_ZSTD
+      - COMPRESSION_TYPE_LZ4
+      - COMPRESSION_TYPE_SNAPPY
+      - COMPRESSION_TYPE_GZIP
+      - COMPRESSION_TYPE_PRODUCER
     TopicConfig2_6CleanupPolicy_in_TopicConfig2_6_cleanupPolicy:
       description: |-
         Retention policy to use on old log messages.
@@ -3301,9 +2786,9 @@ components:
          - CLEANUP_POLICY_COMPACT_AND_DELETE: this policy use both compaction and deletion for messages and log segments.
       type: string
       enum:
-        - CLEANUP_POLICY_DELETE
-        - CLEANUP_POLICY_COMPACT
-        - CLEANUP_POLICY_COMPACT_AND_DELETE
+      - CLEANUP_POLICY_DELETE
+      - CLEANUP_POLICY_COMPACT
+      - CLEANUP_POLICY_COMPACT_AND_DELETE
     CompressionType_in_TopicConfig2_6_compressionType:
       description: |-
         The compression type for a given topic.
@@ -3316,48 +2801,33 @@ components:
          - COMPRESSION_TYPE_PRODUCER: the codec to use is set by a producer (can be any of `ZSTD`, `LZ4`, `GZIP` or `SNAPPY` codecs).
       type: string
       enum:
-        - COMPRESSION_TYPE_UNCOMPRESSED
-        - COMPRESSION_TYPE_ZSTD
-        - COMPRESSION_TYPE_LZ4
-        - COMPRESSION_TYPE_SNAPPY
-        - COMPRESSION_TYPE_GZIP
-        - COMPRESSION_TYPE_PRODUCER
+      - COMPRESSION_TYPE_UNCOMPRESSED
+      - COMPRESSION_TYPE_ZSTD
+      - COMPRESSION_TYPE_LZ4
+      - COMPRESSION_TYPE_SNAPPY
+      - COMPRESSION_TYPE_GZIP
+      - COMPRESSION_TYPE_PRODUCER
     FieldMask_in_UpdateClusterRequest_updateMask:
-      description: >-
+      description: |-
         A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
 
-        Оnly the specified fields will be changed. The others will be left
-        untouched.
-
-        If the field is specified in `` updateMask `` and no value for that
-        field was sent in the request,
-
-        the field's value will be reset to the default. The default value for
-        most fields is null or 0.
-
-
-        If `` updateMask `` is not sent in the request, all fields' values will
-        be updated.
-
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
         Fields specified in the request will be updated to provided values.
-
         The rest of the fields will be reset to the default.
       type: string
     ConfigSpec_in_UpdateClusterRequest_configSpec:
-      description: >-
+      description: |-
         New configuration and resources for hosts in the Apache Kafka® cluster.
 
-
-        Use [updateMask](/docs/managed-kafka/api-ref/Cluster/update#body_params)
-        to prevent reverting all cluster settings that are not listed in
-        [configSpec](/docs/managed-kafka/api-ref/Cluster/update#body_params) to
-        their default values.
+        Use [updateMask](/docs/managed-kafka/api-ref/Cluster/update#body_params) to prevent reverting all cluster settings that are not listed in [configSpec](/docs/managed-kafka/api-ref/Cluster/update#body_params) to their default values.
       type: object
       properties:
         version:
-          description: >-
-            Version of Apache Kafka® used in the cluster. Possible values:
-            `2.1`, `2.6`.
+          description: 'Version of Apache Kafka® used in the cluster. Possible values:
+            `2.1`, `2.6`.'
           type: string
         kafka:
           $ref: '#/components/schemas/ConfigSpecKafka_in_ConfigSpec_kafka'
@@ -3373,94 +2843,71 @@ components:
           type: integer
           format: int64
         assignPublicIp:
-          description: >-
-            The flag that defines whether a public IP address is assigned to the
-            cluster.
-
-            If the value is `true`, then Apache Kafka® cluster is available on
-            the Internet via it's public IP address.
+          description: |-
+            The flag that defines whether a public IP address is assigned to the cluster.
+            If the value is `true`, then Apache Kafka® cluster is available on the Internet via it's public IP address.
+          type: boolean
+          format: boolean
+        unmanagedTopics:
+          description: Allows to manage topics via AdminAPI
           type: boolean
           format: boolean
     FieldMask_in_UpdateTopicRequest_updateMask:
-      description: >-
+      description: |-
         A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
 
-        Оnly the specified fields will be changed. The others will be left
-        untouched.
-
-        If the field is specified in `` updateMask `` and no value for that
-        field was sent in the request,
-
-        the field's value will be reset to the default. The default value for
-        most fields is null or 0.
-
-
-        If `` updateMask `` is not sent in the request, all fields' values will
-        be updated.
-
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
         Fields specified in the request will be updated to provided values.
-
         The rest of the fields will be reset to the default.
       type: string
     TopicSpec_in_UpdateTopicRequest_topicSpec:
-      description: >-
+      description: |-
         New configuration of the topic.
 
-
-        Use [updateMask](/docs/managed-kafka/api-ref/Topic/update#body_params)
-        to prevent reverting all topic settings that are not listed in
-        [topicSpec](/docs/managed-kafka/api-ref/Topic/update#body_params) to
-        their default values.
+        Use [updateMask](/docs/managed-kafka/api-ref/Topic/update#body_params) to prevent reverting all topic settings that are not listed in [topicSpec](/docs/managed-kafka/api-ref/Topic/update#body_params) to their default values.
       type: object
       allOf:
-        - type: object
-          properties:
-            name:
-              description: Name of the topic.
-              type: string
-            partitions:
-              description: The number of the topic's partitions.
-              type: integer
-              format: int64
-            replicationFactor:
-              description: Amount of copies of a topic data kept in the cluster.
-              type: integer
-              format: int64
-        - title: topic_config
-          type: object
-          maxProperties: 1
-          properties:
-            topicConfig_2_1:
-              $ref: '#/components/schemas/TopicConfig2_1'
-            topicConfig_2_6:
-              $ref: '#/components/schemas/TopicConfig2_6'
+      - type: object
+        properties:
+          name:
+            description: Name of the topic.
+            type: string
+          partitions:
+            description: The number of the topic's partitions.
+            type: integer
+            format: int64
+          replicationFactor:
+            description: Amount of copies of a topic data kept in the cluster.
+            type: integer
+            format: int64
+      - title: topic_config
+        type: object
+        maxProperties: 1
+        properties:
+          topicConfig_2_1:
+            $ref: '#/components/schemas/TopicConfig2_1'
+          topicConfig_2_6:
+            $ref: '#/components/schemas/TopicConfig2_6'
     FieldMask_in_UpdateUserRequest_updateMask:
-      description: >-
+      description: |-
         A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
 
-        Оnly the specified fields will be changed. The others will be left
-        untouched.
-
-        If the field is specified in `` updateMask `` and no value for that
-        field was sent in the request,
-
-        the field's value will be reset to the default. The default value for
-        most fields is null or 0.
-
-
-        If `` updateMask `` is not sent in the request, all fields' values will
-        be updated.
-
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
         Fields specified in the request will be updated to provided values.
-
         The rest of the fields will be reset to the default.
       type: string
 tags:
-  - name: Cluster
-    description: A set of methods for managing Apache Kafka® clusters.
-  - name: ResourcePreset
-    description: A set of methods for managing Kafka resource presets.
-  - name: Topic
-    description: A set of methods for managing Kafka topics.
-  - name: User
-    description: A set of methods for managing Kafka users.
+- name: Cluster
+  description: A set of methods for managing Apache Kafka® clusters.
+- name: ResourcePreset
+  description: A set of methods for managing Kafka resource presets.
+- name: Topic
+  description: A set of methods for managing Kafka topics.
+- name: User
+  description: A set of methods for managing Kafka users.

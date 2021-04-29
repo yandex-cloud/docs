@@ -1,11 +1,9 @@
-openapi: '3.0'
+openapi: "3.0"
 info:
   title: Yandex.Cloud Monitoring API
-  description: >-
-    This API reference is organized by resource. Actions are performed by
-    sending HTTP requests to resource URLs or making RPC calls. For more
-    information about Yandex.Cloud API architecture, see [API
-    Concepts](/docs/api-design-guide/).
+  description: This API reference is organized by resource. Actions are performed
+    by sending HTTP requests to resource URLs or making RPC calls. For more information
+    about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
   version: v2
   x-y-docUri: api-ref
   x-y-baseUrl: https://monitoring.api.cloud.yandex.net
@@ -13,45 +11,41 @@ paths:
   /monitoring/v2/metrics:
     get:
       tags:
-        - MetricsMeta
+      - MetricsMeta
       summary: Retrieves the list of metrics.
       operationId: MetricsMetaListMetrics
       parameters:
-        - name: folderId
-          in: query
-          description: |-
-            Required.
-            ID of the folder that the metric belongs to.
+      - name: folderId
+        in: query
+        description: |-
+          Required.
+          ID of the folder that the metric belongs to.
 
-            The maximum string length in characters is 50.
-          schema:
-            type: string
-        - name: selectors
-          in: query
-          description: Metric selectors.
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: |-
-            Maximum number of metrics in response.
-            0 means default page size = 30, maximum page size = 10000.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Page token. To get the next page of results, set
-            [pageToken](/docs/monitoring/api-ref/MetricsMeta/listMetrics#query_params)
-            to the
-
-            [nextPageToken](/docs/monitoring/api-ref/MetricsMeta/listMetrics#responses)
-            returned by a previous list request.
-          schema:
-            type: string
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      - name: selectors
+        in: query
+        description: Metric selectors.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Maximum number of metrics in response.
+          0 means default page size = 30, maximum page size = 10000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/monitoring/api-ref/MetricsMeta/listMetrics#query_params) to the
+          [nextPageToken](/docs/monitoring/api-ref/MetricsMeta/listMetrics#responses) returned by a previous list request.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -61,50 +55,46 @@ paths:
   /monitoring/v2/metrics/names:
     get:
       tags:
-        - MetricsMeta
+      - MetricsMeta
       summary: Retrieves the list of metric names.
       operationId: MetricsMetaListMetricNames
       parameters:
-        - name: folderId
-          in: query
-          description: |-
-            Required.
-            ID of the folder that the metric belongs to.
+      - name: folderId
+        in: query
+        description: |-
+          Required.
+          ID of the folder that the metric belongs to.
 
-            The maximum string length in characters is 50.
-          schema:
-            type: string
-        - name: selectors
-          in: query
-          description: Metric selectors.
-          schema:
-            type: string
-        - name: nameFilter
-          in: query
-          description: Substring name filter text.
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: |-
-            Maximum number of metrics in response.
-            0 means default page size = 30, maximum page size = 10000.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Page token. To get the next page of results, set
-            [pageToken](/docs/monitoring/api-ref/MetricsMeta/listMetricNames#query_params)
-            to the
-
-            [nextPageToken](/docs/monitoring/api-ref/MetricsMeta/listMetrics#responses)
-            returned by a previous list request.
-          schema:
-            type: string
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      - name: selectors
+        in: query
+        description: Metric selectors.
+        schema:
+          type: string
+      - name: nameFilter
+        in: query
+        description: Substring name filter text.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Maximum number of metrics in response.
+          0 means default page size = 30, maximum page size = 10000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/monitoring/api-ref/MetricsMeta/listMetricNames#query_params) to the
+          [nextPageToken](/docs/monitoring/api-ref/MetricsMeta/listMetrics#responses) returned by a previous list request.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -114,26 +104,26 @@ paths:
   /monitoring/v2/metrics/labels:
     get:
       tags:
-        - MetricsMeta
+      - MetricsMeta
       summary: Retrieves the list of label keys.
       operationId: MetricsMetaListLabelKeys
       parameters:
-        - name: folderId
-          in: query
-          description: |-
-            Required.
-            ID of the folder that the metric belongs to.
+      - name: folderId
+        in: query
+        description: |-
+          Required.
+          ID of the folder that the metric belongs to.
 
-            The maximum string length in characters is 50.
-          schema:
-            type: string
-        - name: selectors
-          in: query
-          description: Metric selectors.
-          schema:
-            type: string
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      - name: selectors
+        in: query
+        description: Metric selectors.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -143,58 +133,54 @@ paths:
   /monitoring/v2/metrics/labels/{labelKey}/values:
     get:
       tags:
-        - MetricsMeta
+      - MetricsMeta
       summary: Retries the list of values for a given label key.
       operationId: MetricsMetaListLabelValues
       parameters:
-        - name: labelKey
-          in: path
-          description: |-
-            Required.
-            For which label key perform values lookup.
-          required: true
-          schema:
-            type: string
-        - name: folderId
-          in: query
-          description: |-
-            Required.
-            ID of the folder that the metric belongs to.
+      - name: labelKey
+        in: path
+        description: |-
+          Required.
+          For which label key perform values lookup.
+        required: true
+        schema:
+          type: string
+      - name: folderId
+        in: query
+        description: |-
+          Required.
+          ID of the folder that the metric belongs to.
 
-            The maximum string length in characters is 50.
-          schema:
-            type: string
-        - name: selectors
-          in: query
-          description: Metric selectors.
-          schema:
-            type: string
-        - name: valueFilter
-          in: query
-          description: Substring value filter text.
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: |-
-            Maximum number of metrics in response.
-            0 means default page size = 30, maximum page size = 10000.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Page token. To get the next page of results, set
-            [pageToken](/docs/monitoring/api-ref/MetricsMeta/listLabelValues#query_params)
-            to the
-
-            [nextPageToken](/docs/monitoring/api-ref/MetricsMeta/listMetrics#responses)
-            returned by a previous list request.
-          schema:
-            type: string
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      - name: selectors
+        in: query
+        description: Metric selectors.
+        schema:
+          type: string
+      - name: valueFilter
+        in: query
+        description: Substring value filter text.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Maximum number of metrics in response.
+          0 means default page size = 30, maximum page size = 10000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/monitoring/api-ref/MetricsMeta/listLabelValues#query_params) to the
+          [nextPageToken](/docs/monitoring/api-ref/MetricsMeta/listMetrics#responses) returned by a previous list request.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -212,27 +198,19 @@ components:
             Query text.
           type: string
         fromTime:
-          description: >-
+          description: |-
             Required.
+            The beginning of the time interval, in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
 
-            The beginning of the time interval, in
-            [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
-
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-            format.
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
         toTime:
-          description: >-
+          description: |-
             Required.
+            The end of the time interval, in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
 
-            The end of the time interval, in
-            [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
-
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-            format.
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
         downsampling:
@@ -241,40 +219,37 @@ components:
       description: List of available aggregate functions for downsampling.
       type: object
       allOf:
-        - type: object
-          properties:
-            gridAggregation:
-              $ref: '#/components/schemas/GridAggregation'
-              description: Function that is used for downsampling.
-            gapFilling:
-              $ref: '#/components/schemas/GapFilling'
-              description: Parameters for filling gaps in data.
-        - title: mode
-          type: object
-          maxProperties: 1
-          properties:
-            maxPoints:
-              description: |-
-                Maximum number of points to be returned.
+      - type: object
+        properties:
+          gridAggregation:
+            $ref: '#/components/schemas/GridAggregation'
+            description: Function that is used for downsampling.
+          gapFilling:
+            $ref: '#/components/schemas/GapFilling'
+            description: Parameters for filling gaps in data.
+      - title: mode
+        type: object
+        maxProperties: 1
+        properties:
+          maxPoints:
+            description: |-
+              Maximum number of points to be returned.
 
-                Value must be greater than 10.
-              type: string
-              format: int64
-            gridInterval:
-              description: >-
-                Time interval (grid) for downsampling in milliseconds.
+              Value must be greater than 10.
+            type: string
+            format: int64
+          gridInterval:
+            description: |-
+              Time interval (grid) for downsampling in milliseconds.
+              Points in the specified range are aggregated into one time point.
 
-                Points in the specified range are aggregated into one time
-                point.
-
-
-                Value must be greater than 0.
-              type: string
-              format: int64
-            disabled:
-              description: Disable downsampling.
-              type: boolean
-              format: boolean
+              Value must be greater than 0.
+            type: string
+            format: int64
+          disabled:
+            description: Disable downsampling.
+            type: boolean
+            format: boolean
     GapFilling:
       description: |-
         List of available gap filling policy for downsampling.
@@ -284,9 +259,9 @@ components:
          - PREVIOUS: Returns the value from the previous time interval.
       type: string
       enum:
-        - 'NULL'
-        - NONE
-        - PREVIOUS
+      - "NULL"
+      - NONE
+      - PREVIOUS
     GridAggregation:
       description: |-
         List of available aggregate functions for downsampling.
@@ -299,12 +274,12 @@ components:
          - COUNT: Total count of points.
       type: string
       enum:
-        - MAX
-        - MIN
-        - SUM
-        - AVG
-        - LAST
-        - COUNT
+      - MAX
+      - MIN
+      - SUM
+      - AVG
+      - LAST
+      - COUNT
     ListLabelKeysResponse:
       type: object
       properties:
@@ -326,14 +301,12 @@ components:
           type: string
           format: int64
         absent:
-          description: >-
-            Flag determining that there are has some metrics without the given
-            label.
+          description: Flag determining that there are has some metrics without the
+            given label.
           type: boolean
           format: boolean
         nextPageToken:
-          description: >-
-            This token allows you to get the next page of results for list
+          description: This token allows you to get the next page of results for list
             requests.
           type: string
     ListMetricNamesResponse:
@@ -345,8 +318,7 @@ components:
           items:
             type: string
         nextPageToken:
-          description: >-
-            This token allows you to get the next page of results for list
+          description: This token allows you to get the next page of results for list
             requests.
           type: string
     ListMetricsResponse:
@@ -358,8 +330,7 @@ components:
           items:
             $ref: '#/components/schemas/ListMetricsResponseMetricMeta'
         nextPageToken:
-          description: >-
-            This token allows you to get the next page of results for list
+          description: This token allows you to get the next page of results for list
             requests.
           type: string
     ListMetricsResponseMetricMeta:
@@ -374,8 +345,7 @@ components:
           additionalProperties:
             type: string
         type:
-          $ref: >-
-            #/components/schemas/MetricType_in_ListMetricsResponseMetricMeta_type
+          $ref: '#/components/schemas/MetricType_in_ListMetricsResponseMetricMeta_type'
     MetricData:
       type: object
       properties:
@@ -399,10 +369,10 @@ components:
          - RATE: Rate.
       type: string
       enum:
-        - DGAUGE
-        - IGAUGE
-        - COUNTER
-        - RATE
+      - DGAUGE
+      - IGAUGE
+      - COUNTER
+      - RATE
     ReadMetricsDataResponse:
       type: object
       properties:
@@ -416,9 +386,7 @@ components:
       type: object
       properties:
         code:
-          description: >-
-            Error code. An enum value of
-            [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
+          description: Error code. An enum value of [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
           type: integer
           format: int32
         message:
@@ -480,8 +448,7 @@ components:
           type: string
           format: int64
         partialFailureError:
-          $ref: >-
-            #/components/schemas/Status_in_WriteMetricsDataResponse_partialFailureError
+          $ref: '#/components/schemas/Status_in_WriteMetricsDataResponse_partialFailureError'
     Downsampling_in_DataQuery_downsampling:
       description: |-
         Required.
@@ -490,40 +457,37 @@ components:
         List of available aggregate functions for downsampling.
       type: object
       allOf:
-        - type: object
-          properties:
-            gridAggregation:
-              $ref: '#/components/schemas/GridAggregation'
-              description: Function that is used for downsampling.
-            gapFilling:
-              $ref: '#/components/schemas/GapFilling'
-              description: Parameters for filling gaps in data.
-        - title: mode
-          type: object
-          maxProperties: 1
-          properties:
-            maxPoints:
-              description: |-
-                Maximum number of points to be returned.
+      - type: object
+        properties:
+          gridAggregation:
+            $ref: '#/components/schemas/GridAggregation'
+            description: Function that is used for downsampling.
+          gapFilling:
+            $ref: '#/components/schemas/GapFilling'
+            description: Parameters for filling gaps in data.
+      - title: mode
+        type: object
+        maxProperties: 1
+        properties:
+          maxPoints:
+            description: |-
+              Maximum number of points to be returned.
 
-                Value must be greater than 10.
-              type: string
-              format: int64
-            gridInterval:
-              description: >-
-                Time interval (grid) for downsampling in milliseconds.
+              Value must be greater than 10.
+            type: string
+            format: int64
+          gridInterval:
+            description: |-
+              Time interval (grid) for downsampling in milliseconds.
+              Points in the specified range are aggregated into one time point.
 
-                Points in the specified range are aggregated into one time
-                point.
-
-
-                Value must be greater than 0.
-              type: string
-              format: int64
-            disabled:
-              description: Disable downsampling.
-              type: boolean
-              format: boolean
+              Value must be greater than 0.
+            type: string
+            format: int64
+          disabled:
+            description: Disable downsampling.
+            type: boolean
+            format: boolean
     MetricType_in_ListMetricsResponseMetricMeta_type:
       description: |-
         Type of the metric.
@@ -534,10 +498,10 @@ components:
          - RATE: Rate.
       type: string
       enum:
-        - DGAUGE
-        - IGAUGE
-        - COUNTER
-        - RATE
+      - DGAUGE
+      - IGAUGE
+      - COUNTER
+      - RATE
     MetricType_in_MetricData_type:
       description: |-
         Type of the metric.
@@ -548,10 +512,10 @@ components:
          - RATE: Rate.
       type: string
       enum:
-        - DGAUGE
-        - IGAUGE
-        - COUNTER
-        - RATE
+      - DGAUGE
+      - IGAUGE
+      - COUNTER
+      - RATE
     Timeseries_in_MetricData_timeseries:
       description: Metric values.
       type: object
@@ -582,9 +546,7 @@ components:
       type: object
       properties:
         code:
-          description: >-
-            Error code. An enum value of
-            [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
+          description: Error code. An enum value of [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
           type: integer
           format: int32
         message:
@@ -596,7 +558,7 @@ components:
           items:
             type: object
 tags:
-  - name: MetricsData
-    description: A set of methods for managing metric data.
-  - name: MetricsMeta
-    description: A set of methods for managing metric metadata.
+- name: MetricsData
+  description: A set of methods for managing metric data.
+- name: MetricsMeta
+  description: A set of methods for managing metric metadata.

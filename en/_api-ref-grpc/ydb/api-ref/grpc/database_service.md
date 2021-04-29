@@ -12,7 +12,11 @@ A set of methods for managing databases.
 | [List](#List) | Retrieves a list of databases. |
 | [Create](#Create) | Creates a new database. |
 | [Update](#Update) | Modifies the specified database. |
+| [Start](#Start) | Starts the specified database. |
+| [Stop](#Stop) | Stops the specified database. |
 | [Delete](#Delete) | Deletes the specified database. |
+| [Restore](#Restore) | Restores the specified backup |
+| [Backup](#Backup) |  |
 
 ## Calls DatabaseService {#calls}
 
@@ -53,6 +57,7 @@ database_type | **oneof:** `zonal_database`, `regional_database`, `dedicated_dat
 assign_public_ips | **bool**<br> 
 location_id | **string**<br> 
 labels | **map<string,string>**<br> 
+backup_config | **[BackupConfig](#BackupConfig)**<br> 
 document_api_endpoint | **string**<br> 
 
 
@@ -146,6 +151,58 @@ size | **int64**<br> The minimum value is 1.
 
 
 
+### BackupConfig {#BackupConfig}
+
+Field | Description
+--- | ---
+backup_settings[] | **[BackupSettings](#BackupSettings)**<br> 
+
+
+### BackupSettings {#BackupSettings}
+
+Field | Description
+--- | ---
+name | **string**<br>name of backup settings The maximum string length in characters is 256.
+description | **string**<br>human readable description. The maximum string length in characters is 256.
+backup_schedule | **[BackupSchedule](#BackupSchedule)**<br>provide schedule. if empty, backup will be disabled. 
+backup_time_to_live | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>provide time to live of backup. 
+source_paths[] | **string**<br>provide a list of source paths. Each path can be directory, table or even database itself. Each directory (or database) will be traversed recursively and all childs of directory will be included to backup. By default, backup will be created for full database. The maximum number of elements is 256.
+source_paths_to_exclude[] | **string**<br>provide a list of paths to exclude from backup. Each path is a directory, table, or database. Each directory (or database) will be traversed recursively and all childs of directory will be excluded. The maximum number of elements is 256.
+type | enum **[Type](./storage_type#undefined)**<br> <ul><ul/>
+
+
+### BackupSchedule {#BackupSchedule}
+
+Field | Description
+--- | ---
+policy | **oneof:** `daily_backup_schedule` or `weekly_backup_schedule`<br>
+&nbsp;&nbsp;daily_backup_schedule | **[DailyBackupSchedule](#DailyBackupSchedule)**<br> 
+&nbsp;&nbsp;weekly_backup_schedule | **[WeeklyBackupSchedule](#WeeklyBackupSchedule)**<br> 
+next_execute_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>output only field: when next backup will be executed using provided schedule. 
+
+
+### DailyBackupSchedule {#DailyBackupSchedule}
+
+Field | Description
+--- | ---
+execute_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required.  
+
+
+### WeeklyBackupSchedule {#WeeklyBackupSchedule}
+
+Field | Description
+--- | ---
+days_of_week[] | **[DaysOfWeekBackupSchedule](#DaysOfWeekBackupSchedule)**<br> The number of elements must be in the range 1-7.
+
+
+### DaysOfWeekBackupSchedule {#DaysOfWeekBackupSchedule}
+
+Field | Description
+--- | ---
+days[] | **google.type.DayOfWeek**<br> The number of elements must be in the range 1-7.
+execute_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required.  
+
+
 ## List {#List}
 
 Retrieves a list of databases.
@@ -193,6 +250,7 @@ database_type | **oneof:** `zonal_database`, `regional_database`, `dedicated_dat
 assign_public_ips | **bool**<br> 
 location_id | **string**<br> 
 labels | **map<string,string>**<br> 
+backup_config | **[BackupConfig](#BackupConfig1)**<br> 
 document_api_endpoint | **string**<br> 
 
 
@@ -286,6 +344,58 @@ size | **int64**<br> The minimum value is 1.
 
 
 
+### BackupConfig {#BackupConfig1}
+
+Field | Description
+--- | ---
+backup_settings[] | **[BackupSettings](#BackupSettings1)**<br> 
+
+
+### BackupSettings {#BackupSettings1}
+
+Field | Description
+--- | ---
+name | **string**<br>name of backup settings The maximum string length in characters is 256.
+description | **string**<br>human readable description. The maximum string length in characters is 256.
+backup_schedule | **[BackupSchedule](#BackupSchedule1)**<br>provide schedule. if empty, backup will be disabled. 
+backup_time_to_live | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>provide time to live of backup. 
+source_paths[] | **string**<br>provide a list of source paths. Each path can be directory, table or even database itself. Each directory (or database) will be traversed recursively and all childs of directory will be included to backup. By default, backup will be created for full database. The maximum number of elements is 256.
+source_paths_to_exclude[] | **string**<br>provide a list of paths to exclude from backup. Each path is a directory, table, or database. Each directory (or database) will be traversed recursively and all childs of directory will be excluded. The maximum number of elements is 256.
+type | enum **[Type](./storage_type#undefined)**<br> <ul><ul/>
+
+
+### BackupSchedule {#BackupSchedule1}
+
+Field | Description
+--- | ---
+policy | **oneof:** `daily_backup_schedule` or `weekly_backup_schedule`<br>
+&nbsp;&nbsp;daily_backup_schedule | **[DailyBackupSchedule](#DailyBackupSchedule1)**<br> 
+&nbsp;&nbsp;weekly_backup_schedule | **[WeeklyBackupSchedule](#WeeklyBackupSchedule1)**<br> 
+next_execute_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>output only field: when next backup will be executed using provided schedule. 
+
+
+### DailyBackupSchedule {#DailyBackupSchedule1}
+
+Field | Description
+--- | ---
+execute_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required.  
+
+
+### WeeklyBackupSchedule {#WeeklyBackupSchedule1}
+
+Field | Description
+--- | ---
+days_of_week[] | **[DaysOfWeekBackupSchedule](#DaysOfWeekBackupSchedule1)**<br> The number of elements must be in the range 1-7.
+
+
+### DaysOfWeekBackupSchedule {#DaysOfWeekBackupSchedule1}
+
+Field | Description
+--- | ---
+days[] | **google.type.DayOfWeek**<br> The number of elements must be in the range 1-7.
+execute_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required.  
+
+
 ## Create {#Create}
 
 Creates a new database.
@@ -316,6 +426,7 @@ database_type | **oneof:** `zonal_database`, `regional_database`, `dedicated_dat
 assign_public_ips | **bool**<br> 
 location_id | **string**<br> 
 labels | **map<string,string>**<br> 
+backup_config | **[BackupConfig](#BackupConfig2)**<br> 
 
 
 ### StorageConfig {#StorageConfig4}
@@ -408,6 +519,58 @@ size | **int64**<br> The minimum value is 1.
 
 
 
+### BackupConfig {#BackupConfig2}
+
+Field | Description
+--- | ---
+backup_settings[] | **[BackupSettings](#BackupSettings2)**<br> 
+
+
+### BackupSettings {#BackupSettings2}
+
+Field | Description
+--- | ---
+name | **string**<br>name of backup settings The maximum string length in characters is 256.
+description | **string**<br>human readable description. The maximum string length in characters is 256.
+backup_schedule | **[BackupSchedule](#BackupSchedule2)**<br>provide schedule. if empty, backup will be disabled. 
+backup_time_to_live | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>provide time to live of backup. 
+source_paths[] | **string**<br>provide a list of source paths. Each path can be directory, table or even database itself. Each directory (or database) will be traversed recursively and all childs of directory will be included to backup. By default, backup will be created for full database. The maximum number of elements is 256.
+source_paths_to_exclude[] | **string**<br>provide a list of paths to exclude from backup. Each path is a directory, table, or database. Each directory (or database) will be traversed recursively and all childs of directory will be excluded. The maximum number of elements is 256.
+type | enum **[Type](./storage_type#undefined)**<br> <ul><ul/>
+
+
+### BackupSchedule {#BackupSchedule2}
+
+Field | Description
+--- | ---
+policy | **oneof:** `daily_backup_schedule` or `weekly_backup_schedule`<br>
+&nbsp;&nbsp;daily_backup_schedule | **[DailyBackupSchedule](#DailyBackupSchedule2)**<br> 
+&nbsp;&nbsp;weekly_backup_schedule | **[WeeklyBackupSchedule](#WeeklyBackupSchedule2)**<br> 
+next_execute_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>output only field: when next backup will be executed using provided schedule. 
+
+
+### DailyBackupSchedule {#DailyBackupSchedule2}
+
+Field | Description
+--- | ---
+execute_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required.  
+
+
+### WeeklyBackupSchedule {#WeeklyBackupSchedule2}
+
+Field | Description
+--- | ---
+days_of_week[] | **[DaysOfWeekBackupSchedule](#DaysOfWeekBackupSchedule2)**<br> The number of elements must be in the range 1-7.
+
+
+### DaysOfWeekBackupSchedule {#DaysOfWeekBackupSchedule2}
+
+Field | Description
+--- | ---
+days[] | **google.type.DayOfWeek**<br> The number of elements must be in the range 1-7.
+execute_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required.  
+
+
 ### Operation {#Operation}
 
 Field | Description
@@ -456,6 +619,7 @@ database_type | **oneof:** `zonal_database`, `regional_database`, `dedicated_dat
 assign_public_ips | **bool**<br> 
 location_id | **string**<br> 
 labels | **map<string,string>**<br> 
+backup_config | **[BackupConfig](#BackupConfig3)**<br> 
 document_api_endpoint | **string**<br> 
 
 
@@ -549,6 +713,58 @@ size | **int64**<br> The minimum value is 1.
 
 
 
+### BackupConfig {#BackupConfig3}
+
+Field | Description
+--- | ---
+backup_settings[] | **[BackupSettings](#BackupSettings3)**<br> 
+
+
+### BackupSettings {#BackupSettings3}
+
+Field | Description
+--- | ---
+name | **string**<br>name of backup settings The maximum string length in characters is 256.
+description | **string**<br>human readable description. The maximum string length in characters is 256.
+backup_schedule | **[BackupSchedule](#BackupSchedule3)**<br>provide schedule. if empty, backup will be disabled. 
+backup_time_to_live | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>provide time to live of backup. 
+source_paths[] | **string**<br>provide a list of source paths. Each path can be directory, table or even database itself. Each directory (or database) will be traversed recursively and all childs of directory will be included to backup. By default, backup will be created for full database. The maximum number of elements is 256.
+source_paths_to_exclude[] | **string**<br>provide a list of paths to exclude from backup. Each path is a directory, table, or database. Each directory (or database) will be traversed recursively and all childs of directory will be excluded. The maximum number of elements is 256.
+type | enum **[Type](./storage_type#undefined)**<br> <ul><ul/>
+
+
+### BackupSchedule {#BackupSchedule3}
+
+Field | Description
+--- | ---
+policy | **oneof:** `daily_backup_schedule` or `weekly_backup_schedule`<br>
+&nbsp;&nbsp;daily_backup_schedule | **[DailyBackupSchedule](#DailyBackupSchedule3)**<br> 
+&nbsp;&nbsp;weekly_backup_schedule | **[WeeklyBackupSchedule](#WeeklyBackupSchedule3)**<br> 
+next_execute_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>output only field: when next backup will be executed using provided schedule. 
+
+
+### DailyBackupSchedule {#DailyBackupSchedule3}
+
+Field | Description
+--- | ---
+execute_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required.  
+
+
+### WeeklyBackupSchedule {#WeeklyBackupSchedule3}
+
+Field | Description
+--- | ---
+days_of_week[] | **[DaysOfWeekBackupSchedule](#DaysOfWeekBackupSchedule3)**<br> The number of elements must be in the range 1-7.
+
+
+### DaysOfWeekBackupSchedule {#DaysOfWeekBackupSchedule3}
+
+Field | Description
+--- | ---
+days[] | **google.type.DayOfWeek**<br> The number of elements must be in the range 1-7.
+execute_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required.  
+
+
 ## Update {#Update}
 
 Modifies the specified database.
@@ -581,6 +797,7 @@ database_type | **oneof:** `zonal_database`, `regional_database`, `dedicated_dat
 assign_public_ips | **bool**<br> 
 location_id | **string**<br> 
 labels | **map<string,string>**<br> 
+backup_config | **[BackupConfig](#BackupConfig4)**<br> 
 
 
 ### StorageConfig {#StorageConfig8}
@@ -673,6 +890,58 @@ size | **int64**<br> The minimum value is 1.
 
 
 
+### BackupConfig {#BackupConfig4}
+
+Field | Description
+--- | ---
+backup_settings[] | **[BackupSettings](#BackupSettings4)**<br> 
+
+
+### BackupSettings {#BackupSettings4}
+
+Field | Description
+--- | ---
+name | **string**<br>name of backup settings The maximum string length in characters is 256.
+description | **string**<br>human readable description. The maximum string length in characters is 256.
+backup_schedule | **[BackupSchedule](#BackupSchedule4)**<br>provide schedule. if empty, backup will be disabled. 
+backup_time_to_live | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>provide time to live of backup. 
+source_paths[] | **string**<br>provide a list of source paths. Each path can be directory, table or even database itself. Each directory (or database) will be traversed recursively and all childs of directory will be included to backup. By default, backup will be created for full database. The maximum number of elements is 256.
+source_paths_to_exclude[] | **string**<br>provide a list of paths to exclude from backup. Each path is a directory, table, or database. Each directory (or database) will be traversed recursively and all childs of directory will be excluded. The maximum number of elements is 256.
+type | enum **[Type](./storage_type#undefined)**<br> <ul><ul/>
+
+
+### BackupSchedule {#BackupSchedule4}
+
+Field | Description
+--- | ---
+policy | **oneof:** `daily_backup_schedule` or `weekly_backup_schedule`<br>
+&nbsp;&nbsp;daily_backup_schedule | **[DailyBackupSchedule](#DailyBackupSchedule4)**<br> 
+&nbsp;&nbsp;weekly_backup_schedule | **[WeeklyBackupSchedule](#WeeklyBackupSchedule4)**<br> 
+next_execute_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>output only field: when next backup will be executed using provided schedule. 
+
+
+### DailyBackupSchedule {#DailyBackupSchedule4}
+
+Field | Description
+--- | ---
+execute_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required.  
+
+
+### WeeklyBackupSchedule {#WeeklyBackupSchedule4}
+
+Field | Description
+--- | ---
+days_of_week[] | **[DaysOfWeekBackupSchedule](#DaysOfWeekBackupSchedule4)**<br> The number of elements must be in the range 1-7.
+
+
+### DaysOfWeekBackupSchedule {#DaysOfWeekBackupSchedule4}
+
+Field | Description
+--- | ---
+days[] | **google.type.DayOfWeek**<br> The number of elements must be in the range 1-7.
+execute_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required.  
+
+
 ### Operation {#Operation1}
 
 Field | Description
@@ -721,6 +990,7 @@ database_type | **oneof:** `zonal_database`, `regional_database`, `dedicated_dat
 assign_public_ips | **bool**<br> 
 location_id | **string**<br> 
 labels | **map<string,string>**<br> 
+backup_config | **[BackupConfig](#BackupConfig5)**<br> 
 document_api_endpoint | **string**<br> 
 
 
@@ -814,11 +1084,485 @@ size | **int64**<br> The minimum value is 1.
 
 
 
+### BackupConfig {#BackupConfig5}
+
+Field | Description
+--- | ---
+backup_settings[] | **[BackupSettings](#BackupSettings5)**<br> 
+
+
+### BackupSettings {#BackupSettings5}
+
+Field | Description
+--- | ---
+name | **string**<br>name of backup settings The maximum string length in characters is 256.
+description | **string**<br>human readable description. The maximum string length in characters is 256.
+backup_schedule | **[BackupSchedule](#BackupSchedule5)**<br>provide schedule. if empty, backup will be disabled. 
+backup_time_to_live | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>provide time to live of backup. 
+source_paths[] | **string**<br>provide a list of source paths. Each path can be directory, table or even database itself. Each directory (or database) will be traversed recursively and all childs of directory will be included to backup. By default, backup will be created for full database. The maximum number of elements is 256.
+source_paths_to_exclude[] | **string**<br>provide a list of paths to exclude from backup. Each path is a directory, table, or database. Each directory (or database) will be traversed recursively and all childs of directory will be excluded. The maximum number of elements is 256.
+type | enum **[Type](./storage_type#undefined)**<br> <ul><ul/>
+
+
+### BackupSchedule {#BackupSchedule5}
+
+Field | Description
+--- | ---
+policy | **oneof:** `daily_backup_schedule` or `weekly_backup_schedule`<br>
+&nbsp;&nbsp;daily_backup_schedule | **[DailyBackupSchedule](#DailyBackupSchedule5)**<br> 
+&nbsp;&nbsp;weekly_backup_schedule | **[WeeklyBackupSchedule](#WeeklyBackupSchedule5)**<br> 
+next_execute_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>output only field: when next backup will be executed using provided schedule. 
+
+
+### DailyBackupSchedule {#DailyBackupSchedule5}
+
+Field | Description
+--- | ---
+execute_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required.  
+
+
+### WeeklyBackupSchedule {#WeeklyBackupSchedule5}
+
+Field | Description
+--- | ---
+days_of_week[] | **[DaysOfWeekBackupSchedule](#DaysOfWeekBackupSchedule5)**<br> The number of elements must be in the range 1-7.
+
+
+### DaysOfWeekBackupSchedule {#DaysOfWeekBackupSchedule5}
+
+Field | Description
+--- | ---
+days[] | **google.type.DayOfWeek**<br> The number of elements must be in the range 1-7.
+execute_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required.  
+
+
+## Start {#Start}
+
+Starts the specified database.
+
+**rpc Start ([StartDatabaseRequest](#StartDatabaseRequest)) returns ([operation.Operation](#Operation2))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[StartDatabaseMetadata](#StartDatabaseMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Database](#Database4)<br>
+
+### StartDatabaseRequest {#StartDatabaseRequest}
+
+Field | Description
+--- | ---
+database_id | **string**<br>Required.  The maximum string length in characters is 50.
+
+
+### Operation {#Operation2}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[StartDatabaseMetadata](#StartDatabaseMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Database](#Database4)>**<br>if operation finished successfully. 
+
+
+### StartDatabaseMetadata {#StartDatabaseMetadata}
+
+Field | Description
+--- | ---
+database_id | **string**<br> 
+database_name | **string**<br> 
+
+
+### Database {#Database4}
+
+Field | Description
+--- | ---
+id | **string**<br> 
+folder_id | **string**<br> 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
+name | **string**<br> 
+description | **string**<br> 
+status | enum **Status**<br> <ul><ul/>
+endpoint | **string**<br> 
+resource_preset_id | **string**<br> 
+storage_config | **[StorageConfig](#StorageConfig12)**<br> 
+scale_policy | **[ScalePolicy](#ScalePolicy12)**<br> 
+network_id | **string**<br> 
+subnet_ids[] | **string**<br> 
+database_type | **oneof:** `zonal_database`, `regional_database`, `dedicated_database` or `serverless_database`<br>
+&nbsp;&nbsp;zonal_database | **[ZonalDatabase](#ZonalDatabase6)**<br>deprecated field 
+&nbsp;&nbsp;regional_database | **[RegionalDatabase](#RegionalDatabase6)**<br>deprecated field 
+&nbsp;&nbsp;dedicated_database | **[DedicatedDatabase](#DedicatedDatabase6)**<br> 
+&nbsp;&nbsp;serverless_database | **[ServerlessDatabase](#ServerlessDatabase6)**<br> 
+assign_public_ips | **bool**<br> 
+location_id | **string**<br> 
+labels | **map<string,string>**<br> 
+backup_config | **[BackupConfig](#BackupConfig6)**<br> 
+document_api_endpoint | **string**<br> 
+
+
+### StorageConfig {#StorageConfig12}
+
+Field | Description
+--- | ---
+storage_options[] | **[StorageOption](#StorageOption12)**<br> The minimum number of elements is 1.
+
+
+### StorageOption {#StorageOption12}
+
+Field | Description
+--- | ---
+storage_type_id | **string**<br> 
+group_count | **int64**<br> 
+
+
+### ScalePolicy {#ScalePolicy12}
+
+Field | Description
+--- | ---
+scale_type | **oneof:** `fixed_scale`<br>
+&nbsp;&nbsp;fixed_scale | **[FixedScale](#FixedScale12)**<br> 
+
+
+### FixedScale {#FixedScale12}
+
+Field | Description
+--- | ---
+size | **int64**<br> The minimum value is 1.
+
+
+### ZonalDatabase {#ZonalDatabase6}
+
+Field | Description
+--- | ---
+zone_id | **string**<br>Required.  
+
+
+### RegionalDatabase {#RegionalDatabase6}
+
+Field | Description
+--- | ---
+region_id | **string**<br>Required.  
+
+
+### DedicatedDatabase {#DedicatedDatabase6}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br> 
+storage_config | **[StorageConfig](#StorageConfig13)**<br> 
+scale_policy | **[ScalePolicy](#ScalePolicy13)**<br> 
+network_id | **string**<br> 
+subnet_ids[] | **string**<br> 
+assign_public_ips | **bool**<br> 
+
+
+### StorageConfig {#StorageConfig13}
+
+Field | Description
+--- | ---
+storage_options[] | **[StorageOption](#StorageOption13)**<br> The minimum number of elements is 1.
+
+
+### StorageOption {#StorageOption13}
+
+Field | Description
+--- | ---
+storage_type_id | **string**<br> 
+group_count | **int64**<br> 
+
+
+### ScalePolicy {#ScalePolicy13}
+
+Field | Description
+--- | ---
+scale_type | **oneof:** `fixed_scale`<br>
+&nbsp;&nbsp;fixed_scale | **[FixedScale](#FixedScale13)**<br> 
+
+
+### FixedScale {#FixedScale13}
+
+Field | Description
+--- | ---
+size | **int64**<br> The minimum value is 1.
+
+
+### ServerlessDatabase {#ServerlessDatabase6}
+
+
+
+### BackupConfig {#BackupConfig6}
+
+Field | Description
+--- | ---
+backup_settings[] | **[BackupSettings](#BackupSettings6)**<br> 
+
+
+### BackupSettings {#BackupSettings6}
+
+Field | Description
+--- | ---
+name | **string**<br>name of backup settings The maximum string length in characters is 256.
+description | **string**<br>human readable description. The maximum string length in characters is 256.
+backup_schedule | **[BackupSchedule](#BackupSchedule6)**<br>provide schedule. if empty, backup will be disabled. 
+backup_time_to_live | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>provide time to live of backup. 
+source_paths[] | **string**<br>provide a list of source paths. Each path can be directory, table or even database itself. Each directory (or database) will be traversed recursively and all childs of directory will be included to backup. By default, backup will be created for full database. The maximum number of elements is 256.
+source_paths_to_exclude[] | **string**<br>provide a list of paths to exclude from backup. Each path is a directory, table, or database. Each directory (or database) will be traversed recursively and all childs of directory will be excluded. The maximum number of elements is 256.
+type | enum **[Type](./storage_type#undefined)**<br> <ul><ul/>
+
+
+### BackupSchedule {#BackupSchedule6}
+
+Field | Description
+--- | ---
+policy | **oneof:** `daily_backup_schedule` or `weekly_backup_schedule`<br>
+&nbsp;&nbsp;daily_backup_schedule | **[DailyBackupSchedule](#DailyBackupSchedule6)**<br> 
+&nbsp;&nbsp;weekly_backup_schedule | **[WeeklyBackupSchedule](#WeeklyBackupSchedule6)**<br> 
+next_execute_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>output only field: when next backup will be executed using provided schedule. 
+
+
+### DailyBackupSchedule {#DailyBackupSchedule6}
+
+Field | Description
+--- | ---
+execute_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required.  
+
+
+### WeeklyBackupSchedule {#WeeklyBackupSchedule6}
+
+Field | Description
+--- | ---
+days_of_week[] | **[DaysOfWeekBackupSchedule](#DaysOfWeekBackupSchedule6)**<br> The number of elements must be in the range 1-7.
+
+
+### DaysOfWeekBackupSchedule {#DaysOfWeekBackupSchedule6}
+
+Field | Description
+--- | ---
+days[] | **google.type.DayOfWeek**<br> The number of elements must be in the range 1-7.
+execute_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required.  
+
+
+## Stop {#Stop}
+
+Stops the specified database.
+
+**rpc Stop ([StopDatabaseRequest](#StopDatabaseRequest)) returns ([operation.Operation](#Operation3))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[StopDatabaseMetadata](#StopDatabaseMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Database](#Database5)<br>
+
+### StopDatabaseRequest {#StopDatabaseRequest}
+
+Field | Description
+--- | ---
+database_id | **string**<br>Required.  The maximum string length in characters is 50.
+
+
+### Operation {#Operation3}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[StopDatabaseMetadata](#StopDatabaseMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Database](#Database5)>**<br>if operation finished successfully. 
+
+
+### StopDatabaseMetadata {#StopDatabaseMetadata}
+
+Field | Description
+--- | ---
+database_id | **string**<br> 
+database_name | **string**<br> 
+
+
+### Database {#Database5}
+
+Field | Description
+--- | ---
+id | **string**<br> 
+folder_id | **string**<br> 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
+name | **string**<br> 
+description | **string**<br> 
+status | enum **Status**<br> <ul><ul/>
+endpoint | **string**<br> 
+resource_preset_id | **string**<br> 
+storage_config | **[StorageConfig](#StorageConfig14)**<br> 
+scale_policy | **[ScalePolicy](#ScalePolicy14)**<br> 
+network_id | **string**<br> 
+subnet_ids[] | **string**<br> 
+database_type | **oneof:** `zonal_database`, `regional_database`, `dedicated_database` or `serverless_database`<br>
+&nbsp;&nbsp;zonal_database | **[ZonalDatabase](#ZonalDatabase7)**<br>deprecated field 
+&nbsp;&nbsp;regional_database | **[RegionalDatabase](#RegionalDatabase7)**<br>deprecated field 
+&nbsp;&nbsp;dedicated_database | **[DedicatedDatabase](#DedicatedDatabase7)**<br> 
+&nbsp;&nbsp;serverless_database | **[ServerlessDatabase](#ServerlessDatabase7)**<br> 
+assign_public_ips | **bool**<br> 
+location_id | **string**<br> 
+labels | **map<string,string>**<br> 
+backup_config | **[BackupConfig](#BackupConfig7)**<br> 
+document_api_endpoint | **string**<br> 
+
+
+### StorageConfig {#StorageConfig14}
+
+Field | Description
+--- | ---
+storage_options[] | **[StorageOption](#StorageOption14)**<br> The minimum number of elements is 1.
+
+
+### StorageOption {#StorageOption14}
+
+Field | Description
+--- | ---
+storage_type_id | **string**<br> 
+group_count | **int64**<br> 
+
+
+### ScalePolicy {#ScalePolicy14}
+
+Field | Description
+--- | ---
+scale_type | **oneof:** `fixed_scale`<br>
+&nbsp;&nbsp;fixed_scale | **[FixedScale](#FixedScale14)**<br> 
+
+
+### FixedScale {#FixedScale14}
+
+Field | Description
+--- | ---
+size | **int64**<br> The minimum value is 1.
+
+
+### ZonalDatabase {#ZonalDatabase7}
+
+Field | Description
+--- | ---
+zone_id | **string**<br>Required.  
+
+
+### RegionalDatabase {#RegionalDatabase7}
+
+Field | Description
+--- | ---
+region_id | **string**<br>Required.  
+
+
+### DedicatedDatabase {#DedicatedDatabase7}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br> 
+storage_config | **[StorageConfig](#StorageConfig15)**<br> 
+scale_policy | **[ScalePolicy](#ScalePolicy15)**<br> 
+network_id | **string**<br> 
+subnet_ids[] | **string**<br> 
+assign_public_ips | **bool**<br> 
+
+
+### StorageConfig {#StorageConfig15}
+
+Field | Description
+--- | ---
+storage_options[] | **[StorageOption](#StorageOption15)**<br> The minimum number of elements is 1.
+
+
+### StorageOption {#StorageOption15}
+
+Field | Description
+--- | ---
+storage_type_id | **string**<br> 
+group_count | **int64**<br> 
+
+
+### ScalePolicy {#ScalePolicy15}
+
+Field | Description
+--- | ---
+scale_type | **oneof:** `fixed_scale`<br>
+&nbsp;&nbsp;fixed_scale | **[FixedScale](#FixedScale15)**<br> 
+
+
+### FixedScale {#FixedScale15}
+
+Field | Description
+--- | ---
+size | **int64**<br> The minimum value is 1.
+
+
+### ServerlessDatabase {#ServerlessDatabase7}
+
+
+
+### BackupConfig {#BackupConfig7}
+
+Field | Description
+--- | ---
+backup_settings[] | **[BackupSettings](#BackupSettings7)**<br> 
+
+
+### BackupSettings {#BackupSettings7}
+
+Field | Description
+--- | ---
+name | **string**<br>name of backup settings The maximum string length in characters is 256.
+description | **string**<br>human readable description. The maximum string length in characters is 256.
+backup_schedule | **[BackupSchedule](#BackupSchedule7)**<br>provide schedule. if empty, backup will be disabled. 
+backup_time_to_live | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>provide time to live of backup. 
+source_paths[] | **string**<br>provide a list of source paths. Each path can be directory, table or even database itself. Each directory (or database) will be traversed recursively and all childs of directory will be included to backup. By default, backup will be created for full database. The maximum number of elements is 256.
+source_paths_to_exclude[] | **string**<br>provide a list of paths to exclude from backup. Each path is a directory, table, or database. Each directory (or database) will be traversed recursively and all childs of directory will be excluded. The maximum number of elements is 256.
+type | enum **[Type](./storage_type#undefined)**<br> <ul><ul/>
+
+
+### BackupSchedule {#BackupSchedule7}
+
+Field | Description
+--- | ---
+policy | **oneof:** `daily_backup_schedule` or `weekly_backup_schedule`<br>
+&nbsp;&nbsp;daily_backup_schedule | **[DailyBackupSchedule](#DailyBackupSchedule7)**<br> 
+&nbsp;&nbsp;weekly_backup_schedule | **[WeeklyBackupSchedule](#WeeklyBackupSchedule7)**<br> 
+next_execute_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>output only field: when next backup will be executed using provided schedule. 
+
+
+### DailyBackupSchedule {#DailyBackupSchedule7}
+
+Field | Description
+--- | ---
+execute_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required.  
+
+
+### WeeklyBackupSchedule {#WeeklyBackupSchedule7}
+
+Field | Description
+--- | ---
+days_of_week[] | **[DaysOfWeekBackupSchedule](#DaysOfWeekBackupSchedule7)**<br> The number of elements must be in the range 1-7.
+
+
+### DaysOfWeekBackupSchedule {#DaysOfWeekBackupSchedule7}
+
+Field | Description
+--- | ---
+days[] | **google.type.DayOfWeek**<br> The number of elements must be in the range 1-7.
+execute_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required.  
+
+
 ## Delete {#Delete}
 
 Deletes the specified database.
 
-**rpc Delete ([DeleteDatabaseRequest](#DeleteDatabaseRequest)) returns ([operation.Operation](#Operation2))**
+**rpc Delete ([DeleteDatabaseRequest](#DeleteDatabaseRequest)) returns ([operation.Operation](#Operation4))**
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[DeleteDatabaseMetadata](#DeleteDatabaseMetadata)<br>
@@ -831,7 +1575,7 @@ Field | Description
 database_id | **string**<br> 
 
 
-### Operation {#Operation2}
+### Operation {#Operation4}
 
 Field | Description
 --- | ---
@@ -853,5 +1597,476 @@ Field | Description
 --- | ---
 database_id | **string**<br> 
 database_name | **string**<br> 
+
+
+## Restore {#Restore}
+
+Restores the specified backup
+
+**rpc Restore ([RestoreBackupRequest](#RestoreBackupRequest)) returns ([operation.Operation](#Operation5))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[RestoreBackupMetadata](#RestoreBackupMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Database](#Database6)<br>
+
+### RestoreBackupRequest {#RestoreBackupRequest}
+
+Field | Description
+--- | ---
+backup_id | **string**<br>Required. Required. ID of the YDB backup. The maximum string length in characters is 50.
+database_id | **string**<br>Required. Required. ID of the YDB database. The maximum string length in characters is 50.
+paths_to_restore[] | **string**<br>Specify paths to restore. If empty, all paths will restored by default. 
+target_path | **string**<br>Specify target path. 
+
+
+### Operation {#Operation5}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[RestoreBackupMetadata](#RestoreBackupMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Database](#Database6)>**<br>if operation finished successfully. 
+
+
+### RestoreBackupMetadata {#RestoreBackupMetadata}
+
+Field | Description
+--- | ---
+backup_id | **string**<br> 
+database_id | **string**<br> 
+
+
+### Database {#Database6}
+
+Field | Description
+--- | ---
+id | **string**<br> 
+folder_id | **string**<br> 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
+name | **string**<br> 
+description | **string**<br> 
+status | enum **Status**<br> <ul><ul/>
+endpoint | **string**<br> 
+resource_preset_id | **string**<br> 
+storage_config | **[StorageConfig](#StorageConfig16)**<br> 
+scale_policy | **[ScalePolicy](#ScalePolicy16)**<br> 
+network_id | **string**<br> 
+subnet_ids[] | **string**<br> 
+database_type | **oneof:** `zonal_database`, `regional_database`, `dedicated_database` or `serverless_database`<br>
+&nbsp;&nbsp;zonal_database | **[ZonalDatabase](#ZonalDatabase8)**<br>deprecated field 
+&nbsp;&nbsp;regional_database | **[RegionalDatabase](#RegionalDatabase8)**<br>deprecated field 
+&nbsp;&nbsp;dedicated_database | **[DedicatedDatabase](#DedicatedDatabase8)**<br> 
+&nbsp;&nbsp;serverless_database | **[ServerlessDatabase](#ServerlessDatabase8)**<br> 
+assign_public_ips | **bool**<br> 
+location_id | **string**<br> 
+labels | **map<string,string>**<br> 
+backup_config | **[BackupConfig](#BackupConfig8)**<br> 
+document_api_endpoint | **string**<br> 
+
+
+### StorageConfig {#StorageConfig16}
+
+Field | Description
+--- | ---
+storage_options[] | **[StorageOption](#StorageOption16)**<br> The minimum number of elements is 1.
+
+
+### StorageOption {#StorageOption16}
+
+Field | Description
+--- | ---
+storage_type_id | **string**<br> 
+group_count | **int64**<br> 
+
+
+### ScalePolicy {#ScalePolicy16}
+
+Field | Description
+--- | ---
+scale_type | **oneof:** `fixed_scale`<br>
+&nbsp;&nbsp;fixed_scale | **[FixedScale](#FixedScale16)**<br> 
+
+
+### FixedScale {#FixedScale16}
+
+Field | Description
+--- | ---
+size | **int64**<br> The minimum value is 1.
+
+
+### ZonalDatabase {#ZonalDatabase8}
+
+Field | Description
+--- | ---
+zone_id | **string**<br>Required.  
+
+
+### RegionalDatabase {#RegionalDatabase8}
+
+Field | Description
+--- | ---
+region_id | **string**<br>Required.  
+
+
+### DedicatedDatabase {#DedicatedDatabase8}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br> 
+storage_config | **[StorageConfig](#StorageConfig17)**<br> 
+scale_policy | **[ScalePolicy](#ScalePolicy17)**<br> 
+network_id | **string**<br> 
+subnet_ids[] | **string**<br> 
+assign_public_ips | **bool**<br> 
+
+
+### StorageConfig {#StorageConfig17}
+
+Field | Description
+--- | ---
+storage_options[] | **[StorageOption](#StorageOption17)**<br> The minimum number of elements is 1.
+
+
+### StorageOption {#StorageOption17}
+
+Field | Description
+--- | ---
+storage_type_id | **string**<br> 
+group_count | **int64**<br> 
+
+
+### ScalePolicy {#ScalePolicy17}
+
+Field | Description
+--- | ---
+scale_type | **oneof:** `fixed_scale`<br>
+&nbsp;&nbsp;fixed_scale | **[FixedScale](#FixedScale17)**<br> 
+
+
+### FixedScale {#FixedScale17}
+
+Field | Description
+--- | ---
+size | **int64**<br> The minimum value is 1.
+
+
+### ServerlessDatabase {#ServerlessDatabase8}
+
+
+
+### BackupConfig {#BackupConfig8}
+
+Field | Description
+--- | ---
+backup_settings[] | **[BackupSettings](#BackupSettings8)**<br> 
+
+
+### BackupSettings {#BackupSettings8}
+
+Field | Description
+--- | ---
+name | **string**<br>name of backup settings The maximum string length in characters is 256.
+description | **string**<br>human readable description. The maximum string length in characters is 256.
+backup_schedule | **[BackupSchedule](#BackupSchedule8)**<br>provide schedule. if empty, backup will be disabled. 
+backup_time_to_live | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>provide time to live of backup. 
+source_paths[] | **string**<br>provide a list of source paths. Each path can be directory, table or even database itself. Each directory (or database) will be traversed recursively and all childs of directory will be included to backup. By default, backup will be created for full database. The maximum number of elements is 256.
+source_paths_to_exclude[] | **string**<br>provide a list of paths to exclude from backup. Each path is a directory, table, or database. Each directory (or database) will be traversed recursively and all childs of directory will be excluded. The maximum number of elements is 256.
+type | enum **[Type](./storage_type#undefined)**<br> <ul><ul/>
+
+
+### BackupSchedule {#BackupSchedule8}
+
+Field | Description
+--- | ---
+policy | **oneof:** `daily_backup_schedule` or `weekly_backup_schedule`<br>
+&nbsp;&nbsp;daily_backup_schedule | **[DailyBackupSchedule](#DailyBackupSchedule8)**<br> 
+&nbsp;&nbsp;weekly_backup_schedule | **[WeeklyBackupSchedule](#WeeklyBackupSchedule8)**<br> 
+next_execute_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>output only field: when next backup will be executed using provided schedule. 
+
+
+### DailyBackupSchedule {#DailyBackupSchedule8}
+
+Field | Description
+--- | ---
+execute_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required.  
+
+
+### WeeklyBackupSchedule {#WeeklyBackupSchedule8}
+
+Field | Description
+--- | ---
+days_of_week[] | **[DaysOfWeekBackupSchedule](#DaysOfWeekBackupSchedule8)**<br> The number of elements must be in the range 1-7.
+
+
+### DaysOfWeekBackupSchedule {#DaysOfWeekBackupSchedule8}
+
+Field | Description
+--- | ---
+days[] | **google.type.DayOfWeek**<br> The number of elements must be in the range 1-7.
+execute_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required.  
+
+
+## Backup {#Backup}
+
+
+
+**rpc Backup ([BackupDatabaseRequest](#BackupDatabaseRequest)) returns ([operation.Operation](#Operation6))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[BackupDatabaseMetadata](#BackupDatabaseMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Database](#Database7)<br>
+
+### BackupDatabaseRequest {#BackupDatabaseRequest}
+
+Field | Description
+--- | ---
+database_id | **string**<br> 
+backup_settings | **[BackupSettings](#BackupSettings9)**<br>custom backup options, if required. 
+
+
+### BackupSettings {#BackupSettings9}
+
+Field | Description
+--- | ---
+name | **string**<br>name of backup settings The maximum string length in characters is 256.
+description | **string**<br>human readable description. The maximum string length in characters is 256.
+backup_schedule | **[BackupSchedule](#BackupSchedule9)**<br>provide schedule. if empty, backup will be disabled. 
+backup_time_to_live | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>provide time to live of backup. 
+source_paths[] | **string**<br>provide a list of source paths. Each path can be directory, table or even database itself. Each directory (or database) will be traversed recursively and all childs of directory will be included to backup. By default, backup will be created for full database. The maximum number of elements is 256.
+source_paths_to_exclude[] | **string**<br>provide a list of paths to exclude from backup. Each path is a directory, table, or database. Each directory (or database) will be traversed recursively and all childs of directory will be excluded. The maximum number of elements is 256.
+type | enum **[Type](./storage_type#undefined)**<br> <ul><ul/>
+
+
+### BackupSchedule {#BackupSchedule9}
+
+Field | Description
+--- | ---
+policy | **oneof:** `daily_backup_schedule` or `weekly_backup_schedule`<br>
+&nbsp;&nbsp;daily_backup_schedule | **[DailyBackupSchedule](#DailyBackupSchedule9)**<br> 
+&nbsp;&nbsp;weekly_backup_schedule | **[WeeklyBackupSchedule](#WeeklyBackupSchedule9)**<br> 
+next_execute_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>output only field: when next backup will be executed using provided schedule. 
+
+
+### DailyBackupSchedule {#DailyBackupSchedule9}
+
+Field | Description
+--- | ---
+execute_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required.  
+
+
+### WeeklyBackupSchedule {#WeeklyBackupSchedule9}
+
+Field | Description
+--- | ---
+days_of_week[] | **[DaysOfWeekBackupSchedule](#DaysOfWeekBackupSchedule9)**<br> The number of elements must be in the range 1-7.
+
+
+### DaysOfWeekBackupSchedule {#DaysOfWeekBackupSchedule9}
+
+Field | Description
+--- | ---
+days[] | **google.type.DayOfWeek**<br> The number of elements must be in the range 1-7.
+execute_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required.  
+
+
+### Operation {#Operation6}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[BackupDatabaseMetadata](#BackupDatabaseMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Database](#Database7)>**<br>if operation finished successfully. 
+
+
+### BackupDatabaseMetadata {#BackupDatabaseMetadata}
+
+Field | Description
+--- | ---
+backup_id | **string**<br> 
+database_id | **string**<br> 
+
+
+### Database {#Database7}
+
+Field | Description
+--- | ---
+id | **string**<br> 
+folder_id | **string**<br> 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
+name | **string**<br> 
+description | **string**<br> 
+status | enum **Status**<br> <ul><ul/>
+endpoint | **string**<br> 
+resource_preset_id | **string**<br> 
+storage_config | **[StorageConfig](#StorageConfig18)**<br> 
+scale_policy | **[ScalePolicy](#ScalePolicy18)**<br> 
+network_id | **string**<br> 
+subnet_ids[] | **string**<br> 
+database_type | **oneof:** `zonal_database`, `regional_database`, `dedicated_database` or `serverless_database`<br>
+&nbsp;&nbsp;zonal_database | **[ZonalDatabase](#ZonalDatabase9)**<br>deprecated field 
+&nbsp;&nbsp;regional_database | **[RegionalDatabase](#RegionalDatabase9)**<br>deprecated field 
+&nbsp;&nbsp;dedicated_database | **[DedicatedDatabase](#DedicatedDatabase9)**<br> 
+&nbsp;&nbsp;serverless_database | **[ServerlessDatabase](#ServerlessDatabase9)**<br> 
+assign_public_ips | **bool**<br> 
+location_id | **string**<br> 
+labels | **map<string,string>**<br> 
+backup_config | **[BackupConfig](#BackupConfig9)**<br> 
+document_api_endpoint | **string**<br> 
+
+
+### StorageConfig {#StorageConfig18}
+
+Field | Description
+--- | ---
+storage_options[] | **[StorageOption](#StorageOption18)**<br> The minimum number of elements is 1.
+
+
+### StorageOption {#StorageOption18}
+
+Field | Description
+--- | ---
+storage_type_id | **string**<br> 
+group_count | **int64**<br> 
+
+
+### ScalePolicy {#ScalePolicy18}
+
+Field | Description
+--- | ---
+scale_type | **oneof:** `fixed_scale`<br>
+&nbsp;&nbsp;fixed_scale | **[FixedScale](#FixedScale18)**<br> 
+
+
+### FixedScale {#FixedScale18}
+
+Field | Description
+--- | ---
+size | **int64**<br> The minimum value is 1.
+
+
+### ZonalDatabase {#ZonalDatabase9}
+
+Field | Description
+--- | ---
+zone_id | **string**<br>Required.  
+
+
+### RegionalDatabase {#RegionalDatabase9}
+
+Field | Description
+--- | ---
+region_id | **string**<br>Required.  
+
+
+### DedicatedDatabase {#DedicatedDatabase9}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br> 
+storage_config | **[StorageConfig](#StorageConfig19)**<br> 
+scale_policy | **[ScalePolicy](#ScalePolicy19)**<br> 
+network_id | **string**<br> 
+subnet_ids[] | **string**<br> 
+assign_public_ips | **bool**<br> 
+
+
+### StorageConfig {#StorageConfig19}
+
+Field | Description
+--- | ---
+storage_options[] | **[StorageOption](#StorageOption19)**<br> The minimum number of elements is 1.
+
+
+### StorageOption {#StorageOption19}
+
+Field | Description
+--- | ---
+storage_type_id | **string**<br> 
+group_count | **int64**<br> 
+
+
+### ScalePolicy {#ScalePolicy19}
+
+Field | Description
+--- | ---
+scale_type | **oneof:** `fixed_scale`<br>
+&nbsp;&nbsp;fixed_scale | **[FixedScale](#FixedScale19)**<br> 
+
+
+### FixedScale {#FixedScale19}
+
+Field | Description
+--- | ---
+size | **int64**<br> The minimum value is 1.
+
+
+### ServerlessDatabase {#ServerlessDatabase9}
+
+
+
+### BackupConfig {#BackupConfig9}
+
+Field | Description
+--- | ---
+backup_settings[] | **[BackupSettings](#BackupSettings10)**<br> 
+
+
+### BackupSettings {#BackupSettings10}
+
+Field | Description
+--- | ---
+name | **string**<br>name of backup settings The maximum string length in characters is 256.
+description | **string**<br>human readable description. The maximum string length in characters is 256.
+backup_schedule | **[BackupSchedule](#BackupSchedule10)**<br>provide schedule. if empty, backup will be disabled. 
+backup_time_to_live | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>provide time to live of backup. 
+source_paths[] | **string**<br>provide a list of source paths. Each path can be directory, table or even database itself. Each directory (or database) will be traversed recursively and all childs of directory will be included to backup. By default, backup will be created for full database. The maximum number of elements is 256.
+source_paths_to_exclude[] | **string**<br>provide a list of paths to exclude from backup. Each path is a directory, table, or database. Each directory (or database) will be traversed recursively and all childs of directory will be excluded. The maximum number of elements is 256.
+type | enum **[Type](./storage_type#undefined)**<br> <ul><ul/>
+
+
+### BackupSchedule {#BackupSchedule10}
+
+Field | Description
+--- | ---
+policy | **oneof:** `daily_backup_schedule` or `weekly_backup_schedule`<br>
+&nbsp;&nbsp;daily_backup_schedule | **[DailyBackupSchedule](#DailyBackupSchedule10)**<br> 
+&nbsp;&nbsp;weekly_backup_schedule | **[WeeklyBackupSchedule](#WeeklyBackupSchedule10)**<br> 
+next_execute_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>output only field: when next backup will be executed using provided schedule. 
+
+
+### DailyBackupSchedule {#DailyBackupSchedule10}
+
+Field | Description
+--- | ---
+execute_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required.  
+
+
+### WeeklyBackupSchedule {#WeeklyBackupSchedule10}
+
+Field | Description
+--- | ---
+days_of_week[] | **[DaysOfWeekBackupSchedule](#DaysOfWeekBackupSchedule10)**<br> The number of elements must be in the range 1-7.
+
+
+### DaysOfWeekBackupSchedule {#DaysOfWeekBackupSchedule10}
+
+Field | Description
+--- | ---
+days[] | **google.type.DayOfWeek**<br> The number of elements must be in the range 1-7.
+execute_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required.  
 
 

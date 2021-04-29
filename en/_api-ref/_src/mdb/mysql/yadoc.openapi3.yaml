@@ -1,11 +1,9 @@
-openapi: '3.0'
+openapi: "3.0"
 info:
   title: Yandex Managed Service for MySQL API
-  description: >-
-    This API reference is organized by resource. Actions are performed by
-    sending HTTP requests to resource URLs or making RPC calls. For more
-    information about Yandex.Cloud API architecture, see [API
-    Concepts](/docs/api-design-guide/).
+  description: This API reference is organized by resource. Actions are performed
+    by sending HTTP requests to resource URLs or making RPC calls. For more information
+    about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
   version: v1
   x-y-docUri: api-ref
   x-y-baseUrl: https://mdb.api.cloud.yandex.net
@@ -13,28 +11,23 @@ paths:
   /managed-mysql/v1alpha/backups/{backupId}:
     get:
       tags:
-        - Backup
+      - Backup
       summary: Returns the specified MySQL backup.
-      description: >-
-        To get the list of available MySQL backups, make a
-        [list](/docs/managed-mysql/api-ref/Backup/list) request.
+      description: To get the list of available MySQL backups, make a [list](/docs/managed-mysql/api-ref/Backup/list)
+        request.
       operationId: BackupGet
       parameters:
-        - name: backupId
-          in: path
-          description: >-
-            Required.
-
-            ID of the backup to return information about.
-
-            To get the backup ID, use a
-            [listBackups](/docs/managed-mysql/api-ref/Cluster/listBackups)
-            request.
-          required: true
-          schema:
-            type: string
+      - name: backupId
+        in: path
+        description: |-
+          Required.
+          ID of the backup to return information about.
+          To get the backup ID, use a [listBackups](/docs/managed-mysql/api-ref/Cluster/listBackups) request.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -44,59 +37,42 @@ paths:
   /managed-mysql/v1alpha/backups:
     get:
       tags:
-        - Backup
+      - Backup
       summary: Retrieves the list of MySQL backups available for the specified folder.
       operationId: BackupList
       parameters:
-        - name: folderId
-          in: query
-          description: >-
-            Required.
+      - name: folderId
+        in: query
+        description: |-
+          Required.
+          ID of the folder to list backups in.
+          To get the folder ID, use a [list](/docs/resource-manager/api-ref/Folder/list) request.
 
-            ID of the folder to list backups in.
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/managed-mysql/api-ref/Backup/list#query_params), the service returns a [nextPageToken](/docs/managed-mysql/api-ref/Backup/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
 
-            To get the folder ID, use a
-            [list](/docs/resource-manager/api-ref/Folder/list) request.
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token.  To get the next page of results, Set [pageToken](/docs/managed-mysql/api-ref/Backup/list#query_params) to the [nextPageToken](/docs/managed-mysql/api-ref/Backup/list#responses)
+          returned by a previous list request.
 
-
-            The maximum string length in characters is 50.
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            The maximum number of results per page to return. If the number of
-            available
-
-            results is larger than
-            [pageSize](/docs/managed-mysql/api-ref/Backup/list#query_params),
-            the service returns a
-            [nextPageToken](/docs/managed-mysql/api-ref/Backup/list#responses)
-
-            that can be used to get the next page of results in subsequent list
-            requests.
-
-
-            The maximum value is 1000.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Page token.  To get the next page of results, Set
-            [pageToken](/docs/managed-mysql/api-ref/Backup/list#query_params) to
-            the
-            [nextPageToken](/docs/managed-mysql/api-ref/Backup/list#responses)
-
-            returned by a previous list request.
-
-
-            The maximum string length in characters is 100.
-          schema:
-            type: string
+          The maximum string length in characters is 100.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -106,30 +82,25 @@ paths:
   /managed-mysql/v1alpha/clusters/{clusterId}:
     get:
       tags:
-        - Cluster
+      - Cluster
       summary: Returns the specified MySQL cluster.
-      description: >-
-        To get the list of available MySQL clusters, make a
-        [list](/docs/managed-mysql/api-ref/Cluster/list) request.
+      description: To get the list of available MySQL clusters, make a [list](/docs/managed-mysql/api-ref/Cluster/list)
+        request.
       operationId: ClusterGet
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Required.
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the MySQL cluster to return.
+          To get the cluster ID use a [list](/docs/managed-mysql/api-ref/Cluster/list) request.
 
-            ID of the MySQL cluster to return.
-
-            To get the cluster ID use a
-            [list](/docs/managed-mysql/api-ref/Cluster/list) request.
-
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -138,27 +109,23 @@ paths:
       x-y-navtitle: get
     delete:
       tags:
-        - Cluster
+      - Cluster
       summary: Deletes the specified MySQL cluster.
       operationId: ClusterDelete
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Required.
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the MySQL cluster to delete.
+          To get the MySQL cluster ID, use a [list](/docs/managed-mysql/api-ref/Cluster/list) request.
 
-            ID of the MySQL cluster to delete.
-
-            To get the MySQL cluster ID, use a
-            [list](/docs/managed-mysql/api-ref/Cluster/list) request.
-
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -170,25 +137,21 @@ paths:
       x-y-operation-response: Empty
     patch:
       tags:
-        - Cluster
+      - Cluster
       summary: Modifies the specified MySQL cluster.
       operationId: ClusterUpdate
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Required.
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the MySQL cluster to update.
+          To get the MySQL cluster ID, use a [list](/docs/managed-mysql/api-ref/Cluster/list) request.
 
-            ID of the MySQL cluster to update.
-
-            To get the MySQL cluster ID, use a
-            [list](/docs/managed-mysql/api-ref/Cluster/list) request.
-
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -196,7 +159,7 @@ paths:
               $ref: '#/components/schemas/UpdateClusterRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -209,82 +172,54 @@ paths:
   /managed-mysql/v1alpha/clusters:
     get:
       tags:
-        - Cluster
-      summary: >-
-        Retrieves the list of MySQL clusters that belong to the specified
-        folder.
+      - Cluster
+      summary: Retrieves the list of MySQL clusters that belong to the specified folder.
       operationId: ClusterList
       parameters:
-        - name: folderId
-          in: query
-          description: >-
-            Required.
+      - name: folderId
+        in: query
+        description: |-
+          Required.
+          ID of the folder to list MySQL clusters in.
+          To get the folder ID, use a [list](/docs/resource-manager/api-ref/Folder/list) request.
 
-            ID of the folder to list MySQL clusters in.
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/managed-mysql/api-ref/Cluster/list#query_params), the service returns a [nextPageToken](/docs/managed-mysql/api-ref/Cluster/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
 
-            To get the folder ID, use a
-            [list](/docs/resource-manager/api-ref/Folder/list) request.
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/managed-mysql/api-ref/Cluster/list#query_params) to the [nextPageToken](/docs/managed-mysql/api-ref/Cluster/list#responses)
+          returned by a previous list request.
 
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          A filter expression that filters resources listed in the response.
+          The expression must specify:
+          1. The field name. Currently you can only use filtering with the [Cluster.name](/docs/managed-mysql/api-ref/Cluster#representation) field.
+          2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
+          3. The value. Must be 1-63 characters long and match the regular expression `^[a-zA-Z0-9_-]+$`.
 
-            The maximum string length in characters is 50.
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            The maximum number of results per page to return. If the number of
-            available
-
-            results is larger than
-            [pageSize](/docs/managed-mysql/api-ref/Cluster/list#query_params),
-            the service returns a
-            [nextPageToken](/docs/managed-mysql/api-ref/Cluster/list#responses)
-
-            that can be used to get the next page of results in subsequent list
-            requests.
-
-
-            Acceptable values are 0 to 1000, inclusive.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Page token. To get the next page of results, set
-            [pageToken](/docs/managed-mysql/api-ref/Cluster/list#query_params)
-            to the
-            [nextPageToken](/docs/managed-mysql/api-ref/Cluster/list#responses)
-
-            returned by a previous list request.
-
-
-            The maximum string length in characters is 100.
-          schema:
-            type: string
-        - name: filter
-          in: query
-          description: >-
-            A filter expression that filters resources listed in the response.
-
-            The expression must specify:
-
-            1. The field name. Currently you can only use filtering with the
-            [Cluster.name](/docs/managed-mysql/api-ref/Cluster#representation)
-            field.
-
-            2. An operator. Can be either `=` or `!=` for single values, `IN` or
-            `NOT IN` for lists of values.
-
-            3. The value. Мust be 1-63 characters long and match the regular
-            expression `^[a-zA-Z0-9_-]+$`.
-
-
-            The maximum string length in characters is 1000.
-          schema:
-            type: string
+          The maximum string length in characters is 1000.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -293,7 +228,7 @@ paths:
       x-y-navtitle: list
     post:
       tags:
-        - Cluster
+      - Cluster
       summary: Creates a MySQL cluster in the specified folder.
       operationId: ClusterCreate
       requestBody:
@@ -303,7 +238,7 @@ paths:
               $ref: '#/components/schemas/CreateClusterRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -316,22 +251,22 @@ paths:
   /managed-mysql/v1alpha/clusters/{clusterId}:start:
     post:
       tags:
-        - Cluster
+      - Cluster
       summary: Starts the specified MySQL cluster.
       operationId: ClusterStart
       parameters:
-        - name: clusterId
-          in: path
-          description: |-
-            Required.
-            ID of the MySQL cluster to start.
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the MySQL cluster to start.
 
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -344,22 +279,22 @@ paths:
   /managed-mysql/v1alpha/clusters/{clusterId}:stop:
     post:
       tags:
-        - Cluster
+      - Cluster
       summary: Stops the specified MySQL cluster.
       operationId: ClusterStop
       parameters:
-        - name: clusterId
-          in: path
-          description: |-
-            Required.
-            ID of the MySQL cluster to stop.
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the MySQL cluster to stop.
 
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -372,27 +307,23 @@ paths:
   /managed-mysql/v1alpha/clusters/{clusterId}:backup:
     post:
       tags:
-        - Cluster
+      - Cluster
       summary: Creates a backup for the specified MySQL cluster.
       operationId: ClusterBackup
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Required.
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the MySQL cluster to back up.
+          To get the MySQL cluster ID, use a [list](/docs/managed-mysql/api-ref/Cluster/list) request.
 
-            ID of the MySQL cluster to back up.
-
-            To get the MySQL cluster ID, use a
-            [list](/docs/managed-mysql/api-ref/Cluster/list) request.
-
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -405,7 +336,7 @@ paths:
   /managed-mysql/v1alpha/clusters:restore:
     post:
       tags:
-        - Cluster
+      - Cluster
       summary: Creates a new MySQL cluster using the specified backup.
       operationId: ClusterRestore
       requestBody:
@@ -415,7 +346,7 @@ paths:
               $ref: '#/components/schemas/RestoreClusterRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -428,102 +359,81 @@ paths:
   /managed-mysql/v1alpha/clusters/{clusterId}:logs:
     get:
       tags:
-        - Cluster
+      - Cluster
       summary: Retrieves logs for the specified MySQL cluster.
       operationId: ClusterListLogs
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Required.
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the MySQL cluster to request logs for.
+          To get the MySQL cluster ID use a [list](/docs/managed-mysql/api-ref/Cluster/list) request.
 
-            ID of the MySQL cluster to request logs for.
-
-            To get the MySQL cluster ID use a
-            [list](/docs/managed-mysql/api-ref/Cluster/list) request.
-
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: columnFilter
+        in: query
+        description: |-
+          Columns from the logs table to request.
+          If no columns are specified, entire log records are returned.
+        schema:
+          type: array
+          items:
             type: string
-        - name: columnFilter
-          in: query
-          description: |-
-            Columns from the logs table to request.
-            If no columns are specified, entire log records are returned.
-          schema:
-            type: array
-            items:
-              type: string
-        - name: serviceType
-          in: query
-          description: Type of the service to request logs about.
-          schema:
-            $ref: '#/components/schemas/ListClusterLogsRequestServiceType'
-        - name: fromTime
-          in: query
-          description: >-
-            Start timestamp for the logs request.
+      - name: serviceType
+        in: query
+        description: Type of the service to request logs about.
+        schema:
+          $ref: '#/components/schemas/ListClusterLogsRequestServiceType'
+      - name: fromTime
+        in: query
+        description: |-
+          Start timestamp for the logs request.
 
+          String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+        schema:
+          type: string
+          format: date-time
+      - name: toTime
+        in: query
+        description: |-
+          End timestamp for the logs request.
 
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-            format.
-          schema:
-            type: string
-            format: date-time
-        - name: toTime
-          in: query
-          description: >-
-            End timestamp for the logs request.
+          String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+        schema:
+          type: string
+          format: date-time
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/managed-mysql/api-ref/Cluster/listLogs#query_params), the service returns a [nextPageToken](/docs/managed-mysql/api-ref/Cluster/listLogs#responses)
+          that can be used to get the next page of results in subsequent list requests.
 
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/managed-mysql/api-ref/Cluster/listLogs#query_params) to the
+          [nextPageToken](/docs/managed-mysql/api-ref/Cluster/listLogs#responses) returned by a previous list request.
 
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-            format.
-          schema:
-            type: string
-            format: date-time
-        - name: pageSize
-          in: query
-          description: >-
-            The maximum number of results per page to return. If the number of
-            available
-
-            results is larger than
-            [pageSize](/docs/managed-mysql/api-ref/Cluster/listLogs#query_params),
-            the service returns a
-            [nextPageToken](/docs/managed-mysql/api-ref/Cluster/listLogs#responses)
-
-            that can be used to get the next page of results in subsequent list
-            requests.
-
-
-            Acceptable values are 0 to 1000, inclusive.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Page token. To get the next page of results, set
-            [pageToken](/docs/managed-mysql/api-ref/Cluster/listLogs#query_params)
-            to the
-
-            [nextPageToken](/docs/managed-mysql/api-ref/Cluster/listLogs#responses)
-            returned by a previous list request.
-
-
-            The maximum string length in characters is 100.
-          schema:
-            type: string
-        - name: alwaysNextPageToken
-          in: query
-          description: Always return `next_page_token`, even if current page is empty.
-          schema:
-            type: boolean
-            format: boolean
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: alwaysNextPageToken
+        in: query
+        description: Always return `next_page_token`, even if current page is empty.
+        schema:
+          type: boolean
+          format: boolean
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -533,55 +443,42 @@ paths:
   /managed-mysql/v1alpha/clusters/{clusterId}/operations:
     get:
       tags:
-        - Cluster
+      - Cluster
       summary: Retrieves the list of operations for the specified MySQL cluster.
       operationId: ClusterListOperations
       parameters:
-        - name: clusterId
-          in: path
-          description: |-
-            Required.
-            ID of the MySQL cluster to list operations for.
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the MySQL cluster to list operations for.
 
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            The maximum number of results per page to return. If the number of
-            available
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/managed-mysql/api-ref/Cluster/listOperations#query_params), the service returns a [nextPageToken](/docs/managed-mysql/api-ref/Cluster/listOperations#responses)
+          that can be used to get the next page of results in subsequent list requests.
 
-            results is larger than
-            [pageSize](/docs/managed-mysql/api-ref/Cluster/listOperations#query_params),
-            the service returns a
-            [nextPageToken](/docs/managed-mysql/api-ref/Cluster/listOperations#responses)
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token.  To get the next page of results, set [pageToken](/docs/managed-mysql/api-ref/Cluster/listOperations#query_params) to the [nextPageToken](/docs/managed-mysql/api-ref/Cluster/listOperations#responses)
+          returned by a previous list request.
 
-            that can be used to get the next page of results in subsequent list
-            requests.
-
-
-            Acceptable values are 0 to 1000, inclusive.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Page token.  To get the next page of results, set
-            [pageToken](/docs/managed-mysql/api-ref/Cluster/listOperations#query_params)
-            to the
-            [nextPageToken](/docs/managed-mysql/api-ref/Cluster/listOperations#responses)
-
-            returned by a previous list request.
-
-
-            The maximum string length in characters is 100.
-          schema:
-            type: string
+          The maximum string length in characters is 100.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -591,60 +488,43 @@ paths:
   /managed-mysql/v1alpha/clusters/{clusterId}/backups:
     get:
       tags:
-        - Cluster
+      - Cluster
       summary: Retrieves the list of available backups for the specified MySQL cluster.
       operationId: ClusterListBackups
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Required.
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the MySQL cluster.
+          To get the MySQL cluster ID use a [list](/docs/managed-mysql/api-ref/Cluster/list) request.
 
-            ID of the MySQL cluster.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/managed-mysql/api-ref/Cluster/listBackups#query_params), the service returns a [nextPageToken](/docs/managed-mysql/api-ref/Cluster/listBackups#responses)
+          that can be used to get the next page of results in subsequent list requests.
 
-            To get the MySQL cluster ID use a
-            [list](/docs/managed-mysql/api-ref/Cluster/list) request.
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token.  To get the next page of results, set [pageToken](/docs/managed-mysql/api-ref/Cluster/listBackups#query_params) to the [nextPageToken](/docs/managed-mysql/api-ref/Cluster/listBackups#responses)
+          returned by a previous list request.
 
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            The maximum number of results per page to return. If the number of
-            available
-
-            results is larger than
-            [pageSize](/docs/managed-mysql/api-ref/Cluster/listBackups#query_params),
-            the service returns a
-            [nextPageToken](/docs/managed-mysql/api-ref/Cluster/listBackups#responses)
-
-            that can be used to get the next page of results in subsequent list
-            requests.
-
-
-            The maximum value is 1000.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Page token.  To get the next page of results, set
-            [pageToken](/docs/managed-mysql/api-ref/Cluster/listBackups#query_params)
-            to the
-            [nextPageToken](/docs/managed-mysql/api-ref/Cluster/listBackups#responses)
-
-            returned by a previous list request.
-
-
-            The maximum string length in characters is 100.
-          schema:
-            type: string
+          The maximum string length in characters is 100.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -654,60 +534,43 @@ paths:
   /managed-mysql/v1alpha/clusters/{clusterId}/hosts:
     get:
       tags:
-        - Cluster
+      - Cluster
       summary: Retrieves a list of hosts for the specified MySQL cluster.
       operationId: ClusterListHosts
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Required.
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the MySQL cluster.
+          To get the MySQL cluster ID use a [list](/docs/managed-mysql/api-ref/Cluster/list) request.
 
-            ID of the MySQL cluster.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/managed-mysql/api-ref/Cluster/listHosts#query_params), the service returns a [nextPageToken](/docs/managed-mysql/api-ref/Cluster/listHosts#responses)
+          that can be used to get the next page of results in subsequent list requests.
 
-            To get the MySQL cluster ID use a
-            [list](/docs/managed-mysql/api-ref/Cluster/list) request.
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token.  To get the next page of results, set [pageToken](/docs/managed-mysql/api-ref/Cluster/listHosts#query_params) to the [nextPageToken](/docs/managed-mysql/api-ref/Cluster/listHosts#responses)
+          returned by a previous list request.
 
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            The maximum number of results per page to return. If the number of
-            available
-
-            results is larger than
-            [pageSize](/docs/managed-mysql/api-ref/Cluster/listHosts#query_params),
-            the service returns a
-            [nextPageToken](/docs/managed-mysql/api-ref/Cluster/listHosts#responses)
-
-            that can be used to get the next page of results in subsequent list
-            requests.
-
-
-            Acceptable values are 0 to 1000, inclusive.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Page token.  To get the next page of results, set
-            [pageToken](/docs/managed-mysql/api-ref/Cluster/listHosts#query_params)
-            to the
-            [nextPageToken](/docs/managed-mysql/api-ref/Cluster/listHosts#responses)
-
-            returned by a previous list request.
-
-
-            The maximum string length in characters is 100.
-          schema:
-            type: string
+          The maximum string length in characters is 100.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -717,25 +580,21 @@ paths:
   /managed-mysql/v1alpha/clusters/{clusterId}/hosts:batchCreate:
     post:
       tags:
-        - Cluster
+      - Cluster
       summary: Creates new hosts for a cluster.
       operationId: ClusterAddHosts
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Required.
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the MySQL cluster to add hosts to.
+          To get the MySQL cluster ID, use a [list](/docs/managed-mysql/api-ref/Cluster/list) request.
 
-            ID of the MySQL cluster to add hosts to.
-
-            To get the MySQL cluster ID, use a
-            [list](/docs/managed-mysql/api-ref/Cluster/list) request.
-
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -743,7 +602,7 @@ paths:
               $ref: '#/components/schemas/AddClusterHostsRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -756,25 +615,21 @@ paths:
   /managed-mysql/v1alpha/clusters/{clusterId}/hosts:batchDelete:
     post:
       tags:
-        - Cluster
+      - Cluster
       summary: Deletes the specified hosts for a cluster.
       operationId: ClusterDeleteHosts
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Required.
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the MySQL cluster to remove hosts from.
+          To get the MySQL cluster ID, use a [list](/docs/managed-mysql/api-ref/Cluster/list) request.
 
-            ID of the MySQL cluster to remove hosts from.
-
-            To get the MySQL cluster ID, use a
-            [list](/docs/managed-mysql/api-ref/Cluster/list) request.
-
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -782,7 +637,7 @@ paths:
               $ref: '#/components/schemas/DeleteClusterHostsRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -795,47 +650,37 @@ paths:
   /managed-mysql/v1alpha/clusters/{clusterId}/databases/{databaseName}:
     get:
       tags:
-        - Database
+      - Database
       summary: Returns the specified MySQL database.
-      description: >-
-        To get the list of available MySQL databases, make a
-        [list](/docs/managed-mysql/api-ref/Database/list) request.
+      description: To get the list of available MySQL databases, make a [list](/docs/managed-mysql/api-ref/Database/list)
+        request.
       operationId: DatabaseGet
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Required.
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the MySQL cluster that the database belongs to.
+          To get the cluster ID use a [list](/docs/managed-mysql/api-ref/Cluster/list) request.
 
-            ID of the MySQL cluster that the database belongs to.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: databaseName
+        in: path
+        description: |-
+          Required.
+          Name of the MySQL database to return.
+          To get the name of the database use a [list](/docs/managed-mysql/api-ref/Database/list) request.
 
-            To get the cluster ID use a
-            [list](/docs/managed-mysql/api-ref/Cluster/list) request.
-
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
-        - name: databaseName
-          in: path
-          description: >-
-            Required.
-
-            Name of the MySQL database to return.
-
-            To get the name of the database use a
-            [list](/docs/managed-mysql/api-ref/Database/list) request.
-
-
-            The maximum string length in characters is 63.
-
-            Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
-          required: true
-          schema:
-            type: string
+          The maximum string length in characters is 63.
+          Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -844,44 +689,35 @@ paths:
       x-y-navtitle: get
     delete:
       tags:
-        - Database
+      - Database
       summary: Deletes the specified MySQL database.
       operationId: DatabaseDelete
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Required.
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the MySQL cluster to delete a database in.
+          To get the cluster ID, use a [list](/docs/managed-mysql/api-ref/Cluster/list) request.
 
-            ID of the MySQL cluster to delete a database in.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: databaseName
+        in: path
+        description: |-
+          Required.
+          Name of the database to delete.
+          To get the name of the database, use a [list](/docs/managed-mysql/api-ref/Database/list) request.
 
-            To get the cluster ID, use a
-            [list](/docs/managed-mysql/api-ref/Cluster/list) request.
-
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
-        - name: databaseName
-          in: path
-          description: >-
-            Required.
-
-            Name of the database to delete.
-
-            To get the name of the database, use a
-            [list](/docs/managed-mysql/api-ref/Database/list) request.
-
-
-            The maximum string length in characters is 63.
-
-            Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
-          required: true
-          schema:
-            type: string
+          The maximum string length in characters is 63.
+          Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -894,60 +730,43 @@ paths:
   /managed-mysql/v1alpha/clusters/{clusterId}/databases:
     get:
       tags:
-        - Database
+      - Database
       summary: Retrieves the list of MySQL databases in the specified cluster.
       operationId: DatabaseList
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Required.
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the MySQL cluster to list databases in.
+          To get the cluster ID use a [list](/docs/managed-mysql/api-ref/Cluster/list) request.
 
-            ID of the MySQL cluster to list databases in.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/managed-mysql/api-ref/Database/list#query_params), the service returns a [nextPageToken](/docs/managed-mysql/api-ref/Database/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
 
-            To get the cluster ID use a
-            [list](/docs/managed-mysql/api-ref/Cluster/list) request.
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, Set [pageToken](/docs/managed-mysql/api-ref/Database/list#query_params) to the [nextPageToken](/docs/managed-mysql/api-ref/Database/list#responses)
+          returned by a previous list request.
 
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            The maximum number of results per page to return. If the number of
-            available
-
-            results is larger than
-            [pageSize](/docs/managed-mysql/api-ref/Database/list#query_params),
-            the service returns a
-            [nextPageToken](/docs/managed-mysql/api-ref/Database/list#responses)
-
-            that can be used to get the next page of results in subsequent list
-            requests.
-
-
-            Acceptable values are 0 to 1000, inclusive.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Page token. To get the next page of results, Set
-            [pageToken](/docs/managed-mysql/api-ref/Database/list#query_params)
-            to the
-            [nextPageToken](/docs/managed-mysql/api-ref/Database/list#responses)
-
-            returned by a previous list request.
-
-
-            The maximum string length in characters is 100.
-          schema:
-            type: string
+          The maximum string length in characters is 100.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -956,25 +775,21 @@ paths:
       x-y-navtitle: list
     post:
       tags:
-        - Database
+      - Database
       summary: Creates a new MySQL database in the specified cluster.
       operationId: DatabaseCreate
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Required.
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the MySQL cluster to create a database in.
+          To get the cluster ID use a [list](/docs/managed-mysql/api-ref/Cluster/list) request.
 
-            ID of the MySQL cluster to create a database in.
-
-            To get the cluster ID use a
-            [list](/docs/managed-mysql/api-ref/Cluster/list) request.
-
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -982,7 +797,7 @@ paths:
               $ref: '#/components/schemas/CreateDatabaseRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -995,27 +810,23 @@ paths:
   /managed-mysql/v1alpha/resourcePresets/{resourcePresetId}:
     get:
       tags:
-        - ResourcePreset
+      - ResourcePreset
       summary: Returns the specified resource preset.
-      description: >-
-        To get the list of available resource presets, make a
-        [list](/docs/managed-mysql/api-ref/ResourcePreset/list) request.
+      description: To get the list of available resource presets, make a [list](/docs/managed-mysql/api-ref/ResourcePreset/list)
+        request.
       operationId: ResourcePresetGet
       parameters:
-        - name: resourcePresetId
-          in: path
-          description: >-
-            Required.
-
-            ID of the resource preset to return.
-
-            To get the resource preset ID, use a
-            [list](/docs/managed-mysql/api-ref/ResourcePreset/list) request.
-          required: true
-          schema:
-            type: string
+      - name: resourcePresetId
+        in: path
+        description: |-
+          Required.
+          ID of the resource preset to return.
+          To get the resource preset ID, use a [list](/docs/managed-mysql/api-ref/ResourcePreset/list) request.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1025,45 +836,32 @@ paths:
   /managed-mysql/v1alpha/resourcePresets:
     get:
       tags:
-        - ResourcePreset
+      - ResourcePreset
       summary: Retrieves the list of available resource presets.
       operationId: ResourcePresetList
       parameters:
-        - name: pageSize
-          in: query
-          description: >-
-            The maximum number of results per page to return. If the number of
-            available
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/managed-mysql/api-ref/ResourcePreset/list#query_params), the service returns a [nextPageToken](/docs/managed-mysql/api-ref/ResourcePreset/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
 
-            results is larger than
-            [pageSize](/docs/managed-mysql/api-ref/ResourcePreset/list#query_params),
-            the service returns a
-            [nextPageToken](/docs/managed-mysql/api-ref/ResourcePreset/list#responses)
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/managed-mysql/api-ref/ResourcePreset/list#query_params) to the [nextPageToken](/docs/managed-mysql/api-ref/ResourcePreset/list#responses)
+          returned by a previous list request.
 
-            that can be used to get the next page of results in subsequent list
-            requests.
-
-
-            Acceptable values are 0 to 1000, inclusive.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Page token. To get the next page of results, set
-            [pageToken](/docs/managed-mysql/api-ref/ResourcePreset/list#query_params)
-            to the
-            [nextPageToken](/docs/managed-mysql/api-ref/ResourcePreset/list#responses)
-
-            returned by a previous list request.
-
-
-            The maximum string length in characters is 100.
-          schema:
-            type: string
+          The maximum string length in characters is 100.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1073,36 +871,35 @@ paths:
   /managed-mysql/v1alpha/clusters/{clusterId}/users/{userName}:
     get:
       tags:
-        - User
+      - User
       summary: Returns the specified MySQL user.
-      description: >-
-        To get the list of available MySQL users, make a
-        [list](/docs/managed-mysql/api-ref/User/list) request.
+      description: To get the list of available MySQL users, make a [list](/docs/managed-mysql/api-ref/User/list)
+        request.
       operationId: UserGet
       parameters:
-        - name: clusterId
-          in: path
-          description: |-
-            Required.
-            ID of the MySQL cluster.
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the MySQL cluster.
 
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
-        - name: userName
-          in: path
-          description: |-
-            Required.
-            Name of the user.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: userName
+        in: path
+        description: |-
+          Required.
+          Name of the user.
 
-            The maximum string length in characters is 63.
-            Value must match the regular expression `` [a-zA-Z0-9_]* ``.
-          required: true
-          schema:
-            type: string
+          The maximum string length in characters is 63.
+          Value must match the regular expression `` [a-zA-Z0-9_]* ``.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1111,44 +908,35 @@ paths:
       x-y-navtitle: get
     delete:
       tags:
-        - User
+      - User
       summary: Deletes the specified MySQL user.
       operationId: UserDelete
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Required.
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the MySQL cluster the user belongs to.
+          To get the cluster ID, use a [list](/docs/managed-mysql/api-ref/Cluster/list) request.
 
-            ID of the MySQL cluster the user belongs to.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: userName
+        in: path
+        description: |-
+          Required.
+          Name of the user to delete.
+          To get the name of the user, use a [list](/docs/managed-mysql/api-ref/User/list) request.
 
-            To get the cluster ID, use a
-            [list](/docs/managed-mysql/api-ref/Cluster/list) request.
-
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
-        - name: userName
-          in: path
-          description: >-
-            Required.
-
-            Name of the user to delete.
-
-            To get the name of the user, use a
-            [list](/docs/managed-mysql/api-ref/User/list) request.
-
-
-            The maximum string length in characters is 63.
-
-            Value must match the regular expression `` [a-zA-Z0-9_]* ``.
-          required: true
-          schema:
-            type: string
+          The maximum string length in characters is 63.
+          Value must match the regular expression `` [a-zA-Z0-9_]* ``.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1160,42 +948,33 @@ paths:
       x-y-operation-response: Empty
     patch:
       tags:
-        - User
+      - User
       summary: Modifies the specified MySQL user.
       operationId: UserUpdate
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Required.
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the MySQL cluster the user belongs to.
+          To get the cluster ID use a [list](/docs/managed-mysql/api-ref/Cluster/list) request.
 
-            ID of the MySQL cluster the user belongs to.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: userName
+        in: path
+        description: |-
+          Required.
+          Name of the user to be updated.
+          To get the name of the user use a [list](/docs/managed-mysql/api-ref/User/list) request.
 
-            To get the cluster ID use a
-            [list](/docs/managed-mysql/api-ref/Cluster/list) request.
-
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
-        - name: userName
-          in: path
-          description: >-
-            Required.
-
-            Name of the user to be updated.
-
-            To get the name of the user use a
-            [list](/docs/managed-mysql/api-ref/User/list) request.
-
-
-            The maximum string length in characters is 63.
-
-            Value must match the regular expression `` [a-zA-Z0-9_]* ``.
-          required: true
-          schema:
-            type: string
+          The maximum string length in characters is 63.
+          Value must match the regular expression `` [a-zA-Z0-9_]* ``.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -1203,7 +982,7 @@ paths:
               $ref: '#/components/schemas/UpdateUserRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1216,59 +995,43 @@ paths:
   /managed-mysql/v1alpha/clusters/{clusterId}/users:
     get:
       tags:
-        - User
+      - User
       summary: Retrieves a list of MySQL users in the specified cluster.
       operationId: UserList
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Required.
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the cluster to list MySQL users in.
+          To get the cluster ID, use a [list](/docs/managed-mysql/api-ref/Cluster/list) request.
 
-            ID of the cluster to list MySQL users in.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/managed-mysql/api-ref/User/list#query_params), the service returns a [nextPageToken](/docs/managed-mysql/api-ref/User/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
 
-            To get the cluster ID, use a
-            [list](/docs/managed-mysql/api-ref/Cluster/list) request.
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/managed-mysql/api-ref/User/list#query_params) to the [nextPageToken](/docs/managed-mysql/api-ref/User/list#responses)
+          returned by a previous list request.
 
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            The maximum number of results per page to return. If the number of
-            available
-
-            results is larger than
-            [pageSize](/docs/managed-mysql/api-ref/User/list#query_params), the
-            service returns a
-            [nextPageToken](/docs/managed-mysql/api-ref/User/list#responses)
-
-            that can be used to get the next page of results in subsequent list
-            requests.
-
-
-            Acceptable values are 0 to 1000, inclusive.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Page token. To get the next page of results, set
-            [pageToken](/docs/managed-mysql/api-ref/User/list#query_params) to
-            the [nextPageToken](/docs/managed-mysql/api-ref/User/list#responses)
-
-            returned by a previous list request.
-
-
-            The maximum string length in characters is 100.
-          schema:
-            type: string
+          The maximum string length in characters is 100.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1277,25 +1040,21 @@ paths:
       x-y-navtitle: list
     post:
       tags:
-        - User
+      - User
       summary: Creates a MySQL user in the specified cluster.
       operationId: UserCreate
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Required.
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the MySQL cluster to create a user for.
+          To get the cluster ID, use a [list](/docs/managed-mysql/api-ref/Cluster/list) request.
 
-            ID of the MySQL cluster to create a user for.
-
-            To get the cluster ID, use a
-            [list](/docs/managed-mysql/api-ref/Cluster/list) request.
-
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -1303,7 +1062,7 @@ paths:
               $ref: '#/components/schemas/CreateUserRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1316,42 +1075,33 @@ paths:
   /managed-mysql/v1alpha/clusters/{clusterId}/users/{userName}:grantPermission:
     post:
       tags:
-        - User
+      - User
       summary: Grants a permission to the specified MySQL user.
       operationId: UserGrantPermission
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Required.
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the MySQL cluster the user belongs to.
+          To get the cluster ID, use a [list](/docs/managed-mysql/api-ref/Cluster/list) request.
 
-            ID of the MySQL cluster the user belongs to.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: userName
+        in: path
+        description: |-
+          Required.
+          Name of the user to grant the permission to.
+          To get the name of the user, use a [list](/docs/managed-mysql/api-ref/User/list) request.
 
-            To get the cluster ID, use a
-            [list](/docs/managed-mysql/api-ref/Cluster/list) request.
-
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
-        - name: userName
-          in: path
-          description: >-
-            Required.
-
-            Name of the user to grant the permission to.
-
-            To get the name of the user, use a
-            [list](/docs/managed-mysql/api-ref/User/list) request.
-
-
-            The maximum string length in characters is 63.
-
-            Value must match the regular expression `` [a-zA-Z0-9_]* ``.
-          required: true
-          schema:
-            type: string
+          The maximum string length in characters is 63.
+          Value must match the regular expression `` [a-zA-Z0-9_]* ``.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -1359,7 +1109,7 @@ paths:
               $ref: '#/components/schemas/GrantUserPermissionRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1372,42 +1122,33 @@ paths:
   /managed-mysql/v1alpha/clusters/{clusterId}/users/{userName}:revokePermission:
     post:
       tags:
-        - User
+      - User
       summary: Revokes a permission from the specified MySQL user.
       operationId: UserRevokePermission
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Required.
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the MySQL cluster the user belongs to.
+          To get the cluster ID, use a [list](/docs/managed-mysql/api-ref/Cluster/list) request.
 
-            ID of the MySQL cluster the user belongs to.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: userName
+        in: path
+        description: |-
+          Required.
+          Name of the user to revoke a permission from.
+          To get the name of the user, use a [list](/docs/managed-mysql/api-ref/User/list) request.
 
-            To get the cluster ID, use a
-            [list](/docs/managed-mysql/api-ref/Cluster/list) request.
-
-
-            The maximum string length in characters is 50.
-          required: true
-          schema:
-            type: string
-        - name: userName
-          in: path
-          description: >-
-            Required.
-
-            Name of the user to revoke a permission from.
-
-            To get the name of the user, use a
-            [list](/docs/managed-mysql/api-ref/User/list) request.
-
-
-            The maximum string length in characters is 63.
-
-            Value must match the regular expression `` [a-zA-Z0-9_]* ``.
-          required: true
-          schema:
-            type: string
+          The maximum string length in characters is 63.
+          Value must match the regular expression `` [a-zA-Z0-9_]* ``.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -1415,7 +1156,7 @@ paths:
               $ref: '#/components/schemas/RevokeUserPermissionRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1465,8 +1206,7 @@ components:
           description: ID of the folder that the backup belongs to.
           type: string
         createdAt:
-          description: >-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
+          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
             format.
           type: string
           format: date-time
@@ -1474,12 +1214,10 @@ components:
           description: ID of the MySQL cluster that the backup was created for.
           type: string
         startedAt:
-          description: >-
+          description: |-
             Time when the backup operation was started.
 
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-            format.
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
     BackupClusterMetadata:
@@ -1503,8 +1241,7 @@ components:
           description: ID of the folder that the MySQL cluster belongs to.
           type: string
         createdAt:
-          description: >-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
+          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
             format.
           type: string
           format: date-time
@@ -1543,24 +1280,24 @@ components:
     ClusterConfig:
       type: object
       allOf:
-        - type: object
-          properties:
-            version:
-              description: Version of MySQL server software.
-              type: string
-            resources:
-              $ref: '#/components/schemas/Resources'
-              description: Resources allocated to MySQL hosts.
-            backupWindowStart:
-              $ref: '#/components/schemas/TimeOfDay'
-              description: Time to start the daily backup, in the UTC timezone.
-        - title: mysql_config
-          type: object
-          maxProperties: 1
-          properties:
-            mysqlConfig_5_7:
-              $ref: '#/components/schemas/MysqlConfigSet5_7'
-              description: Configuration of a MySQL 5.7 server.
+      - type: object
+        properties:
+          version:
+            description: Version of MySQL server software.
+            type: string
+          resources:
+            $ref: '#/components/schemas/Resources'
+            description: Resources allocated to MySQL hosts.
+          backupWindowStart:
+            $ref: '#/components/schemas/TimeOfDay'
+            description: Time to start the daily backup, in the UTC timezone.
+      - title: mysql_config
+        type: object
+        maxProperties: 1
+        properties:
+          mysqlConfig_5_7:
+            $ref: '#/components/schemas/MysqlConfigSet5_7'
+            description: Configuration of a MySQL 5.7 server.
     ClusterEnvironment:
       description: |2-
          - PRODUCTION: Stable environment with a conservative update policy:
@@ -1569,8 +1306,8 @@ components:
         are rolled out irrespective of backward compatibility.
       type: string
       enum:
-        - PRODUCTION
-        - PRESTABLE
+      - PRODUCTION
+      - PRESTABLE
     ClusterHealth:
       description: |2-
          - HEALTH_UNKNOWN: State of the cluster is unknown (`health` for every host in the cluster is UNKNOWN).
@@ -1579,10 +1316,10 @@ components:
          - DEGRADED: Cluster is working below capacity (`health` for at least one host in the cluster is not ALIVE).
       type: string
       enum:
-        - HEALTH_UNKNOWN
-        - ALIVE
-        - DEAD
-        - DEGRADED
+      - HEALTH_UNKNOWN
+      - ALIVE
+      - DEAD
+      - DEGRADED
       default: HEALTH_UNKNOWN
     ClusterStatus:
       description: |2-
@@ -1596,39 +1333,39 @@ components:
          - STARTING: Cluster is starting.
       type: string
       enum:
-        - STATUS_UNKNOWN
-        - CREATING
-        - RUNNING
-        - ERROR
-        - UPDATING
-        - STOPPING
-        - STOPPED
-        - STARTING
+      - STATUS_UNKNOWN
+      - CREATING
+      - RUNNING
+      - ERROR
+      - UPDATING
+      - STOPPING
+      - STOPPED
+      - STARTING
       default: STATUS_UNKNOWN
     ConfigSpec:
       type: object
       allOf:
-        - type: object
-          properties:
-            version:
-              description: |-
-                Version of MySQL used in the cluster.
-                Possible values:
-                * 5.7
-              type: string
-            resources:
-              $ref: '#/components/schemas/Resources'
-              description: Resources allocated to MySQL hosts.
-            backupWindowStart:
-              $ref: '#/components/schemas/TimeOfDay'
-              description: Time to start the daily backup, in the UTC timezone.
-        - title: mysql_config
-          type: object
-          maxProperties: 1
-          properties:
-            mysqlConfig_5_7:
-              $ref: '#/components/schemas/MysqlConfig5_7'
-              description: Configuration for a MySQL 5.7 cluster.
+      - type: object
+        properties:
+          version:
+            description: |-
+              Version of MySQL used in the cluster.
+              Possible values:
+              * 5.7
+            type: string
+          resources:
+            $ref: '#/components/schemas/Resources'
+            description: Resources allocated to MySQL hosts.
+          backupWindowStart:
+            $ref: '#/components/schemas/TimeOfDay'
+            description: Time to start the daily backup, in the UTC timezone.
+      - title: mysql_config
+        type: object
+        maxProperties: 1
+        properties:
+          mysqlConfig_5_7:
+            $ref: '#/components/schemas/MysqlConfig5_7'
+            description: Configuration for a MySQL 5.7 cluster.
     CreateClusterMetadata:
       type: object
       properties:
@@ -1646,15 +1383,11 @@ components:
             The maximum string length in characters is 50.
           type: string
         name:
-          description: >-
+          description: |-
             Required.
-
-            Name of the MySQL cluster. The name must be unique within the
-            folder.
-
+            Name of the MySQL cluster. The name must be unique within the folder.
 
             The maximum string length in characters is 63.
-
             Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
           type: string
         description:
@@ -1664,28 +1397,20 @@ components:
             The maximum string length in characters is 256.
           type: string
         labels:
-          description: >-
-            Custom labels for the MySQL cluster as `key:value` pairs. Maximum 64
-            per resource.
-
+          description: |-
+            Custom labels for the MySQL cluster as `key:value` pairs. Maximum 64 per resource.
             For example, "project": "mvp" or "source": "dictionary".
 
-
             No more than 64 per resource.
-
             The string length in characters for each key must be 1-63.
-
             Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
-
             The maximum string length in characters for each value is 63.
-
             Each value must match the regular expression `` [-_0-9a-z]* ``.
           type: object
           additionalProperties:
             type: string
         environment:
-          $ref: >-
-            #/components/schemas/ClusterEnvironment_in_CreateClusterRequest_environment
+          $ref: '#/components/schemas/ClusterEnvironment_in_CreateClusterRequest_environment'
         configSpec:
           $ref: '#/components/schemas/ConfigSpec_in_CreateClusterRequest_configSpec'
         databaseSpecs:
@@ -1699,9 +1424,8 @@ components:
           items:
             $ref: '#/components/schemas/UserSpec'
         hostSpecs:
-          description: >-
-            Individual configurations for hosts that should be created for the
-            MySQL cluster.
+          description: Individual configurations for hosts that should be created
+            for the MySQL cluster.
           type: array
           items:
             $ref: '#/components/schemas/HostSpec'
@@ -1724,8 +1448,7 @@ components:
       type: object
       properties:
         databaseSpec:
-          $ref: >-
-            #/components/schemas/DatabaseSpec_in_CreateDatabaseRequest_databaseSpec
+          $ref: '#/components/schemas/DatabaseSpec_in_CreateDatabaseRequest_databaseSpec'
     CreateUserMetadata:
       type: object
       properties:
@@ -1816,35 +1539,23 @@ components:
       type: object
       maxProperties: 0
     FieldMask:
-      description: >-
+      description: |-
         A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
 
-        Оnly the specified fields will be changed. The others will be left
-        untouched.
-
-        If the field is specified in `` updateMask `` and no value for that
-        field was sent in the request,
-
-        the field's value will be reset to the default. The default value for
-        most fields is null or 0.
-
-
-        If `` updateMask `` is not sent in the request, all fields' values will
-        be updated.
-
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
         Fields specified in the request will be updated to provided values.
-
         The rest of the fields will be reset to the default.
       type: string
     GrantUserPermissionMetadata:
       type: object
       properties:
         clusterId:
-          description: >-
+          description: |-
             ID of the MySQL cluster the user belongs to.
-
-            To get the cluster ID, use a
-            [list](/docs/managed-mysql/api-ref/Cluster/list) request.
+            To get the cluster ID, use a [list](/docs/managed-mysql/api-ref/Cluster/list) request.
           type: string
         userName:
           description: Name of the user that is being granted a permission.
@@ -1853,29 +1564,21 @@ components:
       type: object
       properties:
         permission:
-          $ref: >-
-            #/components/schemas/Permission_in_GrantUserPermissionRequest_permission
+          $ref: '#/components/schemas/Permission_in_GrantUserPermissionRequest_permission'
     Host:
       type: object
       properties:
         name:
-          description: >-
-            Name of the MySQL host. The host name is assigned by Managed Service
-            for MySQL
-
+          description: |-
+            Name of the MySQL host. The host name is assigned by Managed Service for MySQL
             at creation time, and cannot be changed. 1-63 characters long.
 
-
-            The name is unique across all existing database hosts in
-            Yandex.Cloud,
-
+            The name is unique across all existing database hosts in Yandex.Cloud,
             as it defines the FQDN of the host.
           type: string
         clusterId:
-          description: >-
-            ID of the MySQL host. The ID is assigned by Managed Service for
-            MySQL
-
+          description: |-
+            ID of the MySQL host. The ID is assigned by Managed Service for MySQL
             at creation time.
           type: string
         zoneId:
@@ -1907,10 +1610,10 @@ components:
          - DEGRADED: The host is degraded, and can perform only some of its essential functions.
       type: string
       enum:
-        - HEALTH_UNKNOWN
-        - ALIVE
-        - DEAD
-        - DEGRADED
+      - HEALTH_UNKNOWN
+      - ALIVE
+      - DEAD
+      - DEGRADED
       default: HEALTH_UNKNOWN
     HostRole:
       description: |2-
@@ -1919,53 +1622,38 @@ components:
          - REPLICA: Host is a replica MySQL server in the cluster.
       type: string
       enum:
-        - ROLE_UNKNOWN
-        - MASTER
-        - REPLICA
+      - ROLE_UNKNOWN
+      - MASTER
+      - REPLICA
       default: ROLE_UNKNOWN
     HostSpec:
       type: object
       properties:
         zoneId:
-          description: >-
+          description: |-
             ID of the availability zone where the host resides.
-
-            To get a list of available zones, use the
-            [list](/docs/compute/api-ref/Zone/list) request.
-
+            To get a list of available zones, use the [list](/docs/compute/api-ref/Zone/list) request.
 
             The maximum string length in characters is 50.
           type: string
         subnetId:
-          description: >-
-            ID of the subnet that the host should belong to. This subnet should
-            be a part
-
+          description: |-
+            ID of the subnet that the host should belong to. This subnet should be a part
             of the network that the cluster belongs to.
-
-            The ID of the network is set in the field
-            [Cluster.networkId](/docs/managed-mysql/api-ref/Cluster#representation).
-
+            The ID of the network is set in the field [Cluster.networkId](/docs/managed-mysql/api-ref/Cluster#representation).
 
             The maximum string length in characters is 50.
           type: string
         assignPublicIp:
-          description: >-
+          description: |-
             Whether the host should get a public IP address on creation.
 
-
-            After a host has been created, this setting cannot be changed. To
-            remove an assigned public IP, or to assign
-
-            a public IP to a host without one, recreate the host with
-            `assignPublicIp` set as needed.
-
+            After a host has been created, this setting cannot be changed. To remove an assigned public IP, or to assign
+            a public IP to a host without one, recreate the host with `assignPublicIp` set as needed.
 
             Possible values:
-
-            * false — don't assign a public IP to the host.
-
-            * true — the host should have a public IP address.
+            * false - don't assign a public IP to the host.
+            * true - the host should have a public IP address.
           type: boolean
           format: boolean
     ListBackupsResponse:
@@ -1977,24 +1665,11 @@ components:
           items:
             $ref: '#/components/schemas/Backup'
         nextPageToken:
-          description: >-
-            This token allows you to get the next page of results for list
-            requests. If the number of results
-
-            is larger than
-            [pageSize](/docs/managed-mysql/api-ref/Backup/list#query_params),
-            use the
-            [nextPageToken](/docs/managed-mysql/api-ref/Backup/list#responses)
-            as the value
-
-            for the
-            [pageToken](/docs/managed-mysql/api-ref/Backup/list#query_params)
-            parameter in the next list request. Each subsequent
-
-            list request will have its own
-            [nextPageToken](/docs/managed-mysql/api-ref/Backup/list#responses)
-            to continue paging through the results.
-
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/managed-mysql/api-ref/Backup/list#query_params), use the [nextPageToken](/docs/managed-mysql/api-ref/Backup/list#responses) as the value
+            for the [pageToken](/docs/managed-mysql/api-ref/Backup/list#query_params) parameter in the next list request. Each subsequent
+            list request will have its own [nextPageToken](/docs/managed-mysql/api-ref/Backup/list#responses) to continue paging through the results.
 
             The maximum string length in characters is 100.
           type: string
@@ -2007,23 +1682,11 @@ components:
           items:
             $ref: '#/components/schemas/Backup'
         nextPageToken:
-          description: >-
-            This token allows you to get the next page of results for list
-            requests. If the number of results
-
-            is larger than
-            [pageSize](/docs/managed-mysql/api-ref/Cluster/listBackups#query_params),
-            use the
-            [nextPageToken](/docs/managed-mysql/api-ref/Cluster/listBackups#responses)
-            as the value
-
-            for the
-            [pageToken](/docs/managed-mysql/api-ref/Cluster/listBackups#query_params)
-            query parameter in the next list request.
-
-            Each subsequent list request will have its own
-            [nextPageToken](/docs/managed-mysql/api-ref/Cluster/listBackups#responses)
-            to continue paging through the results.
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/managed-mysql/api-ref/Cluster/listBackups#query_params), use the [nextPageToken](/docs/managed-mysql/api-ref/Cluster/listBackups#responses) as the value
+            for the [pageToken](/docs/managed-mysql/api-ref/Cluster/listBackups#query_params) query parameter in the next list request.
+            Each subsequent list request will have its own [nextPageToken](/docs/managed-mysql/api-ref/Cluster/listBackups#responses) to continue paging through the results.
           type: string
     ListClusterHostsResponse:
       type: object
@@ -2034,29 +1697,17 @@ components:
           items:
             $ref: '#/components/schemas/Host'
         nextPageToken:
-          description: >-
-            This token allows you to get the next page of results for list
-            requests. If the number of results
-
-            is larger than
-            [pageSize](/docs/managed-mysql/api-ref/Cluster/listHosts#query_params),
-            use the
-            [nextPageToken](/docs/managed-mysql/api-ref/Cluster/listHosts#responses)
-            as the value
-
-            for the
-            [pageToken](/docs/managed-mysql/api-ref/Cluster/listHosts#query_params)
-            query parameter in the next list request.
-
-            Each subsequent list request will have its own
-            [nextPageToken](/docs/managed-mysql/api-ref/Cluster/listHosts#responses)
-            to continue paging through the results.
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/managed-mysql/api-ref/Cluster/listHosts#query_params), use the [nextPageToken](/docs/managed-mysql/api-ref/Cluster/listHosts#responses) as the value
+            for the [pageToken](/docs/managed-mysql/api-ref/Cluster/listHosts#query_params) query parameter in the next list request.
+            Each subsequent list request will have its own [nextPageToken](/docs/managed-mysql/api-ref/Cluster/listHosts#responses) to continue paging through the results.
           type: string
     ListClusterLogsRequestServiceType:
       description: ' - MYSQL: Logs of MySQL activity.'
       type: string
       enum:
-        - MYSQL
+      - MYSQL
     ListClusterLogsResponse:
       type: object
       properties:
@@ -2066,23 +1717,11 @@ components:
           items:
             $ref: '#/components/schemas/LogRecord'
         nextPageToken:
-          description: >-
-            This token allows you to get the next page of results for list
-            requests. If the number of results
-
-            is larger than
-            [pageSize](/docs/managed-mysql/api-ref/Cluster/listLogs#query_params),
-            use the
-            [nextPageToken](/docs/managed-mysql/api-ref/Cluster/listLogs#responses)
-            as the value
-
-            for the
-            [pageToken](/docs/managed-mysql/api-ref/Cluster/listLogs#query_params)
-            query parameter in the next list request.
-
-            Each subsequent list request will have its own
-            [nextPageToken](/docs/managed-mysql/api-ref/Cluster/listLogs#responses)
-            to continue paging through the results.
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/managed-mysql/api-ref/Cluster/listLogs#query_params), use the [nextPageToken](/docs/managed-mysql/api-ref/Cluster/listLogs#responses) as the value
+            for the [pageToken](/docs/managed-mysql/api-ref/Cluster/listLogs#query_params) query parameter in the next list request.
+            Each subsequent list request will have its own [nextPageToken](/docs/managed-mysql/api-ref/Cluster/listLogs#responses) to continue paging through the results.
           type: string
     ListClusterOperationsResponse:
       type: object
@@ -2093,23 +1732,11 @@ components:
           items:
             $ref: '#/components/schemas/Operation'
         nextPageToken:
-          description: >-
-            This token allows you to get the next page of results for list
-            requests. If the number of results
-
-            is larger than
-            [pageSize](/docs/managed-mysql/api-ref/Cluster/listOperations#query_params),
-            use the
-            [nextPageToken](/docs/managed-mysql/api-ref/Cluster/listOperations#responses)
-            as the value
-
-            for the
-            [pageToken](/docs/managed-mysql/api-ref/Cluster/listOperations#query_params)
-            query parameter in the next list request.
-
-            Each subsequent list request will have its own
-            [nextPageToken](/docs/managed-mysql/api-ref/Cluster/listOperations#responses)
-            to continue paging through the results.
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/managed-mysql/api-ref/Cluster/listOperations#query_params), use the [nextPageToken](/docs/managed-mysql/api-ref/Cluster/listOperations#responses) as the value
+            for the [pageToken](/docs/managed-mysql/api-ref/Cluster/listOperations#query_params) query parameter in the next list request.
+            Each subsequent list request will have its own [nextPageToken](/docs/managed-mysql/api-ref/Cluster/listOperations#responses) to continue paging through the results.
           type: string
     ListClustersResponse:
       type: object
@@ -2120,23 +1747,11 @@ components:
           items:
             $ref: '#/components/schemas/Cluster'
         nextPageToken:
-          description: >-
-            This token allows you to get the next page of results for list
-            requests. If the number of results
-
-            is larger than
-            [pageSize](/docs/managed-mysql/api-ref/Cluster/list#query_params),
-            use the
-            [nextPageToken](/docs/managed-mysql/api-ref/Cluster/list#responses)
-            as the value
-
-            for the
-            [pageToken](/docs/managed-mysql/api-ref/Cluster/list#query_params)
-            parameter in the next list request. Each subsequent
-
-            list request will have its own
-            [nextPageToken](/docs/managed-mysql/api-ref/Cluster/list#responses)
-            to continue paging through the results.
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/managed-mysql/api-ref/Cluster/list#query_params), use the [nextPageToken](/docs/managed-mysql/api-ref/Cluster/list#responses) as the value
+            for the [pageToken](/docs/managed-mysql/api-ref/Cluster/list#query_params) parameter in the next list request. Each subsequent
+            list request will have its own [nextPageToken](/docs/managed-mysql/api-ref/Cluster/list#responses) to continue paging through the results.
           type: string
     ListDatabasesResponse:
       type: object
@@ -2147,23 +1762,11 @@ components:
           items:
             $ref: '#/components/schemas/Database'
         nextPageToken:
-          description: >-
-            This token allows you to get the next page of results for list
-            requests. If the number of results
-
-            is larger than
-            [pageSize](/docs/managed-mysql/api-ref/Database/list#query_params),
-            use the
-            [nextPageToken](/docs/managed-mysql/api-ref/Database/list#responses)
-            as the value
-
-            for the
-            [pageToken](/docs/managed-mysql/api-ref/Database/list#query_params)
-            parameter in the next list request. Each subsequent
-
-            list request will have its own
-            [nextPageToken](/docs/managed-mysql/api-ref/Database/list#responses)
-            to continue paging through the results.
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/managed-mysql/api-ref/Database/list#query_params), use the [nextPageToken](/docs/managed-mysql/api-ref/Database/list#responses) as the value
+            for the [pageToken](/docs/managed-mysql/api-ref/Database/list#query_params) parameter in the next list request. Each subsequent
+            list request will have its own [nextPageToken](/docs/managed-mysql/api-ref/Database/list#responses) to continue paging through the results.
           type: string
     ListResourcePresetsResponse:
       type: object
@@ -2174,24 +1777,11 @@ components:
           items:
             $ref: '#/components/schemas/ResourcePreset'
         nextPageToken:
-          description: >-
-            This token allows you to get the next page of results for list
-            requests. If the number of results
-
-            is larger than
-            [pageSize](/docs/managed-mysql/api-ref/ResourcePreset/list#query_params),
-            use the
-            [nextPageToken](/docs/managed-mysql/api-ref/ResourcePreset/list#responses)
-            as the value
-
-            for the
-            [pageToken](/docs/managed-mysql/api-ref/ResourcePreset/list#query_params)
-            parameter in the next list request. Each subsequent
-
-            list request will have its own
-            [nextPageToken](/docs/managed-mysql/api-ref/ResourcePreset/list#responses)
-            to continue paging through the results.
-
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/managed-mysql/api-ref/ResourcePreset/list#query_params), use the [nextPageToken](/docs/managed-mysql/api-ref/ResourcePreset/list#responses) as the value
+            for the [pageToken](/docs/managed-mysql/api-ref/ResourcePreset/list#query_params) parameter in the next list request. Each subsequent
+            list request will have its own [nextPageToken](/docs/managed-mysql/api-ref/ResourcePreset/list#responses) to continue paging through the results.
 
             The maximum string length in characters is 100.
           type: string
@@ -2204,34 +1794,20 @@ components:
           items:
             $ref: '#/components/schemas/User'
         nextPageToken:
-          description: >-
-            This token allows you to get the next page of results for list
-            requests. If the number of results
-
-            is larger than
-            [pageSize](/docs/managed-mysql/api-ref/User/list#query_params), use
-            the [nextPageToken](/docs/managed-mysql/api-ref/User/list#responses)
-            as the value
-
-            for the
-            [pageToken](/docs/managed-mysql/api-ref/User/list#query_params)
-            parameter in the next list request. Each subsequent
-
-            list request will have its own
-            [nextPageToken](/docs/managed-mysql/api-ref/User/list#responses) to
-            continue paging through the results.
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/managed-mysql/api-ref/User/list#query_params), use the [nextPageToken](/docs/managed-mysql/api-ref/User/list#responses) as the value
+            for the [pageToken](/docs/managed-mysql/api-ref/User/list#query_params) parameter in the next list request. Each subsequent
+            list request will have its own [nextPageToken](/docs/managed-mysql/api-ref/User/list#responses) to continue paging through the results.
           type: string
     LogRecord:
       type: object
       properties:
         timestamp:
-          description: >-
-            Log record timestamp in
-            [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          description: |-
+            Log record timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
 
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-            format.
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
         message:
@@ -2252,136 +1828,101 @@ components:
           description: Link to the monitoring system charts for the MySQL cluster.
           type: string
     MysqlConfig5_7:
-      description: >-
-        Options and structure of `MysqlConfig5_7` reflects MySQL 5.7
-        configuration file
+      description: Options and structure of `MysqlConfig5_7` reflects MySQL 5.7 configuration
+        file
       type: object
       properties:
         innodbBufferPoolSize:
-          description: >-
-            Size of the InnoDB buffer pool used for caching table and index
-            data.
+          description: |-
+            Size of the InnoDB buffer pool used for caching table and index data.
 
-
-            For details, see [MySQL documentation for the
-            parameter](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size).
-
+            For details, see [MySQL documentation for the parameter](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size).
 
             The minimum value is 5242880.
           type: integer
           format: int64
         maxConnections:
-          description: >-
+          description: |-
             The maximum permitted number of simultaneous client connections.
 
-
-            For details, see [MySQL documentation for the
-            variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_connections).
-
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_connections).
 
             Acceptable values are 10 to 10000, inclusive.
           type: integer
           format: int64
         longQueryTime:
-          description: >-
+          description: |-
             Time that it takes to process a query before it is considered slow.
 
-
-            For details, see [MySQL documentation for the
-            variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_long_query_time).
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_long_query_time).
           type: number
           format: double
     MysqlConfigSet5_7:
       type: object
       properties:
         effectiveConfig:
-          $ref: >-
-            #/components/schemas/MysqlConfig5_7_in_MysqlConfigSet5_7_effectiveConfig
+          $ref: '#/components/schemas/MysqlConfig5_7_in_MysqlConfigSet5_7_effectiveConfig'
         userConfig:
           $ref: '#/components/schemas/MysqlConfig5_7_in_MysqlConfigSet5_7_userConfig'
         defaultConfig:
-          $ref: >-
-            #/components/schemas/MysqlConfig5_7_in_MysqlConfigSet5_7_defaultConfig
+          $ref: '#/components/schemas/MysqlConfig5_7_in_MysqlConfigSet5_7_defaultConfig'
     Operation:
-      description: >-
-        An Operation resource. For more information, see
-        [Operation](/docs/api-design-guide/concepts/operation).
+      description: An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
       type: object
       allOf:
-        - type: object
-          properties:
-            id:
-              description: ID of the operation.
-              type: string
-            description:
-              description: Description of the operation. 0-256 characters long.
-              type: string
-            createdAt:
-              description: >-
-                Creation timestamp.
+      - type: object
+        properties:
+          id:
+            description: ID of the operation.
+            type: string
+          description:
+            description: Description of the operation. 0-256 characters long.
+            type: string
+          createdAt:
+            description: |-
+              Creation timestamp.
 
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          createdBy:
+            description: ID of the user or service account who initiated the operation.
+            type: string
+          modifiedAt:
+            description: |-
+              The time when the Operation resource was last modified.
 
-                String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-                format.
-              type: string
-              format: date-time
-            createdBy:
-              description: ID of the user or service account who initiated the operation.
-              type: string
-            modifiedAt:
-              description: >-
-                The time when the Operation resource was last modified.
-
-
-                String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-                format.
-              type: string
-              format: date-time
-            done:
-              description: >-
-                If the value is `false`, it means the operation is still in
-                progress.
-
-                If `true`, the operation is completed, and either `error` or
-                `response` is available.
-              type: boolean
-              format: boolean
-            metadata:
-              description: >-
-                Service-specific metadata associated with the operation.
-
-                It typically contains the ID of the target resource that the
-                operation is performed on.
-
-                Any method that returns a long-running operation should document
-                the metadata type, if any.
-              type: object
-        - title: result
-          type: object
-          maxProperties: 1
-          properties:
-            error:
-              $ref: '#/components/schemas/rpcStatus'
-              description: >-
-                The error result of the operation in case of failure or
-                cancellation.
-            response:
-              description: >-
-                The normal response of the operation in case of success.
-
-                If the original method returns no data on success, such as
-                Delete,
-
-                the response is
-                [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty).
-
-                If the original method is the standard Create/Update,
-
-                the response should be the target resource of the operation.
-
-                Any method that returns a long-running operation should document
-                the response type, if any.
-              type: object
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          done:
+            description: |-
+              If the value is `false`, it means the operation is still in progress.
+              If `true`, the operation is completed, and either `error` or `response` is available.
+            type: boolean
+            format: boolean
+          metadata:
+            description: |-
+              Service-specific metadata associated with the operation.
+              It typically contains the ID of the target resource that the operation is performed on.
+              Any method that returns a long-running operation should document the metadata type, if any.
+            type: object
+      - title: result
+        type: object
+        maxProperties: 1
+        properties:
+          error:
+            $ref: '#/components/schemas/rpcStatus'
+            description: The error result of the operation in case of failure or cancellation.
+          response:
+            description: |-
+              The normal response of the operation in case of success.
+              If the original method returns no data on success, such as Delete,
+              the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty).
+              If the original method is the standard Create/Update,
+              the response should be the target resource of the operation.
+              Any method that returns a long-running operation should document the response type, if any.
+            type: object
     Permission:
       type: object
       properties:
@@ -2398,7 +1939,7 @@ components:
           items:
             $ref: '#/components/schemas/PermissionPrivilege'
     PermissionPrivilege:
-      description: >2-
+      description: |2-
          - ALL_PRIVILEGES: All privileges that can be made available to the user.
          - ALTER: Altering tables.
          - ALTER_ROUTINE: Altering stored routines (stored procedures and functions).
@@ -2416,34 +1957,31 @@ components:
          - SELECT: Selecting rows from tables.
 
         Some SELECT statements can be allowed without the SELECT privilege. All
-
         statements that read column values require the SELECT privilege. See
-
-        details in [MySQL
-        documentation](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_select).
+        details in [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_select).
          - SHOW_VIEW: Using the SHOW CREATE VIEW statement. Also needed for views used with EXPLAIN.
          - TRIGGER: Creating, removing, executing, or displaying triggers for a table.
          - UPDATE: Updating rows in the database.
       type: string
       enum:
-        - ALL_PRIVILEGES
-        - ALTER
-        - ALTER_ROUTINE
-        - CREATE
-        - CREATE_ROUTINE
-        - CREATE_TEMPORARY_TABLES
-        - CREATE_VIEW
-        - DELETE
-        - DROP
-        - EVENT
-        - EXECUTE
-        - INDEX
-        - INSERT
-        - LOCK_TABLES
-        - SELECT
-        - SHOW_VIEW
-        - TRIGGER
-        - UPDATE
+      - ALL_PRIVILEGES
+      - ALTER
+      - ALTER_ROUTINE
+      - CREATE
+      - CREATE_ROUTINE
+      - CREATE_TEMPORARY_TABLES
+      - CREATE_VIEW
+      - DELETE
+      - DROP
+      - EVENT
+      - EXECUTE
+      - INDEX
+      - INSERT
+      - LOCK_TABLES
+      - SELECT
+      - SHOW_VIEW
+      - TRIGGER
+      - UPDATE
     ResourcePreset:
       description: A preset of resources for hardware configuration of MySQL hosts.
       type: object
@@ -2468,12 +2006,9 @@ components:
       type: object
       properties:
         resourcePresetId:
-          description: >-
-            ID of the preset for computational resources available to a host
-            (CPU, memory etc.).
-
-            All available presets are listed in the
-            [documentation](/docs/managed-mysql/concepts/instance-types).
+          description: |-
+            ID of the preset for computational resources available to a host (CPU, memory etc.).
+            All available presets are listed in the [documentation](/docs/managed-mysql/concepts/instance-types).
           type: string
         diskSize:
           description: Volume of the storage available to a host.
@@ -2483,8 +2018,8 @@ components:
           description: |-
             Type of the storage environment for the host.
             Possible values:
-            * network-ssd — network SSD drive,
-            * local-ssd — local SSD storage.
+            * network-ssd - network SSD drive,
+            * local-ssd - local SSD storage.
           type: string
     RestoreClusterMetadata:
       type: object
@@ -2499,34 +2034,23 @@ components:
       type: object
       properties:
         backupId:
-          description: >-
+          description: |-
             Required.
-
             ID of the backup to create a cluster from.
-
-            To get the backup ID, use a
-            [listBackups](/docs/managed-mysql/api-ref/Cluster/listBackups)
-            request.
+            To get the backup ID, use a [listBackups](/docs/managed-mysql/api-ref/Cluster/listBackups) request.
           type: string
         time:
-          description: >-
+          description: |-
             Required.
+            Timestamp of the moment to which the MySQL cluster should be restored.
 
-            Timestamp of the moment to which the MySQL cluster should be
-            restored.
-
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-            format.
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
         name:
-          description: >-
+          description: |-
             Required.
-
-            Name of the new MySQL cluster. The name must be unique within the
-            folder.
-
+            Name of the new MySQL cluster. The name must be unique within the folder.
 
             Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
           type: string
@@ -2537,28 +2061,20 @@ components:
             The maximum string length in characters is 256.
           type: string
         labels:
-          description: >-
-            Custom labels for the MySQL cluster as `key:value` pairs. Maximum 64
-            per resource.
-
+          description: |-
+            Custom labels for the MySQL cluster as `key:value` pairs. Maximum 64 per resource.
             For example, "project": "mvp" or "source": "dictionary".
 
-
             No more than 64 per resource.
-
             The string length in characters for each key must be 1-63.
-
             Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
-
             The maximum string length in characters for each value is 63.
-
             Each value must match the regular expression `` [-_0-9a-z]* ``.
           type: object
           additionalProperties:
             type: string
         environment:
-          $ref: >-
-            #/components/schemas/ClusterEnvironment_in_RestoreClusterRequest_environment
+          $ref: '#/components/schemas/ClusterEnvironment_in_RestoreClusterRequest_environment'
         configSpec:
           $ref: '#/components/schemas/ConfigSpec_in_RestoreClusterRequest_configSpec'
         hostSpecs:
@@ -2608,9 +2124,9 @@ components:
          - DEAD: The server is dead or unresponsive.
       type: string
       enum:
-        - HEALTH_UNKNOWN
-        - ALIVE
-        - DEAD
+      - HEALTH_UNKNOWN
+      - ALIVE
+      - DEAD
       default: HEALTH_UNKNOWN
     ServiceType:
       description: |2-
@@ -2619,9 +2135,9 @@ components:
          - MYSQL_SLOW_QUERY: Host provides the MySQL slow query log.
       type: string
       enum:
-        - MYSQL_ERROR
-        - MYSQL_GENERAL
-        - MYSQL_SLOW_QUERY
+      - MYSQL_ERROR
+      - MYSQL_GENERAL
+      - MYSQL_SLOW_QUERY
     StartClusterMetadata:
       type: object
       properties:
@@ -2635,26 +2151,16 @@ components:
           description: ID of the MySQL cluster being stopped.
           type: string
     TimeOfDay:
-      description: >-
-        Represents a time of day. The date and time zone are either not
-        significant
-
-        or are specified elsewhere. An API may choose to allow leap seconds.
-        Related
-
-        types are
-        [google.type.Date](https://github.com/googleapis/googleapis/blob/master/google/type/date.proto)
-        and
-        [google.protobuf.Timestamp](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto).
+      description: |-
+        Represents a time of day. The date and time zone are either not significant
+        or are specified elsewhere. An API may choose to allow leap seconds. Related
+        types are [google.type.Date](https://github.com/googleapis/googleapis/blob/master/google/type/date.proto) and [google.protobuf.Timestamp](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto).
       type: object
       properties:
         hours:
-          description: >-
-            Hours of day in 24 hour format. Should be from 0 to 23. An API may
-            choose
-
-            to allow the value "24:00:00" for scenarios like business closing
-            time.
+          description: |-
+            Hours of day in 24 hour format. Should be from 0 to 23. An API may choose
+            to allow the value "24:00:00" for scenarios like business closing time.
           type: integer
           format: int32
         minutes:
@@ -2662,10 +2168,8 @@ components:
           type: integer
           format: int32
         seconds:
-          description: >-
-            Seconds of minutes of the time. Must normally be from 0 to 59. An
-            API may
-
+          description: |-
+            Seconds of minutes of the time. Must normally be from 0 to 59. An API may
             allow the value 60 if it allows leap-seconds.
           type: integer
           format: int32
@@ -2691,29 +2195,17 @@ components:
             The maximum string length in characters is 256.
           type: string
         labels:
-          description: >-
-            Custom labels for the MySQL cluster as `key:value` pairs. Maximum 64
-            per resource.
-
+          description: |-
+            Custom labels for the MySQL cluster as `key:value` pairs. Maximum 64 per resource.
             For example, "project": "mvp" or "source": "dictionary".
 
-
-            The new set of labels will completely replace the old ones. To add a
-            label, request the current
-
-            set with the [get](/docs/managed-mysql/api-ref/Cluster/get) method,
-            then send an [update](/docs/managed-mysql/api-ref/Cluster/update)
-            request with the new label added to the set.
-
+            The new set of labels will completely replace the old ones. To add a label, request the current
+            set with the [get](/docs/managed-mysql/api-ref/Cluster/get) method, then send an [update](/docs/managed-mysql/api-ref/Cluster/update) request with the new label added to the set.
 
             No more than 64 per resource.
-
             The string length in characters for each key must be 1-63.
-
             Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
-
             The maximum string length in characters for each value is 63.
-
             Each value must match the regular expression `` [-_0-9a-z]* ``.
           type: object
           additionalProperties:
@@ -2797,9 +2289,7 @@ components:
       type: object
       properties:
         code:
-          description: >-
-            Error code. An enum value of
-            [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
+          description: Error code. An enum value of [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
           type: integer
           format: int32
         message:
@@ -2820,30 +2310,30 @@ components:
         are rolled out irrespective of backward compatibility.
       type: string
       enum:
-        - PRODUCTION
-        - PRESTABLE
+      - PRODUCTION
+      - PRESTABLE
     ClusterConfig_in_Cluster_config:
       description: Configuration of the MySQL cluster.
       type: object
       allOf:
-        - type: object
-          properties:
-            version:
-              description: Version of MySQL server software.
-              type: string
-            resources:
-              $ref: '#/components/schemas/Resources'
-              description: Resources allocated to MySQL hosts.
-            backupWindowStart:
-              $ref: '#/components/schemas/TimeOfDay'
-              description: Time to start the daily backup, in the UTC timezone.
-        - title: mysql_config
-          type: object
-          maxProperties: 1
-          properties:
-            mysqlConfig_5_7:
-              $ref: '#/components/schemas/MysqlConfigSet5_7'
-              description: Configuration of a MySQL 5.7 server.
+      - type: object
+        properties:
+          version:
+            description: Version of MySQL server software.
+            type: string
+          resources:
+            $ref: '#/components/schemas/Resources'
+            description: Resources allocated to MySQL hosts.
+          backupWindowStart:
+            $ref: '#/components/schemas/TimeOfDay'
+            description: Time to start the daily backup, in the UTC timezone.
+      - title: mysql_config
+        type: object
+        maxProperties: 1
+        properties:
+          mysqlConfig_5_7:
+            $ref: '#/components/schemas/MysqlConfigSet5_7'
+            description: Configuration of a MySQL 5.7 server.
     ClusterHealth_in_Cluster_health:
       description: |-
         Aggregated cluster health.
@@ -2854,10 +2344,10 @@ components:
          - DEGRADED: Cluster is working below capacity (`health` for at least one host in the cluster is not ALIVE).
       type: string
       enum:
-        - HEALTH_UNKNOWN
-        - ALIVE
-        - DEAD
-        - DEGRADED
+      - HEALTH_UNKNOWN
+      - ALIVE
+      - DEAD
+      - DEGRADED
       default: HEALTH_UNKNOWN
     ClusterStatus_in_Cluster_status:
       description: |-
@@ -2873,14 +2363,14 @@ components:
          - STARTING: Cluster is starting.
       type: string
       enum:
-        - STATUS_UNKNOWN
-        - CREATING
-        - RUNNING
-        - ERROR
-        - UPDATING
-        - STOPPING
-        - STOPPED
-        - STARTING
+      - STATUS_UNKNOWN
+      - CREATING
+      - RUNNING
+      - ERROR
+      - UPDATING
+      - STOPPING
+      - STOPPED
+      - STARTING
       default: STATUS_UNKNOWN
     ClusterEnvironment_in_CreateClusterRequest_environment:
       description: |-
@@ -2892,35 +2382,34 @@ components:
         are rolled out irrespective of backward compatibility.
       type: string
       enum:
-        - PRODUCTION
-        - PRESTABLE
+      - PRODUCTION
+      - PRESTABLE
     ConfigSpec_in_CreateClusterRequest_configSpec:
-      description: >-
-        Configuration and resources for hosts that should be created for the
-        MySQL cluster.
+      description: Configuration and resources for hosts that should be created for
+        the MySQL cluster.
       type: object
       allOf:
-        - type: object
-          properties:
-            version:
-              description: |-
-                Version of MySQL used in the cluster.
-                Possible values:
-                * 5.7
-              type: string
-            resources:
-              $ref: '#/components/schemas/Resources'
-              description: Resources allocated to MySQL hosts.
-            backupWindowStart:
-              $ref: '#/components/schemas/TimeOfDay'
-              description: Time to start the daily backup, in the UTC timezone.
-        - title: mysql_config
-          type: object
-          maxProperties: 1
-          properties:
-            mysqlConfig_5_7:
-              $ref: '#/components/schemas/MysqlConfig5_7'
-              description: Configuration for a MySQL 5.7 cluster.
+      - type: object
+        properties:
+          version:
+            description: |-
+              Version of MySQL used in the cluster.
+              Possible values:
+              * 5.7
+            type: string
+          resources:
+            $ref: '#/components/schemas/Resources'
+            description: Resources allocated to MySQL hosts.
+          backupWindowStart:
+            $ref: '#/components/schemas/TimeOfDay'
+            description: Time to start the daily backup, in the UTC timezone.
+      - title: mysql_config
+        type: object
+        maxProperties: 1
+        properties:
+          mysqlConfig_5_7:
+            $ref: '#/components/schemas/MysqlConfig5_7'
+            description: Configuration for a MySQL 5.7 cluster.
     DatabaseSpec_in_CreateDatabaseRequest_databaseSpec:
       description: |-
         Required.
@@ -2984,12 +2473,9 @@ components:
       type: object
       properties:
         resourcePresetId:
-          description: >-
-            ID of the preset for computational resources available to a host
-            (CPU, memory etc.).
-
-            All available presets are listed in the
-            [documentation](/docs/managed-mysql/concepts/instance-types).
+          description: |-
+            ID of the preset for computational resources available to a host (CPU, memory etc.).
+            All available presets are listed in the [documentation](/docs/managed-mysql/concepts/instance-types).
           type: string
         diskSize:
           description: Volume of the storage available to a host.
@@ -2999,8 +2485,8 @@ components:
           description: |-
             Type of the storage environment for the host.
             Possible values:
-            * network-ssd — network SSD drive,
-            * local-ssd — local SSD storage.
+            * network-ssd - network SSD drive,
+            * local-ssd - local SSD storage.
           type: string
     HostRole_in_Host_role:
       description: |-
@@ -3011,9 +2497,9 @@ components:
          - REPLICA: Host is a replica MySQL server in the cluster.
       type: string
       enum:
-        - ROLE_UNKNOWN
-        - MASTER
-        - REPLICA
+      - ROLE_UNKNOWN
+      - MASTER
+      - REPLICA
       default: ROLE_UNKNOWN
     HostHealth_in_Host_health:
       description: |-
@@ -3025,141 +2511,106 @@ components:
          - DEGRADED: The host is degraded, and can perform only some of its essential functions.
       type: string
       enum:
-        - HEALTH_UNKNOWN
-        - ALIVE
-        - DEAD
-        - DEGRADED
+      - HEALTH_UNKNOWN
+      - ALIVE
+      - DEAD
+      - DEGRADED
       default: HEALTH_UNKNOWN
     MysqlConfig5_7_in_MysqlConfigSet5_7_effectiveConfig:
-      description: >-
-        Effective settings for a MySQL 5.7 cluster (a combination of settings
-        defined
-
+      description: |-
+        Effective settings for a MySQL 5.7 cluster (a combination of settings defined
         in `userConfig` and `defaultConfig`).
 
-
-        Options and structure of `MysqlConfig5_7` reflects MySQL 5.7
-        configuration file
+        Options and structure of `MysqlConfig5_7` reflects MySQL 5.7 configuration file
       type: object
       properties:
         innodbBufferPoolSize:
-          description: >-
-            Size of the InnoDB buffer pool used for caching table and index
-            data.
+          description: |-
+            Size of the InnoDB buffer pool used for caching table and index data.
 
-
-            For details, see [MySQL documentation for the
-            parameter](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size).
-
+            For details, see [MySQL documentation for the parameter](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size).
 
             The minimum value is 5242880.
           type: integer
           format: int64
         maxConnections:
-          description: >-
+          description: |-
             The maximum permitted number of simultaneous client connections.
 
-
-            For details, see [MySQL documentation for the
-            variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_connections).
-
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_connections).
 
             Acceptable values are 10 to 10000, inclusive.
           type: integer
           format: int64
         longQueryTime:
-          description: >-
+          description: |-
             Time that it takes to process a query before it is considered slow.
 
-
-            For details, see [MySQL documentation for the
-            variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_long_query_time).
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_long_query_time).
           type: number
           format: double
     MysqlConfig5_7_in_MysqlConfigSet5_7_userConfig:
-      description: >-
+      description: |-
         User-defined settings for a MySQL 5.7 cluster.
 
-
-        Options and structure of `MysqlConfig5_7` reflects MySQL 5.7
-        configuration file
+        Options and structure of `MysqlConfig5_7` reflects MySQL 5.7 configuration file
       type: object
       properties:
         innodbBufferPoolSize:
-          description: >-
-            Size of the InnoDB buffer pool used for caching table and index
-            data.
+          description: |-
+            Size of the InnoDB buffer pool used for caching table and index data.
 
-
-            For details, see [MySQL documentation for the
-            parameter](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size).
-
+            For details, see [MySQL documentation for the parameter](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size).
 
             The minimum value is 5242880.
           type: integer
           format: int64
         maxConnections:
-          description: >-
+          description: |-
             The maximum permitted number of simultaneous client connections.
 
-
-            For details, see [MySQL documentation for the
-            variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_connections).
-
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_connections).
 
             Acceptable values are 10 to 10000, inclusive.
           type: integer
           format: int64
         longQueryTime:
-          description: >-
+          description: |-
             Time that it takes to process a query before it is considered slow.
 
-
-            For details, see [MySQL documentation for the
-            variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_long_query_time).
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_long_query_time).
           type: number
           format: double
     MysqlConfig5_7_in_MysqlConfigSet5_7_defaultConfig:
-      description: >-
+      description: |-
         Default configuration for a MySQL 5.7 cluster.
 
-
-        Options and structure of `MysqlConfig5_7` reflects MySQL 5.7
-        configuration file
+        Options and structure of `MysqlConfig5_7` reflects MySQL 5.7 configuration file
       type: object
       properties:
         innodbBufferPoolSize:
-          description: >-
-            Size of the InnoDB buffer pool used for caching table and index
-            data.
+          description: |-
+            Size of the InnoDB buffer pool used for caching table and index data.
 
-
-            For details, see [MySQL documentation for the
-            parameter](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size).
-
+            For details, see [MySQL documentation for the parameter](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size).
 
             The minimum value is 5242880.
           type: integer
           format: int64
         maxConnections:
-          description: >-
+          description: |-
             The maximum permitted number of simultaneous client connections.
 
-
-            For details, see [MySQL documentation for the
-            variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_connections).
-
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_connections).
 
             Acceptable values are 10 to 10000, inclusive.
           type: integer
           format: int64
         longQueryTime:
-          description: >-
+          description: |-
             Time that it takes to process a query before it is considered slow.
 
-
-            For details, see [MySQL documentation for the
-            variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_long_query_time).
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_long_query_time).
           type: number
           format: double
     ClusterEnvironment_in_RestoreClusterRequest_environment:
@@ -3172,33 +2623,33 @@ components:
         are rolled out irrespective of backward compatibility.
       type: string
       enum:
-        - PRODUCTION
-        - PRESTABLE
+      - PRODUCTION
+      - PRESTABLE
     ConfigSpec_in_RestoreClusterRequest_configSpec:
       description: Configuration for the MySQL cluster to be created.
       type: object
       allOf:
-        - type: object
-          properties:
-            version:
-              description: |-
-                Version of MySQL used in the cluster.
-                Possible values:
-                * 5.7
-              type: string
-            resources:
-              $ref: '#/components/schemas/Resources'
-              description: Resources allocated to MySQL hosts.
-            backupWindowStart:
-              $ref: '#/components/schemas/TimeOfDay'
-              description: Time to start the daily backup, in the UTC timezone.
-        - title: mysql_config
-          type: object
-          maxProperties: 1
-          properties:
-            mysqlConfig_5_7:
-              $ref: '#/components/schemas/MysqlConfig5_7'
-              description: Configuration for a MySQL 5.7 cluster.
+      - type: object
+        properties:
+          version:
+            description: |-
+              Version of MySQL used in the cluster.
+              Possible values:
+              * 5.7
+            type: string
+          resources:
+            $ref: '#/components/schemas/Resources'
+            description: Resources allocated to MySQL hosts.
+          backupWindowStart:
+            $ref: '#/components/schemas/TimeOfDay'
+            description: Time to start the daily backup, in the UTC timezone.
+      - title: mysql_config
+        type: object
+        maxProperties: 1
+        properties:
+          mysqlConfig_5_7:
+            $ref: '#/components/schemas/MysqlConfig5_7'
+            description: Configuration for a MySQL 5.7 cluster.
     ServiceType_in_Service_type:
       description: |-
         Type of the service provided by the host.
@@ -3208,9 +2659,9 @@ components:
          - MYSQL_SLOW_QUERY: Host provides the MySQL slow query log.
       type: string
       enum:
-        - MYSQL_ERROR
-        - MYSQL_GENERAL
-        - MYSQL_SLOW_QUERY
+      - MYSQL_ERROR
+      - MYSQL_GENERAL
+      - MYSQL_SLOW_QUERY
     ServiceHealth_in_Service_health:
       description: |-
         Status code of server availability.
@@ -3220,93 +2671,69 @@ components:
          - DEAD: The server is dead or unresponsive.
       type: string
       enum:
-        - HEALTH_UNKNOWN
-        - ALIVE
-        - DEAD
+      - HEALTH_UNKNOWN
+      - ALIVE
+      - DEAD
       default: HEALTH_UNKNOWN
     FieldMask_in_UpdateClusterRequest_updateMask:
-      description: >-
-        Field mask that specifies which fields of the MySQL cluster should be
-        updated.
-
+      description: |-
+        Field mask that specifies which fields of the MySQL cluster should be updated.
 
         A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
 
-        Оnly the specified fields will be changed. The others will be left
-        untouched.
-
-        If the field is specified in `` updateMask `` and no value for that
-        field was sent in the request,
-
-        the field's value will be reset to the default. The default value for
-        most fields is null or 0.
-
-
-        If `` updateMask `` is not sent in the request, all fields' values will
-        be updated.
-
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
         Fields specified in the request will be updated to provided values.
-
         The rest of the fields will be reset to the default.
       type: string
     ConfigSpec_in_UpdateClusterRequest_configSpec:
       description: New configuration and resources for hosts in the cluster.
       type: object
       allOf:
-        - type: object
-          properties:
-            version:
-              description: |-
-                Version of MySQL used in the cluster.
-                Possible values:
-                * 5.7
-              type: string
-            resources:
-              $ref: '#/components/schemas/Resources'
-              description: Resources allocated to MySQL hosts.
-            backupWindowStart:
-              $ref: '#/components/schemas/TimeOfDay'
-              description: Time to start the daily backup, in the UTC timezone.
-        - title: mysql_config
-          type: object
-          maxProperties: 1
-          properties:
-            mysqlConfig_5_7:
-              $ref: '#/components/schemas/MysqlConfig5_7'
-              description: Configuration for a MySQL 5.7 cluster.
+      - type: object
+        properties:
+          version:
+            description: |-
+              Version of MySQL used in the cluster.
+              Possible values:
+              * 5.7
+            type: string
+          resources:
+            $ref: '#/components/schemas/Resources'
+            description: Resources allocated to MySQL hosts.
+          backupWindowStart:
+            $ref: '#/components/schemas/TimeOfDay'
+            description: Time to start the daily backup, in the UTC timezone.
+      - title: mysql_config
+        type: object
+        maxProperties: 1
+        properties:
+          mysqlConfig_5_7:
+            $ref: '#/components/schemas/MysqlConfig5_7'
+            description: Configuration for a MySQL 5.7 cluster.
     FieldMask_in_UpdateUserRequest_updateMask:
-      description: >-
-        Field mask that specifies which fields of the MySQL user should be
-        updated.
-
+      description: |-
+        Field mask that specifies which fields of the MySQL user should be updated.
 
         A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
 
-        Оnly the specified fields will be changed. The others will be left
-        untouched.
-
-        If the field is specified in `` updateMask `` and no value for that
-        field was sent in the request,
-
-        the field's value will be reset to the default. The default value for
-        most fields is null or 0.
-
-
-        If `` updateMask `` is not sent in the request, all fields' values will
-        be updated.
-
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
         Fields specified in the request will be updated to provided values.
-
         The rest of the fields will be reset to the default.
       type: string
 tags:
-  - name: Backup
-    description: A set of methods for managing MySQL backups.
-  - name: Cluster
-    description: A set of methods for managing MySQL clusters.
-  - name: Database
-    description: A set of methods for managing MySQL databases.
-  - name: ResourcePreset
-    description: A set of methods for managing resource presets.
-  - name: User
-    description: A set of methods for managing MySQL users.
+- name: Backup
+  description: A set of methods for managing MySQL backups.
+- name: Cluster
+  description: A set of methods for managing MySQL clusters.
+- name: Database
+  description: A set of methods for managing MySQL databases.
+- name: ResourcePreset
+  description: A set of methods for managing resource presets.
+- name: User
+  description: A set of methods for managing MySQL users.

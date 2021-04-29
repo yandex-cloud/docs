@@ -5,6 +5,7 @@ See the interface definitions of Yandex.Cloud API on [GitHub](https://github.com
 
 Service | Description
 --- | ---
+[BackupService](./backup_service.md) | A set of methods for managing backups.
 [DatabaseService](./database_service.md) | A set of methods for managing databases.
 [LocationService](./location_service.md) | 
 [ResourcePresetService](./resource_preset_service.md) | 

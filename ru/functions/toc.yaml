@@ -279,33 +279,33 @@ items:
     href: pricing.md
   - name: Управление доступом
     href: security/index.md
-  - name: Справочник API Functions
+  - name: Справочник API Functions (англ.)
     items:
-      - name: Аутентификация в API
+      - name: Authentication
         href: api-ref/functions/authentication.md
       - name: gRPC
         items: null
         include:
           repo: docs
-          path: ru/_api-ref-grpc/functions/functions/api-ref/toc.yaml
+          path: en/_api-ref-grpc/functions/toc-functions.yaml
       - name: REST
         items: null
         include:
           repo: docs
-          path: ru/_api-ref/serverless/functions/toc.yaml
-  - name: Справочник API Triggers
+          path: en/_api-ref/serverless/functions/toc.yaml
+  - name: Справочник API Triggers (англ.)
     items:
-      - name: Аутентификация в API
+      - name: Authentication
         href: api-ref/triggers/authentication.md
       - name: gRPC
         items: null
         include:
           repo: docs
-          path: ru/_api-ref-grpc/functions/triggers/api-ref/toc.yaml
+          path: en/_api-ref-grpc/functions/toc-triggers.yaml
       - name: REST
         items: null
         include:
           repo: docs
-          path: ru/_api-ref/serverless/triggers/toc.yaml
+          path: en/_api-ref/serverless/triggers/toc.yaml
   - name: Вопросы и ответы
     href: qa/index.md
