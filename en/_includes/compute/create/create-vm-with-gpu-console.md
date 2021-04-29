@@ -53,4 +53,4 @@ To create a VM:
 
 1. Click **Create VM**.
 
-The virtual machine appears in the list. When a VM is being created, it is assigned an [IP address](../../../vpc/concepts/address.md) and [hostname](../../../vpc/concepts/address.md#fqdn) (FQDN).
+The virtual machine appears in the list.

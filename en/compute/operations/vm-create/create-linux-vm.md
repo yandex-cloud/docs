@@ -57,6 +57,9 @@ This section provides guidelines for creating a VM with a Linux OS. To create a 
       ```
 
       This creates a VM named `first-instance`.
+
+  {% include [ip-fqdn-connection](../../../_includes/ip-fqdn-connection.md) %}
+
 - API
 
   Create a VM using the method [Create](../../api-ref/Instance/create.md) for the resource `Instance`:
@@ -165,6 +168,8 @@ This section provides guidelines for creating a VM with a Linux OS. To create a 
         https://compute.api.cloud.yandex.net/compute/v1/instances
       ```
 
+  {% include [ip-fqdn-connection](../../../_includes/ip-fqdn-connection.md) %}
+
 - Terraform
 
   If you don't have Terraform yet, [install it and configure the {{ yandex-cloud }} provider](../../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
@@ -252,9 +257,9 @@ This section provides guidelines for creating a VM with a Linux OS. To create a 
 
      Afterwards, all the necessary resources are created in the specified folder. You can check resource availability and their settings in [management console]({{ link-console-main }}).
 
-{% endlist %}
+  {% include [ip-fqdn-connection](../../../_includes/ip-fqdn-connection.md) %}
 
-{% include [ip-fqdn-connection](../../../_includes/ip-fqdn-connection.md) %}
+{% endlist %}
 
 #### See also {#see-also}
 
