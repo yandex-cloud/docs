@@ -13,8 +13,7 @@ Start-Transcript -Path "$ENV:SystemDrive\provision.txt" -IncludeInvocationHeader
 # inserting value's from terraform
 $MyUserName = "${ user_name }"
 $MyPlainTextPassword = "${ user_pass }"
-if (-not [string]::IsNullOrEmpty($MyUserName) -and -not [string]::IsNullOrEmpty($MyPlainTextPassword))
-{
+if (-not [string]::IsNullOrEmpty($MyUserName) -and -not [string]::IsNullOrEmpty($MyPlainTextPassword)) {
     "Create user" | Write-Host
     $MyPassword = $MyPlainTextPassword | ConvertTo-SecureString -AsPlainText -Force
     $MyUser = New-LocalUser -Name $MyUserName -Password $MyPassword -PasswordNeverExpires -AccountNeverExpires

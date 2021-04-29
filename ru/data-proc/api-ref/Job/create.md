@@ -2,29 +2,29 @@
 editable: false
 ---
 
-# Метод create
-Создает задачу для кластера.
+# Method create
+Creates a job for a cluster.
  
 
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 POST https://dataproc.api.cloud.yandex.net/dataproc/v1/clusters/{clusterId}/jobs
 ```
  
-## Path-параметры {#path_params}
+## Path parameters {#path_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-clusterId | Обязательное поле. Идентификатор кластера, для которого следует создать задачу.  Максимальная длина строки в символах — 50.
+clusterId | Required. ID of the cluster to create a job for.  The maximum string length in characters is 50.
  
-## Параметры в теле запроса {#body_params}
+## Body parameters {#body_params}
  
 ```json 
 {
   "name": "string",
 
-  //  включает только одно из полей `mapreduceJob`, `sparkJob`, `pysparkJob`, `hiveJob`
+  //  includes only one of the fields `mapreduceJob`, `sparkJob`, `pysparkJob`, `hiveJob`
   "mapreduceJob": {
     "args": [
       "string"
@@ -40,10 +40,10 @@ clusterId | Обязательное поле. Идентификатор кла
     ],
     "properties": "object",
 
-    // `mapreduceJob` включает только одно из полей `mainJarFileUri`, `mainClass`
+    // `mapreduceJob` includes only one of the fields `mainJarFileUri`, `mainClass`
     "mainJarFileUri": "string",
     "mainClass": "string",
-    // конец списка возможных полей`mapreduceJob`
+    // end of the list of possible fields`mapreduceJob`
 
   },
   "sparkJob": {
@@ -90,59 +90,59 @@ clusterId | Обязательное поле. Идентификатор кла
       "string"
     ],
 
-    // `hiveJob` включает только одно из полей `queryFileUri`, `queryList`
+    // `hiveJob` includes only one of the fields `queryFileUri`, `queryList`
     "queryFileUri": "string",
     "queryList": {
       "queries": [
         "string"
       ]
     },
-    // конец списка возможных полей`hiveJob`
+    // end of the list of possible fields`hiveJob`
 
   },
-  // конец списка возможных полей
+  // end of the list of possible fields
 
 }
 ```
 
  
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br><p>Имя задачи.</p> <p>Значение должно соответствовать регулярному выражению `` \|[a-z][-a-z0-9]{1,61}[a-z0-9] ``.</p> 
-mapreduceJob | **object**<br>Спецификация задачи для MapReduce. <br> включает только одно из полей `mapreduceJob`, `sparkJob`, `pysparkJob`, `hiveJob`<br><br>
-mapreduceJob.<br>args[] | **string**<br><p>Необязательные аргументы, которые передаются драйверу.</p> 
-mapreduceJob.<br>jarFileUris[] | **string**<br><p>URI JAR-файлов, которые добавляются в CLASSPATH драйвера Data Proc и каждого задания в рамках задачи.</p> 
-mapreduceJob.<br>fileUris[] | **string**<br><p>URI ресурсных файлов, которые копируются в рабочий каталог драйверов Data Proc и распределенных заданий Hadoop.</p> 
-mapreduceJob.<br>archiveUris[] | **string**<br><p>URI архивов, содержимое которых извлекается в рабочий каталог драйверов и каждого задания в рамках задачи.</p> 
-mapreduceJob.<br>properties | **object**<br><p>Имена и значения свойств, которые используются для настройки Data Proc и MapReduce.</p> 
-mapreduceJob.<br>mainJarFileUri | **string** <br>`mapreduceJob` включает только одно из полей `mainJarFileUri`, `mainClass`<br><br><p>HCFS URI JAR-файла, который содержит класс драйвера.</p> 
-mapreduceJob.<br>mainClass | **string** <br>`mapreduceJob` включает только одно из полей `mainJarFileUri`, `mainClass`<br><br><p>Имя класса драйвера.</p> 
-sparkJob | **object**<br>Спецификация задачи для Spark. <br> включает только одно из полей `mapreduceJob`, `sparkJob`, `pysparkJob`, `hiveJob`<br><br>
-sparkJob.<br>args[] | **string**<br><p>Необязательные аргументы, которые передаются драйверу.</p> 
-sparkJob.<br>jarFileUris[] | **string**<br><p>URI JAR-файлов, которые добавляются в CLASSPATH драйвера Data Proc и каждого задания в рамках задачи.</p> 
-sparkJob.<br>fileUris[] | **string**<br><p>URI ресурсных файлов, которые копируются в рабочий каталог драйверов Data Proc и распределенных заданий Hadoop.</p> 
-sparkJob.<br>archiveUris[] | **string**<br><p>URI архивов, содержимое которых извлекается в рабочий каталог драйверов и каждого задания в рамках задачи.</p> 
-sparkJob.<br>properties | **object**<br><p>Имена и значения свойств, которые используются для настройки Data Proc и Spark.</p> 
-sparkJob.<br>mainJarFileUri | **string**<br><p>URI HCFS JAR-файла, содержащего класс `main` для задачи.</p> 
-sparkJob.<br>mainClass | **string**<br><p>Имя класса драйвера.</p> 
-pysparkJob | **object**<br>Спецификация задачи для PySpark. <br> включает только одно из полей `mapreduceJob`, `sparkJob`, `pysparkJob`, `hiveJob`<br><br>
-pysparkJob.<br>args[] | **string**<br><p>Необязательные аргументы, которые передаются драйверу.</p> 
-pysparkJob.<br>jarFileUris[] | **string**<br><p>URI JAR-файлов, которые добавляются в CLASSPATH драйвера Data Proc и каждого задания в рамках задачи.</p> 
-pysparkJob.<br>fileUris[] | **string**<br><p>URI ресурсных файлов, которые копируются в рабочий каталог драйверов Data Proc и распределенных заданий Hadoop.</p> 
-pysparkJob.<br>archiveUris[] | **string**<br><p>URI архивов, содержимое которых извлекается в рабочий каталог драйверов и каждого задания в рамках задачи.</p> 
-pysparkJob.<br>properties | **object**<br><p>Имена и значения свойств, которые используются для настройки Data Proc и PySpark.</p> 
-pysparkJob.<br>mainPythonFileUri | **string**<br><p>URI файла с кодом драйвера. Должен быть .py-файлом.</p> 
-pysparkJob.<br>pythonFileUris[] | **string**<br><p>URI Python-файлов, которые передаются PySpark.</p> 
-hiveJob | **object**<br>Спецификация задачи для Hive. <br> включает только одно из полей `mapreduceJob`, `sparkJob`, `pysparkJob`, `hiveJob`<br><br>
-hiveJob.<br>properties | **object**<br><p>Имена и значения свойств, которые используются для настройки Data Proc и Hive.</p> 
-hiveJob.<br>continueOnFailure | **boolean** (boolean)<br><p>Флаг, указывающий на то, что задачу следует продолжать даже если запрос выполнить не удалось.</p> 
-hiveJob.<br>scriptVariables | **object**<br><p>Переменные запросов и их значения.</p> 
-hiveJob.<br>jarFileUris[] | **string**<br><p>URI JAR-файлов, которые добавляются в CLASSPATH драйвера Hive и каждого задания в рамках задачи.</p> 
-hiveJob.<br>queryFileUri | **string** <br>`hiveJob` включает только одно из полей `queryFileUri`, `queryList`<br><br><p>URI скрипта со всеми необходимыми Hive-запросами.</p> 
-hiveJob.<br>queryList | **object**<br>Список запросов Hive, которые используются в задаче. <br>`hiveJob` включает только одно из полей `queryFileUri`, `queryList`<br><br>
-hiveJob.<br>queryList.<br>queries[] | **string**<br><p>Список Hive-запросов.</p> 
+name | **string**<br><p>Name of the job.</p> <p>Value must match the regular expression `` \|[a-z][-a-z0-9]{1,61}[a-z0-9] ``.</p> 
+mapreduceJob | **object**<br>Specification for a MapReduce job. <br> includes only one of the fields `mapreduceJob`, `sparkJob`, `pysparkJob`, `hiveJob`<br><br>
+mapreduceJob.<br>args[] | **string**<br><p>Optional arguments to pass to the driver.</p> 
+mapreduceJob.<br>jarFileUris[] | **string**<br><p>JAR file URIs to add to CLASSPATH of the Data Proc driver and each task.</p> 
+mapreduceJob.<br>fileUris[] | **string**<br><p>URIs of resource files to be copied to the working directory of Data Proc drivers and distributed Hadoop tasks.</p> 
+mapreduceJob.<br>archiveUris[] | **string**<br><p>URIs of archives to be extracted to the working directory of Data Proc drivers and tasks.</p> 
+mapreduceJob.<br>properties | **object**<br><p>Property names and values, used to configure Data Proc and MapReduce.</p> 
+mapreduceJob.<br>mainJarFileUri | **string** <br>`mapreduceJob` includes only one of the fields `mainJarFileUri`, `mainClass`<br><br><p>HCFS URI of the .jar file containing the driver class.</p> 
+mapreduceJob.<br>mainClass | **string** <br>`mapreduceJob` includes only one of the fields `mainJarFileUri`, `mainClass`<br><br><p>The name of the driver class.</p> 
+sparkJob | **object**<br>Specification for a Spark job. <br> includes only one of the fields `mapreduceJob`, `sparkJob`, `pysparkJob`, `hiveJob`<br><br>
+sparkJob.<br>args[] | **string**<br><p>Optional arguments to pass to the driver.</p> 
+sparkJob.<br>jarFileUris[] | **string**<br><p>JAR file URIs to add to CLASSPATH of the Data Proc driver and each task.</p> 
+sparkJob.<br>fileUris[] | **string**<br><p>URIs of resource files to be copied to the working directory of Data Proc drivers and distributed Hadoop tasks.</p> 
+sparkJob.<br>archiveUris[] | **string**<br><p>URIs of archives to be extracted to the working directory of Data Proc drivers and tasks.</p> 
+sparkJob.<br>properties | **object**<br><p>Property names and values, used to configure Data Proc and Spark.</p> 
+sparkJob.<br>mainJarFileUri | **string**<br><p>The HCFS URI of the JAR file containing the `main` class for the job.</p> 
+sparkJob.<br>mainClass | **string**<br><p>The name of the driver class.</p> 
+pysparkJob | **object**<br>Specification for a PySpark job. <br> includes only one of the fields `mapreduceJob`, `sparkJob`, `pysparkJob`, `hiveJob`<br><br>
+pysparkJob.<br>args[] | **string**<br><p>Optional arguments to pass to the driver.</p> 
+pysparkJob.<br>jarFileUris[] | **string**<br><p>JAR file URIs to add to CLASSPATH of the Data Proc driver and each task.</p> 
+pysparkJob.<br>fileUris[] | **string**<br><p>URIs of resource files to be copied to the working directory of Data Proc drivers and distributed Hadoop tasks.</p> 
+pysparkJob.<br>archiveUris[] | **string**<br><p>URIs of archives to be extracted to the working directory of Data Proc drivers and tasks.</p> 
+pysparkJob.<br>properties | **object**<br><p>Property names and values, used to configure Data Proc and PySpark.</p> 
+pysparkJob.<br>mainPythonFileUri | **string**<br><p>URI of the file with the driver code. Must be a .py file.</p> 
+pysparkJob.<br>pythonFileUris[] | **string**<br><p>URIs of Python files to pass to the PySpark framework.</p> 
+hiveJob | **object**<br>Specification for a Hive job. <br> includes only one of the fields `mapreduceJob`, `sparkJob`, `pysparkJob`, `hiveJob`<br><br>
+hiveJob.<br>properties | **object**<br><p>Property names and values, used to configure Data Proc and Hive.</p> 
+hiveJob.<br>continueOnFailure | **boolean** (boolean)<br><p>Flag indicating whether a job should continue to run if a query fails.</p> 
+hiveJob.<br>scriptVariables | **object**<br><p>Query variables and their values.</p> 
+hiveJob.<br>jarFileUris[] | **string**<br><p>JAR file URIs to add to CLASSPATH of the Hive driver and each task.</p> 
+hiveJob.<br>queryFileUri | **string** <br>`hiveJob` includes only one of the fields `queryFileUri`, `queryList`<br><br><p>URI of the script with all the necessary Hive queries.</p> 
+hiveJob.<br>queryList | **object**<br>List of Hive queries to be used in the job. <br>`hiveJob` includes only one of the fields `queryFileUri`, `queryList`<br><br>
+hiveJob.<br>queryList.<br>queries[] | **string**<br><p>List of Hive queries.</p> 
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -155,7 +155,7 @@ hiveJob.<br>queryList.<br>queries[] | **string**<br><p>Список Hive-зап�
   "done": true,
   "metadata": "object",
 
-  //  включает только одно из полей `error`, `response`
+  //  includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
     "message": "string",
@@ -164,24 +164,23 @@ hiveJob.<br>queryList.<br>queries[] | **string**<br><p>Список Hive-зап�
     ]
   },
   "response": "object",
-  // конец списка возможных полей
+  // end of the list of possible fields
 
 }
 ```
-Ресурс Operation. Дополнительные сведения см. в разделе
-[Объект Operation](/docs/api-design-guide/concepts/operation).
+An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
  
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br><p>Идентификатор операции.</p> 
-description | **string**<br><p>Описание операции. Длина описания должна быть от 0 до 256 символов.</p> 
-createdAt | **string** (date-time)<br><p>Время создания ресурса в формате в <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-createdBy | **string**<br><p>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию.</p> 
-modifiedAt | **string** (date-time)<br><p>Время, когда ресурс Operation последний раз обновлялся. Значение в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-done | **boolean** (boolean)<br><p>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`.</p> 
-metadata | **object**<br><p>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`.</p> 
-error | **object**<br>Описание ошибки в случае сбоя или отмены операции. <br> включает только одно из полей `error`, `response`<br><br><p>Описание ошибки в случае сбоя или отмены операции.</p> 
-error.<br>code | **integer** (int32)<br><p>Код ошибки. Значение из списка <a href="https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto">google.rpc.Code</a>.</p> 
-error.<br>message | **string**<br><p>Текст ошибки.</p> 
-error.<br>details[] | **object**<br><p>Список сообщений с подробными сведениями об ошибке.</p> 
-response | **object** <br> включает только одно из полей `error`, `response`<br><br><p>Результат операции в случае успешного завершения. Если исходный метод не возвращает никаких данных при успешном завершении, например метод Delete, поле содержит объект <a href="https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty">google.protobuf.Empty</a>. Если исходный метод — это стандартный метод Create / Update, поле содержит целевой ресурс операции. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `response`.</p> 
+id | **string**<br><p>ID of the operation.</p> 
+description | **string**<br><p>Description of the operation. 0-256 characters long.</p> 
+createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+createdBy | **string**<br><p>ID of the user or service account who initiated the operation.</p> 
+modifiedAt | **string** (date-time)<br><p>The time when the Operation resource was last modified.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+done | **boolean** (boolean)<br><p>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available.</p> 
+metadata | **object**<br><p>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any.</p> 
+error | **object**<br>The error result of the operation in case of failure or cancellation. <br> includes only one of the fields `error`, `response`<br><br><p>The error result of the operation in case of failure or cancellation.</p> 
+error.<br>code | **integer** (int32)<br><p>Error code. An enum value of <a href="https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto">google.rpc.Code</a>.</p> 
+error.<br>message | **string**<br><p>An error message.</p> 
+error.<br>details[] | **object**<br><p>A list of messages that carry the error details.</p> 
+response | **object** <br> includes only one of the fields `error`, `response`<br><br><p>The normal response of the operation in case of success. If the original method returns no data on success, such as Delete, the response is <a href="https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty">google.protobuf.Empty</a>. If the original method is the standard Create/Update, the response should be the target resource of the operation. Any method that returns a long-running operation should document the response type, if any.</p> 

@@ -71,13 +71,13 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
-  - name: Справочник API
+  - name: Справочник API (англ.)
     items:
-      - name: Аутентификация в API
+      - name: Authentication
         href: api-ref/authentication.md
       - name: gRPC
         items:
-          - name: Обзор
+          - name: Overview
             href: grpc/index.md
           - name: CertificateContentService
             href: grpc/certificate_content_service.md
@@ -87,11 +87,11 @@ items:
             href: grpc/operation_service.md
       - name: REST
         items:
-          - name: Обзор
+          - name: Overview
             href: api-ref/index.md
           - name: Certificate
             items:
-              - name: Обзор
+              - name: Overview
                 href: api-ref/Certificate/index.md
               - name: create
                 href: api-ref/Certificate/create.md
@@ -115,7 +115,7 @@ items:
                 href: api-ref/Certificate/updateAccessBindings.md
           - name: CertificateContent
             items:
-              - name: Обзор
+              - name: Overview
                 href: api-ref/CertificateContent/index.md
               - name: get
                 href: api-ref/CertificateContent/get.md

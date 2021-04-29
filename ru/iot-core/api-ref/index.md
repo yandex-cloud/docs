@@ -3,9 +3,11 @@ editable: false
 ---
 
 # Yandex IoT Core Service
-Методы справочника API сгруппированы по ресурсам. Чтобы выполнить операцию над ресурсом, отправьте HTTP-запрос к соответствующему URL. Подробнее об архитектуре API Яндекс.Облака, см. [Концепции API Яндекс.Облака](/docs/api-design-guide/).
+This API reference is organized by resource. Actions are performed by sending HTTP requests to resource URLs or making RPC calls. For more information about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
 
-Ресурс | Описание
+Resource | Description
 --- | ---
-[Device](Device/index.md) | Набор методов для управления устройствами.
-[Registry](Registry/index.md) | Набор методов для управления реестрами.
+[Device](Device/index.md) | A set of methods for managing devices.
+[DeviceData](DeviceData/index.md) | A set of methods to work with IoT Core messages on behalf of device
+[Registry](Registry/index.md) | A set of methods for managing registry.
+[RegistryData](RegistryData/index.md) | A set of methods to work with IoT Core messages on behalf of registry

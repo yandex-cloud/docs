@@ -2,23 +2,23 @@
 editable: false
 ---
 
-# Метод decrypt
-Расшифровывает указанный шифртекст с помощью указанного ключа.
+# Method decrypt
+Decrypts the given ciphertext with the specified key.
  
 
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 POST https://kms.yandex/kms/v1/keys/{keyId}:decrypt
 ```
  
-## Path-параметры {#path_params}
+## Path parameters {#path_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-keyId | Обязательное поле. Идентификатор симметричного ключа KMS, который следует использовать для дешифрования.  Максимальная длина строки в символах — 50.
+keyId | Required. ID of the symmetric KMS key to use for decryption.  The maximum string length in characters is 50.
  
-## Параметры в теле запроса {#body_params}
+## Body parameters {#body_params}
  
 ```json 
 {
@@ -28,12 +28,12 @@ keyId | Обязательное поле. Идентификатор симме
 ```
 
  
-Поле | Описание
+Field | Description
 --- | ---
-aadContext | **string** (byte)<br><p>Дополнительные аутентификационные данные (AAD-контекст), должны быть такими же, как они были переданы в соответствующем запросе `SymmetricEncryptRequest`. Должен быть в кодировке base64.</p> <p>Максимальная длина строки в символах — 8192.</p> 
-ciphertext | **string** (byte)<br><p>Обязательное поле. Шифртекст для расшифровки. Должен быть в кодировке base64.</p> 
+aadContext | **string** (byte)<br><p>Additional authenticated data, must be the same as was provided in the corresponding `SymmetricEncryptRequest`. Should be encoded with base64.</p> <p>The maximum string length in characters is 8192.</p> 
+ciphertext | **string** (byte)<br><p>Required. Ciphertext to be decrypted. Should be encoded with base64.</p> 
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -45,8 +45,8 @@ ciphertext | **string** (byte)<br><p>Обязательное поле. Шифр
 ```
 
  
-Поле | Описание
+Field | Description
 --- | ---
-keyId | **string**<br><p>Идентификатор симметричного ключа KMS, который использовался для дешифрования.</p> 
-versionId | **string**<br><p>Идентификатор версии ключа, которая использовалась для дешифрования.</p> 
-plaintext | **string** (byte)<br><p>Расшифрованный открытый текст.</p> 
+keyId | **string**<br><p>ID of the symmetric KMS key that was used for decryption.</p> 
+versionId | **string**<br><p>ID of the key version that was used for decryption.</p> 
+plaintext | **string** (byte)<br><p>Decrypted plaintext.</p> 

@@ -46,6 +46,7 @@ default:
   dns-full-name: Yandex Cloud DNS
   at-full-name: Yandex Audit Trails
   speechkit-pro-full-name: Yandex SpeechKit Pro
+  cdn-full-name: Yandex Cloud CDN
   iam-name: Identity and Access Management
   ig-name: Instance Groups
   resmgr-name: Resource Manager
@@ -91,6 +92,7 @@ default:
   dns-name: Cloud DNS
   at-name: Audit Trails
   speechkit-pro-name: SpeechKit Pro
+  cdn-name: Cloud CDN
   iam-short-name: IAM
   resmgr-short-name: Resource Manager
   compute-short-name: Compute Cloud
@@ -131,6 +133,7 @@ default:
   at-short-name: Audit Trails
   tracker-short-name: Tracker
   speechkit-pro-short-name: SpeechKit Pro
+  cdn-short-name: Cloud CDN
   price-per-hour-count-per-second: Цена указывается за 1 час использования. Тарификация посекундная.
   roles-cr-admin: container-registry.admin
   roles-cr-puller: container-registry.images.puller
@@ -1023,6 +1026,24 @@ default:
           v1|month|string: "175,7520\_₽"
           v1|month|int|number: '176'
           v1|month|int|string: "176\_₽"
+        amd:
+          a100:
+            v1|number: 0,0000
+            v1|string: Не тарифицируется
+            v1|int|number: '0'
+            v1|int|string: Не тарифицируется
+            v1|month|number: 0,0000
+            v1|month|string: Не тарифицируется
+            v1|month|int|number: '0'
+            v1|month|int|string: Не тарифицируется
+          v1|number: 0,0000
+          v1|string: Не тарифицируется
+          v1|int|number: '0'
+          v1|int|string: Не тарифицируется
+          v1|month|number: 0,0000
+          v1|month|string: Не тарифицируется
+          v1|month|int|number: '0'
+          v1|month|int|string: Не тарифицируется
         gpu-standard|number: 0,2441
         gpu-standard|string: "0,2441\_₽"
         gpu-standard|int|number: '0'
@@ -1098,15 +1119,6 @@ default:
         preemptible|month|string: "54,0000\_₽"
         preemptible|month|int|number: '54'
         preemptible|month|int|string: "54\_₽"
-        amd:
-          v1|number: 0,0000
-          v1|string: Не тарифицируется
-          v1|int|number: '0'
-          v1|int|string: Не тарифицируется
-          v1|month|number: 0,0000
-          v1|month|string: Не тарифицируется
-          v1|month|int|number: '0'
-          v1|month|int|string: Не тарифицируется
       cpu:
         '50':
           v2:
@@ -1728,6 +1740,15 @@ default:
             v1|month|string: Не тарифицируется
             v1|month|int|number: '0'
             v1|month|int|string: Не тарифицируется
+            a100:
+              v1|number: 0,0000
+              v1|string: Не тарифицируется
+              v1|int|number: '0'
+              v1|int|string: Не тарифицируется
+              v1|month|number: 0,0000
+              v1|month|string: Не тарифицируется
+              v1|month|int|number: '0'
+              v1|month|int|string: Не тарифицируется
         c20:
           preemptible:
             dev:
@@ -2027,6 +2048,16 @@ default:
           v1|month|int|number: '965'
           v1|month|int|string: "965\_₽"
       gpu:
+        amd:
+          a100:
+            v1|number: 0,0000
+            v1|string: Не тарифицируется
+            v1|int|number: '0'
+            v1|int|string: Не тарифицируется
+            v1|month|number: 0,0000
+            v1|month|string: Не тарифицируется
+            v1|month|int|number: '0'
+            v1|month|int|string: Не тарифицируется
         gpu-standard:
           preemptible:
             v2:
@@ -11442,6 +11473,24 @@ default:
           v1|month|string: "2,253231\_$"
           v1|month|int|number: '2'
           v1|month|int|string: "2\_$"
+        amd:
+          a100:
+            v1|number: 0,000000
+            v1|string: Не тарифицируется
+            v1|int|number: '0'
+            v1|int|string: Не тарифицируется
+            v1|month|number: 0,000000
+            v1|month|string: Не тарифицируется
+            v1|month|int|number: '0'
+            v1|month|int|string: Не тарифицируется
+          v1|number: 0,000000
+          v1|string: Не тарифицируется
+          v1|int|number: '0'
+          v1|int|string: Не тарифицируется
+          v1|month|number: 0,000000
+          v1|month|string: Не тарифицируется
+          v1|month|int|number: '0'
+          v1|month|int|string: Не тарифицируется
         gpu-standard|number: 0,003129
         gpu-standard|string: "0,003129\_$"
         gpu-standard|int|number: '0'
@@ -11517,15 +11566,6 @@ default:
         preemptible|month|string: "0,692307\_$"
         preemptible|month|int|number: '1'
         preemptible|month|int|string: "1\_$"
-        amd:
-          v1|number: 0,000000
-          v1|string: Не тарифицируется
-          v1|int|number: '0'
-          v1|int|string: Не тарифицируется
-          v1|month|number: 0,000000
-          v1|month|string: Не тарифицируется
-          v1|month|int|number: '0'
-          v1|month|int|string: Не тарифицируется
       cpu:
         '50':
           v2:
@@ -12147,6 +12187,15 @@ default:
             v1|month|string: Не тарифицируется
             v1|month|int|number: '0'
             v1|month|int|string: Не тарифицируется
+            a100:
+              v1|number: 0,000000
+              v1|string: Не тарифицируется
+              v1|int|number: '0'
+              v1|int|string: Не тарифицируется
+              v1|month|number: 0,000000
+              v1|month|string: Не тарифицируется
+              v1|month|int|number: '0'
+              v1|month|int|string: Не тарифицируется
         c20:
           preemptible:
             dev:
@@ -12446,6 +12495,16 @@ default:
           v1|month|int|number: '12'
           v1|month|int|string: "12\_$"
       gpu:
+        amd:
+          a100:
+            v1|number: 0,000000
+            v1|string: Не тарифицируется
+            v1|int|number: '0'
+            v1|int|string: Не тарифицируется
+            v1|month|number: 0,000000
+            v1|month|string: Не тарифицируется
+            v1|month|int|number: '0'
+            v1|month|int|string: Не тарифицируется
         gpu-standard:
           preemptible:
             v2:
@@ -21861,6 +21920,24 @@ default:
           v1|month|string: "1\_054,5120\_₸"
           v1|month|int|number: "1\_055"
           v1|month|int|string: "1\_055\_₸"
+        amd:
+          a100:
+            v1|number: 0,0000
+            v1|string: Не тарифицируется
+            v1|int|number: '0'
+            v1|int|string: Не тарифицируется
+            v1|month|number: 0,0000
+            v1|month|string: Не тарифицируется
+            v1|month|int|number: '0'
+            v1|month|int|string: Не тарифицируется
+          v1|number: 0,0000
+          v1|string: Не тарифицируется
+          v1|int|number: '0'
+          v1|int|string: Не тарифицируется
+          v1|month|number: 0,0000
+          v1|month|string: Не тарифицируется
+          v1|month|int|number: '0'
+          v1|month|int|string: Не тарифицируется
         gpu-standard|number: 1,4646
         gpu-standard|string: "1,4646\_₸"
         gpu-standard|int|number: '1'
@@ -21936,15 +22013,6 @@ default:
         preemptible|month|string: "324,0000\_₸"
         preemptible|month|int|number: '324'
         preemptible|month|int|string: "324\_₸"
-        amd:
-          v1|number: 0,0000
-          v1|string: Не тарифицируется
-          v1|int|number: '0'
-          v1|int|string: Не тарифицируется
-          v1|month|number: 0,0000
-          v1|month|string: Не тарифицируется
-          v1|month|int|number: '0'
-          v1|month|int|string: Не тарифицируется
       cpu:
         '50':
           v2:
@@ -22566,6 +22634,15 @@ default:
             v1|month|string: Не тарифицируется
             v1|month|int|number: '0'
             v1|month|int|string: Не тарифицируется
+            a100:
+              v1|number: 0,0000
+              v1|string: Не тарифицируется
+              v1|int|number: '0'
+              v1|int|string: Не тарифицируется
+              v1|month|number: 0,0000
+              v1|month|string: Не тарифицируется
+              v1|month|int|number: '0'
+              v1|month|int|string: Не тарифицируется
         c20:
           preemptible:
             dev:
@@ -22865,6 +22942,16 @@ default:
           v1|month|int|number: "5\_789"
           v1|month|int|string: "5\_789\_₸"
       gpu:
+        amd:
+          a100:
+            v1|number: 0,0000
+            v1|string: Не тарифицируется
+            v1|int|number: '0'
+            v1|int|string: Не тарифицируется
+            v1|month|number: 0,0000
+            v1|month|string: Не тарифицируется
+            v1|month|int|number: '0'
+            v1|month|int|string: Не тарифицируется
         gpu-standard:
           preemptible:
             v2:

@@ -1,12 +1,13 @@
 # Yandex Virtual Private Cloud API
-Методы справочника API сгруппированы по ресурсам. Чтобы выполнить операцию над ресурсом выполните RPC-вызов. Подробнее об архитектуре API Яндекс.Облака, см. [Концепции API Яндекс.Облака](/docs/api-design-guide/).
+This API reference is organized by resource. Actions are performed by sending HTTP requests to resource URLs or making RPC calls. For more information about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
 
-Спецификации API Яндекс.Облака смотрите на [GitHub](https://github.com/yandex-cloud/cloudapi).
+See the interface definitions of Yandex.Cloud API on [GitHub](https://github.com/yandex-cloud/cloudapi).
 
-Сервис | Описание
+Service | Description
 --- | ---
-[AddressService](./address_service.md) | Набор методов для управления адресами.
-[NetworkService](./network_service.md) | Набор методов для управления облачными сетями.
-[RouteTableService](./route_table_service.md) | Набор методов для управления таблицами маршрутизации.
-[SubnetService](./subnet_service.md) | Набор методов для управления подсетями.
-[OperationService](./operation_service.md) | Набор методов для управления операциями в асинхронных запросах API. Ссылки указаны относительно домена `operation.api.cloud.yandex.net`.
+[AddressService](./address_service.md) | A set of methods for managing Address resources.
+[NetworkService](./network_service.md) | A set of methods for managing Network resources.
+[RouteTableService](./route_table_service.md) | A set of methods for managing RouteTable resources.
+[SecurityGroupService](./security_group_service.md) | 
+[SubnetService](./subnet_service.md) | A set of methods for managing Subnet resources.
+[OperationService](./operation_service.md) | A set of methods for managing operations for asynchronous API requests.

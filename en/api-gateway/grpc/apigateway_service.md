@@ -13,6 +13,8 @@ A set of methods for managing API gateways.
 | [Create](#Create) | Creates an API gateway in the specified folder. |
 | [Update](#Update) | Updates the specified API gateway. |
 | [Delete](#Delete) | Deletes the specified API gateway. |
+| [AddDomain](#AddDomain) | Attaches domain to the specified API gateway. |
+| [RemoveDomain](#RemoveDomain) | Detaches domain from the specified API gateway. |
 | [GetOpenapiSpec](#GetOpenapiSpec) | Returns the OpenAPI specification of specified API gateway. |
 | [ListOperations](#ListOperations) | Lists operations for the specified API gateway. |
 | [ListAccessBindings](#ListAccessBindings) | Lists existing access bindings for the specified API gateway. |
@@ -47,6 +49,17 @@ labels | **map<string,string>**<br>API gateway labels as `key:value` pairs.
 status | enum **Status**<br>Status of the API gateway. <ul><li>`CREATING`: API gateway is being created.</li><li>`ACTIVE`: API gateway is ready for use.</li><li>`DELETING`: API gateway is being deleted.</li><li>`ERROR`: API gateway failed. The only allowed action is delete.</li><li>`UPDATING`: API gateway is being updated.</li><ul/>
 domain | **string**<br>Default domain for the API gateway. Generated at creation time. 
 log_group_id | **string**<br>ID of the log group for the API gateway. 
+attached_domains[] | **[AttachedDomain](#AttachedDomain)**<br>List of domains attached to API gateway. 
+
+
+### AttachedDomain {#AttachedDomain}
+
+Field | Description
+--- | ---
+domain_id | **string**<br>ID of the domain. 
+certificate_id | **string**<br>ID of the domain certificate. 
+enabled | **bool**<br>Enabling flag. 
+domain | **string**<br>Name of the domain. 
 
 
 ## List {#List}
@@ -86,6 +99,17 @@ labels | **map<string,string>**<br>API gateway labels as `key:value` pairs.
 status | enum **Status**<br>Status of the API gateway. <ul><li>`CREATING`: API gateway is being created.</li><li>`ACTIVE`: API gateway is ready for use.</li><li>`DELETING`: API gateway is being deleted.</li><li>`ERROR`: API gateway failed. The only allowed action is delete.</li><li>`UPDATING`: API gateway is being updated.</li><ul/>
 domain | **string**<br>Default domain for the API gateway. Generated at creation time. 
 log_group_id | **string**<br>ID of the log group for the API gateway. 
+attached_domains[] | **[AttachedDomain](#AttachedDomain1)**<br>List of domains attached to API gateway. 
+
+
+### AttachedDomain {#AttachedDomain1}
+
+Field | Description
+--- | ---
+domain_id | **string**<br>ID of the domain. 
+certificate_id | **string**<br>ID of the domain certificate. 
+enabled | **bool**<br>Enabling flag. 
+domain | **string**<br>Name of the domain. 
 
 
 ## Create {#Create}
@@ -146,6 +170,17 @@ labels | **map<string,string>**<br>API gateway labels as `key:value` pairs.
 status | enum **Status**<br>Status of the API gateway. <ul><li>`CREATING`: API gateway is being created.</li><li>`ACTIVE`: API gateway is ready for use.</li><li>`DELETING`: API gateway is being deleted.</li><li>`ERROR`: API gateway failed. The only allowed action is delete.</li><li>`UPDATING`: API gateway is being updated.</li><ul/>
 domain | **string**<br>Default domain for the API gateway. Generated at creation time. 
 log_group_id | **string**<br>ID of the log group for the API gateway. 
+attached_domains[] | **[AttachedDomain](#AttachedDomain2)**<br>List of domains attached to API gateway. 
+
+
+### AttachedDomain {#AttachedDomain2}
+
+Field | Description
+--- | ---
+domain_id | **string**<br>ID of the domain. 
+certificate_id | **string**<br>ID of the domain certificate. 
+enabled | **bool**<br>Enabling flag. 
+domain | **string**<br>Name of the domain. 
 
 
 ## Update {#Update}
@@ -207,6 +242,17 @@ labels | **map<string,string>**<br>API gateway labels as `key:value` pairs.
 status | enum **Status**<br>Status of the API gateway. <ul><li>`CREATING`: API gateway is being created.</li><li>`ACTIVE`: API gateway is ready for use.</li><li>`DELETING`: API gateway is being deleted.</li><li>`ERROR`: API gateway failed. The only allowed action is delete.</li><li>`UPDATING`: API gateway is being updated.</li><ul/>
 domain | **string**<br>Default domain for the API gateway. Generated at creation time. 
 log_group_id | **string**<br>ID of the log group for the API gateway. 
+attached_domains[] | **[AttachedDomain](#AttachedDomain3)**<br>List of domains attached to API gateway. 
+
+
+### AttachedDomain {#AttachedDomain3}
+
+Field | Description
+--- | ---
+domain_id | **string**<br>ID of the domain. 
+certificate_id | **string**<br>ID of the domain certificate. 
+enabled | **bool**<br>Enabling flag. 
+domain | **string**<br>Name of the domain. 
 
 
 ## Delete {#Delete}
@@ -249,6 +295,90 @@ Field | Description
 api_gateway_id | **string**<br>ID of the API gateway that is being deleted. 
 
 
+## AddDomain {#AddDomain}
+
+Attaches domain to the specified API gateway.
+
+**rpc AddDomain ([AddDomainRequest](#AddDomainRequest)) returns ([operation.Operation](#Operation3))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[AddDomainMetadata](#AddDomainMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
+
+### AddDomainRequest {#AddDomainRequest}
+
+Field | Description
+--- | ---
+api_gateway_id | **string**<br>Required. ID of the API gateway that the domain is attached to. 
+domain_id | **string**<br>Required. ID of the attaching domain. 
+
+
+### Operation {#Operation3}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[AddDomainMetadata](#AddDomainMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>if operation finished successfully. 
+
+
+### AddDomainMetadata {#AddDomainMetadata}
+
+Field | Description
+--- | ---
+api_gateway_id | **string**<br>ID of the API gateway that the domain is attached to. 
+domain_id | **string**<br>ID of the attaching domain. 
+
+
+## RemoveDomain {#RemoveDomain}
+
+Detaches domain from the specified API gateway.
+
+**rpc RemoveDomain ([RemoveDomainRequest](#RemoveDomainRequest)) returns ([operation.Operation](#Operation4))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[RemoveDomainMetadata](#RemoveDomainMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
+
+### RemoveDomainRequest {#RemoveDomainRequest}
+
+Field | Description
+--- | ---
+api_gateway_id | **string**<br>Required. ID of the API gateway from which the domain is being detached. 
+domain_id | **string**<br>Required. ID of the detaching domain. 
+
+
+### Operation {#Operation4}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[RemoveDomainMetadata](#RemoveDomainMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>if operation finished successfully. 
+
+
+### RemoveDomainMetadata {#RemoveDomainMetadata}
+
+Field | Description
+--- | ---
+api_gateway_id | **string**<br>ID of the API gateway from which the domain is being detached. 
+domain_id | **string**<br>ID of the detaching domain. 
+
+
 ## GetOpenapiSpec {#GetOpenapiSpec}
 
 Returns the OpenAPI specification of specified API gateway.
@@ -284,18 +414,18 @@ Field | Description
 api_gateway_id | **string**<br>Required. ID of the API gateway to list operations for. 
 page_size | **int64**<br>The maximum number of results per page that should be returned. If the number of available results is larger than `pageSize`, the service returns a [ListOperationsResponse.next_page_token](#ListOperationsResponse) that can be used to get the next page of results in subsequent list requests. <br>Default value: 100. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token. To get the next page of results, set `pageToken` to the [ListOperationsResponse.next_page_token](#ListOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name. Currently filtering can be applied to the [operation.Operation.done](#Operation3), [operation.Operation.created_by](#Operation3) field. </li><li>A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`. </li></ol> The maximum string length in characters is 1000.
+filter | **string**<br><ol><li>The field name. Currently filtering can be applied to the [operation.Operation.done](#Operation5), [operation.Operation.created_by](#Operation5) field. </li><li>A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`. </li></ol> The maximum string length in characters is 1000.
 
 
 ### ListOperationsResponse {#ListOperationsResponse}
 
 Field | Description
 --- | ---
-operations[] | **[operation.Operation](#Operation3)**<br>List of operations for the specified API gateway. 
+operations[] | **[operation.Operation](#Operation5)**<br>List of operations for the specified API gateway. 
 next_page_token | **string**<br>Token for getting the next page of the list. If the number of results is greater than the specified [ListOperationsRequest.page_size](#ListOperationsRequest), use `nextPageToken` as the value for the [ListOperationsRequest.page_token](#ListOperationsRequest) parameter in the next list request. <br>Each subsequent page will have its own `nextPageToken` to continue paging through the results. 
 
 
-### Operation {#Operation3}
+### Operation {#Operation5}
 
 Field | Description
 --- | ---
@@ -354,7 +484,7 @@ type | **string**<br>Required. <ul><li>`userAccount`: An account on Yandex or Ya
 
 Sets access bindings for the specified API gateway.
 
-**rpc SetAccessBindings ([SetAccessBindingsRequest](#SetAccessBindingsRequest)) returns ([operation.Operation](#Operation4))**
+**rpc SetAccessBindings ([SetAccessBindingsRequest](#SetAccessBindingsRequest)) returns ([operation.Operation](#Operation6))**
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[SetAccessBindingsMetadata](#SetAccessBindingsMetadata)<br>
@@ -384,7 +514,7 @@ id | **string**<br>Required. <ul><li>`allAuthenticatedUsers`: A special system i
 type | **string**<br>Required. <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul> The maximum string length in characters is 100.
 
 
-### Operation {#Operation4}
+### Operation {#Operation6}
 
 Field | Description
 --- | ---
@@ -411,7 +541,7 @@ resource_id | **string**<br>ID of the resource for which access bindings are bei
 
 Updates access bindings for the specified API gateway.
 
-**rpc UpdateAccessBindings ([UpdateAccessBindingsRequest](#UpdateAccessBindingsRequest)) returns ([operation.Operation](#Operation5))**
+**rpc UpdateAccessBindings ([UpdateAccessBindingsRequest](#UpdateAccessBindingsRequest)) returns ([operation.Operation](#Operation7))**
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateAccessBindingsMetadata](#UpdateAccessBindingsMetadata)<br>
@@ -449,7 +579,7 @@ id | **string**<br>Required. <ul><li>`allAuthenticatedUsers`: A special system i
 type | **string**<br>Required. <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul> The maximum string length in characters is 100.
 
 
-### Operation {#Operation5}
+### Operation {#Operation7}
 
 Field | Description
 --- | ---

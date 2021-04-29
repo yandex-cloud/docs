@@ -2,23 +2,23 @@
 editable: false
 ---
 
-# Метод get
-Возвращает указанный ресурс Folder.
+# Method get
+Returns the specified Folder resource.
  
-Чтобы получить список доступных ресурсов Folder, используйте запрос [list](/docs/resource-manager/api-ref/Folder/list).
+To get the list of available Folder resources, make a [list](/docs/resource-manager/api-ref/Folder/list) request.
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 GET https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders/{folderId}
 ```
  
-## Path-параметры {#path_params}
+## Path parameters {#path_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-folderId | Обязательное поле. Идентификатор запрашиваемого ресурса Folder. Чтобы получить идентификатор каталога, используйте запрос [list](/docs/resource-manager/api-ref/Folder/list).  Максимальная длина строки в символах — 50.
+folderId | Required. ID of the Folder resource to return. To get the folder ID, use a [list](/docs/resource-manager/api-ref/Folder/list) request.  The maximum string length in characters is 50.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -32,15 +32,14 @@ folderId | Обязательное поле. Идентификатор зап�
   "status": "string"
 }
 ```
-Ресурс Folder. Дополнительные сведения см. в разделе
-[Каталог как ресурс Яндекс.Облака](/docs/resource-manager/concepts/resources-hierarchy#folder).
+A Folder resource. For more information, see [Folder](/docs/resource-manager/concepts/resources-hierarchy#folder).
  
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br><p>Идентификатор каталога.</p> 
-cloudId | **string**<br><p>Идентификатор облака, которому принадлежит каталог.</p> 
-createdAt | **string** (date-time)<br><p>Время создания.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-name | **string**<br><p>Имя каталога. Имя должно быть уникальным в облаке. Длина имени должна быть от 3 до 63 символов.</p> 
-description | **string**<br><p>Описание каталога. Длина описания должна быть от 0 до 256 символов.</p> 
-labels | **object**<br><p>Метки ресурса в формате `` key:value ``. Максимум 64 на ресурс.</p> 
-status | **string**<br><p>Статус каталога.</p> <ul> <li>ACTIVE: Каталог доступен.</li> <li>DELETING: Каталог удаляется.</li> </ul> 
+id | **string**<br><p>ID of the folder.</p> 
+cloudId | **string**<br><p>ID of the cloud that the folder belongs to.</p> 
+createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+name | **string**<br><p>Name of the folder. The name is unique within the cloud. 3-63 characters long.</p> 
+description | **string**<br><p>Description of the folder. 0-256 characters long.</p> 
+labels | **object**<br><p>Resource labels as `` key:value `` pairs. Maximum of 64 per resource.</p> 
+status | **string**<br><p>Status of the folder.</p> <ul> <li>ACTIVE: The folder is active.</li> <li>DELETING: The folder is being deleted.</li> <li>PENDING_DELETION: Stopping folder resources and waiting for the deletion start timestamp.</li> </ul> 

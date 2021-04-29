@@ -2,17 +2,17 @@
 editable: false
 ---
 
-# Метод list
-Возвращает список версий в указанном релизном канале.
+# Method list
+Retrieves the list of versions in the specified release channel.
  
 
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 GET https://mks.api.cloud.yandex.net/managed-kubernetes/v1/versions
 ```
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -29,8 +29,8 @@ GET https://mks.api.cloud.yandex.net/managed-kubernetes/v1/versions
 ```
 
  
-Поле | Описание
+Field | Description
 --- | ---
-availableVersions[] | **object**<br><p>Версии, доступные в указанном релизном канале.</p> 
-availableVersions[].<br>releaseChannel | **string**<br><p>Релизный канал: `RAPID`, `REGULAR` или `STABLE`. Дополнительные сведения см. в <a href="https://cloud.yandex.ru/docs/managed-kubernetes/concepts/release-channels-and-updates">документации</a>.</p> <ul> <li>RAPID: На канале часто появляются минорные обновления, содержащие новую функциональность и улучшения. Вы не можете отключить автоматическое обновление на этом канале, но вы можете указать период времени для автоматического обновления.</li> <li>REGULAR: Новая функциональность и улучшения порциями попадают на канал через некоторое время после того, как были предоставлены на канале `RAPID`.</li> <li>STABLE: На канале происходят только обновления, касающиеся исправление ошибок или улучшения безопасности.</li> </ul> 
-availableVersions[].<br>versions[] | **string**<br><p>Версия компонентов Kubernetes.</p> 
+availableVersions[] | **object**<br><p>Versions available in the specified release channel.</p> 
+availableVersions[].<br>releaseChannel | **string**<br><p>Release channel: `RAPID`, `REGULAR` or `STABLE`. For more details see <a href="https://cloud.yandex.ru/docs/managed-kubernetes/concepts/release-channels-and-updates">documentation</a>.</p> <ul> <li>RAPID: Minor updates with new functions and improvements are often added. You can't disable automatic updates in this channel, but you can specify a time period for automatic updates.</li> <li>REGULAR: New functions and improvements are added in chunks shortly after they appear on `RAPID`.</li> <li>STABLE: Only updates related to bug fixes or security improvements are added.</li> </ul> 
+availableVersions[].<br>versions[] | **string**<br><p>Version of Kubernetes components.</p> 

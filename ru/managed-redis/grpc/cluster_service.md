@@ -4,1609 +4,2198 @@ editable: false
 
 # ClusterService
 
-Методы для управления кластерами Redis.
+A set of methods for managing Redis clusters.
 
-| Вызов | Описание |
+| Call | Description |
 | --- | --- |
-| [Get](#Get) | Возвращает указанный кластер Redis. |
-| [List](#List) | Возвращает список кластеров Redis, принадлежащих указанному каталогу. |
-| [Create](#Create) | Создает кластер Redis в указанном каталоге. |
-| [Update](#Update) | Изменяет указанный кластер Redis. |
-| [Delete](#Delete) | Удаляет указанный кластер Redis. |
-| [Start](#Start) | Запускает указанный кластер Redis. |
-| [Stop](#Stop) | Останавливает указанный кластер Redis. |
-| [Move](#Move) | Перемещает кластер Redis в указанный каталог. |
-| [Backup](#Backup) | Создает резервную копию для указанного кластера Redis. |
-| [Restore](#Restore) | Создает новый кластер Redis с использованием указанной резервной копии. |
-| [StartFailover](#StartFailover) | Запускает ручное переключение мастера для указанного кластера Redis. |
-| [ListLogs](#ListLogs) | Получает логи для указанного кластера Redis. |
-| [ListOperations](#ListOperations) | Возвращает список операций для указанного кластера. |
-| [ListBackups](#ListBackups) | Получает список доступных резервных копий для указанного кластера Redis. |
-| [ListHosts](#ListHosts) | Получает список хостов для указанного кластера. |
-| [AddHosts](#AddHosts) | Создает новые хосты для кластера. |
-| [DeleteHosts](#DeleteHosts) | Удаляет указанные хосты кластера. |
-| [GetShard](#GetShard) | Возвращает указанный шард. |
-| [ListShards](#ListShards) | Получает список шардов. |
-| [AddShard](#AddShard) | Создает новый шард. |
-| [DeleteShard](#DeleteShard) | Удаляет указанный шард. |
-| [Rebalance](#Rebalance) | Перебалансирует кластер. |
+| [Get](#Get) | Returns the specified Redis cluster. |
+| [List](#List) | Retrieves the list of Redis clusters that belong to the specified folder. |
+| [Create](#Create) | Creates a Redis cluster in the specified folder. |
+| [Update](#Update) | Updates the specified Redis cluster. |
+| [Delete](#Delete) | Deletes the specified Redis cluster. |
+| [Start](#Start) | Start the specified Redis cluster. |
+| [Stop](#Stop) | Stop the specified Redis cluster. |
+| [Move](#Move) | Moves a Redis cluster to the specified folder. |
+| [Backup](#Backup) | Creates a backup for the specified Redis cluster. |
+| [Restore](#Restore) | Creates a new Redis cluster using the specified backup. |
+| [RescheduleMaintenance](#RescheduleMaintenance) | Reschedules planned maintenance operation. |
+| [StartFailover](#StartFailover) | Start a manual failover on the specified Redis cluster. |
+| [ListLogs](#ListLogs) | Retrieves logs for the specified Redis cluster. |
+| [StreamLogs](#StreamLogs) | Same as ListLogs but using server-side streaming. |
+| [ListOperations](#ListOperations) | Retrieves the list of operations for the specified cluster. |
+| [ListBackups](#ListBackups) | Retrieves the list of available backups for the specified Redis cluster. |
+| [ListHosts](#ListHosts) | Retrieves a list of hosts for the specified cluster. |
+| [AddHosts](#AddHosts) | Creates new hosts for a cluster. |
+| [DeleteHosts](#DeleteHosts) | Deletes the specified hosts for a cluster. |
+| [GetShard](#GetShard) | Returns the specified shard. |
+| [ListShards](#ListShards) | Retrieves a list of shards. |
+| [AddShard](#AddShard) | Creates a new shard. |
+| [DeleteShard](#DeleteShard) | Deletes the specified shard. |
+| [Rebalance](#Rebalance) | Rebalances the cluster. |
 
-## Вызовы ClusterService {#calls}
+## Calls ClusterService {#calls}
 
 ## Get {#Get}
 
-Возвращает указанный кластер Redis. <br>Чтобы получить список доступных резервных копий Redis, используйте запрос [List](#List).
+Returns the specified Redis cluster. <br>To get the list of available Redis clusters, make a [List](#List) request.
 
 **rpc Get ([GetClusterRequest](#GetClusterRequest)) returns ([Cluster](#Cluster))**
 
 ### GetClusterRequest {#GetClusterRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор возвращаемого кластера Redis. Чтобы получить идентификатор кластера, используйте запрос [ClusterService.List](#List). Максимальная длина строки в символах — 50.
+cluster_id | **string**<br>Required. ID of the Redis cluster to return. To get the cluster ID use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
 
 
 ### Cluster {#Cluster}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор кластера Redis. Этот идентификатор генерирует MDB при создании. 
-folder_id | **string**<br>Идентификатор каталога, которому принадлежит кластер Redis. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) . 
-name | **string**<br>Имя кластера Redis. Имя уникально в рамках каталога. Длина имени должна быть от 3 до 63 символов. 
-description | **string**<br>Описание кластера Redis. Длина описания должна быть от 0 до 256 символов. 
-labels | **map<string,string>**<br>Пользовательские метки для кластера Redis в виде пар ``key:value``. Максимум 64 на кластер. 
-environment | enum **Environment**<br>Среда развертывания кластера Redis. <ul><li>`PRODUCTION`: Стабильная среда с осторожной политикой обновления: во время регулярного обслуживания применяются только срочные исправления.</li><li>`PRESTABLE`: Среда с более агрессивной политикой обновления: новые версии развертываются независимо от обратной совместимости.</li><ul/>
-monitoring[] | **[Monitoring](#Monitoring)**<br>Описание систем мониторинга, относящихся к данному кластеру Redis. 
-config | **[ClusterConfig](#ClusterConfig)**<br>Конфигурация кластера Redis. 
+id | **string**<br>ID of the Redis cluster. This ID is assigned by MDB at creation time. 
+folder_id | **string**<br>ID of the folder that the Redis cluster belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
+name | **string**<br>Name of the Redis cluster. The name is unique within the folder. 3-63 characters long. 
+description | **string**<br>Description of the Redis cluster. 0-256 characters long. 
+labels | **map<string,string>**<br>Custom labels for the Redis cluster as `key:value` pairs. Maximum 64 per cluster. 
+environment | enum **Environment**<br>Deployment environment of the Redis cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
+monitoring[] | **[Monitoring](#Monitoring)**<br>Description of monitoring systems relevant to the Redis cluster. 
+config | **[ClusterConfig](#ClusterConfig)**<br>Configuration of the Redis cluster. 
 network_id | **string**<br> 
-health | enum **Health**<br>Агрегированная работоспособность кластера. <ul><li>`HEALTH_UNKNOWN`: Хост находится в неизвестном состоянии (у нас нет данных)</li><li>`ALIVE`: Кластер жив и здоров (все хосты живы)</li><li>`DEAD`: Кластер не работает и не может выполнять свои основные функции</li><li>`DEGRADED`: Кластер частично жив (может выполнять некоторые из своих основных функций)</li><ul/>
-status | enum **Status**<br>Состояние кластера. <ul><li>`STATUS_UNKNOWN`: Состояние кластера неизвестно</li><li>`CREATING`: Кластер создается</li><li>`RUNNING`: Кластер работает нормально</li><li>`ERROR`: Кластер отказал.</li><li>`UPDATING`: Кластер изменяется.</li><li>`STOPPING`: Кластер останавливается.</li><li>`STOPPED`: Кластер остановлен.</li><li>`STARTING`: Кластер запускается.</li><ul/>
-sharded | **bool**<br>Включение/выключение режима Redis Cluster. 
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: Cluster is in unknown state (we have no data)</li><li>`ALIVE`: Cluster is alive and well (all hosts are alive)</li><li>`DEAD`: Cluster is inoperable (it cannot perform any of its essential functions)</li><li>`DEGRADED`: Cluster is partially alive (it can perform some of its essential functions)</li><ul/>
+status | enum **Status**<br>Cluster status. <ul><li>`STATUS_UNKNOWN`: Cluster status is unknown</li><li>`CREATING`: Cluster is being created</li><li>`RUNNING`: Cluster is running</li><li>`ERROR`: Cluster failed</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+sharded | **bool**<br>Redis cluster mode on/off. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow)**<br>Maintenance window for the cluster. 
+planned_operation | **[MaintenanceOperation](#MaintenanceOperation)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
+security_group_ids[] | **string**<br>User security groups 
+tls_enabled | **bool**<br>TLS port and functionality on\off 
 
 
 ### Monitoring {#Monitoring}
 
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br>Название системы мониторинга. 
-description | **string**<br>Описание системы мониторинга. 
-link | **string**<br>Ссылка на графики системы мониторинга для кластера Redis. 
+name | **string**<br>Name of the monitoring system. 
+description | **string**<br>Description of the monitoring system. 
+link | **string**<br>Link to the monitoring system charts for the Redis cluster. 
 
 
 ### ClusterConfig {#ClusterConfig}
 
-Поле | Описание
+Field | Description
 --- | ---
-version | **string**<br>Версия серверного программного обеспечения Redis. 
-redis_config | **oneof:** `redis_config_5_0`<br>Конфигурация для серверов Redis в кластере.
-&nbsp;&nbsp;redis_config_5_0 | **[config.RedisConfigSet5_0](#RedisConfigSet5_0)**<br>Конфигурация сервера Redis 5.0. 
-resources | **[Resources](#Resources)**<br>Ресурсы, выделенные хостам Redis. 
-backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Время запуска ежедневного резервного копирования, в часовом поясе UTC. 
-access | **[Access](#Access)**<br>Политика доступа к БД 
+version | **string**<br>Version of Redis server software. 
+redis_config | **oneof:** `redis_config_5_0` or `redis_config_6_0`<br>Configuration for Redis servers in the cluster.
+&nbsp;&nbsp;redis_config_5_0 | **[config.RedisConfigSet5_0](#RedisConfigSet5_0)**<br>Configuration of a Redis 5.0 server. 
+&nbsp;&nbsp;redis_config_6_0 | **[config.RedisConfigSet6_0](#RedisConfigSet6_0)**<br>Configuration of a Redis 6.0 server. 
+resources | **[Resources](#Resources)**<br>Resources allocated to Redis hosts. 
+backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
+access | **[Access](#Access)**<br>Access policy to DB 
 
 
 ### Resources {#Resources}
 
-Поле | Описание
+Field | Description
 --- | ---
-resource_preset_id | **string**<br>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в [документации](/docs/managed-redis/concepts/instance-types). 
-disk_size | **int64**<br>Объем хранилища, доступного хосту, в байтах. 
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-redis/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
+disk_type_id | **string**<br><ul><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
 
 ### Access {#Access}
 
-Поле | Описание
+Field | Description
 --- | ---
-data_lens | **bool**<br>Разрешить доступ для DataLens 
+data_lens | **bool**<br>Allow access for DataLens 
+
+
+### MaintenanceWindow {#MaintenanceWindow}
+
+Field | Description
+--- | ---
+policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow)**<br>Maintenance operation can be scheduled on a weekly basis. 
+
+
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow}
+
+
+
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow}
+
+Field | Description
+--- | ---
+day | enum **WeekDay**<br>Day of the week (in `DDD` format). <ul><ul/>
+hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
+
+
+### MaintenanceOperation {#MaintenanceOperation}
+
+Field | Description
+--- | ---
+info | **string**<br>Information about this maintenance operation. The maximum string length in characters is 256.
+delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time until which this maintenance operation is delayed. 
 
 
 ## List {#List}
 
-Возвращает список кластеров Redis, принадлежащих указанному каталогу.
+Retrieves the list of Redis clusters that belong to the specified folder.
 
 **rpc List ([ListClustersRequest](#ListClustersRequest)) returns ([ListClustersResponse](#ListClustersResponse))**
 
 ### ListClustersRequest {#ListClustersRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-folder_id | **string**<br>Обязательное поле. Идентификатор каталога, для которого нужно получить список кластеров Redis. Чтобы получить идентификатор каталога, используйте запрос [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List). Максимальная длина строки в символах — 50.
-page_size | **int64**<br>Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем `page_size`, сервис вернет значение [ListClustersResponse.next_page_token](#ListClustersResponse), которое можно использовать для получения следующей страницы. Допустимые значения — от 0 до 1000 включительно.
-page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListClustersResponse.next_page_token](#ListClustersResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
-filter | **string**<br><ol><li>Имя поля. В настоящее время фильтрацию можно использовать только с полем [Cluster.name](#Cluster1). </li><li>Оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений. </li><li>Значение. Должен содержать от 3 до 63 символов и соответствовать регулярному выражению `^[a-z]([-a-z0-9]{,61}[a-z0-9])?$`.</li></ol> Максимальная длина строки в символах — 1000.
+folder_id | **string**<br>Required. ID of the folder to list Redis clusters in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. The maximum string length in characters is 50.
+page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClustersResponse.next_page_token](#ListClustersResponse) that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 1000, inclusive.
+page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListClustersResponse.next_page_token](#ListClustersResponse) returned by a previous list request. The maximum string length in characters is 100.
+filter | **string**<br><ol><li>The field name. Currently you can only use filtering with the [Cluster.name](#Cluster1) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z]([-a-z0-9]{,61}[a-z0-9])?$`.</li></ol> The maximum string length in characters is 1000.
 
 
 ### ListClustersResponse {#ListClustersResponse}
 
-Поле | Описание
+Field | Description
 --- | ---
-clusters[] | **[Cluster](#Cluster1)**<br>Список кластеров Redis. 
-next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListClustersRequest.page_size](#ListClustersRequest), используйте `next_page_token` в качестве значения параметра [ListClustersRequest.page_token](#ListClustersRequest) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
+clusters[] | **[Cluster](#Cluster1)**<br>List of Redis clusters. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClustersRequest.page_size](#ListClustersRequest), use the `next_page_token` as the value for the [ListClustersRequest.page_token](#ListClustersRequest) parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
 ### Cluster {#Cluster1}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор кластера Redis. Этот идентификатор генерирует MDB при создании. 
-folder_id | **string**<br>Идентификатор каталога, которому принадлежит кластер Redis. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) . 
-name | **string**<br>Имя кластера Redis. Имя уникально в рамках каталога. Длина имени должна быть от 3 до 63 символов. 
-description | **string**<br>Описание кластера Redis. Длина описания должна быть от 0 до 256 символов. 
-labels | **map<string,string>**<br>Пользовательские метки для кластера Redis в виде пар ``key:value``. Максимум 64 на кластер. 
-environment | enum **Environment**<br>Среда развертывания кластера Redis. <ul><li>`PRODUCTION`: Стабильная среда с осторожной политикой обновления: во время регулярного обслуживания применяются только срочные исправления.</li><li>`PRESTABLE`: Среда с более агрессивной политикой обновления: новые версии развертываются независимо от обратной совместимости.</li><ul/>
-monitoring[] | **[Monitoring](#Monitoring1)**<br>Описание систем мониторинга, относящихся к данному кластеру Redis. 
-config | **[ClusterConfig](#ClusterConfig1)**<br>Конфигурация кластера Redis. 
+id | **string**<br>ID of the Redis cluster. This ID is assigned by MDB at creation time. 
+folder_id | **string**<br>ID of the folder that the Redis cluster belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
+name | **string**<br>Name of the Redis cluster. The name is unique within the folder. 3-63 characters long. 
+description | **string**<br>Description of the Redis cluster. 0-256 characters long. 
+labels | **map<string,string>**<br>Custom labels for the Redis cluster as `key:value` pairs. Maximum 64 per cluster. 
+environment | enum **Environment**<br>Deployment environment of the Redis cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
+monitoring[] | **[Monitoring](#Monitoring1)**<br>Description of monitoring systems relevant to the Redis cluster. 
+config | **[ClusterConfig](#ClusterConfig1)**<br>Configuration of the Redis cluster. 
 network_id | **string**<br> 
-health | enum **Health**<br>Агрегированная работоспособность кластера. <ul><li>`HEALTH_UNKNOWN`: Хост находится в неизвестном состоянии (у нас нет данных)</li><li>`ALIVE`: Кластер жив и здоров (все хосты живы)</li><li>`DEAD`: Кластер не работает и не может выполнять свои основные функции</li><li>`DEGRADED`: Кластер частично жив (может выполнять некоторые из своих основных функций)</li><ul/>
-status | enum **Status**<br>Состояние кластера. <ul><li>`STATUS_UNKNOWN`: Состояние кластера неизвестно</li><li>`CREATING`: Кластер создается</li><li>`RUNNING`: Кластер работает нормально</li><li>`ERROR`: Кластер отказал.</li><li>`UPDATING`: Кластер изменяется.</li><li>`STOPPING`: Кластер останавливается.</li><li>`STOPPED`: Кластер остановлен.</li><li>`STARTING`: Кластер запускается.</li><ul/>
-sharded | **bool**<br>Включение/выключение режима Redis Cluster. 
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: Cluster is in unknown state (we have no data)</li><li>`ALIVE`: Cluster is alive and well (all hosts are alive)</li><li>`DEAD`: Cluster is inoperable (it cannot perform any of its essential functions)</li><li>`DEGRADED`: Cluster is partially alive (it can perform some of its essential functions)</li><ul/>
+status | enum **Status**<br>Cluster status. <ul><li>`STATUS_UNKNOWN`: Cluster status is unknown</li><li>`CREATING`: Cluster is being created</li><li>`RUNNING`: Cluster is running</li><li>`ERROR`: Cluster failed</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+sharded | **bool**<br>Redis cluster mode on/off. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow1)**<br>Maintenance window for the cluster. 
+planned_operation | **[MaintenanceOperation](#MaintenanceOperation1)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
+security_group_ids[] | **string**<br>User security groups 
+tls_enabled | **bool**<br>TLS port and functionality on\off 
 
 
 ### Monitoring {#Monitoring1}
 
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br>Название системы мониторинга. 
-description | **string**<br>Описание системы мониторинга. 
-link | **string**<br>Ссылка на графики системы мониторинга для кластера Redis. 
+name | **string**<br>Name of the monitoring system. 
+description | **string**<br>Description of the monitoring system. 
+link | **string**<br>Link to the monitoring system charts for the Redis cluster. 
 
 
 ### ClusterConfig {#ClusterConfig1}
 
-Поле | Описание
+Field | Description
 --- | ---
-version | **string**<br>Версия серверного программного обеспечения Redis. 
-redis_config | **oneof:** `redis_config_5_0`<br>Конфигурация для серверов Redis в кластере.
-&nbsp;&nbsp;redis_config_5_0 | **[config.RedisConfigSet5_0](#RedisConfigSet5_0)**<br>Конфигурация сервера Redis 5.0. 
-resources | **[Resources](#Resources1)**<br>Ресурсы, выделенные хостам Redis. 
-backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Время запуска ежедневного резервного копирования, в часовом поясе UTC. 
-access | **[Access](#Access1)**<br>Политика доступа к БД 
+version | **string**<br>Version of Redis server software. 
+redis_config | **oneof:** `redis_config_5_0` or `redis_config_6_0`<br>Configuration for Redis servers in the cluster.
+&nbsp;&nbsp;redis_config_5_0 | **[config.RedisConfigSet5_0](#RedisConfigSet5_0)**<br>Configuration of a Redis 5.0 server. 
+&nbsp;&nbsp;redis_config_6_0 | **[config.RedisConfigSet6_0](#RedisConfigSet6_0)**<br>Configuration of a Redis 6.0 server. 
+resources | **[Resources](#Resources1)**<br>Resources allocated to Redis hosts. 
+backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
+access | **[Access](#Access1)**<br>Access policy to DB 
 
 
 ### Resources {#Resources1}
 
-Поле | Описание
+Field | Description
 --- | ---
-resource_preset_id | **string**<br>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в [документации](/docs/managed-redis/concepts/instance-types). 
-disk_size | **int64**<br>Объем хранилища, доступного хосту, в байтах. 
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-redis/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
+disk_type_id | **string**<br><ul><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
 
 ### Access {#Access1}
 
-Поле | Описание
+Field | Description
 --- | ---
-data_lens | **bool**<br>Разрешить доступ для DataLens 
+data_lens | **bool**<br>Allow access for DataLens 
+
+
+### MaintenanceWindow {#MaintenanceWindow1}
+
+Field | Description
+--- | ---
+policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow1)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow1)**<br>Maintenance operation can be scheduled on a weekly basis. 
+
+
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow1}
+
+
+
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow1}
+
+Field | Description
+--- | ---
+day | enum **WeekDay**<br>Day of the week (in `DDD` format). <ul><ul/>
+hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
+
+
+### MaintenanceOperation {#MaintenanceOperation1}
+
+Field | Description
+--- | ---
+info | **string**<br>Information about this maintenance operation. The maximum string length in characters is 256.
+delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time until which this maintenance operation is delayed. 
 
 
 ## Create {#Create}
 
-Создает кластер Redis в указанном каталоге.
+Creates a Redis cluster in the specified folder.
 
 **rpc Create ([CreateClusterRequest](#CreateClusterRequest)) returns ([operation.Operation](#Operation))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateClusterMetadata](#CreateClusterMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster2)<br>
 
 ### CreateClusterRequest {#CreateClusterRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-folder_id | **string**<br>Обязательное поле. Идентификатор каталога, в котором нужно создать кластер Redis. Максимальная длина строки в символах — 50.
-name | **string**<br>Обязательное поле. Имя кластера Redis. Имя должно быть уникальным в каталоге. Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_-]* `.
-description | **string**<br>Описание кластера Redis. Максимальная длина строки в символах — 256.
-labels | **map<string,string>**<br>Пользовательские метки для кластера Redis в виде пар ``key:value``. Максимум 64 на кластер. Например, "project": "mvp" или "source": "dictionary". Не более 64 на ресурс. Максимальная длина строки в символах для каждого значения — 63. Каждое значение должно соответствовать регулярному выражению ` [-_0-9a-z]* `. Максимальная длина строки в символах для каждого ключа — 63. Каждый ключ должен соответствовать регулярному выражению ` [a-z][-_0-9a-z]* `.
-environment | **[Cluster.Environment](#Cluster2)**<br>Обязательное поле. Среда развертывания кластера Redis. 
-config_spec | **[ConfigSpec](#ConfigSpec)**<br>Обязательное поле. Конфигурация и ресурсы для хостов, которые должны быть созданы для кластера Redis. 
-host_specs[] | **[HostSpec](#HostSpec)**<br>Конфигурации для отдельных хостов, которые должны быть созданы для кластера Redis. Количество элементов должно быть больше 0.
-network_id | **string**<br>Обязательное поле. Идентификатор сети, в которой нужно создать кластер. Максимальная длина строки в символах — 50.
-sharded | **bool**<br>Включение/выключение режима Redis Cluster. 
+folder_id | **string**<br>Required. ID of the folder to create the Redis cluster in. The maximum string length in characters is 50.
+name | **string**<br>Required. Name of the Redis cluster. The name must be unique within the folder. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+description | **string**<br>Description of the Redis cluster. The maximum string length in characters is 256.
+labels | **map<string,string>**<br>Custom labels for the Redis cluster as `key:value` pairs. Maximum 64 per cluster. For example, "project": "mvp" or "source": "dictionary". No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+environment | **[Cluster.Environment](#Cluster2)**<br>Required. Deployment environment of the Redis cluster. 
+config_spec | **[ConfigSpec](#ConfigSpec)**<br>Required. Configuration and resources for hosts that should be created for the Redis cluster. 
+host_specs[] | **[HostSpec](#HostSpec)**<br>Individual configurations for hosts that should be created for the Redis cluster. The number of elements must be greater than 0.
+network_id | **string**<br>Required. ID of the network to create the cluster in. The maximum string length in characters is 50.
+sharded | **bool**<br>Redis cluster mode on/off. 
+security_group_ids[] | **string**<br>User security groups 
+tls_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>TLS port and functionality on\off 
 
 
 ### ConfigSpec {#ConfigSpec}
 
-Поле | Описание
+Field | Description
 --- | ---
-version | **string**<br>Версия Redis, используемая в кластере. Единственное возможное значение — `5.0`. 
-redis_spec | **oneof:** `redis_config_5_0`<br>Конфигурация кластера Redis.
-&nbsp;&nbsp;redis_config_5_0 | **[config.RedisConfig5_0](#RedisConfig5_0)**<br>Конфигурация кластера Redis. 
-resources | **[Resources](#Resources2)**<br>Ресурсы, выделенные хостам Redis. 
-backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Время запуска ежедневного резервного копирования, в часовом поясе UTC. 
-access | **[Access](#Access2)**<br>Политика доступа к БД 
+version | **string**<br>Version of Redis used in the cluster. 
+redis_spec | **oneof:** `redis_config_5_0` or `redis_config_6_0`<br>Configuration of a Redis cluster.
+&nbsp;&nbsp;redis_config_5_0 | **[config.RedisConfig5_0](#RedisConfig5_0)**<br>Configuration of a Redis cluster. 
+&nbsp;&nbsp;redis_config_6_0 | **[config.RedisConfig6_0](#RedisConfig6_0)**<br>Configuration of a Redis cluster. 
+resources | **[Resources](#Resources2)**<br>Resources allocated to Redis hosts. 
+backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
+access | **[Access](#Access2)**<br>Access policy to DB 
 
 
 ### Resources {#Resources2}
 
-Поле | Описание
+Field | Description
 --- | ---
-resource_preset_id | **string**<br>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в [документации](/docs/managed-redis/concepts/instance-types). 
-disk_size | **int64**<br>Объем хранилища, доступного хосту, в байтах. 
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-redis/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
+disk_type_id | **string**<br><ul><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
 
 ### Access {#Access2}
 
-Поле | Описание
+Field | Description
 --- | ---
-data_lens | **bool**<br>Разрешить доступ для DataLens 
+data_lens | **bool**<br>Allow access for DataLens 
 
 
 ### HostSpec {#HostSpec}
 
-Поле | Описание
+Field | Description
 --- | ---
-zone_id | **string**<br>Идентификатор зоны доступности, в которой находится хост. Чтобы получить список доступных зон, используйте запрос [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/grpc/zone_service#List). 
-subnet_id | **string**<br>Идентификатор подсети, к которой должен принадлежать хост. Эта подсеть должна быть частью сети, к которой принадлежит кластер. Идентификатор сети задан в поле [Cluster.network_id](#Cluster2). 
-shard_name | **string**<br>Идентификатор шарда Redis, которому принадлежит хост. Чтобы получить идентификатор шарда, используйте запрос [ClusterService.ListShards](#ListShards). Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_-]* `.
+zone_id | **string**<br>ID of the availability zone where the host resides. To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/grpc/zone_service#List) request. 
+subnet_id | **string**<br>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The ID of the network is set in the field [Cluster.network_id](#Cluster2). 
+shard_name | **string**<br>ID of the Redis shard the host belongs to. To get the shard ID use a [ClusterService.ListShards](#ListShards) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
 ### Operation {#Operation}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateClusterMetadata](#CreateClusterMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster2)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateClusterMetadata](#CreateClusterMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster2)>**<br>if operation finished successfully. 
 
 
 ### CreateClusterMetadata {#CreateClusterMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Идентификатор создаваемого кластера Redis. 
+cluster_id | **string**<br>ID of the Redis cluster that is being created. 
 
 
 ### Cluster {#Cluster2}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор кластера Redis. Этот идентификатор генерирует MDB при создании. 
-folder_id | **string**<br>Идентификатор каталога, которому принадлежит кластер Redis. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) . 
-name | **string**<br>Имя кластера Redis. Имя уникально в рамках каталога. Длина имени должна быть от 3 до 63 символов. 
-description | **string**<br>Описание кластера Redis. Длина описания должна быть от 0 до 256 символов. 
-labels | **map<string,string>**<br>Пользовательские метки для кластера Redis в виде пар ``key:value``. Максимум 64 на кластер. 
-environment | enum **Environment**<br>Среда развертывания кластера Redis. <ul><li>`PRODUCTION`: Стабильная среда с осторожной политикой обновления: во время регулярного обслуживания применяются только срочные исправления.</li><li>`PRESTABLE`: Среда с более агрессивной политикой обновления: новые версии развертываются независимо от обратной совместимости.</li><ul/>
-monitoring[] | **[Monitoring](#Monitoring2)**<br>Описание систем мониторинга, относящихся к данному кластеру Redis. 
-config | **[ClusterConfig](#ClusterConfig2)**<br>Конфигурация кластера Redis. 
+id | **string**<br>ID of the Redis cluster. This ID is assigned by MDB at creation time. 
+folder_id | **string**<br>ID of the folder that the Redis cluster belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
+name | **string**<br>Name of the Redis cluster. The name is unique within the folder. 3-63 characters long. 
+description | **string**<br>Description of the Redis cluster. 0-256 characters long. 
+labels | **map<string,string>**<br>Custom labels for the Redis cluster as `key:value` pairs. Maximum 64 per cluster. 
+environment | enum **Environment**<br>Deployment environment of the Redis cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
+monitoring[] | **[Monitoring](#Monitoring2)**<br>Description of monitoring systems relevant to the Redis cluster. 
+config | **[ClusterConfig](#ClusterConfig2)**<br>Configuration of the Redis cluster. 
 network_id | **string**<br> 
-health | enum **Health**<br>Агрегированная работоспособность кластера. <ul><li>`HEALTH_UNKNOWN`: Хост находится в неизвестном состоянии (у нас нет данных)</li><li>`ALIVE`: Кластер жив и здоров (все хосты живы)</li><li>`DEAD`: Кластер не работает и не может выполнять свои основные функции</li><li>`DEGRADED`: Кластер частично жив (может выполнять некоторые из своих основных функций)</li><ul/>
-status | enum **Status**<br>Состояние кластера. <ul><li>`STATUS_UNKNOWN`: Состояние кластера неизвестно</li><li>`CREATING`: Кластер создается</li><li>`RUNNING`: Кластер работает нормально</li><li>`ERROR`: Кластер отказал.</li><li>`UPDATING`: Кластер изменяется.</li><li>`STOPPING`: Кластер останавливается.</li><li>`STOPPED`: Кластер остановлен.</li><li>`STARTING`: Кластер запускается.</li><ul/>
-sharded | **bool**<br>Включение/выключение режима Redis Cluster. 
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: Cluster is in unknown state (we have no data)</li><li>`ALIVE`: Cluster is alive and well (all hosts are alive)</li><li>`DEAD`: Cluster is inoperable (it cannot perform any of its essential functions)</li><li>`DEGRADED`: Cluster is partially alive (it can perform some of its essential functions)</li><ul/>
+status | enum **Status**<br>Cluster status. <ul><li>`STATUS_UNKNOWN`: Cluster status is unknown</li><li>`CREATING`: Cluster is being created</li><li>`RUNNING`: Cluster is running</li><li>`ERROR`: Cluster failed</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+sharded | **bool**<br>Redis cluster mode on/off. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow2)**<br>Maintenance window for the cluster. 
+planned_operation | **[MaintenanceOperation](#MaintenanceOperation2)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
+security_group_ids[] | **string**<br>User security groups 
+tls_enabled | **bool**<br>TLS port and functionality on\off 
 
 
 ### Monitoring {#Monitoring2}
 
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br>Название системы мониторинга. 
-description | **string**<br>Описание системы мониторинга. 
-link | **string**<br>Ссылка на графики системы мониторинга для кластера Redis. 
+name | **string**<br>Name of the monitoring system. 
+description | **string**<br>Description of the monitoring system. 
+link | **string**<br>Link to the monitoring system charts for the Redis cluster. 
 
 
 ### ClusterConfig {#ClusterConfig2}
 
-Поле | Описание
+Field | Description
 --- | ---
-version | **string**<br>Версия серверного программного обеспечения Redis. 
-redis_config | **oneof:** `redis_config_5_0`<br>Конфигурация для серверов Redis в кластере.
-&nbsp;&nbsp;redis_config_5_0 | **[config.RedisConfigSet5_0](#RedisConfigSet5_0)**<br>Конфигурация сервера Redis 5.0. 
-resources | **[Resources](#Resources3)**<br>Ресурсы, выделенные хостам Redis. 
-backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Время запуска ежедневного резервного копирования, в часовом поясе UTC. 
-access | **[Access](#Access3)**<br>Политика доступа к БД 
+version | **string**<br>Version of Redis server software. 
+redis_config | **oneof:** `redis_config_5_0` or `redis_config_6_0`<br>Configuration for Redis servers in the cluster.
+&nbsp;&nbsp;redis_config_5_0 | **[config.RedisConfigSet5_0](#RedisConfigSet5_0)**<br>Configuration of a Redis 5.0 server. 
+&nbsp;&nbsp;redis_config_6_0 | **[config.RedisConfigSet6_0](#RedisConfigSet6_0)**<br>Configuration of a Redis 6.0 server. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to Redis hosts. 
+backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
+access | **[Access](#Access3)**<br>Access policy to DB 
 
 
 ### Resources {#Resources3}
 
-Поле | Описание
+Field | Description
 --- | ---
-resource_preset_id | **string**<br>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в [документации](/docs/managed-redis/concepts/instance-types). 
-disk_size | **int64**<br>Объем хранилища, доступного хосту, в байтах. 
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-redis/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
+disk_type_id | **string**<br><ul><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
 
 ### Access {#Access3}
 
-Поле | Описание
+Field | Description
 --- | ---
-data_lens | **bool**<br>Разрешить доступ для DataLens 
+data_lens | **bool**<br>Allow access for DataLens 
+
+
+### MaintenanceWindow {#MaintenanceWindow2}
+
+Field | Description
+--- | ---
+policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow2)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow2)**<br>Maintenance operation can be scheduled on a weekly basis. 
+
+
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow2}
+
+
+
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow2}
+
+Field | Description
+--- | ---
+day | enum **WeekDay**<br>Day of the week (in `DDD` format). <ul><ul/>
+hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
+
+
+### MaintenanceOperation {#MaintenanceOperation2}
+
+Field | Description
+--- | ---
+info | **string**<br>Information about this maintenance operation. The maximum string length in characters is 256.
+delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time until which this maintenance operation is delayed. 
 
 
 ## Update {#Update}
 
-Изменяет указанный кластер Redis.
+Updates the specified Redis cluster.
 
 **rpc Update ([UpdateClusterRequest](#UpdateClusterRequest)) returns ([operation.Operation](#Operation1))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateClusterMetadata](#UpdateClusterMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster3)<br>
 
 ### UpdateClusterRequest {#UpdateClusterRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера Redis, который следует обновить. Чтобы получить идентификатор кластера, используйте запрос [ClusterService.List](#List). Максимальная длина строки в символах — 50.
-update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Маска, которая указывает, какие поля кластера Redis должны быть изменены. 
-description | **string**<br>Новое описание кластера Redis. Максимальная длина строки в символах — 256.
-labels | **map<string,string>**<br>Пользовательские метки для кластера Redis как `` key:value `` pairs. Maximum 64 per cluster. For example, `project": "mvp" или "source": "dictionary". <br>Новый набор меток полностью заменит старый. Чтобы добавить метку, запросите текущий набор меток с помощью метода [ClusterService.Get](#Get), затем отправьте запрос [ClusterService.Update](#Update), добавив новую метку в этот набор. Не более 64 на ресурс. Максимальная длина строки в символах для каждого значения — 63. Каждое значение должно соответствовать регулярному выражению ` [-_0-9a-z]* `. Максимальная длина строки в символах для каждого ключа — 63. Каждый ключ должен соответствовать регулярному выражению ` [a-z][-_0-9a-z]* `.
-config_spec | **[ConfigSpec](#ConfigSpec)**<br>Новая конфигурация и ресурсы для хостов кластера. 
-name | **string**<br>Новое имя кластера. Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_-]* `.
+cluster_id | **string**<br>Required. ID of the Redis cluster to update. To get the Redis cluster ID, use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the Redis cluster should be updated. 
+description | **string**<br>New description of the Redis cluster. The maximum string length in characters is 256.
+labels | **map<string,string>**<br>Custom labels for the Redis cluster as `` key:value `` pairs. Maximum 64 per cluster. For example, "project": "mvp" or "source": "dictionary". <br>The new set of labels will completely replace the old ones. To add a label, request the current set with the [ClusterService.Get](#Get) method, then send an [ClusterService.Update](#Update) request with the new label added to the set. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+config_spec | **[ConfigSpec](#ConfigSpec)**<br>New configuration and resources for hosts in the cluster. 
+name | **string**<br>New name for the cluster. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow3)**<br>New maintenance window settings for the cluster. 
+security_group_ids[] | **string**<br>User security groups 
 
 
 ### ConfigSpec {#ConfigSpec1}
 
-Поле | Описание
+Field | Description
 --- | ---
-version | **string**<br>Версия Redis, используемая в кластере. Единственное возможное значение — `5.0`. 
-redis_spec | **oneof:** `redis_config_5_0`<br>Конфигурация кластера Redis.
-&nbsp;&nbsp;redis_config_5_0 | **[config.RedisConfig5_0](#RedisConfig5_0)**<br>Конфигурация кластера Redis. 
-resources | **[Resources](#Resources4)**<br>Ресурсы, выделенные хостам Redis. 
-backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Время запуска ежедневного резервного копирования, в часовом поясе UTC. 
-access | **[Access](#Access4)**<br>Политика доступа к БД 
+version | **string**<br>Version of Redis used in the cluster. 
+redis_spec | **oneof:** `redis_config_5_0` or `redis_config_6_0`<br>Configuration of a Redis cluster.
+&nbsp;&nbsp;redis_config_5_0 | **[config.RedisConfig5_0](#RedisConfig5_0)**<br>Configuration of a Redis cluster. 
+&nbsp;&nbsp;redis_config_6_0 | **[config.RedisConfig6_0](#RedisConfig6_0)**<br>Configuration of a Redis cluster. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to Redis hosts. 
+backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
+access | **[Access](#Access4)**<br>Access policy to DB 
 
 
 ### Resources {#Resources4}
 
-Поле | Описание
+Field | Description
 --- | ---
-resource_preset_id | **string**<br>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в [документации](/docs/managed-redis/concepts/instance-types). 
-disk_size | **int64**<br>Объем хранилища, доступного хосту, в байтах. 
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-redis/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
+disk_type_id | **string**<br><ul><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
 
 ### Access {#Access4}
 
-Поле | Описание
+Field | Description
 --- | ---
-data_lens | **bool**<br>Разрешить доступ для DataLens 
+data_lens | **bool**<br>Allow access for DataLens 
+
+
+### MaintenanceWindow {#MaintenanceWindow3}
+
+Field | Description
+--- | ---
+policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow3)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow3)**<br>Maintenance operation can be scheduled on a weekly basis. 
+
+
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow3}
+
+
+
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow3}
+
+Field | Description
+--- | ---
+day | enum **WeekDay**<br>Day of the week (in `DDD` format). <ul><ul/>
+hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
 
 
 ### Operation {#Operation1}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateClusterMetadata](#UpdateClusterMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster3)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateClusterMetadata](#UpdateClusterMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster3)>**<br>if operation finished successfully. 
 
 
 ### UpdateClusterMetadata {#UpdateClusterMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Идентификатор изменяемого кластера Redis. 
+cluster_id | **string**<br>ID of the Redis cluster that is being updated. 
 
 
 ### Cluster {#Cluster3}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор кластера Redis. Этот идентификатор генерирует MDB при создании. 
-folder_id | **string**<br>Идентификатор каталога, которому принадлежит кластер Redis. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) . 
-name | **string**<br>Имя кластера Redis. Имя уникально в рамках каталога. Длина имени должна быть от 3 до 63 символов. 
-description | **string**<br>Описание кластера Redis. Длина описания должна быть от 0 до 256 символов. 
-labels | **map<string,string>**<br>Пользовательские метки для кластера Redis в виде пар ``key:value``. Максимум 64 на кластер. 
-environment | enum **Environment**<br>Среда развертывания кластера Redis. <ul><li>`PRODUCTION`: Стабильная среда с осторожной политикой обновления: во время регулярного обслуживания применяются только срочные исправления.</li><li>`PRESTABLE`: Среда с более агрессивной политикой обновления: новые версии развертываются независимо от обратной совместимости.</li><ul/>
-monitoring[] | **[Monitoring](#Monitoring3)**<br>Описание систем мониторинга, относящихся к данному кластеру Redis. 
-config | **[ClusterConfig](#ClusterConfig3)**<br>Конфигурация кластера Redis. 
+id | **string**<br>ID of the Redis cluster. This ID is assigned by MDB at creation time. 
+folder_id | **string**<br>ID of the folder that the Redis cluster belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
+name | **string**<br>Name of the Redis cluster. The name is unique within the folder. 3-63 characters long. 
+description | **string**<br>Description of the Redis cluster. 0-256 characters long. 
+labels | **map<string,string>**<br>Custom labels for the Redis cluster as `key:value` pairs. Maximum 64 per cluster. 
+environment | enum **Environment**<br>Deployment environment of the Redis cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
+monitoring[] | **[Monitoring](#Monitoring3)**<br>Description of monitoring systems relevant to the Redis cluster. 
+config | **[ClusterConfig](#ClusterConfig3)**<br>Configuration of the Redis cluster. 
 network_id | **string**<br> 
-health | enum **Health**<br>Агрегированная работоспособность кластера. <ul><li>`HEALTH_UNKNOWN`: Хост находится в неизвестном состоянии (у нас нет данных)</li><li>`ALIVE`: Кластер жив и здоров (все хосты живы)</li><li>`DEAD`: Кластер не работает и не может выполнять свои основные функции</li><li>`DEGRADED`: Кластер частично жив (может выполнять некоторые из своих основных функций)</li><ul/>
-status | enum **Status**<br>Состояние кластера. <ul><li>`STATUS_UNKNOWN`: Состояние кластера неизвестно</li><li>`CREATING`: Кластер создается</li><li>`RUNNING`: Кластер работает нормально</li><li>`ERROR`: Кластер отказал.</li><li>`UPDATING`: Кластер изменяется.</li><li>`STOPPING`: Кластер останавливается.</li><li>`STOPPED`: Кластер остановлен.</li><li>`STARTING`: Кластер запускается.</li><ul/>
-sharded | **bool**<br>Включение/выключение режима Redis Cluster. 
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: Cluster is in unknown state (we have no data)</li><li>`ALIVE`: Cluster is alive and well (all hosts are alive)</li><li>`DEAD`: Cluster is inoperable (it cannot perform any of its essential functions)</li><li>`DEGRADED`: Cluster is partially alive (it can perform some of its essential functions)</li><ul/>
+status | enum **Status**<br>Cluster status. <ul><li>`STATUS_UNKNOWN`: Cluster status is unknown</li><li>`CREATING`: Cluster is being created</li><li>`RUNNING`: Cluster is running</li><li>`ERROR`: Cluster failed</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+sharded | **bool**<br>Redis cluster mode on/off. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow4)**<br>Maintenance window for the cluster. 
+planned_operation | **[MaintenanceOperation](#MaintenanceOperation3)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
+security_group_ids[] | **string**<br>User security groups 
+tls_enabled | **bool**<br>TLS port and functionality on\off 
 
 
 ### Monitoring {#Monitoring3}
 
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br>Название системы мониторинга. 
-description | **string**<br>Описание системы мониторинга. 
-link | **string**<br>Ссылка на графики системы мониторинга для кластера Redis. 
+name | **string**<br>Name of the monitoring system. 
+description | **string**<br>Description of the monitoring system. 
+link | **string**<br>Link to the monitoring system charts for the Redis cluster. 
 
 
 ### ClusterConfig {#ClusterConfig3}
 
-Поле | Описание
+Field | Description
 --- | ---
-version | **string**<br>Версия серверного программного обеспечения Redis. 
-redis_config | **oneof:** `redis_config_5_0`<br>Конфигурация для серверов Redis в кластере.
-&nbsp;&nbsp;redis_config_5_0 | **[config.RedisConfigSet5_0](#RedisConfigSet5_0)**<br>Конфигурация сервера Redis 5.0. 
-resources | **[Resources](#Resources5)**<br>Ресурсы, выделенные хостам Redis. 
-backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Время запуска ежедневного резервного копирования, в часовом поясе UTC. 
-access | **[Access](#Access5)**<br>Политика доступа к БД 
+version | **string**<br>Version of Redis server software. 
+redis_config | **oneof:** `redis_config_5_0` or `redis_config_6_0`<br>Configuration for Redis servers in the cluster.
+&nbsp;&nbsp;redis_config_5_0 | **[config.RedisConfigSet5_0](#RedisConfigSet5_0)**<br>Configuration of a Redis 5.0 server. 
+&nbsp;&nbsp;redis_config_6_0 | **[config.RedisConfigSet6_0](#RedisConfigSet6_0)**<br>Configuration of a Redis 6.0 server. 
+resources | **[Resources](#Resources5)**<br>Resources allocated to Redis hosts. 
+backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
+access | **[Access](#Access5)**<br>Access policy to DB 
 
 
 ### Resources {#Resources5}
 
-Поле | Описание
+Field | Description
 --- | ---
-resource_preset_id | **string**<br>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в [документации](/docs/managed-redis/concepts/instance-types). 
-disk_size | **int64**<br>Объем хранилища, доступного хосту, в байтах. 
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-redis/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
+disk_type_id | **string**<br><ul><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
 
 ### Access {#Access5}
 
-Поле | Описание
+Field | Description
 --- | ---
-data_lens | **bool**<br>Разрешить доступ для DataLens 
+data_lens | **bool**<br>Allow access for DataLens 
+
+
+### MaintenanceWindow {#MaintenanceWindow4}
+
+Field | Description
+--- | ---
+policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow4)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow4)**<br>Maintenance operation can be scheduled on a weekly basis. 
+
+
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow4}
+
+
+
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow4}
+
+Field | Description
+--- | ---
+day | enum **WeekDay**<br>Day of the week (in `DDD` format). <ul><ul/>
+hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
+
+
+### MaintenanceOperation {#MaintenanceOperation3}
+
+Field | Description
+--- | ---
+info | **string**<br>Information about this maintenance operation. The maximum string length in characters is 256.
+delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time until which this maintenance operation is delayed. 
 
 
 ## Delete {#Delete}
 
-Удаляет указанный кластер Redis.
+Deletes the specified Redis cluster.
 
 **rpc Delete ([DeleteClusterRequest](#DeleteClusterRequest)) returns ([operation.Operation](#Operation2))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[DeleteClusterMetadata](#DeleteClusterMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
 
 ### DeleteClusterRequest {#DeleteClusterRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера Redis, который следует удалить. Чтобы получить идентификатор кластера, используйте запрос [ClusterService.List](#List). Максимальная длина строки в символах — 50.
+cluster_id | **string**<br>Required. ID of the Redis cluster to delete. To get the Redis cluster ID, use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
 
 
 ### Operation {#Operation2}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteClusterMetadata](#DeleteClusterMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteClusterMetadata](#DeleteClusterMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>if operation finished successfully. 
 
 
 ### DeleteClusterMetadata {#DeleteClusterMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Идентификатор удаляемого кластера Redis. 
+cluster_id | **string**<br>ID of the Redis cluster that is being deleted. 
 
 
 ## Start {#Start}
 
-Запускает указанный кластер Redis.
+Start the specified Redis cluster.
 
 **rpc Start ([StartClusterRequest](#StartClusterRequest)) returns ([operation.Operation](#Operation3))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[StartClusterMetadata](#StartClusterMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster4)<br>
 
 ### StartClusterRequest {#StartClusterRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера Redis, который следует запустить. Максимальная длина строки в символах — 50.
+cluster_id | **string**<br>Required. ID of the Redis cluster to start. The maximum string length in characters is 50.
 
 
 ### Operation {#Operation3}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[StartClusterMetadata](#StartClusterMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster4)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[StartClusterMetadata](#StartClusterMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster4)>**<br>if operation finished successfully. 
 
 
 ### StartClusterMetadata {#StartClusterMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Идентификатор кластера Redis. 
+cluster_id | **string**<br>ID of the Redis cluster. 
 
 
 ### Cluster {#Cluster4}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор кластера Redis. Этот идентификатор генерирует MDB при создании. 
-folder_id | **string**<br>Идентификатор каталога, которому принадлежит кластер Redis. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) . 
-name | **string**<br>Имя кластера Redis. Имя уникально в рамках каталога. Длина имени должна быть от 3 до 63 символов. 
-description | **string**<br>Описание кластера Redis. Длина описания должна быть от 0 до 256 символов. 
-labels | **map<string,string>**<br>Пользовательские метки для кластера Redis в виде пар ``key:value``. Максимум 64 на кластер. 
-environment | enum **Environment**<br>Среда развертывания кластера Redis. <ul><li>`PRODUCTION`: Стабильная среда с осторожной политикой обновления: во время регулярного обслуживания применяются только срочные исправления.</li><li>`PRESTABLE`: Среда с более агрессивной политикой обновления: новые версии развертываются независимо от обратной совместимости.</li><ul/>
-monitoring[] | **[Monitoring](#Monitoring4)**<br>Описание систем мониторинга, относящихся к данному кластеру Redis. 
-config | **[ClusterConfig](#ClusterConfig4)**<br>Конфигурация кластера Redis. 
+id | **string**<br>ID of the Redis cluster. This ID is assigned by MDB at creation time. 
+folder_id | **string**<br>ID of the folder that the Redis cluster belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
+name | **string**<br>Name of the Redis cluster. The name is unique within the folder. 3-63 characters long. 
+description | **string**<br>Description of the Redis cluster. 0-256 characters long. 
+labels | **map<string,string>**<br>Custom labels for the Redis cluster as `key:value` pairs. Maximum 64 per cluster. 
+environment | enum **Environment**<br>Deployment environment of the Redis cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
+monitoring[] | **[Monitoring](#Monitoring4)**<br>Description of monitoring systems relevant to the Redis cluster. 
+config | **[ClusterConfig](#ClusterConfig4)**<br>Configuration of the Redis cluster. 
 network_id | **string**<br> 
-health | enum **Health**<br>Агрегированная работоспособность кластера. <ul><li>`HEALTH_UNKNOWN`: Хост находится в неизвестном состоянии (у нас нет данных)</li><li>`ALIVE`: Кластер жив и здоров (все хосты живы)</li><li>`DEAD`: Кластер не работает и не может выполнять свои основные функции</li><li>`DEGRADED`: Кластер частично жив (может выполнять некоторые из своих основных функций)</li><ul/>
-status | enum **Status**<br>Состояние кластера. <ul><li>`STATUS_UNKNOWN`: Состояние кластера неизвестно</li><li>`CREATING`: Кластер создается</li><li>`RUNNING`: Кластер работает нормально</li><li>`ERROR`: Кластер отказал.</li><li>`UPDATING`: Кластер изменяется.</li><li>`STOPPING`: Кластер останавливается.</li><li>`STOPPED`: Кластер остановлен.</li><li>`STARTING`: Кластер запускается.</li><ul/>
-sharded | **bool**<br>Включение/выключение режима Redis Cluster. 
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: Cluster is in unknown state (we have no data)</li><li>`ALIVE`: Cluster is alive and well (all hosts are alive)</li><li>`DEAD`: Cluster is inoperable (it cannot perform any of its essential functions)</li><li>`DEGRADED`: Cluster is partially alive (it can perform some of its essential functions)</li><ul/>
+status | enum **Status**<br>Cluster status. <ul><li>`STATUS_UNKNOWN`: Cluster status is unknown</li><li>`CREATING`: Cluster is being created</li><li>`RUNNING`: Cluster is running</li><li>`ERROR`: Cluster failed</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+sharded | **bool**<br>Redis cluster mode on/off. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow5)**<br>Maintenance window for the cluster. 
+planned_operation | **[MaintenanceOperation](#MaintenanceOperation4)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
+security_group_ids[] | **string**<br>User security groups 
+tls_enabled | **bool**<br>TLS port and functionality on\off 
 
 
 ### Monitoring {#Monitoring4}
 
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br>Название системы мониторинга. 
-description | **string**<br>Описание системы мониторинга. 
-link | **string**<br>Ссылка на графики системы мониторинга для кластера Redis. 
+name | **string**<br>Name of the monitoring system. 
+description | **string**<br>Description of the monitoring system. 
+link | **string**<br>Link to the monitoring system charts for the Redis cluster. 
 
 
 ### ClusterConfig {#ClusterConfig4}
 
-Поле | Описание
+Field | Description
 --- | ---
-version | **string**<br>Версия серверного программного обеспечения Redis. 
-redis_config | **oneof:** `redis_config_5_0`<br>Конфигурация для серверов Redis в кластере.
-&nbsp;&nbsp;redis_config_5_0 | **[config.RedisConfigSet5_0](#RedisConfigSet5_0)**<br>Конфигурация сервера Redis 5.0. 
-resources | **[Resources](#Resources6)**<br>Ресурсы, выделенные хостам Redis. 
-backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Время запуска ежедневного резервного копирования, в часовом поясе UTC. 
-access | **[Access](#Access6)**<br>Политика доступа к БД 
+version | **string**<br>Version of Redis server software. 
+redis_config | **oneof:** `redis_config_5_0` or `redis_config_6_0`<br>Configuration for Redis servers in the cluster.
+&nbsp;&nbsp;redis_config_5_0 | **[config.RedisConfigSet5_0](#RedisConfigSet5_0)**<br>Configuration of a Redis 5.0 server. 
+&nbsp;&nbsp;redis_config_6_0 | **[config.RedisConfigSet6_0](#RedisConfigSet6_0)**<br>Configuration of a Redis 6.0 server. 
+resources | **[Resources](#Resources6)**<br>Resources allocated to Redis hosts. 
+backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
+access | **[Access](#Access6)**<br>Access policy to DB 
 
 
 ### Resources {#Resources6}
 
-Поле | Описание
+Field | Description
 --- | ---
-resource_preset_id | **string**<br>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в [документации](/docs/managed-redis/concepts/instance-types). 
-disk_size | **int64**<br>Объем хранилища, доступного хосту, в байтах. 
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-redis/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
+disk_type_id | **string**<br><ul><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
 
 ### Access {#Access6}
 
-Поле | Описание
+Field | Description
 --- | ---
-data_lens | **bool**<br>Разрешить доступ для DataLens 
+data_lens | **bool**<br>Allow access for DataLens 
+
+
+### MaintenanceWindow {#MaintenanceWindow5}
+
+Field | Description
+--- | ---
+policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow5)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow5)**<br>Maintenance operation can be scheduled on a weekly basis. 
+
+
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow5}
+
+
+
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow5}
+
+Field | Description
+--- | ---
+day | enum **WeekDay**<br>Day of the week (in `DDD` format). <ul><ul/>
+hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
+
+
+### MaintenanceOperation {#MaintenanceOperation4}
+
+Field | Description
+--- | ---
+info | **string**<br>Information about this maintenance operation. The maximum string length in characters is 256.
+delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time until which this maintenance operation is delayed. 
 
 
 ## Stop {#Stop}
 
-Останавливает указанный кластер Redis.
+Stop the specified Redis cluster.
 
 **rpc Stop ([StopClusterRequest](#StopClusterRequest)) returns ([operation.Operation](#Operation4))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[StopClusterMetadata](#StopClusterMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster5)<br>
 
 ### StopClusterRequest {#StopClusterRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера Redis, который следует остановить. Максимальная длина строки в символах — 50.
+cluster_id | **string**<br>Required. ID of the Redis cluster to stop. The maximum string length in characters is 50.
 
 
 ### Operation {#Operation4}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[StopClusterMetadata](#StopClusterMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster5)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[StopClusterMetadata](#StopClusterMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster5)>**<br>if operation finished successfully. 
 
 
 ### StopClusterMetadata {#StopClusterMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Идентификатор кластера Redis. 
+cluster_id | **string**<br>ID of the Redis cluster. 
 
 
 ### Cluster {#Cluster5}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор кластера Redis. Этот идентификатор генерирует MDB при создании. 
-folder_id | **string**<br>Идентификатор каталога, которому принадлежит кластер Redis. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) . 
-name | **string**<br>Имя кластера Redis. Имя уникально в рамках каталога. Длина имени должна быть от 3 до 63 символов. 
-description | **string**<br>Описание кластера Redis. Длина описания должна быть от 0 до 256 символов. 
-labels | **map<string,string>**<br>Пользовательские метки для кластера Redis в виде пар ``key:value``. Максимум 64 на кластер. 
-environment | enum **Environment**<br>Среда развертывания кластера Redis. <ul><li>`PRODUCTION`: Стабильная среда с осторожной политикой обновления: во время регулярного обслуживания применяются только срочные исправления.</li><li>`PRESTABLE`: Среда с более агрессивной политикой обновления: новые версии развертываются независимо от обратной совместимости.</li><ul/>
-monitoring[] | **[Monitoring](#Monitoring5)**<br>Описание систем мониторинга, относящихся к данному кластеру Redis. 
-config | **[ClusterConfig](#ClusterConfig5)**<br>Конфигурация кластера Redis. 
+id | **string**<br>ID of the Redis cluster. This ID is assigned by MDB at creation time. 
+folder_id | **string**<br>ID of the folder that the Redis cluster belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
+name | **string**<br>Name of the Redis cluster. The name is unique within the folder. 3-63 characters long. 
+description | **string**<br>Description of the Redis cluster. 0-256 characters long. 
+labels | **map<string,string>**<br>Custom labels for the Redis cluster as `key:value` pairs. Maximum 64 per cluster. 
+environment | enum **Environment**<br>Deployment environment of the Redis cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
+monitoring[] | **[Monitoring](#Monitoring5)**<br>Description of monitoring systems relevant to the Redis cluster. 
+config | **[ClusterConfig](#ClusterConfig5)**<br>Configuration of the Redis cluster. 
 network_id | **string**<br> 
-health | enum **Health**<br>Агрегированная работоспособность кластера. <ul><li>`HEALTH_UNKNOWN`: Хост находится в неизвестном состоянии (у нас нет данных)</li><li>`ALIVE`: Кластер жив и здоров (все хосты живы)</li><li>`DEAD`: Кластер не работает и не может выполнять свои основные функции</li><li>`DEGRADED`: Кластер частично жив (может выполнять некоторые из своих основных функций)</li><ul/>
-status | enum **Status**<br>Состояние кластера. <ul><li>`STATUS_UNKNOWN`: Состояние кластера неизвестно</li><li>`CREATING`: Кластер создается</li><li>`RUNNING`: Кластер работает нормально</li><li>`ERROR`: Кластер отказал.</li><li>`UPDATING`: Кластер изменяется.</li><li>`STOPPING`: Кластер останавливается.</li><li>`STOPPED`: Кластер остановлен.</li><li>`STARTING`: Кластер запускается.</li><ul/>
-sharded | **bool**<br>Включение/выключение режима Redis Cluster. 
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: Cluster is in unknown state (we have no data)</li><li>`ALIVE`: Cluster is alive and well (all hosts are alive)</li><li>`DEAD`: Cluster is inoperable (it cannot perform any of its essential functions)</li><li>`DEGRADED`: Cluster is partially alive (it can perform some of its essential functions)</li><ul/>
+status | enum **Status**<br>Cluster status. <ul><li>`STATUS_UNKNOWN`: Cluster status is unknown</li><li>`CREATING`: Cluster is being created</li><li>`RUNNING`: Cluster is running</li><li>`ERROR`: Cluster failed</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+sharded | **bool**<br>Redis cluster mode on/off. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow6)**<br>Maintenance window for the cluster. 
+planned_operation | **[MaintenanceOperation](#MaintenanceOperation5)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
+security_group_ids[] | **string**<br>User security groups 
+tls_enabled | **bool**<br>TLS port and functionality on\off 
 
 
 ### Monitoring {#Monitoring5}
 
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br>Название системы мониторинга. 
-description | **string**<br>Описание системы мониторинга. 
-link | **string**<br>Ссылка на графики системы мониторинга для кластера Redis. 
+name | **string**<br>Name of the monitoring system. 
+description | **string**<br>Description of the monitoring system. 
+link | **string**<br>Link to the monitoring system charts for the Redis cluster. 
 
 
 ### ClusterConfig {#ClusterConfig5}
 
-Поле | Описание
+Field | Description
 --- | ---
-version | **string**<br>Версия серверного программного обеспечения Redis. 
-redis_config | **oneof:** `redis_config_5_0`<br>Конфигурация для серверов Redis в кластере.
-&nbsp;&nbsp;redis_config_5_0 | **[config.RedisConfigSet5_0](#RedisConfigSet5_0)**<br>Конфигурация сервера Redis 5.0. 
-resources | **[Resources](#Resources7)**<br>Ресурсы, выделенные хостам Redis. 
-backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Время запуска ежедневного резервного копирования, в часовом поясе UTC. 
-access | **[Access](#Access7)**<br>Политика доступа к БД 
+version | **string**<br>Version of Redis server software. 
+redis_config | **oneof:** `redis_config_5_0` or `redis_config_6_0`<br>Configuration for Redis servers in the cluster.
+&nbsp;&nbsp;redis_config_5_0 | **[config.RedisConfigSet5_0](#RedisConfigSet5_0)**<br>Configuration of a Redis 5.0 server. 
+&nbsp;&nbsp;redis_config_6_0 | **[config.RedisConfigSet6_0](#RedisConfigSet6_0)**<br>Configuration of a Redis 6.0 server. 
+resources | **[Resources](#Resources7)**<br>Resources allocated to Redis hosts. 
+backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
+access | **[Access](#Access7)**<br>Access policy to DB 
 
 
 ### Resources {#Resources7}
 
-Поле | Описание
+Field | Description
 --- | ---
-resource_preset_id | **string**<br>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в [документации](/docs/managed-redis/concepts/instance-types). 
-disk_size | **int64**<br>Объем хранилища, доступного хосту, в байтах. 
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-redis/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
+disk_type_id | **string**<br><ul><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
 
 ### Access {#Access7}
 
-Поле | Описание
+Field | Description
 --- | ---
-data_lens | **bool**<br>Разрешить доступ для DataLens 
+data_lens | **bool**<br>Allow access for DataLens 
+
+
+### MaintenanceWindow {#MaintenanceWindow6}
+
+Field | Description
+--- | ---
+policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow6)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow6)**<br>Maintenance operation can be scheduled on a weekly basis. 
+
+
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow6}
+
+
+
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow6}
+
+Field | Description
+--- | ---
+day | enum **WeekDay**<br>Day of the week (in `DDD` format). <ul><ul/>
+hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
+
+
+### MaintenanceOperation {#MaintenanceOperation5}
+
+Field | Description
+--- | ---
+info | **string**<br>Information about this maintenance operation. The maximum string length in characters is 256.
+delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time until which this maintenance operation is delayed. 
 
 
 ## Move {#Move}
 
-Перемещает кластер Redis в указанный каталог.
+Moves a Redis cluster to the specified folder.
 
 **rpc Move ([MoveClusterRequest](#MoveClusterRequest)) returns ([operation.Operation](#Operation5))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[MoveClusterMetadata](#MoveClusterMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster6)<br>
 
 ### MoveClusterRequest {#MoveClusterRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера Redis, который следует переместить. Максимальная длина строки в символах — 50.
-destination_folder_id | **string**<br>Обязательное поле. Идентификатор каталога, в который следует переместить кластер. Максимальная длина строки в символах — 50.
+cluster_id | **string**<br>Required. ID of the Redis cluster to move. The maximum string length in characters is 50.
+destination_folder_id | **string**<br>Required. ID of the destination folder. The maximum string length in characters is 50.
 
 
 ### Operation {#Operation5}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[MoveClusterMetadata](#MoveClusterMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster6)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[MoveClusterMetadata](#MoveClusterMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster6)>**<br>if operation finished successfully. 
 
 
 ### MoveClusterMetadata {#MoveClusterMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Идентификатор перемещаемого кластера Redis. 
-source_folder_id | **string**<br>Идентификатор исходного каталога. 
-destination_folder_id | **string**<br>Идентификатор каталога, в который следует переместить кластер. 
+cluster_id | **string**<br>ID of the Redis cluster being moved. 
+source_folder_id | **string**<br>ID of the source folder. 
+destination_folder_id | **string**<br>ID of the destination folder. 
 
 
 ### Cluster {#Cluster6}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор кластера Redis. Этот идентификатор генерирует MDB при создании. 
-folder_id | **string**<br>Идентификатор каталога, которому принадлежит кластер Redis. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) . 
-name | **string**<br>Имя кластера Redis. Имя уникально в рамках каталога. Длина имени должна быть от 3 до 63 символов. 
-description | **string**<br>Описание кластера Redis. Длина описания должна быть от 0 до 256 символов. 
-labels | **map<string,string>**<br>Пользовательские метки для кластера Redis в виде пар ``key:value``. Максимум 64 на кластер. 
-environment | enum **Environment**<br>Среда развертывания кластера Redis. <ul><li>`PRODUCTION`: Стабильная среда с осторожной политикой обновления: во время регулярного обслуживания применяются только срочные исправления.</li><li>`PRESTABLE`: Среда с более агрессивной политикой обновления: новые версии развертываются независимо от обратной совместимости.</li><ul/>
-monitoring[] | **[Monitoring](#Monitoring6)**<br>Описание систем мониторинга, относящихся к данному кластеру Redis. 
-config | **[ClusterConfig](#ClusterConfig6)**<br>Конфигурация кластера Redis. 
+id | **string**<br>ID of the Redis cluster. This ID is assigned by MDB at creation time. 
+folder_id | **string**<br>ID of the folder that the Redis cluster belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
+name | **string**<br>Name of the Redis cluster. The name is unique within the folder. 3-63 characters long. 
+description | **string**<br>Description of the Redis cluster. 0-256 characters long. 
+labels | **map<string,string>**<br>Custom labels for the Redis cluster as `key:value` pairs. Maximum 64 per cluster. 
+environment | enum **Environment**<br>Deployment environment of the Redis cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
+monitoring[] | **[Monitoring](#Monitoring6)**<br>Description of monitoring systems relevant to the Redis cluster. 
+config | **[ClusterConfig](#ClusterConfig6)**<br>Configuration of the Redis cluster. 
 network_id | **string**<br> 
-health | enum **Health**<br>Агрегированная работоспособность кластера. <ul><li>`HEALTH_UNKNOWN`: Хост находится в неизвестном состоянии (у нас нет данных)</li><li>`ALIVE`: Кластер жив и здоров (все хосты живы)</li><li>`DEAD`: Кластер не работает и не может выполнять свои основные функции</li><li>`DEGRADED`: Кластер частично жив (может выполнять некоторые из своих основных функций)</li><ul/>
-status | enum **Status**<br>Состояние кластера. <ul><li>`STATUS_UNKNOWN`: Состояние кластера неизвестно</li><li>`CREATING`: Кластер создается</li><li>`RUNNING`: Кластер работает нормально</li><li>`ERROR`: Кластер отказал.</li><li>`UPDATING`: Кластер изменяется.</li><li>`STOPPING`: Кластер останавливается.</li><li>`STOPPED`: Кластер остановлен.</li><li>`STARTING`: Кластер запускается.</li><ul/>
-sharded | **bool**<br>Включение/выключение режима Redis Cluster. 
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: Cluster is in unknown state (we have no data)</li><li>`ALIVE`: Cluster is alive and well (all hosts are alive)</li><li>`DEAD`: Cluster is inoperable (it cannot perform any of its essential functions)</li><li>`DEGRADED`: Cluster is partially alive (it can perform some of its essential functions)</li><ul/>
+status | enum **Status**<br>Cluster status. <ul><li>`STATUS_UNKNOWN`: Cluster status is unknown</li><li>`CREATING`: Cluster is being created</li><li>`RUNNING`: Cluster is running</li><li>`ERROR`: Cluster failed</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+sharded | **bool**<br>Redis cluster mode on/off. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow7)**<br>Maintenance window for the cluster. 
+planned_operation | **[MaintenanceOperation](#MaintenanceOperation6)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
+security_group_ids[] | **string**<br>User security groups 
+tls_enabled | **bool**<br>TLS port and functionality on\off 
 
 
 ### Monitoring {#Monitoring6}
 
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br>Название системы мониторинга. 
-description | **string**<br>Описание системы мониторинга. 
-link | **string**<br>Ссылка на графики системы мониторинга для кластера Redis. 
+name | **string**<br>Name of the monitoring system. 
+description | **string**<br>Description of the monitoring system. 
+link | **string**<br>Link to the monitoring system charts for the Redis cluster. 
 
 
 ### ClusterConfig {#ClusterConfig6}
 
-Поле | Описание
+Field | Description
 --- | ---
-version | **string**<br>Версия серверного программного обеспечения Redis. 
-redis_config | **oneof:** `redis_config_5_0`<br>Конфигурация для серверов Redis в кластере.
-&nbsp;&nbsp;redis_config_5_0 | **[config.RedisConfigSet5_0](#RedisConfigSet5_0)**<br>Конфигурация сервера Redis 5.0. 
-resources | **[Resources](#Resources8)**<br>Ресурсы, выделенные хостам Redis. 
-backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Время запуска ежедневного резервного копирования, в часовом поясе UTC. 
-access | **[Access](#Access8)**<br>Политика доступа к БД 
+version | **string**<br>Version of Redis server software. 
+redis_config | **oneof:** `redis_config_5_0` or `redis_config_6_0`<br>Configuration for Redis servers in the cluster.
+&nbsp;&nbsp;redis_config_5_0 | **[config.RedisConfigSet5_0](#RedisConfigSet5_0)**<br>Configuration of a Redis 5.0 server. 
+&nbsp;&nbsp;redis_config_6_0 | **[config.RedisConfigSet6_0](#RedisConfigSet6_0)**<br>Configuration of a Redis 6.0 server. 
+resources | **[Resources](#Resources8)**<br>Resources allocated to Redis hosts. 
+backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
+access | **[Access](#Access8)**<br>Access policy to DB 
 
 
 ### Resources {#Resources8}
 
-Поле | Описание
+Field | Description
 --- | ---
-resource_preset_id | **string**<br>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в [документации](/docs/managed-redis/concepts/instance-types). 
-disk_size | **int64**<br>Объем хранилища, доступного хосту, в байтах. 
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-redis/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
+disk_type_id | **string**<br><ul><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
 
 ### Access {#Access8}
 
-Поле | Описание
+Field | Description
 --- | ---
-data_lens | **bool**<br>Разрешить доступ для DataLens 
+data_lens | **bool**<br>Allow access for DataLens 
+
+
+### MaintenanceWindow {#MaintenanceWindow7}
+
+Field | Description
+--- | ---
+policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow7)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow7)**<br>Maintenance operation can be scheduled on a weekly basis. 
+
+
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow7}
+
+
+
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow7}
+
+Field | Description
+--- | ---
+day | enum **WeekDay**<br>Day of the week (in `DDD` format). <ul><ul/>
+hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
+
+
+### MaintenanceOperation {#MaintenanceOperation6}
+
+Field | Description
+--- | ---
+info | **string**<br>Information about this maintenance operation. The maximum string length in characters is 256.
+delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time until which this maintenance operation is delayed. 
 
 
 ## Backup {#Backup}
 
-Создает резервную копию для указанного кластера Redis.
+Creates a backup for the specified Redis cluster.
 
 **rpc Backup ([BackupClusterRequest](#BackupClusterRequest)) returns ([operation.Operation](#Operation6))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[BackupClusterMetadata](#BackupClusterMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster7)<br>
 
 ### BackupClusterRequest {#BackupClusterRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера Redis для резервного копирования. Чтобы получить идентификатор кластера, используйте запрос [ClusterService.List](#List). Максимальная длина строки в символах — 50.
+cluster_id | **string**<br>Required. ID of the Redis cluster to back up. To get the Redis cluster ID, use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
 
 
 ### Operation {#Operation6}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[BackupClusterMetadata](#BackupClusterMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster7)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[BackupClusterMetadata](#BackupClusterMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster7)>**<br>if operation finished successfully. 
 
 
 ### BackupClusterMetadata {#BackupClusterMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Идентификатор кластера Redis, для которого выполняется резервное копирование. 
+cluster_id | **string**<br>ID of the Redis cluster that is being backed up. 
 
 
 ### Cluster {#Cluster7}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор кластера Redis. Этот идентификатор генерирует MDB при создании. 
-folder_id | **string**<br>Идентификатор каталога, которому принадлежит кластер Redis. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) . 
-name | **string**<br>Имя кластера Redis. Имя уникально в рамках каталога. Длина имени должна быть от 3 до 63 символов. 
-description | **string**<br>Описание кластера Redis. Длина описания должна быть от 0 до 256 символов. 
-labels | **map<string,string>**<br>Пользовательские метки для кластера Redis в виде пар ``key:value``. Максимум 64 на кластер. 
-environment | enum **Environment**<br>Среда развертывания кластера Redis. <ul><li>`PRODUCTION`: Стабильная среда с осторожной политикой обновления: во время регулярного обслуживания применяются только срочные исправления.</li><li>`PRESTABLE`: Среда с более агрессивной политикой обновления: новые версии развертываются независимо от обратной совместимости.</li><ul/>
-monitoring[] | **[Monitoring](#Monitoring7)**<br>Описание систем мониторинга, относящихся к данному кластеру Redis. 
-config | **[ClusterConfig](#ClusterConfig7)**<br>Конфигурация кластера Redis. 
+id | **string**<br>ID of the Redis cluster. This ID is assigned by MDB at creation time. 
+folder_id | **string**<br>ID of the folder that the Redis cluster belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
+name | **string**<br>Name of the Redis cluster. The name is unique within the folder. 3-63 characters long. 
+description | **string**<br>Description of the Redis cluster. 0-256 characters long. 
+labels | **map<string,string>**<br>Custom labels for the Redis cluster as `key:value` pairs. Maximum 64 per cluster. 
+environment | enum **Environment**<br>Deployment environment of the Redis cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
+monitoring[] | **[Monitoring](#Monitoring7)**<br>Description of monitoring systems relevant to the Redis cluster. 
+config | **[ClusterConfig](#ClusterConfig7)**<br>Configuration of the Redis cluster. 
 network_id | **string**<br> 
-health | enum **Health**<br>Агрегированная работоспособность кластера. <ul><li>`HEALTH_UNKNOWN`: Хост находится в неизвестном состоянии (у нас нет данных)</li><li>`ALIVE`: Кластер жив и здоров (все хосты живы)</li><li>`DEAD`: Кластер не работает и не может выполнять свои основные функции</li><li>`DEGRADED`: Кластер частично жив (может выполнять некоторые из своих основных функций)</li><ul/>
-status | enum **Status**<br>Состояние кластера. <ul><li>`STATUS_UNKNOWN`: Состояние кластера неизвестно</li><li>`CREATING`: Кластер создается</li><li>`RUNNING`: Кластер работает нормально</li><li>`ERROR`: Кластер отказал.</li><li>`UPDATING`: Кластер изменяется.</li><li>`STOPPING`: Кластер останавливается.</li><li>`STOPPED`: Кластер остановлен.</li><li>`STARTING`: Кластер запускается.</li><ul/>
-sharded | **bool**<br>Включение/выключение режима Redis Cluster. 
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: Cluster is in unknown state (we have no data)</li><li>`ALIVE`: Cluster is alive and well (all hosts are alive)</li><li>`DEAD`: Cluster is inoperable (it cannot perform any of its essential functions)</li><li>`DEGRADED`: Cluster is partially alive (it can perform some of its essential functions)</li><ul/>
+status | enum **Status**<br>Cluster status. <ul><li>`STATUS_UNKNOWN`: Cluster status is unknown</li><li>`CREATING`: Cluster is being created</li><li>`RUNNING`: Cluster is running</li><li>`ERROR`: Cluster failed</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+sharded | **bool**<br>Redis cluster mode on/off. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow8)**<br>Maintenance window for the cluster. 
+planned_operation | **[MaintenanceOperation](#MaintenanceOperation7)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
+security_group_ids[] | **string**<br>User security groups 
+tls_enabled | **bool**<br>TLS port and functionality on\off 
 
 
 ### Monitoring {#Monitoring7}
 
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br>Название системы мониторинга. 
-description | **string**<br>Описание системы мониторинга. 
-link | **string**<br>Ссылка на графики системы мониторинга для кластера Redis. 
+name | **string**<br>Name of the monitoring system. 
+description | **string**<br>Description of the monitoring system. 
+link | **string**<br>Link to the monitoring system charts for the Redis cluster. 
 
 
 ### ClusterConfig {#ClusterConfig7}
 
-Поле | Описание
+Field | Description
 --- | ---
-version | **string**<br>Версия серверного программного обеспечения Redis. 
-redis_config | **oneof:** `redis_config_5_0`<br>Конфигурация для серверов Redis в кластере.
-&nbsp;&nbsp;redis_config_5_0 | **[config.RedisConfigSet5_0](#RedisConfigSet5_0)**<br>Конфигурация сервера Redis 5.0. 
-resources | **[Resources](#Resources9)**<br>Ресурсы, выделенные хостам Redis. 
-backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Время запуска ежедневного резервного копирования, в часовом поясе UTC. 
-access | **[Access](#Access9)**<br>Политика доступа к БД 
+version | **string**<br>Version of Redis server software. 
+redis_config | **oneof:** `redis_config_5_0` or `redis_config_6_0`<br>Configuration for Redis servers in the cluster.
+&nbsp;&nbsp;redis_config_5_0 | **[config.RedisConfigSet5_0](#RedisConfigSet5_0)**<br>Configuration of a Redis 5.0 server. 
+&nbsp;&nbsp;redis_config_6_0 | **[config.RedisConfigSet6_0](#RedisConfigSet6_0)**<br>Configuration of a Redis 6.0 server. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to Redis hosts. 
+backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
+access | **[Access](#Access9)**<br>Access policy to DB 
 
 
 ### Resources {#Resources9}
 
-Поле | Описание
+Field | Description
 --- | ---
-resource_preset_id | **string**<br>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в [документации](/docs/managed-redis/concepts/instance-types). 
-disk_size | **int64**<br>Объем хранилища, доступного хосту, в байтах. 
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-redis/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
+disk_type_id | **string**<br><ul><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
 
 ### Access {#Access9}
 
-Поле | Описание
+Field | Description
 --- | ---
-data_lens | **bool**<br>Разрешить доступ для DataLens 
+data_lens | **bool**<br>Allow access for DataLens 
+
+
+### MaintenanceWindow {#MaintenanceWindow8}
+
+Field | Description
+--- | ---
+policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow8)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow8)**<br>Maintenance operation can be scheduled on a weekly basis. 
+
+
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow8}
+
+
+
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow8}
+
+Field | Description
+--- | ---
+day | enum **WeekDay**<br>Day of the week (in `DDD` format). <ul><ul/>
+hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
+
+
+### MaintenanceOperation {#MaintenanceOperation7}
+
+Field | Description
+--- | ---
+info | **string**<br>Information about this maintenance operation. The maximum string length in characters is 256.
+delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time until which this maintenance operation is delayed. 
 
 
 ## Restore {#Restore}
 
-Создает новый кластер Redis с использованием указанной резервной копии.
+Creates a new Redis cluster using the specified backup.
 
 **rpc Restore ([RestoreClusterRequest](#RestoreClusterRequest)) returns ([operation.Operation](#Operation7))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[RestoreClusterMetadata](#RestoreClusterMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster8)<br>
 
 ### RestoreClusterRequest {#RestoreClusterRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-backup_id | **string**<br>Обязательное поле. Идентификатор резервной копии, из которой следует создать кластер. Чтобы получить идентификатор резервной копии, используйте запрос [ClusterService.ListBackups](#ListBackups). 
-name | **string**<br>Обязательное поле. Имя нового кластера Redis. Имя должно быть уникальным в каталоге. Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_-]* `.
-description | **string**<br>Описание нового кластера Redis. Максимальная длина строки в символах — 256.
-labels | **map<string,string>**<br>Пользовательские метки для кластера Redis как `` key:value `` pairs. Maximum 64 per cluster. For example, `project": "mvp" или "source": "dictionary". Не более 64 на ресурс. Максимальная длина строки в символах для каждого значения — 63. Каждое значение должно соответствовать регулярному выражению ` [-_0-9a-z]* `. Максимальная длина строки в символах для каждого ключа — 63. Каждый ключ должен соответствовать регулярному выражению ` [a-z][-_0-9a-z]* `.
-environment | **[Cluster.Environment](#Cluster8)**<br>Обязательное поле. Среда развертывания для нового кластера Redis. 
-config_spec | **[ConfigSpec](#ConfigSpec)**<br>Обязательное поле. Конфигурация для создаваемого кластера Redis. 
-host_specs[] | **[HostSpec](#HostSpec)**<br>Конфигурации для хостов Redis, которые должны быть созданы для кластера, создаваемого из резервной копии. Количество элементов должно быть больше 0.
-network_id | **string**<br>Обязательное поле. Идентификатор сети, в которой нужно создать кластер. Максимальная длина строки в символах — 50.
-folder_id | **string**<br>Идентификатор каталога, в котором нужно создать кластер Redis. Максимальная длина строки в символах — 50.
+backup_id | **string**<br>Required. ID of the backup to create a cluster from. To get the backup ID, use a [ClusterService.ListBackups](#ListBackups) request. 
+name | **string**<br>Required. Name of the new Redis cluster. The name must be unique within the folder. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+description | **string**<br>Description of the new Redis cluster. The maximum string length in characters is 256.
+labels | **map<string,string>**<br>Custom labels for the Redis cluster as `` key:value `` pairs. Maximum 64 per cluster. For example, "project": "mvp" or "source": "dictionary". No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+environment | **[Cluster.Environment](#Cluster8)**<br>Required. Deployment environment of the new Redis cluster. 
+config_spec | **[ConfigSpec](#ConfigSpec)**<br>Required. Configuration for the Redis cluster to be created. 
+host_specs[] | **[HostSpec](#HostSpec)**<br>Configurations for Redis hosts that should be created for the cluster that is being created from the backup. The number of elements must be greater than 0.
+network_id | **string**<br>Required. ID of the network to create the Redis cluster in. The maximum string length in characters is 50.
+folder_id | **string**<br>ID of the folder to create the Redis cluster in. The maximum string length in characters is 50.
+security_group_ids[] | **string**<br>User security groups 
+tls_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>TLS port and functionality on\off 
 
 
 ### ConfigSpec {#ConfigSpec2}
 
-Поле | Описание
+Field | Description
 --- | ---
-version | **string**<br>Версия Redis, используемая в кластере. Единственное возможное значение — `5.0`. 
-redis_spec | **oneof:** `redis_config_5_0`<br>Конфигурация кластера Redis.
-&nbsp;&nbsp;redis_config_5_0 | **[config.RedisConfig5_0](#RedisConfig5_0)**<br>Конфигурация кластера Redis. 
-resources | **[Resources](#Resources10)**<br>Ресурсы, выделенные хостам Redis. 
-backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Время запуска ежедневного резервного копирования, в часовом поясе UTC. 
-access | **[Access](#Access10)**<br>Политика доступа к БД 
+version | **string**<br>Version of Redis used in the cluster. 
+redis_spec | **oneof:** `redis_config_5_0` or `redis_config_6_0`<br>Configuration of a Redis cluster.
+&nbsp;&nbsp;redis_config_5_0 | **[config.RedisConfig5_0](#RedisConfig5_0)**<br>Configuration of a Redis cluster. 
+&nbsp;&nbsp;redis_config_6_0 | **[config.RedisConfig6_0](#RedisConfig6_0)**<br>Configuration of a Redis cluster. 
+resources | **[Resources](#Resources10)**<br>Resources allocated to Redis hosts. 
+backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
+access | **[Access](#Access10)**<br>Access policy to DB 
 
 
 ### Resources {#Resources10}
 
-Поле | Описание
+Field | Description
 --- | ---
-resource_preset_id | **string**<br>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в [документации](/docs/managed-redis/concepts/instance-types). 
-disk_size | **int64**<br>Объем хранилища, доступного хосту, в байтах. 
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-redis/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
+disk_type_id | **string**<br><ul><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
 
 ### Access {#Access10}
 
-Поле | Описание
+Field | Description
 --- | ---
-data_lens | **bool**<br>Разрешить доступ для DataLens 
+data_lens | **bool**<br>Allow access for DataLens 
 
 
 ### HostSpec {#HostSpec1}
 
-Поле | Описание
+Field | Description
 --- | ---
-zone_id | **string**<br>Идентификатор зоны доступности, в которой находится хост. Чтобы получить список доступных зон, используйте запрос [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/grpc/zone_service#List). 
-subnet_id | **string**<br>Идентификатор подсети, к которой должен принадлежать хост. Эта подсеть должна быть частью сети, к которой принадлежит кластер. Идентификатор сети задан в поле [Cluster.network_id](#Cluster8). 
-shard_name | **string**<br>Идентификатор шарда Redis, которому принадлежит хост. Чтобы получить идентификатор шарда, используйте запрос [ClusterService.ListShards](#ListShards). Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_-]* `.
+zone_id | **string**<br>ID of the availability zone where the host resides. To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/grpc/zone_service#List) request. 
+subnet_id | **string**<br>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The ID of the network is set in the field [Cluster.network_id](#Cluster8). 
+shard_name | **string**<br>ID of the Redis shard the host belongs to. To get the shard ID use a [ClusterService.ListShards](#ListShards) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
 ### Operation {#Operation7}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[RestoreClusterMetadata](#RestoreClusterMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster8)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[RestoreClusterMetadata](#RestoreClusterMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster8)>**<br>if operation finished successfully. 
 
 
 ### RestoreClusterMetadata {#RestoreClusterMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Идентификатор нового кластера Redis, создаваемого из резервной копии. 
-backup_id | **string**<br>Идентификатор резервной копии, используемой для создания кластера. 
+cluster_id | **string**<br>ID of the new Redis cluster that is being created from a backup. 
+backup_id | **string**<br>ID of the backup that is being used for creating a cluster. 
 
 
 ### Cluster {#Cluster8}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор кластера Redis. Этот идентификатор генерирует MDB при создании. 
-folder_id | **string**<br>Идентификатор каталога, которому принадлежит кластер Redis. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) . 
-name | **string**<br>Имя кластера Redis. Имя уникально в рамках каталога. Длина имени должна быть от 3 до 63 символов. 
-description | **string**<br>Описание кластера Redis. Длина описания должна быть от 0 до 256 символов. 
-labels | **map<string,string>**<br>Пользовательские метки для кластера Redis в виде пар ``key:value``. Максимум 64 на кластер. 
-environment | enum **Environment**<br>Среда развертывания кластера Redis. <ul><li>`PRODUCTION`: Стабильная среда с осторожной политикой обновления: во время регулярного обслуживания применяются только срочные исправления.</li><li>`PRESTABLE`: Среда с более агрессивной политикой обновления: новые версии развертываются независимо от обратной совместимости.</li><ul/>
-monitoring[] | **[Monitoring](#Monitoring8)**<br>Описание систем мониторинга, относящихся к данному кластеру Redis. 
-config | **[ClusterConfig](#ClusterConfig8)**<br>Конфигурация кластера Redis. 
+id | **string**<br>ID of the Redis cluster. This ID is assigned by MDB at creation time. 
+folder_id | **string**<br>ID of the folder that the Redis cluster belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
+name | **string**<br>Name of the Redis cluster. The name is unique within the folder. 3-63 characters long. 
+description | **string**<br>Description of the Redis cluster. 0-256 characters long. 
+labels | **map<string,string>**<br>Custom labels for the Redis cluster as `key:value` pairs. Maximum 64 per cluster. 
+environment | enum **Environment**<br>Deployment environment of the Redis cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
+monitoring[] | **[Monitoring](#Monitoring8)**<br>Description of monitoring systems relevant to the Redis cluster. 
+config | **[ClusterConfig](#ClusterConfig8)**<br>Configuration of the Redis cluster. 
 network_id | **string**<br> 
-health | enum **Health**<br>Агрегированная работоспособность кластера. <ul><li>`HEALTH_UNKNOWN`: Хост находится в неизвестном состоянии (у нас нет данных)</li><li>`ALIVE`: Кластер жив и здоров (все хосты живы)</li><li>`DEAD`: Кластер не работает и не может выполнять свои основные функции</li><li>`DEGRADED`: Кластер частично жив (может выполнять некоторые из своих основных функций)</li><ul/>
-status | enum **Status**<br>Состояние кластера. <ul><li>`STATUS_UNKNOWN`: Состояние кластера неизвестно</li><li>`CREATING`: Кластер создается</li><li>`RUNNING`: Кластер работает нормально</li><li>`ERROR`: Кластер отказал.</li><li>`UPDATING`: Кластер изменяется.</li><li>`STOPPING`: Кластер останавливается.</li><li>`STOPPED`: Кластер остановлен.</li><li>`STARTING`: Кластер запускается.</li><ul/>
-sharded | **bool**<br>Включение/выключение режима Redis Cluster. 
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: Cluster is in unknown state (we have no data)</li><li>`ALIVE`: Cluster is alive and well (all hosts are alive)</li><li>`DEAD`: Cluster is inoperable (it cannot perform any of its essential functions)</li><li>`DEGRADED`: Cluster is partially alive (it can perform some of its essential functions)</li><ul/>
+status | enum **Status**<br>Cluster status. <ul><li>`STATUS_UNKNOWN`: Cluster status is unknown</li><li>`CREATING`: Cluster is being created</li><li>`RUNNING`: Cluster is running</li><li>`ERROR`: Cluster failed</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+sharded | **bool**<br>Redis cluster mode on/off. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow9)**<br>Maintenance window for the cluster. 
+planned_operation | **[MaintenanceOperation](#MaintenanceOperation8)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
+security_group_ids[] | **string**<br>User security groups 
+tls_enabled | **bool**<br>TLS port and functionality on\off 
 
 
 ### Monitoring {#Monitoring8}
 
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br>Название системы мониторинга. 
-description | **string**<br>Описание системы мониторинга. 
-link | **string**<br>Ссылка на графики системы мониторинга для кластера Redis. 
+name | **string**<br>Name of the monitoring system. 
+description | **string**<br>Description of the monitoring system. 
+link | **string**<br>Link to the monitoring system charts for the Redis cluster. 
 
 
 ### ClusterConfig {#ClusterConfig8}
 
-Поле | Описание
+Field | Description
 --- | ---
-version | **string**<br>Версия серверного программного обеспечения Redis. 
-redis_config | **oneof:** `redis_config_5_0`<br>Конфигурация для серверов Redis в кластере.
-&nbsp;&nbsp;redis_config_5_0 | **[config.RedisConfigSet5_0](#RedisConfigSet5_0)**<br>Конфигурация сервера Redis 5.0. 
-resources | **[Resources](#Resources11)**<br>Ресурсы, выделенные хостам Redis. 
-backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Время запуска ежедневного резервного копирования, в часовом поясе UTC. 
-access | **[Access](#Access11)**<br>Политика доступа к БД 
+version | **string**<br>Version of Redis server software. 
+redis_config | **oneof:** `redis_config_5_0` or `redis_config_6_0`<br>Configuration for Redis servers in the cluster.
+&nbsp;&nbsp;redis_config_5_0 | **[config.RedisConfigSet5_0](#RedisConfigSet5_0)**<br>Configuration of a Redis 5.0 server. 
+&nbsp;&nbsp;redis_config_6_0 | **[config.RedisConfigSet6_0](#RedisConfigSet6_0)**<br>Configuration of a Redis 6.0 server. 
+resources | **[Resources](#Resources11)**<br>Resources allocated to Redis hosts. 
+backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
+access | **[Access](#Access11)**<br>Access policy to DB 
 
 
 ### Resources {#Resources11}
 
-Поле | Описание
+Field | Description
 --- | ---
-resource_preset_id | **string**<br>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в [документации](/docs/managed-redis/concepts/instance-types). 
-disk_size | **int64**<br>Объем хранилища, доступного хосту, в байтах. 
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-redis/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
+disk_type_id | **string**<br><ul><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
 
 ### Access {#Access11}
 
-Поле | Описание
+Field | Description
 --- | ---
-data_lens | **bool**<br>Разрешить доступ для DataLens 
+data_lens | **bool**<br>Allow access for DataLens 
 
 
-## StartFailover {#StartFailover}
+### MaintenanceWindow {#MaintenanceWindow9}
 
-Запускает ручное переключение мастера для указанного кластера Redis.
+Field | Description
+--- | ---
+policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow9)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow9)**<br>Maintenance operation can be scheduled on a weekly basis. 
 
-**rpc StartFailover ([StartClusterFailoverRequest](#StartClusterFailoverRequest)) returns ([operation.Operation](#Operation8))**
 
-Метаданные и результат операции:<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[StartClusterFailoverMetadata](#StartClusterFailoverMetadata)<br>
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow9}
+
+
+
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow9}
+
+Field | Description
+--- | ---
+day | enum **WeekDay**<br>Day of the week (in `DDD` format). <ul><ul/>
+hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
+
+
+### MaintenanceOperation {#MaintenanceOperation8}
+
+Field | Description
+--- | ---
+info | **string**<br>Information about this maintenance operation. The maximum string length in characters is 256.
+delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time until which this maintenance operation is delayed. 
+
+
+## RescheduleMaintenance {#RescheduleMaintenance}
+
+Reschedules planned maintenance operation.
+
+**rpc RescheduleMaintenance ([RescheduleMaintenanceRequest](#RescheduleMaintenanceRequest)) returns ([operation.Operation](#Operation8))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[RescheduleMaintenanceMetadata](#RescheduleMaintenanceMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster9)<br>
 
-### StartClusterFailoverRequest {#StartClusterFailoverRequest}
+### RescheduleMaintenanceRequest {#RescheduleMaintenanceRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера Redis, в котором следует переключить мастер. Максимальная длина строки в символах — 50.
+cluster_id | **string**<br>Required. ID of the Redis cluster to reschedule the maintenance operation for. The maximum string length in characters is 50.
+reschedule_type | enum **RescheduleType**<br>Required. The type of reschedule request. <ul><li>`IMMEDIATE`: Start the maintenance operation immediately.</li><li>`NEXT_AVAILABLE_WINDOW`: Start the maintenance operation within the next available maintenance window.</li><li>`SPECIFIC_TIME`: Start the maintenance operation at the specific time.</li><ul/>
+delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time until which this maintenance operation should be delayed. The value should be ahead of the first time when the maintenance operation has been scheduled for no more than two weeks. The value can also point to the past moment of time if `reschedule_type.IMMEDIATE` reschedule type is chosen. 
 
 
 ### Operation {#Operation8}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[StartClusterFailoverMetadata](#StartClusterFailoverMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster9)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[RescheduleMaintenanceMetadata](#RescheduleMaintenanceMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster9)>**<br>if operation finished successfully. 
 
 
-### StartClusterFailoverMetadata {#StartClusterFailoverMetadata}
+### RescheduleMaintenanceMetadata {#RescheduleMaintenanceMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Идентификатор кластера Redis, для которого будет инициировано переключение мастера. 
+cluster_id | **string**<br>Required. ID of the Redis cluster. 
+delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Required. The time until which this maintenance operation is to be delayed. 
 
 
 ### Cluster {#Cluster9}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор кластера Redis. Этот идентификатор генерирует MDB при создании. 
-folder_id | **string**<br>Идентификатор каталога, которому принадлежит кластер Redis. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) . 
-name | **string**<br>Имя кластера Redis. Имя уникально в рамках каталога. Длина имени должна быть от 3 до 63 символов. 
-description | **string**<br>Описание кластера Redis. Длина описания должна быть от 0 до 256 символов. 
-labels | **map<string,string>**<br>Пользовательские метки для кластера Redis в виде пар ``key:value``. Максимум 64 на кластер. 
-environment | enum **Environment**<br>Среда развертывания кластера Redis. <ul><li>`PRODUCTION`: Стабильная среда с осторожной политикой обновления: во время регулярного обслуживания применяются только срочные исправления.</li><li>`PRESTABLE`: Среда с более агрессивной политикой обновления: новые версии развертываются независимо от обратной совместимости.</li><ul/>
-monitoring[] | **[Monitoring](#Monitoring9)**<br>Описание систем мониторинга, относящихся к данному кластеру Redis. 
-config | **[ClusterConfig](#ClusterConfig9)**<br>Конфигурация кластера Redis. 
+id | **string**<br>ID of the Redis cluster. This ID is assigned by MDB at creation time. 
+folder_id | **string**<br>ID of the folder that the Redis cluster belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
+name | **string**<br>Name of the Redis cluster. The name is unique within the folder. 3-63 characters long. 
+description | **string**<br>Description of the Redis cluster. 0-256 characters long. 
+labels | **map<string,string>**<br>Custom labels for the Redis cluster as `key:value` pairs. Maximum 64 per cluster. 
+environment | enum **Environment**<br>Deployment environment of the Redis cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
+monitoring[] | **[Monitoring](#Monitoring9)**<br>Description of monitoring systems relevant to the Redis cluster. 
+config | **[ClusterConfig](#ClusterConfig9)**<br>Configuration of the Redis cluster. 
 network_id | **string**<br> 
-health | enum **Health**<br>Агрегированная работоспособность кластера. <ul><li>`HEALTH_UNKNOWN`: Хост находится в неизвестном состоянии (у нас нет данных)</li><li>`ALIVE`: Кластер жив и здоров (все хосты живы)</li><li>`DEAD`: Кластер не работает и не может выполнять свои основные функции</li><li>`DEGRADED`: Кластер частично жив (может выполнять некоторые из своих основных функций)</li><ul/>
-status | enum **Status**<br>Состояние кластера. <ul><li>`STATUS_UNKNOWN`: Состояние кластера неизвестно</li><li>`CREATING`: Кластер создается</li><li>`RUNNING`: Кластер работает нормально</li><li>`ERROR`: Кластер отказал.</li><li>`UPDATING`: Кластер изменяется.</li><li>`STOPPING`: Кластер останавливается.</li><li>`STOPPED`: Кластер остановлен.</li><li>`STARTING`: Кластер запускается.</li><ul/>
-sharded | **bool**<br>Включение/выключение режима Redis Cluster. 
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: Cluster is in unknown state (we have no data)</li><li>`ALIVE`: Cluster is alive and well (all hosts are alive)</li><li>`DEAD`: Cluster is inoperable (it cannot perform any of its essential functions)</li><li>`DEGRADED`: Cluster is partially alive (it can perform some of its essential functions)</li><ul/>
+status | enum **Status**<br>Cluster status. <ul><li>`STATUS_UNKNOWN`: Cluster status is unknown</li><li>`CREATING`: Cluster is being created</li><li>`RUNNING`: Cluster is running</li><li>`ERROR`: Cluster failed</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+sharded | **bool**<br>Redis cluster mode on/off. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow10)**<br>Maintenance window for the cluster. 
+planned_operation | **[MaintenanceOperation](#MaintenanceOperation9)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
+security_group_ids[] | **string**<br>User security groups 
+tls_enabled | **bool**<br>TLS port and functionality on\off 
 
 
 ### Monitoring {#Monitoring9}
 
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br>Название системы мониторинга. 
-description | **string**<br>Описание системы мониторинга. 
-link | **string**<br>Ссылка на графики системы мониторинга для кластера Redis. 
+name | **string**<br>Name of the monitoring system. 
+description | **string**<br>Description of the monitoring system. 
+link | **string**<br>Link to the monitoring system charts for the Redis cluster. 
 
 
 ### ClusterConfig {#ClusterConfig9}
 
-Поле | Описание
+Field | Description
 --- | ---
-version | **string**<br>Версия серверного программного обеспечения Redis. 
-redis_config | **oneof:** `redis_config_5_0`<br>Конфигурация для серверов Redis в кластере.
-&nbsp;&nbsp;redis_config_5_0 | **[config.RedisConfigSet5_0](#RedisConfigSet5_0)**<br>Конфигурация сервера Redis 5.0. 
-resources | **[Resources](#Resources12)**<br>Ресурсы, выделенные хостам Redis. 
-backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Время запуска ежедневного резервного копирования, в часовом поясе UTC. 
-access | **[Access](#Access12)**<br>Политика доступа к БД 
+version | **string**<br>Version of Redis server software. 
+redis_config | **oneof:** `redis_config_5_0` or `redis_config_6_0`<br>Configuration for Redis servers in the cluster.
+&nbsp;&nbsp;redis_config_5_0 | **[config.RedisConfigSet5_0](#RedisConfigSet5_0)**<br>Configuration of a Redis 5.0 server. 
+&nbsp;&nbsp;redis_config_6_0 | **[config.RedisConfigSet6_0](#RedisConfigSet6_0)**<br>Configuration of a Redis 6.0 server. 
+resources | **[Resources](#Resources12)**<br>Resources allocated to Redis hosts. 
+backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
+access | **[Access](#Access12)**<br>Access policy to DB 
 
 
 ### Resources {#Resources12}
 
-Поле | Описание
+Field | Description
 --- | ---
-resource_preset_id | **string**<br>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в [документации](/docs/managed-redis/concepts/instance-types). 
-disk_size | **int64**<br>Объем хранилища, доступного хосту, в байтах. 
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-redis/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
+disk_type_id | **string**<br><ul><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
 
 ### Access {#Access12}
 
-Поле | Описание
+Field | Description
 --- | ---
-data_lens | **bool**<br>Разрешить доступ для DataLens 
+data_lens | **bool**<br>Allow access for DataLens 
+
+
+### MaintenanceWindow {#MaintenanceWindow10}
+
+Field | Description
+--- | ---
+policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow10)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow10)**<br>Maintenance operation can be scheduled on a weekly basis. 
+
+
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow10}
+
+
+
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow10}
+
+Field | Description
+--- | ---
+day | enum **WeekDay**<br>Day of the week (in `DDD` format). <ul><ul/>
+hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
+
+
+### MaintenanceOperation {#MaintenanceOperation9}
+
+Field | Description
+--- | ---
+info | **string**<br>Information about this maintenance operation. The maximum string length in characters is 256.
+delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time until which this maintenance operation is delayed. 
+
+
+## StartFailover {#StartFailover}
+
+Start a manual failover on the specified Redis cluster.
+
+**rpc StartFailover ([StartClusterFailoverRequest](#StartClusterFailoverRequest)) returns ([operation.Operation](#Operation9))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[StartClusterFailoverMetadata](#StartClusterFailoverMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster10)<br>
+
+### StartClusterFailoverRequest {#StartClusterFailoverRequest}
+
+Field | Description
+--- | ---
+cluster_id | **string**<br>Required. ID of the Redis cluster to start failover on. The maximum string length in characters is 50.
+
+
+### Operation {#Operation9}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[StartClusterFailoverMetadata](#StartClusterFailoverMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster10)>**<br>if operation finished successfully. 
+
+
+### StartClusterFailoverMetadata {#StartClusterFailoverMetadata}
+
+Field | Description
+--- | ---
+cluster_id | **string**<br>ID of the Redis cluster on which failover will be initiated. 
+
+
+### Cluster {#Cluster10}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the Redis cluster. This ID is assigned by MDB at creation time. 
+folder_id | **string**<br>ID of the folder that the Redis cluster belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
+name | **string**<br>Name of the Redis cluster. The name is unique within the folder. 3-63 characters long. 
+description | **string**<br>Description of the Redis cluster. 0-256 characters long. 
+labels | **map<string,string>**<br>Custom labels for the Redis cluster as `key:value` pairs. Maximum 64 per cluster. 
+environment | enum **Environment**<br>Deployment environment of the Redis cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
+monitoring[] | **[Monitoring](#Monitoring10)**<br>Description of monitoring systems relevant to the Redis cluster. 
+config | **[ClusterConfig](#ClusterConfig10)**<br>Configuration of the Redis cluster. 
+network_id | **string**<br> 
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: Cluster is in unknown state (we have no data)</li><li>`ALIVE`: Cluster is alive and well (all hosts are alive)</li><li>`DEAD`: Cluster is inoperable (it cannot perform any of its essential functions)</li><li>`DEGRADED`: Cluster is partially alive (it can perform some of its essential functions)</li><ul/>
+status | enum **Status**<br>Cluster status. <ul><li>`STATUS_UNKNOWN`: Cluster status is unknown</li><li>`CREATING`: Cluster is being created</li><li>`RUNNING`: Cluster is running</li><li>`ERROR`: Cluster failed</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+sharded | **bool**<br>Redis cluster mode on/off. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow11)**<br>Maintenance window for the cluster. 
+planned_operation | **[MaintenanceOperation](#MaintenanceOperation10)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
+security_group_ids[] | **string**<br>User security groups 
+tls_enabled | **bool**<br>TLS port and functionality on\off 
+
+
+### Monitoring {#Monitoring10}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the monitoring system. 
+description | **string**<br>Description of the monitoring system. 
+link | **string**<br>Link to the monitoring system charts for the Redis cluster. 
+
+
+### ClusterConfig {#ClusterConfig10}
+
+Field | Description
+--- | ---
+version | **string**<br>Version of Redis server software. 
+redis_config | **oneof:** `redis_config_5_0` or `redis_config_6_0`<br>Configuration for Redis servers in the cluster.
+&nbsp;&nbsp;redis_config_5_0 | **[config.RedisConfigSet5_0](#RedisConfigSet5_0)**<br>Configuration of a Redis 5.0 server. 
+&nbsp;&nbsp;redis_config_6_0 | **[config.RedisConfigSet6_0](#RedisConfigSet6_0)**<br>Configuration of a Redis 6.0 server. 
+resources | **[Resources](#Resources13)**<br>Resources allocated to Redis hosts. 
+backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
+access | **[Access](#Access13)**<br>Access policy to DB 
+
+
+### Resources {#Resources13}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-redis/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
+disk_type_id | **string**<br><ul><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
+
+
+### Access {#Access13}
+
+Field | Description
+--- | ---
+data_lens | **bool**<br>Allow access for DataLens 
+
+
+### MaintenanceWindow {#MaintenanceWindow11}
+
+Field | Description
+--- | ---
+policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow11)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow11)**<br>Maintenance operation can be scheduled on a weekly basis. 
+
+
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow11}
+
+
+
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow11}
+
+Field | Description
+--- | ---
+day | enum **WeekDay**<br>Day of the week (in `DDD` format). <ul><ul/>
+hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
+
+
+### MaintenanceOperation {#MaintenanceOperation10}
+
+Field | Description
+--- | ---
+info | **string**<br>Information about this maintenance operation. The maximum string length in characters is 256.
+delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time until which this maintenance operation is delayed. 
 
 
 ## ListLogs {#ListLogs}
 
-Получает логи для указанного кластера Redis.
+Retrieves logs for the specified Redis cluster.
 
 **rpc ListLogs ([ListClusterLogsRequest](#ListClusterLogsRequest)) returns ([ListClusterLogsResponse](#ListClusterLogsResponse))**
 
 ### ListClusterLogsRequest {#ListClusterLogsRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера Redis, для которого следует запросить логи. Чтобы получить идентификатор кластера, используйте запрос [ClusterService.List](#List). Максимальная длина строки в символах — 50.
-column_filter[] | **string**<br>Столбцы из таблицы логов для запроса. Если столбцы не указаны, записи логов возвращаются целиком. 
-service_type | enum **ServiceType**<br> <ul><li>`REDIS`: Логи работы Redis.</li><ul/>
-from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Начало периода, для которого следует запросить логи, в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-to_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Конец периода, для которого следует запросить логи, в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-page_size | **int64**<br>Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем `page_size`, сервис вернет значение [ListClusterLogsResponse.next_page_token](#ListClusterLogsResponse), которое можно использовать для получения следующей страницы. Допустимые значения — от 0 до 1000 включительно.
-page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListClusterLogsResponse.next_page_token](#ListClusterLogsResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
+cluster_id | **string**<br>Required. ID of the Redis cluster to request logs for. To get the Redis cluster ID use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+column_filter[] | **string**<br>Columns from the logs table to request. If no columns are specified, entire log records are returned. 
+service_type | enum **ServiceType**<br> <ul><li>`REDIS`: Logs of Redis activity.</li><ul/>
+from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Start timestamp for the logs request, in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
+to_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>End timestamp for the logs request, in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
+page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClusterLogsResponse.next_page_token](#ListClusterLogsResponse) that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 1000, inclusive.
+page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListClusterLogsResponse.next_page_token](#ListClusterLogsResponse) returned by a previous list request. The maximum string length in characters is 100.
 
 
 ### ListClusterLogsResponse {#ListClusterLogsResponse}
 
-Поле | Описание
+Field | Description
 --- | ---
-logs[] | **[LogRecord](#LogRecord)**<br>Запрошенные записи логов. 
-next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListClusterLogsRequest.page_size](#ListClusterLogsRequest), используйте `next_page_token` в качестве значения параметра [ListClusterLogsRequest.page_token](#ListClusterLogsRequest) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
+logs[] | **[LogRecord](#LogRecord)**<br>Requested log records. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClusterLogsRequest.page_size](#ListClusterLogsRequest), use the `next_page_token` as the value for the [ListClusterLogsRequest.page_token](#ListClusterLogsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. This value is interchangeable with `next_record_token` from StreamLogs method. 
 
 
 ### LogRecord {#LogRecord}
 
-Поле | Описание
+Field | Description
 --- | ---
-timestamp | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Отметка времени для записи журнала в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) текстовом формате. 
-message | **map<string,string>**<br>Содержание записи журнала. 
+timestamp | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Log record timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
+message | **map<string,string>**<br>Contents of the log record. 
+
+
+## StreamLogs {#StreamLogs}
+
+Same as ListLogs but using server-side streaming. Also allows for 'tail -f' semantics.
+
+**rpc StreamLogs ([StreamClusterLogsRequest](#StreamClusterLogsRequest)) returns (stream [StreamLogRecord](#StreamLogRecord))**
+
+### StreamClusterLogsRequest {#StreamClusterLogsRequest}
+
+Field | Description
+--- | ---
+cluster_id | **string**<br>Required. Required. ID of the Redis cluster. The maximum string length in characters is 50.
+column_filter[] | **string**<br>Columns from logs table to get in the response. 
+service_type | enum **ServiceType**<br> <ul><li>`REDIS`: Logs of Redis activity.</li><ul/>
+from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Start timestamp for the logs request. 
+to_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>End timestamp for the logs request. If this field is not set, all existing logs will be sent and then the new ones as they appear. In essence it has 'tail -f' semantics. 
+record_token | **string**<br>Record token. Set `record_token` to the `next_record_token` returned by a previous StreamLogs request to start streaming from next log record. The maximum string length in characters is 100.
+filter | **string**<br><ol><li>The field name. Currently filtering can be applied to the [LogRecord.logs.hostname](#LogRecord) field </li><li>A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`. </li></ol> The maximum string length in characters is 1000.
+
+
+### StreamLogRecord {#StreamLogRecord}
+
+Field | Description
+--- | ---
+record | **[LogRecord](#LogRecord)**<br>One of the requested log records. 
+next_record_token | **string**<br>This token allows you to continue streaming logs starting from the exact same record. To continue streaming, specify value of `next_record_token` as value for `record_token` parameter in the next StreamLogs request. This value is interchangeable with `next_page_token` from ListLogs method. 
+
+
+### LogRecord {#LogRecord1}
+
+Field | Description
+--- | ---
+timestamp | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Log record timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
+message | **map<string,string>**<br>Contents of the log record. 
 
 
 ## ListOperations {#ListOperations}
 
-Возвращает список операций для указанного кластера.
+Retrieves the list of operations for the specified cluster.
 
 **rpc ListOperations ([ListClusterOperationsRequest](#ListClusterOperationsRequest)) returns ([ListClusterOperationsResponse](#ListClusterOperationsResponse))**
 
 ### ListClusterOperationsRequest {#ListClusterOperationsRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера Redis, для которого запрашивается список операций. Максимальная длина строки в символах — 50.
-page_size | **int64**<br>Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем `page_size`, сервис вернет значение [ListClusterOperationsResponse.next_page_token](#ListClusterOperationsResponse), которое можно использовать для получения следующей страницы. Допустимые значения — от 0 до 1000 включительно.
-page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListClusterOperationsResponse.next_page_token](#ListClusterOperationsResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
+cluster_id | **string**<br>Required. ID of the Redis cluster to list operations for. The maximum string length in characters is 50.
+page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClusterOperationsResponse.next_page_token](#ListClusterOperationsResponse) that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 1000, inclusive.
+page_token | **string**<br>Page token.  To get the next page of results, set `page_token` to the [ListClusterOperationsResponse.next_page_token](#ListClusterOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
 
 
 ### ListClusterOperationsResponse {#ListClusterOperationsResponse}
 
-Поле | Описание
+Field | Description
 --- | ---
-operations[] | **[operation.Operation](#Operation9)**<br>Список операций для указанного кластера Redis. 
-next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListClusterOperationsRequest.page_size](#ListClusterOperationsRequest), используйте `next_page_token` в качестве значения параметра [ListClusterOperationsRequest.page_token](#ListClusterOperationsRequest) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
+operations[] | **[operation.Operation](#Operation10)**<br>List of operations for the specified Redis cluster. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClusterOperationsRequest.page_size](#ListClusterOperationsRequest), use the `next_page_token` as the value for the [ListClusterOperationsRequest.page_token](#ListClusterOperationsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
-### Operation {#Operation9}
+### Operation {#Operation10}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**<br>Результат операции в случае успешного завершения. Если исходный метод не возвращает никаких данных при успешном завершении, например метод Delete, поле содержит объект [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty). Если исходный метод — это стандартный метод Create / Update, поле содержит целевой ресурс операции. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `response`. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**<br>The normal response of the operation in case of success. If the original method returns no data on success, such as Delete, the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty). If the original method is the standard Create/Update, the response should be the target resource of the operation. Any method that returns a long-running operation should document the response type, if any. 
 
 
 ## ListBackups {#ListBackups}
 
-Получает список доступных резервных копий для указанного кластера Redis.
+Retrieves the list of available backups for the specified Redis cluster.
 
 **rpc ListBackups ([ListClusterBackupsRequest](#ListClusterBackupsRequest)) returns ([ListClusterBackupsResponse](#ListClusterBackupsResponse))**
 
 ### ListClusterBackupsRequest {#ListClusterBackupsRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера Redis. Чтобы получить идентификатор кластера, используйте запрос [ClusterService.List](#List). Максимальная длина строки в символах — 50.
-page_size | **int64**<br>Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем `page_size`, сервис вернет значение [ListClusterBackupsResponse.next_page_token](#ListClusterBackupsResponse), которое можно использовать для получения следующей страницы. Допустимые значения — от 0 до 1000 включительно.
-page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListClusterBackupsResponse.next_page_token](#ListClusterBackupsResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
+cluster_id | **string**<br>Required. ID of the Redis cluster. To get the Redis cluster ID use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClusterBackupsResponse.next_page_token](#ListClusterBackupsResponse) that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 1000, inclusive.
+page_token | **string**<br>Page token.  To get the next page of results, set `page_token` to the [ListClusterBackupsResponse.next_page_token](#ListClusterBackupsResponse) returned by a previous list request. The maximum string length in characters is 100.
 
 
 ### ListClusterBackupsResponse {#ListClusterBackupsResponse}
 
-Поле | Описание
+Field | Description
 --- | ---
-backups[] | **[Backup](#Backup)**<br>Список резервных копий Redis. 
-next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListClusterBackupsRequest.page_size](#ListClusterBackupsRequest), используйте `next_page_token` в качестве значения параметра [ListClusterBackupsRequest.page_token](#ListClusterBackupsRequest) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
+backups[] | **[Backup](#Backup)**<br>List of Redis backups. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClusterBackupsRequest.page_size](#ListClusterBackupsRequest), use the `next_page_token` as the value for the [ListClusterBackupsRequest.page_token](#ListClusterBackupsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
 ### Backup {#Backup}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор резервной копии. 
-folder_id | **string**<br>Идентификатор каталога, которому принадлежит резервная копия. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) (т. е. когда операция резервного копирования была завершена). 
-source_cluster_id | **string**<br>Идентификатор кластера Redis, для которого была создана резервная копия. 
-started_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время запуска операции резервного копирования в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-source_shard_names[] | **string**<br>Имена шардов, которые использовались при создании резервной копии. 
+id | **string**<br>ID of the backup. 
+folder_id | **string**<br>ID of the folder that the backup belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format (i.e. when the backup operation was completed). 
+source_cluster_id | **string**<br>ID of the Redis cluster that the backup was created for. 
+started_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Start timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format (i.e. when the backup operation was started). 
+source_shard_names[] | **string**<br>Shard names used as a source for backup. 
 
 
 ## ListHosts {#ListHosts}
 
-Получает список хостов для указанного кластера.
+Retrieves a list of hosts for the specified cluster.
 
 **rpc ListHosts ([ListClusterHostsRequest](#ListClusterHostsRequest)) returns ([ListClusterHostsResponse](#ListClusterHostsResponse))**
 
 ### ListClusterHostsRequest {#ListClusterHostsRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера Redis. Чтобы получить идентификатор кластера, используйте запрос [ClusterService.List](#List). Максимальная длина строки в символах — 50.
-page_size | **int64**<br>Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем `page_size`, сервис вернет значение [ListClusterHostsResponse.next_page_token](#ListClusterHostsResponse), которое можно использовать для получения следующей страницы. Допустимые значения — от 0 до 1000 включительно.
-page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListClusterHostsResponse.next_page_token](#ListClusterHostsResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
+cluster_id | **string**<br>Required. ID of the Redis cluster. To get the Redis cluster ID use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClusterHostsResponse.next_page_token](#ListClusterHostsResponse) that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 1000, inclusive.
+page_token | **string**<br>Page token.  To get the next page of results, set `page_token` to the [ListClusterHostsResponse.next_page_token](#ListClusterHostsResponse) returned by a previous list request. The maximum string length in characters is 100.
 
 
 ### ListClusterHostsResponse {#ListClusterHostsResponse}
 
-Поле | Описание
+Field | Description
 --- | ---
-hosts[] | **[Host](#Host)**<br>Cписок хостов для кластера. 
-next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListClusterHostsRequest.page_size](#ListClusterHostsRequest), используйте `next_page_token` в качестве значения параметра [ListClusterHostsRequest.page_token](#ListClusterHostsRequest) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
+hosts[] | **[Host](#Host)**<br>List of hosts for the cluster. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClusterHostsRequest.page_size](#ListClusterHostsRequest), use the `next_page_token` as the value for the [ListClusterHostsRequest.page_token](#ListClusterHostsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
 ### Host {#Host}
 
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br>Имя хоста Redis. Имя хоста назначается MDB во время создания и не может быть изменено. Длина 1-63 символов. <br>Имя уникально для всех существующих хостов MDB в Яндекс.Облаке, так как оно определяет полное доменное имя (FQDN) хоста. 
-cluster_id | **string**<br>Идентификатор кластера Redis. Этот идентификатор генерирует MDB при создании. 
-zone_id | **string**<br>Идентификатор зоны доступности, в которой находится хост Redis. 
-subnet_id | **string**<br>Идентификатор подсети, к которой принадлежит хост. 
-resources | **[Resources](#Resources13)**<br>Ресурсы, выделенные хосту Redis. 
-role | enum **Role**<br>Роль хоста в кластере. <ul><li>`ROLE_UNKNOWN`: Роль хоста в кластере неизвестна.</li><li>`MASTER`: Хост является мастером в кластере Redis.</li><li>`REPLICA`: Хост является репликой в кластере Redis.</li><ul/>
-health | enum **Health**<br>Код работоспособности хоста. <ul><li>`HEALTH_UNKNOWN`: Состояние хоста неизвестно.</li><li>`ALIVE`: Хозяин выполняет все свои функции нормально.</li><li>`DEAD`: Хост не работает и не может выполнять свои основные функции.</li><li>`DEGRADED`: Хост деградировал, и может выполнять только некоторые из своих основных функций.</li><ul/>
-services[] | **[Service](#Service)**<br>Сервисы, предоставляемые хостом. 
+name | **string**<br>Name of the Redis host. The host name is assigned by MDB at creation time, and cannot be changed. 1-63 characters long. <br>The name is unique across all existing MDB hosts in Yandex.Cloud, as it defines the FQDN of the host. 
+cluster_id | **string**<br>ID of the Redis cluster. The ID is assigned by MDB at creation time. 
+zone_id | **string**<br>ID of the availability zone where the Redis host resides. 
+subnet_id | **string**<br>ID of the subnet that the host belongs to. 
+resources | **[Resources](#Resources14)**<br>Resources allocated to the Redis host. 
+role | enum **Role**<br>Role of the host in the cluster. <ul><li>`ROLE_UNKNOWN`: Role of the host in the cluster is unknown.</li><li>`MASTER`: Host is the master Redis server in the cluster.</li><li>`REPLICA`: Host is a replica (standby) Redis server in the cluster.</li><ul/>
+health | enum **Health**<br>Status code of the aggregated health of the host. <ul><li>`HEALTH_UNKNOWN`: Health of the host is unknown.</li><li>`ALIVE`: The host is performing all its functions normally.</li><li>`DEAD`: The host is inoperable, and cannot perform any of its essential functions.</li><li>`DEGRADED`: The host is degraded, and can perform only some of its essential functions.</li><ul/>
+services[] | **[Service](#Service)**<br>Services provided by the host. 
 shard_name | **string**<br> 
 
 
-### Resources {#Resources13}
+### Resources {#Resources14}
 
-Поле | Описание
+Field | Description
 --- | ---
-resource_preset_id | **string**<br>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в [документации](/docs/managed-redis/concepts/instance-types). 
-disk_size | **int64**<br>Объем хранилища, доступного хосту, в байтах. 
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-redis/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
+disk_type_id | **string**<br><ul><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
 
 ### Service {#Service}
 
-Поле | Описание
+Field | Description
 --- | ---
-type | enum **Type**<br>Тип сервиса, предоставляемого хостом. <ul><li>`REDIS`: Хост — сервер Redis.</li><li>`ARBITER`: Хост предоставляет только сервис Sentinel (хост кворума).</li><li>`REDIS_CLUSTER`: Хост является узлом Redis Cluster.</li><ul/>
-health | enum **Health**<br>Код состояния доступности сервера. <ul><li>`HEALTH_UNKNOWN`: Работоспособность сервера неизвестна.</li><li>`ALIVE`: Сервер работает нормально.</li><li>`DEAD`: Сервер отключен или не отвечает.</li><ul/>
+type | enum **Type**<br>Type of the service provided by the host. <ul><li>`REDIS`: The host is a Redis server.</li><li>`ARBITER`: The host provides a Sentinel-only service (a quorum node).</li><li>`REDIS_CLUSTER`: The host is a Redis Cluster node.</li><ul/>
+health | enum **Health**<br>Status code of server availability. <ul><li>`HEALTH_UNKNOWN`: Health of the server is unknown.</li><li>`ALIVE`: The server is working normally.</li><li>`DEAD`: The server is dead or unresponsive.</li><ul/>
 
 
 ## AddHosts {#AddHosts}
 
-Создает новые хосты для кластера.
+Creates new hosts for a cluster.
 
-**rpc AddHosts ([AddClusterHostsRequest](#AddClusterHostsRequest)) returns ([operation.Operation](#Operation10))**
+**rpc AddHosts ([AddClusterHostsRequest](#AddClusterHostsRequest)) returns ([operation.Operation](#Operation11))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[AddClusterHostsMetadata](#AddClusterHostsMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
 
 ### AddClusterHostsRequest {#AddClusterHostsRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера Redis, для которого следует добавить хосты. Чтобы получить идентификатор кластера, используйте запрос [ClusterService.List](#List). Максимальная длина строки в символах — 50.
-host_specs[] | **[HostSpec](#HostSpec)**<br>Конфигурации для хостов Redis, которые должны быть добавлены в кластер. Количество элементов должно быть больше 0.
+cluster_id | **string**<br>Required. ID of the Redis cluster to add hosts to. To get the Redis cluster ID, use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+host_specs[] | **[HostSpec](#HostSpec)**<br>Configurations for Redis hosts that should be added to the cluster. The number of elements must be greater than 0.
 
 
 ### HostSpec {#HostSpec2}
 
-Поле | Описание
+Field | Description
 --- | ---
-zone_id | **string**<br>Идентификатор зоны доступности, в которой находится хост. Чтобы получить список доступных зон, используйте запрос [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/grpc/zone_service#List). 
-subnet_id | **string**<br>Идентификатор подсети, к которой должен принадлежать хост. Эта подсеть должна быть частью сети, к которой принадлежит кластер. Идентификатор сети задан в поле [Cluster.network_id](#Cluster10). 
-shard_name | **string**<br>Идентификатор шарда Redis, которому принадлежит хост. Чтобы получить идентификатор шарда, используйте запрос [ClusterService.ListShards](#ListShards). Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_-]* `.
+zone_id | **string**<br>ID of the availability zone where the host resides. To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/grpc/zone_service#List) request. 
+subnet_id | **string**<br>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The ID of the network is set in the field [Cluster.network_id](#Cluster11). 
+shard_name | **string**<br>ID of the Redis shard the host belongs to. To get the shard ID use a [ClusterService.ListShards](#ListShards) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
-### Operation {#Operation10}
+### Operation {#Operation11}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[AddClusterHostsMetadata](#AddClusterHostsMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[AddClusterHostsMetadata](#AddClusterHostsMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>if operation finished successfully. 
 
 
 ### AddClusterHostsMetadata {#AddClusterHostsMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Идентификатор кластера Redis, в который добавляются хосты. 
-host_names[] | **string**<br>Имена хостов, добавляемых в кластер. 
+cluster_id | **string**<br>ID of the Redis cluster to which the hosts are being added. 
+host_names[] | **string**<br>Names of hosts that are being added to the cluster. 
 
 
 ## DeleteHosts {#DeleteHosts}
 
-Удаляет указанные хосты кластера.
+Deletes the specified hosts for a cluster.
 
-**rpc DeleteHosts ([DeleteClusterHostsRequest](#DeleteClusterHostsRequest)) returns ([operation.Operation](#Operation11))**
+**rpc DeleteHosts ([DeleteClusterHostsRequest](#DeleteClusterHostsRequest)) returns ([operation.Operation](#Operation12))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[DeleteClusterHostsMetadata](#DeleteClusterHostsMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
 
 ### DeleteClusterHostsRequest {#DeleteClusterHostsRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера Redis из которого следует удалить хосты. Чтобы получить идентификатор кластера, используйте запрос [ClusterService.List](#List). Максимальная длина строки в символах — 50.
-host_names[] | **string**<br>Имена хостов, которые следует удалить. Количество элементов должно быть больше 0. Максимальная длина строки в символах для каждого значения — 253.
+cluster_id | **string**<br>Required. ID of the Redis cluster to remove hosts from. To get the Redis cluster ID, use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+host_names[] | **string**<br>Names of hosts to delete. The number of elements must be greater than 0. The maximum string length in characters for each value is 253.
 
 
-### Operation {#Operation11}
+### Operation {#Operation12}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteClusterHostsMetadata](#DeleteClusterHostsMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteClusterHostsMetadata](#DeleteClusterHostsMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>if operation finished successfully. 
 
 
 ### DeleteClusterHostsMetadata {#DeleteClusterHostsMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Идентификатор кластера Redis, из которого следует удалить хосты. 
-host_names[] | **string**<br>Имена удаляемых хостов. 
+cluster_id | **string**<br>ID of the Redis cluster to remove hosts from. 
+host_names[] | **string**<br>Names of hosts that are being deleted. 
 
 
 ## GetShard {#GetShard}
 
-Возвращает указанный шард.
+Returns the specified shard.
 
 **rpc GetShard ([GetClusterShardRequest](#GetClusterShardRequest)) returns ([Shard](#Shard))**
 
 ### GetClusterShardRequest {#GetClusterShardRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера Redis, к которому принадлежит шард. Чтобы получить идентификатор кластера, используйте запрос [ClusterService.List](#List). Максимальная длина строки в символах — 50.
-shard_name | **string**<br>Обязательное поле. Имя запрашиваемого шарда Redis. Чтобы получить имя шаода, используйте запрос [ClusterService.ListShards](#ListShards). Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_-]* `.
+cluster_id | **string**<br>Required. ID of the Redis cluster the shard belongs to. To get the cluster ID use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+shard_name | **string**<br>Required. Name of Redis shard to return. To get the shard name use a [ClusterService.ListShards](#ListShards) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
 ### Shard {#Shard}
 
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br>Имя шарда Redis. Имя шарда назначается пользователем при создании и не может быть изменено. Длина 1-63 символов. 
-cluster_id | **string**<br>Идентификатор кластера Redis, к которому принадлежит шард. Этот идентификатор генерирует MDB при создании. 
+name | **string**<br>Name of the Redis shard. The shard name is assigned by user at creation time, and cannot be changed. 1-63 characters long. 
+cluster_id | **string**<br>ID of the Redis cluster the shard belongs to. The ID is assigned by MDB at creation time. 
 
 
 ## ListShards {#ListShards}
 
-Получает список шардов.
+Retrieves a list of shards.
 
 **rpc ListShards ([ListClusterShardsRequest](#ListClusterShardsRequest)) returns ([ListClusterShardsResponse](#ListClusterShardsResponse))**
 
 ### ListClusterShardsRequest {#ListClusterShardsRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера redis, для которого нужно вывести список шардов. Чтобы получить идентификатор кластера, используйте запрос [ClusterService.List](#List). Максимальная длина строки в символах — 50.
-page_size | **int64**<br>Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем `page_size`, сервис вернет значение [ListClusterShardsResponse.next_page_token](#ListClusterShardsResponse), которое можно использовать для получения следующей страницы. Значение по умолчанию: 100. Максимальное значение — 1000.
-page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListClusterShardsResponse.next_page_token](#ListClusterShardsResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
+cluster_id | **string**<br>Required. ID of the Redis cluster to list shards in. To get the cluster ID use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClusterShardsResponse.next_page_token](#ListClusterShardsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
+page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListClusterShardsResponse.next_page_token](#ListClusterShardsResponse) returned by a previous list request. The maximum string length in characters is 100.
 
 
 ### ListClusterShardsResponse {#ListClusterShardsResponse}
 
-Поле | Описание
+Field | Description
 --- | ---
-shards[] | **[Shard](#Shard1)**<br>Список шардов Redis. 
-next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListClusterShardsRequest.page_size](#ListClusterShardsRequest), используйте `next_page_token` в качестве значения параметра [ListClusterShardsRequest.page_token](#ListClusterShardsRequest) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
+shards[] | **[Shard](#Shard1)**<br>List of Redis shards. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClusterShardsRequest.page_size](#ListClusterShardsRequest), use the `next_page_token` as the value for the [ListClusterShardsRequest.page_token](#ListClusterShardsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
 ### Shard {#Shard1}
 
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br>Имя шарда Redis. Имя шарда назначается пользователем при создании и не может быть изменено. Длина 1-63 символов. 
-cluster_id | **string**<br>Идентификатор кластера Redis, к которому принадлежит шард. Этот идентификатор генерирует MDB при создании. 
+name | **string**<br>Name of the Redis shard. The shard name is assigned by user at creation time, and cannot be changed. 1-63 characters long. 
+cluster_id | **string**<br>ID of the Redis cluster the shard belongs to. The ID is assigned by MDB at creation time. 
 
 
 ## AddShard {#AddShard}
 
-Создает новый шард.
+Creates a new shard.
 
-**rpc AddShard ([AddClusterShardRequest](#AddClusterShardRequest)) returns ([operation.Operation](#Operation12))**
+**rpc AddShard ([AddClusterShardRequest](#AddClusterShardRequest)) returns ([operation.Operation](#Operation13))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[AddClusterShardMetadata](#AddClusterShardMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Shard](#Shard2)<br>
 
 ### AddClusterShardRequest {#AddClusterShardRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера Redis, в котором следует создать шард. Чтобы получить идентификатор кластера, используйте запрос [ClusterService.List](#List). Максимальная длина строки в символах — 50.
-shard_name | **string**<br>Обязательное поле. Имя шарда. Имя должно быть уникальным в пределах кластера. Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_-]* `.
-host_specs[] | **[HostSpec](#HostSpec)**<br>Конфигурации для хостов Redis, которые должны быть созданы вместе с шардом. Должен содержать хотя бы один элемент. Количество элементов должно быть больше 0.
+cluster_id | **string**<br>Required. ID of the Redis cluster to create a shard in. To get the cluster ID use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+shard_name | **string**<br>Required. Name of the shard. The name must be unique within the cluster. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+host_specs[] | **[HostSpec](#HostSpec)**<br>Configurations for Redis hosts that should be created with the shard. Must contain at least one element. The number of elements must be greater than 0.
 
 
 ### HostSpec {#HostSpec3}
 
-Поле | Описание
+Field | Description
 --- | ---
-zone_id | **string**<br>Идентификатор зоны доступности, в которой находится хост. Чтобы получить список доступных зон, используйте запрос [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/grpc/zone_service#List). 
-subnet_id | **string**<br>Идентификатор подсети, к которой должен принадлежать хост. Эта подсеть должна быть частью сети, к которой принадлежит кластер. Идентификатор сети задан в поле [Cluster.network_id](#Cluster10). 
-shard_name | **string**<br>Идентификатор шарда Redis, которому принадлежит хост. Чтобы получить идентификатор шарда, используйте запрос [ClusterService.ListShards](#ListShards). Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_-]* `.
+zone_id | **string**<br>ID of the availability zone where the host resides. To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/grpc/zone_service#List) request. 
+subnet_id | **string**<br>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The ID of the network is set in the field [Cluster.network_id](#Cluster11). 
+shard_name | **string**<br>ID of the Redis shard the host belongs to. To get the shard ID use a [ClusterService.ListShards](#ListShards) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
-### Operation {#Operation12}
+### Operation {#Operation13}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[AddClusterShardMetadata](#AddClusterShardMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Shard](#Shard2)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[AddClusterShardMetadata](#AddClusterShardMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Shard](#Shard2)>**<br>if operation finished successfully. 
 
 
 ### AddClusterShardMetadata {#AddClusterShardMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Идентификатор кластера Redis, в который добавляется шард. 
-shard_name | **string**<br>Имя создаваемого шарда Redis. 
+cluster_id | **string**<br>ID of the Redis cluster that a shard is being added to. 
+shard_name | **string**<br>Name of the Redis shard that is being created. 
 
 
 ### Shard {#Shard2}
 
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br>Имя шарда Redis. Имя шарда назначается пользователем при создании и не может быть изменено. Длина 1-63 символов. 
-cluster_id | **string**<br>Идентификатор кластера Redis, к которому принадлежит шард. Этот идентификатор генерирует MDB при создании. 
+name | **string**<br>Name of the Redis shard. The shard name is assigned by user at creation time, and cannot be changed. 1-63 characters long. 
+cluster_id | **string**<br>ID of the Redis cluster the shard belongs to. The ID is assigned by MDB at creation time. 
 
 
 ## DeleteShard {#DeleteShard}
 
-Удаляет указанный шард.
+Deletes the specified shard.
 
-**rpc DeleteShard ([DeleteClusterShardRequest](#DeleteClusterShardRequest)) returns ([operation.Operation](#Operation13))**
+**rpc DeleteShard ([DeleteClusterShardRequest](#DeleteClusterShardRequest)) returns ([operation.Operation](#Operation14))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[DeleteClusterShardMetadata](#DeleteClusterShardMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
 
 ### DeleteClusterShardRequest {#DeleteClusterShardRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера Redis, к которому принадлежит шард. Чтобы получить идентификатор кластера, используйте запрос [ClusterService.List](#List). Максимальная длина строки в символах — 50.
-shard_name | **string**<br>Обязательное поле. Имя шарда Redis, который следует удалить. Чтобы получить имя шаода, используйте запрос [ClusterService.ListShards](#ListShards). Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_-]* `.
-
-
-### Operation {#Operation13}
-
-Поле | Описание
---- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteClusterShardMetadata](#DeleteClusterShardMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>в случае успешного выполнения операции. 
-
-
-### DeleteClusterShardMetadata {#DeleteClusterShardMetadata}
-
-Поле | Описание
---- | ---
-cluster_id | **string**<br>Идентификатор кластера Redis, к которому принадлежит шард. 
-shard_name | **string**<br>Имя удаляемого шарда Redis. 
-
-
-## Rebalance {#Rebalance}
-
-Перебалансирует кластер. Равномерно распределяет все хэш-слоты между шардами.
-
-**rpc Rebalance ([RebalanceClusterRequest](#RebalanceClusterRequest)) returns ([operation.Operation](#Operation14))**
-
-Метаданные и результат операции:<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[RebalanceClusterMetadata](#RebalanceClusterMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster10)<br>
-
-### RebalanceClusterRequest {#RebalanceClusterRequest}
-
-Поле | Описание
---- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера Redis, который следует перебалансировать. Чтобы получить идентификатор кластера, используйте запрос [ClusterService.List](#List). Максимальная длина строки в символах — 50.
+cluster_id | **string**<br>Required. ID of the Redis cluster the shard belongs to. To get the cluster ID use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+shard_name | **string**<br>Required. Name of the Redis shard to delete. To get the shard name use a [ClusterService.ListShards](#ListShards) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
 ### Operation {#Operation14}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[RebalanceClusterMetadata](#RebalanceClusterMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster10)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteClusterShardMetadata](#DeleteClusterShardMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>if operation finished successfully. 
+
+
+### DeleteClusterShardMetadata {#DeleteClusterShardMetadata}
+
+Field | Description
+--- | ---
+cluster_id | **string**<br>ID of the Redis cluster the shard belongs to. 
+shard_name | **string**<br>Name of the Redis shard that is being deleted. 
+
+
+## Rebalance {#Rebalance}
+
+Rebalances the cluster. Evenly distributes all the hash slots between the shards.
+
+**rpc Rebalance ([RebalanceClusterRequest](#RebalanceClusterRequest)) returns ([operation.Operation](#Operation15))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[RebalanceClusterMetadata](#RebalanceClusterMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster11)<br>
+
+### RebalanceClusterRequest {#RebalanceClusterRequest}
+
+Field | Description
+--- | ---
+cluster_id | **string**<br>Required. ID of the Redis cluster to rebalance. To get the cluster ID use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+
+
+### Operation {#Operation15}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[RebalanceClusterMetadata](#RebalanceClusterMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster11)>**<br>if operation finished successfully. 
 
 
 ### RebalanceClusterMetadata {#RebalanceClusterMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Идентификатор кластера Redis, для которого выполняется перебалансировка. 
+cluster_id | **string**<br>ID of the Redis cluster that is being rebalancing. 
 
 
-### Cluster {#Cluster10}
+### Cluster {#Cluster11}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор кластера Redis. Этот идентификатор генерирует MDB при создании. 
-folder_id | **string**<br>Идентификатор каталога, которому принадлежит кластер Redis. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) . 
-name | **string**<br>Имя кластера Redis. Имя уникально в рамках каталога. Длина имени должна быть от 3 до 63 символов. 
-description | **string**<br>Описание кластера Redis. Длина описания должна быть от 0 до 256 символов. 
-labels | **map<string,string>**<br>Пользовательские метки для кластера Redis в виде пар ``key:value``. Максимум 64 на кластер. 
-environment | enum **Environment**<br>Среда развертывания кластера Redis. <ul><li>`PRODUCTION`: Стабильная среда с осторожной политикой обновления: во время регулярного обслуживания применяются только срочные исправления.</li><li>`PRESTABLE`: Среда с более агрессивной политикой обновления: новые версии развертываются независимо от обратной совместимости.</li><ul/>
-monitoring[] | **[Monitoring](#Monitoring10)**<br>Описание систем мониторинга, относящихся к данному кластеру Redis. 
-config | **[ClusterConfig](#ClusterConfig10)**<br>Конфигурация кластера Redis. 
+id | **string**<br>ID of the Redis cluster. This ID is assigned by MDB at creation time. 
+folder_id | **string**<br>ID of the folder that the Redis cluster belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
+name | **string**<br>Name of the Redis cluster. The name is unique within the folder. 3-63 characters long. 
+description | **string**<br>Description of the Redis cluster. 0-256 characters long. 
+labels | **map<string,string>**<br>Custom labels for the Redis cluster as `key:value` pairs. Maximum 64 per cluster. 
+environment | enum **Environment**<br>Deployment environment of the Redis cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
+monitoring[] | **[Monitoring](#Monitoring11)**<br>Description of monitoring systems relevant to the Redis cluster. 
+config | **[ClusterConfig](#ClusterConfig11)**<br>Configuration of the Redis cluster. 
 network_id | **string**<br> 
-health | enum **Health**<br>Агрегированная работоспособность кластера. <ul><li>`HEALTH_UNKNOWN`: Хост находится в неизвестном состоянии (у нас нет данных)</li><li>`ALIVE`: Кластер жив и здоров (все хосты живы)</li><li>`DEAD`: Кластер не работает и не может выполнять свои основные функции</li><li>`DEGRADED`: Кластер частично жив (может выполнять некоторые из своих основных функций)</li><ul/>
-status | enum **Status**<br>Состояние кластера. <ul><li>`STATUS_UNKNOWN`: Состояние кластера неизвестно</li><li>`CREATING`: Кластер создается</li><li>`RUNNING`: Кластер работает нормально</li><li>`ERROR`: Кластер отказал.</li><li>`UPDATING`: Кластер изменяется.</li><li>`STOPPING`: Кластер останавливается.</li><li>`STOPPED`: Кластер остановлен.</li><li>`STARTING`: Кластер запускается.</li><ul/>
-sharded | **bool**<br>Включение/выключение режима Redis Cluster. 
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: Cluster is in unknown state (we have no data)</li><li>`ALIVE`: Cluster is alive and well (all hosts are alive)</li><li>`DEAD`: Cluster is inoperable (it cannot perform any of its essential functions)</li><li>`DEGRADED`: Cluster is partially alive (it can perform some of its essential functions)</li><ul/>
+status | enum **Status**<br>Cluster status. <ul><li>`STATUS_UNKNOWN`: Cluster status is unknown</li><li>`CREATING`: Cluster is being created</li><li>`RUNNING`: Cluster is running</li><li>`ERROR`: Cluster failed</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+sharded | **bool**<br>Redis cluster mode on/off. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow12)**<br>Maintenance window for the cluster. 
+planned_operation | **[MaintenanceOperation](#MaintenanceOperation11)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
+security_group_ids[] | **string**<br>User security groups 
+tls_enabled | **bool**<br>TLS port and functionality on\off 
 
 
-### Monitoring {#Monitoring10}
+### Monitoring {#Monitoring11}
 
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br>Название системы мониторинга. 
-description | **string**<br>Описание системы мониторинга. 
-link | **string**<br>Ссылка на графики системы мониторинга для кластера Redis. 
+name | **string**<br>Name of the monitoring system. 
+description | **string**<br>Description of the monitoring system. 
+link | **string**<br>Link to the monitoring system charts for the Redis cluster. 
 
 
-### ClusterConfig {#ClusterConfig10}
+### ClusterConfig {#ClusterConfig11}
 
-Поле | Описание
+Field | Description
 --- | ---
-version | **string**<br>Версия серверного программного обеспечения Redis. 
-redis_config | **oneof:** `redis_config_5_0`<br>Конфигурация для серверов Redis в кластере.
-&nbsp;&nbsp;redis_config_5_0 | **[config.RedisConfigSet5_0](#RedisConfigSet5_0)**<br>Конфигурация сервера Redis 5.0. 
-resources | **[Resources](#Resources14)**<br>Ресурсы, выделенные хостам Redis. 
-backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Время запуска ежедневного резервного копирования, в часовом поясе UTC. 
-access | **[Access](#Access13)**<br>Политика доступа к БД 
+version | **string**<br>Version of Redis server software. 
+redis_config | **oneof:** `redis_config_5_0` or `redis_config_6_0`<br>Configuration for Redis servers in the cluster.
+&nbsp;&nbsp;redis_config_5_0 | **[config.RedisConfigSet5_0](#RedisConfigSet5_0)**<br>Configuration of a Redis 5.0 server. 
+&nbsp;&nbsp;redis_config_6_0 | **[config.RedisConfigSet6_0](#RedisConfigSet6_0)**<br>Configuration of a Redis 6.0 server. 
+resources | **[Resources](#Resources15)**<br>Resources allocated to Redis hosts. 
+backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
+access | **[Access](#Access14)**<br>Access policy to DB 
 
 
-### Resources {#Resources14}
+### Resources {#Resources15}
 
-Поле | Описание
+Field | Description
 --- | ---
-resource_preset_id | **string**<br>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в [документации](/docs/managed-redis/concepts/instance-types). 
-disk_size | **int64**<br>Объем хранилища, доступного хосту, в байтах. 
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-redis/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
+disk_type_id | **string**<br><ul><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
 
-### Access {#Access13}
+### Access {#Access14}
 
-Поле | Описание
+Field | Description
 --- | ---
-data_lens | **bool**<br>Разрешить доступ для DataLens 
+data_lens | **bool**<br>Allow access for DataLens 
+
+
+### MaintenanceWindow {#MaintenanceWindow12}
+
+Field | Description
+--- | ---
+policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow12)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow12)**<br>Maintenance operation can be scheduled on a weekly basis. 
+
+
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow12}
+
+
+
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow12}
+
+Field | Description
+--- | ---
+day | enum **WeekDay**<br>Day of the week (in `DDD` format). <ul><ul/>
+hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
+
+
+### MaintenanceOperation {#MaintenanceOperation11}
+
+Field | Description
+--- | ---
+info | **string**<br>Information about this maintenance operation. The maximum string length in characters is 256.
+delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time until which this maintenance operation is delayed. 
 
 

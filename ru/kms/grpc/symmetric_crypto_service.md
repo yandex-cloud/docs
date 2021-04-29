@@ -5,119 +5,119 @@ editable: false
 # SymmetricCryptoService
 
 --- Data plane for KMS symmetric cryptography operations 
-Набор методов, выполняющих симметричное шифрование и дешифрование.
+Set of methods that perform symmetric encryption and decryption.
 
-| Вызов | Описание |
+| Call | Description |
 | --- | --- |
-| [Encrypt](#Encrypt) | Шифрует заданный текст с помощью указанного ключа. |
-| [Decrypt](#Decrypt) | Расшифровывает указанный шифртекст с помощью указанного ключа. |
-| [ReEncrypt](#ReEncrypt) | Заново шифрует заданный зашифрованный текст с указанным ключом KMS. |
-| [GenerateDataKey](#GenerateDataKey) | Создает новый симметричный ключ шифрования данных (не ключ KMS) и возвращает сгенерированный ключ в виде открытого текста и текста, зашифрованного указанным симметричным ключом KMS. |
+| [Encrypt](#Encrypt) | Encrypts given plaintext with the specified key. |
+| [Decrypt](#Decrypt) | Decrypts the given ciphertext with the specified key. |
+| [ReEncrypt](#ReEncrypt) | Re-encrypts a ciphertext with the specified KMS key. |
+| [GenerateDataKey](#GenerateDataKey) | Generates a new symmetric data encryption key (not a KMS key) and returns the generated key as plaintext and as ciphertext encrypted with the specified symmetric KMS key. |
 
-## Вызовы SymmetricCryptoService {#calls}
+## Calls SymmetricCryptoService {#calls}
 
 ## Encrypt {#Encrypt}
 
-Шифрует заданный текст с помощью указанного ключа.
+Encrypts given plaintext with the specified key.
 
 **rpc Encrypt ([SymmetricEncryptRequest](#SymmetricEncryptRequest)) returns ([SymmetricEncryptResponse](#SymmetricEncryptResponse))**
 
 ### SymmetricEncryptRequest {#SymmetricEncryptRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-key_id | **string**<br>Обязательное поле. Идентификатор симметричного ключа KMS, который следует использовать для шифрования. Максимальная длина строки в символах — 50.
-version_id | **string**<br>Идентификатор версии ключа, которую следует использовать для шифрования текста. По умолчанию используется основная версия, если версия не указана явно. Максимальная длина строки в символах — 50.
-aad_context | **bytes**<br>Дополнительные аутентифицированные данные (контекст AAD), необязательное поле. Если данные указаны, то их потребуется передать для расшифровки с помощью [SymmetricDecryptRequest](#SymmetricDecryptRequest). Необходимо закодировать в формате base64. Максимальная длина строки в символах — 8192.
-plaintext | **bytes**<br>Обязательное поле. Открытый текст, который следует зашифровать. Должен быть в кодировке base64. Максимальная длина строки в символах — 32768.
+key_id | **string**<br>Required. ID of the symmetric KMS key to use for encryption. The maximum string length in characters is 50.
+version_id | **string**<br>ID of the key version to encrypt plaintext with. Defaults to the primary version if not specified. The maximum string length in characters is 50.
+aad_context | **bytes**<br>Additional authenticated data (AAD context), optional. If specified, this data will be required for decryption with the [SymmetricDecryptRequest](#SymmetricDecryptRequest). Should be encoded with base64. The maximum string length in characters is 8192.
+plaintext | **bytes**<br>Required. Plaintext to be encrypted. Should be encoded with base64. The maximum string length in characters is 32768.
 
 
 ### SymmetricEncryptResponse {#SymmetricEncryptResponse}
 
-Поле | Описание
+Field | Description
 --- | ---
-key_id | **string**<br>Обязательное поле. Идентификатор симметричного ключа KMS, который использовался для шифрования. Максимальная длина строки в символах — 50.
-version_id | **string**<br>Идентификатор версии ключа, которая использовалась для шифрования. Максимальная длина строки в символах — 50.
-ciphertext | **bytes**<br>Полученный шифртекст. 
+key_id | **string**<br>Required. ID of the symmetric KMS key that was used for encryption. The maximum string length in characters is 50.
+version_id | **string**<br>ID of the key version that was used for encryption. The maximum string length in characters is 50.
+ciphertext | **bytes**<br>Resulting ciphertext. 
 
 
 ## Decrypt {#Decrypt}
 
-Расшифровывает указанный шифртекст с помощью указанного ключа.
+Decrypts the given ciphertext with the specified key.
 
 **rpc Decrypt ([SymmetricDecryptRequest](#SymmetricDecryptRequest)) returns ([SymmetricDecryptResponse](#SymmetricDecryptResponse))**
 
 ### SymmetricDecryptRequest {#SymmetricDecryptRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-key_id | **string**<br>Обязательное поле. Идентификатор симметричного ключа KMS, который следует использовать для дешифрования. Максимальная длина строки в символах — 50.
-aad_context | **bytes**<br>Дополнительные аутентификационные данные (AAD-контекст), должны быть такими же, как они были переданы в соответствующем запросе [SymmetricEncryptRequest](#SymmetricEncryptRequest). Должен быть в кодировке base64. Максимальная длина строки в символах — 8192.
-ciphertext | **bytes**<br>Обязательное поле. Шифртекст для расшифровки. Должен быть в кодировке base64. 
+key_id | **string**<br>Required. ID of the symmetric KMS key to use for decryption. The maximum string length in characters is 50.
+aad_context | **bytes**<br>Additional authenticated data, must be the same as was provided in the corresponding [SymmetricEncryptRequest](#SymmetricEncryptRequest). Should be encoded with base64. The maximum string length in characters is 8192.
+ciphertext | **bytes**<br>Required. Ciphertext to be decrypted. Should be encoded with base64. 
 
 
 ### SymmetricDecryptResponse {#SymmetricDecryptResponse}
 
-Поле | Описание
+Field | Description
 --- | ---
-key_id | **string**<br>Идентификатор симметричного ключа KMS, который использовался для дешифрования. 
-version_id | **string**<br>Идентификатор версии ключа, которая использовалась для дешифрования. 
-plaintext | **bytes**<br>Расшифрованный открытый текст. 
+key_id | **string**<br>ID of the symmetric KMS key that was used for decryption. 
+version_id | **string**<br>ID of the key version that was used for decryption. 
+plaintext | **bytes**<br>Decrypted plaintext. 
 
 
 ## ReEncrypt {#ReEncrypt}
 
-Заново шифрует заданный зашифрованный текст с указанным ключом KMS.
+Re-encrypts a ciphertext with the specified KMS key.
 
 **rpc ReEncrypt ([SymmetricReEncryptRequest](#SymmetricReEncryptRequest)) returns ([SymmetricReEncryptResponse](#SymmetricReEncryptResponse))**
 
 ### SymmetricReEncryptRequest {#SymmetricReEncryptRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-key_id | **string**<br>Обязательное поле. Идентификатор нового ключа, который следует использовать для шифрования. Максимальная длина строки в символах — 50.
-version_id | **string**<br>Идентификатор версии нового ключа, которую следует использовать для шифрования. По умолчанию используется основная версия, если версия не указана явно. Максимальная длина строки в символах — 50.
-aad_context | **bytes**<br>Дополнительные аутентифицированные данные (AAD-контекст), которые потребуются для расшифровки. Должен быть в кодировке base64. Максимальная длина строки в символах — 8192.
-source_key_id | **string**<br>Обязательное поле. Идентификатор ключа, которым на текущий момент зашифрован текст. Может быть таким же, как и новый ключ. Максимальная длина строки в символах — 50.
-source_aad_context | **bytes**<br>Дополнительные аутентификационные данные, переданные с первоначальным запросом шифрования. Должен быть в кодировке base64. Максимальная длина строки в символах — 8192.
-ciphertext | **bytes**<br>Обязательное поле. Шифртекст, который следует расшифровать и зашифровать повторно. Должен быть в кодировке base64. 
+key_id | **string**<br>Required. ID of the new key to be used for encryption. The maximum string length in characters is 50.
+version_id | **string**<br>ID of the version of the new key to be used for encryption. Defaults to the primary version if not specified. The maximum string length in characters is 50.
+aad_context | **bytes**<br>Additional authenticated data to be required for decryption. Should be encoded with base64. The maximum string length in characters is 8192.
+source_key_id | **string**<br>Required. ID of the key that the ciphertext is currently encrypted with. May be the same as for the new key. The maximum string length in characters is 50.
+source_aad_context | **bytes**<br>Additional authenticated data provided with the initial encryption request. Should be encoded with base64. The maximum string length in characters is 8192.
+ciphertext | **bytes**<br>Required. Ciphertext to re-encrypt. Should be encoded with base64. 
 
 
 ### SymmetricReEncryptResponse {#SymmetricReEncryptResponse}
 
-Поле | Описание
+Field | Description
 --- | ---
-key_id | **string**<br>Идентификатор ключа, которым в данный момент зашифрован текст. 
-version_id | **string**<br>Идентификатор версии ключа, которая использовалась для шифрования. 
-source_key_id | **string**<br>Идентификатор ключа, с помощью которого шифртекст был зашифрован ранее. 
-source_version_id | **string**<br>Идентификатор версии ключа, которая использовалась для расшифровки перешифруемых данных. 
-ciphertext | **bytes**<br>Заново зашифрованный шифртекст. 
+key_id | **string**<br>ID of the key that the ciphertext is encrypted with now. 
+version_id | **string**<br>ID of key version that was used for encryption. 
+source_key_id | **string**<br>ID of the key that the ciphertext was encrypted with previously. 
+source_version_id | **string**<br>ID of the key version that was used to decrypt the re-encrypted ciphertext. 
+ciphertext | **bytes**<br>Resulting re-encrypted ciphertext. 
 
 
 ## GenerateDataKey {#GenerateDataKey}
 
-Создает новый симметричный ключ шифрования данных (не ключ KMS) и возвращает сгенерированный ключ в виде открытого текста и текста, зашифрованного указанным симметричным ключом KMS.
+Generates a new symmetric data encryption key (not a KMS key) and returns the generated key as plaintext and as ciphertext encrypted with the specified symmetric KMS key.
 
 **rpc GenerateDataKey ([GenerateDataKeyRequest](#GenerateDataKeyRequest)) returns ([GenerateDataKeyResponse](#GenerateDataKeyResponse))**
 
 ### GenerateDataKeyRequest {#GenerateDataKeyRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-key_id | **string**<br>Обязательное поле. Идентификатор симметричного ключа KMS, с помощью которого должен быть зашифрован сгенерированный ключ шифрования данных. Максимальная длина строки в символах — 50.
-version_id | **string**<br>Идентификатор версии ключа, с которой следует зашифровать сгенерированный ключ шифрования данных. По умолчанию используется основная версия, если версия не указана явно. Максимальная длина строки в символах — 50.
-aad_context | **bytes**<br>Дополнительные аутентифицированные данные (контекст AAD), необязательное поле. Если данные указаны, то их потребуется передать для расшифровки с помощью [SymmetricDecryptRequest](#SymmetricDecryptRequest). Необходимо закодировать в формате base64. Максимальная длина строки в символах — 8192.
-data_key_spec | enum **SymmetricAlgorithm**<br>Алгоритм шифрования и длина для сгенерированного ключа шифрования данных. <ul><li>`AES_128`: Алгоритм AES со 128-битными ключами.</li><li>`AES_192`: Алгоритм AES с 192-битными ключами.</li><li>`AES_256`: Алгоритм AES с 256-битными ключами.</li><ul/>
-skip_plaintext | **bool**<br>Если `true`, метод не возвращает ключ щифрования данных в виде открытого текста. Значение по умолчанию `false`. 
+key_id | **string**<br>Required. ID of the symmetric KMS key that the generated data key should be encrypted with. The maximum string length in characters is 50.
+version_id | **string**<br>ID of the key version to encrypt the generated data key with. Defaults to the primary version if not specified. The maximum string length in characters is 50.
+aad_context | **bytes**<br>Additional authenticated data (AAD context), optional. If specified, this data will be required for decryption with the [SymmetricDecryptRequest](#SymmetricDecryptRequest). Should be encoded with base64. The maximum string length in characters is 8192.
+data_key_spec | enum **SymmetricAlgorithm**<br>Encryption algorithm and key length for the generated data key. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><ul/>
+skip_plaintext | **bool**<br>If `true`, the method won't return the data key as plaintext. Default value is `false`. 
 
 
 ### GenerateDataKeyResponse {#GenerateDataKeyResponse}
 
-Поле | Описание
+Field | Description
 --- | ---
-key_id | **string**<br>Идентификатор симметричного ключа KMS, с помощью которого был зашифрован сгенерированный ключ шифрования данных. 
-version_id | **string**<br>Идентификатор версии ключа, которая использовалась для шифрования. 
-data_key_plaintext | **bytes**<br>Сгенерированный ключ шифрования данных в виде открытого текста. Это поле пусто, если параметр [GenerateDataKeyRequest.skip_plaintext](#GenerateDataKeyRequest) был установлен в `true`. 
-data_key_ciphertext | **bytes**<br>Зашифрованный ключ шифрования данных. 
+key_id | **string**<br>ID of the symmetric KMS key that was used to encrypt the generated data key. 
+version_id | **string**<br>ID of the key version that was used for encryption. 
+data_key_plaintext | **bytes**<br>Generated data key as plaintext. The field is empty, if the [GenerateDataKeyRequest.skip_plaintext](#GenerateDataKeyRequest) parameter was set to `true`. 
+data_key_ciphertext | **bytes**<br>The encrypted data key. 
 
 

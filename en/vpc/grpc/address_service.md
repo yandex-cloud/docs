@@ -15,6 +15,7 @@ A set of methods for managing Address resources.
 | [Update](#Update) | Updates the specified address. |
 | [Delete](#Delete) | Deletes the specified address. |
 | [ListOperations](#ListOperations) | List operations for the specified address. |
+| [Move](#Move) | Move an address to another folder |
 
 ## Calls AddressService {#calls}
 
@@ -45,6 +46,8 @@ address | **oneof:** `external_ipv4_address`<br>External ipv4 address specificat
 &nbsp;&nbsp;external_ipv4_address | **[ExternalIpv4Address](#ExternalIpv4Address)**<br>External ipv4 address specification. 
 reserved | **bool**<br>Specifies if address is reserved or not. 
 used | **bool**<br>Specifies if address is used or not. 
+type | enum **Type**<br>Type of the IP address. <ul><li>`INTERNAL`: Internal IP address.</li><li>`EXTERNAL`: Public IP address.</li><ul/>
+ip_version | enum **IpVersion**<br>Vervion of the IP address. <ul><li>`IPV4`: IPv4 address.</li><li>`IPV6`: IPv6 address.</li><ul/>
 
 
 ### ExternalIpv4Address {#ExternalIpv4Address}
@@ -92,6 +95,8 @@ address | **oneof:** `external_ipv4_address`<br>External ipv4 address specificat
 &nbsp;&nbsp;external_ipv4_address | **[ExternalIpv4Address](#ExternalIpv4Address1)**<br>External ipv4 address specification. 
 reserved | **bool**<br>Specifies if address is reserved or not. 
 used | **bool**<br>Specifies if address is used or not. 
+type | enum **Type**<br>Type of the IP address. <ul><li>`INTERNAL`: Internal IP address.</li><li>`EXTERNAL`: Public IP address.</li><ul/>
+ip_version | enum **IpVersion**<br>Vervion of the IP address. <ul><li>`IPV4`: IPv4 address.</li><li>`IPV6`: IPv6 address.</li><ul/>
 
 
 ### ExternalIpv4Address {#ExternalIpv4Address1}
@@ -149,6 +154,8 @@ address | **oneof:** `external_ipv4_address`<br>External ipv4 address specificat
 &nbsp;&nbsp;external_ipv4_address | **[ExternalIpv4Address](#ExternalIpv4Address2)**<br>External ipv4 address specification. 
 reserved | **bool**<br>Specifies if address is reserved or not. 
 used | **bool**<br>Specifies if address is used or not. 
+type | enum **Type**<br>Type of the IP address. <ul><li>`INTERNAL`: Internal IP address.</li><li>`EXTERNAL`: Public IP address.</li><ul/>
+ip_version | enum **IpVersion**<br>Vervion of the IP address. <ul><li>`IPV4`: IPv4 address.</li><li>`IPV6`: IPv6 address.</li><ul/>
 
 
 ### ExternalIpv4Address {#ExternalIpv4Address2}
@@ -244,6 +251,8 @@ address | **oneof:** `external_ipv4_address`<br>External ipv4 address specificat
 &nbsp;&nbsp;external_ipv4_address | **[ExternalIpv4Address](#ExternalIpv4Address3)**<br>External ipv4 address specification. 
 reserved | **bool**<br>Specifies if address is reserved or not. 
 used | **bool**<br>Specifies if address is used or not. 
+type | enum **Type**<br>Type of the IP address. <ul><li>`INTERNAL`: Internal IP address.</li><li>`EXTERNAL`: Public IP address.</li><ul/>
+ip_version | enum **IpVersion**<br>Vervion of the IP address. <ul><li>`IPV4`: IPv4 address.</li><li>`IPV6`: IPv6 address.</li><ul/>
 
 
 ### ExternalIpv4Address {#ExternalIpv4Address3}
@@ -322,6 +331,8 @@ address | **oneof:** `external_ipv4_address`<br>External ipv4 address specificat
 &nbsp;&nbsp;external_ipv4_address | **[ExternalIpv4Address](#ExternalIpv4Address4)**<br>External ipv4 address specification. 
 reserved | **bool**<br>Specifies if address is reserved or not. 
 used | **bool**<br>Specifies if address is used or not. 
+type | enum **Type**<br>Type of the IP address. <ul><li>`INTERNAL`: Internal IP address.</li><li>`EXTERNAL`: Public IP address.</li><ul/>
+ip_version | enum **IpVersion**<br>Vervion of the IP address. <ul><li>`IPV4`: IPv4 address.</li><li>`IPV6`: IPv6 address.</li><ul/>
 
 
 ### ExternalIpv4Address {#ExternalIpv4Address4}
@@ -418,5 +429,81 @@ metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffer
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
 &nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**<br>The normal response of the operation in case of success. If the original method returns no data on success, such as Delete, the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty). If the original method is the standard Create/Update, the response should be the target resource of the operation. Any method that returns a long-running operation should document the response type, if any. 
+
+
+## Move {#Move}
+
+Move an address to another folder
+
+**rpc Move ([MoveAddressRequest](#MoveAddressRequest)) returns ([operation.Operation](#Operation4))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[MoveAddressMetadata](#MoveAddressMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Address](#Address5)<br>
+
+### MoveAddressRequest {#MoveAddressRequest}
+
+Field | Description
+--- | ---
+address_id | **string**<br>Required.  The maximum string length in characters is 50.
+destination_folder_id | **string**<br>Required.  The maximum string length in characters is 50.
+
+
+### Operation {#Operation4}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[MoveAddressMetadata](#MoveAddressMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Address](#Address5)>**<br>if operation finished successfully. 
+
+
+### MoveAddressMetadata {#MoveAddressMetadata}
+
+Field | Description
+--- | ---
+address_id | **string**<br> 
+
+
+### Address {#Address5}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the address. Generated at creation time. 
+folder_id | **string**<br>ID of the folder that the address belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+name | **string**<br>Name of the address. The name is unique within the folder. 
+description | **string**<br>Description of the address. 
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
+address | **oneof:** `external_ipv4_address`<br>External ipv4 address specification.
+&nbsp;&nbsp;external_ipv4_address | **[ExternalIpv4Address](#ExternalIpv4Address5)**<br>External ipv4 address specification. 
+reserved | **bool**<br>Specifies if address is reserved or not. 
+used | **bool**<br>Specifies if address is used or not. 
+type | enum **Type**<br>Type of the IP address. <ul><li>`INTERNAL`: Internal IP address.</li><li>`EXTERNAL`: Public IP address.</li><ul/>
+ip_version | enum **IpVersion**<br>Vervion of the IP address. <ul><li>`IPV4`: IPv4 address.</li><li>`IPV6`: IPv6 address.</li><ul/>
+
+
+### ExternalIpv4Address {#ExternalIpv4Address5}
+
+Field | Description
+--- | ---
+address | **string**<br>Value of address. 
+zone_id | **string**<br>Availability zone from which the address will be allocated. 
+requirements | **[AddressRequirements](#AddressRequirements6)**<br>Parameters of the allocated address, for example DDoS Protection. 
+
+
+### AddressRequirements {#AddressRequirements6}
+
+Field | Description
+--- | ---
+ddos_protection_provider | **string**<br>DDoS protection provider ID. 
+outgoing_smtp_capability | **string**<br>Capability to send SMTP traffic. 
 
 

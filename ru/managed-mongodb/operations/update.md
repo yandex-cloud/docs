@@ -141,7 +141,7 @@
 
 {% list tabs %}
 
-* Консоль управления
+- Консоль управления
 
   1. Перейдите на страницу каталога и выберите сервис **{{ mmg-name }}**.
   1. Выберите кластер и нажмите кнопку **Изменить кластер** на панели сверху.
@@ -151,7 +151,7 @@
 
   1. Нажмите кнопку **Сохранить изменения**.
 
-* CLI
+- CLI
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -163,7 +163,7 @@
   $ {{ yc-mdb-mg }} cluster update-config
   ```
 
-  Например, для установки значения параметра [net.maxIncomingConnections](https://docs.mongodb.com/manual/reference/configuration-options/#net.maxIncomingConnections) в `4096`, выполните следующую команду:
+  Например, для установки значения параметра [net.maxIncomingConnections](https://docs.mongodb.com/manual/reference/configuration-options/#mongodb-setting-net.maxIncomingConnections) в `4096`, выполните следующую команду:
 
   ```
   $ {{ yc-mdb-mg }} cluster update-config <имя кластера>
@@ -172,7 +172,7 @@
 
   {{ mmg-short-name }} запустит операцию изменения настроек СУБД для кластера. Если изменяемая настройка применяется только с перезапуском СУБД, то {{ mmg-short-name }} последовательно перезапустит СУБД на всех хостах кластера.
 
-* API
+- API
 
   Изменить настройки СУБД для кластера можно с помощью метода API [update](../api-ref/Cluster/update.md): передайте в запросе нужные значения в параметре `configSpec.mongodbSpec_4_2.mongod.config`.
 
@@ -184,7 +184,7 @@
 
 {% list tabs %}
 
-* Консоль управления
+- Консоль управления
 
   1. Перейдите на страницу каталога и выберите сервис **{{ mmg-name }}**.
   1. Выберите кластер и нажмите кнопку **Изменить кластер** на панели сверху.
@@ -194,7 +194,7 @@
 
   1. Нажмите кнопку **Сохранить изменения**.
 
-* CLI
+- CLI
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 

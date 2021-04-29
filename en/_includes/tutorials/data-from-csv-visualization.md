@@ -10,15 +10,15 @@ In this scenario, you can use {{ datalens-short-name }} to analyze dependencies,
 To visualize and explore your data, follow these steps:
 
 1. [Before you start](#before-you-begin).
-1. [Create a connection](data-from-csv-visualization.md#step1).
-1. [Create a dataset](data-from-csv-visualization.md#step2).
-1. [Create your first chart](data-from-csv-visualization.md#step3).
-1. [Create your second chart](data-from-csv-visualization.md#step4).
-1. [Create a dashboard](data-from-csv-visualization.md#step5).
-1. [Add charts to the dashboard](data-from-csv-visualization.md#step6).
-1. [Add selectors to the dashboard](data-from-csv-visualization.md#step7).
-1. [Set up widgets and start analyzing dependencies](data-from-csv-visualization.md#step8).
-1. [Continue to analyze the data about superheroes](data-from-csv-visualization.md#step9).
+1. [Create a connection](#step1).
+1. [Create a dataset](#step2).
+1. [Create your first chart](#step3).
+1. [Create your second chart](#step4).
+1. [Create a dashboard](#step5).
+1. [Add charts to the dashboard](#step6).
+1. [Add selectors to the dashboard](#step7).
+1. [Set up widgets and start analyzing dependencies](#step8).
+1. [Continue to analyze the data about superheroes](#step9).
 
 ## Before you start {#before-you-begin}
 

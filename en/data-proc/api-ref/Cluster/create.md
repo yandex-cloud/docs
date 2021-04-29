@@ -57,7 +57,13 @@ POST https://dataproc.api.cloud.yandex.net/dataproc/v1/clusters
   "zoneId": "string",
   "serviceAccountId": "string",
   "bucket": "string",
-  "uiProxy": true
+  "uiProxy": true,
+  "securityGroupIds": [
+    "string"
+  ],
+  "hostGroupIds": [
+    "string"
+  ]
 }
 ```
 
@@ -65,7 +71,7 @@ POST https://dataproc.api.cloud.yandex.net/dataproc/v1/clusters
 Field | Description
 --- | ---
 folderId | **string**<br><p>Required. ID of the folder to create a cluster in.</p> <p>To get a folder ID make a <a href="/docs/resource-manager/api-ref/Folder/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
-name | **string**<br><p>Name of the cluster. The name must be unique within the folder. The name can’t be changed after the Data Proc cluster is created.</p> <p>Value must match the regular expression `` \|[a-z][-a-z0-9]{1,61}[a-z0-9] ``.</p> 
+name | **string**<br><p>Name of the cluster. The name must be unique within the folder. The name can't be changed after the Data Proc cluster is created.</p> <p>Value must match the regular expression `` \|[a-z][-a-z0-9]{1,61}[a-z0-9] ``.</p> 
 description | **string**<br><p>Description of the cluster.</p> <p>The maximum string length in characters is 256.</p> 
 labels | **object**<br><p>Cluster labels as `key:value` pairs.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression `` [a-z][-_0-9a-z]* ``. The maximum string length in characters for each value is 63. Each value must match the regular expression `` [-_0-9a-z]* ``.</p> 
 configSpec | **object**<br><p>Required. Configuration and resources for hosts that should be created with the cluster.</p> 
@@ -79,7 +85,7 @@ configSpec.<br>subclustersSpec[].<br>name | **string**<br><p>Name of the subclus
 configSpec.<br>subclustersSpec[].<br>role | **string**<br><p>Required. Role of the subcluster in the Data Proc cluster.</p> <ul> <li>MASTERNODE: The subcluster fulfills the master role.</li> </ul> <p>Master can run the following services, depending on the requested components:</p> <ul> <li>HDFS: Namenode, Secondary Namenode</li> <li>YARN: ResourceManager, Timeline Server</li> <li>HBase Master</li> <li>Hive: Server, Metastore, HCatalog</li> <li>Spark History Server</li> <li>Zeppelin</li> <li>ZooKeeper</li> </ul> <ul> <li>DATANODE: The subcluster is a DATANODE in a Data Proc cluster.</li> </ul> <p>DATANODE can run the following services, depending on the requested components:</p> <ul> <li>HDFS DataNode</li> <li>YARN NodeManager</li> <li>HBase RegionServer</li> <li>Spark libraries</li> </ul> <ul> <li>COMPUTENODE: The subcluster is a COMPUTENODE in a Data Proc cluster.</li> </ul> <p>COMPUTENODE can run the following services, depending on the requested components:</p> <ul> <li>YARN NodeManager</li> <li>Spark libraries</li> </ul> 
 configSpec.<br>subclustersSpec[].<br>resources | **object**<br><p>Required. Resource configuration for hosts in the subcluster.</p> 
 configSpec.<br>subclustersSpec[].<br>resources.<br>resourcePresetId | **string**<br><p>ID of the resource preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/data-proc/concepts/instance-types">documentation</a>.</p> 
-configSpec.<br>subclustersSpec[].<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host. Possible values:</p> <ul> <li>network-hdd — network HDD drive,</li> <li>network-ssd — network SSD drive.</li> </ul> 
+configSpec.<br>subclustersSpec[].<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host. Possible values:</p> <ul> <li>network-hdd - network HDD drive,</li> <li>network-ssd - network SSD drive.</li> </ul> 
 configSpec.<br>subclustersSpec[].<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
 configSpec.<br>subclustersSpec[].<br>subnetId | **string**<br><p>Required. ID of the VPC subnet used for hosts in the subcluster.</p> <p>The maximum string length in characters is 50.</p> 
 configSpec.<br>subclustersSpec[].<br>hostsCount | **string** (int64)<br><p>Required. Number of hosts in the subcluster.</p> <p>The minimum value is 1.</p> 
@@ -95,6 +101,8 @@ zoneId | **string**<br><p>Required. ID of the availability zone where the cluste
 serviceAccountId | **string**<br><p>Required. ID of the service account to be used by the Data Proc manager agent.</p> 
 bucket | **string**<br><p>Name of the Object Storage bucket to use for Data Proc jobs.</p> 
 uiProxy | **boolean** (boolean)<br><p>Enable UI Proxy feature.</p> 
+securityGroupIds[] | **string**<br><p>User security groups.</p> 
+hostGroupIds[] | **string**<br><p>Host groups to place VMs of cluster on.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

@@ -4,170 +4,216 @@ editable: false
 
 # NodeGroupService
 
-Набор методов для управления группами узлов.
+A set of methods for managing node groups.
 
-| Вызов | Описание |
+| Call | Description |
 | --- | --- |
-| [Get](#Get) | Возвращает указанную группу узлов. |
-| [List](#List) | Возвращает список групп узлов в указанном кластере Kubernetes. |
-| [Create](#Create) | Создает группу узлов в указанном кластере Kubernetes. |
-| [Update](#Update) | Изменяет указанную группу узлов. |
-| [Delete](#Delete) | Удаляет указанную группу узлов. |
-| [ListOperations](#ListOperations) | Возвращает список операций для указанной группы узлов. |
+| [Get](#Get) | Returns the specified node group. |
+| [List](#List) | Retrieves the list of node group in the specified Kubernetes cluster. |
+| [Create](#Create) | Creates a node group in the specified Kubernetes cluster. |
+| [Update](#Update) | Updates the specified node group. |
+| [Delete](#Delete) | Deletes the specified node group. |
+| [ListOperations](#ListOperations) | Lists operations for the specified node group. |
+| [ListNodes](#ListNodes) | Retrieves the list of nodes in the specified Kubernetes cluster. |
 
-## Вызовы NodeGroupService {#calls}
+## Calls NodeGroupService {#calls}
 
 ## Get {#Get}
 
-Возвращает указанную группу узлов. <br>Чтобы получить список доступных групп узлов, выполните запрос [List](#List).
+Returns the specified node group. <br>To get the list of available node group, make a [List](#List) request.
 
 **rpc Get ([GetNodeGroupRequest](#GetNodeGroupRequest)) returns ([NodeGroup](#NodeGroup))**
 
 ### GetNodeGroupRequest {#GetNodeGroupRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-node_group_id | **string**<br>Обязательное поле. Идентификатор возвращаемой группы узлов. Чтобы получить идентификатор группы узлов, используйте запрос [NodeGroupService.List](#List). 
+node_group_id | **string**<br>Required. ID of the node group to return. To get the node group ID use a [NodeGroupService.List](#List) request. 
 
 
 ### NodeGroup {#NodeGroup}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор группы узлов. 
-cluster_id | **string**<br>Идентификатор кластера, к которому принадлежит группа узлов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания. 
-name | **string**<br>Новое имя группы узлов. Имя уникально в рамках каталога. 
-description | **string**<br>Новое описание группы узлов. Длина описания должна быть от 0 до 256 символов. 
-labels | **map<string,string>**<br>Метки ресурса в формате `key:value`. Максимум 64 метки на ресурс. 
-status | enum **Status**<br>Статус группы узлов. <ul><li>`PROVISIONING`: Группа узлов ожидает выделения ресурсов.</li><li>`RUNNING`: Группа узлов запущена.</li><li>`RECONCILING`: Группа узлов ожидает выполнения некоторых работ, например, обновления программного обеспечения узла.</li><li>`STOPPING`: Группа узлов останавливается.</li><li>`STOPPED`: Группа узлов остановлена.</li><li>`DELETING`: Группа узлов удаляется.</li><li>`STARTING`: Группа узлов запускается.</li><ul/>
-node_template | **[NodeTemplate](#NodeTemplate)**<br>Шаблон узла, задающий параметры вычислительных экземпляров для группы узлов. 
-scale_policy | **[ScalePolicy](#ScalePolicy)**<br>Политика масштабирования группы узлов. Дополнительные сведения см. в разделе [Scaling policy](/docs/compute/concepts/instance-groups/policies#scale-policy). 
-allocation_policy | **[NodeGroupAllocationPolicy](#NodeGroupAllocationPolicy)**<br>Политика распределения, с помощью которой ресурсы для групп узлов распределяются по зонам и регионам. 
-instance_group_id | **string**<br>Идентификатор группы виртуальных машин, связанной с этой группой узлов. 
-node_version | **string**<br>Версия компонентов Kubernetes, которая запущена на узлах. Устарел. Используйте version_info.current_version. 
-version_info | **[VersionInfo](#VersionInfo)**<br>Подробная информация о версии Kubernetes, которая запущена на мастере. 
-maintenance_policy | **[NodeGroupMaintenancePolicy](#NodeGroupMaintenancePolicy)**<br>Политика обновления группы узлов. 
-allowed_unsafe_sysctls[] | **string**<br>Поддержка параметров unsafe sysctl. Дополнительные сведения см. в [documentation](https://kubernetes.io/docs/tasks/administer-cluster/sysctl-cluster/). 
+id | **string**<br>ID of the node group. 
+cluster_id | **string**<br>ID of the cluster that the node group belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+name | **string**<br>Name of the node group. The name is unique within the folder. 
+description | **string**<br>Description of the node group. 0-256 characters long. 
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
+status | enum **Status**<br>Status of the node group. <ul><li>`PROVISIONING`: Node group is waiting for resources to be allocated.</li><li>`RUNNING`: Node group is running.</li><li>`RECONCILING`: Node group is waiting for some work to be done, such as upgrading node software.</li><li>`STOPPING`: Node group is being stopped.</li><li>`STOPPED`: Node group stopped.</li><li>`DELETING`: Node group is being deleted.</li><li>`STARTING`: Node group is being started.</li><ul/>
+node_template | **[NodeTemplate](#NodeTemplate)**<br>Node template that specifies parameters of the compute instances for the node group. 
+scale_policy | **[ScalePolicy](#ScalePolicy)**<br>Scale policy of the node group.  For more information, see [Scaling policy](/docs/compute/concepts/instance-groups/policies#scale-policy). 
+allocation_policy | **[NodeGroupAllocationPolicy](#NodeGroupAllocationPolicy)**<br>Allocation policy by which resources for node group are allocated to zones and regions. 
+deploy_policy | **[DeployPolicy](#DeployPolicy)**<br>Deploy policy according to which the updates are rolled out. 
+instance_group_id | **string**<br>ID of the managed instance group associated with this node group. 
+node_version | **string**<br>Version of Kubernetes components that runs on the nodes. Deprecated. Use version_info.current_version. 
+version_info | **[VersionInfo](#VersionInfo)**<br>Detailed information about the Kubernetes version that is running on the node. 
+maintenance_policy | **[NodeGroupMaintenancePolicy](#NodeGroupMaintenancePolicy)**<br>Maintenance policy of the node group. 
+allowed_unsafe_sysctls[] | **string**<br>Support for unsafe sysctl parameters. For more details see [documentation](https://kubernetes.io/docs/tasks/administer-cluster/sysctl-cluster/). 
+node_taints[] | **[Taint](#Taint)**<br>Taints that are applied to the nodes of the node group at creation time. 
+node_labels | **map<string,string>**<br>Labels that are assigned to the nodes of the node group at creation time. 
 
 
 ### NodeTemplate {#NodeTemplate}
 
-Поле | Описание
+Field | Description
 --- | ---
-platform_id | **string**<br>Идентификатор аппаратной платформы виртуальной машины. 
-resources_spec | **[ResourcesSpec](#ResourcesSpec)**<br>Вычислительные ресурсы узла, такие как объем памяти и количество ядер. 
-boot_disk_spec | **[DiskSpec](#DiskSpec)**<br>Спецификация загрузочного диска, который будет подключен к узлу. 
-metadata | **map<string,string>**<br>Метаданные, назначаемые этому шаблону виртуальной машины, в формате ``key:value``. Сюда входят пользовательские метаданные и предопределенные ключи. <br>Например, вы можете использовать метаданные для предоставления вашего открытого SSH-ключа узлу. Дополнительные сведения см. в разделе [Metadata](/docs/compute/concepts/vm-metadata). Не более 128 на ресурс. Максимальная длина строки в символах для каждого значения — 262144. Длина строки в символах для каждого ключа должна быть от 1 до 63. Каждый ключ должен соответствовать регулярному выражению ` [a-z][-_0-9a-z]* `.
-v4_address_spec | **[NodeAddressSpec](#NodeAddressSpec)**<br>Спецификация для создания сетевых интерфейсов для вычислительных экземпляров группы узлов. 
-scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy)**<br>Политика планирования. 
+platform_id | **string**<br>ID of the hardware platform configuration for the node. 
+resources_spec | **[ResourcesSpec](#ResourcesSpec)**<br>Computing resources of the node such as the amount of memory and number of cores. 
+boot_disk_spec | **[DiskSpec](#DiskSpec)**<br>Specification for the boot disk that will be attached to the node. 
+metadata | **map<string,string>**<br>The metadata as `key:value` pairs assigned to this instance template. This includes custom metadata and predefined keys. <br>For example, you may use the metadata in order to provide your public SSH key to the node. For more information, see [Metadata](/docs/compute/concepts/vm-metadata). No more than 64 per resource. The maximum string length in characters for each value is 131072. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+v4_address_spec | **[NodeAddressSpec](#NodeAddressSpec)**<br>Specification for the create network interfaces for the node group compute instances. Deprecated, please use network_interface_specs. 
+scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy)**<br>Scheduling policy configuration. 
+network_interface_specs[] | **[NetworkInterfaceSpec](#NetworkInterfaceSpec)**<br>New api, to specify network interfaces for the node group compute instances. Can not be used together with 'v4_address_spec' 
+placement_policy | **[PlacementPolicy](#PlacementPolicy)**<br> 
 
 
 ### ResourcesSpec {#ResourcesSpec}
 
-Поле | Описание
+Field | Description
 --- | ---
-memory | **int64**<br>Объем памяти в байтах, доступный виртуальной машине. Допустимые значения — от 0 до 274877906944 включительно.
-cores | **int64**<br>Количество ядер, доступное узлу. Значение должно быть равно 0,1,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32.
-core_fraction | **int64**<br>Базовый уровень производительности CPU с возможностью повышения производительности выше этого уровня. Это поле устанавливает базовую производительность для каждого ядра. Значение должно быть равно 0,5,20,50,100.
+memory | **int64**<br>Amount of memory available to the node, specified in bytes. The minimum value is 0.
+cores | **int64**<br>Number of cores available to the node. The minimum value is 0.
+core_fraction | **int64**<br>Baseline level of CPU performance with the possibility to burst performance above that baseline level. This field sets baseline performance for each core. Acceptable values are 0 to 100, inclusive.
+gpus | **int64**<br>Number of GPUs available to the node. The minimum value is 0.
 
 
 ### DiskSpec {#DiskSpec}
 
-Поле | Описание
+Field | Description
 --- | ---
-disk_type_id | **string**<br>Идентификатор типа диска. Значение должно соответствовать регулярному выражению ` |network-ssd|network-hdd `.
-disk_size | **int64**<br>Размер диска в байтах. Допустимые значения — от 0 до 4398046511104 включительно.
+disk_type_id | **string**<br>ID of the disk type. Value must match the regular expression ` |network-ssd|network-hdd `.
+disk_size | **int64**<br>Size of the disk, specified in bytes. Acceptable values are 0 to 4398046511104, inclusive.
 
 
 ### NodeAddressSpec {#NodeAddressSpec}
 
-Поле | Описание
+Field | Description
 --- | ---
-one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec)**<br>Конфигурация one-to-one NAT. Настройка one-to-one NAT гарантирует, что узлам будут назначены публичные IP-адреса. Поэтому интернет будет доступен на всех узлах группы узлов. Если поле не задано, NAT не будет настроен. 
+one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec)**<br>One-to-one NAT configuration. Setting up one-to-one NAT ensures that public IP addresses are assigned to nodes, and therefore internet is accessible for all nodes of the node group. If the field is not set, NAT will not be set up. 
 
 
 ### OneToOneNatSpec {#OneToOneNatSpec}
 
-Поле | Описание
+Field | Description
 --- | ---
-ip_version | enum **IpVersion**<br>Версия IP для публичного IP-адреса. <ul><li>`IPV4`: IPv4-адрес, например 192.168.0.0.</li><li>`IPV6`: IPv6-адрес, на данный момент не доступен.</li><ul/>
+ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
 
 
 ### SchedulingPolicy {#SchedulingPolicy}
 
-Поле | Описание
+Field | Description
 --- | ---
-preemptible | **bool**<br>Если значение равно `true` — будет создана прерываемая виртуальная машина. Значение по умолчанию: `false`. Прерываемые виртуальные машины будут принудительно остановлены в срок, не превышающий 24 часа с момента их создания. Остановленные виртуальные машины можно запустить повторно, без потери данных. Дополнительные сведения см. в разделе [Preemptible Virtual Machines](/docs/compute/concepts/preemptible-vm). 
+preemptible | **bool**<br>True for preemptible compute instances. Default value is false. Preemptible compute instances are stopped at least once every 24 hours, and can be stopped at any time if their resources are needed by Compute. For more information, see [Preemptible Virtual Machines](/docs/compute/concepts/preemptible-vm). 
+
+
+### NetworkInterfaceSpec {#NetworkInterfaceSpec}
+
+Field | Description
+--- | ---
+subnet_ids[] | **string**<br>IDs of the subnets. 
+primary_v4_address_spec | **[NodeAddressSpec](#NodeAddressSpec1)**<br>Primary IPv4 address that is assigned to the instance for this network interface. 
+primary_v6_address_spec | **[NodeAddressSpec](#NodeAddressSpec1)**<br>Primary IPv6 address that is assigned to the instance for this network interface. 
+security_group_ids[] | **string**<br>IDs of security groups. 
+
+
+### NodeAddressSpec {#NodeAddressSpec1}
+
+Field | Description
+--- | ---
+one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec1)**<br>One-to-one NAT configuration. Setting up one-to-one NAT ensures that public IP addresses are assigned to nodes, and therefore internet is accessible for all nodes of the node group. If the field is not set, NAT will not be set up. 
+
+
+### OneToOneNatSpec {#OneToOneNatSpec1}
+
+Field | Description
+--- | ---
+ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
+
+
+### PlacementPolicy {#PlacementPolicy}
+
+Field | Description
+--- | ---
+placement_group_id | **string**<br>Identifier of placement group 
 
 
 ### ScalePolicy {#ScalePolicy}
 
-Поле | Описание
+Field | Description
 --- | ---
-scale_type | **oneof:** `fixed_scale` или `auto_scale`<br>
-&nbsp;&nbsp;fixed_scale | **[FixedScale](#FixedScale)**<br>Политика масштабирования группы узлов. 
-&nbsp;&nbsp;auto_scale | **[AutoScale](#AutoScale)**<br>Политика масштабирования группы узлов. 
+scale_type | **oneof:** `fixed_scale` or `auto_scale`<br>
+&nbsp;&nbsp;fixed_scale | **[FixedScale](#FixedScale)**<br>Fixed scale policy of the node group. 
+&nbsp;&nbsp;auto_scale | **[AutoScale](#AutoScale)**<br>Auto scale policy of the node group. 
 
 
 ### FixedScale {#FixedScale}
 
-Поле | Описание
+Field | Description
 --- | ---
-size | **int64**<br>Количество узлов в группе узлов. Допустимые значения — от 0 до 100 включительно.
+size | **int64**<br>Number of nodes in the node group. Acceptable values are 0 to 100, inclusive.
 
 
 ### AutoScale {#AutoScale}
 
-Поле | Описание
+Field | Description
 --- | ---
-min_size | **int64**<br>Минимальное количество узлов в группе узлов. Допустимые значения — от 0 до 100 включительно.
-max_size | **int64**<br>Максимальное количество узлов в группе узлов. Допустимые значения — от 0 до 100 включительно.
-initial_size | **int64**<br>Начальный размер группы узлов. Допустимые значения — от 0 до 100 включительно.
+min_size | **int64**<br>Minimum number of nodes in the node group. Acceptable values are 0 to 100, inclusive.
+max_size | **int64**<br>Maximum number of nodes in the node group. Acceptable values are 0 to 100, inclusive.
+initial_size | **int64**<br>Initial number of nodes in the node group. Acceptable values are 0 to 100, inclusive.
 
 
 ### NodeGroupAllocationPolicy {#NodeGroupAllocationPolicy}
 
-Поле | Описание
+Field | Description
 --- | ---
-locations[] | **[NodeGroupLocation](#NodeGroupLocation)**<br>Список местоположений (зон доступности и подсетей), в которых будут выделены ресурсы для группы узлов. 
+locations[] | **[NodeGroupLocation](#NodeGroupLocation)**<br>List of locations where resources for the node group will be allocated. 
 
 
 ### NodeGroupLocation {#NodeGroupLocation}
 
-Поле | Описание
+Field | Description
 --- | ---
-zone_id | **string**<br>Обязательное поле. Идентификатор зоны доступности, в которой могут находиться узлы. 
-subnet_id | **string**<br>Идентификатор подсети. Если сеть, выбранная для кластера Kubernetes, имеет только одну подсеть в указанной зоне, идентификатор подсети может быть опущен. 
+zone_id | **string**<br>Required. ID of the availability zone where the nodes may reside. 
+subnet_id | **string**<br>ID of the subnet. If a network chosen for the Kubernetes cluster has only one subnet in the specified zone, subnet ID may be omitted. 
+
+
+### DeployPolicy {#DeployPolicy}
+
+Field | Description
+--- | ---
+max_unavailable | **int64**<br>The maximum number of running instances that can be taken offline (i.e., stopped or deleted) at the same time during the update process. If `max_expansion` is not specified or set to zero, `max_unavailable` must be set to a non-zero value. Acceptable values are 0 to 100, inclusive.
+max_expansion | **int64**<br>The maximum number of instances that can be temporarily allocated above the group's target size during the update process. If `max_unavailable` is not specified or set to zero, `max_expansion` must be set to a non-zero value. Acceptable values are 0 to 100, inclusive.
 
 
 ### VersionInfo {#VersionInfo}
 
-Поле | Описание
+Field | Description
 --- | ---
-current_version | **string**<br>Текущая версия Kubernetes, формат: major.minor (например, 1.15). 
-new_revision_available | **bool**<br>Новые версии могут включать патчи Kubernetes (например, 1.15.1 -> 1.15.2), а также некоторые обновления внутренних компонентов — новые функции или исправления ошибок в конкретных компонентах Яндекса на мастере или на узлах. 
-new_revision_summary | **string**<br>Описание изменений, которые будут применены при обновлении до последней версии. Пусто, если поле `new_revision_available` имеет значение `false`. 
-version_deprecated | **bool**<br>Текущая версия устарела, компонент кластера Kubernetes (мастер или группа узлов) должен быть обновлен. 
+current_version | **string**<br>Current Kubernetes version, format: major.minor (e.g. 1.15). 
+new_revision_available | **bool**<br>Newer revisions may include Kubernetes patches (e.g 1.15.1 -> 1.15.2) as well as some internal component updates - new features or bug fixes in Yandex specific components either on the master or nodes. 
+new_revision_summary | **string**<br>Description of the changes to be applied when updating to the latest revision. Empty if new_revision_available is false. 
+version_deprecated | **bool**<br>The current version is on the deprecation schedule, component (master or node group) should be upgraded. 
 
 
 ### NodeGroupMaintenancePolicy {#NodeGroupMaintenancePolicy}
 
-Поле | Описание
+Field | Description
 --- | ---
-auto_upgrade | **bool**<br>Если установлено значение `true`, автоматическое обновление устанавливается без участия пользователя в заданный промежуток времени. Если установлено значение `false`, автоматическое обновление отключено. 
-auto_repair | **bool**<br>Если установлено значение `true`, автоматическое восстановление включено. Значение по умолчанию: `false`. 
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow)**<br>Настройки окна обновления. Обновление начнется в указанное время и продлится не более указанного времени. Время устанавливается в формате UTC. 
+auto_upgrade | **bool**<br>If set to true, automatic updates are installed in the specified period of time with no interaction from the user. If set to false, automatic upgrades are disabled. 
+auto_repair | **bool**<br>If set to true, automatic repairs are enabled. Default value is false. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow)**<br>Maintenance window settings. Update will start at the specified time and last no more than the specified duration. The time is set in UTC. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow}
 
-Поле | Описание
+Field | Description
 --- | ---
-policy | **oneof:** `anytime`, `daily_maintenance_window` или `weekly_maintenance_window`<br>Политика обновления.
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow)**<br>Обновление мастера в любое время. 
-&nbsp;&nbsp;daily_maintenance_window | **[DailyMaintenanceWindow](#DailyMaintenanceWindow)**<br>Обновление мастера в любой день в течение указанного временного окна. 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow)**<br>Обновление мастера в выбранные дни в течение указанного временного окна. 
+policy | **oneof:** `anytime`, `daily_maintenance_window` or `weekly_maintenance_window`<br>Maintenance policy.
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow)**<br>Updating the master at any time. 
+&nbsp;&nbsp;daily_maintenance_window | **[DailyMaintenanceWindow](#DailyMaintenanceWindow)**<br>Updating the master on any day during the specified time window. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow)**<br>Updating the master on selected days during the specified time window. 
 
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow}
@@ -176,190 +222,244 @@ policy | **oneof:** `anytime`, `daily_maintenance_window` или `weekly_mainten
 
 ### DailyMaintenanceWindow {#DailyMaintenanceWindow}
 
-Поле | Описание
+Field | Description
 --- | ---
-start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Обязательное поле. Время начала окна обновлений, указывается в часовом поясе UTC. 
-duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Длительность окна обновлений. Допустимые значения — от 1h до 24h включительно.
+start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required. Window start time, in the UTC timezone. 
+duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Window duration. Acceptable values are 1h to 24h, inclusive.
 
 
 ### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow}
 
-Поле | Описание
+Field | Description
 --- | ---
-days_of_week[] | **[DaysOfWeekMaintenanceWindow](#DaysOfWeekMaintenanceWindow)**<br>Дни недели и окно обновлений для этих дней, когда разрешены автоматические обновления. Количество элементов должно находиться в диапазоне от 1 до 7.
+days_of_week[] | **[DaysOfWeekMaintenanceWindow](#DaysOfWeekMaintenanceWindow)**<br>Days of the week and the maintenance window for these days when automatic updates are allowed. The number of elements must be in the range 1-7.
 
 
 ### DaysOfWeekMaintenanceWindow {#DaysOfWeekMaintenanceWindow}
 
-Поле | Описание
+Field | Description
 --- | ---
-days[] | **google.type.DayOfWeek**<br>Дни недели, когда разрешены автоматические обновления. Количество элементов должно находиться в диапазоне от 1 до 7.
-start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Обязательное поле. Время начала окна обновлений, указывается в часовом поясе UTC. 
-duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Длительность окна обновлений. Допустимые значения — от 1h до 24h включительно.
+days[] | **google.type.DayOfWeek**<br>Days of the week when automatic updates are allowed. The number of elements must be in the range 1-7.
+start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required. Window start time, in the UTC timezone. 
+duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Window duration. Acceptable values are 1h to 24h, inclusive.
+
+
+### Taint {#Taint}
+
+Field | Description
+--- | ---
+key | **string**<br>The taint key to be applied to a node. 
+value | **string**<br>The taint value corresponding to the taint key. 
+effect | enum **Effect**<br>The effect of the taint on pods that do not tolerate the taint. <ul><li>`NO_SCHEDULE`: Do not allow new pods to schedule onto the node unless they tolerate the taint, but allow all pods submitted to Kubelet without going through the scheduler to start, and allow all already-running pods to continue running.</li><li>`PREFER_NO_SCHEDULE`: Like NO_SCHEDULE, but the scheduler tries not to schedule new pods onto the node, rather than prohibiting new pods from scheduling onto the node entirely. Enforced by the scheduler.</li><li>`NO_EXECUTE`: Evict any already-running pods that do not tolerate the taint.</li><ul/>
 
 
 ## List {#List}
 
-Возвращает список групп узлов в указанном кластере Kubernetes.
+Retrieves the list of node group in the specified Kubernetes cluster.
 
 **rpc List ([ListNodeGroupsRequest](#ListNodeGroupsRequest)) returns ([ListNodeGroupsResponse](#ListNodeGroupsResponse))**
 
 ### ListNodeGroupsRequest {#ListNodeGroupsRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-folder_id | **string**<br>Обязательное поле. Идентификатор каталога для получения списка групп узлов. Чтобы получить идентификатор каталога, используйте запрос [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List). 
-page_size | **int64**<br>Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем `page_size`, сервис вернет значение [ListNodeGroupsResponse.next_page_token](#ListNodeGroupsResponse), которое можно использовать для получения следующей страницы. Значение по умолчанию: 100. Допустимые значения — от 0 до 1000 включительно.
-page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListNodeGroupsResponse.next_page_token](#ListNodeGroupsResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
-filter | **string**<br><ol><li>Имя поля. В настоящее время фильтрация осуществляется только по полю [NodeGroup.name](#NodeGroup1). </li><li>Оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений. </li><li>Значение. Значение длиной от 1 до 61 символов, совпадающее с регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.</li></ol> Максимальная длина строки в символах — 1000.
+folder_id | **string**<br>Required. ID of the folder to list node groups in. To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. 
+page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListNodeGroupsResponse.next_page_token](#ListNodeGroupsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. Acceptable values are 0 to 1000, inclusive.
+page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListNodeGroupsResponse.next_page_token](#ListNodeGroupsResponse) returned by a previous list request. The maximum string length in characters is 100.
+filter | **string**<br><ol><li>The field name. Currently you can use filtering only on [NodeGroup.name](#NodeGroup1) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 1-61 characters long and match the regular expression `|[a-z][-a-z0-9]{1,61}[a-z0-9]`.</li></ol> The maximum string length in characters is 1000.
 
 
 ### ListNodeGroupsResponse {#ListNodeGroupsResponse}
 
-Поле | Описание
+Field | Description
 --- | ---
-node_groups[] | **[NodeGroup](#NodeGroup1)**<br>Список групп узлов. 
-next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListNodeGroupsRequest.page_size](#ListNodeGroupsRequest), используйте `next_page_token` в качестве значения параметра [ListNodeGroupsRequest.page_token](#ListNodeGroupsRequest) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
+node_groups[] | **[NodeGroup](#NodeGroup1)**<br>List of node groups. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListNodeGroupsRequest.page_size](#ListNodeGroupsRequest), use the `next_page_token` as the value for the [ListNodeGroupsRequest.page_token](#ListNodeGroupsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
 ### NodeGroup {#NodeGroup1}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор группы узлов. 
-cluster_id | **string**<br>Идентификатор кластера, к которому принадлежит группа узлов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания. 
-name | **string**<br>Новое имя группы узлов. Имя уникально в рамках каталога. 
-description | **string**<br>Новое описание группы узлов. Длина описания должна быть от 0 до 256 символов. 
-labels | **map<string,string>**<br>Метки ресурса в формате `key:value`. Максимум 64 метки на ресурс. 
-status | enum **Status**<br>Статус группы узлов. <ul><li>`PROVISIONING`: Группа узлов ожидает выделения ресурсов.</li><li>`RUNNING`: Группа узлов запущена.</li><li>`RECONCILING`: Группа узлов ожидает выполнения некоторых работ, например, обновления программного обеспечения узла.</li><li>`STOPPING`: Группа узлов останавливается.</li><li>`STOPPED`: Группа узлов остановлена.</li><li>`DELETING`: Группа узлов удаляется.</li><li>`STARTING`: Группа узлов запускается.</li><ul/>
-node_template | **[NodeTemplate](#NodeTemplate1)**<br>Шаблон узла, задающий параметры вычислительных экземпляров для группы узлов. 
-scale_policy | **[ScalePolicy](#ScalePolicy1)**<br>Политика масштабирования группы узлов. Дополнительные сведения см. в разделе [Scaling policy](/docs/compute/concepts/instance-groups/policies#scale-policy). 
-allocation_policy | **[NodeGroupAllocationPolicy](#NodeGroupAllocationPolicy1)**<br>Политика распределения, с помощью которой ресурсы для групп узлов распределяются по зонам и регионам. 
-instance_group_id | **string**<br>Идентификатор группы виртуальных машин, связанной с этой группой узлов. 
-node_version | **string**<br>Версия компонентов Kubernetes, которая запущена на узлах. Устарел. Используйте version_info.current_version. 
-version_info | **[VersionInfo](#VersionInfo1)**<br>Подробная информация о версии Kubernetes, которая запущена на мастере. 
-maintenance_policy | **[NodeGroupMaintenancePolicy](#NodeGroupMaintenancePolicy1)**<br>Политика обновления группы узлов. 
-allowed_unsafe_sysctls[] | **string**<br>Поддержка параметров unsafe sysctl. Дополнительные сведения см. в [documentation](https://kubernetes.io/docs/tasks/administer-cluster/sysctl-cluster/). 
+id | **string**<br>ID of the node group. 
+cluster_id | **string**<br>ID of the cluster that the node group belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+name | **string**<br>Name of the node group. The name is unique within the folder. 
+description | **string**<br>Description of the node group. 0-256 characters long. 
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
+status | enum **Status**<br>Status of the node group. <ul><li>`PROVISIONING`: Node group is waiting for resources to be allocated.</li><li>`RUNNING`: Node group is running.</li><li>`RECONCILING`: Node group is waiting for some work to be done, such as upgrading node software.</li><li>`STOPPING`: Node group is being stopped.</li><li>`STOPPED`: Node group stopped.</li><li>`DELETING`: Node group is being deleted.</li><li>`STARTING`: Node group is being started.</li><ul/>
+node_template | **[NodeTemplate](#NodeTemplate1)**<br>Node template that specifies parameters of the compute instances for the node group. 
+scale_policy | **[ScalePolicy](#ScalePolicy1)**<br>Scale policy of the node group.  For more information, see [Scaling policy](/docs/compute/concepts/instance-groups/policies#scale-policy). 
+allocation_policy | **[NodeGroupAllocationPolicy](#NodeGroupAllocationPolicy1)**<br>Allocation policy by which resources for node group are allocated to zones and regions. 
+deploy_policy | **[DeployPolicy](#DeployPolicy1)**<br>Deploy policy according to which the updates are rolled out. 
+instance_group_id | **string**<br>ID of the managed instance group associated with this node group. 
+node_version | **string**<br>Version of Kubernetes components that runs on the nodes. Deprecated. Use version_info.current_version. 
+version_info | **[VersionInfo](#VersionInfo1)**<br>Detailed information about the Kubernetes version that is running on the node. 
+maintenance_policy | **[NodeGroupMaintenancePolicy](#NodeGroupMaintenancePolicy1)**<br>Maintenance policy of the node group. 
+allowed_unsafe_sysctls[] | **string**<br>Support for unsafe sysctl parameters. For more details see [documentation](https://kubernetes.io/docs/tasks/administer-cluster/sysctl-cluster/). 
+node_taints[] | **[Taint](#Taint1)**<br>Taints that are applied to the nodes of the node group at creation time. 
+node_labels | **map<string,string>**<br>Labels that are assigned to the nodes of the node group at creation time. 
 
 
 ### NodeTemplate {#NodeTemplate1}
 
-Поле | Описание
+Field | Description
 --- | ---
-platform_id | **string**<br>Идентификатор аппаратной платформы виртуальной машины. 
-resources_spec | **[ResourcesSpec](#ResourcesSpec1)**<br>Вычислительные ресурсы узла, такие как объем памяти и количество ядер. 
-boot_disk_spec | **[DiskSpec](#DiskSpec1)**<br>Спецификация загрузочного диска, который будет подключен к узлу. 
-metadata | **map<string,string>**<br>Метаданные, назначаемые этому шаблону виртуальной машины, в формате ``key:value``. Сюда входят пользовательские метаданные и предопределенные ключи. <br>Например, вы можете использовать метаданные для предоставления вашего открытого SSH-ключа узлу. Дополнительные сведения см. в разделе [Metadata](/docs/compute/concepts/vm-metadata). Не более 128 на ресурс. Максимальная длина строки в символах для каждого значения — 262144. Длина строки в символах для каждого ключа должна быть от 1 до 63. Каждый ключ должен соответствовать регулярному выражению ` [a-z][-_0-9a-z]* `.
-v4_address_spec | **[NodeAddressSpec](#NodeAddressSpec1)**<br>Спецификация для создания сетевых интерфейсов для вычислительных экземпляров группы узлов. 
-scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy1)**<br>Политика планирования. 
+platform_id | **string**<br>ID of the hardware platform configuration for the node. 
+resources_spec | **[ResourcesSpec](#ResourcesSpec1)**<br>Computing resources of the node such as the amount of memory and number of cores. 
+boot_disk_spec | **[DiskSpec](#DiskSpec1)**<br>Specification for the boot disk that will be attached to the node. 
+metadata | **map<string,string>**<br>The metadata as `key:value` pairs assigned to this instance template. This includes custom metadata and predefined keys. <br>For example, you may use the metadata in order to provide your public SSH key to the node. For more information, see [Metadata](/docs/compute/concepts/vm-metadata). No more than 64 per resource. The maximum string length in characters for each value is 131072. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+v4_address_spec | **[NodeAddressSpec](#NodeAddressSpec2)**<br>Specification for the create network interfaces for the node group compute instances. Deprecated, please use network_interface_specs. 
+scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy1)**<br>Scheduling policy configuration. 
+network_interface_specs[] | **[NetworkInterfaceSpec](#NetworkInterfaceSpec1)**<br>New api, to specify network interfaces for the node group compute instances. Can not be used together with 'v4_address_spec' 
+placement_policy | **[PlacementPolicy](#PlacementPolicy1)**<br> 
 
 
 ### ResourcesSpec {#ResourcesSpec1}
 
-Поле | Описание
+Field | Description
 --- | ---
-memory | **int64**<br>Объем памяти в байтах, доступный виртуальной машине. Допустимые значения — от 0 до 274877906944 включительно.
-cores | **int64**<br>Количество ядер, доступное узлу. Значение должно быть равно 0,1,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32.
-core_fraction | **int64**<br>Базовый уровень производительности CPU с возможностью повышения производительности выше этого уровня. Это поле устанавливает базовую производительность для каждого ядра. Значение должно быть равно 0,5,20,50,100.
+memory | **int64**<br>Amount of memory available to the node, specified in bytes. The minimum value is 0.
+cores | **int64**<br>Number of cores available to the node. The minimum value is 0.
+core_fraction | **int64**<br>Baseline level of CPU performance with the possibility to burst performance above that baseline level. This field sets baseline performance for each core. Acceptable values are 0 to 100, inclusive.
+gpus | **int64**<br>Number of GPUs available to the node. The minimum value is 0.
 
 
 ### DiskSpec {#DiskSpec1}
 
-Поле | Описание
+Field | Description
 --- | ---
-disk_type_id | **string**<br>Идентификатор типа диска. Значение должно соответствовать регулярному выражению ` |network-ssd|network-hdd `.
-disk_size | **int64**<br>Размер диска в байтах. Допустимые значения — от 0 до 4398046511104 включительно.
+disk_type_id | **string**<br>ID of the disk type. Value must match the regular expression ` |network-ssd|network-hdd `.
+disk_size | **int64**<br>Size of the disk, specified in bytes. Acceptable values are 0 to 4398046511104, inclusive.
 
 
-### NodeAddressSpec {#NodeAddressSpec1}
+### NodeAddressSpec {#NodeAddressSpec2}
 
-Поле | Описание
+Field | Description
 --- | ---
-one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec1)**<br>Конфигурация one-to-one NAT. Настройка one-to-one NAT гарантирует, что узлам будут назначены публичные IP-адреса. Поэтому интернет будет доступен на всех узлах группы узлов. Если поле не задано, NAT не будет настроен. 
+one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec2)**<br>One-to-one NAT configuration. Setting up one-to-one NAT ensures that public IP addresses are assigned to nodes, and therefore internet is accessible for all nodes of the node group. If the field is not set, NAT will not be set up. 
 
 
-### OneToOneNatSpec {#OneToOneNatSpec1}
+### OneToOneNatSpec {#OneToOneNatSpec2}
 
-Поле | Описание
+Field | Description
 --- | ---
-ip_version | enum **IpVersion**<br>Версия IP для публичного IP-адреса. <ul><li>`IPV4`: IPv4-адрес, например 192.168.0.0.</li><li>`IPV6`: IPv6-адрес, на данный момент не доступен.</li><ul/>
+ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
 
 
 ### SchedulingPolicy {#SchedulingPolicy1}
 
-Поле | Описание
+Field | Description
 --- | ---
-preemptible | **bool**<br>Если значение равно `true` — будет создана прерываемая виртуальная машина. Значение по умолчанию: `false`. Прерываемые виртуальные машины будут принудительно остановлены в срок, не превышающий 24 часа с момента их создания. Остановленные виртуальные машины можно запустить повторно, без потери данных. Дополнительные сведения см. в разделе [Preemptible Virtual Machines](/docs/compute/concepts/preemptible-vm). 
+preemptible | **bool**<br>True for preemptible compute instances. Default value is false. Preemptible compute instances are stopped at least once every 24 hours, and can be stopped at any time if their resources are needed by Compute. For more information, see [Preemptible Virtual Machines](/docs/compute/concepts/preemptible-vm). 
+
+
+### NetworkInterfaceSpec {#NetworkInterfaceSpec1}
+
+Field | Description
+--- | ---
+subnet_ids[] | **string**<br>IDs of the subnets. 
+primary_v4_address_spec | **[NodeAddressSpec](#NodeAddressSpec3)**<br>Primary IPv4 address that is assigned to the instance for this network interface. 
+primary_v6_address_spec | **[NodeAddressSpec](#NodeAddressSpec3)**<br>Primary IPv6 address that is assigned to the instance for this network interface. 
+security_group_ids[] | **string**<br>IDs of security groups. 
+
+
+### NodeAddressSpec {#NodeAddressSpec3}
+
+Field | Description
+--- | ---
+one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec3)**<br>One-to-one NAT configuration. Setting up one-to-one NAT ensures that public IP addresses are assigned to nodes, and therefore internet is accessible for all nodes of the node group. If the field is not set, NAT will not be set up. 
+
+
+### OneToOneNatSpec {#OneToOneNatSpec3}
+
+Field | Description
+--- | ---
+ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
+
+
+### PlacementPolicy {#PlacementPolicy1}
+
+Field | Description
+--- | ---
+placement_group_id | **string**<br>Identifier of placement group 
 
 
 ### ScalePolicy {#ScalePolicy1}
 
-Поле | Описание
+Field | Description
 --- | ---
-scale_type | **oneof:** `fixed_scale` или `auto_scale`<br>
-&nbsp;&nbsp;fixed_scale | **[FixedScale](#FixedScale1)**<br>Политика масштабирования группы узлов. 
-&nbsp;&nbsp;auto_scale | **[AutoScale](#AutoScale1)**<br>Политика масштабирования группы узлов. 
+scale_type | **oneof:** `fixed_scale` or `auto_scale`<br>
+&nbsp;&nbsp;fixed_scale | **[FixedScale](#FixedScale1)**<br>Fixed scale policy of the node group. 
+&nbsp;&nbsp;auto_scale | **[AutoScale](#AutoScale1)**<br>Auto scale policy of the node group. 
 
 
 ### FixedScale {#FixedScale1}
 
-Поле | Описание
+Field | Description
 --- | ---
-size | **int64**<br>Количество узлов в группе узлов. Допустимые значения — от 0 до 100 включительно.
+size | **int64**<br>Number of nodes in the node group. Acceptable values are 0 to 100, inclusive.
 
 
 ### AutoScale {#AutoScale1}
 
-Поле | Описание
+Field | Description
 --- | ---
-min_size | **int64**<br>Минимальное количество узлов в группе узлов. Допустимые значения — от 0 до 100 включительно.
-max_size | **int64**<br>Максимальное количество узлов в группе узлов. Допустимые значения — от 0 до 100 включительно.
-initial_size | **int64**<br>Начальный размер группы узлов. Допустимые значения — от 0 до 100 включительно.
+min_size | **int64**<br>Minimum number of nodes in the node group. Acceptable values are 0 to 100, inclusive.
+max_size | **int64**<br>Maximum number of nodes in the node group. Acceptable values are 0 to 100, inclusive.
+initial_size | **int64**<br>Initial number of nodes in the node group. Acceptable values are 0 to 100, inclusive.
 
 
 ### NodeGroupAllocationPolicy {#NodeGroupAllocationPolicy1}
 
-Поле | Описание
+Field | Description
 --- | ---
-locations[] | **[NodeGroupLocation](#NodeGroupLocation1)**<br>Список местоположений (зон доступности и подсетей), в которых будут выделены ресурсы для группы узлов. 
+locations[] | **[NodeGroupLocation](#NodeGroupLocation1)**<br>List of locations where resources for the node group will be allocated. 
 
 
 ### NodeGroupLocation {#NodeGroupLocation1}
 
-Поле | Описание
+Field | Description
 --- | ---
-zone_id | **string**<br>Обязательное поле. Идентификатор зоны доступности, в которой могут находиться узлы. 
-subnet_id | **string**<br>Идентификатор подсети. Если сеть, выбранная для кластера Kubernetes, имеет только одну подсеть в указанной зоне, идентификатор подсети может быть опущен. 
+zone_id | **string**<br>Required. ID of the availability zone where the nodes may reside. 
+subnet_id | **string**<br>ID of the subnet. If a network chosen for the Kubernetes cluster has only one subnet in the specified zone, subnet ID may be omitted. 
+
+
+### DeployPolicy {#DeployPolicy1}
+
+Field | Description
+--- | ---
+max_unavailable | **int64**<br>The maximum number of running instances that can be taken offline (i.e., stopped or deleted) at the same time during the update process. If `max_expansion` is not specified or set to zero, `max_unavailable` must be set to a non-zero value. Acceptable values are 0 to 100, inclusive.
+max_expansion | **int64**<br>The maximum number of instances that can be temporarily allocated above the group's target size during the update process. If `max_unavailable` is not specified or set to zero, `max_expansion` must be set to a non-zero value. Acceptable values are 0 to 100, inclusive.
 
 
 ### VersionInfo {#VersionInfo1}
 
-Поле | Описание
+Field | Description
 --- | ---
-current_version | **string**<br>Текущая версия Kubernetes, формат: major.minor (например, 1.15). 
-new_revision_available | **bool**<br>Новые версии могут включать патчи Kubernetes (например, 1.15.1 -> 1.15.2), а также некоторые обновления внутренних компонентов — новые функции или исправления ошибок в конкретных компонентах Яндекса на мастере или на узлах. 
-new_revision_summary | **string**<br>Описание изменений, которые будут применены при обновлении до последней версии. Пусто, если поле `new_revision_available` имеет значение `false`. 
-version_deprecated | **bool**<br>Текущая версия устарела, компонент кластера Kubernetes (мастер или группа узлов) должен быть обновлен. 
+current_version | **string**<br>Current Kubernetes version, format: major.minor (e.g. 1.15). 
+new_revision_available | **bool**<br>Newer revisions may include Kubernetes patches (e.g 1.15.1 -> 1.15.2) as well as some internal component updates - new features or bug fixes in Yandex specific components either on the master or nodes. 
+new_revision_summary | **string**<br>Description of the changes to be applied when updating to the latest revision. Empty if new_revision_available is false. 
+version_deprecated | **bool**<br>The current version is on the deprecation schedule, component (master or node group) should be upgraded. 
 
 
 ### NodeGroupMaintenancePolicy {#NodeGroupMaintenancePolicy1}
 
-Поле | Описание
+Field | Description
 --- | ---
-auto_upgrade | **bool**<br>Если установлено значение `true`, автоматическое обновление устанавливается без участия пользователя в заданный промежуток времени. Если установлено значение `false`, автоматическое обновление отключено. 
-auto_repair | **bool**<br>Если установлено значение `true`, автоматическое восстановление включено. Значение по умолчанию: `false`. 
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow1)**<br>Настройки окна обновления. Обновление начнется в указанное время и продлится не более указанного времени. Время устанавливается в формате UTC. 
+auto_upgrade | **bool**<br>If set to true, automatic updates are installed in the specified period of time with no interaction from the user. If set to false, automatic upgrades are disabled. 
+auto_repair | **bool**<br>If set to true, automatic repairs are enabled. Default value is false. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow1)**<br>Maintenance window settings. Update will start at the specified time and last no more than the specified duration. The time is set in UTC. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow1}
 
-Поле | Описание
+Field | Description
 --- | ---
-policy | **oneof:** `anytime`, `daily_maintenance_window` или `weekly_maintenance_window`<br>Политика обновления.
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow1)**<br>Обновление мастера в любое время. 
-&nbsp;&nbsp;daily_maintenance_window | **[DailyMaintenanceWindow](#DailyMaintenanceWindow1)**<br>Обновление мастера в любой день в течение указанного временного окна. 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow1)**<br>Обновление мастера в выбранные дни в течение указанного временного окна. 
+policy | **oneof:** `anytime`, `daily_maintenance_window` or `weekly_maintenance_window`<br>Maintenance policy.
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow1)**<br>Updating the master at any time. 
+&nbsp;&nbsp;daily_maintenance_window | **[DailyMaintenanceWindow](#DailyMaintenanceWindow1)**<br>Updating the master on any day during the specified time window. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow1)**<br>Updating the master on selected days during the specified time window. 
 
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow1}
@@ -368,161 +468,215 @@ policy | **oneof:** `anytime`, `daily_maintenance_window` или `weekly_mainten
 
 ### DailyMaintenanceWindow {#DailyMaintenanceWindow1}
 
-Поле | Описание
+Field | Description
 --- | ---
-start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Обязательное поле. Время начала окна обновлений, указывается в часовом поясе UTC. 
-duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Длительность окна обновлений. Допустимые значения — от 1h до 24h включительно.
+start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required. Window start time, in the UTC timezone. 
+duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Window duration. Acceptable values are 1h to 24h, inclusive.
 
 
 ### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow1}
 
-Поле | Описание
+Field | Description
 --- | ---
-days_of_week[] | **[DaysOfWeekMaintenanceWindow](#DaysOfWeekMaintenanceWindow1)**<br>Дни недели и окно обновлений для этих дней, когда разрешены автоматические обновления. Количество элементов должно находиться в диапазоне от 1 до 7.
+days_of_week[] | **[DaysOfWeekMaintenanceWindow](#DaysOfWeekMaintenanceWindow1)**<br>Days of the week and the maintenance window for these days when automatic updates are allowed. The number of elements must be in the range 1-7.
 
 
 ### DaysOfWeekMaintenanceWindow {#DaysOfWeekMaintenanceWindow1}
 
-Поле | Описание
+Field | Description
 --- | ---
-days[] | **google.type.DayOfWeek**<br>Дни недели, когда разрешены автоматические обновления. Количество элементов должно находиться в диапазоне от 1 до 7.
-start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Обязательное поле. Время начала окна обновлений, указывается в часовом поясе UTC. 
-duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Длительность окна обновлений. Допустимые значения — от 1h до 24h включительно.
+days[] | **google.type.DayOfWeek**<br>Days of the week when automatic updates are allowed. The number of elements must be in the range 1-7.
+start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required. Window start time, in the UTC timezone. 
+duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Window duration. Acceptable values are 1h to 24h, inclusive.
+
+
+### Taint {#Taint1}
+
+Field | Description
+--- | ---
+key | **string**<br>The taint key to be applied to a node. 
+value | **string**<br>The taint value corresponding to the taint key. 
+effect | enum **Effect**<br>The effect of the taint on pods that do not tolerate the taint. <ul><li>`NO_SCHEDULE`: Do not allow new pods to schedule onto the node unless they tolerate the taint, but allow all pods submitted to Kubelet without going through the scheduler to start, and allow all already-running pods to continue running.</li><li>`PREFER_NO_SCHEDULE`: Like NO_SCHEDULE, but the scheduler tries not to schedule new pods onto the node, rather than prohibiting new pods from scheduling onto the node entirely. Enforced by the scheduler.</li><li>`NO_EXECUTE`: Evict any already-running pods that do not tolerate the taint.</li><ul/>
 
 
 ## Create {#Create}
 
-Создает группу узлов в указанном кластере Kubernetes.
+Creates a node group in the specified Kubernetes cluster.
 
 **rpc Create ([CreateNodeGroupRequest](#CreateNodeGroupRequest)) returns ([operation.Operation](#Operation))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateNodeGroupMetadata](#CreateNodeGroupMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[NodeGroup](#NodeGroup2)<br>
 
 ### CreateNodeGroupRequest {#CreateNodeGroupRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера Kubernetes, в котором следует создать группу узлов. Чтобы получить идентификатор кластера Kubernetes, используйте [ClusterService.List](./cluster_service#List) запрос. 
-name | **string**<br>Новое имя группы узлов. Имя должно быть уникальным в каталоге. Значение должно соответствовать регулярному выражению ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
-description | **string**<br>Новое описание группы узлов. Максимальная длина строки в символах — 256.
-labels | **map<string,string>**<br>Метки ресурса в формате `key:value`. Не более 64 на ресурс. Максимальная длина строки в символах для каждого значения — 63. Каждое значение должно соответствовать регулярному выражению ` [-_0-9a-z]* `. Длина строки в символах для каждого ключа должна быть от 1 до 63. Каждый ключ должен соответствовать регулярному выражению ` [a-z][-_0-9a-z]* `.
-node_template | **[NodeTemplate](#NodeTemplate2)**<br>Обязательное поле. Шаблон узла для создания группы узлов. 
-scale_policy | **[ScalePolicy](#ScalePolicy2)**<br>Обязательное поле. Политика масштабирования группы узлов. 
-allocation_policy | **[NodeGroupAllocationPolicy](#NodeGroupAllocationPolicy2)**<br>Политика распределения группы узлов по зонам и регионам. 
-version | **string**<br>Версия компонентов Kubernetes, которая запущена на узлах. 
-maintenance_policy | **[NodeGroupMaintenancePolicy](#NodeGroupMaintenancePolicy2)**<br>Политика обновления группы узлов. 
-allowed_unsafe_sysctls[] | **string**<br>Поддержка параметров unsafe sysctl. Дополнительные сведения см. в [документации](https://kubernetes.io/docs/tasks/administer-cluster/sysctl-cluster/). 
+cluster_id | **string**<br>Required. ID of the Kubernetes cluster to create a node group in. To get the Kubernetes cluster ID, use a [ClusterService.List](./cluster_service#List) request. 
+name | **string**<br>Name of the node group. The name must be unique within the folder. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
+description | **string**<br>Description of the node group. The maximum string length in characters is 256.
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
+node_template | **[NodeTemplate](#NodeTemplate2)**<br>Required. Node template for creating the node group. 
+scale_policy | **[ScalePolicy](#ScalePolicy2)**<br>Required. Scale policy of the node group. 
+allocation_policy | **[NodeGroupAllocationPolicy](#NodeGroupAllocationPolicy2)**<br>Allocation policy of the node group by the zones and regions. 
+deploy_policy | **[DeployPolicy](#DeployPolicy2)**<br>Deploy policy according to which the updates are rolled out. If not specified, the default is used. 
+version | **string**<br>Version of Kubernetes components that runs on the nodes. 
+maintenance_policy | **[NodeGroupMaintenancePolicy](#NodeGroupMaintenancePolicy2)**<br>Maintenance policy of the node group. 
+allowed_unsafe_sysctls[] | **string**<br>Support for unsafe sysctl parameters. For more details see [documentation](https://kubernetes.io/docs/tasks/administer-cluster/sysctl-cluster/). The maximum string length in characters for each value is 253. Each value must match the regular expression ` ([a-z0-9]([-_a-z0-9]*[a-z0-9])?\\.)*([a-z0-9][-_a-z0-9]*)?[a-z0-9*] `.
+node_taints[] | **[Taint](#Taint2)**<br>Taints that are applied to the nodes of the node group at creation time. 
+node_labels | **map<string,string>**<br>Labels that are assigned to the nodes of the node group at creation time. 
 
 
 ### NodeTemplate {#NodeTemplate2}
 
-Поле | Описание
+Field | Description
 --- | ---
-platform_id | **string**<br>Идентификатор аппаратной платформы виртуальной машины. 
-resources_spec | **[ResourcesSpec](#ResourcesSpec2)**<br>Вычислительные ресурсы узла, такие как объем памяти и количество ядер. 
-boot_disk_spec | **[DiskSpec](#DiskSpec2)**<br>Спецификация загрузочного диска, который будет подключен к узлу. 
-metadata | **map<string,string>**<br>Метаданные, назначаемые этому шаблону виртуальной машины, в формате ``key:value``. Сюда входят пользовательские метаданные и предопределенные ключи. <br>Например, вы можете использовать метаданные для предоставления вашего открытого SSH-ключа узлу. Дополнительные сведения см. в разделе [Metadata](/docs/compute/concepts/vm-metadata). Не более 128 на ресурс. Максимальная длина строки в символах для каждого значения — 262144. Длина строки в символах для каждого ключа должна быть от 1 до 63. Каждый ключ должен соответствовать регулярному выражению ` [a-z][-_0-9a-z]* `.
-v4_address_spec | **[NodeAddressSpec](#NodeAddressSpec2)**<br>Спецификация для создания сетевых интерфейсов для вычислительных экземпляров группы узлов. 
-scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy2)**<br>Политика планирования. 
+platform_id | **string**<br>ID of the hardware platform configuration for the node. 
+resources_spec | **[ResourcesSpec](#ResourcesSpec2)**<br>Computing resources of the node such as the amount of memory and number of cores. 
+boot_disk_spec | **[DiskSpec](#DiskSpec2)**<br>Specification for the boot disk that will be attached to the node. 
+metadata | **map<string,string>**<br>The metadata as `key:value` pairs assigned to this instance template. This includes custom metadata and predefined keys. <br>For example, you may use the metadata in order to provide your public SSH key to the node. For more information, see [Metadata](/docs/compute/concepts/vm-metadata). No more than 64 per resource. The maximum string length in characters for each value is 131072. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+v4_address_spec | **[NodeAddressSpec](#NodeAddressSpec4)**<br>Specification for the create network interfaces for the node group compute instances. Deprecated, please use network_interface_specs. 
+scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy2)**<br>Scheduling policy configuration. 
+network_interface_specs[] | **[NetworkInterfaceSpec](#NetworkInterfaceSpec2)**<br>New api, to specify network interfaces for the node group compute instances. Can not be used together with 'v4_address_spec' 
+placement_policy | **[PlacementPolicy](#PlacementPolicy2)**<br> 
 
 
 ### ResourcesSpec {#ResourcesSpec2}
 
-Поле | Описание
+Field | Description
 --- | ---
-memory | **int64**<br>Объем памяти в байтах, доступный виртуальной машине. Допустимые значения — от 0 до 274877906944 включительно.
-cores | **int64**<br>Количество ядер, доступное узлу. Значение должно быть равно 0,1,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32.
-core_fraction | **int64**<br>Базовый уровень производительности CPU с возможностью повышения производительности выше этого уровня. Это поле устанавливает базовую производительность для каждого ядра. Значение должно быть равно 0,5,20,50,100.
+memory | **int64**<br>Amount of memory available to the node, specified in bytes. The minimum value is 0.
+cores | **int64**<br>Number of cores available to the node. The minimum value is 0.
+core_fraction | **int64**<br>Baseline level of CPU performance with the possibility to burst performance above that baseline level. This field sets baseline performance for each core. Acceptable values are 0 to 100, inclusive.
+gpus | **int64**<br>Number of GPUs available to the node. The minimum value is 0.
 
 
 ### DiskSpec {#DiskSpec2}
 
-Поле | Описание
+Field | Description
 --- | ---
-disk_type_id | **string**<br>Идентификатор типа диска. Значение должно соответствовать регулярному выражению ` |network-ssd|network-hdd `.
-disk_size | **int64**<br>Размер диска в байтах. Допустимые значения — от 0 до 4398046511104 включительно.
+disk_type_id | **string**<br>ID of the disk type. Value must match the regular expression ` |network-ssd|network-hdd `.
+disk_size | **int64**<br>Size of the disk, specified in bytes. Acceptable values are 0 to 4398046511104, inclusive.
 
 
-### NodeAddressSpec {#NodeAddressSpec2}
+### NodeAddressSpec {#NodeAddressSpec4}
 
-Поле | Описание
+Field | Description
 --- | ---
-one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec2)**<br>Конфигурация one-to-one NAT. Настройка one-to-one NAT гарантирует, что узлам будут назначены публичные IP-адреса. Поэтому интернет будет доступен на всех узлах группы узлов. Если поле не задано, NAT не будет настроен. 
+one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec4)**<br>One-to-one NAT configuration. Setting up one-to-one NAT ensures that public IP addresses are assigned to nodes, and therefore internet is accessible for all nodes of the node group. If the field is not set, NAT will not be set up. 
 
 
-### OneToOneNatSpec {#OneToOneNatSpec2}
+### OneToOneNatSpec {#OneToOneNatSpec4}
 
-Поле | Описание
+Field | Description
 --- | ---
-ip_version | enum **IpVersion**<br>Версия IP для публичного IP-адреса. <ul><li>`IPV4`: IPv4-адрес, например 192.168.0.0.</li><li>`IPV6`: IPv6-адрес, на данный момент не доступен.</li><ul/>
+ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
 
 
 ### SchedulingPolicy {#SchedulingPolicy2}
 
-Поле | Описание
+Field | Description
 --- | ---
-preemptible | **bool**<br>Если значение равно `true` — будет создана прерываемая виртуальная машина. Значение по умолчанию: `false`. Прерываемые виртуальные машины будут принудительно остановлены в срок, не превышающий 24 часа с момента их создания. Остановленные виртуальные машины можно запустить повторно, без потери данных. Дополнительные сведения см. в разделе [Preemptible Virtual Machines](/docs/compute/concepts/preemptible-vm). 
+preemptible | **bool**<br>True for preemptible compute instances. Default value is false. Preemptible compute instances are stopped at least once every 24 hours, and can be stopped at any time if their resources are needed by Compute. For more information, see [Preemptible Virtual Machines](/docs/compute/concepts/preemptible-vm). 
+
+
+### NetworkInterfaceSpec {#NetworkInterfaceSpec2}
+
+Field | Description
+--- | ---
+subnet_ids[] | **string**<br>IDs of the subnets. 
+primary_v4_address_spec | **[NodeAddressSpec](#NodeAddressSpec5)**<br>Primary IPv4 address that is assigned to the instance for this network interface. 
+primary_v6_address_spec | **[NodeAddressSpec](#NodeAddressSpec5)**<br>Primary IPv6 address that is assigned to the instance for this network interface. 
+security_group_ids[] | **string**<br>IDs of security groups. 
+
+
+### NodeAddressSpec {#NodeAddressSpec5}
+
+Field | Description
+--- | ---
+one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec5)**<br>One-to-one NAT configuration. Setting up one-to-one NAT ensures that public IP addresses are assigned to nodes, and therefore internet is accessible for all nodes of the node group. If the field is not set, NAT will not be set up. 
+
+
+### OneToOneNatSpec {#OneToOneNatSpec5}
+
+Field | Description
+--- | ---
+ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
+
+
+### PlacementPolicy {#PlacementPolicy2}
+
+Field | Description
+--- | ---
+placement_group_id | **string**<br>Identifier of placement group 
 
 
 ### ScalePolicy {#ScalePolicy2}
 
-Поле | Описание
+Field | Description
 --- | ---
-scale_type | **oneof:** `fixed_scale` или `auto_scale`<br>
-&nbsp;&nbsp;fixed_scale | **[FixedScale](#FixedScale2)**<br>Политика масштабирования группы узлов. 
-&nbsp;&nbsp;auto_scale | **[AutoScale](#AutoScale2)**<br>Политика масштабирования группы узлов. 
+scale_type | **oneof:** `fixed_scale` or `auto_scale`<br>
+&nbsp;&nbsp;fixed_scale | **[FixedScale](#FixedScale2)**<br>Fixed scale policy of the node group. 
+&nbsp;&nbsp;auto_scale | **[AutoScale](#AutoScale2)**<br>Auto scale policy of the node group. 
 
 
 ### FixedScale {#FixedScale2}
 
-Поле | Описание
+Field | Description
 --- | ---
-size | **int64**<br>Количество узлов в группе узлов. Допустимые значения — от 0 до 100 включительно.
+size | **int64**<br>Number of nodes in the node group. Acceptable values are 0 to 100, inclusive.
 
 
 ### AutoScale {#AutoScale2}
 
-Поле | Описание
+Field | Description
 --- | ---
-min_size | **int64**<br>Минимальное количество узлов в группе узлов. Допустимые значения — от 0 до 100 включительно.
-max_size | **int64**<br>Максимальное количество узлов в группе узлов. Допустимые значения — от 0 до 100 включительно.
-initial_size | **int64**<br>Начальный размер группы узлов. Допустимые значения — от 0 до 100 включительно.
+min_size | **int64**<br>Minimum number of nodes in the node group. Acceptable values are 0 to 100, inclusive.
+max_size | **int64**<br>Maximum number of nodes in the node group. Acceptable values are 0 to 100, inclusive.
+initial_size | **int64**<br>Initial number of nodes in the node group. Acceptable values are 0 to 100, inclusive.
 
 
 ### NodeGroupAllocationPolicy {#NodeGroupAllocationPolicy2}
 
-Поле | Описание
+Field | Description
 --- | ---
-locations[] | **[NodeGroupLocation](#NodeGroupLocation2)**<br>Список местоположений (зон доступности и подсетей), в которых будут выделены ресурсы для группы узлов. 
+locations[] | **[NodeGroupLocation](#NodeGroupLocation2)**<br>List of locations where resources for the node group will be allocated. 
 
 
 ### NodeGroupLocation {#NodeGroupLocation2}
 
-Поле | Описание
+Field | Description
 --- | ---
-zone_id | **string**<br>Обязательное поле. Идентификатор зоны доступности, в которой могут находиться узлы. 
-subnet_id | **string**<br>Идентификатор подсети. Если сеть, выбранная для кластера Kubernetes, имеет только одну подсеть в указанной зоне, идентификатор подсети может быть опущен. 
+zone_id | **string**<br>Required. ID of the availability zone where the nodes may reside. 
+subnet_id | **string**<br>ID of the subnet. If a network chosen for the Kubernetes cluster has only one subnet in the specified zone, subnet ID may be omitted. 
+
+
+### DeployPolicy {#DeployPolicy2}
+
+Field | Description
+--- | ---
+max_unavailable | **int64**<br>The maximum number of running instances that can be taken offline (i.e., stopped or deleted) at the same time during the update process. If `max_expansion` is not specified or set to zero, `max_unavailable` must be set to a non-zero value. Acceptable values are 0 to 100, inclusive.
+max_expansion | **int64**<br>The maximum number of instances that can be temporarily allocated above the group's target size during the update process. If `max_unavailable` is not specified or set to zero, `max_expansion` must be set to a non-zero value. Acceptable values are 0 to 100, inclusive.
 
 
 ### NodeGroupMaintenancePolicy {#NodeGroupMaintenancePolicy2}
 
-Поле | Описание
+Field | Description
 --- | ---
-auto_upgrade | **bool**<br>Если установлено значение `true`, автоматическое обновление устанавливается без участия пользователя в заданный промежуток времени. Если установлено значение `false`, автоматическое обновление отключено. 
-auto_repair | **bool**<br>Если установлено значение `true`, автоматическое восстановление включено. Значение по умолчанию: `false`. 
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow2)**<br>Настройки окна обновления. Обновление начнется в указанное время и продлится не более указанного времени. Время устанавливается в формате UTC. 
+auto_upgrade | **bool**<br>If set to true, automatic updates are installed in the specified period of time with no interaction from the user. If set to false, automatic upgrades are disabled. 
+auto_repair | **bool**<br>If set to true, automatic repairs are enabled. Default value is false. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow2)**<br>Maintenance window settings. Update will start at the specified time and last no more than the specified duration. The time is set in UTC. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow2}
 
-Поле | Описание
+Field | Description
 --- | ---
-policy | **oneof:** `anytime`, `daily_maintenance_window` или `weekly_maintenance_window`<br>Политика обновления.
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow2)**<br>Обновление мастера в любое время. 
-&nbsp;&nbsp;daily_maintenance_window | **[DailyMaintenanceWindow](#DailyMaintenanceWindow2)**<br>Обновление мастера в любой день в течение указанного временного окна. 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow2)**<br>Обновление мастера в выбранные дни в течение указанного временного окна. 
+policy | **oneof:** `anytime`, `daily_maintenance_window` or `weekly_maintenance_window`<br>Maintenance policy.
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow2)**<br>Updating the master at any time. 
+&nbsp;&nbsp;daily_maintenance_window | **[DailyMaintenanceWindow](#DailyMaintenanceWindow2)**<br>Updating the master on any day during the specified time window. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow2)**<br>Updating the master on selected days during the specified time window. 
 
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow2}
@@ -531,189 +685,243 @@ policy | **oneof:** `anytime`, `daily_maintenance_window` или `weekly_mainten
 
 ### DailyMaintenanceWindow {#DailyMaintenanceWindow2}
 
-Поле | Описание
+Field | Description
 --- | ---
-start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Обязательное поле. Время начала окна обновлений, указывается в часовом поясе UTC. 
-duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Длительность окна обновлений. Допустимые значения — от 1h до 24h включительно.
+start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required. Window start time, in the UTC timezone. 
+duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Window duration. Acceptable values are 1h to 24h, inclusive.
 
 
 ### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow2}
 
-Поле | Описание
+Field | Description
 --- | ---
-days_of_week[] | **[DaysOfWeekMaintenanceWindow](#DaysOfWeekMaintenanceWindow2)**<br>Дни недели и окно обновлений для этих дней, когда разрешены автоматические обновления. Количество элементов должно находиться в диапазоне от 1 до 7.
+days_of_week[] | **[DaysOfWeekMaintenanceWindow](#DaysOfWeekMaintenanceWindow2)**<br>Days of the week and the maintenance window for these days when automatic updates are allowed. The number of elements must be in the range 1-7.
 
 
 ### DaysOfWeekMaintenanceWindow {#DaysOfWeekMaintenanceWindow2}
 
-Поле | Описание
+Field | Description
 --- | ---
-days[] | **google.type.DayOfWeek**<br>Дни недели, когда разрешены автоматические обновления. Количество элементов должно находиться в диапазоне от 1 до 7.
-start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Обязательное поле. Время начала окна обновлений, указывается в часовом поясе UTC. 
-duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Длительность окна обновлений. Допустимые значения — от 1h до 24h включительно.
+days[] | **google.type.DayOfWeek**<br>Days of the week when automatic updates are allowed. The number of elements must be in the range 1-7.
+start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required. Window start time, in the UTC timezone. 
+duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Window duration. Acceptable values are 1h to 24h, inclusive.
+
+
+### Taint {#Taint2}
+
+Field | Description
+--- | ---
+key | **string**<br>The taint key to be applied to a node. 
+value | **string**<br>The taint value corresponding to the taint key. 
+effect | enum **Effect**<br>The effect of the taint on pods that do not tolerate the taint. <ul><li>`NO_SCHEDULE`: Do not allow new pods to schedule onto the node unless they tolerate the taint, but allow all pods submitted to Kubelet without going through the scheduler to start, and allow all already-running pods to continue running.</li><li>`PREFER_NO_SCHEDULE`: Like NO_SCHEDULE, but the scheduler tries not to schedule new pods onto the node, rather than prohibiting new pods from scheduling onto the node entirely. Enforced by the scheduler.</li><li>`NO_EXECUTE`: Evict any already-running pods that do not tolerate the taint.</li><ul/>
 
 
 ### Operation {#Operation}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateNodeGroupMetadata](#CreateNodeGroupMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[NodeGroup](#NodeGroup2)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateNodeGroupMetadata](#CreateNodeGroupMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[NodeGroup](#NodeGroup2)>**<br>if operation finished successfully. 
 
 
 ### CreateNodeGroupMetadata {#CreateNodeGroupMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-node_group_id | **string**<br>Идентификатор создаваемой группы узлов. 
+node_group_id | **string**<br>ID of the node group that is being created. 
 
 
 ### NodeGroup {#NodeGroup2}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор группы узлов. 
-cluster_id | **string**<br>Идентификатор кластера, к которому принадлежит группа узлов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания. 
-name | **string**<br>Новое имя группы узлов. Имя уникально в рамках каталога. 
-description | **string**<br>Новое описание группы узлов. Длина описания должна быть от 0 до 256 символов. 
-labels | **map<string,string>**<br>Метки ресурса в формате `key:value`. Максимум 64 метки на ресурс. 
-status | enum **Status**<br>Статус группы узлов. <ul><li>`PROVISIONING`: Группа узлов ожидает выделения ресурсов.</li><li>`RUNNING`: Группа узлов запущена.</li><li>`RECONCILING`: Группа узлов ожидает выполнения некоторых работ, например, обновления программного обеспечения узла.</li><li>`STOPPING`: Группа узлов останавливается.</li><li>`STOPPED`: Группа узлов остановлена.</li><li>`DELETING`: Группа узлов удаляется.</li><li>`STARTING`: Группа узлов запускается.</li><ul/>
-node_template | **[NodeTemplate](#NodeTemplate3)**<br>Шаблон узла, задающий параметры вычислительных экземпляров для группы узлов. 
-scale_policy | **[ScalePolicy](#ScalePolicy3)**<br>Политика масштабирования группы узлов. Дополнительные сведения см. в разделе [Scaling policy](/docs/compute/concepts/instance-groups/policies#scale-policy). 
-allocation_policy | **[NodeGroupAllocationPolicy](#NodeGroupAllocationPolicy3)**<br>Политика распределения, с помощью которой ресурсы для групп узлов распределяются по зонам и регионам. 
-instance_group_id | **string**<br>Идентификатор группы виртуальных машин, связанной с этой группой узлов. 
-node_version | **string**<br>Версия компонентов Kubernetes, которая запущена на узлах. Устарел. Используйте version_info.current_version. 
-version_info | **[VersionInfo](#VersionInfo2)**<br>Подробная информация о версии Kubernetes, которая запущена на мастере. 
-maintenance_policy | **[NodeGroupMaintenancePolicy](#NodeGroupMaintenancePolicy3)**<br>Политика обновления группы узлов. 
-allowed_unsafe_sysctls[] | **string**<br>Поддержка параметров unsafe sysctl. Дополнительные сведения см. в [documentation](https://kubernetes.io/docs/tasks/administer-cluster/sysctl-cluster/). 
+id | **string**<br>ID of the node group. 
+cluster_id | **string**<br>ID of the cluster that the node group belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+name | **string**<br>Name of the node group. The name is unique within the folder. 
+description | **string**<br>Description of the node group. 0-256 characters long. 
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
+status | enum **Status**<br>Status of the node group. <ul><li>`PROVISIONING`: Node group is waiting for resources to be allocated.</li><li>`RUNNING`: Node group is running.</li><li>`RECONCILING`: Node group is waiting for some work to be done, such as upgrading node software.</li><li>`STOPPING`: Node group is being stopped.</li><li>`STOPPED`: Node group stopped.</li><li>`DELETING`: Node group is being deleted.</li><li>`STARTING`: Node group is being started.</li><ul/>
+node_template | **[NodeTemplate](#NodeTemplate3)**<br>Node template that specifies parameters of the compute instances for the node group. 
+scale_policy | **[ScalePolicy](#ScalePolicy3)**<br>Scale policy of the node group.  For more information, see [Scaling policy](/docs/compute/concepts/instance-groups/policies#scale-policy). 
+allocation_policy | **[NodeGroupAllocationPolicy](#NodeGroupAllocationPolicy3)**<br>Allocation policy by which resources for node group are allocated to zones and regions. 
+deploy_policy | **[DeployPolicy](#DeployPolicy3)**<br>Deploy policy according to which the updates are rolled out. 
+instance_group_id | **string**<br>ID of the managed instance group associated with this node group. 
+node_version | **string**<br>Version of Kubernetes components that runs on the nodes. Deprecated. Use version_info.current_version. 
+version_info | **[VersionInfo](#VersionInfo2)**<br>Detailed information about the Kubernetes version that is running on the node. 
+maintenance_policy | **[NodeGroupMaintenancePolicy](#NodeGroupMaintenancePolicy3)**<br>Maintenance policy of the node group. 
+allowed_unsafe_sysctls[] | **string**<br>Support for unsafe sysctl parameters. For more details see [documentation](https://kubernetes.io/docs/tasks/administer-cluster/sysctl-cluster/). 
+node_taints[] | **[Taint](#Taint3)**<br>Taints that are applied to the nodes of the node group at creation time. 
+node_labels | **map<string,string>**<br>Labels that are assigned to the nodes of the node group at creation time. 
 
 
 ### NodeTemplate {#NodeTemplate3}
 
-Поле | Описание
+Field | Description
 --- | ---
-platform_id | **string**<br>Идентификатор аппаратной платформы виртуальной машины. 
-resources_spec | **[ResourcesSpec](#ResourcesSpec3)**<br>Вычислительные ресурсы узла, такие как объем памяти и количество ядер. 
-boot_disk_spec | **[DiskSpec](#DiskSpec3)**<br>Спецификация загрузочного диска, который будет подключен к узлу. 
-metadata | **map<string,string>**<br>Метаданные, назначаемые этому шаблону виртуальной машины, в формате ``key:value``. Сюда входят пользовательские метаданные и предопределенные ключи. <br>Например, вы можете использовать метаданные для предоставления вашего открытого SSH-ключа узлу. Дополнительные сведения см. в разделе [Metadata](/docs/compute/concepts/vm-metadata). Не более 128 на ресурс. Максимальная длина строки в символах для каждого значения — 262144. Длина строки в символах для каждого ключа должна быть от 1 до 63. Каждый ключ должен соответствовать регулярному выражению ` [a-z][-_0-9a-z]* `.
-v4_address_spec | **[NodeAddressSpec](#NodeAddressSpec3)**<br>Спецификация для создания сетевых интерфейсов для вычислительных экземпляров группы узлов. 
-scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy3)**<br>Политика планирования. 
+platform_id | **string**<br>ID of the hardware platform configuration for the node. 
+resources_spec | **[ResourcesSpec](#ResourcesSpec3)**<br>Computing resources of the node such as the amount of memory and number of cores. 
+boot_disk_spec | **[DiskSpec](#DiskSpec3)**<br>Specification for the boot disk that will be attached to the node. 
+metadata | **map<string,string>**<br>The metadata as `key:value` pairs assigned to this instance template. This includes custom metadata and predefined keys. <br>For example, you may use the metadata in order to provide your public SSH key to the node. For more information, see [Metadata](/docs/compute/concepts/vm-metadata). No more than 64 per resource. The maximum string length in characters for each value is 131072. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+v4_address_spec | **[NodeAddressSpec](#NodeAddressSpec6)**<br>Specification for the create network interfaces for the node group compute instances. Deprecated, please use network_interface_specs. 
+scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy3)**<br>Scheduling policy configuration. 
+network_interface_specs[] | **[NetworkInterfaceSpec](#NetworkInterfaceSpec3)**<br>New api, to specify network interfaces for the node group compute instances. Can not be used together with 'v4_address_spec' 
+placement_policy | **[PlacementPolicy](#PlacementPolicy3)**<br> 
 
 
 ### ResourcesSpec {#ResourcesSpec3}
 
-Поле | Описание
+Field | Description
 --- | ---
-memory | **int64**<br>Объем памяти в байтах, доступный виртуальной машине. Допустимые значения — от 0 до 274877906944 включительно.
-cores | **int64**<br>Количество ядер, доступное узлу. Значение должно быть равно 0,1,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32.
-core_fraction | **int64**<br>Базовый уровень производительности CPU с возможностью повышения производительности выше этого уровня. Это поле устанавливает базовую производительность для каждого ядра. Значение должно быть равно 0,5,20,50,100.
+memory | **int64**<br>Amount of memory available to the node, specified in bytes. The minimum value is 0.
+cores | **int64**<br>Number of cores available to the node. The minimum value is 0.
+core_fraction | **int64**<br>Baseline level of CPU performance with the possibility to burst performance above that baseline level. This field sets baseline performance for each core. Acceptable values are 0 to 100, inclusive.
+gpus | **int64**<br>Number of GPUs available to the node. The minimum value is 0.
 
 
 ### DiskSpec {#DiskSpec3}
 
-Поле | Описание
+Field | Description
 --- | ---
-disk_type_id | **string**<br>Идентификатор типа диска. Значение должно соответствовать регулярному выражению ` |network-ssd|network-hdd `.
-disk_size | **int64**<br>Размер диска в байтах. Допустимые значения — от 0 до 4398046511104 включительно.
+disk_type_id | **string**<br>ID of the disk type. Value must match the regular expression ` |network-ssd|network-hdd `.
+disk_size | **int64**<br>Size of the disk, specified in bytes. Acceptable values are 0 to 4398046511104, inclusive.
 
 
-### NodeAddressSpec {#NodeAddressSpec3}
+### NodeAddressSpec {#NodeAddressSpec6}
 
-Поле | Описание
+Field | Description
 --- | ---
-one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec3)**<br>Конфигурация one-to-one NAT. Настройка one-to-one NAT гарантирует, что узлам будут назначены публичные IP-адреса. Поэтому интернет будет доступен на всех узлах группы узлов. Если поле не задано, NAT не будет настроен. 
+one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec6)**<br>One-to-one NAT configuration. Setting up one-to-one NAT ensures that public IP addresses are assigned to nodes, and therefore internet is accessible for all nodes of the node group. If the field is not set, NAT will not be set up. 
 
 
-### OneToOneNatSpec {#OneToOneNatSpec3}
+### OneToOneNatSpec {#OneToOneNatSpec6}
 
-Поле | Описание
+Field | Description
 --- | ---
-ip_version | enum **IpVersion**<br>Версия IP для публичного IP-адреса. <ul><li>`IPV4`: IPv4-адрес, например 192.168.0.0.</li><li>`IPV6`: IPv6-адрес, на данный момент не доступен.</li><ul/>
+ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
 
 
 ### SchedulingPolicy {#SchedulingPolicy3}
 
-Поле | Описание
+Field | Description
 --- | ---
-preemptible | **bool**<br>Если значение равно `true` — будет создана прерываемая виртуальная машина. Значение по умолчанию: `false`. Прерываемые виртуальные машины будут принудительно остановлены в срок, не превышающий 24 часа с момента их создания. Остановленные виртуальные машины можно запустить повторно, без потери данных. Дополнительные сведения см. в разделе [Preemptible Virtual Machines](/docs/compute/concepts/preemptible-vm). 
+preemptible | **bool**<br>True for preemptible compute instances. Default value is false. Preemptible compute instances are stopped at least once every 24 hours, and can be stopped at any time if their resources are needed by Compute. For more information, see [Preemptible Virtual Machines](/docs/compute/concepts/preemptible-vm). 
+
+
+### NetworkInterfaceSpec {#NetworkInterfaceSpec3}
+
+Field | Description
+--- | ---
+subnet_ids[] | **string**<br>IDs of the subnets. 
+primary_v4_address_spec | **[NodeAddressSpec](#NodeAddressSpec7)**<br>Primary IPv4 address that is assigned to the instance for this network interface. 
+primary_v6_address_spec | **[NodeAddressSpec](#NodeAddressSpec7)**<br>Primary IPv6 address that is assigned to the instance for this network interface. 
+security_group_ids[] | **string**<br>IDs of security groups. 
+
+
+### NodeAddressSpec {#NodeAddressSpec7}
+
+Field | Description
+--- | ---
+one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec7)**<br>One-to-one NAT configuration. Setting up one-to-one NAT ensures that public IP addresses are assigned to nodes, and therefore internet is accessible for all nodes of the node group. If the field is not set, NAT will not be set up. 
+
+
+### OneToOneNatSpec {#OneToOneNatSpec7}
+
+Field | Description
+--- | ---
+ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
+
+
+### PlacementPolicy {#PlacementPolicy3}
+
+Field | Description
+--- | ---
+placement_group_id | **string**<br>Identifier of placement group 
 
 
 ### ScalePolicy {#ScalePolicy3}
 
-Поле | Описание
+Field | Description
 --- | ---
-scale_type | **oneof:** `fixed_scale` или `auto_scale`<br>
-&nbsp;&nbsp;fixed_scale | **[FixedScale](#FixedScale3)**<br>Политика масштабирования группы узлов. 
-&nbsp;&nbsp;auto_scale | **[AutoScale](#AutoScale3)**<br>Политика масштабирования группы узлов. 
+scale_type | **oneof:** `fixed_scale` or `auto_scale`<br>
+&nbsp;&nbsp;fixed_scale | **[FixedScale](#FixedScale3)**<br>Fixed scale policy of the node group. 
+&nbsp;&nbsp;auto_scale | **[AutoScale](#AutoScale3)**<br>Auto scale policy of the node group. 
 
 
 ### FixedScale {#FixedScale3}
 
-Поле | Описание
+Field | Description
 --- | ---
-size | **int64**<br>Количество узлов в группе узлов. Допустимые значения — от 0 до 100 включительно.
+size | **int64**<br>Number of nodes in the node group. Acceptable values are 0 to 100, inclusive.
 
 
 ### AutoScale {#AutoScale3}
 
-Поле | Описание
+Field | Description
 --- | ---
-min_size | **int64**<br>Минимальное количество узлов в группе узлов. Допустимые значения — от 0 до 100 включительно.
-max_size | **int64**<br>Максимальное количество узлов в группе узлов. Допустимые значения — от 0 до 100 включительно.
-initial_size | **int64**<br>Начальный размер группы узлов. Допустимые значения — от 0 до 100 включительно.
+min_size | **int64**<br>Minimum number of nodes in the node group. Acceptable values are 0 to 100, inclusive.
+max_size | **int64**<br>Maximum number of nodes in the node group. Acceptable values are 0 to 100, inclusive.
+initial_size | **int64**<br>Initial number of nodes in the node group. Acceptable values are 0 to 100, inclusive.
 
 
 ### NodeGroupAllocationPolicy {#NodeGroupAllocationPolicy3}
 
-Поле | Описание
+Field | Description
 --- | ---
-locations[] | **[NodeGroupLocation](#NodeGroupLocation3)**<br>Список местоположений (зон доступности и подсетей), в которых будут выделены ресурсы для группы узлов. 
+locations[] | **[NodeGroupLocation](#NodeGroupLocation3)**<br>List of locations where resources for the node group will be allocated. 
 
 
 ### NodeGroupLocation {#NodeGroupLocation3}
 
-Поле | Описание
+Field | Description
 --- | ---
-zone_id | **string**<br>Обязательное поле. Идентификатор зоны доступности, в которой могут находиться узлы. 
-subnet_id | **string**<br>Идентификатор подсети. Если сеть, выбранная для кластера Kubernetes, имеет только одну подсеть в указанной зоне, идентификатор подсети может быть опущен. 
+zone_id | **string**<br>Required. ID of the availability zone where the nodes may reside. 
+subnet_id | **string**<br>ID of the subnet. If a network chosen for the Kubernetes cluster has only one subnet in the specified zone, subnet ID may be omitted. 
+
+
+### DeployPolicy {#DeployPolicy3}
+
+Field | Description
+--- | ---
+max_unavailable | **int64**<br>The maximum number of running instances that can be taken offline (i.e., stopped or deleted) at the same time during the update process. If `max_expansion` is not specified or set to zero, `max_unavailable` must be set to a non-zero value. Acceptable values are 0 to 100, inclusive.
+max_expansion | **int64**<br>The maximum number of instances that can be temporarily allocated above the group's target size during the update process. If `max_unavailable` is not specified or set to zero, `max_expansion` must be set to a non-zero value. Acceptable values are 0 to 100, inclusive.
 
 
 ### VersionInfo {#VersionInfo2}
 
-Поле | Описание
+Field | Description
 --- | ---
-current_version | **string**<br>Текущая версия Kubernetes, формат: major.minor (например, 1.15). 
-new_revision_available | **bool**<br>Новые версии могут включать патчи Kubernetes (например, 1.15.1 -> 1.15.2), а также некоторые обновления внутренних компонентов — новые функции или исправления ошибок в конкретных компонентах Яндекса на мастере или на узлах. 
-new_revision_summary | **string**<br>Описание изменений, которые будут применены при обновлении до последней версии. Пусто, если поле `new_revision_available` имеет значение `false`. 
-version_deprecated | **bool**<br>Текущая версия устарела, компонент кластера Kubernetes (мастер или группа узлов) должен быть обновлен. 
+current_version | **string**<br>Current Kubernetes version, format: major.minor (e.g. 1.15). 
+new_revision_available | **bool**<br>Newer revisions may include Kubernetes patches (e.g 1.15.1 -> 1.15.2) as well as some internal component updates - new features or bug fixes in Yandex specific components either on the master or nodes. 
+new_revision_summary | **string**<br>Description of the changes to be applied when updating to the latest revision. Empty if new_revision_available is false. 
+version_deprecated | **bool**<br>The current version is on the deprecation schedule, component (master or node group) should be upgraded. 
 
 
 ### NodeGroupMaintenancePolicy {#NodeGroupMaintenancePolicy3}
 
-Поле | Описание
+Field | Description
 --- | ---
-auto_upgrade | **bool**<br>Если установлено значение `true`, автоматическое обновление устанавливается без участия пользователя в заданный промежуток времени. Если установлено значение `false`, автоматическое обновление отключено. 
-auto_repair | **bool**<br>Если установлено значение `true`, автоматическое восстановление включено. Значение по умолчанию: `false`. 
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow3)**<br>Настройки окна обновления. Обновление начнется в указанное время и продлится не более указанного времени. Время устанавливается в формате UTC. 
+auto_upgrade | **bool**<br>If set to true, automatic updates are installed in the specified period of time with no interaction from the user. If set to false, automatic upgrades are disabled. 
+auto_repair | **bool**<br>If set to true, automatic repairs are enabled. Default value is false. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow3)**<br>Maintenance window settings. Update will start at the specified time and last no more than the specified duration. The time is set in UTC. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow3}
 
-Поле | Описание
+Field | Description
 --- | ---
-policy | **oneof:** `anytime`, `daily_maintenance_window` или `weekly_maintenance_window`<br>Политика обновления.
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow3)**<br>Обновление мастера в любое время. 
-&nbsp;&nbsp;daily_maintenance_window | **[DailyMaintenanceWindow](#DailyMaintenanceWindow3)**<br>Обновление мастера в любой день в течение указанного временного окна. 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow3)**<br>Обновление мастера в выбранные дни в течение указанного временного окна. 
+policy | **oneof:** `anytime`, `daily_maintenance_window` or `weekly_maintenance_window`<br>Maintenance policy.
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow3)**<br>Updating the master at any time. 
+&nbsp;&nbsp;daily_maintenance_window | **[DailyMaintenanceWindow](#DailyMaintenanceWindow3)**<br>Updating the master on any day during the specified time window. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow3)**<br>Updating the master on selected days during the specified time window. 
 
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow3}
@@ -722,171 +930,225 @@ policy | **oneof:** `anytime`, `daily_maintenance_window` или `weekly_mainten
 
 ### DailyMaintenanceWindow {#DailyMaintenanceWindow3}
 
-Поле | Описание
+Field | Description
 --- | ---
-start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Обязательное поле. Время начала окна обновлений, указывается в часовом поясе UTC. 
-duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Длительность окна обновлений. Допустимые значения — от 1h до 24h включительно.
+start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required. Window start time, in the UTC timezone. 
+duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Window duration. Acceptable values are 1h to 24h, inclusive.
 
 
 ### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow3}
 
-Поле | Описание
+Field | Description
 --- | ---
-days_of_week[] | **[DaysOfWeekMaintenanceWindow](#DaysOfWeekMaintenanceWindow3)**<br>Дни недели и окно обновлений для этих дней, когда разрешены автоматические обновления. Количество элементов должно находиться в диапазоне от 1 до 7.
+days_of_week[] | **[DaysOfWeekMaintenanceWindow](#DaysOfWeekMaintenanceWindow3)**<br>Days of the week and the maintenance window for these days when automatic updates are allowed. The number of elements must be in the range 1-7.
 
 
 ### DaysOfWeekMaintenanceWindow {#DaysOfWeekMaintenanceWindow3}
 
-Поле | Описание
+Field | Description
 --- | ---
-days[] | **google.type.DayOfWeek**<br>Дни недели, когда разрешены автоматические обновления. Количество элементов должно находиться в диапазоне от 1 до 7.
-start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Обязательное поле. Время начала окна обновлений, указывается в часовом поясе UTC. 
-duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Длительность окна обновлений. Допустимые значения — от 1h до 24h включительно.
+days[] | **google.type.DayOfWeek**<br>Days of the week when automatic updates are allowed. The number of elements must be in the range 1-7.
+start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required. Window start time, in the UTC timezone. 
+duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Window duration. Acceptable values are 1h to 24h, inclusive.
+
+
+### Taint {#Taint3}
+
+Field | Description
+--- | ---
+key | **string**<br>The taint key to be applied to a node. 
+value | **string**<br>The taint value corresponding to the taint key. 
+effect | enum **Effect**<br>The effect of the taint on pods that do not tolerate the taint. <ul><li>`NO_SCHEDULE`: Do not allow new pods to schedule onto the node unless they tolerate the taint, but allow all pods submitted to Kubelet without going through the scheduler to start, and allow all already-running pods to continue running.</li><li>`PREFER_NO_SCHEDULE`: Like NO_SCHEDULE, but the scheduler tries not to schedule new pods onto the node, rather than prohibiting new pods from scheduling onto the node entirely. Enforced by the scheduler.</li><li>`NO_EXECUTE`: Evict any already-running pods that do not tolerate the taint.</li><ul/>
 
 
 ## Update {#Update}
 
-Изменяет указанную группу узлов.
+Updates the specified node group.
 
 **rpc Update ([UpdateNodeGroupRequest](#UpdateNodeGroupRequest)) returns ([operation.Operation](#Operation1))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateNodeGroupMetadata](#UpdateNodeGroupMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[NodeGroup](#NodeGroup3)<br>
 
 ### UpdateNodeGroupRequest {#UpdateNodeGroupRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-node_group_id | **string**<br>Обязательное поле. Идентификатор изменяемой группы узлов. Чтобы получить идентификатор группы узлов, используйте запрос [NodeGroupService.List](#List). 
-update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Маска, определяющая, какие поля группы узлов будут изменены. 
-name | **string**<br>Новое имя группы узлов. Имя должно быть уникальным в каталоге. Значение должно соответствовать регулярному выражению ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
-description | **string**<br>Новое описание группы узлов. Максимальная длина строки в символах — 256.
-labels | **map<string,string>**<br>Метки ресурса в формате `key:value`. <br>Существующий набор `labels` полностью перезаписывается набором, переданным в запросе. Не более 64 на ресурс. Максимальная длина строки в символах для каждого значения — 63. Каждое значение должно соответствовать регулярному выражению ` [-_0-9a-z]* `. Длина строки в символах для каждого ключа должна быть от 1 до 63. Каждый ключ должен соответствовать регулярному выражению ` [a-z][-_0-9a-z]* `.
-node_template | **[NodeTemplate](#NodeTemplate4)**<br>Шаблон узла для создания группы узлов. Изменение может вызвать перезагрузку или повторное создание узлов. 
-scale_policy | **[ScalePolicy](#ScalePolicy4)**<br>Политика масштабирования группы узлов. 
-allocation_policy | **[NodeGroupAllocationPolicy](#NodeGroupAllocationPolicy4)**<br>Политика распределения группы узлов по зонам и регионам. 
-version | **[UpdateVersionSpec](#UpdateVersionSpec)**<br>Версия компонентов Kubernetes, которая запущена на узлах. 
-maintenance_policy | **[NodeGroupMaintenancePolicy](#NodeGroupMaintenancePolicy4)**<br>Политика обновления группы узлов. 
-allowed_unsafe_sysctls[] | **string**<br>Поддержка параметров unsafe sysctl. Дополнительные сведения см. в [документации](https://kubernetes.io/docs/tasks/administer-cluster/sysctl-cluster/). 
+node_group_id | **string**<br>Required. ID of the node group to update. To get the node group ID use a [NodeGroupService.List](#List) request. 
+update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the node group are going to be updated. 
+name | **string**<br>Name of the node group. The name must be unique within the folder. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
+description | **string**<br>Description of the node group. The maximum string length in characters is 256.
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. <br>Existing set of `labels` is completely replaced by the provided set. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
+node_template | **[NodeTemplate](#NodeTemplate4)**<br>Node template for the node group. Change may trigger nodes rolling reboot or recreate. 
+scale_policy | **[ScalePolicy](#ScalePolicy4)**<br>Scale policy of the node group. 
+allocation_policy | **[NodeGroupAllocationPolicy](#NodeGroupAllocationPolicy4)**<br>Allocation policy of the node group by the zones and regions. 
+deploy_policy | **[DeployPolicy](#DeployPolicy4)**<br>Deploy policy according to which the updates are rolled out. If not specified, the default is used. 
+version | **[UpdateVersionSpec](#UpdateVersionSpec)**<br>Version of Kubernetes components that runs on the nodes. 
+maintenance_policy | **[NodeGroupMaintenancePolicy](#NodeGroupMaintenancePolicy4)**<br>Maintenance policy of the node group. 
+allowed_unsafe_sysctls[] | **string**<br>Support for unsafe sysctl parameters. For more details see [documentation](https://kubernetes.io/docs/tasks/administer-cluster/sysctl-cluster/). The maximum string length in characters for each value is 253. Each value must match the regular expression ` ([a-z0-9]([-_a-z0-9]*[a-z0-9])?\\.)*([a-z0-9][-_a-z0-9]*)?[a-z0-9*] `.
+node_taints[] | **[Taint](#Taint4)**<br>Taints that are applied to the nodes of the node group at creation time. 
+node_labels | **map<string,string>**<br>Labels that are assigned to the nodes of the node group at creation time. 
 
 
 ### NodeTemplate {#NodeTemplate4}
 
-Поле | Описание
+Field | Description
 --- | ---
-platform_id | **string**<br>Идентификатор аппаратной платформы виртуальной машины. 
-resources_spec | **[ResourcesSpec](#ResourcesSpec4)**<br>Вычислительные ресурсы узла, такие как объем памяти и количество ядер. 
-boot_disk_spec | **[DiskSpec](#DiskSpec4)**<br>Спецификация загрузочного диска, который будет подключен к узлу. 
-metadata | **map<string,string>**<br>Метаданные, назначаемые этому шаблону виртуальной машины, в формате ``key:value``. Сюда входят пользовательские метаданные и предопределенные ключи. <br>Например, вы можете использовать метаданные для предоставления вашего открытого SSH-ключа узлу. Дополнительные сведения см. в разделе [Metadata](/docs/compute/concepts/vm-metadata). Не более 128 на ресурс. Максимальная длина строки в символах для каждого значения — 262144. Длина строки в символах для каждого ключа должна быть от 1 до 63. Каждый ключ должен соответствовать регулярному выражению ` [a-z][-_0-9a-z]* `.
-v4_address_spec | **[NodeAddressSpec](#NodeAddressSpec4)**<br>Спецификация для создания сетевых интерфейсов для вычислительных экземпляров группы узлов. 
-scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy4)**<br>Политика планирования. 
+platform_id | **string**<br>ID of the hardware platform configuration for the node. 
+resources_spec | **[ResourcesSpec](#ResourcesSpec4)**<br>Computing resources of the node such as the amount of memory and number of cores. 
+boot_disk_spec | **[DiskSpec](#DiskSpec4)**<br>Specification for the boot disk that will be attached to the node. 
+metadata | **map<string,string>**<br>The metadata as `key:value` pairs assigned to this instance template. This includes custom metadata and predefined keys. <br>For example, you may use the metadata in order to provide your public SSH key to the node. For more information, see [Metadata](/docs/compute/concepts/vm-metadata). No more than 64 per resource. The maximum string length in characters for each value is 131072. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+v4_address_spec | **[NodeAddressSpec](#NodeAddressSpec8)**<br>Specification for the create network interfaces for the node group compute instances. Deprecated, please use network_interface_specs. 
+scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy4)**<br>Scheduling policy configuration. 
+network_interface_specs[] | **[NetworkInterfaceSpec](#NetworkInterfaceSpec4)**<br>New api, to specify network interfaces for the node group compute instances. Can not be used together with 'v4_address_spec' 
+placement_policy | **[PlacementPolicy](#PlacementPolicy4)**<br> 
 
 
 ### ResourcesSpec {#ResourcesSpec4}
 
-Поле | Описание
+Field | Description
 --- | ---
-memory | **int64**<br>Объем памяти в байтах, доступный виртуальной машине. Допустимые значения — от 0 до 274877906944 включительно.
-cores | **int64**<br>Количество ядер, доступное узлу. Значение должно быть равно 0,1,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32.
-core_fraction | **int64**<br>Базовый уровень производительности CPU с возможностью повышения производительности выше этого уровня. Это поле устанавливает базовую производительность для каждого ядра. Значение должно быть равно 0,5,20,50,100.
+memory | **int64**<br>Amount of memory available to the node, specified in bytes. The minimum value is 0.
+cores | **int64**<br>Number of cores available to the node. The minimum value is 0.
+core_fraction | **int64**<br>Baseline level of CPU performance with the possibility to burst performance above that baseline level. This field sets baseline performance for each core. Acceptable values are 0 to 100, inclusive.
+gpus | **int64**<br>Number of GPUs available to the node. The minimum value is 0.
 
 
 ### DiskSpec {#DiskSpec4}
 
-Поле | Описание
+Field | Description
 --- | ---
-disk_type_id | **string**<br>Идентификатор типа диска. Значение должно соответствовать регулярному выражению ` |network-ssd|network-hdd `.
-disk_size | **int64**<br>Размер диска в байтах. Допустимые значения — от 0 до 4398046511104 включительно.
+disk_type_id | **string**<br>ID of the disk type. Value must match the regular expression ` |network-ssd|network-hdd `.
+disk_size | **int64**<br>Size of the disk, specified in bytes. Acceptable values are 0 to 4398046511104, inclusive.
 
 
-### NodeAddressSpec {#NodeAddressSpec4}
+### NodeAddressSpec {#NodeAddressSpec8}
 
-Поле | Описание
+Field | Description
 --- | ---
-one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec4)**<br>Конфигурация one-to-one NAT. Настройка one-to-one NAT гарантирует, что узлам будут назначены публичные IP-адреса. Поэтому интернет будет доступен на всех узлах группы узлов. Если поле не задано, NAT не будет настроен. 
+one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec8)**<br>One-to-one NAT configuration. Setting up one-to-one NAT ensures that public IP addresses are assigned to nodes, and therefore internet is accessible for all nodes of the node group. If the field is not set, NAT will not be set up. 
 
 
-### OneToOneNatSpec {#OneToOneNatSpec4}
+### OneToOneNatSpec {#OneToOneNatSpec8}
 
-Поле | Описание
+Field | Description
 --- | ---
-ip_version | enum **IpVersion**<br>Версия IP для публичного IP-адреса. <ul><li>`IPV4`: IPv4-адрес, например 192.168.0.0.</li><li>`IPV6`: IPv6-адрес, на данный момент не доступен.</li><ul/>
+ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
 
 
 ### SchedulingPolicy {#SchedulingPolicy4}
 
-Поле | Описание
+Field | Description
 --- | ---
-preemptible | **bool**<br>Если значение равно `true` — будет создана прерываемая виртуальная машина. Значение по умолчанию: `false`. Прерываемые виртуальные машины будут принудительно остановлены в срок, не превышающий 24 часа с момента их создания. Остановленные виртуальные машины можно запустить повторно, без потери данных. Дополнительные сведения см. в разделе [Preemptible Virtual Machines](/docs/compute/concepts/preemptible-vm). 
+preemptible | **bool**<br>True for preemptible compute instances. Default value is false. Preemptible compute instances are stopped at least once every 24 hours, and can be stopped at any time if their resources are needed by Compute. For more information, see [Preemptible Virtual Machines](/docs/compute/concepts/preemptible-vm). 
+
+
+### NetworkInterfaceSpec {#NetworkInterfaceSpec4}
+
+Field | Description
+--- | ---
+subnet_ids[] | **string**<br>IDs of the subnets. 
+primary_v4_address_spec | **[NodeAddressSpec](#NodeAddressSpec9)**<br>Primary IPv4 address that is assigned to the instance for this network interface. 
+primary_v6_address_spec | **[NodeAddressSpec](#NodeAddressSpec9)**<br>Primary IPv6 address that is assigned to the instance for this network interface. 
+security_group_ids[] | **string**<br>IDs of security groups. 
+
+
+### NodeAddressSpec {#NodeAddressSpec9}
+
+Field | Description
+--- | ---
+one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec9)**<br>One-to-one NAT configuration. Setting up one-to-one NAT ensures that public IP addresses are assigned to nodes, and therefore internet is accessible for all nodes of the node group. If the field is not set, NAT will not be set up. 
+
+
+### OneToOneNatSpec {#OneToOneNatSpec9}
+
+Field | Description
+--- | ---
+ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
+
+
+### PlacementPolicy {#PlacementPolicy4}
+
+Field | Description
+--- | ---
+placement_group_id | **string**<br>Identifier of placement group 
 
 
 ### ScalePolicy {#ScalePolicy4}
 
-Поле | Описание
+Field | Description
 --- | ---
-scale_type | **oneof:** `fixed_scale` или `auto_scale`<br>
-&nbsp;&nbsp;fixed_scale | **[FixedScale](#FixedScale4)**<br>Политика масштабирования группы узлов. 
-&nbsp;&nbsp;auto_scale | **[AutoScale](#AutoScale4)**<br>Политика масштабирования группы узлов. 
+scale_type | **oneof:** `fixed_scale` or `auto_scale`<br>
+&nbsp;&nbsp;fixed_scale | **[FixedScale](#FixedScale4)**<br>Fixed scale policy of the node group. 
+&nbsp;&nbsp;auto_scale | **[AutoScale](#AutoScale4)**<br>Auto scale policy of the node group. 
 
 
 ### FixedScale {#FixedScale4}
 
-Поле | Описание
+Field | Description
 --- | ---
-size | **int64**<br>Количество узлов в группе узлов. Допустимые значения — от 0 до 100 включительно.
+size | **int64**<br>Number of nodes in the node group. Acceptable values are 0 to 100, inclusive.
 
 
 ### AutoScale {#AutoScale4}
 
-Поле | Описание
+Field | Description
 --- | ---
-min_size | **int64**<br>Минимальное количество узлов в группе узлов. Допустимые значения — от 0 до 100 включительно.
-max_size | **int64**<br>Максимальное количество узлов в группе узлов. Допустимые значения — от 0 до 100 включительно.
-initial_size | **int64**<br>Начальный размер группы узлов. Допустимые значения — от 0 до 100 включительно.
+min_size | **int64**<br>Minimum number of nodes in the node group. Acceptable values are 0 to 100, inclusive.
+max_size | **int64**<br>Maximum number of nodes in the node group. Acceptable values are 0 to 100, inclusive.
+initial_size | **int64**<br>Initial number of nodes in the node group. Acceptable values are 0 to 100, inclusive.
 
 
 ### NodeGroupAllocationPolicy {#NodeGroupAllocationPolicy4}
 
-Поле | Описание
+Field | Description
 --- | ---
-locations[] | **[NodeGroupLocation](#NodeGroupLocation4)**<br>Список местоположений (зон доступности и подсетей), в которых будут выделены ресурсы для группы узлов. 
+locations[] | **[NodeGroupLocation](#NodeGroupLocation4)**<br>List of locations where resources for the node group will be allocated. 
 
 
 ### NodeGroupLocation {#NodeGroupLocation4}
 
-Поле | Описание
+Field | Description
 --- | ---
-zone_id | **string**<br>Обязательное поле. Идентификатор зоны доступности, в которой могут находиться узлы. 
-subnet_id | **string**<br>Идентификатор подсети. Если сеть, выбранная для кластера Kubernetes, имеет только одну подсеть в указанной зоне, идентификатор подсети может быть опущен. 
+zone_id | **string**<br>Required. ID of the availability zone where the nodes may reside. 
+subnet_id | **string**<br>ID of the subnet. If a network chosen for the Kubernetes cluster has only one subnet in the specified zone, subnet ID may be omitted. 
+
+
+### DeployPolicy {#DeployPolicy4}
+
+Field | Description
+--- | ---
+max_unavailable | **int64**<br>The maximum number of running instances that can be taken offline (i.e., stopped or deleted) at the same time during the update process. If `max_expansion` is not specified or set to zero, `max_unavailable` must be set to a non-zero value. Acceptable values are 0 to 100, inclusive.
+max_expansion | **int64**<br>The maximum number of instances that can be temporarily allocated above the group's target size during the update process. If `max_unavailable` is not specified or set to zero, `max_expansion` must be set to a non-zero value. Acceptable values are 0 to 100, inclusive.
 
 
 ### UpdateVersionSpec {#UpdateVersionSpec}
 
-Поле | Описание
+Field | Description
 --- | ---
-specifier | **oneof:** `version` или `latest_revision`<br>
-&nbsp;&nbsp;version | **string**<br>Запрос обновления до более новой версии Kubernetes (1.x - > 1.y). 
-&nbsp;&nbsp;latest_revision | **bool**<br>Запрос минорного обновления, содержащего новую функциональность и улучшения, для текущей версии Kubernetes. 
+specifier | **oneof:** `version` or `latest_revision`<br>
+&nbsp;&nbsp;version | **string**<br>Request update to a newer version of Kubernetes (1.x -> 1.y). 
+&nbsp;&nbsp;latest_revision | **bool**<br>Request update to the latest revision for the current version. 
 
 
 ### NodeGroupMaintenancePolicy {#NodeGroupMaintenancePolicy4}
 
-Поле | Описание
+Field | Description
 --- | ---
-auto_upgrade | **bool**<br>Если установлено значение `true`, автоматическое обновление устанавливается без участия пользователя в заданный промежуток времени. Если установлено значение `false`, автоматическое обновление отключено. 
-auto_repair | **bool**<br>Если установлено значение `true`, автоматическое восстановление включено. Значение по умолчанию: `false`. 
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow4)**<br>Настройки окна обновления. Обновление начнется в указанное время и продлится не более указанного времени. Время устанавливается в формате UTC. 
+auto_upgrade | **bool**<br>If set to true, automatic updates are installed in the specified period of time with no interaction from the user. If set to false, automatic upgrades are disabled. 
+auto_repair | **bool**<br>If set to true, automatic repairs are enabled. Default value is false. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow4)**<br>Maintenance window settings. Update will start at the specified time and last no more than the specified duration. The time is set in UTC. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow4}
 
-Поле | Описание
+Field | Description
 --- | ---
-policy | **oneof:** `anytime`, `daily_maintenance_window` или `weekly_maintenance_window`<br>Политика обновления.
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow4)**<br>Обновление мастера в любое время. 
-&nbsp;&nbsp;daily_maintenance_window | **[DailyMaintenanceWindow](#DailyMaintenanceWindow4)**<br>Обновление мастера в любой день в течение указанного временного окна. 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow4)**<br>Обновление мастера в выбранные дни в течение указанного временного окна. 
+policy | **oneof:** `anytime`, `daily_maintenance_window` or `weekly_maintenance_window`<br>Maintenance policy.
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow4)**<br>Updating the master at any time. 
+&nbsp;&nbsp;daily_maintenance_window | **[DailyMaintenanceWindow](#DailyMaintenanceWindow4)**<br>Updating the master on any day during the specified time window. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow4)**<br>Updating the master on selected days during the specified time window. 
 
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow4}
@@ -895,189 +1157,243 @@ policy | **oneof:** `anytime`, `daily_maintenance_window` или `weekly_mainten
 
 ### DailyMaintenanceWindow {#DailyMaintenanceWindow4}
 
-Поле | Описание
+Field | Description
 --- | ---
-start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Обязательное поле. Время начала окна обновлений, указывается в часовом поясе UTC. 
-duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Длительность окна обновлений. Допустимые значения — от 1h до 24h включительно.
+start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required. Window start time, in the UTC timezone. 
+duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Window duration. Acceptable values are 1h to 24h, inclusive.
 
 
 ### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow4}
 
-Поле | Описание
+Field | Description
 --- | ---
-days_of_week[] | **[DaysOfWeekMaintenanceWindow](#DaysOfWeekMaintenanceWindow4)**<br>Дни недели и окно обновлений для этих дней, когда разрешены автоматические обновления. Количество элементов должно находиться в диапазоне от 1 до 7.
+days_of_week[] | **[DaysOfWeekMaintenanceWindow](#DaysOfWeekMaintenanceWindow4)**<br>Days of the week and the maintenance window for these days when automatic updates are allowed. The number of elements must be in the range 1-7.
 
 
 ### DaysOfWeekMaintenanceWindow {#DaysOfWeekMaintenanceWindow4}
 
-Поле | Описание
+Field | Description
 --- | ---
-days[] | **google.type.DayOfWeek**<br>Дни недели, когда разрешены автоматические обновления. Количество элементов должно находиться в диапазоне от 1 до 7.
-start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Обязательное поле. Время начала окна обновлений, указывается в часовом поясе UTC. 
-duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Длительность окна обновлений. Допустимые значения — от 1h до 24h включительно.
+days[] | **google.type.DayOfWeek**<br>Days of the week when automatic updates are allowed. The number of elements must be in the range 1-7.
+start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required. Window start time, in the UTC timezone. 
+duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Window duration. Acceptable values are 1h to 24h, inclusive.
+
+
+### Taint {#Taint4}
+
+Field | Description
+--- | ---
+key | **string**<br>The taint key to be applied to a node. 
+value | **string**<br>The taint value corresponding to the taint key. 
+effect | enum **Effect**<br>The effect of the taint on pods that do not tolerate the taint. <ul><li>`NO_SCHEDULE`: Do not allow new pods to schedule onto the node unless they tolerate the taint, but allow all pods submitted to Kubelet without going through the scheduler to start, and allow all already-running pods to continue running.</li><li>`PREFER_NO_SCHEDULE`: Like NO_SCHEDULE, but the scheduler tries not to schedule new pods onto the node, rather than prohibiting new pods from scheduling onto the node entirely. Enforced by the scheduler.</li><li>`NO_EXECUTE`: Evict any already-running pods that do not tolerate the taint.</li><ul/>
 
 
 ### Operation {#Operation1}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateNodeGroupMetadata](#UpdateNodeGroupMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[NodeGroup](#NodeGroup3)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateNodeGroupMetadata](#UpdateNodeGroupMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[NodeGroup](#NodeGroup3)>**<br>if operation finished successfully. 
 
 
 ### UpdateNodeGroupMetadata {#UpdateNodeGroupMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-node_group_id | **string**<br>Обязательное поле. Идентификатор группы узлов, которая изменяется. 
+node_group_id | **string**<br>Required. ID of the Node group that is being updated. 
 
 
 ### NodeGroup {#NodeGroup3}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор группы узлов. 
-cluster_id | **string**<br>Идентификатор кластера, к которому принадлежит группа узлов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания. 
-name | **string**<br>Новое имя группы узлов. Имя уникально в рамках каталога. 
-description | **string**<br>Новое описание группы узлов. Длина описания должна быть от 0 до 256 символов. 
-labels | **map<string,string>**<br>Метки ресурса в формате `key:value`. Максимум 64 метки на ресурс. 
-status | enum **Status**<br>Статус группы узлов. <ul><li>`PROVISIONING`: Группа узлов ожидает выделения ресурсов.</li><li>`RUNNING`: Группа узлов запущена.</li><li>`RECONCILING`: Группа узлов ожидает выполнения некоторых работ, например, обновления программного обеспечения узла.</li><li>`STOPPING`: Группа узлов останавливается.</li><li>`STOPPED`: Группа узлов остановлена.</li><li>`DELETING`: Группа узлов удаляется.</li><li>`STARTING`: Группа узлов запускается.</li><ul/>
-node_template | **[NodeTemplate](#NodeTemplate5)**<br>Шаблон узла, задающий параметры вычислительных экземпляров для группы узлов. 
-scale_policy | **[ScalePolicy](#ScalePolicy5)**<br>Политика масштабирования группы узлов. Дополнительные сведения см. в разделе [Scaling policy](/docs/compute/concepts/instance-groups/policies#scale-policy). 
-allocation_policy | **[NodeGroupAllocationPolicy](#NodeGroupAllocationPolicy5)**<br>Политика распределения, с помощью которой ресурсы для групп узлов распределяются по зонам и регионам. 
-instance_group_id | **string**<br>Идентификатор группы виртуальных машин, связанной с этой группой узлов. 
-node_version | **string**<br>Версия компонентов Kubernetes, которая запущена на узлах. Устарел. Используйте version_info.current_version. 
-version_info | **[VersionInfo](#VersionInfo3)**<br>Подробная информация о версии Kubernetes, которая запущена на мастере. 
-maintenance_policy | **[NodeGroupMaintenancePolicy](#NodeGroupMaintenancePolicy5)**<br>Политика обновления группы узлов. 
-allowed_unsafe_sysctls[] | **string**<br>Поддержка параметров unsafe sysctl. Дополнительные сведения см. в [documentation](https://kubernetes.io/docs/tasks/administer-cluster/sysctl-cluster/). 
+id | **string**<br>ID of the node group. 
+cluster_id | **string**<br>ID of the cluster that the node group belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+name | **string**<br>Name of the node group. The name is unique within the folder. 
+description | **string**<br>Description of the node group. 0-256 characters long. 
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
+status | enum **Status**<br>Status of the node group. <ul><li>`PROVISIONING`: Node group is waiting for resources to be allocated.</li><li>`RUNNING`: Node group is running.</li><li>`RECONCILING`: Node group is waiting for some work to be done, such as upgrading node software.</li><li>`STOPPING`: Node group is being stopped.</li><li>`STOPPED`: Node group stopped.</li><li>`DELETING`: Node group is being deleted.</li><li>`STARTING`: Node group is being started.</li><ul/>
+node_template | **[NodeTemplate](#NodeTemplate5)**<br>Node template that specifies parameters of the compute instances for the node group. 
+scale_policy | **[ScalePolicy](#ScalePolicy5)**<br>Scale policy of the node group.  For more information, see [Scaling policy](/docs/compute/concepts/instance-groups/policies#scale-policy). 
+allocation_policy | **[NodeGroupAllocationPolicy](#NodeGroupAllocationPolicy5)**<br>Allocation policy by which resources for node group are allocated to zones and regions. 
+deploy_policy | **[DeployPolicy](#DeployPolicy5)**<br>Deploy policy according to which the updates are rolled out. 
+instance_group_id | **string**<br>ID of the managed instance group associated with this node group. 
+node_version | **string**<br>Version of Kubernetes components that runs on the nodes. Deprecated. Use version_info.current_version. 
+version_info | **[VersionInfo](#VersionInfo3)**<br>Detailed information about the Kubernetes version that is running on the node. 
+maintenance_policy | **[NodeGroupMaintenancePolicy](#NodeGroupMaintenancePolicy5)**<br>Maintenance policy of the node group. 
+allowed_unsafe_sysctls[] | **string**<br>Support for unsafe sysctl parameters. For more details see [documentation](https://kubernetes.io/docs/tasks/administer-cluster/sysctl-cluster/). 
+node_taints[] | **[Taint](#Taint5)**<br>Taints that are applied to the nodes of the node group at creation time. 
+node_labels | **map<string,string>**<br>Labels that are assigned to the nodes of the node group at creation time. 
 
 
 ### NodeTemplate {#NodeTemplate5}
 
-Поле | Описание
+Field | Description
 --- | ---
-platform_id | **string**<br>Идентификатор аппаратной платформы виртуальной машины. 
-resources_spec | **[ResourcesSpec](#ResourcesSpec5)**<br>Вычислительные ресурсы узла, такие как объем памяти и количество ядер. 
-boot_disk_spec | **[DiskSpec](#DiskSpec5)**<br>Спецификация загрузочного диска, который будет подключен к узлу. 
-metadata | **map<string,string>**<br>Метаданные, назначаемые этому шаблону виртуальной машины, в формате ``key:value``. Сюда входят пользовательские метаданные и предопределенные ключи. <br>Например, вы можете использовать метаданные для предоставления вашего открытого SSH-ключа узлу. Дополнительные сведения см. в разделе [Metadata](/docs/compute/concepts/vm-metadata). Не более 128 на ресурс. Максимальная длина строки в символах для каждого значения — 262144. Длина строки в символах для каждого ключа должна быть от 1 до 63. Каждый ключ должен соответствовать регулярному выражению ` [a-z][-_0-9a-z]* `.
-v4_address_spec | **[NodeAddressSpec](#NodeAddressSpec5)**<br>Спецификация для создания сетевых интерфейсов для вычислительных экземпляров группы узлов. 
-scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy5)**<br>Политика планирования. 
+platform_id | **string**<br>ID of the hardware platform configuration for the node. 
+resources_spec | **[ResourcesSpec](#ResourcesSpec5)**<br>Computing resources of the node such as the amount of memory and number of cores. 
+boot_disk_spec | **[DiskSpec](#DiskSpec5)**<br>Specification for the boot disk that will be attached to the node. 
+metadata | **map<string,string>**<br>The metadata as `key:value` pairs assigned to this instance template. This includes custom metadata and predefined keys. <br>For example, you may use the metadata in order to provide your public SSH key to the node. For more information, see [Metadata](/docs/compute/concepts/vm-metadata). No more than 64 per resource. The maximum string length in characters for each value is 131072. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+v4_address_spec | **[NodeAddressSpec](#NodeAddressSpec10)**<br>Specification for the create network interfaces for the node group compute instances. Deprecated, please use network_interface_specs. 
+scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy5)**<br>Scheduling policy configuration. 
+network_interface_specs[] | **[NetworkInterfaceSpec](#NetworkInterfaceSpec5)**<br>New api, to specify network interfaces for the node group compute instances. Can not be used together with 'v4_address_spec' 
+placement_policy | **[PlacementPolicy](#PlacementPolicy5)**<br> 
 
 
 ### ResourcesSpec {#ResourcesSpec5}
 
-Поле | Описание
+Field | Description
 --- | ---
-memory | **int64**<br>Объем памяти в байтах, доступный виртуальной машине. Допустимые значения — от 0 до 274877906944 включительно.
-cores | **int64**<br>Количество ядер, доступное узлу. Значение должно быть равно 0,1,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32.
-core_fraction | **int64**<br>Базовый уровень производительности CPU с возможностью повышения производительности выше этого уровня. Это поле устанавливает базовую производительность для каждого ядра. Значение должно быть равно 0,5,20,50,100.
+memory | **int64**<br>Amount of memory available to the node, specified in bytes. The minimum value is 0.
+cores | **int64**<br>Number of cores available to the node. The minimum value is 0.
+core_fraction | **int64**<br>Baseline level of CPU performance with the possibility to burst performance above that baseline level. This field sets baseline performance for each core. Acceptable values are 0 to 100, inclusive.
+gpus | **int64**<br>Number of GPUs available to the node. The minimum value is 0.
 
 
 ### DiskSpec {#DiskSpec5}
 
-Поле | Описание
+Field | Description
 --- | ---
-disk_type_id | **string**<br>Идентификатор типа диска. Значение должно соответствовать регулярному выражению ` |network-ssd|network-hdd `.
-disk_size | **int64**<br>Размер диска в байтах. Допустимые значения — от 0 до 4398046511104 включительно.
+disk_type_id | **string**<br>ID of the disk type. Value must match the regular expression ` |network-ssd|network-hdd `.
+disk_size | **int64**<br>Size of the disk, specified in bytes. Acceptable values are 0 to 4398046511104, inclusive.
 
 
-### NodeAddressSpec {#NodeAddressSpec5}
+### NodeAddressSpec {#NodeAddressSpec10}
 
-Поле | Описание
+Field | Description
 --- | ---
-one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec5)**<br>Конфигурация one-to-one NAT. Настройка one-to-one NAT гарантирует, что узлам будут назначены публичные IP-адреса. Поэтому интернет будет доступен на всех узлах группы узлов. Если поле не задано, NAT не будет настроен. 
+one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec10)**<br>One-to-one NAT configuration. Setting up one-to-one NAT ensures that public IP addresses are assigned to nodes, and therefore internet is accessible for all nodes of the node group. If the field is not set, NAT will not be set up. 
 
 
-### OneToOneNatSpec {#OneToOneNatSpec5}
+### OneToOneNatSpec {#OneToOneNatSpec10}
 
-Поле | Описание
+Field | Description
 --- | ---
-ip_version | enum **IpVersion**<br>Версия IP для публичного IP-адреса. <ul><li>`IPV4`: IPv4-адрес, например 192.168.0.0.</li><li>`IPV6`: IPv6-адрес, на данный момент не доступен.</li><ul/>
+ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
 
 
 ### SchedulingPolicy {#SchedulingPolicy5}
 
-Поле | Описание
+Field | Description
 --- | ---
-preemptible | **bool**<br>Если значение равно `true` — будет создана прерываемая виртуальная машина. Значение по умолчанию: `false`. Прерываемые виртуальные машины будут принудительно остановлены в срок, не превышающий 24 часа с момента их создания. Остановленные виртуальные машины можно запустить повторно, без потери данных. Дополнительные сведения см. в разделе [Preemptible Virtual Machines](/docs/compute/concepts/preemptible-vm). 
+preemptible | **bool**<br>True for preemptible compute instances. Default value is false. Preemptible compute instances are stopped at least once every 24 hours, and can be stopped at any time if their resources are needed by Compute. For more information, see [Preemptible Virtual Machines](/docs/compute/concepts/preemptible-vm). 
+
+
+### NetworkInterfaceSpec {#NetworkInterfaceSpec5}
+
+Field | Description
+--- | ---
+subnet_ids[] | **string**<br>IDs of the subnets. 
+primary_v4_address_spec | **[NodeAddressSpec](#NodeAddressSpec11)**<br>Primary IPv4 address that is assigned to the instance for this network interface. 
+primary_v6_address_spec | **[NodeAddressSpec](#NodeAddressSpec11)**<br>Primary IPv6 address that is assigned to the instance for this network interface. 
+security_group_ids[] | **string**<br>IDs of security groups. 
+
+
+### NodeAddressSpec {#NodeAddressSpec11}
+
+Field | Description
+--- | ---
+one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec11)**<br>One-to-one NAT configuration. Setting up one-to-one NAT ensures that public IP addresses are assigned to nodes, and therefore internet is accessible for all nodes of the node group. If the field is not set, NAT will not be set up. 
+
+
+### OneToOneNatSpec {#OneToOneNatSpec11}
+
+Field | Description
+--- | ---
+ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
+
+
+### PlacementPolicy {#PlacementPolicy5}
+
+Field | Description
+--- | ---
+placement_group_id | **string**<br>Identifier of placement group 
 
 
 ### ScalePolicy {#ScalePolicy5}
 
-Поле | Описание
+Field | Description
 --- | ---
-scale_type | **oneof:** `fixed_scale` или `auto_scale`<br>
-&nbsp;&nbsp;fixed_scale | **[FixedScale](#FixedScale5)**<br>Политика масштабирования группы узлов. 
-&nbsp;&nbsp;auto_scale | **[AutoScale](#AutoScale5)**<br>Политика масштабирования группы узлов. 
+scale_type | **oneof:** `fixed_scale` or `auto_scale`<br>
+&nbsp;&nbsp;fixed_scale | **[FixedScale](#FixedScale5)**<br>Fixed scale policy of the node group. 
+&nbsp;&nbsp;auto_scale | **[AutoScale](#AutoScale5)**<br>Auto scale policy of the node group. 
 
 
 ### FixedScale {#FixedScale5}
 
-Поле | Описание
+Field | Description
 --- | ---
-size | **int64**<br>Количество узлов в группе узлов. Допустимые значения — от 0 до 100 включительно.
+size | **int64**<br>Number of nodes in the node group. Acceptable values are 0 to 100, inclusive.
 
 
 ### AutoScale {#AutoScale5}
 
-Поле | Описание
+Field | Description
 --- | ---
-min_size | **int64**<br>Минимальное количество узлов в группе узлов. Допустимые значения — от 0 до 100 включительно.
-max_size | **int64**<br>Максимальное количество узлов в группе узлов. Допустимые значения — от 0 до 100 включительно.
-initial_size | **int64**<br>Начальный размер группы узлов. Допустимые значения — от 0 до 100 включительно.
+min_size | **int64**<br>Minimum number of nodes in the node group. Acceptable values are 0 to 100, inclusive.
+max_size | **int64**<br>Maximum number of nodes in the node group. Acceptable values are 0 to 100, inclusive.
+initial_size | **int64**<br>Initial number of nodes in the node group. Acceptable values are 0 to 100, inclusive.
 
 
 ### NodeGroupAllocationPolicy {#NodeGroupAllocationPolicy5}
 
-Поле | Описание
+Field | Description
 --- | ---
-locations[] | **[NodeGroupLocation](#NodeGroupLocation5)**<br>Список местоположений (зон доступности и подсетей), в которых будут выделены ресурсы для группы узлов. 
+locations[] | **[NodeGroupLocation](#NodeGroupLocation5)**<br>List of locations where resources for the node group will be allocated. 
 
 
 ### NodeGroupLocation {#NodeGroupLocation5}
 
-Поле | Описание
+Field | Description
 --- | ---
-zone_id | **string**<br>Обязательное поле. Идентификатор зоны доступности, в которой могут находиться узлы. 
-subnet_id | **string**<br>Идентификатор подсети. Если сеть, выбранная для кластера Kubernetes, имеет только одну подсеть в указанной зоне, идентификатор подсети может быть опущен. 
+zone_id | **string**<br>Required. ID of the availability zone where the nodes may reside. 
+subnet_id | **string**<br>ID of the subnet. If a network chosen for the Kubernetes cluster has only one subnet in the specified zone, subnet ID may be omitted. 
+
+
+### DeployPolicy {#DeployPolicy5}
+
+Field | Description
+--- | ---
+max_unavailable | **int64**<br>The maximum number of running instances that can be taken offline (i.e., stopped or deleted) at the same time during the update process. If `max_expansion` is not specified or set to zero, `max_unavailable` must be set to a non-zero value. Acceptable values are 0 to 100, inclusive.
+max_expansion | **int64**<br>The maximum number of instances that can be temporarily allocated above the group's target size during the update process. If `max_unavailable` is not specified or set to zero, `max_expansion` must be set to a non-zero value. Acceptable values are 0 to 100, inclusive.
 
 
 ### VersionInfo {#VersionInfo3}
 
-Поле | Описание
+Field | Description
 --- | ---
-current_version | **string**<br>Текущая версия Kubernetes, формат: major.minor (например, 1.15). 
-new_revision_available | **bool**<br>Новые версии могут включать патчи Kubernetes (например, 1.15.1 -> 1.15.2), а также некоторые обновления внутренних компонентов — новые функции или исправления ошибок в конкретных компонентах Яндекса на мастере или на узлах. 
-new_revision_summary | **string**<br>Описание изменений, которые будут применены при обновлении до последней версии. Пусто, если поле `new_revision_available` имеет значение `false`. 
-version_deprecated | **bool**<br>Текущая версия устарела, компонент кластера Kubernetes (мастер или группа узлов) должен быть обновлен. 
+current_version | **string**<br>Current Kubernetes version, format: major.minor (e.g. 1.15). 
+new_revision_available | **bool**<br>Newer revisions may include Kubernetes patches (e.g 1.15.1 -> 1.15.2) as well as some internal component updates - new features or bug fixes in Yandex specific components either on the master or nodes. 
+new_revision_summary | **string**<br>Description of the changes to be applied when updating to the latest revision. Empty if new_revision_available is false. 
+version_deprecated | **bool**<br>The current version is on the deprecation schedule, component (master or node group) should be upgraded. 
 
 
 ### NodeGroupMaintenancePolicy {#NodeGroupMaintenancePolicy5}
 
-Поле | Описание
+Field | Description
 --- | ---
-auto_upgrade | **bool**<br>Если установлено значение `true`, автоматическое обновление устанавливается без участия пользователя в заданный промежуток времени. Если установлено значение `false`, автоматическое обновление отключено. 
-auto_repair | **bool**<br>Если установлено значение `true`, автоматическое восстановление включено. Значение по умолчанию: `false`. 
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow5)**<br>Настройки окна обновления. Обновление начнется в указанное время и продлится не более указанного времени. Время устанавливается в формате UTC. 
+auto_upgrade | **bool**<br>If set to true, automatic updates are installed in the specified period of time with no interaction from the user. If set to false, automatic upgrades are disabled. 
+auto_repair | **bool**<br>If set to true, automatic repairs are enabled. Default value is false. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow5)**<br>Maintenance window settings. Update will start at the specified time and last no more than the specified duration. The time is set in UTC. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow5}
 
-Поле | Описание
+Field | Description
 --- | ---
-policy | **oneof:** `anytime`, `daily_maintenance_window` или `weekly_maintenance_window`<br>Политика обновления.
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow5)**<br>Обновление мастера в любое время. 
-&nbsp;&nbsp;daily_maintenance_window | **[DailyMaintenanceWindow](#DailyMaintenanceWindow5)**<br>Обновление мастера в любой день в течение указанного временного окна. 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow5)**<br>Обновление мастера в выбранные дни в течение указанного временного окна. 
+policy | **oneof:** `anytime`, `daily_maintenance_window` or `weekly_maintenance_window`<br>Maintenance policy.
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow5)**<br>Updating the master at any time. 
+&nbsp;&nbsp;daily_maintenance_window | **[DailyMaintenanceWindow](#DailyMaintenanceWindow5)**<br>Updating the master on any day during the specified time window. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow5)**<br>Updating the master on selected days during the specified time window. 
 
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow5}
@@ -1086,105 +1402,174 @@ policy | **oneof:** `anytime`, `daily_maintenance_window` или `weekly_mainten
 
 ### DailyMaintenanceWindow {#DailyMaintenanceWindow5}
 
-Поле | Описание
+Field | Description
 --- | ---
-start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Обязательное поле. Время начала окна обновлений, указывается в часовом поясе UTC. 
-duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Длительность окна обновлений. Допустимые значения — от 1h до 24h включительно.
+start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required. Window start time, in the UTC timezone. 
+duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Window duration. Acceptable values are 1h to 24h, inclusive.
 
 
 ### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow5}
 
-Поле | Описание
+Field | Description
 --- | ---
-days_of_week[] | **[DaysOfWeekMaintenanceWindow](#DaysOfWeekMaintenanceWindow5)**<br>Дни недели и окно обновлений для этих дней, когда разрешены автоматические обновления. Количество элементов должно находиться в диапазоне от 1 до 7.
+days_of_week[] | **[DaysOfWeekMaintenanceWindow](#DaysOfWeekMaintenanceWindow5)**<br>Days of the week and the maintenance window for these days when automatic updates are allowed. The number of elements must be in the range 1-7.
 
 
 ### DaysOfWeekMaintenanceWindow {#DaysOfWeekMaintenanceWindow5}
 
-Поле | Описание
+Field | Description
 --- | ---
-days[] | **google.type.DayOfWeek**<br>Дни недели, когда разрешены автоматические обновления. Количество элементов должно находиться в диапазоне от 1 до 7.
-start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Обязательное поле. Время начала окна обновлений, указывается в часовом поясе UTC. 
-duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Длительность окна обновлений. Допустимые значения — от 1h до 24h включительно.
+days[] | **google.type.DayOfWeek**<br>Days of the week when automatic updates are allowed. The number of elements must be in the range 1-7.
+start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required. Window start time, in the UTC timezone. 
+duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Window duration. Acceptable values are 1h to 24h, inclusive.
+
+
+### Taint {#Taint5}
+
+Field | Description
+--- | ---
+key | **string**<br>The taint key to be applied to a node. 
+value | **string**<br>The taint value corresponding to the taint key. 
+effect | enum **Effect**<br>The effect of the taint on pods that do not tolerate the taint. <ul><li>`NO_SCHEDULE`: Do not allow new pods to schedule onto the node unless they tolerate the taint, but allow all pods submitted to Kubelet without going through the scheduler to start, and allow all already-running pods to continue running.</li><li>`PREFER_NO_SCHEDULE`: Like NO_SCHEDULE, but the scheduler tries not to schedule new pods onto the node, rather than prohibiting new pods from scheduling onto the node entirely. Enforced by the scheduler.</li><li>`NO_EXECUTE`: Evict any already-running pods that do not tolerate the taint.</li><ul/>
 
 
 ## Delete {#Delete}
 
-Удаляет указанную группу узлов.
+Deletes the specified node group.
 
 **rpc Delete ([DeleteNodeGroupRequest](#DeleteNodeGroupRequest)) returns ([operation.Operation](#Operation2))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[DeleteNodeGroupMetadata](#DeleteNodeGroupMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
 
 ### DeleteNodeGroupRequest {#DeleteNodeGroupRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-node_group_id | **string**<br>Обязательное поле. Идентификатор удаляемой группы узлов. Чтобы получить идентификатор группы узлов, используйте запрос [NodeGroupService.List](#List). 
+node_group_id | **string**<br>Required. ID of the node group to delete. To get node group ID use a [NodeGroupService.List](#List) request. 
 
 
 ### Operation {#Operation2}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteNodeGroupMetadata](#DeleteNodeGroupMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteNodeGroupMetadata](#DeleteNodeGroupMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>if operation finished successfully. 
 
 
 ### DeleteNodeGroupMetadata {#DeleteNodeGroupMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-node_group_id | **string**<br>Идентификатор группы узлов, которая удаляется. 
+node_group_id | **string**<br>ID of the node group that is being deleted. 
 
 
 ## ListOperations {#ListOperations}
 
-Возвращает список операций для указанной группы узлов.
+Lists operations for the specified node group.
 
 **rpc ListOperations ([ListNodeGroupOperationsRequest](#ListNodeGroupOperationsRequest)) returns ([ListNodeGroupOperationsResponse](#ListNodeGroupOperationsResponse))**
 
 ### ListNodeGroupOperationsRequest {#ListNodeGroupOperationsRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-node_group_id | **string**<br>Обязательное поле. Идентификатор группы узлов, для которой запрашивается список операций. 
-page_size | **int64**<br>Максимальное число возвращаемых результатов на странице. Если количество результатов больше чем `page_size`, сервис вернет значение [ListNodeGroupOperationsResponse.next_page_token](#ListNodeGroupOperationsResponse), которое можно использовать для получения следующей страницы. Значение по умолчанию: 100. Допустимые значения — от 0 до 1000 включительно.
-page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListNodeGroupOperationsResponse.next_page_token](#ListNodeGroupOperationsResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
-filter | **string**<br>Параметры фильтрации ресурсов в ответе. В настоящее время фильтрация осуществляется только по полю [NodeGroup.name](#NodeGroup4). Максимальная длина строки в символах — 1000.
+node_group_id | **string**<br>Required. ID of the node group to list operations for. 
+page_size | **int64**<br>The maximum number of results per page that should be returned. If the number of available results is larger than `page_size`, the service returns a [ListNodeGroupOperationsResponse.next_page_token](#ListNodeGroupOperationsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. Acceptable values are 0 to 1000, inclusive.
+page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListNodeGroupOperationsResponse.next_page_token](#ListNodeGroupOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
+filter | **string**<br>A filter expression that filters resources listed in the response. Currently you can use filtering only on [NodeGroup.name](#NodeGroup4) field. The maximum string length in characters is 1000.
 
 
 ### ListNodeGroupOperationsResponse {#ListNodeGroupOperationsResponse}
 
-Поле | Описание
+Field | Description
 --- | ---
-operations[] | **[operation.Operation](#Operation3)**<br>Список операций для указанной группы узлов. 
-next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListNodeGroupOperationsRequest.page_size](#ListNodeGroupOperationsRequest), используйте `next_page_token` в качестве значения параметра [ListNodeGroupOperationsRequest.page_token](#ListNodeGroupOperationsRequest) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
+operations[] | **[operation.Operation](#Operation3)**<br>List of operations for the specified node group. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListNodeGroupOperationsRequest.page_size](#ListNodeGroupOperationsRequest), use the `next_page_token` as the value for the [ListNodeGroupOperationsRequest.page_token](#ListNodeGroupOperationsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
 ### Operation {#Operation3}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**<br>Результат операции в случае успешного завершения. Если исходный метод не возвращает никаких данных при успешном завершении, например метод Delete, поле содержит объект [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty). Если исходный метод — это стандартный метод Create / Update, поле содержит целевой ресурс операции. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `response`. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**<br>The normal response of the operation in case of success. If the original method returns no data on success, such as Delete, the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty). If the original method is the standard Create/Update, the response should be the target resource of the operation. Any method that returns a long-running operation should document the response type, if any. 
+
+
+## ListNodes {#ListNodes}
+
+Retrieves the list of nodes in the specified Kubernetes cluster.
+
+**rpc ListNodes ([ListNodeGroupNodesRequest](#ListNodeGroupNodesRequest)) returns ([ListNodeGroupNodesResponse](#ListNodeGroupNodesResponse))**
+
+### ListNodeGroupNodesRequest {#ListNodeGroupNodesRequest}
+
+Field | Description
+--- | ---
+node_group_id | **string**<br>Required. ID of the node group to list. To get the node group ID use a [NodeGroupService.List](#List) request. 
+page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListNodeGroupsResponse.next_page_token](#ListNodeGroupsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. Acceptable values are 0 to 1000, inclusive.
+page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListNodeGroupNodesResponse.next_page_token](#ListNodeGroupNodesResponse) returned by a previous list request. The maximum string length in characters is 100.
+
+
+### ListNodeGroupNodesResponse {#ListNodeGroupNodesResponse}
+
+Field | Description
+--- | ---
+nodes[] | **[Node](#Node)**<br>List of nodes. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListNodeGroupNodesRequest.page_size](#ListNodeGroupNodesRequest), use the `next_page_token` as the value for the [ListNodeGroupNodesRequest.page_token](#ListNodeGroupNodesRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+
+
+### Node {#Node}
+
+Field | Description
+--- | ---
+status | enum **Status**<br>Computed node status. <ul><li>`PROVISIONING`: Node instance is not yet created (e.g. in progress).</li><li>`NOT_CONNECTED`: Node instance is created but not registered (e.g. is still initializing).</li><li>`NOT_READY`: Node has connected but is not ready for workload (see conditions for details).</li><li>`READY`: Node has connected and ready for workload.</li><li>`MISSING`: Node is still registered but its instance is deleted (this is our bug).</li><ul/>
+spec | **[Spec](#Spec)**<br>Node specificaion. 
+cloud_status | **[CloudStatus](#CloudStatus)**<br>Cloud instance status. Not available in `MISSING` status. 
+kubernetes_status | **[KubernetesStatus](#KubernetesStatus)**<br>Kubernetes node status. Not available in `PROVISIONING` and `NOT_CONNECTED` states. 
+
+
+### KubernetesStatus {#KubernetesStatus}
+
+Field | Description
+--- | ---
+id | **string**<br>Node id (and instance name) 
+conditions[] | **[Condition](#Condition)**<br>Conditions is an array of current observed node conditions. More info: https://kubernetes.io/docs/concepts/nodes/node/#condition 
+taints[] | **[Taint](#Taint6)**<br>If specified, the node's taints. 
+attached_volumes[] | **[AttachedVolume](#AttachedVolume)**<br>List of volumes that are attached to the node. 
+
+
+### CloudStatus {#CloudStatus}
+
+Field | Description
+--- | ---
+id | **string**<br>Compute instance id 
+status | **string**<br>IG instance status 
+status_message | **string**<br>IG instance status message 
+
+
+### Spec {#Spec}
+
+Field | Description
+--- | ---
+resources | **[ResourcesSpec](#ResourcesSpec6)**<br>Node group specified resources. 
+disk | **[DiskSpec](#DiskSpec6)**<br>Node group specified disk. 
 
 

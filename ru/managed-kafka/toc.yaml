@@ -55,18 +55,16 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
-  - name: Справочник API
+  - name: Справочник API (англ.)
     items:
-      - name: Аутентификация в API
+      - name: Authentication
         href: api-ref/authentication.md
       - name: gRPC
         items:
-          - name: Обзор
+          - name: Overview
             href: grpc/index.md
           - name: ClusterService
             href: grpc/cluster_service.md
-          - name: OperationService
-            href: grpc/operation_service.md
           - name: ResourcePresetService
             href: grpc/resource_preset_service.md
           - name: TopicService
@@ -77,11 +75,11 @@ items:
             href: grpc/operation_service.md
       - name: REST
         items:
-          - name: Обзор
+          - name: Overview
             href: api-ref/index.md
           - name: Cluster
             items:
-              - name: Обзор
+              - name: Overview
                 href: api-ref/Cluster/index.md
               - name: create
                 href: api-ref/Cluster/create.md
@@ -107,15 +105,9 @@ items:
                 href: api-ref/Cluster/streamLogs.md
               - name: update
                 href: api-ref/Cluster/update.md
-          - name: Operation
-            items:
-              - name: Обзор
-                href: api-ref/Operation/index.md
-              - name: get
-                href: api-ref/Operation/get.md
           - name: ResourcePreset
             items:
-              - name: Обзор
+              - name: Overview
                 href: api-ref/ResourcePreset/index.md
               - name: get
                 href: api-ref/ResourcePreset/get.md
@@ -123,7 +115,7 @@ items:
                 href: api-ref/ResourcePreset/list.md
           - name: Topic
             items:
-              - name: Обзор
+              - name: Overview
                 href: api-ref/Topic/index.md
               - name: create
                 href: api-ref/Topic/create.md
@@ -137,7 +129,7 @@ items:
                 href: api-ref/Topic/update.md
           - name: User
             items:
-              - name: Обзор
+              - name: Overview
                 href: api-ref/User/index.md
               - name: create
                 href: api-ref/User/create.md
@@ -153,6 +145,12 @@ items:
                 href: api-ref/User/revokePermission.md
               - name: update
                 href: api-ref/User/update.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/Operation/index.md
+              - name: get
+                href: api-ref/Operation/get.md
   - name: Вопросы и ответы
     href: qa/index.md
 base: ru/managed-kafka

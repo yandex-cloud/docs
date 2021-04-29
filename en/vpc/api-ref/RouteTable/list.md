@@ -57,10 +57,10 @@ routeTables[].<br>folderId | **string**<br><p>ID of the folder that the route ta
 routeTables[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 routeTables[].<br>name | **string**<br><p>Name of the route table. The name is unique within the project. 3-63 characters long.</p> 
 routeTables[].<br>description | **string**<br><p>Optional description of the route table. 0-256 characters long.</p> 
-routeTables[].<br>labels | **object**<br><p>Resource labels as `` key:value `` pairs. Мaximum of 64 per resource.</p> 
+routeTables[].<br>labels | **object**<br><p>Resource labels as `` key:value `` pairs. Maximum of 64 per resource.</p> 
 routeTables[].<br>networkId | **string**<br><p>ID of the network the route table belongs to.</p> 
 routeTables[].<br>staticRoutes[] | **object**<br><p>A StaticRoute resource. For more information, see <a href="/docs/vpc/concepts/static-routes">Static Routes</a>.</p> 
-routeTables[].<br>staticRoutes[].<br>labels | **object**<br><p>Resource labels as `` key:value `` pairs. Мaximum of 64 per resource.</p> 
+routeTables[].<br>staticRoutes[].<br>labels | **object**<br><p>Resource labels as `` key:value `` pairs. Maximum of 64 per resource.</p> 
 routeTables[].<br>staticRoutes[].<br>destinationPrefix | **string**<br><p>Destination subnet in CIDR notation</p> 
 routeTables[].<br>staticRoutes[].<br>nextHopAddress | **string**<br><p>Next hop IP address</p> 
 nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/vpc/api-ref/RouteTable/list#query_params">pageSize</a>, use the <a href="/docs/vpc/api-ref/RouteTable/list#responses">nextPageToken</a> as the value for the <a href="/docs/vpc/api-ref/RouteTable/list#query_params">pageToken</a> query parameter in the next list request. Subsequent list requests will have their own <a href="/docs/vpc/api-ref/RouteTable/list#responses">nextPageToken</a> to continue paging through the results.</p> 

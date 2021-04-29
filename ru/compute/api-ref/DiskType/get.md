@@ -2,23 +2,23 @@
 editable: false
 ---
 
-# Метод get
-Возвращает сведения об указанном типе диска.
+# Method get
+Returns the information about specified disk type.
  
-Чтобы получить список доступных типов дисков, выполните запрос [list](/docs/compute/api-ref/DiskType/list).
+To get the list of available disk types, make a [list](/docs/compute/api-ref/DiskType/list) request.
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 GET https://compute.api.cloud.yandex.net/compute/v1/diskTypes/{diskTypeId}
 ```
  
-## Path-параметры {#path_params}
+## Path parameters {#path_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-diskTypeId | Обязательное поле. Идентификатор типа диска для возврата сведений о диске. Чтобы получить идентификатор типа диска, используйте запрос [list](/docs/compute/api-ref/DiskType/list).
+diskTypeId | Required. ID of the disk type to return information about. To get the disk type ID use a [list](/docs/compute/api-ref/DiskType/list) request.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -32,8 +32,8 @@ diskTypeId | Обязательное поле. Идентификатор ти�
 ```
 
  
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br><p>Идентификатор типа диска.</p> 
-description | **string**<br><p>Описание диска. Длина описания должна быть от 0 до 256 символов.</p> 
-zoneIds[] | **string**<br><p>Массив зон доступности, в которых доступен тип диска.</p> 
+id | **string**<br><p>ID of the disk type.</p> 
+description | **string**<br><p>Description of the disk type. 0-256 characters long.</p> 
+zoneIds[] | **string**<br><p>Array of availability zones where the disk type is available.</p> 

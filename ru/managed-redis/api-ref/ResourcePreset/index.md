@@ -3,28 +3,28 @@ editable: false
 ---
 
 # ResourcePreset
-Методы для работы с наборами ресурсов.
-## JSON-представление {#representation}
+A set of methods for working with resource presets.
+## JSON Representation {#representation}
 ```json 
 {
   "id": "string",
   "zoneIds": [
     "string"
   ],
-  "cores": "string",
-  "memory": "string"
+  "memory": "string",
+  "cores": "string"
 }
 ```
  
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br><p>Идентификатор набора ресурсов.</p> 
-zoneIds[] | **string**<br><p>Идентификаторы зон доступности, в которых доступен данный набор ресурсов.</p> 
-cores | **string** (int64)<br><p>Количество vCPU для хоста Redis, созданного с данным набором ресурсов.</p> 
-memory | **string** (int64)<br><p>Объем оперативной памяти для хоста Redis, созданного с данным набором ресурсов, в байтах.</p> 
+id | **string**<br><p>ID of the resource preset.</p> 
+zoneIds[] | **string**<br><p>IDs of availability zones where the resource preset is available.</p> 
+memory | **string** (int64)<br><p>RAM volume for a Redis host created with the preset, in bytes.</p> 
+cores | **string** (int64)<br><p>Number of CPU cores for a Redis host created with the preset.</p> 
 
-## Методы {#methods}
-Метод | Описание
+## Methods {#methods}
+Method | Description
 --- | ---
-[get](get.md) | Возвращает указанный набор ресурсов.
-[list](list.md) | Возвращает список доступных наборов ресурсов.
+[get](get.md) | Returns the specified resource preset.
+[list](list.md) | Retrieves the list of available resource presets.

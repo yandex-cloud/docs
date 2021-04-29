@@ -2,23 +2,23 @@
 editable: false
 ---
 
-# Метод get
-Возвращает указанный ресурс TargetGroup.
+# Method get
+Returns the specified TargetGroup resource.
  
 
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
-GET https://load-balancer.api.cloud.yandex.net/network-load-balancer/v1/targetGroups/{targetGroupId}
+GET https://load-balancer.api.cloud.yandex.net/load-balancer/v1alpha/targetGroups/{targetGroupId}
 ```
  
-## Path-параметры {#path_params}
+## Path parameters {#path_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-targetGroupId | Обязательное поле. Идентификатор возвращаемого ресурса TargetGroup.  Чтобы узнать идентификатор целевой группы, используйте запрос [list](/docs/network-load-balancer/api-ref/TargetGroup/list).  Максимальная длина строки в символах — 50.
+targetGroupId | Required. ID of the TargetGroup resource to return. To get the target group ID, use a [list](/docs/network-load-balancer/api-ref/TargetGroup/list) request.  The maximum string length in characters is 50.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -38,17 +38,17 @@ targetGroupId | Обязательное поле. Идентификатор в
   ]
 }
 ```
-Ресурс TargetGroup. Подробнее см. в разделе [Целевые группы и ресурсы](/docs/network-load-balancer/concepts/target-resources).
+A TargetGroup resource. For more information, see [Target groups and resources](/docs/network-load-balancer/target-resources).
  
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br><p>Только для вывода. Идентификатор целевой группы.</p> 
-folderId | **string**<br><p>Идентификатор каталога, которому принадлежит целевая группа.</p> 
-createdAt | **string** (date-time)<br><p>Только для вывода. Время создания ресурса в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> .</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-name | **string**<br><p>Имя целевой группы. Имя должно быть уникальным в каталоге. Длина имени должна быть от 3 до 63 символов.</p> 
-description | **string**<br><p>Описание целевой группы. Длина 0-256 символов.</p> 
-labels | **object**<br><p>Метки ресурса в формате `` key:value ``. Максимум 64 метки на ресурс.</p> 
-regionId | **string**<br><p>Идентификатор региона, в котором находится целевая группа.</p> 
-targets[] | **object**<br><p>Ресурс Target. Подробнее см. в разделе <a href="/docs/network-load-balancer/target-resources">Целевые группы и ресурсы</a>.</p> 
-targets[].<br>subnetId | **string**<br><p>Идентификатор подсети, к которой подключены целевые ресурсы. В пределах одной зоны доступности все ресурсы целевой группы должны быть подключены к одной подсети.</p> <p>Максимальная длина строки в символах — 50.</p> 
-targets[].<br>address | **string**<br><p>IP-адрес целевого ресурса.</p> 
+id | **string**<br><p>Output only. ID of the target group.</p> 
+folderId | **string**<br><p>ID of the folder that the target group belongs to.</p> 
+createdAt | **string** (date-time)<br><p>Output only. Creation timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+name | **string**<br><p>Name of the target group. The name is unique within the folder. 3-63 characters long.</p> 
+description | **string**<br><p>Description of the target group. 0-256 characters long.</p> 
+labels | **object**<br><p>Resource labels as `` key:value `` pairs. Maximum of 64 per resource.</p> 
+regionId | **string**<br><p>ID of the region where the target group resides.</p> 
+targets[] | **object**<br><p>A Target resource. For more information, see <a href="/docs/network-load-balancer/target-resources">Target groups and resources</a>.</p> 
+targets[].<br>subnetId | **string**<br><p>ID of the subnet that targets are connected to. All targets in the target group must be connected to the same subnet within a single availability zone.</p> <p>The maximum string length in characters is 50.</p> 
+targets[].<br>address | **string**<br><p>IP address of the target.</p> 

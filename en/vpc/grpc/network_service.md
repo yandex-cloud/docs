@@ -41,7 +41,7 @@ folder_id | **string**<br>ID of the folder that the network belongs to.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
 name | **string**<br>Name of the network. The name is unique within the folder. 3-63 characters long. 
 description | **string**<br>Optional description of the network. 0-256 characters long. 
-labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Мaximum of 64 per resource. 
+labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
 default_security_group_id | **string**<br>ID of default security group for network. 
 
 
@@ -78,7 +78,7 @@ folder_id | **string**<br>ID of the folder that the network belongs to.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
 name | **string**<br>Name of the network. The name is unique within the folder. 3-63 characters long. 
 description | **string**<br>Optional description of the network. 0-256 characters long. 
-labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Мaximum of 64 per resource. 
+labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
 default_security_group_id | **string**<br>ID of default security group for network. 
 
 
@@ -134,7 +134,7 @@ folder_id | **string**<br>ID of the folder that the network belongs to.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
 name | **string**<br>Name of the network. The name is unique within the folder. 3-63 characters long. 
 description | **string**<br>Optional description of the network. 0-256 characters long. 
-labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Мaximum of 64 per resource. 
+labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
 default_security_group_id | **string**<br>ID of default security group for network. 
 
 
@@ -191,7 +191,7 @@ folder_id | **string**<br>ID of the folder that the network belongs to.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
 name | **string**<br>Name of the network. The name is unique within the folder. 3-63 characters long. 
 description | **string**<br>Optional description of the network. 0-256 characters long. 
-labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Мaximum of 64 per resource. 
+labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
 default_security_group_id | **string**<br>ID of default security group for network. 
 
 
@@ -267,7 +267,7 @@ folder_id | **string**<br>ID of the folder that the subnet belongs to.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
 name | **string**<br>Name of the subnet. The name is unique within the project. 3-63 characters long. 
 description | **string**<br>Optional description of the subnet. 0-256 characters long. 
-labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Мaximum of 64 per resource. 
+labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
 network_id | **string**<br>ID of the network the subnet belongs to. 
 zone_id | **string**<br>ID of the availability zone where the subnet resides. 
 v4_cidr_blocks[] | **string**<br><ol><li></li></ol> 
@@ -374,7 +374,7 @@ folder_id | **string**<br>ID of the folder that the network belongs to.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
 name | **string**<br>Name of the network. The name is unique within the folder. 3-63 characters long. 
 description | **string**<br>Optional description of the network. 0-256 characters long. 
-labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Мaximum of 64 per resource. 
+labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
 default_security_group_id | **string**<br>ID of default security group for network. 
 
 

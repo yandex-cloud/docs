@@ -279,25 +279,25 @@ items:
     href: pricing.md
   - name: Управление доступом
     href: security/index.md
-  - name: Справочник API Functions
+  - name: Справочник API Functions (англ.)
     items:
-      - name: Аутентификация в API
+      - name: Authentication
         href: api-ref/functions/authentication.md
       - name: gRPC
         items:
-          - name: Обзор
-            href: grpc/index.md
+          - name: Overview
+            href: functions/api-ref/grpc/index.md
           - name: FunctionService
-            href: grpc/function_service.md
+            href: functions/api-ref/grpc/function_service.md
           - name: OperationService
-            href: grpc/operation_service.md
+            href: functions/api-ref/grpc/operation_service.md
       - name: REST
         items:
-          - name: Обзор
+          - name: Overview
             href: functions/api-ref/index.md
           - name: Function
             items:
-              - name: Обзор
+              - name: Overview
                 href: functions/api-ref/Function/index.md
               - name: create
                 href: functions/api-ref/Function/create.md
@@ -333,25 +333,25 @@ items:
                 href: functions/api-ref/Function/update.md
               - name: updateAccessBindings
                 href: functions/api-ref/Function/updateAccessBindings.md
-  - name: Справочник API Triggers
+  - name: Справочник API Triggers (англ.)
     items:
-      - name: Аутентификация в API
+      - name: Authentication
         href: api-ref/triggers/authentication.md
       - name: gRPC
         items:
-          - name: Обзор
-            href: grpc/index.md
+          - name: Overview
+            href: triggers/api-ref/grpc/index.md
           - name: TriggerService
-            href: grpc/trigger_service.md
+            href: triggers/api-ref/grpc/trigger_service.md
           - name: OperationService
-            href: grpc/operation_service.md
+            href: triggers/api-ref/grpc/operation_service.md
       - name: REST
         items:
-          - name: Обзор
+          - name: Overview
             href: triggers/api-ref/index.md
           - name: Trigger
             items:
-              - name: Обзор
+              - name: Overview
                 href: triggers/api-ref/Trigger/index.md
               - name: create
                 href: triggers/api-ref/Trigger/create.md
@@ -363,6 +363,10 @@ items:
                 href: triggers/api-ref/Trigger/list.md
               - name: listOperations
                 href: triggers/api-ref/Trigger/listOperations.md
+              - name: pause
+                href: triggers/api-ref/Trigger/pause.md
+              - name: resume
+                href: triggers/api-ref/Trigger/resume.md
               - name: update
                 href: triggers/api-ref/Trigger/update.md
   - name: Вопросы и ответы

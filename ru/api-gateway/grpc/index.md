@@ -1,9 +1,9 @@
 # Yandex API Gateway Service
-Методы справочника API сгруппированы по ресурсам. Чтобы выполнить операцию над ресурсом, отправьте HTTP-запрос к соответствующему URL. Подробнее об архитектуре API Яндекс.Облака, см. [Концепции API Яндекс.Облака](/docs/api-design-guide/).
+This API reference is organized by resource. Actions are performed by sending HTTP requests to resource URLs or making RPC calls. For more information about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
 
-Спецификации API Яндекс.Облака смотрите на [GitHub](https://github.com/yandex-cloud/cloudapi).
+See the interface definitions of Yandex.Cloud API on [GitHub](https://github.com/yandex-cloud/cloudapi).
 
-Сервис | Описание
+Service | Description
 --- | ---
-[ApiGatewayService](./apigateway_service.md) | Набор методов управления API-шлюзами.
-[OperationService](./operation_service.md) | Набор методов для управления операциями в асинхронных запросах API. Ссылки указаны относительно домена `operation.api.cloud.yandex.net`.
+[ApiGatewayService](./apigateway_service.md) | A set of methods for managing API gateways.
+[OperationService](./operation_service.md) | A set of methods for managing operations for asynchronous API requests.

@@ -2,24 +2,24 @@
 editable: false
 ---
 
-# Метод get
-Возвращает указанную базу данных MySQL.
+# Method get
+Returns the specified MySQL database.
  
-Чтобы получить список доступных баз данных MySQL, выполните запрос [list](/docs/managed-mysql/api-ref/Database/list).
+To get the list of available MySQL databases, make a [list](/docs/managed-mysql/api-ref/Database/list) request.
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 GET https://mdb.api.cloud.yandex.net/managed-mysql/v1alpha/clusters/{clusterId}/databases/{databaseName}
 ```
  
-## Path-параметры {#path_params}
+## Path parameters {#path_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-clusterId | Обязательное поле. Идентификатор кластера MySQL, которому принадлежит база данных. Чтобы получить идентификатор кластера, используйте запрос [list](/docs/managed-mysql/api-ref/Cluster/list).  Максимальная длина строки в символах — 50.
-databaseName | Обязательное поле. Имя базы данных MySQL, данные о которой нужно запросить. Чтобы получить имя базы данных, используйте запрос [list](/docs/managed-mysql/api-ref/Database/list).  Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_-]* ``.
+clusterId | Required. ID of the MySQL cluster that the database belongs to. To get the cluster ID use a [list](/docs/managed-mysql/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
+databaseName | Required. Name of the MySQL database to return. To get the name of the database use a [list](/docs/managed-mysql/api-ref/Database/list) request.  The maximum string length in characters is 63. Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -28,9 +28,10 @@ databaseName | Обязательное поле. Имя базы данных M
   "clusterId": "string"
 }
 ```
-База данных MySQL. Подробнее см. в [документации](/docs/managed-mysql/concepts).
+A MySQL database. For more information, see
+the [documentation](/docs/managed-mysql/concepts).
  
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br><p>Имя базы данных.</p> 
-clusterId | **string**<br><p>Идентификатор кластера MySQL, которому принадлежит база данных.</p> 
+name | **string**<br><p>Name of the database.</p> 
+clusterId | **string**<br><p>ID of the MySQL cluster that the database belongs to.</p> 

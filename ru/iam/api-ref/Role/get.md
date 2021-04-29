@@ -2,23 +2,23 @@
 editable: false
 ---
 
-# Метод get
-Возвращает указанный ресурс Role.
+# Method get
+Returns the specified Role resource.
  
-Чтобы получить список доступных ресурсов Role, используйте запрос [list](/docs/iam/api-ref/Role/list).
+To get the list of available Role resources, make a [list](/docs/iam/api-ref/Role/list) request.
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 GET https://iam.api.cloud.yandex.net/iam/v1/roles/{roleId}
 ```
  
-## Path-параметры {#path_params}
+## Path parameters {#path_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-roleId | Обязательное поле. Идентификатор возвращаемого ресурса Role. Чтобы получить идентификатор роли, используйте запрос [list](/docs/iam/api-ref/Role/list).  Максимальная длина строки в символах — 50.
+roleId | Required. ID of the Role resource to return. To get the role ID, use a [list](/docs/iam/api-ref/Role/list) request.  The maximum string length in characters is 50.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -27,9 +27,9 @@ roleId | Обязательное поле. Идентификатор возв�
   "description": "string"
 }
 ```
-Ресурс Role. Подробнее см. в разделе [Роли](/docs/iam/concepts/access-control/roles).
+A Role resource. For more information, see [Roles](/docs/iam/concepts/access-control/roles).
  
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br><p>Идентификатор роли.</p> 
-description | **string**<br><p>Описание роли. Длина описания должна быть от 0 до 256 символов.</p> 
+id | **string**<br><p>ID of the role.</p> 
+description | **string**<br><p>Description of the role. 0-256 characters long.</p> 

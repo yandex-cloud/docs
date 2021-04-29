@@ -19,7 +19,7 @@ A set of methods for managing ClickHouse clusters.
 | [AddZookeeper](#AddZookeeper) | Adds a ZooKeeper subcluster to the specified ClickHouse cluster. |
 | [Backup](#Backup) | Creates a backup for the specified ClickHouse cluster. |
 | [Restore](#Restore) | Creates a new ClickHouse cluster using the specified backup. |
-| [RescheduleMaintenance](#RescheduleMaintenance) | Reschedule planned maintenance operation. |
+| [RescheduleMaintenance](#RescheduleMaintenance) | Reschedules planned maintenance operation. |
 | [ListLogs](#ListLogs) | Retrieves logs for the specified ClickHouse cluster. |
 | [StreamLogs](#StreamLogs) | Same as ListLogs but using server-side streaming. |
 | [ListOperations](#ListOperations) | Retrieves the list of Operation resources for the specified cluster. |
@@ -35,7 +35,7 @@ A set of methods for managing ClickHouse clusters.
 | [GetShardGroup](#GetShardGroup) | Returns the specified shard group. |
 | [ListShardGroups](#ListShardGroups) | Retrieves a list of shard groups that belong to specified cluster. |
 | [CreateShardGroup](#CreateShardGroup) | Creates a new shard group in the specified cluster. |
-| [UpdateShardGroup](#UpdateShardGroup) | Modifies the specified shard group. |
+| [UpdateShardGroup](#UpdateShardGroup) | Updates the specified shard group. |
 | [DeleteShardGroup](#DeleteShardGroup) | Deletes the specified shard group. |
 | [CreateExternalDictionary](#CreateExternalDictionary) | Creates an external dictionary for the specified ClickHouse cluster. |
 | [DeleteExternalDictionary](#DeleteExternalDictionary) | Deletes the specified external dictionary. |
@@ -72,8 +72,8 @@ network_id | **string**<br>ID of the network that the cluster belongs to.
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
 service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow)**<br>Window of maintenance operations. 
-planned_operation | **[MaintenanceOperation](#MaintenanceOperation)**<br>Maintenance operation planned at nearest maintenance_window. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow)**<br>Maintenance window for the cluster. 
+planned_operation | **[MaintenanceOperation](#MaintenanceOperation)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
 
 
@@ -136,9 +136,9 @@ enabled | **bool**<br>Whether to use Yandex Object Storage for storing ClickHous
 
 Field | Description
 --- | ---
-policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow)**<br> 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow)**<br> 
+policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow)**<br>Maintenance operation can be scheduled on a weekly basis. 
 
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow}
@@ -149,16 +149,16 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
 
 Field | Description
 --- | ---
-day | enum **WeekDay**<br> <ul><ul/>
-hour | **int64**<br>Hour of the day in UTC. Acceptable values are 1 to 24, inclusive.
+day | enum **WeekDay**<br>Day of the week (in `DDD` format). <ul><ul/>
+hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
 
 
 ### MaintenanceOperation {#MaintenanceOperation}
 
 Field | Description
 --- | ---
-info | **string**<br> The maximum string length in characters is 256.
-delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
+info | **string**<br>Information about this maintenance operation. The maximum string length in characters is 256.
+delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time until which this maintenance operation is delayed. 
 
 
 ## List {#List}
@@ -174,7 +174,7 @@ Field | Description
 folder_id | **string**<br>Required. ID of the folder to list ClickHouse clusters in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClustersResponse.next_page_token](#ListClustersResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListClustersResponse.next_page_token](#ListClustersResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name. Currently you can only use filtering with the [Cluster.name](#Cluster1) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Мust be 1-63 characters long and match the regular expression `^[a-zA-Z0-9_-]+$`.</li></ol> The maximum string length in characters is 1000.
+filter | **string**<br><ol><li>The field name. Currently you can only use filtering with the [Cluster.name](#Cluster1) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 1-63 characters long and match the regular expression `^[a-zA-Z0-9_-]+$`.</li></ol> The maximum string length in characters is 1000.
 
 
 ### ListClustersResponse {#ListClustersResponse}
@@ -202,8 +202,8 @@ network_id | **string**<br>ID of the network that the cluster belongs to.
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
 service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow1)**<br>Window of maintenance operations. 
-planned_operation | **[MaintenanceOperation](#MaintenanceOperation1)**<br>Maintenance operation planned at nearest maintenance_window. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow1)**<br>Maintenance window for the cluster. 
+planned_operation | **[MaintenanceOperation](#MaintenanceOperation1)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
 
 
@@ -266,9 +266,9 @@ enabled | **bool**<br>Whether to use Yandex Object Storage for storing ClickHous
 
 Field | Description
 --- | ---
-policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow1)**<br> 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow1)**<br> 
+policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow1)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow1)**<br>Maintenance operation can be scheduled on a weekly basis. 
 
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow1}
@@ -279,16 +279,16 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
 
 Field | Description
 --- | ---
-day | enum **WeekDay**<br> <ul><ul/>
-hour | **int64**<br>Hour of the day in UTC. Acceptable values are 1 to 24, inclusive.
+day | enum **WeekDay**<br>Day of the week (in `DDD` format). <ul><ul/>
+hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
 
 
 ### MaintenanceOperation {#MaintenanceOperation1}
 
 Field | Description
 --- | ---
-info | **string**<br> The maximum string length in characters is 256.
-delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
+info | **string**<br>Information about this maintenance operation. The maximum string length in characters is 256.
+delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time until which this maintenance operation is delayed. 
 
 
 ## Create {#Create}
@@ -396,7 +396,7 @@ database_name | **string**<br>Name of the database that the permission grants ac
 
 Field | Description
 --- | ---
-readonly | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br><ul><li>**0** (default)—no restrictions. </li><li>**1**—only read data queries are allowed. </li><li>**2**—read data and change settings queries are allowed. </li></ul> Acceptable values are 0 to 2, inclusive.
+readonly | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br><ul><li>**0** (default)-no restrictions. </li><li>**1**-only read data queries are allowed. </li><li>**2**-read data and change settings queries are allowed. </li></ul> Acceptable values are 0 to 2, inclusive.
 allow_ddl | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Determines whether DDL queries are allowed (e.g., **CREATE**, **ALTER**, **RENAME**, etc). <br>Default value: **true**. <br>See in-depth description in [ClickHouse documentation](https://clickhouse.tech/docs/en/operations/settings/permissions-for-queries/#settings_allow_ddl). 
 insert_quorum | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br><ul><li>replicas with no errors until the `insert_quorum_timeout` expires. </li><li>queries. </li></ul> The minimum value is 0.
 connect_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br><ul><li>(default: **10000**, 10 seconds).</li></ul> Value must be greater than 0.
@@ -406,7 +406,7 @@ insert_quorum_timeout | **[google.protobuf.Int64Value](https://developers.google
 select_sequential_consistency | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br><ul><li>queries from the replicated table: if enabled, ClickHouse will terminate a query with error message in case the replica does not have a chunk written with the quorum and will not read the parts that have not yet been written with the quorum. </li><li>(sequential consistency is disabled).</li></ul> 
 max_replica_delay_for_distributed_queries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Max replica delay in milliseconds. If a replica lags more than the set value, this replica is not used and becomes a stale one. <br>Minimum value: **1000**, 1 second (default: **300000**, 300 seconds or 5 minutes). <br>See in-depth description in [ClickHouse documentation](https://clickhouse.tech/docs/en/operations/settings/settings/#settings-max_replica_delay_for_distributed_queries). The minimum value is 1000.
 fallback_to_stale_replicas_for_distributed_queries | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br><ul><li>query from a distributed table that points to replicated tables. </li><li>(query forcing is enabled). </li></ul> 
-replication_alter_partitions_sync | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br><ul><li>queries on replicated tables: </li><li>**0**—do not wait for replicas. </li><li>**1**—only wait for own execution (default). </li><li>**2**—wait for all replicas. </li></ul> Acceptable values are 0 to 2, inclusive.
+replication_alter_partitions_sync | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br><ul><li>queries on replicated tables: </li><li>**0**-do not wait for replicas. </li><li>**1**-only wait for own execution (default). </li><li>**2**-wait for all replicas. </li></ul> Acceptable values are 0 to 2, inclusive.
 distributed_product_mode | enum **DistributedProductMode**<br>Determine the behavior of distributed subqueries. <br>See in-depth description in [ClickHouse documentation](https://clickhouse.tech/docs/en/operations/settings/settings/#distributed-product-mode). <ul><li>`DISTRIBUTED_PRODUCT_MODE_DENY`: Default value. Prohibits using these types of subqueries (returns the "Double-distributed in/JOIN subqueries is denied" exception).</li><li>`DISTRIBUTED_PRODUCT_MODE_LOCAL`: Replaces the database and table in the subquery with local ones for the destination server (shard), leaving the normal IN/JOIN.</li><li>`DISTRIBUTED_PRODUCT_MODE_GLOBAL`: Replaces the IN/JOIN query with GLOBAL IN/GLOBAL JOIN.</li><li>`DISTRIBUTED_PRODUCT_MODE_ALLOW`: Allows the use of these types of subqueries.</li><ul/>
 distributed_aggregation_memory_efficient | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br><ul><li>(memory saving mode is disabled). </li></ul> 
 distributed_ddl_task_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Timeout for DDL queries, in milliseconds. 
@@ -427,9 +427,9 @@ merge_tree_min_rows_for_concurrent_read | **[google.protobuf.Int64Value](https:/
 merge_tree_min_bytes_for_concurrent_read | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br><ul><li>(default: **24x10x1024x1024**).</li></ul> Value must be greater than 0.
 max_bytes_before_external_group_by | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br><ul><li>operation, should be flushed to disk to limit the RAM comsumption. </li><li>in the external memory is disabled. </li></ul> 
 max_bytes_before_external_sort | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>This setting is equivalent of the `max_bytes_before_external_group_by` setting, except for it is for sort operation (**ORDER BY**), not aggregation. 
-group_by_two_level_threshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the threshold of the number of keys, after that the two-level aggregation should be used. <br>Minimal value: **0**, threshold is not set (default: **10000‬‬**). 
-group_by_two_level_threshold_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the threshold of the number of bytes, after that the two-level aggregation should be used. <br>Minimal value: **0**, threshold is not set (default: **100000000‬‬**). 
-priority | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br><ul><li>**0**—priority is not used. </li><li>**1**—the highest priority. </li><li>and so on. The higher the number, the lower a query's priority. </li></ul> The minimum value is 0.
+group_by_two_level_threshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the threshold of the number of keys, after that the two-level aggregation should be used. <br>Minimal value: **0**, threshold is not set (default: **10000**). 
+group_by_two_level_threshold_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the threshold of the number of bytes, after that the two-level aggregation should be used. <br>Minimal value: **0**, threshold is not set (default: **100000000**). 
+priority | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br><ul><li>**0**-priority is not used. </li><li>**1**-the highest priority. </li><li>and so on. The higher the number, the lower a query's priority. </li></ul> The minimum value is 0.
 max_threads | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br><ul><li>(the thread number is calculated automatically based on the number of physical CPU cores, no HyperThreading cores are taken into account). </li></ul> Value must be greater than 0.
 max_memory_usage | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br><ul><li>(10 GB). </li></ul> The minimum value is 0.
 max_memory_usage_for_user | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Limits the maximum memory usage (in bytes) for processing of user's queries on a single server. This setting does not take server's free RAM amount or total RAM amount into account. <br>This limitation is enforced for all queries that belong to one user and run simultaneously on a single server. <br>Minimal value and default value: **0**, no limitation is set. The minimum value is 0.
@@ -439,23 +439,23 @@ force_index_by_date | **[google.protobuf.BoolValue](https://developers.google.co
 force_primary_key | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br><ul><li>(setting is disabled, query executes even if ClickHouse can't use index by primary key). </li></ul> 
 max_rows_to_read | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Limits the maximum number of rows that can be read from a table when running a query. <br>Minimal value and default value: **0**, no limitation is set. <br>See in-depth description in [ClickHouse documentation](https://clickhouse.tech/docs/en/operations/settings/query-complexity/#max-rows-to-read). The minimum value is 0.
 max_bytes_to_read | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Limits the maximum number of bytes (uncompressed data) that can be read from a table when running a query. <br>Minimal value and default value: **0**, no limitation is set. The minimum value is 0.
-read_overflow_mode | enum **OverflowMode**<br><ul><li>**throw**—abort query execution, return an error. </li><li>**break**—stop query execution, return partial result.</li></ul> <ul><ul/>
+read_overflow_mode | enum **OverflowMode**<br><ul><li>**throw**-abort query execution, return an error. </li><li>**break**-stop query execution, return partial result.</li></ul> <ul><ul/>
 max_rows_to_group_by | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Limits the maximum number of unique keys received from aggregation function. This setting helps to reduce RAM consumption while doing aggregation. <br>Minimal value and default value: **0**, no limitation is set. The minimum value is 0.
-group_by_overflow_mode | enum **GroupByOverflowMode**<br><ul><li>**throw**—abort query execution, return an error. </li><li>**break**—stop query execution, return partial result. </li><li>**any**—perform approximate **GROUP BY** operation by continuing aggregation for the keys that got into the set, but don’t add new keys to the set.</li></ul> <ul><ul/>
+group_by_overflow_mode | enum **GroupByOverflowMode**<br><ul><li>**throw**-abort query execution, return an error. </li><li>**break**-stop query execution, return partial result. </li><li>**any**-perform approximate **GROUP BY** operation by continuing aggregation for the keys that got into the set, but don't add new keys to the set.</li></ul> <ul><ul/>
 max_rows_to_sort | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Limits the maximum number of rows that can be read from a table for sorting. This setting helps to reduce RAM consumption. <br>Minimal value and default value: **0**, no limitation is set. The minimum value is 0.
 max_bytes_to_sort | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Limits the maximum number of bytes (uncompressed data) that can be read from a table for sorting. This setting helps to reduce RAM consumption. <br>Minimal value and default value: **0**, no limitation is set. The minimum value is 0.
-sort_overflow_mode | enum **OverflowMode**<br><ul><li>**throw**—abort query execution, return an error. </li><li>**break**—stop query execution, return partial result.</li></ul> <ul><ul/>
+sort_overflow_mode | enum **OverflowMode**<br><ul><li>**throw**-abort query execution, return an error. </li><li>**break**-stop query execution, return partial result.</li></ul> <ul><ul/>
 max_result_rows | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Limits the number of rows in the result. This limitation is also checked for subqueries and parts of distributed queries that run on remote servers. <br>Minimal value and default value: **0**, no limitation is set. The minimum value is 0.
 max_result_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Limits the number of bytes in the result. This limitation is also checked for subqueries and parts of distributed queries that run on remote servers. <br>Minimal value and default value: **0**, no limitation is set. The minimum value is 0.
-result_overflow_mode | enum **OverflowMode**<br><ul><li>**throw**—abort query execution, return an error. </li><li>**break**—stop query execution, return partial result.</li></ul> <ul><ul/>
+result_overflow_mode | enum **OverflowMode**<br><ul><li>**throw**-abort query execution, return an error. </li><li>**break**-stop query execution, return partial result.</li></ul> <ul><ul/>
 max_rows_in_distinct | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Limits the maximum number of different rows when using **DISTINCT**. <br>Minimal value and default value: **0**, no limitation is set. The minimum value is 0.
 max_bytes_in_distinct | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Limits the maximum size of a hash table in bytes (uncompressed data) when using **DISTINCT**. The minimum value is 0.
-distinct_overflow_mode | enum **OverflowMode**<br><ul><li>**throw**—abort query execution, return an error. </li><li>**break**—stop query execution, return partial result.</li></ul> <ul><ul/>
+distinct_overflow_mode | enum **OverflowMode**<br><ul><li>**throw**-abort query execution, return an error. </li><li>**break**-stop query execution, return partial result.</li></ul> <ul><ul/>
 max_rows_to_transfer | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Limits the maximum number of rows that can be passed to a remote server or saved in a temporary table when using **GLOBAL IN**. <br>Minimal value and default value: **0**, no limitation is set. The minimum value is 0.
 max_bytes_to_transfer | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Limits the maximum number of bytes (uncompressed data) that can be passed to a remote server or saved in a temporary table when using **GLOBAL IN**. <br>Minimal value and default value: **0**, no limitation is set. The minimum value is 0.
-transfer_overflow_mode | enum **OverflowMode**<br><ul><li>**throw**—abort query execution, return an error. </li><li>**break**—stop query execution, return partial result.</li></ul> <ul><ul/>
+transfer_overflow_mode | enum **OverflowMode**<br><ul><li>**throw**-abort query execution, return an error. </li><li>**break**-stop query execution, return partial result.</li></ul> <ul><ul/>
 max_execution_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Limits the maximum query execution time in milliseconds. At this moment, this limitation is not checked when passing one of the sorting stages, as well as merging and finalizing aggregation funictions. <br>Minimal value and default value: **0**, no limitation is set. The minimum value is 0.
-timeout_overflow_mode | enum **OverflowMode**<br><ul><li>**throw**—abort query execution, return an error. </li><li>**break**—stop query execution, return partial result.</li></ul> <ul><ul/>
+timeout_overflow_mode | enum **OverflowMode**<br><ul><li>**throw**-abort query execution, return an error. </li><li>**break**-stop query execution, return partial result.</li></ul> <ul><ul/>
 max_rows_in_set | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Limit on the number of rows in the set resulting from the execution of the IN section. The minimum value is 0.
 max_bytes_in_set | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Limit on the number of bytes in the set resulting from the execution of the IN section. The minimum value is 0.
 set_overflow_mode | enum **OverflowMode**<br>Determine the behavior on exceeding max_rows_in_set or max_bytes_in_set limit. Possible values: OVERFLOW_MODE_THROW, OVERFLOW_MODE_BREAK. <ul><ul/>
@@ -476,8 +476,8 @@ input_format_values_interpret_expressions | **[google.protobuf.BoolValue](https:
 input_format_defaults_for_omitted_fields | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br><ul><li>queries. </li><li>(replacing is enabled).</li></ul> 
 output_format_json_quote_64bit_integers | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br><ul><li>and **Int64**) will be quoted when written to JSON output in order to maintain compatibility with the most of the JavaScript engines. </li><li>(quoting 64-bit integers is disabled).</li></ul> 
 output_format_json_quote_denormals | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br><ul><li>and **-inf**) in JSON output format. </li><li>(special values do not present in output).</li></ul> 
-low_cardinality_allow_in_native_format | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br><ul><li>**true** (default)—yes, use. </li><li>**false**—convert LowCardinality columns to regular columns when doing **SELECT**, and convert regular columns to LowCardinality when doing **INSERT**. </li><li>(LowCardinality columns are used in Native format).</li></ul> 
-empty_result_for_aggregation_by_empty_set | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br><ul><li>operation absent) on empty set (e.g., **SELECT count(*) FROM table WHERE 0**). </li><li>**true**—ClickHouse will return an empty result for such queries. </li><li>**false** (default)—ClickHouse will return a single-line result consisting of **NULL** values for aggregation functions, in accordance with SQL standard.</li></ul> 
+low_cardinality_allow_in_native_format | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br><ul><li>**true** (default)-yes, use. </li><li>**false**-convert LowCardinality columns to regular columns when doing **SELECT**, and convert regular columns to LowCardinality when doing **INSERT**. </li><li>(LowCardinality columns are used in Native format).</li></ul> 
+empty_result_for_aggregation_by_empty_set | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br><ul><li>operation absent) on empty set (e.g., **SELECT count(*) FROM table WHERE 0**). </li><li>**true**-ClickHouse will return an empty result for such queries. </li><li>**false** (default)-ClickHouse will return a single-line result consisting of **NULL** values for aggregation functions, in accordance with SQL standard.</li></ul> 
 joined_subquery_requires_alias | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
 join_use_nulls | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
 transform_null_in | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
@@ -510,7 +510,7 @@ Field | Description
 zone_id | **string**<br>ID of the availability zone where the host resides. To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/grpc/zone_service#List) request. The maximum string length in characters is 50.
 type | **[Host.Type](#Host)**<br>Required. Type of the host to be deployed. 
 subnet_id | **string**<br>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The ID of the network is set in the [Cluster.network_id](#Cluster2) field. The maximum string length in characters is 50.
-assign_public_ip | **bool**<br><ul><li>false — don't assign a public IP to the host. </li><li>true — the host should have a public IP address.</li></ul> 
+assign_public_ip | **bool**<br><ul><li>false - don't assign a public IP to the host. </li><li>true - the host should have a public IP address.</li></ul> 
 shard_name | **string**<br>Name of the shard that the host is assigned to. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
@@ -554,8 +554,8 @@ network_id | **string**<br>ID of the network that the cluster belongs to.
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
 service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow2)**<br>Window of maintenance operations. 
-planned_operation | **[MaintenanceOperation](#MaintenanceOperation2)**<br>Maintenance operation planned at nearest maintenance_window. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow2)**<br>Maintenance window for the cluster. 
+planned_operation | **[MaintenanceOperation](#MaintenanceOperation2)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
 
 
@@ -618,9 +618,9 @@ enabled | **bool**<br>Whether to use Yandex Object Storage for storing ClickHous
 
 Field | Description
 --- | ---
-policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow2)**<br> 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow2)**<br> 
+policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow2)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow2)**<br>Maintenance operation can be scheduled on a weekly basis. 
 
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow2}
@@ -631,16 +631,16 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
 
 Field | Description
 --- | ---
-day | enum **WeekDay**<br> <ul><ul/>
-hour | **int64**<br>Hour of the day in UTC. Acceptable values are 1 to 24, inclusive.
+day | enum **WeekDay**<br>Day of the week (in `DDD` format). <ul><ul/>
+hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
 
 
 ### MaintenanceOperation {#MaintenanceOperation2}
 
 Field | Description
 --- | ---
-info | **string**<br> The maximum string length in characters is 256.
-delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
+info | **string**<br>Information about this maintenance operation. The maximum string length in characters is 256.
+delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time until which this maintenance operation is delayed. 
 
 
 ## Update {#Update}
@@ -664,7 +664,7 @@ labels | **map<string,string>**<br>Custom labels for the ClickHouse cluster as `
 config_spec | **[ConfigSpec](#ConfigSpec)**<br>New configuration and resources for hosts in the cluster. 
 name | **string**<br>New name for the cluster. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow3)**<br>Window of maintenance operations. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow3)**<br>New maintenance window settings for the cluster. 
 security_group_ids[] | **string**<br>User security groups 
 
 
@@ -719,9 +719,9 @@ enabled | **bool**<br>Whether to use Yandex Object Storage for storing ClickHous
 
 Field | Description
 --- | ---
-policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow3)**<br> 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow3)**<br> 
+policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow3)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow3)**<br>Maintenance operation can be scheduled on a weekly basis. 
 
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow3}
@@ -732,8 +732,8 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
 
 Field | Description
 --- | ---
-day | enum **WeekDay**<br> <ul><ul/>
-hour | **int64**<br>Hour of the day in UTC. Acceptable values are 1 to 24, inclusive.
+day | enum **WeekDay**<br>Day of the week (in `DDD` format). <ul><ul/>
+hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
 
 
 ### Operation {#Operation1}
@@ -776,8 +776,8 @@ network_id | **string**<br>ID of the network that the cluster belongs to.
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
 service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow4)**<br>Window of maintenance operations. 
-planned_operation | **[MaintenanceOperation](#MaintenanceOperation3)**<br>Maintenance operation planned at nearest maintenance_window. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow4)**<br>Maintenance window for the cluster. 
+planned_operation | **[MaintenanceOperation](#MaintenanceOperation3)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
 
 
@@ -840,9 +840,9 @@ enabled | **bool**<br>Whether to use Yandex Object Storage for storing ClickHous
 
 Field | Description
 --- | ---
-policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow4)**<br> 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow4)**<br> 
+policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow4)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow4)**<br>Maintenance operation can be scheduled on a weekly basis. 
 
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow4}
@@ -853,16 +853,16 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
 
 Field | Description
 --- | ---
-day | enum **WeekDay**<br> <ul><ul/>
-hour | **int64**<br>Hour of the day in UTC. Acceptable values are 1 to 24, inclusive.
+day | enum **WeekDay**<br>Day of the week (in `DDD` format). <ul><ul/>
+hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
 
 
 ### MaintenanceOperation {#MaintenanceOperation3}
 
 Field | Description
 --- | ---
-info | **string**<br> The maximum string length in characters is 256.
-delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
+info | **string**<br>Information about this maintenance operation. The maximum string length in characters is 256.
+delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time until which this maintenance operation is delayed. 
 
 
 ## Delete {#Delete}
@@ -962,8 +962,8 @@ network_id | **string**<br>ID of the network that the cluster belongs to.
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
 service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow5)**<br>Window of maintenance operations. 
-planned_operation | **[MaintenanceOperation](#MaintenanceOperation4)**<br>Maintenance operation planned at nearest maintenance_window. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow5)**<br>Maintenance window for the cluster. 
+planned_operation | **[MaintenanceOperation](#MaintenanceOperation4)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
 
 
@@ -1026,9 +1026,9 @@ enabled | **bool**<br>Whether to use Yandex Object Storage for storing ClickHous
 
 Field | Description
 --- | ---
-policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow5)**<br> 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow5)**<br> 
+policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow5)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow5)**<br>Maintenance operation can be scheduled on a weekly basis. 
 
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow5}
@@ -1039,16 +1039,16 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
 
 Field | Description
 --- | ---
-day | enum **WeekDay**<br> <ul><ul/>
-hour | **int64**<br>Hour of the day in UTC. Acceptable values are 1 to 24, inclusive.
+day | enum **WeekDay**<br>Day of the week (in `DDD` format). <ul><ul/>
+hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
 
 
 ### MaintenanceOperation {#MaintenanceOperation4}
 
 Field | Description
 --- | ---
-info | **string**<br> The maximum string length in characters is 256.
-delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
+info | **string**<br>Information about this maintenance operation. The maximum string length in characters is 256.
+delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time until which this maintenance operation is delayed. 
 
 
 ## Stop {#Stop}
@@ -1108,8 +1108,8 @@ network_id | **string**<br>ID of the network that the cluster belongs to.
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
 service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow6)**<br>Window of maintenance operations. 
-planned_operation | **[MaintenanceOperation](#MaintenanceOperation5)**<br>Maintenance operation planned at nearest maintenance_window. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow6)**<br>Maintenance window for the cluster. 
+planned_operation | **[MaintenanceOperation](#MaintenanceOperation5)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
 
 
@@ -1172,9 +1172,9 @@ enabled | **bool**<br>Whether to use Yandex Object Storage for storing ClickHous
 
 Field | Description
 --- | ---
-policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow6)**<br> 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow6)**<br> 
+policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow6)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow6)**<br>Maintenance operation can be scheduled on a weekly basis. 
 
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow6}
@@ -1185,16 +1185,16 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
 
 Field | Description
 --- | ---
-day | enum **WeekDay**<br> <ul><ul/>
-hour | **int64**<br>Hour of the day in UTC. Acceptable values are 1 to 24, inclusive.
+day | enum **WeekDay**<br>Day of the week (in `DDD` format). <ul><ul/>
+hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
 
 
 ### MaintenanceOperation {#MaintenanceOperation5}
 
 Field | Description
 --- | ---
-info | **string**<br> The maximum string length in characters is 256.
-delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
+info | **string**<br>Information about this maintenance operation. The maximum string length in characters is 256.
+delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time until which this maintenance operation is delayed. 
 
 
 ## Move {#Move}
@@ -1257,8 +1257,8 @@ network_id | **string**<br>ID of the network that the cluster belongs to.
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
 service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow7)**<br>Window of maintenance operations. 
-planned_operation | **[MaintenanceOperation](#MaintenanceOperation6)**<br>Maintenance operation planned at nearest maintenance_window. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow7)**<br>Maintenance window for the cluster. 
+planned_operation | **[MaintenanceOperation](#MaintenanceOperation6)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
 
 
@@ -1321,9 +1321,9 @@ enabled | **bool**<br>Whether to use Yandex Object Storage for storing ClickHous
 
 Field | Description
 --- | ---
-policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow7)**<br> 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow7)**<br> 
+policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow7)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow7)**<br>Maintenance operation can be scheduled on a weekly basis. 
 
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow7}
@@ -1334,16 +1334,16 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
 
 Field | Description
 --- | ---
-day | enum **WeekDay**<br> <ul><ul/>
-hour | **int64**<br>Hour of the day in UTC. Acceptable values are 1 to 24, inclusive.
+day | enum **WeekDay**<br>Day of the week (in `DDD` format). <ul><ul/>
+hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
 
 
 ### MaintenanceOperation {#MaintenanceOperation6}
 
 Field | Description
 --- | ---
-info | **string**<br> The maximum string length in characters is 256.
-delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
+info | **string**<br>Information about this maintenance operation. The maximum string length in characters is 256.
+delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time until which this maintenance operation is delayed. 
 
 
 ## AddZookeeper {#AddZookeeper}
@@ -1371,7 +1371,7 @@ Field | Description
 --- | ---
 resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-clickhouse/concepts/instance-types) 
 disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
-disk_type_id | **string**<br><ul><li>network-hdd — network HDD drive, </li><li>network-ssd — network SSD drive, </li><li>local-ssd — local SSD storage.</li></ul> 
+disk_type_id | **string**<br><ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
 
 ### HostSpec {#HostSpec1}
@@ -1381,7 +1381,7 @@ Field | Description
 zone_id | **string**<br>ID of the availability zone where the host resides. To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/grpc/zone_service#List) request. The maximum string length in characters is 50.
 type | **[Host.Type](#Host)**<br>Required. Type of the host to be deployed. 
 subnet_id | **string**<br>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The ID of the network is set in the [Cluster.network_id](#Cluster7) field. The maximum string length in characters is 50.
-assign_public_ip | **bool**<br><ul><li>false — don't assign a public IP to the host. </li><li>true — the host should have a public IP address.</li></ul> 
+assign_public_ip | **bool**<br><ul><li>false - don't assign a public IP to the host. </li><li>true - the host should have a public IP address.</li></ul> 
 shard_name | **string**<br>Name of the shard that the host is assigned to. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
@@ -1425,8 +1425,8 @@ network_id | **string**<br>ID of the network that the cluster belongs to.
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
 service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow8)**<br>Window of maintenance operations. 
-planned_operation | **[MaintenanceOperation](#MaintenanceOperation7)**<br>Maintenance operation planned at nearest maintenance_window. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow8)**<br>Maintenance window for the cluster. 
+planned_operation | **[MaintenanceOperation](#MaintenanceOperation7)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
 
 
@@ -1489,9 +1489,9 @@ enabled | **bool**<br>Whether to use Yandex Object Storage for storing ClickHous
 
 Field | Description
 --- | ---
-policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow8)**<br> 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow8)**<br> 
+policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow8)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow8)**<br>Maintenance operation can be scheduled on a weekly basis. 
 
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow8}
@@ -1502,16 +1502,16 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
 
 Field | Description
 --- | ---
-day | enum **WeekDay**<br> <ul><ul/>
-hour | **int64**<br>Hour of the day in UTC. Acceptable values are 1 to 24, inclusive.
+day | enum **WeekDay**<br>Day of the week (in `DDD` format). <ul><ul/>
+hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
 
 
 ### MaintenanceOperation {#MaintenanceOperation7}
 
 Field | Description
 --- | ---
-info | **string**<br> The maximum string length in characters is 256.
-delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
+info | **string**<br>Information about this maintenance operation. The maximum string length in characters is 256.
+delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time until which this maintenance operation is delayed. 
 
 
 ## Backup {#Backup}
@@ -1571,8 +1571,8 @@ network_id | **string**<br>ID of the network that the cluster belongs to.
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
 service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow9)**<br>Window of maintenance operations. 
-planned_operation | **[MaintenanceOperation](#MaintenanceOperation8)**<br>Maintenance operation planned at nearest maintenance_window. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow9)**<br>Maintenance window for the cluster. 
+planned_operation | **[MaintenanceOperation](#MaintenanceOperation8)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
 
 
@@ -1635,9 +1635,9 @@ enabled | **bool**<br>Whether to use Yandex Object Storage for storing ClickHous
 
 Field | Description
 --- | ---
-policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow9)**<br> 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow9)**<br> 
+policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow9)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow9)**<br>Maintenance operation can be scheduled on a weekly basis. 
 
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow9}
@@ -1648,16 +1648,16 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
 
 Field | Description
 --- | ---
-day | enum **WeekDay**<br> <ul><ul/>
-hour | **int64**<br>Hour of the day in UTC. Acceptable values are 1 to 24, inclusive.
+day | enum **WeekDay**<br>Day of the week (in `DDD` format). <ul><ul/>
+hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
 
 
 ### MaintenanceOperation {#MaintenanceOperation8}
 
 Field | Description
 --- | ---
-info | **string**<br> The maximum string length in characters is 256.
-delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
+info | **string**<br>Information about this maintenance operation. The maximum string length in characters is 256.
+delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time until which this maintenance operation is delayed. 
 
 
 ## Restore {#Restore}
@@ -1741,7 +1741,7 @@ Field | Description
 zone_id | **string**<br>ID of the availability zone where the host resides. To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/grpc/zone_service#List) request. The maximum string length in characters is 50.
 type | **[Host.Type](#Host)**<br>Required. Type of the host to be deployed. 
 subnet_id | **string**<br>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The ID of the network is set in the [Cluster.network_id](#Cluster9) field. The maximum string length in characters is 50.
-assign_public_ip | **bool**<br><ul><li>false — don't assign a public IP to the host. </li><li>true — the host should have a public IP address.</li></ul> 
+assign_public_ip | **bool**<br><ul><li>false - don't assign a public IP to the host. </li><li>true - the host should have a public IP address.</li></ul> 
 shard_name | **string**<br>Name of the shard that the host is assigned to. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
@@ -1786,8 +1786,8 @@ network_id | **string**<br>ID of the network that the cluster belongs to.
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
 service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow10)**<br>Window of maintenance operations. 
-planned_operation | **[MaintenanceOperation](#MaintenanceOperation9)**<br>Maintenance operation planned at nearest maintenance_window. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow10)**<br>Maintenance window for the cluster. 
+planned_operation | **[MaintenanceOperation](#MaintenanceOperation9)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
 
 
@@ -1850,9 +1850,9 @@ enabled | **bool**<br>Whether to use Yandex Object Storage for storing ClickHous
 
 Field | Description
 --- | ---
-policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow10)**<br> 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow10)**<br> 
+policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow10)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow10)**<br>Maintenance operation can be scheduled on a weekly basis. 
 
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow10}
@@ -1863,21 +1863,21 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
 
 Field | Description
 --- | ---
-day | enum **WeekDay**<br> <ul><ul/>
-hour | **int64**<br>Hour of the day in UTC. Acceptable values are 1 to 24, inclusive.
+day | enum **WeekDay**<br>Day of the week (in `DDD` format). <ul><ul/>
+hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
 
 
 ### MaintenanceOperation {#MaintenanceOperation9}
 
 Field | Description
 --- | ---
-info | **string**<br> The maximum string length in characters is 256.
-delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
+info | **string**<br>Information about this maintenance operation. The maximum string length in characters is 256.
+delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time until which this maintenance operation is delayed. 
 
 
 ## RescheduleMaintenance {#RescheduleMaintenance}
 
-Reschedule planned maintenance operation.
+Reschedules planned maintenance operation.
 
 **rpc RescheduleMaintenance ([RescheduleMaintenanceRequest](#RescheduleMaintenanceRequest)) returns ([operation.Operation](#Operation9))**
 
@@ -1889,9 +1889,9 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. Required. ID of the ClickHouse cluster to maintenance reschedule. The maximum string length in characters is 50.
-reschedule_type | enum **RescheduleType**<br>Required. Required. The type of reschedule request. <ul><ul/>
-delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time for SPECIFIC_TIME reschedule. Limited by two weeks since first time scheduled. 
+cluster_id | **string**<br>Required. ID of the ClickHouse cluster to reschedule the maintenance operation for. The maximum string length in characters is 50.
+reschedule_type | enum **RescheduleType**<br>Required. The type of reschedule request. <ul><li>`IMMEDIATE`: Start the maintenance operation immediately.</li><li>`NEXT_AVAILABLE_WINDOW`: Start the maintenance operation within the next available maintenance window.</li><li>`SPECIFIC_TIME`: Start the maintenance operation at the specific time.</li><ul/>
+delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time until which this maintenance operation should be delayed. The value should be ahead of the first time when the maintenance operation has been scheduled for no more than two weeks. The value can also point to the past moment of time if `reschedule_type.IMMEDIATE` reschedule type is chosen. 
 
 
 ### Operation {#Operation9}
@@ -1915,7 +1915,7 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 Field | Description
 --- | ---
 cluster_id | **string**<br>Required. ID of the ClickHouse cluster. 
-delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Required. New time of the planned maintenance. Can be in the past for rescheduled to "IMMEDIATE". 
+delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Required. The time until which this maintenance operation is to be delayed. 
 
 
 ### Cluster {#Cluster10}
@@ -1935,8 +1935,8 @@ network_id | **string**<br>ID of the network that the cluster belongs to.
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
 service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow11)**<br>Window of maintenance operations. 
-planned_operation | **[MaintenanceOperation](#MaintenanceOperation10)**<br>Maintenance operation planned at nearest maintenance_window. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow11)**<br>Maintenance window for the cluster. 
+planned_operation | **[MaintenanceOperation](#MaintenanceOperation10)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
 
 
@@ -1999,9 +1999,9 @@ enabled | **bool**<br>Whether to use Yandex Object Storage for storing ClickHous
 
 Field | Description
 --- | ---
-policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow11)**<br> 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow11)**<br> 
+policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow11)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow11)**<br>Maintenance operation can be scheduled on a weekly basis. 
 
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow11}
@@ -2012,16 +2012,16 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
 
 Field | Description
 --- | ---
-day | enum **WeekDay**<br> <ul><ul/>
-hour | **int64**<br>Hour of the day in UTC. Acceptable values are 1 to 24, inclusive.
+day | enum **WeekDay**<br>Day of the week (in `DDD` format). <ul><ul/>
+hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
 
 
 ### MaintenanceOperation {#MaintenanceOperation10}
 
 Field | Description
 --- | ---
-info | **string**<br> The maximum string length in characters is 256.
-delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
+info | **string**<br>Information about this maintenance operation. The maximum string length in characters is 256.
+delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time until which this maintenance operation is delayed. 
 
 
 ## ListLogs {#ListLogs}
@@ -2213,7 +2213,7 @@ Field | Description
 --- | ---
 resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-clickhouse/concepts/instance-types) 
 disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
-disk_type_id | **string**<br><ul><li>network-hdd — network HDD drive, </li><li>network-ssd — network SSD drive, </li><li>local-ssd — local SSD storage.</li></ul> 
+disk_type_id | **string**<br><ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
 
 ### Service {#Service}
@@ -2250,7 +2250,7 @@ Field | Description
 zone_id | **string**<br>ID of the availability zone where the host resides. To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/grpc/zone_service#List) request. The maximum string length in characters is 50.
 type | **[Host.Type](#Host1)**<br>Required. Type of the host to be deployed. 
 subnet_id | **string**<br>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The ID of the network is set in the [Cluster.network_id](#Cluster11) field. The maximum string length in characters is 50.
-assign_public_ip | **bool**<br><ul><li>false — don't assign a public IP to the host. </li><li>true — the host should have a public IP address.</li></ul> 
+assign_public_ip | **bool**<br><ul><li>false - don't assign a public IP to the host. </li><li>true - the host should have a public IP address.</li></ul> 
 shard_name | **string**<br>Name of the shard that the host is assigned to. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
@@ -2451,7 +2451,7 @@ Field | Description
 zone_id | **string**<br>ID of the availability zone where the host resides. To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/grpc/zone_service#List) request. The maximum string length in characters is 50.
 type | **[Host.Type](#Host1)**<br>Required. Type of the host to be deployed. 
 subnet_id | **string**<br>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The ID of the network is set in the [Cluster.network_id](#Cluster11) field. The maximum string length in characters is 50.
-assign_public_ip | **bool**<br><ul><li>false — don't assign a public IP to the host. </li><li>true — the host should have a public IP address.</li></ul> 
+assign_public_ip | **bool**<br><ul><li>false - don't assign a public IP to the host. </li><li>true - the host should have a public IP address.</li></ul> 
 shard_name | **string**<br>Name of the shard that the host is assigned to. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
@@ -2641,18 +2641,18 @@ Returns the specified shard group.
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the cluster that the shard group belongs to. The maximum string length in characters is 50.
-shard_group_name | **string**<br>Required. Name of the shard group to request information about. To get the name of a shard group, use a [ClusterService.ListShardGroups](#ListShardGroups) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+cluster_id | **string**<br>Required. ID of the cluster that the shard group belongs to. <br>To get the cluster ID, make a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+shard_group_name | **string**<br>Required. Name of the shard group to request information about. <br>To get the name of a shard group, make a [ClusterService.ListShardGroups](#ListShardGroups) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
 ### ShardGroup {#ShardGroup}
 
 Field | Description
 --- | ---
-name | **string**<br>Name of the shard group 
-cluster_id | **string**<br>ID of the cluster that the shard belongs to. 
-description | **string**<br>Description of the ClickHouse cluster shard group. 0-256 characters long. 
-shard_names[] | **string**<br>List of shard names contained in shard group 
+name | **string**<br>Name of the shard group. 
+cluster_id | **string**<br>ID of the ClickHouse cluster that the shard group belongs to. 
+description | **string**<br>Description of the shard group. 0-256 characters long. 
+shard_names[] | **string**<br>List of shard names contained in the shard group. 
 
 
 ## ListShardGroups {#ListShardGroups}
@@ -2665,27 +2665,27 @@ Retrieves a list of shard groups that belong to specified cluster.
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the cluster that the shard group belongs to. The maximum string length in characters is 50.
-page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClusterShardGroupsResponse.next_page_token](#ListClusterShardGroupsResponse) that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 1000, inclusive.
-page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListClusterShardGroupsResponse.next_page_token](#ListClusterShardGroupsResponse) returned by a previous list request. The maximum string length in characters is 100.
+cluster_id | **string**<br>Required. ID of the cluster that the shard group belongs to. <br>To get the cluster ID, make a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+page_size | **int64**<br>The maximum number of results per page to return. <br>If the number of available results is larger than `page_size`, the service returns a [ListClusterShardGroupsResponse.next_page_token](#ListClusterShardGroupsResponse) that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 1000, inclusive.
+page_token | **string**<br>Page token. <br>To get the next page of results, set `page_token` to the [ListClusterShardGroupsResponse.next_page_token](#ListClusterShardGroupsResponse) returned by a previous list request. The maximum string length in characters is 100.
 
 
 ### ListClusterShardGroupsResponse {#ListClusterShardGroupsResponse}
 
 Field | Description
 --- | ---
-shard_groups[] | **[ShardGroup](#ShardGroup1)**<br>List of ClickHouse Cluster shard groups. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClusterShardGroupsRequest.page_size](#ListClusterShardGroupsRequest), use the `next_page_token` as the value for the [ListClusterShardGroupsRequest.page_token](#ListClusterShardGroupsRequest) parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+shard_groups[] | **[ShardGroup](#ShardGroup1)**<br>List of ClickHouse cluster's shard groups. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. <br>If the number of results is larger than [ListClusterShardGroupsRequest.page_size](#ListClusterShardGroupsRequest), use the `next_page_token` as the value for the [ListClusterShardGroupsRequest.page_token](#ListClusterShardGroupsRequest) parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
 ### ShardGroup {#ShardGroup1}
 
 Field | Description
 --- | ---
-name | **string**<br>Name of the shard group 
-cluster_id | **string**<br>ID of the cluster that the shard belongs to. 
-description | **string**<br>Description of the ClickHouse cluster shard group. 0-256 characters long. 
-shard_names[] | **string**<br>List of shard names contained in shard group 
+name | **string**<br>Name of the shard group. 
+cluster_id | **string**<br>ID of the ClickHouse cluster that the shard group belongs to. 
+description | **string**<br>Description of the shard group. 0-256 characters long. 
+shard_names[] | **string**<br>List of shard names contained in the shard group. 
 
 
 ## CreateShardGroup {#CreateShardGroup}
@@ -2702,10 +2702,10 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the ClickHouse cluster to add a shard group to. To get the ClickHouse cluster ID, use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the ClickHouse cluster to add a shard group to. <br>To get the cluster ID, make a [ClusterService.List](#List) request. The maximum string length in characters is 50.
 shard_group_name | **string**<br>Required. Name for the new shard group. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
-description | **string**<br>Description of the ClickHouse cluster shard group. 0-256 characters long. 
-shard_names[] | **string**<br>List of shard names that belongs to the new group. 
+description | **string**<br>Description of the new shard group. 0-256 characters long. 
+shard_names[] | **string**<br>List of shard names that should be put into the new group. <br>To get the list, make a [ClusterService.ListShardGroups](#ListShardGroups) request. 
 
 
 ### Operation {#Operation16}
@@ -2728,23 +2728,23 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>ID of the ClickHouse cluster to add a shard group to. 
-shard_group_name | **string**<br>Name for the new shard group. 
+cluster_id | **string**<br>ID of the cluster to add a shard group to. 
+shard_group_name | **string**<br>Name of the shard group that is being added. 
 
 
 ### ShardGroup {#ShardGroup2}
 
 Field | Description
 --- | ---
-name | **string**<br>Name of the shard group 
-cluster_id | **string**<br>ID of the cluster that the shard belongs to. 
-description | **string**<br>Description of the ClickHouse cluster shard group. 0-256 characters long. 
-shard_names[] | **string**<br>List of shard names contained in shard group 
+name | **string**<br>Name of the shard group. 
+cluster_id | **string**<br>ID of the ClickHouse cluster that the shard group belongs to. 
+description | **string**<br>Description of the shard group. 0-256 characters long. 
+shard_names[] | **string**<br>List of shard names contained in the shard group. 
 
 
 ## UpdateShardGroup {#UpdateShardGroup}
 
-Modifies the specified shard group.
+Updates the specified shard group.
 
 **rpc UpdateShardGroup ([UpdateClusterShardGroupRequest](#UpdateClusterShardGroupRequest)) returns ([operation.Operation](#Operation17))**
 
@@ -2756,11 +2756,11 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the cluster that contains the shard group being updated. The maximum string length in characters is 50.
-shard_group_name | **string**<br>Required. Name of the shard group that should be updated. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
-update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which attributes of the ClickHouse shard group should be updated. 
-description | **string**<br>Description of the ClickHouse cluster shard group. 0-256 characters long. 
-shard_names[] | **string**<br>Updated list of shard names that belongs to the new group. 
+cluster_id | **string**<br>Required. ID of the ClickHouse cluster that contains the shard group to update. <br>To get the cluster ID, make a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+shard_group_name | **string**<br>Required. Name of the shard group that should be updated. <br>To get the name, make a [ClusterService.ListShardGroups](#ListShardGroups) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br> 
+description | **string**<br>Updated description of the shard group. 0-256 characters long. 
+shard_names[] | **string**<br>Updated list of shard names that belongs to the shard group. 
 
 
 ### Operation {#Operation17}
@@ -2784,17 +2784,17 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 Field | Description
 --- | ---
 cluster_id | **string**<br>ID of the cluster that contains the shard group being updated. 
-shard_group_name | **string**<br>Name of the shard group that should be updated. 
+shard_group_name | **string**<br>Name of the shard group that is being updated. 
 
 
 ### ShardGroup {#ShardGroup3}
 
 Field | Description
 --- | ---
-name | **string**<br>Name of the shard group 
-cluster_id | **string**<br>ID of the cluster that the shard belongs to. 
-description | **string**<br>Description of the ClickHouse cluster shard group. 0-256 characters long. 
-shard_names[] | **string**<br>List of shard names contained in shard group 
+name | **string**<br>Name of the shard group. 
+cluster_id | **string**<br>ID of the ClickHouse cluster that the shard group belongs to. 
+description | **string**<br>Description of the shard group. 0-256 characters long. 
+shard_names[] | **string**<br>List of shard names contained in the shard group. 
 
 
 ## DeleteShardGroup {#DeleteShardGroup}
@@ -2811,8 +2811,8 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the ClickHouse cluster the shard group belongs to. The maximum string length in characters is 50.
-shard_group_name | **string**<br>Required. Name of the shard group that should be deleted. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+cluster_id | **string**<br>Required. ID of the ClickHouse cluster that contains the shard group to delete. <br>To get the cluster ID, make a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+shard_group_name | **string**<br>Required. Name of the shard group that should be deleted. <br>To get the name, make a [ClusterService.ListShardGroups](#ListShardGroups) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
 ### Operation {#Operation18}
@@ -2835,8 +2835,8 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>ID of the ClickHouse cluster the shard group belongs to. 
-shard_group_name | **string**<br>Name of the shard group that should be deleted. 
+cluster_id | **string**<br>ID of the cluster that contains the shard group being deleted. 
+shard_group_name | **string**<br>Name of the shard group that is being deleted. 
 
 
 ## CreateExternalDictionary {#CreateExternalDictionary}
@@ -2897,8 +2897,8 @@ network_id | **string**<br>ID of the network that the cluster belongs to.
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host1) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host1) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host1) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host1) for at least one host in the cluster is not ALIVE).</li><ul/>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
 service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow12)**<br>Window of maintenance operations. 
-planned_operation | **[MaintenanceOperation](#MaintenanceOperation11)**<br>Maintenance operation planned at nearest maintenance_window. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow12)**<br>Maintenance window for the cluster. 
+planned_operation | **[MaintenanceOperation](#MaintenanceOperation11)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
 
 
@@ -2961,9 +2961,9 @@ enabled | **bool**<br>Whether to use Yandex Object Storage for storing ClickHous
 
 Field | Description
 --- | ---
-policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow12)**<br> 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow12)**<br> 
+policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow12)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow12)**<br>Maintenance operation can be scheduled on a weekly basis. 
 
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow12}
@@ -2974,16 +2974,16 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
 
 Field | Description
 --- | ---
-day | enum **WeekDay**<br> <ul><ul/>
-hour | **int64**<br>Hour of the day in UTC. Acceptable values are 1 to 24, inclusive.
+day | enum **WeekDay**<br>Day of the week (in `DDD` format). <ul><ul/>
+hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
 
 
 ### MaintenanceOperation {#MaintenanceOperation11}
 
 Field | Description
 --- | ---
-info | **string**<br> The maximum string length in characters is 256.
-delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
+info | **string**<br>Information about this maintenance operation. The maximum string length in characters is 256.
+delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time until which this maintenance operation is delayed. 
 
 
 ## DeleteExternalDictionary {#DeleteExternalDictionary}
@@ -3044,8 +3044,8 @@ network_id | **string**<br>ID of the network that the cluster belongs to.
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host1) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host1) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host1) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host1) for at least one host in the cluster is not ALIVE).</li><ul/>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
 service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow13)**<br>Window of maintenance operations. 
-planned_operation | **[MaintenanceOperation](#MaintenanceOperation12)**<br>Maintenance operation planned at nearest maintenance_window. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow13)**<br>Maintenance window for the cluster. 
+planned_operation | **[MaintenanceOperation](#MaintenanceOperation12)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
 
 
@@ -3108,9 +3108,9 @@ enabled | **bool**<br>Whether to use Yandex Object Storage for storing ClickHous
 
 Field | Description
 --- | ---
-policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow13)**<br> 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow13)**<br> 
+policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow13)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow13)**<br>Maintenance operation can be scheduled on a weekly basis. 
 
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow13}
@@ -3121,15 +3121,15 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
 
 Field | Description
 --- | ---
-day | enum **WeekDay**<br> <ul><ul/>
-hour | **int64**<br>Hour of the day in UTC. Acceptable values are 1 to 24, inclusive.
+day | enum **WeekDay**<br>Day of the week (in `DDD` format). <ul><ul/>
+hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
 
 
 ### MaintenanceOperation {#MaintenanceOperation12}
 
 Field | Description
 --- | ---
-info | **string**<br> The maximum string length in characters is 256.
-delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
+info | **string**<br>Information about this maintenance operation. The maximum string length in characters is 256.
+delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time until which this maintenance operation is delayed. 
 
 

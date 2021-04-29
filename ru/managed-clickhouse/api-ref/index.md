@@ -3,14 +3,15 @@ editable: false
 ---
 
 # Yandex Managed Service for ClickHouse API
-Методы справочника API сгруппированы по ресурсам. Чтобы выполнить операцию над ресурсом, отправьте HTTP-запрос к соответствующему URL или выполните RPC-вызов. Подробнее об архитектуре API Яндекс.Облака, см. [Концепции API Яндекс.Облака](/docs/api-design-guide/).
+This API reference is organized by resource. Actions are performed by sending HTTP requests to resource URLs or making RPC calls. For more information about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
 
-Ресурс | Описание
+Resource | Description
 --- | ---
-[Backup](Backup/index.md) | Набор методов для управления резервными копиями для ClickHouse.
-[Cluster](Cluster/index.md) | Набор методов для управления кластерами ClickHouse.
-[Database](Database/index.md) | Набор методов для управления ресурсами Database для ClickHouse.
-[MlModel](MlModel/index.md) | Набор методов управления моделями машинного обучения.
-[ResourcePreset](ResourcePreset/index.md) | Набор методов для управления ресурсами ResourcePreset.
-[User](User/index.md) | Набор методов для управления ресурсами User для ClickHouse.
-[Versions](Versions/index.md) | Набор методов для управления версиями ClickHouse.
+[Backup](Backup/index.md) | A set of methods for managing ClickHouse Backup resources.
+[Cluster](Cluster/index.md) | A set of methods for managing ClickHouse clusters.
+[Database](Database/index.md) | A set of methods for managing ClickHouse Database resources. NOTE: these methods are available only if database management through SQL is disabled.
+[FormatSchema](FormatSchema/index.md) | 
+[MlModel](MlModel/index.md) | A set of methods for managing machine learning models.
+[ResourcePreset](ResourcePreset/index.md) | A set of methods for managing ResourcePreset resources.
+[User](User/index.md) | A set of methods for managing ClickHouse User resources. NOTE: these methods are available only if user management through SQL is disabled.
+[Versions](Versions/index.md) | A set of methods for managing ClickHouse versions.

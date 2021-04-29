@@ -2,25 +2,25 @@
 editable: false
 ---
 
-# Метод list
-Возвращает список резервных копий SQL Server, доступных в указанном каталоге.
+# Method list
+Retrieves the list of SQL Server backups available for the specified folder.
  
 
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 GET https://mdb.api.cloud.yandex.net/mdb/sqlserver/v1alpha/backups
 ```
  
-## Query-параметры {#query_params}
+## Query parameters {#query_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-folderId | Обязательное поле. Идентификатор каталога для вывода списка резервных копий.  Чтобы получить идентификатор каталога, используйте запрос [list](/docs/resource-manager/api-ref/Folder/list).  Максимальная длина строки в символах — 50.
-pageSize | Максимальное количество результатов на одной странице в ответе. Если количество результатов больше чем `page_size`, сервис вернет значение [nextPageToken](/docs/managed-sqlserver/api-ref/Backup/list#responses), которое можно использовать для получения следующей страницы.  Максимальное значение — 1000.
-pageToken | Токен страницы. Установите значение `page_token` равным значению поля [nextPageToken](/docs/managed-sqlserver/api-ref/Backup/list#responses) предыдущего запроса, чтобы получить следующую страницу результатов.  Максимальная длина строки в символах — 100.
+folderId | Required. ID of the folder to list backups in.  To get the folder ID, use a [list](/docs/resource-manager/api-ref/Folder/list) request.  The maximum string length in characters is 50.
+pageSize | The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [nextPageToken](/docs/managed-sqlserver/api-ref/Backup/list#responses) that can be used to get the next page of results in subsequent list requests.  The maximum value is 1000.
+pageToken | Page token. To get the next page of results, Set `page_token` to the [nextPageToken](/docs/managed-sqlserver/api-ref/Backup/list#responses) returned by a previous list request.  The maximum string length in characters is 100.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -39,12 +39,12 @@ pageToken | Токен страницы. Установите значение `
 ```
 
  
-Поле | Описание
+Field | Description
 --- | ---
-backups[] | **object**<br><p>Ресурс Backup для SQL Server. Для получения дополнительной информации см. раздел <a href="/docs/managed-sqlserver/concepts/backup">Резервные копии</a> в документации.</p> 
-backups[].<br>id | **string**<br><p>Идентификатор резервной копии.</p> 
-backups[].<br>folderId | **string**<br><p>Идентификатор каталога, которому принадлежит резервная копия.</p> 
-backups[].<br>createdAt | **string** (date-time)<br><p>Время создания (т. е. когда операция резервного копирования была завершена).</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-backups[].<br>sourceClusterId | **string**<br><p>Идентификатор кластера SQL Server, для которого была создана резервная копия.</p> 
-backups[].<br>startedAt | **string** (date-time)<br><p>Время запуска операции резервного копирования.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-nextPageToken | **string**<br><p>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем <a href="/docs/managed-sqlserver/api-ref/Backup/list#query_params">pageSize</a>, используйте `next_page_token` в качестве значения параметра <a href="/docs/managed-sqlserver/api-ref/Backup/list#query_params">pageToken</a> в следующем запросе. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов.</p> <p>Максимальная длина строки в символах — 100.</p> 
+backups[] | **object**<br><p>An SQL Server backup resource. For more information, see the <a href="/docs/managed-sqlserver/concepts/backup">Backup</a> section in the documentation.</p> 
+backups[].<br>id | **string**<br><p>ID of the backup.</p> 
+backups[].<br>folderId | **string**<br><p>ID of the folder that the backup belongs to.</p> 
+backups[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp (i.e. when the backup operation was completed).</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+backups[].<br>sourceClusterId | **string**<br><p>ID of the SQL Server cluster that the backup was created for.</p> 
+backups[].<br>startedAt | **string** (date-time)<br><p>Time when the backup operation was started.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+nextPageToken | **string**<br><p>Token that allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/managed-sqlserver/api-ref/Backup/list#query_params">pageSize</a>, use the `next_page_token` as the value for the <a href="/docs/managed-sqlserver/api-ref/Backup/list#query_params">pageToken</a> parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results.</p> <p>The maximum string length in characters is 100.</p> 

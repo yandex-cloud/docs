@@ -13,15 +13,15 @@ A demo **Sample ClickHouse** connection is used.
 
 To visualize and analyze the data, [make sure you have a ready-to-use cloud](#before-you-begin) and follow these steps:
 
-1. [Define the data source for the dataset](data-from-ch-visualization.md#step1).
-1. [Configure the dataset fields](data-from-ch-visualization.md#step2).
-1. [Create a line chart](data-from-ch-visualization.md#step3).
-1. [Create a column chart](data-from-ch-visualization.md#step4).
-1. [Create a pivot table chart](data-from-ch-visualization.md#step5).
-1. [Create a heat map chart](data-from-ch-visualization.md#step6).
-1. [Create a dashboard](data-from-ch-visualization.md#step7).
-1. [Add the charts to the dashboard](data-from-ch-visualization.md#step8).
-1. [Add selectors to the dashboard](data-from-ch-visualization.md#step9).
+1. [Define the data source for the dataset](#step1).
+1. [Configure the dataset fields](#step2).
+1. [Create a line chart](#step3).
+1. [Create a column chart](#step4).
+1. [Create a pivot table chart](#step5).
+1. [Create a heat map chart](#step6).
+1. [Create a dashboard](#step7).
+1. [Add the charts to the dashboard](#step8).
+1. [Add selectors to the dashboard](#step9).
 
 Create a [connection](../../datalens/concepts/connection.md) to the ClickHouse database with the table.
 

@@ -2,18 +2,18 @@
 editable: false
 ---
 
-# Метод create
-Создает виртуальную машину в указанном каталоге. Метод запускает асинхронную
-операцию, которую можно отменить перед тем, как она завершится.
+# Method create
+Creates an instance in the specified folder.
+Method starts an asynchronous operation that can be cancelled while it is in progress.
  
 
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 POST https://compute.api.cloud.yandex.net/compute/v1/instances
 ```
  
-## Параметры в теле запроса {#body_params}
+## Body parameters {#body_params}
  
 ```json 
 {
@@ -35,21 +35,25 @@ POST https://compute.api.cloud.yandex.net/compute/v1/instances
     "deviceName": "string",
     "autoDelete": true,
 
-    // `bootDiskSpec` включает только одно из полей `diskSpec`, `diskId`
+    // `bootDiskSpec` includes only one of the fields `diskSpec`, `diskId`
     "diskSpec": {
       "name": "string",
       "description": "string",
       "typeId": "string",
       "size": "string",
+      "blockSize": "string",
+      "diskPlacementPolicy": {
+        "placementGroupId": "string"
+      },
 
-      // `bootDiskSpec.diskSpec` включает только одно из полей `imageId`, `snapshotId`
+      // `bootDiskSpec.diskSpec` includes only one of the fields `imageId`, `snapshotId`
       "imageId": "string",
       "snapshotId": "string",
-      // конец списка возможных полей`bootDiskSpec.diskSpec`
+      // end of the list of possible fields`bootDiskSpec.diskSpec`
 
     },
     "diskId": "string",
-    // конец списка возможных полей`bootDiskSpec`
+    // end of the list of possible fields`bootDiskSpec`
 
   },
   "secondaryDiskSpecs": [
@@ -58,21 +62,25 @@ POST https://compute.api.cloud.yandex.net/compute/v1/instances
       "deviceName": "string",
       "autoDelete": true,
 
-      // `secondaryDiskSpecs[]` включает только одно из полей `diskSpec`, `diskId`
+      // `secondaryDiskSpecs[]` includes only one of the fields `diskSpec`, `diskId`
       "diskSpec": {
         "name": "string",
         "description": "string",
         "typeId": "string",
         "size": "string",
+        "blockSize": "string",
+        "diskPlacementPolicy": {
+          "placementGroupId": "string"
+        },
 
-        // `secondaryDiskSpecs[].diskSpec` включает только одно из полей `imageId`, `snapshotId`
+        // `secondaryDiskSpecs[].diskSpec` includes only one of the fields `imageId`, `snapshotId`
         "imageId": "string",
         "snapshotId": "string",
-        // конец списка возможных полей`secondaryDiskSpecs[].diskSpec`
+        // end of the list of possible fields`secondaryDiskSpecs[].diskSpec`
 
       },
       "diskId": "string",
-      // конец списка возможных полей`secondaryDiskSpecs[]`
+      // end of the list of possible fields`secondaryDiskSpecs[]`
 
     }
   ],
@@ -82,15 +90,52 @@ POST https://compute.api.cloud.yandex.net/compute/v1/instances
       "primaryV4AddressSpec": {
         "address": "string",
         "oneToOneNatSpec": {
-          "ipVersion": "string"
-        }
+          "ipVersion": "string",
+          "address": "string",
+          "dnsRecordSpecs": [
+            {
+              "fqdn": "string",
+              "dnsZoneId": "string",
+              "ttl": "string",
+              "ptr": true
+            }
+          ]
+        },
+        "dnsRecordSpecs": [
+          {
+            "fqdn": "string",
+            "dnsZoneId": "string",
+            "ttl": "string",
+            "ptr": true
+          }
+        ]
       },
       "primaryV6AddressSpec": {
         "address": "string",
         "oneToOneNatSpec": {
-          "ipVersion": "string"
-        }
-      }
+          "ipVersion": "string",
+          "address": "string",
+          "dnsRecordSpecs": [
+            {
+              "fqdn": "string",
+              "dnsZoneId": "string",
+              "ttl": "string",
+              "ptr": true
+            }
+          ]
+        },
+        "dnsRecordSpecs": [
+          {
+            "fqdn": "string",
+            "dnsZoneId": "string",
+            "ttl": "string",
+            "ptr": true
+          }
+        ]
+      },
+      "securityGroupIds": [
+        "string"
+      ]
     }
   ],
   "hostname": "string",
@@ -100,67 +145,114 @@ POST https://compute.api.cloud.yandex.net/compute/v1/instances
   "serviceAccountId": "string",
   "networkSettings": {
     "type": "string"
+  },
+  "placementPolicy": {
+    "placementGroupId": "string",
+    "hostAffinityRules": [
+      {
+        "key": "string",
+        "op": "string",
+        "values": [
+          "string"
+        ]
+      }
+    ]
   }
 }
 ```
 
  
-Поле | Описание
+Field | Description
 --- | ---
-folderId | **string**<br><p>Обязательное поле. Идентификатор каталога для создания виртуальной машины. Чтобы получить идентификатор каталога, используйте запрос <a href="/docs/resource-manager/api-ref/Folder/list">list</a>.</p> <p>Максимальная длина строки в символах — 50.</p> 
-name | **string**<br><p>Имя виртуальной машины.</p> <p>Значение должно соответствовать регулярному выражению `` \|[a-z][-a-z0-9]{1,61}[a-z0-9] ``.</p> 
-description | **string**<br><p>Описание виртуальной машины.</p> <p>Максимальная длина строки в символах — 256.</p> 
-labels | **object**<br><p>Метки ресурса в формате `key:value`.</p> <p>Не более 64 на ресурс. Длина строки в символах для каждого ключа должна быть от 1 до 63. Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``. Максимальная длина строки в символах для каждого значения — 63. Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.</p> 
-zoneId | **string**<br><p>Обязательное поле. Идентификатор зоны доступности, где находится виртуальная машина. Чтобы получить список доступных зон, используйте запрос <a href="/docs/compute/api-ref/Zone/list">list</a>.</p> <p>Максимальная длина строки в символах — 50.</p> 
-platformId | **string**<br><p>Обязательное поле. Идентификатор аппаратной платформы виртуальной машины. Это поле влияет на допустимые значения поля <a href="/docs/compute/api-ref/Instance/create#body_params">resourcesSpec</a>.</p> <p>Платформы позволяют создавать виртуальные машины разных типов: с большим объемом памяти, с большим количеством ядер или с высокой производительностью. Дополнительные сведения см. в разделе <a href="/docs/compute/concepts/vm-platforms">Платформы</a>.</p> 
-resourcesSpec | **object**<br><p>Обязательное поле. Вычислительные ресурсы виртуальной машины, такие как объем памяти и количество ядер. Чтобы узнать список допустимых значений, см. раздел <a href="/docs/compute/concepts/performance-levels">Уровни производительности vCPU</a>.</p> 
-resourcesSpec.<br>memory | **string** (int64)<br><p>Обязательное поле. Объем памяти в байтах, доступный виртуальной машине.</p> <p>Максимальное значение — 274877906944.</p> 
-resourcesSpec.<br>cores | **string** (int64)<br><p>Обязательное поле. Количество ядер, доступное виртуальной машине.</p> <p>Значение должно быть равно 1, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30 или 32.</p> 
-resourcesSpec.<br>coreFraction | **string** (int64)<br><p>Базовый уровень производительности CPU с возможностью повышения производительности выше этого уровня. Это поле устанавливает базовую производительность для каждого ядра.</p> <p>Например, если требуется только 5% производительности CPU, можно задать значение `core_fraction=5`. Дополнительные сведения см. в разделе <a href="/docs/compute/concepts/performance-levels">Уровни производительности vCPU</a>.</p> <p>Значение должно быть равно 0, 5, 20, 50 или 100.</p> 
-resourcesSpec.<br>gpus | **string** (int64)<br><p>Количество GPU, доступное виртуальной машине.</p> <p>Значение должно быть равно 0, 1, 2 или 4.</p> 
-metadata | **object**<br><p>Метаданные, назначаемые данной виртуальной машине, в формате пар `ключ:значение`. Сюда входят пользовательские метаданные и предопределенные ключи. Общий размер всех ключей и значений не должен превышать 512 КБ.</p> <p>Значениями являются строки и используются только программами, которые настраивают виртуальную машину. Значения должны быть не более 256 КБ.</p> <p>Например, можно использовать метаданные для доставки открытого ключа SSH на виртуальную машину. Дополнительные сведения см. в разделе <a href="/docs/compute/concepts/vm-metadata">Метаданные виртуальной машины</a>.</p> 
-bootDiskSpec | **object**<br><p>Обязательное поле. Загрузочный диск для подключения к виртуальной машине.</p> 
-bootDiskSpec.<br>mode | **string**<br>Режим, в котором необходимо подключить этот диск.<br><ul> <li>READ_ONLY: Доступ на чтение.</li> <li>READ_WRITE: Доступ на чтение и запись. Значение по умолчанию.</li> </ul> 
-bootDiskSpec.<br>deviceName | **string**<br><p>Задает уникальный серийный номер, который на виртуальной машине с операционной системой Linux отображается в директории /dev/disk/by-id/.</p> <p>Это значение может использоваться для ссылки на устройство внутри виртуальной машины при монтировании, изменении размера и т. д. Если значение не указано, будет сгенерировано случайное значение.</p> <p>Значение должно соответствовать регулярному выражению `` [a-z][a-z0-9-_]{,19} ``.</p> 
-bootDiskSpec.<br>autoDelete | **boolean** (boolean)<br><p>Указывает, должен ли диск автоматически удалиться при удалении виртуальной машины.</p> 
-bootDiskSpec.<br>diskSpec | **object**<br>Спецификация диска. <br>`bootDiskSpec` включает только одно из полей `diskSpec`, `diskId`<br><br>
-bootDiskSpec.<br>diskSpec.<br>name | **string**<br><p>Имя диска.</p> <p>Значение должно соответствовать регулярному выражению `` \|[a-z][-a-z0-9]{1,61}[a-z0-9] ``.</p> 
-bootDiskSpec.<br>diskSpec.<br>description | **string**<br><p>Описание диска.</p> <p>Максимальная длина строки в символах — 256.</p> 
-bootDiskSpec.<br>diskSpec.<br>typeId | **string**<br><p>Идентификатор типа диска. Чтобы получить список доступных типов дисков, используйте запрос <a href="/docs/compute/api-ref/DiskType/list">list</a>.</p> <p>Максимальная длина строки в символах — 50.</p> 
-bootDiskSpec.<br>diskSpec.<br>size | **string** (int64)<br><p>Обязательное поле. Размер диска в байтах.</p> <p>Допустимые значения — от 4194304 до 4398046511104 включительно.</p> 
-bootDiskSpec.<br>diskSpec.<br>imageId | **string** <br>`bootDiskSpec.diskSpec` включает только одно из полей `imageId`, `snapshotId`<br><br><p>Идентификатор образа для создания диска.</p> <p>Максимальная длина строки в символах — 50.</p> 
-bootDiskSpec.<br>diskSpec.<br>snapshotId | **string** <br>`bootDiskSpec.diskSpec` включает только одно из полей `imageId`, `snapshotId`<br><br><p>Идентификатор снимка для восстановления диска.</p> <p>Максимальная длина строки в символах — 50.</p> 
-bootDiskSpec.<br>diskId | **string** <br>`bootDiskSpec` включает только одно из полей `diskSpec`, `diskId`<br><br><p>Идентификатор диска, который должен быть подключен.</p> <p>Максимальная длина строки в символах — 50.</p> 
-secondaryDiskSpecs[] | **object**<br><p>Массив дополнительных дисков для подключения к виртуальной машине.</p> <p>Максимальное количество элементов — 3.</p> 
-secondaryDiskSpecs[].<br>mode | **string**<br>Режим, в котором необходимо подключить этот диск.<br><ul> <li>READ_ONLY: Доступ на чтение.</li> <li>READ_WRITE: Доступ на чтение и запись. Значение по умолчанию.</li> </ul> 
-secondaryDiskSpecs[].<br>deviceName | **string**<br><p>Задает уникальный серийный номер, который на виртуальной машине с операционной системой Linux отображается в директории /dev/disk/by-id/.</p> <p>Это значение может использоваться для ссылки на устройство внутри виртуальной машины при монтировании, изменении размера и т. д. Если значение не указано, будет сгенерировано случайное значение.</p> <p>Значение должно соответствовать регулярному выражению `` [a-z][a-z0-9-_]{,19} ``.</p> 
-secondaryDiskSpecs[].<br>autoDelete | **boolean** (boolean)<br><p>Указывает, должен ли диск автоматически удалиться при удалении виртуальной машины.</p> 
-secondaryDiskSpecs[].<br>diskSpec | **object**<br>Спецификация диска. <br>`secondaryDiskSpecs[]` включает только одно из полей `diskSpec`, `diskId`<br><br>
-secondaryDiskSpecs[].<br>diskSpec.<br>name | **string**<br><p>Имя диска.</p> <p>Значение должно соответствовать регулярному выражению `` \|[a-z][-a-z0-9]{1,61}[a-z0-9] ``.</p> 
-secondaryDiskSpecs[].<br>diskSpec.<br>description | **string**<br><p>Описание диска.</p> <p>Максимальная длина строки в символах — 256.</p> 
-secondaryDiskSpecs[].<br>diskSpec.<br>typeId | **string**<br><p>Идентификатор типа диска. Чтобы получить список доступных типов дисков, используйте запрос <a href="/docs/compute/api-ref/DiskType/list">list</a>.</p> <p>Максимальная длина строки в символах — 50.</p> 
-secondaryDiskSpecs[].<br>diskSpec.<br>size | **string** (int64)<br><p>Обязательное поле. Размер диска в байтах.</p> <p>Допустимые значения — от 4194304 до 4398046511104 включительно.</p> 
-secondaryDiskSpecs[].<br>diskSpec.<br>imageId | **string** <br>`secondaryDiskSpecs[].diskSpec` включает только одно из полей `imageId`, `snapshotId`<br><br><p>Идентификатор образа для создания диска.</p> <p>Максимальная длина строки в символах — 50.</p> 
-secondaryDiskSpecs[].<br>diskSpec.<br>snapshotId | **string** <br>`secondaryDiskSpecs[].diskSpec` включает только одно из полей `imageId`, `snapshotId`<br><br><p>Идентификатор снимка для восстановления диска.</p> <p>Максимальная длина строки в символах — 50.</p> 
-secondaryDiskSpecs[].<br>diskId | **string** <br>`secondaryDiskSpecs[]` включает только одно из полей `diskSpec`, `diskId`<br><br><p>Идентификатор диска, который должен быть подключен.</p> <p>Максимальная длина строки в символах — 50.</p> 
-networkInterfaceSpecs[] | **object**<br><p>Обязательное поле. Конфигурация сети для виртуальной машины. Указывает, как должен быть настроен сетевой интерфейс для взаимодействия с другими сервисами во внутренней сети и в интернете. В настоящее время для каждой виртуальной машины поддерживается только один сетевой интерфейс.</p> <p>Должен содержать ровно 1 элемент.</p> 
-networkInterfaceSpecs[].<br>subnetId | **string**<br><p>Обязательное поле. Идентификатор подсети.</p> <p>Максимальная длина строки в символах — 50.</p> 
-networkInterfaceSpecs[].<br>primaryV4AddressSpec | **object**<br><p>Основной IPv4-адрес, который будет назначен виртуальной машине для данного сетевого интерфейса.</p> 
-networkInterfaceSpecs[].<br>primaryV4AddressSpec.<br>address | **string**<br><p>Внутренний IPv4-адрес, назначенный виртуальной машине для данного сетевого интерфейса. Если он не указан, системой будет назначен неиспользуемый внутренний IP-адрес.</p> 
-networkInterfaceSpecs[].<br>primaryV4AddressSpec.<br>oneToOneNatSpec | **object**<br><p>Конфигурация внешнего IP-адреса. Если она не указана, то у виртуальной машины не будет доступа в интернет.</p> 
-networkInterfaceSpecs[].<br>primaryV4AddressSpec.<br>oneToOneNatSpec.<br>ipVersion | **string**<br><p>Обязательное поле. Версия публичного IP-адреса.</p> <ul> <li>IPV4: IPv4-адрес, например 192.0.2.235.</li> <li>IPV6: Адрес IPv6. На данный момент не доступен.</li> </ul> 
-networkInterfaceSpecs[].<br>primaryV6AddressSpec | **object**<br><p>Основной IPv6-адрес, который будет назначен виртуальной машине для данного сетевого интерфейса. IPv6 еще не доступен.</p> 
-networkInterfaceSpecs[].<br>primaryV6AddressSpec.<br>address | **string**<br><p>Внутренний IPv4-адрес, назначенный виртуальной машине для данного сетевого интерфейса. Если он не указан, системой будет назначен неиспользуемый внутренний IP-адрес.</p> 
-networkInterfaceSpecs[].<br>primaryV6AddressSpec.<br>oneToOneNatSpec | **object**<br><p>Конфигурация внешнего IP-адреса. Если она не указана, то у виртуальной машины не будет доступа в интернет.</p> 
-networkInterfaceSpecs[].<br>primaryV6AddressSpec.<br>oneToOneNatSpec.<br>ipVersion | **string**<br><p>Обязательное поле. Версия публичного IP-адреса.</p> <ul> <li>IPV4: IPv4-адрес, например 192.0.2.235.</li> <li>IPV6: Адрес IPv6. На данный момент не доступен.</li> </ul> 
-hostname | **string**<br><p>Имя хоста виртуальной машины. Это поле используется для генерации значения <a href="/docs/compute/api-ref/Instance#representation">Instance.fqdn</a>. Имя хоста должно быть уникальным в пределах сети и региона. Если не указано, то имя хоста будет равно <a href="/docs/compute/api-ref/Instance#representation">Instance.id</a> виртуальной машины и FQDN будет `<id>.auto.internal`. В противном случае FQDN будет `<hostname>.&lt;region_id&gt;.internal`.</p> <p>Значение должно соответствовать регулярному выражению `` \|[a-z][-a-z0-9]{1,61}[a-z0-9] ``.</p> 
-schedulingPolicy | **object**<br><p>Конфигурация политики планирования.</p> 
-schedulingPolicy.<br>preemptible | **boolean** (boolean)<br><p>Если значение равно true — будет создана прерываемая виртуальная машина. Дополнительные сведения см. в разделе <a href="/docs/compute/concepts/preemptible-vm">Прерываемые виртуальные машины</a>.</p> 
-serviceAccountId | **string**<br><p>Идентификатор сервисного аккаунта для <a href="/docs/compute/operations/vm-connect/auth-inside-vm">аутентификации изнутри виртуальной машины</a>. Чтобы получить идентификатор сервисного аккаунта, используйте запрос <a href="/docs/iam/api-ref/ServiceAccount/list">list</a>.</p> 
-networkSettings | **object**<br><p>Сетевые настройки.</p> 
-networkSettings.<br>type | **string**<br><p>Не указывайте это поле, сетевые настройки пока не поддерживаются.</p> <ul> <li>STANDARD: Стандартная сеть.</li> <li>SOFTWARE_ACCELERATED: Сеть с программным ускорением.</li> <li>HARDWARE_ACCELERATED: Сеть с аппаратным ускорением (этот тип пока недоступен, значение зарезервировано для использования в будущем).</li> </ul> 
+folderId | **string**<br><p>Required. ID of the folder to create an instance in. To get the folder ID, use a <a href="/docs/resource-manager/api-ref/Folder/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
+name | **string**<br><p>Name of the instance.</p> <p>Value must match the regular expression `` \|<a href="%5B-a-z0-9%5D%7B0,61%7D%5Ba-z0-9%5D">a-z</a>? ``.</p> 
+description | **string**<br><p>Description of the instance.</p> <p>The maximum string length in characters is 256.</p> 
+labels | **object**<br><p>Resource labels as `key:value` pairs.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression `` [a-z][-<em>./@0-9a-z]* ``. The maximum string length in characters for each value is 63. Each value must match the regular expression `` [-</em>./@0-9a-z]* ``.</p> 
+zoneId | **string**<br><p>Required. ID of the availability zone where the instance resides. To get a list of available zones, use the <a href="/docs/compute/api-ref/Zone/list">list</a> request</p> <p>The maximum string length in characters is 50.</p> 
+platformId | **string**<br><p>Required. ID of the hardware platform configuration for the instance. This field affects the available values in <a href="/docs/compute/api-ref/Instance/create#body_params">resourcesSpec</a> field.</p> <p>Platforms allows you to create various types of instances: with a large amount of memory, with a large number of cores, with a burstable performance. For more information, see <a href="/docs/compute/concepts/vm-platforms">Platforms</a>.</p> 
+resourcesSpec | **object**<br><p>Required. Computing resources of the instance, such as the amount of memory and number of cores. To get a list of available values, see <a href="/docs/compute/concepts/performance-levels">Levels of core performance</a>.</p> 
+resourcesSpec.<br>memory | **string** (int64)<br><p>Required. The amount of memory available to the instance, specified in bytes.</p> <p>The maximum value is 274877906944.</p> 
+resourcesSpec.<br>cores | **string** (int64)<br><p>Required. The number of cores available to the instance.</p> <p>Value must be one of 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 40, 44, 48, 52, 56, 60, 64, 68, 72, 76 or 80.</p> 
+resourcesSpec.<br>coreFraction | **string** (int64)<br><p>Baseline level of CPU performance with the ability to burst performance above that baseline level. This field sets baseline performance for each core.</p> <p>For example, if you need only 5% of the CPU performance, you can set core_fraction=5. For more information, see <a href="/docs/compute/concepts/performance-levels">Levels of core performance</a>.</p> <p>Value must be one of 0, 5, 20, 50 or 100.</p> 
+resourcesSpec.<br>gpus | **string** (int64)<br><p>The number of GPUs available to the instance.</p> <p>Value must be one of 0, 1, 2 or 4.</p> 
+metadata | **object**<br><p>The metadata `key:value` pairs that will be assigned to this instance. This includes custom metadata and predefined keys. The total size of all keys and values must be less than 512 KB.</p> <p>Values are free-form strings, and only have meaning as interpreted by the programs which configure the instance. The values must be 256 KB or less.</p> <p>For example, you may use the metadata in order to provide your public SSH key to the instance. For more information, see <a href="/docs/compute/concepts/vm-metadata">Metadata</a>.</p> 
+bootDiskSpec | **object**<br><p>Required. Boot disk to attach to the instance.</p> 
+bootDiskSpec.<br>mode | **string**<br>The mode in which to attach this disk.<br><ul> <li>READ_ONLY: Read-only access.</li> <li>READ_WRITE: Read/Write access. Default value.</li> </ul> 
+bootDiskSpec.<br>deviceName | **string**<br><p>Specifies a unique serial number of your choice that is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance.</p> <p>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. If not specified, a random value will be generated.</p> <p>Value must match the regular expression `` [a-z][a-z0-9-_]{,19} ``.</p> 
+bootDiskSpec.<br>autoDelete | **boolean** (boolean)<br><p>Specifies whether the disk will be auto-deleted when the instance is deleted.</p> 
+bootDiskSpec.<br>diskSpec | **object**<br>Disk specification. <br>`bootDiskSpec` includes only one of the fields `diskSpec`, `diskId`<br><br>
+bootDiskSpec.<br>diskSpec.<br>name | **string**<br><p>Name of the disk.</p> <p>Value must match the regular expression `` \|<a href="%5B-a-z0-9%5D%7B0,61%7D%5Ba-z0-9%5D">a-z</a>? ``.</p> 
+bootDiskSpec.<br>diskSpec.<br>description | **string**<br><p>Description of the disk.</p> <p>The maximum string length in characters is 256.</p> 
+bootDiskSpec.<br>diskSpec.<br>typeId | **string**<br><p>ID of the disk type. To get a list of available disk types, use the <a href="/docs/compute/api-ref/DiskType/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
+bootDiskSpec.<br>diskSpec.<br>size | **string** (int64)<br><p>Required. Size of the disk, specified in bytes.</p> <p>Acceptable values are 4194304 to 4398046511104, inclusive.</p> 
+bootDiskSpec.<br>diskSpec.<br>blockSize | **string** (int64)<br><p>Block size of the disk, specified in bytes. The default is 4096.</p> 
+bootDiskSpec.<br>diskSpec.<br>diskPlacementPolicy | **object**<br>Placement policy configuration.<br>
+bootDiskSpec.<br>diskSpec.<br>diskPlacementPolicy.<br>placementGroupId | **string**<br><p>Placement group ID.</p> 
+bootDiskSpec.<br>diskSpec.<br>imageId | **string** <br>`bootDiskSpec.diskSpec` includes only one of the fields `imageId`, `snapshotId`<br><br><p>ID of the image to create the disk from.</p> <p>The maximum string length in characters is 50.</p> 
+bootDiskSpec.<br>diskSpec.<br>snapshotId | **string** <br>`bootDiskSpec.diskSpec` includes only one of the fields `imageId`, `snapshotId`<br><br><p>ID of the snapshot to restore the disk from.</p> <p>The maximum string length in characters is 50.</p> 
+bootDiskSpec.<br>diskId | **string** <br>`bootDiskSpec` includes only one of the fields `diskSpec`, `diskId`<br><br><p>ID of the disk that should be attached.</p> <p>The maximum string length in characters is 50.</p> 
+secondaryDiskSpecs[] | **object**<br><p>Array of secondary disks to attach to the instance.</p> <p>The maximum number of elements is 3.</p> 
+secondaryDiskSpecs[].<br>mode | **string**<br>The mode in which to attach this disk.<br><ul> <li>READ_ONLY: Read-only access.</li> <li>READ_WRITE: Read/Write access. Default value.</li> </ul> 
+secondaryDiskSpecs[].<br>deviceName | **string**<br><p>Specifies a unique serial number of your choice that is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance.</p> <p>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. If not specified, a random value will be generated.</p> <p>Value must match the regular expression `` [a-z][a-z0-9-_]{,19} ``.</p> 
+secondaryDiskSpecs[].<br>autoDelete | **boolean** (boolean)<br><p>Specifies whether the disk will be auto-deleted when the instance is deleted.</p> 
+secondaryDiskSpecs[].<br>diskSpec | **object**<br>Disk specification. <br>`secondaryDiskSpecs[]` includes only one of the fields `diskSpec`, `diskId`<br><br>
+secondaryDiskSpecs[].<br>diskSpec.<br>name | **string**<br><p>Name of the disk.</p> <p>Value must match the regular expression `` \|<a href="%5B-a-z0-9%5D%7B0,61%7D%5Ba-z0-9%5D">a-z</a>? ``.</p> 
+secondaryDiskSpecs[].<br>diskSpec.<br>description | **string**<br><p>Description of the disk.</p> <p>The maximum string length in characters is 256.</p> 
+secondaryDiskSpecs[].<br>diskSpec.<br>typeId | **string**<br><p>ID of the disk type. To get a list of available disk types, use the <a href="/docs/compute/api-ref/DiskType/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
+secondaryDiskSpecs[].<br>diskSpec.<br>size | **string** (int64)<br><p>Required. Size of the disk, specified in bytes.</p> <p>Acceptable values are 4194304 to 4398046511104, inclusive.</p> 
+secondaryDiskSpecs[].<br>diskSpec.<br>blockSize | **string** (int64)<br><p>Block size of the disk, specified in bytes. The default is 4096.</p> 
+secondaryDiskSpecs[].<br>diskSpec.<br>diskPlacementPolicy | **object**<br>Placement policy configuration.<br>
+secondaryDiskSpecs[].<br>diskSpec.<br>diskPlacementPolicy.<br>placementGroupId | **string**<br><p>Placement group ID.</p> 
+secondaryDiskSpecs[].<br>diskSpec.<br>imageId | **string** <br>`secondaryDiskSpecs[].diskSpec` includes only one of the fields `imageId`, `snapshotId`<br><br><p>ID of the image to create the disk from.</p> <p>The maximum string length in characters is 50.</p> 
+secondaryDiskSpecs[].<br>diskSpec.<br>snapshotId | **string** <br>`secondaryDiskSpecs[].diskSpec` includes only one of the fields `imageId`, `snapshotId`<br><br><p>ID of the snapshot to restore the disk from.</p> <p>The maximum string length in characters is 50.</p> 
+secondaryDiskSpecs[].<br>diskId | **string** <br>`secondaryDiskSpecs[]` includes only one of the fields `diskSpec`, `diskId`<br><br><p>ID of the disk that should be attached.</p> <p>The maximum string length in characters is 50.</p> 
+networkInterfaceSpecs[] | **object**<br><p>Required. Network configuration for the instance. Specifies how the network interface is configured to interact with other services on the internal network and on the internet. Currently only one network interface is supported per instance.</p> <p>Must contain exactly 1 element.</p> 
+networkInterfaceSpecs[].<br>subnetId | **string**<br><p>Required. ID of the subnet.</p> <p>The maximum string length in characters is 50.</p> 
+networkInterfaceSpecs[].<br>primaryV4AddressSpec | **object**<br><p>Primary IPv4 address that will be assigned to the instance for this network interface.</p> 
+networkInterfaceSpecs[].<br>primaryV4AddressSpec.<br>address | **string**<br><p>An IPv4 internal network address that is assigned to the instance for this network interface. If not specified by the user, an unused internal IP is assigned by the system.</p> 
+networkInterfaceSpecs[].<br>primaryV4AddressSpec.<br>oneToOneNatSpec | **object**<br><p>An external IP address configuration. If not specified, then this instance will have no external internet access.</p> 
+networkInterfaceSpecs[].<br>primaryV4AddressSpec.<br>oneToOneNatSpec.<br>ipVersion | **string**<br><p>External IP address version.</p> <ul> <li>IPV4: IPv4 address, for example 192.0.2.235.</li> <li>IPV6: IPv6 address. Not available yet.</li> </ul> 
+networkInterfaceSpecs[].<br>primaryV4AddressSpec.<br>oneToOneNatSpec.<br>address | **string**<br>
+networkInterfaceSpecs[].<br>primaryV4AddressSpec.<br>oneToOneNatSpec.<br>dnsRecordSpecs[] | **object**<br><p>External DNS configuration</p> 
+networkInterfaceSpecs[].<br>primaryV4AddressSpec.<br>oneToOneNatSpec.<br>dnsRecordSpecs[].<br>fqdn | **string**<br><p>Required. FQDN (required)</p> 
+networkInterfaceSpecs[].<br>primaryV4AddressSpec.<br>oneToOneNatSpec.<br>dnsRecordSpecs[].<br>dnsZoneId | **string**<br><p>DNS zone id (optional, if not set, private zone used)</p> 
+networkInterfaceSpecs[].<br>primaryV4AddressSpec.<br>oneToOneNatSpec.<br>dnsRecordSpecs[].<br>ttl | **string** (int64)<br><p>DNS record ttl, values in 0-86400 (optional)</p> <p>Acceptable values are 0 to 86400, inclusive.</p> 
+networkInterfaceSpecs[].<br>primaryV4AddressSpec.<br>oneToOneNatSpec.<br>dnsRecordSpecs[].<br>ptr | **boolean** (boolean)<br><p>When set to true, also create PTR DNS record (optional)</p> 
+networkInterfaceSpecs[].<br>primaryV4AddressSpec.<br>dnsRecordSpecs[] | **object**<br><p>Internal DNS configuration</p> 
+networkInterfaceSpecs[].<br>primaryV4AddressSpec.<br>dnsRecordSpecs[].<br>fqdn | **string**<br><p>Required. FQDN (required)</p> 
+networkInterfaceSpecs[].<br>primaryV4AddressSpec.<br>dnsRecordSpecs[].<br>dnsZoneId | **string**<br><p>DNS zone id (optional, if not set, private zone used)</p> 
+networkInterfaceSpecs[].<br>primaryV4AddressSpec.<br>dnsRecordSpecs[].<br>ttl | **string** (int64)<br><p>DNS record ttl, values in 0-86400 (optional)</p> <p>Acceptable values are 0 to 86400, inclusive.</p> 
+networkInterfaceSpecs[].<br>primaryV4AddressSpec.<br>dnsRecordSpecs[].<br>ptr | **boolean** (boolean)<br><p>When set to true, also create PTR DNS record (optional)</p> 
+networkInterfaceSpecs[].<br>primaryV6AddressSpec | **object**<br><p>Primary IPv6 address that will be assigned to the instance for this network interface. IPv6 not available yet.</p> 
+networkInterfaceSpecs[].<br>primaryV6AddressSpec.<br>address | **string**<br><p>An IPv4 internal network address that is assigned to the instance for this network interface. If not specified by the user, an unused internal IP is assigned by the system.</p> 
+networkInterfaceSpecs[].<br>primaryV6AddressSpec.<br>oneToOneNatSpec | **object**<br><p>An external IP address configuration. If not specified, then this instance will have no external internet access.</p> 
+networkInterfaceSpecs[].<br>primaryV6AddressSpec.<br>oneToOneNatSpec.<br>ipVersion | **string**<br><p>External IP address version.</p> <ul> <li>IPV4: IPv4 address, for example 192.0.2.235.</li> <li>IPV6: IPv6 address. Not available yet.</li> </ul> 
+networkInterfaceSpecs[].<br>primaryV6AddressSpec.<br>oneToOneNatSpec.<br>address | **string**<br>
+networkInterfaceSpecs[].<br>primaryV6AddressSpec.<br>oneToOneNatSpec.<br>dnsRecordSpecs[] | **object**<br><p>External DNS configuration</p> 
+networkInterfaceSpecs[].<br>primaryV6AddressSpec.<br>oneToOneNatSpec.<br>dnsRecordSpecs[].<br>fqdn | **string**<br><p>Required. FQDN (required)</p> 
+networkInterfaceSpecs[].<br>primaryV6AddressSpec.<br>oneToOneNatSpec.<br>dnsRecordSpecs[].<br>dnsZoneId | **string**<br><p>DNS zone id (optional, if not set, private zone used)</p> 
+networkInterfaceSpecs[].<br>primaryV6AddressSpec.<br>oneToOneNatSpec.<br>dnsRecordSpecs[].<br>ttl | **string** (int64)<br><p>DNS record ttl, values in 0-86400 (optional)</p> <p>Acceptable values are 0 to 86400, inclusive.</p> 
+networkInterfaceSpecs[].<br>primaryV6AddressSpec.<br>oneToOneNatSpec.<br>dnsRecordSpecs[].<br>ptr | **boolean** (boolean)<br><p>When set to true, also create PTR DNS record (optional)</p> 
+networkInterfaceSpecs[].<br>primaryV6AddressSpec.<br>dnsRecordSpecs[] | **object**<br><p>Internal DNS configuration</p> 
+networkInterfaceSpecs[].<br>primaryV6AddressSpec.<br>dnsRecordSpecs[].<br>fqdn | **string**<br><p>Required. FQDN (required)</p> 
+networkInterfaceSpecs[].<br>primaryV6AddressSpec.<br>dnsRecordSpecs[].<br>dnsZoneId | **string**<br><p>DNS zone id (optional, if not set, private zone used)</p> 
+networkInterfaceSpecs[].<br>primaryV6AddressSpec.<br>dnsRecordSpecs[].<br>ttl | **string** (int64)<br><p>DNS record ttl, values in 0-86400 (optional)</p> <p>Acceptable values are 0 to 86400, inclusive.</p> 
+networkInterfaceSpecs[].<br>primaryV6AddressSpec.<br>dnsRecordSpecs[].<br>ptr | **boolean** (boolean)<br><p>When set to true, also create PTR DNS record (optional)</p> 
+networkInterfaceSpecs[].<br>securityGroupIds[] | **string**<br><p>ID's of security groups attached to the interface</p> 
+hostname | **string**<br><p>Host name for the instance. This field is used to generate the <a href="/docs/compute/api-ref/Instance#representation">Instance.fqdn</a> value. The host name must be unique within the network and region. If not specified, the host name will be equal to <a href="/docs/compute/api-ref/Instance#representation">Instance.id</a> of the instance and FQDN will be `<id>.auto.internal`. Otherwise FQDN will be `<hostname>.&lt;region_id&gt;.internal`.</p> <p>Value must match the regular expression `` \|<a href="%5B-a-z0-9%5D%7B0,61%7D%5Ba-z0-9%5D">a-z</a>? ``.</p> 
+schedulingPolicy | **object**<br><p>Scheduling policy configuration.</p> 
+schedulingPolicy.<br>preemptible | **boolean** (boolean)<br><p>True for short-lived compute instances. For more information, see <a href="/docs/compute/concepts/preemptible-vm">Preemptible VMs</a>.</p> 
+serviceAccountId | **string**<br><p>ID of the service account to use for <a href="/docs/compute/operations/vm-connect/auth-inside-vm">authentication inside the instance</a>. To get the service account ID, use a <a href="/docs/iam/api-ref/ServiceAccount/list">list</a> request.</p> 
+networkSettings | **object**<br><p>Network settings.</p> 
+networkSettings.<br>type | **string**<br><p>Network Type</p> <ul> <li>STANDARD: Standard network.</li> <li>SOFTWARE_ACCELERATED: Software accelerated network.</li> <li>HARDWARE_ACCELERATED: Hardware accelerated network (not available yet, reserved for future use).</li> </ul> 
+placementPolicy | **object**<br><p>Placement policy configuration.</p> 
+placementPolicy.<br>placementGroupId | **string**<br><p>Placement group ID.</p> 
+placementPolicy.<br>hostAffinityRules[] | **object**<br><p>Affinitity definition</p> 
+placementPolicy.<br>hostAffinityRules[].<br>key | **string**<br><p>Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId'</p> 
+placementPolicy.<br>hostAffinityRules[].<br>op | **string**<br><p>Include or exclude action</p> 
+placementPolicy.<br>hostAffinityRules[].<br>values[] | **string**<br><p>Affinity value or host ID or host group ID</p> 
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -173,7 +265,7 @@ networkSettings.<br>type | **string**<br><p>Не указывайте это п�
   "done": true,
   "metadata": "object",
 
-  //  включает только одно из полей `error`, `response`
+  //  includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
     "message": "string",
@@ -182,24 +274,23 @@ networkSettings.<br>type | **string**<br><p>Не указывайте это п�
     ]
   },
   "response": "object",
-  // конец списка возможных полей
+  // end of the list of possible fields
 
 }
 ```
-Ресурс Operation. Дополнительные сведения см. в разделе
-[Объект Operation](/docs/api-design-guide/concepts/operation).
+An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
  
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br><p>Идентификатор операции.</p> 
-description | **string**<br><p>Описание операции. Длина описания должна быть от 0 до 256 символов.</p> 
-createdAt | **string** (date-time)<br><p>Время создания ресурса в формате в <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-createdBy | **string**<br><p>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию.</p> 
-modifiedAt | **string** (date-time)<br><p>Время, когда ресурс Operation последний раз обновлялся. Значение в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-done | **boolean** (boolean)<br><p>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`.</p> 
-metadata | **object**<br><p>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`.</p> 
-error | **object**<br>Описание ошибки в случае сбоя или отмены операции. <br> включает только одно из полей `error`, `response`<br><br><p>Описание ошибки в случае сбоя или отмены операции.</p> 
-error.<br>code | **integer** (int32)<br><p>Код ошибки. Значение из списка <a href="https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto">google.rpc.Code</a>.</p> 
-error.<br>message | **string**<br><p>Текст ошибки.</p> 
-error.<br>details[] | **object**<br><p>Список сообщений с подробными сведениями об ошибке.</p> 
-response | **object** <br> включает только одно из полей `error`, `response`<br><br><p>Результат операции в случае успешного завершения. Если исходный метод не возвращает никаких данных при успешном завершении, например метод Delete, поле содержит объект <a href="https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty">google.protobuf.Empty</a>. Если исходный метод — это стандартный метод Create / Update, поле содержит целевой ресурс операции. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `response`.</p> 
+id | **string**<br><p>ID of the operation.</p> 
+description | **string**<br><p>Description of the operation. 0-256 characters long.</p> 
+createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+createdBy | **string**<br><p>ID of the user or service account who initiated the operation.</p> 
+modifiedAt | **string** (date-time)<br><p>The time when the Operation resource was last modified.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+done | **boolean** (boolean)<br><p>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available.</p> 
+metadata | **object**<br><p>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any.</p> 
+error | **object**<br>The error result of the operation in case of failure or cancellation. <br> includes only one of the fields `error`, `response`<br><br><p>The error result of the operation in case of failure or cancellation.</p> 
+error.<br>code | **integer** (int32)<br><p>Error code. An enum value of <a href="https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto">google.rpc.Code</a>.</p> 
+error.<br>message | **string**<br><p>An error message.</p> 
+error.<br>details[] | **object**<br><p>A list of messages that carry the error details.</p> 
+response | **object** <br> includes only one of the fields `error`, `response`<br><br><p>The normal response of the operation in case of success. If the original method returns no data on success, such as Delete, the response is <a href="https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty">google.protobuf.Empty</a>. If the original method is the standard Create/Update, the response should be the target resource of the operation. Any method that returns a long-running operation should document the response type, if any.</p> 

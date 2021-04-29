@@ -2,35 +2,35 @@
 editable: false
 ---
 
-# Метод listLogs
-Получает логи для указанного кластера PostgreSQL.
+# Method listLogs
+Retrieves logs for the specified PostgreSQL cluster.
  
 
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 GET https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/{clusterId}:logs
 ```
  
-## Path-параметры {#path_params}
+## Path parameters {#path_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-clusterId | Обязательное поле. Идентификатор кластера PostgreSQL, для которого следует запросить логи. Чтобы получить идентификатор PostgreSQL кластера, используйте запрос [list](/docs/managed-postgresql/api-ref/Cluster/list).  Максимальная длина строки в символах — 50.
+clusterId | Required. ID of the PostgreSQL cluster to request logs for. To get the PostgreSQL cluster ID use a [list](/docs/managed-postgresql/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
  
-## Query-параметры {#query_params}
+## Query parameters {#query_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-columnFilter | Столбцы из таблицы логов для запроса. Если столбцы не указаны, записи логов возвращаются целиком.
-serviceType | Тип сервиса, для которого следует запросить логи.<ul> <li>POSTGRESQL: Логи работы PostgreSQL.</li> <li>POOLER: Логи работы менеджера подключений.</li> </ul> 
-fromTime | Начало периода, для которого следует запросить логи, в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).  Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
-toTime | Конец периода, для которого следует запросить логи, в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).  Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
-pageSize | Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем [pageSize](/docs/managed-postgresql/api-ref/Cluster/listLogs#query_params), сервис вернет значение [nextPageToken](/docs/managed-postgresql/api-ref/Cluster/listLogs#responses), которое можно использовать для получения следующей страницы.  Максимальное значение — 1000.
-pageToken | Токен страницы. Установите значение [pageToken](/docs/managed-postgresql/api-ref/Cluster/listLogs#query_params) равным значению поля [nextPageToken](/docs/managed-postgresql/api-ref/Cluster/listLogs#responses) предыдущего запроса, чтобы получить следующую страницу результатов.  Максимальная длина строки в символах — 100.
-alwaysNextPageToken | Всегда возвращает `next_page_token`, даже если текущая страница пуста.
+columnFilter | Columns from the logs table to request. If no columns are specified, entire log records are returned.
+serviceType | Type of the service to request logs about.<ul> <li>POSTGRESQL: Logs of PostgreSQL activity.</li> <li>POOLER: Logs of connection pooler activity.</li> </ul> 
+fromTime | Start timestamp for the logs request, in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.  String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+toTime | End timestamp for the logs request, in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.  String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+pageSize | The maximum number of results per page to return. If the number of available results is larger than [pageSize](/docs/managed-postgresql/api-ref/Cluster/listLogs#query_params), the service returns a [nextPageToken](/docs/managed-postgresql/api-ref/Cluster/listLogs#responses) that can be used to get the next page of results in subsequent list requests.  The maximum value is 1000.
+pageToken | Page token. To get the next page of results, set [pageToken](/docs/managed-postgresql/api-ref/Cluster/listLogs#query_params) to the [nextPageToken](/docs/managed-postgresql/api-ref/Cluster/listLogs#responses) returned by a previous list request.  The maximum string length in characters is 100.
+alwaysNextPageToken | Always return `next_page_token`, even if current page is empty.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -46,9 +46,9 @@ alwaysNextPageToken | Всегда возвращает `next_page_token`, да�
 ```
 
  
-Поле | Описание
+Field | Description
 --- | ---
-logs[] | **object**<br><p>Запрошенные записи логов.</p> 
-logs[].<br>timestamp | **string** (date-time)<br><p>Отметка времени для записи журнала в <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> текстовом формате.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-logs[].<br>message | **object**<br><p>Содержание записи журнала.</p> 
-nextPageToken | **string**<br><p>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем <a href="/docs/managed-postgresql/api-ref/Cluster/listLogs#query_params">pageSize</a>, используйте <a href="/docs/managed-postgresql/api-ref/Cluster/listLogs#responses">nextPageToken</a> в качестве значения параметра <a href="/docs/managed-postgresql/api-ref/Cluster/listLogs#query_params">pageToken</a> в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения <a href="/docs/managed-postgresql/api-ref/Cluster/listLogs#responses">nextPageToken</a> для перебора страниц результатов.</p> 
+logs[] | **object**<br><p>Requested log records.</p> 
+logs[].<br>timestamp | **string** (date-time)<br><p>Log record timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+logs[].<br>message | **object**<br><p>Contents of the log record.</p> 
+nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/managed-postgresql/api-ref/Cluster/listLogs#query_params">pageSize</a>, use the <a href="/docs/managed-postgresql/api-ref/Cluster/listLogs#responses">nextPageToken</a> as the value for the <a href="/docs/managed-postgresql/api-ref/Cluster/listLogs#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own <a href="/docs/managed-postgresql/api-ref/Cluster/listLogs#responses">nextPageToken</a> to continue paging through the results. This value is interchangeable with `next_record_token` from StreamLogs method.</p> 

@@ -4,65 +4,65 @@ editable: false
 
 # ZoneService
 
-Набор методов для получения информации о зонах доступности.
+A set of methods to retrieve information about availability zones.
 
-| Вызов | Описание |
+| Call | Description |
 | --- | --- |
-| [Get](#Get) | Возвращает сведения об указанной зоне доступности. |
-| [List](#List) | Возвращает список зон доступности. |
+| [Get](#Get) | Returns the information about the specified availability zone. |
+| [List](#List) | Retrieves the list of availability zones. |
 
-## Вызовы ZoneService {#calls}
+## Calls ZoneService {#calls}
 
 ## Get {#Get}
 
-Возвращает сведения об указанной зоне доступности. <br>Чтобы получить список зон доступности, выполните запрос [List](#List).
+Returns the information about the specified availability zone. <br>To get the list of availability zones, make a [List](#List) request.
 
 **rpc Get ([GetZoneRequest](#GetZoneRequest)) returns ([Zone](#Zone))**
 
 ### GetZoneRequest {#GetZoneRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-zone_id | **string**<br>Обязательное поле. Идентификатор зоны доступности для получения сведений. Максимальная длина строки в символах — 50.
+zone_id | **string**<br>Required. ID of the availability zone to return information about. The maximum string length in characters is 50.
 
 
 ### Zone {#Zone}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор зоны. 
-region_id | **string**<br>Идентификатор региона. 
-status | enum **Status**<br>Статус зоны доступности. <ul><li>`UP`: Зона доступна. Вы можете обращаться к ресурсам в этой зоне.</li><li>`DOWN`: Зона недоступна.</li><ul/>
+id | **string**<br>ID of the zone. 
+region_id | **string**<br>ID of the region. 
+status | enum **Status**<br>Status of the zone. <ul><li>`UP`: Zone is available. You can access the resources allocated in this zone.</li><li>`DOWN`: Zone is not available.</li><ul/>
 
 
 ## List {#List}
 
-Возвращает список зон доступности.
+Retrieves the list of availability zones.
 
 **rpc List ([ListZonesRequest](#ListZonesRequest)) returns ([ListZonesResponse](#ListZonesResponse))**
 
 ### ListZonesRequest {#ListZonesRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-page_size | **int64**<br>Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем `page_size`, сервис вернет значение [ListZonesResponse.next_page_token](#ListZonesResponse), которое можно использовать для получения следующей страницы. Максимальное значение — 1000.
-page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListZonesResponse.next_page_token](#ListZonesResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
+page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListZonesResponse.next_page_token](#ListZonesResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
+page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListZonesResponse.next_page_token](#ListZonesResponse) returned by a previous list request. The maximum string length in characters is 100.
 
 
 ### ListZonesResponse {#ListZonesResponse}
 
-Поле | Описание
+Field | Description
 --- | ---
-zones[] | **[Zone](#Zone1)**<br>Список зон доступности. 
-next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListZonesRequest.page_size](#ListZonesRequest), используйте [ListZonesRequest.page_token](#ListZonesRequest)(#ListZonesRequest)(#ListZonesRequest) в качестве значения параметра [ListZonesRequest.page_token] в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения [ListZonesRequest.page_token] для перебора страниц результатов. 
+zones[] | **[Zone](#Zone1)**<br>List of availability zones. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListZonesRequest.page_size](#ListZonesRequest), use the [ListZonesRequest.page_token](#ListZonesRequest)(#ListZonesRequest)(#ListZonesRequest) as the value for the [ListZonesRequest.page_token] query parameter in the next list request. Subsequent list requests will have their own [ListZonesRequest.page_token] to continue paging through the results. 
 
 
 ### Zone {#Zone1}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор зоны. 
-region_id | **string**<br>Идентификатор региона. 
-status | enum **Status**<br>Статус зоны доступности. <ul><li>`UP`: Зона доступна. Вы можете обращаться к ресурсам в этой зоне.</li><li>`DOWN`: Зона недоступна.</li><ul/>
+id | **string**<br>ID of the zone. 
+region_id | **string**<br>ID of the region. 
+status | enum **Status**<br>Status of the zone. <ul><li>`UP`: Zone is available. You can access the resources allocated in this zone.</li><li>`DOWN`: Zone is not available.</li><ul/>
 
 

@@ -2,23 +2,23 @@
 editable: false
 ---
 
-# Метод encrypt
-Шифрует заданный текст с помощью указанного ключа.
+# Method encrypt
+Encrypts given plaintext with the specified key.
  
 
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 POST https://kms.yandex/kms/v1/keys/{keyId}:encrypt
 ```
  
-## Path-параметры {#path_params}
+## Path parameters {#path_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-keyId | Обязательное поле. Идентификатор симметричного ключа KMS, который следует использовать для шифрования.  Максимальная длина строки в символах — 50.
+keyId | Required. ID of the symmetric KMS key to use for encryption.  The maximum string length in characters is 50.
  
-## Параметры в теле запроса {#body_params}
+## Body parameters {#body_params}
  
 ```json 
 {
@@ -29,13 +29,13 @@ keyId | Обязательное поле. Идентификатор симме
 ```
 
  
-Поле | Описание
+Field | Description
 --- | ---
-versionId | **string**<br><p>Идентификатор версии ключа, которую следует использовать для шифрования текста. По умолчанию используется основная версия, если версия не указана явно.</p> <p>Максимальная длина строки в символах — 50.</p> 
-aadContext | **string** (byte)<br><p>Дополнительные аутентифицированные данные (контекст AAD), необязательное поле. Если данные указаны, то их потребуется передать для расшифровки с помощью `SymmetricDecryptRequest`. Необходимо закодировать в формате base64.</p> <p>Максимальная длина строки в символах — 8192.</p> 
-plaintext | **string** (byte)<br><p>Обязательное поле. Открытый текст, который следует зашифровать. Должен быть в кодировке base64.</p> <p>Максимальная длина строки в символах — 32768.</p> 
+versionId | **string**<br><p>ID of the key version to encrypt plaintext with. Defaults to the primary version if not specified.</p> <p>The maximum string length in characters is 50.</p> 
+aadContext | **string** (byte)<br><p>Additional authenticated data (AAD context), optional. If specified, this data will be required for decryption with the `SymmetricDecryptRequest`. Should be encoded with base64.</p> <p>The maximum string length in characters is 8192.</p> 
+plaintext | **string** (byte)<br><p>Required. Plaintext to be encrypted. Should be encoded with base64.</p> <p>The maximum string length in characters is 32768.</p> 
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -47,8 +47,8 @@ plaintext | **string** (byte)<br><p>Обязательное поле. Откр�
 ```
 
  
-Поле | Описание
+Field | Description
 --- | ---
-keyId | **string**<br><p>Обязательное поле. Идентификатор симметричного ключа KMS, который использовался для шифрования.</p> <p>Максимальная длина строки в символах — 50.</p> 
-versionId | **string**<br><p>Идентификатор версии ключа, которая использовалась для шифрования.</p> <p>Максимальная длина строки в символах — 50.</p> 
-ciphertext | **string** (byte)<br><p>Полученный шифртекст.</p> 
+keyId | **string**<br><p>Required. ID of the symmetric KMS key that was used for encryption.</p> <p>The maximum string length in characters is 50.</p> 
+versionId | **string**<br><p>ID of the key version that was used for encryption.</p> <p>The maximum string length in characters is 50.</p> 
+ciphertext | **string** (byte)<br><p>Resulting ciphertext.</p> 

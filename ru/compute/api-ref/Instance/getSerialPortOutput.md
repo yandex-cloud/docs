@@ -2,29 +2,29 @@
 editable: false
 ---
 
-# Метод getSerialPortOutput
-Возвращает вывод последовательного порта указанного ресурса Instance.
+# Method getSerialPortOutput
+Returns the serial port output of the specified Instance resource.
  
 
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 GET https://compute.api.cloud.yandex.net/compute/v1/instances/{instanceId}:serialPortOutput
 ```
  
-## Path-параметры {#path_params}
+## Path parameters {#path_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-instanceId | Обязательное поле. Идентификатор виртуальной машины для получения вывода последовательного порта.  Максимальная длина строки в символах — 50.
+instanceId | Required. ID of the instance to return the serial port output for.  The maximum string length in characters is 50.
  
-## Query-параметры {#query_params}
+## Query parameters {#query_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-port | Последовательный порт из которого извлекаются данные. Значение по умолчанию — 1.  Значение должно быть равно 1, 2, 3 или 4.
+port | Serial port to retrieve data from. The default is 1.  Value must be one of 1, 2, 3 or 4.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -34,6 +34,6 @@ port | Последовательный порт из которого извл�
 ```
 
  
-Поле | Описание
+Field | Description
 --- | ---
-contents | **string**<br><p>Содержимое вывода последовательного порта, начиная с момента начала загрузки виртуальной машины.</p> 
+contents | **string**<br><p>The contents of the serial port output, starting from the time when the instance started to boot.</p> 

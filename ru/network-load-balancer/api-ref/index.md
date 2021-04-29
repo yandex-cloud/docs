@@ -3,9 +3,9 @@ editable: false
 ---
 
 # Yandex Load Balancer API
-Методы справочника API сгруппированы по ресурсам. Чтобы выполнить операцию над ресурсом, отправьте HTTP-запрос к соответствующему URL или выполните RPC-вызов. Подробнее об архитектуре API Яндекс.Облака, см. [Концепции API Яндекс.Облака](/docs/api-design-guide/).
+This API reference is organized by resource. Actions are performed by sending HTTP requests to resource URLs or making RPC calls. For more information about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
 
-Ресурс | Описание
+Resource | Description
 --- | ---
-[NetworkLoadBalancer](NetworkLoadBalancer/index.md) | Набор методов для управления ресурсами NetworkLoadBalancer.
-[TargetGroup](TargetGroup/index.md) | Набор методов для управления ресурсами TargetGroup.
+[NetworkLoadBalancer](NetworkLoadBalancer/index.md) | A set of methods for managing NetworkLoadBalancer resources.
+[TargetGroup](TargetGroup/index.md) | A set of methods for managing TargetGroup resources.

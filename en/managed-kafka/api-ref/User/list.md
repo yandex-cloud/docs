@@ -49,10 +49,10 @@ pageToken | Page token.  To get the next page of results, set [pageToken](/docs/
  
 Field | Description
 --- | ---
-users[] | **object**<br><p>A Kafka user. For more information, see the <a href="/docs/managed-kafka/operations/cluster-accounts">Operations → Accounts</a> section of the documentation.</p> 
+users[] | **object**<br><p>A Kafka user. For more information, see the <a href="/docs/managed-kafka/operations/cluster-accounts">Operations -&gt; Accounts</a> section of the documentation.</p> 
 users[].<br>name | **string**<br><p>Name of the Kafka user.</p> 
 users[].<br>clusterId | **string**<br><p>ID of the Apache Kafka® cluster the user belongs to.</p> <p>To get the Apache Kafka® cluster ID, make a <a href="/docs/managed-kafka/api-ref/Cluster/list">list</a> request.</p> 
 users[].<br>permissions[] | **object**<br><p>Set of permissions granted to this user.</p> 
-users[].<br>permissions[].<br>topicName | **string**<br><p>Name of the topic that the permission grants access to.</p> <p>To get the topic name, make a <a href="/docs/managed-kafka/api-ref/Topic/list">list</a> request.</p> 
-users[].<br>permissions[].<br>role | **string**<br><p>Access role type to grant to the user.</p> <ul> <li>ACCESS_ROLE_PRODUCER: producer role for the user.</li> <li>ACCESS_ROLE_CONSUMER: consumer role for the user.</li> </ul> 
+users[].<br>permissions[].<br>topicName | **string**<br><p>Name or prefix-pattern with wildcard for the topic that the permission grants access to.</p> <p>To get the topic name, make a <a href="/docs/managed-kafka/api-ref/Topic/list">list</a> request.</p> 
+users[].<br>permissions[].<br>role | **string**<br><p>Access role type to grant to the user.</p> <ul> <li>ACCESS_ROLE_PRODUCER: producer role for the user.</li> <li>ACCESS_ROLE_CONSUMER: consumer role for the user.</li> <li>ACCESS_ROLE_ADMIN: admin role for the user.</li> </ul> 
 nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests.</p> <p>If the number of results is larger than <a href="/docs/managed-kafka/api-ref/User/list#query_params">pageSize</a>, use the <a href="/docs/managed-kafka/api-ref/User/list#responses">nextPageToken</a> as the value for the <a href="/docs/managed-kafka/api-ref/User/list#query_params">pageToken</a> parameter in the next list request. Each subsequent list request will have its own <a href="/docs/managed-kafka/api-ref/User/list#responses">nextPageToken</a> to continue paging through the results.</p> 

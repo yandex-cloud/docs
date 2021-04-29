@@ -2,26 +2,26 @@
 editable: false
 ---
 
-# Метод list
-Возвращает список функций в указанном каталоге.
+# Method list
+Retrieves the list of functions in the specified folder.
  
 
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 GET https://serverless-functions.api.cloud.yandex.net/functions/v1/functions
 ```
  
-## Query-параметры {#query_params}
+## Query parameters {#query_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-folderId | Обязательное поле. Идентификатор каталога для получения списка функций.  Чтобы получить идентификатор каталога, используйте запрос [list](/docs/resource-manager/api-ref/Folder/list).
-pageSize | Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем `pageSize` , сервис вернет значение [nextPageToken](/docs/functions/functions/api-ref/Function/list#responses), которое можно использовать для получения следующей страницы.  Значение по умолчанию: 100.
-pageToken | Токен страницы. Установите значение `pageToken` равным значению поля [nextPageToken](/docs/functions/functions/api-ref/Function/list#responses) предыдущего запроса, чтобы получить следующую страницу результатов.
-filter | Выражение фильтра, для фильтрации списка функций в ответе.  В параметрах фильтрации указываются: 1. Имя поля. В настоящее время фильтрация осуществляется только по полю [Function.name](/docs/functions/functions/api-ref/Function#representation). 2. Условный оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений. 3. Значение. Значение длиной от 3 до 63 символов, совпадающее с регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`. Пример фильтра: `name=my-function`.
+folderId | Required. ID of the folder to list functions in.  To get a folder ID make a [list](/docs/resource-manager/api-ref/Folder/list) request.
+pageSize | The maximum number of results per page to return. If the number of available results is larger than `pageSize`, the service returns a [nextPageToken](/docs/functions/functions/api-ref/Function/list#responses) that can be used to get the next page of results in subsequent list requests.  Default value: 100.
+pageToken | Page token. To get the next page of results, set `pageToken` to the [nextPageToken](/docs/functions/functions/api-ref/Function/list#responses) returned by a previous list request.
+filter | A filter expression that filters functions listed in the response.  The expression must specify: 1. The field name. Currently filtering can only be applied to the [Function.name](/docs/functions/functions/api-ref/Function#representation) field. 2. A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. 3. The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`. Example of a filter: `name=my-function`.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -44,16 +44,16 @@ filter | Выражение фильтра, для фильтрации спис
 ```
 
  
-Поле | Описание
+Field | Description
 --- | ---
-functions[] | **object**<br><p>Бессерверная функция. Дополнительные сведения о концепции см. в разделе <a href="/docs/functions/concepts/function">Функция</a>.</p> 
-functions[].<br>id | **string**<br><p>Идентификатор функции. Генерируется во время создания.</p> 
-functions[].<br>folderId | **string**<br><p>Идентификатор каталога, к которому принадлежит функция.</p> 
-functions[].<br>createdAt | **string** (date-time)<br><p>Время создания функции.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-functions[].<br>name | **string**<br><p>Имя функции. Имя уникально в рамках каталога.</p> <p>Длина строки в символах должна быть от 3 до 63.</p> 
-functions[].<br>description | **string**<br><p>Описание функции.</p> <p>Длина строки в символах должна быть от 0 до 256.</p> 
-functions[].<br>labels | **object**<br><p>Метки функций в виде пар `key:value` .</p> <p>Не более 64 на ресурс.</p> 
-functions[].<br>logGroupId | **string**<br><p>Идентификатор группы журналов выполнения функции.</p> 
-functions[].<br>httpInvokeUrl | **string**<br><p>URL-адрес, который нужнозапросить для вызова функции.</p> 
-functions[].<br>status | **string**<br><p>Состояние функции.</p> <ul> <li>CREATING: Функция создается.</li> <li>ACTIVE: Функция готова к вызову.</li> <li>DELETING: Функция удаляется.</li> <li>ERROR: Сбой функции.</li> </ul> 
-nextPageToken | **string**<br><p>Токен для получения следующей страницы списка. Если количество результатов больше чем <a href="/docs/functions/functions/api-ref/Function/list#query_params">pageSize</a>, используйте `nextPageToken` в качестве значения параметра <a href="/docs/functions/functions/api-ref/Function/list#query_params">pageToken</a> в следующем запросе списка ресурсов.</p> <p>Все последующие запросы будут получать свои значения `nextPageToken` для перебора страниц результатов.</p> 
+functions[] | **object**<br><p>A serverless function. For details about the concept, see <a href="/docs/functions/concepts/function">Functions</a>.</p> 
+functions[].<br>id | **string**<br><p>ID of the function. Generated at creation time.</p> 
+functions[].<br>folderId | **string**<br><p>ID of the folder that the function belongs to.</p> 
+functions[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp for the function.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+functions[].<br>name | **string**<br><p>Name of the function. The name is unique within the folder.</p> <p>The string length in characters must be 3-63.</p> 
+functions[].<br>description | **string**<br><p>Description of the function.</p> <p>The string length in characters must be 0-256.</p> 
+functions[].<br>labels | **object**<br><p>Function labels as `key:value` pairs.</p> <p>No more than 64 per resource.</p> 
+functions[].<br>logGroupId | **string**<br><p>ID of the log group for the function.</p> 
+functions[].<br>httpInvokeUrl | **string**<br><p>URL that needs to be requested to invoke the function.</p> 
+functions[].<br>status | **string**<br><p>Status of the function.</p> <ul> <li>CREATING: Function is being created.</li> <li>ACTIVE: Function is ready to be invoked.</li> <li>DELETING: Function is being deleted.</li> <li>ERROR: Function failed.</li> </ul> 
+nextPageToken | **string**<br><p>Token for getting the next page of the list. If the number of results is greater than the specified <a href="/docs/functions/functions/api-ref/Function/list#query_params">pageSize</a>, use `nextPageToken` as the value for the <a href="/docs/functions/functions/api-ref/Function/list#query_params">pageToken</a> parameter in the next list request.</p> <p>Each subsequent page will have its own `nextPageToken` to continue paging through the results.</p> 

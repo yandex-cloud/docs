@@ -2,24 +2,24 @@
 editable: false
 ---
 
-# Метод list
-Список доступных типов выделенных хостов.
+# Method list
+List avaliable host types.
  
 
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 GET https://compute.api.cloud.yandex.net/compute/v1/hostTypes
 ```
  
-## Query-параметры {#query_params}
+## Query parameters {#query_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-pageSize | Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем [pageSize](/docs/compute/api-ref/HostType/list#query_params), сервис вернет значение [nextPageToken](/docs/compute/api-ref/HostType/list#responses), которое можно использовать для получения следующей страницы.  Максимальное значение — 1000.
-pageToken | Токен страницы. Установите значение [pageToken](/docs/compute/api-ref/HostType/list#query_params) равным значению поля [nextPageToken](/docs/compute/api-ref/HostType/list#responses) предыдущего запроса, чтобы получить следующую страницу результатов.  Максимальная длина строки в символах — 100.
+pageSize | The maximum number of results per page to return. If the number of available results is larger than [pageSize](/docs/compute/api-ref/HostType/list#query_params), the service returns a [nextPageToken](/docs/compute/api-ref/HostType/list#responses) that can be used to get the next page of results in subsequent list requests.  The maximum value is 1000.
+pageToken | Page token. To get the next page of results, set [pageToken](/docs/compute/api-ref/HostType/list#query_params) to the [nextPageToken](/docs/compute/api-ref/HostType/list#responses) returned by a previous list request.  The maximum string length in characters is 100.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -36,10 +36,10 @@ pageToken | Токен страницы. Установите значение [
 ```
 
  
-Поле | Описание
+Field | Description
 --- | ---
-hostTypes[] | **object**<br><p>Описывает ресурсы выделенного хоста. Примечание. Платформа может использовать выделенные хосты с разным количеством памяти и ядер.</p> 
-hostTypes[].<br>id | **string**<br><p>Уникальный идентификатор типа выделенного хоста.</p> 
-hostTypes[].<br>cores | **string** (int64)<br><p>Общее количество ядер, доступных для ВМ выделенного хоста.</p> 
-hostTypes[].<br>memory | **string** (int64)<br><p>Объем памяти, доступный для ВМ выделенного хоста.</p> 
-nextPageToken | **string**<br><p>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем <a href="/docs/compute/api-ref/HostType/list#query_params">pageSize</a>, используйте `next_page_token` в качестве значения параметра <a href="/docs/compute/api-ref/HostType/list#query_params">pageToken</a> в следующем запросе списка ресурсов.</p> <p>Каждая следующая страница будет иметь свой `next_page_token` для продолжения перебора страниц результатов.</p> 
+hostTypes[] | **object**<br><p>Represents host resources. Note: Platform can use hosts with different number of memory and cores. TODO: Do we need sockets here?</p> 
+hostTypes[].<br>id | **string**<br><p>Unique type identifier.</p> 
+hostTypes[].<br>cores | **string** (int64)<br><p>Total number of cores available for instances.</p> 
+hostTypes[].<br>memory | **string** (int64)<br><p>Ammount of memory available for instances.</p> 
+nextPageToken | **string**<br><p>Token for getting the next page of the list. If the number of results is greater than the specified <a href="/docs/compute/api-ref/HostType/list#query_params">pageSize</a>, use `next_page_token` as the value for the <a href="/docs/compute/api-ref/HostType/list#query_params">pageToken</a> parameter in the next list request.</p> <p>Each subsequent page will have its own `next_page_token` to continue paging through the results.</p> 

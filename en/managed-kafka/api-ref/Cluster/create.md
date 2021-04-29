@@ -41,7 +41,10 @@ POST https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters
         "logRetentionMinutes": "integer",
         "logRetentionMs": "integer",
         "logSegmentBytes": "integer",
-        "logPreallocate": true
+        "logPreallocate": true,
+        "socketSendBufferBytes": "integer",
+        "socketReceiveBufferBytes": "integer",
+        "autoCreateTopicsEnable": true
       },
       "kafkaConfig_2_6": {
         "compressionType": "string",
@@ -53,7 +56,10 @@ POST https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters
         "logRetentionMinutes": "integer",
         "logRetentionMs": "integer",
         "logSegmentBytes": "integer",
-        "logPreallocate": true
+        "logPreallocate": true,
+        "socketSendBufferBytes": "integer",
+        "socketReceiveBufferBytes": "integer",
+        "autoCreateTopicsEnable": true
       },
       // end of the list of possible fields`configSpec.kafka`
 
@@ -69,7 +75,8 @@ POST https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters
       "string"
     ],
     "brokersCount": "integer",
-    "assignPublicIp": true
+    "assignPublicIp": true,
+    "unmanagedTopics": true
   },
   "topicSpecs": [
     {
@@ -130,6 +137,9 @@ POST https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters
   ],
   "securityGroupIds": [
     "string"
+  ],
+  "hostGroupIds": [
+    "string"
   ]
 }
 ```
@@ -150,7 +160,7 @@ configSpec.<br>kafka.<br>resources.<br>resourcePresetId | **string**<br><p>ID of
 configSpec.<br>kafka.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
 configSpec.<br>kafka.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host.</p> 
 configSpec.<br>kafka.<br>kafkaConfig_2_1 | **object** <br>`configSpec.kafka` includes only one of the fields `kafkaConfig_2_1`, `kafkaConfig_2_6`<br><br><p>Kafka version 2.1 broker configuration.</p> 
-configSpec.<br>kafka.<br>kafkaConfig_2_1.<br>compressionType | **string**<br><p>Сluster topics compression type.</p> <ul> <li>COMPRESSION_TYPE_UNCOMPRESSED: no codec (uncompressed).</li> <li>COMPRESSION_TYPE_ZSTD: Zstandard codec.</li> <li>COMPRESSION_TYPE_LZ4: LZ4 codec.</li> <li>COMPRESSION_TYPE_SNAPPY: Snappy codec.</li> <li>COMPRESSION_TYPE_GZIP: GZip codec.</li> <li>COMPRESSION_TYPE_PRODUCER: the codec to use is set by a producer (can be any of `ZSTD`, `LZ4`, `GZIP` or `SNAPPY` codecs).</li> </ul> 
+configSpec.<br>kafka.<br>kafkaConfig_2_1.<br>compressionType | **string**<br><p>Cluster topics compression type.</p> <ul> <li>COMPRESSION_TYPE_UNCOMPRESSED: no codec (uncompressed).</li> <li>COMPRESSION_TYPE_ZSTD: Zstandard codec.</li> <li>COMPRESSION_TYPE_LZ4: LZ4 codec.</li> <li>COMPRESSION_TYPE_SNAPPY: Snappy codec.</li> <li>COMPRESSION_TYPE_GZIP: GZip codec.</li> <li>COMPRESSION_TYPE_PRODUCER: the codec to use is set by a producer (can be any of `ZSTD`, `LZ4`, `GZIP` or `SNAPPY` codecs).</li> </ul> 
 configSpec.<br>kafka.<br>kafkaConfig_2_1.<br>logFlushIntervalMessages | **integer** (int64)<br><p>The number of messages accumulated on a log partition before messages are flushed to disk.</p> <p>This is the global cluster-level setting that can be overridden on a topic level by using the `flushMessages` setting.</p> 
 configSpec.<br>kafka.<br>kafkaConfig_2_1.<br>logFlushIntervalMs | **integer** (int64)<br><p>The maximum time (in milliseconds) that a message in any topic is kept in memory before flushed to disk. If not set, the value of `logFlushSchedulerIntervalMs` is used.</p> <p>This is the global cluster-level setting that can be overridden on a topic level by using the `flushMs` setting.</p> 
 configSpec.<br>kafka.<br>kafkaConfig_2_1.<br>logFlushSchedulerIntervalMs | **integer** (int64)<br><p>The frequency of checks (in milliseconds) for any logs that need to be flushed to disk. This check is done by the log flusher.</p> 
@@ -160,8 +170,11 @@ configSpec.<br>kafka.<br>kafkaConfig_2_1.<br>logRetentionMinutes | **integer** (
 configSpec.<br>kafka.<br>kafkaConfig_2_1.<br>logRetentionMs | **integer** (int64)<br><p>The number of milliseconds to keep a log segment file before deleting it.</p> <p>If not set, the value of `logRetentionMinutes` is used.</p> <p>This is the global cluster-level setting that can be overridden on a topic level by using the `retentionMs` setting.</p> 
 configSpec.<br>kafka.<br>kafkaConfig_2_1.<br>logSegmentBytes | **integer** (int64)<br><p>The maximum size of a single log file.</p> <p>This is the global cluster-level setting that can be overridden on a topic level by using the `segmentBytes` setting.</p> 
 configSpec.<br>kafka.<br>kafkaConfig_2_1.<br>logPreallocate | **boolean** (boolean)<br><p>Should pre allocate file when create new segment?</p> <p>This is the global cluster-level setting that can be overridden on a topic level by using the `preallocate` setting.</p> 
+configSpec.<br>kafka.<br>kafkaConfig_2_1.<br>socketSendBufferBytes | **integer** (int64)<br><p>The SO_SNDBUF buffer of the socket server sockets. If the value is -1, the OS default will be used.</p> 
+configSpec.<br>kafka.<br>kafkaConfig_2_1.<br>socketReceiveBufferBytes | **integer** (int64)<br><p>The SO_RCVBUF buffer of the socket server sockets. If the value is -1, the OS default will be used.</p> 
+configSpec.<br>kafka.<br>kafkaConfig_2_1.<br>autoCreateTopicsEnable | **boolean** (boolean)<br><p>Enable auto creation of topic on the server</p> 
 configSpec.<br>kafka.<br>kafkaConfig_2_6 | **object** <br>`configSpec.kafka` includes only one of the fields `kafkaConfig_2_1`, `kafkaConfig_2_6`<br><br><p>Kafka version 2.6 broker configuration.</p> 
-configSpec.<br>kafka.<br>kafkaConfig_2_6.<br>compressionType | **string**<br><p>Сluster topics compression type.</p> <ul> <li>COMPRESSION_TYPE_UNCOMPRESSED: no codec (uncompressed).</li> <li>COMPRESSION_TYPE_ZSTD: Zstandard codec.</li> <li>COMPRESSION_TYPE_LZ4: LZ4 codec.</li> <li>COMPRESSION_TYPE_SNAPPY: Snappy codec.</li> <li>COMPRESSION_TYPE_GZIP: GZip codec.</li> <li>COMPRESSION_TYPE_PRODUCER: the codec to use is set by a producer (can be any of `ZSTD`, `LZ4`, `GZIP` or `SNAPPY` codecs).</li> </ul> 
+configSpec.<br>kafka.<br>kafkaConfig_2_6.<br>compressionType | **string**<br><p>Cluster topics compression type.</p> <ul> <li>COMPRESSION_TYPE_UNCOMPRESSED: no codec (uncompressed).</li> <li>COMPRESSION_TYPE_ZSTD: Zstandard codec.</li> <li>COMPRESSION_TYPE_LZ4: LZ4 codec.</li> <li>COMPRESSION_TYPE_SNAPPY: Snappy codec.</li> <li>COMPRESSION_TYPE_GZIP: GZip codec.</li> <li>COMPRESSION_TYPE_PRODUCER: the codec to use is set by a producer (can be any of `ZSTD`, `LZ4`, `GZIP` or `SNAPPY` codecs).</li> </ul> 
 configSpec.<br>kafka.<br>kafkaConfig_2_6.<br>logFlushIntervalMessages | **integer** (int64)<br><p>The number of messages accumulated on a log partition before messages are flushed to disk.</p> <p>This is the global cluster-level setting that can be overridden on a topic level by using the `flushMessages` setting.</p> 
 configSpec.<br>kafka.<br>kafkaConfig_2_6.<br>logFlushIntervalMs | **integer** (int64)<br><p>The maximum time (in milliseconds) that a message in any topic is kept in memory before flushed to disk. If not set, the value of `logFlushSchedulerIntervalMs` is used.</p> <p>This is the global cluster-level setting that can be overridden on a topic level by using the `flushMs` setting.</p> 
 configSpec.<br>kafka.<br>kafkaConfig_2_6.<br>logFlushSchedulerIntervalMs | **integer** (int64)<br><p>The frequency of checks (in milliseconds) for any logs that need to be flushed to disk. This check is done by the log flusher.</p> 
@@ -171,6 +184,9 @@ configSpec.<br>kafka.<br>kafkaConfig_2_6.<br>logRetentionMinutes | **integer** (
 configSpec.<br>kafka.<br>kafkaConfig_2_6.<br>logRetentionMs | **integer** (int64)<br><p>The number of milliseconds to keep a log segment file before deleting it.</p> <p>If not set, the value of `logRetentionMinutes` is used.</p> <p>This is the global cluster-level setting that can be overridden on a topic level by using the `retentionMs` setting.</p> 
 configSpec.<br>kafka.<br>kafkaConfig_2_6.<br>logSegmentBytes | **integer** (int64)<br><p>The maximum size of a single log file.</p> <p>This is the global cluster-level setting that can be overridden on a topic level by using the `segmentBytes` setting.</p> 
 configSpec.<br>kafka.<br>kafkaConfig_2_6.<br>logPreallocate | **boolean** (boolean)<br><p>Should pre allocate file when create new segment?</p> <p>This is the global cluster-level setting that can be overridden on a topic level by using the `preallocate` setting.</p> 
+configSpec.<br>kafka.<br>kafkaConfig_2_6.<br>socketSendBufferBytes | **integer** (int64)<br><p>The SO_SNDBUF buffer of the socket server sockets. If the value is -1, the OS default will be used.</p> 
+configSpec.<br>kafka.<br>kafkaConfig_2_6.<br>socketReceiveBufferBytes | **integer** (int64)<br><p>The SO_RCVBUF buffer of the socket server sockets. If the value is -1, the OS default will be used.</p> 
+configSpec.<br>kafka.<br>kafkaConfig_2_6.<br>autoCreateTopicsEnable | **boolean** (boolean)<br><p>Enable auto creation of topic on the server</p> 
 configSpec.<br>zookeeper | **object**<br><p>Configuration and resource allocation for ZooKeeper hosts.</p> 
 configSpec.<br>zookeeper.<br>resources | **object**<br><p>Resources allocated to ZooKeeper hosts.</p> 
 configSpec.<br>zookeeper.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory, etc.). All available presets are listed in the <a href="/docs/managed-kafka/concepts/instance-types">documentation</a>.</p> 
@@ -179,6 +195,7 @@ configSpec.<br>zookeeper.<br>resources.<br>diskTypeId | **string**<br><p>Type of
 configSpec.<br>zoneId[] | **string**<br><p>IDs of availability zones where Kafka brokers reside.</p> 
 configSpec.<br>brokersCount | **integer** (int64)<br><p>The number of Kafka brokers deployed in each availability zone.</p> 
 configSpec.<br>assignPublicIp | **boolean** (boolean)<br><p>The flag that defines whether a public IP address is assigned to the cluster. If the value is `true`, then Apache Kafka® cluster is available on the Internet via it's public IP address.</p> 
+configSpec.<br>unmanagedTopics | **boolean** (boolean)<br><p>Allows to manage topics via AdminAPI</p> 
 topicSpecs[] | **object**<br><p>One or more configurations of topics to be created in the Apache Kafka® cluster.</p> 
 topicSpecs[].<br>name | **string**<br><p>Name of the topic.</p> 
 topicSpecs[].<br>partitions | **integer** (int64)<br><p>The number of the topic's partitions.</p> 
@@ -215,11 +232,12 @@ userSpecs[] | **object**<br><p>Configurations of accounts to be created in the A
 userSpecs[].<br>name | **string**<br><p>Required. Name of the Kafka user.</p> <p>The string length in characters must be 1-63. Value must match the regular expression `` [a-zA-Z0-9_]* ``.</p> 
 userSpecs[].<br>password | **string**<br><p>Required. Password of the Kafka user.</p> <p>The string length in characters must be 8-128.</p> 
 userSpecs[].<br>permissions[] | **object**<br><p>Set of permissions granted to the user.</p> 
-userSpecs[].<br>permissions[].<br>topicName | **string**<br><p>Name of the topic that the permission grants access to.</p> <p>To get the topic name, make a <a href="/docs/managed-kafka/api-ref/Topic/list">list</a> request.</p> 
-userSpecs[].<br>permissions[].<br>role | **string**<br><p>Access role type to grant to the user.</p> <ul> <li>ACCESS_ROLE_PRODUCER: producer role for the user.</li> <li>ACCESS_ROLE_CONSUMER: consumer role for the user.</li> </ul> 
+userSpecs[].<br>permissions[].<br>topicName | **string**<br><p>Name or prefix-pattern with wildcard for the topic that the permission grants access to.</p> <p>To get the topic name, make a <a href="/docs/managed-kafka/api-ref/Topic/list">list</a> request.</p> 
+userSpecs[].<br>permissions[].<br>role | **string**<br><p>Access role type to grant to the user.</p> <ul> <li>ACCESS_ROLE_PRODUCER: producer role for the user.</li> <li>ACCESS_ROLE_CONSUMER: consumer role for the user.</li> <li>ACCESS_ROLE_ADMIN: admin role for the user.</li> </ul> 
 networkId | **string**<br><p>ID of the network to create the Apache Kafka® cluster in.</p> <p>The maximum string length in characters is 50.</p> 
 subnetId[] | **string**<br><p>IDs of subnets to create brokers in.</p> 
 securityGroupIds[] | **string**<br><p>User security groups</p> 
+hostGroupIds[] | **string**<br><p>Host groups to place VMs of cluster on.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

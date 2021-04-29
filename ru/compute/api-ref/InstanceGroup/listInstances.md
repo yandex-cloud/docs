@@ -2,31 +2,31 @@
 editable: false
 ---
 
-# Метод listInstances
-Возвращает список виртуальных машин для указанной группы ВМ.
+# Method listInstances
+Lists instances for the specified instance group.
  
 
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 GET https://compute.api.cloud.yandex.net/compute/v1/instanceGroups/{instanceGroupId}/instances
 ```
  
-## Path-параметры {#path_params}
+## Path parameters {#path_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-instanceGroupId | Обязательное поле. Идентификатор ресурса InstanceGroup для получения списка виртуальных машин. Чтобы получить идентификатор группы виртуальных машин, используйте запрос [list](/docs/compute/api-ref/InstanceGroup/list).  Максимальная длина строки в символах — 50.
+instanceGroupId | Required. ID of the InstanceGroup resource to list instances for. To get the instance group ID, use a [list](/docs/compute/api-ref/InstanceGroup/list) request.  The maximum string length in characters is 50.
  
-## Query-параметры {#query_params}
+## Query parameters {#query_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-pageSize | Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем [pageSize](/docs/compute/api-ref/InstanceGroup/listInstances#query_params), сервис вернет значение [nextPageToken](/docs/compute/api-ref/InstanceGroup/listInstances#responses), которое можно использовать для получения следующей страницы.  Максимальное значение — 1000.
-pageToken | Токен страницы. Установите значение [pageToken](/docs/compute/api-ref/InstanceGroup/listInstances#query_params) равным значению поля [nextPageToken](/docs/compute/api-ref/InstanceGroup/listInstances#responses) предыдущего запроса, чтобы получить следующую страницу результатов.  Максимальная длина строки в символах — 100.
-filter | Параметры фильтрации ресурсов в ответе. В настоящее время фильтрация осуществляется только по полю [InstanceGroup.name](/docs/compute/api-ref/InstanceGroup#representation).  Максимальная длина строки в символах — 1000.
+pageSize | The maximum number of results per page to return. If the number of available results is larger than [pageSize](/docs/compute/api-ref/InstanceGroup/listInstances#query_params), the service returns a [nextPageToken](/docs/compute/api-ref/InstanceGroup/listInstances#responses) that can be used to get the next page of results in subsequent list requests.  The maximum value is 1000.
+pageToken | Page token. To get the next page of results, set [pageToken](/docs/compute/api-ref/InstanceGroup/listInstances#query_params) to the [nextPageToken](/docs/compute/api-ref/InstanceGroup/listInstances#responses) returned by a previous list request.  The maximum string length in characters is 100.
+filter | A filter expression that filters resources listed in the response. Currently you can use filtering only on the [InstanceGroup.name](/docs/compute/api-ref/InstanceGroup#representation) field.  The maximum string length in characters is 1000.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -69,29 +69,29 @@ filter | Параметры фильтрации ресурсов в ответ�
 ```
 
  
-Поле | Описание
+Field | Description
 --- | ---
-instances[] | **object**<br><p>Ресурс ManagedInstance. Дополнительные сведения см. в разделе <a href="/docs/compute/concepts/instance-groups/">Концепции Instance Groups</a>.</p> 
-instances[].<br>id | **string**<br><p>Идентификатор виртуальной машины.</p> 
-instances[].<br>status | **string**<br><p>Статус виртуальной машины.</p> <ul> <li>CREATING_INSTANCE: Виртуальная машина создается.</li> <li>UPDATING_INSTANCE: Виртуальная машина обновляется.</li> <li>DELETING_INSTANCE: Виртуальная машина удаляется.</li> <li>STARTING_INSTANCE: Виртуальная машина запускается.</li> <li>STOPPING_INSTANCE: Виртуальная машина останавливается.</li> <li>AWAITING_STARTUP_DURATION: Виртуальная машина успешно создана, но время запуска еще не истекло.</li> <li>CHECKING_HEALTH: Виртуальная машина успешно создана, время запуска истекло, но проверки состояний еще не прошли и виртуальная машина не готова получать трафик.</li> <li>OPENING_TRAFFIC: Instance Groups инициирует проверку состояний и маршрутизацию трафика к виртуальным машинам.</li> <li>AWAITING_WARMUP_DURATION: Виртуальная машина получает трафик, но время прогрева еще не истекло.</li> <li>CLOSING_TRAFFIC: Instance Groups инициировала процесс остановки маршрутизации трафика к виртуальным машинам.</li> <li>RUNNING_ACTUAL: Виртуальная машина работает нормально, и ее конфигурация соответствует текущему InstanceTemplate.</li> <li>RUNNING_OUTDATED: Виртуальная машина работает нормально, но ее конфигурация не соответствует текущему InstanceTemplate. Будет обновлена, воссоздана или удалена в ближайшее время.</li> <li>STOPPED: Виртуальная машина остановлена.</li> <li>DELETED: Виртуальная машина удалена.</li> </ul> 
-instances[].<br>instanceId | **string**<br><p>Идентификатор виртуальной машины.</p> 
-instances[].<br>fqdn | **string**<br><p>Полное имя домена.</p> 
-instances[].<br>name | **string**<br><p>Имя управляемой виртуальной машины.</p> 
-instances[].<br>statusMessage | **string**<br><p>Сообщение о состоянии виртуальной машины.</p> 
-instances[].<br>zoneId | **string**<br><p>Идентификатор зоны доступности, где находится виртуальная машина.</p> 
-instances[].<br>networkInterfaces[] | **object**<br><p>Массив сетевых интерфейсов, присоединенных к виртуальной машине.</p> 
-instances[].<br>networkInterfaces[].<br>index | **string**<br><p>Индекс сетевого интерфейса, генерируемого сервером, 0,1,2... В настоящее время для каждой виртуальной машины поддерживается только один сетевой интерфейс.</p> 
-instances[].<br>networkInterfaces[].<br>macAddress | **string**<br><p>MAC-адрес, назначенный сетевому интерфейсу.</p> 
-instances[].<br>networkInterfaces[].<br>subnetId | **string**<br><p>Идентификатор подсети.</p> 
-instances[].<br>networkInterfaces[].<br>primaryV4Address | **object**<br><p>Основной IPv4-адрес, который назначен виртуальной машине для данного сетевого интерфейса.</p> 
-instances[].<br>networkInterfaces[].<br>primaryV4Address.<br>address | **string**<br><p>Внутренний IPv4-адрес, назначенный виртуальной машине для данного сетевого интерфейса. Если не указано, системой будет назначен неиспользуемый внутренний IP-адрес.</p> 
-instances[].<br>networkInterfaces[].<br>primaryV4Address.<br>oneToOneNat | **object**<br><p>Конфигурация one-to-one NAT. Если отсутствует, NAT не был настроен.</p> 
-instances[].<br>networkInterfaces[].<br>primaryV4Address.<br>oneToOneNat.<br>address | **string**<br><p>Внутренний IPv4-адрес, назначенный виртуальной машине для данного сетевого интерфейса.</p> 
-instances[].<br>networkInterfaces[].<br>primaryV4Address.<br>oneToOneNat.<br>ipVersion | **string**<br><p>Версия публичного IP-адреса.</p> <ul> <li>IPV4: IPv4-адрес, например 192.168.0.0.</li> <li>IPV6: IPv6-адрес, на данный момент не доступен.</li> </ul> 
-instances[].<br>networkInterfaces[].<br>primaryV6Address | **object**<br><p>Основной IPv6-адрес, который назначен виртуальной машине для данного сетевого интерфейса. IPv6 еще не доступен.</p> 
-instances[].<br>networkInterfaces[].<br>primaryV6Address.<br>address | **string**<br><p>Внутренний IPv4-адрес, назначенный виртуальной машине для данного сетевого интерфейса. Если не указано, системой будет назначен неиспользуемый внутренний IP-адрес.</p> 
-instances[].<br>networkInterfaces[].<br>primaryV6Address.<br>oneToOneNat | **object**<br><p>Конфигурация one-to-one NAT. Если отсутствует, NAT не был настроен.</p> 
-instances[].<br>networkInterfaces[].<br>primaryV6Address.<br>oneToOneNat.<br>address | **string**<br><p>Внутренний IPv4-адрес, назначенный виртуальной машине для данного сетевого интерфейса.</p> 
-instances[].<br>networkInterfaces[].<br>primaryV6Address.<br>oneToOneNat.<br>ipVersion | **string**<br><p>Версия публичного IP-адреса.</p> <ul> <li>IPV4: IPv4-адрес, например 192.168.0.0.</li> <li>IPV6: IPv6-адрес, на данный момент не доступен.</li> </ul> 
-instances[].<br>statusChangedAt | **string** (date-time)<br><p>Время последнего изменения состояния виртуальной машины в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-nextPageToken | **string**<br><p>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем <a href="/docs/compute/api-ref/InstanceGroup/listInstances#query_params">pageSize</a>, используйте <a href="/docs/compute/api-ref/InstanceGroup/listInstances#responses">nextPageToken</a> в качестве значения параметра <a href="/docs/compute/api-ref/InstanceGroup/listInstances#query_params">pageToken</a> в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения <a href="/docs/compute/api-ref/InstanceGroup/listInstances#responses">nextPageToken</a> для перебора страниц результатов.</p> 
+instances[] | **object**<br><p>A ManagedInstance resource. For more information, see <a href="/docs/compute/concepts/instance-groups/">Instance Groups Concepts</a>.</p> 
+instances[].<br>id | **string**<br><p>ID of the managed instance.</p> 
+instances[].<br>status | **string**<br><p>Status of the managed instance.</p> <ul> <li>CREATING_INSTANCE: Instance is being created.</li> <li>UPDATING_INSTANCE: Instance is being updated.</li> <li>DELETING_INSTANCE: Instance is being deleted.</li> <li>STARTING_INSTANCE: Instance is being started.</li> <li>STOPPING_INSTANCE: Instance is being stopped.</li> <li>AWAITING_STARTUP_DURATION: Instance has been created successfully, but startup duration has not elapsed yet.</li> <li>CHECKING_HEALTH: Instance has been created successfully and startup duration has elapsed, but health checks have not passed yet and the managed instance is not ready to receive traffic.</li> <li>OPENING_TRAFFIC: Instance Groups is initiating health checks and routing traffic to the instances.</li> <li>AWAITING_WARMUP_DURATION: Instance is now receiving traffic, but warmup duration has not elapsed yet.</li> <li>CLOSING_TRAFFIC: Instance Groups has initiated the process of stopping routing traffic to the instances.</li> <li>RUNNING_ACTUAL: Instance is running normally and its attributes match the current InstanceTemplate.</li> <li>RUNNING_OUTDATED: Instance is running normally, but its attributes do not match the current InstanceTemplate. It will be updated, recreated or deleted shortly.</li> <li>STOPPED: Instance was stopped.</li> <li>DELETED: Instance was deleted.</li> </ul> 
+instances[].<br>instanceId | **string**<br><p>ID of the instance.</p> 
+instances[].<br>fqdn | **string**<br><p>Fully Qualified Domain Name.</p> 
+instances[].<br>name | **string**<br><p>The name of the managed instance.</p> 
+instances[].<br>statusMessage | **string**<br><p>Status message for the managed instance.</p> 
+instances[].<br>zoneId | **string**<br><p>ID of the availability zone where the instance resides.</p> 
+instances[].<br>networkInterfaces[] | **object**<br><p>Array of network interfaces that are attached to the managed instance.</p> 
+instances[].<br>networkInterfaces[].<br>index | **string**<br><p>The index of the network interface, generated by the server, 0,1,2... etc. Currently only one network interface is supported per instance.</p> 
+instances[].<br>networkInterfaces[].<br>macAddress | **string**<br><p>MAC address that is assigned to the network interface.</p> 
+instances[].<br>networkInterfaces[].<br>subnetId | **string**<br><p>ID of the subnet.</p> 
+instances[].<br>networkInterfaces[].<br>primaryV4Address | **object**<br><p>Primary IPv4 address that is assigned to the instance for this network interface.</p> 
+instances[].<br>networkInterfaces[].<br>primaryV4Address.<br>address | **string**<br><p>An IPv4 internal network address that is assigned to the managed instance for this network interface. If not specified by the user, an unused internal IP is assigned by the system.</p> 
+instances[].<br>networkInterfaces[].<br>primaryV4Address.<br>oneToOneNat | **object**<br><p>One-to-one NAT configuration. If missing, NAT has not been set up.</p> 
+instances[].<br>networkInterfaces[].<br>primaryV4Address.<br>oneToOneNat.<br>address | **string**<br><p>An IPv4 external network address that is assigned to the managed instance for this network interface.</p> 
+instances[].<br>networkInterfaces[].<br>primaryV4Address.<br>oneToOneNat.<br>ipVersion | **string**<br><p>External IP address version.</p> <ul> <li>IPV4: IPv4 address, for example 192.168.0.0.</li> <li>IPV6: IPv6 address, not available yet.</li> </ul> 
+instances[].<br>networkInterfaces[].<br>primaryV6Address | **object**<br><p>Primary IPv6 address that is assigned to the instance for this network interface. IPv6 is not available yet.</p> 
+instances[].<br>networkInterfaces[].<br>primaryV6Address.<br>address | **string**<br><p>An IPv4 internal network address that is assigned to the managed instance for this network interface. If not specified by the user, an unused internal IP is assigned by the system.</p> 
+instances[].<br>networkInterfaces[].<br>primaryV6Address.<br>oneToOneNat | **object**<br><p>One-to-one NAT configuration. If missing, NAT has not been set up.</p> 
+instances[].<br>networkInterfaces[].<br>primaryV6Address.<br>oneToOneNat.<br>address | **string**<br><p>An IPv4 external network address that is assigned to the managed instance for this network interface.</p> 
+instances[].<br>networkInterfaces[].<br>primaryV6Address.<br>oneToOneNat.<br>ipVersion | **string**<br><p>External IP address version.</p> <ul> <li>IPV4: IPv4 address, for example 192.168.0.0.</li> <li>IPV6: IPv6 address, not available yet.</li> </ul> 
+instances[].<br>statusChangedAt | **string** (date-time)<br><p>The timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format when the status of the managed instance was last changed.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is more than <a href="/docs/compute/api-ref/InstanceGroup/listInstances#query_params">pageSize</a>, use <a href="/docs/compute/api-ref/InstanceGroup/listInstances#responses">nextPageToken</a> as the value for the <a href="/docs/compute/api-ref/InstanceGroup/listInstances#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own <a href="/docs/compute/api-ref/InstanceGroup/listInstances#responses">nextPageToken</a> to continue paging through the results.</p> 

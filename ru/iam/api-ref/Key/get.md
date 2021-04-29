@@ -2,29 +2,29 @@
 editable: false
 ---
 
-# Метод get
-Возвращает указанный ресурс Key.
+# Method get
+Returns the specified Key resource.
  
-Чтобы получить список доступных ресурсов Key, используйте запрос [list](/docs/iam/api-ref/Key/list).
+To get the list of available Key resources, make a [list](/docs/iam/api-ref/Key/list) request.
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 GET https://iam.api.cloud.yandex.net/iam/v1/keys/{keyId}
 ```
  
-## Path-параметры {#path_params}
+## Path parameters {#path_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-keyId | Обязательное поле. Идентификатор возвращаемого ресурса Key. Чтобы получить идентификатор, используйте запрос [list](/docs/iam/api-ref/Key/list).  Максимальная длина строки в символах — 50.
+keyId | Required. ID of the Key resource to return. To get the ID use a [list](/docs/iam/api-ref/Key/list) request.  The maximum string length in characters is 50.
  
-## Query-параметры {#query_params}
+## Query parameters {#query_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-format | Формат ключа.<ul> <li>PEM_FILE: Формат Privacy-Enhanced Mail (PEM). Значение по умолчанию.</li> </ul> 
+format | Output format of the key.<ul> <li>PEM_FILE: Privacy-Enhanced Mail (PEM) format. Default value.</li> </ul> 
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -35,21 +35,21 @@ format | Формат ключа.<ul> <li>PEM_FILE: Формат Privacy-Enhance
   "keyAlgorithm": "string",
   "publicKey": "string",
 
-  //  включает только одно из полей `userAccountId`, `serviceAccountId`
+  //  includes only one of the fields `userAccountId`, `serviceAccountId`
   "userAccountId": "string",
   "serviceAccountId": "string",
-  // конец списка возможных полей
+  // end of the list of possible fields
 
 }
 ```
-Ресурс Key. Подробнее см. в разделе [Авторизованные ключи](/docs/iam/concepts/authorization/key).
+A Key resource. For more information, see [Authorized keys](/docs/iam/concepts/authorization/key).
  
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br><p>Идентификатор ресурса Key</p> 
-createdAt | **string** (date-time)<br><p>Время создания.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-description | **string**<br><p>Описание ресурса Key. Длина 0-256 символов.</p> 
-keyAlgorithm | **string**<br>Алгоритм, используемый для создания пары ключей ресурса Key.<br><ul> <li>RSA_2048: RSA с длиной ключа 2048 бит. Значение по умолчанию.</li> <li>RSA_4096: RSA с длиной ключа 4096 бит.</li> </ul> 
-publicKey | **string**<br><p>Закрытый ключ из ресурса Key.</p> 
-userAccountId | **string** <br> включает только одно из полей `userAccountId`, `serviceAccountId`<br><br><p>Идентификатор аккаунта пользователя, которому принадлежит ресурс Key.</p> 
-serviceAccountId | **string** <br> включает только одно из полей `userAccountId`, `serviceAccountId`<br><br><p>Идентификатор сервисного аккаунта, которому принадлежит ресурс Key.</p> 
+id | **string**<br><p>ID of the Key resource.</p> 
+createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+description | **string**<br><p>Description of the Key resource. 0-256 characters long.</p> 
+keyAlgorithm | **string**<br>An algorithm used to generate a key pair of the Key resource.<br><ul> <li>RSA_2048: RSA with a 2048-bit key size. Default value.</li> <li>RSA_4096: RSA with a 4096-bit key size.</li> </ul> 
+publicKey | **string**<br><p>A public key of the Key resource.</p> 
+userAccountId | **string** <br> includes only one of the fields `userAccountId`, `serviceAccountId`<br><br><p>ID of the user account that the Key resource belongs to.</p> 
+serviceAccountId | **string** <br> includes only one of the fields `userAccountId`, `serviceAccountId`<br><br><p>ID of the service account that the Key resource belongs to.</p> 

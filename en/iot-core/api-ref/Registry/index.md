@@ -25,7 +25,7 @@ folderId | **string**<br><p>ID of the folder that the registry belongs to.</p>
 createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 name | **string**<br><p>Name of the registry. The name is unique within the folder.</p> 
 description | **string**<br><p>Description of the registry. 0-256 characters long.</p> 
-labels | **object**<br><p>Resource labels as `key:value` pairs. Мaximum of 64 per resource.</p> 
+labels | **object**<br><p>Resource labels as `key:value` pairs. Maximum of 64 per resource.</p> 
 status | **string**<br><p>Status of the registry.</p> <ul> <li>CREATING: Registry is being created.</li> <li>ACTIVE: Registry is ready to use.</li> <li>DELETING: Registry is being deleted.</li> </ul> 
 logGroupId | **string**<br><p>ID of the logs group for the specified registry.</p> 
 

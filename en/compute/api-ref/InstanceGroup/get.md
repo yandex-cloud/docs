@@ -91,14 +91,48 @@ view | Defines which information about the Instance template should be returned 
         "primaryV4AddressSpec": {
           "oneToOneNatSpec": {
             "ipVersion": "string",
-            "address": "string"
-          }
+            "address": "string",
+            "dnsRecordSpecs": [
+              {
+                "fqdn": "string",
+                "dnsZoneId": "string",
+                "ttl": "string",
+                "ptr": true
+              }
+            ]
+          },
+          "dnsRecordSpecs": [
+            {
+              "fqdn": "string",
+              "dnsZoneId": "string",
+              "ttl": "string",
+              "ptr": true
+            }
+          ],
+          "address": "string"
         },
         "primaryV6AddressSpec": {
           "oneToOneNatSpec": {
             "ipVersion": "string",
-            "address": "string"
-          }
+            "address": "string",
+            "dnsRecordSpecs": [
+              {
+                "fqdn": "string",
+                "dnsZoneId": "string",
+                "ttl": "string",
+                "ptr": true
+              }
+            ]
+          },
+          "dnsRecordSpecs": [
+            {
+              "fqdn": "string",
+              "dnsZoneId": "string",
+              "ttl": "string",
+              "ptr": true
+            }
+          ],
+          "address": "string"
         },
         "securityGroupIds": [
           "string"
@@ -201,7 +235,8 @@ view | Defines which information about the Instance template should be returned 
       "name": "string",
       "description": "string",
       "labels": "object"
-    }
+    },
+    "maxOpeningTrafficDuration": "string"
   },
   "healthChecksSpec": {
     "healthCheckSpecs": [
@@ -222,7 +257,8 @@ view | Defines which information about the Instance template should be returned 
         // end of the list of possible fields`healthChecksSpec.healthCheckSpecs[]`
 
       }
-    ]
+    ],
+    "maxCheckingHealthDuration": "string"
   },
   "serviceAccountId": "string",
   "status": "string",
@@ -232,7 +268,19 @@ view | Defines which information about the Instance template should be returned 
       "value": "string"
     }
   ],
-  "deletionProtection": true
+  "deletionProtection": true,
+  "applicationLoadBalancerSpec": {
+    "targetGroupSpec": {
+      "name": "string",
+      "description": "string",
+      "labels": "object"
+    },
+    "maxOpeningTrafficDuration": "string"
+  },
+  "applicationLoadBalancerState": {
+    "targetGroupId": "string",
+    "statusMessage": "string"
+  }
 }
 ```
 
@@ -284,10 +332,32 @@ instanceTemplate.<br>networkInterfaceSpecs[].<br>primaryV4AddressSpec | **object
 instanceTemplate.<br>networkInterfaceSpecs[].<br>primaryV4AddressSpec.<br>oneToOneNatSpec | **object**<br><p>An external IP address configuration. If not specified, then this managed instance will have no external internet access.</p> 
 instanceTemplate.<br>networkInterfaceSpecs[].<br>primaryV4AddressSpec.<br>oneToOneNatSpec.<br>ipVersion | **string**<br><p>IP version for the public IP address.</p> <ul> <li>IPV4: IPv4 address, for example 192.168.0.0.</li> <li>IPV6: IPv6 address, not available yet.</li> </ul> 
 instanceTemplate.<br>networkInterfaceSpecs[].<br>primaryV4AddressSpec.<br>oneToOneNatSpec.<br>address | **string**<br><p>Manual set static public IP. To set use variables. (optional)</p> 
+instanceTemplate.<br>networkInterfaceSpecs[].<br>primaryV4AddressSpec.<br>oneToOneNatSpec.<br>dnsRecordSpecs[] | **object**<br><p>External DNS configuration</p> 
+instanceTemplate.<br>networkInterfaceSpecs[].<br>primaryV4AddressSpec.<br>oneToOneNatSpec.<br>dnsRecordSpecs[].<br>fqdn | **string**<br><p>Required. FQDN (required)</p> 
+instanceTemplate.<br>networkInterfaceSpecs[].<br>primaryV4AddressSpec.<br>oneToOneNatSpec.<br>dnsRecordSpecs[].<br>dnsZoneId | **string**<br><p>DNS zone id (optional, if not set, private zone used)</p> 
+instanceTemplate.<br>networkInterfaceSpecs[].<br>primaryV4AddressSpec.<br>oneToOneNatSpec.<br>dnsRecordSpecs[].<br>ttl | **string** (int64)<br><p>DNS record ttl, values in 0-86400 (optional)</p> <p>Acceptable values are 0 to 86400, inclusive.</p> 
+instanceTemplate.<br>networkInterfaceSpecs[].<br>primaryV4AddressSpec.<br>oneToOneNatSpec.<br>dnsRecordSpecs[].<br>ptr | **boolean** (boolean)<br><p>When set to true, also create PTR DNS record (optional)</p> 
+instanceTemplate.<br>networkInterfaceSpecs[].<br>primaryV4AddressSpec.<br>dnsRecordSpecs[] | **object**<br><p>Internal DNS configuration</p> 
+instanceTemplate.<br>networkInterfaceSpecs[].<br>primaryV4AddressSpec.<br>dnsRecordSpecs[].<br>fqdn | **string**<br><p>Required. FQDN (required)</p> 
+instanceTemplate.<br>networkInterfaceSpecs[].<br>primaryV4AddressSpec.<br>dnsRecordSpecs[].<br>dnsZoneId | **string**<br><p>DNS zone id (optional, if not set, private zone used)</p> 
+instanceTemplate.<br>networkInterfaceSpecs[].<br>primaryV4AddressSpec.<br>dnsRecordSpecs[].<br>ttl | **string** (int64)<br><p>DNS record ttl, values in 0-86400 (optional)</p> <p>Acceptable values are 0 to 86400, inclusive.</p> 
+instanceTemplate.<br>networkInterfaceSpecs[].<br>primaryV4AddressSpec.<br>dnsRecordSpecs[].<br>ptr | **boolean** (boolean)<br><p>When set to true, also create PTR DNS record (optional)</p> 
+instanceTemplate.<br>networkInterfaceSpecs[].<br>primaryV4AddressSpec.<br>address | **string**<br><p>Optional. Manual set static internal IP. To set use variables.</p> 
 instanceTemplate.<br>networkInterfaceSpecs[].<br>primaryV6AddressSpec | **object**<br><p>Primary IPv6 address that is assigned to the instance for this network interface. IPv6 not available yet.</p> 
 instanceTemplate.<br>networkInterfaceSpecs[].<br>primaryV6AddressSpec.<br>oneToOneNatSpec | **object**<br><p>An external IP address configuration. If not specified, then this managed instance will have no external internet access.</p> 
 instanceTemplate.<br>networkInterfaceSpecs[].<br>primaryV6AddressSpec.<br>oneToOneNatSpec.<br>ipVersion | **string**<br><p>IP version for the public IP address.</p> <ul> <li>IPV4: IPv4 address, for example 192.168.0.0.</li> <li>IPV6: IPv6 address, not available yet.</li> </ul> 
 instanceTemplate.<br>networkInterfaceSpecs[].<br>primaryV6AddressSpec.<br>oneToOneNatSpec.<br>address | **string**<br><p>Manual set static public IP. To set use variables. (optional)</p> 
+instanceTemplate.<br>networkInterfaceSpecs[].<br>primaryV6AddressSpec.<br>oneToOneNatSpec.<br>dnsRecordSpecs[] | **object**<br><p>External DNS configuration</p> 
+instanceTemplate.<br>networkInterfaceSpecs[].<br>primaryV6AddressSpec.<br>oneToOneNatSpec.<br>dnsRecordSpecs[].<br>fqdn | **string**<br><p>Required. FQDN (required)</p> 
+instanceTemplate.<br>networkInterfaceSpecs[].<br>primaryV6AddressSpec.<br>oneToOneNatSpec.<br>dnsRecordSpecs[].<br>dnsZoneId | **string**<br><p>DNS zone id (optional, if not set, private zone used)</p> 
+instanceTemplate.<br>networkInterfaceSpecs[].<br>primaryV6AddressSpec.<br>oneToOneNatSpec.<br>dnsRecordSpecs[].<br>ttl | **string** (int64)<br><p>DNS record ttl, values in 0-86400 (optional)</p> <p>Acceptable values are 0 to 86400, inclusive.</p> 
+instanceTemplate.<br>networkInterfaceSpecs[].<br>primaryV6AddressSpec.<br>oneToOneNatSpec.<br>dnsRecordSpecs[].<br>ptr | **boolean** (boolean)<br><p>When set to true, also create PTR DNS record (optional)</p> 
+instanceTemplate.<br>networkInterfaceSpecs[].<br>primaryV6AddressSpec.<br>dnsRecordSpecs[] | **object**<br><p>Internal DNS configuration</p> 
+instanceTemplate.<br>networkInterfaceSpecs[].<br>primaryV6AddressSpec.<br>dnsRecordSpecs[].<br>fqdn | **string**<br><p>Required. FQDN (required)</p> 
+instanceTemplate.<br>networkInterfaceSpecs[].<br>primaryV6AddressSpec.<br>dnsRecordSpecs[].<br>dnsZoneId | **string**<br><p>DNS zone id (optional, if not set, private zone used)</p> 
+instanceTemplate.<br>networkInterfaceSpecs[].<br>primaryV6AddressSpec.<br>dnsRecordSpecs[].<br>ttl | **string** (int64)<br><p>DNS record ttl, values in 0-86400 (optional)</p> <p>Acceptable values are 0 to 86400, inclusive.</p> 
+instanceTemplate.<br>networkInterfaceSpecs[].<br>primaryV6AddressSpec.<br>dnsRecordSpecs[].<br>ptr | **boolean** (boolean)<br><p>When set to true, also create PTR DNS record (optional)</p> 
+instanceTemplate.<br>networkInterfaceSpecs[].<br>primaryV6AddressSpec.<br>address | **string**<br><p>Optional. Manual set static internal IP. To set use variables.</p> 
 instanceTemplate.<br>networkInterfaceSpecs[].<br>securityGroupIds[] | **string**<br><p>IDs of security groups.</p> 
 instanceTemplate.<br>schedulingPolicy | **object**<br><p>Scheduling policy for the instance.</p> 
 instanceTemplate.<br>schedulingPolicy.<br>preemptible | **boolean** (boolean)<br><p>Preemptible instances are stopped at least once every 24 hours, and can be stopped at any time if their resources are needed by Compute. For more information, see <a href="/docs/compute/concepts/preemptible-vm">Preemptible Virtual Machines</a>.</p> 
@@ -354,12 +424,13 @@ managedInstancesState.<br>runningActualCount | **string** (int64)<br><p>The numb
 managedInstancesState.<br>runningOutdatedCount | **string** (int64)<br><p>The number of running instances that does not match the current instance template. For more information, see `RUNNING_OUTDATED`.</p> 
 managedInstancesState.<br>processingCount | **string** (int64)<br><p>The number of instances in flight (for example, updating, starting, deleting). For more information, see `ManagedInstanceStatus`.</p> 
 loadBalancerSpec | **object**<br><p>Load balancing specification.</p> 
-loadBalancerSpec.<br>targetGroupSpec | **object**<br><p>Specification of the target group that the instance group will be added to. For more information, see <a href="/docs/network-load-balancer/concepts/target-resources">Target groups and resources</a>.</p> 
+loadBalancerSpec.<br>targetGroupSpec | **object**<br><p>Specification of the target group that the instance group will be added to. For more information, see <a href="/docs/load-balancer/concepts/target-resources">Target groups and resources</a>.</p> 
 loadBalancerSpec.<br>targetGroupSpec.<br>name | **string**<br><p>Name of the target group.</p> <p>Value must match the regular expression `` \|<a href="%5B-a-z0-9%5D%7B0,61%7D%5Ba-z0-9%5D">a-z</a>? ``.</p> 
 loadBalancerSpec.<br>targetGroupSpec.<br>description | **string**<br><p>Description of the target group.</p> <p>The maximum string length in characters is 256.</p> 
 loadBalancerSpec.<br>targetGroupSpec.<br>labels | **object**<br><p>Resource labels as `key:value` pairs.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression `` [a-z][-<em>./@0-9a-z]* ``. The maximum string length in characters for each value is 63. Each value must match the regular expression `` [-</em>./@0-9a-z]* ``.</p> 
-healthChecksSpec | **object**<br><p>Health checking specification. For more information, see <a href="/docs/network-load-balancer/concepts/health-check">Health check</a>.</p> 
-healthChecksSpec.<br>healthCheckSpecs[] | **object**<br><p>Required. Health checking specification. For more information, see <a href="/docs/network-load-balancer/concepts/health-check">Health check</a>.</p> <p>The minimum number of elements is 1.</p> 
+loadBalancerSpec.<br>maxOpeningTrafficDuration | **string**<br><p>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds.</p> <p>The minimum value is 1 seconds.</p> 
+healthChecksSpec | **object**<br><p>Health checking specification. For more information, see <a href="/docs/load-balancer/concepts/health-check">Health check</a>.</p> 
+healthChecksSpec.<br>healthCheckSpecs[] | **object**<br><p>Required. Health checking specification. For more information, see <a href="/docs/load-balancer/concepts/health-check">Health check</a>.</p> <p>The minimum number of elements is 1.</p> 
 healthChecksSpec.<br>healthCheckSpecs[].<br>interval | **string**<br><p>The interval between health checks. The default is 2 seconds.</p> <p>Acceptable values are 1 seconds to 300 seconds, inclusive.</p> 
 healthChecksSpec.<br>healthCheckSpecs[].<br>timeout | **string**<br><p>Timeout for the managed instance to return a response for the health check. The default is 1 second.</p> <p>Acceptable values are 1 seconds to 60 seconds, inclusive.</p> 
 healthChecksSpec.<br>healthCheckSpecs[].<br>unhealthyThreshold | **string** (int64)<br><p>The number of failed health checks for the managed instance to be considered unhealthy. The default (0) is 2.</p> <p>Value must be one of 0, 2, 3, 4, 5, 6, 7, 8, 9 or 10.</p> 
@@ -369,9 +440,19 @@ healthChecksSpec.<br>healthCheckSpecs[].<br>tcpOptions.<br>port | **string** (in
 healthChecksSpec.<br>healthCheckSpecs[].<br>httpOptions | **object**<br>Configuration options for an HTTP health check. <br>`healthChecksSpec.healthCheckSpecs[]` includes only one of the fields `tcpOptions`, `httpOptions`<br><br>
 healthChecksSpec.<br>healthCheckSpecs[].<br>httpOptions.<br>port | **string** (int64)<br><p>Port to use for HTTP health checks.</p> <p>Acceptable values are 1 to 65535, inclusive.</p> 
 healthChecksSpec.<br>healthCheckSpecs[].<br>httpOptions.<br>path | **string**<br><p>URL path to set for health checking requests.</p> 
+healthChecksSpec.<br>maxCheckingHealthDuration | **string**<br><p>Timeout for waiting for the VM to become healthy. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds.</p> <p>The minimum value is 1 seconds.</p> 
 serviceAccountId | **string**<br><p>ID of the service account. The service account will be used for all API calls made by the Instance Groups component on behalf of the user (for example, creating instances, adding them to load balancer target group, etc.). For more information, see <a href="/docs/iam/concepts/users/service-accounts">Service accounts</a>. To get the service account ID, use a <a href="/docs/iam/api-ref/ServiceAccount/list">list</a> request.</p> 
-status | **string**<br><p>Status of the instance group.</p> <ul> <li>STARTING: Instance group is being started and will become active soon.</li> <li>ACTIVE: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. To stop the instance group, call <a href="/docs/compute/api-ref/InstanceGroup/stop">stop</a>.</li> <li>STOPPING: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li> <li>STOPPED: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call <a href="/docs/compute/api-ref/InstanceGroup/start">start</a>.</li> <li>DELETING: Instance group is being deleted.</li> </ul> 
+status | **string**<br><p>Status of the instance group.</p> <ul> <li>STARTING: Instance group is being started and will become active soon.</li> <li>ACTIVE: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. To stop the instance group, call <a href="/docs/compute/api-ref/InstanceGroup/stop">stop</a>.</li> <li>STOPPING: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li> <li>STOPPED: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call <a href="/docs/compute/api-ref/InstanceGroup/start">start</a>.</li> <li>DELETING: Instance group is being deleted.</li> <li>PAUSED: Instance group is paused.</li> </ul> 
 variables[] | **object**<br>
 variables[].<br>key | **string**<br><p>The string length in characters must be 1-128. Value must match the regular expression `` [a-zA-Z0-9._-]* ``.</p> 
 variables[].<br>value | **string**<br><p>The maximum string length in characters is 128.</p> 
 deletionProtection | **boolean** (boolean)<br><p>Flag prohibiting deletion of the instance group.</p> <p>Allowed values:</br>- `false`: The instance group can be deleted.</br>- `true`: The instance group cannot be deleted.</p> <p>The default is `false`.</p> 
+applicationLoadBalancerSpec | **object**<br><p>Application load balancer spec</p> 
+applicationLoadBalancerSpec.<br>targetGroupSpec | **object**<br><p>Required. Specification of the alb's target group that the instance group will be added to.</p> 
+applicationLoadBalancerSpec.<br>targetGroupSpec.<br>name | **string**<br><p>Name of the target group.</p> 
+applicationLoadBalancerSpec.<br>targetGroupSpec.<br>description | **string**<br><p>Description of the target group.</p> 
+applicationLoadBalancerSpec.<br>targetGroupSpec.<br>labels | **object**<br><p>Resource labels as `key:value` pairs.</p> 
+applicationLoadBalancerSpec.<br>maxOpeningTrafficDuration | **string**<br><p>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds.</p> <p>The minimum value is 1 seconds.</p> 
+applicationLoadBalancerState | **object**<br><p>Application load balancer state</p> 
+applicationLoadBalancerState.<br>targetGroupId | **string**<br>
+applicationLoadBalancerState.<br>statusMessage | **string**<br>

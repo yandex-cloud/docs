@@ -2,24 +2,24 @@
 editable: false
 ---
 
-# Метод get
-Возвращает указанный ресурс Database для ClickHouse.
+# Method get
+Returns the specified ClickHouse Database resource.
  
-Чтобы получить список доступных ресурсов Database для ClickHouse, отправьте запрос [list](/docs/managed-clickhouse/api-ref/Database/list).
+To get the list of available ClickHouse Database resources, make a [list](/docs/managed-clickhouse/api-ref/Database/list) request.
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 GET https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}/databases/{databaseName}
 ```
  
-## Path-параметры {#path_params}
+## Path parameters {#path_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-clusterId | Обязательное поле. Идентификатор кластера ClickHouse, к которому принадлежит база данных. Чтобы получить идентификатор кластера, используйте запрос [list](/docs/managed-clickhouse/api-ref/Cluster/list).  Максимальная длина строки в символах — 50.
-databaseName | Обязательное поле. Имя возвращаемого ресурса Database для базы данных ClickHouse. Чтобы получить имя базы данных, используйте запрос [list](/docs/managed-clickhouse/api-ref/Database/list).  Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_-]* ``.
+clusterId | Required. ID of the ClickHouse cluster that the database belongs to. To get the cluster ID, use a [list](/docs/managed-clickhouse/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
+databaseName | Required. Name of the ClickHouse Database resource to return. To get the name of the database, use a [list](/docs/managed-clickhouse/api-ref/Database/list) request.  The maximum string length in characters is 63. Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -28,9 +28,10 @@ databaseName | Обязательное поле. Имя возвращаемо�
   "clusterId": "string"
 }
 ```
-Ресурс Database для ClickHouse. Подробнее см. в разделе [Developer's Guide](/docs/managed-clickhouse/concepts).
+A ClickHouse Database resource. For more information, see the 
+[Developer's Guide](/docs/managed-clickhouse/concepts).
  
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br><p>Имя базы данных.</p> 
-clusterId | **string**<br><p>Идентификатор кластера ClickHouse, к которому принадлежит база данных.</p> 
+name | **string**<br><p>Name of the database.</p> 
+clusterId | **string**<br><p>ID of the ClickHouse cluster that the database belongs to.</p> 

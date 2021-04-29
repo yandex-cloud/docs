@@ -2,26 +2,26 @@
 editable: false
 ---
 
-# Метод list
-Возвращает список API-шлюзов в указанном каталоге.
+# Method list
+Retrieves the list of API gateways in the specified folder.
  
 
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 GET https://serverless-apigateway.api.cloud.yandex.net/apigateways/v1/apigateways
 ```
  
-## Query-параметры {#query_params}
+## Query parameters {#query_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-folderId | Обязательное поле. Идентификатор каталога для получения списка API-шлюзов.  Чтобы получить идентификатор каталога, используйте запрос [list](/docs/resource-manager/api-ref/Folder/list).
-pageSize | Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем `pageSize` , сервис вернет значение [nextPageToken](/docs/api-gateway/api-ref/ApiGateway/list#responses), которое можно использовать для получения следующей страницы.  Значение по умолчанию: 100.
-pageToken | Токен страницы. Установите значение `pageToken` равным значению поля [nextPageToken](/docs/api-gateway/api-ref/ApiGateway/list#responses) предыдущего запроса, чтобы получить следующую страницу результатов.
-filter | Выражение фильтра, для фильтрации списка функций в ответе.  В параметрах фильтрации указываются: 1. Имя поля. В настоящее время фильтрация осуществляется только по полю [ApiGateway.name](/docs/api-gateway/api-ref/ApiGateway#representation). 2. Условный оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений. 3. Значение. Значение длиной от 3 до 63 символов, совпадающее с регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`. Пример фильтра: `name=my-apigw`.
+folderId | Required. ID of the folder to list API gateways in.  To get a folder ID make a [list](/docs/resource-manager/api-ref/Folder/list) request.
+pageSize | The maximum number of results per page to return. If the number of available results is larger than `pageSize`, the service returns a [nextPageToken](/docs/functions/api-gateway/api-ref/ApiGateway/list#responses) that can be used to get the next page of results in subsequent list requests.  Default value: 100.
+pageToken | Page token. To get the next page of results, set `pageToken` to the [nextPageToken](/docs/functions/api-gateway/api-ref/ApiGateway/list#responses) returned by a previous list request.
+filter | A filter expression that filters functions listed in the response.  The expression must specify: 1. The field name. Currently filtering can only be applied to the [ApiGateway.name](/docs/functions/api-gateway/api-ref/ApiGateway#representation) field. 2. A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. 3. The value. Must be 1-63 characters long and match the regular expression `^[a-z]([-a-z0-9]{0,61}[a-z0-9])?$`. Example of a filter: `name=my-apigw`.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -36,7 +36,15 @@ filter | Выражение фильтра, для фильтрации спис
       "labels": "object",
       "status": "string",
       "domain": "string",
-      "logGroupId": "string"
+      "logGroupId": "string",
+      "attachedDomains": [
+        {
+          "domainId": "string",
+          "certificateId": "string",
+          "enabled": true,
+          "domain": "string"
+        }
+      ]
     }
   ],
   "nextPageToken": "string"
@@ -44,16 +52,21 @@ filter | Выражение фильтра, для фильтрации спис
 ```
 
  
-Поле | Описание
+Field | Description
 --- | ---
-apiGateways[] | **object**<br><p>Возвращает список API-шлюзов в указанном каталоге.</p> 
-apiGateways[].<br>id | **string**<br><p>Идентификатор API-шлюза. Генерируется при создании.</p> 
-apiGateways[].<br>folderId | **string**<br><p>Идентификатор каталога, которому принадлежит API-шлюз.</p> 
-apiGateways[].<br>createdAt | **string** (date-time)<br><p>Время создания API-шлюза.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-apiGateways[].<br>name | **string**<br><p>Имя API-шлюза. Имя уникально в рамках каталога.</p> 
-apiGateways[].<br>description | **string**<br><p>Описание API-шлюза.</p> 
-apiGateways[].<br>labels | **object**<br><p>Метки API-шлюза в формате `key:value` .</p> 
-apiGateways[].<br>status | **string**<br><p>Состояние API-шлюза.</p> <ul> <li>CREATING: API-шлюз создается.</li> <li>ACTIVE: API-шлюз готов к использованию.</li> <li>DELETING: API-шлюз удаляется.</li> <li>ERROR: Сбой API-шлюза. Единственное разрешенное действие c API-шлюзом — удаление.</li> </ul> 
-apiGateways[].<br>domain | **string**<br><p>Домен по умолчанию для API-шлюза. Генерируется при создании.</p> 
-apiGateways[].<br>logGroupId | **string**<br><p>Идентификатор группы журналов выполнения для API-шлюза.</p> 
-nextPageToken | **string**<br><p>Токен для получения следующей страницы списка. Если количество результатов больше чем <a href="/docs/api-gateway/api-ref/ApiGateway/list#query_params">pageSize</a>, используйте `nextPageToken` в качестве значения параметра <a href="/docs/api-gateway/api-ref/ApiGateway/list#query_params">pageToken</a> в следующем запросе списка ресурсов.</p> <p>Каждая следующая страница будет иметь свой `nextPageToken` для продолжения перебора страниц результатов.</p> 
+apiGateways[] | **object**<br><p>List of API gateways in the specified folder.</p> 
+apiGateways[].<br>id | **string**<br><p>ID of the API gateway. Generated at creation time.</p> 
+apiGateways[].<br>folderId | **string**<br><p>ID of the folder that the API gateway belongs to.</p> 
+apiGateways[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp for the API-gateway.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+apiGateways[].<br>name | **string**<br><p>Name of the API gateway. The name is unique within the folder.</p> 
+apiGateways[].<br>description | **string**<br><p>Description of the API gateway.</p> 
+apiGateways[].<br>labels | **object**<br><p>API gateway labels as `key:value` pairs.</p> 
+apiGateways[].<br>status | **string**<br><p>Status of the API gateway.</p> <ul> <li>CREATING: API gateway is being created.</li> <li>ACTIVE: API gateway is ready for use.</li> <li>DELETING: API gateway is being deleted.</li> <li>ERROR: API gateway failed. The only allowed action is delete.</li> <li>UPDATING: API gateway is being updated.</li> </ul> 
+apiGateways[].<br>domain | **string**<br><p>Default domain for the API gateway. Generated at creation time.</p> 
+apiGateways[].<br>logGroupId | **string**<br><p>ID of the log group for the API gateway.</p> 
+apiGateways[].<br>attachedDomains[] | **object**<br><p>List of domains attached to API gateway.</p> 
+apiGateways[].<br>attachedDomains[].<br>domainId | **string**<br><p>ID of the domain.</p> 
+apiGateways[].<br>attachedDomains[].<br>certificateId | **string**<br><p>ID of the domain certificate.</p> 
+apiGateways[].<br>attachedDomains[].<br>enabled | **boolean** (boolean)<br><p>Enabling flag.</p> 
+apiGateways[].<br>attachedDomains[].<br>domain | **string**<br><p>Name of the domain.</p> 
+nextPageToken | **string**<br><p>Token for getting the next page of the list. If the number of results is greater than the specified <a href="/docs/functions/api-gateway/api-ref/ApiGateway/list#query_params">pageSize</a>, use `nextPageToken` as the value for the <a href="/docs/functions/api-gateway/api-ref/ApiGateway/list#query_params">pageToken</a> parameter in the next list request.</p> <p>Each subsequent page will have its own `nextPageToken` to continue paging through the results.</p> 

@@ -3,8 +3,8 @@ editable: false
 ---
 
 # Subcluster
-Набор методов для управления подкластерами Data Proc.
-## JSON-представление {#representation}
+A set of methods for managing Data Proc subclusters.
+## JSON Representation {#representation}
 ```json 
 {
   "id": "string",
@@ -18,29 +18,48 @@ editable: false
     "diskSize": "string"
   },
   "subnetId": "string",
-  "hostsCount": "string"
+  "hostsCount": "string",
+  "autoscalingConfig": {
+    "maxHostsCount": "string",
+    "preemptible": true,
+    "measurementDuration": "string",
+    "warmupDuration": "string",
+    "stabilizationDuration": "string",
+    "cpuUtilizationTarget": "number",
+    "decommissionTimeout": "string"
+  },
+  "instanceGroupId": "string"
 }
 ```
  
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br><p>Идентификатор подкластера. Генерируется во время создания.</p> 
-clusterId | **string**<br><p>Идентификатор кластера Data Proc, которому принадлежит подкластер.</p> 
-createdAt | **string** (date-time)<br><p>Время создания.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-name | **string**<br><p>Имя подкластера. Имя должно быть уникальным в кластере.</p> <p>Длина строки в символах должна быть от 1 до 63.</p> 
-role | **string**<br><p>Роль, которую выполняют хосты подкластера.</p> <ul> <li>MASTERNODE: Подкластер выполняет роль мастера.</li> </ul> <p>Мастер может запускать следующие сервисы, в зависимости от запрошенных компонентов:</p> <ul> <li>HDFS: Namenode, Secondary Namenode</li> <li>YARN: ResourceManager, Timeline Server</li> <li>HBase Master</li> <li>Hive: Server, Metastore, HCatalog</li> <li>Spark History Server</li> <li>Zeppelin</li> <li>ZooKeeper</li> </ul> <ul> <li>DATANODE: Подкластер выполняет роль DATANODE в кластере Data Proc.</li> </ul> <p>DATANODE может запускать следующие сервисы, в зависимости от запрошенных компонентов:</p> <ul> <li>HDFS DataNode</li> <li>YARN NodeManager</li> <li>HBase RegionServer</li> <li>библиотеки Spark</li> </ul> <ul> <li>COMPUTENODE: Подкластер выполняет роль COMPUTENODE в кластере Data Proc.</li> </ul> <p>COMPUTENODE может запускать следующие сервисы, в зависимости от запрошенных компонентов:</p> <ul> <li>YARN NodeManager</li> <li>библиотеки Spark</li> </ul> 
-resources | **object**<br><p>Ресурсы, выделенные для каждого хоста в подкластере.</p> 
-resources.<br>resourcePresetId | **string**<br><p>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в <a href="/docs/data-proc/concepts/instance-types">документации</a>.</p> 
-resources.<br>diskTypeId | **string**<br><p>Тип хранилища для хоста. Возможные значения:</p> <ul> <li>network-hdd — сетевой HDD-диск;</li> <li>network-ssd — сетевой SSD-диск.</li> </ul> 
-resources.<br>diskSize | **string** (int64)<br><p>Объем хранилища, доступного хосту, в байтах.</p> 
-subnetId | **string**<br><p>Идентификатор подсети VPC, используемой для хостов подкластера.</p> 
-hostsCount | **string** (int64)<br><p>Количество хостов в подкластере.</p> 
+id | **string**<br><p>ID of the subcluster. Generated at creation time.</p> 
+clusterId | **string**<br><p>ID of the Data Proc cluster that the subcluster belongs to.</p> 
+createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+name | **string**<br><p>Name of the subcluster. The name is unique within the cluster.</p> <p>The string length in characters must be 1-63.</p> 
+role | **string**<br><p>Role that is fulfilled by hosts of the subcluster.</p> <ul> <li>MASTERNODE: The subcluster fulfills the master role.</li> </ul> <p>Master can run the following services, depending on the requested components:</p> <ul> <li>HDFS: Namenode, Secondary Namenode</li> <li>YARN: ResourceManager, Timeline Server</li> <li>HBase Master</li> <li>Hive: Server, Metastore, HCatalog</li> <li>Spark History Server</li> <li>Zeppelin</li> <li>ZooKeeper</li> </ul> <ul> <li>DATANODE: The subcluster is a DATANODE in a Data Proc cluster.</li> </ul> <p>DATANODE can run the following services, depending on the requested components:</p> <ul> <li>HDFS DataNode</li> <li>YARN NodeManager</li> <li>HBase RegionServer</li> <li>Spark libraries</li> </ul> <ul> <li>COMPUTENODE: The subcluster is a COMPUTENODE in a Data Proc cluster.</li> </ul> <p>COMPUTENODE can run the following services, depending on the requested components:</p> <ul> <li>YARN NodeManager</li> <li>Spark libraries</li> </ul> 
+resources | **object**<br><p>Resources allocated for each host in the subcluster.</p> 
+resources.<br>resourcePresetId | **string**<br><p>ID of the resource preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/data-proc/concepts/instance-types">documentation</a>.</p> 
+resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host. Possible values:</p> <ul> <li>network-hdd - network HDD drive,</li> <li>network-ssd - network SSD drive.</li> </ul> 
+resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
+subnetId | **string**<br><p>ID of the VPC subnet used for hosts in the subcluster.</p> 
+hostsCount | **string** (int64)<br><p>Number of hosts in the subcluster.</p> 
+autoscalingConfig | **object**<br><p>Configuration for instance group based subclusters</p> 
+autoscalingConfig.<br>maxHostsCount | **string** (int64)<br><p>Upper limit for total instance subcluster count.</p> <p>Acceptable values are 1 to 100, inclusive.</p> 
+autoscalingConfig.<br>preemptible | **boolean** (boolean)<br><p>Preemptible instances are stopped at least once every 24 hours, and can be stopped at any time if their resources are needed by Compute. For more information, see <a href="/docs/compute/concepts/preemptible-vm">Preemptible Virtual Machines</a>.</p> 
+autoscalingConfig.<br>measurementDuration | **string**<br><p>Required. Time in seconds allotted for averaging metrics.</p> <p>Acceptable values are 60 seconds to 600 seconds, inclusive.</p> 
+autoscalingConfig.<br>warmupDuration | **string**<br><p>The warmup time of the instance in seconds. During this time, traffic is sent to the instance, but instance metrics are not collected.</p> <p>The maximum value is 600 seconds.</p> 
+autoscalingConfig.<br>stabilizationDuration | **string**<br><p>Minimum amount of time in seconds allotted for monitoring before Instance Groups can reduce the number of instances in the group. During this time, the group size doesn't decrease, even if the new metric values indicate that it should.</p> <p>Acceptable values are 60 seconds to 1800 seconds, inclusive.</p> 
+autoscalingConfig.<br>cpuUtilizationTarget | **number** (double)<br><p>Defines an autoscaling rule based on the average CPU utilization of the instance group.</p> <p>Acceptable values are 10 to 100, inclusive.</p> 
+autoscalingConfig.<br>decommissionTimeout | **string** (int64)<br><p>Timeout to gracefully decommission nodes during downscaling. In seconds. Default value: 120</p> <p>Acceptable values are 0 to 86400, inclusive.</p> 
+instanceGroupId | **string**<br><p>ID of Compute Instance Group for autoscaling subclusters</p> 
 
-## Методы {#methods}
-Метод | Описание
+## Methods {#methods}
+Method | Description
 --- | ---
-[create](create.md) | Создает новый подкластер в указанном кластере.
-[delete](delete.md) | Удаляет указанный подкластер.
-[get](get.md) | Возвращает указанный подкластер.
-[list](list.md) | Получает список подкластеров для указанного кластера.
-[update](update.md) | Изменяет указанный подкластер.
+[create](create.md) | Creates a subcluster in the specified cluster.
+[delete](delete.md) | Deletes the specified subcluster.
+[get](get.md) | Returns the specified subcluster.
+[list](list.md) | Retrieves a list of subclusters in the specified cluster.
+[update](update.md) | Updates the specified subcluster.

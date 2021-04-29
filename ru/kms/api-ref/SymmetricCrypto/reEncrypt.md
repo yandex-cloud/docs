@@ -2,23 +2,23 @@
 editable: false
 ---
 
-# Метод reEncrypt
-Заново шифрует заданный зашифрованный текст с указанным ключом KMS.
+# Method reEncrypt
+Re-encrypts a ciphertext with the specified KMS key.
  
 
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 POST https://kms.yandex/kms/v1/keys/{keyId}:reEncrypt
 ```
  
-## Path-параметры {#path_params}
+## Path parameters {#path_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-keyId | Обязательное поле. Идентификатор нового ключа, который следует использовать для шифрования.  Максимальная длина строки в символах — 50.
+keyId | Required. ID of the new key to be used for encryption.  The maximum string length in characters is 50.
  
-## Параметры в теле запроса {#body_params}
+## Body parameters {#body_params}
  
 ```json 
 {
@@ -31,15 +31,15 @@ keyId | Обязательное поле. Идентификатор новог
 ```
 
  
-Поле | Описание
+Field | Description
 --- | ---
-versionId | **string**<br><p>Идентификатор версии нового ключа, которую следует использовать для шифрования. По умолчанию используется основная версия, если версия не указана явно.</p> <p>Максимальная длина строки в символах — 50.</p> 
-aadContext | **string** (byte)<br><p>Дополнительные аутентифицированные данные (AAD-контекст), которые потребуются для расшифровки. Должен быть в кодировке base64.</p> <p>Максимальная длина строки в символах — 8192.</p> 
-sourceKeyId | **string**<br><p>Обязательное поле. Идентификатор ключа, которым на текущий момент зашифрован текст. Может быть таким же, как и новый ключ.</p> <p>Максимальная длина строки в символах — 50.</p> 
-sourceAadContext | **string** (byte)<br><p>Дополнительные аутентификационные данные, переданные с первоначальным запросом шифрования. Должен быть в кодировке base64.</p> <p>Максимальная длина строки в символах — 8192.</p> 
-ciphertext | **string** (byte)<br><p>Обязательное поле. Шифртекст, который следует расшифровать и зашифровать повторно. Должен быть в кодировке base64.</p> 
+versionId | **string**<br><p>ID of the version of the new key to be used for encryption. Defaults to the primary version if not specified.</p> <p>The maximum string length in characters is 50.</p> 
+aadContext | **string** (byte)<br><p>Additional authenticated data to be required for decryption. Should be encoded with base64.</p> <p>The maximum string length in characters is 8192.</p> 
+sourceKeyId | **string**<br><p>Required. ID of the key that the ciphertext is currently encrypted with. May be the same as for the new key.</p> <p>The maximum string length in characters is 50.</p> 
+sourceAadContext | **string** (byte)<br><p>Additional authenticated data provided with the initial encryption request. Should be encoded with base64.</p> <p>The maximum string length in characters is 8192.</p> 
+ciphertext | **string** (byte)<br><p>Required. Ciphertext to re-encrypt. Should be encoded with base64.</p> 
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -53,10 +53,10 @@ ciphertext | **string** (byte)<br><p>Обязательное поле. Шифр
 ```
 
  
-Поле | Описание
+Field | Description
 --- | ---
-keyId | **string**<br><p>Идентификатор ключа, которым в данный момент зашифрован текст.</p> 
-versionId | **string**<br><p>Идентификатор версии ключа, которая использовалась для шифрования.</p> 
-sourceKeyId | **string**<br><p>Идентификатор ключа, с помощью которого шифртекст был зашифрован ранее.</p> 
-sourceVersionId | **string**<br><p>Идентификатор версии ключа, которая использовалась для расшифровки перешифруемых данных.</p> 
-ciphertext | **string** (byte)<br><p>Заново зашифрованный шифртекст.</p> 
+keyId | **string**<br><p>ID of the key that the ciphertext is encrypted with now.</p> 
+versionId | **string**<br><p>ID of key version that was used for encryption.</p> 
+sourceKeyId | **string**<br><p>ID of the key that the ciphertext was encrypted with previously.</p> 
+sourceVersionId | **string**<br><p>ID of the key version that was used to decrypt the re-encrypted ciphertext.</p> 
+ciphertext | **string** (byte)<br><p>Resulting re-encrypted ciphertext.</p> 

@@ -1,0 +1,31 @@
+default:
+  sku|RUB|cdn:
+    api:
+      network:
+        inet:
+          egress|string: 0,0000 ₽
+  sku|KZT|cdn:
+    api:
+      network:
+        inet:
+          egress|string: 0,0000 ₸
+  sku|USD|cdn:
+    api:
+      network:
+        inet:
+          egress|string: $0.000000
+  future|sku|RUB|cdn:
+    api:
+      network:
+        inet:
+          egress|string: 0,6000 ₽
+  future|sku|KZT|cdn:
+    api:
+      network:
+        inet:
+          egress|string: 3,6000 ₸
+  future|sku|USD|cdn:
+    api:
+      network:
+        inet:
+          egress|string: $0.007692

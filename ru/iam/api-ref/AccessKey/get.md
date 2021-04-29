@@ -2,23 +2,23 @@
 editable: false
 ---
 
-# Метод get
-Возвращает указанный ключ доступа.
+# Method get
+Returns the specified access key.
  
-Чтобы получить список доступных ключей доступа, используйте запрос [list](/docs/iam/api-ref/AccessKey/list).
+To get the list of available access keys, make a [list](/docs/iam/api-ref/AccessKey/list) request.
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 GET https://iam.api.cloud.yandex.net/iam/aws-compatibility/v1/accessKeys/{accessKeyId}
 ```
  
-## Path-параметры {#path_params}
+## Path parameters {#path_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-accessKeyId | Обязательное поле. Идентификатор запрашиваемого ресурса AccessKey. Чтобы получить идентификатор ключа доступа, используйте запрос [list](/docs/iam/api-ref/AccessKey/list).  Максимальная длина строки в символах — 50.
+accessKeyId | Required. ID of the AccessKey resource to return. To get the access key ID, use a [list](/docs/iam/api-ref/AccessKey/list) request.  The maximum string length in characters is 50.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -30,12 +30,13 @@ accessKeyId | Обязательное поле. Идентификатор за
   "keyId": "string"
 }
 ```
-Ключ доступа. Дополнительные сведения см. в разделе [AWS-совместимые ключи доступа](/docs/iam/concepts/authorization/access-key).
+An access key.
+For more information, see [AWS-compatible access keys](/docs/iam/concepts/authorization/access-key).
  
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br><p>Идентификатор ресурса AccessKey. Он используется для управления идентификатором ключа доступа и секретным ключом доступа.</p> 
-serviceAccountId | **string**<br><p>Идентификатор сервисного аккаунта, которому принадлежит ключ доступа.</p> 
-createdAt | **string** (date-time)<br><p>Время создания.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-description | **string**<br><p>Описание ключа доступа. Длина описания должна быть от 0 до 256 символов.</p> 
-keyId | **string**<br><p>Идентификатор ключа доступа. Ключ совместим с сервисами AWS.</p> 
+id | **string**<br><p>ID of the AccessKey resource. It is used to manage secret credentials: an access key ID and a secret access key.</p> 
+serviceAccountId | **string**<br><p>ID of the service account that the access key belongs to.</p> 
+createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+description | **string**<br><p>Description of the access key. 0-256 characters long.</p> 
+keyId | **string**<br><p>ID of the access key. The key is AWS compatible.</p> 

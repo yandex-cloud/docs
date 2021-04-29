@@ -3,12 +3,11 @@ editable: false
 ---
 
 # Yandex Managed Service for Apache Kafka® API
-Методы справочника API сгруппированы по ресурсам. Чтобы выполнить операцию над ресурсом, отправьте HTTP-запрос к соответствующему URL. Подробнее об архитектуре API Яндекс.Облака, см. [Концепции API Яндекс.Облака](/docs/api-design-guide/).
+This API reference is organized by resource. Actions are performed by sending HTTP requests to resource URLs or making RPC calls. For more information about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
 
-Ресурс | Описание
+Resource | Description
 --- | ---
-[Cluster](Cluster/index.md) | Набор методов для управления кластерами Apache Kafka®.
-[Operation](Operation/index.md) | Набор методов для управления операциями в асинхронных запросах API.
-[ResourcePreset](ResourcePreset/index.md) | Методы для работы с шаблонами ресурсов.
-[Topic](Topic/index.md) | Набор методов для управления топиками Kafka.
-[User](User/index.md) | Набор методов для управления пользователями Kafka.
+[Cluster](Cluster/index.md) | A set of methods for managing Apache Kafka® clusters.
+[ResourcePreset](ResourcePreset/index.md) | A set of methods for managing Kafka resource presets.
+[Topic](Topic/index.md) | A set of methods for managing Kafka topics.
+[User](User/index.md) | A set of methods for managing Kafka users.

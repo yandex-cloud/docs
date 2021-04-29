@@ -1,13 +1,13 @@
 # Yandex Managed Service for PostgreSQL API
-Методы справочника API сгруппированы по ресурсам. Чтобы выполнить операцию над ресурсом выполните RPC-вызов. Подробнее об архитектуре API Яндекс.Облака, см. [Концепции API Яндекс.Облака](/docs/api-design-guide/).
+This API reference is organized by resource. Actions are performed by sending HTTP requests to resource URLs or making RPC calls. For more information about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
 
-Спецификации API Яндекс.Облака смотрите на [GitHub](https://github.com/yandex-cloud/cloudapi).
+See the interface definitions of Yandex.Cloud API on [GitHub](https://github.com/yandex-cloud/cloudapi).
 
-Сервис | Описание
+Service | Description
 --- | ---
-[BackupService](./backup_service.md) | Набор методов для управления ресурсами Backup для PostgreSQL.
-[ClusterService](./cluster_service.md) | Набор методов для управления ресурсами Cluster для PostgreSQL.
-[DatabaseService](./database_service.md) | Набор методов для управления ресурсами Database для PostgreSQL.
-[ResourcePresetService](./resource_preset_service.md) | Набор методов для управления ресурсами ResourcePreset.
-[UserService](./user_service.md) | Набор методов для управления ресурсами User для PostgreSQL.
-[OperationService](./operation_service.md) | Набор методов для управления операциями в асинхронных запросах API. Ссылки указаны относительно домена `operation.api.cloud.yandex.net`.
+[BackupService](./backup_service.md) | A set of methods for managing PostgreSQL Backup resources.
+[ClusterService](./cluster_service.md) | A set of methods for managing PostgreSQL Cluster resources.
+[DatabaseService](./database_service.md) | A set of methods for managing PostgreSQL Database resources.
+[ResourcePresetService](./resource_preset_service.md) | A set of methods for managing ResourcePreset resources.
+[UserService](./user_service.md) | A set of methods for managing PostgreSQL User resources.
+[OperationService](./operation_service.md) | A set of methods for managing operations for asynchronous API requests.

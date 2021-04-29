@@ -2,24 +2,24 @@
 editable: false
 ---
 
-# Метод list
-Возвращает список доступных шаблонов ресурсов.
+# Method list
+Retrieves the list of available resource presets.
  
 
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 GET https://mdb.api.cloud.yandex.net/managed-kafka/v1/resourcePresets
 ```
  
-## Query-параметры {#query_params}
+## Query parameters {#query_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-pageSize | Максимальное количество результатов на одной странице в ответе.  Если количество результатов больше чем [pageSize](/docs/managed-kafka/api-ref/ResourcePreset/list#query_params), сервис вернет значение [nextPageToken](/docs/managed-kafka/api-ref/ResourcePreset/list#responses), которое можно использовать для получения следующей страницы.  Максимальное значение — 1000.
-pageToken | Токен страницы.  Установите значение [pageToken](/docs/managed-kafka/api-ref/ResourcePreset/list#query_params) равным значению поля [nextPageToken](/docs/managed-kafka/api-ref/ResourcePreset/list#responses) предыдущего запроса, чтобы получить следующую страницу результатов.  Максимальная длина строки в символах — 100.
+pageSize | The maximum number of results per page to return.  If the number of available results is larger than [pageSize](/docs/managed-kafka/api-ref/ResourcePreset/list#query_params), the service returns a [nextPageToken](/docs/managed-kafka/api-ref/ResourcePreset/list#responses) that can be used to get the next page of results in subsequent list requests.  The maximum value is 1000.
+pageToken | Page token.  To get the next page of results, set [pageToken](/docs/managed-kafka/api-ref/ResourcePreset/list#query_params) to the [nextPageToken](/docs/managed-kafka/api-ref/ResourcePreset/list#responses), returned by a previous list request.  The maximum string length in characters is 100.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -39,11 +39,11 @@ pageToken | Токен страницы.  Установите значение 
 ```
 
  
-Поле | Описание
+Field | Description
 --- | ---
-resourcePresets[] | **object**<br><p>Описание набора вычислительных ресурсов.</p> 
-resourcePresets[].<br>id | **string**<br><p>Идентификатор набора ресурсов.</p> 
-resourcePresets[].<br>zoneIds[] | **string**<br><p>Идентификаторы зон доступности, в которых доступен этот набор вычислительных ресурсов.</p> 
-resourcePresets[].<br>cores | **string** (int64)<br><p>Количество процессорных ядер для брокера Kafka, созданного с помощью набора вычислительных ресурсов.</p> 
-resourcePresets[].<br>memory | **string** (int64)<br><p>Объем оперативной памяти для брокера Kafka, созданного с помощью набора вычислительных ресурсов, в байтах.</p> 
-nextPageToken | **string**<br><p>Токен для получения следующей страницы результатов в ответе.</p> <p>Если количество результатов больше чем <a href="/docs/managed-kafka/api-ref/ResourcePreset/list#query_params">pageSize</a>, используйте <a href="/docs/managed-kafka/api-ref/ResourcePreset/list#responses">nextPageToken</a> в качестве значения параметра <a href="/docs/managed-kafka/api-ref/ResourcePreset/list#query_params">pageToken</a> в следующем запросе. Все последующие запросы будут получать свои значения <a href="/docs/managed-kafka/api-ref/ResourcePreset/list#responses">nextPageToken</a> для перебора страниц результатов.</p> <p>Максимальная длина строки в символах — 100.</p> 
+resourcePresets[] | **object**<br><p>A ResourcePreset resource for describing hardware configuration presets.</p> 
+resourcePresets[].<br>id | **string**<br><p>ID of the resource preset.</p> 
+resourcePresets[].<br>zoneIds[] | **string**<br><p>IDs of availability zones where the resource preset is available.</p> 
+resourcePresets[].<br>cores | **string** (int64)<br><p>Number of CPU cores for a Kafka broker created with the preset.</p> 
+resourcePresets[].<br>memory | **string** (int64)<br><p>RAM volume for a Kafka broker created with the preset, in bytes.</p> 
+nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests.</p> <p>If the number of results is larger than <a href="/docs/managed-kafka/api-ref/ResourcePreset/list#query_params">pageSize</a>, use <a href="/docs/managed-kafka/api-ref/ResourcePreset/list#responses">nextPageToken</a> as the value for the <a href="/docs/managed-kafka/api-ref/ResourcePreset/list#query_params">pageToken</a> parameter in the next list request. Each subsequent list request will have its own <a href="/docs/managed-kafka/api-ref/ResourcePreset/list#responses">nextPageToken</a> to continue paging through the results.</p> <p>The maximum string length in characters is 100.</p> 

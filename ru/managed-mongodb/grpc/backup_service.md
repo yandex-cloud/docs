@@ -4,72 +4,117 @@ editable: false
 
 # BackupService
 
-Набор методов для управления ресурсами Backup для MongoDB.
+A set of methods for managing MongoDB Backup resources.
 
-| Вызов | Описание |
+| Call | Description |
 | --- | --- |
-| [Get](#Get) | Возвращает указанную резервную копию MongoDB. |
-| [List](#List) | Возвращает список резервных копий, доступных в указанном каталоге. |
+| [Get](#Get) | Returns the specified MongoDB backup. |
+| [List](#List) | Retrieves the list of backups available for the specified folder. |
+| [Delete](#Delete) | Returns the list of available backups for the specified MongoDB cluster. |
 
-## Вызовы BackupService {#calls}
+## Calls BackupService {#calls}
 
 ## Get {#Get}
 
-Возвращает указанную резервную копию MongoDB. <br>Чтобы получить список доступных резервных копий MongoDB, выполните запрос [List](#List).
+Returns the specified MongoDB backup. <br>To get the list of available MongoDB backups, make a [List](#List) request.
 
 **rpc Get ([GetBackupRequest](#GetBackupRequest)) returns ([Backup](#Backup))**
 
 ### GetBackupRequest {#GetBackupRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-backup_id | **string**<br>Обязательное поле. Идентификатор резервной копии, сведения о которой запрашиваются. Чтобы получить идентификатор резервной копии, используйте запрос [ClusterService.ListBackups](./cluster_service#ListBackups). 
+backup_id | **string**<br>Required. ID of the backup to return information about. To get the backup ID, use a [ClusterService.ListBackups](./cluster_service#ListBackups) request. 
 
 
 ### Backup {#Backup}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор резервной копии. 
-folder_id | **string**<br>Идентификатор каталога, которому принадлежит резервная копия. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) (т. е. когда операция резервного копирования была завершена). 
-source_cluster_id | **string**<br>Идентификатор кластера MongoDB, для которого была создана резервная копия. 
-started_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время запуска операции резервного копирования. 
-source_shard_names[] | **string**<br>Имена шардов, которые использовались при создании резервной копии. 
+id | **string**<br>ID of the backup. 
+folder_id | **string**<br>ID of the folder that the backup belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format (i.e. when the backup operation was completed). 
+source_cluster_id | **string**<br>ID of the MongoDB cluster that the backup was created for. 
+started_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the backup operation was started. 
+source_shard_names[] | **string**<br>Shard names used as a source for backup. 
+size | **int64**<br>Size of backup in bytes 
+type | enum **BackupType**<br>How this backup was created (manual/automatic/etc...) <ul><li>`AUTOMATED`: Backup created by automated daily schedule</li><li>`MANUAL`: Backup created by user request</li><ul/>
 
 
 ## List {#List}
 
-Возвращает список резервных копий, доступных в указанном каталоге.
+Retrieves the list of backups available for the specified folder.
 
 **rpc List ([ListBackupsRequest](#ListBackupsRequest)) returns ([ListBackupsResponse](#ListBackupsResponse))**
 
 ### ListBackupsRequest {#ListBackupsRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-folder_id | **string**<br>Обязательное поле. Идентификатор каталога для вывода списка резервных копий. Чтобы получить идентификатор каталога, используйте запрос [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List). Максимальная длина строки в символах — 50.
-page_size | **int64**<br>Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем `page_size`, сервис вернет значение [ListBackupsResponse.next_page_token](#ListBackupsResponse), которое можно использовать для получения следующей страницы. Максимальное значение — 1000.
-page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListBackupsResponse.next_page_token](#ListBackupsResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
+folder_id | **string**<br>Required. ID of the folder to list backups in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. The maximum string length in characters is 50.
+page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListBackupsResponse.next_page_token](#ListBackupsResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
+page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListBackupsResponse.next_page_token](#ListBackupsResponse) returned by a previous list request. The maximum string length in characters is 100.
 
 
 ### ListBackupsResponse {#ListBackupsResponse}
 
-Поле | Описание
+Field | Description
 --- | ---
-backups[] | **[Backup](#Backup1)**<br>Список резервных копий. 
-next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListBackupsRequest.page_size](#ListBackupsRequest), используйте `next_page_token` в качестве значения параметра [ListBackupsRequest.page_token](#ListBackupsRequest) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
+backups[] | **[Backup](#Backup1)**<br>List of Backup resources. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListBackupsRequest.page_size](#ListBackupsRequest), use the `next_page_token` as the value for the [ListBackupsRequest.page_token](#ListBackupsRequest) parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
 ### Backup {#Backup1}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор резервной копии. 
-folder_id | **string**<br>Идентификатор каталога, которому принадлежит резервная копия. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) (т. е. когда операция резервного копирования была завершена). 
-source_cluster_id | **string**<br>Идентификатор кластера MongoDB, для которого была создана резервная копия. 
-started_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время запуска операции резервного копирования. 
-source_shard_names[] | **string**<br>Имена шардов, которые использовались при создании резервной копии. 
+id | **string**<br>ID of the backup. 
+folder_id | **string**<br>ID of the folder that the backup belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format (i.e. when the backup operation was completed). 
+source_cluster_id | **string**<br>ID of the MongoDB cluster that the backup was created for. 
+started_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the backup operation was started. 
+source_shard_names[] | **string**<br>Shard names used as a source for backup. 
+size | **int64**<br>Size of backup in bytes 
+type | enum **BackupType**<br>How this backup was created (manual/automatic/etc...) <ul><li>`AUTOMATED`: Backup created by automated daily schedule</li><li>`MANUAL`: Backup created by user request</li><ul/>
+
+
+## Delete {#Delete}
+
+Returns the list of available backups for the specified MongoDB cluster.
+
+**rpc Delete ([DeleteBackupRequest](#DeleteBackupRequest)) returns ([operation.Operation](#Operation))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[DeleteBackupMetadata](#DeleteBackupMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
+
+### DeleteBackupRequest {#DeleteBackupRequest}
+
+Field | Description
+--- | ---
+backup_id | **string**<br>Required. Required. ID of the backup to delete. 
+
+
+### Operation {#Operation}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteBackupMetadata](#DeleteBackupMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>if operation finished successfully. 
+
+
+### DeleteBackupMetadata {#DeleteBackupMetadata}
+
+Field | Description
+--- | ---
+backup_id | **string**<br>Required. ID of the deleting MongoDB backup. 
 
 

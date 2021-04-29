@@ -2,24 +2,24 @@
 editable: false
 ---
 
-# Метод get
-Возвращает указанный ресурс Database для PostgreSQL.
+# Method get
+Returns the specified PostgreSQL Database resource.
  
-Чтобы получить список доступных ресурсов Database для PostgreSQL, отправьте запрос [list](/docs/managed-postgresql/api-ref/Database/list).
+To get the list of available PostgreSQL Database resources, make a [list](/docs/managed-postgresql/api-ref/Database/list) request.
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 GET https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/{clusterId}/databases/{databaseName}
 ```
  
-## Path-параметры {#path_params}
+## Path parameters {#path_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-clusterId | Обязательное поле. Идентификатор кластера PostgreSQL, к которому принадлежит база данных. Чтобы получить идентификатор кластера, используйте запрос [list](/docs/managed-postgresql/api-ref/Cluster/list).  Максимальная длина строки в символах — 50.
-databaseName | Обязательное поле. Имя запрашиваемого ресурса Database для PostgreSQL. Чтобы получить имя базы данных, используйте запрос [list](/docs/managed-postgresql/api-ref/Database/list).  Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_-]* ``.
+clusterId | Required. ID of the PostgreSQL cluster that the database belongs to. To get the cluster ID use a [list](/docs/managed-postgresql/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
+databaseName | Required. Name of the PostgreSQL Database resource to return. To get the name of the database use a [list](/docs/managed-postgresql/api-ref/Database/list) request.  The maximum string length in characters is 63. Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -37,15 +37,16 @@ databaseName | Обязательное поле. Имя запрашиваем�
   ]
 }
 ```
-Ресурс Database для PostgreSQL. Подробнее см. в разделе [Developer's Guide](/docs/managed-postgresql/concepts).
+A PostgreSQL Database resource. For more information, see 
+the [Developer's Guide](/docs/managed-postgresql/concepts).
  
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br><p>Имя базы данных.</p> 
-clusterId | **string**<br><p>Идентификатор кластера PostgreSQL, к которому принадлежит база данных.</p> 
-owner | **string**<br><p>Имя пользователя, назначенного владельцем базы данных.</p> 
-lcCollate | **string**<br><p>POSIX-локаль для порядка сортировки строк. Может быть установлен только во время создания.</p> 
-lcCtype | **string**<br><p>POSIX-локаль для классификации символов. Может быть установлена только во время создания.</p> 
-extensions[] | **object**<br><p>Расширения PostgreSQL, включенные для базы данных.</p> 
-extensions[].<br>name | **string**<br><p>Имя расширения, например `pg_trgm` или `pg_btree`. Расширения, которые поддерживает Managed Service for PostgreSQL, <a href="/docs/managed-postgresql/operations/cluster-extensions">перечислены в документации</a>.</p> 
-extensions[].<br>version | **string**<br><p>Версия расширения.</p> 
+name | **string**<br><p>Name of the database.</p> 
+clusterId | **string**<br><p>ID of the PostgreSQL cluster that the database belongs to.</p> 
+owner | **string**<br><p>Name of the user assigned as the owner of the database.</p> 
+lcCollate | **string**<br><p>POSIX locale for string sorting order. Can only be set at creation time.</p> 
+lcCtype | **string**<br><p>POSIX locale for character classification. Can only be set at creation time.</p> 
+extensions[] | **object**<br><p>PostgreSQL extensions enabled for the database.</p> 
+extensions[].<br>name | **string**<br><p>Name of the extension, e.g. `pg_trgm` or `pg_btree`. Extensions supported by Managed Service for PostgreSQL are <a href="/docs/managed-postgresql/operations/cluster-extensions">listed in the Developer's Guide</a>.</p> 
+extensions[].<br>version | **string**<br><p>Version of the extension.</p> 

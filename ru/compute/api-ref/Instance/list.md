@@ -2,26 +2,26 @@
 editable: false
 ---
 
-# Метод list
-Возвращает список доступных ресурсов Instance в указанном каталоге.
+# Method list
+Retrieves the list of Instance resources in the specified folder.
  
 
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 GET https://compute.api.cloud.yandex.net/compute/v1/instances
 ```
  
-## Query-параметры {#query_params}
+## Query parameters {#query_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-folderId | Обязательное поле. Идентификатор каталога для получения списка виртуальных машин. Чтобы получить идентификатор каталога, используйте запрос [list](/docs/resource-manager/api-ref/Folder/list).  Максимальная длина строки в символах — 50.
-pageSize | Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем [pageSize](/docs/compute/api-ref/Instance/list#query_params), сервис вернет значение [nextPageToken](/docs/compute/api-ref/Instance/list#responses), которое можно использовать для получения следующей страницы.  Максимальное значение — 1000.
-pageToken | Токен страницы. Установите значение [pageToken](/docs/compute/api-ref/Instance/list#query_params) равным значению поля [nextPageToken](/docs/compute/api-ref/Instance/list#responses) предыдущего запроса, чтобы получить следующую страницу результатов.  Максимальная длина строки в символах — 100.
-filter | Параметры фильтрации ресурсов в ответе. В параметрах фильтрации указываются: 1. Имя поля. В настоящее время фильтрация осуществляется только по полю [Instance.name](/docs/compute/api-ref/Instance#representation). 2. Оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений. 3. Значение. Должен содержать от 3 до 63 символов и соответствовать регулярному выражению `^[a-z]([-a-z0-9]{,61}[a-z0-9])?$`.  Максимальная длина строки в символах — 1000.
+folderId | Required. ID of the Folder to list instances in. To get the folder ID, use a [list](/docs/resource-manager/api-ref/Folder/list) request.  The maximum string length in characters is 50.
+pageSize | The maximum number of results per page to return. If the number of available results is larger than [pageSize](/docs/compute/api-ref/Instance/list#query_params), the service returns a [nextPageToken](/docs/compute/api-ref/Instance/list#responses) that can be used to get the next page of results in subsequent list requests.  The maximum value is 1000.
+pageToken | Page token. To get the next page of results, set [pageToken](/docs/compute/api-ref/Instance/list#query_params) to the [nextPageToken](/docs/compute/api-ref/Instance/list#responses) returned by a previous list request.  The maximum string length in characters is 100.
+filter | A filter expression that filters resources listed in the response. The expression must specify: 1. The field name. Currently you can use filtering only on the [Instance.name](/docs/compute/api-ref/Instance#representation) field. 2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. 3. The value. Must be 3-63 characters long and match the regular expression `^[a-z]([-a-z0-9]{,61}[a-z0-9])?$`.  The maximum string length in characters is 1000.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -67,16 +67,39 @@ filter | Параметры фильтрации ресурсов в ответ�
             "address": "string",
             "oneToOneNat": {
               "address": "string",
-              "ipVersion": "string"
-            }
+              "ipVersion": "string",
+              "dnsRecords": [
+                {
+                  "fqdn": "string"
+                }
+              ]
+            },
+            "dnsRecords": [
+              {
+                "fqdn": "string"
+              }
+            ]
           },
           "primaryV6Address": {
             "address": "string",
             "oneToOneNat": {
               "address": "string",
-              "ipVersion": "string"
-            }
-          }
+              "ipVersion": "string",
+              "dnsRecords": [
+                {
+                  "fqdn": "string"
+                }
+              ]
+            },
+            "dnsRecords": [
+              {
+                "fqdn": "string"
+              }
+            ]
+          },
+          "securityGroupIds": [
+            "string"
+          ]
         }
       ],
       "fqdn": "string",
@@ -86,6 +109,18 @@ filter | Параметры фильтрации ресурсов в ответ�
       "serviceAccountId": "string",
       "networkSettings": {
         "type": "string"
+      },
+      "placementPolicy": {
+        "placementGroupId": "string",
+        "hostAffinityRules": [
+          {
+            "key": "string",
+            "op": "string",
+            "values": [
+              "string"
+            ]
+          }
+        ]
       }
     }
   ],
@@ -94,52 +129,67 @@ filter | Параметры фильтрации ресурсов в ответ�
 ```
 
  
-Поле | Описание
+Field | Description
 --- | ---
-instances[] | **object**<br><p>Ресурс Instance. Дополнительные сведения см. в разделе <a href="/docs/compute/concepts/vm">Виртуальные машины</a>.</p> 
-instances[].<br>id | **string**<br><p>Идентификатор виртуальной машины.</p> 
-instances[].<br>folderId | **string**<br><p>Идентификатор каталога, которому принадлежит виртуальная машина.</p> 
-instances[].<br>createdAt | **string** (date-time)<br><p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-instances[].<br>name | **string**<br><p>Имя виртуальной машины. Длина 1-63 символов.</p> 
-instances[].<br>description | **string**<br><p>Описание виртуальной машины. Длина описания должна быть от 0 до 256 символов.</p> 
-instances[].<br>labels | **object**<br><p>Метки ресурса в формате `key:value`. Максимум 64 на ресурс.</p> 
-instances[].<br>zoneId | **string**<br><p>Идентификатор зоны доступности, где находится виртуальная машина.</p> 
-instances[].<br>platformId | **string**<br><p>Идентификатор аппаратной платформы виртуальной машины.</p> 
-instances[].<br>resources | **object**<br><p>Вычислительные ресурсы виртуальной машины, такие как объем памяти и количество ядер.</p> 
-instances[].<br>resources.<br>memory | **string** (int64)<br><p>Объем памяти в байтах, доступный виртуальной машине.</p> 
-instances[].<br>resources.<br>cores | **string** (int64)<br><p>Количество ядер, доступное виртуальной машине.</p> 
-instances[].<br>resources.<br>coreFraction | **string** (int64)<br><p>Базовый уровень производительности CPU с возможностью повышения производительности выше этого уровня. Это поле устанавливает базовую производительность для каждого ядра.</p> 
-instances[].<br>resources.<br>gpus | **string** (int64)<br><p>Количество GPU, доступное виртуальной машине.</p> 
-instances[].<br>status | **string**<br><p>Статус виртуальной машины.</p> <ul> <li>PROVISIONING: Виртуальная машина ожидает выделения ресурсов.</li> <li>RUNNING: Виртуальная машина работает нормально.</li> <li>STOPPING: Виртуальная машина останавливается.</li> <li>STOPPED: Виртуальная машина остановлена.</li> <li>STARTING: Виртуальная машина запускается.</li> <li>RESTARTING: Виртуальная машина перезапускается.</li> <li>UPDATING: Виртуальная машина обновляется.</li> <li>ERROR: С виртуальной машиной произошла ошибка, блокирующая работу.</li> <li>CRASHED: Виртуальная машина аварийно завершила работу и будет перезапущена автоматически.</li> <li>DELETING: Виртуальная машина удаляется.</li> </ul> 
-instances[].<br>metadata | **object**<br><p>Метаданные в формате пар `key:value`, назначаемые данной виртуальной машине. Сюда входят пользовательские метаданные и предопределенные ключи.</p> <p>Например, можно использовать метаданные для доставки открытого ключа SSH на виртуальную машину. Дополнительные сведения см. в разделе <a href="/docs/compute/concepts/vm-metadata">Метаданные виртуальной машины</a>.</p> 
-instances[].<br>bootDisk | **object**<br><p>Загрузочный диск, подключенный к виртуальной машине.</p> 
-instances[].<br>bootDisk.<br>mode | **string**<br><p>Режим доступа к ресурсу Disk.</p> <ul> <li>READ_ONLY: Доступ на чтение.</li> <li>READ_WRITE: Доступ на чтение и запись.</li> </ul> 
-instances[].<br>bootDisk.<br>deviceName | **string**<br><p>Cерийный номер, который отображается в директории /dev/disk/by-id/ на виртуальной машине с операционной системой Linux.</p> <p>Это значение может использоваться для ссылки на устройство внутри виртуальной машины при монтировании, изменении размера и т. д.</p> 
-instances[].<br>bootDisk.<br>autoDelete | **boolean** (boolean)<br><p>Указывает, должен ли диск автоматически удалиться при удалении виртуальной машины.</p> 
-instances[].<br>bootDisk.<br>diskId | **string**<br><p>Идентификатор диска, подключенного к виртуальной машине.</p> 
-instances[].<br>secondaryDisks[] | **object**<br><p>Массив дополнительных дисков, подключенных к виртуальной машине.</p> 
-instances[].<br>secondaryDisks[].<br>mode | **string**<br><p>Режим доступа к ресурсу Disk.</p> <ul> <li>READ_ONLY: Доступ на чтение.</li> <li>READ_WRITE: Доступ на чтение и запись.</li> </ul> 
-instances[].<br>secondaryDisks[].<br>deviceName | **string**<br><p>Cерийный номер, который отображается в директории /dev/disk/by-id/ на виртуальной машине с операционной системой Linux.</p> <p>Это значение может использоваться для ссылки на устройство внутри виртуальной машины при монтировании, изменении размера и т. д.</p> 
-instances[].<br>secondaryDisks[].<br>autoDelete | **boolean** (boolean)<br><p>Указывает, должен ли диск автоматически удалиться при удалении виртуальной машины.</p> 
-instances[].<br>secondaryDisks[].<br>diskId | **string**<br><p>Идентификатор диска, подключенного к виртуальной машине.</p> 
-instances[].<br>networkInterfaces[] | **object**<br><p>Массив сетевых интерфейсов, присоединенных к виртуальной машине.</p> 
-instances[].<br>networkInterfaces[].<br>index | **string**<br><p>Индекс сетевого интерфейса, генерируемого сервером, 0,1,2... В настоящее время для каждой виртуальной машины поддерживается только один сетевой интерфейс.</p> 
-instances[].<br>networkInterfaces[].<br>macAddress | **string**<br><p>MAC-адрес, назначенный сетевому интерфейсу.</p> 
-instances[].<br>networkInterfaces[].<br>subnetId | **string**<br><p>Идентификатор подсети.</p> 
-instances[].<br>networkInterfaces[].<br>primaryV4Address | **object**<br><p>Основной IPv4-адрес, который назначен виртуальной машине для данного сетевого интерфейса.</p> 
-instances[].<br>networkInterfaces[].<br>primaryV4Address.<br>address | **string**<br><p>Внутренний IPv4-адрес, назначенный виртуальной машине для данного сетевого интерфейса.</p> 
-instances[].<br>networkInterfaces[].<br>primaryV4Address.<br>oneToOneNat | **object**<br><p>Конфигурация one-to-one NAT. Если она отсутствует, NAT не был настроен.</p> 
-instances[].<br>networkInterfaces[].<br>primaryV4Address.<br>oneToOneNat.<br>address | **string**<br><p>Публичный IP-адрес, связанный с данной виртуальной машиной.</p> 
-instances[].<br>networkInterfaces[].<br>primaryV4Address.<br>oneToOneNat.<br>ipVersion | **string**<br><p>Версия IP для публичного IP-адреса.</p> <ul> <li>IPV4: IPv4-адрес, например 192.0.2.235.</li> <li>IPV6: Адрес IPv6. На данный момент не доступен.</li> </ul> 
-instances[].<br>networkInterfaces[].<br>primaryV6Address | **object**<br><p>Основной IPv6-адрес, который назначен виртуальной машине для данного сетевого интерфейса. IPv6 еще не доступен.</p> 
-instances[].<br>networkInterfaces[].<br>primaryV6Address.<br>address | **string**<br><p>Внутренний IPv4-адрес, назначенный виртуальной машине для данного сетевого интерфейса.</p> 
-instances[].<br>networkInterfaces[].<br>primaryV6Address.<br>oneToOneNat | **object**<br><p>Конфигурация one-to-one NAT. Если она отсутствует, NAT не был настроен.</p> 
-instances[].<br>networkInterfaces[].<br>primaryV6Address.<br>oneToOneNat.<br>address | **string**<br><p>Публичный IP-адрес, связанный с данной виртуальной машиной.</p> 
-instances[].<br>networkInterfaces[].<br>primaryV6Address.<br>oneToOneNat.<br>ipVersion | **string**<br><p>Версия IP для публичного IP-адреса.</p> <ul> <li>IPV4: IPv4-адрес, например 192.0.2.235.</li> <li>IPV6: Адрес IPv6. На данный момент не доступен.</li> </ul> 
-instances[].<br>fqdn | **string**<br><p>Доменное имя виртуальной машины. FQDN определяется сервером в формате `<hostname>.&lt;region_id&gt;.internal` при создании виртуальной машины. Если имя хоста не было указано при создании виртуальной машины, FQDN будет `<id>.auto.internal`.</p> 
-instances[].<br>schedulingPolicy | **object**<br><p>Конфигурация политики планирования.</p> 
-instances[].<br>schedulingPolicy.<br>preemptible | **boolean** (boolean)<br><p>Если значение равно true — будет создана прерываемая виртуальная машина. Дополнительные сведения см. в разделе <a href="/docs/compute/concepts/preemptible-vm">Прерываемые виртуальные машины</a>.</p> 
-instances[].<br>serviceAccountId | **string**<br><p>Идентификатор сервисного аккаунта для <a href="/docs/compute/operations/vm-connect/auth-inside-vm">аутентификации изнутри виртуальной машины</a>. Чтобы получить идентификатор сервисного аккаунта, используйте запрос <a href="/docs/iam/api-ref/ServiceAccount/list">list</a>.</p> 
-instances[].<br>networkSettings | **object**<br><p>Не указывайте это поле, сетевые настройки пока не поддерживаются.</p> 
-instances[].<br>networkSettings.<br>type | **string**<br><p>Не указывайте это поле, сетевые настройки пока не поддерживаются.</p> <ul> <li>STANDARD: Стандартная сеть.</li> <li>SOFTWARE_ACCELERATED: Сеть с программным ускорением.</li> <li>HARDWARE_ACCELERATED: Сеть с аппаратным ускорением (этот тип пока недоступен, значение зарезервировано для использования в будущем).</li> </ul> 
-nextPageToken | **string**<br><p>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем <a href="/docs/compute/api-ref/Instance/list#query_params">pageSize</a>, используйте <a href="/docs/compute/api-ref/Instance/list#responses">nextPageToken</a> в качестве значения параметра <a href="/docs/compute/api-ref/Instance/list#query_params">pageToken</a> в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения <a href="/docs/compute/api-ref/Instance/list#responses">nextPageToken</a> для перебора страниц результатов.</p> 
+instances[] | **object**<br><p>An Instance resource. For more information, see <a href="/docs/compute/concepts/vm">Instances</a>.</p> 
+instances[].<br>id | **string**<br><p>ID of the instance.</p> 
+instances[].<br>folderId | **string**<br><p>ID of the folder that the instance belongs to.</p> 
+instances[].<br>createdAt | **string** (date-time)<br><p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+instances[].<br>name | **string**<br><p>Name of the instance. 1-63 characters long.</p> 
+instances[].<br>description | **string**<br><p>Description of the instance. 0-256 characters long.</p> 
+instances[].<br>labels | **object**<br><p>Resource labels as `key:value` pairs. Maximum of 64 per resource.</p> 
+instances[].<br>zoneId | **string**<br><p>ID of the availability zone where the instance resides.</p> 
+instances[].<br>platformId | **string**<br><p>ID of the hardware platform configuration for the instance.</p> 
+instances[].<br>resources | **object**<br><p>Computing resources of the instance such as the amount of memory and number of cores.</p> 
+instances[].<br>resources.<br>memory | **string** (int64)<br><p>The amount of memory available to the instance, specified in bytes.</p> 
+instances[].<br>resources.<br>cores | **string** (int64)<br><p>The number of cores available to the instance.</p> 
+instances[].<br>resources.<br>coreFraction | **string** (int64)<br><p>Baseline level of CPU performance with the ability to burst performance above that baseline level. This field sets baseline performance for each core.</p> 
+instances[].<br>resources.<br>gpus | **string** (int64)<br><p>The number of GPUs available to the instance.</p> 
+instances[].<br>status | **string**<br><p>Status of the instance.</p> <ul> <li>PROVISIONING: Instance is waiting for resources to be allocated.</li> <li>RUNNING: Instance is running normally.</li> <li>STOPPING: Instance is being stopped.</li> <li>STOPPED: Instance stopped.</li> <li>STARTING: Instance is being started.</li> <li>RESTARTING: Instance is being restarted.</li> <li>UPDATING: Instance is being updated.</li> <li>ERROR: Instance encountered a problem and cannot operate.</li> <li>CRASHED: Instance crashed and will be restarted automatically.</li> <li>DELETING: Instance is being deleted.</li> </ul> 
+instances[].<br>metadata | **object**<br><p>The metadata `key:value` pairs assigned to this instance. This includes custom metadata and predefined keys.</p> <p>For example, you may use the metadata in order to provide your public SSH key to the instance. For more information, see <a href="/docs/compute/concepts/vm-metadata">Metadata</a>.</p> 
+instances[].<br>bootDisk | **object**<br><p>Boot disk that is attached to the instance.</p> 
+instances[].<br>bootDisk.<br>mode | **string**<br><p>Access mode to the Disk resource.</p> <ul> <li>READ_ONLY: Read-only access.</li> <li>READ_WRITE: Read/Write access.</li> </ul> 
+instances[].<br>bootDisk.<br>deviceName | **string**<br><p>Serial number that is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance.</p> <p>This value can be used to reference the device for mounting, resizing, and so on, from within the instance.</p> 
+instances[].<br>bootDisk.<br>autoDelete | **boolean** (boolean)<br><p>Specifies whether the disk will be auto-deleted when the instance is deleted.</p> 
+instances[].<br>bootDisk.<br>diskId | **string**<br><p>ID of the disk that is attached to the instance.</p> 
+instances[].<br>secondaryDisks[] | **object**<br><p>Array of secondary disks that are attached to the instance.</p> 
+instances[].<br>secondaryDisks[].<br>mode | **string**<br><p>Access mode to the Disk resource.</p> <ul> <li>READ_ONLY: Read-only access.</li> <li>READ_WRITE: Read/Write access.</li> </ul> 
+instances[].<br>secondaryDisks[].<br>deviceName | **string**<br><p>Serial number that is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance.</p> <p>This value can be used to reference the device for mounting, resizing, and so on, from within the instance.</p> 
+instances[].<br>secondaryDisks[].<br>autoDelete | **boolean** (boolean)<br><p>Specifies whether the disk will be auto-deleted when the instance is deleted.</p> 
+instances[].<br>secondaryDisks[].<br>diskId | **string**<br><p>ID of the disk that is attached to the instance.</p> 
+instances[].<br>networkInterfaces[] | **object**<br><p>Array of network interfaces that are attached to the instance.</p> 
+instances[].<br>networkInterfaces[].<br>index | **string**<br><p>The index of the network interface, generated by the server, 0,1,2... etc. Currently only one network interface is supported per instance.</p> 
+instances[].<br>networkInterfaces[].<br>macAddress | **string**<br><p>MAC address that is assigned to the network interface.</p> 
+instances[].<br>networkInterfaces[].<br>subnetId | **string**<br><p>ID of the subnet.</p> 
+instances[].<br>networkInterfaces[].<br>primaryV4Address | **object**<br><p>Primary IPv4 address that is assigned to the instance for this network interface.</p> 
+instances[].<br>networkInterfaces[].<br>primaryV4Address.<br>address | **string**<br><p>An IPv4 internal network address that is assigned to the instance for this network interface.</p> 
+instances[].<br>networkInterfaces[].<br>primaryV4Address.<br>oneToOneNat | **object**<br><p>One-to-one NAT configuration. If missing, NAT has not been set up.</p> 
+instances[].<br>networkInterfaces[].<br>primaryV4Address.<br>oneToOneNat.<br>address | **string**<br><p>An external IP address associated with this instance.</p> 
+instances[].<br>networkInterfaces[].<br>primaryV4Address.<br>oneToOneNat.<br>ipVersion | **string**<br><p>IP version for the external IP address.</p> <ul> <li>IPV4: IPv4 address, for example 192.0.2.235.</li> <li>IPV6: IPv6 address. Not available yet.</li> </ul> 
+instances[].<br>networkInterfaces[].<br>primaryV4Address.<br>oneToOneNat.<br>dnsRecords[] | **object**<br><p>External DNS configuration</p> 
+instances[].<br>networkInterfaces[].<br>primaryV4Address.<br>oneToOneNat.<br>dnsRecords[].<br>fqdn | **string**<br>
+instances[].<br>networkInterfaces[].<br>primaryV4Address.<br>dnsRecords[] | **object**<br><p>Internal DNS configuration</p> 
+instances[].<br>networkInterfaces[].<br>primaryV4Address.<br>dnsRecords[].<br>fqdn | **string**<br>
+instances[].<br>networkInterfaces[].<br>primaryV6Address | **object**<br><p>Primary IPv6 address that is assigned to the instance for this network interface. IPv6 not available yet.</p> 
+instances[].<br>networkInterfaces[].<br>primaryV6Address.<br>address | **string**<br><p>An IPv4 internal network address that is assigned to the instance for this network interface.</p> 
+instances[].<br>networkInterfaces[].<br>primaryV6Address.<br>oneToOneNat | **object**<br><p>One-to-one NAT configuration. If missing, NAT has not been set up.</p> 
+instances[].<br>networkInterfaces[].<br>primaryV6Address.<br>oneToOneNat.<br>address | **string**<br><p>An external IP address associated with this instance.</p> 
+instances[].<br>networkInterfaces[].<br>primaryV6Address.<br>oneToOneNat.<br>ipVersion | **string**<br><p>IP version for the external IP address.</p> <ul> <li>IPV4: IPv4 address, for example 192.0.2.235.</li> <li>IPV6: IPv6 address. Not available yet.</li> </ul> 
+instances[].<br>networkInterfaces[].<br>primaryV6Address.<br>oneToOneNat.<br>dnsRecords[] | **object**<br><p>External DNS configuration</p> 
+instances[].<br>networkInterfaces[].<br>primaryV6Address.<br>oneToOneNat.<br>dnsRecords[].<br>fqdn | **string**<br>
+instances[].<br>networkInterfaces[].<br>primaryV6Address.<br>dnsRecords[] | **object**<br><p>Internal DNS configuration</p> 
+instances[].<br>networkInterfaces[].<br>primaryV6Address.<br>dnsRecords[].<br>fqdn | **string**<br>
+instances[].<br>networkInterfaces[].<br>securityGroupIds[] | **string**<br><p>ID's of security groups attached to the interface</p> 
+instances[].<br>fqdn | **string**<br><p>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.&lt;region_id&gt;.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`.</p> 
+instances[].<br>schedulingPolicy | **object**<br><p>Scheduling policy configuration.</p> 
+instances[].<br>schedulingPolicy.<br>preemptible | **boolean** (boolean)<br><p>True for short-lived compute instances. For more information, see <a href="/docs/compute/concepts/preemptible-vm">Preemptible VMs</a>.</p> 
+instances[].<br>serviceAccountId | **string**<br><p>ID of the service account to use for <a href="/docs/compute/operations/vm-connect/auth-inside-vm">authentication inside the instance</a>. To get the service account ID, use a <a href="/docs/iam/api-ref/ServiceAccount/list">list</a> request.</p> 
+instances[].<br>networkSettings | **object**<br><p>Network Settings</p> 
+instances[].<br>networkSettings.<br>type | **string**<br><p>Network Type</p> <ul> <li>STANDARD: Standard network.</li> <li>SOFTWARE_ACCELERATED: Software accelerated network.</li> <li>HARDWARE_ACCELERATED: Hardware accelerated network (not available yet, reserved for future use).</li> </ul> 
+instances[].<br>placementPolicy | **object**<br><p>Placement policy configuration.</p> 
+instances[].<br>placementPolicy.<br>placementGroupId | **string**<br><p>Placement group ID.</p> 
+instances[].<br>placementPolicy.<br>hostAffinityRules[] | **object**<br><p>Affinitity definition</p> 
+instances[].<br>placementPolicy.<br>hostAffinityRules[].<br>key | **string**<br><p>Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId'</p> 
+instances[].<br>placementPolicy.<br>hostAffinityRules[].<br>op | **string**<br><p>Include or exclude action</p> 
+instances[].<br>placementPolicy.<br>hostAffinityRules[].<br>values[] | **string**<br><p>Affinity value or host ID or host group ID</p> 
+nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/compute/api-ref/Instance/list#query_params">pageSize</a>, use the <a href="/docs/compute/api-ref/Instance/list#responses">nextPageToken</a> as the value for the <a href="/docs/compute/api-ref/Instance/list#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own <a href="/docs/compute/api-ref/Instance/list#responses">nextPageToken</a> to continue paging through the results.</p> 

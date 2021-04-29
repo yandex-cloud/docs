@@ -4,412 +4,412 @@ editable: false
 
 # UserService
 
-Набор методов для управления пользователями SQL Server.
+A set of methods for managing SQL Server users.
 
-| Вызов | Описание |
+| Call | Description |
 | --- | --- |
-| [Get](#Get) | Возвращает указанного пользователя SQL Server. |
-| [List](#List) | Возвращает список пользователей SQL Server в указанном кластере. |
-| [Create](#Create) | Создает пользователя SQL Server в указанном кластере. |
-| [Update](#Update) | Изменяет указанного пользователя SQL Server. |
-| [Delete](#Delete) | Удаляет указанного пользователя SQL Server. |
-| [GrantPermission](#GrantPermission) | Предоставляет разрешение указанному пользователю SQL Server. |
-| [RevokePermission](#RevokePermission) | Отзывает разрешение у указанного пользователя SQL Server. |
+| [Get](#Get) | Returns the specified SQL Server user. |
+| [List](#List) | Retrieves a list of SQL Server users in the specified cluster. |
+| [Create](#Create) | Creates an SQL Server user in the specified cluster. |
+| [Update](#Update) | Modifies the specified SQL Server user. |
+| [Delete](#Delete) | Deletes the specified SQL Server user. |
+| [GrantPermission](#GrantPermission) | Grants a permission to the specified SQL Server user. |
+| [RevokePermission](#RevokePermission) | Revokes a permission from the specified SQL Server user. |
 
-## Вызовы UserService {#calls}
+## Calls UserService {#calls}
 
 ## Get {#Get}
 
-Возвращает указанного пользователя SQL Server. <br>Чтобы получить список доступных пользователей SQL Server, выполните запрос [List](#List).
+Returns the specified SQL Server user. <br>To get the list of available SQL Server users, make a [List](#List) request.
 
 **rpc Get ([GetUserRequest](#GetUserRequest)) returns ([User](#User))**
 
 ### GetUserRequest {#GetUserRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера SQL Server, которому принадлежит пользователь. <br>Чтобы получить идентификатор кластера, используйте запрос [ClusterService.List](./cluster_service#List). Максимальная длина строки в символах — 50.
-user_name | **string**<br>Обязательное поле. Имя запрашиваемого пользователя SQL Server. <br>Чтобы получить имя пользователя, используйте запрос [DatabaseService.List](./database_service#List). Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_]* `.
+cluster_id | **string**<br>Required. ID of the SQL Server cluster the user belongs to. <br>To get the cluster ID, use a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
+user_name | **string**<br>Required. Name of the SQL Server user to return. <br>To get the name of the user use a [DatabaseService.List](./database_service#List) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
 
 
 ### User {#User}
 
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br>Имя пользователя SQL Server. 
-cluster_id | **string**<br>Идентификатор кластера SQL Server, которому принадлежит пользователь. 
-permissions[] | **[Permission](#Permission)**<br>Набор разрешений, предоставленных пользователю. 
+name | **string**<br>Name of the SQL Server user. 
+cluster_id | **string**<br>ID of the SQL Server cluster the user belongs to. 
+permissions[] | **[Permission](#Permission)**<br>Set of permissions granted to the user. 
 
 
 ### Permission {#Permission}
 
-Поле | Описание
+Field | Description
 --- | ---
-database_name | **string**<br>Имя базы данных, для которой предоставляется разрешение. 
-roles[] | enum **Role**<br>Роли, предоставленные пользователю в базе данных. Минимальное количество элементов — 1.<ul><li>`DB_OWNER`: Члены этой роли могут выполнять все действия по настройке и обслуживанию базы данных, а также удалять базу данных SQL Server.</li><li>`DB_SECURITYADMIN`: Члены этой роли могут управлять разрешениями и членством в пользовательских ролях. Они потенциально могут повысить свои привилегии, поэтому их действия должны контролироваться.</li><li>`DB_ACCESSADMIN`: Члены этой роли могут управлять доступом к базе данных для пользователей Windows, групп Windows и пользователей SQL Server.</li><li>`DB_BACKUPOPERATOR`: Члены этой роли могут создавать резервные копии базы данных.</li><li>`DB_DDLADMIN`: Члены этой роли могут выполнять в базе данных любую команду языка описания данных (DDL).</li><li>`DB_DATAWRITER`: Члены этой роли могут добавлять, удалять или изменять данные во всех пользовательских таблицах.</li><li>`DB_DATAREADER`: Члены этой роли могут читать все данные из всех пользовательских таблиц.</li><li>`DB_DENYDATAWRITER`: Члены этой роли не могут добавлять, изменять или удалять никакие данные в пользовательских таблицах базы данных. Подобное ограничение привилегий имеет более высокий приоритет, чем предоставление, поэтому вы можете использовать эту роль для быстрого ограничения привилегий без явного отзыва разрешений или ролей.</li><li>`DB_DENYDATAREADER`: Члены этой фиксированной роли базы данных не могут читать никакие данные из пользовательских таблиц в базе данных. Подобное ограничение привилегий имеет более высокий приоритет, чем предоставление, поэтому вы можете использовать эту роль для быстрого ограничения привилегий без явного отзыва разрешений или ролей.</li><ul/>
+database_name | **string**<br>Name of the database the permission grants access to. 
+roles[] | enum **Role**<br>Roles granted to the user within the database. The minimum number of elements is 1.<ul><li>`DB_OWNER`: Members of this fixed database role can perform all configuration and maintenance activities on the database, and can also drop the database in SQL Server.</li><li>`DB_SECURITYADMIN`: Members of this fixed database role can modify role membership for custom roles only and manage permissions. They can potentially elevate their privileges and their actions should be monitored.</li><li>`DB_ACCESSADMIN`: Members of this fixed database role can add or remove access to the database for Windows logins, Windows groups, and SQL Server logins.</li><li>`DB_BACKUPOPERATOR`: Members of this fixed database role can back up the database.</li><li>`DB_DDLADMIN`: Members of this fixed database role can run any Data Definition Language (DDL) command in a database.</li><li>`DB_DATAWRITER`: Members of this fixed database role can add, delete, or change data in all user tables.</li><li>`DB_DATAREADER`: Members of this fixed database role can read all data from all user tables.</li><li>`DB_DENYDATAWRITER`: Members of this fixed database role cannot add, modify, or delete any data in the user tables within a database. Denial has a higher priority than a grant, so you can use this role to quickly restrict one's privileges without explicitly revoking permissions or roles.</li><li>`DB_DENYDATAREADER`: Members of this fixed database role cannot read any data in the user tables within a database. Denial has a higher priority than a grant, so you can use this role to quickly restrict one's privileges without explicitly revoking permissions or roles.</li><ul/>
 
 
 ## List {#List}
 
-Возвращает список пользователей SQL Server в указанном кластере.
+Retrieves a list of SQL Server users in the specified cluster.
 
 **rpc List ([ListUsersRequest](#ListUsersRequest)) returns ([ListUsersResponse](#ListUsersResponse))**
 
 ### ListUsersRequest {#ListUsersRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера SQL Server, список пользователей которого нужно получить. <br>Чтобы получить идентификатор кластера, используйте запрос [ClusterService.List](./cluster_service#List). Максимальная длина строки в символах — 50.
-page_size | **int64**<br>Максимальное количество результатов на одной странице в ответе. Если количество результатов больше чем `page_size`, сервис вернет значение [ListUsersResponse.next_page_token](#ListUsersResponse), которое можно использовать для получения следующей страницы. Допустимые значения — от 0 до 1000 включительно.
-page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListUsersResponse.next_page_token](#ListUsersResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
+cluster_id | **string**<br>Required. ID of the cluster to list SQL Server users in. <br>To get the cluster ID, use a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
+page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListUsersResponse.next_page_token](#ListUsersResponse) that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 1000, inclusive.
+page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListUsersResponse.next_page_token](#ListUsersResponse) returned by a previous list request. The maximum string length in characters is 100.
 
 
 ### ListUsersResponse {#ListUsersResponse}
 
-Поле | Описание
+Field | Description
 --- | ---
-users[] | **[User](#User1)**<br>Запрошенный список пользователей SQL Server. 
-next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListUsersRequest.page_size](#ListUsersRequest), используйте `next_page_token` в качестве значения параметра [ListUsersRequest.page_token](#ListUsersRequest) в следующем запросе. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
+users[] | **[User](#User1)**<br>Requested list of SQL Server users. 
+next_page_token | **string**<br>Token that allows you to get the next page of results for list requests. If the number of results is larger than [ListUsersRequest.page_size](#ListUsersRequest), use the `next_page_token` as the value for the [ListUsersRequest.page_token](#ListUsersRequest) parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
 ### User {#User1}
 
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br>Имя пользователя SQL Server. 
-cluster_id | **string**<br>Идентификатор кластера SQL Server, которому принадлежит пользователь. 
-permissions[] | **[Permission](#Permission1)**<br>Набор разрешений, предоставленных пользователю. 
+name | **string**<br>Name of the SQL Server user. 
+cluster_id | **string**<br>ID of the SQL Server cluster the user belongs to. 
+permissions[] | **[Permission](#Permission1)**<br>Set of permissions granted to the user. 
 
 
 ### Permission {#Permission1}
 
-Поле | Описание
+Field | Description
 --- | ---
-database_name | **string**<br>Имя базы данных, для которой предоставляется разрешение. 
-roles[] | enum **Role**<br>Роли, предоставленные пользователю в базе данных. Минимальное количество элементов — 1.<ul><li>`DB_OWNER`: Члены этой роли могут выполнять все действия по настройке и обслуживанию базы данных, а также удалять базу данных SQL Server.</li><li>`DB_SECURITYADMIN`: Члены этой роли могут управлять разрешениями и членством в пользовательских ролях. Они потенциально могут повысить свои привилегии, поэтому их действия должны контролироваться.</li><li>`DB_ACCESSADMIN`: Члены этой роли могут управлять доступом к базе данных для пользователей Windows, групп Windows и пользователей SQL Server.</li><li>`DB_BACKUPOPERATOR`: Члены этой роли могут создавать резервные копии базы данных.</li><li>`DB_DDLADMIN`: Члены этой роли могут выполнять в базе данных любую команду языка описания данных (DDL).</li><li>`DB_DATAWRITER`: Члены этой роли могут добавлять, удалять или изменять данные во всех пользовательских таблицах.</li><li>`DB_DATAREADER`: Члены этой роли могут читать все данные из всех пользовательских таблиц.</li><li>`DB_DENYDATAWRITER`: Члены этой роли не могут добавлять, изменять или удалять никакие данные в пользовательских таблицах базы данных. Подобное ограничение привилегий имеет более высокий приоритет, чем предоставление, поэтому вы можете использовать эту роль для быстрого ограничения привилегий без явного отзыва разрешений или ролей.</li><li>`DB_DENYDATAREADER`: Члены этой фиксированной роли базы данных не могут читать никакие данные из пользовательских таблиц в базе данных. Подобное ограничение привилегий имеет более высокий приоритет, чем предоставление, поэтому вы можете использовать эту роль для быстрого ограничения привилегий без явного отзыва разрешений или ролей.</li><ul/>
+database_name | **string**<br>Name of the database the permission grants access to. 
+roles[] | enum **Role**<br>Roles granted to the user within the database. The minimum number of elements is 1.<ul><li>`DB_OWNER`: Members of this fixed database role can perform all configuration and maintenance activities on the database, and can also drop the database in SQL Server.</li><li>`DB_SECURITYADMIN`: Members of this fixed database role can modify role membership for custom roles only and manage permissions. They can potentially elevate their privileges and their actions should be monitored.</li><li>`DB_ACCESSADMIN`: Members of this fixed database role can add or remove access to the database for Windows logins, Windows groups, and SQL Server logins.</li><li>`DB_BACKUPOPERATOR`: Members of this fixed database role can back up the database.</li><li>`DB_DDLADMIN`: Members of this fixed database role can run any Data Definition Language (DDL) command in a database.</li><li>`DB_DATAWRITER`: Members of this fixed database role can add, delete, or change data in all user tables.</li><li>`DB_DATAREADER`: Members of this fixed database role can read all data from all user tables.</li><li>`DB_DENYDATAWRITER`: Members of this fixed database role cannot add, modify, or delete any data in the user tables within a database. Denial has a higher priority than a grant, so you can use this role to quickly restrict one's privileges without explicitly revoking permissions or roles.</li><li>`DB_DENYDATAREADER`: Members of this fixed database role cannot read any data in the user tables within a database. Denial has a higher priority than a grant, so you can use this role to quickly restrict one's privileges without explicitly revoking permissions or roles.</li><ul/>
 
 
 ## Create {#Create}
 
-Создает пользователя SQL Server в указанном кластере.
+Creates an SQL Server user in the specified cluster.
 
 **rpc Create ([CreateUserRequest](#CreateUserRequest)) returns ([operation.Operation](#Operation))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateUserMetadata](#CreateUserMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[User](#User2)<br>
 
 ### CreateUserRequest {#CreateUserRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера SQL Server, в котором следует создать пользователя. <br>Чтобы получить идентификатор кластера, используйте запрос [ClusterService.List](./cluster_service#List). Максимальная длина строки в символах — 50.
-user_spec | **[UserSpec](#UserSpec)**<br>Обязательное поле. Свойства создаваемого пользователя. 
+cluster_id | **string**<br>Required. ID of the SQL Server cluster to create a user for. <br>To get the cluster ID, use a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
+user_spec | **[UserSpec](#UserSpec)**<br>Required. Properties of the user to be created. 
 
 
 ### UserSpec {#UserSpec}
 
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br>Обязательное поле. Имя пользователя SQL Server. Максимальная длина строки в символах — 32. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_]* `.
-password | **string**<br>Обязательное поле. Пароль пользователя SQL Server. Длина строки в символах должна быть от 8 до 128.
-permissions[] | **[Permission](#Permission2)**<br>Набор разрешений, которые следует предоставить пользователю. 
+name | **string**<br>Required. Name of the SQL Server user. The maximum string length in characters is 32. Value must match the regular expression ` [a-zA-Z0-9_]* `.
+password | **string**<br>Required. Password of the SQL Server user. The string length in characters must be 8-128.
+permissions[] | **[Permission](#Permission2)**<br>Set of permissions to grant to the user. 
 
 
 ### Permission {#Permission2}
 
-Поле | Описание
+Field | Description
 --- | ---
-database_name | **string**<br>Имя базы данных, для которой предоставляется разрешение. 
-roles[] | enum **Role**<br>Роли, предоставленные пользователю в базе данных. Минимальное количество элементов — 1.<ul><li>`DB_OWNER`: Члены этой роли могут выполнять все действия по настройке и обслуживанию базы данных, а также удалять базу данных SQL Server.</li><li>`DB_SECURITYADMIN`: Члены этой роли могут управлять разрешениями и членством в пользовательских ролях. Они потенциально могут повысить свои привилегии, поэтому их действия должны контролироваться.</li><li>`DB_ACCESSADMIN`: Члены этой роли могут управлять доступом к базе данных для пользователей Windows, групп Windows и пользователей SQL Server.</li><li>`DB_BACKUPOPERATOR`: Члены этой роли могут создавать резервные копии базы данных.</li><li>`DB_DDLADMIN`: Члены этой роли могут выполнять в базе данных любую команду языка описания данных (DDL).</li><li>`DB_DATAWRITER`: Члены этой роли могут добавлять, удалять или изменять данные во всех пользовательских таблицах.</li><li>`DB_DATAREADER`: Члены этой роли могут читать все данные из всех пользовательских таблиц.</li><li>`DB_DENYDATAWRITER`: Члены этой роли не могут добавлять, изменять или удалять никакие данные в пользовательских таблицах базы данных. Подобное ограничение привилегий имеет более высокий приоритет, чем предоставление, поэтому вы можете использовать эту роль для быстрого ограничения привилегий без явного отзыва разрешений или ролей.</li><li>`DB_DENYDATAREADER`: Члены этой фиксированной роли базы данных не могут читать никакие данные из пользовательских таблиц в базе данных. Подобное ограничение привилегий имеет более высокий приоритет, чем предоставление, поэтому вы можете использовать эту роль для быстрого ограничения привилегий без явного отзыва разрешений или ролей.</li><ul/>
+database_name | **string**<br>Name of the database the permission grants access to. 
+roles[] | enum **Role**<br>Roles granted to the user within the database. The minimum number of elements is 1.<ul><li>`DB_OWNER`: Members of this fixed database role can perform all configuration and maintenance activities on the database, and can also drop the database in SQL Server.</li><li>`DB_SECURITYADMIN`: Members of this fixed database role can modify role membership for custom roles only and manage permissions. They can potentially elevate their privileges and their actions should be monitored.</li><li>`DB_ACCESSADMIN`: Members of this fixed database role can add or remove access to the database for Windows logins, Windows groups, and SQL Server logins.</li><li>`DB_BACKUPOPERATOR`: Members of this fixed database role can back up the database.</li><li>`DB_DDLADMIN`: Members of this fixed database role can run any Data Definition Language (DDL) command in a database.</li><li>`DB_DATAWRITER`: Members of this fixed database role can add, delete, or change data in all user tables.</li><li>`DB_DATAREADER`: Members of this fixed database role can read all data from all user tables.</li><li>`DB_DENYDATAWRITER`: Members of this fixed database role cannot add, modify, or delete any data in the user tables within a database. Denial has a higher priority than a grant, so you can use this role to quickly restrict one's privileges without explicitly revoking permissions or roles.</li><li>`DB_DENYDATAREADER`: Members of this fixed database role cannot read any data in the user tables within a database. Denial has a higher priority than a grant, so you can use this role to quickly restrict one's privileges without explicitly revoking permissions or roles.</li><ul/>
 
 
 ### Operation {#Operation}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateUserMetadata](#CreateUserMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[User](#User2)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateUserMetadata](#CreateUserMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[User](#User2)>**<br>if operation finished successfully. 
 
 
 ### CreateUserMetadata {#CreateUserMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Идентификатор кластера SQL Server, в котором создается пользователь. 
-user_name | **string**<br>Имя создаваемого пользователя. 
+cluster_id | **string**<br>ID of the SQL Server cluster the user is being created for. 
+user_name | **string**<br>Name of the user being created. 
 
 
 ### User {#User2}
 
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br>Имя пользователя SQL Server. 
-cluster_id | **string**<br>Идентификатор кластера SQL Server, которому принадлежит пользователь. 
-permissions[] | **[Permission](#Permission3)**<br>Набор разрешений, предоставленных пользователю. 
+name | **string**<br>Name of the SQL Server user. 
+cluster_id | **string**<br>ID of the SQL Server cluster the user belongs to. 
+permissions[] | **[Permission](#Permission3)**<br>Set of permissions granted to the user. 
 
 
 ### Permission {#Permission3}
 
-Поле | Описание
+Field | Description
 --- | ---
-database_name | **string**<br>Имя базы данных, для которой предоставляется разрешение. 
-roles[] | enum **Role**<br>Роли, предоставленные пользователю в базе данных. Минимальное количество элементов — 1.<ul><li>`DB_OWNER`: Члены этой роли могут выполнять все действия по настройке и обслуживанию базы данных, а также удалять базу данных SQL Server.</li><li>`DB_SECURITYADMIN`: Члены этой роли могут управлять разрешениями и членством в пользовательских ролях. Они потенциально могут повысить свои привилегии, поэтому их действия должны контролироваться.</li><li>`DB_ACCESSADMIN`: Члены этой роли могут управлять доступом к базе данных для пользователей Windows, групп Windows и пользователей SQL Server.</li><li>`DB_BACKUPOPERATOR`: Члены этой роли могут создавать резервные копии базы данных.</li><li>`DB_DDLADMIN`: Члены этой роли могут выполнять в базе данных любую команду языка описания данных (DDL).</li><li>`DB_DATAWRITER`: Члены этой роли могут добавлять, удалять или изменять данные во всех пользовательских таблицах.</li><li>`DB_DATAREADER`: Члены этой роли могут читать все данные из всех пользовательских таблиц.</li><li>`DB_DENYDATAWRITER`: Члены этой роли не могут добавлять, изменять или удалять никакие данные в пользовательских таблицах базы данных. Подобное ограничение привилегий имеет более высокий приоритет, чем предоставление, поэтому вы можете использовать эту роль для быстрого ограничения привилегий без явного отзыва разрешений или ролей.</li><li>`DB_DENYDATAREADER`: Члены этой фиксированной роли базы данных не могут читать никакие данные из пользовательских таблиц в базе данных. Подобное ограничение привилегий имеет более высокий приоритет, чем предоставление, поэтому вы можете использовать эту роль для быстрого ограничения привилегий без явного отзыва разрешений или ролей.</li><ul/>
+database_name | **string**<br>Name of the database the permission grants access to. 
+roles[] | enum **Role**<br>Roles granted to the user within the database. The minimum number of elements is 1.<ul><li>`DB_OWNER`: Members of this fixed database role can perform all configuration and maintenance activities on the database, and can also drop the database in SQL Server.</li><li>`DB_SECURITYADMIN`: Members of this fixed database role can modify role membership for custom roles only and manage permissions. They can potentially elevate their privileges and their actions should be monitored.</li><li>`DB_ACCESSADMIN`: Members of this fixed database role can add or remove access to the database for Windows logins, Windows groups, and SQL Server logins.</li><li>`DB_BACKUPOPERATOR`: Members of this fixed database role can back up the database.</li><li>`DB_DDLADMIN`: Members of this fixed database role can run any Data Definition Language (DDL) command in a database.</li><li>`DB_DATAWRITER`: Members of this fixed database role can add, delete, or change data in all user tables.</li><li>`DB_DATAREADER`: Members of this fixed database role can read all data from all user tables.</li><li>`DB_DENYDATAWRITER`: Members of this fixed database role cannot add, modify, or delete any data in the user tables within a database. Denial has a higher priority than a grant, so you can use this role to quickly restrict one's privileges without explicitly revoking permissions or roles.</li><li>`DB_DENYDATAREADER`: Members of this fixed database role cannot read any data in the user tables within a database. Denial has a higher priority than a grant, so you can use this role to quickly restrict one's privileges without explicitly revoking permissions or roles.</li><ul/>
 
 
 ## Update {#Update}
 
-Изменяет указанного пользователя SQL Server.
+Modifies the specified SQL Server user.
 
 **rpc Update ([UpdateUserRequest](#UpdateUserRequest)) returns ([operation.Operation](#Operation1))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateUserMetadata](#UpdateUserMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[User](#User3)<br>
 
 ### UpdateUserRequest {#UpdateUserRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера SQL Server, которому принадлежит пользователь. <br>Чтобы получить идентификатор кластера, используйте запрос [ClusterService.List](./cluster_service#List). Максимальная длина строки в символах — 50.
-user_name | **string**<br>Обязательное поле. Имя пользователя, которого следует изменить. <br>Чтобы получить имя пользователя, используйте запрос [UserService.List](#List). Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_]* `.
-update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Маска, которая указывает, какие атрибуты пользователя SQL Server должны быть изменены. 
-password | **string**<br>Новый пароль для пользователя. Длина строки в символах должна быть от 8 до 128.
-permissions[] | **[Permission](#Permission4)**<br>Новый набор разрешений для пользователя. 
+cluster_id | **string**<br>Required. ID of the SQL Server cluster the user belongs to. <br>To get the cluster ID, use a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
+user_name | **string**<br>Required. Name of the user to be updated. <br>To get the name of the user use a [UserService.List](#List) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
+update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the SQL Server user should be updated. 
+password | **string**<br>New password for the user. The string length in characters must be 8-128.
+permissions[] | **[Permission](#Permission4)**<br>New set of permissions for the user. 
 
 
 ### Permission {#Permission4}
 
-Поле | Описание
+Field | Description
 --- | ---
-database_name | **string**<br>Имя базы данных, для которой предоставляется разрешение. 
-roles[] | enum **Role**<br>Роли, предоставленные пользователю в базе данных. Минимальное количество элементов — 1.<ul><li>`DB_OWNER`: Члены этой роли могут выполнять все действия по настройке и обслуживанию базы данных, а также удалять базу данных SQL Server.</li><li>`DB_SECURITYADMIN`: Члены этой роли могут управлять разрешениями и членством в пользовательских ролях. Они потенциально могут повысить свои привилегии, поэтому их действия должны контролироваться.</li><li>`DB_ACCESSADMIN`: Члены этой роли могут управлять доступом к базе данных для пользователей Windows, групп Windows и пользователей SQL Server.</li><li>`DB_BACKUPOPERATOR`: Члены этой роли могут создавать резервные копии базы данных.</li><li>`DB_DDLADMIN`: Члены этой роли могут выполнять в базе данных любую команду языка описания данных (DDL).</li><li>`DB_DATAWRITER`: Члены этой роли могут добавлять, удалять или изменять данные во всех пользовательских таблицах.</li><li>`DB_DATAREADER`: Члены этой роли могут читать все данные из всех пользовательских таблиц.</li><li>`DB_DENYDATAWRITER`: Члены этой роли не могут добавлять, изменять или удалять никакие данные в пользовательских таблицах базы данных. Подобное ограничение привилегий имеет более высокий приоритет, чем предоставление, поэтому вы можете использовать эту роль для быстрого ограничения привилегий без явного отзыва разрешений или ролей.</li><li>`DB_DENYDATAREADER`: Члены этой фиксированной роли базы данных не могут читать никакие данные из пользовательских таблиц в базе данных. Подобное ограничение привилегий имеет более высокий приоритет, чем предоставление, поэтому вы можете использовать эту роль для быстрого ограничения привилегий без явного отзыва разрешений или ролей.</li><ul/>
+database_name | **string**<br>Name of the database the permission grants access to. 
+roles[] | enum **Role**<br>Roles granted to the user within the database. The minimum number of elements is 1.<ul><li>`DB_OWNER`: Members of this fixed database role can perform all configuration and maintenance activities on the database, and can also drop the database in SQL Server.</li><li>`DB_SECURITYADMIN`: Members of this fixed database role can modify role membership for custom roles only and manage permissions. They can potentially elevate their privileges and their actions should be monitored.</li><li>`DB_ACCESSADMIN`: Members of this fixed database role can add or remove access to the database for Windows logins, Windows groups, and SQL Server logins.</li><li>`DB_BACKUPOPERATOR`: Members of this fixed database role can back up the database.</li><li>`DB_DDLADMIN`: Members of this fixed database role can run any Data Definition Language (DDL) command in a database.</li><li>`DB_DATAWRITER`: Members of this fixed database role can add, delete, or change data in all user tables.</li><li>`DB_DATAREADER`: Members of this fixed database role can read all data from all user tables.</li><li>`DB_DENYDATAWRITER`: Members of this fixed database role cannot add, modify, or delete any data in the user tables within a database. Denial has a higher priority than a grant, so you can use this role to quickly restrict one's privileges without explicitly revoking permissions or roles.</li><li>`DB_DENYDATAREADER`: Members of this fixed database role cannot read any data in the user tables within a database. Denial has a higher priority than a grant, so you can use this role to quickly restrict one's privileges without explicitly revoking permissions or roles.</li><ul/>
 
 
 ### Operation {#Operation1}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateUserMetadata](#UpdateUserMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[User](#User3)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateUserMetadata](#UpdateUserMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[User](#User3)>**<br>if operation finished successfully. 
 
 
 ### UpdateUserMetadata {#UpdateUserMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Идентификатор кластера SQL Server, которому принадлежит пользователь. 
-user_name | **string**<br>Имя изменяемого пользователя. 
+cluster_id | **string**<br>ID of the SQL Server cluster the user belongs to. 
+user_name | **string**<br>Name of the user being updated. 
 
 
 ### User {#User3}
 
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br>Имя пользователя SQL Server. 
-cluster_id | **string**<br>Идентификатор кластера SQL Server, которому принадлежит пользователь. 
-permissions[] | **[Permission](#Permission5)**<br>Набор разрешений, предоставленных пользователю. 
+name | **string**<br>Name of the SQL Server user. 
+cluster_id | **string**<br>ID of the SQL Server cluster the user belongs to. 
+permissions[] | **[Permission](#Permission5)**<br>Set of permissions granted to the user. 
 
 
 ### Permission {#Permission5}
 
-Поле | Описание
+Field | Description
 --- | ---
-database_name | **string**<br>Имя базы данных, для которой предоставляется разрешение. 
-roles[] | enum **Role**<br>Роли, предоставленные пользователю в базе данных. Минимальное количество элементов — 1.<ul><li>`DB_OWNER`: Члены этой роли могут выполнять все действия по настройке и обслуживанию базы данных, а также удалять базу данных SQL Server.</li><li>`DB_SECURITYADMIN`: Члены этой роли могут управлять разрешениями и членством в пользовательских ролях. Они потенциально могут повысить свои привилегии, поэтому их действия должны контролироваться.</li><li>`DB_ACCESSADMIN`: Члены этой роли могут управлять доступом к базе данных для пользователей Windows, групп Windows и пользователей SQL Server.</li><li>`DB_BACKUPOPERATOR`: Члены этой роли могут создавать резервные копии базы данных.</li><li>`DB_DDLADMIN`: Члены этой роли могут выполнять в базе данных любую команду языка описания данных (DDL).</li><li>`DB_DATAWRITER`: Члены этой роли могут добавлять, удалять или изменять данные во всех пользовательских таблицах.</li><li>`DB_DATAREADER`: Члены этой роли могут читать все данные из всех пользовательских таблиц.</li><li>`DB_DENYDATAWRITER`: Члены этой роли не могут добавлять, изменять или удалять никакие данные в пользовательских таблицах базы данных. Подобное ограничение привилегий имеет более высокий приоритет, чем предоставление, поэтому вы можете использовать эту роль для быстрого ограничения привилегий без явного отзыва разрешений или ролей.</li><li>`DB_DENYDATAREADER`: Члены этой фиксированной роли базы данных не могут читать никакие данные из пользовательских таблиц в базе данных. Подобное ограничение привилегий имеет более высокий приоритет, чем предоставление, поэтому вы можете использовать эту роль для быстрого ограничения привилегий без явного отзыва разрешений или ролей.</li><ul/>
+database_name | **string**<br>Name of the database the permission grants access to. 
+roles[] | enum **Role**<br>Roles granted to the user within the database. The minimum number of elements is 1.<ul><li>`DB_OWNER`: Members of this fixed database role can perform all configuration and maintenance activities on the database, and can also drop the database in SQL Server.</li><li>`DB_SECURITYADMIN`: Members of this fixed database role can modify role membership for custom roles only and manage permissions. They can potentially elevate their privileges and their actions should be monitored.</li><li>`DB_ACCESSADMIN`: Members of this fixed database role can add or remove access to the database for Windows logins, Windows groups, and SQL Server logins.</li><li>`DB_BACKUPOPERATOR`: Members of this fixed database role can back up the database.</li><li>`DB_DDLADMIN`: Members of this fixed database role can run any Data Definition Language (DDL) command in a database.</li><li>`DB_DATAWRITER`: Members of this fixed database role can add, delete, or change data in all user tables.</li><li>`DB_DATAREADER`: Members of this fixed database role can read all data from all user tables.</li><li>`DB_DENYDATAWRITER`: Members of this fixed database role cannot add, modify, or delete any data in the user tables within a database. Denial has a higher priority than a grant, so you can use this role to quickly restrict one's privileges without explicitly revoking permissions or roles.</li><li>`DB_DENYDATAREADER`: Members of this fixed database role cannot read any data in the user tables within a database. Denial has a higher priority than a grant, so you can use this role to quickly restrict one's privileges without explicitly revoking permissions or roles.</li><ul/>
 
 
 ## Delete {#Delete}
 
-Удаляет указанного пользователя SQL Server.
+Deletes the specified SQL Server user.
 
 **rpc Delete ([DeleteUserRequest](#DeleteUserRequest)) returns ([operation.Operation](#Operation2))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[DeleteUserMetadata](#DeleteUserMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
 
 ### DeleteUserRequest {#DeleteUserRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера SQL Server, которому принадлежит пользователь. <br>Чтобы получить идентификатор кластера, используйте запрос [ClusterService.List](./cluster_service#List). Максимальная длина строки в символах — 50.
-user_name | **string**<br>Обязательное поле. Имя пользователя, которого нужно удалить. <br>Чтобы получить имя пользователя, используйте запрос [UserService.List](#List). Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_]* `.
+cluster_id | **string**<br>Required. ID of the SQL Server cluster the user belongs to. <br>To get the cluster ID, use a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
+user_name | **string**<br>Required. Name of the user to delete. <br>To get the name of the user, use a [UserService.List](#List) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
 
 
 ### Operation {#Operation2}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteUserMetadata](#DeleteUserMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteUserMetadata](#DeleteUserMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>if operation finished successfully. 
 
 
 ### DeleteUserMetadata {#DeleteUserMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Идентификатор кластера SQL Server, которому принадлежит пользователь. 
-user_name | **string**<br>Имя удаляемого пользователя. 
+cluster_id | **string**<br>ID of the SQL Server cluster the user belongs to. 
+user_name | **string**<br>Name of the user being deleted. 
 
 
 ## GrantPermission {#GrantPermission}
 
-Предоставляет разрешение указанному пользователю SQL Server.
+Grants a permission to the specified SQL Server user.
 
 **rpc GrantPermission ([GrantUserPermissionRequest](#GrantUserPermissionRequest)) returns ([operation.Operation](#Operation3))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[GrantUserPermissionMetadata](#GrantUserPermissionMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[User](#User4)<br>
 
 ### GrantUserPermissionRequest {#GrantUserPermissionRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера SQL Server, которому принадлежит пользователь. <br>Чтобы получить идентификатор кластера, используйте запрос [ClusterService.List](./cluster_service#List). Максимальная длина строки в символах — 50.
-user_name | **string**<br>Обязательное поле. Имя пользователя, которому следует предоставить разрешение. Чтобы получить имя пользователя, используйте запрос [UserService.List](#List). Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_]* `.
-permission | **[Permission](#Permission6)**<br>Обязательное поле. Разрешение, которое должно быть предоставлено указанному пользователю. 
+cluster_id | **string**<br>Required. ID of the SQL Server cluster the user belongs to. <br>To get the cluster ID, use a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
+user_name | **string**<br>Required. Name of the user to grant the permission to. To get the name of the user, use a [UserService.List](#List) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
+permission | **[Permission](#Permission6)**<br>Required. Permission that should be granted to the specified user. 
 
 
 ### Permission {#Permission6}
 
-Поле | Описание
+Field | Description
 --- | ---
-database_name | **string**<br>Имя базы данных, для которой предоставляется разрешение. 
-roles[] | enum **Role**<br>Роли, предоставленные пользователю в базе данных. Минимальное количество элементов — 1.<ul><li>`DB_OWNER`: Члены этой роли могут выполнять все действия по настройке и обслуживанию базы данных, а также удалять базу данных SQL Server.</li><li>`DB_SECURITYADMIN`: Члены этой роли могут управлять разрешениями и членством в пользовательских ролях. Они потенциально могут повысить свои привилегии, поэтому их действия должны контролироваться.</li><li>`DB_ACCESSADMIN`: Члены этой роли могут управлять доступом к базе данных для пользователей Windows, групп Windows и пользователей SQL Server.</li><li>`DB_BACKUPOPERATOR`: Члены этой роли могут создавать резервные копии базы данных.</li><li>`DB_DDLADMIN`: Члены этой роли могут выполнять в базе данных любую команду языка описания данных (DDL).</li><li>`DB_DATAWRITER`: Члены этой роли могут добавлять, удалять или изменять данные во всех пользовательских таблицах.</li><li>`DB_DATAREADER`: Члены этой роли могут читать все данные из всех пользовательских таблиц.</li><li>`DB_DENYDATAWRITER`: Члены этой роли не могут добавлять, изменять или удалять никакие данные в пользовательских таблицах базы данных. Подобное ограничение привилегий имеет более высокий приоритет, чем предоставление, поэтому вы можете использовать эту роль для быстрого ограничения привилегий без явного отзыва разрешений или ролей.</li><li>`DB_DENYDATAREADER`: Члены этой фиксированной роли базы данных не могут читать никакие данные из пользовательских таблиц в базе данных. Подобное ограничение привилегий имеет более высокий приоритет, чем предоставление, поэтому вы можете использовать эту роль для быстрого ограничения привилегий без явного отзыва разрешений или ролей.</li><ul/>
+database_name | **string**<br>Name of the database the permission grants access to. 
+roles[] | enum **Role**<br>Roles granted to the user within the database. The minimum number of elements is 1.<ul><li>`DB_OWNER`: Members of this fixed database role can perform all configuration and maintenance activities on the database, and can also drop the database in SQL Server.</li><li>`DB_SECURITYADMIN`: Members of this fixed database role can modify role membership for custom roles only and manage permissions. They can potentially elevate their privileges and their actions should be monitored.</li><li>`DB_ACCESSADMIN`: Members of this fixed database role can add or remove access to the database for Windows logins, Windows groups, and SQL Server logins.</li><li>`DB_BACKUPOPERATOR`: Members of this fixed database role can back up the database.</li><li>`DB_DDLADMIN`: Members of this fixed database role can run any Data Definition Language (DDL) command in a database.</li><li>`DB_DATAWRITER`: Members of this fixed database role can add, delete, or change data in all user tables.</li><li>`DB_DATAREADER`: Members of this fixed database role can read all data from all user tables.</li><li>`DB_DENYDATAWRITER`: Members of this fixed database role cannot add, modify, or delete any data in the user tables within a database. Denial has a higher priority than a grant, so you can use this role to quickly restrict one's privileges without explicitly revoking permissions or roles.</li><li>`DB_DENYDATAREADER`: Members of this fixed database role cannot read any data in the user tables within a database. Denial has a higher priority than a grant, so you can use this role to quickly restrict one's privileges without explicitly revoking permissions or roles.</li><ul/>
 
 
 ### Operation {#Operation3}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[GrantUserPermissionMetadata](#GrantUserPermissionMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[User](#User4)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[GrantUserPermissionMetadata](#GrantUserPermissionMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[User](#User4)>**<br>if operation finished successfully. 
 
 
 ### GrantUserPermissionMetadata {#GrantUserPermissionMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Идентификатор кластера SQL Server, которому принадлежит пользователь. <br>Чтобы получить идентификатор кластера, используйте запрос [ClusterService.List](./cluster_service#List). 
-user_name | **string**<br>Имя пользователя, которому предоставляется разрешение. 
+cluster_id | **string**<br>ID of the SQL Server cluster the user belongs to. <br>To get the cluster ID, use a [ClusterService.List](./cluster_service#List) request. 
+user_name | **string**<br>Name of the user being granted a permission. 
 
 
 ### User {#User4}
 
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br>Имя пользователя SQL Server. 
-cluster_id | **string**<br>Идентификатор кластера SQL Server, которому принадлежит пользователь. 
-permissions[] | **[Permission](#Permission7)**<br>Набор разрешений, предоставленных пользователю. 
+name | **string**<br>Name of the SQL Server user. 
+cluster_id | **string**<br>ID of the SQL Server cluster the user belongs to. 
+permissions[] | **[Permission](#Permission7)**<br>Set of permissions granted to the user. 
 
 
 ### Permission {#Permission7}
 
-Поле | Описание
+Field | Description
 --- | ---
-database_name | **string**<br>Имя базы данных, для которой предоставляется разрешение. 
-roles[] | enum **Role**<br>Роли, предоставленные пользователю в базе данных. Минимальное количество элементов — 1.<ul><li>`DB_OWNER`: Члены этой роли могут выполнять все действия по настройке и обслуживанию базы данных, а также удалять базу данных SQL Server.</li><li>`DB_SECURITYADMIN`: Члены этой роли могут управлять разрешениями и членством в пользовательских ролях. Они потенциально могут повысить свои привилегии, поэтому их действия должны контролироваться.</li><li>`DB_ACCESSADMIN`: Члены этой роли могут управлять доступом к базе данных для пользователей Windows, групп Windows и пользователей SQL Server.</li><li>`DB_BACKUPOPERATOR`: Члены этой роли могут создавать резервные копии базы данных.</li><li>`DB_DDLADMIN`: Члены этой роли могут выполнять в базе данных любую команду языка описания данных (DDL).</li><li>`DB_DATAWRITER`: Члены этой роли могут добавлять, удалять или изменять данные во всех пользовательских таблицах.</li><li>`DB_DATAREADER`: Члены этой роли могут читать все данные из всех пользовательских таблиц.</li><li>`DB_DENYDATAWRITER`: Члены этой роли не могут добавлять, изменять или удалять никакие данные в пользовательских таблицах базы данных. Подобное ограничение привилегий имеет более высокий приоритет, чем предоставление, поэтому вы можете использовать эту роль для быстрого ограничения привилегий без явного отзыва разрешений или ролей.</li><li>`DB_DENYDATAREADER`: Члены этой фиксированной роли базы данных не могут читать никакие данные из пользовательских таблиц в базе данных. Подобное ограничение привилегий имеет более высокий приоритет, чем предоставление, поэтому вы можете использовать эту роль для быстрого ограничения привилегий без явного отзыва разрешений или ролей.</li><ul/>
+database_name | **string**<br>Name of the database the permission grants access to. 
+roles[] | enum **Role**<br>Roles granted to the user within the database. The minimum number of elements is 1.<ul><li>`DB_OWNER`: Members of this fixed database role can perform all configuration and maintenance activities on the database, and can also drop the database in SQL Server.</li><li>`DB_SECURITYADMIN`: Members of this fixed database role can modify role membership for custom roles only and manage permissions. They can potentially elevate their privileges and their actions should be monitored.</li><li>`DB_ACCESSADMIN`: Members of this fixed database role can add or remove access to the database for Windows logins, Windows groups, and SQL Server logins.</li><li>`DB_BACKUPOPERATOR`: Members of this fixed database role can back up the database.</li><li>`DB_DDLADMIN`: Members of this fixed database role can run any Data Definition Language (DDL) command in a database.</li><li>`DB_DATAWRITER`: Members of this fixed database role can add, delete, or change data in all user tables.</li><li>`DB_DATAREADER`: Members of this fixed database role can read all data from all user tables.</li><li>`DB_DENYDATAWRITER`: Members of this fixed database role cannot add, modify, or delete any data in the user tables within a database. Denial has a higher priority than a grant, so you can use this role to quickly restrict one's privileges without explicitly revoking permissions or roles.</li><li>`DB_DENYDATAREADER`: Members of this fixed database role cannot read any data in the user tables within a database. Denial has a higher priority than a grant, so you can use this role to quickly restrict one's privileges without explicitly revoking permissions or roles.</li><ul/>
 
 
 ## RevokePermission {#RevokePermission}
 
-Отзывает разрешение у указанного пользователя SQL Server.
+Revokes a permission from the specified SQL Server user.
 
 **rpc RevokePermission ([RevokeUserPermissionRequest](#RevokeUserPermissionRequest)) returns ([operation.Operation](#Operation4))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[RevokeUserPermissionMetadata](#RevokeUserPermissionMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[User](#User5)<br>
 
 ### RevokeUserPermissionRequest {#RevokeUserPermissionRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера SQL Server, которому принадлежит пользователь. <br>Чтобы получить идентификатор кластера, используйте запрос [ClusterService.List](./cluster_service#List). Максимальная длина строки в символах — 50.
-user_name | **string**<br>Обязательное поле. Имя пользователя, у которого следует отозвать разрешение. <br>Чтобы получить имя пользователя, используйте запрос [UserService.List](#List). Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_]* `.
-permission | **[Permission](#Permission8)**<br>Обязательное поле. Разрешение, которое должно быть отозвано у указанного пользователя. 
+cluster_id | **string**<br>Required. ID of the SQL Server cluster the user belongs to. <br>To get the cluster ID, use a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
+user_name | **string**<br>Required. Name of the user to revoke a permission from. <br>To get the name of the user, use a [UserService.List](#List) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
+permission | **[Permission](#Permission8)**<br>Required. Permission that should be revoked from the specified user. 
 
 
 ### Permission {#Permission8}
 
-Поле | Описание
+Field | Description
 --- | ---
-database_name | **string**<br>Имя базы данных, для которой предоставляется разрешение. 
-roles[] | enum **Role**<br>Роли, предоставленные пользователю в базе данных. Минимальное количество элементов — 1.<ul><li>`DB_OWNER`: Члены этой роли могут выполнять все действия по настройке и обслуживанию базы данных, а также удалять базу данных SQL Server.</li><li>`DB_SECURITYADMIN`: Члены этой роли могут управлять разрешениями и членством в пользовательских ролях. Они потенциально могут повысить свои привилегии, поэтому их действия должны контролироваться.</li><li>`DB_ACCESSADMIN`: Члены этой роли могут управлять доступом к базе данных для пользователей Windows, групп Windows и пользователей SQL Server.</li><li>`DB_BACKUPOPERATOR`: Члены этой роли могут создавать резервные копии базы данных.</li><li>`DB_DDLADMIN`: Члены этой роли могут выполнять в базе данных любую команду языка описания данных (DDL).</li><li>`DB_DATAWRITER`: Члены этой роли могут добавлять, удалять или изменять данные во всех пользовательских таблицах.</li><li>`DB_DATAREADER`: Члены этой роли могут читать все данные из всех пользовательских таблиц.</li><li>`DB_DENYDATAWRITER`: Члены этой роли не могут добавлять, изменять или удалять никакие данные в пользовательских таблицах базы данных. Подобное ограничение привилегий имеет более высокий приоритет, чем предоставление, поэтому вы можете использовать эту роль для быстрого ограничения привилегий без явного отзыва разрешений или ролей.</li><li>`DB_DENYDATAREADER`: Члены этой фиксированной роли базы данных не могут читать никакие данные из пользовательских таблиц в базе данных. Подобное ограничение привилегий имеет более высокий приоритет, чем предоставление, поэтому вы можете использовать эту роль для быстрого ограничения привилегий без явного отзыва разрешений или ролей.</li><ul/>
+database_name | **string**<br>Name of the database the permission grants access to. 
+roles[] | enum **Role**<br>Roles granted to the user within the database. The minimum number of elements is 1.<ul><li>`DB_OWNER`: Members of this fixed database role can perform all configuration and maintenance activities on the database, and can also drop the database in SQL Server.</li><li>`DB_SECURITYADMIN`: Members of this fixed database role can modify role membership for custom roles only and manage permissions. They can potentially elevate their privileges and their actions should be monitored.</li><li>`DB_ACCESSADMIN`: Members of this fixed database role can add or remove access to the database for Windows logins, Windows groups, and SQL Server logins.</li><li>`DB_BACKUPOPERATOR`: Members of this fixed database role can back up the database.</li><li>`DB_DDLADMIN`: Members of this fixed database role can run any Data Definition Language (DDL) command in a database.</li><li>`DB_DATAWRITER`: Members of this fixed database role can add, delete, or change data in all user tables.</li><li>`DB_DATAREADER`: Members of this fixed database role can read all data from all user tables.</li><li>`DB_DENYDATAWRITER`: Members of this fixed database role cannot add, modify, or delete any data in the user tables within a database. Denial has a higher priority than a grant, so you can use this role to quickly restrict one's privileges without explicitly revoking permissions or roles.</li><li>`DB_DENYDATAREADER`: Members of this fixed database role cannot read any data in the user tables within a database. Denial has a higher priority than a grant, so you can use this role to quickly restrict one's privileges without explicitly revoking permissions or roles.</li><ul/>
 
 
 ### Operation {#Operation4}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[RevokeUserPermissionMetadata](#RevokeUserPermissionMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[User](#User5)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[RevokeUserPermissionMetadata](#RevokeUserPermissionMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[User](#User5)>**<br>if operation finished successfully. 
 
 
 ### RevokeUserPermissionMetadata {#RevokeUserPermissionMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Идентификатор кластера SQL Server, которому принадлежит пользователь. 
-user_name | **string**<br>Имя пользователя, для которого отзывается разрешение. 
+cluster_id | **string**<br>ID of the SQL Server cluster the user belongs to. 
+user_name | **string**<br>Name of the user whose permission is being revoked. 
 
 
 ### User {#User5}
 
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br>Имя пользователя SQL Server. 
-cluster_id | **string**<br>Идентификатор кластера SQL Server, которому принадлежит пользователь. 
-permissions[] | **[Permission](#Permission9)**<br>Набор разрешений, предоставленных пользователю. 
+name | **string**<br>Name of the SQL Server user. 
+cluster_id | **string**<br>ID of the SQL Server cluster the user belongs to. 
+permissions[] | **[Permission](#Permission9)**<br>Set of permissions granted to the user. 
 
 
 ### Permission {#Permission9}
 
-Поле | Описание
+Field | Description
 --- | ---
-database_name | **string**<br>Имя базы данных, для которой предоставляется разрешение. 
-roles[] | enum **Role**<br>Роли, предоставленные пользователю в базе данных. Минимальное количество элементов — 1.<ul><li>`DB_OWNER`: Члены этой роли могут выполнять все действия по настройке и обслуживанию базы данных, а также удалять базу данных SQL Server.</li><li>`DB_SECURITYADMIN`: Члены этой роли могут управлять разрешениями и членством в пользовательских ролях. Они потенциально могут повысить свои привилегии, поэтому их действия должны контролироваться.</li><li>`DB_ACCESSADMIN`: Члены этой роли могут управлять доступом к базе данных для пользователей Windows, групп Windows и пользователей SQL Server.</li><li>`DB_BACKUPOPERATOR`: Члены этой роли могут создавать резервные копии базы данных.</li><li>`DB_DDLADMIN`: Члены этой роли могут выполнять в базе данных любую команду языка описания данных (DDL).</li><li>`DB_DATAWRITER`: Члены этой роли могут добавлять, удалять или изменять данные во всех пользовательских таблицах.</li><li>`DB_DATAREADER`: Члены этой роли могут читать все данные из всех пользовательских таблиц.</li><li>`DB_DENYDATAWRITER`: Члены этой роли не могут добавлять, изменять или удалять никакие данные в пользовательских таблицах базы данных. Подобное ограничение привилегий имеет более высокий приоритет, чем предоставление, поэтому вы можете использовать эту роль для быстрого ограничения привилегий без явного отзыва разрешений или ролей.</li><li>`DB_DENYDATAREADER`: Члены этой фиксированной роли базы данных не могут читать никакие данные из пользовательских таблиц в базе данных. Подобное ограничение привилегий имеет более высокий приоритет, чем предоставление, поэтому вы можете использовать эту роль для быстрого ограничения привилегий без явного отзыва разрешений или ролей.</li><ul/>
+database_name | **string**<br>Name of the database the permission grants access to. 
+roles[] | enum **Role**<br>Roles granted to the user within the database. The minimum number of elements is 1.<ul><li>`DB_OWNER`: Members of this fixed database role can perform all configuration and maintenance activities on the database, and can also drop the database in SQL Server.</li><li>`DB_SECURITYADMIN`: Members of this fixed database role can modify role membership for custom roles only and manage permissions. They can potentially elevate their privileges and their actions should be monitored.</li><li>`DB_ACCESSADMIN`: Members of this fixed database role can add or remove access to the database for Windows logins, Windows groups, and SQL Server logins.</li><li>`DB_BACKUPOPERATOR`: Members of this fixed database role can back up the database.</li><li>`DB_DDLADMIN`: Members of this fixed database role can run any Data Definition Language (DDL) command in a database.</li><li>`DB_DATAWRITER`: Members of this fixed database role can add, delete, or change data in all user tables.</li><li>`DB_DATAREADER`: Members of this fixed database role can read all data from all user tables.</li><li>`DB_DENYDATAWRITER`: Members of this fixed database role cannot add, modify, or delete any data in the user tables within a database. Denial has a higher priority than a grant, so you can use this role to quickly restrict one's privileges without explicitly revoking permissions or roles.</li><li>`DB_DENYDATAREADER`: Members of this fixed database role cannot read any data in the user tables within a database. Denial has a higher priority than a grant, so you can use this role to quickly restrict one's privileges without explicitly revoking permissions or roles.</li><ul/>
 
 

@@ -2,34 +2,34 @@
 editable: false
 ---
 
-# Метод streamLogs
-То же самое, что ListLogs, с той разницей, что со стороны сервера передается поток логов. Допускается использовать семантику 'tail-f' при работе с потоком
-логов.
+# Method streamLogs
+Same as ListLogs but using server-side streaming. Also allows for `tail -f` semantics.
  
 
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 GET https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}:stream_logs
 ```
  
-## Path-параметры {#path_params}
+## Path parameters {#path_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-clusterId | Обязательное поле. Обязательное поле. Идентификатор кластера ClickHouse.  Максимальная длина строки в символах — 50.
+clusterId | Required. Required. ID of the ClickHouse cluster.  The maximum string length in characters is 50.
  
-## Query-параметры {#query_params}
+## Query parameters {#query_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-columnFilter | Столбцы, которые нужно запросить из лога.
-serviceType | <ul> <li>CLICKHOUSE: Логи работы ClickHouse.</li> </ul> 
-fromTime | Временная метка, начиная с которой следует запросить логи.  Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
-toTime | Временная метка, до которой следует запросить логи. Если значение этого поля не задано, то будут отправлены все существующие записи в логе, а затем и новые по мере их появления. В сущности, это эквивалентно семантике `tail -f`.  Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
-recordToken | Токен записи. Задайте значение [recordToken](/docs/managed-clickhouse/api-ref/Cluster/streamLogs#query_params) равным значению `nextRecordToken`, возвращенному предыдущим запросом StreamLogs, чтобы продолжить стриминг со следующей записи в логе.  Максимальная длина строки в символах — 100.
+columnFilter | Columns from logs table to get in the response.
+serviceType | <ul> <li>CLICKHOUSE: Logs of ClickHouse activity.</li> </ul> 
+fromTime | Start timestamp for the logs request.  String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+toTime | End timestamp for the logs request. If this field is not set, all existing logs will be sent and then the new ones as they appear. In essence it has `tail -f` semantics.  String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+recordToken | Record token. Set [recordToken](/docs/managed-clickhouse/api-ref/Cluster/streamLogs#query_params) to the `nextRecordToken` returned by a previous StreamLogs request to start streaming from next log record.  The maximum string length in characters is 100.
+filter | A filter expression that filters resources listed in the response. The expression must specify: 1. The field name. Currently filtering can be applied to the [LogRecord.logs.message.hostname], [LogRecord.logs.message.severity] fields. 2. A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. 3. The value. Must be 1-63 characters long and match the regular expression `^[a-z0-9.-]{1,61}$`. Examples of a filter: - `message.hostname='node1.db.cloud.yandex.net'` - `message.severity IN ('Error', 'Fatal') AND message.hostname != 'node2.db.cloud.yandex.net'`.  The maximum string length in characters is 1000.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -43,9 +43,9 @@ recordToken | Токен записи. Задайте значение [recordTo
 ```
 
  
-Поле | Описание
+Field | Description
 --- | ---
-record | **object**<br><p>Одна из запрошенных записей в логе.</p> 
-record.<br>timestamp | **string** (date-time)<br><p>Отметка времени для записи журнала в <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> текстовом формате.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-record.<br>message | **object**<br><p>Содержимое записи в логе.</p> 
-nextRecordToken | **string**<br><p>Этот токен позволяет продолжить работу с потоком логов, начиная с этой записи. Чтобы продолжить работу с потоком, укажите значение `nextRecordToken` в качестве значения параметра <a href="/docs/managed-clickhouse/api-ref/Cluster/streamLogs#query_params">recordToken</a> в следующем запросе StreamLogs. Это значение взаимозаменяемо с <a href="/docs/managed-clickhouse/api-ref/Cluster/listLogs#responses">nextPageToken</a> из метода ListLogs.</p> 
+record | **object**<br><p>One of the requested log records.</p> 
+record.<br>timestamp | **string** (date-time)<br><p>Log record timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+record.<br>message | **object**<br><p>Contents of the log record.</p> 
+nextRecordToken | **string**<br><p>This token allows you to continue streaming logs starting from the exact same record. To continue streaming, specify value of [next_record_token[ as value for the <a href="/docs/managed-clickhouse/api-ref/Cluster/streamLogs#query_params">recordToken</a> parameter in the next StreamLogs request. This value is interchangeable with the <a href="/docs/managed-clickhouse/api-ref/Cluster/listLogs#responses">nextPageToken</a> from ListLogs method.</p> 

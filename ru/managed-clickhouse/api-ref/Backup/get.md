@@ -2,23 +2,23 @@
 editable: false
 ---
 
-# Метод get
-Возвращает указанную резервную копию для ClickHouse.
+# Method get
+Returns the specified ClickHouse Backup resource.
  
-Чтобы получить список доступных ресурсов Backup для ClickHouse, отправьте запрос [list](/docs/managed-clickhouse/api-ref/Backup/list).
+To get the list of available ClickHouse Backup resources, make a [list](/docs/managed-clickhouse/api-ref/Backup/list) request.
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 GET https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/backups/{backupId}
 ```
  
-## Path-параметры {#path_params}
+## Path parameters {#path_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-backupId | Обязательное поле. Идентификатор резервной копии, сведения о которой запрашиваются. Чтобы получить идентификатор резервной копии, используйте запрос [listBackups](/docs/managed-clickhouse/api-ref/Cluster/listBackups).
+backupId | Required. ID of the backup to return information about. To get the backup ID, use a [listBackups](/docs/managed-clickhouse/api-ref/Cluster/listBackups) request.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -33,13 +33,14 @@ backupId | Обязательное поле. Идентификатор рез�
   "startedAt": "string"
 }
 ```
-Ресурс Backup для ClickHouse. Подробное описание см. в [документации](/docs/managed-clickhouse/concepts/backup).
+A ClickHouse Backup resource. See the [Developer's Guide](/docs/managed-clickhouse/concepts)
+for more information.
  
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br><p>Идентификатор резервной копии.</p> 
-folderId | **string**<br><p>Идентификатор каталога, которому принадлежит резервная копия.</p> 
-createdAt | **string** (date-time)<br><p>Время создания в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> (т. е. когда операция резервного копирования была завершена).</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-sourceClusterId | **string**<br><p>Идентификатор кластера ClickHouse, для которого была создана резервная копия.</p> 
-sourceShardNames[] | **string**<br><p>Имена шардов, включенных в резервную копию.</p> 
-startedAt | **string** (date-time)<br><p>Время запуска операции резервного копирования.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
+id | **string**<br><p>ID of the backup.</p> 
+folderId | **string**<br><p>ID of the folder that the backup belongs to.</p> 
+createdAt | **string** (date-time)<br><p>Creation timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format (i.e. when the backup operation was completed).</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+sourceClusterId | **string**<br><p>ID of the ClickHouse cluster that the backup was created for.</p> 
+sourceShardNames[] | **string**<br><p>Names of the shards included in the backup.</p> 
+startedAt | **string** (date-time)<br><p>Time when the backup operation was started.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 

@@ -2,17 +2,17 @@
 editable: false
 ---
 
-# Метод create
-Создает пару ключей для указанного сервисного аккаунта.
+# Method create
+Creates a key pair for the specified service account.
  
 
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 POST https://iam.api.cloud.yandex.net/iam/v1/keys
 ```
  
-## Параметры в теле запроса {#body_params}
+## Body parameters {#body_params}
  
 ```json 
 {
@@ -24,14 +24,14 @@ POST https://iam.api.cloud.yandex.net/iam/v1/keys
 ```
 
  
-Поле | Описание
+Field | Description
 --- | ---
-serviceAccountId | **string**<br><p>Идентификатор сервисного аккаунта для создания пары ключей. Чтобы получить идентификатор сервисного аккаунта, используйте запрос <a href="/docs/iam/api-ref/ServiceAccount/list">list</a>. Если параметр не указан, то используется идентификатор субъекта, который сделал запрос.</p> <p>Максимальная длина строки в символах — 50.</p> 
-description | **string**<br><p>Описание пары ключей.</p> <p>Максимальная длина строки в символах — 256.</p> 
-format | **string**<br><p>Формат ключа.</p> <ul> <li>PEM_FILE: Формат Privacy-Enhanced Mail (PEM). Значение по умолчанию.</li> </ul> 
-keyAlgorithm | **string**<br><p>Алгоритм, используемый для создания пары ключей ресурса Key.</p> <ul> <li>RSA_2048: RSA с длиной ключа 2048 бит. Значение по умолчанию.</li> <li>RSA_4096: RSA с длиной ключа 4096 бит.</li> </ul> 
+serviceAccountId | **string**<br><p>ID of the service account to create a key pair for. To get the service account ID, use a <a href="/docs/iam/api-ref/ServiceAccount/list">list</a> request. If not specified, it defaults to the subject that made the request.</p> <p>The maximum string length in characters is 50.</p> 
+description | **string**<br><p>Description of the key pair.</p> <p>The maximum string length in characters is 256.</p> 
+format | **string**<br><p>Output format of the key.</p> <ul> <li>PEM_FILE: Privacy-Enhanced Mail (PEM) format. Default value.</li> </ul> 
+keyAlgorithm | **string**<br><p>An algorithm used to generate a key pair of the Key resource.</p> <ul> <li>RSA_2048: RSA with a 2048-bit key size. Default value.</li> <li>RSA_4096: RSA with a 4096-bit key size.</li> </ul> 
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -43,10 +43,10 @@ keyAlgorithm | **string**<br><p>Алгоритм, используемый дл�
     "keyAlgorithm": "string",
     "publicKey": "string",
 
-    // `key` включает только одно из полей `userAccountId`, `serviceAccountId`
+    // `key` includes only one of the fields `userAccountId`, `serviceAccountId`
     "userAccountId": "string",
     "serviceAccountId": "string",
-    // конец списка возможных полей`key`
+    // end of the list of possible fields`key`
 
   },
   "privateKey": "string"
@@ -54,14 +54,14 @@ keyAlgorithm | **string**<br><p>Алгоритм, используемый дл�
 ```
 
  
-Поле | Описание
+Field | Description
 --- | ---
-key | **object**<br><p>Ресурс Key.</p> <p>Ресурс Key. Подробнее см. в разделе <a href="/docs/iam/concepts/authorization/key">Авторизованные ключи</a>.</p> 
-key.<br>id | **string**<br><p>Идентификатор ресурса Key</p> 
-key.<br>createdAt | **string** (date-time)<br><p>Время создания.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-key.<br>description | **string**<br><p>Описание ресурса Key. Длина 0-256 символов.</p> 
-key.<br>keyAlgorithm | **string**<br>Алгоритм, используемый для создания пары ключей ресурса Key.<br><ul> <li>RSA_2048: RSA с длиной ключа 2048 бит. Значение по умолчанию.</li> <li>RSA_4096: RSA с длиной ключа 4096 бит.</li> </ul> 
-key.<br>publicKey | **string**<br><p>Закрытый ключ из ресурса Key.</p> 
-key.<br>userAccountId | **string** <br>`key` включает только одно из полей `userAccountId`, `serviceAccountId`<br><br><p>Идентификатор аккаунта пользователя, которому принадлежит ресурс Key.</p> 
-key.<br>serviceAccountId | **string** <br>`key` включает только одно из полей `userAccountId`, `serviceAccountId`<br><br><p>Идентификатор сервисного аккаунта, которому принадлежит ресурс Key.</p> 
-privateKey | **string**<br><p>Закрытый ключ из ресурса Key. Этот ключ должен храниться в надежном месте.</p> 
+key | **object**<br><p>Key resource.</p> <p>A Key resource. For more information, see <a href="/docs/iam/concepts/authorization/key">Authorized keys</a>.</p> 
+key.<br>id | **string**<br><p>ID of the Key resource.</p> 
+key.<br>createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+key.<br>description | **string**<br><p>Description of the Key resource. 0-256 characters long.</p> 
+key.<br>keyAlgorithm | **string**<br>An algorithm used to generate a key pair of the Key resource.<br><ul> <li>RSA_2048: RSA with a 2048-bit key size. Default value.</li> <li>RSA_4096: RSA with a 4096-bit key size.</li> </ul> 
+key.<br>publicKey | **string**<br><p>A public key of the Key resource.</p> 
+key.<br>userAccountId | **string** <br>`key` includes only one of the fields `userAccountId`, `serviceAccountId`<br><br><p>ID of the user account that the Key resource belongs to.</p> 
+key.<br>serviceAccountId | **string** <br>`key` includes only one of the fields `userAccountId`, `serviceAccountId`<br><br><p>ID of the service account that the Key resource belongs to.</p> 
+privateKey | **string**<br><p>A private key of the Key resource. This key must be stored securely.</p> 

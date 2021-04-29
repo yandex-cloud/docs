@@ -2,25 +2,25 @@
 editable: false
 ---
 
-# Метод list
-Возвращает список ключей доступа для указанного сервисного аккаунта.
+# Method list
+Retrieves the list of access keys for the specified service account.
  
 
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 GET https://iam.api.cloud.yandex.net/iam/aws-compatibility/v1/accessKeys
 ```
  
-## Query-параметры {#query_params}
+## Query parameters {#query_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-serviceAccountId | Идентификатор сервисного аккаунта, для которого запрашивается список ключей доступа. Чтобы получить идентификатор сервисного аккаунта, используйте запрос [list](/docs/iam/api-ref/ServiceAccount/list). Если параметр не указан, то используется идентификатор субъекта, который сделал запрос.  Максимальная длина строки в символах — 50.
-pageSize | Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем [pageSize](/docs/iam/api-ref/AccessKey/list#query_params), сервис вернет значение [nextPageToken](/docs/iam/api-ref/AccessKey/list#responses), которое можно использовать для получения следующей страницы. Значение по умолчанию: 100.  Максимальное значение — 1000.
-pageToken | Токен страницы. Установите значение [pageToken](/docs/iam/api-ref/AccessKey/list#query_params) равным значению поля [nextPageToken](/docs/iam/api-ref/AccessKey/list#responses) предыдущего запроса, чтобы получить следующую страницу результатов.  Максимальная длина строки в символах — 100.
+serviceAccountId | ID of the service account to list access keys for. To get the service account ID, use a [list](/docs/iam/api-ref/ServiceAccount/list) request. If not specified, it defaults to the subject that made the request.  The maximum string length in characters is 50.
+pageSize | The maximum number of results per page to return. If the number of available results is larger than [pageSize](/docs/iam/api-ref/AccessKey/list#query_params), the service returns a [nextPageToken](/docs/iam/api-ref/AccessKey/list#responses) that can be used to get the next page of results in subsequent list requests. Default value: 100.  The maximum value is 1000.
+pageToken | Page token. To get the next page of results, set [pageToken](/docs/iam/api-ref/AccessKey/list#query_params) to the [nextPageToken](/docs/iam/api-ref/AccessKey/list#responses) returned by a previous list request.  The maximum string length in characters is 100.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -39,12 +39,12 @@ pageToken | Токен страницы. Установите значение [
 ```
 
  
-Поле | Описание
+Field | Description
 --- | ---
-accessKeys[] | **object**<br><p>Ключ доступа. Дополнительные сведения см. в разделе <a href="/docs/iam/concepts/authorization/access-key">AWS-совместимые ключи доступа</a>.</p> 
-accessKeys[].<br>id | **string**<br><p>Идентификатор ресурса AccessKey. Он используется для управления идентификатором ключа доступа и секретным ключом доступа.</p> 
-accessKeys[].<br>serviceAccountId | **string**<br><p>Идентификатор сервисного аккаунта, которому принадлежит ключ доступа.</p> 
-accessKeys[].<br>createdAt | **string** (date-time)<br><p>Время создания.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-accessKeys[].<br>description | **string**<br><p>Описание ключа доступа. Длина описания должна быть от 0 до 256 символов.</p> 
-accessKeys[].<br>keyId | **string**<br><p>Идентификатор ключа доступа. Ключ совместим с сервисами AWS.</p> 
-nextPageToken | **string**<br><p>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем <a href="/docs/iam/api-ref/AccessKey/list#query_params">pageSize</a>, используйте <a href="/docs/iam/api-ref/AccessKey/list#responses">nextPageToken</a> в качестве значения параметра <a href="/docs/iam/api-ref/AccessKey/list#query_params">pageToken</a> в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения <a href="/docs/iam/api-ref/AccessKey/list#responses">nextPageToken</a> для перебора страниц результатов.</p> 
+accessKeys[] | **object**<br><p>An access key. For more information, see <a href="/docs/iam/concepts/authorization/access-key">AWS-compatible access keys</a>.</p> 
+accessKeys[].<br>id | **string**<br><p>ID of the AccessKey resource. It is used to manage secret credentials: an access key ID and a secret access key.</p> 
+accessKeys[].<br>serviceAccountId | **string**<br><p>ID of the service account that the access key belongs to.</p> 
+accessKeys[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+accessKeys[].<br>description | **string**<br><p>Description of the access key. 0-256 characters long.</p> 
+accessKeys[].<br>keyId | **string**<br><p>ID of the access key. The key is AWS compatible.</p> 
+nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/iam/api-ref/AccessKey/list#query_params">pageSize</a>, use the <a href="/docs/iam/api-ref/AccessKey/list#responses">nextPageToken</a> as the value for the <a href="/docs/iam/api-ref/AccessKey/list#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own <a href="/docs/iam/api-ref/AccessKey/list#responses">nextPageToken</a> to continue paging through the results.</p> 

@@ -16,8 +16,8 @@ DELETE https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterI
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of the ClickHouse cluster the shard group belongs to.  The maximum string length in characters is 50.
-shardGroupName | Required. Name of the shard group that should be deleted.  The maximum string length in characters is 63. Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
+clusterId | Required. ID of the ClickHouse cluster that contains the shard group to delete.  To get the cluster ID, make a [list](/docs/managed-clickhouse/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
+shardGroupName | Required. Name of the shard group that should be deleted.  To get the name, make a [listShardGroups](/docs/managed-clickhouse/api-ref/Cluster/listShardGroups) request.  The maximum string length in characters is 63. Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

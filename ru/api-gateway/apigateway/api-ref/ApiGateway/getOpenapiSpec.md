@@ -2,29 +2,29 @@
 editable: false
 ---
 
-# Метод getOpenapiSpec
-Возвращает спецификацию OpenAPI указанного API-шлюза.
+# Method getOpenapiSpec
+Returns the OpenAPI specification of specified API gateway.
  
 
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 GET https://serverless-apigateway.api.cloud.yandex.net/apigateways/v1/apigateways/{apiGatewayId}:spec
 ```
  
-## Path-параметры {#path_params}
+## Path parameters {#path_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-apiGatewayId | Обязательное поле. Идентификатор API-шлюза для получения спецификации.
+apiGatewayId | Required. ID of the API gateway to get specification from.
  
-## Query-параметры {#query_params}
+## Query parameters {#query_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-format | Формат возвращаемой спецификации. По умолчанию используется исходный формат, используемый в `CreateApiGatewayRequest`.
+format | Format of returned specification. Default is the original format used in `CreateApiGatewayRequest`.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -35,7 +35,7 @@ format | Формат возвращаемой спецификации. По у
 ```
 
  
-Поле | Описание
+Field | Description
 --- | ---
-apiGatewayId | **string**<br><p>Идентификатор API-шлюза.</p> 
-openapiSpec | **string**<br><p>Текст спецификации, JSON или YAML.</p> 
+apiGatewayId | **string**<br><p>ID of the API gateway.</p> 
+openapiSpec | **string**<br><p>The text of specification, JSON or YAML.</p> 

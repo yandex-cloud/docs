@@ -2,26 +2,26 @@
 editable: false
 ---
 
-# Метод list
-Возвращает список доступных ресурсов Image в указанном каталоге.
+# Method list
+Retrieves the list of Image resources in the specified folder.
  
 
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 GET https://compute.api.cloud.yandex.net/compute/v1/images
 ```
  
-## Query-параметры {#query_params}
+## Query parameters {#query_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-folderId | Обязательное поле. Идентификатор каталога для получения списка образов. Чтобы получить идентификатор каталога, используйте запрос [list](/docs/resource-manager/api-ref/Folder/list).  Максимальная длина строки в символах — 50.
-pageSize | Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем [pageSize](/docs/compute/api-ref/Image/list#query_params), сервис вернет значение [nextPageToken](/docs/compute/api-ref/Image/list#responses), которое можно использовать для получения следующей страницы.  Максимальное значение — 1000.
-pageToken | Токен страницы. Установите значение [pageToken](/docs/compute/api-ref/Image/list#query_params) равным значению поля [nextPageToken](/docs/compute/api-ref/Image/list#responses) предыдущего запроса, чтобы получить следующую страницу результатов.  Максимальная длина строки в символах — 100.
-filter | Параметры фильтрации ресурсов в ответе. В параметрах фильтрации указываются: 1. Имя поля. В настоящее время фильтрация осуществляется только по полю [Image.name](/docs/compute/api-ref/Image#representation). 2. Оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений. 3. Значение. Должен содержать от 3 до 63 символов и соответствовать регулярному выражению `^[a-z]([-a-z0-9]{,61}[a-z0-9])?$`.  Максимальная длина строки в символах — 1000.
+folderId | Required. ID of the folder to list images in. To get the folder ID, use a [list](/docs/resource-manager/api-ref/Folder/list) request.  The maximum string length in characters is 50.
+pageSize | The maximum number of results per page to return. If the number of available results is larger than [pageSize](/docs/compute/api-ref/Image/list#query_params), the service returns a [nextPageToken](/docs/compute/api-ref/Image/list#responses) that can be used to get the next page of results in subsequent list requests.  The maximum value is 1000.
+pageToken | Page token. To get the next page of results, set [pageToken](/docs/compute/api-ref/Image/list#query_params) to the [nextPageToken](/docs/compute/api-ref/Image/list#responses) returned by a previous list request.  The maximum string length in characters is 100.
+filter | A filter expression that filters resources listed in the response. The expression must specify: 1. The field name. Currently you can use filtering only on the [Image.name](/docs/compute/api-ref/Image#representation) field. 2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. 3. The value. Must be 3-63 characters long and match the regular expression `^[a-z]([-a-z0-9]{,61}[a-z0-9])?$`.  The maximum string length in characters is 1000.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -51,20 +51,20 @@ filter | Параметры фильтрации ресурсов в ответ�
 ```
 
  
-Поле | Описание
+Field | Description
 --- | ---
-images[] | **object**<br><p>Ресурс Image.</p> 
-images[].<br>id | **string**<br><p>Идентификатор образа.</p> 
-images[].<br>folderId | **string**<br><p>Идентификатор каталога, которому принадлежит образ диска.</p> 
-images[].<br>createdAt | **string** (date-time)<br><p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-images[].<br>name | **string**<br><p>Имя образа. Длина 1-63 символов.</p> 
-images[].<br>description | **string**<br><p>Описание образа. Длина описания должна быть от 0 до 256 символов.</p> 
-images[].<br>labels | **object**<br><p>Метки ресурса в формате `ключ:значение`. Максимум 64 на ресурс.</p> 
-images[].<br>family | **string**<br><p>Имя семейства образов, к которому принадлежит этот образ.</p> <p>Вы можете получить самый последний образ из семейства образов, используя запрос <a href="/docs/compute/api-ref/Image/getLatestByFamily">getLatestByFamily</a>, чтобы создать диск из этого образа.</p> 
-images[].<br>storageSize | **string** (int64)<br><p>Размер образа в байтах.</p> 
-images[].<br>minDiskSize | **string** (int64)<br><p>Минимальный размер диска, который будет создан из этого образа.</p> 
-images[].<br>productIds[] | **string**<br><p>Идентификаторы лицензий, указывающие, какие лицензии подключены к этому ресурсу. Идентификаторы лицензий используются для расчета дополнительной платы за использование виртуальной машины.</p> <p>Правильный идентификатор лицензии генерируется Яндекс.Облаком. Идентификаторы наследуются новыми ресурсами, созданными из этого ресурса.</p> <p>Если вам известны идентификаторы лицензий, укажите их при создании образа. Например, если создать образ диска с помощью сторонней утилиты и загрузить его в Yandex Object Storage, то идентификаторы лицензий будут потеряны. Вы можете указать их в запросе <a href="/docs/compute/api-ref/Image/create">create</a>.</p> 
-images[].<br>status | **string**<br><p>Текущий статус образа диска.</p> <ul> <li>CREATING: Образ диска создается.</li> <li>READY: Образ диска готов к использованию.</li> <li>ERROR: С образом произошла ошибка, блокирующая работу.</li> <li>DELETING: Образ диска удаляется.</li> </ul> 
-images[].<br>os | **object**<br><p>Операционная система, содержащаяся в образе.</p> 
-images[].<br>os.<br>type | **string**<br><p>Тип операционной системы. Значение по умолчанию — `LINUX`.</p> <p>Это поле используется для правильной эмуляции vCPU и расчета стоимости использования виртуальной машины.</p> <ul> <li>LINUX: Операционная система Linux.</li> <li>WINDOWS: Операционная система Windows.</li> </ul> 
-nextPageToken | **string**<br><p>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем <a href="/docs/compute/api-ref/Snapshot/list#query_params">pageSize</a>, используйте <a href="/docs/compute/api-ref/Image/list#responses">nextPageToken</a> в качестве значения параметра <a href="/docs/compute/api-ref/Snapshot/list#query_params">pageToken</a> в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения <a href="/docs/compute/api-ref/Image/list#responses">nextPageToken</a> для перебора страниц результатов.</p> 
+images[] | **object**<br><p>An Image resource.</p> 
+images[].<br>id | **string**<br><p>ID of the image.</p> 
+images[].<br>folderId | **string**<br><p>ID of the folder that the image belongs to.</p> 
+images[].<br>createdAt | **string** (date-time)<br><p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+images[].<br>name | **string**<br><p>Name of the image. 1-63 characters long.</p> 
+images[].<br>description | **string**<br><p>Description of the image. 0-256 characters long.</p> 
+images[].<br>labels | **object**<br><p>Resource labels as `key:value` pairs. Maximum of 64 per resource.</p> 
+images[].<br>family | **string**<br><p>The name of the image family to which this image belongs.</p> <p>You can get the most recent image from a family by using the <a href="/docs/compute/api-ref/Image/getLatestByFamily">getLatestByFamily</a> request and create the disk from this image.</p> 
+images[].<br>storageSize | **string** (int64)<br><p>The size of the image, specified in bytes.</p> 
+images[].<br>minDiskSize | **string** (int64)<br><p>Minimum size of the disk which will be created from this image.</p> 
+images[].<br>productIds[] | **string**<br><p>License IDs that indicate which licenses are attached to this resource. License IDs are used to calculate additional charges for the use of the virtual machine.</p> <p>The correct license ID is generated by Yandex.Cloud. IDs are inherited by new resources created from this resource.</p> <p>If you know the license IDs, specify them when you create the image. For example, if you create a disk image using a third-party utility and load it into Yandex Object Storage, the license IDs will be lost. You can specify them in the <a href="/docs/compute/api-ref/Image/create">create</a> request.</p> 
+images[].<br>status | **string**<br><p>Current status of the image.</p> <ul> <li>CREATING: Image is being created.</li> <li>READY: Image is ready to use.</li> <li>ERROR: Image encountered a problem and cannot operate.</li> <li>DELETING: Image is being deleted.</li> </ul> 
+images[].<br>os | **object**<br><p>Operating system that is contained in the image.</p> 
+images[].<br>os.<br>type | **string**<br><p>Operating system type. The default is `LINUX`.</p> <p>This field is used to correctly emulate a vCPU and calculate the cost of using an instance.</p> <ul> <li>LINUX: Linux operating system.</li> <li>WINDOWS: Windows operating system.</li> </ul> 
+nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/compute/api-ref/Snapshot/list#query_params">pageSize</a>, use the <a href="/docs/compute/api-ref/Image/list#responses">nextPageToken</a> as the value for the <a href="/docs/compute/api-ref/Snapshot/list#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own <a href="/docs/compute/api-ref/Image/list#responses">nextPageToken</a> to continue paging through the results.</p> 

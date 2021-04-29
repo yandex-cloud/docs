@@ -36,6 +36,16 @@
                     --ask-password
   ```
 
+  **Connecting without SSL:**
+
+  ```bash
+  clickhouse-client --host <FQDN of any {{ CH }} host> \
+                    --user <username> \
+                    --database <database name> \
+                    --port 9000 \
+                    --ask-password
+  ```
+
   After running the command, enter the user password to complete the connection procedure.
 
   After connecting to the DBMS, run the command `SELECT version();`.
@@ -49,6 +59,14 @@
        -H "X-ClickHouse-User: <DB user name>" \
        -H "X-ClickHouse-Key: <DB user password>" \
        'https://<FQDN of any {{ CH }} host>:8443/?database=<DB name>&query=SELECT%20version()'
+  ```
+
+  **Connecting without SSL:**
+
+  ```bash
+  curl -H "X-ClickHouse-User: <DB username>" \
+       -H "X-ClickHouse-Key: <DB user password>" \
+       'http://<FQDN of any {{ CH }} host>:8123/?database=<DB name>&query=SELECT%20version()'
   ```
 
 - Python
@@ -85,6 +103,29 @@
   print(rs.text)
   ```
 
+  **Code example for connecting without SSL:**
+
+  `connect.py`
+
+  ```python
+  import requests
+  
+  url = 'http://{host}:8123/?database={db}&query={query}'.format(
+          host='<FQDN of any {{ CH }} host>',
+          db='<DB name>',
+          query='SELECT version()')
+  
+  auth = {
+          'X-ClickHouse-User': '<DB username>',
+          'X-ClickHouse-Key': '<DB user password>',
+      }
+  
+  rs = requests.get(url, headers=auth)
+  rs.raise_for_status()
+  
+  print(rs.text)
+  ```
+
   **Connecting:**
 
   ```bash
@@ -98,7 +139,7 @@
   1. Install the dependencies:
 
      ```bash
-     sudo apt update && apt install -y php
+     sudo apt update && sudo apt install -y php
      ```
 
   1. Make sure that the `allow_url_fopen` parameter is set to `On` in the PHP settings:
@@ -144,6 +185,36 @@
     ]);
   
     $url = sprintf('https://%s:8443/?database=%s&query=%s', $host, $db, urlencode($query));
+  
+    $rs = file_get_contents($url, false, $context);
+    print_r($rs);
+  ?>
+  ```
+
+  **Code example for connecting without SSL:**
+
+  `connect.php`
+
+  ```php
+  <?php
+    $host = '<FQDN of any {{ CH }} host>';
+    $db = '<DB name>';
+    $query = 'SELECT version()';
+  
+    $auth = [
+        'X-ClickHouse-User: <DB username>',
+        'X-ClickHouse-Key: <DB user password>',
+    ];
+  
+    $context = stream_context_create([
+        'http' => [
+            'method' => 'GET',
+            'protocol_version' => 1.1,
+            'header' => $auth
+        ]
+    ]);
+  
+    $url = sprintf('http://%s:8123/?database=%s&query=%s', $host, $db, urlencode($query));
   
     $rs = file_get_contents($url, false, $context);
     print_r($rs);
@@ -201,7 +272,7 @@
                <groupId>org.slf4j</groupId>
                <artifactId>slf4j-simple</artifactId>
                <version>1.7.30</version>
-             </dependency> 
+             </dependency>
      	</dependencies>
      	<build>
          	<finalName>${project.artifactId}-${project.version}</finalName>
@@ -291,6 +362,38 @@
   }  
   ```
 
+  **Code example for connecting without SSL:**
+
+  `src/java/com/example/App.java`
+
+  ```java
+  package com.example;
+  
+  import java.sql.*;
+  
+  public class App {
+    public static void main(String[] args) {
+      String DB_HOST    = "<FQDN of any {{ CH }} host>";
+      String DB_NAME    = "<DB name>";
+      String DB_USER    = "<DB username>";
+      String DB_PASS    = "<DB user password>";
+  
+      String DB_URL = String.format("jdbc:clickhouse://%s:8123/%s", DB_HOST, DB_NAME);
+  
+      try {
+        Class.forName("ru.yandex.clickhouse.ClickHouseDriver");
+  
+        Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
+        ResultSet rs = conn.createStatement().executeQuery("SELECT version()");
+        if(rs.next()) {System.out.println(rs.getString(1));}
+  
+        conn.close();
+      }
+      catch(Exception ex) {ex.printStackTrace();}
+    }
+  }  
+  ```
+
   **Connecting:**
 
   ```bash
@@ -340,6 +443,45 @@
   };
   
   const rs = https.request(options, (res) => {
+      res.setEncoding('utf8');
+      res.on('data', (chunk) => {
+          console.log(chunk);
+      });
+  });
+  
+  rs.end();
+  ```
+
+  **Code example for connecting without SSL:**
+
+  `app.js`
+
+  ```js
+  "use strict"
+  const http = require('http');
+  const querystring = require('querystring');
+  const fs = require('fs');
+  
+  const DB_HOST = "<FQDN of any {{ CH }} host>";
+  const DB_NAME = "<DB name>";
+  const DB_USER = "<DB username>";
+  const DB_PASS = "<DB user password>";
+  
+  const options = {
+      'method': 'GET',
+      'path': '/?' + querystring.stringify({
+          'database': DB_NAME,
+          'query': 'SELECT version()',
+      }),
+      'port': 8123,
+      'hostname': DB_HOST,
+      'headers': {
+          'X-ClickHouse-User': DB_USER,
+          'X-ClickHouse-Key': DB_PASS,
+      },
+  };
+  
+  const rs = http.request(options, (res) => {
       res.setEncoding('utf8');
       res.on('data', (chunk) => {
           console.log(chunk);
@@ -423,6 +565,52 @@
   }
   ```
 
+  **Code example for connecting without SSL:**
+
+  `connect.go`
+
+  ```go
+  package main
+  
+  import (
+      "fmt"
+      "net/http"
+      "io/ioutil"
+  )
+  
+  func main() {
+  
+      const DB_HOST = "<FQDN of any {{ CH }} host>"
+      const DB_NAME = "<DB name>"
+      const DB_USER = "<DB username>"
+      const DB_PASS = "<DB user password>"
+  
+      conn := &http.Client{
+        Transport: &http.Transport{},
+      }
+  
+      req, _ := http.NewRequest("GET", fmt.Sprintf("http://%s:8123/", DB_HOST), nil)
+      query := req.URL.Query()
+      query.Add("database", DB_NAME)
+      query.Add("query", "SELECT version()")
+  
+      req.URL.RawQuery = query.Encode()
+  
+      req.Header.Add("X-ClickHouse-User", DB_USER)
+      req.Header.Add("X-ClickHouse-Key", DB_PASS)
+  
+      resp, err := conn.Do(req)
+      if err != nil {
+        panic(err)
+      }
+  
+      defer resp.Body.Close()
+  
+      data, _ := ioutil.ReadAll(resp.Body)
+      fmt.Println(string(data))
+  }
+  ```
+
   **Connecting:**
 
   ```bash
@@ -465,6 +653,35 @@
   conn.ca_file = "/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt"
   conn.use_ssl = true
   conn.verify_mode = OpenSSL::SSL::VERIFY_PEER
+  
+  rs = conn.request(req)
+  puts rs.body
+  ```
+
+  **Code example for connecting without SSL:**
+
+  `connect.rb`
+
+  ```ruby
+  require "net/http"
+  require "uri"
+  
+  DB_HOST = "<FQDN of any {{ CH }} host>"
+  DB_NAME = "<DB name>"
+  DB_USER = "<DB username>"
+  DB_PASS = "<DB user password>"
+  
+  QUERYSTRING = { :database => DB_NAME, :query => "SELECT version()" }
+  
+  uri = URI("http://" + DB_HOST + "/")
+  uri.port = 8123
+  uri.query = URI.encode_www_form(QUERYSTRING)
+  
+  req = Net::HTTP::Get.new(uri)
+  req.add_field("X-ClickHouse-User", DB_USER)
+  req.add_field("X-ClickHouse-Key", DB_PASS)
+  
+  conn = Net::HTTP.new(uri.host, uri.port)
   
   rs = conn.request(req)
   puts rs.body
@@ -522,7 +739,7 @@
      Description = ODBC Driver (Unicode) for ClickHouse
      Driver      = /usr/local/lib64/libclickhouseodbcw.so
      Setup       = /usr/local/lib64/libclickhouseodbcw.so
-     UsageCount  = 1 
+     UsageCount  = 1
      ```
 
      {% endcut %}
@@ -542,6 +759,21 @@
   Proto = https
   SSLMode = allow
   CertificateFile = /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt
+  ```
+
+  **Example of settings in the `odbc.ini` file for connecting without SSL:**
+
+  `/etc/odbc.ini`
+
+  ```ini
+  [ClickHouse]
+  Driver = ClickHouse ODBC Driver (Unicode)
+  Server = <FQDN of any {{ CH }} host>
+  Database = <DB name>
+  UID = <DB username>
+  PWD = <DB user password>
+  Port = 8123
+  Proto = http
   ```
 
   **Connecting:**

@@ -72,25 +72,32 @@ The cost of supporting this infrastructure includes:
 
 To save a Terraform state in {{ objstorage-name }}, specify the provider and backend settings:
 
-```
-provider "yandex" {
-  token = "<OAuth or static key of service account>"
-  folder_id = "<folder ID>"
-  zone      = "ru-central1-a"
-}
-
+```hcl
 terraform {
+  required_providers {
+    yandex = {
+      source = "yandex-cloud/yandex"
+    }
+  }
+
   backend "s3" {
     endpoint   = "storage.yandexcloud.net"
-    bucket   = "<bucket name>"
+    bucket     = "<bucket name>"
     region     = "us-east-1"
-    key = "<path to the state file in the bucket>/<state file name>.tfstate"
+    key        = "<path to the state file in the bucket>/<state file name>.tfstate"
     access_key = "<static key identifier>"
     secret_key = "<secret key>"
 
     skip_region_validation      = true
     skip_credentials_validation = true
   }
+}
+
+provider "yandex" {
+  token     = "<OAuth or static key of service account>"
+  cloud_id  = "<cloud ID>"
+  folder_id = "<folder ID>"
+  zone      = "ru-central1-a"
 }
 ```
 
@@ -104,14 +111,14 @@ The VMs have a different number of cores and amount of RAM: 1 core and 2 GB of R
 
 1. Save the following configuration to `example.tf`:
 
-   ```
-   provider "yandex" {
-     token     = "<OAuth or static key of service account>"
-     folder_id = "<folder ID>"
-     zone      = "ru-central1-a"
-   }
-
+   ```hcl
    terraform {
+     required_providers {
+       yandex = {
+         source = "yandex-cloud/yandex"
+       }
+     }
+
      backend "s3" {
        endpoint   = "storage.yandexcloud.net"
        bucket     = "<bucket name>"
@@ -123,6 +130,13 @@ The VMs have a different number of cores and amount of RAM: 1 core and 2 GB of R
        skip_region_validation      = true
        skip_credentials_validation = true
      }
+   }
+
+   provider "yandex" {
+     token     = "<OAuth or static key of service account>"
+     cloud_id  = "<cloud ID>"
+     folder_id = "<folder ID>"
+     zone      = "ru-central1-a"
    }
 
    resource "yandex_compute_instance" "vm-1" {
@@ -140,7 +154,7 @@ The VMs have a different number of cores and amount of RAM: 1 core and 2 GB of R
      }
 
      network_interface {
-       subnet_id = "${yandex_vpc_subnet.subnet-1.id}"
+       subnet_id = yandex_vpc_subnet.subnet-1.id
        nat       = true
      }
 
@@ -164,7 +178,7 @@ The VMs have a different number of cores and amount of RAM: 1 core and 2 GB of R
      }
 
      network_interface {
-       subnet_id = "${yandex_vpc_subnet.subnet-1.id}"
+       subnet_id = yandex_vpc_subnet.subnet-1.id
        nat       = true
      }
 
@@ -180,28 +194,28 @@ The VMs have a different number of cores and amount of RAM: 1 core and 2 GB of R
    resource "yandex_vpc_subnet" "subnet-1" {
      name           = "subnet1"
      zone           = "ru-central1-a"
-     network_id     = "${yandex_vpc_network.network-1.id}"
+     network_id     = yandex_vpc_network.network-1.id
      v4_cidr_blocks = ["192.168.10.0/24"]
    }
 
    output "internal_ip_address_vm_1" {
-     value = "${yandex_compute_instance.vm-1.network_interface.0.ip_address}"
+     value = yandex_compute_instance.vm-1.network_interface.0.ip_address
    }
 
    output "internal_ip_address_vm_2" {
-     value = "${yandex_compute_instance.vm-2.network_interface.0.ip_address}"
+     value = yandex_compute_instance.vm-2.network_interface.0.ip_address
    }
 
    output "external_ip_address_vm_1" {
-     value = "${yandex_compute_instance.vm-1.network_interface.0.nat_ip_address}"
+     value = yandex_compute_instance.vm-1.network_interface.0.nat_ip_address
    }
 
    output "external_ip_address_vm_2" {
-     value = "${yandex_compute_instance.vm-2.network_interface.0.nat_ip_address}"
+     value = yandex_compute_instance.vm-2.network_interface.0.nat_ip_address
    }
 
    output "subnet-1" {
-     value = "${yandex_vpc_subnet.subnet-1.id}"
+     value = yandex_vpc_subnet.subnet-1.id
    }
    ```
 
@@ -228,9 +242,17 @@ Create another configuration and use the saved state to create another VM in one
 
 1. Go to the created directory and create the configuration file `remote-state.tf`:
 
-   ```
+   ```hcl
+   terraform {
+     required_providers {
+       yandex = {
+         source = "yandex-cloud/yandex"
+       }
+     }
+   }
+
    provider "yandex" {
-     token = "<OAuth or static key of service account>"
+     token     = "<OAuth or static key of service account>"
      cloud_id  = "cloud-id"
      folder_id = "folder-id"
      zone      = "ru-central1-a"
@@ -240,9 +262,9 @@ Create another configuration and use the saved state to create another VM in one
      backend = "s3"
      config = {
        endpoint   = "storage.yandexcloud.net"
-       bucket   = "<bucket name>"
+       bucket     = "<bucket name>"
        region     = "us-east-1"
-       key = "<path to the state file in the bucket>/<state file name>.tfstate"
+       key        = "<path to the state file in the bucket>/<state file name>.tfstate"
        access_key = "<static key identifier>"
        secret_key = "<secret key>"
 
@@ -287,4 +309,3 @@ Create another configuration and use the saved state to create another VM in one
 ## Delete the created resources {#clear-out}
 
 To destroy the resources you created, run the command `terraform destroy`: start with the second configuration, and then proceed to the first.
-

@@ -9,7 +9,7 @@ Creates a network load balancer in the specified folder using the data specified
  
 ## HTTP request {#https-request}
 ```
-POST https://load-balancer.api.cloud.yandex.net/network-load-balancer/v1alpha/networkLoadBalancers
+POST https://load-balancer.api.cloud.yandex.net/load-balancer/v1alpha/networkLoadBalancers
 ```
  
 ## Body parameters {#body_params}
@@ -75,7 +75,7 @@ listenerSpecs[].<br>protocol | **string**<br>Required. Protocol for incoming tra
 listenerSpecs[].<br>externalAddressSpec | **object**<br>External IP address specification.<br><p>External address specification that is used by `ListenerSpec`.</p> 
 listenerSpecs[].<br>externalAddressSpec.<br>address | **string**<br><p>Dynamic IP address for a listener. Must be empty when creating a new network load balancer. Must be provided when updating an existing load balancer.</p> 
 listenerSpecs[].<br>externalAddressSpec.<br>ipVersion | **string**<br><p>IP version.</p> <p>IP version of the addresses that the load balancer works with. Only IPv4 is currently available.</p> <ul> <li>IPV4: IPv4</li> <li>IPV6: IPv6</li> </ul> 
-attachedTargetGroups[] | **object**<br><p>An AttachedTargetGroup resource. For more information, see <a href="/network-load-balancer/concepts">Attached Target Groups</a></p> 
+attachedTargetGroups[] | **object**<br><p>An AttachedTargetGroup resource. For more information, see <a href="/docs/network-load-balancer/concepts">Attached Target Groups</a></p> 
 attachedTargetGroups[].<br>targetGroupId | **string**<br><p>Required. ID of the target group.</p> <p>The maximum string length in characters is 50.</p> 
 attachedTargetGroups[].<br>healthChecks[] | **object**<br><p>A HealthCheck resource. For more information, see <a href="/docs/network-load-balancer/concepts/health-check">Health check</a>.</p> 
 attachedTargetGroups[].<br>healthChecks[].<br>name | **string**<br><p>Required. Name of the health check. The name must be unique for each target group that attached to a single load balancer. 3-63 characters long.</p> <p>Value must match the regular expression `` \|[a-z][-a-z0-9]{1,61}[a-z0-9] ``.</p> 

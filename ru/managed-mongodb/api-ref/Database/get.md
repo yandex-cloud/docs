@@ -2,24 +2,24 @@
 editable: false
 ---
 
-# Метод get
-Возвращает указанный ресурс Database для MongoDB.
+# Method get
+Returns the specified MongoDB Database resource.
  
-Чтобы получить список доступных ресурсов Database для MongoDB, отправьте запрос [list](/docs/managed-mongodb/api-ref/Database/list).
+To get the list of available MongoDB Database resources, make a [list](/docs/managed-mongodb/api-ref/Database/list) request.
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 GET https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}/databases/{databaseName}
 ```
  
-## Path-параметры {#path_params}
+## Path parameters {#path_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-clusterId | Обязательное поле. Идентификатор кластера MongoDB, к которому принадлежит база данных. Чтобы получить идентификатор кластера, используйте запрос [list](/docs/managed-mongodb/api-ref/Cluster/list).  Максимальная длина строки в символах — 50.
-databaseName | Обязательное поле. Имя запрашиваемой базы данных MongoDB. Чтобы получить имя базы данных, используйте запрос [List].  Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_-]* ``.
+clusterId | Required. ID of the MongoDB cluster that the database belongs to. To get the cluster ID use a [list](/docs/managed-mongodb/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
+databaseName | Required. Name of the MongoDB database to return. To get the name of the database use a [list](/docs/managed-mongodb/api-ref/Database/list) request.  The maximum string length in characters is 63. Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -28,9 +28,10 @@ databaseName | Обязательное поле. Имя запрашиваем�
   "clusterId": "string"
 }
 ```
-Ресурс Database для MongoDB. Подробнее см. в разделе [Developer's Guide](/docs/managed-mongodb/concepts).
+A MongoDB Database resource. For more information, see the 
+[Developer's Guide](/docs/managed-mongodb/concepts).
  
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br><p>Имя базы данных.</p> 
-clusterId | **string**<br><p>Идентификатор кластера MongoDB, к которому принадлежит база данных.</p> 
+name | **string**<br><p>Name of the database.</p> 
+clusterId | **string**<br><p>ID of the MongoDB cluster that the database belongs to.</p> 

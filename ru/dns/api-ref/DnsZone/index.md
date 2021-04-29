@@ -3,8 +3,8 @@ editable: false
 ---
 
 # DnsZone
-Набор методов для управления зонами DNS.
-## JSON-представление {#representation}
+A set of methods for managing DNS zones.
+## JSON Representation {#representation}
 ```json 
 {
   "id": "string",
@@ -23,32 +23,32 @@ editable: false
 }
 ```
  
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br><p>Идентификатор зоны DNS. Генерируется при создании.</p> 
-folderId | **string**<br><p>Идентификатор каталога, которому принадлежит зона DNS.</p> 
-createdAt | **string** (date-time)<br><p>Время создания ресурса.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-name | **string**<br><p>Имя зоны DNS. Имя должно быть уникальным в каталоге.</p> 
-description | **string**<br><p>Описание зоны DNS.</p> 
-labels | **object**<br><p>Метки зон DNS в формате `key:value`.</p> 
-zone | **string**<br><p>Суффикс зоны DNS.</p> 
-privateVisibility | **object**<br><p>Настройки внутренней зоны. Указывают, будут ли записи в зоне видны только из сетей VPC.</p> <p>Конфигурация для внутренних зон.</p> 
-privateVisibility.<br>networkIds[] | **string**<br><p>Идентификаторы сетей.</p> <p>Количество элементов должно находиться в диапазоне от 0 до 10. Длина строки в символах должна быть равна 20.</p> 
-publicVisibility | **object**<br><p>Настройки публичной зоны. Указывают, являются ли записи в пределах зоны публичными.</p> <p>Конфигурация для публичных зон.</p> 
+id | **string**<br><p>ID of the DNS zone. Generated at creation time.</p> 
+folderId | **string**<br><p>ID of the folder that the DNS zone belongs to.</p> 
+createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+name | **string**<br><p>Name of the DNS zone. The name is unique within the folder.</p> 
+description | **string**<br><p>Description of the DNS zone.</p> 
+labels | **object**<br><p>DNS zone labels as `key:value` pairs.</p> 
+zone | **string**<br><p>DNS zone suffix.</p> 
+privateVisibility | **object**<br><p>Privately visible zone settings. Specifies whether records within the zone are visible from a VPC networks only.</p> <p>Configuration for privately visible zones.</p> 
+privateVisibility.<br>networkIds[] | **string**<br><p>Network IDs.</p> <p>The number of elements must be in the range 0-10. The string length in characters for each value must be equal to 20.</p> 
+publicVisibility | **object**<br><p>Publicly visible zone settings. Indicates whether records within the zone are publicly visible.</p> <p>Configuration for publicly visible zones.</p> 
 
-## Методы {#methods}
-Метод | Описание
+## Methods {#methods}
+Method | Description
 --- | ---
-[create](create.md) | Создает зону DNS в указанном каталоге.
-[delete](delete.md) | Удаляет указанную зону DNS.
-[get](get.md) | Возвращает указанную зону DNS.
-[getRecordSet](getRecordSet.md) | Возвращает указанный набор записей.
-[list](list.md) | Возвращает список зон DNS в указанном каталоге.
-[listAccessBindings](listAccessBindings.md) | Возвращает список привязок прав доступа для указанной зоны DNS.
-[listOperations](listOperations.md) | Возвращает список операций для указанной зоны DNS.
-[listRecordSets](listRecordSets.md) | Возвращает список наборов записей в указанном каталоге.
-[setAccessBindings](setAccessBindings.md) | Задает список привязок прав доступа для указанной зоны DNS.
-[update](update.md) | Обновляет указанную зону DNS.
-[updateAccessBindings](updateAccessBindings.md) | Обновляет привязки прав доступа для указанной зоны DNS.
-[updateRecordSets](updateRecordSets.md) | Метод со строгим контролем за изменением состояния зоны. Возвращает ошибку, когда: 1. Удаленная запись не найдена. 2. Найдена запись с совпадающим типом и именем, но другим TTL или значением. 3. Предпринята попытка добавить запись с существующим именем и типом. Сначала происходит удаление. Если запись с одинаковым именем и типом существует в обоих списках, то существующая запись будет удалена, а новая добавлена.
-[upsertRecordSets](upsertRecordSets.md) | Метод без строгого контроля за изменением состояния зоны. Если удаленная запись не существует, ничего не происходит. Удаляет записи, соответствующие всем указанным полям, что позволяет удалять только указанные записи из набора записей.
+[create](create.md) | Creates a DNS zone in the specified folder.
+[delete](delete.md) | Deletes the specified DNS zone.
+[get](get.md) | Returns the specified DNS zone.
+[getRecordSet](getRecordSet.md) | Returns the specified record set.
+[list](list.md) | Retrieves the list of DNS zones in the specified folder.
+[listAccessBindings](listAccessBindings.md) | Lists existing access bindings for the specified DNS zone.
+[listOperations](listOperations.md) | Lists operations for the specified DNS zone.
+[listRecordSets](listRecordSets.md) | Retrieves the list of record sets in the specified folder.
+[setAccessBindings](setAccessBindings.md) | Sets access bindings for the specified DNS zone.
+[update](update.md) | Updates the specified DNS zone.
+[updateAccessBindings](updateAccessBindings.md) | Updates access bindings for the specified DNS zone.
+[updateRecordSets](updateRecordSets.md) | Method with strict control for changing zone state. Returns error when: 1. Deleted record is not found. 2. Found record with matched type and name but different TTL or value. 3. Attempted to add record with existing name and type. Deletions happen first. If a record with the same name and type exists in both lists, then the existing record will be deleted, and a new one added.
+[upsertRecordSets](upsertRecordSets.md) | Method without strict control for changing zone state. Nothing happens if deleted record doesn't exist. Deletes records that match all specified fields which allows to delete only specified records from a record set.

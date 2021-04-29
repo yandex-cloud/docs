@@ -2,26 +2,26 @@
 editable: false
 ---
 
-# Метод list
-Возвращает список доступных адресов в указанном каталоге.
+# Method list
+Retrieves the list of Address resources in the specified folder.
  
 
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 GET https://vpc.api.cloud.yandex.net/vpc/v1/addresses
 ```
  
-## Query-параметры {#query_params}
+## Query parameters {#query_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-folderId | Обязательное поле. Идентификатор каталога, которому принадлежит адрес.  Чтобы получить идентификатор каталога, используйте запрос [list](/docs/resource-manager/api-ref/Folder/list).  Максимальная длина строки в символах — 50.
-pageSize | Максимальное количество результатов на странице ответа на запрос. Если количество результатов  больше чем `page_size`, сервис вернет значение [nextPageToken](/docs/vpc/api-ref/Address/list#responses), которое можно использовать для получения следующей страницы. Значение по умолчанию: 100.  Максимальное значение — 1000.
-pageToken | Токен страницы. Установите значение `page_token` равным значению поля [nextPageToken](/docs/vpc/api-ref/Address/list#responses) предыдущего запроса, чтобы получить следующую страницу результатов.  Максимальная длина строки в символах — 100.
-filter | Параметры фильтрации адресов в ответе.  В параметрах фильтрации указываются:  1. Имя поля. В настоящее время фильтрация осуществляется только по полю [Address.name](/docs/vpc/api-ref/Address#representation).  2. Оператор. Поддерживаются операторы `=` и `!=` для одиночных значений, `IN` и `NOT IN` для списков значений. 3. Значение. Значение длиной от 3 до 63 символов, совпадающее с регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]`.  Пример фильтра: "name=my-address".
+folderId | Required. ID of the folder to list addresses in.  To get the folder ID use a [list](/docs/resource-manager/api-ref/Folder/list) request.  The maximum string length in characters is 50.
+pageSize | The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [nextPageToken](/docs/vpc/api-ref/Address/list#responses) that can be used to get the next page of results in subsequent list requests. Default value: 100.  The maximum value is 1000.
+pageToken | Page token. To get the next page of results, set `page_token` to the  [nextPageToken](/docs/vpc/api-ref/Address/list#responses) returned by a previous list request.  The maximum string length in characters is 100.
+filter | A filter expression that filters Address listed in the response.  The expression must specify:  1. The field name. Currently you can use filtering only on [Address.name](/docs/vpc/api-ref/Address#representation) field.  2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. 3. The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]`. Example of a filter: `name=my-address`.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -36,6 +36,8 @@ filter | Параметры фильтрации адресов в ответе.
       "labels": "object",
       "reserved": true,
       "used": true,
+      "type": "string",
+      "ipVersion": "string",
       "externalIpv4Address": {
         "address": "string",
         "zoneId": "string",
@@ -51,21 +53,23 @@ filter | Параметры фильтрации адресов в ответе.
 ```
 
  
-Поле | Описание
+Field | Description
 --- | ---
-addresses[] | **object**<br><p>Ресурс Адрес. Подробнее см. <a href="/docs/vpc/concepts/address">документацию</a>.</p> 
-addresses[].<br>id | **string**<br><p>Идентификатор адреса. Генерируется при создании.</p> 
-addresses[].<br>folderId | **string**<br><p>Идентификатор каталога, которому принадлежит адрес.</p> 
-addresses[].<br>createdAt | **string** (date-time)<br><p>Время создания ресурса.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-addresses[].<br>name | **string**<br><p>Имя адреса. Имя должно быть уникальным в каталоге.</p> 
-addresses[].<br>description | **string**<br><p>Описание адреса.</p> 
-addresses[].<br>labels | **object**<br><p>Метки адреса в формате `ключ:значение`.</p> 
-addresses[].<br>reserved | **boolean** (boolean)<br><p>Определяет, зарезервирован ли адрес (статический ли он).</p> 
-addresses[].<br>used | **boolean** (boolean)<br><p>Определяет, используется ли адрес.</p> 
+addresses[] | **object**<br><p>An Address resource. For more information, see <a href="/docs/vpc/concepts/address">Address</a>.</p> 
+addresses[].<br>id | **string**<br><p>ID of the address. Generated at creation time.</p> 
+addresses[].<br>folderId | **string**<br><p>ID of the folder that the address belongs to.</p> 
+addresses[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+addresses[].<br>name | **string**<br><p>Name of the address. The name is unique within the folder.</p> 
+addresses[].<br>description | **string**<br><p>Description of the address.</p> 
+addresses[].<br>labels | **object**<br><p>Resource labels as `key:value` pairs.</p> 
+addresses[].<br>reserved | **boolean** (boolean)<br><p>Specifies if address is reserved or not.</p> 
+addresses[].<br>used | **boolean** (boolean)<br><p>Specifies if address is used or not.</p> 
+addresses[].<br>type | **string**<br>Type of the IP address.<br><ul> <li>INTERNAL: Internal IP address.</li> <li>EXTERNAL: Public IP address.</li> </ul> 
+addresses[].<br>ipVersion | **string**<br>Vervion of the IP address.<br><ul> <li>IPV4: IPv4 address.</li> <li>IPV6: IPv6 address.</li> </ul> 
 addresses[].<br>externalIpv4Address | **object**<br>
-addresses[].<br>externalIpv4Address.<br>address | **string**<br><p>Значение адреса.</p> 
-addresses[].<br>externalIpv4Address.<br>zoneId | **string**<br><p>Зона доступности, из которой будет выделен адрес.</p> 
-addresses[].<br>externalIpv4Address.<br>requirements | **object**<br><p>Параметры выделяемого адреса, например защита от DDoS-атак.</p> 
-addresses[].<br>externalIpv4Address.<br>requirements.<br>ddosProtectionProvider | **string**<br><p>Идентификатор провайдера защиты от DDoS-атак.</p> 
-addresses[].<br>externalIpv4Address.<br>requirements.<br>outgoingSmtpCapability | **string**<br><p>Возможность отправки SMTP-трафика.</p> 
-nextPageToken | **string**<br><p>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем <a href="/docs/vpc/api-ref/Address/list#query_params">pageSize</a>, используйте `next_page_token` в качестве значения параметра <a href="/docs/vpc/api-ref/Address/list#query_params">pageToken</a> в следующем запросе списка ресурсов.</p> <p>Каждая следующая страница будет иметь свой `next_page_token` для продолжения перебора страниц результатов.</p> 
+addresses[].<br>externalIpv4Address.<br>address | **string**<br><p>Value of address.</p> 
+addresses[].<br>externalIpv4Address.<br>zoneId | **string**<br><p>Availability zone from which the address will be allocated.</p> 
+addresses[].<br>externalIpv4Address.<br>requirements | **object**<br><p>Parameters of the allocated address, for example DDoS Protection.</p> 
+addresses[].<br>externalIpv4Address.<br>requirements.<br>ddosProtectionProvider | **string**<br><p>DDoS protection provider ID.</p> 
+addresses[].<br>externalIpv4Address.<br>requirements.<br>outgoingSmtpCapability | **string**<br><p>Capability to send SMTP traffic.</p> 
+nextPageToken | **string**<br><p>Token for getting the next page of the list. If the number of results is greater than the specified <a href="/docs/vpc/api-ref/Address/list#query_params">pageSize</a>, use `next_page_token` as the value for the <a href="/docs/vpc/api-ref/Address/list#query_params">pageToken</a> parameter in the next list request.</p> <p>Each subsequent page will have its own `next_page_token` to continue paging through the results.</p> 

@@ -3,28 +3,32 @@ editable: false
 ---
 
 # Backup
-Методы для управления резервными копиями Redis.
-## JSON-представление {#representation}
+A set of methods for managing Redis backups.
+## JSON Representation {#representation}
 ```json 
 {
   "id": "string",
   "folderId": "string",
   "createdAt": "string",
   "sourceClusterId": "string",
-  "startedAt": "string"
+  "startedAt": "string",
+  "sourceShardNames": [
+    "string"
+  ]
 }
 ```
  
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br><p>Идентификатор резервной копии.</p> 
-folderId | **string**<br><p>Идентификатор каталога, которому принадлежит резервная копия.</p> 
-createdAt | **string** (date-time)<br><p>Время создания в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> (т. е. когда операция резервного копирования была завершена).</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-sourceClusterId | **string**<br><p>Идентификатор кластера Redis, для которого была создана резервная копия.</p> 
-startedAt | **string** (date-time)<br><p>Время запуска операции резервного копирования в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
+id | **string**<br><p>ID of the backup.</p> 
+folderId | **string**<br><p>ID of the folder that the backup belongs to.</p> 
+createdAt | **string** (date-time)<br><p>Creation timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format (i.e. when the backup operation was completed).</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+sourceClusterId | **string**<br><p>ID of the Redis cluster that the backup was created for.</p> 
+startedAt | **string** (date-time)<br><p>Start timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format (i.e. when the backup operation was started).</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+sourceShardNames[] | **string**<br><p>Shard names used as a source for backup.</p> 
 
-## Методы {#methods}
-Метод | Описание
+## Methods {#methods}
+Method | Description
 --- | ---
-[get](get.md) | Возвращает указанную резервную копию Redis.
-[list](list.md) | Возвращает список резервных копий Redis, доступных для указанного каталога.
+[get](get.md) | Returns the specified Redis backup.
+[list](list.md) | Retrieves the list of Redis backups available for the specified folder.

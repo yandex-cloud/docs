@@ -3,8 +3,8 @@ editable: false
 ---
 
 # HostType
-Набор методов для просмотра возможных конфигураций выделенного хоста.
-## JSON-представление {#representation}
+Set of methods to view possible host configurations.
+## JSON Representation {#representation}
 ```json 
 {
   "id": "string",
@@ -13,14 +13,14 @@ editable: false
 }
 ```
  
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br><p>Уникальный идентификатор типа выделенного хоста.</p> 
-cores | **string** (int64)<br><p>Общее количество ядер, доступных для ВМ выделенного хоста.</p> 
-memory | **string** (int64)<br><p>Объем памяти, доступный для ВМ выделенного хоста.</p> 
+id | **string**<br><p>Unique type identifier.</p> 
+cores | **string** (int64)<br><p>Total number of cores available for instances.</p> 
+memory | **string** (int64)<br><p>Ammount of memory available for instances.</p> 
 
-## Методы {#methods}
-Метод | Описание
+## Methods {#methods}
+Method | Description
 --- | ---
-[get](get.md) | Возвращает информацию об указанном типе выделенного хоста.
-[list](list.md) | Список доступных типов выделенных хостов.
+[get](get.md) | Returns information about specified host type.
+[list](list.md) | List avaliable host types.

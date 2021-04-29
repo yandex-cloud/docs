@@ -2,30 +2,30 @@
 editable: false
 ---
 
-# Метод listUserAccounts
-Возвращает список пользователей для указанной федерации.
+# Method listUserAccounts
+Lists users for the specified federation.
  
 
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 GET https://iam.api.cloud.yandex.net/iam/v1/saml/federations/{federationId}:listUserAccounts
 ```
  
-## Path-параметры {#path_params}
+## Path parameters {#path_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-federationId | Обязательное поле. Идентификатор федерации для перечисления пользователей.  Максимальная длина строки в символах — 50.
+federationId | Required. ID of the federation to list user accounts for.  The maximum string length in characters is 50.
  
-## Query-параметры {#query_params}
+## Query parameters {#query_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-pageSize | Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем [pageSize](/docs/iam/api-ref/Federation/listUserAccounts#query_params) , сервис вернет значение [nextPageToken](/docs/iam/api-ref/Federation/listUserAccounts#responses), которое можно использовать для получения следующей страницы. Значение по умолчанию: 100.  Допустимые значения — от 0 до 1000 включительно.
-pageToken | Токен страницы. Установите значение [pageToken](/docs/iam/api-ref/Federation/listUserAccounts#query_params) равным значению поля [nextPageToken](/docs/iam/api-ref/Federation/listUserAccounts#responses) предыдущего запроса, чтобы получить следующую страницу результатов.  Максимальная длина строки в символах — 100.
+pageSize | The maximum number of results per page to return. If the number of available results is larger than [pageSize](/docs/iam/api-ref/Federation/listUserAccounts#query_params), the service returns a [nextPageToken](/docs/iam/api-ref/Federation/listUserAccounts#responses) that can be used to get the next page of results in subsequent list requests. Default value: 100.  Acceptable values are 0 to 1000, inclusive.
+pageToken | Page token. To get the next page of results, set [pageToken](/docs/iam/api-ref/Federation/listUserAccounts#query_params) to the [nextPageToken](/docs/iam/api-ref/Federation/listUserAccounts#responses) returned by a previous list request.  The maximum string length in characters is 100.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -34,7 +34,7 @@ pageToken | Токен страницы. Установите значение [
     {
       "id": "string",
 
-      // `userAccounts[]` включает только одно из полей `yandexPassportUserAccount`, `samlUserAccount`
+      // `userAccounts[]` includes only one of the fields `yandexPassportUserAccount`, `samlUserAccount`
       "yandexPassportUserAccount": {
         "login": "string",
         "defaultEmail": "string"
@@ -44,7 +44,7 @@ pageToken | Токен страницы. Установите значение [
         "nameId": "string",
         "attributes": "object"
       },
-      // конец списка возможных полей`userAccounts[]`
+      // end of the list of possible fields`userAccounts[]`
 
     }
   ],
@@ -53,15 +53,15 @@ pageToken | Токен страницы. Установите значение [
 ```
 
  
-Поле | Описание
+Field | Description
 --- | ---
-userAccounts[] | **object**<br><p>В настоящее время представляет только <a href="/docs/iam/concepts/#passport">аккаунт Яндекс.Паспорта</a>.</p> 
-userAccounts[].<br>id | **string**<br><p>Идентификатор аккаунта пользователя</p> 
-userAccounts[].<br>yandexPassportUserAccount | **object**<br>Ресурс YandexPassportUserAccount. <br>`userAccounts[]` включает только одно из полей `yandexPassportUserAccount`, `samlUserAccount`<br><br><p>Ресурс YandexPassportUserAccount. Подробнее см. в разделе <a href="/docs/iam/concepts/#passport">Аккаунт Яндекс.Паспорта</a>.</p> 
-userAccounts[].<br>yandexPassportUserAccount.<br>login | **string**<br><p>Логин аккаунта Яндекс.Паспорта.</p> 
-userAccounts[].<br>yandexPassportUserAccount.<br>defaultEmail | **string**<br><p>Email используемый по умолчанию для пользователя с аккаунтом Яндекс.Паспорта.</p> 
-userAccounts[].<br>samlUserAccount | **object**<br>Пользователь федерации. <br>`userAccounts[]` включает только одно из полей `yandexPassportUserAccount`, `samlUserAccount`<br><br><p>Пользователь федерации. Подробнее см. в разделе <a href="/docs/iam/concepts/users/saml-federations">SAML-совместимые федерации</a>.</p> 
-userAccounts[].<br>samlUserAccount.<br>federationId | **string**<br><p>Обязательное поле. Идентификатор федерации, которой принадлежит пользователь.</p> <p>Максимальная длина строки в символах — 50.</p> 
-userAccounts[].<br>samlUserAccount.<br>nameId | **string**<br><p>Обязательное поле. Идентификатор имени пользоваетля федерации. Идентификатор имени должен быть уникальным в федерации. Длина 1-256 символов.</p> <p>Длина строки в символах должна быть от 1 до 256.</p> 
-userAccounts[].<br>samlUserAccount.<br>attributes | **object**<br><p>Дополнительные атрибуты пользователя.</p> 
-nextPageToken | **string**<br><p>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем <a href="/docs/iam/api-ref/Federation/listUserAccounts#query_params">pageSize</a>, используйте <a href="/docs/iam/api-ref/Federation/listUserAccounts#responses">nextPageToken</a> в качестве значения параметра <a href="/docs/iam/api-ref/Federation/listUserAccounts#query_params">pageToken</a> в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения <a href="/docs/iam/api-ref/Federation/listUserAccounts#responses">nextPageToken</a> для перебора страниц результатов.</p> 
+userAccounts[] | **object**<br><p>Currently represents only <a href="/docs/iam/concepts/#passport">Yandex.Passport account</a>.</p> 
+userAccounts[].<br>id | **string**<br><p>ID of the user account.</p> 
+userAccounts[].<br>yandexPassportUserAccount | **object**<br>A YandexPassportUserAccount resource. <br>`userAccounts[]` includes only one of the fields `yandexPassportUserAccount`, `samlUserAccount`<br><br><p>A YandexPassportUserAccount resource. For more information, see <a href="/docs/iam/concepts/#passport">Yandex.Passport account</a>.</p> 
+userAccounts[].<br>yandexPassportUserAccount.<br>login | **string**<br><p>Login of the Yandex.Passport user account.</p> 
+userAccounts[].<br>yandexPassportUserAccount.<br>defaultEmail | **string**<br><p>Default email of the Yandex.Passport user account.</p> 
+userAccounts[].<br>samlUserAccount | **object**<br>A SAML federated user. <br>`userAccounts[]` includes only one of the fields `yandexPassportUserAccount`, `samlUserAccount`<br><br><p>A SAML federated user. For more information, see <a href="/docs/iam/concepts/users/saml-federations">federations</a>.</p> 
+userAccounts[].<br>samlUserAccount.<br>federationId | **string**<br><p>Required. ID of the federation that the federation belongs to.</p> <p>The maximum string length in characters is 50.</p> 
+userAccounts[].<br>samlUserAccount.<br>nameId | **string**<br><p>Required. Name Id of the SAML federated user. The name is unique within the federation. 1-256 characters long.</p> <p>The string length in characters must be 1-256.</p> 
+userAccounts[].<br>samlUserAccount.<br>attributes | **object**<br><p>Additional attributes of the SAML federated user.</p> 
+nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/iam/api-ref/Federation/listUserAccounts#query_params">pageSize</a>, use the <a href="/docs/iam/api-ref/Federation/listUserAccounts#responses">nextPageToken</a> as the value for the <a href="/docs/iam/api-ref/Federation/listUserAccounts#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own <a href="/docs/iam/api-ref/Federation/listUserAccounts#responses">nextPageToken</a> to continue paging through the results.</p> 

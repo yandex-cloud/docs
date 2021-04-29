@@ -79,7 +79,7 @@ pageToken | Page token.  To get the next page of results, set [pageToken](/docs/
  
 Field | Description
 --- | ---
-topics[] | **object**<br><p>An Kafka topic. For more information, see the <a href="/docs/managed-kafka/concepts/topics">Concepts → Topics and partitions</a> section of the documentation.</p> 
+topics[] | **object**<br><p>An Kafka topic. For more information, see the <a href="/docs/managed-kafka/concepts/topics">Concepts -&gt; Topics and partitions</a> section of the documentation.</p> 
 topics[].<br>name | **string**<br><p>Name of the topic.</p> 
 topics[].<br>clusterId | **string**<br><p>ID of an Apache Kafka® cluster that the topic belongs to.</p> <p>To get the Apache Kafka® cluster ID, make a <a href="/docs/managed-kafka/api-ref/Cluster/list">list</a> request.</p> 
 topics[].<br>partitions | **integer** (int64)<br><p>The number of the topic's partitions.</p> 

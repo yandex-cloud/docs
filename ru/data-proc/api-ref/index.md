@@ -3,11 +3,11 @@ editable: false
 ---
 
 # Yandex Data Proc API
-Методы справочника API сгруппированы по ресурсам. Чтобы выполнить операцию над ресурсом, отправьте HTTP-запрос к соответствующему URL. Подробнее об архитектуре API Яндекс.Облака, см. [Концепции API Яндекс.Облака](/docs/api-design-guide/).
+This API reference is organized by resource. Actions are performed by sending HTTP requests to resource URLs or making RPC calls. For more information about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
 
-Ресурс | Описание
+Resource | Description
 --- | ---
-[Cluster](Cluster/index.md) | Набор методов для управления кластерами Data Proc.
-[Job](Job/index.md) | Набор методов для управления задачами Data Proc.
-[ResourcePreset](ResourcePreset/index.md) | Набор методов для управления ресурсами ResourcePreset.
-[Subcluster](Subcluster/index.md) | Набор методов для управления подкластерами Data Proc.
+[Cluster](Cluster/index.md) | A set of methods for managing Data Proc clusters.
+[Job](Job/index.md) | A set of methods for managing Data Proc jobs.
+[ResourcePreset](ResourcePreset/index.md) | A set of methods for managing ResourcePreset resources.
+[Subcluster](Subcluster/index.md) | A set of methods for managing Data Proc subclusters.

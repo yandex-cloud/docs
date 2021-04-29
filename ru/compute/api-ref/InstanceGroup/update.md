@@ -2,24 +2,24 @@
 editable: false
 ---
 
-# Метод update
-Изменяет указанную группу виртуальных машин. Этот метод запускает операцию, которая
-может быть отменена другой операцией.
+# Method update
+Updates the specified instance group.
+This method starts an operation that can be cancelled by another operation.
  
 
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 PATCH https://compute.api.cloud.yandex.net/compute/v1/instanceGroups/{instanceGroupId}
 ```
  
-## Path-параметры {#path_params}
+## Path parameters {#path_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-instanceGroupId | Обязательное поле. Идентификатор обновляемой группы виртуальных машин. Чтобы получить идентификатор группы виртуальных машин, используйте запрос [list](/docs/compute/api-ref/InstanceGroup/list).  Максимальная длина строки в символах — 50.
+instanceGroupId | Required. ID of the instance group to update. To get the instance group ID, use a [list](/docs/compute/api-ref/InstanceGroup/list) request.  The maximum string length in characters is 50.
  
-## Параметры в теле запроса {#body_params}
+## Body parameters {#body_params}
  
 ```json 
 {
@@ -45,13 +45,15 @@ instanceGroupId | Обязательное поле. Идентификатор 
         "description": "string",
         "typeId": "string",
         "size": "string",
+        "preserveAfterInstanceDelete": true,
 
-        // `instanceTemplate.bootDiskSpec.diskSpec` включает только одно из полей `imageId`, `snapshotId`
+        // `instanceTemplate.bootDiskSpec.diskSpec` includes only one of the fields `imageId`, `snapshotId`
         "imageId": "string",
         "snapshotId": "string",
-        // конец списка возможных полей`instanceTemplate.bootDiskSpec.diskSpec`
+        // end of the list of possible fields`instanceTemplate.bootDiskSpec.diskSpec`
 
-      }
+      },
+      "diskId": "string"
     },
     "secondaryDiskSpecs": [
       {
@@ -61,13 +63,15 @@ instanceGroupId | Обязательное поле. Идентификатор 
           "description": "string",
           "typeId": "string",
           "size": "string",
+          "preserveAfterInstanceDelete": true,
 
-          // `instanceTemplate.secondaryDiskSpecs[].diskSpec` включает только одно из полей `imageId`, `snapshotId`
+          // `instanceTemplate.secondaryDiskSpecs[].diskSpec` includes only one of the fields `imageId`, `snapshotId`
           "imageId": "string",
           "snapshotId": "string",
-          // конец списка возможных полей`instanceTemplate.secondaryDiskSpecs[].diskSpec`
+          // end of the list of possible fields`instanceTemplate.secondaryDiskSpecs[].diskSpec`
 
-        }
+        },
+        "diskId": "string"
       }
     ],
     "networkInterfaceSpecs": [
@@ -78,24 +82,93 @@ instanceGroupId | Обязательное поле. Идентификатор 
         ],
         "primaryV4AddressSpec": {
           "oneToOneNatSpec": {
-            "ipVersion": "string"
-          }
+            "ipVersion": "string",
+            "address": "string",
+            "dnsRecordSpecs": [
+              {
+                "fqdn": "string",
+                "dnsZoneId": "string",
+                "ttl": "string",
+                "ptr": true
+              }
+            ]
+          },
+          "dnsRecordSpecs": [
+            {
+              "fqdn": "string",
+              "dnsZoneId": "string",
+              "ttl": "string",
+              "ptr": true
+            }
+          ],
+          "address": "string"
         },
         "primaryV6AddressSpec": {
           "oneToOneNatSpec": {
-            "ipVersion": "string"
-          }
-        }
+            "ipVersion": "string",
+            "address": "string",
+            "dnsRecordSpecs": [
+              {
+                "fqdn": "string",
+                "dnsZoneId": "string",
+                "ttl": "string",
+                "ptr": true
+              }
+            ]
+          },
+          "dnsRecordSpecs": [
+            {
+              "fqdn": "string",
+              "dnsZoneId": "string",
+              "ttl": "string",
+              "ptr": true
+            }
+          ],
+          "address": "string"
+        },
+        "securityGroupIds": [
+          "string"
+        ]
       }
     ],
     "schedulingPolicy": {
       "preemptible": true
     },
-    "serviceAccountId": "string"
+    "serviceAccountId": "string",
+    "networkSettings": {
+      "type": "string"
+    },
+    "name": "string",
+    "hostname": "string",
+    "placementPolicy": {
+      "placementGroupId": "string"
+    }
   },
   "scalePolicy": {
+    "testAutoScale": {
+      "minZoneSize": "string",
+      "maxSize": "string",
+      "measurementDuration": "string",
+      "warmupDuration": "string",
+      "stabilizationDuration": "string",
+      "initialSize": "string",
+      "cpuUtilizationRule": {
+        "utilizationTarget": "number"
+      },
+      "customRules": [
+        {
+          "ruleType": "string",
+          "metricType": "string",
+          "metricName": "string",
+          "labels": "object",
+          "target": "number",
+          "folderId": "string",
+          "service": "string"
+        }
+      ]
+    },
 
-    // `scalePolicy` включает только одно из полей `fixedScale`, `autoScale`
+    // `scalePolicy` includes only one of the fields `fixedScale`, `autoScale`
     "fixedScale": {
       "size": "string"
     },
@@ -114,11 +187,14 @@ instanceGroupId | Обязательное поле. Идентификатор 
           "ruleType": "string",
           "metricType": "string",
           "metricName": "string",
-          "target": "number"
+          "labels": "object",
+          "target": "number",
+          "folderId": "string",
+          "service": "string"
         }
       ]
     },
-    // конец списка возможных полей`scalePolicy`
+    // end of the list of possible fields`scalePolicy`
 
   },
   "deployPolicy": {
@@ -126,7 +202,8 @@ instanceGroupId | Обязательное поле. Идентификатор 
     "maxDeleting": "string",
     "maxCreating": "string",
     "maxExpansion": "string",
-    "startupDuration": "string"
+    "startupDuration": "string",
+    "strategy": "string"
   },
   "allocationPolicy": {
     "zones": [
@@ -143,7 +220,7 @@ instanceGroupId | Обязательное поле. Идентификатор 
         "unhealthyThreshold": "string",
         "healthyThreshold": "string",
 
-        // `healthChecksSpec.healthCheckSpecs[]` включает только одно из полей `tcpOptions`, `httpOptions`
+        // `healthChecksSpec.healthCheckSpecs[]` includes only one of the fields `tcpOptions`, `httpOptions`
         "tcpOptions": {
           "port": "string"
         },
@@ -151,10 +228,11 @@ instanceGroupId | Обязательное поле. Идентификатор 
           "port": "string",
           "path": "string"
         },
-        // конец списка возможных полей`healthChecksSpec.healthCheckSpecs[]`
+        // end of the list of possible fields`healthChecksSpec.healthCheckSpecs[]`
 
       }
-    ]
+    ],
+    "maxCheckingHealthDuration": "string"
   },
   "serviceAccountId": "string",
   "loadBalancerSpec": {
@@ -162,103 +240,173 @@ instanceGroupId | Обязательное поле. Идентификатор 
       "name": "string",
       "description": "string",
       "labels": "object"
+    },
+    "maxOpeningTrafficDuration": "string"
+  },
+  "variables": [
+    {
+      "key": "string",
+      "value": "string"
     }
-  }
+  ],
+  "deletionProtection": true
 }
 ```
 
  
-Поле | Описание
+Field | Description
 --- | ---
-updateMask | **string**<br><p>Маска, определяющая, какие поля ресурса InstanceGroup будут обновлены.</p> <p>Имена всех обновляемых полей, разделенные запятыми. Только значения указанных полей будут изменены. Остальные останутся нетронутыми. Если поле указано в параметре `` updateMask `` и в запросе не было отправлено значение для этого поля, значение поля будет сброшено на значение по умолчанию. Значение по умолчанию для большинства полей — null или 0.</p> <p>Если в запросе не передается `` updateMask ``, значения всех полей будут обновлены. Для полей, указанных в запросе, будут использованы переданные значения. Значения остальных полей будут сброшены на значения по умолчанию.</p> 
-name | **string**<br><p>Имя группы виртуальных машин.</p> <p>Значение должно соответствовать регулярному выражению `` \|[a-z][-a-z0-9]{1,61}[a-z0-9] ``.</p> 
-description | **string**<br><p>Описание группы виртуальных машин.</p> <p>Максимальная длина строки в символах — 256.</p> 
-labels | **object**<br><p>Метки ресурса в формате `ключ:значение`.</p> <p>Существующий набор `labels` полностью перезаписывается набором, переданным в запросе.</p> <p>Не более 64 на ресурс. Длина строки в символах для каждого ключа должна быть от 1 до 63. Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``. Максимальная длина строки в символах для каждого значения — 63. Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.</p> 
-instanceTemplate | **object**<br><p>Обязательное поле. Шаблон виртуальной машины, на основе которого создается группа ВМ.</p> 
-instanceTemplate.<br>description | **string**<br><p>Описание шаблона виртуальной машины.</p> <p>Максимальная длина строки в символах — 256.</p> 
-instanceTemplate.<br>labels | **object**<br><p>Метки ресурса в формате `ключ:значение`.</p> <p>Не более 64 на ресурс. Длина строки в символах для каждого ключа должна быть от 1 до 63. Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``. Максимальная длина строки в символах для каждого значения — 63. Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.</p> 
-instanceTemplate.<br>platformId | **string**<br><p>Обязательное поле. Идентификатор аппаратной платформы виртуальной машины. Платформы позволяют создавать виртуальные машины разных типов: с большим объемом памяти, с большим количеством ядер или с высокой производительностью. Дополнительные сведения см. в разделе <a href="/docs/compute/concepts/vm-platforms">Платформы</a>.</p> 
-instanceTemplate.<br>resourcesSpec | **object**<br><p>Обязательное поле. Вычислительные ресурсы виртуальной машины, такие как объем памяти и количество ядер.</p> 
-instanceTemplate.<br>resourcesSpec.<br>memory | **string** (int64)<br><p>Объем памяти в байтах, доступный виртуальной машине.</p> <p>Максимальное значение — 274877906944.</p> 
-instanceTemplate.<br>resourcesSpec.<br>cores | **string** (int64)<br><p>Количество ядер, доступное виртуальной машине.</p> <p>Значение должно быть равно 1, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 40, 44, 48, 52, 56, 60 или 64.</p> 
-instanceTemplate.<br>resourcesSpec.<br>coreFraction | **string** (int64)<br><p>Базовый уровень производительности CPU с возможностью повышения производительности выше этого уровня. Это поле устанавливает базовую производительность для каждого ядра.</p> <p>Значение должно быть равно 0, 5, 20, 50 или 100.</p> 
-instanceTemplate.<br>resourcesSpec.<br>gpus | **string** (int64)<br><p>Количество GPU, доступное виртуальной машине.</p> <p>Значение должно быть равно 0, 1, 2 или 4.</p> 
-instanceTemplate.<br>metadata | **object**<br><p>Метаданные, назначаемые этому шаблону виртуальной машины, в формате `ключ:значение`. Сюда входят пользовательские метаданные и предопределенные ключи.</p> <p>Например, можно использовать метаданные для доставки открытого ключа SSH на виртуальную машину. Дополнительные сведения см. в разделе <a href="/docs/compute/concepts/vm-metadata">Метаданные виртуальной машины</a>.</p> <p>Не более 128 на ресурс. Длина строки в символах для каждого ключа должна быть от 1 до 63. Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``. Максимальная длина строки в символах для каждого значения — 262144.</p> 
-instanceTemplate.<br>bootDiskSpec | **object**<br><p>Обязательное поле. Спецификация загрузочного диска, который будет подключен к виртуальной машине.</p> 
-instanceTemplate.<br>bootDiskSpec.<br>mode | **string**<br><p>Обязательное поле. Режим доступа к ресурсу Disk.</p> <ul> <li>READ_ONLY: Доступ на чтение.</li> <li>READ_WRITE: Доступ на чтение и запись.</li> </ul> 
-instanceTemplate.<br>bootDiskSpec.<br>deviceName | **string**<br><p>Cерийный номер, который на виртуальной машине с операционной системой Linux отображается в директории /dev/disk/by-id/.</p> <p>Это значение может использоваться для ссылки на устройство внутри виртуальной машины при монтировании, изменении размера и т. д.</p> <p>Значение должно соответствовать регулярному выражению `` \|[a-z][-_0-9a-z]{0,19} ``.</p> 
-instanceTemplate.<br>bootDiskSpec.<br>diskSpec | **object**<br><p>Обязательное поле. Спецификация загрузочного диска, для подключения к виртуальной машине. Дополнительные сведения см. в разделе <a href="/docs/compute/concepts/disk">Диски</a>.</p> 
-instanceTemplate.<br>bootDiskSpec.<br>diskSpec.<br>description | **string**<br><p>Описание диска.</p> <p>Максимальная длина строки в символах — 256.</p> 
-instanceTemplate.<br>bootDiskSpec.<br>diskSpec.<br>typeId | **string**<br><p>Обязательное поле. Идентификатор типа диска.</p> 
-instanceTemplate.<br>bootDiskSpec.<br>diskSpec.<br>size | **string** (int64)<br><p>Размер диска в байтах.</p> <p>Допустимые значения — от 4194304 до 4398046511104 включительно.</p> 
-instanceTemplate.<br>bootDiskSpec.<br>diskSpec.<br>imageId | **string** <br>`instanceTemplate.bootDiskSpec.diskSpec` включает только одно из полей `imageId`, `snapshotId`<br><br><p>Идентификатор образа, из которого будет создан диск.</p> <p>Максимальная длина строки в символах — 50.</p> 
-instanceTemplate.<br>bootDiskSpec.<br>diskSpec.<br>snapshotId | **string** <br>`instanceTemplate.bootDiskSpec.diskSpec` включает только одно из полей `imageId`, `snapshotId`<br><br><p>Идентификатор снимка, из которого будет создан диск.</p> <p>Максимальная длина строки в символах — 50.</p> 
-instanceTemplate.<br>secondaryDiskSpecs[] | **object**<br><p>Массив дополнительных дисков, которые будут подключенны к виртуальной машине.</p> <p>Максимальное количество элементов — 3.</p> 
-instanceTemplate.<br>secondaryDiskSpecs[].<br>mode | **string**<br><p>Обязательное поле. Режим доступа к ресурсу Disk.</p> <ul> <li>READ_ONLY: Доступ на чтение.</li> <li>READ_WRITE: Доступ на чтение и запись.</li> </ul> 
-instanceTemplate.<br>secondaryDiskSpecs[].<br>deviceName | **string**<br><p>Cерийный номер, который на виртуальной машине с операционной системой Linux отображается в директории /dev/disk/by-id/.</p> <p>Это значение может использоваться для ссылки на устройство внутри виртуальной машины при монтировании, изменении размера и т. д.</p> <p>Значение должно соответствовать регулярному выражению `` \|[a-z][-_0-9a-z]{0,19} ``.</p> 
-instanceTemplate.<br>secondaryDiskSpecs[].<br>diskSpec | **object**<br><p>Обязательное поле. Спецификация загрузочного диска, для подключения к виртуальной машине. Дополнительные сведения см. в разделе <a href="/docs/compute/concepts/disk">Диски</a>.</p> 
-instanceTemplate.<br>secondaryDiskSpecs[].<br>diskSpec.<br>description | **string**<br><p>Описание диска.</p> <p>Максимальная длина строки в символах — 256.</p> 
-instanceTemplate.<br>secondaryDiskSpecs[].<br>diskSpec.<br>typeId | **string**<br><p>Обязательное поле. Идентификатор типа диска.</p> 
-instanceTemplate.<br>secondaryDiskSpecs[].<br>diskSpec.<br>size | **string** (int64)<br><p>Размер диска в байтах.</p> <p>Допустимые значения — от 4194304 до 4398046511104 включительно.</p> 
-instanceTemplate.<br>secondaryDiskSpecs[].<br>diskSpec.<br>imageId | **string** <br>`instanceTemplate.secondaryDiskSpecs[].diskSpec` включает только одно из полей `imageId`, `snapshotId`<br><br><p>Идентификатор образа, из которого будет создан диск.</p> <p>Максимальная длина строки в символах — 50.</p> 
-instanceTemplate.<br>secondaryDiskSpecs[].<br>diskSpec.<br>snapshotId | **string** <br>`instanceTemplate.secondaryDiskSpecs[].diskSpec` включает только одно из полей `imageId`, `snapshotId`<br><br><p>Идентификатор снимка, из которого будет создан диск.</p> <p>Максимальная длина строки в символах — 50.</p> 
-instanceTemplate.<br>networkInterfaceSpecs[] | **object**<br><p>Обязательное поле. Массив сетевых интерфейсов, которые будут присоединены к виртуальной машине.</p> <p>Должен содержать ровно 1 элемент.</p> 
-instanceTemplate.<br>networkInterfaceSpecs[].<br>networkId | **string**<br><p>Идентификатор облачной сети.</p> 
-instanceTemplate.<br>networkInterfaceSpecs[].<br>subnetIds[] | **string**<br><p>Идентификаторы подсетей.</p> 
-instanceTemplate.<br>networkInterfaceSpecs[].<br>primaryV4AddressSpec | **object**<br><p>Основной IPv4-адрес, который назначен виртуальной машине для данного сетевого интерфейса.</p> 
-instanceTemplate.<br>networkInterfaceSpecs[].<br>primaryV4AddressSpec.<br>oneToOneNatSpec | **object**<br><p>Конфигурация внешнего IP-адреса. Если не указана, то у виртуальной машины не будет доступа в интернет.</p> 
-instanceTemplate.<br>networkInterfaceSpecs[].<br>primaryV4AddressSpec.<br>oneToOneNatSpec.<br>ipVersion | **string**<br><p>Версия IP для публичного IP-адреса.</p> <ul> <li>IPV4: IPv4-адрес, например 192.168.0.0.</li> <li>IPV6: IPv6-адрес, на данный момент не доступен.</li> </ul> 
-instanceTemplate.<br>networkInterfaceSpecs[].<br>primaryV6AddressSpec | **object**<br><p>Основной IPv6-адрес, который назначен виртуальной машине для данного сетевого интерфейса. IPv6 еще не доступен.</p> 
-instanceTemplate.<br>networkInterfaceSpecs[].<br>primaryV6AddressSpec.<br>oneToOneNatSpec | **object**<br><p>Конфигурация внешнего IP-адреса. Если не указана, то у виртуальной машины не будет доступа в интернет.</p> 
-instanceTemplate.<br>networkInterfaceSpecs[].<br>primaryV6AddressSpec.<br>oneToOneNatSpec.<br>ipVersion | **string**<br><p>Версия IP для публичного IP-адреса.</p> <ul> <li>IPV4: IPv4-адрес, например 192.168.0.0.</li> <li>IPV6: IPv6-адрес, на данный момент не доступен.</li> </ul> 
-instanceTemplate.<br>schedulingPolicy | **object**<br><p>Политика планирования.</p> 
-instanceTemplate.<br>schedulingPolicy.<br>preemptible | **boolean** (boolean)<br><p>Прерываемые виртуальные машины будут принудительно остановлены в срок, не превышающий 24 часа с момента их создания. Остановленные виртуальные машины можно запустить повторно, без потери данных. Дополнительные сведения см. в разделе <a href="/docs/compute/concepts/preemptible-vm">Прерываемые виртуальные машины</a>.</p> 
-instanceTemplate.<br>serviceAccountId | **string**<br><p>Идентификатор сервисного аккаунта для привязки к виртуальной машине.</p> 
-scalePolicy | **object**<br><p>Обязательное поле. <a href="/docs/compute/concepts/instance-groups/scale">Политика масштабирования</a> группы виртуальных машин.</p> 
-scalePolicy.<br>fixedScale | **object**<br>[Политика масштабирования](/docs/compute/concepts/instance-groups/policies/scale-policy#fixed-scale-policy) группы виртуальных машин. <br>`scalePolicy` включает только одно из полей `fixedScale`, `autoScale`<br><br>
-scalePolicy.<br>fixedScale.<br>size | **string** (int64)<br><p>Количество виртуальных машин в группе ВМ.</p> <p>Допустимые значения — от 1 до 100 включительно.</p> 
-scalePolicy.<br>autoScale | **object**<br>[Политика автоматического масштабирования](/docs/compute/concepts/instance-groups/policies/scale-policy#auto-scale-policy) группы виртуальных машин. <br>`scalePolicy` включает только одно из полей `fixedScale`, `autoScale`<br><br>
-scalePolicy.<br>autoScale.<br>minZoneSize | **string** (int64)<br><p>Минимальное количество виртуальных машин в каждой зоне.</p> <p>Допустимые значения — от 0 до 100 включительно.</p> 
-scalePolicy.<br>autoScale.<br>maxSize | **string** (int64)<br><p>Максимальное общее количество виртуальных машин (по всем зонам). 0 означает максимальное значение — 100.</p> <p>Допустимые значения — от 0 до 100 включительно.</p> 
-scalePolicy.<br>autoScale.<br>measurementDuration | **string**<br><p>Обязательное поле. Время в секундах, отведенное на усреднение метрик.</p> <p>Допустимые значения — от 60 seconds до 600 seconds включительно.</p> 
-scalePolicy.<br>autoScale.<br>warmupDuration | **string**<br><p>Время прогрева виртуальной машины в секундах. В течение этого времени трафик подается на виртуальную машину, но метрики с этой машины не учитываются.</p> <p>Максимальное значение — 600 seconds.</p> 
-scalePolicy.<br>autoScale.<br>stabilizationDuration | **string**<br><p>Минимальный временной интервал в секундах для мониторинга, перед тем как Instance Groups сможет уменьшить количество виртуальных машин в группе. В течение этого времени размер группы не уменьшается, даже если новые значения метрики указывают, что он должен уменьшаться.</p> <p>Допустимые значения — от 60 seconds до 1800 seconds включительно.</p> 
-scalePolicy.<br>autoScale.<br>initialSize | **string** (int64)<br><p>Размер целевой группы.</p> <p>Минимальное значение — 1.</p> 
-scalePolicy.<br>autoScale.<br>cpuUtilizationRule | **object**<br><p>Определяет правило автомасштабирования на основе средней нагрузки CPU для группы виртуальных машин.</p> 
-scalePolicy.<br>autoScale.<br>cpuUtilizationRule.<br>utilizationTarget | **number** (double)<br><p>Целевой уровень нагрузки CPU. Instance Groups будет поддерживать этот уровень для каждой зоны доступности.</p> <p>Допустимые значения — от 10 до 100 включительно.</p> 
-scalePolicy.<br>autoScale.<br>customRules[] | **object**<br><p>Определяет правило автомасштабирования на основе <a href="/docs/monitoring/operations/metric/add">пользовательской метрики</a> из Yandex Monitoring.</p> <p>Максимальное количество элементов — 1.</p> 
-scalePolicy.<br>autoScale.<br>customRules[].<br>ruleType | **string**<br><p>Обязательное поле. Тип правил применения пользовательской метрики. Это поле влияет на то, какая метка из пользовательской метрики должна использоваться: `zone_id` или `instance_id`.</p> <ul> <li>UTILIZATION: Этот тип означает, что метрика применяется к одной виртуальной машине. Сначала Instance Groups вычисляет среднее значение метрики для каждой виртуальной машины, а затем усредняет значения для машин в одной зоне доступности. Этот тип метрики должен иметь метку `instance_id`.</li> <li>WORKLOAD: Этот тип означает, что метрика применяется к виртуальным машинам из одной зоны доступности. Этот тип метрики должен иметь метку `zone_id`.</li> </ul> 
-scalePolicy.<br>autoScale.<br>customRules[].<br>metricType | **string**<br><p>Обязательное поле. Тип подсчета пользовательской метрики. Это поле влияет на то, как Instance Groups вычисляет среднее значение метрики.</p> <ul> <li>GAUGE: Этот тип используется для метрик, отображающих значение метрики в определенный момент времени, например количество запросов в секунду к серверу на виртуальной машине.</li> </ul> <p>Instance Groups вычисляет среднее значение метрики за период, указанный в поле `measurementDuration`.</p> <ul> <li>COUNTER: Этот тип используется для метрик, которые монотонно растут со временем, например для общего количества запросов к серверу на виртуальной машине.</li> </ul> <p>Instance Groups вычисляет средний прирост метрики за период, указанный в поле `measurementDuration`.</p> 
-scalePolicy.<br>autoScale.<br>customRules[].<br>metricName | **string**<br><p>Обязательное поле. Название пользовательской метрики в Yandex Monitoring, которая должна использоваться для масштабирования.</p> <p>Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9./@<em>][ 0-9a-zA-Z./@</em>,:;()[]&lt;&gt;-]{0,198} ``.</p> 
-scalePolicy.<br>autoScale.<br>customRules[].<br>target | **number** (double)<br><p>Целевое значение для пользовательской метрики. Instance Groups будет поддерживать этот уровень для каждой зоны доступности.</p> <p>Значение должно быть больше 0.</p> 
-deployPolicy | **object**<br><p>Обязательное поле. Политика развертывания группы виртуальных машин.</p> 
-deployPolicy.<br>maxUnavailable | **string** (int64)<br><p>Максимальное количество запущенных виртуальных машин, которое можно одновременно отключить (остановить или удалить) в процессе обновления группы. Если `maxExpansion` не указано или равно нулю, `maxUnavailable` должно быть ненулевым.</p> <p>Допустимые значения — от 0 до 100 включительно.</p> 
-deployPolicy.<br>maxDeleting | **string** (int64)<br><p>Максимальное количество удаляемых одновременно виртуальных машин.</p> <p>Значение 0 — любое количество виртуальных машин в рамках допустимых значений.</p> <p>Допустимые значения — от 0 до 100 включительно.</p> 
-deployPolicy.<br>maxCreating | **string** (int64)<br><p>Максимальное количество создаваемых одновременно виртуальных машин.</p> <p>Значение 0 — любое количество виртуальных машин в рамках допустимых значений.</p> <p>Допустимые значения — от 0 до 100 включительно.</p> 
-deployPolicy.<br>maxExpansion | **string** (int64)<br><p>Максимальное количество виртуальных машин, на которое можно превысить целевой размер группы в процессе ее обновления. Если `maxUnavailable` не указан или равен нулю, `maxExpansion` должно быть ненулевым.</p> <p>Допустимые значения — от 0 до 100 включительно.</p> 
-deployPolicy.<br>startupDuration | **string**<br><p>Продолжительность запуска виртуальной машины. Виртуальная машина будет запущена и начнет получать трафик только после того, как истечет startup_duration и будут пройдены все проверки работоспособности. Подробное описание см. в `ManagedInstanceStatus`.</p> <p>Допустимые значения — от 0 seconds до 3600 seconds включительно.</p> 
-allocationPolicy | **object**<br><p>Обязательное поле. Политика распределения группы виртуальных машин по зонам и регионам.</p> 
-allocationPolicy.<br>zones[] | **object**<br><p>Обязательное поле. Список зон доступности.</p> <p>Минимальное количество элементов — 1.</p> 
-allocationPolicy.<br>zones[].<br>zoneId | **string**<br><p>Обязательное поле. Идентификатор зоны доступности, где находится виртуальная машина.</p> 
-healthChecksSpec | **object**<br><p>Спецификация проверки работоспособности. Дополнительные сведения см. в разделе <a href="/docs/network-load-balancer/concepts/health-check">Проверка состояния ресурсов</a>.</p> 
-healthChecksSpec.<br>healthCheckSpecs[] | **object**<br><p>Обязательное поле. Спецификация проверки работоспособности. Дополнительные сведения см. в разделе <a href="/docs/network-load-balancer/concepts/health-check">Проверка состояния ресурсов</a>.</p> <p>Минимальное количество элементов — 1.</p> 
-healthChecksSpec.<br>healthCheckSpecs[].<br>interval | **string**<br><p>Интервал проверок. Значение по умолчанию — 2 секунды.</p> <p>Допустимые значения — от 1 seconds до 300 seconds включительно.</p> 
-healthChecksSpec.<br>healthCheckSpecs[].<br>timeout | **string**<br><p>Время ожидания ответа. Значение по умолчанию — 1 секунда.</p> <p>Допустимые значения — от 1 seconds до 60 seconds включительно.</p> 
-healthChecksSpec.<br>healthCheckSpecs[].<br>unhealthyThreshold | **string** (int64)<br><p>Количество неудачных проверок, после которого виртуальная машина будет считаться неработающей. Значение по умолчанию — 2.</p> <p>Значение должно быть равно 0, 2, 3, 4, 5, 6, 7, 8, 9 или 10.</p> 
-healthChecksSpec.<br>healthCheckSpecs[].<br>healthyThreshold | **string** (int64)<br><p>Количество успешных проверок, после которого виртуальная машина будет считаться работающей нормально. Значение по умолчанию — 2.</p> <p>Значение должно быть равно 0, 2, 3, 4, 5, 6, 7, 8, 9 или 10.</p> 
-healthChecksSpec.<br>healthCheckSpecs[].<br>tcpOptions | **object**<br>Параметры для проверки состояний по протоколу TCP. <br>`healthChecksSpec.healthCheckSpecs[]` включает только одно из полей `tcpOptions`, `httpOptions`<br><br>
-healthChecksSpec.<br>healthCheckSpecs[].<br>tcpOptions.<br>port | **string** (int64)<br><p>Порт TCP для проверки состояния.</p> <p>Допустимые значения — от 1 до 32767 включительно.</p> 
-healthChecksSpec.<br>healthCheckSpecs[].<br>httpOptions | **object**<br>Параметры для проверки состояний по протоколу HTTP. <br>`healthChecksSpec.healthCheckSpecs[]` включает только одно из полей `tcpOptions`, `httpOptions`<br><br>
-healthChecksSpec.<br>healthCheckSpecs[].<br>httpOptions.<br>port | **string** (int64)<br><p>Порт HTTP для проверки состояния.</p> <p>Допустимые значения — от 1 до 32767 включительно.</p> 
-healthChecksSpec.<br>healthCheckSpecs[].<br>httpOptions.<br>path | **string**<br><p>URL, по которому будут выполняться проверки (для HTTP).</p> 
-serviceAccountId | **string**<br><p>Идентификатор сервисного аккаунта. Сервисный аккаунт будет использоваться для всех вызовов API, выполняемых компонентом Instance Groups от имени пользователя (например, создание экземпляров, добавление их в целевую группу балансировщика нагрузки и т.п.). Дополнительные сведения см. в разделе <a href="/docs/iam/concepts/users/service-accounts">Сервисные аккаунты</a>. Чтобы получить идентификатор сервисного аккаунта, используйте запрос <a href="/docs/iam/api-ref/ServiceAccount/list">list</a>.</p> 
-loadBalancerSpec | **object**<br><p>Спецификация балансировщика нагрузки для управления распределением нагрузки.</p> 
-loadBalancerSpec.<br>targetGroupSpec | **object**<br><p>Спецификация целевой группы, к которой будет добавлена группа виртуальных машин. Дополнительные сведения см. в разделе <a href="/docs/network-load-balancer/concepts/target-resources">Целевые ресурсы и группы</a>.</p> 
-loadBalancerSpec.<br>targetGroupSpec.<br>name | **string**<br><p>Имя целевой группы.</p> <p>Значение должно соответствовать регулярному выражению `` \|[a-z][-a-z0-9]{1,61}[a-z0-9] ``.</p> 
-loadBalancerSpec.<br>targetGroupSpec.<br>description | **string**<br><p>Описание целевой группы.</p> <p>Максимальная длина строки в символах — 256.</p> 
-loadBalancerSpec.<br>targetGroupSpec.<br>labels | **object**<br><p>Метки ресурса в формате `ключ:значение`.</p> <p>Не более 64 на ресурс. Длина строки в символах для каждого ключа должна быть от 1 до 63. Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``. Максимальная длина строки в символах для каждого значения — 63. Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.</p> 
+updateMask | **string**<br><p>Field mask that specifies which fields of the InstanceGroup resource are going to be updated.</p> <p>A comma-separated names off ALL fields to be updated. Оnly the specified fields will be changed. The others will be left untouched. If the field is specified in `` updateMask `` and no value for that field was sent in the request, the field's value will be reset to the default. The default value for most fields is null or 0.</p> <p>If `` updateMask `` is not sent in the request, all fields' values will be updated. Fields specified in the request will be updated to provided values. The rest of the fields will be reset to the default.</p> 
+name | **string**<br><p>Name of the instance group.</p> <p>Value must match the regular expression `` \|<a href="%5B-a-z0-9%5D%7B0,61%7D%5Ba-z0-9%5D">a-z</a>? ``.</p> 
+description | **string**<br><p>Description of the instance group.</p> <p>The maximum string length in characters is 256.</p> 
+labels | **object**<br><p>Resource labels as `key:value` pairs.</p> <p>The existing set of `labels` is completely replaced by the provided set.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression `` [a-z][-<em>./@0-9a-z]* ``. The maximum string length in characters for each value is 63. Each value must match the regular expression `` [-</em>./@0-9a-z]* ``.</p> 
+instanceTemplate | **object**<br><p>Required. Instance template that the instance group belongs to.</p> 
+instanceTemplate.<br>description | **string**<br><p>Description of the instance template.</p> <p>The maximum string length in characters is 256.</p> 
+instanceTemplate.<br>labels | **object**<br><p>Resource labels as `key:value` pairs.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression `` [a-z][-_./@0-9a-z]* ``. The maximum string length in characters for each value is 128.</p> 
+instanceTemplate.<br>platformId | **string**<br><p>Required. ID of the hardware platform configuration for the instance. Platforms allows you to create various types of instances: with a large amount of memory, with a large number of cores, with a burstable performance. For more information, see <a href="/docs/compute/concepts/vm-platforms">Platforms</a>.</p> 
+instanceTemplate.<br>resourcesSpec | **object**<br><p>Required. Computing resources of the instance such as the amount of memory and number of cores.</p> 
+instanceTemplate.<br>resourcesSpec.<br>memory | **string** (int64)<br><p>The amount of memory available to the instance, specified in bytes.</p> <p>The maximum value is 824633720832.</p> 
+instanceTemplate.<br>resourcesSpec.<br>cores | **string** (int64)<br><p>The number of cores available to the instance.</p> <p>Value must be one of 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 40, 44, 48, 52, 56, 60, 64, 68, 72, 76 or 80.</p> 
+instanceTemplate.<br>resourcesSpec.<br>coreFraction | **string** (int64)<br><p>Baseline level of CPU performance with the ability to burst performance above that baseline level. This field sets baseline performance for each core.</p> <p>Value must be one of 0, 5, 20, 50 or 100.</p> 
+instanceTemplate.<br>resourcesSpec.<br>gpus | **string** (int64)<br><p>The number of GPUs available to the instance.</p> <p>Value must be one of 0, 1, 2 or 4.</p> 
+instanceTemplate.<br>metadata | **object**<br><p>The metadata `key:value` pairs assigned to this instance template. This includes custom metadata and predefined keys.</p> <p>Metadata values may contain one of the supported placeholders: {instance_group.id} {instance.short_id} {instance.index} {instance.index_in_zone} {instance.zone_id} InstanceGroup and Instance labels may be copied to metadata following way: {instance_group.labels.some_label_key} {instance.labels.another_label_key} These placeholders will be substituted for each created instance anywhere in the value text. In the rare case the value requires to contain this placeholder explicitly, it must be escaped with double brackets, in example {instance.index}.</p> <p>For example, you may use the metadata in order to provide your public SSH key to the instance. For more information, see <a href="/docs/compute/concepts/vm-metadata">Metadata</a>.</p> <p>No more than 128 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression `` [a-z][-_0-9a-z]* ``. The maximum string length in characters for each value is 262144.</p> 
+instanceTemplate.<br>bootDiskSpec | **object**<br><p>Required. Boot disk specification that will be attached to the instance.</p> 
+instanceTemplate.<br>bootDiskSpec.<br>mode | **string**<br><p>Required. Access mode to the Disk resource.</p> <ul> <li>READ_ONLY: Read-only access.</li> <li>READ_WRITE: Read/Write access.</li> </ul> 
+instanceTemplate.<br>bootDiskSpec.<br>deviceName | **string**<br><p>Serial number that is reflected in the /dev/disk/by-id/ tree of a Linux operating system running within the instance.</p> <p>This value can be used to reference the device for mounting, resizing, and so on, from within the instance.</p> <p>Value must match the regular expression `` \|[a-z][-_0-9a-z]{0,19} ``.</p> 
+instanceTemplate.<br>bootDiskSpec.<br>diskSpec | **object**<br><p>Required. oneof disk_spec or disk_id Disk specification that is attached to the instance. For more information, see <a href="/docs/compute/concepts/disk">Disks</a>.</p> 
+instanceTemplate.<br>bootDiskSpec.<br>diskSpec.<br>description | **string**<br><p>Description of the disk.</p> <p>The maximum string length in characters is 256.</p> 
+instanceTemplate.<br>bootDiskSpec.<br>diskSpec.<br>typeId | **string**<br><p>Required. ID of the disk type.</p> 
+instanceTemplate.<br>bootDiskSpec.<br>diskSpec.<br>size | **string** (int64)<br><p>Size of the disk, specified in bytes.</p> <p>Acceptable values are 4194304 to 4398046511104, inclusive.</p> 
+instanceTemplate.<br>bootDiskSpec.<br>diskSpec.<br>preserveAfterInstanceDelete | **boolean** (boolean)<br><p>When set to true, disk will not be deleted even after managed instance is deleted. It will be a user's responsibility to delete such disks.</p> 
+instanceTemplate.<br>bootDiskSpec.<br>diskSpec.<br>imageId | **string** <br>`instanceTemplate.bootDiskSpec.diskSpec` includes only one of the fields `imageId`, `snapshotId`<br><br><p>ID of the image that will be used for disk creation.</p> <p>The maximum string length in characters is 50.</p> 
+instanceTemplate.<br>bootDiskSpec.<br>diskSpec.<br>snapshotId | **string** <br>`instanceTemplate.bootDiskSpec.diskSpec` includes only one of the fields `imageId`, `snapshotId`<br><br><p>ID of the snapshot that will be used for disk creation.</p> <p>The maximum string length in characters is 50.</p> 
+instanceTemplate.<br>bootDiskSpec.<br>diskId | **string**<br><p>Set to use an existing disk. To set use variables.</p> <p>The maximum string length in characters is 128. Value must match the regular expression `` [-a-zA-Z0-9._{}]* ``.</p> 
+instanceTemplate.<br>secondaryDiskSpecs[] | **object**<br><p>Array of secondary disks that will be attached to the instance.</p> <p>The maximum number of elements is 3.</p> 
+instanceTemplate.<br>secondaryDiskSpecs[].<br>mode | **string**<br><p>Required. Access mode to the Disk resource.</p> <ul> <li>READ_ONLY: Read-only access.</li> <li>READ_WRITE: Read/Write access.</li> </ul> 
+instanceTemplate.<br>secondaryDiskSpecs[].<br>deviceName | **string**<br><p>Serial number that is reflected in the /dev/disk/by-id/ tree of a Linux operating system running within the instance.</p> <p>This value can be used to reference the device for mounting, resizing, and so on, from within the instance.</p> <p>Value must match the regular expression `` \|[a-z][-_0-9a-z]{0,19} ``.</p> 
+instanceTemplate.<br>secondaryDiskSpecs[].<br>diskSpec | **object**<br><p>Required. oneof disk_spec or disk_id Disk specification that is attached to the instance. For more information, see <a href="/docs/compute/concepts/disk">Disks</a>.</p> 
+instanceTemplate.<br>secondaryDiskSpecs[].<br>diskSpec.<br>description | **string**<br><p>Description of the disk.</p> <p>The maximum string length in characters is 256.</p> 
+instanceTemplate.<br>secondaryDiskSpecs[].<br>diskSpec.<br>typeId | **string**<br><p>Required. ID of the disk type.</p> 
+instanceTemplate.<br>secondaryDiskSpecs[].<br>diskSpec.<br>size | **string** (int64)<br><p>Size of the disk, specified in bytes.</p> <p>Acceptable values are 4194304 to 4398046511104, inclusive.</p> 
+instanceTemplate.<br>secondaryDiskSpecs[].<br>diskSpec.<br>preserveAfterInstanceDelete | **boolean** (boolean)<br><p>When set to true, disk will not be deleted even after managed instance is deleted. It will be a user's responsibility to delete such disks.</p> 
+instanceTemplate.<br>secondaryDiskSpecs[].<br>diskSpec.<br>imageId | **string** <br>`instanceTemplate.secondaryDiskSpecs[].diskSpec` includes only one of the fields `imageId`, `snapshotId`<br><br><p>ID of the image that will be used for disk creation.</p> <p>The maximum string length in characters is 50.</p> 
+instanceTemplate.<br>secondaryDiskSpecs[].<br>diskSpec.<br>snapshotId | **string** <br>`instanceTemplate.secondaryDiskSpecs[].diskSpec` includes only one of the fields `imageId`, `snapshotId`<br><br><p>ID of the snapshot that will be used for disk creation.</p> <p>The maximum string length in characters is 50.</p> 
+instanceTemplate.<br>secondaryDiskSpecs[].<br>diskId | **string**<br><p>Set to use an existing disk. To set use variables.</p> <p>The maximum string length in characters is 128. Value must match the regular expression `` [-a-zA-Z0-9._{}]* ``.</p> 
+instanceTemplate.<br>networkInterfaceSpecs[] | **object**<br><p>Required. Array of network interfaces that will be attached to the instance.</p> <p>Must contain exactly 1 element.</p> 
+instanceTemplate.<br>networkInterfaceSpecs[].<br>networkId | **string**<br><p>ID of the network.</p> 
+instanceTemplate.<br>networkInterfaceSpecs[].<br>subnetIds[] | **string**<br><p>IDs of the subnets.</p> 
+instanceTemplate.<br>networkInterfaceSpecs[].<br>primaryV4AddressSpec | **object**<br><p>Primary IPv4 address that is assigned to the instance for this network interface.</p> 
+instanceTemplate.<br>networkInterfaceSpecs[].<br>primaryV4AddressSpec.<br>oneToOneNatSpec | **object**<br><p>An external IP address configuration. If not specified, then this managed instance will have no external internet access.</p> 
+instanceTemplate.<br>networkInterfaceSpecs[].<br>primaryV4AddressSpec.<br>oneToOneNatSpec.<br>ipVersion | **string**<br><p>IP version for the public IP address.</p> <ul> <li>IPV4: IPv4 address, for example 192.168.0.0.</li> <li>IPV6: IPv6 address, not available yet.</li> </ul> 
+instanceTemplate.<br>networkInterfaceSpecs[].<br>primaryV4AddressSpec.<br>oneToOneNatSpec.<br>address | **string**<br><p>Manual set static public IP. To set use variables. (optional)</p> 
+instanceTemplate.<br>networkInterfaceSpecs[].<br>primaryV4AddressSpec.<br>oneToOneNatSpec.<br>dnsRecordSpecs[] | **object**<br><p>External DNS configuration</p> 
+instanceTemplate.<br>networkInterfaceSpecs[].<br>primaryV4AddressSpec.<br>oneToOneNatSpec.<br>dnsRecordSpecs[].<br>fqdn | **string**<br><p>Required. FQDN (required)</p> 
+instanceTemplate.<br>networkInterfaceSpecs[].<br>primaryV4AddressSpec.<br>oneToOneNatSpec.<br>dnsRecordSpecs[].<br>dnsZoneId | **string**<br><p>DNS zone id (optional, if not set, private zone used)</p> 
+instanceTemplate.<br>networkInterfaceSpecs[].<br>primaryV4AddressSpec.<br>oneToOneNatSpec.<br>dnsRecordSpecs[].<br>ttl | **string** (int64)<br><p>DNS record ttl, values in 0-86400 (optional)</p> <p>Acceptable values are 0 to 86400, inclusive.</p> 
+instanceTemplate.<br>networkInterfaceSpecs[].<br>primaryV4AddressSpec.<br>oneToOneNatSpec.<br>dnsRecordSpecs[].<br>ptr | **boolean** (boolean)<br><p>When set to true, also create PTR DNS record (optional)</p> 
+instanceTemplate.<br>networkInterfaceSpecs[].<br>primaryV4AddressSpec.<br>dnsRecordSpecs[] | **object**<br><p>Internal DNS configuration</p> 
+instanceTemplate.<br>networkInterfaceSpecs[].<br>primaryV4AddressSpec.<br>dnsRecordSpecs[].<br>fqdn | **string**<br><p>Required. FQDN (required)</p> 
+instanceTemplate.<br>networkInterfaceSpecs[].<br>primaryV4AddressSpec.<br>dnsRecordSpecs[].<br>dnsZoneId | **string**<br><p>DNS zone id (optional, if not set, private zone used)</p> 
+instanceTemplate.<br>networkInterfaceSpecs[].<br>primaryV4AddressSpec.<br>dnsRecordSpecs[].<br>ttl | **string** (int64)<br><p>DNS record ttl, values in 0-86400 (optional)</p> <p>Acceptable values are 0 to 86400, inclusive.</p> 
+instanceTemplate.<br>networkInterfaceSpecs[].<br>primaryV4AddressSpec.<br>dnsRecordSpecs[].<br>ptr | **boolean** (boolean)<br><p>When set to true, also create PTR DNS record (optional)</p> 
+instanceTemplate.<br>networkInterfaceSpecs[].<br>primaryV4AddressSpec.<br>address | **string**<br><p>Optional. Manual set static internal IP. To set use variables.</p> 
+instanceTemplate.<br>networkInterfaceSpecs[].<br>primaryV6AddressSpec | **object**<br><p>Primary IPv6 address that is assigned to the instance for this network interface. IPv6 not available yet.</p> 
+instanceTemplate.<br>networkInterfaceSpecs[].<br>primaryV6AddressSpec.<br>oneToOneNatSpec | **object**<br><p>An external IP address configuration. If not specified, then this managed instance will have no external internet access.</p> 
+instanceTemplate.<br>networkInterfaceSpecs[].<br>primaryV6AddressSpec.<br>oneToOneNatSpec.<br>ipVersion | **string**<br><p>IP version for the public IP address.</p> <ul> <li>IPV4: IPv4 address, for example 192.168.0.0.</li> <li>IPV6: IPv6 address, not available yet.</li> </ul> 
+instanceTemplate.<br>networkInterfaceSpecs[].<br>primaryV6AddressSpec.<br>oneToOneNatSpec.<br>address | **string**<br><p>Manual set static public IP. To set use variables. (optional)</p> 
+instanceTemplate.<br>networkInterfaceSpecs[].<br>primaryV6AddressSpec.<br>oneToOneNatSpec.<br>dnsRecordSpecs[] | **object**<br><p>External DNS configuration</p> 
+instanceTemplate.<br>networkInterfaceSpecs[].<br>primaryV6AddressSpec.<br>oneToOneNatSpec.<br>dnsRecordSpecs[].<br>fqdn | **string**<br><p>Required. FQDN (required)</p> 
+instanceTemplate.<br>networkInterfaceSpecs[].<br>primaryV6AddressSpec.<br>oneToOneNatSpec.<br>dnsRecordSpecs[].<br>dnsZoneId | **string**<br><p>DNS zone id (optional, if not set, private zone used)</p> 
+instanceTemplate.<br>networkInterfaceSpecs[].<br>primaryV6AddressSpec.<br>oneToOneNatSpec.<br>dnsRecordSpecs[].<br>ttl | **string** (int64)<br><p>DNS record ttl, values in 0-86400 (optional)</p> <p>Acceptable values are 0 to 86400, inclusive.</p> 
+instanceTemplate.<br>networkInterfaceSpecs[].<br>primaryV6AddressSpec.<br>oneToOneNatSpec.<br>dnsRecordSpecs[].<br>ptr | **boolean** (boolean)<br><p>When set to true, also create PTR DNS record (optional)</p> 
+instanceTemplate.<br>networkInterfaceSpecs[].<br>primaryV6AddressSpec.<br>dnsRecordSpecs[] | **object**<br><p>Internal DNS configuration</p> 
+instanceTemplate.<br>networkInterfaceSpecs[].<br>primaryV6AddressSpec.<br>dnsRecordSpecs[].<br>fqdn | **string**<br><p>Required. FQDN (required)</p> 
+instanceTemplate.<br>networkInterfaceSpecs[].<br>primaryV6AddressSpec.<br>dnsRecordSpecs[].<br>dnsZoneId | **string**<br><p>DNS zone id (optional, if not set, private zone used)</p> 
+instanceTemplate.<br>networkInterfaceSpecs[].<br>primaryV6AddressSpec.<br>dnsRecordSpecs[].<br>ttl | **string** (int64)<br><p>DNS record ttl, values in 0-86400 (optional)</p> <p>Acceptable values are 0 to 86400, inclusive.</p> 
+instanceTemplate.<br>networkInterfaceSpecs[].<br>primaryV6AddressSpec.<br>dnsRecordSpecs[].<br>ptr | **boolean** (boolean)<br><p>When set to true, also create PTR DNS record (optional)</p> 
+instanceTemplate.<br>networkInterfaceSpecs[].<br>primaryV6AddressSpec.<br>address | **string**<br><p>Optional. Manual set static internal IP. To set use variables.</p> 
+instanceTemplate.<br>networkInterfaceSpecs[].<br>securityGroupIds[] | **string**<br><p>IDs of security groups.</p> 
+instanceTemplate.<br>schedulingPolicy | **object**<br><p>Scheduling policy for the instance.</p> 
+instanceTemplate.<br>schedulingPolicy.<br>preemptible | **boolean** (boolean)<br><p>Preemptible instances are stopped at least once every 24 hours, and can be stopped at any time if their resources are needed by Compute. For more information, see <a href="/docs/compute/concepts/preemptible-vm">Preemptible Virtual Machines</a>.</p> 
+instanceTemplate.<br>serviceAccountId | **string**<br><p>Service account ID for the instance.</p> 
+instanceTemplate.<br>networkSettings | **object**<br><p>Network settings for the instance.</p> 
+instanceTemplate.<br>networkSettings.<br>type | **string**<br><p>Type of instance network.</p> 
+instanceTemplate.<br>name | **string**<br><p>Name of the instance. In order to be unique it must contain at least on of instance unique placeholders: {instance.short_id} {instance.index} combination of {instance.zone_id} and {instance.index_in_zone} Example: my-instance-{instance.index} If not set, default is used: {instance_group.id}-{instance.short_id} It may also contain another placeholders, see metadata doc for full list.</p> <p>The maximum string length in characters is 128.</p> 
+instanceTemplate.<br>hostname | **string**<br><p>Host name for the instance. This field is used to generate the <a href="/docs/compute/api-ref/Instance#representation">Instance.fqdn</a> value. The host name must be unique within the network and region. If not specified, the host name will be equal to <a href="/docs/compute/api-ref/Instance#representation">Instance.id</a> of the instance and FQDN will be `<id>.auto.internal`. Otherwise FQDN will be `<hostname>.&lt;region_id&gt;.internal`.</p> <p>In order to be unique it must contain at least on of instance unique placeholders: {instance.short_id} {instance.index} combination of {instance.zone_id} and {instance.index_in_zone} Example: my-instance-{instance.index} If not set, `name` value will be used It may also contain another placeholders, see metadata doc for full list.</p> <p>The maximum string length in characters is 128.</p> 
+instanceTemplate.<br>placementPolicy | **object**<br><p>Placement Group</p> 
+instanceTemplate.<br>placementPolicy.<br>placementGroupId | **string**<br><p>Identifier of placement group</p> 
+scalePolicy | **object**<br><p>Required. <a href="/docs/compute/concepts/instance-groups/scale">Scaling policy</a> of the instance group.</p> 
+scalePolicy.<br>testAutoScale | **object**<br>[Automatic scaling policy](/docs/compute/concepts/instance-groups/scale#auto-scale) of the instance group.<br>
+scalePolicy.<br>testAutoScale.<br>minZoneSize | **string** (int64)<br><p>Lower limit for instance count in each zone.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+scalePolicy.<br>testAutoScale.<br>maxSize | **string** (int64)<br><p>Upper limit for total instance count (across all zones). 0 means maximum limit = 100.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+scalePolicy.<br>testAutoScale.<br>measurementDuration | **string**<br><p>Required. Time in seconds allotted for averaging metrics.</p> <p>Acceptable values are 60 seconds to 600 seconds, inclusive.</p> 
+scalePolicy.<br>testAutoScale.<br>warmupDuration | **string**<br><p>The warmup time of the instance in seconds. During this time, traffic is sent to the instance, but instance metrics are not collected.</p> <p>The maximum value is 600 seconds.</p> 
+scalePolicy.<br>testAutoScale.<br>stabilizationDuration | **string**<br><p>Minimum amount of time in seconds allotted for monitoring before Instance Groups can reduce the number of instances in the group. During this time, the group size doesn't decrease, even if the new metric values indicate that it should.</p> <p>Acceptable values are 60 seconds to 1800 seconds, inclusive.</p> 
+scalePolicy.<br>testAutoScale.<br>initialSize | **string** (int64)<br><p>Target group size.</p> <p>The minimum value is 1.</p> 
+scalePolicy.<br>testAutoScale.<br>cpuUtilizationRule | **object**<br><p>Defines an autoscaling rule based on the average CPU utilization of the instance group.</p> 
+scalePolicy.<br>testAutoScale.<br>cpuUtilizationRule.<br>utilizationTarget | **number** (double)<br><p>Target CPU utilization level. Instance Groups maintains this level for each availability zone.</p> <p>Acceptable values are 10 to 100, inclusive.</p> 
+scalePolicy.<br>testAutoScale.<br>customRules[] | **object**<br><p>Defines an autoscaling rule based on a <a href="/docs/monitoring/operations/metric/add">custom metric</a> from Yandex Monitoring.</p> <p>The maximum number of elements is 1.</p> 
+scalePolicy.<br>testAutoScale.<br>customRules[].<br>ruleType | **string**<br><p>Required. Custom metric rule type. This field affects which label from the custom metric should be used: `zone_id` or `instance_id`.</p> <ul> <li>UTILIZATION: This type means that the metric applies to one instance. First, Instance Groups calculates the average metric value for each instance, then averages the values for instances in one availability zone. This type of metric must have the `instance_id` label.</li> <li>WORKLOAD: This type means that the metric applies to instances in one availability zone. This type of metric must have the `zone_id` label.</li> </ul> 
+scalePolicy.<br>testAutoScale.<br>customRules[].<br>metricType | **string**<br><p>Required. Type of custom metric. This field affects how Instance Groups calculates the average metric value.</p> <ul> <li>GAUGE: This type is used for metrics that show the metric value at a certain point in time, such as requests per second to the server on an instance.</li> </ul> <p>Instance Groups calculates the average metric value for the period specified in the `measurementDuration` field.</p> <ul> <li>COUNTER: This type is used for metrics that monotonically increase over time, such as the total number of requests to the server on an instance.</li> </ul> <p>Instance Groups calculates the average value increase for the period specified in the `measurementDuration` field.</p> 
+scalePolicy.<br>testAutoScale.<br>customRules[].<br>metricName | **string**<br><p>Required. Name of custom metric in Yandex Monitoring that should be used for scaling.</p> <p>Value must match the regular expression `` [a-zA-Z0-9./@<em>][ 0-9a-zA-Z./@</em>,:;()[]&lt;&gt;-]{0,198} ``.</p> 
+scalePolicy.<br>testAutoScale.<br>customRules[].<br>labels | **object**<br><p>Labels of custom metric in Yandex Monitoring that should be used for scaling.</p> <p>Each key must match the regular expression `` ^[a-zA-Z][0-9a-zA-Z_]{0,31}$ ``. Each value must match the regular expression `` [a-zA-Z0-9./@<em>][ 0-9a-zA-Z./@</em>,:;()[]&lt;&gt;-]{0,198} ``.</p> 
+scalePolicy.<br>testAutoScale.<br>customRules[].<br>target | **number** (double)<br><p>Target value for the custom metric. Instance Groups maintains this level for each availability zone.</p> <p>Value must be greater than 0.</p> 
+scalePolicy.<br>testAutoScale.<br>customRules[].<br>folderId | **string**<br><p>Folder id of custom metric in Yandex Monitoring that should be used for scaling.</p> <p>The maximum string length in characters is 50.</p> 
+scalePolicy.<br>testAutoScale.<br>customRules[].<br>service | **string**<br><p>Service of custom metric in Yandex Monitoring that should be used for scaling.</p> <p>The maximum string length in characters is 200.</p> 
+scalePolicy.<br>fixedScale | **object**<br>[Manual scaling policy](/docs/compute/concepts/instance-groups/scale#fixed-policy) of the instance group. <br>`scalePolicy` includes only one of the fields `fixedScale`, `autoScale`<br><br>
+scalePolicy.<br>fixedScale.<br>size | **string** (int64)<br><p>Number of instances in the instance group.</p> <p>Acceptable values are 1 to 100, inclusive.</p> 
+scalePolicy.<br>autoScale | **object**<br>Test spec for [automatic scaling policy](/docs/compute/concepts/instance-groups/scale#auto-scale) of the instance group. <br>`scalePolicy` includes only one of the fields `fixedScale`, `autoScale`<br><br>
+scalePolicy.<br>autoScale.<br>minZoneSize | **string** (int64)<br><p>Lower limit for instance count in each zone.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+scalePolicy.<br>autoScale.<br>maxSize | **string** (int64)<br><p>Upper limit for total instance count (across all zones). 0 means maximum limit = 100.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+scalePolicy.<br>autoScale.<br>measurementDuration | **string**<br><p>Required. Time in seconds allotted for averaging metrics.</p> <p>Acceptable values are 60 seconds to 600 seconds, inclusive.</p> 
+scalePolicy.<br>autoScale.<br>warmupDuration | **string**<br><p>The warmup time of the instance in seconds. During this time, traffic is sent to the instance, but instance metrics are not collected.</p> <p>The maximum value is 600 seconds.</p> 
+scalePolicy.<br>autoScale.<br>stabilizationDuration | **string**<br><p>Minimum amount of time in seconds allotted for monitoring before Instance Groups can reduce the number of instances in the group. During this time, the group size doesn't decrease, even if the new metric values indicate that it should.</p> <p>Acceptable values are 60 seconds to 1800 seconds, inclusive.</p> 
+scalePolicy.<br>autoScale.<br>initialSize | **string** (int64)<br><p>Target group size.</p> <p>The minimum value is 1.</p> 
+scalePolicy.<br>autoScale.<br>cpuUtilizationRule | **object**<br><p>Defines an autoscaling rule based on the average CPU utilization of the instance group.</p> 
+scalePolicy.<br>autoScale.<br>cpuUtilizationRule.<br>utilizationTarget | **number** (double)<br><p>Target CPU utilization level. Instance Groups maintains this level for each availability zone.</p> <p>Acceptable values are 10 to 100, inclusive.</p> 
+scalePolicy.<br>autoScale.<br>customRules[] | **object**<br><p>Defines an autoscaling rule based on a <a href="/docs/monitoring/operations/metric/add">custom metric</a> from Yandex Monitoring.</p> <p>The maximum number of elements is 1.</p> 
+scalePolicy.<br>autoScale.<br>customRules[].<br>ruleType | **string**<br><p>Required. Custom metric rule type. This field affects which label from the custom metric should be used: `zone_id` or `instance_id`.</p> <ul> <li>UTILIZATION: This type means that the metric applies to one instance. First, Instance Groups calculates the average metric value for each instance, then averages the values for instances in one availability zone. This type of metric must have the `instance_id` label.</li> <li>WORKLOAD: This type means that the metric applies to instances in one availability zone. This type of metric must have the `zone_id` label.</li> </ul> 
+scalePolicy.<br>autoScale.<br>customRules[].<br>metricType | **string**<br><p>Required. Type of custom metric. This field affects how Instance Groups calculates the average metric value.</p> <ul> <li>GAUGE: This type is used for metrics that show the metric value at a certain point in time, such as requests per second to the server on an instance.</li> </ul> <p>Instance Groups calculates the average metric value for the period specified in the `measurementDuration` field.</p> <ul> <li>COUNTER: This type is used for metrics that monotonically increase over time, such as the total number of requests to the server on an instance.</li> </ul> <p>Instance Groups calculates the average value increase for the period specified in the `measurementDuration` field.</p> 
+scalePolicy.<br>autoScale.<br>customRules[].<br>metricName | **string**<br><p>Required. Name of custom metric in Yandex Monitoring that should be used for scaling.</p> <p>Value must match the regular expression `` [a-zA-Z0-9./@<em>][ 0-9a-zA-Z./@</em>,:;()[]&lt;&gt;-]{0,198} ``.</p> 
+scalePolicy.<br>autoScale.<br>customRules[].<br>labels | **object**<br><p>Labels of custom metric in Yandex Monitoring that should be used for scaling.</p> <p>Each key must match the regular expression `` ^[a-zA-Z][0-9a-zA-Z_]{0,31}$ ``. Each value must match the regular expression `` [a-zA-Z0-9./@<em>][ 0-9a-zA-Z./@</em>,:;()[]&lt;&gt;-]{0,198} ``.</p> 
+scalePolicy.<br>autoScale.<br>customRules[].<br>target | **number** (double)<br><p>Target value for the custom metric. Instance Groups maintains this level for each availability zone.</p> <p>Value must be greater than 0.</p> 
+scalePolicy.<br>autoScale.<br>customRules[].<br>folderId | **string**<br><p>Folder id of custom metric in Yandex Monitoring that should be used for scaling.</p> <p>The maximum string length in characters is 50.</p> 
+scalePolicy.<br>autoScale.<br>customRules[].<br>service | **string**<br><p>Service of custom metric in Yandex Monitoring that should be used for scaling.</p> <p>The maximum string length in characters is 200.</p> 
+deployPolicy | **object**<br><p>Required. Deployment policy of the instance group.</p> 
+deployPolicy.<br>maxUnavailable | **string** (int64)<br><p>The maximum number of running instances that can be taken offline (i.e., stopped or deleted) at the same time during the update process. If `maxExpansion` is not specified or set to zero, `maxUnavailable` must be set to a non-zero value.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+deployPolicy.<br>maxDeleting | **string** (int64)<br><p>The maximum number of instances that can be deleted at the same time.</p> <p>The value 0 is any number of virtual machines within the allowed values.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+deployPolicy.<br>maxCreating | **string** (int64)<br><p>The maximum number of instances that can be created at the same time.</p> <p>The value 0 is any number of virtual machines within the allowed values.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+deployPolicy.<br>maxExpansion | **string** (int64)<br><p>The maximum number of instances that can be temporarily allocated above the group's target size during the update process. If `maxUnavailable` is not specified or set to zero, `maxExpansion` must be set to a non-zero value.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+deployPolicy.<br>startupDuration | **string**<br><p>Instance startup duration. Instance will be considered up and running (and start receiving traffic) only after startup_duration has elapsed and all health checks are passed. See `ManagedInstanceStatus` for more information.</p> <p>Acceptable values are 0 seconds to 3600 seconds, inclusive.</p> 
+deployPolicy.<br>strategy | **string**<br><p>Affects the lifecycle of the instance during deployment.</p> <ul> <li>PROACTIVE: Instance Groups can forcefully stop a running instance. This is the default.</li> <li>OPPORTUNISTIC: Instance Groups does not stop a running instance. Instead, it will wait until the instance stops itself or becomes unhealthy.</li> </ul> 
+allocationPolicy | **object**<br><p>Required. Allocation policy of the instance group by zones and regions.</p> 
+allocationPolicy.<br>zones[] | **object**<br><p>Required. List of availability zones.</p> <p>The minimum number of elements is 1.</p> 
+allocationPolicy.<br>zones[].<br>zoneId | **string**<br><p>Required. ID of the availability zone where the instance resides.</p> 
+healthChecksSpec | **object**<br><p>Health checking specification. For more information, see <a href="/docs/load-balancer/concepts/health-check">Health check</a>.</p> 
+healthChecksSpec.<br>healthCheckSpecs[] | **object**<br><p>Required. Health checking specification. For more information, see <a href="/docs/load-balancer/concepts/health-check">Health check</a>.</p> <p>The minimum number of elements is 1.</p> 
+healthChecksSpec.<br>healthCheckSpecs[].<br>interval | **string**<br><p>The interval between health checks. The default is 2 seconds.</p> <p>Acceptable values are 1 seconds to 300 seconds, inclusive.</p> 
+healthChecksSpec.<br>healthCheckSpecs[].<br>timeout | **string**<br><p>Timeout for the managed instance to return a response for the health check. The default is 1 second.</p> <p>Acceptable values are 1 seconds to 60 seconds, inclusive.</p> 
+healthChecksSpec.<br>healthCheckSpecs[].<br>unhealthyThreshold | **string** (int64)<br><p>The number of failed health checks for the managed instance to be considered unhealthy. The default (0) is 2.</p> <p>Value must be one of 0, 2, 3, 4, 5, 6, 7, 8, 9 or 10.</p> 
+healthChecksSpec.<br>healthCheckSpecs[].<br>healthyThreshold | **string** (int64)<br><p>The number of successful health checks required in order for the managed instance to be considered healthy. The default (0) is 2.</p> <p>Value must be one of 0, 2, 3, 4, 5, 6, 7, 8, 9 or 10.</p> 
+healthChecksSpec.<br>healthCheckSpecs[].<br>tcpOptions | **object**<br>Configuration options for a TCP health check. <br>`healthChecksSpec.healthCheckSpecs[]` includes only one of the fields `tcpOptions`, `httpOptions`<br><br>
+healthChecksSpec.<br>healthCheckSpecs[].<br>tcpOptions.<br>port | **string** (int64)<br><p>Port to use for TCP health checks.</p> <p>Acceptable values are 1 to 65535, inclusive.</p> 
+healthChecksSpec.<br>healthCheckSpecs[].<br>httpOptions | **object**<br>Configuration options for an HTTP health check. <br>`healthChecksSpec.healthCheckSpecs[]` includes only one of the fields `tcpOptions`, `httpOptions`<br><br>
+healthChecksSpec.<br>healthCheckSpecs[].<br>httpOptions.<br>port | **string** (int64)<br><p>Port to use for HTTP health checks.</p> <p>Acceptable values are 1 to 65535, inclusive.</p> 
+healthChecksSpec.<br>healthCheckSpecs[].<br>httpOptions.<br>path | **string**<br><p>URL path to set for health checking requests.</p> 
+healthChecksSpec.<br>maxCheckingHealthDuration | **string**<br><p>Timeout for waiting for the VM to become healthy. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds.</p> <p>The minimum value is 1 seconds.</p> 
+serviceAccountId | **string**<br><p>ID of the service account. The service account will be used for all API calls made by the Instance Groups component on behalf of the user (for example, creating instances, adding them to load balancer target group, etc.). For more information, see <a href="/docs/iam/concepts/users/service-accounts">Service accounts</a>. To get the service account ID, use a <a href="/docs/iam/api-ref/ServiceAccount/list">list</a> request.</p> 
+loadBalancerSpec | **object**<br><p>Load Balancer specification for load balancing support.</p> 
+loadBalancerSpec.<br>targetGroupSpec | **object**<br><p>Specification of the target group that the instance group will be added to. For more information, see <a href="/docs/load-balancer/concepts/target-resources">Target groups and resources</a>.</p> 
+loadBalancerSpec.<br>targetGroupSpec.<br>name | **string**<br><p>Name of the target group.</p> <p>Value must match the regular expression `` \|<a href="%5B-a-z0-9%5D%7B0,61%7D%5Ba-z0-9%5D">a-z</a>? ``.</p> 
+loadBalancerSpec.<br>targetGroupSpec.<br>description | **string**<br><p>Description of the target group.</p> <p>The maximum string length in characters is 256.</p> 
+loadBalancerSpec.<br>targetGroupSpec.<br>labels | **object**<br><p>Resource labels as `key:value` pairs.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression `` [a-z][-<em>./@0-9a-z]* ``. The maximum string length in characters for each value is 63. Each value must match the regular expression `` [-</em>./@0-9a-z]* ``.</p> 
+loadBalancerSpec.<br>maxOpeningTrafficDuration | **string**<br><p>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds.</p> <p>The minimum value is 1 seconds.</p> 
+variables[] | **object**<br>
+variables[].<br>key | **string**<br><p>The string length in characters must be 1-128. Value must match the regular expression `` [a-zA-Z0-9._-]* ``.</p> 
+variables[].<br>value | **string**<br><p>The maximum string length in characters is 128.</p> 
+deletionProtection | **boolean** (boolean)<br><p>Flag that inhibits deletion of the instance group</p> 
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -271,7 +419,7 @@ loadBalancerSpec.<br>targetGroupSpec.<br>labels | **object**<br><p>Метки р
   "done": true,
   "metadata": "object",
 
-  //  включает только одно из полей `error`, `response`
+  //  includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
     "message": "string",
@@ -280,24 +428,23 @@ loadBalancerSpec.<br>targetGroupSpec.<br>labels | **object**<br><p>Метки р
     ]
   },
   "response": "object",
-  // конец списка возможных полей
+  // end of the list of possible fields
 
 }
 ```
-Ресурс Operation. Дополнительные сведения см. в разделе
-[Объект Operation](/docs/api-design-guide/concepts/operation).
+An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
  
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br><p>Идентификатор операции.</p> 
-description | **string**<br><p>Описание операции. Длина описания должна быть от 0 до 256 символов.</p> 
-createdAt | **string** (date-time)<br><p>Время создания ресурса в формате в <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-createdBy | **string**<br><p>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию.</p> 
-modifiedAt | **string** (date-time)<br><p>Время, когда ресурс Operation последний раз обновлялся. Значение в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-done | **boolean** (boolean)<br><p>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`.</p> 
-metadata | **object**<br><p>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`.</p> 
-error | **object**<br>Описание ошибки в случае сбоя или отмены операции. <br> включает только одно из полей `error`, `response`<br><br><p>Описание ошибки в случае сбоя или отмены операции.</p> 
-error.<br>code | **integer** (int32)<br><p>Код ошибки. Значение из списка <a href="https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto">google.rpc.Code</a>.</p> 
-error.<br>message | **string**<br><p>Текст ошибки.</p> 
-error.<br>details[] | **object**<br><p>Список сообщений с подробными сведениями об ошибке.</p> 
-response | **object** <br> включает только одно из полей `error`, `response`<br><br><p>Результат операции в случае успешного завершения. Если исходный метод не возвращает никаких данных при успешном завершении, например метод Delete, поле содержит объект <a href="https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty">google.protobuf.Empty</a>. Если исходный метод — это стандартный метод Create / Update, поле содержит целевой ресурс операции. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `response`.</p> 
+id | **string**<br><p>ID of the operation.</p> 
+description | **string**<br><p>Description of the operation. 0-256 characters long.</p> 
+createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+createdBy | **string**<br><p>ID of the user or service account who initiated the operation.</p> 
+modifiedAt | **string** (date-time)<br><p>The time when the Operation resource was last modified.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+done | **boolean** (boolean)<br><p>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available.</p> 
+metadata | **object**<br><p>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any.</p> 
+error | **object**<br>The error result of the operation in case of failure or cancellation. <br> includes only one of the fields `error`, `response`<br><br><p>The error result of the operation in case of failure or cancellation.</p> 
+error.<br>code | **integer** (int32)<br><p>Error code. An enum value of <a href="https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto">google.rpc.Code</a>.</p> 
+error.<br>message | **string**<br><p>An error message.</p> 
+error.<br>details[] | **object**<br><p>A list of messages that carry the error details.</p> 
+response | **object** <br> includes only one of the fields `error`, `response`<br><br><p>The normal response of the operation in case of success. If the original method returns no data on success, such as Delete, the response is <a href="https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty">google.protobuf.Empty</a>. If the original method is the standard Create/Update, the response should be the target resource of the operation. Any method that returns a long-running operation should document the response type, if any.</p> 

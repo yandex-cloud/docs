@@ -2,31 +2,31 @@
 editable: false
 ---
 
-# Метод listLogRecords
-Возвращает список логов для указанной группы виртуальных машин.
+# Method listLogRecords
+Lists logs for the specified instance group.
  
 
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 GET https://compute.api.cloud.yandex.net/compute/v1/instanceGroups/{instanceGroupId}:logs
 ```
  
-## Path-параметры {#path_params}
+## Path parameters {#path_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-instanceGroupId | Обязательное поле. Идентификатор ресурса InstanceGroup для получения списка логов. Чтобы получить идентификатор группы виртуальных машин, используйте запрос [list](/docs/compute/api-ref/InstanceGroup/list).
+instanceGroupId | Required. ID of the InstanceGroup resource to list logs for. To get the instance group ID, use a [list](/docs/compute/api-ref/InstanceGroup/list) request.
  
-## Query-параметры {#query_params}
+## Query parameters {#query_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-pageSize | Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем [pageSize](/docs/compute/api-ref/InstanceGroup/listLogRecords#query_params), сервис вернет значение [nextPageToken](/docs/compute/api-ref/InstanceGroup/listLogRecords#responses), которое можно использовать для получения следующей страницы.  Допустимые значения — от 0 до 1000 включительно.
-pageToken | Токен страницы. Установите значение [pageToken](/docs/compute/api-ref/InstanceGroup/listLogRecords#query_params) равным значению поля [nextPageToken](/docs/compute/api-ref/InstanceGroup/listLogRecords#responses) предыдущего запроса, чтобы получить следующую страницу результатов.  Максимальная длина строки в символах — 100.
-filter | Параметры фильтрации ресурсов в ответе. В настоящее время фильтрация осуществляется только по полю [InstanceGroup.name](/docs/compute/api-ref/InstanceGroup#representation).  Максимальная длина строки в символах — 1000.
+pageSize | The maximum number of results per page to return. If the number of available results is larger than [pageSize](/docs/compute/api-ref/InstanceGroup/listLogRecords#query_params), the service returns a [nextPageToken](/docs/compute/api-ref/InstanceGroup/listLogRecords#responses) that can be used to get the next page of results in subsequent list requests.  Acceptable values are 0 to 1000, inclusive.
+pageToken | Page token. To get the next page of results, set [pageToken](/docs/compute/api-ref/InstanceGroup/listLogRecords#query_params) to the [nextPageToken](/docs/compute/api-ref/InstanceGroup/listLogRecords#responses) returned by a previous list request.  The maximum string length in characters is 100.
+filter | A filter expression that filters resources listed in the response. Currently you can use filtering only on the [InstanceGroup.name](/docs/compute/api-ref/InstanceGroup#representation) field.  The maximum string length in characters is 1000.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -42,9 +42,9 @@ filter | Параметры фильтрации ресурсов в ответ�
 ```
 
  
-Поле | Описание
+Field | Description
 --- | ---
-logRecords[] | **object**<br><p>Возвращает список логов для указанной группы виртуальных машин.</p> 
-logRecords[].<br>timestamp | **string** (date-time)<br><p>Время записи лога в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-logRecords[].<br>message | **string**<br><p>Сообщение.</p> 
-nextPageToken | **string**<br><p>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем <a href="/docs/compute/api-ref/InstanceGroup/listLogRecords#query_params">pageSize</a>, используйте <a href="/docs/compute/api-ref/InstanceGroup/listLogRecords#responses">nextPageToken</a> в качестве значения параметра <a href="/docs/compute/api-ref/InstanceGroup/listLogRecords#query_params">pageToken</a> в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения <a href="/docs/compute/api-ref/InstanceGroup/listLogRecords#responses">nextPageToken</a> для перебора страниц результатов.</p> 
+logRecords[] | **object**<br><p>Lists logs for the specified instance group.</p> 
+logRecords[].<br>timestamp | **string** (date-time)<br><p>Log timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+logRecords[].<br>message | **string**<br><p>The log message.</p> 
+nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/compute/api-ref/InstanceGroup/listLogRecords#query_params">pageSize</a>, use <a href="/docs/compute/api-ref/InstanceGroup/listLogRecords#responses">nextPageToken</a> as the value for the <a href="/docs/compute/api-ref/InstanceGroup/listLogRecords#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own <a href="/docs/compute/api-ref/InstanceGroup/listLogRecords#responses">nextPageToken</a> to continue paging through the results.</p> 

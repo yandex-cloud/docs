@@ -2,24 +2,24 @@
 editable: false
 ---
 
-# Метод get
-Возвращает информацию об указанном пользователе Kafka.
+# Method get
+Returns the specified Kafka user.
  
-Чтобы получить список доступных пользователей Kafka, выполните запрос [list](/docs/managed-kafka/api-ref/User/list).
+To get the list of available Kafka users, make a [list](/docs/managed-kafka/api-ref/User/list) request.
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 GET https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters/{clusterId}/users/{userName}
 ```
  
-## Path-параметры {#path_params}
+## Path parameters {#path_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-clusterId | Обязательное поле. Идентификатор кластера Apache Kafka®, к которому принадлежит пользователь.  Чтобы получить идентификатор кластера, выполните запрос [list](/docs/managed-kafka/api-ref/Cluster/list).  Максимальная длина строки в символах — 50.
-userName | Обязательное поле. Имя запрашиваемого пользователя Kafka.  Чтобы получить имя пользователя, выполните запрос [list](/docs/managed-kafka/api-ref/User/list).  Длина строки в символах должна быть от 1 до 63. Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_]* ``.
+clusterId | Required. ID of the Apache Kafka® cluster the user belongs to.  To get the cluster ID, make a [list](/docs/managed-kafka/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
+userName | Required. Name of the Kafka user to return.  To get the name of the user, make a [list](/docs/managed-kafka/api-ref/User/list) request.  The string length in characters must be 1-63. Value must match the regular expression `` [a-zA-Z0-9_]* ``.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -34,12 +34,13 @@ userName | Обязательное поле. Имя запрашиваемог�
   ]
 }
 ```
-Пользователь Kafka. Подробнее читайте в разделе [Operations → Accounts](/docs/managed-kafka/operations/cluster-accounts) документации.
+A Kafka user.
+For more information, see the [Operations -> Accounts](/docs/managed-kafka/operations/cluster-accounts) section of the documentation.
  
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br><p>Имя пользователя Kafka.</p> 
-clusterId | **string**<br><p>Идентификатор кластера Apache Kafka®, к которому принадлежит пользователь.</p> <p>Чтобы получить идентификатор кластера Apache Kafka®, выполните запрос <a href="/docs/managed-kafka/api-ref/Cluster/list">list</a>.</p> 
-permissions[] | **object**<br><p>Набор разрешений, предоставленных пользователю.</p> 
-permissions[].<br>topicName | **string**<br><p>Имя топика, к которому предоставляется доступ.</p> <p>Чтобы получить имя топика, выполните запрос <a href="/docs/managed-kafka/api-ref/Topic/list">list</a>.</p> 
-permissions[].<br>role | **string**<br><p>Роль доступа, которую нужно предоставить пользователю.</p> <ul> <li>ACCESS_ROLE_PRODUCER: роль пользователя — производитель.</li> <li>ACCESS_ROLE_CONSUMER: роль пользователя — потребитель.</li> </ul> 
+name | **string**<br><p>Name of the Kafka user.</p> 
+clusterId | **string**<br><p>ID of the Apache Kafka® cluster the user belongs to.</p> <p>To get the Apache Kafka® cluster ID, make a <a href="/docs/managed-kafka/api-ref/Cluster/list">list</a> request.</p> 
+permissions[] | **object**<br><p>Set of permissions granted to this user.</p> 
+permissions[].<br>topicName | **string**<br><p>Name or prefix-pattern with wildcard for the topic that the permission grants access to.</p> <p>To get the topic name, make a <a href="/docs/managed-kafka/api-ref/Topic/list">list</a> request.</p> 
+permissions[].<br>role | **string**<br><p>Access role type to grant to the user.</p> <ul> <li>ACCESS_ROLE_PRODUCER: producer role for the user.</li> <li>ACCESS_ROLE_CONSUMER: consumer role for the user.</li> <li>ACCESS_ROLE_ADMIN: admin role for the user.</li> </ul> 

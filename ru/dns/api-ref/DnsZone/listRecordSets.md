@@ -2,31 +2,31 @@
 editable: false
 ---
 
-# Метод listRecordSets
-Возвращает список наборов записей в указанном каталоге.
+# Method listRecordSets
+Retrieves the list of record sets in the specified folder.
  
 
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 GET https://dns.api.cloud.yandex.net/dns/v1/zones/{dnsZoneId}:listRecordSets
 ```
  
-## Path-параметры {#path_params}
+## Path parameters {#path_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-dnsZoneId | Идентификатор зоны DNS для получения списка наборов записей.   Чтобы получить идентификатор зоны DNS, выполните запрос [list](/docs/dns/api-ref/DnsZone/list).  Длина строки в символах должна быть равна 20.
+dnsZoneId | ID of the DNS zone to list record sets in.   To get a DNS zone ID, make a [list](/docs/dns/api-ref/DnsZone/list) request.  The string length in characters must be equal to 20.
  
-## Query-параметры {#query_params}
+## Query parameters {#query_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-pageSize | Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем `page_size`, сервис вернет значение [nextPageToken](/docs/dns/api-ref/DnsZone/listRecordSets#responses), которое можно использовать для получения следующей страницы.  Максимальное значение — 1000.
-pageToken | Токен страницы. Установите значение `page_token` равным значению поля [nextPageToken](/docs/dns/api-ref/DnsZone/listRecordSets#responses) предыдущего запроса, чтобы получить следующую страницу результатов.  Максимальная длина строки в символах — 1000.
-filter | Параметры фильтрации задач в ответе.  В параметрах фильтрации указываются:  1. Имя поля. В настоящее время вы можете использовать фильтрацию только для полей `name` и `type` .  2. Оператор. Поддерживаются операторы `=` и `!=` для одиночных значений, `IN` и `NOT IN` для списков значений. 3. Значение или списки значений. Значение длиной от 3 до 63 символов, совпадающее с регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]`. Пример фильтра: `name=my-record-set`.  Максимальная длина строки в символах — 1000.
+pageSize | The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [nextPageToken](/docs/dns/api-ref/DnsZone/listRecordSets#responses) that can be used to get the next page of results in subsequent list requests.  The maximum value is 1000.
+pageToken | Page token. To get the next page of results, set `page_token` to the  [nextPageToken](/docs/dns/api-ref/DnsZone/listRecordSets#responses) returned by a previous list request.  The maximum string length in characters is 1000.
+filter | A filter expression that filters record sets listed in the response.  The expression must specify:  1. The field name. Currently you can use filtering only on the `name` and `type` fields.  2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. 3. The value or lists of values. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]`. Example of a filter: `name=my-record-set`.  The maximum string length in characters is 1000.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -46,11 +46,11 @@ filter | Параметры фильтрации задач в ответе.  В
 ```
 
  
-Поле | Описание
+Field | Description
 --- | ---
-recordSets[] | **object**<br><p>Набор записей. Подробнее см. в разделе <a href="/docs/dns/concepts/resource-record">Ресурсные записи</a>.</p> 
-recordSets[].<br>name | **string**<br><p>Доменное имя.</p> <p>Длина строки в символах должна быть от 1 до 254.</p> 
-recordSets[].<br>type | **string**<br><p>Тип записи.</p> <p>Длина строки в символах должна быть от 1 до 20.</p> 
-recordSets[].<br>ttl | **string** (int64)<br><p>Время жизни записи в секундах.</p> <p>Допустимые значения — от 0 до 2147483647 включительно.</p> 
-recordSets[].<br>data[] | **string**<br><p>Обязательное поле. Значение набора записей.</p> <p>Количество элементов должно находиться в диапазоне от 1 до 100. Длина строки в символах для каждого значения должна быть от 1 до 255.</p> 
-nextPageToken | **string**<br><p>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем <a href="/docs/dns/api-ref/DnsZone/listRecordSets#query_params">pageSize</a>, используйте `next_page_token` в качестве значения параметра <a href="/docs/dns/api-ref/DnsZone/listRecordSets#query_params">pageToken</a> в следующем запросе списка ресурсов.</p> <p>Каждая следующая страница будет иметь свой `next_page_token` для продолжения перебора страниц результатов.</p> 
+recordSets[] | **object**<br><p>A record set. For details about the concept, see <a href="/docs/dns/concepts/resource-record">Resource record</a>.</p> 
+recordSets[].<br>name | **string**<br><p>Domain name.</p> <p>The string length in characters must be 1-254.</p> 
+recordSets[].<br>type | **string**<br><p>Record type.</p> <p>The string length in characters must be 1-20.</p> 
+recordSets[].<br>ttl | **string** (int64)<br><p>Time to live in seconds.</p> <p>Acceptable values are 0 to 2147483647, inclusive.</p> 
+recordSets[].<br>data[] | **string**<br><p>Required. Data of the record set.</p> <p>The number of elements must be in the range 1-100. The string length in characters for each value must be 1-255.</p> 
+nextPageToken | **string**<br><p>Token for getting the next page of the list. If the number of results is greater than the specified <a href="/docs/dns/api-ref/DnsZone/listRecordSets#query_params">pageSize</a>, use `next_page_token` as the value for the <a href="/docs/dns/api-ref/DnsZone/listRecordSets#query_params">pageToken</a> parameter in the next list request.</p> <p>Each subsequent page will have its own `next_page_token` to continue paging through the results.</p> 

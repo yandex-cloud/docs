@@ -2,30 +2,30 @@
 editable: false
 ---
 
-# Метод listSubnets
-Возвращает список доступных подсетей в указанной облачной сети.
+# Method listSubnets
+Lists subnets from the specified network.
  
 
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 GET https://vpc.api.cloud.yandex.net/vpc/v1/networks/{networkId}/subnets
 ```
  
-## Path-параметры {#path_params}
+## Path parameters {#path_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-networkId | Обязательное поле. Идентификатор ресурса Network для получения списка подсетей.  Максимальная длина строки в символах — 50.
+networkId | Required. ID of the Network resource to list subnets for.  The maximum string length in characters is 50.
  
-## Query-параметры {#query_params}
+## Query parameters {#query_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-pageSize | Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем [pageSize](/docs/vpc/api-ref/Network/listSubnets#query_params),  сервис вернет значение [nextPageToken](/docs/vpc/api-ref/Network/listSubnets#responses),  которое можно использовать для получения следующей страницы.  Значение по умолчанию: 100.  Максимальное значение — 1000.
-pageToken | Токен страницы. Установите значение [pageToken](/docs/vpc/api-ref/Network/listSubnets#query_params) равным значению поля [nextPageToken](/docs/vpc/api-ref/Network/listSubnets#responses)  прошлого запроса, чтобы получить следующую страницу результатов.  Максимальная длина строки в символах — 100.
+pageSize | The maximum number of results per page that should be returned. If the number of available results is larger than [pageSize](/docs/vpc/api-ref/Network/listSubnets#query_params), the service returns a [nextPageToken](/docs/vpc/api-ref/Network/listSubnets#responses) that can be used to get the next page of results in subsequent list requests. Default value: 100.  The maximum value is 1000.
+pageToken | Page token. Set [pageToken](/docs/vpc/api-ref/Network/listSubnets#query_params) to the [nextPageToken](/docs/vpc/api-ref/Network/listSubnets#responses) returned by a previous list request to get the next page of results.  The maximum string length in characters is 100.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -45,7 +45,17 @@ pageToken | Токен страницы. Установите значение [
       ],
       "v6CidrBlocks": [
         "string"
-      ]
+      ],
+      "routeTableId": "string",
+      "dhcpOptions": {
+        "domainNameServers": [
+          "string"
+        ],
+        "domainName": "string",
+        "ntpServers": [
+          "string"
+        ]
+      }
     }
   ],
   "nextPageToken": "string"
@@ -53,17 +63,22 @@ pageToken | Токен страницы. Установите значение [
 ```
 
  
-Поле | Описание
+Field | Description
 --- | ---
-subnets[] | **object**<br><p>Ресурс Subnet. Подробнее см. <a href="/vpc/concepts/subnets">Подсети</a>.</p> 
-subnets[].<br>id | **string**<br><p>Идентификатор подсети.</p> 
-subnets[].<br>folderId | **string**<br><p>Идентификатор каталога, которому принадлежит подсеть.</p> 
-subnets[].<br>createdAt | **string** (date-time)<br><p>Время создания ресурса в формате в <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-subnets[].<br>name | **string**<br><p>Имя подсети. Имя должно быть уникальным в каталоге. Длина имени должна быть от 3 до 63 символов.</p> 
-subnets[].<br>description | **string**<br><p>Описание подсети. Длина описания должна быть от 0 до 256 символов.</p> 
-subnets[].<br>labels | **object**<br><p>Метки ресурса в формате `` ключ:значение ``. Максимум 64 метки на ресурс.</p> 
-subnets[].<br>networkId | **string**<br><p>Идентификатор облачной сети, к которой принадлежит подсеть.</p> 
-subnets[].<br>zoneId | **string**<br><p>Идентификатор зоны доступности, где находится подсеть.</p> 
-subnets[].<br>v4CidrBlocks[] | **string**<br><p>CIDR. Диапазон внутренних адресов, определенных для этой подсети. Это поле может быть задано только во время создания ресурса Subnet и не может быть изменено. Например, 10.0.0.0/22 или 192.168.0.0/24. Минимальный размер подсети /28, максимальный размер подсети /16.</p> 
-subnets[].<br>v6CidrBlocks[] | **string**<br><p>IPv6 еще не доступен.</p> 
-nextPageToken | **string**<br><p>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем <a href="/docs/vpc/api-ref/Network/listSubnets#query_params">pageSize</a>, используйте <a href="/docs/vpc/api-ref/Network/listSubnets#responses">nextPageToken</a> в качестве значения параметра <a href="/docs/vpc/api-ref/Network/listSubnets#query_params">pageToken</a> в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения <a href="/docs/vpc/api-ref/Network/listSubnets#responses">nextPageToken</a>, для перебора страниц результатов.</p> 
+subnets[] | **object**<br><p>A Subnet resource. For more information, see <a href="/docs/vpc/concepts/subnets">Subnets</a>.</p> 
+subnets[].<br>id | **string**<br><p>ID of the subnet.</p> 
+subnets[].<br>folderId | **string**<br><p>ID of the folder that the subnet belongs to.</p> 
+subnets[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+subnets[].<br>name | **string**<br><p>Name of the subnet. The name is unique within the project. 3-63 characters long.</p> 
+subnets[].<br>description | **string**<br><p>Optional description of the subnet. 0-256 characters long.</p> 
+subnets[].<br>labels | **object**<br><p>Resource labels as `` key:value `` pairs. Maximum of 64 per resource.</p> 
+subnets[].<br>networkId | **string**<br><p>ID of the network the subnet belongs to.</p> 
+subnets[].<br>zoneId | **string**<br><p>ID of the availability zone where the subnet resides.</p> 
+subnets[].<br>v4CidrBlocks[] | **string**<br><p>CIDR block. The range of internal addresses that are defined for this subnet. This field can be set only at Subnet resource creation time and cannot be changed. For example, 10.0.0.0/22 or 192.168.0.0/24. Minimum subnet size is /28, maximum subnet size is /16.</p> 
+subnets[].<br>v6CidrBlocks[] | **string**<br><p>IPv6 not available yet.</p> 
+subnets[].<br>routeTableId | **string**<br><p>ID of route table the subnet is linked to.</p> 
+subnets[].<br>dhcpOptions | **object**<br>
+subnets[].<br>dhcpOptions.<br>domainNameServers[] | **string**<br>
+subnets[].<br>dhcpOptions.<br>domainName | **string**<br>
+subnets[].<br>dhcpOptions.<br>ntpServers[] | **string**<br>
+nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/vpc/api-ref/Network/listSubnets#query_params">pageSize</a>, use the <a href="/docs/vpc/api-ref/Network/listSubnets#responses">nextPageToken</a> as the value for the <a href="/docs/vpc/api-ref/Network/listSubnets#query_params">pageToken</a> query parameter in the next list request. Subsequent list requests will have their own <a href="/docs/vpc/api-ref/Network/listSubnets#responses">nextPageToken</a> to continue paging through the results.</p> 

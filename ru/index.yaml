@@ -3,15 +3,50 @@ meta:
   title: Yandex.Cloud
   noIndex: true
 links:
+  - title: api-design-guide
+    href: api-design-guide/
+  - title: api-gateway
+    href: api-gateway/
+  - title: application-load-balancer
+    href: application-load-balancer/
+  - title: billing
+    href: billing/
+  - title: certificate-manager
+    href: certificate-manager/
   - title: CLI
     description: Интерфейс командной строки
     href: cli/
+  - title: compute
+    href: compute/
+  - title: container-registry
+    href: container-registry/
+  - title: cos
+    href: cos/
+  - title: data-proc
+    href: data-proc/
+  - title: data-transfer
+    href: data-transfer/
   - title: DataLens
     description: Визуализация и анализ данных
     href: datalens/
-  - title: Yandex MDB
-    description: Управляемые базы данных в целом
-    href: mdb/
+  - title: datalens-api
+    href: datalens-api/
+  - title: datasphere
+    href: datasphere/
+  - title: dns
+    href: dns/
+  - title: free-trial
+    href: free-trial/
+  - title: functions
+    href: functions/
+  - title: iam
+    href: iam/
+  - title: iot-core
+    href: iot-core/
+  - title: kms
+    href: kms/
+  - title: lockbox
+    href: lockbox/
   - title: Managed ClickHouse
     description: Управление кластерами ClickHouse
     href: managed-clickhouse/
@@ -21,6 +56,8 @@ links:
   - title: Managed Kafka
     description: Управление кластерами Apache Kafka®
     href: managed-kafka/
+  - title: managed-kubernetes
+    href: managed-kubernetes/
   - title: Managed MongoDB
     description: Управление кластерами MongoDB
     href: managed-mongodb/
@@ -33,3 +70,44 @@ links:
   - title: Managed Redis
     description: Управление кластерами Redis
     href: managed-redis/
+  - title: managed-sqlserver
+    href: managed-sqlserver/
+  - title: marketplace
+    href: marketplace/
+  - title: Yandex MDB
+    description: Управляемые базы данных в целом
+    href: mdb/
+  - title: message-queue
+    href: message-queue/
+  - title: microsoft
+    href: microsoft/
+  - title: monitoring
+    href: monitoring/
+  - title: network-load-balancer
+    href: network-load-balancer/
+  - title: organization
+    href: organization/
+  - title: overview
+    href: overview/
+  - title: partner
+    href: partner/
+  - title: resource-manager
+    href: resource-manager/
+  - title: solutions
+    href: solutions/
+  - title: speechkit
+    href: speechkit/
+  - title: storage
+    href: storage/
+  - title: support
+    href: support/
+  - title: tracker
+    href: tracker/
+  - title: translate
+    href: translate/
+  - title: vision
+    href: vision/
+  - title: vpc
+    href: vpc/
+  - title: ydb
+    href: ydb/

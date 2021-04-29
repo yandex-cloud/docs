@@ -2,23 +2,23 @@
 editable: false
 ---
 
-# Метод get
-Возвращает указанный кластер Data Proc.
+# Method get
+Returns the specified cluster.
  
-Чтобы получить список доступных кластеров Data Proc, выполните запрос [list](/docs/data-proc/api-ref/Cluster/list).
+To get the list of all available clusters, make a [list](/docs/data-proc/api-ref/Cluster/list) request.
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 GET https://dataproc.api.cloud.yandex.net/dataproc/v1/clusters/{clusterId}
 ```
  
-## Path-параметры {#path_params}
+## Path parameters {#path_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-clusterId | Обязательное поле. Идентификатор кластера Data Proc.  Чтобы получить идентификатор кластера, выполните запрос [list](/docs/data-proc/api-ref/Cluster/list).  Максимальная длина строки в символах — 50.
+clusterId | Required. ID of the Data Proc cluster.  To get a cluster ID make a [list](/docs/data-proc/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -52,31 +52,41 @@ clusterId | Обязательное поле. Идентификатор кла
   "status": "string",
   "zoneId": "string",
   "serviceAccountId": "string",
-  "bucket": "string"
+  "bucket": "string",
+  "uiProxy": true,
+  "securityGroupIds": [
+    "string"
+  ],
+  "hostGroupIds": [
+    "string"
+  ]
 }
 ```
-Кластер Data Proc. Дополнительные сведения о концепции см. в [документации](/docs/data-proc/concepts/).
+A Data Proc cluster. For details about the concept, see [documentation](/docs/data-proc/concepts/).
  
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br><p>Идентификатор кластера. Генерируется во время создания.</p> 
-folderId | **string**<br><p>Идентификатор каталога, которому принадлежит кластер.</p> 
-createdAt | **string** (date-time)<br><p>Время создания.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-name | **string**<br><p>Имя кластера. Имя уникально в рамках каталога.</p> <p>Длина строки в символах должна быть от 1 до 63.</p> 
-description | **string**<br><p>Описание кластера.</p> <p>Длина строки в символах должна быть от 0 до 256.</p> 
-labels | **object**<br><p>Метки кластера как пары `key:value`.</p> <p>Не более 64 на ресурс.</p> 
-monitoring[] | **object**<br><p>Метаданные системы мониторинга для кластера Data Proc.</p> 
-monitoring[].<br>name | **string**<br><p>Название системы мониторинга.</p> 
-monitoring[].<br>description | **string**<br><p>Описание системы мониторинга.</p> 
-monitoring[].<br>link | **string**<br><p>Ссылка на систему мониторинга.</p> 
-config | **object**<br><p>Конфигурация кластера.</p> 
-config.<br>versionId | **string**<br><p>Версия образа, которая используется при подготовке кластера. Все доступные версии перечислены в <a href="/docs/managed-hadoop/concepts/image-versions">документации</a>.</p> 
-config.<br>hadoop | **object**<br><p>Настройки конфигурации, специфические для Data Proc.</p> <p>Конфигурация Hadoop, описывающая компоненты, установленные в кластере, их свойства и параметры.</p> 
-config.<br>hadoop.<br>services[] | **string**<br><p>Набор компонентов, используемых в кластере (если список пуст, используется набор по умолчанию).</p> 
-config.<br>hadoop.<br>properties | **object**<br><p>Свойства, установленные для всех хостов в конфигурациях `*-site.xml`. В ключе должны быть указаны компонент и свойство.</p> <p>Например, используйте ключ 'hdfs:dfs.replication', чтобы установить свойство `dfs.replication` в файле `/etc/hadoop/conf/hdfs-site.xml`.</p> 
-config.<br>hadoop.<br>sshPublicKeys[] | **string**<br><p>Список публичных ключей SSH для доступа к хостам кластера.</p> 
-health | **string**<br><p>Агрегированная работоспособность кластера.</p> <ul> <li>HEALTH_UNKNOWN: Состояние кластера неизвестно (`health` для каждого хоста в кластере — UNKNOWN).</li> <li>ALIVE: Кластер работает нормально (`health` для каждого хоста в кластере — ALIVE).</li> <li>DEAD: Кластер не работает (`health` для каждого хоста в кластере — DEAD).</li> <li>DEGRADED: Кластер работает неоптимально (`health` по крайней мере для одного хоста в кластере не ALIVE).</li> </ul> 
-status | **string**<br><p>Состояние кластера.</p> <ul> <li>STATUS_UNKNOWN: Состояние кластера неизвестно.</li> <li>CREATING: Кластер создается.</li> <li>RUNNING: Кластер работает нормально.</li> <li>ERROR: На кластере произошла ошибка, блокирующая работу.</li> <li>STOPPING: Кластер останавливается.</li> <li>STOPPED: Кластер остановлен.</li> <li>STARTING: Кластер запускается.</li> </ul> 
-zoneId | **string**<br><p>Идентификатор зоны доступности, в которой находится кластер.</p> 
-serviceAccountId | **string**<br><p>Идентификатор сервисного аккаунта, которым пользуется агент Data Proc для управления задачами.</p> 
-bucket | **string**<br><p>Имя бакета Object Storage, который используется для задач Data Proc.</p> 
+id | **string**<br><p>ID of the cluster. Generated at creation time.</p> 
+folderId | **string**<br><p>ID of the folder that the cluster belongs to.</p> 
+createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+name | **string**<br><p>Name of the cluster. The name is unique within the folder.</p> <p>The string length in characters must be 1-63.</p> 
+description | **string**<br><p>Description of the cluster.</p> <p>The string length in characters must be 0-256.</p> 
+labels | **object**<br><p>Cluster labels as `key:value` pairs.</p> <p>No more than 64 per resource.</p> 
+monitoring[] | **object**<br><p>Metadata of a monitoring system for a Data Proc cluster.</p> 
+monitoring[].<br>name | **string**<br><p>Name of the monitoring system.</p> 
+monitoring[].<br>description | **string**<br><p>Description of the monitoring system.</p> 
+monitoring[].<br>link | **string**<br><p>Link to the monitoring system.</p> 
+config | **object**<br><p>Configuration of the cluster.</p> 
+config.<br>versionId | **string**<br><p>Image version for cluster provisioning. All available versions are listed in the <a href="/docs/managed-hadoop/concepts/image-versions">documentation</a>.</p> 
+config.<br>hadoop | **object**<br><p>Data Proc specific configuration options.</p> <p>Hadoop configuration that describes services installed in a cluster, their properties and settings.</p> 
+config.<br>hadoop.<br>services[] | **string**<br><p>Set of services used in the cluster (if empty, the default set is used).</p> 
+config.<br>hadoop.<br>properties | **object**<br><p>Properties set for all hosts in `*-site.xml` configurations. The key should indicate the service and the property.</p> <p>For example, use the key 'hdfs:dfs.replication' to set the `dfs.replication` property in the file `/etc/hadoop/conf/hdfs-site.xml`.</p> 
+config.<br>hadoop.<br>sshPublicKeys[] | **string**<br><p>List of public SSH keys to access to cluster hosts.</p> 
+health | **string**<br><p>Aggregated cluster health.</p> <ul> <li>HEALTH_UNKNOWN: State of the cluster is unknown (`health` for every host in the cluster is UNKNOWN).</li> <li>ALIVE: Cluster is alive and well (`health` for every host in the cluster is ALIVE).</li> <li>DEAD: Cluster is inoperable (`health` for every host in the cluster is DEAD).</li> <li>DEGRADED: Cluster is working below capacity (`health` for at least one host in the cluster is not ALIVE).</li> </ul> 
+status | **string**<br><p>Cluster status.</p> <ul> <li>STATUS_UNKNOWN: Cluster state is unknown.</li> <li>CREATING: Cluster is being created.</li> <li>RUNNING: Cluster is running normally.</li> <li>ERROR: Cluster encountered a problem and cannot operate.</li> <li>STOPPING: Cluster is stopping.</li> <li>STOPPED: Cluster stopped.</li> <li>STARTING: Cluster is starting.</li> </ul> 
+zoneId | **string**<br><p>ID of the availability zone where the cluster resides.</p> 
+serviceAccountId | **string**<br><p>ID of service account for the Data Proc manager agent.</p> 
+bucket | **string**<br><p>Object Storage bucket to be used for Data Proc jobs that are run in the cluster.</p> 
+uiProxy | **boolean** (boolean)<br><p>Whether UI Proxy feature is enabled.</p> 
+securityGroupIds[] | **string**<br><p>User security groups.</p> 
+hostGroupIds[] | **string**<br><p>Host groups hosting VMs of the cluster.</p> 

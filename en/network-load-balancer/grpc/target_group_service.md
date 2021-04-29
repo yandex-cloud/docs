@@ -41,7 +41,7 @@ folder_id | **string**<br>ID of the folder that the target group belongs to.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Output only. Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
 name | **string**<br>Name of the target group. The name is unique within the folder. 3-63 characters long. 
 description | **string**<br>Description of the target group. 0-256 characters long. 
-labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Мaximum of 64 per resource. 
+labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
 region_id | **string**<br>ID of the region where the target group resides. 
 targets[] | **[Target](#Target)**<br>A list of targets in the target group. 
 
@@ -87,7 +87,7 @@ folder_id | **string**<br>ID of the folder that the target group belongs to.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Output only. Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
 name | **string**<br>Name of the target group. The name is unique within the folder. 3-63 characters long. 
 description | **string**<br>Description of the target group. 0-256 characters long. 
-labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Мaximum of 64 per resource. 
+labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
 region_id | **string**<br>ID of the region where the target group resides. 
 targets[] | **[Target](#Target1)**<br>A list of targets in the target group. 
 
@@ -162,7 +162,7 @@ folder_id | **string**<br>ID of the folder that the target group belongs to.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Output only. Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
 name | **string**<br>Name of the target group. The name is unique within the folder. 3-63 characters long. 
 description | **string**<br>Description of the target group. 0-256 characters long. 
-labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Мaximum of 64 per resource. 
+labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
 region_id | **string**<br>ID of the region where the target group resides. 
 targets[] | **[Target](#Target3)**<br>A list of targets in the target group. 
 
@@ -237,7 +237,7 @@ folder_id | **string**<br>ID of the folder that the target group belongs to.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Output only. Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
 name | **string**<br>Name of the target group. The name is unique within the folder. 3-63 characters long. 
 description | **string**<br>Description of the target group. 0-256 characters long. 
-labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Мaximum of 64 per resource. 
+labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
 region_id | **string**<br>ID of the region where the target group resides. 
 targets[] | **[Target](#Target5)**<br>A list of targets in the target group. 
 
@@ -348,7 +348,7 @@ folder_id | **string**<br>ID of the folder that the target group belongs to.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Output only. Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
 name | **string**<br>Name of the target group. The name is unique within the folder. 3-63 characters long. 
 description | **string**<br>Description of the target group. 0-256 characters long. 
-labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Мaximum of 64 per resource. 
+labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
 region_id | **string**<br>ID of the region where the target group resides. 
 targets[] | **[Target](#Target7)**<br>A list of targets in the target group. 
 
@@ -419,7 +419,7 @@ folder_id | **string**<br>ID of the folder that the target group belongs to.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Output only. Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
 name | **string**<br>Name of the target group. The name is unique within the folder. 3-63 characters long. 
 description | **string**<br>Description of the target group. 0-256 characters long. 
-labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Мaximum of 64 per resource. 
+labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
 region_id | **string**<br>ID of the region where the target group resides. 
 targets[] | **[Target](#Target9)**<br>A list of targets in the target group. 
 

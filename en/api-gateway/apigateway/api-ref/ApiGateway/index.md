@@ -15,7 +15,15 @@ A set of methods for managing API gateways.
   "labels": "object",
   "status": "string",
   "domain": "string",
-  "logGroupId": "string"
+  "logGroupId": "string",
+  "attachedDomains": [
+    {
+      "domainId": "string",
+      "certificateId": "string",
+      "enabled": true,
+      "domain": "string"
+    }
+  ]
 }
 ```
  
@@ -30,10 +38,16 @@ labels | **object**<br><p>API gateway labels as `key:value` pairs.</p>
 status | **string**<br><p>Status of the API gateway.</p> <ul> <li>CREATING: API gateway is being created.</li> <li>ACTIVE: API gateway is ready for use.</li> <li>DELETING: API gateway is being deleted.</li> <li>ERROR: API gateway failed. The only allowed action is delete.</li> <li>UPDATING: API gateway is being updated.</li> </ul> 
 domain | **string**<br><p>Default domain for the API gateway. Generated at creation time.</p> 
 logGroupId | **string**<br><p>ID of the log group for the API gateway.</p> 
+attachedDomains[] | **object**<br><p>List of domains attached to API gateway.</p> 
+attachedDomains[].<br>domainId | **string**<br><p>ID of the domain.</p> 
+attachedDomains[].<br>certificateId | **string**<br><p>ID of the domain certificate.</p> 
+attachedDomains[].<br>enabled | **boolean** (boolean)<br><p>Enabling flag.</p> 
+attachedDomains[].<br>domain | **string**<br><p>Name of the domain.</p> 
 
 ## Methods {#methods}
 Method | Description
 --- | ---
+[addDomain](addDomain.md) | Attaches domain to the specified API gateway.
 [create](create.md) | Creates an API gateway in the specified folder.
 [delete](delete.md) | Deletes the specified API gateway.
 [get](get.md) | Returns the specified API gateway. Note that only API gateway basic attributes are returned. To get associated openapi specification, make a [getOpenapiSpec](/docs/functions/api-gateway/api-ref/ApiGateway/getOpenapiSpec) request.
@@ -41,6 +55,7 @@ Method | Description
 [list](list.md) | Retrieves the list of API gateways in the specified folder.
 [listAccessBindings](listAccessBindings.md) | Lists existing access bindings for the specified API gateway.
 [listOperations](listOperations.md) | Lists operations for the specified API gateway.
+[removeDomain](removeDomain.md) | Detaches domain from the specified API gateway.
 [setAccessBindings](setAccessBindings.md) | Sets access bindings for the specified API gateway.
 [update](update.md) | Updates the specified API gateway.
 [updateAccessBindings](updateAccessBindings.md) | Updates access bindings for the specified API gateway.

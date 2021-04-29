@@ -133,6 +133,10 @@ items:
         href: datalens/data-from-appmetrica-visualization.md
       - name: Visualizing geodata from a CSV file
         href: datalens/data-from-csv-geo-visualization.md
+      - name: >-
+          Visualizing data from a ClickHouse database with geolayers from the
+          Marketplace
+        href: datalens/data-from-ch-to-geolayers-visualization.md
   - name: Internet of things
     items:
       - name: Use cases for the internet of things

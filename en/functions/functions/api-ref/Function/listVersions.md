@@ -53,7 +53,8 @@ filter | A filter expression that filters resources listed in the response.  The
         "subnetId": [
           "string"
         ]
-      }
+      },
+      "namedServiceAccounts": "object"
     }
   ],
   "nextPageToken": "string"
@@ -82,4 +83,5 @@ versions[].<br>environment | **object**<br><p>Environment settings for the versi
 versions[].<br>connectivity | **object**<br><p>Network access. If specified the version will be attached to specified network/subnet(s).</p> <p>Version connectivity specification.</p> 
 versions[].<br>connectivity.<br>networkId | **string**<br><p>Network the version will have access to. It's essential to specify network with subnets in all availability zones.</p> 
 versions[].<br>connectivity.<br>subnetId[] | **string**<br><p>Complete list of subnets (from the same network) the version can be attached to. It's essential to specify at least one subnet for each availability zones.</p> 
+versions[].<br>namedServiceAccounts | **object**<br><p>Additional service accounts to be used by the version.</p> 
 nextPageToken | **string**<br><p>Token for getting the next page of the list. If the number of results is greater than the specified <a href="/docs/functions/functions/api-ref/Function/listVersions#query_params">pageSize</a>, use `nextPageToken` as the value for the <a href="/docs/functions/functions/api-ref/Function/listVersions#query_params">pageToken</a> parameter in the next list request.</p> <p>Each subsequent page will have its own `nextPageToken` to continue paging through the results.</p> 

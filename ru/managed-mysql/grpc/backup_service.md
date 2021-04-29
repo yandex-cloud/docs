@@ -4,70 +4,70 @@ editable: false
 
 # BackupService
 
-Набор методов для управления резервными копиями MySQL.
+A set of methods for managing MySQL backups.
 
-| Вызов | Описание |
+| Call | Description |
 | --- | --- |
-| [Get](#Get) | Возвращает указанную резервную копию MySQL. |
-| [List](#List) | Возвращает список резервных копий MySQL, доступных для указанного каталога. |
+| [Get](#Get) | Returns the specified MySQL backup. |
+| [List](#List) | Retrieves the list of MySQL backups available for the specified folder. |
 
-## Вызовы BackupService {#calls}
+## Calls BackupService {#calls}
 
 ## Get {#Get}
 
-Возвращает указанную резервную копию MySQL. <br>Чтобы получить список доступных резервных копий MySQL, выполните запрос [List](#List).
+Returns the specified MySQL backup. <br>To get the list of available MySQL backups, make a [List](#List) request.
 
 **rpc Get ([GetBackupRequest](#GetBackupRequest)) returns ([Backup](#Backup))**
 
 ### GetBackupRequest {#GetBackupRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-backup_id | **string**<br>Обязательное поле. Идентификатор резервной копии, сведения о которой запрашиваются. Чтобы получить идентификатор резервной копии, используйте запрос [ClusterService.ListBackups](./cluster_service#ListBackups). 
+backup_id | **string**<br>Required. ID of the backup to return information about. To get the backup ID, use a [ClusterService.ListBackups](./cluster_service#ListBackups) request. 
 
 
 ### Backup {#Backup}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Обязательное поле. Идентификатор резервной копии. 
-folder_id | **string**<br>Идентификатор каталога, которому принадлежит резервная копия. 
+id | **string**<br>Required. ID of the backup. 
+folder_id | **string**<br>ID of the folder that the backup belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
-source_cluster_id | **string**<br>Идентификатор кластера MySQL, для которого была создана резервная копия. 
-started_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время запуска операции резервного копирования. 
+source_cluster_id | **string**<br>ID of the MySQL cluster that the backup was created for. 
+started_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the backup operation was started. 
 
 
 ## List {#List}
 
-Возвращает список резервных копий MySQL, доступных для указанного каталога.
+Retrieves the list of MySQL backups available for the specified folder.
 
 **rpc List ([ListBackupsRequest](#ListBackupsRequest)) returns ([ListBackupsResponse](#ListBackupsResponse))**
 
 ### ListBackupsRequest {#ListBackupsRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-folder_id | **string**<br>Обязательное поле. Идентификатор каталога для вывода списка резервных копий. Чтобы получить идентификатор каталога, используйте запрос [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List). Максимальная длина строки в символах — 50.
-page_size | **int64**<br>Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем `page_size`, сервис вернет значение [ListBackupsResponse.next_page_token](#ListBackupsResponse), которое можно использовать для получения следующей страницы. Максимальное значение — 1000.
-page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListBackupsResponse.next_page_token](#ListBackupsResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
+folder_id | **string**<br>Required. ID of the folder to list backups in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. The maximum string length in characters is 50.
+page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListBackupsResponse.next_page_token](#ListBackupsResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
+page_token | **string**<br>Page token.  To get the next page of results, Set `page_token` to the [ListBackupsResponse.next_page_token](#ListBackupsResponse) returned by a previous list request. The maximum string length in characters is 100.
 
 
 ### ListBackupsResponse {#ListBackupsResponse}
 
-Поле | Описание
+Field | Description
 --- | ---
-backups[] | **[Backup](#Backup1)**<br>Список резервных копий MySQL. 
-next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListBackupsRequest.page_size](#ListBackupsRequest), используйте `next_page_token` в качестве значения параметра [ListBackupsRequest.page_token](#ListBackupsRequest) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. Максимальная длина строки в символах — 100.
+backups[] | **[Backup](#Backup1)**<br>List of MySQL backups. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListBackupsRequest.page_size](#ListBackupsRequest), use the `next_page_token` as the value for the [ListBackupsRequest.page_token](#ListBackupsRequest) parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. The maximum string length in characters is 100.
 
 
 ### Backup {#Backup1}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Обязательное поле. Идентификатор резервной копии. 
-folder_id | **string**<br>Идентификатор каталога, которому принадлежит резервная копия. 
+id | **string**<br>Required. ID of the backup. 
+folder_id | **string**<br>ID of the folder that the backup belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
-source_cluster_id | **string**<br>Идентификатор кластера MySQL, для которого была создана резервная копия. 
-started_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время запуска операции резервного копирования. 
+source_cluster_id | **string**<br>ID of the MySQL cluster that the backup was created for. 
+started_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the backup operation was started. 
 
 

@@ -3,9 +3,9 @@ editable: false
 ---
 
 # Yandex Resource Management API
-Методы справочника API сгруппированы по ресурсам. Чтобы выполнить операцию над ресурсом, отправьте HTTP-запрос к соответствующему URL или выполните RPC-вызов. Подробнее об архитектуре API Яндекс.Облака, см. [Концепции API Яндекс.Облака](/docs/api-design-guide/).
+This API reference is organized by resource. Actions are performed by sending HTTP requests to resource URLs or making RPC calls. For more information about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
 
-Ресурс | Описание
+Resource | Description
 --- | ---
-[Cloud](Cloud/index.md) | Набор методов для управления ресурсом Cloud.
-[Folder](Folder/index.md) | Набор методов для управления ресурсом Folder.
+[Cloud](Cloud/index.md) | A set of methods for managing Cloud resources.
+[Folder](Folder/index.md) | A set of methods for managing Folder resources.

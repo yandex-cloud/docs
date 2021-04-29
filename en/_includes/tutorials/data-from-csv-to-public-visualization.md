@@ -14,10 +14,10 @@ The file [Moscow Population 2018.csv](https://yadi.sk/d/H4dQKVDpU4Rd8g) is used 
 
 To visualize and analyze the data, [make sure you have a ready-to-use cloud](#before-you-begin) and follow these steps:
 
-1. [Create a connection](data-from-csv-to-public-visualization.md#step1).
-1. [Create a dataset](data-from-csv-to-public-visualization.md#step2).
-1. [Create a chart with the map of Moscow districts](data-from-csv-to-public-visualization.md#step3).
-1. [Publish the chart to DataLens Public](data-from-csv-to-public-visualization.md#step4).
+1. [Create a connection](#step1).
+1. [Create a dataset](#step2).
+1. [Create a chart with the map of Moscow districts](#step3).
+1. [Publish the chart to DataLens Public](#step4).
 
 ## Before you start {#before-you-begin}
 

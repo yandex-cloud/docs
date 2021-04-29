@@ -3,17 +3,18 @@ editable: false
 ---
 
 # Yandex Compute Cloud API
-Методы справочника API сгруппированы по ресурсам. Чтобы выполнить операцию над ресурсом, отправьте HTTP-запрос к соответствующему URL. Подробнее об архитектуре API Яндекс.Облака, см. [Концепции API Яндекс.Облака](/docs/api-design-guide/).
+This API reference is organized by resource. Actions are performed by sending HTTP requests to resource URLs or making RPC calls. For more information about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
 
-Ресурс | Описание
+Resource | Description
 --- | ---
-[Disk](Disk/index.md) | Набор методов для управления ресурсами Disk.
-[DiskType](DiskType/index.md) | Набор методов для получения информации о типах дисков.
-[HostGroup](HostGroup/index.md) | Набор методов для управления группами выделенных хостов.
-[HostType](HostType/index.md) | Набор методов для просмотра возможных конфигураций выделенного хоста.
-[Image](Image/index.md) | Набор методов для управления ресурсами Image.
-[Instance](Instance/index.md) | Набор методов для управления ресурсами Instance.
-[PlacementGroup](PlacementGroup/index.md) | Набор методов для управления группами размещения.
-[Snapshot](Snapshot/index.md) | Набор методов для управления ресурсами Snapshot.
-[Zone](Zone/index.md) | Набор методов для получения информации о зонах доступности.
-[InstanceGroup](InstanceGroup/index.md) | Набор методов для управления ресурсами InstanceGroup.
+[Disk](Disk/index.md) | A set of methods for managing Disk resources.
+[DiskPlacementGroup](DiskPlacementGroup/index.md) | A set of methods for managing DiskPlacementGroup resources.
+[DiskType](DiskType/index.md) | A set of methods to retrieve information about disk types.
+[HostGroup](HostGroup/index.md) | A set of methods for managing groups of dedicated hosts.
+[HostType](HostType/index.md) | Set of methods to view possible host configurations.
+[Image](Image/index.md) | A set of methods for managing Image resources.
+[Instance](Instance/index.md) | A set of methods for managing Instance resources.
+[PlacementGroup](PlacementGroup/index.md) | A set of methods for managing placement groups.
+[Snapshot](Snapshot/index.md) | A set of methods for managing Snapshot resources.
+[Zone](Zone/index.md) | A set of methods to retrieve information about availability zones.
+[InstanceGroup](InstanceGroup/index.md) | A set of methods for managing InstanceGroup resources.

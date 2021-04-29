@@ -9,7 +9,7 @@ Detaches the target group from the specified network load balancer.
  
 ## HTTP request {#https-request}
 ```
-POST https://load-balancer.api.cloud.yandex.net/network-load-balancer/v1alpha/networkLoadBalancers/{networkLoadBalancerId}:detachTargetGroup
+POST https://load-balancer.api.cloud.yandex.net/load-balancer/v1alpha/networkLoadBalancers/{networkLoadBalancerId}:detachTargetGroup
 ```
  
 ## Path parameters {#path_params}

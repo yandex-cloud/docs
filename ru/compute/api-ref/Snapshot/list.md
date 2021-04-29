@@ -2,26 +2,26 @@
 editable: false
 ---
 
-# Метод list
-Возвращает список доступных ресурсов Snapshot в указанном каталоге.
+# Method list
+Retrieves the list of Snapshot resources in the specified folder.
  
 
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 GET https://compute.api.cloud.yandex.net/compute/v1/snapshots
 ```
  
-## Query-параметры {#query_params}
+## Query parameters {#query_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-folderId | Обязательное поле. Идентификатор каталога для получения списка снимков. Чтобы получить идентификатор каталога, используйте запрос [list](/docs/resource-manager/api-ref/Folder/list).  Максимальная длина строки в символах — 50.
-pageSize | Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем [pageSize](/docs/compute/api-ref/Snapshot/list#query_params), сервис вернет значение [nextPageToken](/docs/compute/api-ref/Snapshot/list#responses), которое можно использовать для получения следующей страницы.  Максимальное значение — 1000.
-pageToken | Токен страницы. Установите значение [pageToken](/docs/compute/api-ref/Snapshot/list#query_params) равным значению поля [nextPageToken](/docs/compute/api-ref/Snapshot/list#responses) предыдущего запроса, чтобы получить следующую страницу результатов.  Максимальная длина строки в символах — 100.
-filter | Параметры фильтрации ресурсов в ответе. В параметрах фильтрации указываются: 1. Имя поля. В настоящее время фильтрация осуществляется только по полю [Snapshot.name](/docs/compute/api-ref/Snapshot#representation). 2. Оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений. 3. Значение. Должен содержать от 3 до 63 символов и соответствовать регулярному выражению `^[a-z]([-a-z0-9]{,61}[a-z0-9])?$`.  Максимальная длина строки в символах — 1000.
+folderId | Required. ID of the folder to list snapshots in. To get the folder ID, use a [list](/docs/resource-manager/api-ref/Folder/list) request.  The maximum string length in characters is 50.
+pageSize | The maximum number of results per page to return. If the number of available results is larger than [pageSize](/docs/compute/api-ref/Snapshot/list#query_params), the service returns a [nextPageToken](/docs/compute/api-ref/Snapshot/list#responses) that can be used to get the next page of results in subsequent list requests.  The maximum value is 1000.
+pageToken | Page token. To get the next page of results, set [pageToken](/docs/compute/api-ref/Snapshot/list#query_params) to the [nextPageToken](/docs/compute/api-ref/Snapshot/list#responses) returned by a previous list request.  The maximum string length in characters is 100.
+filter | A filter expression that filters resources listed in the response. The expression must specify: 1. The field name. Currently you can use filtering only on the [Snapshot.name](/docs/compute/api-ref/Snapshot#representation) field. 2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. 3. The value. Must be 3-63 characters long and match the regular expression `^[a-z]([-a-z0-9]{,61}[a-z0-9])?$`.  The maximum string length in characters is 1000.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -48,18 +48,18 @@ filter | Параметры фильтрации ресурсов в ответ�
 ```
 
  
-Поле | Описание
+Field | Description
 --- | ---
-snapshots[] | **object**<br><p>Ресурс Snapshot. Дополнительные сведения см. в разделе <a href="/docs/compute/concepts/snapshot">Снимки</a>.</p> 
-snapshots[].<br>id | **string**<br><p>Идентификатор снимка.</p> 
-snapshots[].<br>folderId | **string**<br><p>Идентификатор каталога, которому принадлежит снимок.</p> 
-snapshots[].<br>createdAt | **string** (date-time)<br><p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-snapshots[].<br>name | **string**<br><p>Имя снимка. Длина 1-63 символов.</p> 
-snapshots[].<br>description | **string**<br><p>Описание снимка. Длина описания должна быть от 0 до 256 символов.</p> 
-snapshots[].<br>labels | **object**<br><p>Метки ресурса в формате `key:value`. Максимум 64 на ресурс.</p> 
-snapshots[].<br>storageSize | **string** (int64)<br><p>Размер снимка, указанный в байтах.</p> 
-snapshots[].<br>diskSize | **string** (int64)<br><p>Размер диска при создании снимка указывается в байтах.</p> 
-snapshots[].<br>productIds[] | **string**<br><p>Идентификаторы лицензий, указывающие, какие лицензии подключены к этому ресурсу. Идентификаторы лицензий используются для расчета дополнительной платы за использование виртуальной машины.</p> <p>Правильный идентификатор лицензии генерируется Яндекс.Облаком. Идентификаторы наследуются новыми ресурсами, созданными из этого ресурса.</p> <p>Если вам известны идентификаторы лицензий, укажите их при создании образа. Например, если создать образ диска с помощью сторонней утилиты и загрузить его в Yandex Object Storage, то идентификаторы лицензий будут потеряны. Вы можете указать их в запросе <a href="/docs/compute/api-ref/Image/create">create</a>.</p> 
-snapshots[].<br>status | **string**<br><p>Текущий статус снимка.</p> <ul> <li>CREATING: Снимок создается.</li> <li>READY: Снимок готов к использованию.</li> <li>ERROR: Со снимком произошла ошибка, блокирующая работу.</li> <li>DELETING: Снимок удаляется.</li> </ul> 
-snapshots[].<br>sourceDiskId | **string**<br><p>Идентификатор диска, используемого для создания снимка.</p> 
-nextPageToken | **string**<br><p>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем <a href="/docs/compute/api-ref/Snapshot/list#query_params">pageSize</a>, используйте <a href="/docs/compute/api-ref/Snapshot/list#responses">nextPageToken</a> в качестве значения параметра <a href="/docs/compute/api-ref/Snapshot/list#query_params">pageToken</a> в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения <a href="/docs/compute/api-ref/Snapshot/list#responses">nextPageToken</a> для перебора страниц результатов.</p> 
+snapshots[] | **object**<br><p>A Snapshot resource. For more information, see <a href="/docs/compute/concepts/snapshot">Snapshots</a>.</p> 
+snapshots[].<br>id | **string**<br><p>ID of the snapshot.</p> 
+snapshots[].<br>folderId | **string**<br><p>ID of the folder that the snapshot belongs to.</p> 
+snapshots[].<br>createdAt | **string** (date-time)<br><p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+snapshots[].<br>name | **string**<br><p>Name of the snapshot. 1-63 characters long.</p> 
+snapshots[].<br>description | **string**<br><p>Description of the snapshot. 0-256 characters long.</p> 
+snapshots[].<br>labels | **object**<br><p>Resource labels as `key:value` pairs. Maximum of 64 per resource.</p> 
+snapshots[].<br>storageSize | **string** (int64)<br><p>Size of the snapshot, specified in bytes.</p> 
+snapshots[].<br>diskSize | **string** (int64)<br><p>Size of the disk when the snapshot was created, specified in bytes.</p> 
+snapshots[].<br>productIds[] | **string**<br><p>License IDs that indicate which licenses are attached to this resource. License IDs are used to calculate additional charges for the use of the virtual machine.</p> <p>The correct license ID is generated by Yandex.Cloud. IDs are inherited by new resources created from this resource.</p> <p>If you know the license IDs, specify them when you create the image. For example, if you create a disk image using a third-party utility and load it into Yandex Object Storage, the license IDs will be lost. You can specify them in the <a href="/docs/compute/api-ref/Image/create">create</a> request.</p> 
+snapshots[].<br>status | **string**<br><p>Current status of the snapshot.</p> <ul> <li>CREATING: Snapshot is being created.</li> <li>READY: Snapshot is ready to use.</li> <li>ERROR: Snapshot encountered a problem and cannot operate.</li> <li>DELETING: Snapshot is being deleted.</li> </ul> 
+snapshots[].<br>sourceDiskId | **string**<br><p>ID of the source disk used to create this snapshot.</p> 
+nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/compute/api-ref/Snapshot/list#query_params">pageSize</a>, use the <a href="/docs/compute/api-ref/Snapshot/list#responses">nextPageToken</a> as the value for the <a href="/docs/compute/api-ref/Snapshot/list#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own <a href="/docs/compute/api-ref/Snapshot/list#responses">nextPageToken</a> to continue paging through the results.</p> 

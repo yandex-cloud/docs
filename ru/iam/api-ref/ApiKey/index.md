@@ -3,8 +3,8 @@ editable: false
 ---
 
 # ApiKey
-Набор методов управления API-ключами.
-## JSON-представление {#representation}
+A set of methods for managing API keys.
+## JSON Representation {#representation}
 ```json 
 {
   "id": "string",
@@ -14,19 +14,19 @@ editable: false
 }
 ```
  
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br><p>Идентификатор API-ключа.</p> 
-serviceAccountId | **string**<br><p>Идентификатор сервисного аккаунта, которому принадлежит API-ключ.</p> 
-createdAt | **string** (date-time)<br><p>Время создания.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-description | **string**<br><p>Описание API-ключа. Длина описания должна быть от 0 до 256 символов.</p> 
+id | **string**<br><p>ID of the API Key.</p> 
+serviceAccountId | **string**<br><p>ID of the service account that the API key belongs to.</p> 
+createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+description | **string**<br><p>Description of the API key. 0-256 characters long.</p> 
 
-## Методы {#methods}
-Метод | Описание
+## Methods {#methods}
+Method | Description
 --- | ---
-[create](create.md) | Создает API-ключ для указанного сервисного аккаунта.
-[delete](delete.md) | Удаляет указанный API-ключ.
-[get](get.md) | Возвращает указанный API-ключ.
-[list](list.md) | Возвращает список API-ключей для указанного сервисного аккаунта.
-[listOperations](listOperations.md) | Возвращает список операций для указанного API ключа.
-[update](update.md) | Обновляет указанный API-ключ.
+[create](create.md) | Creates an API key for the specified service account.
+[delete](delete.md) | Deletes the specified API key.
+[get](get.md) | Returns the specified API key.
+[list](list.md) | Retrieves the list of API keys for the specified service account.
+[listOperations](listOperations.md) | Retrieves the list of operations for the specified API key.
+[update](update.md) | Updates the specified API key.

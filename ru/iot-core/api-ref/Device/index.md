@@ -3,8 +3,8 @@ editable: false
 ---
 
 # Device
-Набор методов для управления устройствами.
-## JSON-представление {#representation}
+A set of methods for managing devices.
+## JSON Representation {#representation}
 ```json 
 {
   "id": "string",
@@ -12,31 +12,46 @@ editable: false
   "createdAt": "string",
   "name": "string",
   "description": "string",
-  "topicAliases": "object"
+  "topicAliases": "object",
+  "status": "string",
+  "monitoringData": {
+    "lastAuthIp": "string",
+    "lastAuthTime": "string",
+    "lastPubActivityTime": "string",
+    "lastSubActivityTime": "string",
+    "lastOnlineTime": "string"
+  }
 }
 ```
  
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br><p>Идентификатор устройства.</p> 
-registryId | **string**<br><p>Идентификатор реестра, к которому принадлежит устройство.</p> 
-createdAt | **string** (date-time)<br><p>Время создания.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-name | **string**<br><p>Имя устройства. Имя является уникальным в рамках реестра.</p> 
-description | **string**<br><p>Описание устройства. Длина описания должна быть от 0 до 256 символов.</p> 
-topicAliases | **object**<br><p>Алиас топика устройства.</p> <p>Алиас — это альтернативное имя топика устройства, назначенное пользователем. Алиас сопоставляется со стандартным топиком, например `my/custom/alias` эквивалентен `$device/abcdef/events`.</p> 
+id | **string**<br><p>ID of the device.</p> 
+registryId | **string**<br><p>ID of the registry that the device belongs to.</p> 
+createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+name | **string**<br><p>Name of the device. The name is unique within the registry.</p> 
+description | **string**<br><p>Description of the device. 0-256 characters long.</p> 
+topicAliases | **object**<br><p>Alias of a device topic.</p> <p>Alias is an alternate name of a device topic assigned by the user. Map alias to canonical topic name prefix, e.g. `my/custom/alias` match to `$device/abcdef/events`.</p> 
+status | **string**<br><p>Status of the device.</p> <ul> <li>CREATING: Device is being created.</li> <li>ACTIVE: Device is ready to use.</li> <li>DELETING: Device is being deleted.</li> </ul> 
+monitoringData | **object**<br><p>Device monitoring data, returns if FULL view specified.</p> 
+monitoringData.<br>lastAuthIp | **string**<br>
+monitoringData.<br>lastAuthTime | **string** (date-time)<br><p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+monitoringData.<br>lastPubActivityTime | **string** (date-time)<br><p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+monitoringData.<br>lastSubActivityTime | **string** (date-time)<br><p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+monitoringData.<br>lastOnlineTime | **string** (date-time)<br><p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 
-## Методы {#methods}
-Метод | Описание
+## Methods {#methods}
+Method | Description
 --- | ---
-[addCertificate](addCertificate.md) | Добавляет сертификат.
-[addPassword](addPassword.md) | Добавляет пароль для указанного устройства.
-[create](create.md) | Создает устройство в указанном реестре.
-[delete](delete.md) | Удаляет указанное устройство.
-[deleteCertificate](deleteCertificate.md) | Удаляет указанное устройство.
-[deletePassword](deletePassword.md) | Удаляет указанный пароль.
-[get](get.md) | Возвращает указанное устройство.
-[list](list.md) | Возвращает список устройств в указанном реестре.
-[listCertificates](listCertificates.md) | Возвращает список сертификатов для указанного устройства.
-[listOperations](listOperations.md) | Возвращает список операций для указанного устройства.
-[listPasswords](listPasswords.md) | Возвращает список паролей для указанного устройства.
-[update](update.md) | Обновляет указанное устройство.
+[addCertificate](addCertificate.md) | Adds a certificate.
+[addPassword](addPassword.md) | Adds password for the specified device.
+[create](create.md) | Creates a device in the specified registry.
+[delete](delete.md) | Deletes the specified device.
+[deleteCertificate](deleteCertificate.md) | Deletes the specified device certificate.
+[deletePassword](deletePassword.md) | Deletes the specified password.
+[get](get.md) | Returns the specified device.
+[list](list.md) | Retrieves the list of devices in the specified registry.
+[listCertificates](listCertificates.md) | Retrieves the list of device certificates for the specified device.
+[listOperations](listOperations.md) | Lists operations for the specified device.
+[listPasswords](listPasswords.md) | Retrieves the list of passwords for the specified device.
+[update](update.md) | Updates the specified device.

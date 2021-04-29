@@ -2,30 +2,30 @@
 editable: false
 ---
 
-# Метод getRecordSet
-Возвращает указанный набор записей.
+# Method getRecordSet
+Returns the specified record set.
  
 
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 GET https://dns.api.cloud.yandex.net/dns/v1/zones/{dnsZoneId}:getRecordSet
 ```
  
-## Path-параметры {#path_params}
+## Path parameters {#path_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-dnsZoneId | Идентификатор зоны DNS для получения набора записей.  Чтобы получить идентификатор зоны DNS, выполните запрос [list](/docs/dns/api-ref/DnsZone/list).  Длина строки в символах должна быть равна 20.
+dnsZoneId | ID of the DNS zone to get record set from.  To get a DNS zone ID, make a [list](/docs/dns/api-ref/DnsZone/list) request.  The string length in characters must be equal to 20.
  
-## Query-параметры {#query_params}
+## Query parameters {#query_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-name | Обязательное поле. Имя набора записей.  Максимальная длина строки в символах — 255.
-type | Обязательное поле. Тип набора записей.  Максимальная длина строки в символах — 10.
+name | Required. Name of the record set.  The maximum string length in characters is 255.
+type | Required. Type of the record set.  The maximum string length in characters is 10.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -38,11 +38,11 @@ type | Обязательное поле. Тип набора записей.  �
   ]
 }
 ```
-Набор записей. Подробнее см. в разделе [Ресурсные записи](/docs/dns/concepts/resource-record).
+A record set. For details about the concept, see [Resource record](/docs/dns/concepts/resource-record).
  
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br><p>Доменное имя.</p> <p>Длина строки в символах должна быть от 1 до 254.</p> 
-type | **string**<br><p>Тип записи.</p> <p>Длина строки в символах должна быть от 1 до 20.</p> 
-ttl | **string** (int64)<br><p>Время жизни записи в секундах.</p> <p>Допустимые значения — от 0 до 2147483647 включительно.</p> 
-data[] | **string**<br><p>Обязательное поле. Значение набора записей.</p> <p>Количество элементов должно находиться в диапазоне от 1 до 100. Длина строки в символах для каждого значения должна быть от 1 до 255.</p> 
+name | **string**<br><p>Domain name.</p> <p>The string length in characters must be 1-254.</p> 
+type | **string**<br><p>Record type.</p> <p>The string length in characters must be 1-20.</p> 
+ttl | **string** (int64)<br><p>Time to live in seconds.</p> <p>Acceptable values are 0 to 2147483647, inclusive.</p> 
+data[] | **string**<br><p>Required. Data of the record set.</p> <p>The number of elements must be in the range 1-100. The string length in characters for each value must be 1-255.</p> 

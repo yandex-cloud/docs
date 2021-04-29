@@ -2,26 +2,26 @@
 editable: false
 ---
 
-# Метод list
-Возвращает список TargetGroup ресурсов в указанном каталоге..
+# Method list
+Retrieves the list of TargetGroup resources in the specified folder.
  
 
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
-GET https://load-balancer.api.cloud.yandex.net/network-load-balancer/v1/targetGroups
+GET https://load-balancer.api.cloud.yandex.net/load-balancer/v1alpha/targetGroups
 ```
  
-## Query-параметры {#query_params}
+## Query parameters {#query_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-folderId | Обязательное поле. Идентификатор каталога для вывода списка целевых групп.  Чтобы получить идентификатор каталога, используйте запрос [list](/docs/network-load-balancer/api-ref/TargetGroup/list).  Максимальная длина строки в символах — 50.
-pageSize | Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем [pageSize](/docs/network-load-balancer/api-ref/TargetGroup/list#query_params), сервис вернет значение [nextPageToken](/docs/network-load-balancer/api-ref/TargetGroup/list#responses),  которое можно использовать для получения следующей страницы. Значение по умолчанию: 100.  Максимальное значение — 1000.
-pageToken | Токен страницы. Установите значение [pageToken](/docs/network-load-balancer/api-ref/TargetGroup/list#query_params) равным значению поля [nextPageToken](/docs/network-load-balancer/api-ref/TargetGroup/list#responses), прошлого запроса, чтобы получить следующую страницу результатов.  Максимальная длина строки в символах — 100.
-filter | Параметры фильтрации ресурсов в ответе. В параметрах фильтрации указываются: 1. Имя поля. В настоящее время фильтрация осуществляется только по полю [TargetGroup.name](/docs/network-load-balancer/api-ref/TargetGroup#representation). 2. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений. 3. Значение длиной от 3 до 63 символов, совпадающее с регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]`.  Максимальная длина строки в символах — 1000.
+folderId | Required. ID of the folder to list target groups in.  To get the folder ID, use a [list](/docs/network-load-balancer/api-ref/TargetGroup/list) request.  The maximum string length in characters is 50.
+pageSize | The maximum number of results per page to return. If the number of available results is larger than [pageSize](/docs/network-load-balancer/api-ref/TargetGroup/list#query_params), the service returns a [nextPageToken](/docs/network-load-balancer/api-ref/TargetGroup/list#responses) that can be used to get the next page of results in subsequent list requests. Default value: 100.  The maximum value is 1000.
+pageToken | Page token. To get the next page of results, set [pageToken](/docs/network-load-balancer/api-ref/TargetGroup/list#query_params) to the  [nextPageToken](/docs/network-load-balancer/api-ref/TargetGroup/list#responses) returned by a previous list request.  The maximum string length in characters is 100.
+filter | A filter expression that filters resources listed in the response. The expression must specify:  1. The field name. Currently you can only filter by the [TargetGroup.name](/docs/network-load-balancer/api-ref/TargetGroup#representation) field. 2. An operator. Can be either `=` or `!=` for single values, or `IN` or `NOT IN` for lists of values. 3. The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.  The maximum string length in characters is 1000.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -48,17 +48,17 @@ filter | Параметры фильтрации ресурсов в ответ�
 ```
 
  
-Поле | Описание
+Field | Description
 --- | ---
-targetGroups[] | **object**<br><p>Ресурс TargetGroup. Подробнее см. в разделе <a href="/docs/network-load-balancer/concepts/target-resources">Целевые группы и ресурсы</a>.</p> 
-targetGroups[].<br>id | **string**<br><p>Только для вывода. Идентификатор целевой группы.</p> 
-targetGroups[].<br>folderId | **string**<br><p>Идентификатор каталога, которому принадлежит целевая группа.</p> 
-targetGroups[].<br>createdAt | **string** (date-time)<br><p>Только для вывода. Время создания ресурса в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> .</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-targetGroups[].<br>name | **string**<br><p>Имя целевой группы. Имя должно быть уникальным в каталоге. Длина имени должна быть от 3 до 63 символов.</p> 
-targetGroups[].<br>description | **string**<br><p>Описание целевой группы. Длина 0-256 символов.</p> 
-targetGroups[].<br>labels | **object**<br><p>Метки ресурса в формате `` key:value ``. Максимум 64 метки на ресурс.</p> 
-targetGroups[].<br>regionId | **string**<br><p>Идентификатор региона, в котором находится целевая группа.</p> 
-targetGroups[].<br>targets[] | **object**<br><p>Ресурс Target. Подробнее см. в разделе <a href="/docs/network-load-balancer/target-resources">Целевые группы и ресурсы</a>.</p> 
-targetGroups[].<br>targets[].<br>subnetId | **string**<br><p>Идентификатор подсети, к которой подключены целевые ресурсы. В пределах одной зоны доступности все ресурсы целевой группы должны быть подключены к одной подсети.</p> <p>Максимальная длина строки в символах — 50.</p> 
-targetGroups[].<br>targets[].<br>address | **string**<br><p>IP-адрес целевого ресурса.</p> 
-nextPageToken | **string**<br><p>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем <a href="/docs/network-load-balancer/api-ref/TargetGroup/list#query_params">pageSize</a>, используйте <a href="/docs/network-load-balancer/api-ref/TargetGroup/list#responses">nextPageToken</a> в качестве значения параметра <a href="/docs/network-load-balancer/api-ref/TargetGroup/list#query_params">pageToken</a> в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения <a href="/docs/network-load-balancer/api-ref/TargetGroup/list#responses">nextPageToken</a>, для перебора страниц результатов.</p> 
+targetGroups[] | **object**<br><p>A TargetGroup resource. For more information, see <a href="/docs/network-load-balancer/target-resources">Target groups and resources</a>.</p> 
+targetGroups[].<br>id | **string**<br><p>Output only. ID of the target group.</p> 
+targetGroups[].<br>folderId | **string**<br><p>ID of the folder that the target group belongs to.</p> 
+targetGroups[].<br>createdAt | **string** (date-time)<br><p>Output only. Creation timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+targetGroups[].<br>name | **string**<br><p>Name of the target group. The name is unique within the folder. 3-63 characters long.</p> 
+targetGroups[].<br>description | **string**<br><p>Description of the target group. 0-256 characters long.</p> 
+targetGroups[].<br>labels | **object**<br><p>Resource labels as `` key:value `` pairs. Maximum of 64 per resource.</p> 
+targetGroups[].<br>regionId | **string**<br><p>ID of the region where the target group resides.</p> 
+targetGroups[].<br>targets[] | **object**<br><p>A Target resource. For more information, see <a href="/docs/network-load-balancer/target-resources">Target groups and resources</a>.</p> 
+targetGroups[].<br>targets[].<br>subnetId | **string**<br><p>ID of the subnet that targets are connected to. All targets in the target group must be connected to the same subnet within a single availability zone.</p> <p>The maximum string length in characters is 50.</p> 
+targetGroups[].<br>targets[].<br>address | **string**<br><p>IP address of the target.</p> 
+nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/network-load-balancer/api-ref/TargetGroup/list#query_params">pageSize</a>, use the <a href="/docs/network-load-balancer/api-ref/TargetGroup/list#responses">nextPageToken</a> as the value for the <a href="/docs/network-load-balancer/api-ref/TargetGroup/list#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own <a href="/docs/network-load-balancer/api-ref/TargetGroup/list#responses">nextPageToken</a> to continue paging through the results.</p> 

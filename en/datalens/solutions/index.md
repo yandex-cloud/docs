@@ -9,4 +9,4 @@ Below are tutorials for using {{ datalens-full-name }}:
 - [Publishing a chart with a map from a CSV file to DataLens Public](data-from-csv-to-public-visualization.md)
 - [Visualizing data from AppMetrica](data-from-appmetrica-visualization.md)
 - [Visualizing geodata from a CSV file](data-from-csv-geo-visualization.md)
-
+- [Visualizing data from a ClickHouse database with geolayers from the Marketplace](data-from-ch-to-geolayers-visualization.md)

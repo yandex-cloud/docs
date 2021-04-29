@@ -4,569 +4,569 @@ editable: false
 
 # RegistryService
 
-Набор методов для управления реестрами.
+A set of methods for managing registry.
 
-| Вызов | Описание |
+| Call | Description |
 | --- | --- |
-| [Get](#Get) | Возвращает указанный реестр. |
-| [List](#List) | Возвращает список реестров в указанном каталоге. |
-| [Create](#Create) | Создает реестр в указанном каталоге. |
-| [Update](#Update) | Обновляет указанный реестр. |
-| [Delete](#Delete) | Удаляет указанный реестр. |
-| [ListCertificates](#ListCertificates) | Возвращает список сертификатов реестра для указанного реестра. |
-| [AddCertificate](#AddCertificate) | Добавляет сертификат. |
-| [DeleteCertificate](#DeleteCertificate) | Удаляет указанный сертификат реестра. |
-| [ListPasswords](#ListPasswords) | Возращает список паролей для указанного реестра. |
-| [AddPassword](#AddPassword) | Добавляет пароль для указанного реестра. |
-| [DeletePassword](#DeletePassword) | Удаляет указанный пароль. |
-| [ListDeviceTopicAliases](#ListDeviceTopicAliases) | Возвращает список алиасов устройств для указанного реестра. |
-| [ListOperations](#ListOperations) | Возвращает список операций для указанного реестра. |
+| [Get](#Get) | Returns the specified registry. |
+| [List](#List) | Retrieves the list of registries in the specified folder. |
+| [Create](#Create) | Creates a registry in the specified folder. |
+| [Update](#Update) | Updates the specified registry. |
+| [Delete](#Delete) | Deletes the specified registry. |
+| [ListCertificates](#ListCertificates) | Retrieves the list of registry certificates for the specified registry. |
+| [AddCertificate](#AddCertificate) | Adds a certificate. |
+| [DeleteCertificate](#DeleteCertificate) | Deletes the specified registry certificate. |
+| [ListPasswords](#ListPasswords) | Retrieves the list of passwords for the specified registry. |
+| [AddPassword](#AddPassword) | Adds password for the specified registry. |
+| [DeletePassword](#DeletePassword) | Deletes the specified password. |
+| [ListDeviceTopicAliases](#ListDeviceTopicAliases) | Retrieves the list of device topic aliases for the specified registry. |
+| [ListOperations](#ListOperations) | Lists operations for the specified registry. |
 
-## Вызовы RegistryService {#calls}
+## Calls RegistryService {#calls}
 
 ## Get {#Get}
 
-Возвращает указанный реестр. <br>Чтобы получить список доступных реестров, используйте запрос [List](#List).
+Returns the specified registry. <br>To get the list of available registries, make a [List](#List) request.
 
 **rpc Get ([GetRegistryRequest](#GetRegistryRequest)) returns ([Registry](#Registry))**
 
 ### GetRegistryRequest {#GetRegistryRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-registry_id | **string**<br>Обязательное поле. Идентификатор возвращаемого реестра. <br>Чтобы получить идентификатор реестра, используйте запрос [RegistryService.List](#List). Максимальная длина строки в символах — 50.
+registry_id | **string**<br>Required. ID of the registry to return. <br>To get a registry ID make a [RegistryService.List](#List) request. The maximum string length in characters is 50.
 
 
 ### Registry {#Registry}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор реестра. 
-folder_id | **string**<br>Идентификатор каталога, которому принадлежит реестр. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания. 
-name | **string**<br>Название реестра. Имя уникально в рамках каталога. 
-description | **string**<br>Описание реестра. Длина описания должна быть от 0 до 256 символов. 
-labels | **map<string,string>**<br>Метки группы размещения в формате `key:value`. Максимум 64 метки на ресурс. 
-status | enum **Status**<br>Статус реестра. <ul><li>`CREATING`: Реестр создается.</li><li>`ACTIVE`: Реестр готов к использованию.</li><li>`DELETING`: Реестр удаляется.</li><ul/>
-log_group_id | **string**<br>Идентификатор группы журналов для указанного реестра. 
+id | **string**<br>ID of the registry. 
+folder_id | **string**<br>ID of the folder that the registry belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+name | **string**<br>Name of the registry. The name is unique within the folder. 
+description | **string**<br>Description of the registry. 0-256 characters long. 
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
+status | enum **Status**<br>Status of the registry. <ul><li>`CREATING`: Registry is being created.</li><li>`ACTIVE`: Registry is ready to use.</li><li>`DELETING`: Registry is being deleted.</li><ul/>
+log_group_id | **string**<br>ID of the logs group for the specified registry. 
 
 
 ## List {#List}
 
-Возвращает список реестров в указанном каталоге.
+Retrieves the list of registries in the specified folder.
 
 **rpc List ([ListRegistriesRequest](#ListRegistriesRequest)) returns ([ListRegistriesResponse](#ListRegistriesResponse))**
 
 ### ListRegistriesRequest {#ListRegistriesRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-folder_id | **string**<br>Обязательное поле. Идентификатор каталога для получения списка реестров. <br>Чтобы получить идентификатор каталога, используйте запрос [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List). Максимальная длина строки в символах — 50.
-page_size | **int64**<br>Максимальное число возвращаемых результатов на странице. Если количество результатов больше чем `page_size`, сервис вернет значение [ListRegistriesResponse.next_page_token](#ListRegistriesResponse), которое можно использовать для получения следующей страницы. Значение по умолчанию: 100. Допустимые значения — от 0 до 1000 включительно.
-page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListRegistriesResponse.next_page_token](#ListRegistriesResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
+folder_id | **string**<br>Required. ID of the folder to list registries in. <br>To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. The maximum string length in characters is 50.
+page_size | **int64**<br>The maximum number of results per page that should be returned. If the number of available results is larger than `page_size`, the service returns a [ListRegistriesResponse.next_page_token](#ListRegistriesResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. Acceptable values are 0 to 1000, inclusive.
+page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListRegistriesResponse.next_page_token](#ListRegistriesResponse) returned by a previous list request. The maximum string length in characters is 100.
 
 
 ### ListRegistriesResponse {#ListRegistriesResponse}
 
-Поле | Описание
+Field | Description
 --- | ---
-registries[] | **[Registry](#Registry1)**<br>Список реестров. 
-next_page_token | **string**<br>Токен для получения следующей страницы списка. Если количество результатов больше чем [ListRegistriesRequest.page_size](#ListRegistriesRequest), используйте `next_page_token` в качестве значения параметра [ListRegistriesRequest.page_token](#ListRegistriesRequest) в следующем запросе списка ресурсов. <br>Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
+registries[] | **[Registry](#Registry1)**<br>List of registries. 
+next_page_token | **string**<br>Token for getting the next page of the list. If the number of results is greater than the specified [ListRegistriesRequest.page_size](#ListRegistriesRequest), use `next_page_token` as the value for the [ListRegistriesRequest.page_token](#ListRegistriesRequest) parameter in the next list request. <br>Each subsequent page will have its own `next_page_token` to continue paging through the results. 
 
 
 ### Registry {#Registry1}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор реестра. 
-folder_id | **string**<br>Идентификатор каталога, которому принадлежит реестр. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания. 
-name | **string**<br>Название реестра. Имя уникально в рамках каталога. 
-description | **string**<br>Описание реестра. Длина описания должна быть от 0 до 256 символов. 
-labels | **map<string,string>**<br>Метки группы размещения в формате `key:value`. Максимум 64 метки на ресурс. 
-status | enum **Status**<br>Статус реестра. <ul><li>`CREATING`: Реестр создается.</li><li>`ACTIVE`: Реестр готов к использованию.</li><li>`DELETING`: Реестр удаляется.</li><ul/>
-log_group_id | **string**<br>Идентификатор группы журналов для указанного реестра. 
+id | **string**<br>ID of the registry. 
+folder_id | **string**<br>ID of the folder that the registry belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+name | **string**<br>Name of the registry. The name is unique within the folder. 
+description | **string**<br>Description of the registry. 0-256 characters long. 
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
+status | enum **Status**<br>Status of the registry. <ul><li>`CREATING`: Registry is being created.</li><li>`ACTIVE`: Registry is ready to use.</li><li>`DELETING`: Registry is being deleted.</li><ul/>
+log_group_id | **string**<br>ID of the logs group for the specified registry. 
 
 
 ## Create {#Create}
 
-Создает реестр в указанном каталоге.
+Creates a registry in the specified folder.
 
 **rpc Create ([CreateRegistryRequest](#CreateRegistryRequest)) returns ([operation.Operation](#Operation))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateRegistryMetadata](#CreateRegistryMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Registry](#Registry2)<br>
 
 ### CreateRegistryRequest {#CreateRegistryRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-folder_id | **string**<br>Обязательное поле. Идентификатор каталога, в котором создается реестр. <br>Чтобы получить идентификатор каталога, используйте запрос [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List). Максимальная длина строки в символах — 50.
-name | **string**<br>Обязательное поле. Название реестра. Имя должно быть уникальным в рамках каталога. Максимальная длина строки в символах — 50. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_-]* `.
-description | **string**<br>Описание реестра. Максимальная длина строки в символах — 256.
-labels | **map<string,string>**<br>Метки группы размещения в формате `key:value`. Не более 64 на ресурс. Максимальная длина строки в символах для каждого значения — 63. Каждое значение должно соответствовать регулярному выражению ` [-_0-9a-z]* `. Длина строки в символах для каждого ключа должна быть от 1 до 63. Каждый ключ должен соответствовать регулярному выражению ` [a-z][-_0-9a-z]* `.
-certificates[] | **[Certificate](#Certificate)**<br>Сертификат реестра. 
-password | **string**<br>Пароль реестра. <br>Пароль должен содержать не менее трех категорий символов: строчные латинские буквы, прописные латинские буквы, цифры, специальные символы. 
+folder_id | **string**<br>Required. ID of the folder to create a registry in. <br>To get a folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. The maximum string length in characters is 50.
+name | **string**<br>Required. Name of the registry. The name must be unique within the folder. The maximum string length in characters is 50. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+description | **string**<br>Description of the registry. The maximum string length in characters is 256.
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+certificates[] | **[Certificate](#Certificate)**<br>Registry certificates. 
+password | **string**<br>Registry passwords. <br>The password must contain at least three character categories among the following: upper case latin, lower case latin, numbers and special symbols. 
 
 
 ### Certificate {#Certificate}
 
-Поле | Описание
+Field | Description
 --- | ---
-certificate_data | **string**<br>Публичная часть сертификата реестра. 
+certificate_data | **string**<br>Public part of the registry certificate. 
 
 
 ### Operation {#Operation}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateRegistryMetadata](#CreateRegistryMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Registry](#Registry2)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateRegistryMetadata](#CreateRegistryMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Registry](#Registry2)>**<br>if operation finished successfully. 
 
 
 ### CreateRegistryMetadata {#CreateRegistryMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-registry_id | **string**<br>Идентификатор создаваемого реестра. 
+registry_id | **string**<br>ID of the registry that is being created. 
 
 
 ### Registry {#Registry2}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор реестра. 
-folder_id | **string**<br>Идентификатор каталога, которому принадлежит реестр. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания. 
-name | **string**<br>Название реестра. Имя уникально в рамках каталога. 
-description | **string**<br>Описание реестра. Длина описания должна быть от 0 до 256 символов. 
-labels | **map<string,string>**<br>Метки группы размещения в формате `key:value`. Максимум 64 метки на ресурс. 
-status | enum **Status**<br>Статус реестра. <ul><li>`CREATING`: Реестр создается.</li><li>`ACTIVE`: Реестр готов к использованию.</li><li>`DELETING`: Реестр удаляется.</li><ul/>
-log_group_id | **string**<br>Идентификатор группы журналов для указанного реестра. 
+id | **string**<br>ID of the registry. 
+folder_id | **string**<br>ID of the folder that the registry belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+name | **string**<br>Name of the registry. The name is unique within the folder. 
+description | **string**<br>Description of the registry. 0-256 characters long. 
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
+status | enum **Status**<br>Status of the registry. <ul><li>`CREATING`: Registry is being created.</li><li>`ACTIVE`: Registry is ready to use.</li><li>`DELETING`: Registry is being deleted.</li><ul/>
+log_group_id | **string**<br>ID of the logs group for the specified registry. 
 
 
 ## Update {#Update}
 
-Обновляет указанный реестр.
+Updates the specified registry.
 
 **rpc Update ([UpdateRegistryRequest](#UpdateRegistryRequest)) returns ([operation.Operation](#Operation1))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateRegistryMetadata](#UpdateRegistryMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Registry](#Registry3)<br>
 
 ### UpdateRegistryRequest {#UpdateRegistryRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-registry_id | **string**<br>Обязательное поле. Идентификатор реестра для обновления. <br>Чтобы получить идентификатор реестра, используйте запрос [RegistryService.List](#List). Максимальная длина строки в символах — 50.
-update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Маска, определяющая, какие поля реестра будут обновлены. 
-name | **string**<br>Название реестра. Имя должно быть уникальным в рамках каталога. Максимальная длина строки в символах — 50. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_-]* `.
-description | **string**<br>Описание реестра. Максимальная длина строки в символах — 256.
-labels | **map<string,string>**<br>Метки группы размещения в формате `key:value`. <br>Существующий набор `labels` полностью перезаписывается набором, переданным в запросе. Не более 64 на ресурс. Максимальная длина строки в символах для каждого значения — 63. Каждое значение должно соответствовать регулярному выражению ` [-_0-9a-z]* `. Длина строки в символах для каждого ключа должна быть от 1 до 63. Каждый ключ должен соответствовать регулярному выражению ` [a-z][-_0-9a-z]* `.
+registry_id | **string**<br>Required. ID of the registry to update. <br>To get a registry ID make a [RegistryService.List](#List) request. The maximum string length in characters is 50.
+update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the registry are going to be updated. 
+name | **string**<br>Name of the registry. The name must be unique within the folder. The maximum string length in characters is 50. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+description | **string**<br>Description of the registry. The maximum string length in characters is 256.
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. <br>Existing set of `labels` is completely replaced by the provided set. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 
 
 ### Operation {#Operation1}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateRegistryMetadata](#UpdateRegistryMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Registry](#Registry3)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateRegistryMetadata](#UpdateRegistryMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Registry](#Registry3)>**<br>if operation finished successfully. 
 
 
 ### UpdateRegistryMetadata {#UpdateRegistryMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-registry_id | **string**<br>Идентификатор обновляемого реестра. 
+registry_id | **string**<br>ID of the registry that is being updated. 
 
 
 ### Registry {#Registry3}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор реестра. 
-folder_id | **string**<br>Идентификатор каталога, которому принадлежит реестр. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания. 
-name | **string**<br>Название реестра. Имя уникально в рамках каталога. 
-description | **string**<br>Описание реестра. Длина описания должна быть от 0 до 256 символов. 
-labels | **map<string,string>**<br>Метки группы размещения в формате `key:value`. Максимум 64 метки на ресурс. 
-status | enum **Status**<br>Статус реестра. <ul><li>`CREATING`: Реестр создается.</li><li>`ACTIVE`: Реестр готов к использованию.</li><li>`DELETING`: Реестр удаляется.</li><ul/>
-log_group_id | **string**<br>Идентификатор группы журналов для указанного реестра. 
+id | **string**<br>ID of the registry. 
+folder_id | **string**<br>ID of the folder that the registry belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+name | **string**<br>Name of the registry. The name is unique within the folder. 
+description | **string**<br>Description of the registry. 0-256 characters long. 
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
+status | enum **Status**<br>Status of the registry. <ul><li>`CREATING`: Registry is being created.</li><li>`ACTIVE`: Registry is ready to use.</li><li>`DELETING`: Registry is being deleted.</li><ul/>
+log_group_id | **string**<br>ID of the logs group for the specified registry. 
 
 
 ## Delete {#Delete}
 
-Удаляет указанный реестр.
+Deletes the specified registry.
 
 **rpc Delete ([DeleteRegistryRequest](#DeleteRegistryRequest)) returns ([operation.Operation](#Operation2))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[DeleteRegistryMetadata](#DeleteRegistryMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
 
 ### DeleteRegistryRequest {#DeleteRegistryRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-registry_id | **string**<br>Обязательное поле. Идентификатор удаляемого реестра. <br>Чтобы получить идентификатор реестра, используйте запрос [RegistryService.List](#List). Максимальная длина строки в символах — 50.
+registry_id | **string**<br>Required. ID of the registry to delete. <br>To get a registry ID make a [RegistryService.List](#List) request. The maximum string length in characters is 50.
 
 
 ### Operation {#Operation2}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteRegistryMetadata](#DeleteRegistryMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteRegistryMetadata](#DeleteRegistryMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>if operation finished successfully. 
 
 
 ### DeleteRegistryMetadata {#DeleteRegistryMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-registry_id | **string**<br>Идентификатор удаляемого реестра. 
+registry_id | **string**<br>ID of the registry that is being deleted. 
 
 
 ## ListCertificates {#ListCertificates}
 
-Возвращает список сертификатов реестра для указанного реестра.
+Retrieves the list of registry certificates for the specified registry.
 
 **rpc ListCertificates ([ListRegistryCertificatesRequest](#ListRegistryCertificatesRequest)) returns ([ListRegistryCertificatesResponse](#ListRegistryCertificatesResponse))**
 
 ### ListRegistryCertificatesRequest {#ListRegistryCertificatesRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-registry_id | **string**<br>Обязательное поле. Идентификатор реестра для получения списка сертификатов. Максимальная длина строки в символах — 50.
+registry_id | **string**<br>Required. ID of the registry to list certificates for. The maximum string length in characters is 50.
 
 
 ### ListRegistryCertificatesResponse {#ListRegistryCertificatesResponse}
 
-Поле | Описание
+Field | Description
 --- | ---
-certificates[] | **[RegistryCertificate](#RegistryCertificate)**<br>Список сертификатов для указанного реестра. 
+certificates[] | **[RegistryCertificate](#RegistryCertificate)**<br>List of certificates for the specified registry. 
 
 
 ### RegistryCertificate {#RegistryCertificate}
 
-Поле | Описание
+Field | Description
 --- | ---
-registry_id | **string**<br>Идентификатор реестра, к которому принадлежит сертификат. 
-fingerprint | **string**<br>SHA256-хэш сертификата. 
-certificate_data | **string**<br>Публичная часть сертификата устройства. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания. 
+registry_id | **string**<br>ID of the registry that the certificate belongs to. 
+fingerprint | **string**<br>SHA256 hash of the certificates. 
+certificate_data | **string**<br>Public part of the certificate. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
 
 
 ## AddCertificate {#AddCertificate}
 
-Добавляет сертификат.
+Adds a certificate.
 
 **rpc AddCertificate ([AddRegistryCertificateRequest](#AddRegistryCertificateRequest)) returns ([operation.Operation](#Operation3))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[AddRegistryCertificateMetadata](#AddRegistryCertificateMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[RegistryCertificate](#RegistryCertificate1)<br>
 
 ### AddRegistryCertificateRequest {#AddRegistryCertificateRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-registry_id | **string**<br>Обязательное поле. Идентификатор реестра, для которого добавляется сертификат. <br>Чтобы получить идентификатор реестра, используйте запрос [RegistryService.List](#List). Максимальная длина строки в символах — 50.
-certificate_data | **string**<br>Публичная часть добавляемого сертификата. 
+registry_id | **string**<br>Required. ID of the registry for which the certificate is being added. <br>To get a registry ID make a [RegistryService.List](#List) request. The maximum string length in characters is 50.
+certificate_data | **string**<br>Public part of the certificate that is being added. 
 
 
 ### Operation {#Operation3}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[AddRegistryCertificateMetadata](#AddRegistryCertificateMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[RegistryCertificate](#RegistryCertificate1)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[AddRegistryCertificateMetadata](#AddRegistryCertificateMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[RegistryCertificate](#RegistryCertificate1)>**<br>if operation finished successfully. 
 
 
 ### AddRegistryCertificateMetadata {#AddRegistryCertificateMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-registry_id | **string**<br>Идентификатор добавляемого сертификата реестра. 
-fingerprint | **string**<br>Цифровой отпечаток добавляемого сертификата. 
+registry_id | **string**<br>ID of the registry certificate that is being added. 
+fingerprint | **string**<br>Fingerprint of the certificate that is being added. 
 
 
 ### RegistryCertificate {#RegistryCertificate1}
 
-Поле | Описание
+Field | Description
 --- | ---
-registry_id | **string**<br>Идентификатор реестра, к которому принадлежит сертификат. 
-fingerprint | **string**<br>SHA256-хэш сертификата. 
-certificate_data | **string**<br>Публичная часть сертификата устройства. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания. 
+registry_id | **string**<br>ID of the registry that the certificate belongs to. 
+fingerprint | **string**<br>SHA256 hash of the certificates. 
+certificate_data | **string**<br>Public part of the certificate. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
 
 
 ## DeleteCertificate {#DeleteCertificate}
 
-Удаляет указанный сертификат реестра.
+Deletes the specified registry certificate.
 
 **rpc DeleteCertificate ([DeleteRegistryCertificateRequest](#DeleteRegistryCertificateRequest)) returns ([operation.Operation](#Operation4))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[DeleteRegistryCertificateMetadata](#DeleteRegistryCertificateMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
 
 ### DeleteRegistryCertificateRequest {#DeleteRegistryCertificateRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-registry_id | **string**<br>Обязательное поле. Идентификатор реестра для удаления сертификата. <br>Чтобы получить идентификатор реестра, используйте запрос [RegistryService.List](#List). Максимальная длина строки в символах — 50.
-fingerprint | **string**<br>Обязательное поле. Цифровой отпечаток удаляемого сертификата. Максимальная длина строки в символах — 50.
+registry_id | **string**<br>Required. ID of the registry to delete a certificate for. <br>To get a registry ID make a [RegistryService.List](#List) request. The maximum string length in characters is 50.
+fingerprint | **string**<br>Required. Fingerprint of the certificate that is being deleted. The maximum string length in characters is 50.
 
 
 ### Operation {#Operation4}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteRegistryCertificateMetadata](#DeleteRegistryCertificateMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteRegistryCertificateMetadata](#DeleteRegistryCertificateMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>if operation finished successfully. 
 
 
 ### DeleteRegistryCertificateMetadata {#DeleteRegistryCertificateMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-registry_id | **string**<br>Обязательное поле. Идентификатор реестра, для которого удаляется сертификат. Максимальная длина строки в символах — 50.
-fingerprint | **string**<br>Обязательное поле. Цифровой отпечаток сертификата для удаления. Максимальная длина строки в символах — 50.
+registry_id | **string**<br>Required. ID of a registry for which the certificate is being delete. The maximum string length in characters is 50.
+fingerprint | **string**<br>Required. Fingerprint of the certificate to deleted. The maximum string length in characters is 50.
 
 
 ## ListPasswords {#ListPasswords}
 
-Возращает список паролей для указанного реестра.
+Retrieves the list of passwords for the specified registry.
 
 **rpc ListPasswords ([ListRegistryPasswordsRequest](#ListRegistryPasswordsRequest)) returns ([ListRegistryPasswordsResponse](#ListRegistryPasswordsResponse))**
 
 ### ListRegistryPasswordsRequest {#ListRegistryPasswordsRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-registry_id | **string**<br>Обязательное поле. Идентификатор реестра для получения списка паролей. <br>Чтобы получить идентификатор реестра, используйте запрос [RegistryService.List](#List). Максимальная длина строки в символах — 50.
+registry_id | **string**<br>Required. ID of the registry to list passwords in. <br>To get a registry ID make a [RegistryService.List](#List) request. The maximum string length in characters is 50.
 
 
 ### ListRegistryPasswordsResponse {#ListRegistryPasswordsResponse}
 
-Поле | Описание
+Field | Description
 --- | ---
-passwords[] | **[RegistryPassword](#RegistryPassword)**<br>Возращает список паролей для указанного реестра. 
+passwords[] | **[RegistryPassword](#RegistryPassword)**<br>List of passwords for the specified registry. 
 
 
 ### RegistryPassword {#RegistryPassword}
 
-Поле | Описание
+Field | Description
 --- | ---
-registry_id | **string**<br>Идентификатор реестра, к которому принадлежит пароль. 
-id | **string**<br>Идентификатор пароля. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания. 
+registry_id | **string**<br>ID of the registry that the password belongs to. 
+id | **string**<br>ID of the password. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
 
 
 ## AddPassword {#AddPassword}
 
-Добавляет пароль для указанного реестра.
+Adds password for the specified registry.
 
 **rpc AddPassword ([AddRegistryPasswordRequest](#AddRegistryPasswordRequest)) returns ([operation.Operation](#Operation5))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[AddRegistryPasswordMetadata](#AddRegistryPasswordMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[RegistryPassword](#RegistryPassword1)<br>
 
 ### AddRegistryPasswordRequest {#AddRegistryPasswordRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-registry_id | **string**<br>Обязательное поле. Идентификатор реестра для добавления пароля. <br>Чтобы получить идентификатор реестра, используйте запрос [RegistryService.List](#List). Максимальная длина строки в символах — 50.
-password | **string**<br>Пароли для реестра. <br>Пароль должен содержать не менее трех категорий символов: строчные латинские буквы, прописные латинские буквы, цифры, специальные символы. Минимальная длина строки в символах — 14.
+registry_id | **string**<br>Required. ID of the registry to add a password for. <br>To get a registry ID make a [RegistryService.List](#List) request. The maximum string length in characters is 50.
+password | **string**<br>Passwords for the registry. <br>The password must contain at least three character categories among the following: upper case latin, lower case latin, numbers and special symbols. The minimum string length in characters is 14.
 
 
 ### Operation {#Operation5}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[AddRegistryPasswordMetadata](#AddRegistryPasswordMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[RegistryPassword](#RegistryPassword1)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[AddRegistryPasswordMetadata](#AddRegistryPasswordMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[RegistryPassword](#RegistryPassword1)>**<br>if operation finished successfully. 
 
 
 ### AddRegistryPasswordMetadata {#AddRegistryPasswordMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-registry_id | **string**<br>Идентификатор реестра, для которого добавляется пароль. 
-password_id | **string**<br>Идентификатор добавляемого пароля. 
+registry_id | **string**<br>ID of the registry for which the password is being added. 
+password_id | **string**<br>ID of a password that is being added. 
 
 
 ### RegistryPassword {#RegistryPassword1}
 
-Поле | Описание
+Field | Description
 --- | ---
-registry_id | **string**<br>Идентификатор реестра, к которому принадлежит пароль. 
-id | **string**<br>Идентификатор пароля. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания. 
+registry_id | **string**<br>ID of the registry that the password belongs to. 
+id | **string**<br>ID of the password. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
 
 
 ## DeletePassword {#DeletePassword}
 
-Удаляет указанный пароль.
+Deletes the specified password.
 
 **rpc DeletePassword ([DeleteRegistryPasswordRequest](#DeleteRegistryPasswordRequest)) returns ([operation.Operation](#Operation6))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[DeleteRegistryPasswordMetadata](#DeleteRegistryPasswordMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
 
 ### DeleteRegistryPasswordRequest {#DeleteRegistryPasswordRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-registry_id | **string**<br>Обязательное поле. Идентификатор реестра для удаления пароля. <br>Чтобы получить идентификатор реестра, используйте запрос [DeviceService.List](./device_service#List). Максимальная длина строки в символах — 50.
-password_id | **string**<br>Обязательное поле. Идентификатор пароля для удаления. <br>Для получения идентификатора пароля используйте запрос [RegistryService.ListPasswords](#ListPasswords). Максимальная длина строки в символах — 50.
+registry_id | **string**<br>Required. ID of the registry to delete a password for. <br>To get a registry ID make a [DeviceService.List](./device_service#List) request. The maximum string length in characters is 50.
+password_id | **string**<br>Required. ID of the password to delete. <br>To get a password ID make a [RegistryService.ListPasswords](#ListPasswords) request. The maximum string length in characters is 50.
 
 
 ### Operation {#Operation6}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteRegistryPasswordMetadata](#DeleteRegistryPasswordMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteRegistryPasswordMetadata](#DeleteRegistryPasswordMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>if operation finished successfully. 
 
 
 ### DeleteRegistryPasswordMetadata {#DeleteRegistryPasswordMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-registry_id | **string**<br>Обязательное поле. Идентификатор реестра, для которого удаляется пароль. Максимальная длина строки в символах — 50.
-password_id | **string**<br>Обязательное поле. Идентификатор пароля для удаления. <br>Для получения идентификатора пароля используйте запрос [RegistryService.ListPasswords](#ListPasswords). Максимальная длина строки в символах — 50.
+registry_id | **string**<br>Required. ID of a registry for which the password is being delete. The maximum string length in characters is 50.
+password_id | **string**<br>Required. ID of the password to delete. <br>To get a password ID make a [RegistryService.ListPasswords](#ListPasswords) request. The maximum string length in characters is 50.
 
 
 ## ListDeviceTopicAliases {#ListDeviceTopicAliases}
 
-Возвращает список алиасов устройств для указанного реестра.
+Retrieves the list of device topic aliases for the specified registry.
 
 **rpc ListDeviceTopicAliases ([ListDeviceTopicAliasesRequest](#ListDeviceTopicAliasesRequest)) returns ([ListDeviceTopicAliasesResponse](#ListDeviceTopicAliasesResponse))**
 
 ### ListDeviceTopicAliasesRequest {#ListDeviceTopicAliasesRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-registry_id | **string**<br>Обязательное поле. Идентификатор реестра для получения списка алиасов для топика устройства. <br>Чтобы получить идентификатор реестра, используйте запрос [RegistryService.List](#List). Максимальная длина строки в символах — 50.
-page_size | **int64**<br>Максимальное число возвращаемых результатов на странице. Если количество результатов больше чем `page_size`, сервис вернет значение [ListDeviceTopicAliasesResponse.next_page_token](#ListDeviceTopicAliasesResponse), которое можно использовать для получения следующей страницы. Значение по умолчанию: 100. Допустимые значения — от 0 до 1000 включительно.
-page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListDeviceTopicAliasesResponse.next_page_token](#ListDeviceTopicAliasesResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
+registry_id | **string**<br>Required. ID of the registry to list aliases for device topic. <br>To get a registry ID make a [RegistryService.List](#List) request. The maximum string length in characters is 50.
+page_size | **int64**<br>The maximum number of results per page that should be returned. If the number of available results is larger than `page_size`, the service returns a [ListDeviceTopicAliasesResponse.next_page_token](#ListDeviceTopicAliasesResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. Acceptable values are 0 to 1000, inclusive.
+page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListDeviceTopicAliasesResponse.next_page_token](#ListDeviceTopicAliasesResponse) returned by a previous list request. The maximum string length in characters is 100.
 
 
 ### ListDeviceTopicAliasesResponse {#ListDeviceTopicAliasesResponse}
 
-Поле | Описание
+Field | Description
 --- | ---
-aliases[] | **[DeviceAlias](#DeviceAlias)**<br>Список алиасов устройств для указанного реестра. 
-next_page_token | **string**<br>Токен для получения следующей страницы списка. Если количество результатов больше чем [ListDeviceTopicAliasesRequest.page_size](#ListDeviceTopicAliasesRequest), используйте `next_page_token` в качестве значения параметра [ListDeviceTopicAliasesRequest.page_token](#ListDeviceTopicAliasesRequest) в следующем запросе списка ресурсов. <br>Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
+aliases[] | **[DeviceAlias](#DeviceAlias)**<br>List of device aliases for the specified registry. 
+next_page_token | **string**<br>Token for getting the next page of the list. If the number of results is greater than the specified [ListDeviceTopicAliasesRequest.page_size](#ListDeviceTopicAliasesRequest), use `next_page_token` as the value for the [ListDeviceTopicAliasesRequest.page_token](#ListDeviceTopicAliasesRequest) parameter in the next list request. <br>Each subsequent page will have its own `next_page_token` to continue paging through the results. 
 
 
 ### DeviceAlias {#DeviceAlias}
 
-Поле | Описание
+Field | Description
 --- | ---
-device_id | **string**<br>Идентификатор устройства, которому принадлежит алиас. 
-topic_prefix | **string**<br>Префикс алиаса стандартного топика устройства, например `$devices/abcdef`. 
-alias | **string**<br>Алиас топика устройства. 
+device_id | **string**<br>ID of the device that the alias belongs to. 
+topic_prefix | **string**<br>Prefix of a canonical topic name to be aliased, e.g. `$devices/abcdef`. 
+alias | **string**<br>Alias of a device topic. 
 
 
 ## ListOperations {#ListOperations}
 
-Возвращает список операций для указанного реестра.
+Lists operations for the specified registry.
 
 **rpc ListOperations ([ListRegistryOperationsRequest](#ListRegistryOperationsRequest)) returns ([ListRegistryOperationsResponse](#ListRegistryOperationsResponse))**
 
 ### ListRegistryOperationsRequest {#ListRegistryOperationsRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-registry_id | **string**<br>Обязательное поле. Идентификатор реестра для получения списка операций. 
-page_size | **int64**<br>Максимальное число возвращаемых результатов на странице. Если количество результатов больше чем `page_size`, сервис вернет значение [ListRegistryOperationsResponse.next_page_token](#ListRegistryOperationsResponse), которое можно использовать для получения следующей страницы. Значение по умолчанию: 100. Допустимые значения — от 0 до 1000 включительно.
-page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListRegistryOperationsResponse.next_page_token](#ListRegistryOperationsResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
-filter | **string**<br>Параметры фильтрации ресурсов в ответе. В настоящее время фильтрация осуществляется только по полю [Registry.name](#Registry4). Максимальная длина строки в символах — 1000.
+registry_id | **string**<br>Required. ID of the registry to list operations for. 
+page_size | **int64**<br>The maximum number of results per page that should be returned. If the number of available results is larger than `page_size`, the service returns a [ListRegistryOperationsResponse.next_page_token](#ListRegistryOperationsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. Acceptable values are 0 to 1000, inclusive.
+page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListRegistryOperationsResponse.next_page_token](#ListRegistryOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
+filter | **string**<br>A filter expression that filters resources listed in the response. Currently you can use filtering only on [Registry.name](#Registry4) field. The maximum string length in characters is 1000.
 
 
 ### ListRegistryOperationsResponse {#ListRegistryOperationsResponse}
 
-Поле | Описание
+Field | Description
 --- | ---
-operations[] | **[operation.Operation](#Operation7)**<br>Список операций для указанного реестра. 
-next_page_token | **string**<br>Токен для получения следующей страницы списка. Если количество результатов больше чем [ListRegistryOperationsRequest.page_size](#ListRegistryOperationsRequest), используйте `next_page_token` в качестве значения параметра [ListRegistryOperationsRequest.page_token](#ListRegistryOperationsRequest) в следующем запросе списка ресурсов. <br>Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
+operations[] | **[operation.Operation](#Operation7)**<br>List of operations for the specified registry. 
+next_page_token | **string**<br>Token for getting the next page of the list. If the number of results is greater than the specified [ListRegistryOperationsRequest.page_size](#ListRegistryOperationsRequest), use `next_page_token` as the value for the [ListRegistryOperationsRequest.page_token](#ListRegistryOperationsRequest) parameter in the next list request. <br>Each subsequent page will have its own `next_page_token` to continue paging through the results. 
 
 
 ### Operation {#Operation7}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**<br>Результат операции в случае успешного завершения. Если исходный метод не возвращает никаких данных при успешном завершении, например метод Delete, поле содержит объект [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty). Если исходный метод — это стандартный метод Create / Update, поле содержит целевой ресурс операции. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `response`. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**<br>The normal response of the operation in case of success. If the original method returns no data on success, such as Delete, the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty). If the original method is the standard Create/Update, the response should be the target resource of the operation. Any method that returns a long-running operation should document the response type, if any. 
 
 

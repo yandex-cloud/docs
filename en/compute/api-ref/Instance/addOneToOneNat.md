@@ -26,7 +26,15 @@ instanceId |
   "internalAddress": "string",
   "oneToOneNatSpec": {
     "ipVersion": "string",
-    "address": "string"
+    "address": "string",
+    "dnsRecordSpecs": [
+      {
+        "fqdn": "string",
+        "dnsZoneId": "string",
+        "ttl": "string",
+        "ptr": true
+      }
+    ]
   }
 }
 ```
@@ -39,6 +47,11 @@ internalAddress | **string**<br>
 oneToOneNatSpec | **object**<br>
 oneToOneNatSpec.<br>ipVersion | **string**<br><p>External IP address version.</p> <ul> <li>IPV4: IPv4 address, for example 192.0.2.235.</li> <li>IPV6: IPv6 address. Not available yet.</li> </ul> 
 oneToOneNatSpec.<br>address | **string**<br>
+oneToOneNatSpec.<br>dnsRecordSpecs[] | **object**<br><p>External DNS configuration</p> 
+oneToOneNatSpec.<br>dnsRecordSpecs[].<br>fqdn | **string**<br><p>Required. FQDN (required)</p> 
+oneToOneNatSpec.<br>dnsRecordSpecs[].<br>dnsZoneId | **string**<br><p>DNS zone id (optional, if not set, private zone used)</p> 
+oneToOneNatSpec.<br>dnsRecordSpecs[].<br>ttl | **string** (int64)<br><p>DNS record ttl, values in 0-86400 (optional)</p> <p>Acceptable values are 0 to 86400, inclusive.</p> 
+oneToOneNatSpec.<br>dnsRecordSpecs[].<br>ptr | **boolean** (boolean)<br><p>When set to true, also create PTR DNS record (optional)</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

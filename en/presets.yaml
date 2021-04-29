@@ -178,6 +178,7 @@ default:
   pem-path: /cloud-certs/CA.pem
   dns-zone: mdb.yandexcloud.net
   network-name: default
+  security-group: enp6saqnq4ie244g67sb
   host-net-example: zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch63
   disk-type-example: network-ssd
   PG: PostgreSQL
@@ -189,6 +190,7 @@ default:
   mmg-backup-retention-max: 35
   MY: MySQL
   RD: Redis
+  mrd-max-disk-size: 4096 GB
   KF: Apache Kafka<sup>®</sup>
   ES: Elasticsearch
   ZK: ZooKeeper
@@ -280,8 +282,9 @@ default:
   link-cloud-partners: https://partners.cloud.yandex.ru/
   link-app-android: https://play.google.com/store/apps/details?id=ru.yandex.cloud
   link-app-ios: https://apps.apple.com/ru/app/yandex-cloud/id1515465314
-  link-cloud-notifications: https://console.cloud.yandex.ru/cloud?section=incident-notifications
+  link-cloud-notifications: https://console.cloud.yandex.com/cloud?section=incident-notifications
   tf-cloud-id: b1gq90dgh25bebiu75o
+  tf-folder-id: b1gia87mbaomkfvsleds
   yandex-cloud: Yandex.Cloud
   port-any: 0-65535
   port-http: 80
@@ -1012,6 +1015,24 @@ default:
           v1|month|string: ₽175.7520
           v1|month|int|number: '176'
           v1|month|int|string: ₽176
+        amd:
+          a100:
+            v1|number: '0.0000'
+            v1|string: Free
+            v1|int|number: '0'
+            v1|int|string: Free
+            v1|month|number: '0.0000'
+            v1|month|string: Free
+            v1|month|int|number: '0'
+            v1|month|int|string: Free
+          v1|number: '0.0000'
+          v1|string: Free
+          v1|int|number: '0'
+          v1|int|string: Free
+          v1|month|number: '0.0000'
+          v1|month|string: Free
+          v1|month|int|number: '0'
+          v1|month|int|string: Free
         gpu-standard|number: '0.2441'
         gpu-standard|string: ₽0.2441
         gpu-standard|int|number: '0'
@@ -1087,15 +1108,6 @@ default:
         preemptible|month|string: ₽54.0000
         preemptible|month|int|number: '54'
         preemptible|month|int|string: ₽54
-        amd:
-          v1|number: '0.0000'
-          v1|string: Free
-          v1|int|number: '0'
-          v1|int|string: Free
-          v1|month|number: '0.0000'
-          v1|month|string: Free
-          v1|month|int|number: '0'
-          v1|month|int|string: Free
       cpu:
         '50':
           v2:
@@ -1717,6 +1729,15 @@ default:
             v1|month|string: Free
             v1|month|int|number: '0'
             v1|month|int|string: Free
+            a100:
+              v1|number: '0.0000'
+              v1|string: Free
+              v1|int|number: '0'
+              v1|int|string: Free
+              v1|month|number: '0.0000'
+              v1|month|string: Free
+              v1|month|int|number: '0'
+              v1|month|int|string: Free
         c20:
           preemptible:
             dev:
@@ -2016,6 +2037,16 @@ default:
           v1|month|int|number: '965'
           v1|month|int|string: ₽965
       gpu:
+        amd:
+          a100:
+            v1|number: '0.0000'
+            v1|string: Free
+            v1|int|number: '0'
+            v1|int|string: Free
+            v1|month|number: '0.0000'
+            v1|month|string: Free
+            v1|month|int|number: '0'
+            v1|month|int|string: Free
         gpu-standard:
           preemptible:
             v2:
@@ -11431,6 +11462,24 @@ default:
           v1|month|string: $2.253231
           v1|month|int|number: '2'
           v1|month|int|string: $2
+        amd:
+          a100:
+            v1|number: '0.000000'
+            v1|string: Free
+            v1|int|number: '0'
+            v1|int|string: Free
+            v1|month|number: '0.000000'
+            v1|month|string: Free
+            v1|month|int|number: '0'
+            v1|month|int|string: Free
+          v1|number: '0.000000'
+          v1|string: Free
+          v1|int|number: '0'
+          v1|int|string: Free
+          v1|month|number: '0.000000'
+          v1|month|string: Free
+          v1|month|int|number: '0'
+          v1|month|int|string: Free
         gpu-standard|number: '0.003129'
         gpu-standard|string: $0.003129
         gpu-standard|int|number: '0'
@@ -11506,15 +11555,6 @@ default:
         preemptible|month|string: $0.692307
         preemptible|month|int|number: '1'
         preemptible|month|int|string: $1
-        amd:
-          v1|number: '0.000000'
-          v1|string: Free
-          v1|int|number: '0'
-          v1|int|string: Free
-          v1|month|number: '0.000000'
-          v1|month|string: Free
-          v1|month|int|number: '0'
-          v1|month|int|string: Free
       cpu:
         '50':
           v2:
@@ -12136,6 +12176,15 @@ default:
             v1|month|string: Free
             v1|month|int|number: '0'
             v1|month|int|string: Free
+            a100:
+              v1|number: '0.000000'
+              v1|string: Free
+              v1|int|number: '0'
+              v1|int|string: Free
+              v1|month|number: '0.000000'
+              v1|month|string: Free
+              v1|month|int|number: '0'
+              v1|month|int|string: Free
         c20:
           preemptible:
             dev:
@@ -12435,6 +12484,16 @@ default:
           v1|month|int|number: '12'
           v1|month|int|string: $12
       gpu:
+        amd:
+          a100:
+            v1|number: '0.000000'
+            v1|string: Free
+            v1|int|number: '0'
+            v1|int|string: Free
+            v1|month|number: '0.000000'
+            v1|month|string: Free
+            v1|month|int|number: '0'
+            v1|month|int|string: Free
         gpu-standard:
           preemptible:
             v2:
@@ -21850,6 +21909,24 @@ default:
           v1|month|string: ₸1054.5120
           v1|month|int|number: '1055'
           v1|month|int|string: ₸1055
+        amd:
+          a100:
+            v1|number: '0.0000'
+            v1|string: Free
+            v1|int|number: '0'
+            v1|int|string: Free
+            v1|month|number: '0.0000'
+            v1|month|string: Free
+            v1|month|int|number: '0'
+            v1|month|int|string: Free
+          v1|number: '0.0000'
+          v1|string: Free
+          v1|int|number: '0'
+          v1|int|string: Free
+          v1|month|number: '0.0000'
+          v1|month|string: Free
+          v1|month|int|number: '0'
+          v1|month|int|string: Free
         gpu-standard|number: '1.4646'
         gpu-standard|string: ₸1.4646
         gpu-standard|int|number: '1'
@@ -21925,15 +22002,6 @@ default:
         preemptible|month|string: ₸324.0000
         preemptible|month|int|number: '324'
         preemptible|month|int|string: ₸324
-        amd:
-          v1|number: '0.0000'
-          v1|string: Free
-          v1|int|number: '0'
-          v1|int|string: Free
-          v1|month|number: '0.0000'
-          v1|month|string: Free
-          v1|month|int|number: '0'
-          v1|month|int|string: Free
       cpu:
         '50':
           v2:
@@ -22555,6 +22623,15 @@ default:
             v1|month|string: Free
             v1|month|int|number: '0'
             v1|month|int|string: Free
+            a100:
+              v1|number: '0.0000'
+              v1|string: Free
+              v1|int|number: '0'
+              v1|int|string: Free
+              v1|month|number: '0.0000'
+              v1|month|string: Free
+              v1|month|int|number: '0'
+              v1|month|int|string: Free
         c20:
           preemptible:
             dev:
@@ -22854,6 +22931,16 @@ default:
           v1|month|int|number: '5789'
           v1|month|int|string: ₸5789
       gpu:
+        amd:
+          a100:
+            v1|number: '0.0000'
+            v1|string: Free
+            v1|int|number: '0'
+            v1|int|string: Free
+            v1|month|number: '0.0000'
+            v1|month|string: Free
+            v1|month|int|number: '0'
+            v1|month|int|string: Free
         gpu-standard:
           preemptible:
             v2:

@@ -2,26 +2,26 @@
 editable: false
 ---
 
-# Метод list
-Возвращает список доступных ресурсов NetworkLoadBalancer в указанном каталоге.
+# Method list
+Retrieves the list of NetworkLoadBalancer resources in the specified folder.
  
 
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
-GET https://load-balancer.api.cloud.yandex.net/network-load-balancer/v1/networkLoadBalancers
+GET https://load-balancer.api.cloud.yandex.net/load-balancer/v1alpha/networkLoadBalancers
 ```
  
-## Query-параметры {#query_params}
+## Query parameters {#query_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-folderId | Обязательное поле. Идентификатор каталога, которому принадлежит балансировщик. Чтобы получить идентификатор каталога, используйте запрос [list](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list).  Максимальная длина строки в символах — 50.
-pageSize | Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем [pageSize](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list#query_params), сервис вернет значение [nextPageToken](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list#responses), которое можно использовать для получения следующей страницы.  Значение по умолчанию: 100.  Максимальное значение — 1000.
-pageToken | Токен страницы. Установите значение [pageToken](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list#query_params) равным значению поля [nextPageToken](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list#responses) прошлого запроса, чтобы получить следующую страницу результатов.  Максимальная длина строки в символах — 100.
-filter | Параметры фильтрации ресурсов в ответе.  В параметрах фильтрации указываются: 1. Имя поля. В настоящее время фильтрация осуществляется только по полю [NetworkLoadBalancer.name](/docs/network-load-balancer/api-ref/NetworkLoadBalancer#representation). 2. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений. 3. Значение длиной от 3 до 63 символов, совпадающее с регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9].`.  Максимальная длина строки в символах — 1000.
+folderId | Required. ID of the folder that the network load balancer belongs to. To get the folder ID, use a [list](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list) request.  The maximum string length in characters is 50.
+pageSize | The maximum number of results per page to return. If the number of available results is larger than [pageSize](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list#query_params), the service returns a [<ResponseMessage>.next_page_token] that can be used to get the next page of results in subsequent list requests. Default value: 100.  The maximum value is 1000.
+pageToken | Page token. To get the next page of results, set [pageToken](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list#query_params) to the [nextPageToken](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list#responses) returned by a previous list request.  The maximum string length in characters is 100.
+filter | A filter expression that filters resources listed in the response. The expression must specify: 1. The field name. Currently you can only filter by the [NetworkLoadBalancer.name](/docs/network-load-balancer/api-ref/NetworkLoadBalancer#representation) field. 2. An operator. Can be either `=` or `!=` for single values, or `IN` or `NOT IN` for lists of values. 3. The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.  The maximum string length in characters is 1000.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -40,7 +40,6 @@ filter | Параметры фильтрации ресурсов в ответ�
       "sessionAffinity": "string",
       "listeners": [
         {
-          "name": "string",
           "address": "string",
           "port": "string",
           "protocol": "string"
@@ -57,7 +56,7 @@ filter | Параметры фильтрации ресурсов в ответ�
               "unhealthyThreshold": "string",
               "healthyThreshold": "string",
 
-              // `networkLoadBalancers[].attachedTargetGroups[].healthChecks[]` включает только одно из полей `tcpOptions`, `httpOptions`
+              // `networkLoadBalancers[].attachedTargetGroups[].healthChecks[]` includes only one of the fields `tcpOptions`, `httpOptions`
               "tcpOptions": {
                 "port": "string"
               },
@@ -65,7 +64,7 @@ filter | Параметры фильтрации ресурсов в ответ�
                 "port": "string",
                 "path": "string"
               },
-              // конец списка возможных полей`networkLoadBalancers[].attachedTargetGroups[].healthChecks[]`
+              // end of the list of possible fields`networkLoadBalancers[].attachedTargetGroups[].healthChecks[]`
 
             }
           ]
@@ -78,35 +77,34 @@ filter | Параметры фильтрации ресурсов в ответ�
 ```
 
  
-Поле | Описание
+Field | Description
 --- | ---
-networkLoadBalancers[] | **object**<br><p>Ресурс NetworkLoadBalancer. Подробнее см. в разделе <a href="/docs/network-load-balancer/concepts">Сетевой балансировщик нагрузки</a>.</p> 
-networkLoadBalancers[].<br>id | **string**<br><p>Идентификатор балансировщика.</p> 
-networkLoadBalancers[].<br>folderId | **string**<br><p>Идентификатор каталога, которому принадлежит балансировщик.</p> 
-networkLoadBalancers[].<br>createdAt | **string** (date-time)<br><p>Время создания ресурса в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-networkLoadBalancers[].<br>name | **string**<br><p>Имя балансировщика. Имя должно быть уникальным в каталоге. Длина имени должна быть от 3 до 63 символов.</p> 
-networkLoadBalancers[].<br>description | **string**<br><p>Описание балансировщика. Длина 0-256 символов.</p> 
-networkLoadBalancers[].<br>labels | **object**<br><p>Метки ресурса в формате `` key:value ``. Максимум 64 метки на ресурс.</p> 
-networkLoadBalancers[].<br>regionId | **string**<br><p>Идентификатор каталога, которому принадлежит балансировщик.</p> 
-networkLoadBalancers[].<br>status | **string**<br><p>Состояние балансировщика.</p> <ul> <li>CREATING: Балансировщик создается.</li> <li>STARTING: Балансировщик запускается.</li> <li>ACTIVE: Балансировщик активен и передает трафик целевым ресурсам.</li> <li>STOPPING: Балансировщик остановлен.</li> <li>STOPPED: Балансировщик остановлен и не отправляет трафик целевым ресурсам.</li> <li>DELETING: Балансировщик удаляется.</li> <li>INACTIVE: У балансировщика нет обработчиков или целевых групп, или подключенные целевые группы пусты. Балансировщик не выполняет никаких проверок состояния и не передает трафик в этом состоянии.</li> </ul> 
-networkLoadBalancers[].<br>type | **string**<br><p>Тип балансировщика. В настоящее время доступны только внешние балансировщики.</p> <p>Тип балансировщика нагрузки. В настоящее время доступны только внешние балансировщики.</p> <ul> <li>EXTERNAL: Внешний балансировщик.</li> </ul> 
-networkLoadBalancers[].<br>sessionAffinity | **string**<br><p>Тип адресации. В настоящее время доступна только адресация по принципу 5-tuple.</p> <p>Тип адресации. В настоящее время доступна только адресация по принципу 5-tuple. Подробнее см. в разделе <a href="/docs/network-load-balancer/concepts/">Основные понятия</a>.</p> <ul> <li>CLIENT_IP_PORT_PROTO: Адресация 5-tuple.</li> </ul> 
-networkLoadBalancers[].<br>listeners[] | **object**<br><p>Ресурс Listener. Дополнительные сведения см. в разделе <a href="/docs/network-load-balancer/concepts/listener">Обработчик</a></p> 
-networkLoadBalancers[].<br>listeners[].<br>name | **string**<br><p>Имя обработчика. У обработчиков одного балансировщика должны быть уникальные имена. Длина 3-63 символов.</p> 
-networkLoadBalancers[].<br>listeners[].<br>address | **string**<br><p>IP-адрес для обработчика.</p> 
-networkLoadBalancers[].<br>listeners[].<br>port | **string** (int64)<br><p>Порт.</p> 
-networkLoadBalancers[].<br>listeners[].<br>protocol | **string**<br><p>Сетевой протокол для входящего трафика.</p> <p>Сетевой протокол для использования при проверке.</p> <ul> <li>TCP: Протокол TCP.</li> </ul> 
-networkLoadBalancers[].<br>attachedTargetGroups[] | **object**<br><p>Ресурс AttachedTargetGroup. Дополнительные сведения см. в разделе <a href="/docs/network-load-balancer/concepts/target-resources">Целевые группы и ресурсы</a></p> 
-networkLoadBalancers[].<br>attachedTargetGroups[].<br>targetGroupId | **string**<br><p>Обязательное поле. Идентификатор целевой группы.</p> <p>Максимальная длина строки в символах — 50.</p> 
-networkLoadBalancers[].<br>attachedTargetGroups[].<br>healthChecks[] | **object**<br><p>Ресурс HealthCheck. Подробнее см. в разделе <a href="/docs/network-load-balancer/concepts/health-check">Проверка состояния</a>.</p> 
-networkLoadBalancers[].<br>attachedTargetGroups[].<br>healthChecks[].<br>name | **string**<br><p>Обязательное поле. Название проверки состояния. Имя должно быть уникальным в каталоге. Длина имени должна быть от 3 до 63 символов.</p> <p>Значение должно соответствовать регулярному выражению `` \|[a-z][-a-z0-9]{1,61}[a-z0-9] ``.</p> 
-networkLoadBalancers[].<br>attachedTargetGroups[].<br>healthChecks[].<br>interval | **string**<br><p>Интервал между проверками работоспособности. Формат значения: `` Ns ``, где N — количество секунд. Значение по умолчанию — 2 секунды.</p> 
-networkLoadBalancers[].<br>attachedTargetGroups[].<br>healthChecks[].<br>timeout | **string**<br><p>Время, за которое целевой ресурс должен ответить на проверку. Формат значения: `` Ns ``, где N — количество секунд Значение по умолчанию — 1 секунда.</p> 
-networkLoadBalancers[].<br>attachedTargetGroups[].<br>healthChecks[].<br>unhealthyThreshold | **string** (int64)<br><p>Количество неудачных проверок работоспособности перед изменением состояния целевого ресурса на `` UNHEALTHY ``. Значение по умолчанию — 2.</p> <p>Допустимые значения — от 2 до 10 включительно.</p> 
-networkLoadBalancers[].<br>attachedTargetGroups[].<br>healthChecks[].<br>healthyThreshold | **string** (int64)<br><p>Количество успешных проверок состояния, необходимых для установки целевому ресурсу статуса `` HEALTHY ``. Значение по умолчанию — 2.</p> <p>Допустимые значения — от 2 до 10 включительно.</p> 
-networkLoadBalancers[].<br>attachedTargetGroups[].<br>healthChecks[].<br>tcpOptions | **object**<br>Протокол TCP. <br>`networkLoadBalancers[].attachedTargetGroups[].healthChecks[]` включает только одно из полей `tcpOptions`, `httpOptions`<br><br><p>Конфигурация проверки состояния по протоколу TCP.</p> 
-networkLoadBalancers[].<br>attachedTargetGroups[].<br>healthChecks[].<br>tcpOptions.<br>port | **string** (int64)<br><p>Настройки для проверок состояния по протоколу TCP.</p> <p>Допустимые значения — от 1 до 32767 включительно.</p> 
-networkLoadBalancers[].<br>attachedTargetGroups[].<br>healthChecks[].<br>httpOptions | **object**<br>Протокол HTTP. <br>`networkLoadBalancers[].attachedTargetGroups[].healthChecks[]` включает только одно из полей `tcpOptions`, `httpOptions`<br><br><p>Конфигурация проверки состояния по протоколу HTTP.</p> 
-networkLoadBalancers[].<br>attachedTargetGroups[].<br>healthChecks[].<br>httpOptions.<br>port | **string** (int64)<br><p>Настройки для проверок состояния по протоколу HTTP.</p> <p>Допустимые значения — от 1 до 32767 включительно.</p> 
-networkLoadBalancers[].<br>attachedTargetGroups[].<br>healthChecks[].<br>httpOptions.<br>path | **string**<br><p>URL для отправки запросов проверки состояния, который будет установлен всем ресурсам целевой группы. Например `` /ping ``. Путь по умолчанию — `` / ``.</p> 
-nextPageToken | **string**<br><p>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем <a href="/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list#query_params">pageSize</a>, используйте <a href="/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list#responses">nextPageToken</a> в качестве значения параметра <a href="/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list#query_params">pageToken</a> в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения <a href="/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list#responses">nextPageToken</a>, для перебора страниц результатов.</p> 
+networkLoadBalancers[] | **object**<br><p>A NetworkLoadBalancer resource. For more information, see <a href="/docs/network-load-balancer/concepts">Network Load Balancer</a>.</p> 
+networkLoadBalancers[].<br>id | **string**<br><p>ID of the network load balancer.</p> 
+networkLoadBalancers[].<br>folderId | **string**<br><p>ID of the folder that the network load balancer belongs to.</p> 
+networkLoadBalancers[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+networkLoadBalancers[].<br>name | **string**<br><p>Name of the network load balancer. The name is unique within the folder. 3-63 characters long.</p> 
+networkLoadBalancers[].<br>description | **string**<br><p>Optional description of the network load balancer. 0-256 characters long.</p> 
+networkLoadBalancers[].<br>labels | **object**<br><p>Resource labels as `` key:value `` pairs. Maximum of 64 per resource.</p> 
+networkLoadBalancers[].<br>regionId | **string**<br><p>ID of the region that the network load balancer belongs to.</p> 
+networkLoadBalancers[].<br>status | **string**<br><p>Status of the network load balancer.</p> <ul> <li>CREATING: Network load balancer is being created.</li> <li>STARTING: Network load balancer is being started.</li> <li>ACTIVE: Network load balancer is active and sends traffic to the targets.</li> <li>STOPPING: Network load balancer is being stopped.</li> <li>STOPPED: Network load balancer is stopped and doesn't send traffic to the targets.</li> <li>DELETING: Network load balancer is being deleted.</li> <li>INACTIVE: The load balancer doesn't have any listeners or target groups, or attached target groups are empty. The load balancer doesn't perform any health checks or send traffic in this state.</li> </ul> 
+networkLoadBalancers[].<br>type | **string**<br><p>Type of the network load balancer. Only external network load balancers are available now.</p> <p>Type of the load balancer. Only external load balancers are currently available.</p> <ul> <li>EXTERNAL: External network load balancer.</li> </ul> 
+networkLoadBalancers[].<br>sessionAffinity | **string**<br><p>Type of the session affinity. Only 5-tuple affinity is available now.</p> <p>Type of session affinity. Only 5-tuple affinity is currently available. For more information, see <a href="/docs/network-load-balancer/concepts/">Load Balancer concepts</a>.</p> <ul> <li>CLIENT_IP_PORT_PROTO: 5-tuple affinity.</li> </ul> 
+networkLoadBalancers[].<br>listeners[] | **object**<br><p>A Listener resource. For more information, see <a href="/docs/network-load-balancer/concepts/listener">Listener</a></p> 
+networkLoadBalancers[].<br>listeners[].<br>address | **string**<br><p>IP address for the listener.</p> 
+networkLoadBalancers[].<br>listeners[].<br>port | **string** (int64)<br><p>Port.</p> 
+networkLoadBalancers[].<br>listeners[].<br>protocol | **string**<br><p>Network protocol for incoming traffic.</p> <p>Network protocol to use.</p> 
+networkLoadBalancers[].<br>attachedTargetGroups[] | **object**<br><p>An AttachedTargetGroup resource. For more information, see <a href="/docs/network-load-balancer/concepts">Attached Target Groups</a></p> 
+networkLoadBalancers[].<br>attachedTargetGroups[].<br>targetGroupId | **string**<br><p>Required. ID of the target group.</p> <p>The maximum string length in characters is 50.</p> 
+networkLoadBalancers[].<br>attachedTargetGroups[].<br>healthChecks[] | **object**<br><p>A HealthCheck resource. For more information, see <a href="/docs/network-load-balancer/concepts/health-check">Health check</a>.</p> 
+networkLoadBalancers[].<br>attachedTargetGroups[].<br>healthChecks[].<br>name | **string**<br><p>Required. Name of the health check. The name must be unique for each target group that attached to a single load balancer. 3-63 characters long.</p> <p>Value must match the regular expression `` \|[a-z][-a-z0-9]{1,61}[a-z0-9] ``.</p> 
+networkLoadBalancers[].<br>attachedTargetGroups[].<br>healthChecks[].<br>interval | **string**<br><p>The interval between health checks. The default is 2 seconds.</p> 
+networkLoadBalancers[].<br>attachedTargetGroups[].<br>healthChecks[].<br>timeout | **string**<br><p>Timeout for a target to return a response for the health check. The default is 1 second.</p> 
+networkLoadBalancers[].<br>attachedTargetGroups[].<br>healthChecks[].<br>unhealthyThreshold | **string** (int64)<br><p>Number of failed health checks before changing the status to `` UNHEALTHY ``. The default is 2.</p> <p>Acceptable values are 2 to 10, inclusive.</p> 
+networkLoadBalancers[].<br>attachedTargetGroups[].<br>healthChecks[].<br>healthyThreshold | **string** (int64)<br><p>Number of successful health checks required in order to set the `` HEALTHY `` status for the target. The default is 2.</p> <p>Acceptable values are 2 to 10, inclusive.</p> 
+networkLoadBalancers[].<br>attachedTargetGroups[].<br>healthChecks[].<br>tcpOptions | **object**<br>Options for TCP health check. <br>`networkLoadBalancers[].attachedTargetGroups[].healthChecks[]` includes only one of the fields `tcpOptions`, `httpOptions`<br><br><p>Configuration option for a TCP health check.</p> 
+networkLoadBalancers[].<br>attachedTargetGroups[].<br>healthChecks[].<br>tcpOptions.<br>port | **string** (int64)<br><p>Port to use for TCP health checks.</p> <p>Acceptable values are 1 to 65535, inclusive.</p> 
+networkLoadBalancers[].<br>attachedTargetGroups[].<br>healthChecks[].<br>httpOptions | **object**<br>Options for HTTP health check. <br>`networkLoadBalancers[].attachedTargetGroups[].healthChecks[]` includes only one of the fields `tcpOptions`, `httpOptions`<br><br><p>Configuration option for an HTTP health check.</p> 
+networkLoadBalancers[].<br>attachedTargetGroups[].<br>healthChecks[].<br>httpOptions.<br>port | **string** (int64)<br><p>Port to use for HTTP health checks.</p> <p>Acceptable values are 1 to 65535, inclusive.</p> 
+networkLoadBalancers[].<br>attachedTargetGroups[].<br>healthChecks[].<br>httpOptions.<br>path | **string**<br><p>URL path to set for health checking requests for every target in the target group. For example `` /ping ``.</p> 
+nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list#query_params">pageSize</a>, use the <a href="/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list#responses">nextPageToken</a> as the value for the <a href="/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own <a href="/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list#responses">nextPageToken</a> to continue paging through the results.</p> 

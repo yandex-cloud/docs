@@ -1,13 +1,13 @@
 # Yandex Managed Service for MySQL API
-Методы справочника API сгруппированы по ресурсам. Чтобы выполнить операцию над ресурсом выполните RPC-вызов. Подробнее об архитектуре API Яндекс.Облака, см. [Концепции API Яндекс.Облака](/docs/api-design-guide/).
+This API reference is organized by resource. Actions are performed by sending HTTP requests to resource URLs or making RPC calls. For more information about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
 
-Спецификации API Яндекс.Облака смотрите на [GitHub](https://github.com/yandex-cloud/cloudapi).
+See the interface definitions of Yandex.Cloud API on [GitHub](https://github.com/yandex-cloud/cloudapi).
 
-Сервис | Описание
+Service | Description
 --- | ---
-[BackupService](./backup_service.md) | Набор методов для управления резервными копиями MySQL.
-[ClusterService](./cluster_service.md) | Набор методов для управления кластерами MySQL.
-[DatabaseService](./database_service.md) | Набор методов для управления базами данных MySQL.
-[ResourcePresetService](./resource_preset_service.md) | Методы для работы с наборами ресурсов.
-[UserService](./user_service.md) | Набор методов для управления пользователями MySQL.
-[OperationService](./operation_service.md) | Набор методов для управления операциями в асинхронных запросах API. Ссылки указаны относительно домена `operation.api.cloud.yandex.net`.
+[BackupService](./backup_service.md) | A set of methods for managing MySQL backups.
+[ClusterService](./cluster_service.md) | A set of methods for managing MySQL clusters.
+[DatabaseService](./database_service.md) | A set of methods for managing MySQL databases.
+[ResourcePresetService](./resource_preset_service.md) | A set of methods for managing resource presets.
+[UserService](./user_service.md) | A set of methods for managing MySQL users.
+[OperationService](./operation_service.md) | A set of methods for managing operations for asynchronous API requests.

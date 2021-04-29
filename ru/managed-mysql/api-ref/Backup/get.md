@@ -2,23 +2,23 @@
 editable: false
 ---
 
-# Метод get
-Возвращает указанную резервную копию MySQL.
+# Method get
+Returns the specified MySQL backup.
  
-Чтобы получить список доступных резервных копий MySQL, выполните запрос [list](/docs/managed-mysql/api-ref/Backup/list).
+To get the list of available MySQL backups, make a [list](/docs/managed-mysql/api-ref/Backup/list) request.
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 GET https://mdb.api.cloud.yandex.net/managed-mysql/v1alpha/backups/{backupId}
 ```
  
-## Path-параметры {#path_params}
+## Path parameters {#path_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-backupId | Обязательное поле. Идентификатор резервной копии, сведения о которой запрашиваются. Чтобы получить идентификатор резервной копии, используйте запрос [listBackups](/docs/managed-mysql/api-ref/Cluster/listBackups).
+backupId | Required. ID of the backup to return information about. To get the backup ID, use a [listBackups](/docs/managed-mysql/api-ref/Cluster/listBackups) request.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -30,12 +30,13 @@ backupId | Обязательное поле. Идентификатор рез�
   "startedAt": "string"
 }
 ```
-Резервная копия MySQL. Подробнее см. в разделе [Резервные копии](/docs/managed-mysql/concepts/backup).
+A MySQL backup. For more information, see
+the [documentation](/docs/managed-mysql/concepts/backup).
  
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br><p>Обязательное поле. Идентификатор резервной копии.</p> 
-folderId | **string**<br><p>Идентификатор каталога, которому принадлежит резервная копия.</p> 
-createdAt | **string** (date-time)<br><p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-sourceClusterId | **string**<br><p>Идентификатор кластера MySQL, для которого была создана резервная копия.</p> 
-startedAt | **string** (date-time)<br><p>Время запуска операции резервного копирования.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
+id | **string**<br><p>Required. ID of the backup.</p> 
+folderId | **string**<br><p>ID of the folder that the backup belongs to.</p> 
+createdAt | **string** (date-time)<br><p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+sourceClusterId | **string**<br><p>ID of the MySQL cluster that the backup was created for.</p> 
+startedAt | **string** (date-time)<br><p>Time when the backup operation was started.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 

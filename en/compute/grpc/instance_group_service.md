@@ -25,6 +25,8 @@ A set of methods for managing InstanceGroup resources.
 | [ListAccessBindings](#ListAccessBindings) | Lists existing access bindings for the specified instance group. |
 | [SetAccessBindings](#SetAccessBindings) | Sets access bindings for the specified instance group. |
 | [UpdateAccessBindings](#UpdateAccessBindings) | Updates access bindings for the specified instance group. |
+| [ResumeProcesses](#ResumeProcesses) | Resume all process in instance group. |
+| [PauseProcesses](#PauseProcesses) | Pause all process in instance group. |
 
 ## Calls InstanceGroupService {#calls}
 
@@ -59,11 +61,13 @@ allocation_policy | **[AllocationPolicy](#AllocationPolicy)**<br>Allocation poli
 load_balancer_state | **[LoadBalancerState](#LoadBalancerState)**<br>Information that indicates which entities can be related to this load balancer. 
 managed_instances_state | **[ManagedInstancesState](#ManagedInstancesState)**<br>States of instances for this instance group. 
 load_balancer_spec | **[LoadBalancerSpec](#LoadBalancerSpec)**<br>Load balancing specification. 
-health_checks_spec | **[HealthChecksSpec](#HealthChecksSpec)**<br>Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check). 
+health_checks_spec | **[HealthChecksSpec](#HealthChecksSpec)**<br>Health checking specification. For more information, see [Health check](/docs/load-balancer/concepts/health-check). 
 service_account_id | **string**<br>ID of the service account. The service account will be used for all API calls made by the Instance Groups component on behalf of the user (for example, creating instances, adding them to load balancer target group, etc.). For more information, see [Service accounts](/docs/iam/concepts/users/service-accounts). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/grpc/service_account_service#List) request. 
-status | enum **Status**<br>Status of the instance group. <ul><li>`STARTING`: Instance group is being started and will become active soon.</li><li>`ACTIVE`: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](/docs/compute/grpc/instance_group_service#Stop).</li><li>`STOPPING`: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li><li>`STOPPED`: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Start](/docs/compute/grpc/instance_group_service#Start).</li><li>`DELETING`: Instance group is being deleted.</li><ul/>
+status | enum **Status**<br>Status of the instance group. <ul><li>`STARTING`: Instance group is being started and will become active soon.</li><li>`ACTIVE`: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](/docs/compute/grpc/instance_group_service#Stop).</li><li>`STOPPING`: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li><li>`STOPPED`: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Start](/docs/compute/grpc/instance_group_service#Start).</li><li>`DELETING`: Instance group is being deleted.</li><li>`PAUSED`: Instance group is paused.</li><ul/>
 variables[] | **[Variable](#Variable)**<br> 
 deletion_protection | **bool**<br>Flag prohibiting deletion of the instance group. <br>Allowed values:</br>- `false`: The instance group can be deleted.</br>- `true`: The instance group cannot be deleted. <br>The default is `false`. 
+application_load_balancer_spec | **[ApplicationLoadBalancerSpec](#ApplicationLoadBalancerSpec)**<br>Application load balancer spec 
+application_load_balancer_state | **[ApplicationLoadBalancerState](#ApplicationLoadBalancerState)**<br>Application load balancer state 
 
 
 ### InstanceTemplate {#InstanceTemplate}
@@ -135,6 +139,8 @@ security_group_ids[] | **string**<br>IDs of security groups.
 Field | Description
 --- | ---
 one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec)**<br>An external IP address configuration. If not specified, then this managed instance will have no external internet access. 
+dns_record_specs[] | **[DnsRecordSpec](#DnsRecordSpec)**<br>Internal DNS configuration 
+address | **string**<br>Optional. Manual set static internal IP. To set use variables. 
 
 
 ### OneToOneNatSpec {#OneToOneNatSpec}
@@ -143,6 +149,27 @@ Field | Description
 --- | ---
 ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
 address | **string**<br>Manual set static public IP. To set use variables. (optional) 
+dns_record_specs[] | **[DnsRecordSpec](#DnsRecordSpec)**<br>External DNS configuration 
+
+
+### DnsRecordSpec {#DnsRecordSpec}
+
+Field | Description
+--- | ---
+fqdn | **string**<br>Required. FQDN (required) 
+dns_zone_id | **string**<br>DNS zone id (optional, if not set, private zone used) 
+ttl | **int64**<br>DNS record ttl, values in 0-86400 (optional) Acceptable values are 0 to 86400, inclusive.
+ptr | **bool**<br>When set to true, also create PTR DNS record (optional) 
+
+
+### DnsRecordSpec {#DnsRecordSpec1}
+
+Field | Description
+--- | ---
+fqdn | **string**<br>Required. FQDN (required) 
+dns_zone_id | **string**<br>DNS zone id (optional, if not set, private zone used) 
+ttl | **int64**<br>DNS record ttl, values in 0-86400 (optional) Acceptable values are 0 to 86400, inclusive.
+ptr | **bool**<br>When set to true, also create PTR DNS record (optional) 
 
 
 ### SchedulingPolicy {#SchedulingPolicy}
@@ -281,7 +308,8 @@ failed | **int64**<br>Instance failed and needs to be recreated.
 
 Field | Description
 --- | ---
-target_group_spec | **[TargetGroupSpec](#TargetGroupSpec)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/network-load-balancer/concepts/target-resources). 
+target_group_spec | **[TargetGroupSpec](#TargetGroupSpec)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/load-balancer/concepts/target-resources). 
+max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
 
 
 ### TargetGroupSpec {#TargetGroupSpec}
@@ -297,7 +325,8 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more
 
 Field | Description
 --- | ---
-health_check_specs[] | **[HealthCheckSpec](#HealthCheckSpec)**<br>Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check). The minimum number of elements is 1.
+health_check_specs[] | **[HealthCheckSpec](#HealthCheckSpec)**<br>Health checking specification. For more information, see [Health check](/docs/load-balancer/concepts/health-check). The minimum number of elements is 1.
+max_checking_health_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to become healthy. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
 
 
 ### HealthCheckSpec {#HealthCheckSpec}
@@ -334,6 +363,31 @@ Field | Description
 --- | ---
 key | **string**<br> The string length in characters must be 1-128. Value must match the regular expression ` [a-zA-Z0-9._-]* `.
 value | **string**<br> The maximum string length in characters is 128.
+
+
+### ApplicationLoadBalancerSpec {#ApplicationLoadBalancerSpec}
+
+Field | Description
+--- | ---
+target_group_spec | **[ApplicationTargetGroupSpec](#ApplicationTargetGroupSpec)**<br>Required. Specification of the alb's target group that the instance group will be added to. 
+max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
+
+
+### ApplicationTargetGroupSpec {#ApplicationTargetGroupSpec}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the target group. 
+description | **string**<br>Description of the target group. 
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
+
+
+### ApplicationLoadBalancerState {#ApplicationLoadBalancerState}
+
+Field | Description
+--- | ---
+target_group_id | **string**<br> 
+status_message | **string**<br> 
 
 
 ## List {#List}
@@ -378,11 +432,13 @@ allocation_policy | **[AllocationPolicy](#AllocationPolicy1)**<br>Allocation pol
 load_balancer_state | **[LoadBalancerState](#LoadBalancerState1)**<br>Information that indicates which entities can be related to this load balancer. 
 managed_instances_state | **[ManagedInstancesState](#ManagedInstancesState1)**<br>States of instances for this instance group. 
 load_balancer_spec | **[LoadBalancerSpec](#LoadBalancerSpec1)**<br>Load balancing specification. 
-health_checks_spec | **[HealthChecksSpec](#HealthChecksSpec1)**<br>Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check). 
+health_checks_spec | **[HealthChecksSpec](#HealthChecksSpec1)**<br>Health checking specification. For more information, see [Health check](/docs/load-balancer/concepts/health-check). 
 service_account_id | **string**<br>ID of the service account. The service account will be used for all API calls made by the Instance Groups component on behalf of the user (for example, creating instances, adding them to load balancer target group, etc.). For more information, see [Service accounts](/docs/iam/concepts/users/service-accounts). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/grpc/service_account_service#List) request. 
-status | enum **Status**<br>Status of the instance group. <ul><li>`STARTING`: Instance group is being started and will become active soon.</li><li>`ACTIVE`: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](/docs/compute/grpc/instance_group_service#Stop).</li><li>`STOPPING`: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li><li>`STOPPED`: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Start](/docs/compute/grpc/instance_group_service#Start).</li><li>`DELETING`: Instance group is being deleted.</li><ul/>
+status | enum **Status**<br>Status of the instance group. <ul><li>`STARTING`: Instance group is being started and will become active soon.</li><li>`ACTIVE`: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](/docs/compute/grpc/instance_group_service#Stop).</li><li>`STOPPING`: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li><li>`STOPPED`: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Start](/docs/compute/grpc/instance_group_service#Start).</li><li>`DELETING`: Instance group is being deleted.</li><li>`PAUSED`: Instance group is paused.</li><ul/>
 variables[] | **[Variable](#Variable1)**<br> 
 deletion_protection | **bool**<br>Flag prohibiting deletion of the instance group. <br>Allowed values:</br>- `false`: The instance group can be deleted.</br>- `true`: The instance group cannot be deleted. <br>The default is `false`. 
+application_load_balancer_spec | **[ApplicationLoadBalancerSpec](#ApplicationLoadBalancerSpec1)**<br>Application load balancer spec 
+application_load_balancer_state | **[ApplicationLoadBalancerState](#ApplicationLoadBalancerState1)**<br>Application load balancer state 
 
 
 ### InstanceTemplate {#InstanceTemplate1}
@@ -454,6 +510,8 @@ security_group_ids[] | **string**<br>IDs of security groups.
 Field | Description
 --- | ---
 one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec1)**<br>An external IP address configuration. If not specified, then this managed instance will have no external internet access. 
+dns_record_specs[] | **[DnsRecordSpec](#DnsRecordSpec2)**<br>Internal DNS configuration 
+address | **string**<br>Optional. Manual set static internal IP. To set use variables. 
 
 
 ### OneToOneNatSpec {#OneToOneNatSpec1}
@@ -462,6 +520,27 @@ Field | Description
 --- | ---
 ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
 address | **string**<br>Manual set static public IP. To set use variables. (optional) 
+dns_record_specs[] | **[DnsRecordSpec](#DnsRecordSpec2)**<br>External DNS configuration 
+
+
+### DnsRecordSpec {#DnsRecordSpec2}
+
+Field | Description
+--- | ---
+fqdn | **string**<br>Required. FQDN (required) 
+dns_zone_id | **string**<br>DNS zone id (optional, if not set, private zone used) 
+ttl | **int64**<br>DNS record ttl, values in 0-86400 (optional) Acceptable values are 0 to 86400, inclusive.
+ptr | **bool**<br>When set to true, also create PTR DNS record (optional) 
+
+
+### DnsRecordSpec {#DnsRecordSpec3}
+
+Field | Description
+--- | ---
+fqdn | **string**<br>Required. FQDN (required) 
+dns_zone_id | **string**<br>DNS zone id (optional, if not set, private zone used) 
+ttl | **int64**<br>DNS record ttl, values in 0-86400 (optional) Acceptable values are 0 to 86400, inclusive.
+ptr | **bool**<br>When set to true, also create PTR DNS record (optional) 
 
 
 ### SchedulingPolicy {#SchedulingPolicy1}
@@ -600,7 +679,8 @@ failed | **int64**<br>Instance failed and needs to be recreated.
 
 Field | Description
 --- | ---
-target_group_spec | **[TargetGroupSpec](#TargetGroupSpec1)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/network-load-balancer/concepts/target-resources). 
+target_group_spec | **[TargetGroupSpec](#TargetGroupSpec1)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/load-balancer/concepts/target-resources). 
+max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
 
 
 ### TargetGroupSpec {#TargetGroupSpec1}
@@ -616,7 +696,8 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more
 
 Field | Description
 --- | ---
-health_check_specs[] | **[HealthCheckSpec](#HealthCheckSpec1)**<br>Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check). The minimum number of elements is 1.
+health_check_specs[] | **[HealthCheckSpec](#HealthCheckSpec1)**<br>Health checking specification. For more information, see [Health check](/docs/load-balancer/concepts/health-check). The minimum number of elements is 1.
+max_checking_health_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to become healthy. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
 
 
 ### HealthCheckSpec {#HealthCheckSpec1}
@@ -655,6 +736,31 @@ key | **string**<br> The string length in characters must be 1-128. Value must m
 value | **string**<br> The maximum string length in characters is 128.
 
 
+### ApplicationLoadBalancerSpec {#ApplicationLoadBalancerSpec1}
+
+Field | Description
+--- | ---
+target_group_spec | **[ApplicationTargetGroupSpec](#ApplicationTargetGroupSpec1)**<br>Required. Specification of the alb's target group that the instance group will be added to. 
+max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
+
+
+### ApplicationTargetGroupSpec {#ApplicationTargetGroupSpec1}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the target group. 
+description | **string**<br>Description of the target group. 
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
+
+
+### ApplicationLoadBalancerState {#ApplicationLoadBalancerState1}
+
+Field | Description
+--- | ---
+target_group_id | **string**<br> 
+status_message | **string**<br> 
+
+
 ## Create {#Create}
 
 Creates an instance group in the specified folder. This method starts an operation that can be cancelled by another operation.
@@ -678,10 +784,11 @@ scale_policy | **[ScalePolicy](#ScalePolicy2)**<br>Required. [Scaling policy](/d
 deploy_policy | **[DeployPolicy](#DeployPolicy2)**<br>Required. Deployment policy of the instance group. 
 allocation_policy | **[AllocationPolicy](#AllocationPolicy2)**<br>Required. Allocation policy of the instance group by zones and regions. 
 load_balancer_spec | **[LoadBalancerSpec](#LoadBalancerSpec2)**<br>Load balancing specification. 
-health_checks_spec | **[HealthChecksSpec](#HealthChecksSpec2)**<br>Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check). 
+health_checks_spec | **[HealthChecksSpec](#HealthChecksSpec2)**<br>Health checking specification. For more information, see [Health check](/docs/load-balancer/concepts/health-check). 
 service_account_id | **string**<br>ID of the service account. The service account will be used for all API calls made by the Instance Groups component on behalf of the user (for example, creating instances, adding them to load balancer target group, etc.). For more information, see [Service accounts](/docs/iam/concepts/users/service-accounts). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/grpc/service_account_service#List) request. 
 variables[] | **[Variable](#Variable2)**<br> 
 deletion_protection | **bool**<br>Flag prohibiting deletion of the instance group. <br>Allowed values:</br>- `false`: The instance group can be deleted.</br>- `true`: The instance group cannot be deleted. <br>The default is `false`. 
+application_load_balancer_spec | **[ApplicationLoadBalancerSpec](#ApplicationLoadBalancerSpec2)**<br>Application Load balancing (L7) specification. 
 
 
 ### InstanceTemplate {#InstanceTemplate2}
@@ -753,6 +860,8 @@ security_group_ids[] | **string**<br>IDs of security groups.
 Field | Description
 --- | ---
 one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec2)**<br>An external IP address configuration. If not specified, then this managed instance will have no external internet access. 
+dns_record_specs[] | **[DnsRecordSpec](#DnsRecordSpec4)**<br>Internal DNS configuration 
+address | **string**<br>Optional. Manual set static internal IP. To set use variables. 
 
 
 ### OneToOneNatSpec {#OneToOneNatSpec2}
@@ -761,6 +870,27 @@ Field | Description
 --- | ---
 ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
 address | **string**<br>Manual set static public IP. To set use variables. (optional) 
+dns_record_specs[] | **[DnsRecordSpec](#DnsRecordSpec4)**<br>External DNS configuration 
+
+
+### DnsRecordSpec {#DnsRecordSpec4}
+
+Field | Description
+--- | ---
+fqdn | **string**<br>Required. FQDN (required) 
+dns_zone_id | **string**<br>DNS zone id (optional, if not set, private zone used) 
+ttl | **int64**<br>DNS record ttl, values in 0-86400 (optional) Acceptable values are 0 to 86400, inclusive.
+ptr | **bool**<br>When set to true, also create PTR DNS record (optional) 
+
+
+### DnsRecordSpec {#DnsRecordSpec5}
+
+Field | Description
+--- | ---
+fqdn | **string**<br>Required. FQDN (required) 
+dns_zone_id | **string**<br>DNS zone id (optional, if not set, private zone used) 
+ttl | **int64**<br>DNS record ttl, values in 0-86400 (optional) Acceptable values are 0 to 86400, inclusive.
+ptr | **bool**<br>When set to true, also create PTR DNS record (optional) 
 
 
 ### SchedulingPolicy {#SchedulingPolicy2}
@@ -865,7 +995,8 @@ zone_id | **string**<br>Required. ID of the availability zone where the instance
 
 Field | Description
 --- | ---
-target_group_spec | **[TargetGroupSpec](#TargetGroupSpec2)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/network-load-balancer/concepts/target-resources). 
+target_group_spec | **[TargetGroupSpec](#TargetGroupSpec2)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/load-balancer/concepts/target-resources). 
+max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
 
 
 ### TargetGroupSpec {#TargetGroupSpec2}
@@ -881,7 +1012,8 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more
 
 Field | Description
 --- | ---
-health_check_specs[] | **[HealthCheckSpec](#HealthCheckSpec2)**<br>Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check). The minimum number of elements is 1.
+health_check_specs[] | **[HealthCheckSpec](#HealthCheckSpec2)**<br>Health checking specification. For more information, see [Health check](/docs/load-balancer/concepts/health-check). The minimum number of elements is 1.
+max_checking_health_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to become healthy. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
 
 
 ### HealthCheckSpec {#HealthCheckSpec2}
@@ -918,6 +1050,23 @@ Field | Description
 --- | ---
 key | **string**<br> The string length in characters must be 1-128. Value must match the regular expression ` [a-zA-Z0-9._-]* `.
 value | **string**<br> The maximum string length in characters is 128.
+
+
+### ApplicationLoadBalancerSpec {#ApplicationLoadBalancerSpec2}
+
+Field | Description
+--- | ---
+target_group_spec | **[ApplicationTargetGroupSpec](#ApplicationTargetGroupSpec2)**<br>Required. Specification of the alb's target group that the instance group will be added to. 
+max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
+
+
+### ApplicationTargetGroupSpec {#ApplicationTargetGroupSpec2}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the target group. 
+description | **string**<br>Description of the target group. 
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
 
 
 ### Operation {#Operation}
@@ -960,11 +1109,13 @@ allocation_policy | **[AllocationPolicy](#AllocationPolicy3)**<br>Allocation pol
 load_balancer_state | **[LoadBalancerState](#LoadBalancerState2)**<br>Information that indicates which entities can be related to this load balancer. 
 managed_instances_state | **[ManagedInstancesState](#ManagedInstancesState2)**<br>States of instances for this instance group. 
 load_balancer_spec | **[LoadBalancerSpec](#LoadBalancerSpec3)**<br>Load balancing specification. 
-health_checks_spec | **[HealthChecksSpec](#HealthChecksSpec3)**<br>Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check). 
+health_checks_spec | **[HealthChecksSpec](#HealthChecksSpec3)**<br>Health checking specification. For more information, see [Health check](/docs/load-balancer/concepts/health-check). 
 service_account_id | **string**<br>ID of the service account. The service account will be used for all API calls made by the Instance Groups component on behalf of the user (for example, creating instances, adding them to load balancer target group, etc.). For more information, see [Service accounts](/docs/iam/concepts/users/service-accounts). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/grpc/service_account_service#List) request. 
-status | enum **Status**<br>Status of the instance group. <ul><li>`STARTING`: Instance group is being started and will become active soon.</li><li>`ACTIVE`: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](/docs/compute/grpc/instance_group_service#Stop).</li><li>`STOPPING`: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li><li>`STOPPED`: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Start](/docs/compute/grpc/instance_group_service#Start).</li><li>`DELETING`: Instance group is being deleted.</li><ul/>
+status | enum **Status**<br>Status of the instance group. <ul><li>`STARTING`: Instance group is being started and will become active soon.</li><li>`ACTIVE`: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](/docs/compute/grpc/instance_group_service#Stop).</li><li>`STOPPING`: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li><li>`STOPPED`: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Start](/docs/compute/grpc/instance_group_service#Start).</li><li>`DELETING`: Instance group is being deleted.</li><li>`PAUSED`: Instance group is paused.</li><ul/>
 variables[] | **[Variable](#Variable3)**<br> 
 deletion_protection | **bool**<br>Flag prohibiting deletion of the instance group. <br>Allowed values:</br>- `false`: The instance group can be deleted.</br>- `true`: The instance group cannot be deleted. <br>The default is `false`. 
+application_load_balancer_spec | **[ApplicationLoadBalancerSpec](#ApplicationLoadBalancerSpec3)**<br>Application load balancer spec 
+application_load_balancer_state | **[ApplicationLoadBalancerState](#ApplicationLoadBalancerState2)**<br>Application load balancer state 
 
 
 ### InstanceTemplate {#InstanceTemplate3}
@@ -1036,6 +1187,8 @@ security_group_ids[] | **string**<br>IDs of security groups.
 Field | Description
 --- | ---
 one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec3)**<br>An external IP address configuration. If not specified, then this managed instance will have no external internet access. 
+dns_record_specs[] | **[DnsRecordSpec](#DnsRecordSpec6)**<br>Internal DNS configuration 
+address | **string**<br>Optional. Manual set static internal IP. To set use variables. 
 
 
 ### OneToOneNatSpec {#OneToOneNatSpec3}
@@ -1044,6 +1197,27 @@ Field | Description
 --- | ---
 ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
 address | **string**<br>Manual set static public IP. To set use variables. (optional) 
+dns_record_specs[] | **[DnsRecordSpec](#DnsRecordSpec6)**<br>External DNS configuration 
+
+
+### DnsRecordSpec {#DnsRecordSpec6}
+
+Field | Description
+--- | ---
+fqdn | **string**<br>Required. FQDN (required) 
+dns_zone_id | **string**<br>DNS zone id (optional, if not set, private zone used) 
+ttl | **int64**<br>DNS record ttl, values in 0-86400 (optional) Acceptable values are 0 to 86400, inclusive.
+ptr | **bool**<br>When set to true, also create PTR DNS record (optional) 
+
+
+### DnsRecordSpec {#DnsRecordSpec7}
+
+Field | Description
+--- | ---
+fqdn | **string**<br>Required. FQDN (required) 
+dns_zone_id | **string**<br>DNS zone id (optional, if not set, private zone used) 
+ttl | **int64**<br>DNS record ttl, values in 0-86400 (optional) Acceptable values are 0 to 86400, inclusive.
+ptr | **bool**<br>When set to true, also create PTR DNS record (optional) 
 
 
 ### SchedulingPolicy {#SchedulingPolicy3}
@@ -1182,7 +1356,8 @@ failed | **int64**<br>Instance failed and needs to be recreated.
 
 Field | Description
 --- | ---
-target_group_spec | **[TargetGroupSpec](#TargetGroupSpec3)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/network-load-balancer/concepts/target-resources). 
+target_group_spec | **[TargetGroupSpec](#TargetGroupSpec3)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/load-balancer/concepts/target-resources). 
+max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
 
 
 ### TargetGroupSpec {#TargetGroupSpec3}
@@ -1198,7 +1373,8 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more
 
 Field | Description
 --- | ---
-health_check_specs[] | **[HealthCheckSpec](#HealthCheckSpec3)**<br>Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check). The minimum number of elements is 1.
+health_check_specs[] | **[HealthCheckSpec](#HealthCheckSpec3)**<br>Health checking specification. For more information, see [Health check](/docs/load-balancer/concepts/health-check). The minimum number of elements is 1.
+max_checking_health_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to become healthy. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
 
 
 ### HealthCheckSpec {#HealthCheckSpec3}
@@ -1235,6 +1411,31 @@ Field | Description
 --- | ---
 key | **string**<br> The string length in characters must be 1-128. Value must match the regular expression ` [a-zA-Z0-9._-]* `.
 value | **string**<br> The maximum string length in characters is 128.
+
+
+### ApplicationLoadBalancerSpec {#ApplicationLoadBalancerSpec3}
+
+Field | Description
+--- | ---
+target_group_spec | **[ApplicationTargetGroupSpec](#ApplicationTargetGroupSpec3)**<br>Required. Specification of the alb's target group that the instance group will be added to. 
+max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
+
+
+### ApplicationTargetGroupSpec {#ApplicationTargetGroupSpec3}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the target group. 
+description | **string**<br>Description of the target group. 
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
+
+
+### ApplicationLoadBalancerState {#ApplicationLoadBalancerState2}
+
+Field | Description
+--- | ---
+target_group_id | **string**<br> 
+status_message | **string**<br> 
 
 
 ## CreateFromYaml {#CreateFromYaml}
@@ -1295,11 +1496,13 @@ allocation_policy | **[AllocationPolicy](#AllocationPolicy4)**<br>Allocation pol
 load_balancer_state | **[LoadBalancerState](#LoadBalancerState3)**<br>Information that indicates which entities can be related to this load balancer. 
 managed_instances_state | **[ManagedInstancesState](#ManagedInstancesState3)**<br>States of instances for this instance group. 
 load_balancer_spec | **[LoadBalancerSpec](#LoadBalancerSpec4)**<br>Load balancing specification. 
-health_checks_spec | **[HealthChecksSpec](#HealthChecksSpec4)**<br>Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check). 
+health_checks_spec | **[HealthChecksSpec](#HealthChecksSpec4)**<br>Health checking specification. For more information, see [Health check](/docs/load-balancer/concepts/health-check). 
 service_account_id | **string**<br>ID of the service account. The service account will be used for all API calls made by the Instance Groups component on behalf of the user (for example, creating instances, adding them to load balancer target group, etc.). For more information, see [Service accounts](/docs/iam/concepts/users/service-accounts). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/grpc/service_account_service#List) request. 
-status | enum **Status**<br>Status of the instance group. <ul><li>`STARTING`: Instance group is being started and will become active soon.</li><li>`ACTIVE`: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](/docs/compute/grpc/instance_group_service#Stop).</li><li>`STOPPING`: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li><li>`STOPPED`: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Start](/docs/compute/grpc/instance_group_service#Start).</li><li>`DELETING`: Instance group is being deleted.</li><ul/>
+status | enum **Status**<br>Status of the instance group. <ul><li>`STARTING`: Instance group is being started and will become active soon.</li><li>`ACTIVE`: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](/docs/compute/grpc/instance_group_service#Stop).</li><li>`STOPPING`: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li><li>`STOPPED`: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Start](/docs/compute/grpc/instance_group_service#Start).</li><li>`DELETING`: Instance group is being deleted.</li><li>`PAUSED`: Instance group is paused.</li><ul/>
 variables[] | **[Variable](#Variable4)**<br> 
 deletion_protection | **bool**<br>Flag prohibiting deletion of the instance group. <br>Allowed values:</br>- `false`: The instance group can be deleted.</br>- `true`: The instance group cannot be deleted. <br>The default is `false`. 
+application_load_balancer_spec | **[ApplicationLoadBalancerSpec](#ApplicationLoadBalancerSpec4)**<br>Application load balancer spec 
+application_load_balancer_state | **[ApplicationLoadBalancerState](#ApplicationLoadBalancerState3)**<br>Application load balancer state 
 
 
 ### InstanceTemplate {#InstanceTemplate4}
@@ -1371,6 +1574,8 @@ security_group_ids[] | **string**<br>IDs of security groups.
 Field | Description
 --- | ---
 one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec4)**<br>An external IP address configuration. If not specified, then this managed instance will have no external internet access. 
+dns_record_specs[] | **[DnsRecordSpec](#DnsRecordSpec8)**<br>Internal DNS configuration 
+address | **string**<br>Optional. Manual set static internal IP. To set use variables. 
 
 
 ### OneToOneNatSpec {#OneToOneNatSpec4}
@@ -1379,6 +1584,27 @@ Field | Description
 --- | ---
 ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
 address | **string**<br>Manual set static public IP. To set use variables. (optional) 
+dns_record_specs[] | **[DnsRecordSpec](#DnsRecordSpec8)**<br>External DNS configuration 
+
+
+### DnsRecordSpec {#DnsRecordSpec8}
+
+Field | Description
+--- | ---
+fqdn | **string**<br>Required. FQDN (required) 
+dns_zone_id | **string**<br>DNS zone id (optional, if not set, private zone used) 
+ttl | **int64**<br>DNS record ttl, values in 0-86400 (optional) Acceptable values are 0 to 86400, inclusive.
+ptr | **bool**<br>When set to true, also create PTR DNS record (optional) 
+
+
+### DnsRecordSpec {#DnsRecordSpec9}
+
+Field | Description
+--- | ---
+fqdn | **string**<br>Required. FQDN (required) 
+dns_zone_id | **string**<br>DNS zone id (optional, if not set, private zone used) 
+ttl | **int64**<br>DNS record ttl, values in 0-86400 (optional) Acceptable values are 0 to 86400, inclusive.
+ptr | **bool**<br>When set to true, also create PTR DNS record (optional) 
 
 
 ### SchedulingPolicy {#SchedulingPolicy4}
@@ -1517,7 +1743,8 @@ failed | **int64**<br>Instance failed and needs to be recreated.
 
 Field | Description
 --- | ---
-target_group_spec | **[TargetGroupSpec](#TargetGroupSpec4)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/network-load-balancer/concepts/target-resources). 
+target_group_spec | **[TargetGroupSpec](#TargetGroupSpec4)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/load-balancer/concepts/target-resources). 
+max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
 
 
 ### TargetGroupSpec {#TargetGroupSpec4}
@@ -1533,7 +1760,8 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more
 
 Field | Description
 --- | ---
-health_check_specs[] | **[HealthCheckSpec](#HealthCheckSpec4)**<br>Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check). The minimum number of elements is 1.
+health_check_specs[] | **[HealthCheckSpec](#HealthCheckSpec4)**<br>Health checking specification. For more information, see [Health check](/docs/load-balancer/concepts/health-check). The minimum number of elements is 1.
+max_checking_health_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to become healthy. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
 
 
 ### HealthCheckSpec {#HealthCheckSpec4}
@@ -1572,6 +1800,31 @@ key | **string**<br> The string length in characters must be 1-128. Value must m
 value | **string**<br> The maximum string length in characters is 128.
 
 
+### ApplicationLoadBalancerSpec {#ApplicationLoadBalancerSpec4}
+
+Field | Description
+--- | ---
+target_group_spec | **[ApplicationTargetGroupSpec](#ApplicationTargetGroupSpec4)**<br>Required. Specification of the alb's target group that the instance group will be added to. 
+max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
+
+
+### ApplicationTargetGroupSpec {#ApplicationTargetGroupSpec4}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the target group. 
+description | **string**<br>Description of the target group. 
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
+
+
+### ApplicationLoadBalancerState {#ApplicationLoadBalancerState3}
+
+Field | Description
+--- | ---
+target_group_id | **string**<br> 
+status_message | **string**<br> 
+
+
 ## Update {#Update}
 
 Updates the specified instance group. This method starts an operation that can be cancelled by another operation.
@@ -1595,7 +1848,7 @@ instance_template | **[InstanceTemplate](#InstanceTemplate5)**<br>Required. Inst
 scale_policy | **[ScalePolicy](#ScalePolicy5)**<br>Required. [Scaling policy](/docs/compute/concepts/instance-groups/scale) of the instance group. 
 deploy_policy | **[DeployPolicy](#DeployPolicy5)**<br>Required. Deployment policy of the instance group. 
 allocation_policy | **[AllocationPolicy](#AllocationPolicy5)**<br>Required. Allocation policy of the instance group by zones and regions. 
-health_checks_spec | **[HealthChecksSpec](#HealthChecksSpec5)**<br>Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check). 
+health_checks_spec | **[HealthChecksSpec](#HealthChecksSpec5)**<br>Health checking specification. For more information, see [Health check](/docs/load-balancer/concepts/health-check). 
 service_account_id | **string**<br>ID of the service account. The service account will be used for all API calls made by the Instance Groups component on behalf of the user (for example, creating instances, adding them to load balancer target group, etc.). For more information, see [Service accounts](/docs/iam/concepts/users/service-accounts). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/grpc/service_account_service#List) request. 
 load_balancer_spec | **[LoadBalancerSpec](#LoadBalancerSpec5)**<br>Load Balancer specification for load balancing support. 
 variables[] | **[Variable](#Variable5)**<br> 
@@ -1671,6 +1924,8 @@ security_group_ids[] | **string**<br>IDs of security groups.
 Field | Description
 --- | ---
 one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec5)**<br>An external IP address configuration. If not specified, then this managed instance will have no external internet access. 
+dns_record_specs[] | **[DnsRecordSpec](#DnsRecordSpec10)**<br>Internal DNS configuration 
+address | **string**<br>Optional. Manual set static internal IP. To set use variables. 
 
 
 ### OneToOneNatSpec {#OneToOneNatSpec5}
@@ -1679,6 +1934,27 @@ Field | Description
 --- | ---
 ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
 address | **string**<br>Manual set static public IP. To set use variables. (optional) 
+dns_record_specs[] | **[DnsRecordSpec](#DnsRecordSpec10)**<br>External DNS configuration 
+
+
+### DnsRecordSpec {#DnsRecordSpec10}
+
+Field | Description
+--- | ---
+fqdn | **string**<br>Required. FQDN (required) 
+dns_zone_id | **string**<br>DNS zone id (optional, if not set, private zone used) 
+ttl | **int64**<br>DNS record ttl, values in 0-86400 (optional) Acceptable values are 0 to 86400, inclusive.
+ptr | **bool**<br>When set to true, also create PTR DNS record (optional) 
+
+
+### DnsRecordSpec {#DnsRecordSpec11}
+
+Field | Description
+--- | ---
+fqdn | **string**<br>Required. FQDN (required) 
+dns_zone_id | **string**<br>DNS zone id (optional, if not set, private zone used) 
+ttl | **int64**<br>DNS record ttl, values in 0-86400 (optional) Acceptable values are 0 to 86400, inclusive.
+ptr | **bool**<br>When set to true, also create PTR DNS record (optional) 
 
 
 ### SchedulingPolicy {#SchedulingPolicy5}
@@ -1783,7 +2059,8 @@ zone_id | **string**<br>Required. ID of the availability zone where the instance
 
 Field | Description
 --- | ---
-health_check_specs[] | **[HealthCheckSpec](#HealthCheckSpec5)**<br>Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check). The minimum number of elements is 1.
+health_check_specs[] | **[HealthCheckSpec](#HealthCheckSpec5)**<br>Health checking specification. For more information, see [Health check](/docs/load-balancer/concepts/health-check). The minimum number of elements is 1.
+max_checking_health_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to become healthy. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
 
 
 ### HealthCheckSpec {#HealthCheckSpec5}
@@ -1818,7 +2095,8 @@ path | **string**<br>URL path to set for health checking requests.
 
 Field | Description
 --- | ---
-target_group_spec | **[TargetGroupSpec](#TargetGroupSpec5)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/network-load-balancer/concepts/target-resources). 
+target_group_spec | **[TargetGroupSpec](#TargetGroupSpec5)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/load-balancer/concepts/target-resources). 
+max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
 
 
 ### TargetGroupSpec {#TargetGroupSpec5}
@@ -1878,11 +2156,13 @@ allocation_policy | **[AllocationPolicy](#AllocationPolicy6)**<br>Allocation pol
 load_balancer_state | **[LoadBalancerState](#LoadBalancerState4)**<br>Information that indicates which entities can be related to this load balancer. 
 managed_instances_state | **[ManagedInstancesState](#ManagedInstancesState4)**<br>States of instances for this instance group. 
 load_balancer_spec | **[LoadBalancerSpec](#LoadBalancerSpec6)**<br>Load balancing specification. 
-health_checks_spec | **[HealthChecksSpec](#HealthChecksSpec6)**<br>Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check). 
+health_checks_spec | **[HealthChecksSpec](#HealthChecksSpec6)**<br>Health checking specification. For more information, see [Health check](/docs/load-balancer/concepts/health-check). 
 service_account_id | **string**<br>ID of the service account. The service account will be used for all API calls made by the Instance Groups component on behalf of the user (for example, creating instances, adding them to load balancer target group, etc.). For more information, see [Service accounts](/docs/iam/concepts/users/service-accounts). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/grpc/service_account_service#List) request. 
-status | enum **Status**<br>Status of the instance group. <ul><li>`STARTING`: Instance group is being started and will become active soon.</li><li>`ACTIVE`: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](/docs/compute/grpc/instance_group_service#Stop).</li><li>`STOPPING`: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li><li>`STOPPED`: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Start](/docs/compute/grpc/instance_group_service#Start).</li><li>`DELETING`: Instance group is being deleted.</li><ul/>
+status | enum **Status**<br>Status of the instance group. <ul><li>`STARTING`: Instance group is being started and will become active soon.</li><li>`ACTIVE`: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](/docs/compute/grpc/instance_group_service#Stop).</li><li>`STOPPING`: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li><li>`STOPPED`: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Start](/docs/compute/grpc/instance_group_service#Start).</li><li>`DELETING`: Instance group is being deleted.</li><li>`PAUSED`: Instance group is paused.</li><ul/>
 variables[] | **[Variable](#Variable6)**<br> 
 deletion_protection | **bool**<br>Flag prohibiting deletion of the instance group. <br>Allowed values:</br>- `false`: The instance group can be deleted.</br>- `true`: The instance group cannot be deleted. <br>The default is `false`. 
+application_load_balancer_spec | **[ApplicationLoadBalancerSpec](#ApplicationLoadBalancerSpec5)**<br>Application load balancer spec 
+application_load_balancer_state | **[ApplicationLoadBalancerState](#ApplicationLoadBalancerState4)**<br>Application load balancer state 
 
 
 ### InstanceTemplate {#InstanceTemplate6}
@@ -1954,6 +2234,8 @@ security_group_ids[] | **string**<br>IDs of security groups.
 Field | Description
 --- | ---
 one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec6)**<br>An external IP address configuration. If not specified, then this managed instance will have no external internet access. 
+dns_record_specs[] | **[DnsRecordSpec](#DnsRecordSpec12)**<br>Internal DNS configuration 
+address | **string**<br>Optional. Manual set static internal IP. To set use variables. 
 
 
 ### OneToOneNatSpec {#OneToOneNatSpec6}
@@ -1962,6 +2244,27 @@ Field | Description
 --- | ---
 ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
 address | **string**<br>Manual set static public IP. To set use variables. (optional) 
+dns_record_specs[] | **[DnsRecordSpec](#DnsRecordSpec12)**<br>External DNS configuration 
+
+
+### DnsRecordSpec {#DnsRecordSpec12}
+
+Field | Description
+--- | ---
+fqdn | **string**<br>Required. FQDN (required) 
+dns_zone_id | **string**<br>DNS zone id (optional, if not set, private zone used) 
+ttl | **int64**<br>DNS record ttl, values in 0-86400 (optional) Acceptable values are 0 to 86400, inclusive.
+ptr | **bool**<br>When set to true, also create PTR DNS record (optional) 
+
+
+### DnsRecordSpec {#DnsRecordSpec13}
+
+Field | Description
+--- | ---
+fqdn | **string**<br>Required. FQDN (required) 
+dns_zone_id | **string**<br>DNS zone id (optional, if not set, private zone used) 
+ttl | **int64**<br>DNS record ttl, values in 0-86400 (optional) Acceptable values are 0 to 86400, inclusive.
+ptr | **bool**<br>When set to true, also create PTR DNS record (optional) 
 
 
 ### SchedulingPolicy {#SchedulingPolicy6}
@@ -2100,7 +2403,8 @@ failed | **int64**<br>Instance failed and needs to be recreated.
 
 Field | Description
 --- | ---
-target_group_spec | **[TargetGroupSpec](#TargetGroupSpec6)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/network-load-balancer/concepts/target-resources). 
+target_group_spec | **[TargetGroupSpec](#TargetGroupSpec6)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/load-balancer/concepts/target-resources). 
+max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
 
 
 ### TargetGroupSpec {#TargetGroupSpec6}
@@ -2116,7 +2420,8 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more
 
 Field | Description
 --- | ---
-health_check_specs[] | **[HealthCheckSpec](#HealthCheckSpec6)**<br>Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check). The minimum number of elements is 1.
+health_check_specs[] | **[HealthCheckSpec](#HealthCheckSpec6)**<br>Health checking specification. For more information, see [Health check](/docs/load-balancer/concepts/health-check). The minimum number of elements is 1.
+max_checking_health_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to become healthy. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
 
 
 ### HealthCheckSpec {#HealthCheckSpec6}
@@ -2153,6 +2458,31 @@ Field | Description
 --- | ---
 key | **string**<br> The string length in characters must be 1-128. Value must match the regular expression ` [a-zA-Z0-9._-]* `.
 value | **string**<br> The maximum string length in characters is 128.
+
+
+### ApplicationLoadBalancerSpec {#ApplicationLoadBalancerSpec5}
+
+Field | Description
+--- | ---
+target_group_spec | **[ApplicationTargetGroupSpec](#ApplicationTargetGroupSpec5)**<br>Required. Specification of the alb's target group that the instance group will be added to. 
+max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
+
+
+### ApplicationTargetGroupSpec {#ApplicationTargetGroupSpec5}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the target group. 
+description | **string**<br>Description of the target group. 
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
+
+
+### ApplicationLoadBalancerState {#ApplicationLoadBalancerState4}
+
+Field | Description
+--- | ---
+target_group_id | **string**<br> 
+status_message | **string**<br> 
 
 
 ## UpdateFromYaml {#UpdateFromYaml}
@@ -2213,11 +2543,13 @@ allocation_policy | **[AllocationPolicy](#AllocationPolicy7)**<br>Allocation pol
 load_balancer_state | **[LoadBalancerState](#LoadBalancerState5)**<br>Information that indicates which entities can be related to this load balancer. 
 managed_instances_state | **[ManagedInstancesState](#ManagedInstancesState5)**<br>States of instances for this instance group. 
 load_balancer_spec | **[LoadBalancerSpec](#LoadBalancerSpec7)**<br>Load balancing specification. 
-health_checks_spec | **[HealthChecksSpec](#HealthChecksSpec7)**<br>Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check). 
+health_checks_spec | **[HealthChecksSpec](#HealthChecksSpec7)**<br>Health checking specification. For more information, see [Health check](/docs/load-balancer/concepts/health-check). 
 service_account_id | **string**<br>ID of the service account. The service account will be used for all API calls made by the Instance Groups component on behalf of the user (for example, creating instances, adding them to load balancer target group, etc.). For more information, see [Service accounts](/docs/iam/concepts/users/service-accounts). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/grpc/service_account_service#List) request. 
-status | enum **Status**<br>Status of the instance group. <ul><li>`STARTING`: Instance group is being started and will become active soon.</li><li>`ACTIVE`: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](/docs/compute/grpc/instance_group_service#Stop).</li><li>`STOPPING`: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li><li>`STOPPED`: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Start](/docs/compute/grpc/instance_group_service#Start).</li><li>`DELETING`: Instance group is being deleted.</li><ul/>
+status | enum **Status**<br>Status of the instance group. <ul><li>`STARTING`: Instance group is being started and will become active soon.</li><li>`ACTIVE`: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](/docs/compute/grpc/instance_group_service#Stop).</li><li>`STOPPING`: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li><li>`STOPPED`: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Start](/docs/compute/grpc/instance_group_service#Start).</li><li>`DELETING`: Instance group is being deleted.</li><li>`PAUSED`: Instance group is paused.</li><ul/>
 variables[] | **[Variable](#Variable7)**<br> 
 deletion_protection | **bool**<br>Flag prohibiting deletion of the instance group. <br>Allowed values:</br>- `false`: The instance group can be deleted.</br>- `true`: The instance group cannot be deleted. <br>The default is `false`. 
+application_load_balancer_spec | **[ApplicationLoadBalancerSpec](#ApplicationLoadBalancerSpec6)**<br>Application load balancer spec 
+application_load_balancer_state | **[ApplicationLoadBalancerState](#ApplicationLoadBalancerState5)**<br>Application load balancer state 
 
 
 ### InstanceTemplate {#InstanceTemplate7}
@@ -2289,6 +2621,8 @@ security_group_ids[] | **string**<br>IDs of security groups.
 Field | Description
 --- | ---
 one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec7)**<br>An external IP address configuration. If not specified, then this managed instance will have no external internet access. 
+dns_record_specs[] | **[DnsRecordSpec](#DnsRecordSpec14)**<br>Internal DNS configuration 
+address | **string**<br>Optional. Manual set static internal IP. To set use variables. 
 
 
 ### OneToOneNatSpec {#OneToOneNatSpec7}
@@ -2297,6 +2631,27 @@ Field | Description
 --- | ---
 ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
 address | **string**<br>Manual set static public IP. To set use variables. (optional) 
+dns_record_specs[] | **[DnsRecordSpec](#DnsRecordSpec14)**<br>External DNS configuration 
+
+
+### DnsRecordSpec {#DnsRecordSpec14}
+
+Field | Description
+--- | ---
+fqdn | **string**<br>Required. FQDN (required) 
+dns_zone_id | **string**<br>DNS zone id (optional, if not set, private zone used) 
+ttl | **int64**<br>DNS record ttl, values in 0-86400 (optional) Acceptable values are 0 to 86400, inclusive.
+ptr | **bool**<br>When set to true, also create PTR DNS record (optional) 
+
+
+### DnsRecordSpec {#DnsRecordSpec15}
+
+Field | Description
+--- | ---
+fqdn | **string**<br>Required. FQDN (required) 
+dns_zone_id | **string**<br>DNS zone id (optional, if not set, private zone used) 
+ttl | **int64**<br>DNS record ttl, values in 0-86400 (optional) Acceptable values are 0 to 86400, inclusive.
+ptr | **bool**<br>When set to true, also create PTR DNS record (optional) 
 
 
 ### SchedulingPolicy {#SchedulingPolicy7}
@@ -2435,7 +2790,8 @@ failed | **int64**<br>Instance failed and needs to be recreated.
 
 Field | Description
 --- | ---
-target_group_spec | **[TargetGroupSpec](#TargetGroupSpec7)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/network-load-balancer/concepts/target-resources). 
+target_group_spec | **[TargetGroupSpec](#TargetGroupSpec7)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/load-balancer/concepts/target-resources). 
+max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
 
 
 ### TargetGroupSpec {#TargetGroupSpec7}
@@ -2451,7 +2807,8 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more
 
 Field | Description
 --- | ---
-health_check_specs[] | **[HealthCheckSpec](#HealthCheckSpec7)**<br>Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check). The minimum number of elements is 1.
+health_check_specs[] | **[HealthCheckSpec](#HealthCheckSpec7)**<br>Health checking specification. For more information, see [Health check](/docs/load-balancer/concepts/health-check). The minimum number of elements is 1.
+max_checking_health_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to become healthy. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
 
 
 ### HealthCheckSpec {#HealthCheckSpec7}
@@ -2488,6 +2845,31 @@ Field | Description
 --- | ---
 key | **string**<br> The string length in characters must be 1-128. Value must match the regular expression ` [a-zA-Z0-9._-]* `.
 value | **string**<br> The maximum string length in characters is 128.
+
+
+### ApplicationLoadBalancerSpec {#ApplicationLoadBalancerSpec6}
+
+Field | Description
+--- | ---
+target_group_spec | **[ApplicationTargetGroupSpec](#ApplicationTargetGroupSpec6)**<br>Required. Specification of the alb's target group that the instance group will be added to. 
+max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
+
+
+### ApplicationTargetGroupSpec {#ApplicationTargetGroupSpec6}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the target group. 
+description | **string**<br>Description of the target group. 
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
+
+
+### ApplicationLoadBalancerState {#ApplicationLoadBalancerState5}
+
+Field | Description
+--- | ---
+target_group_id | **string**<br> 
+status_message | **string**<br> 
 
 
 ## Stop {#Stop}
@@ -2547,11 +2929,13 @@ allocation_policy | **[AllocationPolicy](#AllocationPolicy8)**<br>Allocation pol
 load_balancer_state | **[LoadBalancerState](#LoadBalancerState6)**<br>Information that indicates which entities can be related to this load balancer. 
 managed_instances_state | **[ManagedInstancesState](#ManagedInstancesState6)**<br>States of instances for this instance group. 
 load_balancer_spec | **[LoadBalancerSpec](#LoadBalancerSpec8)**<br>Load balancing specification. 
-health_checks_spec | **[HealthChecksSpec](#HealthChecksSpec8)**<br>Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check). 
+health_checks_spec | **[HealthChecksSpec](#HealthChecksSpec8)**<br>Health checking specification. For more information, see [Health check](/docs/load-balancer/concepts/health-check). 
 service_account_id | **string**<br>ID of the service account. The service account will be used for all API calls made by the Instance Groups component on behalf of the user (for example, creating instances, adding them to load balancer target group, etc.). For more information, see [Service accounts](/docs/iam/concepts/users/service-accounts). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/grpc/service_account_service#List) request. 
-status | enum **Status**<br>Status of the instance group. <ul><li>`STARTING`: Instance group is being started and will become active soon.</li><li>`ACTIVE`: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](/docs/compute/grpc/instance_group_service#Stop).</li><li>`STOPPING`: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li><li>`STOPPED`: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Start](/docs/compute/grpc/instance_group_service#Start).</li><li>`DELETING`: Instance group is being deleted.</li><ul/>
+status | enum **Status**<br>Status of the instance group. <ul><li>`STARTING`: Instance group is being started and will become active soon.</li><li>`ACTIVE`: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](/docs/compute/grpc/instance_group_service#Stop).</li><li>`STOPPING`: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li><li>`STOPPED`: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Start](/docs/compute/grpc/instance_group_service#Start).</li><li>`DELETING`: Instance group is being deleted.</li><li>`PAUSED`: Instance group is paused.</li><ul/>
 variables[] | **[Variable](#Variable8)**<br> 
 deletion_protection | **bool**<br>Flag prohibiting deletion of the instance group. <br>Allowed values:</br>- `false`: The instance group can be deleted.</br>- `true`: The instance group cannot be deleted. <br>The default is `false`. 
+application_load_balancer_spec | **[ApplicationLoadBalancerSpec](#ApplicationLoadBalancerSpec7)**<br>Application load balancer spec 
+application_load_balancer_state | **[ApplicationLoadBalancerState](#ApplicationLoadBalancerState6)**<br>Application load balancer state 
 
 
 ### InstanceTemplate {#InstanceTemplate8}
@@ -2623,6 +3007,8 @@ security_group_ids[] | **string**<br>IDs of security groups.
 Field | Description
 --- | ---
 one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec8)**<br>An external IP address configuration. If not specified, then this managed instance will have no external internet access. 
+dns_record_specs[] | **[DnsRecordSpec](#DnsRecordSpec16)**<br>Internal DNS configuration 
+address | **string**<br>Optional. Manual set static internal IP. To set use variables. 
 
 
 ### OneToOneNatSpec {#OneToOneNatSpec8}
@@ -2631,6 +3017,27 @@ Field | Description
 --- | ---
 ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
 address | **string**<br>Manual set static public IP. To set use variables. (optional) 
+dns_record_specs[] | **[DnsRecordSpec](#DnsRecordSpec16)**<br>External DNS configuration 
+
+
+### DnsRecordSpec {#DnsRecordSpec16}
+
+Field | Description
+--- | ---
+fqdn | **string**<br>Required. FQDN (required) 
+dns_zone_id | **string**<br>DNS zone id (optional, if not set, private zone used) 
+ttl | **int64**<br>DNS record ttl, values in 0-86400 (optional) Acceptable values are 0 to 86400, inclusive.
+ptr | **bool**<br>When set to true, also create PTR DNS record (optional) 
+
+
+### DnsRecordSpec {#DnsRecordSpec17}
+
+Field | Description
+--- | ---
+fqdn | **string**<br>Required. FQDN (required) 
+dns_zone_id | **string**<br>DNS zone id (optional, if not set, private zone used) 
+ttl | **int64**<br>DNS record ttl, values in 0-86400 (optional) Acceptable values are 0 to 86400, inclusive.
+ptr | **bool**<br>When set to true, also create PTR DNS record (optional) 
 
 
 ### SchedulingPolicy {#SchedulingPolicy8}
@@ -2769,7 +3176,8 @@ failed | **int64**<br>Instance failed and needs to be recreated.
 
 Field | Description
 --- | ---
-target_group_spec | **[TargetGroupSpec](#TargetGroupSpec8)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/network-load-balancer/concepts/target-resources). 
+target_group_spec | **[TargetGroupSpec](#TargetGroupSpec8)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/load-balancer/concepts/target-resources). 
+max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
 
 
 ### TargetGroupSpec {#TargetGroupSpec8}
@@ -2785,7 +3193,8 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more
 
 Field | Description
 --- | ---
-health_check_specs[] | **[HealthCheckSpec](#HealthCheckSpec8)**<br>Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check). The minimum number of elements is 1.
+health_check_specs[] | **[HealthCheckSpec](#HealthCheckSpec8)**<br>Health checking specification. For more information, see [Health check](/docs/load-balancer/concepts/health-check). The minimum number of elements is 1.
+max_checking_health_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to become healthy. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
 
 
 ### HealthCheckSpec {#HealthCheckSpec8}
@@ -2822,6 +3231,31 @@ Field | Description
 --- | ---
 key | **string**<br> The string length in characters must be 1-128. Value must match the regular expression ` [a-zA-Z0-9._-]* `.
 value | **string**<br> The maximum string length in characters is 128.
+
+
+### ApplicationLoadBalancerSpec {#ApplicationLoadBalancerSpec7}
+
+Field | Description
+--- | ---
+target_group_spec | **[ApplicationTargetGroupSpec](#ApplicationTargetGroupSpec7)**<br>Required. Specification of the alb's target group that the instance group will be added to. 
+max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
+
+
+### ApplicationTargetGroupSpec {#ApplicationTargetGroupSpec7}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the target group. 
+description | **string**<br>Description of the target group. 
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
+
+
+### ApplicationLoadBalancerState {#ApplicationLoadBalancerState6}
+
+Field | Description
+--- | ---
+target_group_id | **string**<br> 
+status_message | **string**<br> 
 
 
 ## Start {#Start}
@@ -2881,11 +3315,13 @@ allocation_policy | **[AllocationPolicy](#AllocationPolicy9)**<br>Allocation pol
 load_balancer_state | **[LoadBalancerState](#LoadBalancerState7)**<br>Information that indicates which entities can be related to this load balancer. 
 managed_instances_state | **[ManagedInstancesState](#ManagedInstancesState7)**<br>States of instances for this instance group. 
 load_balancer_spec | **[LoadBalancerSpec](#LoadBalancerSpec9)**<br>Load balancing specification. 
-health_checks_spec | **[HealthChecksSpec](#HealthChecksSpec9)**<br>Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check). 
+health_checks_spec | **[HealthChecksSpec](#HealthChecksSpec9)**<br>Health checking specification. For more information, see [Health check](/docs/load-balancer/concepts/health-check). 
 service_account_id | **string**<br>ID of the service account. The service account will be used for all API calls made by the Instance Groups component on behalf of the user (for example, creating instances, adding them to load balancer target group, etc.). For more information, see [Service accounts](/docs/iam/concepts/users/service-accounts). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/grpc/service_account_service#List) request. 
-status | enum **Status**<br>Status of the instance group. <ul><li>`STARTING`: Instance group is being started and will become active soon.</li><li>`ACTIVE`: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](/docs/compute/grpc/instance_group_service#Stop).</li><li>`STOPPING`: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li><li>`STOPPED`: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Start](/docs/compute/grpc/instance_group_service#Start).</li><li>`DELETING`: Instance group is being deleted.</li><ul/>
+status | enum **Status**<br>Status of the instance group. <ul><li>`STARTING`: Instance group is being started and will become active soon.</li><li>`ACTIVE`: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](/docs/compute/grpc/instance_group_service#Stop).</li><li>`STOPPING`: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li><li>`STOPPED`: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Start](/docs/compute/grpc/instance_group_service#Start).</li><li>`DELETING`: Instance group is being deleted.</li><li>`PAUSED`: Instance group is paused.</li><ul/>
 variables[] | **[Variable](#Variable9)**<br> 
 deletion_protection | **bool**<br>Flag prohibiting deletion of the instance group. <br>Allowed values:</br>- `false`: The instance group can be deleted.</br>- `true`: The instance group cannot be deleted. <br>The default is `false`. 
+application_load_balancer_spec | **[ApplicationLoadBalancerSpec](#ApplicationLoadBalancerSpec8)**<br>Application load balancer spec 
+application_load_balancer_state | **[ApplicationLoadBalancerState](#ApplicationLoadBalancerState7)**<br>Application load balancer state 
 
 
 ### InstanceTemplate {#InstanceTemplate9}
@@ -2957,6 +3393,8 @@ security_group_ids[] | **string**<br>IDs of security groups.
 Field | Description
 --- | ---
 one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec9)**<br>An external IP address configuration. If not specified, then this managed instance will have no external internet access. 
+dns_record_specs[] | **[DnsRecordSpec](#DnsRecordSpec18)**<br>Internal DNS configuration 
+address | **string**<br>Optional. Manual set static internal IP. To set use variables. 
 
 
 ### OneToOneNatSpec {#OneToOneNatSpec9}
@@ -2965,6 +3403,27 @@ Field | Description
 --- | ---
 ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
 address | **string**<br>Manual set static public IP. To set use variables. (optional) 
+dns_record_specs[] | **[DnsRecordSpec](#DnsRecordSpec18)**<br>External DNS configuration 
+
+
+### DnsRecordSpec {#DnsRecordSpec18}
+
+Field | Description
+--- | ---
+fqdn | **string**<br>Required. FQDN (required) 
+dns_zone_id | **string**<br>DNS zone id (optional, if not set, private zone used) 
+ttl | **int64**<br>DNS record ttl, values in 0-86400 (optional) Acceptable values are 0 to 86400, inclusive.
+ptr | **bool**<br>When set to true, also create PTR DNS record (optional) 
+
+
+### DnsRecordSpec {#DnsRecordSpec19}
+
+Field | Description
+--- | ---
+fqdn | **string**<br>Required. FQDN (required) 
+dns_zone_id | **string**<br>DNS zone id (optional, if not set, private zone used) 
+ttl | **int64**<br>DNS record ttl, values in 0-86400 (optional) Acceptable values are 0 to 86400, inclusive.
+ptr | **bool**<br>When set to true, also create PTR DNS record (optional) 
 
 
 ### SchedulingPolicy {#SchedulingPolicy9}
@@ -3103,7 +3562,8 @@ failed | **int64**<br>Instance failed and needs to be recreated.
 
 Field | Description
 --- | ---
-target_group_spec | **[TargetGroupSpec](#TargetGroupSpec9)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/network-load-balancer/concepts/target-resources). 
+target_group_spec | **[TargetGroupSpec](#TargetGroupSpec9)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/load-balancer/concepts/target-resources). 
+max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
 
 
 ### TargetGroupSpec {#TargetGroupSpec9}
@@ -3119,7 +3579,8 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more
 
 Field | Description
 --- | ---
-health_check_specs[] | **[HealthCheckSpec](#HealthCheckSpec9)**<br>Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check). The minimum number of elements is 1.
+health_check_specs[] | **[HealthCheckSpec](#HealthCheckSpec9)**<br>Health checking specification. For more information, see [Health check](/docs/load-balancer/concepts/health-check). The minimum number of elements is 1.
+max_checking_health_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to become healthy. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
 
 
 ### HealthCheckSpec {#HealthCheckSpec9}
@@ -3156,6 +3617,31 @@ Field | Description
 --- | ---
 key | **string**<br> The string length in characters must be 1-128. Value must match the regular expression ` [a-zA-Z0-9._-]* `.
 value | **string**<br> The maximum string length in characters is 128.
+
+
+### ApplicationLoadBalancerSpec {#ApplicationLoadBalancerSpec8}
+
+Field | Description
+--- | ---
+target_group_spec | **[ApplicationTargetGroupSpec](#ApplicationTargetGroupSpec8)**<br>Required. Specification of the alb's target group that the instance group will be added to. 
+max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
+
+
+### ApplicationTargetGroupSpec {#ApplicationTargetGroupSpec8}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the target group. 
+description | **string**<br>Description of the target group. 
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
+
+
+### ApplicationLoadBalancerState {#ApplicationLoadBalancerState7}
+
+Field | Description
+--- | ---
+target_group_id | **string**<br> 
+status_message | **string**<br> 
 
 
 ## Delete {#Delete}
@@ -3323,11 +3809,13 @@ allocation_policy | **[AllocationPolicy](#AllocationPolicy10)**<br>Allocation po
 load_balancer_state | **[LoadBalancerState](#LoadBalancerState8)**<br>Information that indicates which entities can be related to this load balancer. 
 managed_instances_state | **[ManagedInstancesState](#ManagedInstancesState8)**<br>States of instances for this instance group. 
 load_balancer_spec | **[LoadBalancerSpec](#LoadBalancerSpec10)**<br>Load balancing specification. 
-health_checks_spec | **[HealthChecksSpec](#HealthChecksSpec10)**<br>Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check). 
+health_checks_spec | **[HealthChecksSpec](#HealthChecksSpec10)**<br>Health checking specification. For more information, see [Health check](/docs/load-balancer/concepts/health-check). 
 service_account_id | **string**<br>ID of the service account. The service account will be used for all API calls made by the Instance Groups component on behalf of the user (for example, creating instances, adding them to load balancer target group, etc.). For more information, see [Service accounts](/docs/iam/concepts/users/service-accounts). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/grpc/service_account_service#List) request. 
-status | enum **Status**<br>Status of the instance group. <ul><li>`STARTING`: Instance group is being started and will become active soon.</li><li>`ACTIVE`: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](/docs/compute/grpc/instance_group_service#Stop).</li><li>`STOPPING`: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li><li>`STOPPED`: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Start](/docs/compute/grpc/instance_group_service#Start).</li><li>`DELETING`: Instance group is being deleted.</li><ul/>
+status | enum **Status**<br>Status of the instance group. <ul><li>`STARTING`: Instance group is being started and will become active soon.</li><li>`ACTIVE`: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](/docs/compute/grpc/instance_group_service#Stop).</li><li>`STOPPING`: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li><li>`STOPPED`: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Start](/docs/compute/grpc/instance_group_service#Start).</li><li>`DELETING`: Instance group is being deleted.</li><li>`PAUSED`: Instance group is paused.</li><ul/>
 variables[] | **[Variable](#Variable10)**<br> 
 deletion_protection | **bool**<br>Flag prohibiting deletion of the instance group. <br>Allowed values:</br>- `false`: The instance group can be deleted.</br>- `true`: The instance group cannot be deleted. <br>The default is `false`. 
+application_load_balancer_spec | **[ApplicationLoadBalancerSpec](#ApplicationLoadBalancerSpec9)**<br>Application load balancer spec 
+application_load_balancer_state | **[ApplicationLoadBalancerState](#ApplicationLoadBalancerState8)**<br>Application load balancer state 
 
 
 ### InstanceTemplate {#InstanceTemplate10}
@@ -3399,6 +3887,8 @@ security_group_ids[] | **string**<br>IDs of security groups.
 Field | Description
 --- | ---
 one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec10)**<br>An external IP address configuration. If not specified, then this managed instance will have no external internet access. 
+dns_record_specs[] | **[DnsRecordSpec](#DnsRecordSpec20)**<br>Internal DNS configuration 
+address | **string**<br>Optional. Manual set static internal IP. To set use variables. 
 
 
 ### OneToOneNatSpec {#OneToOneNatSpec10}
@@ -3407,6 +3897,27 @@ Field | Description
 --- | ---
 ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
 address | **string**<br>Manual set static public IP. To set use variables. (optional) 
+dns_record_specs[] | **[DnsRecordSpec](#DnsRecordSpec20)**<br>External DNS configuration 
+
+
+### DnsRecordSpec {#DnsRecordSpec20}
+
+Field | Description
+--- | ---
+fqdn | **string**<br>Required. FQDN (required) 
+dns_zone_id | **string**<br>DNS zone id (optional, if not set, private zone used) 
+ttl | **int64**<br>DNS record ttl, values in 0-86400 (optional) Acceptable values are 0 to 86400, inclusive.
+ptr | **bool**<br>When set to true, also create PTR DNS record (optional) 
+
+
+### DnsRecordSpec {#DnsRecordSpec21}
+
+Field | Description
+--- | ---
+fqdn | **string**<br>Required. FQDN (required) 
+dns_zone_id | **string**<br>DNS zone id (optional, if not set, private zone used) 
+ttl | **int64**<br>DNS record ttl, values in 0-86400 (optional) Acceptable values are 0 to 86400, inclusive.
+ptr | **bool**<br>When set to true, also create PTR DNS record (optional) 
 
 
 ### SchedulingPolicy {#SchedulingPolicy10}
@@ -3545,7 +4056,8 @@ failed | **int64**<br>Instance failed and needs to be recreated.
 
 Field | Description
 --- | ---
-target_group_spec | **[TargetGroupSpec](#TargetGroupSpec10)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/network-load-balancer/concepts/target-resources). 
+target_group_spec | **[TargetGroupSpec](#TargetGroupSpec10)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/load-balancer/concepts/target-resources). 
+max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
 
 
 ### TargetGroupSpec {#TargetGroupSpec10}
@@ -3561,7 +4073,8 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more
 
 Field | Description
 --- | ---
-health_check_specs[] | **[HealthCheckSpec](#HealthCheckSpec10)**<br>Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check). The minimum number of elements is 1.
+health_check_specs[] | **[HealthCheckSpec](#HealthCheckSpec10)**<br>Health checking specification. For more information, see [Health check](/docs/load-balancer/concepts/health-check). The minimum number of elements is 1.
+max_checking_health_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to become healthy. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
 
 
 ### HealthCheckSpec {#HealthCheckSpec10}
@@ -3598,6 +4111,31 @@ Field | Description
 --- | ---
 key | **string**<br> The string length in characters must be 1-128. Value must match the regular expression ` [a-zA-Z0-9._-]* `.
 value | **string**<br> The maximum string length in characters is 128.
+
+
+### ApplicationLoadBalancerSpec {#ApplicationLoadBalancerSpec9}
+
+Field | Description
+--- | ---
+target_group_spec | **[ApplicationTargetGroupSpec](#ApplicationTargetGroupSpec9)**<br>Required. Specification of the alb's target group that the instance group will be added to. 
+max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
+
+
+### ApplicationTargetGroupSpec {#ApplicationTargetGroupSpec9}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the target group. 
+description | **string**<br>Description of the target group. 
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
+
+
+### ApplicationLoadBalancerState {#ApplicationLoadBalancerState8}
+
+Field | Description
+--- | ---
+target_group_id | **string**<br> 
+status_message | **string**<br> 
 
 
 ## StopInstances {#StopInstances}
@@ -3658,11 +4196,13 @@ allocation_policy | **[AllocationPolicy](#AllocationPolicy11)**<br>Allocation po
 load_balancer_state | **[LoadBalancerState](#LoadBalancerState9)**<br>Information that indicates which entities can be related to this load balancer. 
 managed_instances_state | **[ManagedInstancesState](#ManagedInstancesState9)**<br>States of instances for this instance group. 
 load_balancer_spec | **[LoadBalancerSpec](#LoadBalancerSpec11)**<br>Load balancing specification. 
-health_checks_spec | **[HealthChecksSpec](#HealthChecksSpec11)**<br>Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check). 
+health_checks_spec | **[HealthChecksSpec](#HealthChecksSpec11)**<br>Health checking specification. For more information, see [Health check](/docs/load-balancer/concepts/health-check). 
 service_account_id | **string**<br>ID of the service account. The service account will be used for all API calls made by the Instance Groups component on behalf of the user (for example, creating instances, adding them to load balancer target group, etc.). For more information, see [Service accounts](/docs/iam/concepts/users/service-accounts). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/grpc/service_account_service#List) request. 
-status | enum **Status**<br>Status of the instance group. <ul><li>`STARTING`: Instance group is being started and will become active soon.</li><li>`ACTIVE`: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](/docs/compute/grpc/instance_group_service#Stop).</li><li>`STOPPING`: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li><li>`STOPPED`: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Start](/docs/compute/grpc/instance_group_service#Start).</li><li>`DELETING`: Instance group is being deleted.</li><ul/>
+status | enum **Status**<br>Status of the instance group. <ul><li>`STARTING`: Instance group is being started and will become active soon.</li><li>`ACTIVE`: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](/docs/compute/grpc/instance_group_service#Stop).</li><li>`STOPPING`: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li><li>`STOPPED`: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Start](/docs/compute/grpc/instance_group_service#Start).</li><li>`DELETING`: Instance group is being deleted.</li><li>`PAUSED`: Instance group is paused.</li><ul/>
 variables[] | **[Variable](#Variable11)**<br> 
 deletion_protection | **bool**<br>Flag prohibiting deletion of the instance group. <br>Allowed values:</br>- `false`: The instance group can be deleted.</br>- `true`: The instance group cannot be deleted. <br>The default is `false`. 
+application_load_balancer_spec | **[ApplicationLoadBalancerSpec](#ApplicationLoadBalancerSpec10)**<br>Application load balancer spec 
+application_load_balancer_state | **[ApplicationLoadBalancerState](#ApplicationLoadBalancerState9)**<br>Application load balancer state 
 
 
 ### InstanceTemplate {#InstanceTemplate11}
@@ -3734,6 +4274,8 @@ security_group_ids[] | **string**<br>IDs of security groups.
 Field | Description
 --- | ---
 one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec11)**<br>An external IP address configuration. If not specified, then this managed instance will have no external internet access. 
+dns_record_specs[] | **[DnsRecordSpec](#DnsRecordSpec22)**<br>Internal DNS configuration 
+address | **string**<br>Optional. Manual set static internal IP. To set use variables. 
 
 
 ### OneToOneNatSpec {#OneToOneNatSpec11}
@@ -3742,6 +4284,27 @@ Field | Description
 --- | ---
 ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
 address | **string**<br>Manual set static public IP. To set use variables. (optional) 
+dns_record_specs[] | **[DnsRecordSpec](#DnsRecordSpec22)**<br>External DNS configuration 
+
+
+### DnsRecordSpec {#DnsRecordSpec22}
+
+Field | Description
+--- | ---
+fqdn | **string**<br>Required. FQDN (required) 
+dns_zone_id | **string**<br>DNS zone id (optional, if not set, private zone used) 
+ttl | **int64**<br>DNS record ttl, values in 0-86400 (optional) Acceptable values are 0 to 86400, inclusive.
+ptr | **bool**<br>When set to true, also create PTR DNS record (optional) 
+
+
+### DnsRecordSpec {#DnsRecordSpec23}
+
+Field | Description
+--- | ---
+fqdn | **string**<br>Required. FQDN (required) 
+dns_zone_id | **string**<br>DNS zone id (optional, if not set, private zone used) 
+ttl | **int64**<br>DNS record ttl, values in 0-86400 (optional) Acceptable values are 0 to 86400, inclusive.
+ptr | **bool**<br>When set to true, also create PTR DNS record (optional) 
 
 
 ### SchedulingPolicy {#SchedulingPolicy11}
@@ -3880,7 +4443,8 @@ failed | **int64**<br>Instance failed and needs to be recreated.
 
 Field | Description
 --- | ---
-target_group_spec | **[TargetGroupSpec](#TargetGroupSpec11)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/network-load-balancer/concepts/target-resources). 
+target_group_spec | **[TargetGroupSpec](#TargetGroupSpec11)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/load-balancer/concepts/target-resources). 
+max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
 
 
 ### TargetGroupSpec {#TargetGroupSpec11}
@@ -3896,7 +4460,8 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more
 
 Field | Description
 --- | ---
-health_check_specs[] | **[HealthCheckSpec](#HealthCheckSpec11)**<br>Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check). The minimum number of elements is 1.
+health_check_specs[] | **[HealthCheckSpec](#HealthCheckSpec11)**<br>Health checking specification. For more information, see [Health check](/docs/load-balancer/concepts/health-check). The minimum number of elements is 1.
+max_checking_health_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to become healthy. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
 
 
 ### HealthCheckSpec {#HealthCheckSpec11}
@@ -3933,6 +4498,31 @@ Field | Description
 --- | ---
 key | **string**<br> The string length in characters must be 1-128. Value must match the regular expression ` [a-zA-Z0-9._-]* `.
 value | **string**<br> The maximum string length in characters is 128.
+
+
+### ApplicationLoadBalancerSpec {#ApplicationLoadBalancerSpec10}
+
+Field | Description
+--- | ---
+target_group_spec | **[ApplicationTargetGroupSpec](#ApplicationTargetGroupSpec10)**<br>Required. Specification of the alb's target group that the instance group will be added to. 
+max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
+
+
+### ApplicationTargetGroupSpec {#ApplicationTargetGroupSpec10}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the target group. 
+description | **string**<br>Description of the target group. 
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
+
+
+### ApplicationLoadBalancerState {#ApplicationLoadBalancerState9}
+
+Field | Description
+--- | ---
+target_group_id | **string**<br> 
+status_message | **string**<br> 
 
 
 ## ListOperations {#ListOperations}
@@ -4166,5 +4756,777 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 Field | Description
 --- | ---
 resource_id | **string**<br>ID of the resource for which access bindings are being updated. 
+
+
+## ResumeProcesses {#ResumeProcesses}
+
+Resume all process in instance group.
+
+**rpc ResumeProcesses ([ResumeInstanceGroupProcessesRequest](#ResumeInstanceGroupProcessesRequest)) returns ([operation.Operation](#Operation12))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[ResumeInstanceGroupProcessMetadata](#ResumeInstanceGroupProcessMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[InstanceGroup](#InstanceGroup10)<br>
+
+### ResumeInstanceGroupProcessesRequest {#ResumeInstanceGroupProcessesRequest}
+
+Field | Description
+--- | ---
+instance_group_id | **string**<br> The maximum string length in characters is 50.
+
+
+### Operation {#Operation12}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[ResumeInstanceGroupProcessMetadata](#ResumeInstanceGroupProcessMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[InstanceGroup](#InstanceGroup10)>**<br>if operation finished successfully. 
+
+
+### ResumeInstanceGroupProcessMetadata {#ResumeInstanceGroupProcessMetadata}
+
+Field | Description
+--- | ---
+instance_group_id | **string**<br> 
+
+
+### InstanceGroup {#InstanceGroup10}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the instance group. 
+folder_id | **string**<br>ID of the folder that the instance group belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
+name | **string**<br>Name of the instance group. The name is unique within the folder. 
+description | **string**<br>Description of the instance group. 
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
+instance_template | **[InstanceTemplate](#InstanceTemplate12)**<br>Instance template for creating the instance group. For more information, see [Instance Templates](/docs/compute/concepts/instance-groups/instance-template). 
+scale_policy | **[ScalePolicy](#ScalePolicy12)**<br>[Scaling policy](/docs/compute/concepts/instance-groups/scale) of the instance group. 
+deploy_policy | **[DeployPolicy](#DeployPolicy12)**<br>Deployment policy of the instance group. 
+allocation_policy | **[AllocationPolicy](#AllocationPolicy12)**<br>Allocation policy of the instance group by zones and regions. 
+load_balancer_state | **[LoadBalancerState](#LoadBalancerState10)**<br>Information that indicates which entities can be related to this load balancer. 
+managed_instances_state | **[ManagedInstancesState](#ManagedInstancesState10)**<br>States of instances for this instance group. 
+load_balancer_spec | **[LoadBalancerSpec](#LoadBalancerSpec12)**<br>Load balancing specification. 
+health_checks_spec | **[HealthChecksSpec](#HealthChecksSpec12)**<br>Health checking specification. For more information, see [Health check](/docs/load-balancer/concepts/health-check). 
+service_account_id | **string**<br>ID of the service account. The service account will be used for all API calls made by the Instance Groups component on behalf of the user (for example, creating instances, adding them to load balancer target group, etc.). For more information, see [Service accounts](/docs/iam/concepts/users/service-accounts). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/grpc/service_account_service#List) request. 
+status | enum **Status**<br>Status of the instance group. <ul><li>`STARTING`: Instance group is being started and will become active soon.</li><li>`ACTIVE`: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](/docs/compute/grpc/instance_group_service#Stop).</li><li>`STOPPING`: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li><li>`STOPPED`: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Start](/docs/compute/grpc/instance_group_service#Start).</li><li>`DELETING`: Instance group is being deleted.</li><li>`PAUSED`: Instance group is paused.</li><ul/>
+variables[] | **[Variable](#Variable12)**<br> 
+deletion_protection | **bool**<br>Flag prohibiting deletion of the instance group. <br>Allowed values:</br>- `false`: The instance group can be deleted.</br>- `true`: The instance group cannot be deleted. <br>The default is `false`. 
+application_load_balancer_spec | **[ApplicationLoadBalancerSpec](#ApplicationLoadBalancerSpec11)**<br>Application load balancer spec 
+application_load_balancer_state | **[ApplicationLoadBalancerState](#ApplicationLoadBalancerState10)**<br>Application load balancer state 
+
+
+### InstanceTemplate {#InstanceTemplate12}
+
+Field | Description
+--- | ---
+description | **string**<br>Description of the instance template. The maximum string length in characters is 256.
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 128. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
+platform_id | **string**<br>Required. ID of the hardware platform configuration for the instance. Platforms allows you to create various types of instances: with a large amount of memory, with a large number of cores, with a burstable performance. For more information, see [Platforms](/docs/compute/concepts/vm-platforms). 
+resources_spec | **[ResourcesSpec](#ResourcesSpec12)**<br>Required. Computing resources of the instance such as the amount of memory and number of cores. 
+metadata | **map<string,string>**<br>The metadata `key:value` pairs assigned to this instance template. This includes custom metadata and predefined keys. <br>Metadata values may contain one of the supported placeholders: {instance_group.id} {instance.short_id} {instance.index} {instance.index_in_zone} {instance.zone_id} InstanceGroup and Instance labels may be copied to metadata following way: {instance_group.labels.some_label_key} {instance.labels.another_label_key} These placeholders will be substituted for each created instance anywhere in the value text. In the rare case the value requires to contain this placeholder explicitly, it must be escaped with double brackets, in example {instance.index}. <br>For example, you may use the metadata in order to provide your public SSH key to the instance. For more information, see [Metadata](/docs/compute/concepts/vm-metadata). No more than 128 per resource. The maximum string length in characters for each value is 262144. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+boot_disk_spec | **[AttachedDiskSpec](#AttachedDiskSpec12)**<br>Required. Boot disk specification that will be attached to the instance. 
+secondary_disk_specs[] | **[AttachedDiskSpec](#AttachedDiskSpec12)**<br>Array of secondary disks that will be attached to the instance. The maximum number of elements is 3.
+network_interface_specs[] | **[NetworkInterfaceSpec](#NetworkInterfaceSpec12)**<br>Array of network interfaces that will be attached to the instance. The number of elemets must be exactly 1.
+scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy12)**<br>Scheduling policy for the instance. 
+service_account_id | **string**<br>Service account ID for the instance. 
+network_settings | **[NetworkSettings](#NetworkSettings12)**<br>Network settings for the instance. 
+name | **string**<br>Name of the instance. In order to be unique it must contain at least on of instance unique placeholders: {instance.short_id} {instance.index} combination of {instance.zone_id} and {instance.index_in_zone} Example: my-instance-{instance.index} If not set, default is used: {instance_group.id}-{instance.short_id} It may also contain another placeholders, see metadata doc for full list. The maximum string length in characters is 128.
+hostname | **string**<br>Host name for the instance. This field is used to generate the `yandex.cloud.compute.v1.Instance.fqdn` value. The host name must be unique within the network and region. If not specified, the host name will be equal to `yandex.cloud.compute.v1.Instance.id` of the instance and FQDN will be `<id>.auto.internal`. Otherwise FQDN will be `<hostname>.<region_id>.internal`. <br>In order to be unique it must contain at least on of instance unique placeholders: {instance.short_id} {instance.index} combination of {instance.zone_id} and {instance.index_in_zone} Example: my-instance-{instance.index} If not set, `name` value will be used It may also contain another placeholders, see metadata doc for full list. The maximum string length in characters is 128.
+placement_policy | **[PlacementPolicy](#PlacementPolicy12)**<br>Placement Group 
+
+
+### ResourcesSpec {#ResourcesSpec12}
+
+Field | Description
+--- | ---
+memory | **int64**<br>The amount of memory available to the instance, specified in bytes. The maximum value is 824633720832.
+cores | **int64**<br>The number of cores available to the instance. Value must be equal to 2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,40,44,48,52,56,60,64,68,72,76,80.
+core_fraction | **int64**<br>Baseline level of CPU performance with the ability to burst performance above that baseline level. This field sets baseline performance for each core. Value must be equal to 0,5,20,50,100.
+gpus | **int64**<br>The number of GPUs available to the instance. Value must be equal to 0,1,2,4.
+
+
+### AttachedDiskSpec {#AttachedDiskSpec12}
+
+Field | Description
+--- | ---
+mode | enum **Mode**<br>Required. Access mode to the Disk resource. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li><ul/>
+device_name | **string**<br>Serial number that is reflected in the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. Value must match the regular expression ` |[a-z][-_0-9a-z]{0,19} `.
+disk_spec | **[DiskSpec](#DiskSpec12)**<br>Required. oneof disk_spec or disk_id Disk specification that is attached to the instance. For more information, see [Disks](/docs/compute/concepts/disk). 
+disk_id | **string**<br>Set to use an existing disk. To set use variables. The maximum string length in characters is 128. Value must match the regular expression ` [-a-zA-Z0-9._{}]* `.
+
+
+### DiskSpec {#DiskSpec12}
+
+Field | Description
+--- | ---
+description | **string**<br>Description of the disk. The maximum string length in characters is 256.
+type_id | **string**<br>Required. ID of the disk type. 
+size | **int64**<br>Size of the disk, specified in bytes. Acceptable values are 4194304 to 4398046511104, inclusive.
+source_oneof | **oneof:** `image_id` or `snapshot_id`<br>
+&nbsp;&nbsp;image_id | **string**<br>ID of the image that will be used for disk creation. The maximum string length in characters is 50.
+&nbsp;&nbsp;snapshot_id | **string**<br>ID of the snapshot that will be used for disk creation. The maximum string length in characters is 50.
+preserve_after_instance_delete | **bool**<br>When set to true, disk will not be deleted even after managed instance is deleted. It will be a user's responsibility to delete such disks. 
+
+
+### NetworkInterfaceSpec {#NetworkInterfaceSpec12}
+
+Field | Description
+--- | ---
+network_id | **string**<br>ID of the network. 
+subnet_ids[] | **string**<br>IDs of the subnets. 
+primary_v4_address_spec | **[PrimaryAddressSpec](#PrimaryAddressSpec12)**<br>Primary IPv4 address that is assigned to the instance for this network interface. 
+primary_v6_address_spec | **[PrimaryAddressSpec](#PrimaryAddressSpec12)**<br>Primary IPv6 address that is assigned to the instance for this network interface. IPv6 not available yet. 
+security_group_ids[] | **string**<br>IDs of security groups. 
+
+
+### PrimaryAddressSpec {#PrimaryAddressSpec12}
+
+Field | Description
+--- | ---
+one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec12)**<br>An external IP address configuration. If not specified, then this managed instance will have no external internet access. 
+dns_record_specs[] | **[DnsRecordSpec](#DnsRecordSpec24)**<br>Internal DNS configuration 
+address | **string**<br>Optional. Manual set static internal IP. To set use variables. 
+
+
+### OneToOneNatSpec {#OneToOneNatSpec12}
+
+Field | Description
+--- | ---
+ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
+address | **string**<br>Manual set static public IP. To set use variables. (optional) 
+dns_record_specs[] | **[DnsRecordSpec](#DnsRecordSpec24)**<br>External DNS configuration 
+
+
+### DnsRecordSpec {#DnsRecordSpec24}
+
+Field | Description
+--- | ---
+fqdn | **string**<br>Required. FQDN (required) 
+dns_zone_id | **string**<br>DNS zone id (optional, if not set, private zone used) 
+ttl | **int64**<br>DNS record ttl, values in 0-86400 (optional) Acceptable values are 0 to 86400, inclusive.
+ptr | **bool**<br>When set to true, also create PTR DNS record (optional) 
+
+
+### DnsRecordSpec {#DnsRecordSpec25}
+
+Field | Description
+--- | ---
+fqdn | **string**<br>Required. FQDN (required) 
+dns_zone_id | **string**<br>DNS zone id (optional, if not set, private zone used) 
+ttl | **int64**<br>DNS record ttl, values in 0-86400 (optional) Acceptable values are 0 to 86400, inclusive.
+ptr | **bool**<br>When set to true, also create PTR DNS record (optional) 
+
+
+### SchedulingPolicy {#SchedulingPolicy12}
+
+Field | Description
+--- | ---
+preemptible | **bool**<br>Preemptible instances are stopped at least once every 24 hours, and can be stopped at any time if their resources are needed by Compute. For more information, see [Preemptible Virtual Machines](/docs/compute/concepts/preemptible-vm). 
+
+
+### NetworkSettings {#NetworkSettings12}
+
+Field | Description
+--- | ---
+type | enum **[Type](./disk_type#undefined)**<br>Type of instance network. <ul><ul/>
+
+
+### PlacementPolicy {#PlacementPolicy12}
+
+Field | Description
+--- | ---
+placement_group_id | **string**<br>Identifier of placement group 
+
+
+### ScalePolicy {#ScalePolicy12}
+
+Field | Description
+--- | ---
+scale_type | **oneof:** `fixed_scale` or `auto_scale`<br>
+&nbsp;&nbsp;fixed_scale | **[FixedScale](#FixedScale12)**<br>[Manual scaling policy](/docs/compute/concepts/instance-groups/scale#fixed-policy) of the instance group. 
+&nbsp;&nbsp;auto_scale | **[AutoScale](#AutoScale12)**<br>[Automatic scaling policy](/docs/compute/concepts/instance-groups/scale#auto-scale) of the instance group. 
+test_auto_scale | **[AutoScale](#AutoScale12)**<br>Test spec for [automatic scaling policy](/docs/compute/concepts/instance-groups/scale#auto-scale) of the instance group. 
+
+
+### AutoScale {#AutoScale12}
+
+Field | Description
+--- | ---
+min_zone_size | **int64**<br>Lower limit for instance count in each zone. Acceptable values are 0 to 100, inclusive.
+max_size | **int64**<br>Upper limit for total instance count (across all zones). 0 means maximum limit = 100. Acceptable values are 0 to 100, inclusive.
+measurement_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Time in seconds allotted for averaging metrics. Acceptable values are 1m to 10m, inclusive.
+warmup_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>The warmup time of the instance in seconds. During this time, traffic is sent to the instance, but instance metrics are not collected. The maximum value is 10m.
+stabilization_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Minimum amount of time in seconds allotted for monitoring before Instance Groups can reduce the number of instances in the group. During this time, the group size doesn't decrease, even if the new metric values indicate that it should. Acceptable values are 1m to 30m, inclusive.
+initial_size | **int64**<br>Target group size. The minimum value is 1.
+cpu_utilization_rule | **[CpuUtilizationRule](#CpuUtilizationRule12)**<br>Defines an autoscaling rule based on the average CPU utilization of the instance group. 
+custom_rules[] | **[CustomRule](#CustomRule12)**<br>Defines an autoscaling rule based on a [custom metric](/docs/monitoring/operations/metric/add) from Yandex Monitoring. The maximum number of elements is 1.
+
+
+### CpuUtilizationRule {#CpuUtilizationRule12}
+
+Field | Description
+--- | ---
+utilization_target | **double**<br>Target CPU utilization level. Instance Groups maintains this level for each availability zone. Acceptable values are 10 to 100, inclusive.
+
+
+### CustomRule {#CustomRule12}
+
+Field | Description
+--- | ---
+rule_type | enum **RuleType**<br>Required. Custom metric rule type. This field affects which label from the custom metric should be used: `zone_id` or `instance_id`. <ul><li>`UTILIZATION`: This type means that the metric applies to one instance. First, Instance Groups calculates the average metric value for each instance, then averages the values for instances in one availability zone. This type of metric must have the `instance_id` label.</li><li>`WORKLOAD`: This type means that the metric applies to instances in one availability zone. This type of metric must have the `zone_id` label.</li><ul/>
+metric_type | enum **MetricType**<br>Required. Type of custom metric. This field affects how Instance Groups calculates the average metric value. <ul><li>`GAUGE`: This type is used for metrics that show the metric value at a certain point in time, such as requests per second to the server on an instance. <br>Instance Groups calculates the average metric value for the period specified in the [AutoScale.measurement_duration](#AutoScale12) field.</li><li>`COUNTER`: This type is used for metrics that monotonically increase over time, such as the total number of requests to the server on an instance. <br>Instance Groups calculates the average value increase for the period specified in the [AutoScale.measurement_duration](#AutoScale12) field.</li><ul/>
+metric_name | **string**<br>Required. Name of custom metric in Yandex Monitoring that should be used for scaling. Value must match the regular expression ` [a-zA-Z0-9./@_][0-9a-zA-Z./@_,:;()\\[\\]<>-]{0,198} `.
+labels | **map<string,string>**<br>Labels of custom metric in Yandex Monitoring that should be used for scaling. Each value must match the regular expression ` [a-zA-Z0-9./@_][0-9a-zA-Z./@_,:;()\\[\\]<>-]{0,198} `. Each key must match the regular expression ` ^[a-zA-Z][0-9a-zA-Z_]{0,31}$ `.
+target | **double**<br>Target value for the custom metric. Instance Groups maintains this level for each availability zone. Value must be greater than 0.
+folder_id | **string**<br>Folder id of custom metric in Yandex Monitoring that should be used for scaling. The maximum string length in characters is 50.
+service | **string**<br>Service of custom metric in Yandex Monitoring that should be used for scaling. The maximum string length in characters is 200.
+
+
+### FixedScale {#FixedScale12}
+
+Field | Description
+--- | ---
+size | **int64**<br>Number of instances in the instance group. Acceptable values are 1 to 100, inclusive.
+
+
+### DeployPolicy {#DeployPolicy12}
+
+Field | Description
+--- | ---
+max_unavailable | **int64**<br>The maximum number of running instances that can be taken offline (i.e., stopped or deleted) at the same time during the update process. If `max_expansion` is not specified or set to zero, `max_unavailable` must be set to a non-zero value. Acceptable values are 0 to 100, inclusive.
+max_deleting | **int64**<br>The maximum number of instances that can be deleted at the same time. <br>The value 0 is any number of virtual machines within the allowed values. Acceptable values are 0 to 100, inclusive.
+max_creating | **int64**<br>The maximum number of instances that can be created at the same time. <br>The value 0 is any number of virtual machines within the allowed values. Acceptable values are 0 to 100, inclusive.
+max_expansion | **int64**<br>The maximum number of instances that can be temporarily allocated above the group's target size during the update process. If `max_unavailable` is not specified or set to zero, `max_expansion` must be set to a non-zero value. Acceptable values are 0 to 100, inclusive.
+startup_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Instance startup duration. Instance will be considered up and running (and start receiving traffic) only after startup_duration has elapsed and all health checks are passed. See `yandex.cloud.compute.v1.instancegroup.ManagedInstance.Status` for more information. Acceptable values are 0m to 1h, inclusive.
+strategy | enum **Strategy**<br>Affects the lifecycle of the instance during deployment. <ul><li>`PROACTIVE`: Instance Groups can forcefully stop a running instance. This is the default.</li><li>`OPPORTUNISTIC`: Instance Groups does not stop a running instance. Instead, it will wait until the instance stops itself or becomes unhealthy.</li><ul/>
+
+
+### AllocationPolicy {#AllocationPolicy12}
+
+Field | Description
+--- | ---
+zones[] | **[Zone](#Zone12)**<br>List of availability zones. The minimum number of elements is 1.
+
+
+### Zone {#Zone12}
+
+Field | Description
+--- | ---
+zone_id | **string**<br>Required. ID of the availability zone where the instance resides. 
+
+
+### LoadBalancerState {#LoadBalancerState10}
+
+Field | Description
+--- | ---
+target_group_id | **string**<br>ID of the target group used for load balancing. 
+status_message | **string**<br>Status message of the target group. 
+
+
+### ManagedInstancesState {#ManagedInstancesState10}
+
+Field | Description
+--- | ---
+target_size | **int64**<br>Target number of instances for this instance group. 
+running_actual_count | **int64**<br>The number of running instances that match the current instance template. For more information, see [ManagedInstance.Status.RUNNING_ACTUAL](#ManagedInstance1). 
+running_outdated_count | **int64**<br>The number of running instances that does not match the current instance template. For more information, see [ManagedInstance.Status.RUNNING_OUTDATED](#ManagedInstance1). 
+processing_count | **int64**<br>The number of instances in flight (for example, updating, starting, deleting). For more information, see [ManagedInstance.Status](#ManagedInstance1). 
+
+
+### Statuses {#Statuses10}
+
+Field | Description
+--- | ---
+creating | **int64**<br>Instance is being created. 
+starting | **int64**<br>Instance is being started. 
+opening | **int64**<br>Instance is being opened to receive traffic. 
+warming | **int64**<br>Instance is being warmed. 
+running | **int64**<br>Instance is running normally. 
+closing | **int64**<br>Instance is being closed to traffic. 
+stopping | **int64**<br>Instance is being stopped. 
+updating | **int64**<br>Instance is being updated. 
+deleting | **int64**<br>Instance is being deleted. 
+failed | **int64**<br>Instance failed and needs to be recreated. 
+
+
+### LoadBalancerSpec {#LoadBalancerSpec12}
+
+Field | Description
+--- | ---
+target_group_spec | **[TargetGroupSpec](#TargetGroupSpec12)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/load-balancer/concepts/target-resources). 
+max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
+
+
+### TargetGroupSpec {#TargetGroupSpec12}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the target group. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
+description | **string**<br>Description of the target group. The maximum string length in characters is 256.
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
+
+
+### HealthChecksSpec {#HealthChecksSpec12}
+
+Field | Description
+--- | ---
+health_check_specs[] | **[HealthCheckSpec](#HealthCheckSpec12)**<br>Health checking specification. For more information, see [Health check](/docs/load-balancer/concepts/health-check). The minimum number of elements is 1.
+max_checking_health_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to become healthy. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
+
+
+### HealthCheckSpec {#HealthCheckSpec12}
+
+Field | Description
+--- | ---
+interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>The interval between health checks. The default is 2 seconds. Acceptable values are 1s to 300s, inclusive.
+timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for the managed instance to return a response for the health check. The default is 1 second. Acceptable values are 1s to 60s, inclusive.
+unhealthy_threshold | **int64**<br>The number of failed health checks for the managed instance to be considered unhealthy. The default (0) is 2. Value must be equal to 0,2,3,4,5,6,7,8,9,10.
+healthy_threshold | **int64**<br>The number of successful health checks required in order for the managed instance to be considered healthy. The default (0) is 2. Value must be equal to 0,2,3,4,5,6,7,8,9,10.
+health_check_options | **oneof:** `tcp_options` or `http_options`<br>
+&nbsp;&nbsp;tcp_options | **[TcpOptions](#TcpOptions12)**<br>Configuration options for a TCP health check. 
+&nbsp;&nbsp;http_options | **[HttpOptions](#HttpOptions12)**<br>Configuration options for an HTTP health check. 
+
+
+### TcpOptions {#TcpOptions12}
+
+Field | Description
+--- | ---
+port | **int64**<br>Port to use for TCP health checks. Acceptable values are 1 to 65535, inclusive.
+
+
+### HttpOptions {#HttpOptions12}
+
+Field | Description
+--- | ---
+port | **int64**<br>Port to use for HTTP health checks. Acceptable values are 1 to 65535, inclusive.
+path | **string**<br>URL path to set for health checking requests. 
+
+
+### Variable {#Variable12}
+
+Field | Description
+--- | ---
+key | **string**<br> The string length in characters must be 1-128. Value must match the regular expression ` [a-zA-Z0-9._-]* `.
+value | **string**<br> The maximum string length in characters is 128.
+
+
+### ApplicationLoadBalancerSpec {#ApplicationLoadBalancerSpec11}
+
+Field | Description
+--- | ---
+target_group_spec | **[ApplicationTargetGroupSpec](#ApplicationTargetGroupSpec11)**<br>Required. Specification of the alb's target group that the instance group will be added to. 
+max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
+
+
+### ApplicationTargetGroupSpec {#ApplicationTargetGroupSpec11}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the target group. 
+description | **string**<br>Description of the target group. 
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
+
+
+### ApplicationLoadBalancerState {#ApplicationLoadBalancerState10}
+
+Field | Description
+--- | ---
+target_group_id | **string**<br> 
+status_message | **string**<br> 
+
+
+## PauseProcesses {#PauseProcesses}
+
+Pause all process in instance group.
+
+**rpc PauseProcesses ([PauseInstanceGroupProcessesRequest](#PauseInstanceGroupProcessesRequest)) returns ([operation.Operation](#Operation13))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[PauseInstanceGroupProcessMetadata](#PauseInstanceGroupProcessMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[InstanceGroup](#InstanceGroup11)<br>
+
+### PauseInstanceGroupProcessesRequest {#PauseInstanceGroupProcessesRequest}
+
+Field | Description
+--- | ---
+instance_group_id | **string**<br> The maximum string length in characters is 50.
+
+
+### Operation {#Operation13}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[PauseInstanceGroupProcessMetadata](#PauseInstanceGroupProcessMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[InstanceGroup](#InstanceGroup11)>**<br>if operation finished successfully. 
+
+
+### PauseInstanceGroupProcessMetadata {#PauseInstanceGroupProcessMetadata}
+
+Field | Description
+--- | ---
+instance_group_id | **string**<br> 
+
+
+### InstanceGroup {#InstanceGroup11}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the instance group. 
+folder_id | **string**<br>ID of the folder that the instance group belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
+name | **string**<br>Name of the instance group. The name is unique within the folder. 
+description | **string**<br>Description of the instance group. 
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
+instance_template | **[InstanceTemplate](#InstanceTemplate13)**<br>Instance template for creating the instance group. For more information, see [Instance Templates](/docs/compute/concepts/instance-groups/instance-template). 
+scale_policy | **[ScalePolicy](#ScalePolicy13)**<br>[Scaling policy](/docs/compute/concepts/instance-groups/scale) of the instance group. 
+deploy_policy | **[DeployPolicy](#DeployPolicy13)**<br>Deployment policy of the instance group. 
+allocation_policy | **[AllocationPolicy](#AllocationPolicy13)**<br>Allocation policy of the instance group by zones and regions. 
+load_balancer_state | **[LoadBalancerState](#LoadBalancerState11)**<br>Information that indicates which entities can be related to this load balancer. 
+managed_instances_state | **[ManagedInstancesState](#ManagedInstancesState11)**<br>States of instances for this instance group. 
+load_balancer_spec | **[LoadBalancerSpec](#LoadBalancerSpec13)**<br>Load balancing specification. 
+health_checks_spec | **[HealthChecksSpec](#HealthChecksSpec13)**<br>Health checking specification. For more information, see [Health check](/docs/load-balancer/concepts/health-check). 
+service_account_id | **string**<br>ID of the service account. The service account will be used for all API calls made by the Instance Groups component on behalf of the user (for example, creating instances, adding them to load balancer target group, etc.). For more information, see [Service accounts](/docs/iam/concepts/users/service-accounts). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/grpc/service_account_service#List) request. 
+status | enum **Status**<br>Status of the instance group. <ul><li>`STARTING`: Instance group is being started and will become active soon.</li><li>`ACTIVE`: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](/docs/compute/grpc/instance_group_service#Stop).</li><li>`STOPPING`: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li><li>`STOPPED`: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Start](/docs/compute/grpc/instance_group_service#Start).</li><li>`DELETING`: Instance group is being deleted.</li><li>`PAUSED`: Instance group is paused.</li><ul/>
+variables[] | **[Variable](#Variable13)**<br> 
+deletion_protection | **bool**<br>Flag prohibiting deletion of the instance group. <br>Allowed values:</br>- `false`: The instance group can be deleted.</br>- `true`: The instance group cannot be deleted. <br>The default is `false`. 
+application_load_balancer_spec | **[ApplicationLoadBalancerSpec](#ApplicationLoadBalancerSpec12)**<br>Application load balancer spec 
+application_load_balancer_state | **[ApplicationLoadBalancerState](#ApplicationLoadBalancerState11)**<br>Application load balancer state 
+
+
+### InstanceTemplate {#InstanceTemplate13}
+
+Field | Description
+--- | ---
+description | **string**<br>Description of the instance template. The maximum string length in characters is 256.
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 128. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
+platform_id | **string**<br>Required. ID of the hardware platform configuration for the instance. Platforms allows you to create various types of instances: with a large amount of memory, with a large number of cores, with a burstable performance. For more information, see [Platforms](/docs/compute/concepts/vm-platforms). 
+resources_spec | **[ResourcesSpec](#ResourcesSpec13)**<br>Required. Computing resources of the instance such as the amount of memory and number of cores. 
+metadata | **map<string,string>**<br>The metadata `key:value` pairs assigned to this instance template. This includes custom metadata and predefined keys. <br>Metadata values may contain one of the supported placeholders: {instance_group.id} {instance.short_id} {instance.index} {instance.index_in_zone} {instance.zone_id} InstanceGroup and Instance labels may be copied to metadata following way: {instance_group.labels.some_label_key} {instance.labels.another_label_key} These placeholders will be substituted for each created instance anywhere in the value text. In the rare case the value requires to contain this placeholder explicitly, it must be escaped with double brackets, in example {instance.index}. <br>For example, you may use the metadata in order to provide your public SSH key to the instance. For more information, see [Metadata](/docs/compute/concepts/vm-metadata). No more than 128 per resource. The maximum string length in characters for each value is 262144. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+boot_disk_spec | **[AttachedDiskSpec](#AttachedDiskSpec13)**<br>Required. Boot disk specification that will be attached to the instance. 
+secondary_disk_specs[] | **[AttachedDiskSpec](#AttachedDiskSpec13)**<br>Array of secondary disks that will be attached to the instance. The maximum number of elements is 3.
+network_interface_specs[] | **[NetworkInterfaceSpec](#NetworkInterfaceSpec13)**<br>Array of network interfaces that will be attached to the instance. The number of elemets must be exactly 1.
+scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy13)**<br>Scheduling policy for the instance. 
+service_account_id | **string**<br>Service account ID for the instance. 
+network_settings | **[NetworkSettings](#NetworkSettings13)**<br>Network settings for the instance. 
+name | **string**<br>Name of the instance. In order to be unique it must contain at least on of instance unique placeholders: {instance.short_id} {instance.index} combination of {instance.zone_id} and {instance.index_in_zone} Example: my-instance-{instance.index} If not set, default is used: {instance_group.id}-{instance.short_id} It may also contain another placeholders, see metadata doc for full list. The maximum string length in characters is 128.
+hostname | **string**<br>Host name for the instance. This field is used to generate the `yandex.cloud.compute.v1.Instance.fqdn` value. The host name must be unique within the network and region. If not specified, the host name will be equal to `yandex.cloud.compute.v1.Instance.id` of the instance and FQDN will be `<id>.auto.internal`. Otherwise FQDN will be `<hostname>.<region_id>.internal`. <br>In order to be unique it must contain at least on of instance unique placeholders: {instance.short_id} {instance.index} combination of {instance.zone_id} and {instance.index_in_zone} Example: my-instance-{instance.index} If not set, `name` value will be used It may also contain another placeholders, see metadata doc for full list. The maximum string length in characters is 128.
+placement_policy | **[PlacementPolicy](#PlacementPolicy13)**<br>Placement Group 
+
+
+### ResourcesSpec {#ResourcesSpec13}
+
+Field | Description
+--- | ---
+memory | **int64**<br>The amount of memory available to the instance, specified in bytes. The maximum value is 824633720832.
+cores | **int64**<br>The number of cores available to the instance. Value must be equal to 2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,40,44,48,52,56,60,64,68,72,76,80.
+core_fraction | **int64**<br>Baseline level of CPU performance with the ability to burst performance above that baseline level. This field sets baseline performance for each core. Value must be equal to 0,5,20,50,100.
+gpus | **int64**<br>The number of GPUs available to the instance. Value must be equal to 0,1,2,4.
+
+
+### AttachedDiskSpec {#AttachedDiskSpec13}
+
+Field | Description
+--- | ---
+mode | enum **Mode**<br>Required. Access mode to the Disk resource. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li><ul/>
+device_name | **string**<br>Serial number that is reflected in the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. Value must match the regular expression ` |[a-z][-_0-9a-z]{0,19} `.
+disk_spec | **[DiskSpec](#DiskSpec13)**<br>Required. oneof disk_spec or disk_id Disk specification that is attached to the instance. For more information, see [Disks](/docs/compute/concepts/disk). 
+disk_id | **string**<br>Set to use an existing disk. To set use variables. The maximum string length in characters is 128. Value must match the regular expression ` [-a-zA-Z0-9._{}]* `.
+
+
+### DiskSpec {#DiskSpec13}
+
+Field | Description
+--- | ---
+description | **string**<br>Description of the disk. The maximum string length in characters is 256.
+type_id | **string**<br>Required. ID of the disk type. 
+size | **int64**<br>Size of the disk, specified in bytes. Acceptable values are 4194304 to 4398046511104, inclusive.
+source_oneof | **oneof:** `image_id` or `snapshot_id`<br>
+&nbsp;&nbsp;image_id | **string**<br>ID of the image that will be used for disk creation. The maximum string length in characters is 50.
+&nbsp;&nbsp;snapshot_id | **string**<br>ID of the snapshot that will be used for disk creation. The maximum string length in characters is 50.
+preserve_after_instance_delete | **bool**<br>When set to true, disk will not be deleted even after managed instance is deleted. It will be a user's responsibility to delete such disks. 
+
+
+### NetworkInterfaceSpec {#NetworkInterfaceSpec13}
+
+Field | Description
+--- | ---
+network_id | **string**<br>ID of the network. 
+subnet_ids[] | **string**<br>IDs of the subnets. 
+primary_v4_address_spec | **[PrimaryAddressSpec](#PrimaryAddressSpec13)**<br>Primary IPv4 address that is assigned to the instance for this network interface. 
+primary_v6_address_spec | **[PrimaryAddressSpec](#PrimaryAddressSpec13)**<br>Primary IPv6 address that is assigned to the instance for this network interface. IPv6 not available yet. 
+security_group_ids[] | **string**<br>IDs of security groups. 
+
+
+### PrimaryAddressSpec {#PrimaryAddressSpec13}
+
+Field | Description
+--- | ---
+one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec13)**<br>An external IP address configuration. If not specified, then this managed instance will have no external internet access. 
+dns_record_specs[] | **[DnsRecordSpec](#DnsRecordSpec26)**<br>Internal DNS configuration 
+address | **string**<br>Optional. Manual set static internal IP. To set use variables. 
+
+
+### OneToOneNatSpec {#OneToOneNatSpec13}
+
+Field | Description
+--- | ---
+ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
+address | **string**<br>Manual set static public IP. To set use variables. (optional) 
+dns_record_specs[] | **[DnsRecordSpec](#DnsRecordSpec26)**<br>External DNS configuration 
+
+
+### DnsRecordSpec {#DnsRecordSpec26}
+
+Field | Description
+--- | ---
+fqdn | **string**<br>Required. FQDN (required) 
+dns_zone_id | **string**<br>DNS zone id (optional, if not set, private zone used) 
+ttl | **int64**<br>DNS record ttl, values in 0-86400 (optional) Acceptable values are 0 to 86400, inclusive.
+ptr | **bool**<br>When set to true, also create PTR DNS record (optional) 
+
+
+### DnsRecordSpec {#DnsRecordSpec27}
+
+Field | Description
+--- | ---
+fqdn | **string**<br>Required. FQDN (required) 
+dns_zone_id | **string**<br>DNS zone id (optional, if not set, private zone used) 
+ttl | **int64**<br>DNS record ttl, values in 0-86400 (optional) Acceptable values are 0 to 86400, inclusive.
+ptr | **bool**<br>When set to true, also create PTR DNS record (optional) 
+
+
+### SchedulingPolicy {#SchedulingPolicy13}
+
+Field | Description
+--- | ---
+preemptible | **bool**<br>Preemptible instances are stopped at least once every 24 hours, and can be stopped at any time if their resources are needed by Compute. For more information, see [Preemptible Virtual Machines](/docs/compute/concepts/preemptible-vm). 
+
+
+### NetworkSettings {#NetworkSettings13}
+
+Field | Description
+--- | ---
+type | enum **[Type](./disk_type#undefined)**<br>Type of instance network. <ul><ul/>
+
+
+### PlacementPolicy {#PlacementPolicy13}
+
+Field | Description
+--- | ---
+placement_group_id | **string**<br>Identifier of placement group 
+
+
+### ScalePolicy {#ScalePolicy13}
+
+Field | Description
+--- | ---
+scale_type | **oneof:** `fixed_scale` or `auto_scale`<br>
+&nbsp;&nbsp;fixed_scale | **[FixedScale](#FixedScale13)**<br>[Manual scaling policy](/docs/compute/concepts/instance-groups/scale#fixed-policy) of the instance group. 
+&nbsp;&nbsp;auto_scale | **[AutoScale](#AutoScale13)**<br>[Automatic scaling policy](/docs/compute/concepts/instance-groups/scale#auto-scale) of the instance group. 
+test_auto_scale | **[AutoScale](#AutoScale13)**<br>Test spec for [automatic scaling policy](/docs/compute/concepts/instance-groups/scale#auto-scale) of the instance group. 
+
+
+### AutoScale {#AutoScale13}
+
+Field | Description
+--- | ---
+min_zone_size | **int64**<br>Lower limit for instance count in each zone. Acceptable values are 0 to 100, inclusive.
+max_size | **int64**<br>Upper limit for total instance count (across all zones). 0 means maximum limit = 100. Acceptable values are 0 to 100, inclusive.
+measurement_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Time in seconds allotted for averaging metrics. Acceptable values are 1m to 10m, inclusive.
+warmup_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>The warmup time of the instance in seconds. During this time, traffic is sent to the instance, but instance metrics are not collected. The maximum value is 10m.
+stabilization_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Minimum amount of time in seconds allotted for monitoring before Instance Groups can reduce the number of instances in the group. During this time, the group size doesn't decrease, even if the new metric values indicate that it should. Acceptable values are 1m to 30m, inclusive.
+initial_size | **int64**<br>Target group size. The minimum value is 1.
+cpu_utilization_rule | **[CpuUtilizationRule](#CpuUtilizationRule13)**<br>Defines an autoscaling rule based on the average CPU utilization of the instance group. 
+custom_rules[] | **[CustomRule](#CustomRule13)**<br>Defines an autoscaling rule based on a [custom metric](/docs/monitoring/operations/metric/add) from Yandex Monitoring. The maximum number of elements is 1.
+
+
+### CpuUtilizationRule {#CpuUtilizationRule13}
+
+Field | Description
+--- | ---
+utilization_target | **double**<br>Target CPU utilization level. Instance Groups maintains this level for each availability zone. Acceptable values are 10 to 100, inclusive.
+
+
+### CustomRule {#CustomRule13}
+
+Field | Description
+--- | ---
+rule_type | enum **RuleType**<br>Required. Custom metric rule type. This field affects which label from the custom metric should be used: `zone_id` or `instance_id`. <ul><li>`UTILIZATION`: This type means that the metric applies to one instance. First, Instance Groups calculates the average metric value for each instance, then averages the values for instances in one availability zone. This type of metric must have the `instance_id` label.</li><li>`WORKLOAD`: This type means that the metric applies to instances in one availability zone. This type of metric must have the `zone_id` label.</li><ul/>
+metric_type | enum **MetricType**<br>Required. Type of custom metric. This field affects how Instance Groups calculates the average metric value. <ul><li>`GAUGE`: This type is used for metrics that show the metric value at a certain point in time, such as requests per second to the server on an instance. <br>Instance Groups calculates the average metric value for the period specified in the [AutoScale.measurement_duration](#AutoScale13) field.</li><li>`COUNTER`: This type is used for metrics that monotonically increase over time, such as the total number of requests to the server on an instance. <br>Instance Groups calculates the average value increase for the period specified in the [AutoScale.measurement_duration](#AutoScale13) field.</li><ul/>
+metric_name | **string**<br>Required. Name of custom metric in Yandex Monitoring that should be used for scaling. Value must match the regular expression ` [a-zA-Z0-9./@_][0-9a-zA-Z./@_,:;()\\[\\]<>-]{0,198} `.
+labels | **map<string,string>**<br>Labels of custom metric in Yandex Monitoring that should be used for scaling. Each value must match the regular expression ` [a-zA-Z0-9./@_][0-9a-zA-Z./@_,:;()\\[\\]<>-]{0,198} `. Each key must match the regular expression ` ^[a-zA-Z][0-9a-zA-Z_]{0,31}$ `.
+target | **double**<br>Target value for the custom metric. Instance Groups maintains this level for each availability zone. Value must be greater than 0.
+folder_id | **string**<br>Folder id of custom metric in Yandex Monitoring that should be used for scaling. The maximum string length in characters is 50.
+service | **string**<br>Service of custom metric in Yandex Monitoring that should be used for scaling. The maximum string length in characters is 200.
+
+
+### FixedScale {#FixedScale13}
+
+Field | Description
+--- | ---
+size | **int64**<br>Number of instances in the instance group. Acceptable values are 1 to 100, inclusive.
+
+
+### DeployPolicy {#DeployPolicy13}
+
+Field | Description
+--- | ---
+max_unavailable | **int64**<br>The maximum number of running instances that can be taken offline (i.e., stopped or deleted) at the same time during the update process. If `max_expansion` is not specified or set to zero, `max_unavailable` must be set to a non-zero value. Acceptable values are 0 to 100, inclusive.
+max_deleting | **int64**<br>The maximum number of instances that can be deleted at the same time. <br>The value 0 is any number of virtual machines within the allowed values. Acceptable values are 0 to 100, inclusive.
+max_creating | **int64**<br>The maximum number of instances that can be created at the same time. <br>The value 0 is any number of virtual machines within the allowed values. Acceptable values are 0 to 100, inclusive.
+max_expansion | **int64**<br>The maximum number of instances that can be temporarily allocated above the group's target size during the update process. If `max_unavailable` is not specified or set to zero, `max_expansion` must be set to a non-zero value. Acceptable values are 0 to 100, inclusive.
+startup_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Instance startup duration. Instance will be considered up and running (and start receiving traffic) only after startup_duration has elapsed and all health checks are passed. See `yandex.cloud.compute.v1.instancegroup.ManagedInstance.Status` for more information. Acceptable values are 0m to 1h, inclusive.
+strategy | enum **Strategy**<br>Affects the lifecycle of the instance during deployment. <ul><li>`PROACTIVE`: Instance Groups can forcefully stop a running instance. This is the default.</li><li>`OPPORTUNISTIC`: Instance Groups does not stop a running instance. Instead, it will wait until the instance stops itself or becomes unhealthy.</li><ul/>
+
+
+### AllocationPolicy {#AllocationPolicy13}
+
+Field | Description
+--- | ---
+zones[] | **[Zone](#Zone13)**<br>List of availability zones. The minimum number of elements is 1.
+
+
+### Zone {#Zone13}
+
+Field | Description
+--- | ---
+zone_id | **string**<br>Required. ID of the availability zone where the instance resides. 
+
+
+### LoadBalancerState {#LoadBalancerState11}
+
+Field | Description
+--- | ---
+target_group_id | **string**<br>ID of the target group used for load balancing. 
+status_message | **string**<br>Status message of the target group. 
+
+
+### ManagedInstancesState {#ManagedInstancesState11}
+
+Field | Description
+--- | ---
+target_size | **int64**<br>Target number of instances for this instance group. 
+running_actual_count | **int64**<br>The number of running instances that match the current instance template. For more information, see [ManagedInstance.Status.RUNNING_ACTUAL](#ManagedInstance1). 
+running_outdated_count | **int64**<br>The number of running instances that does not match the current instance template. For more information, see [ManagedInstance.Status.RUNNING_OUTDATED](#ManagedInstance1). 
+processing_count | **int64**<br>The number of instances in flight (for example, updating, starting, deleting). For more information, see [ManagedInstance.Status](#ManagedInstance1). 
+
+
+### Statuses {#Statuses11}
+
+Field | Description
+--- | ---
+creating | **int64**<br>Instance is being created. 
+starting | **int64**<br>Instance is being started. 
+opening | **int64**<br>Instance is being opened to receive traffic. 
+warming | **int64**<br>Instance is being warmed. 
+running | **int64**<br>Instance is running normally. 
+closing | **int64**<br>Instance is being closed to traffic. 
+stopping | **int64**<br>Instance is being stopped. 
+updating | **int64**<br>Instance is being updated. 
+deleting | **int64**<br>Instance is being deleted. 
+failed | **int64**<br>Instance failed and needs to be recreated. 
+
+
+### LoadBalancerSpec {#LoadBalancerSpec13}
+
+Field | Description
+--- | ---
+target_group_spec | **[TargetGroupSpec](#TargetGroupSpec13)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/load-balancer/concepts/target-resources). 
+max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
+
+
+### TargetGroupSpec {#TargetGroupSpec13}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the target group. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
+description | **string**<br>Description of the target group. The maximum string length in characters is 256.
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
+
+
+### HealthChecksSpec {#HealthChecksSpec13}
+
+Field | Description
+--- | ---
+health_check_specs[] | **[HealthCheckSpec](#HealthCheckSpec13)**<br>Health checking specification. For more information, see [Health check](/docs/load-balancer/concepts/health-check). The minimum number of elements is 1.
+max_checking_health_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to become healthy. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
+
+
+### HealthCheckSpec {#HealthCheckSpec13}
+
+Field | Description
+--- | ---
+interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>The interval between health checks. The default is 2 seconds. Acceptable values are 1s to 300s, inclusive.
+timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for the managed instance to return a response for the health check. The default is 1 second. Acceptable values are 1s to 60s, inclusive.
+unhealthy_threshold | **int64**<br>The number of failed health checks for the managed instance to be considered unhealthy. The default (0) is 2. Value must be equal to 0,2,3,4,5,6,7,8,9,10.
+healthy_threshold | **int64**<br>The number of successful health checks required in order for the managed instance to be considered healthy. The default (0) is 2. Value must be equal to 0,2,3,4,5,6,7,8,9,10.
+health_check_options | **oneof:** `tcp_options` or `http_options`<br>
+&nbsp;&nbsp;tcp_options | **[TcpOptions](#TcpOptions13)**<br>Configuration options for a TCP health check. 
+&nbsp;&nbsp;http_options | **[HttpOptions](#HttpOptions13)**<br>Configuration options for an HTTP health check. 
+
+
+### TcpOptions {#TcpOptions13}
+
+Field | Description
+--- | ---
+port | **int64**<br>Port to use for TCP health checks. Acceptable values are 1 to 65535, inclusive.
+
+
+### HttpOptions {#HttpOptions13}
+
+Field | Description
+--- | ---
+port | **int64**<br>Port to use for HTTP health checks. Acceptable values are 1 to 65535, inclusive.
+path | **string**<br>URL path to set for health checking requests. 
+
+
+### Variable {#Variable13}
+
+Field | Description
+--- | ---
+key | **string**<br> The string length in characters must be 1-128. Value must match the regular expression ` [a-zA-Z0-9._-]* `.
+value | **string**<br> The maximum string length in characters is 128.
+
+
+### ApplicationLoadBalancerSpec {#ApplicationLoadBalancerSpec12}
+
+Field | Description
+--- | ---
+target_group_spec | **[ApplicationTargetGroupSpec](#ApplicationTargetGroupSpec12)**<br>Required. Specification of the alb's target group that the instance group will be added to. 
+max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
+
+
+### ApplicationTargetGroupSpec {#ApplicationTargetGroupSpec12}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the target group. 
+description | **string**<br>Description of the target group. 
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
+
+
+### ApplicationLoadBalancerState {#ApplicationLoadBalancerState11}
+
+Field | Description
+--- | ---
+target_group_id | **string**<br> 
+status_message | **string**<br> 
 
 

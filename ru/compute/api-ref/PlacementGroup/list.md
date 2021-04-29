@@ -2,26 +2,26 @@
 editable: false
 ---
 
-# Метод list
-Возвращает список групп размещения в указанном каталоге.
+# Method list
+Retrieves the list of placement groups in the specified folder.
  
 
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 GET https://compute.api.cloud.yandex.net/compute/v1/placementGroups
 ```
  
-## Query-параметры {#query_params}
+## Query parameters {#query_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-folderId | Идентификатор каталога для получения списка групп размещения.  Чтобы получить идентификатор каталога, используйте запрос [list](/docs/resource-manager/api-ref/Folder/list).
-pageSize | Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем [pageSize](/docs/compute/api-ref/PlacementGroup/list#query_params), сервис вернет значение [nextPageToken](/docs/compute/api-ref/PlacementGroup/list#responses), которое можно использовать для получения следующей страницы.
-pageToken | Токен страницы. Установите значение [pageToken](/docs/compute/api-ref/PlacementGroup/list#query_params) равным значению поля [nextPageToken](/docs/compute/api-ref/PlacementGroup/list#responses) предыдущего запроса, чтобы получить следующую страницу результатов.
-filter | Параметры фильтрации ресурсов в ответе. В настоящее время фильтрация осуществляется только по полю [PlacementGroup.name](/docs/compute/api-ref/PlacementGroup#representation).
+folderId | ID of the folder to list placement groups in.  To get the folder ID make a [list](/docs/resource-manager/api-ref/Folder/list) request.
+pageSize | The maximum number of results per page to return. If the number of available results is larger than [pageSize](/docs/compute/api-ref/PlacementGroup/list#query_params), the service returns a [nextPageToken](/docs/compute/api-ref/PlacementGroup/list#responses) that can be used to get the next page of results in subsequent list requests.
+pageToken | Page token. To get the next page of results, set [pageToken](/docs/compute/api-ref/PlacementGroup/list#query_params) to the [nextPageToken](/docs/compute/api-ref/PlacementGroup/list#responses) returned by a previous list request.
+filter | A filter expression that filters resources listed in the response. Currently you can use filtering only on the [PlacementGroup.name](/docs/compute/api-ref/PlacementGroup#representation) field.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -42,14 +42,14 @@ filter | Параметры фильтрации ресурсов в ответ�
 ```
 
  
-Поле | Описание
+Field | Description
 --- | ---
-placementGroups[] | **object**<br><p>Выводит список групп размещения для указанного каталога.</p> 
-placementGroups[].<br>id | **string**<br><p>Идентификатор группы размещения. Генерируется при создании.</p> 
-placementGroups[].<br>folderId | **string**<br><p>Идентификатор каталога, которому принадлежит группа размещения.</p> 
-placementGroups[].<br>createdAt | **string** (date-time)<br><p>Время создания ресурса.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-placementGroups[].<br>name | **string**<br><p>Имя группы размещения. Имя уникально в рамках каталога.</p> 
-placementGroups[].<br>description | **string**<br><p>Описание группы размещения. Длина описания должна быть от 0 до 256 символов.</p> 
-placementGroups[].<br>labels | **object**<br><p>Метки групп размещения в формате `key:value`.</p> 
-placementGroups[].<br>spreadPlacementStrategy | **object**<br>Стратегия распределенного размещения (`spread`). Каждая из виртуальных машин в группе расположена на отдельной стойке.<br><p>Это пустая структура, которую необходимо передать для явного указания стратегии размещения.</p> 
-nextPageToken | **string**<br><p>Токен для получения следующей страницы списка. Если количество результатов больше чем [<RequestMessage>.page_size], используйте `next_page_token` в качестве значения параметра [<RequestMessage>.page_token] в следующем запросе списка ресурсов.</p> <p>Каждая следующая страница будет иметь свой `next_page_token` для продолжения перебора страниц результатов.</p> 
+placementGroups[] | **object**<br><p>Lists placement groups in the specified folder.</p> 
+placementGroups[].<br>id | **string**<br><p>ID of the placement group. Generated at creation time.</p> 
+placementGroups[].<br>folderId | **string**<br><p>ID of the folder that the placement group belongs to.</p> 
+placementGroups[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+placementGroups[].<br>name | **string**<br><p>Name of the placement group. The name is unique within the folder.</p> 
+placementGroups[].<br>description | **string**<br><p>Description of the placement group. 0-256 characters long.</p> 
+placementGroups[].<br>labels | **object**<br><p>Placement group labels as `key:value` pairs.</p> 
+placementGroups[].<br>spreadPlacementStrategy | **object**<br>Anti-affinity placement strategy (`spread`). Instances are distributed over distinct failure domains.<br><p>This is an empty structure that must be passed to explicitly specify the required placement strategy.</p> 
+nextPageToken | **string**<br><p>Token for getting the next page of the list. If the number of results is greater than the specified <a href="/docs/compute/api-ref/PlacementGroup/list#query_params">pageSize</a>, use `next_page_token` as the value for the <a href="/docs/compute/api-ref/PlacementGroup/list#query_params">pageToken</a> parameter in the next list request.</p> <p>Each subsequent page will have its own `next_page_token` to continue paging through the results.</p> 

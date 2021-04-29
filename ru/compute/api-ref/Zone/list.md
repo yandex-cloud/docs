@@ -2,24 +2,24 @@
 editable: false
 ---
 
-# Метод list
-Возвращает список зон доступности.
+# Method list
+Retrieves the list of availability zones.
  
 
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 GET https://compute.api.cloud.yandex.net/compute/v1/zones
 ```
  
-## Query-параметры {#query_params}
+## Query parameters {#query_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-pageSize | Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем [pageSize](/docs/compute/api-ref/Zone/list#query_params), сервис вернет значение [nextPageToken](/docs/compute/api-ref/Zone/list#responses), которое можно использовать для получения следующей страницы.  Максимальное значение — 1000.
-pageToken | Токен страницы. Установите значение [pageToken](/docs/compute/api-ref/Zone/list#query_params) равным значению поля [nextPageToken](/docs/compute/api-ref/Zone/list#responses) предыдущего запроса, чтобы получить следующую страницу результатов.  Максимальная длина строки в символах — 100.
+pageSize | The maximum number of results per page to return. If the number of available results is larger than [pageSize](/docs/compute/api-ref/Zone/list#query_params), the service returns a [nextPageToken](/docs/compute/api-ref/Zone/list#responses) that can be used to get the next page of results in subsequent list requests.  The maximum value is 1000.
+pageToken | Page token. To get the next page of results, set [pageToken](/docs/compute/api-ref/Zone/list#query_params) to the [nextPageToken](/docs/compute/api-ref/Zone/list#responses) returned by a previous list request.  The maximum string length in characters is 100.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -36,10 +36,10 @@ pageToken | Токен страницы. Установите значение [
 ```
 
  
-Поле | Описание
+Field | Description
 --- | ---
-zones[] | **object**<br><p>Зона доступности. Дополнительные сведения см. в разделе <a href="/docs/overview/concepts/geo-scope">Зоны доступности</a>.</p> 
-zones[].<br>id | **string**<br><p>Идентификатор зоны.</p> 
-zones[].<br>regionId | **string**<br><p>Идентификатор региона.</p> 
-zones[].<br>status | **string**<br><p>Статус зоны доступности.</p> <ul> <li>UP: Зона доступна. Вы можете обращаться к ресурсам в этой зоне.</li> <li>DOWN: Зона недоступна.</li> </ul> 
-nextPageToken | **string**<br><p>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем <a href="/docs/compute/api-ref/Zone/list#query_params">pageSize</a>, используйте <a href="/docs/compute/api-ref/Zone/list#query_params">pageToken</a> в качестве значения параметра <a href="/docs/compute/api-ref/Zone/list#query_params">pageToken</a> в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения <a href="/docs/compute/api-ref/Zone/list#query_params">pageToken</a> для перебора страниц результатов.</p> 
+zones[] | **object**<br><p>Availability zone. For more information, see <a href="/docs/overview/concepts/geo-scope">Availability zones</a>.</p> 
+zones[].<br>id | **string**<br><p>ID of the zone.</p> 
+zones[].<br>regionId | **string**<br><p>ID of the region.</p> 
+zones[].<br>status | **string**<br><p>Status of the zone.</p> <ul> <li>UP: Zone is available. You can access the resources allocated in this zone.</li> <li>DOWN: Zone is not available.</li> </ul> 
+nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/compute/api-ref/Zone/list#query_params">pageSize</a>, use the <a href="/docs/compute/api-ref/Zone/list#query_params">pageToken</a> as the value for the <a href="/docs/compute/api-ref/Zone/list#query_params">pageToken</a> query parameter in the next list request. Subsequent list requests will have their own <a href="/docs/compute/api-ref/Zone/list#query_params">pageToken</a> to continue paging through the results.</p> 

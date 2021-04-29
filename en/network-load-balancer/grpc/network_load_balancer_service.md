@@ -46,7 +46,7 @@ folder_id | **string**<br>ID of the folder that the network load balancer belong
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
 name | **string**<br>Name of the network load balancer. The name is unique within the folder. 3-63 characters long. 
 description | **string**<br>Optional description of the network load balancer. 0-256 characters long. 
-labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Мaximum of 64 per resource. 
+labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
 region_id | **string**<br>ID of the region that the network load balancer belongs to. 
 status | enum **Status**<br>Status of the network load balancer. <ul><li>`CREATING`: Network load balancer is being created.</li><li>`STARTING`: Network load balancer is being started.</li><li>`ACTIVE`: Network load balancer is active and sends traffic to the targets.</li><li>`STOPPING`: Network load balancer is being stopped.</li><li>`STOPPED`: Network load balancer is stopped and doesn't send traffic to the targets.</li><li>`DELETING`: Network load balancer is being deleted.</li><li>`INACTIVE`: The load balancer doesn't have any listeners or target groups, or attached target groups are empty. The load balancer doesn't perform any health checks or send traffic in this state.</li><ul/>
 type | enum **Type**<br>Type of the network load balancer. Only external network load balancers are available now. <ul><li>`EXTERNAL`: External network load balancer.</li><li>`INTERNAL`: Internal network load balancer.</li><ul/>
@@ -65,6 +65,7 @@ port | **int64**<br>Port.
 protocol | enum **Protocol**<br>Network protocol for incoming traffic. <ul><ul/>
 target_port | **int64**<br>Port of a target. 
 subnet_id | **string**<br>ID of the subnet. 
+ip_version | enum **IpVersion**<br>IP version of the external address. <ul><li>`IPV4`: IPv4</li><li>`IPV6`: IPv6</li><ul/>
 
 
 ### AttachedTargetGroup {#AttachedTargetGroup}
@@ -137,7 +138,7 @@ folder_id | **string**<br>ID of the folder that the network load balancer belong
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
 name | **string**<br>Name of the network load balancer. The name is unique within the folder. 3-63 characters long. 
 description | **string**<br>Optional description of the network load balancer. 0-256 characters long. 
-labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Мaximum of 64 per resource. 
+labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
 region_id | **string**<br>ID of the region that the network load balancer belongs to. 
 status | enum **Status**<br>Status of the network load balancer. <ul><li>`CREATING`: Network load balancer is being created.</li><li>`STARTING`: Network load balancer is being started.</li><li>`ACTIVE`: Network load balancer is active and sends traffic to the targets.</li><li>`STOPPING`: Network load balancer is being stopped.</li><li>`STOPPED`: Network load balancer is stopped and doesn't send traffic to the targets.</li><li>`DELETING`: Network load balancer is being deleted.</li><li>`INACTIVE`: The load balancer doesn't have any listeners or target groups, or attached target groups are empty. The load balancer doesn't perform any health checks or send traffic in this state.</li><ul/>
 type | enum **Type**<br>Type of the network load balancer. Only external network load balancers are available now. <ul><li>`EXTERNAL`: External network load balancer.</li><li>`INTERNAL`: Internal network load balancer.</li><ul/>
@@ -156,6 +157,7 @@ port | **int64**<br>Port.
 protocol | enum **Protocol**<br>Network protocol for incoming traffic. <ul><ul/>
 target_port | **int64**<br>Port of a target. 
 subnet_id | **string**<br>ID of the subnet. 
+ip_version | enum **IpVersion**<br>IP version of the external address. <ul><li>`IPV4`: IPv4</li><li>`IPV6`: IPv6</li><ul/>
 
 
 ### AttachedTargetGroup {#AttachedTargetGroup1}
@@ -318,7 +320,7 @@ folder_id | **string**<br>ID of the folder that the network load balancer belong
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
 name | **string**<br>Name of the network load balancer. The name is unique within the folder. 3-63 characters long. 
 description | **string**<br>Optional description of the network load balancer. 0-256 characters long. 
-labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Мaximum of 64 per resource. 
+labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
 region_id | **string**<br>ID of the region that the network load balancer belongs to. 
 status | enum **Status**<br>Status of the network load balancer. <ul><li>`CREATING`: Network load balancer is being created.</li><li>`STARTING`: Network load balancer is being started.</li><li>`ACTIVE`: Network load balancer is active and sends traffic to the targets.</li><li>`STOPPING`: Network load balancer is being stopped.</li><li>`STOPPED`: Network load balancer is stopped and doesn't send traffic to the targets.</li><li>`DELETING`: Network load balancer is being deleted.</li><li>`INACTIVE`: The load balancer doesn't have any listeners or target groups, or attached target groups are empty. The load balancer doesn't perform any health checks or send traffic in this state.</li><ul/>
 type | enum **Type**<br>Type of the network load balancer. Only external network load balancers are available now. <ul><li>`EXTERNAL`: External network load balancer.</li><li>`INTERNAL`: Internal network load balancer.</li><ul/>
@@ -337,6 +339,7 @@ port | **int64**<br>Port.
 protocol | enum **Protocol**<br>Network protocol for incoming traffic. <ul><ul/>
 target_port | **int64**<br>Port of a target. 
 subnet_id | **string**<br>ID of the subnet. 
+ip_version | enum **IpVersion**<br>IP version of the external address. <ul><li>`IPV4`: IPv4</li><li>`IPV6`: IPv6</li><ul/>
 
 
 ### AttachedTargetGroup {#AttachedTargetGroup3}
@@ -498,7 +501,7 @@ folder_id | **string**<br>ID of the folder that the network load balancer belong
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
 name | **string**<br>Name of the network load balancer. The name is unique within the folder. 3-63 characters long. 
 description | **string**<br>Optional description of the network load balancer. 0-256 characters long. 
-labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Мaximum of 64 per resource. 
+labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
 region_id | **string**<br>ID of the region that the network load balancer belongs to. 
 status | enum **Status**<br>Status of the network load balancer. <ul><li>`CREATING`: Network load balancer is being created.</li><li>`STARTING`: Network load balancer is being started.</li><li>`ACTIVE`: Network load balancer is active and sends traffic to the targets.</li><li>`STOPPING`: Network load balancer is being stopped.</li><li>`STOPPED`: Network load balancer is stopped and doesn't send traffic to the targets.</li><li>`DELETING`: Network load balancer is being deleted.</li><li>`INACTIVE`: The load balancer doesn't have any listeners or target groups, or attached target groups are empty. The load balancer doesn't perform any health checks or send traffic in this state.</li><ul/>
 type | enum **Type**<br>Type of the network load balancer. Only external network load balancers are available now. <ul><li>`EXTERNAL`: External network load balancer.</li><li>`INTERNAL`: Internal network load balancer.</li><ul/>
@@ -517,6 +520,7 @@ port | **int64**<br>Port.
 protocol | enum **Protocol**<br>Network protocol for incoming traffic. <ul><ul/>
 target_port | **int64**<br>Port of a target. 
 subnet_id | **string**<br>ID of the subnet. 
+ip_version | enum **IpVersion**<br>IP version of the external address. <ul><li>`IPV4`: IPv4</li><li>`IPV6`: IPv6</li><ul/>
 
 
 ### AttachedTargetGroup {#AttachedTargetGroup5}
@@ -764,7 +768,7 @@ folder_id | **string**<br>ID of the folder that the network load balancer belong
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
 name | **string**<br>Name of the network load balancer. The name is unique within the folder. 3-63 characters long. 
 description | **string**<br>Optional description of the network load balancer. 0-256 characters long. 
-labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Мaximum of 64 per resource. 
+labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
 region_id | **string**<br>ID of the region that the network load balancer belongs to. 
 status | enum **Status**<br>Status of the network load balancer. <ul><li>`CREATING`: Network load balancer is being created.</li><li>`STARTING`: Network load balancer is being started.</li><li>`ACTIVE`: Network load balancer is active and sends traffic to the targets.</li><li>`STOPPING`: Network load balancer is being stopped.</li><li>`STOPPED`: Network load balancer is stopped and doesn't send traffic to the targets.</li><li>`DELETING`: Network load balancer is being deleted.</li><li>`INACTIVE`: The load balancer doesn't have any listeners or target groups, or attached target groups are empty. The load balancer doesn't perform any health checks or send traffic in this state.</li><ul/>
 type | enum **Type**<br>Type of the network load balancer. Only external network load balancers are available now. <ul><li>`EXTERNAL`: External network load balancer.</li><li>`INTERNAL`: Internal network load balancer.</li><ul/>
@@ -783,6 +787,7 @@ port | **int64**<br>Port.
 protocol | enum **Protocol**<br>Network protocol for incoming traffic. <ul><ul/>
 target_port | **int64**<br>Port of a target. 
 subnet_id | **string**<br>ID of the subnet. 
+ip_version | enum **IpVersion**<br>IP version of the external address. <ul><li>`IPV4`: IPv4</li><li>`IPV6`: IPv6</li><ul/>
 
 
 ### AttachedTargetGroup {#AttachedTargetGroup7}
@@ -873,7 +878,7 @@ folder_id | **string**<br>ID of the folder that the network load balancer belong
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
 name | **string**<br>Name of the network load balancer. The name is unique within the folder. 3-63 characters long. 
 description | **string**<br>Optional description of the network load balancer. 0-256 characters long. 
-labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Мaximum of 64 per resource. 
+labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
 region_id | **string**<br>ID of the region that the network load balancer belongs to. 
 status | enum **Status**<br>Status of the network load balancer. <ul><li>`CREATING`: Network load balancer is being created.</li><li>`STARTING`: Network load balancer is being started.</li><li>`ACTIVE`: Network load balancer is active and sends traffic to the targets.</li><li>`STOPPING`: Network load balancer is being stopped.</li><li>`STOPPED`: Network load balancer is stopped and doesn't send traffic to the targets.</li><li>`DELETING`: Network load balancer is being deleted.</li><li>`INACTIVE`: The load balancer doesn't have any listeners or target groups, or attached target groups are empty. The load balancer doesn't perform any health checks or send traffic in this state.</li><ul/>
 type | enum **Type**<br>Type of the network load balancer. Only external network load balancers are available now. <ul><li>`EXTERNAL`: External network load balancer.</li><li>`INTERNAL`: Internal network load balancer.</li><ul/>
@@ -892,6 +897,7 @@ port | **int64**<br>Port.
 protocol | enum **Protocol**<br>Network protocol for incoming traffic. <ul><ul/>
 target_port | **int64**<br>Port of a target. 
 subnet_id | **string**<br>ID of the subnet. 
+ip_version | enum **IpVersion**<br>IP version of the external address. <ul><li>`IPV4`: IPv4</li><li>`IPV6`: IPv6</li><ul/>
 
 
 ### AttachedTargetGroup {#AttachedTargetGroup8}
@@ -1041,7 +1047,7 @@ folder_id | **string**<br>ID of the folder that the network load balancer belong
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
 name | **string**<br>Name of the network load balancer. The name is unique within the folder. 3-63 characters long. 
 description | **string**<br>Optional description of the network load balancer. 0-256 characters long. 
-labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Мaximum of 64 per resource. 
+labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
 region_id | **string**<br>ID of the region that the network load balancer belongs to. 
 status | enum **Status**<br>Status of the network load balancer. <ul><li>`CREATING`: Network load balancer is being created.</li><li>`STARTING`: Network load balancer is being started.</li><li>`ACTIVE`: Network load balancer is active and sends traffic to the targets.</li><li>`STOPPING`: Network load balancer is being stopped.</li><li>`STOPPED`: Network load balancer is stopped and doesn't send traffic to the targets.</li><li>`DELETING`: Network load balancer is being deleted.</li><li>`INACTIVE`: The load balancer doesn't have any listeners or target groups, or attached target groups are empty. The load balancer doesn't perform any health checks or send traffic in this state.</li><ul/>
 type | enum **Type**<br>Type of the network load balancer. Only external network load balancers are available now. <ul><li>`EXTERNAL`: External network load balancer.</li><li>`INTERNAL`: Internal network load balancer.</li><ul/>
@@ -1060,6 +1066,7 @@ port | **int64**<br>Port.
 protocol | enum **Protocol**<br>Network protocol for incoming traffic. <ul><ul/>
 target_port | **int64**<br>Port of a target. 
 subnet_id | **string**<br>ID of the subnet. 
+ip_version | enum **IpVersion**<br>IP version of the external address. <ul><li>`IPV4`: IPv4</li><li>`IPV6`: IPv6</li><ul/>
 
 
 ### AttachedTargetGroup {#AttachedTargetGroup9}
@@ -1149,7 +1156,7 @@ folder_id | **string**<br>ID of the folder that the network load balancer belong
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
 name | **string**<br>Name of the network load balancer. The name is unique within the folder. 3-63 characters long. 
 description | **string**<br>Optional description of the network load balancer. 0-256 characters long. 
-labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Мaximum of 64 per resource. 
+labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
 region_id | **string**<br>ID of the region that the network load balancer belongs to. 
 status | enum **Status**<br>Status of the network load balancer. <ul><li>`CREATING`: Network load balancer is being created.</li><li>`STARTING`: Network load balancer is being started.</li><li>`ACTIVE`: Network load balancer is active and sends traffic to the targets.</li><li>`STOPPING`: Network load balancer is being stopped.</li><li>`STOPPED`: Network load balancer is stopped and doesn't send traffic to the targets.</li><li>`DELETING`: Network load balancer is being deleted.</li><li>`INACTIVE`: The load balancer doesn't have any listeners or target groups, or attached target groups are empty. The load balancer doesn't perform any health checks or send traffic in this state.</li><ul/>
 type | enum **Type**<br>Type of the network load balancer. Only external network load balancers are available now. <ul><li>`EXTERNAL`: External network load balancer.</li><li>`INTERNAL`: Internal network load balancer.</li><ul/>
@@ -1168,6 +1175,7 @@ port | **int64**<br>Port.
 protocol | enum **Protocol**<br>Network protocol for incoming traffic. <ul><ul/>
 target_port | **int64**<br>Port of a target. 
 subnet_id | **string**<br>ID of the subnet. 
+ip_version | enum **IpVersion**<br>IP version of the external address. <ul><li>`IPV4`: IPv4</li><li>`IPV6`: IPv6</li><ul/>
 
 
 ### AttachedTargetGroup {#AttachedTargetGroup10}

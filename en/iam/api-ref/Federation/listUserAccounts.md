@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method listUserAccounts
-
+Lists users for the specified federation.
  
 
  

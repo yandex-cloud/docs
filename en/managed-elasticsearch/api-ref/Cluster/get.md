@@ -67,15 +67,20 @@ clusterId | Required. ID of the Elasticsearch cluster to return.  To get the clu
           "diskSize": "string",
           "diskTypeId": "string"
         }
-      }
-    }
+      },
+      "plugins": [
+        "string"
+      ]
+    },
+    "edition": "string"
   },
   "networkId": "string",
   "health": "string",
   "status": "string",
   "securityGroupIds": [
     "string"
-  ]
+  ],
+  "serviceAccountId": "string"
 }
 ```
 An Elasticsearch cluster resource.
@@ -117,7 +122,10 @@ config.<br>elasticsearch.<br>masterNode.<br>resources | **object**<br><p>Resourc
 config.<br>elasticsearch.<br>masterNode.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-elasticsearch/concepts/instance-types">documentation</a>.</p> 
 config.<br>elasticsearch.<br>masterNode.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
 config.<br>elasticsearch.<br>masterNode.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host. All available types are listed in the <a href="/docs/managed-elasticsearch/concepts/storage">documentation</a>.</p> 
+config.<br>elasticsearch.<br>plugins[] | **string**<br><p>Cluster wide plugins</p> 
+config.<br>edition | **string**<br><p>ElasticSearch edition.</p> 
 networkId | **string**<br><p>ID of the network that the cluster belongs to.</p> 
 health | **string**<br><p>Aggregated cluster health.</p> <ul> <li>HEALTH_UNKNOWN: state of the cluster is unknown (`health` of all hosts in the cluster is `UNKNOWN`).</li> <li>ALIVE: cluster is alive and well (`health` of all hosts in the cluster is `ALIVE`).</li> <li>DEAD: cluster is inoperable (`health` of all hosts in the cluster is `DEAD`).</li> <li>DEGRADED: cluster is in degraded state (`health` of at least one of the hosts in the cluster is not `ALIVE`).</li> </ul> 
 status | **string**<br><p>Current state of the cluster.</p> <ul> <li>STATUS_UNKNOWN: cluster state is unknown.</li> <li>CREATING: cluster is being created.</li> <li>RUNNING: cluster is running normally.</li> <li>ERROR: cluster encountered a problem and cannot operate.</li> <li>UPDATING: cluster is being updated.</li> <li>STOPPING: cluster is stopping.</li> <li>STOPPED: cluster stopped.</li> <li>STARTING: cluster is starting.</li> </ul> 
 securityGroupIds[] | **string**<br><p>User security groups</p> 
+serviceAccountId | **string**<br><p>ID of the service account used for access to Yandex Object Storage.</p> 

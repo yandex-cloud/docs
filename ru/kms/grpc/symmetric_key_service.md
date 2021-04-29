@@ -4,843 +4,843 @@ editable: false
 
 # SymmetricKeyService
 
-Набор методов для управления симметричными ключами KMS.
+Set of methods for managing symmetric KMS keys.
 
-| Вызов | Описание |
+| Call | Description |
 | --- | --- |
-| [Create](#Create) | --- control plane Создает симметричный ключ KMS в указанном каталоге. |
-| [Get](#Get) | Возвращает указанный симметричный ключ KMS. |
-| [List](#List) | Возвращает список симметричных ключей KMS в указанном каталоге. |
-| [ListVersions](#ListVersions) | Возвращает список версий указанного симметричного ключа KMS. |
-| [Update](#Update) | Изменяет указанный симметричный ключ KMS. |
-| [Delete](#Delete) | Удаляет указанный симметричный ключ KMS. |
-| [SetPrimaryVersion](#SetPrimaryVersion) | Задает основную версию для указанного ключа. |
-| [ScheduleVersionDestruction](#ScheduleVersionDestruction) | Планирует уничтожение указанной версии ключа. |
-| [CancelVersionDestruction](#CancelVersionDestruction) | Отменяет ранее запланированное уничтожение версии, если версия еще не была уничтожена. |
-| [Rotate](#Rotate) | Ротирует указанный ключ: создает новую версию ключа и делает ее основной. |
-| [ListOperations](#ListOperations) | Возвращет список операций для указанного симметричного ключа KMS. |
-| [ListAccessBindings](#ListAccessBindings) | Возвращает список привязок прав доступа для указанного симметричного ключа KMS. |
-| [SetAccessBindings](#SetAccessBindings) | Устанавливает привязки прав доступа для указанного симметричного ключа KMS. |
-| [UpdateAccessBindings](#UpdateAccessBindings) | Обновляет привязки прав доступа для указанного симметричного ключа KMS. |
+| [Create](#Create) | --- control plane Creates a symmetric KMS key in the specified folder. |
+| [Get](#Get) | Returns the specified symmetric KMS key. |
+| [List](#List) | Returns the list of symmetric KMS keys in the specified folder. |
+| [ListVersions](#ListVersions) | Returns the list of versions of the specified symmetric KMS key. |
+| [Update](#Update) | Updates the specified symmetric KMS key. |
+| [Delete](#Delete) | Deletes the specified symmetric KMS key. |
+| [SetPrimaryVersion](#SetPrimaryVersion) | Sets the primary version for the specified key. |
+| [ScheduleVersionDestruction](#ScheduleVersionDestruction) | Schedules the specified key version for destruction. |
+| [CancelVersionDestruction](#CancelVersionDestruction) | Cancels previously scheduled version destruction, if the version hasn't been destroyed yet. |
+| [Rotate](#Rotate) | Rotates the specified key: creates a new key version and makes it the primary version. |
+| [ListOperations](#ListOperations) | Lists operations for the specified symmetric KMS key. |
+| [ListAccessBindings](#ListAccessBindings) | Lists existing access bindings for the specified key. |
+| [SetAccessBindings](#SetAccessBindings) | Sets access bindings for the key. |
+| [UpdateAccessBindings](#UpdateAccessBindings) | Updates access bindings for the specified key. |
 
-## Вызовы SymmetricKeyService {#calls}
+## Calls SymmetricKeyService {#calls}
 
 ## Create {#Create}
 
---- control plane Создает симметричный ключ KMS в указанном каталоге.
+--- control plane Creates a symmetric KMS key in the specified folder.
 
 **rpc Create ([CreateSymmetricKeyRequest](#CreateSymmetricKeyRequest)) returns ([operation.Operation](#Operation))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateSymmetricKeyMetadata](#CreateSymmetricKeyMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[SymmetricKey](#SymmetricKey)<br>
 
 ### CreateSymmetricKeyRequest {#CreateSymmetricKeyRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-folder_id | **string**<br>Обязательное поле. Идентификатор каталога, в котором создается симметричный ключ KMS. Максимальная длина строки в символах — 50.
-name | **string**<br>Имя симметричного ключа. Максимальная длина строки в символах — 100.
-description | **string**<br>Описание симметричного ключа. Максимальная длина строки в символах — 1024.
-labels | **map<string,string>**<br>Пользовательские метки для ключа в виде пар `key:value`. Максимум 64 на ключ. Например, @b "" project": "mvp"` или @b "" source": "dictionary"`. Не более 64 на ресурс. Максимальная длина строки в символах для каждого значения — 63. Каждое значение должно соответствовать регулярному выражению ` [-_0-9a-z]* `. Максимальная длина строки в символах для каждого ключа — 63. Каждый ключ должен соответствовать регулярному выражению ` [a-z][-_0-9a-z]* `.
-default_algorithm | enum **SymmetricAlgorithm**<br>Алгоритм шифрования, который будет использоваться с версией ключа, которая будет сгенерирована при следующей ротации. <ul><li>`AES_128`: Алгоритм AES со 128-битными ключами.</li><li>`AES_192`: Алгоритм AES с 192-битными ключами.</li><li>`AES_256`: Алгоритм AES с 256-битными ключами.</li><ul/>
-rotation_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Интервал между автоматическими ротациями. Чтобы отключить автоматическую ротацию, не включайте это поле в запрос на создание. 
-deletion_protection | **bool**<br>Флаг, запрещающий удаление симметричного ключа 
+folder_id | **string**<br>Required. ID of the folder to create a symmetric KMS key in. The maximum string length in characters is 50.
+name | **string**<br>Name of the key. The maximum string length in characters is 100.
+description | **string**<br>Description of the key. The maximum string length in characters is 1024.
+labels | **map<string,string>**<br>Custom labels for the symmetric KMS key as `key:value` pairs. Maximum 64 per key. For example, `"project": "mvp"` or `"source": "dictionary"`. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+default_algorithm | enum **SymmetricAlgorithm**<br>Encryption algorithm to be used with a new key version, generated with the next rotation. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><ul/>
+rotation_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Interval between automatic rotations. To disable automatic rotation, don't include this field in the creation request. 
+deletion_protection | **bool**<br>Flag that inhibits deletion of the symmetric KMS key 
 
 
 ### Operation {#Operation}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateSymmetricKeyMetadata](#CreateSymmetricKeyMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[SymmetricKey](#SymmetricKey)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateSymmetricKeyMetadata](#CreateSymmetricKeyMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[SymmetricKey](#SymmetricKey)>**<br>if operation finished successfully. 
 
 
 ### CreateSymmetricKeyMetadata {#CreateSymmetricKeyMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-key_id | **string**<br>Идентификатор создаваемого ключа. 
-primary_version_id | **string**<br>Идентификатор основной версии создаваемого ключа. 
+key_id | **string**<br>ID of the key being created. 
+primary_version_id | **string**<br>ID of the primary version of the key being created. 
 
 
 ### SymmetricKey {#SymmetricKey}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор ключа. 
-folder_id | **string**<br>Идентификатор каталога, которому принадлежит ключ. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ключа. 
-name | **string**<br>Имя симметричного ключа. 
-description | **string**<br>Описание симметричного ключа. 
-labels | **map<string,string>**<br>Пользовательские метки для ключа в виде пар `key:value`. Максимум 64 на ключ. 
-status | enum **Status**<br>Текущий статус ключа. <ul><li>`CREATING`: Ключ создается.</li><li>`ACTIVE`: Ключ активен и может использоваться для шифрования и дешифрования. Можно установить в INACTIVE с помощью метода [SymmetricKeyService.Update](#Update).</li><li>`INACTIVE`: Ключ неактивен и не может быть использован. Можно установить в ACTIVE с помощью метода [SymmetricKeyService.Update](#Update).</li><ul/>
-primary_version | **[SymmetricKeyVersion](#SymmetricKeyVersion)**<br>Основная версия ключа, используемая по умолчанию для всех операций шифрования, когда идентификатор версии не указан явно. 
-default_algorithm | enum **SymmetricAlgorithm**<br>Алгоритм шифрования по умолчанию, который следует использовать с новыми версиями ключа. <ul><li>`AES_128`: Алгоритм AES со 128-битными ключами.</li><li>`AES_192`: Алгоритм AES с 192-битными ключами.</li><li>`AES_256`: Алгоритм AES с 256-битными ключами.</li><ul/>
-rotated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время последней ротации ключа (время, когда была создана последняя версия). Пустое, если у ключа еще нет версий. 
-rotation_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Период времени между автоматическими ротациями ключа. 
-deletion_protection | **bool**<br>Флаг, запрещающий удаление ключа 
+id | **string**<br>ID of the key. 
+folder_id | **string**<br>ID of the folder that the key belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the key was created. 
+name | **string**<br>Name of the key. 
+description | **string**<br>Description of the key. 
+labels | **map<string,string>**<br>Custom labels for the key as `key:value` pairs. Maximum 64 per key. 
+status | enum **Status**<br>Current status of the key. <ul><li>`CREATING`: The key is being created.</li><li>`ACTIVE`: The key is active and can be used for encryption and decryption. Can be set to INACTIVE using the [SymmetricKeyService.Update](#Update) method.</li><li>`INACTIVE`: The key is inactive and unusable. Can be set to ACTIVE using the [SymmetricKeyService.Update](#Update) method.</li><ul/>
+primary_version | **[SymmetricKeyVersion](#SymmetricKeyVersion)**<br>Primary version of the key, used as the default for all encrypt/decrypt operations, when no version ID is specified. 
+default_algorithm | enum **SymmetricAlgorithm**<br>Default encryption algorithm to be used with new versions of the key. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><ul/>
+rotated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time of the last key rotation (time when the last version was created). Empty if the key does not have versions yet. 
+rotation_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time period between automatic key rotations. 
+deletion_protection | **bool**<br>Flag that inhibits deletion of the key 
 
 
 ### SymmetricKeyVersion {#SymmetricKeyVersion}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор версии ключа. 
-key_id | **string**<br>Идентификатор симметричного ключа KMS, которому принадлежит версия. 
-status | enum **Status**<br>Состояние версии ключа. <ul><li>`ACTIVE`: Версия активна и может использоваться для шифрования и дешифрования.</li><li>`SCHEDULED_FOR_DESTRUCTION`: Версия запланирована к уничтожению, время, когда она будет уничтожена, указано в поле [SymmetricKeyVersion.destroy_at](#SymmetricKeyVersion).</li><li>`DESTROYED`: Версия уничтожена и не может быть восстановлена.</li><ul/>
-algorithm | enum **SymmetricAlgorithm**<br>Алгоритм шифрования, который следует использовать при использовании этой версии ключа для шифрования. <ul><li>`AES_128`: Алгоритм AES со 128-битными ключами.</li><li>`AES_192`: Алгоритм AES с 192-битными ключами.</li><li>`AES_256`: Алгоритм AES с 256-битными ключами.</li><ul/>
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания версии ключа. 
-primary | **bool**<br>Признак основной версии, которая должна использоваться по умолчанию для всех криптографических операций, для которых явно не указана версия ключа. 
-destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда версия ключа будет уничтожена. Пустой, если статус не `SCHEDULED_FOR_DESTRUCTION`. 
+id | **string**<br>ID of the key version. 
+key_id | **string**<br>ID of the symmetric KMS key that the version belongs to. 
+status | enum **Status**<br>Status of the key version. <ul><li>`ACTIVE`: The version is active and can be used for encryption and decryption.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [SymmetricKeyVersion.destroy_at](#SymmetricKeyVersion) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li><ul/>
+algorithm | enum **SymmetricAlgorithm**<br>Encryption algorithm that should be used when using the key version to encrypt plaintext. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><ul/>
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the key version was created. 
+primary | **bool**<br>Indication of a primary version, that is to be used by default for all cryptographic operations that don't have a key version explicitly specified. 
+destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the key version is going to be destroyed. Empty unless the status is `SCHEDULED_FOR_DESTRUCTION`. 
 
 
 ## Get {#Get}
 
-Возвращает указанный симметричный ключ KMS. <br>Чтобы получить список доступных симметричных ключей KMS, используйте запрос [SymmetricKeyService.List](#List).
+Returns the specified symmetric KMS key. <br>To get the list of available symmetric KMS keys, make a [SymmetricKeyService.List](#List) request.
 
 **rpc Get ([GetSymmetricKeyRequest](#GetSymmetricKeyRequest)) returns ([SymmetricKey](#SymmetricKey1))**
 
 ### GetSymmetricKeyRequest {#GetSymmetricKeyRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-key_id | **string**<br>Обязательное поле. Идентификатор возвращаемого симметричного ключа KMS. Чтобы получить идентификатор симметричного ключа используйте запрос [SymmetricKeyService.List](#List). Максимальная длина строки в символах — 50.
+key_id | **string**<br>Required. ID of the symmetric KMS key to return. To get the ID of a symmetric KMS key use a [SymmetricKeyService.List](#List) request. The maximum string length in characters is 50.
 
 
 ### SymmetricKey {#SymmetricKey1}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор ключа. 
-folder_id | **string**<br>Идентификатор каталога, которому принадлежит ключ. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ключа. 
-name | **string**<br>Имя симметричного ключа. 
-description | **string**<br>Описание симметричного ключа. 
-labels | **map<string,string>**<br>Пользовательские метки для ключа в виде пар `key:value`. Максимум 64 на ключ. 
-status | enum **Status**<br>Текущий статус ключа. <ul><li>`CREATING`: Ключ создается.</li><li>`ACTIVE`: Ключ активен и может использоваться для шифрования и дешифрования. Можно установить в INACTIVE с помощью метода [SymmetricKeyService.Update](#Update).</li><li>`INACTIVE`: Ключ неактивен и не может быть использован. Можно установить в ACTIVE с помощью метода [SymmetricKeyService.Update](#Update).</li><ul/>
-primary_version | **[SymmetricKeyVersion](#SymmetricKeyVersion1)**<br>Основная версия ключа, используемая по умолчанию для всех операций шифрования, когда идентификатор версии не указан явно. 
-default_algorithm | enum **SymmetricAlgorithm**<br>Алгоритм шифрования по умолчанию, который следует использовать с новыми версиями ключа. <ul><li>`AES_128`: Алгоритм AES со 128-битными ключами.</li><li>`AES_192`: Алгоритм AES с 192-битными ключами.</li><li>`AES_256`: Алгоритм AES с 256-битными ключами.</li><ul/>
-rotated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время последней ротации ключа (время, когда была создана последняя версия). Пустое, если у ключа еще нет версий. 
-rotation_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Период времени между автоматическими ротациями ключа. 
-deletion_protection | **bool**<br>Флаг, запрещающий удаление ключа 
+id | **string**<br>ID of the key. 
+folder_id | **string**<br>ID of the folder that the key belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the key was created. 
+name | **string**<br>Name of the key. 
+description | **string**<br>Description of the key. 
+labels | **map<string,string>**<br>Custom labels for the key as `key:value` pairs. Maximum 64 per key. 
+status | enum **Status**<br>Current status of the key. <ul><li>`CREATING`: The key is being created.</li><li>`ACTIVE`: The key is active and can be used for encryption and decryption. Can be set to INACTIVE using the [SymmetricKeyService.Update](#Update) method.</li><li>`INACTIVE`: The key is inactive and unusable. Can be set to ACTIVE using the [SymmetricKeyService.Update](#Update) method.</li><ul/>
+primary_version | **[SymmetricKeyVersion](#SymmetricKeyVersion1)**<br>Primary version of the key, used as the default for all encrypt/decrypt operations, when no version ID is specified. 
+default_algorithm | enum **SymmetricAlgorithm**<br>Default encryption algorithm to be used with new versions of the key. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><ul/>
+rotated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time of the last key rotation (time when the last version was created). Empty if the key does not have versions yet. 
+rotation_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time period between automatic key rotations. 
+deletion_protection | **bool**<br>Flag that inhibits deletion of the key 
 
 
 ### SymmetricKeyVersion {#SymmetricKeyVersion1}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор версии ключа. 
-key_id | **string**<br>Идентификатор симметричного ключа KMS, которому принадлежит версия. 
-status | enum **Status**<br>Состояние версии ключа. <ul><li>`ACTIVE`: Версия активна и может использоваться для шифрования и дешифрования.</li><li>`SCHEDULED_FOR_DESTRUCTION`: Версия запланирована к уничтожению, время, когда она будет уничтожена, указано в поле [SymmetricKeyVersion.destroy_at](#SymmetricKeyVersion1).</li><li>`DESTROYED`: Версия уничтожена и не может быть восстановлена.</li><ul/>
-algorithm | enum **SymmetricAlgorithm**<br>Алгоритм шифрования, который следует использовать при использовании этой версии ключа для шифрования. <ul><li>`AES_128`: Алгоритм AES со 128-битными ключами.</li><li>`AES_192`: Алгоритм AES с 192-битными ключами.</li><li>`AES_256`: Алгоритм AES с 256-битными ключами.</li><ul/>
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания версии ключа. 
-primary | **bool**<br>Признак основной версии, которая должна использоваться по умолчанию для всех криптографических операций, для которых явно не указана версия ключа. 
-destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда версия ключа будет уничтожена. Пустой, если статус не `SCHEDULED_FOR_DESTRUCTION`. 
+id | **string**<br>ID of the key version. 
+key_id | **string**<br>ID of the symmetric KMS key that the version belongs to. 
+status | enum **Status**<br>Status of the key version. <ul><li>`ACTIVE`: The version is active and can be used for encryption and decryption.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [SymmetricKeyVersion.destroy_at](#SymmetricKeyVersion1) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li><ul/>
+algorithm | enum **SymmetricAlgorithm**<br>Encryption algorithm that should be used when using the key version to encrypt plaintext. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><ul/>
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the key version was created. 
+primary | **bool**<br>Indication of a primary version, that is to be used by default for all cryptographic operations that don't have a key version explicitly specified. 
+destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the key version is going to be destroyed. Empty unless the status is `SCHEDULED_FOR_DESTRUCTION`. 
 
 
 ## List {#List}
 
-Возвращает список симметричных ключей KMS в указанном каталоге.
+Returns the list of symmetric KMS keys in the specified folder.
 
 **rpc List ([ListSymmetricKeysRequest](#ListSymmetricKeysRequest)) returns ([ListSymmetricKeysResponse](#ListSymmetricKeysResponse))**
 
 ### ListSymmetricKeysRequest {#ListSymmetricKeysRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-folder_id | **string**<br>Обязательное поле. Идентификатор каталога для получения списка симметричных ключей KMS. Максимальная длина строки в символах — 50.
-page_size | **int64**<br>Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем `page_size`, сервис вернет значение [ListSymmetricKeysResponse.next_page_token](#ListSymmetricKeysResponse), которое можно использовать для получения следующей страницы. Значение по умолчанию: 100. Максимальное значение — 1000.
-page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListSymmetricKeysResponse.next_page_token](#ListSymmetricKeysResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
+folder_id | **string**<br>Required. ID of the folder to list symmetric KMS keys in. The maximum string length in characters is 50.
+page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListSymmetricKeysResponse.next_page_token](#ListSymmetricKeysResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
+page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListSymmetricKeysResponse.next_page_token](#ListSymmetricKeysResponse) returned by a previous list request. The maximum string length in characters is 100.
 
 
 ### ListSymmetricKeysResponse {#ListSymmetricKeysResponse}
 
-Поле | Описание
+Field | Description
 --- | ---
-keys[] | **[SymmetricKey](#SymmetricKey2)**<br>Список симметричных ключей KMS в указанном каталоге. 
-next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListSymmetricKeysRequest.page_size](#ListSymmetricKeysRequest), используйте `next_page_token` в качестве значения параметра [ListSymmetricKeysRequest.page_token](#ListSymmetricKeysRequest) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
+keys[] | **[SymmetricKey](#SymmetricKey2)**<br>List of symmetric KMS keys in the specified folder. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is greater than the specified [ListSymmetricKeysRequest.page_size](#ListSymmetricKeysRequest), use the `next_page_token` as the value for the [ListSymmetricKeysRequest.page_token](#ListSymmetricKeysRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
 ### SymmetricKey {#SymmetricKey2}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор ключа. 
-folder_id | **string**<br>Идентификатор каталога, которому принадлежит ключ. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ключа. 
-name | **string**<br>Имя симметричного ключа. 
-description | **string**<br>Описание симметричного ключа. 
-labels | **map<string,string>**<br>Пользовательские метки для ключа в виде пар `key:value`. Максимум 64 на ключ. 
-status | enum **Status**<br>Текущий статус ключа. <ul><li>`CREATING`: Ключ создается.</li><li>`ACTIVE`: Ключ активен и может использоваться для шифрования и дешифрования. Можно установить в INACTIVE с помощью метода [SymmetricKeyService.Update](#Update).</li><li>`INACTIVE`: Ключ неактивен и не может быть использован. Можно установить в ACTIVE с помощью метода [SymmetricKeyService.Update](#Update).</li><ul/>
-primary_version | **[SymmetricKeyVersion](#SymmetricKeyVersion2)**<br>Основная версия ключа, используемая по умолчанию для всех операций шифрования, когда идентификатор версии не указан явно. 
-default_algorithm | enum **SymmetricAlgorithm**<br>Алгоритм шифрования по умолчанию, который следует использовать с новыми версиями ключа. <ul><li>`AES_128`: Алгоритм AES со 128-битными ключами.</li><li>`AES_192`: Алгоритм AES с 192-битными ключами.</li><li>`AES_256`: Алгоритм AES с 256-битными ключами.</li><ul/>
-rotated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время последней ротации ключа (время, когда была создана последняя версия). Пустое, если у ключа еще нет версий. 
-rotation_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Период времени между автоматическими ротациями ключа. 
-deletion_protection | **bool**<br>Флаг, запрещающий удаление ключа 
+id | **string**<br>ID of the key. 
+folder_id | **string**<br>ID of the folder that the key belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the key was created. 
+name | **string**<br>Name of the key. 
+description | **string**<br>Description of the key. 
+labels | **map<string,string>**<br>Custom labels for the key as `key:value` pairs. Maximum 64 per key. 
+status | enum **Status**<br>Current status of the key. <ul><li>`CREATING`: The key is being created.</li><li>`ACTIVE`: The key is active and can be used for encryption and decryption. Can be set to INACTIVE using the [SymmetricKeyService.Update](#Update) method.</li><li>`INACTIVE`: The key is inactive and unusable. Can be set to ACTIVE using the [SymmetricKeyService.Update](#Update) method.</li><ul/>
+primary_version | **[SymmetricKeyVersion](#SymmetricKeyVersion2)**<br>Primary version of the key, used as the default for all encrypt/decrypt operations, when no version ID is specified. 
+default_algorithm | enum **SymmetricAlgorithm**<br>Default encryption algorithm to be used with new versions of the key. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><ul/>
+rotated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time of the last key rotation (time when the last version was created). Empty if the key does not have versions yet. 
+rotation_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time period between automatic key rotations. 
+deletion_protection | **bool**<br>Flag that inhibits deletion of the key 
 
 
 ### SymmetricKeyVersion {#SymmetricKeyVersion2}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор версии ключа. 
-key_id | **string**<br>Идентификатор симметричного ключа KMS, которому принадлежит версия. 
-status | enum **Status**<br>Состояние версии ключа. <ul><li>`ACTIVE`: Версия активна и может использоваться для шифрования и дешифрования.</li><li>`SCHEDULED_FOR_DESTRUCTION`: Версия запланирована к уничтожению, время, когда она будет уничтожена, указано в поле [SymmetricKeyVersion.destroy_at](#SymmetricKeyVersion2).</li><li>`DESTROYED`: Версия уничтожена и не может быть восстановлена.</li><ul/>
-algorithm | enum **SymmetricAlgorithm**<br>Алгоритм шифрования, который следует использовать при использовании этой версии ключа для шифрования. <ul><li>`AES_128`: Алгоритм AES со 128-битными ключами.</li><li>`AES_192`: Алгоритм AES с 192-битными ключами.</li><li>`AES_256`: Алгоритм AES с 256-битными ключами.</li><ul/>
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания версии ключа. 
-primary | **bool**<br>Признак основной версии, которая должна использоваться по умолчанию для всех криптографических операций, для которых явно не указана версия ключа. 
-destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда версия ключа будет уничтожена. Пустой, если статус не `SCHEDULED_FOR_DESTRUCTION`. 
+id | **string**<br>ID of the key version. 
+key_id | **string**<br>ID of the symmetric KMS key that the version belongs to. 
+status | enum **Status**<br>Status of the key version. <ul><li>`ACTIVE`: The version is active and can be used for encryption and decryption.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [SymmetricKeyVersion.destroy_at](#SymmetricKeyVersion2) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li><ul/>
+algorithm | enum **SymmetricAlgorithm**<br>Encryption algorithm that should be used when using the key version to encrypt plaintext. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><ul/>
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the key version was created. 
+primary | **bool**<br>Indication of a primary version, that is to be used by default for all cryptographic operations that don't have a key version explicitly specified. 
+destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the key version is going to be destroyed. Empty unless the status is `SCHEDULED_FOR_DESTRUCTION`. 
 
 
 ## ListVersions {#ListVersions}
 
-Возвращает список версий указанного симметричного ключа KMS.
+Returns the list of versions of the specified symmetric KMS key.
 
 **rpc ListVersions ([ListSymmetricKeyVersionsRequest](#ListSymmetricKeyVersionsRequest)) returns ([ListSymmetricKeyVersionsResponse](#ListSymmetricKeyVersionsResponse))**
 
 ### ListSymmetricKeyVersionsRequest {#ListSymmetricKeyVersionsRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-key_id | **string**<br>Обязательное поле. Идентификатор симметричного ключа KMS, для которого нужно вернуть список версий. Максимальная длина строки в символах — 50.
-page_size | **int64**<br>Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем `page_size`, сервис вернет значение [ListSymmetricKeyVersionsResponse.next_page_token](#ListSymmetricKeyVersionsResponse), которое можно использовать для получения следующей страницы. Значение по умолчанию: 100. Максимальное значение — 1000.
-page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListSymmetricKeyVersionsResponse.next_page_token](#ListSymmetricKeyVersionsResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
+key_id | **string**<br>Required. ID of the symmetric KMS key to list versions for. The maximum string length in characters is 50.
+page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListSymmetricKeyVersionsResponse.next_page_token](#ListSymmetricKeyVersionsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
+page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListSymmetricKeyVersionsResponse.next_page_token](#ListSymmetricKeyVersionsResponse) returned by a previous list request. The maximum string length in characters is 100.
 
 
 ### ListSymmetricKeyVersionsResponse {#ListSymmetricKeyVersionsResponse}
 
-Поле | Описание
+Field | Description
 --- | ---
-key_versions[] | **[SymmetricKeyVersion](#SymmetricKeyVersion3)**<br>Список версий для указанного симметричного ключа KMS. 
-next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListSymmetricKeyVersionsRequest.page_size](#ListSymmetricKeyVersionsRequest), используйте `next_page_token` в качестве значения параметра [ListSymmetricKeyVersionsRequest.page_token](#ListSymmetricKeyVersionsRequest) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
+key_versions[] | **[SymmetricKeyVersion](#SymmetricKeyVersion3)**<br>List of versions for the specified symmetric KMS key. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is greater than the specified [ListSymmetricKeyVersionsRequest.page_size](#ListSymmetricKeyVersionsRequest), use the `next_page_token` as the value for the [ListSymmetricKeyVersionsRequest.page_token](#ListSymmetricKeyVersionsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
 ### SymmetricKeyVersion {#SymmetricKeyVersion3}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор версии ключа. 
-key_id | **string**<br>Идентификатор симметричного ключа KMS, которому принадлежит версия. 
-status | enum **Status**<br>Состояние версии ключа. <ul><li>`ACTIVE`: Версия активна и может использоваться для шифрования и дешифрования.</li><li>`SCHEDULED_FOR_DESTRUCTION`: Версия запланирована к уничтожению, время, когда она будет уничтожена, указано в поле [SymmetricKeyVersion.destroy_at](#SymmetricKeyVersion3).</li><li>`DESTROYED`: Версия уничтожена и не может быть восстановлена.</li><ul/>
-algorithm | enum **SymmetricAlgorithm**<br>Алгоритм шифрования, который следует использовать при использовании этой версии ключа для шифрования. <ul><li>`AES_128`: Алгоритм AES со 128-битными ключами.</li><li>`AES_192`: Алгоритм AES с 192-битными ключами.</li><li>`AES_256`: Алгоритм AES с 256-битными ключами.</li><ul/>
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания версии ключа. 
-primary | **bool**<br>Признак основной версии, которая должна использоваться по умолчанию для всех криптографических операций, для которых явно не указана версия ключа. 
-destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда версия ключа будет уничтожена. Пустой, если статус не `SCHEDULED_FOR_DESTRUCTION`. 
+id | **string**<br>ID of the key version. 
+key_id | **string**<br>ID of the symmetric KMS key that the version belongs to. 
+status | enum **Status**<br>Status of the key version. <ul><li>`ACTIVE`: The version is active and can be used for encryption and decryption.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [SymmetricKeyVersion.destroy_at](#SymmetricKeyVersion3) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li><ul/>
+algorithm | enum **SymmetricAlgorithm**<br>Encryption algorithm that should be used when using the key version to encrypt plaintext. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><ul/>
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the key version was created. 
+primary | **bool**<br>Indication of a primary version, that is to be used by default for all cryptographic operations that don't have a key version explicitly specified. 
+destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the key version is going to be destroyed. Empty unless the status is `SCHEDULED_FOR_DESTRUCTION`. 
 
 
 ## Update {#Update}
 
-Изменяет указанный симметричный ключ KMS.
+Updates the specified symmetric KMS key.
 
 **rpc Update ([UpdateSymmetricKeyRequest](#UpdateSymmetricKeyRequest)) returns ([operation.Operation](#Operation1))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateSymmetricKeyMetadata](#UpdateSymmetricKeyMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[SymmetricKey](#SymmetricKey3)<br>
 
 ### UpdateSymmetricKeyRequest {#UpdateSymmetricKeyRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-key_id | **string**<br>Обязательное поле. Идентификатор симметричного ключа KMS, который следует изменить. Чтобы получить идентификатор симметричного ключа используйте запрос [SymmetricKeyService.List](#List). Максимальная длина строки в символах — 50.
-update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Обязательное поле. Маска, определяющая, какие атрибуты указанного симметричного ключа KMS будут обновлены. 
-name | **string**<br>Новое имя симметричного ключа KMS. Максимальная длина строки в символах — 100.
-description | **string**<br>Новое описание симметричного ключа KMS. Максимальная длина строки в символах — 1024.
-status | **[SymmetricKey.Status](#SymmetricKey3)**<br>Новый статус для симметричного ключа KMS. С помощью метода [SymmetricKeyService.Update](#Update) вы можете установить только статус ACTIVE или INACTIVE. 
-labels | **map<string,string>**<br>Пользовательские метки для ключа в виде пар `key:value`. Максимум 64 на ключ. Не более 64 на ресурс. Максимальная длина строки в символах для каждого значения — 63. Каждое значение должно соответствовать регулярному выражению ` [-_0-9a-z]* `. Максимальная длина строки в символах для каждого ключа — 63. Каждый ключ должен соответствовать регулярному выражению ` [a-z][-_0-9a-z]* `.
-default_algorithm | enum **SymmetricAlgorithm**<br>Алгоритм шифрования по умолчанию, который следует использовать с новыми версиями симметричного ключа KMS. <ul><li>`AES_128`: Алгоритм AES со 128-битными ключами.</li><li>`AES_192`: Алгоритм AES с 192-битными ключами.</li><li>`AES_256`: Алгоритм AES с 256-битными ключами.</li><ul/>
-rotation_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Период времени между автоматическими ротациями симметричного ключа KMS. 
-deletion_protection | **bool**<br>Флаг, запрещающий удаление симметричного ключа KMS 
+key_id | **string**<br>Required. ID of the symmetric KMS key to update. To get the ID of a symmetric KMS key use a [SymmetricKeyService.List](#List) request. The maximum string length in characters is 50.
+update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Required. Field mask that specifies which attributes of the symmetric KMS key are going to be updated. 
+name | **string**<br>New name for the symmetric KMS key. The maximum string length in characters is 100.
+description | **string**<br>New description for the symmetric KMS key. The maximum string length in characters is 1024.
+status | **[SymmetricKey.Status](#SymmetricKey3)**<br>New status for the symmetric KMS key. Using the [SymmetricKeyService.Update](#Update) method you can only set ACTIVE or INACTIVE status. 
+labels | **map<string,string>**<br>Custom labels for the symmetric KMS key as `key:value` pairs. Maximum 64 per key. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+default_algorithm | enum **SymmetricAlgorithm**<br>Default encryption algorithm to be used with new versions of the symmetric KMS key. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><ul/>
+rotation_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time period between automatic symmetric KMS key rotations. 
+deletion_protection | **bool**<br>Flag that inhibits deletion of the symmetric KMS key 
 
 
 ### Operation {#Operation1}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateSymmetricKeyMetadata](#UpdateSymmetricKeyMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[SymmetricKey](#SymmetricKey3)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateSymmetricKeyMetadata](#UpdateSymmetricKeyMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[SymmetricKey](#SymmetricKey3)>**<br>if operation finished successfully. 
 
 
 ### UpdateSymmetricKeyMetadata {#UpdateSymmetricKeyMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-key_id | **string**<br>Идентификатор изменяемого ключа. 
+key_id | **string**<br>ID of the key being updated. 
 
 
 ### SymmetricKey {#SymmetricKey3}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор ключа. 
-folder_id | **string**<br>Идентификатор каталога, которому принадлежит ключ. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ключа. 
-name | **string**<br>Имя симметричного ключа. 
-description | **string**<br>Описание симметричного ключа. 
-labels | **map<string,string>**<br>Пользовательские метки для ключа в виде пар `key:value`. Максимум 64 на ключ. 
-status | enum **Status**<br>Текущий статус ключа. <ul><li>`CREATING`: Ключ создается.</li><li>`ACTIVE`: Ключ активен и может использоваться для шифрования и дешифрования. Можно установить в INACTIVE с помощью метода [SymmetricKeyService.Update](#Update).</li><li>`INACTIVE`: Ключ неактивен и не может быть использован. Можно установить в ACTIVE с помощью метода [SymmetricKeyService.Update](#Update).</li><ul/>
-primary_version | **[SymmetricKeyVersion](#SymmetricKeyVersion4)**<br>Основная версия ключа, используемая по умолчанию для всех операций шифрования, когда идентификатор версии не указан явно. 
-default_algorithm | enum **SymmetricAlgorithm**<br>Алгоритм шифрования по умолчанию, который следует использовать с новыми версиями ключа. <ul><li>`AES_128`: Алгоритм AES со 128-битными ключами.</li><li>`AES_192`: Алгоритм AES с 192-битными ключами.</li><li>`AES_256`: Алгоритм AES с 256-битными ключами.</li><ul/>
-rotated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время последней ротации ключа (время, когда была создана последняя версия). Пустое, если у ключа еще нет версий. 
-rotation_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Период времени между автоматическими ротациями ключа. 
-deletion_protection | **bool**<br>Флаг, запрещающий удаление ключа 
+id | **string**<br>ID of the key. 
+folder_id | **string**<br>ID of the folder that the key belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the key was created. 
+name | **string**<br>Name of the key. 
+description | **string**<br>Description of the key. 
+labels | **map<string,string>**<br>Custom labels for the key as `key:value` pairs. Maximum 64 per key. 
+status | enum **Status**<br>Current status of the key. <ul><li>`CREATING`: The key is being created.</li><li>`ACTIVE`: The key is active and can be used for encryption and decryption. Can be set to INACTIVE using the [SymmetricKeyService.Update](#Update) method.</li><li>`INACTIVE`: The key is inactive and unusable. Can be set to ACTIVE using the [SymmetricKeyService.Update](#Update) method.</li><ul/>
+primary_version | **[SymmetricKeyVersion](#SymmetricKeyVersion4)**<br>Primary version of the key, used as the default for all encrypt/decrypt operations, when no version ID is specified. 
+default_algorithm | enum **SymmetricAlgorithm**<br>Default encryption algorithm to be used with new versions of the key. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><ul/>
+rotated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time of the last key rotation (time when the last version was created). Empty if the key does not have versions yet. 
+rotation_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time period between automatic key rotations. 
+deletion_protection | **bool**<br>Flag that inhibits deletion of the key 
 
 
 ### SymmetricKeyVersion {#SymmetricKeyVersion4}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор версии ключа. 
-key_id | **string**<br>Идентификатор симметричного ключа KMS, которому принадлежит версия. 
-status | enum **Status**<br>Состояние версии ключа. <ul><li>`ACTIVE`: Версия активна и может использоваться для шифрования и дешифрования.</li><li>`SCHEDULED_FOR_DESTRUCTION`: Версия запланирована к уничтожению, время, когда она будет уничтожена, указано в поле [SymmetricKeyVersion.destroy_at](#SymmetricKeyVersion4).</li><li>`DESTROYED`: Версия уничтожена и не может быть восстановлена.</li><ul/>
-algorithm | enum **SymmetricAlgorithm**<br>Алгоритм шифрования, который следует использовать при использовании этой версии ключа для шифрования. <ul><li>`AES_128`: Алгоритм AES со 128-битными ключами.</li><li>`AES_192`: Алгоритм AES с 192-битными ключами.</li><li>`AES_256`: Алгоритм AES с 256-битными ключами.</li><ul/>
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания версии ключа. 
-primary | **bool**<br>Признак основной версии, которая должна использоваться по умолчанию для всех криптографических операций, для которых явно не указана версия ключа. 
-destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда версия ключа будет уничтожена. Пустой, если статус не `SCHEDULED_FOR_DESTRUCTION`. 
+id | **string**<br>ID of the key version. 
+key_id | **string**<br>ID of the symmetric KMS key that the version belongs to. 
+status | enum **Status**<br>Status of the key version. <ul><li>`ACTIVE`: The version is active and can be used for encryption and decryption.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [SymmetricKeyVersion.destroy_at](#SymmetricKeyVersion4) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li><ul/>
+algorithm | enum **SymmetricAlgorithm**<br>Encryption algorithm that should be used when using the key version to encrypt plaintext. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><ul/>
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the key version was created. 
+primary | **bool**<br>Indication of a primary version, that is to be used by default for all cryptographic operations that don't have a key version explicitly specified. 
+destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the key version is going to be destroyed. Empty unless the status is `SCHEDULED_FOR_DESTRUCTION`. 
 
 
 ## Delete {#Delete}
 
-Удаляет указанный симметричный ключ KMS. Это действие также автоматически планирует уничтожение всех версий ключа через 72 часа. <br>Ключ и его версии отсутствуют в ответах на запросы [SymmetricKeyService.Get](#Get) и [SymmetricKeyService.List](#List), но могут быть восстановлены в течение 72 часов запросом в техподдержку.
+Deletes the specified symmetric KMS key. This action also automatically schedules the destruction of all of the key's versions in 72 hours. <br>The key and its versions appear absent in [SymmetricKeyService.Get](#Get) and [SymmetricKeyService.List](#List) requests, but can be restored within 72 hours with a request to tech support.
 
 **rpc Delete ([DeleteSymmetricKeyRequest](#DeleteSymmetricKeyRequest)) returns ([operation.Operation](#Operation2))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[DeleteSymmetricKeyMetadata](#DeleteSymmetricKeyMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[SymmetricKey](#SymmetricKey4)<br>
 
 ### DeleteSymmetricKeyRequest {#DeleteSymmetricKeyRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-key_id | **string**<br>Обязательное поле. Идентификатор ключа, который следует удалить. Максимальная длина строки в символах — 50.
+key_id | **string**<br>Required. ID of the key to be deleted. The maximum string length in characters is 50.
 
 
 ### Operation {#Operation2}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteSymmetricKeyMetadata](#DeleteSymmetricKeyMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[SymmetricKey](#SymmetricKey4)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteSymmetricKeyMetadata](#DeleteSymmetricKeyMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[SymmetricKey](#SymmetricKey4)>**<br>if operation finished successfully. 
 
 
 ### DeleteSymmetricKeyMetadata {#DeleteSymmetricKeyMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-key_id | **string**<br>Идентификатор удаляемого ключа. 
+key_id | **string**<br>ID of the key being deleted. 
 
 
 ### SymmetricKey {#SymmetricKey4}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор ключа. 
-folder_id | **string**<br>Идентификатор каталога, которому принадлежит ключ. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ключа. 
-name | **string**<br>Имя симметричного ключа. 
-description | **string**<br>Описание симметричного ключа. 
-labels | **map<string,string>**<br>Пользовательские метки для ключа в виде пар `key:value`. Максимум 64 на ключ. 
-status | enum **Status**<br>Текущий статус ключа. <ul><li>`CREATING`: Ключ создается.</li><li>`ACTIVE`: Ключ активен и может использоваться для шифрования и дешифрования. Можно установить в INACTIVE с помощью метода [SymmetricKeyService.Update](#Update).</li><li>`INACTIVE`: Ключ неактивен и не может быть использован. Можно установить в ACTIVE с помощью метода [SymmetricKeyService.Update](#Update).</li><ul/>
-primary_version | **[SymmetricKeyVersion](#SymmetricKeyVersion5)**<br>Основная версия ключа, используемая по умолчанию для всех операций шифрования, когда идентификатор версии не указан явно. 
-default_algorithm | enum **SymmetricAlgorithm**<br>Алгоритм шифрования по умолчанию, который следует использовать с новыми версиями ключа. <ul><li>`AES_128`: Алгоритм AES со 128-битными ключами.</li><li>`AES_192`: Алгоритм AES с 192-битными ключами.</li><li>`AES_256`: Алгоритм AES с 256-битными ключами.</li><ul/>
-rotated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время последней ротации ключа (время, когда была создана последняя версия). Пустое, если у ключа еще нет версий. 
-rotation_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Период времени между автоматическими ротациями ключа. 
-deletion_protection | **bool**<br>Флаг, запрещающий удаление ключа 
+id | **string**<br>ID of the key. 
+folder_id | **string**<br>ID of the folder that the key belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the key was created. 
+name | **string**<br>Name of the key. 
+description | **string**<br>Description of the key. 
+labels | **map<string,string>**<br>Custom labels for the key as `key:value` pairs. Maximum 64 per key. 
+status | enum **Status**<br>Current status of the key. <ul><li>`CREATING`: The key is being created.</li><li>`ACTIVE`: The key is active and can be used for encryption and decryption. Can be set to INACTIVE using the [SymmetricKeyService.Update](#Update) method.</li><li>`INACTIVE`: The key is inactive and unusable. Can be set to ACTIVE using the [SymmetricKeyService.Update](#Update) method.</li><ul/>
+primary_version | **[SymmetricKeyVersion](#SymmetricKeyVersion5)**<br>Primary version of the key, used as the default for all encrypt/decrypt operations, when no version ID is specified. 
+default_algorithm | enum **SymmetricAlgorithm**<br>Default encryption algorithm to be used with new versions of the key. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><ul/>
+rotated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time of the last key rotation (time when the last version was created). Empty if the key does not have versions yet. 
+rotation_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time period between automatic key rotations. 
+deletion_protection | **bool**<br>Flag that inhibits deletion of the key 
 
 
 ### SymmetricKeyVersion {#SymmetricKeyVersion5}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор версии ключа. 
-key_id | **string**<br>Идентификатор симметричного ключа KMS, которому принадлежит версия. 
-status | enum **Status**<br>Состояние версии ключа. <ul><li>`ACTIVE`: Версия активна и может использоваться для шифрования и дешифрования.</li><li>`SCHEDULED_FOR_DESTRUCTION`: Версия запланирована к уничтожению, время, когда она будет уничтожена, указано в поле [SymmetricKeyVersion.destroy_at](#SymmetricKeyVersion5).</li><li>`DESTROYED`: Версия уничтожена и не может быть восстановлена.</li><ul/>
-algorithm | enum **SymmetricAlgorithm**<br>Алгоритм шифрования, который следует использовать при использовании этой версии ключа для шифрования. <ul><li>`AES_128`: Алгоритм AES со 128-битными ключами.</li><li>`AES_192`: Алгоритм AES с 192-битными ключами.</li><li>`AES_256`: Алгоритм AES с 256-битными ключами.</li><ul/>
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания версии ключа. 
-primary | **bool**<br>Признак основной версии, которая должна использоваться по умолчанию для всех криптографических операций, для которых явно не указана версия ключа. 
-destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда версия ключа будет уничтожена. Пустой, если статус не `SCHEDULED_FOR_DESTRUCTION`. 
+id | **string**<br>ID of the key version. 
+key_id | **string**<br>ID of the symmetric KMS key that the version belongs to. 
+status | enum **Status**<br>Status of the key version. <ul><li>`ACTIVE`: The version is active and can be used for encryption and decryption.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [SymmetricKeyVersion.destroy_at](#SymmetricKeyVersion5) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li><ul/>
+algorithm | enum **SymmetricAlgorithm**<br>Encryption algorithm that should be used when using the key version to encrypt plaintext. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><ul/>
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the key version was created. 
+primary | **bool**<br>Indication of a primary version, that is to be used by default for all cryptographic operations that don't have a key version explicitly specified. 
+destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the key version is going to be destroyed. Empty unless the status is `SCHEDULED_FOR_DESTRUCTION`. 
 
 
 ## SetPrimaryVersion {#SetPrimaryVersion}
 
-Задает основную версию для указанного ключа. Основная версия используется по умолчанию для всех операций шифрования / дешифрования, в которых не указан идентификатор версии.
+Sets the primary version for the specified key. The primary version is used by default for all encrypt/decrypt operations where no version ID is specified.
 
 **rpc SetPrimaryVersion ([SetPrimarySymmetricKeyVersionRequest](#SetPrimarySymmetricKeyVersionRequest)) returns ([operation.Operation](#Operation3))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[SetPrimarySymmetricKeyVersionMetadata](#SetPrimarySymmetricKeyVersionMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[SymmetricKey](#SymmetricKey5)<br>
 
 ### SetPrimarySymmetricKeyVersionRequest {#SetPrimarySymmetricKeyVersionRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-key_id | **string**<br>Обязательное поле. Идентификатор ключа, для которого нужно установить основную версию. Максимальная длина строки в символах — 50.
-version_id | **string**<br>Обязательное поле. Идентификатор версии, которая должна стать основной для указанного ключа. Максимальная длина строки в символах — 50.
+key_id | **string**<br>Required. ID of the key to set a primary version for. The maximum string length in characters is 50.
+version_id | **string**<br>Required. ID of the version that should become primary for the specified key. The maximum string length in characters is 50.
 
 
 ### Operation {#Operation3}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[SetPrimarySymmetricKeyVersionMetadata](#SetPrimarySymmetricKeyVersionMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[SymmetricKey](#SymmetricKey5)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[SetPrimarySymmetricKeyVersionMetadata](#SetPrimarySymmetricKeyVersionMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[SymmetricKey](#SymmetricKey5)>**<br>if operation finished successfully. 
 
 
 ### SetPrimarySymmetricKeyVersionMetadata {#SetPrimarySymmetricKeyVersionMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-key_id | **string**<br>Идентификатор ключа, для которого изменяется основная версия. 
-version_id | **string**<br>Идентификатор версии, которая становится основной для ключа. 
+key_id | **string**<br>ID of the key that the primary version if being changed for. 
+version_id | **string**<br>ID of the version that is being made primary for the key. 
 
 
 ### SymmetricKey {#SymmetricKey5}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор ключа. 
-folder_id | **string**<br>Идентификатор каталога, которому принадлежит ключ. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ключа. 
-name | **string**<br>Имя симметричного ключа. 
-description | **string**<br>Описание симметричного ключа. 
-labels | **map<string,string>**<br>Пользовательские метки для ключа в виде пар `key:value`. Максимум 64 на ключ. 
-status | enum **Status**<br>Текущий статус ключа. <ul><li>`CREATING`: Ключ создается.</li><li>`ACTIVE`: Ключ активен и может использоваться для шифрования и дешифрования. Можно установить в INACTIVE с помощью метода [SymmetricKeyService.Update](#Update).</li><li>`INACTIVE`: Ключ неактивен и не может быть использован. Можно установить в ACTIVE с помощью метода [SymmetricKeyService.Update](#Update).</li><ul/>
-primary_version | **[SymmetricKeyVersion](#SymmetricKeyVersion6)**<br>Основная версия ключа, используемая по умолчанию для всех операций шифрования, когда идентификатор версии не указан явно. 
-default_algorithm | enum **SymmetricAlgorithm**<br>Алгоритм шифрования по умолчанию, который следует использовать с новыми версиями ключа. <ul><li>`AES_128`: Алгоритм AES со 128-битными ключами.</li><li>`AES_192`: Алгоритм AES с 192-битными ключами.</li><li>`AES_256`: Алгоритм AES с 256-битными ключами.</li><ul/>
-rotated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время последней ротации ключа (время, когда была создана последняя версия). Пустое, если у ключа еще нет версий. 
-rotation_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Период времени между автоматическими ротациями ключа. 
-deletion_protection | **bool**<br>Флаг, запрещающий удаление ключа 
+id | **string**<br>ID of the key. 
+folder_id | **string**<br>ID of the folder that the key belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the key was created. 
+name | **string**<br>Name of the key. 
+description | **string**<br>Description of the key. 
+labels | **map<string,string>**<br>Custom labels for the key as `key:value` pairs. Maximum 64 per key. 
+status | enum **Status**<br>Current status of the key. <ul><li>`CREATING`: The key is being created.</li><li>`ACTIVE`: The key is active and can be used for encryption and decryption. Can be set to INACTIVE using the [SymmetricKeyService.Update](#Update) method.</li><li>`INACTIVE`: The key is inactive and unusable. Can be set to ACTIVE using the [SymmetricKeyService.Update](#Update) method.</li><ul/>
+primary_version | **[SymmetricKeyVersion](#SymmetricKeyVersion6)**<br>Primary version of the key, used as the default for all encrypt/decrypt operations, when no version ID is specified. 
+default_algorithm | enum **SymmetricAlgorithm**<br>Default encryption algorithm to be used with new versions of the key. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><ul/>
+rotated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time of the last key rotation (time when the last version was created). Empty if the key does not have versions yet. 
+rotation_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time period between automatic key rotations. 
+deletion_protection | **bool**<br>Flag that inhibits deletion of the key 
 
 
 ### SymmetricKeyVersion {#SymmetricKeyVersion6}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор версии ключа. 
-key_id | **string**<br>Идентификатор симметричного ключа KMS, которому принадлежит версия. 
-status | enum **Status**<br>Состояние версии ключа. <ul><li>`ACTIVE`: Версия активна и может использоваться для шифрования и дешифрования.</li><li>`SCHEDULED_FOR_DESTRUCTION`: Версия запланирована к уничтожению, время, когда она будет уничтожена, указано в поле [SymmetricKeyVersion.destroy_at](#SymmetricKeyVersion6).</li><li>`DESTROYED`: Версия уничтожена и не может быть восстановлена.</li><ul/>
-algorithm | enum **SymmetricAlgorithm**<br>Алгоритм шифрования, который следует использовать при использовании этой версии ключа для шифрования. <ul><li>`AES_128`: Алгоритм AES со 128-битными ключами.</li><li>`AES_192`: Алгоритм AES с 192-битными ключами.</li><li>`AES_256`: Алгоритм AES с 256-битными ключами.</li><ul/>
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания версии ключа. 
-primary | **bool**<br>Признак основной версии, которая должна использоваться по умолчанию для всех криптографических операций, для которых явно не указана версия ключа. 
-destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда версия ключа будет уничтожена. Пустой, если статус не `SCHEDULED_FOR_DESTRUCTION`. 
+id | **string**<br>ID of the key version. 
+key_id | **string**<br>ID of the symmetric KMS key that the version belongs to. 
+status | enum **Status**<br>Status of the key version. <ul><li>`ACTIVE`: The version is active and can be used for encryption and decryption.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [SymmetricKeyVersion.destroy_at](#SymmetricKeyVersion6) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li><ul/>
+algorithm | enum **SymmetricAlgorithm**<br>Encryption algorithm that should be used when using the key version to encrypt plaintext. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><ul/>
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the key version was created. 
+primary | **bool**<br>Indication of a primary version, that is to be used by default for all cryptographic operations that don't have a key version explicitly specified. 
+destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the key version is going to be destroyed. Empty unless the status is `SCHEDULED_FOR_DESTRUCTION`. 
 
 
 ## ScheduleVersionDestruction {#ScheduleVersionDestruction}
 
-Планирует уничтожение указанной версии ключа. <br>Запланированное уничтожение может быть отменено с помощью метода [SymmetricKeyService.CancelVersionDestruction](#CancelVersionDestruction).
+Schedules the specified key version for destruction. <br>Scheduled destruction can be cancelled with the [SymmetricKeyService.CancelVersionDestruction](#CancelVersionDestruction) method.
 
 **rpc ScheduleVersionDestruction ([ScheduleSymmetricKeyVersionDestructionRequest](#ScheduleSymmetricKeyVersionDestructionRequest)) returns ([operation.Operation](#Operation4))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[ScheduleSymmetricKeyVersionDestructionMetadata](#ScheduleSymmetricKeyVersionDestructionMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[SymmetricKeyVersion](#SymmetricKeyVersion7)<br>
 
 ### ScheduleSymmetricKeyVersionDestructionRequest {#ScheduleSymmetricKeyVersionDestructionRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-key_id | **string**<br>Обязательное поле. Идентификатор ключа, для которого следует запланировать уничтожение версии. Максимальная длина строки в символах — 50.
-version_id | **string**<br>Обязательное поле. Идентификатор версии, которую следует уничтожить. Максимальная длина строки в символах — 50.
-pending_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Интервал времени между запросом на уничтожение версии и ее фактическим уничтожением. Значение по умолчанию: 7 дней. 
+key_id | **string**<br>Required. ID of the key whose version should be scheduled for destruction. The maximum string length in characters is 50.
+version_id | **string**<br>Required. ID of the version to be destroyed. The maximum string length in characters is 50.
+pending_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time interval between the version destruction request and actual destruction. Default value: 7 days. 
 
 
 ### Operation {#Operation4}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[ScheduleSymmetricKeyVersionDestructionMetadata](#ScheduleSymmetricKeyVersionDestructionMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[SymmetricKeyVersion](#SymmetricKeyVersion7)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[ScheduleSymmetricKeyVersionDestructionMetadata](#ScheduleSymmetricKeyVersionDestructionMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[SymmetricKeyVersion](#SymmetricKeyVersion7)>**<br>if operation finished successfully. 
 
 
 ### ScheduleSymmetricKeyVersionDestructionMetadata {#ScheduleSymmetricKeyVersionDestructionMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-key_id | **string**<br>Идентификатор ключа, версия которого планируется к уничтожению. 
-version_id | **string**<br>Идентификатор версии, которую планируется уничтожить. 
-destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда версия будет уничтожена. 
+key_id | **string**<br>ID of the key whose version is being scheduled for destruction. 
+version_id | **string**<br>ID of the version that is being scheduled for destruction. 
+destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the version is scheduled to be destroyed. 
 
 
 ### SymmetricKeyVersion {#SymmetricKeyVersion7}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор версии ключа. 
-key_id | **string**<br>Идентификатор симметричного ключа KMS, которому принадлежит версия. 
-status | enum **Status**<br>Состояние версии ключа. <ul><li>`ACTIVE`: Версия активна и может использоваться для шифрования и дешифрования.</li><li>`SCHEDULED_FOR_DESTRUCTION`: Версия запланирована к уничтожению, время, когда она будет уничтожена, указано в поле [SymmetricKeyVersion.destroy_at](#SymmetricKeyVersion7).</li><li>`DESTROYED`: Версия уничтожена и не может быть восстановлена.</li><ul/>
-algorithm | enum **SymmetricAlgorithm**<br>Алгоритм шифрования, который следует использовать при использовании этой версии ключа для шифрования. <ul><li>`AES_128`: Алгоритм AES со 128-битными ключами.</li><li>`AES_192`: Алгоритм AES с 192-битными ключами.</li><li>`AES_256`: Алгоритм AES с 256-битными ключами.</li><ul/>
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания версии ключа. 
-primary | **bool**<br>Признак основной версии, которая должна использоваться по умолчанию для всех криптографических операций, для которых явно не указана версия ключа. 
-destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда версия ключа будет уничтожена. Пустой, если статус не `SCHEDULED_FOR_DESTRUCTION`. 
+id | **string**<br>ID of the key version. 
+key_id | **string**<br>ID of the symmetric KMS key that the version belongs to. 
+status | enum **Status**<br>Status of the key version. <ul><li>`ACTIVE`: The version is active and can be used for encryption and decryption.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [SymmetricKeyVersion.destroy_at](#SymmetricKeyVersion7) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li><ul/>
+algorithm | enum **SymmetricAlgorithm**<br>Encryption algorithm that should be used when using the key version to encrypt plaintext. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><ul/>
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the key version was created. 
+primary | **bool**<br>Indication of a primary version, that is to be used by default for all cryptographic operations that don't have a key version explicitly specified. 
+destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the key version is going to be destroyed. Empty unless the status is `SCHEDULED_FOR_DESTRUCTION`. 
 
 
 ## CancelVersionDestruction {#CancelVersionDestruction}
 
-Отменяет ранее запланированное уничтожение версии, если версия еще не была уничтожена.
+Cancels previously scheduled version destruction, if the version hasn't been destroyed yet.
 
 **rpc CancelVersionDestruction ([CancelSymmetricKeyVersionDestructionRequest](#CancelSymmetricKeyVersionDestructionRequest)) returns ([operation.Operation](#Operation5))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CancelSymmetricKeyVersionDestructionMetadata](#CancelSymmetricKeyVersionDestructionMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[SymmetricKeyVersion](#SymmetricKeyVersion8)<br>
 
 ### CancelSymmetricKeyVersionDestructionRequest {#CancelSymmetricKeyVersionDestructionRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-key_id | **string**<br>Обязательное поле. Идентификатор ключа, для которого следует отменить уничтожение версии. Максимальная длина строки в символах — 50.
-version_id | **string**<br>Обязательное поле. Идентификатор версии, запланированное уничтожение которой должно быть отменено. Максимальная длина строки в символах — 50.
+key_id | **string**<br>Required. ID of the key to cancel a version's destruction for. The maximum string length in characters is 50.
+version_id | **string**<br>Required. ID of the version whose scheduled destruction should be cancelled. The maximum string length in characters is 50.
 
 
 ### Operation {#Operation5}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CancelSymmetricKeyVersionDestructionMetadata](#CancelSymmetricKeyVersionDestructionMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[SymmetricKeyVersion](#SymmetricKeyVersion8)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CancelSymmetricKeyVersionDestructionMetadata](#CancelSymmetricKeyVersionDestructionMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[SymmetricKeyVersion](#SymmetricKeyVersion8)>**<br>if operation finished successfully. 
 
 
 ### CancelSymmetricKeyVersionDestructionMetadata {#CancelSymmetricKeyVersionDestructionMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-key_id | **string**<br>Идентификатор ключа, уничтожение версии которого отменяется. 
-version_id | **string**<br>Идентификатор версии, запланированное уничтожение которой отменяется. 
+key_id | **string**<br>ID of the key whose version's destruction is being cancelled. 
+version_id | **string**<br>ID of the version whose scheduled destruction is being cancelled. 
 
 
 ### SymmetricKeyVersion {#SymmetricKeyVersion8}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор версии ключа. 
-key_id | **string**<br>Идентификатор симметричного ключа KMS, которому принадлежит версия. 
-status | enum **Status**<br>Состояние версии ключа. <ul><li>`ACTIVE`: Версия активна и может использоваться для шифрования и дешифрования.</li><li>`SCHEDULED_FOR_DESTRUCTION`: Версия запланирована к уничтожению, время, когда она будет уничтожена, указано в поле [SymmetricKeyVersion.destroy_at](#SymmetricKeyVersion8).</li><li>`DESTROYED`: Версия уничтожена и не может быть восстановлена.</li><ul/>
-algorithm | enum **SymmetricAlgorithm**<br>Алгоритм шифрования, который следует использовать при использовании этой версии ключа для шифрования. <ul><li>`AES_128`: Алгоритм AES со 128-битными ключами.</li><li>`AES_192`: Алгоритм AES с 192-битными ключами.</li><li>`AES_256`: Алгоритм AES с 256-битными ключами.</li><ul/>
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания версии ключа. 
-primary | **bool**<br>Признак основной версии, которая должна использоваться по умолчанию для всех криптографических операций, для которых явно не указана версия ключа. 
-destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда версия ключа будет уничтожена. Пустой, если статус не `SCHEDULED_FOR_DESTRUCTION`. 
+id | **string**<br>ID of the key version. 
+key_id | **string**<br>ID of the symmetric KMS key that the version belongs to. 
+status | enum **Status**<br>Status of the key version. <ul><li>`ACTIVE`: The version is active and can be used for encryption and decryption.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [SymmetricKeyVersion.destroy_at](#SymmetricKeyVersion8) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li><ul/>
+algorithm | enum **SymmetricAlgorithm**<br>Encryption algorithm that should be used when using the key version to encrypt plaintext. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><ul/>
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the key version was created. 
+primary | **bool**<br>Indication of a primary version, that is to be used by default for all cryptographic operations that don't have a key version explicitly specified. 
+destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the key version is going to be destroyed. Empty unless the status is `SCHEDULED_FOR_DESTRUCTION`. 
 
 
 ## Rotate {#Rotate}
 
-Ротирует указанный ключ: создает новую версию ключа и делает ее основной. Старая версия остается доступной для расшифровки зашифрованных с ее помощью данных.
+Rotates the specified key: creates a new key version and makes it the primary version. The old version remains available for decryption of ciphertext encrypted with it.
 
 **rpc Rotate ([RotateSymmetricKeyRequest](#RotateSymmetricKeyRequest)) returns ([operation.Operation](#Operation6))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[RotateSymmetricKeyMetadata](#RotateSymmetricKeyMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[SymmetricKey](#SymmetricKey6)<br>
 
 ### RotateSymmetricKeyRequest {#RotateSymmetricKeyRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-key_id | **string**<br>Обязательное поле. Идентификатор ключа, который следует ротировать. Максимальная длина строки в символах — 50.
+key_id | **string**<br>Required. ID of the key to be rotated. The maximum string length in characters is 50.
 
 
 ### Operation {#Operation6}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[RotateSymmetricKeyMetadata](#RotateSymmetricKeyMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[SymmetricKey](#SymmetricKey6)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[RotateSymmetricKeyMetadata](#RotateSymmetricKeyMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[SymmetricKey](#SymmetricKey6)>**<br>if operation finished successfully. 
 
 
 ### RotateSymmetricKeyMetadata {#RotateSymmetricKeyMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-key_id | **string**<br>Идентификатор ротируемого ключа. 
-new_primary_version_id | **string**<br>Идентификатор версии, сгенерированной в результате ротации ключа. 
+key_id | **string**<br>ID of the key being rotated. 
+new_primary_version_id | **string**<br>ID of the version generated as a result of key rotation. 
 
 
 ### SymmetricKey {#SymmetricKey6}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор ключа. 
-folder_id | **string**<br>Идентификатор каталога, которому принадлежит ключ. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ключа. 
-name | **string**<br>Имя симметричного ключа. 
-description | **string**<br>Описание симметричного ключа. 
-labels | **map<string,string>**<br>Пользовательские метки для ключа в виде пар `key:value`. Максимум 64 на ключ. 
-status | enum **Status**<br>Текущий статус ключа. <ul><li>`CREATING`: Ключ создается.</li><li>`ACTIVE`: Ключ активен и может использоваться для шифрования и дешифрования. Можно установить в INACTIVE с помощью метода [SymmetricKeyService.Update](#Update).</li><li>`INACTIVE`: Ключ неактивен и не может быть использован. Можно установить в ACTIVE с помощью метода [SymmetricKeyService.Update](#Update).</li><ul/>
-primary_version | **[SymmetricKeyVersion](#SymmetricKeyVersion9)**<br>Основная версия ключа, используемая по умолчанию для всех операций шифрования, когда идентификатор версии не указан явно. 
-default_algorithm | enum **SymmetricAlgorithm**<br>Алгоритм шифрования по умолчанию, который следует использовать с новыми версиями ключа. <ul><li>`AES_128`: Алгоритм AES со 128-битными ключами.</li><li>`AES_192`: Алгоритм AES с 192-битными ключами.</li><li>`AES_256`: Алгоритм AES с 256-битными ключами.</li><ul/>
-rotated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время последней ротации ключа (время, когда была создана последняя версия). Пустое, если у ключа еще нет версий. 
-rotation_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Период времени между автоматическими ротациями ключа. 
-deletion_protection | **bool**<br>Флаг, запрещающий удаление ключа 
+id | **string**<br>ID of the key. 
+folder_id | **string**<br>ID of the folder that the key belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the key was created. 
+name | **string**<br>Name of the key. 
+description | **string**<br>Description of the key. 
+labels | **map<string,string>**<br>Custom labels for the key as `key:value` pairs. Maximum 64 per key. 
+status | enum **Status**<br>Current status of the key. <ul><li>`CREATING`: The key is being created.</li><li>`ACTIVE`: The key is active and can be used for encryption and decryption. Can be set to INACTIVE using the [SymmetricKeyService.Update](#Update) method.</li><li>`INACTIVE`: The key is inactive and unusable. Can be set to ACTIVE using the [SymmetricKeyService.Update](#Update) method.</li><ul/>
+primary_version | **[SymmetricKeyVersion](#SymmetricKeyVersion9)**<br>Primary version of the key, used as the default for all encrypt/decrypt operations, when no version ID is specified. 
+default_algorithm | enum **SymmetricAlgorithm**<br>Default encryption algorithm to be used with new versions of the key. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><ul/>
+rotated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time of the last key rotation (time when the last version was created). Empty if the key does not have versions yet. 
+rotation_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time period between automatic key rotations. 
+deletion_protection | **bool**<br>Flag that inhibits deletion of the key 
 
 
 ### SymmetricKeyVersion {#SymmetricKeyVersion9}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор версии ключа. 
-key_id | **string**<br>Идентификатор симметричного ключа KMS, которому принадлежит версия. 
-status | enum **Status**<br>Состояние версии ключа. <ul><li>`ACTIVE`: Версия активна и может использоваться для шифрования и дешифрования.</li><li>`SCHEDULED_FOR_DESTRUCTION`: Версия запланирована к уничтожению, время, когда она будет уничтожена, указано в поле [SymmetricKeyVersion.destroy_at](#SymmetricKeyVersion9).</li><li>`DESTROYED`: Версия уничтожена и не может быть восстановлена.</li><ul/>
-algorithm | enum **SymmetricAlgorithm**<br>Алгоритм шифрования, который следует использовать при использовании этой версии ключа для шифрования. <ul><li>`AES_128`: Алгоритм AES со 128-битными ключами.</li><li>`AES_192`: Алгоритм AES с 192-битными ключами.</li><li>`AES_256`: Алгоритм AES с 256-битными ключами.</li><ul/>
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания версии ключа. 
-primary | **bool**<br>Признак основной версии, которая должна использоваться по умолчанию для всех криптографических операций, для которых явно не указана версия ключа. 
-destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда версия ключа будет уничтожена. Пустой, если статус не `SCHEDULED_FOR_DESTRUCTION`. 
+id | **string**<br>ID of the key version. 
+key_id | **string**<br>ID of the symmetric KMS key that the version belongs to. 
+status | enum **Status**<br>Status of the key version. <ul><li>`ACTIVE`: The version is active and can be used for encryption and decryption.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [SymmetricKeyVersion.destroy_at](#SymmetricKeyVersion9) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li><ul/>
+algorithm | enum **SymmetricAlgorithm**<br>Encryption algorithm that should be used when using the key version to encrypt plaintext. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><ul/>
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the key version was created. 
+primary | **bool**<br>Indication of a primary version, that is to be used by default for all cryptographic operations that don't have a key version explicitly specified. 
+destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the key version is going to be destroyed. Empty unless the status is `SCHEDULED_FOR_DESTRUCTION`. 
 
 
 ## ListOperations {#ListOperations}
 
-Возвращет список операций для указанного симметричного ключа KMS.
+Lists operations for the specified symmetric KMS key.
 
 **rpc ListOperations ([ListSymmetricKeyOperationsRequest](#ListSymmetricKeyOperationsRequest)) returns ([ListSymmetricKeyOperationsResponse](#ListSymmetricKeyOperationsResponse))**
 
 ### ListSymmetricKeyOperationsRequest {#ListSymmetricKeyOperationsRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-key_id | **string**<br>Обязательное поле. Идентификатор симметричного ключа KMS, для которого нужно вернуть список операций. <br>Чтобы получить идентификатор ключа, используйте запрос [SymmetricKeyService.List](#List). Максимальная длина строки в символах — 50.
-page_size | **int64**<br>Максимальное число возвращаемых результатов на странице. Если количество результатов больше чем `page_size`, сервис вернет значение [ListSymmetricKeyOperationsResponse.next_page_token](#ListSymmetricKeyOperationsResponse), которое можно использовать для получения следующей страницы. Значение по умолчанию: 100. Максимальное значение — 1000.
-page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListSymmetricKeyOperationsResponse.next_page_token](#ListSymmetricKeyOperationsResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
+key_id | **string**<br>Required. ID of the symmetric KMS key to get operations for. <br>To get the key ID, use a [SymmetricKeyService.List](#List) request. The maximum string length in characters is 50.
+page_size | **int64**<br>The maximum number of results per page that should be returned. If the number of available results is larger than `page_size`, the service returns a [ListSymmetricKeyOperationsResponse.next_page_token](#ListSymmetricKeyOperationsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
+page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListSymmetricKeyOperationsResponse.next_page_token](#ListSymmetricKeyOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
 
 
 ### ListSymmetricKeyOperationsResponse {#ListSymmetricKeyOperationsResponse}
 
-Поле | Описание
+Field | Description
 --- | ---
-operations[] | **[operation.Operation](#Operation7)**<br>Список операций для указанного ключа. 
-next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListSymmetricKeyOperationsRequest.page_size](#ListSymmetricKeyOperationsRequest), используйте `next_page_token` в качестве значения параметра [ListSymmetricKeyOperationsRequest.page_token](#ListSymmetricKeyOperationsRequest) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
+operations[] | **[operation.Operation](#Operation7)**<br>List of operations for the specified key. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListSymmetricKeyOperationsRequest.page_size](#ListSymmetricKeyOperationsRequest), use the `next_page_token` as the value for the [ListSymmetricKeyOperationsRequest.page_token](#ListSymmetricKeyOperationsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
 ### Operation {#Operation7}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**<br>Результат операции в случае успешного завершения. Если исходный метод не возвращает никаких данных при успешном завершении, например метод Delete, поле содержит объект [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty). Если исходный метод — это стандартный метод Create / Update, поле содержит целевой ресурс операции. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `response`. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**<br>The normal response of the operation in case of success. If the original method returns no data on success, such as Delete, the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty). If the original method is the standard Create/Update, the response should be the target resource of the operation. Any method that returns a long-running operation should document the response type, if any. 
 
 
 ## ListAccessBindings {#ListAccessBindings}
 
-Возвращает список привязок прав доступа для указанного симметричного ключа KMS.
+Lists existing access bindings for the specified key.
 
 **rpc ListAccessBindings ([ListAccessBindingsRequest](#ListAccessBindingsRequest)) returns ([ListAccessBindingsResponse](#ListAccessBindingsResponse))**
 
 ### ListAccessBindingsRequest {#ListAccessBindingsRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-resource_id | **string**<br>Обязательное поле. Идентификатор ресурса, для которого запрашивается список привязок прав доступа. <br>Чтобы получить идентификатор ресурса, используйте соответствующий запрос List. Например, используйте запрос [yandex.cloud.resourcemanager.v1.CloudService.List](/docs/resource-manager/grpc/cloud_service#List) для получения идентификатора ресурса Cloud. Максимальная длина строки в символах — 50.
-page_size | **int64**<br>Максимальное число возвращаемых результатов на странице. Если количество результатов больше чем `page_size`, сервис вернет значение [ListAccessBindingsResponse.next_page_token](#ListAccessBindingsResponse), которое можно использовать для получения следующей страницы. Значение по умолчанию: 100. Максимальное значение — 1000.
-page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListAccessBindingsResponse.next_page_token](#ListAccessBindingsResponse) прошлого запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
+resource_id | **string**<br>Required. ID of the resource to list access bindings for. <br>To get the resource ID, use a corresponding List request. For example, use the [yandex.cloud.resourcemanager.v1.CloudService.List](/docs/resource-manager/grpc/cloud_service#List) request to get the Cloud resource ID. The maximum string length in characters is 50.
+page_size | **int64**<br>The maximum number of results per page that should be returned. If the number of available results is larger than `page_size`, the service returns a [ListAccessBindingsResponse.next_page_token](#ListAccessBindingsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
+page_token | **string**<br>Page token. Set `page_token` to the [ListAccessBindingsResponse.next_page_token](#ListAccessBindingsResponse) returned by a previous list request to get the next page of results. The maximum string length in characters is 100.
 
 
 ### ListAccessBindingsResponse {#ListAccessBindingsResponse}
 
-Поле | Описание
+Field | Description
 --- | ---
-access_bindings[] | **[AccessBinding](#AccessBinding)**<br>Список привязок прав доступа для указанного ресурса. 
-next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListAccessBindingsRequest.page_size](#ListAccessBindingsRequest), используйте `next_page_token` в качестве значения параметра [ListAccessBindingsRequest.page_token](#ListAccessBindingsRequest) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
+access_bindings[] | **[AccessBinding](#AccessBinding)**<br>List of access bindings for the specified resource. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListAccessBindingsRequest.page_size](#ListAccessBindingsRequest), use the `next_page_token` as the value for the [ListAccessBindingsRequest.page_token](#ListAccessBindingsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
 ### AccessBinding {#AccessBinding}
 
-Поле | Описание
+Field | Description
 --- | ---
-role_id | **string**<br>Обязательное поле. Идентификатор ресурса `yandex.cloud.iam.v1.Role` который назначен для субъекта, указанного в параметре `subject`. Максимальная длина строки в символах — 50.
-subject | **[Subject](#Subject)**<br>Обязательное поле. Субъект, для которого создается привязка прав доступа. Может представлять собой аккаунт с уникальным идентификатором в облаке или системную группу с общим системным идентификатором. 
+role_id | **string**<br>Required. ID of the `yandex.cloud.iam.v1.Role` that is assigned to the `subject`. The maximum string length in characters is 50.
+subject | **[Subject](#Subject)**<br>Required. Identity for which access binding is being created. It can represent an account with a unique ID or several accounts with a system identifier. 
 
 
 ### Subject {#Subject}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Обязательное поле. <ul><li>`allAuthenticatedUsers`: Специальный системный идентификатор, представляющий любого пользователя, прошедшего аутентификацию. Его можно использовать только если в параметре `type` указано `system`. </li><li>`allUsers`: Специальный системный идентификатор, представляющий любого пользователя. Аутентификация не требуется. Например, при запросе через API не надо будет указывать IAM-токен. </li><li>`<идентификатор пользователя в облаке>`: Идентификатор, представляющий учетную запись пользователя. Его можно использовать только если в параметре `type` передано одно из следующих значений: `userAccount`, `federatedUser` или `serviceAccount`.</li></ul> Максимальная длина строки в символах — 50.
-type | **string**<br>Обязательное поле. <ul><li>`userAccount` — аккаунт на Яндексе или Яндекс.Коннекте, добавленный в Яндекс.Облако. </li><li>`serviceAccount` — сервисный аккаунт. Этот тип представляет ресурс `yandex.cloud.iam.v1.ServiceAccount`. </li><li>`federatedUser` — федеративный аккаунт. Этот тип представляет пользователя из федерации удостоверений, например Active Directory. </li><li>`system` — системная группа. Представляет набор аккаунтов, который описывается общим системным идентификатором. </li></ul> Максимальная длина строки в символах — 100.
+id | **string**<br>Required. <ul><li>`allAuthenticatedUsers`: A special system identifier that represents anyone </li><li>`allUsers`: A special system identifier that represents anyone. No authentication is required. </li><li>`<cloud generated id>`: An identifier that represents a user account. </li></ul> The maximum string length in characters is 50.
+type | **string**<br>Required. <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul> The maximum string length in characters is 100.
 
 
 ## SetAccessBindings {#SetAccessBindings}
 
-Устанавливает привязки прав доступа для указанного симметричного ключа KMS.
+Sets access bindings for the key.
 
 **rpc SetAccessBindings ([SetAccessBindingsRequest](#SetAccessBindingsRequest)) returns ([operation.Operation](#Operation8))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[SetAccessBindingsMetadata](#SetAccessBindingsMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
 
 ### SetAccessBindingsRequest {#SetAccessBindingsRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-resource_id | **string**<br>Обязательное поле. Идентификатор ресурса, для которого задается список привязок прав доступа. <br>Чтобы получить идентификатор ресурса, используйте соответствующий запрос List. Максимальная длина строки в символах — 50.
-access_bindings[] | **[AccessBinding](#AccessBinding)**<br>Обязательное поле. Привязки прав доступа, которые будут установлены. Дополнительные сведения см. в разделе [Привязка прав доступа](/docs/iam/concepts/access-control/#access-bindings). 
+resource_id | **string**<br>Required. ID of the resource for which access bindings are being set. <br>To get the resource ID, use a corresponding List request. The maximum string length in characters is 50.
+access_bindings[] | **[AccessBinding](#AccessBinding)**<br>Required. Access bindings to be set. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings). 
 
 
 ### AccessBinding {#AccessBinding1}
 
-Поле | Описание
+Field | Description
 --- | ---
-role_id | **string**<br>Обязательное поле. Идентификатор ресурса `yandex.cloud.iam.v1.Role` который назначен для субъекта, указанного в параметре `subject`. Максимальная длина строки в символах — 50.
-subject | **[Subject](#Subject)**<br>Обязательное поле. Субъект, для которого создается привязка прав доступа. Может представлять собой аккаунт с уникальным идентификатором в облаке или системную группу с общим системным идентификатором. 
+role_id | **string**<br>Required. ID of the `yandex.cloud.iam.v1.Role` that is assigned to the `subject`. The maximum string length in characters is 50.
+subject | **[Subject](#Subject)**<br>Required. Identity for which access binding is being created. It can represent an account with a unique ID or several accounts with a system identifier. 
 
 
 ### Subject {#Subject1}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Обязательное поле. <ul><li>`allAuthenticatedUsers`: Специальный системный идентификатор, представляющий любого пользователя, прошедшего аутентификацию. Его можно использовать только если в параметре `type` указано `system`. </li><li>`allUsers`: Специальный системный идентификатор, представляющий любого пользователя. Аутентификация не требуется. Например, при запросе через API не надо будет указывать IAM-токен. </li><li>`<идентификатор пользователя в облаке>`: Идентификатор, представляющий учетную запись пользователя. Его можно использовать только если в параметре `type` передано одно из следующих значений: `userAccount`, `federatedUser` или `serviceAccount`.</li></ul> Максимальная длина строки в символах — 50.
-type | **string**<br>Обязательное поле. <ul><li>`userAccount` — аккаунт на Яндексе или Яндекс.Коннекте, добавленный в Яндекс.Облако. </li><li>`serviceAccount` — сервисный аккаунт. Этот тип представляет ресурс `yandex.cloud.iam.v1.ServiceAccount`. </li><li>`federatedUser` — федеративный аккаунт. Этот тип представляет пользователя из федерации удостоверений, например Active Directory. </li><li>`system` — системная группа. Представляет набор аккаунтов, который описывается общим системным идентификатором. </li></ul> Максимальная длина строки в символах — 100.
+id | **string**<br>Required. <ul><li>`allAuthenticatedUsers`: A special system identifier that represents anyone </li><li>`allUsers`: A special system identifier that represents anyone. No authentication is required. </li><li>`<cloud generated id>`: An identifier that represents a user account. </li></ul> The maximum string length in characters is 50.
+type | **string**<br>Required. <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul> The maximum string length in characters is 100.
 
 
 ### Operation {#Operation8}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[SetAccessBindingsMetadata](#SetAccessBindingsMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[SetAccessBindingsMetadata](#SetAccessBindingsMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>if operation finished successfully. 
 
 
 ### SetAccessBindingsMetadata {#SetAccessBindingsMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-resource_id | **string**<br>Идентификатор ресурса, для которого задается список привязок прав доступа. 
+resource_id | **string**<br>ID of the resource for which access bindings are being set. 
 
 
 ## UpdateAccessBindings {#UpdateAccessBindings}
 
-Обновляет привязки прав доступа для указанного симметричного ключа KMS.
+Updates access bindings for the specified key.
 
 **rpc UpdateAccessBindings ([UpdateAccessBindingsRequest](#UpdateAccessBindingsRequest)) returns ([operation.Operation](#Operation9))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateAccessBindingsMetadata](#UpdateAccessBindingsMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
 
 ### UpdateAccessBindingsRequest {#UpdateAccessBindingsRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-resource_id | **string**<br>Обязательное поле. Идентификатор ресурса, для которого обновляется список привязок прав доступа. Максимальная длина строки в символах — 50.
-access_binding_deltas[] | **[AccessBindingDelta](#AccessBindingDelta)**<br>Обязательное поле. Изменения в список привязок прав доступа. Количество элементов должно быть больше 0.
+resource_id | **string**<br>Required. ID of the resource for which access bindings are being updated. The maximum string length in characters is 50.
+access_binding_deltas[] | **[AccessBindingDelta](#AccessBindingDelta)**<br>Required. Updates to access bindings. The number of elements must be greater than 0.
 
 
 ### AccessBindingDelta {#AccessBindingDelta}
 
-Поле | Описание
+Field | Description
 --- | ---
-action | enum **AccessBindingAction**<br>Обязательное поле. Действие, которое надо выполнить с привязкой прав доступа. <ul><li>`ADD`: Добавление новой привязки прав доступа.</li><li>`REMOVE`: Удаление привязки прав доступа.</li><ul/>
-access_binding | **[AccessBinding](#AccessBinding)**<br>Обязательное поле. Привязка прав доступа. Дополнительные сведения см. в разделе [Привязка прав доступа](/docs/iam/concepts/access-control/#access-bindings). 
+action | enum **AccessBindingAction**<br>Required. The action that is being performed on an access binding. <ul><li>`ADD`: Addition of an access binding.</li><li>`REMOVE`: Removal of an access binding.</li><ul/>
+access_binding | **[AccessBinding](#AccessBinding)**<br>Required. Access binding. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings). 
 
 
 ### AccessBinding {#AccessBinding2}
 
-Поле | Описание
+Field | Description
 --- | ---
-role_id | **string**<br>Обязательное поле. Идентификатор ресурса `yandex.cloud.iam.v1.Role` который назначен для субъекта, указанного в параметре `subject`. Максимальная длина строки в символах — 50.
-subject | **[Subject](#Subject)**<br>Обязательное поле. Субъект, для которого создается привязка прав доступа. Может представлять собой аккаунт с уникальным идентификатором в облаке или системную группу с общим системным идентификатором. 
+role_id | **string**<br>Required. ID of the `yandex.cloud.iam.v1.Role` that is assigned to the `subject`. The maximum string length in characters is 50.
+subject | **[Subject](#Subject)**<br>Required. Identity for which access binding is being created. It can represent an account with a unique ID or several accounts with a system identifier. 
 
 
 ### Subject {#Subject2}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Обязательное поле. <ul><li>`allAuthenticatedUsers`: Специальный системный идентификатор, представляющий любого пользователя, прошедшего аутентификацию. Его можно использовать только если в параметре `type` указано `system`. </li><li>`allUsers`: Специальный системный идентификатор, представляющий любого пользователя. Аутентификация не требуется. Например, при запросе через API не надо будет указывать IAM-токен. </li><li>`<идентификатор пользователя в облаке>`: Идентификатор, представляющий учетную запись пользователя. Его можно использовать только если в параметре `type` передано одно из следующих значений: `userAccount`, `federatedUser` или `serviceAccount`.</li></ul> Максимальная длина строки в символах — 50.
-type | **string**<br>Обязательное поле. <ul><li>`userAccount` — аккаунт на Яндексе или Яндекс.Коннекте, добавленный в Яндекс.Облако. </li><li>`serviceAccount` — сервисный аккаунт. Этот тип представляет ресурс `yandex.cloud.iam.v1.ServiceAccount`. </li><li>`federatedUser` — федеративный аккаунт. Этот тип представляет пользователя из федерации удостоверений, например Active Directory. </li><li>`system` — системная группа. Представляет набор аккаунтов, который описывается общим системным идентификатором. </li></ul> Максимальная длина строки в символах — 100.
+id | **string**<br>Required. <ul><li>`allAuthenticatedUsers`: A special system identifier that represents anyone </li><li>`allUsers`: A special system identifier that represents anyone. No authentication is required. </li><li>`<cloud generated id>`: An identifier that represents a user account. </li></ul> The maximum string length in characters is 50.
+type | **string**<br>Required. <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul> The maximum string length in characters is 100.
 
 
 ### Operation {#Operation9}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateAccessBindingsMetadata](#UpdateAccessBindingsMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateAccessBindingsMetadata](#UpdateAccessBindingsMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>if operation finished successfully. 
 
 
 ### UpdateAccessBindingsMetadata {#UpdateAccessBindingsMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-resource_id | **string**<br>Идентификатор ресурса, для которого обновляется список привязок прав доступа. 
+resource_id | **string**<br>ID of the resource for which access bindings are being updated. 
 
 

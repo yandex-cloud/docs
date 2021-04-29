@@ -2,35 +2,35 @@
 editable: false
 ---
 
-# Метод listLogs
-Получает логи для указанного кластера Apache Kafka®.
+# Method listLogs
+Retrieves logs for the specified Apache Kafka® cluster.
  
-Дополнительные сведения о логах см. в разделе [Logs](/docs/managed-kafka/operations/cluster-logs) документации.
+For more information about logs, see the [Logs](/docs/managed-kafka/operations/cluster-logs) section in the documentation.
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 GET https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters/{clusterId}:logs
 ```
  
-## Path-параметры {#path_params}
+## Path parameters {#path_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-clusterId | Обязательное поле. Идентификатор кластера Apache Kafka®, для которого нужно получить логи.  Чтобы получить идентификатор кластера Apache Kafka®, выполните запрос [list](/docs/managed-kafka/api-ref/Cluster/list).  Максимальная длина строки в символах — 50.
+clusterId | Required. ID of the Apache Kafka® cluster to request logs for.  To get the Apache Kafka® cluster ID, make a [list](/docs/managed-kafka/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
  
-## Query-параметры {#query_params}
+## Query parameters {#query_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-columnFilter | Столбцы, которые нужно запросить из лога.  Если столбцы не указаны, записи логов возвращаются целиком.
-fromTime | Временная метка, начиная с которой следует запросить логи.  Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
-toTime | Временная метка, до которой следует запросить логи.  Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
-pageSize | Максимальное количество результатов на одной странице в ответе.  Если количество результатов больше чем [pageSize](/docs/managed-kafka/api-ref/Cluster/listLogs#query_params), сервис вернет значение [nextPageToken](/docs/managed-kafka/api-ref/Cluster/listLogs#responses), которое можно использовать для получения следующей страницы.  Максимальное значение — 1000.
-pageToken | Токен страницы.  Установите значение [pageToken](/docs/managed-kafka/api-ref/Cluster/listLogs#query_params) равным значению поля [nextPageToken](/docs/managed-kafka/api-ref/Cluster/listLogs#responses) предыдущего запроса, чтобы получить следующую страницу результатов.  Максимальная длина строки в символах — 100.
-alwaysNextPageToken | Флаг, определяющий поведение при предоставлении маркера следующей страницы.  Если этот флаг установлен в `true`, этот метод API всегда будет возвращать [nextPageToken](/docs/managed-kafka/api-ref/Cluster/listLogs#responses), даже если текущая страница пуста.
-filter | Выражение, позволяющее отфильтровать информацию о ресурсах в ответе, оставив только нужную.  В этом выражении должны быть указаны: 1. Имя поля, по которому нужно выполнить фильтрацию. В настоящее время фильтрацию можно использовать только по полю `hostname`. 2. Условный оператор. Поддерживаются операторы `=` и `!=` для одиночных значений, `IN` и `NOT IN` для списков значений. 3. Значение. Должно содержать от 1 до 63 символов и соответствовать регулярному выражению `^[a-z0-9.-]{1,61}$`.  Пример фильтра: `hostname='node1.db.cloud.yandex.net'`  Максимальная длина строки в символах — 1000.
+columnFilter | Columns from the logs table to request.  If no columns are specified, full log records are returned.
+fromTime | Start timestamp for the logs request.  String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+toTime | End timestamp for the logs request.  String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+pageSize | The maximum number of results per page to return.  If the number of available results is larger than [pageSize](/docs/managed-kafka/api-ref/Cluster/listLogs#query_params), the service returns a [nextPageToken](/docs/managed-kafka/api-ref/Cluster/listLogs#responses) that can be used to get the next page of results in subsequent list requests.  The maximum value is 1000.
+pageToken | Page token.  To get the next page of results, set [pageToken](/docs/managed-kafka/api-ref/Cluster/listLogs#query_params) to the [nextPageToken](/docs/managed-kafka/api-ref/Cluster/listLogs#responses) returned by a previous list request.  The maximum string length in characters is 100.
+alwaysNextPageToken | The flag that defines behavior of providing the next page token.  If this flag is set to `true`, this API method will always return [nextPageToken](/docs/managed-kafka/api-ref/Cluster/listLogs#responses), even if current page is empty.
+filter | A filter expression that filters resources listed in the response.  The expression must specify: 1. The field name to filter by. Currently filtering can be applied to the `hostname` field. 2. A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. 3. The value. Must be 1-63 characters long and match the regular expression `^[a-z0-9.-]{1,61}$`.  Example of a filter: `message.hostname='node1.db.cloud.yandex.net'`  The maximum string length in characters is 1000.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -46,9 +46,9 @@ filter | Выражение, позволяющее отфильтровать �
 ```
 
  
-Поле | Описание
+Field | Description
 --- | ---
-logs[] | **object**<br><p>Записи в журнале.</p> 
-logs[].<br>timestamp | **string** (date-time)<br><p>Временная метка для записи в логе.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-logs[].<br>message | **object**<br><p>Содержимое записи в логе.</p> 
-nextPageToken | **string**<br><p>Токен для получения следующей страницы результатов в ответе.</p> <p>Если количество результатов больше чем <a href="/docs/managed-kafka/api-ref/Cluster/listLogs#query_params">pageSize</a>, используйте <a href="/docs/managed-kafka/api-ref/Cluster/listLogs#responses">nextPageToken</a> в качестве значения параметра <a href="/docs/managed-kafka/api-ref/Cluster/listLogs#query_params">pageToken</a> в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения <a href="/docs/managed-kafka/api-ref/Cluster/listLogs#responses">nextPageToken</a> для перебора страниц результатов. Это значение взаимозаменяемо с `nextRecordToken` из метода StreamLogs.</p> 
+logs[] | **object**<br><p>A single log record.</p> 
+logs[].<br>timestamp | **string** (date-time)<br><p>Log record timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+logs[].<br>message | **object**<br><p>Contents of the log record.</p> 
+nextPageToken | **string**<br><p>Token that allows you to get the next page of results for list requests.</p> <p>If the number of results is larger than <a href="/docs/managed-kafka/api-ref/Cluster/listLogs#query_params">pageSize</a>, use <a href="/docs/managed-kafka/api-ref/Cluster/listLogs#responses">nextPageToken</a> as the value for the <a href="/docs/managed-kafka/api-ref/Cluster/listLogs#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own <a href="/docs/managed-kafka/api-ref/Cluster/listLogs#responses">nextPageToken</a> to continue paging through the results. This value is interchangeable with `nextRecordToken` from StreamLogs method.</p> 

@@ -2,24 +2,24 @@
 editable: false
 ---
 
-# Метод get
-Возвращает указанного пользователя SQL Server.
+# Method get
+Returns the specified SQL Server user.
  
-Чтобы получить список доступных пользователей SQL Server, выполните запрос [list](/docs/managed-sqlserver/api-ref/User/list).
+To get the list of available SQL Server users, make a [list](/docs/managed-sqlserver/api-ref/User/list) request.
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 GET https://mdb.api.cloud.yandex.net/mdb/sqlserver/v1alpha/clusters/{clusterId}/users/{userName}
 ```
  
-## Path-параметры {#path_params}
+## Path parameters {#path_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-clusterId | Обязательное поле. Идентификатор кластера SQL Server, которому принадлежит пользователь.  Чтобы получить идентификатор кластера, используйте запрос [list](/docs/managed-sqlserver/api-ref/Cluster/list).  Максимальная длина строки в символах — 50.
-userName | Обязательное поле. Имя запрашиваемого пользователя SQL Server.  Чтобы получить имя пользователя, используйте запрос [list](/docs/managed-sqlserver/api-ref/Database/list).  Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_]* ``.
+clusterId | Required. ID of the SQL Server cluster the user belongs to.  To get the cluster ID, use a [list](/docs/managed-sqlserver/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
+userName | Required. Name of the SQL Server user to return.  To get the name of the user use a [list](/docs/managed-sqlserver/api-ref/Database/list) request.  The maximum string length in characters is 63. Value must match the regular expression `` [a-zA-Z0-9_]* ``.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -36,12 +36,12 @@ userName | Обязательное поле. Имя запрашиваемог�
   ]
 }
 ```
-Пользователь SQL Server.
+An SQL Server user.
  
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br><p>Имя пользователя SQL Server.</p> 
-clusterId | **string**<br><p>Идентификатор кластера SQL Server, которому принадлежит пользователь.</p> 
-permissions[] | **object**<br><p>Набор разрешений, предоставленных пользователю.</p> 
-permissions[].<br>databaseName | **string**<br><p>Имя базы данных, для которой предоставляется разрешение.</p> 
-permissions[].<br>roles[] | **string**<br><ul> <li>DB_OWNER: Члены этой роли могут выполнять все действия по настройке и обслуживанию базы данных, а также удалять базу данных SQL Server.</li> <li>DB_SECURITYADMIN: Члены этой роли могут управлять разрешениями и членством в пользовательских ролях. Они потенциально могут повысить свои привилегии, поэтому их действия должны контролироваться.</li> <li>DB_ACCESSADMIN: Члены этой роли могут управлять доступом к базе данных для пользователей Windows, групп Windows и пользователей SQL Server.</li> <li>DB_BACKUPOPERATOR: Члены этой роли могут создавать резервные копии базы данных.</li> <li>DB_DDLADMIN: Члены этой роли могут выполнять в базе данных любую команду языка описания данных (DDL).</li> <li>DB_DATAWRITER: Члены этой роли могут добавлять, удалять или изменять данные во всех пользовательских таблицах.</li> <li>DB_DATAREADER: Члены этой роли могут читать все данные из всех пользовательских таблиц.</li> <li>DB_DENYDATAWRITER: Члены этой роли не могут добавлять, изменять или удалять никакие данные в пользовательских таблицах базы данных. Подобное ограничение привилегий имеет более высокий приоритет, чем предоставление, поэтому вы можете использовать эту роль для быстрого ограничения привилегий без явного отзыва разрешений или ролей.</li> <li>DB_DENYDATAREADER: Члены этой фиксированной роли базы данных не могут читать никакие данные из пользовательских таблиц в базе данных. Подобное ограничение привилегий имеет более высокий приоритет, чем предоставление, поэтому вы можете использовать эту роль для быстрого ограничения привилегий без явного отзыва разрешений или ролей.</li> </ul> 
+name | **string**<br><p>Name of the SQL Server user.</p> 
+clusterId | **string**<br><p>ID of the SQL Server cluster the user belongs to.</p> 
+permissions[] | **object**<br><p>Set of permissions granted to the user.</p> 
+permissions[].<br>databaseName | **string**<br><p>Name of the database the permission grants access to.</p> 
+permissions[].<br>roles[] | **string**<br><ul> <li>DB_OWNER: Members of this fixed database role can perform all configuration and maintenance activities on the database, and can also drop the database in SQL Server.</li> <li>DB_SECURITYADMIN: Members of this fixed database role can modify role membership for custom roles only and manage permissions. They can potentially elevate their privileges and their actions should be monitored.</li> <li>DB_ACCESSADMIN: Members of this fixed database role can add or remove access to the database for Windows logins, Windows groups, and SQL Server logins.</li> <li>DB_BACKUPOPERATOR: Members of this fixed database role can back up the database.</li> <li>DB_DDLADMIN: Members of this fixed database role can run any Data Definition Language (DDL) command in a database.</li> <li>DB_DATAWRITER: Members of this fixed database role can add, delete, or change data in all user tables.</li> <li>DB_DATAREADER: Members of this fixed database role can read all data from all user tables.</li> <li>DB_DENYDATAWRITER: Members of this fixed database role cannot add, modify, or delete any data in the user tables within a database. Denial has a higher priority than a grant, so you can use this role to quickly restrict one's privileges without explicitly revoking permissions or roles.</li> <li>DB_DENYDATAREADER: Members of this fixed database role cannot read any data in the user tables within a database. Denial has a higher priority than a grant, so you can use this role to quickly restrict one's privileges without explicitly revoking permissions or roles.</li> </ul> 

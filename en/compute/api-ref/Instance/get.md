@@ -68,15 +68,35 @@ view | Defines which information about the Instance resource should be returned 
         "address": "string",
         "oneToOneNat": {
           "address": "string",
-          "ipVersion": "string"
-        }
+          "ipVersion": "string",
+          "dnsRecords": [
+            {
+              "fqdn": "string"
+            }
+          ]
+        },
+        "dnsRecords": [
+          {
+            "fqdn": "string"
+          }
+        ]
       },
       "primaryV6Address": {
         "address": "string",
         "oneToOneNat": {
           "address": "string",
-          "ipVersion": "string"
-        }
+          "ipVersion": "string",
+          "dnsRecords": [
+            {
+              "fqdn": "string"
+            }
+          ]
+        },
+        "dnsRecords": [
+          {
+            "fqdn": "string"
+          }
+        ]
       },
       "securityGroupIds": [
         "string"
@@ -143,11 +163,19 @@ networkInterfaces[].<br>primaryV4Address.<br>address | **string**<br><p>An IPv4 
 networkInterfaces[].<br>primaryV4Address.<br>oneToOneNat | **object**<br><p>One-to-one NAT configuration. If missing, NAT has not been set up.</p> 
 networkInterfaces[].<br>primaryV4Address.<br>oneToOneNat.<br>address | **string**<br><p>An external IP address associated with this instance.</p> 
 networkInterfaces[].<br>primaryV4Address.<br>oneToOneNat.<br>ipVersion | **string**<br><p>IP version for the external IP address.</p> <ul> <li>IPV4: IPv4 address, for example 192.0.2.235.</li> <li>IPV6: IPv6 address. Not available yet.</li> </ul> 
+networkInterfaces[].<br>primaryV4Address.<br>oneToOneNat.<br>dnsRecords[] | **object**<br><p>External DNS configuration</p> 
+networkInterfaces[].<br>primaryV4Address.<br>oneToOneNat.<br>dnsRecords[].<br>fqdn | **string**<br>
+networkInterfaces[].<br>primaryV4Address.<br>dnsRecords[] | **object**<br><p>Internal DNS configuration</p> 
+networkInterfaces[].<br>primaryV4Address.<br>dnsRecords[].<br>fqdn | **string**<br>
 networkInterfaces[].<br>primaryV6Address | **object**<br><p>Primary IPv6 address that is assigned to the instance for this network interface. IPv6 not available yet.</p> 
 networkInterfaces[].<br>primaryV6Address.<br>address | **string**<br><p>An IPv4 internal network address that is assigned to the instance for this network interface.</p> 
 networkInterfaces[].<br>primaryV6Address.<br>oneToOneNat | **object**<br><p>One-to-one NAT configuration. If missing, NAT has not been set up.</p> 
 networkInterfaces[].<br>primaryV6Address.<br>oneToOneNat.<br>address | **string**<br><p>An external IP address associated with this instance.</p> 
 networkInterfaces[].<br>primaryV6Address.<br>oneToOneNat.<br>ipVersion | **string**<br><p>IP version for the external IP address.</p> <ul> <li>IPV4: IPv4 address, for example 192.0.2.235.</li> <li>IPV6: IPv6 address. Not available yet.</li> </ul> 
+networkInterfaces[].<br>primaryV6Address.<br>oneToOneNat.<br>dnsRecords[] | **object**<br><p>External DNS configuration</p> 
+networkInterfaces[].<br>primaryV6Address.<br>oneToOneNat.<br>dnsRecords[].<br>fqdn | **string**<br>
+networkInterfaces[].<br>primaryV6Address.<br>dnsRecords[] | **object**<br><p>Internal DNS configuration</p> 
+networkInterfaces[].<br>primaryV6Address.<br>dnsRecords[].<br>fqdn | **string**<br>
 networkInterfaces[].<br>securityGroupIds[] | **string**<br><p>ID's of security groups attached to the interface</p> 
 fqdn | **string**<br><p>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.&lt;region_id&gt;.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`.</p> 
 schedulingPolicy | **object**<br><p>Scheduling policy configuration.</p> 

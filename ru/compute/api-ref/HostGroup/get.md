@@ -2,23 +2,23 @@
 editable: false
 ---
 
-# Метод get
-Возвращает информацию об указанной группе выделенных хостов.
+# Method get
+Returns the specified host group.
  
 
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 GET https://compute.api.cloud.yandex.net/compute/v1/hostGroups/{hostGroupId}
 ```
  
-## Path-параметры {#path_params}
+## Path parameters {#path_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-hostGroupId | Обязательное поле. Идентификатор группы выделенных хостов. Чтобы получить идентификатор группы выделенных хостов, используйте запрос [list](/docs/compute/api-ref/HostGroup/list).  Максимальная длина строки в символах — 50.
+hostGroupId | Required. ID of the host group to return. To get the host group ID, use [list](/docs/compute/api-ref/HostGroup/list) request.  The maximum string length in characters is 50.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -40,20 +40,20 @@ hostGroupId | Обязательное поле. Идентификатор гр
   }
 }
 ```
-Описывает группу выделенных хостов.
+Represents group of dedicated hosts
  
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br><p>Идентификатор группы выделенных хостов.</p> 
-folderId | **string**<br><p>Идентификатор каталога, к которому принадлежит группа выделенных хостов.</p> 
-createdAt | **string** (date-time)<br><p>Время создания группы выделенных хостов в текстовом формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-name | **string**<br><p>Имя группы выделенных хостов. Имя должно быть уникальным в каталоге.</p> 
-description | **string**<br><p>Описание группы выделенных хостов.</p> 
-labels | **object**<br><p>Метки ресурса в формате `ключ:значение`.</p> 
-zoneId | **string**<br><p>Зона доступности, в которой размещены все выделенные хосты.</p> 
-status | **string**<br><p>Статус группы выделенных хостов.</p> 
-typeId | **string**<br><p>Идентификатор типа выделенного хоста. Ресурсы, предоставляемые каждым выделенным хостом группы.</p> 
-maintenancePolicy | **string**<br><p>Политика обслуживания.</p> <ul> <li>RESTART: После обслуживания перезапустить ВМ на том же выделенном хосте.</li> <li>MIGRATE: Перенести ВМ на другой выделенный хост перед обслуживанием.</li> </ul> 
-scalePolicy | **object**<br><p>Политика масштабирования. На данный момент поддерживается только фиксированное количество выделенных хостов.</p> 
+id | **string**<br><p>ID of the group.</p> 
+folderId | **string**<br><p>ID of the folder that the group belongs to.</p> 
+createdAt | **string** (date-time)<br><p>Creation timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+name | **string**<br><p>Name of the group. The name is unique within the folder.</p> 
+description | **string**<br><p>Description of the group.</p> 
+labels | **object**<br><p>Resource labels as `key:value` pairs.</p> 
+zoneId | **string**<br><p>Availability zone where all dedicated hosts are allocated.</p> 
+status | **string**<br><p>Status of the group.</p> 
+typeId | **string**<br><p>ID of host type. Resources provided by each host of the group.</p> 
+maintenancePolicy | **string**<br><p>Behaviour on maintenance events.</p> <ul> <li>RESTART: Restart instances on the same host after maintenance event.</li> <li>MIGRATE: Migrate instances to another host before maintenance event.</li> </ul> 
+scalePolicy | **object**<br><p>Scale policy. Only fixed number of hosts are supported at this moment.</p> 
 scalePolicy.<br>fixedScale | **object**<br>
 scalePolicy.<br>fixedScale.<br>size | **string** (int64)<br>

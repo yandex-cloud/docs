@@ -51,7 +51,7 @@ instance_group_id | **string**<br>ID of Compute Instance Group for autoscaling s
 Field | Description
 --- | ---
 resource_preset_id | **string**<br>ID of the resource preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/data-proc/concepts/instance-types). 
-disk_type_id | **string**<br><ul><li>network-hdd — network HDD drive, </li><li>network-ssd — network SSD drive.</li></ul> 
+disk_type_id | **string**<br><ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive.</li></ul> 
 disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
 
 
@@ -113,7 +113,7 @@ instance_group_id | **string**<br>ID of Compute Instance Group for autoscaling s
 Field | Description
 --- | ---
 resource_preset_id | **string**<br>ID of the resource preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/data-proc/concepts/instance-types). 
-disk_type_id | **string**<br><ul><li>network-hdd — network HDD drive, </li><li>network-ssd — network SSD drive.</li></ul> 
+disk_type_id | **string**<br><ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive.</li></ul> 
 disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
 
 
@@ -145,7 +145,7 @@ Metadata and response of Operation:<br>
 Field | Description
 --- | ---
 cluster_id | **string**<br>Required. ID of the Data Proc cluster to create a subcluster in. <br>To get a cluster ID, make a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
-name | **string**<br>Name of the subcluster. The name must be unique within the cluster. The name can’t be changed when the subcluster is created. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+name | **string**<br>Name of the subcluster. The name must be unique within the cluster. The name can't be changed when the subcluster is created. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 role | enum **Role**<br>Required. Role that is fulfilled by hosts of the subcluster. <ul><li>`MASTERNODE`: <ul><li>HDFS: Namenode, Secondary Namenode </li><li>YARN: ResourceManager, Timeline Server </li><li>HBase Master </li><li>Hive: Server, Metastore, HCatalog </li><li>Spark History Server </li><li>Zeppelin </li><li>ZooKeeper</li></ul></li><li>`DATANODE`: <ul><li>HDFS DataNode </li><li>YARN NodeManager </li><li>HBase RegionServer </li><li>Spark libraries</li></ul></li><li>`COMPUTENODE`: <ul><li>YARN NodeManager </li><li>Spark libraries</li></ul></li><ul/>
 resources | **[Resources](#Resources2)**<br>Required. Resources allocated for each host in the subcluster. 
 subnet_id | **string**<br>Required. ID of the VPC subnet used for hosts in the subcluster. The maximum string length in characters is 50.
@@ -158,7 +158,7 @@ autoscaling_config | **[AutoscalingConfig](#AutoscalingConfig2)**<br>Configurati
 Field | Description
 --- | ---
 resource_preset_id | **string**<br>ID of the resource preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/data-proc/concepts/instance-types). 
-disk_type_id | **string**<br><ul><li>network-hdd — network HDD drive, </li><li>network-ssd — network SSD drive.</li></ul> 
+disk_type_id | **string**<br><ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive.</li></ul> 
 disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
 
 
@@ -220,7 +220,7 @@ instance_group_id | **string**<br>ID of Compute Instance Group for autoscaling s
 Field | Description
 --- | ---
 resource_preset_id | **string**<br>ID of the resource preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/data-proc/concepts/instance-types). 
-disk_type_id | **string**<br><ul><li>network-hdd — network HDD drive, </li><li>network-ssd — network SSD drive.</li></ul> 
+disk_type_id | **string**<br><ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive.</li></ul> 
 disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
 
 
@@ -266,7 +266,7 @@ autoscaling_config | **[AutoscalingConfig](#AutoscalingConfig4)**<br>Configurati
 Field | Description
 --- | ---
 resource_preset_id | **string**<br>ID of the resource preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/data-proc/concepts/instance-types). 
-disk_type_id | **string**<br><ul><li>network-hdd — network HDD drive, </li><li>network-ssd — network SSD drive.</li></ul> 
+disk_type_id | **string**<br><ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive.</li></ul> 
 disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
 
 
@@ -328,7 +328,7 @@ instance_group_id | **string**<br>ID of Compute Instance Group for autoscaling s
 Field | Description
 --- | ---
 resource_preset_id | **string**<br>ID of the resource preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/data-proc/concepts/instance-types). 
-disk_type_id | **string**<br><ul><li>network-hdd — network HDD drive, </li><li>network-ssd — network SSD drive.</li></ul> 
+disk_type_id | **string**<br><ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive.</li></ul> 
 disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
 
 

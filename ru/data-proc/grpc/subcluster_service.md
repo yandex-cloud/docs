@@ -4,297 +4,387 @@ editable: false
 
 # SubclusterService
 
-Набор методов для управления подкластерами Data Proc.
+A set of methods for managing Data Proc subclusters.
 
-| Вызов | Описание |
+| Call | Description |
 | --- | --- |
-| [Get](#Get) | Возвращает указанный подкластер. |
-| [List](#List) | Получает список подкластеров для указанного кластера. |
-| [Create](#Create) | Создает новый подкластер в указанном кластере. |
-| [Update](#Update) | Изменяет указанный подкластер. |
-| [Delete](#Delete) | Удаляет указанный подкластер. |
+| [Get](#Get) | Returns the specified subcluster. |
+| [List](#List) | Retrieves a list of subclusters in the specified cluster. |
+| [Create](#Create) | Creates a subcluster in the specified cluster. |
+| [Update](#Update) | Updates the specified subcluster. |
+| [Delete](#Delete) | Deletes the specified subcluster. |
 
-## Вызовы SubclusterService {#calls}
+## Calls SubclusterService {#calls}
 
 ## Get {#Get}
 
-Возвращает указанный подкластер. <br>Чтобы получить список доступных подкластеров Data Proc, выполните запрос [SubclusterService.List](#List).
+Returns the specified subcluster. <br>To get the list of all available subclusters, make a [SubclusterService.List](#List) request.
 
 **rpc Get ([GetSubclusterRequest](#GetSubclusterRequest)) returns ([Subcluster](#Subcluster))**
 
 ### GetSubclusterRequest {#GetSubclusterRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера Data Proc, которому принадлежит подкластер. Максимальная длина строки в символах — 50.
-subcluster_id | **string**<br>Обязательное поле. Идентификатор возвращаемого подкластера. <br>Чтобы получить идентификатор подкластера, используйте запрос [SubclusterService.List](#List). Максимальная длина строки в символах — 50.
+cluster_id | **string**<br>Required. ID of the Data Proc cluster that the subcluster belongs to. The maximum string length in characters is 50.
+subcluster_id | **string**<br>Required. ID of the subcluster to return. <br>To get a subcluster ID make a [SubclusterService.List](#List) request. The maximum string length in characters is 50.
 
 
 ### Subcluster {#Subcluster}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор подкластера. Генерируется во время создания. 
-cluster_id | **string**<br>Идентификатор кластера Data Proc, которому принадлежит подкластер. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания. 
-name | **string**<br>Имя подкластера. Имя должно быть уникальным в кластере. Длина строки в символах должна быть от 1 до 63.
-role | enum **Role**<br>Роль, которую выполняют хосты подкластера. <ul><li>`MASTERNODE`: <ul><li>HDFS: Namenode, Secondary Namenode </li><li>YARN: ResourceManager, Timeline Server </li><li>HBase Master </li><li>Hive: Server, Metastore, HCatalog </li><li>Spark History Server </li><li>Zeppelin </li><li>ZooKeeper</li></ul></li><li>`DATANODE`: <ul><li>HDFS DataNode </li><li>YARN NodeManager </li><li>HBase RegionServer </li><li>библиотеки Spark</li></ul></li><li>`COMPUTENODE`: <ul><li>YARN NodeManager </li><li>библиотеки Spark</li></ul></li><ul/>
-resources | **[Resources](#Resources)**<br>Ресурсы, выделенные для каждого хоста в подкластере. 
-subnet_id | **string**<br>Идентификатор подсети VPC, используемой для хостов подкластера. 
-hosts_count | **int64**<br>Количество хостов в подкластере. 
+id | **string**<br>ID of the subcluster. Generated at creation time. 
+cluster_id | **string**<br>ID of the Data Proc cluster that the subcluster belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+name | **string**<br>Name of the subcluster. The name is unique within the cluster. The string length in characters must be 1-63.
+role | enum **Role**<br>Role that is fulfilled by hosts of the subcluster. <ul><li>`MASTERNODE`: <ul><li>HDFS: Namenode, Secondary Namenode </li><li>YARN: ResourceManager, Timeline Server </li><li>HBase Master </li><li>Hive: Server, Metastore, HCatalog </li><li>Spark History Server </li><li>Zeppelin </li><li>ZooKeeper</li></ul></li><li>`DATANODE`: <ul><li>HDFS DataNode </li><li>YARN NodeManager </li><li>HBase RegionServer </li><li>Spark libraries</li></ul></li><li>`COMPUTENODE`: <ul><li>YARN NodeManager </li><li>Spark libraries</li></ul></li><ul/>
+resources | **[Resources](#Resources)**<br>Resources allocated for each host in the subcluster. 
+subnet_id | **string**<br>ID of the VPC subnet used for hosts in the subcluster. 
+hosts_count | **int64**<br>Number of hosts in the subcluster. 
+autoscaling_config | **[AutoscalingConfig](#AutoscalingConfig)**<br>Configuration for instance group based subclusters 
+instance_group_id | **string**<br>ID of Compute Instance Group for autoscaling subclusters 
 
 
 ### Resources {#Resources}
 
-Поле | Описание
+Field | Description
 --- | ---
-resource_preset_id | **string**<br>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в [документации](/docs/data-proc/concepts/instance-types). 
-disk_type_id | **string**<br><ul><li>network-hdd — сетевой HDD-диск; </li><li>network-ssd — сетевой SSD-диск.</li></ul> 
-disk_size | **int64**<br>Объем хранилища, доступного хосту, в байтах. 
+resource_preset_id | **string**<br>ID of the resource preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/data-proc/concepts/instance-types). 
+disk_type_id | **string**<br><ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive.</li></ul> 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
+
+
+### AutoscalingConfig {#AutoscalingConfig}
+
+Field | Description
+--- | ---
+max_hosts_count | **int64**<br>Upper limit for total instance subcluster count. Acceptable values are 1 to 100, inclusive.
+preemptible | **bool**<br>Preemptible instances are stopped at least once every 24 hours, and can be stopped at any time if their resources are needed by Compute. For more information, see [Preemptible Virtual Machines](/docs/compute/concepts/preemptible-vm). 
+measurement_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Time in seconds allotted for averaging metrics. Acceptable values are 1m to 10m, inclusive.
+warmup_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>The warmup time of the instance in seconds. During this time, traffic is sent to the instance, but instance metrics are not collected. The maximum value is 10m.
+stabilization_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Minimum amount of time in seconds allotted for monitoring before Instance Groups can reduce the number of instances in the group. During this time, the group size doesn't decrease, even if the new metric values indicate that it should. Acceptable values are 1m to 30m, inclusive.
+cpu_utilization_target | **double**<br>Defines an autoscaling rule based on the average CPU utilization of the instance group. Acceptable values are 10 to 100, inclusive.
+decommission_timeout | **int64**<br>Timeout to gracefully decommission nodes during downscaling. In seconds. Default value: 120 Acceptable values are 0 to 86400, inclusive.
 
 
 ## List {#List}
 
-Получает список подкластеров для указанного кластера.
+Retrieves a list of subclusters in the specified cluster.
 
 **rpc List ([ListSubclustersRequest](#ListSubclustersRequest)) returns ([ListSubclustersResponse](#ListSubclustersResponse))**
 
 ### ListSubclustersRequest {#ListSubclustersRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера, для которого нужно получить список подкластеров. Максимальная длина строки в символах — 50.
-page_size | **int64**<br>Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем `page_size`, сервис вернет значение [ListSubclustersResponse.next_page_token](#ListSubclustersResponse), которое можно использовать для получения следующей страницы. Значение по умолчанию: 100. Максимальное значение — 1000.
-page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListSubclustersResponse.next_page_token](#ListSubclustersResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
-filter | **string**<br><ol><li>Имя поля. В настоящее время фильтрация осуществляется только по полю [Subcluster.name](#Subcluster1). </li><li>Оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений. </li><li>Значение. Значение длиной от 3 до 63 символов, совпадающее с регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]`. Пример фильтра: `name=dataproc123_subcluster456`.</li></ol> Максимальная длина строки в символах — 1000.
+cluster_id | **string**<br>Required. ID of the Data Proc cluster to list subclusters in. The maximum string length in characters is 50.
+page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListSubclustersResponse.next_page_token](#ListSubclustersResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
+page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListSubclustersResponse.next_page_token](#ListSubclustersResponse) returned by a previous list request. The maximum string length in characters is 100.
+filter | **string**<br><ol><li>The field name. Currently you can use filtering only on [Subcluster.name](#Subcluster1) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]. </li></ol> The maximum string length in characters is 1000.
 
 
 ### ListSubclustersResponse {#ListSubclustersResponse}
 
-Поле | Описание
+Field | Description
 --- | ---
-subclusters[] | **[Subcluster](#Subcluster1)**<br>Список подкластеров для указанного кластера. 
-next_page_token | **string**<br>Токен для получения следующей страницы списка. Если количество результатов больше чем [ListSubclustersRequest.page_size](#ListSubclustersRequest), используйте `next_page_token` в качестве значения параметра [ListSubclustersRequest.page_token](#ListSubclustersRequest) в следующем запросе списка ресурсов. <br>У каждой последующей страницы будет собственный `next_page_token`, чтобы можно было продолжать просматривать результаты. 
+subclusters[] | **[Subcluster](#Subcluster1)**<br>List of subclusters in the specified cluster. 
+next_page_token | **string**<br>Token for getting the next page of the list. If the number of results is greater than the specified [ListSubclustersRequest.page_size](#ListSubclustersRequest), use `next_page_token` as the value for the [ListSubclustersRequest.page_token](#ListSubclustersRequest) parameter in the next list request. <br>Each subsequent page will have its own `next_page_token` to continue paging through the results. 
 
 
 ### Subcluster {#Subcluster1}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор подкластера. Генерируется во время создания. 
-cluster_id | **string**<br>Идентификатор кластера Data Proc, которому принадлежит подкластер. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания. 
-name | **string**<br>Имя подкластера. Имя должно быть уникальным в кластере. Длина строки в символах должна быть от 1 до 63.
-role | enum **Role**<br>Роль, которую выполняют хосты подкластера. <ul><li>`MASTERNODE`: <ul><li>HDFS: Namenode, Secondary Namenode </li><li>YARN: ResourceManager, Timeline Server </li><li>HBase Master </li><li>Hive: Server, Metastore, HCatalog </li><li>Spark History Server </li><li>Zeppelin </li><li>ZooKeeper</li></ul></li><li>`DATANODE`: <ul><li>HDFS DataNode </li><li>YARN NodeManager </li><li>HBase RegionServer </li><li>библиотеки Spark</li></ul></li><li>`COMPUTENODE`: <ul><li>YARN NodeManager </li><li>библиотеки Spark</li></ul></li><ul/>
-resources | **[Resources](#Resources1)**<br>Ресурсы, выделенные для каждого хоста в подкластере. 
-subnet_id | **string**<br>Идентификатор подсети VPC, используемой для хостов подкластера. 
-hosts_count | **int64**<br>Количество хостов в подкластере. 
+id | **string**<br>ID of the subcluster. Generated at creation time. 
+cluster_id | **string**<br>ID of the Data Proc cluster that the subcluster belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+name | **string**<br>Name of the subcluster. The name is unique within the cluster. The string length in characters must be 1-63.
+role | enum **Role**<br>Role that is fulfilled by hosts of the subcluster. <ul><li>`MASTERNODE`: <ul><li>HDFS: Namenode, Secondary Namenode </li><li>YARN: ResourceManager, Timeline Server </li><li>HBase Master </li><li>Hive: Server, Metastore, HCatalog </li><li>Spark History Server </li><li>Zeppelin </li><li>ZooKeeper</li></ul></li><li>`DATANODE`: <ul><li>HDFS DataNode </li><li>YARN NodeManager </li><li>HBase RegionServer </li><li>Spark libraries</li></ul></li><li>`COMPUTENODE`: <ul><li>YARN NodeManager </li><li>Spark libraries</li></ul></li><ul/>
+resources | **[Resources](#Resources1)**<br>Resources allocated for each host in the subcluster. 
+subnet_id | **string**<br>ID of the VPC subnet used for hosts in the subcluster. 
+hosts_count | **int64**<br>Number of hosts in the subcluster. 
+autoscaling_config | **[AutoscalingConfig](#AutoscalingConfig1)**<br>Configuration for instance group based subclusters 
+instance_group_id | **string**<br>ID of Compute Instance Group for autoscaling subclusters 
 
 
 ### Resources {#Resources1}
 
-Поле | Описание
+Field | Description
 --- | ---
-resource_preset_id | **string**<br>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в [документации](/docs/data-proc/concepts/instance-types). 
-disk_type_id | **string**<br><ul><li>network-hdd — сетевой HDD-диск; </li><li>network-ssd — сетевой SSD-диск.</li></ul> 
-disk_size | **int64**<br>Объем хранилища, доступного хосту, в байтах. 
+resource_preset_id | **string**<br>ID of the resource preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/data-proc/concepts/instance-types). 
+disk_type_id | **string**<br><ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive.</li></ul> 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
+
+
+### AutoscalingConfig {#AutoscalingConfig1}
+
+Field | Description
+--- | ---
+max_hosts_count | **int64**<br>Upper limit for total instance subcluster count. Acceptable values are 1 to 100, inclusive.
+preemptible | **bool**<br>Preemptible instances are stopped at least once every 24 hours, and can be stopped at any time if their resources are needed by Compute. For more information, see [Preemptible Virtual Machines](/docs/compute/concepts/preemptible-vm). 
+measurement_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Time in seconds allotted for averaging metrics. Acceptable values are 1m to 10m, inclusive.
+warmup_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>The warmup time of the instance in seconds. During this time, traffic is sent to the instance, but instance metrics are not collected. The maximum value is 10m.
+stabilization_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Minimum amount of time in seconds allotted for monitoring before Instance Groups can reduce the number of instances in the group. During this time, the group size doesn't decrease, even if the new metric values indicate that it should. Acceptable values are 1m to 30m, inclusive.
+cpu_utilization_target | **double**<br>Defines an autoscaling rule based on the average CPU utilization of the instance group. Acceptable values are 10 to 100, inclusive.
+decommission_timeout | **int64**<br>Timeout to gracefully decommission nodes during downscaling. In seconds. Default value: 120 Acceptable values are 0 to 86400, inclusive.
 
 
 ## Create {#Create}
 
-Создает новый подкластер в указанном кластере.
+Creates a subcluster in the specified cluster.
 
 **rpc Create ([CreateSubclusterRequest](#CreateSubclusterRequest)) returns ([operation.Operation](#Operation))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateSubclusterMetadata](#CreateSubclusterMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Subcluster](#Subcluster2)<br>
 
 ### CreateSubclusterRequest {#CreateSubclusterRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера Data Proc, в котором следует создать подкластер. <br>Чтобы получить идентификатор кластера, выполните запрос [ClusterService.List](./cluster_service#List). Максимальная длина строки в символах — 50.
-name | **string**<br>Имя подкластера. Имя должно быть уникальным в пределах кластера. Имя не может быть изменено после того, как подкластер был создан. Значение должно соответствовать регулярному выражению ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
-role | enum **Role**<br>Обязательное поле. Роль, которую выполняют хосты подкластера. <ul><li>`MASTERNODE`: <ul><li>HDFS: Namenode, Secondary Namenode </li><li>YARN: ResourceManager, Timeline Server </li><li>HBase Master </li><li>Hive: Server, Metastore, HCatalog </li><li>Spark History Server </li><li>Zeppelin </li><li>ZooKeeper</li></ul></li><li>`DATANODE`: <ul><li>HDFS DataNode </li><li>YARN NodeManager </li><li>HBase RegionServer </li><li>библиотеки Spark</li></ul></li><li>`COMPUTENODE`: <ul><li>YARN NodeManager </li><li>библиотеки Spark</li></ul></li><ul/>
-resources | **[Resources](#Resources2)**<br>Обязательное поле. Ресурсы, выделенные для каждого хоста в подкластере. 
-subnet_id | **string**<br>Обязательное поле. Идентификатор подсети VPC, используемой для хостов подкластера. Максимальная длина строки в символах — 50.
-hosts_count | **int64**<br>Обязательное поле. Количество хостов в подкластере. Минимальная значение — 1.
+cluster_id | **string**<br>Required. ID of the Data Proc cluster to create a subcluster in. <br>To get a cluster ID, make a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
+name | **string**<br>Name of the subcluster. The name must be unique within the cluster. The name can't be changed when the subcluster is created. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+role | enum **Role**<br>Required. Role that is fulfilled by hosts of the subcluster. <ul><li>`MASTERNODE`: <ul><li>HDFS: Namenode, Secondary Namenode </li><li>YARN: ResourceManager, Timeline Server </li><li>HBase Master </li><li>Hive: Server, Metastore, HCatalog </li><li>Spark History Server </li><li>Zeppelin </li><li>ZooKeeper</li></ul></li><li>`DATANODE`: <ul><li>HDFS DataNode </li><li>YARN NodeManager </li><li>HBase RegionServer </li><li>Spark libraries</li></ul></li><li>`COMPUTENODE`: <ul><li>YARN NodeManager </li><li>Spark libraries</li></ul></li><ul/>
+resources | **[Resources](#Resources2)**<br>Required. Resources allocated for each host in the subcluster. 
+subnet_id | **string**<br>Required. ID of the VPC subnet used for hosts in the subcluster. The maximum string length in characters is 50.
+hosts_count | **int64**<br>Required. Number of hosts in the subcluster. The minimum value is 1.
+autoscaling_config | **[AutoscalingConfig](#AutoscalingConfig2)**<br>Configuration for instance group based subclusters 
 
 
 ### Resources {#Resources2}
 
-Поле | Описание
+Field | Description
 --- | ---
-resource_preset_id | **string**<br>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в [документации](/docs/data-proc/concepts/instance-types). 
-disk_type_id | **string**<br><ul><li>network-hdd — сетевой HDD-диск; </li><li>network-ssd — сетевой SSD-диск.</li></ul> 
-disk_size | **int64**<br>Объем хранилища, доступного хосту, в байтах. 
+resource_preset_id | **string**<br>ID of the resource preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/data-proc/concepts/instance-types). 
+disk_type_id | **string**<br><ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive.</li></ul> 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
+
+
+### AutoscalingConfig {#AutoscalingConfig2}
+
+Field | Description
+--- | ---
+max_hosts_count | **int64**<br>Upper limit for total instance subcluster count. Acceptable values are 1 to 100, inclusive.
+preemptible | **bool**<br>Preemptible instances are stopped at least once every 24 hours, and can be stopped at any time if their resources are needed by Compute. For more information, see [Preemptible Virtual Machines](/docs/compute/concepts/preemptible-vm). 
+measurement_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Time in seconds allotted for averaging metrics. Acceptable values are 1m to 10m, inclusive.
+warmup_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>The warmup time of the instance in seconds. During this time, traffic is sent to the instance, but instance metrics are not collected. The maximum value is 10m.
+stabilization_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Minimum amount of time in seconds allotted for monitoring before Instance Groups can reduce the number of instances in the group. During this time, the group size doesn't decrease, even if the new metric values indicate that it should. Acceptable values are 1m to 30m, inclusive.
+cpu_utilization_target | **double**<br>Defines an autoscaling rule based on the average CPU utilization of the instance group. Acceptable values are 10 to 100, inclusive.
+decommission_timeout | **int64**<br>Timeout to gracefully decommission nodes during downscaling. In seconds. Default value: 120 Acceptable values are 0 to 86400, inclusive.
 
 
 ### Operation {#Operation}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateSubclusterMetadata](#CreateSubclusterMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Subcluster](#Subcluster2)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateSubclusterMetadata](#CreateSubclusterMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Subcluster](#Subcluster2)>**<br>if operation finished successfully. 
 
 
 ### CreateSubclusterMetadata {#CreateSubclusterMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Идентификатор кластера, в который добавляется подкластер. Максимальная длина строки в символах — 50.
-subcluster_id | **string**<br>Идентификатор создаваемого подкластера. Максимальная длина строки в символах — 50.
+cluster_id | **string**<br>ID of the cluster that the subcluster is being added to. The maximum string length in characters is 50.
+subcluster_id | **string**<br>ID of the subcluster that is being created. The maximum string length in characters is 50.
 
 
 ### Subcluster {#Subcluster2}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор подкластера. Генерируется во время создания. 
-cluster_id | **string**<br>Идентификатор кластера Data Proc, которому принадлежит подкластер. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания. 
-name | **string**<br>Имя подкластера. Имя должно быть уникальным в кластере. Длина строки в символах должна быть от 1 до 63.
-role | enum **Role**<br>Роль, которую выполняют хосты подкластера. <ul><li>`MASTERNODE`: <ul><li>HDFS: Namenode, Secondary Namenode </li><li>YARN: ResourceManager, Timeline Server </li><li>HBase Master </li><li>Hive: Server, Metastore, HCatalog </li><li>Spark History Server </li><li>Zeppelin </li><li>ZooKeeper</li></ul></li><li>`DATANODE`: <ul><li>HDFS DataNode </li><li>YARN NodeManager </li><li>HBase RegionServer </li><li>библиотеки Spark</li></ul></li><li>`COMPUTENODE`: <ul><li>YARN NodeManager </li><li>библиотеки Spark</li></ul></li><ul/>
-resources | **[Resources](#Resources3)**<br>Ресурсы, выделенные для каждого хоста в подкластере. 
-subnet_id | **string**<br>Идентификатор подсети VPC, используемой для хостов подкластера. 
-hosts_count | **int64**<br>Количество хостов в подкластере. 
+id | **string**<br>ID of the subcluster. Generated at creation time. 
+cluster_id | **string**<br>ID of the Data Proc cluster that the subcluster belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+name | **string**<br>Name of the subcluster. The name is unique within the cluster. The string length in characters must be 1-63.
+role | enum **Role**<br>Role that is fulfilled by hosts of the subcluster. <ul><li>`MASTERNODE`: <ul><li>HDFS: Namenode, Secondary Namenode </li><li>YARN: ResourceManager, Timeline Server </li><li>HBase Master </li><li>Hive: Server, Metastore, HCatalog </li><li>Spark History Server </li><li>Zeppelin </li><li>ZooKeeper</li></ul></li><li>`DATANODE`: <ul><li>HDFS DataNode </li><li>YARN NodeManager </li><li>HBase RegionServer </li><li>Spark libraries</li></ul></li><li>`COMPUTENODE`: <ul><li>YARN NodeManager </li><li>Spark libraries</li></ul></li><ul/>
+resources | **[Resources](#Resources3)**<br>Resources allocated for each host in the subcluster. 
+subnet_id | **string**<br>ID of the VPC subnet used for hosts in the subcluster. 
+hosts_count | **int64**<br>Number of hosts in the subcluster. 
+autoscaling_config | **[AutoscalingConfig](#AutoscalingConfig3)**<br>Configuration for instance group based subclusters 
+instance_group_id | **string**<br>ID of Compute Instance Group for autoscaling subclusters 
 
 
 ### Resources {#Resources3}
 
-Поле | Описание
+Field | Description
 --- | ---
-resource_preset_id | **string**<br>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в [документации](/docs/data-proc/concepts/instance-types). 
-disk_type_id | **string**<br><ul><li>network-hdd — сетевой HDD-диск; </li><li>network-ssd — сетевой SSD-диск.</li></ul> 
-disk_size | **int64**<br>Объем хранилища, доступного хосту, в байтах. 
+resource_preset_id | **string**<br>ID of the resource preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/data-proc/concepts/instance-types). 
+disk_type_id | **string**<br><ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive.</li></ul> 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
+
+
+### AutoscalingConfig {#AutoscalingConfig3}
+
+Field | Description
+--- | ---
+max_hosts_count | **int64**<br>Upper limit for total instance subcluster count. Acceptable values are 1 to 100, inclusive.
+preemptible | **bool**<br>Preemptible instances are stopped at least once every 24 hours, and can be stopped at any time if their resources are needed by Compute. For more information, see [Preemptible Virtual Machines](/docs/compute/concepts/preemptible-vm). 
+measurement_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Time in seconds allotted for averaging metrics. Acceptable values are 1m to 10m, inclusive.
+warmup_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>The warmup time of the instance in seconds. During this time, traffic is sent to the instance, but instance metrics are not collected. The maximum value is 10m.
+stabilization_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Minimum amount of time in seconds allotted for monitoring before Instance Groups can reduce the number of instances in the group. During this time, the group size doesn't decrease, even if the new metric values indicate that it should. Acceptable values are 1m to 30m, inclusive.
+cpu_utilization_target | **double**<br>Defines an autoscaling rule based on the average CPU utilization of the instance group. Acceptable values are 10 to 100, inclusive.
+decommission_timeout | **int64**<br>Timeout to gracefully decommission nodes during downscaling. In seconds. Default value: 120 Acceptable values are 0 to 86400, inclusive.
 
 
 ## Update {#Update}
 
-Изменяет указанный подкластер.
+Updates the specified subcluster.
 
 **rpc Update ([UpdateSubclusterRequest](#UpdateSubclusterRequest)) returns ([operation.Operation](#Operation1))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateSubclusterMetadata](#UpdateSubclusterMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Subcluster](#Subcluster3)<br>
 
 ### UpdateSubclusterRequest {#UpdateSubclusterRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера, в котором следует изменить подкластер. <br>Чтобы получить идентификатор кластера, выполните запрос [ClusterService.List](./cluster_service#List). Максимальная длина строки в символах — 50.
-subcluster_id | **string**<br>Обязательное поле. Идентификатор подкластера, который следует изменить. <br>Чтобы получить идентификатор подкластера, используйте запрос [SubclusterService.List](#List). Максимальная длина строки в символах — 50.
-update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Маска, которая указывает, какие атрибуты подкластера должны быть изменены. 
-resources | **[Resources](#Resources4)**<br>Новая конфигурация ресурсов, которые должны быть выделены для каждого хоста в подкластере. 
-name | **string**<br>Новое имя подкластера. Имя должно быть уникальным в пределах кластера. Значение должно соответствовать регулярному выражению ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
-hosts_count | **int64**<br>Обязательное поле. Новое количество хостов в подкластере. Минимальная значение — 1.
+cluster_id | **string**<br>Required. ID of the cluster to update a subcluster in. <br>To get a cluster ID, make a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
+subcluster_id | **string**<br>Required. ID of the subcluster to update. <br>To get a subcluster ID, make a [SubclusterService.List](#List) request. The maximum string length in characters is 50.
+update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which attributes of the subcluster should be updated. 
+resources | **[Resources](#Resources4)**<br>New configuration of resources that should be allocated for each host in the subcluster. 
+name | **string**<br>New name for the subcluster. The name must be unique within the cluster. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+hosts_count | **int64**<br>Required. New number of hosts in the subcluster. The minimum value is 1.
+decommission_timeout | **int64**<br>Timeout to gracefully decommission nodes. In seconds. Default value: 0 Acceptable values are 0 to 86400, inclusive.
+autoscaling_config | **[AutoscalingConfig](#AutoscalingConfig4)**<br>Configuration for instance group based subclusters 
 
 
 ### Resources {#Resources4}
 
-Поле | Описание
+Field | Description
 --- | ---
-resource_preset_id | **string**<br>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в [документации](/docs/data-proc/concepts/instance-types). 
-disk_type_id | **string**<br><ul><li>network-hdd — сетевой HDD-диск; </li><li>network-ssd — сетевой SSD-диск.</li></ul> 
-disk_size | **int64**<br>Объем хранилища, доступного хосту, в байтах. 
+resource_preset_id | **string**<br>ID of the resource preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/data-proc/concepts/instance-types). 
+disk_type_id | **string**<br><ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive.</li></ul> 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
+
+
+### AutoscalingConfig {#AutoscalingConfig4}
+
+Field | Description
+--- | ---
+max_hosts_count | **int64**<br>Upper limit for total instance subcluster count. Acceptable values are 1 to 100, inclusive.
+preemptible | **bool**<br>Preemptible instances are stopped at least once every 24 hours, and can be stopped at any time if their resources are needed by Compute. For more information, see [Preemptible Virtual Machines](/docs/compute/concepts/preemptible-vm). 
+measurement_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Time in seconds allotted for averaging metrics. Acceptable values are 1m to 10m, inclusive.
+warmup_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>The warmup time of the instance in seconds. During this time, traffic is sent to the instance, but instance metrics are not collected. The maximum value is 10m.
+stabilization_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Minimum amount of time in seconds allotted for monitoring before Instance Groups can reduce the number of instances in the group. During this time, the group size doesn't decrease, even if the new metric values indicate that it should. Acceptable values are 1m to 30m, inclusive.
+cpu_utilization_target | **double**<br>Defines an autoscaling rule based on the average CPU utilization of the instance group. Acceptable values are 10 to 100, inclusive.
+decommission_timeout | **int64**<br>Timeout to gracefully decommission nodes during downscaling. In seconds. Default value: 120 Acceptable values are 0 to 86400, inclusive.
 
 
 ### Operation {#Operation1}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateSubclusterMetadata](#UpdateSubclusterMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Subcluster](#Subcluster3)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateSubclusterMetadata](#UpdateSubclusterMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Subcluster](#Subcluster3)>**<br>if operation finished successfully. 
 
 
 ### UpdateSubclusterMetadata {#UpdateSubclusterMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Идентификатор кластера, которому принадлежит изменяемый подкластер. Максимальная длина строки в символах — 50.
-subcluster_id | **string**<br>Идентификатор изменяемого подкластера. Максимальная длина строки в символах — 50.
+cluster_id | **string**<br>ID of the cluster whose subcluster is being updated. The maximum string length in characters is 50.
+subcluster_id | **string**<br>ID of the subcluster that is being updated. The maximum string length in characters is 50.
 
 
 ### Subcluster {#Subcluster3}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор подкластера. Генерируется во время создания. 
-cluster_id | **string**<br>Идентификатор кластера Data Proc, которому принадлежит подкластер. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания. 
-name | **string**<br>Имя подкластера. Имя должно быть уникальным в кластере. Длина строки в символах должна быть от 1 до 63.
-role | enum **Role**<br>Роль, которую выполняют хосты подкластера. <ul><li>`MASTERNODE`: <ul><li>HDFS: Namenode, Secondary Namenode </li><li>YARN: ResourceManager, Timeline Server </li><li>HBase Master </li><li>Hive: Server, Metastore, HCatalog </li><li>Spark History Server </li><li>Zeppelin </li><li>ZooKeeper</li></ul></li><li>`DATANODE`: <ul><li>HDFS DataNode </li><li>YARN NodeManager </li><li>HBase RegionServer </li><li>библиотеки Spark</li></ul></li><li>`COMPUTENODE`: <ul><li>YARN NodeManager </li><li>библиотеки Spark</li></ul></li><ul/>
-resources | **[Resources](#Resources5)**<br>Ресурсы, выделенные для каждого хоста в подкластере. 
-subnet_id | **string**<br>Идентификатор подсети VPC, используемой для хостов подкластера. 
-hosts_count | **int64**<br>Количество хостов в подкластере. 
+id | **string**<br>ID of the subcluster. Generated at creation time. 
+cluster_id | **string**<br>ID of the Data Proc cluster that the subcluster belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+name | **string**<br>Name of the subcluster. The name is unique within the cluster. The string length in characters must be 1-63.
+role | enum **Role**<br>Role that is fulfilled by hosts of the subcluster. <ul><li>`MASTERNODE`: <ul><li>HDFS: Namenode, Secondary Namenode </li><li>YARN: ResourceManager, Timeline Server </li><li>HBase Master </li><li>Hive: Server, Metastore, HCatalog </li><li>Spark History Server </li><li>Zeppelin </li><li>ZooKeeper</li></ul></li><li>`DATANODE`: <ul><li>HDFS DataNode </li><li>YARN NodeManager </li><li>HBase RegionServer </li><li>Spark libraries</li></ul></li><li>`COMPUTENODE`: <ul><li>YARN NodeManager </li><li>Spark libraries</li></ul></li><ul/>
+resources | **[Resources](#Resources5)**<br>Resources allocated for each host in the subcluster. 
+subnet_id | **string**<br>ID of the VPC subnet used for hosts in the subcluster. 
+hosts_count | **int64**<br>Number of hosts in the subcluster. 
+autoscaling_config | **[AutoscalingConfig](#AutoscalingConfig5)**<br>Configuration for instance group based subclusters 
+instance_group_id | **string**<br>ID of Compute Instance Group for autoscaling subclusters 
 
 
 ### Resources {#Resources5}
 
-Поле | Описание
+Field | Description
 --- | ---
-resource_preset_id | **string**<br>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в [документации](/docs/data-proc/concepts/instance-types). 
-disk_type_id | **string**<br><ul><li>network-hdd — сетевой HDD-диск; </li><li>network-ssd — сетевой SSD-диск.</li></ul> 
-disk_size | **int64**<br>Объем хранилища, доступного хосту, в байтах. 
+resource_preset_id | **string**<br>ID of the resource preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/data-proc/concepts/instance-types). 
+disk_type_id | **string**<br><ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive.</li></ul> 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
+
+
+### AutoscalingConfig {#AutoscalingConfig5}
+
+Field | Description
+--- | ---
+max_hosts_count | **int64**<br>Upper limit for total instance subcluster count. Acceptable values are 1 to 100, inclusive.
+preemptible | **bool**<br>Preemptible instances are stopped at least once every 24 hours, and can be stopped at any time if their resources are needed by Compute. For more information, see [Preemptible Virtual Machines](/docs/compute/concepts/preemptible-vm). 
+measurement_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Time in seconds allotted for averaging metrics. Acceptable values are 1m to 10m, inclusive.
+warmup_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>The warmup time of the instance in seconds. During this time, traffic is sent to the instance, but instance metrics are not collected. The maximum value is 10m.
+stabilization_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Minimum amount of time in seconds allotted for monitoring before Instance Groups can reduce the number of instances in the group. During this time, the group size doesn't decrease, even if the new metric values indicate that it should. Acceptable values are 1m to 30m, inclusive.
+cpu_utilization_target | **double**<br>Defines an autoscaling rule based on the average CPU utilization of the instance group. Acceptable values are 10 to 100, inclusive.
+decommission_timeout | **int64**<br>Timeout to gracefully decommission nodes during downscaling. In seconds. Default value: 120 Acceptable values are 0 to 86400, inclusive.
 
 
 ## Delete {#Delete}
 
-Удаляет указанный подкластер.
+Deletes the specified subcluster.
 
 **rpc Delete ([DeleteSubclusterRequest](#DeleteSubclusterRequest)) returns ([operation.Operation](#Operation2))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[DeleteSubclusterMetadata](#DeleteSubclusterMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
 
 ### DeleteSubclusterRequest {#DeleteSubclusterRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера, из которого следует удалить подкластер. <br>Чтобы получить идентификатор кластера, выполните запрос [ClusterService.List](./cluster_service#List). Максимальная длина строки в символах — 50.
-subcluster_id | **string**<br>Обязательное поле. Идентификатор подкластера, который следует удалить. Максимальная длина строки в символах — 50.
+cluster_id | **string**<br>Required. ID of the cluster to remove a subcluster from. <br>To get a cluster ID, make a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
+subcluster_id | **string**<br>Required. ID of the subcluster to delete. The maximum string length in characters is 50.
+decommission_timeout | **int64**<br>Timeout to gracefully decommission nodes. In seconds. Default value: 0 Acceptable values are 0 to 86400, inclusive.
 
 
 ### Operation {#Operation2}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteSubclusterMetadata](#DeleteSubclusterMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteSubclusterMetadata](#DeleteSubclusterMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>if operation finished successfully. 
 
 
 ### DeleteSubclusterMetadata {#DeleteSubclusterMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Идентификатор кластера, которому принадлежит удаляемый подкластер. Максимальная длина строки в символах — 50.
-subcluster_id | **string**<br>Идентификатор удаляемого подкластера. Максимальная длина строки в символах — 50.
+cluster_id | **string**<br>ID of the cluster whose subcluster is being deleted. The maximum string length in characters is 50.
+subcluster_id | **string**<br>ID of the subcluster that is being deleted. The maximum string length in characters is 50.
 
 

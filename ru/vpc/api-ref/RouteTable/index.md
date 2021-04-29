@@ -3,8 +3,8 @@ editable: false
 ---
 
 # RouteTable
-Набор методов для управления таблицами маршрутизации.
-## JSON-представление {#representation}
+A set of methods for managing RouteTable resources.
+## JSON Representation {#representation}
 ```json 
 {
   "id": "string",
@@ -16,6 +16,7 @@ editable: false
   "networkId": "string",
   "staticRoutes": [
     {
+      "labels": "object",
       "destinationPrefix": "string",
       "nextHopAddress": "string"
     }
@@ -23,25 +24,27 @@ editable: false
 }
 ```
  
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br><p>Идентификатор таблицы маршрутизации.</p> 
-folderId | **string**<br><p>Идентификатор каталога, к которому принадлежит таблица маршрутизации.</p> 
-createdAt | **string** (date-time)<br><p>Время создания в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> .</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-name | **string**<br><p>Имя таблицы маршрутизации. Имя должно быть уникальным в каталоге. Длина имени должна быть от 3 до 63 символов.</p> 
-description | **string**<br><p>Описание таблицы маршрутизации. Длина описания должна быть от 0 до 256 символов.</p> 
-labels | **object**<br><p>Метки ресурса в формате `` ключ:значение ``. Максимум 64 метки на ресурс.</p> 
-networkId | **string**<br><p>Идентификатор облачной сети, к которой принадлежит таблица маршрутизации.</p> 
-staticRoutes[] | **object**<br><p>Статический маршрут. Дополнительные сведения см. в разделе <a href="/docs/vpc/concepts/static-routes">Статическая маршрутизация</a>.</p> 
-staticRoutes[].<br>destinationPrefix | **string**<br><p>Подсеть назначения в нотации CIDR.</p> 
-staticRoutes[].<br>nextHopAddress | **string**<br><p>IP-адрес next hop.</p> 
+id | **string**<br><p>ID of the route table.</p> 
+folderId | **string**<br><p>ID of the folder that the route table belongs to.</p> 
+createdAt | **string** (date-time)<br><p>Creation timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+name | **string**<br><p>Name of the route table. The name is unique within the project. 3-63 characters long.</p> 
+description | **string**<br><p>Optional description of the route table. 0-256 characters long.</p> 
+labels | **object**<br><p>Resource labels as `` key:value `` pairs. Maximum of 64 per resource.</p> 
+networkId | **string**<br><p>ID of the network the route table belongs to.</p> 
+staticRoutes[] | **object**<br><p>A StaticRoute resource. For more information, see <a href="/docs/vpc/concepts/static-routes">Static Routes</a>.</p> 
+staticRoutes[].<br>labels | **object**<br><p>Resource labels as `` key:value `` pairs. Maximum of 64 per resource.</p> 
+staticRoutes[].<br>destinationPrefix | **string**<br><p>Destination subnet in CIDR notation</p> 
+staticRoutes[].<br>nextHopAddress | **string**<br><p>Next hop IP address</p> 
 
-## Методы {#methods}
-Метод | Описание
+## Methods {#methods}
+Method | Description
 --- | ---
-[create](create.md) | Создает таблицу маршрутизации в указанных каталоге и сети. Метод запускает асинхронную операцию, которую можно отменить перед тем, как она завершится.
-[delete](delete.md) | Удаляет указанную таблицу маршрутизации.
-[get](get.md) | Возвращает указанную таблицу маршрутизации.
-[list](list.md) | Возвращает список доступных таблиц маршрутизации в указанном каталоге.
-[listOperations](listOperations.md) | Возвращает список операций для указанной таблицы маршрутизации.
-[update](update.md) | Обновляет указанную таблицу маршрутизации. Метод запускает асинхронную операцию, которую можно отменить перед тем, как она завершится.
+[create](create.md) | Creates a route table in the specified folder and network. Method starts an asynchronous operation that can be cancelled while it is in progress.
+[delete](delete.md) | Deletes the specified route table.
+[get](get.md) | Returns the specified RouteTable resource.
+[list](list.md) | Retrieves the list of RouteTable resources in the specified folder.
+[listOperations](listOperations.md) | List operations for the specified route table.
+[move](move.md) | Move route table to another folder.
+[update](update.md) | Updates the specified route table. Method starts an asynchronous operation that can be cancelled while it is in progress.

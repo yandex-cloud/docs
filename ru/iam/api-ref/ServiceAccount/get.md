@@ -2,23 +2,23 @@
 editable: false
 ---
 
-# Метод get
-Возвращает указанный ресурс ServiceAccount.
+# Method get
+Returns the specified ServiceAccount resource.
  
-Чтобы получить список доступных ресурсов ServiceAccount, используйте запрос [list](/docs/iam/api-ref/ServiceAccount/list).
+To get the list of available ServiceAccount resources, make a [list](/docs/iam/api-ref/ServiceAccount/list) request.
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 GET https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts/{serviceAccountId}
 ```
  
-## Path-параметры {#path_params}
+## Path parameters {#path_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-serviceAccountId | Обязательное поле. Идентификатор возвращаемого ресурса ServiceAccount. Чтобы получить идентификатор сервисного аккаунта, используйте запрос [list](/docs/iam/api-ref/ServiceAccount/list).  Максимальная длина строки в символах — 50.
+serviceAccountId | Required. ID of the ServiceAccount resource to return. To get the service account ID, use a [list](/docs/iam/api-ref/ServiceAccount/list) request.  The maximum string length in characters is 50.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -30,12 +30,12 @@ serviceAccountId | Обязательное поле. Идентификатор
   "description": "string"
 }
 ```
-Ресурс ServiceAccount. Дополнительные сведения см. в разделе [Сервисные аккаунты](/docs/iam/concepts/users/service-accounts).
+A ServiceAccount resource. For more information, see [Service accounts](/docs/iam/concepts/users/service-accounts).
  
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br><p>Идентификатор сервисного аккаунта.</p> 
-folderId | **string**<br><p>Идентификатор каталога, которому принадлежит сервисный аккаунт.</p> 
-createdAt | **string** (date-time)<br><p>Время создания.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-name | **string**<br><p>Имя сервисного аккаунта. Имя должно быть уникальным в облаке. Длина 3-63 символов.</p> 
-description | **string**<br><p>Описание сервисного аккаунта. Длина описания должна быть от 0 до 256 символов.</p> 
+id | **string**<br><p>ID of the service account.</p> 
+folderId | **string**<br><p>ID of the folder that the service account belongs to.</p> 
+createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+name | **string**<br><p>Name of the service account. The name is unique within the cloud. 3-63 characters long.</p> 
+description | **string**<br><p>Description of the service account. 0-256 characters long.</p> 

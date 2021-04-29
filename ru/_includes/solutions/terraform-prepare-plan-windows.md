@@ -11,83 +11,83 @@
 
     ```hcl
     terraform {
-    required_providers {
+      required_providers {
         yandex = {
-        source = "yandex-cloud/yandex"
+          source = "yandex-cloud/yandex"
         }
-    }
+      }
     }
     
     provider "yandex" {
-    cloud_id  = var.cloud_id
-    folder_id = var.folder_id
-    zone      = var.zone
-    token     = var.token
+      cloud_id  = var.cloud_id
+      folder_id = var.folder_id
+      zone      = var.zone
+      token     = var.token
     }
     
     resource "yandex_vpc_network" "default" {
-    name = var.network
+      name = var.network
     }
     
     resource "yandex_vpc_subnet" "default" {
-    network_id     = yandex_vpc_network.default.id
-    name           = var.subnet
-    v4_cidr_blocks = var.subnet_v4_cidr_blocks
-    zone           = var.zone
+      network_id     = yandex_vpc_network.default.id
+      name           = var.subnet
+      v4_cidr_blocks = var.subnet_v4_cidr_blocks
+      zone           = var.zone
     }
     
     data "yandex_compute_image" "default" {
-    family = var.image_family
+      family = var.image_family
     }
     
     data "template_file" "default" {
-    template = file("${path.module}/init.ps1")
-    vars = {
+      template = file("${path.module}/init.ps1")
+      vars = {
         user_name  = var.user_name
         user_pass  = var.user_pass
         admin_pass = var.admin_pass
-    }
+      }
     }
     
     resource "yandex_compute_instance" "default" {
-    name     = var.name
-    hostname = var.name
-    zone     = var.zone
+      name     = var.name
+      hostname = var.name
+      zone     = var.zone
     
-    resources {
+      resources {
         cores  = var.cores
         memory = var.memory
-    }
+      }
     
-    boot_disk {
+      boot_disk {
         initialize_params {
-        image_id = data.yandex_compute_image.default.id
-        size     = var.disk_size
-        type     = var.disk_type
+          image_id = data.yandex_compute_image.default.id
+          size     = var.disk_size
+          type     = var.disk_type
         }
-    }
+      }
     
-    network_interface {
+      network_interface {
         subnet_id = yandex_vpc_subnet.default.id
         nat       = var.nat
-    }
+      }
     
-    metadata = {
+      metadata = {
         user-data = data.template_file.default.rendered
-    }
+      }
     
-    timeouts {
+      timeouts {
         create = var.timeout_create
         delete = var.timeout_delete
-    }
+      }
     }
     
     output "name" {
-    value = yandex_compute_instance.default.name
+      value = yandex_compute_instance.default.name
     }
     
     output "address" {
-    value = yandex_compute_instance.default.network_interface.0.nat_ip_address
+      value = yandex_compute_instance.default.network_interface.0.nat_ip_address
     }
     ```
 
@@ -100,98 +100,98 @@
 
     ```hcl
     variable "cloud_id" {
-    type    = string
+      type    = string
     }
     
     variable "folder_id" {
-    type    = string
+      type    = string
     }
     
     variable "zone" {
-    type    = string
-    default = "ru-central1-a"
+      type    = string
+      default = "ru-central1-a"
     }
     
     variable "token" {
-    type    = string
+      type    = string
     }
     
     variable "network" {
-    type    = string
-    default = "ya-network"
+      type    = string
+      default = "ya-network"
     }
     
     variable "subnet" {
-    type    = string
-    default = "ya-network"
+      type    = string
+      default = "ya-network"
     }
     
     variable "subnet_v4_cidr_blocks" {
-    type    = list(string)
-    default = ["192.168.10.0/16"]
+      type    = list(string)
+      default = ["192.168.10.0/16"]
     }
     
     variable "nat" {
-    type    = bool
-    default = true
+      type    = bool
+      default = true
     }
     
     variable "image_family" {
-    type    = string
-    default = "windows-2019-dc-gvlk"
+      type    = string
+      default = "windows-2019-dc-gvlk"
     }
     
     variable "name" {
-    type    = string
+      type    = string
     }
     
     variable "cores" {
-    type    = number
-    default = 2
+      type    = number
+      default = 2
     }
     
     variable "memory" {
-    type    = number
-    default = 4
+      type    = number
+      default = 4
     }
     
     variable "disk_size" {
-    type    = number
-    default = 50
+      type    = number
+      default = 50
     }
     
     variable "disk_type" {
-    type    = string
-    default = "network-nvme"
+      type    = string
+      default = "network-nvme"
     }
     
     variable "user_name" {
-    default = ""
-    type    = string
+      default = ""
+      type    = string
     }
     
     variable "user_pass" {
-    default = ""
-    type    = string
+      default = ""
+      type    = string
     }
     
     variable "admin_pass" {
-    default = ""
-    type    = string
+      default = ""
+      type    = string
     }
     
     variable "timeout_create" {
-    default = "10m"
+      default = "10m"
     }
     
     variable "timeout_delete" {
-    default = "10m"
+      default = "10m"
     }
     ```
 
     {% endcut %}
 
-1. `terraform.tfvars` — файл, гдя хранятся значения переменных для создаваемых внутри ВМ учётных записей и токены доступа.
+1. `terraform.tfvars` — файл, где хранятся значения переменных для создаваемых внутри ВМ учетных записей и токены доступа.
 
     {% cut "Файл terraform.tfvars " %}
 

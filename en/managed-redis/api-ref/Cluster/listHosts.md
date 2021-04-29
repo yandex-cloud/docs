@@ -38,7 +38,8 @@ pageToken | Page token.  To get the next page of results, set [pageToken](/docs/
       "subnetId": "string",
       "resources": {
         "resourcePresetId": "string",
-        "diskSize": "string"
+        "diskSize": "string",
+        "diskTypeId": "string"
       },
       "role": "string",
       "health": "string",
@@ -66,6 +67,7 @@ hosts[].<br>subnetId | **string**<br><p>ID of the subnet that the host belongs t
 hosts[].<br>resources | **object**<br><p>Resources allocated to the Redis host.</p> 
 hosts[].<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-redis/concepts/instance-types">documentation</a>.</p> 
 hosts[].<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
+hosts[].<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host. Possible values:</p> <ul> <li>network-ssd - network SSD drive,</li> <li>local-ssd - local SSD storage.</li> </ul> 
 hosts[].<br>role | **string**<br><p>Role of the host in the cluster.</p> <ul> <li>ROLE_UNKNOWN: Role of the host in the cluster is unknown.</li> <li>MASTER: Host is the master Redis server in the cluster.</li> <li>REPLICA: Host is a replica (standby) Redis server in the cluster.</li> </ul> 
 hosts[].<br>health | **string**<br><p>Status code of the aggregated health of the host.</p> <ul> <li>HEALTH_UNKNOWN: Health of the host is unknown.</li> <li>ALIVE: The host is performing all its functions normally.</li> <li>DEAD: The host is inoperable, and cannot perform any of its essential functions.</li> <li>DEGRADED: The host is degraded, and can perform only some of its essential functions.</li> </ul> 
 hosts[].<br>services[] | **object**<br><p>Services provided by the host.</p> 

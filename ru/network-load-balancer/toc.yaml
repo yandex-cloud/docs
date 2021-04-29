@@ -55,13 +55,13 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
-  - name: Справочник API
+  - name: Справочник API (англ.)
     items:
-      - name: Аутентификация в API
+      - name: Authentication
         href: api-ref/authentication.md
       - name: gRPC
         items:
-          - name: Обзор
+          - name: Overview
             href: grpc/index.md
           - name: NetworkLoadBalancerService
             href: grpc/network_load_balancer_service.md
@@ -71,11 +71,11 @@ items:
             href: grpc/operation_service.md
       - name: REST
         items:
-          - name: Обзор
+          - name: Overview
             href: api-ref/index.md
           - name: NetworkLoadBalancer
             items:
-              - name: Обзор
+              - name: Overview
                 href: api-ref/NetworkLoadBalancer/index.md
               - name: addListener
                 href: api-ref/NetworkLoadBalancer/addListener.md
@@ -105,7 +105,7 @@ items:
                 href: api-ref/NetworkLoadBalancer/update.md
           - name: TargetGroup
             items:
-              - name: Обзор
+              - name: Overview
                 href: api-ref/TargetGroup/index.md
               - name: addTargets
                 href: api-ref/TargetGroup/addTargets.md
@@ -125,7 +125,7 @@ items:
                 href: api-ref/TargetGroup/update.md
           - name: Operation
             items:
-              - name: Обзор
+              - name: Overview
                 href: api-ref/Operation/index.md
               - name: get
                 href: api-ref/Operation/get.md

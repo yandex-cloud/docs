@@ -3,8 +3,8 @@ editable: false
 ---
 
 # Payload
-Набор методов доступа к содержимому секретов.
-## JSON-представление {#representation}
+Set of methods to access payload of secrets.
+## JSON Representation {#representation}
 ```json 
 {
   "versionId": "string",
@@ -12,25 +12,25 @@ editable: false
     {
       "key": "string",
 
-      // `entries[]` включает только одно из полей `textValue`, `binaryValue`
+      // `entries[]` includes only one of the fields `textValue`, `binaryValue`
       "textValue": "string",
       "binaryValue": "string",
-      // конец списка возможных полей`entries[]`
+      // end of the list of possible fields`entries[]`
 
     }
   ]
 }
 ```
  
-Поле | Описание
+Field | Description
 --- | ---
-versionId | **string**<br><p>Идентификатор версии, которой принадлежит содержимое.</p> 
-entries[] | **object**<br><p>Записи содержимого версии.</p> 
-entries[].<br>key | **string**<br><p>Неконфиденциальный ключ содержимого версии.</p> 
-entries[].<br>textValue | **string** <br>`entries[]` включает только одно из полей `textValue`, `binaryValue`<br><br><p>Текстовое значение.</p> 
-entries[].<br>binaryValue | **string** (byte) <br>`entries[]` включает только одно из полей `textValue`, `binaryValue`<br><br><p>Двоичное значение.</p> 
+versionId | **string**<br><p>ID of the version that the payload belongs to.</p> 
+entries[] | **object**<br><p>Payload entries.</p> 
+entries[].<br>key | **string**<br><p>Non-confidential key of the entry.</p> 
+entries[].<br>textValue | **string** <br>`entries[]` includes only one of the fields `textValue`, `binaryValue`<br><br><p>Text value.</p> 
+entries[].<br>binaryValue | **string** (byte) <br>`entries[]` includes only one of the fields `textValue`, `binaryValue`<br><br><p>Binary value.</p> 
 
-## Методы {#methods}
-Метод | Описание
+## Methods {#methods}
+Method | Description
 --- | ---
-[get](get.md) | Возвращает содержимое указанного секрета.
+[get](get.md) | Returns the payload of the specified secret.

@@ -2,23 +2,23 @@
 editable: false
 ---
 
-# Метод get
-Возвращает цепочку сертификатов доверия и закрытый ключ указанного сертификата.
+# Method get
+Returns chain and private key of the specified certificate.
  
 
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 GET https://data.certificate-manager.api.cloud.yandex.net/certificate-manager/v1/certificates/{certificateId}:getContent
 ```
  
-## Path-параметры {#path_params}
+## Path parameters {#path_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-certificateId | Идентификатор сертификата для загрузки контента.
+certificateId | ID of the certificate to download content.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -32,8 +32,8 @@ certificateId | Идентификатор сертификата для заг�
 ```
 
  
-Поле | Описание
+Field | Description
 --- | ---
-certificateId | **string**<br><p>Идентификатор сертификата.</p> 
-certificateChain[] | **string**<br><p>Содержимое цепочки сертификатов доверия сертификата в PEM-encoded формате.</p> 
-privateKey | **string**<br><p>Содержимое закрытого ключа сертификата в PEM-encoded формате.</p> 
+certificateId | **string**<br><p>ID of the certificate.</p> 
+certificateChain[] | **string**<br><p>PEM-encoded certificate chain content of the certificate.</p> 
+privateKey | **string**<br><p>PEM-encoded private key content of the certificate.</p> 

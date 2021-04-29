@@ -14,7 +14,7 @@ A set of methods for managing federations.
 | [Update](#Update) | Updates the specified federation. |
 | [Delete](#Delete) | Deletes the specified federation. |
 | [AddUserAccounts](#AddUserAccounts) | Adds users to the specified federation. |
-| [ListUserAccounts](#ListUserAccounts) |  |
+| [ListUserAccounts](#ListUserAccounts) | Lists users for the specified federation. |
 | [ListOperations](#ListOperations) | Lists operations for the specified federation. |
 
 ## Calls FederationService {#calls}
@@ -395,7 +395,7 @@ value[] | **string**<br>
 
 ## ListUserAccounts {#ListUserAccounts}
 
-
+Lists users for the specified federation.
 
 **rpc ListUserAccounts ([ListFederatedUserAccountsRequest](#ListFederatedUserAccountsRequest)) returns ([ListFederatedUserAccountsResponse](#ListFederatedUserAccountsResponse))**
 

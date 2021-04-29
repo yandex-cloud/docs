@@ -1,10 +1,10 @@
 # Yandex Resource Management API
-Методы справочника API сгруппированы по ресурсам. Чтобы выполнить операцию над ресурсом выполните RPC-вызов. Подробнее об архитектуре API Яндекс.Облака, см. [Концепции API Яндекс.Облака](/docs/api-design-guide/).
+This API reference is organized by resource. Actions are performed by sending HTTP requests to resource URLs or making RPC calls. For more information about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
 
-Спецификации API Яндекс.Облака смотрите на [GitHub](https://github.com/yandex-cloud/cloudapi).
+See the interface definitions of Yandex.Cloud API on [GitHub](https://github.com/yandex-cloud/cloudapi).
 
-Сервис | Описание
+Service | Description
 --- | ---
-[CloudService](./cloud_service.md) | Набор методов для управления ресурсом Cloud.
-[FolderService](./folder_service.md) | Набор методов для управления ресурсом Folder.
-[OperationService](./operation_service.md) | Набор методов для управления операциями в асинхронных запросах API. Ссылки указаны относительно домена `operation.api.cloud.yandex.net`.
+[CloudService](./cloud_service.md) | A set of methods for managing Cloud resources.
+[FolderService](./folder_service.md) | A set of methods for managing Folder resources.
+[OperationService](./operation_service.md) | A set of methods for managing operations for asynchronous API requests.

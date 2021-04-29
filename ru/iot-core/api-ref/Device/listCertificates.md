@@ -2,23 +2,23 @@
 editable: false
 ---
 
-# Метод listCertificates
-Возвращает список сертификатов для указанного устройства.
+# Method listCertificates
+Retrieves the list of device certificates for the specified device.
  
 
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 GET https://iot-devices.api.cloud.yandex.net/iot-devices/v1/devices/{deviceId}/certificates
 ```
  
-## Path-параметры {#path_params}
+## Path parameters {#path_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-deviceId | Обязательное поле. Идентификатор устройства для получения списка сертификатов.  Максимальная длина строки в символах — 50.
+deviceId | Required. ID of the device to list certificates for.  The maximum string length in characters is 50.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -35,10 +35,10 @@ deviceId | Обязательное поле. Идентификатор уст�
 ```
 
  
-Поле | Описание
+Field | Description
 --- | ---
-certificates[] | **object**<br><p>Сертификат устройства. Дополнительные сведения см. в разделе <a href="/docs/iot-core/operations/certificates/device-certificates">Управление сертификатами устройства</a>.</p> 
-certificates[].<br>deviceId | **string**<br><p>Идентификатор устройства, которому принадлежит сертификат.</p> 
-certificates[].<br>fingerprint | **string**<br><p>SHA256-хэш сертификата.</p> 
-certificates[].<br>certificateData | **string**<br><p>Публичная часть сертификата устройства.</p> 
-certificates[].<br>createdAt | **string** (date-time)<br><p>Время создания.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
+certificates[] | **object**<br><p>A device certificate. For more information, see <a href="/docs/iot-core/operations/certificates/device-certificates">Managing device certificates</a>.</p> 
+certificates[].<br>deviceId | **string**<br><p>ID of the device that the certificate belongs to.</p> 
+certificates[].<br>fingerprint | **string**<br><p>SHA256 hash of the certificate.</p> 
+certificates[].<br>certificateData | **string**<br><p>Public part of the certificate.</p> 
+certificates[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 

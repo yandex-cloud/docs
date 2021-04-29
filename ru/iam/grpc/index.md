@@ -1,18 +1,18 @@
 # Yandex IAM API
-Методы справочника API сгруппированы по ресурсам. Чтобы выполнить операцию над ресурсом выполните RPC-вызов. Подробнее об архитектуре API Яндекс.Облака, см. [Концепции API Яндекс.Облака](/docs/api-design-guide/).
+This API reference is organized by resource. Actions are performed by sending HTTP requests to resource URLs or making RPC calls. For more information about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
 
-Спецификации API Яндекс.Облака смотрите на [GitHub](https://github.com/yandex-cloud/cloudapi).
+See the interface definitions of Yandex.Cloud API on [GitHub](https://github.com/yandex-cloud/cloudapi).
 
-Сервис | Описание
+Service | Description
 --- | ---
-[ApiKeyService](./api_key_service.md) | Набор методов управления API-ключами.
-[IamTokenService](./iam_token_service.md) | Набор методов для управления IAM-токенами.
-[KeyService](./key_service.md) | Набор методов для управления ресурсами Key.
-[RoleService](./role_service.md) | Набор методов для управления ресурсами Role.
-[ServiceAccountService](./service_account_service.md) | Набор методов для управления ресурсами ServiceAccount.
-[UserAccountService](./user_account_service.md) | Набор методов управления пользовательскими аккаунтами. Сейчас используется только для [аккаунтов Яндекс.Паспорта](/docs/iam/concepts/#passport).
-[YandexPassportUserAccountService](./yandex_passport_user_account_service.md) | Набор методов для управления ресурсами YandexPassportUserAccount.
-[AccessKeyService](./access_key_service.md) | Набор методов управления ключами доступа.
-[CertificateService](./certificate_service.md) | Набор методов для управления сертификатами.
-[FederationService](./federation_service.md) | Набор методов для управления федерациями.
-[OperationService](./operation_service.md) | Набор методов для управления операциями в асинхронных запросах API. Ссылки указаны относительно домена `operation.api.cloud.yandex.net`.
+[ApiKeyService](./api_key_service.md) | A set of methods for managing API keys.
+[IamTokenService](./iam_token_service.md) | A set of methods for managing IAM tokens.
+[KeyService](./key_service.md) | A set of methods for managing Key resources.
+[RoleService](./role_service.md) | A set of methods for managing Role resources.
+[ServiceAccountService](./service_account_service.md) | A set of methods for managing ServiceAccount resources.
+[UserAccountService](./user_account_service.md) | A set of methods for managing user accounts. Currently applicable only for [Yandex.Passport accounts](/docs/iam/concepts/#passport).
+[YandexPassportUserAccountService](./yandex_passport_user_account_service.md) | A set of methods for managing YandexPassportUserAccount resources.
+[AccessKeyService](./access_key_service.md) | A set of methods for managing access keys.
+[CertificateService](./certificate_service.md) | A set of methods for managing certificates.
+[FederationService](./federation_service.md) | A set of methods for managing federations.
+[OperationService](./operation_service.md) | A set of methods for managing operations for asynchronous API requests.
