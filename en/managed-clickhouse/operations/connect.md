@@ -1,12 +1,10 @@
 # Connecting to a database in a {{ CH }} cluster
 
-{% if audience != "internal" %}
+You can connect to {{ mch-short-name }} cluster hosts:
 
-In {{ yandex-cloud }}, you can only connect to a DB cluster from a VM that is in the same subnet as the cluster.
+{% include [cluster-connect-note](../../_includes/mdb/cluster-connect-note.md) %}
 
-{% endif %}
-
-A {{ CH }} cluster can be accessed using the [command-line client](https://clickhouse.yandex/docs/en/interfaces/cli/) (port 9440) or [HTTP interface](https://clickhouse.yandex/docs/en/interfaces/http_interface/) (port 8443). All connections to DB clusters are encrypted.
+Using encryption via ports `9440` for [clickhouse-client](https://clickhouse.tech/docs/ru/interfaces/cli/) and `8443` for the [HTTP interface](https://clickhouse.tech/docs/ru/interfaces/http/) or without encryption via ports `9000` and `8123`, respectively.
 
 ## Getting an SSL certificate {#get-ssl-cert}
 
@@ -33,9 +31,11 @@ chmod 0655 /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt
 
 {% include [conn-strings-environment](../../_includes/mdb/mdb-conn-strings-env.md) %}
 
-You can only connect to a {{ CH }} cluster using an SSL certificate. Before connecting to clusters, [prepare a certificate](#get-ssl-cert).
+You can connect to public {{ CH }} cluster hosts only if you use an SSL certificate. Before connecting, [prepare a certificate](#get-ssl-cert).
 
 In the examples below, it is assumed that the `YandexInternalRootCA.crt` certificate is located in the `/usr/local/share/ca-certificates/Yandex/` directory.
+
+Connecting without an SSL certificate is only supported for hosts that are not publicly accessible. For connections to the database, traffic inside the virtual network isn't encrypted in this case.
 
 {% include [see-fqdn-in-console](../../_includes/mdb/see-fqdn-in-console.md) %}
 
