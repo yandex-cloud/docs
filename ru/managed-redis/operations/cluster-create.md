@@ -114,6 +114,21 @@
        Пример структуры конфигурационного файла:
 
        ```hcl
+       terraform {
+         required_providers {
+           yandex = {
+             source = "yandex-cloud/yandex"
+           }
+         }
+       }
+
+       provider "yandex" {
+         token     = "<OAuth или статический ключ сервисного аккаунта>"
+         cloud_id  = "<идентификатор облака>"
+         folder_id = "<идентификатор каталога>"
+         zone      = "<зона доступности>"
+       }
+
        resource "yandex_mdb_redis_cluster" "<имя кластера>" {
          name               = "<имя кластера>"
          environment        = "<окружение>"
@@ -208,10 +223,10 @@
   ```
 
 - Terraform
-  
+
   Допустим, нужно создать {{ RD }}-кластер и сеть для него со следующими характеристиками:
     - С именем `myredis`.
-    - В окружении `production`.
+    - В окружении `PRODUCTION`.
     - В облаке с идентификатором `{{ tf-cloud-id }}`.
     - В каталоге с идентификатором `{{ tf-folder-id }}`.
     - В новой сети `mynet`.
@@ -219,10 +234,18 @@
     - В новой группе безопасности `redis-sg`, разрешающей подключения через порт `{{ port-mrd }}` с любых адресов подсети `mysubnet`.
     - С быстрым сетевым хранилищем (`{{ disk-type-example }}`) объемом 16 ГБ.
     - C паролем `user1user1`.
-    
+
   Конфигурационный файл для такого кластера выглядит так:
-  
-  ```hcl
+
+  ```go
+  terraform {
+    required_providers {
+      yandex = {
+        source = "yandex-cloud/yandex"
+      }
+    }
+  }
+
   provider "yandex" {
     token     = "<OAuth или статический ключ сервисного аккаунта>"
     cloud_id  = "{{ tf-cloud-id }}"
