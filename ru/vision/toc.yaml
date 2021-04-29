@@ -54,7 +54,7 @@ items:
     href: pricing.md
   - name: Справочник API
     items:
-      - name: Authentication
+      - name: Аутентификация в API
         href: api-ref/authentication.md
       - name: gRPC
         items: null
