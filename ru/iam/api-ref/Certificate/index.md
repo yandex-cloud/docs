@@ -3,8 +3,8 @@ editable: false
 ---
 
 # Certificate
-Набор методов для управления сертификатами.
-## JSON-представление {#representation}
+A set of methods for managing certificates.
+## JSON Representation {#representation}
 ```json 
 {
   "id": "string",
@@ -16,21 +16,21 @@ editable: false
 }
 ```
  
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br><p>Обязательное поле. Идентификатор сертификата.</p> <p>Максимальная длина строки в символах — 50.</p> 
-federationId | **string**<br><p>Обязательное поле. Идентификатор федерации, которой принадлежит сертификат.</p> <p>Максимальная длина строки в символах — 50.</p> 
-name | **string**<br><p>Имя сертификата.</p> <p>Значение должно соответствовать регулярному выражению `` \|[a-z][-a-z0-9]{1,61}[a-z0-9] ``.</p> 
-description | **string**<br><p>Описание сертификата. Длина описания должна быть от 0 до 256 символов.</p> <p>Максимальная длина строки в символах — 256.</p> 
-createdAt | **string** (date-time)<br><p>Время создания.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-data | **string**<br><p>Обязательное поле. Данные сертификата в формате PEM.</p> <p>Максимальная длина строки в символах — 32000.</p> 
+id | **string**<br><p>Required. ID of the certificate.</p> <p>The maximum string length in characters is 50.</p> 
+federationId | **string**<br><p>Required. ID of the federation that the certificate belongs to.</p> <p>The maximum string length in characters is 50.</p> 
+name | **string**<br><p>Name of the certificate.</p> <p>Value must match the regular expression `` \|[a-z][-a-z0-9]{1,61}[a-z0-9] ``.</p> 
+description | **string**<br><p>Description of the certificate.</p> <p>The maximum string length in characters is 256.</p> 
+createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+data | **string**<br><p>Required. Certificate data in PEM format.</p> <p>The maximum string length in characters is 32000.</p> 
 
-## Методы {#methods}
-Метод | Описание
+## Methods {#methods}
+Method | Description
 --- | ---
-[create](create.md) | Добавляет сертификат для указанной федерации.
-[delete](delete.md) | Удаляет указанный сертификат.
-[get](get.md) | Возвращает указанный сертификат.
-[list](list.md) | Возвращает список сертификатов для указанной федерации.
-[listOperations](listOperations.md) | Перечисляет операции для указанного сертификата.
-[update](update.md) | Обновляет указанный сертификат.
+[create](create.md) | Creates a certificate in the specified federation.
+[delete](delete.md) | Deletes the specified certificate.
+[get](get.md) | Returns the specified certificate.
+[list](list.md) | Retrieves the list of certificates in the specified federation.
+[listOperations](listOperations.md) | Lists operations for the specified certificate.
+[update](update.md) | Updates the specified certificate.

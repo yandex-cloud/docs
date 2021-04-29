@@ -49,13 +49,13 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
-  - name: Справочник API
+  - name: Справочник API (англ.)
     items:
-      - name: Аутентификация в API
+      - name: Authentication
         href: api-ref/authentication.md
       - name: gRPC
         items:
-          - name: Обзор
+          - name: Overview
             href: grpc/index.md
           - name: BackupService
             href: grpc/backup_service.md
@@ -63,8 +63,6 @@ items:
             href: grpc/cluster_service.md
           - name: DatabaseService
             href: grpc/database_service.md
-          - name: OperationService
-            href: grpc/operation_service.md
           - name: ResourcePresetService
             href: grpc/resource_preset_service.md
           - name: UserService
@@ -73,11 +71,11 @@ items:
             href: grpc/operation_service.md
       - name: REST
         items:
-          - name: Обзор
+          - name: Overview
             href: api-ref/index.md
           - name: Backup
             items:
-              - name: Обзор
+              - name: Overview
                 href: api-ref/Backup/index.md
               - name: get
                 href: api-ref/Backup/get.md
@@ -85,7 +83,7 @@ items:
                 href: api-ref/Backup/list.md
           - name: Cluster
             items:
-              - name: Обзор
+              - name: Overview
                 href: api-ref/Cluster/index.md
               - name: backup
                 href: api-ref/Cluster/backup.md
@@ -117,7 +115,7 @@ items:
                 href: api-ref/Cluster/update.md
           - name: Database
             items:
-              - name: Обзор
+              - name: Overview
                 href: api-ref/Database/index.md
               - name: create
                 href: api-ref/Database/create.md
@@ -127,15 +125,9 @@ items:
                 href: api-ref/Database/get.md
               - name: list
                 href: api-ref/Database/list.md
-          - name: Operation
-            items:
-              - name: Обзор
-                href: api-ref/Operation/index.md
-              - name: get
-                href: api-ref/Operation/get.md
           - name: ResourcePreset
             items:
-              - name: Обзор
+              - name: Overview
                 href: api-ref/ResourcePreset/index.md
               - name: get
                 href: api-ref/ResourcePreset/get.md
@@ -143,7 +135,7 @@ items:
                 href: api-ref/ResourcePreset/list.md
           - name: User
             items:
-              - name: Обзор
+              - name: Overview
                 href: api-ref/User/index.md
               - name: create
                 href: api-ref/User/create.md
@@ -159,6 +151,12 @@ items:
                 href: api-ref/User/revokePermission.md
               - name: update
                 href: api-ref/User/update.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/Operation/index.md
+              - name: get
+                href: api-ref/Operation/get.md
   - name: Вопросы и ответы
     items:
       - name: Общие вопросы

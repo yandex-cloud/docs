@@ -2,23 +2,23 @@
 editable: false
 ---
 
-# Метод get
-Возвращает сведения об указанной зоне доступности.
+# Method get
+Returns the information about the specified availability zone.
  
-Чтобы получить список зон доступности, выполните запрос [list](/docs/compute/api-ref/Zone/list).
+To get the list of availability zones, make a [list](/docs/compute/api-ref/Zone/list) request.
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 GET https://compute.api.cloud.yandex.net/compute/v1/zones/{zoneId}
 ```
  
-## Path-параметры {#path_params}
+## Path parameters {#path_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-zoneId | Обязательное поле. Идентификатор зоны доступности для получения сведений.  Максимальная длина строки в символах — 50.
+zoneId | Required. ID of the availability zone to return information about.  The maximum string length in characters is 50.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -28,10 +28,10 @@ zoneId | Обязательное поле. Идентификатор зоны 
   "status": "string"
 }
 ```
-Зона доступности. Дополнительные сведения см. в разделе [Зоны доступности](/docs/overview/concepts/geo-scope).
+Availability zone. For more information, see [Availability zones](/docs/overview/concepts/geo-scope).
  
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br><p>Идентификатор зоны.</p> 
-regionId | **string**<br><p>Идентификатор региона.</p> 
-status | **string**<br><p>Статус зоны доступности.</p> <ul> <li>UP: Зона доступна. Вы можете обращаться к ресурсам в этой зоне.</li> <li>DOWN: Зона недоступна.</li> </ul> 
+id | **string**<br><p>ID of the zone.</p> 
+regionId | **string**<br><p>ID of the region.</p> 
+status | **string**<br><p>Status of the zone.</p> <ul> <li>UP: Zone is available. You can access the resources allocated in this zone.</li> <li>DOWN: Zone is not available.</li> </ul> 

@@ -3,9 +3,9 @@ editable: false
 ---
 
 # Yandex KMS API
-Методы справочника API сгруппированы по ресурсам. Чтобы выполнить операцию над ресурсом, отправьте HTTP-запрос к соответствующему URL. Подробнее об архитектуре API Яндекс.Облака, см. [Концепции API Яндекс.Облака](/docs/api-design-guide/).
+This API reference is organized by resource. Actions are performed by sending HTTP requests to resource URLs or making RPC calls. For more information about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
 
-Ресурс | Описание
+Resource | Description
 --- | ---
-[SymmetricCrypto](SymmetricCrypto/index.md) | Набор методов, выполняющих симметричное шифрование и дешифрование.
-[SymmetricKey](SymmetricKey/index.md) | Набор методов для управления симметричными ключами KMS.
+[SymmetricCrypto](SymmetricCrypto/index.md) | Set of methods that perform symmetric encryption and decryption.
+[SymmetricKey](SymmetricKey/index.md) | Set of methods for managing symmetric KMS keys.

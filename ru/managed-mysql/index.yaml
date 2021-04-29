@@ -26,7 +26,7 @@ links:
   - title: Концепции
     description: Узнайте про концепции и общее устройство сервиса
     href: concepts/
-  - title: Справочник API
+  - title: Справочник API (англ.)
     description: Описание методов HTTP API
     href: api-ref/
   - title: Квоты и лимиты

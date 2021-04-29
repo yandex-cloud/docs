@@ -3,9 +3,9 @@ editable: false
 ---
 
 # CertificateContent
-Набор методов для управления содержимым сертификата.
+A set of methods for managing certificate content.
 
-## Методы {#methods}
-Метод | Описание
+## Methods {#methods}
+Method | Description
 --- | ---
-[get](get.md) | Возвращает цепочку сертификатов доверия и закрытый ключ указанного сертификата.
+[get](get.md) | Returns chain and private key of the specified certificate.

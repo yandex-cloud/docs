@@ -76,6 +76,7 @@ sqlserver_config | **oneof:** `sqlserver_config_2016sp2std` or `sqlserver_config
 &nbsp;&nbsp;sqlserver_config_2016sp2ent | **[config.SQLServerConfigSet2016sp2ent](#SQLServerConfigSet2016sp2ent)**<br>Configuration of the SQL Server 2016sp2 enterprise edition instance. 
 resources | **[Resources](#Resources)**<br>Resources allocated to SQL Server hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Start time for the daily backup in UTC timezone 
+access | **[Access](#Access)**<br>Access policy to DB 
 
 
 ### Resources {#Resources}
@@ -84,7 +85,14 @@ Field | Description
 --- | ---
 resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-sqlserver/concepts/instance-types). 
 disk_size | **int64**<br>Volume of the storage available to a host. 
-disk_type_id | **string**<br><ul><li>network-hdd — network HDD drive, </li><li>network-ssd — network SSD drive, </li><li>local-ssd — local SSD storage.</li></ul> 
+disk_type_id | **string**<br><ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
+
+
+### Access {#Access}
+
+Field | Description
+--- | ---
+data_lens | **bool**<br>Allow access for DataLens 
 
 
 ## List {#List}
@@ -149,6 +157,7 @@ sqlserver_config | **oneof:** `sqlserver_config_2016sp2std` or `sqlserver_config
 &nbsp;&nbsp;sqlserver_config_2016sp2ent | **[config.SQLServerConfigSet2016sp2ent](#SQLServerConfigSet2016sp2ent)**<br>Configuration of the SQL Server 2016sp2 enterprise edition instance. 
 resources | **[Resources](#Resources1)**<br>Resources allocated to SQL Server hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Start time for the daily backup in UTC timezone 
+access | **[Access](#Access1)**<br>Access policy to DB 
 
 
 ### Resources {#Resources1}
@@ -157,7 +166,14 @@ Field | Description
 --- | ---
 resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-sqlserver/concepts/instance-types). 
 disk_size | **int64**<br>Volume of the storage available to a host. 
-disk_type_id | **string**<br><ul><li>network-hdd — network HDD drive, </li><li>network-ssd — network SSD drive, </li><li>local-ssd — local SSD storage.</li></ul> 
+disk_type_id | **string**<br><ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
+
+
+### Access {#Access1}
+
+Field | Description
+--- | ---
+data_lens | **bool**<br>Allow access for DataLens 
 
 
 ## Create {#Create}
@@ -197,6 +213,7 @@ sqlserver_config | **oneof:** `sqlserver_config_2016sp2std` or `sqlserver_config
 &nbsp;&nbsp;sqlserver_config_2016sp2ent | **[config.SQLServerConfig2016sp2ent](#SQLServerConfig2016sp2ent)**<br>Configuration for an SQL Server 2016 SP2 Enterprise edition cluster. 
 resources | **[Resources](#Resources2)**<br>Resources allocated to SQL Server hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Start time for the daily backup in UTC timezone 
+access | **[Access](#Access2)**<br>Access policy to DB 
 
 
 ### Resources {#Resources2}
@@ -205,7 +222,14 @@ Field | Description
 --- | ---
 resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-sqlserver/concepts/instance-types). 
 disk_size | **int64**<br>Volume of the storage available to a host. 
-disk_type_id | **string**<br><ul><li>network-hdd — network HDD drive, </li><li>network-ssd — network SSD drive, </li><li>local-ssd — local SSD storage.</li></ul> 
+disk_type_id | **string**<br><ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
+
+
+### Access {#Access2}
+
+Field | Description
+--- | ---
+data_lens | **bool**<br>Allow access for DataLens 
 
 
 ### DatabaseSpec {#DatabaseSpec}
@@ -238,7 +262,7 @@ Field | Description
 --- | ---
 zone_id | **string**<br>ID of the availability zone where the host resides. <br>To get the list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/grpc/zone_service#List) request. The maximum string length in characters is 50.
 subnet_id | **string**<br>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The ID of the network is set in the field [Cluster.network_id](#Cluster2). The maximum string length in characters is 50.
-assign_public_ip | **bool**<br><ul><li>false — don't assign a public IP to the host. </li><li>true — the host should have a public IP address.</li></ul> 
+assign_public_ip | **bool**<br><ul><li>false - don't assign a public IP to the host. </li><li>true - the host should have a public IP address.</li></ul> 
 
 
 ### Operation {#Operation}
@@ -302,6 +326,7 @@ sqlserver_config | **oneof:** `sqlserver_config_2016sp2std` or `sqlserver_config
 &nbsp;&nbsp;sqlserver_config_2016sp2ent | **[config.SQLServerConfigSet2016sp2ent](#SQLServerConfigSet2016sp2ent)**<br>Configuration of the SQL Server 2016sp2 enterprise edition instance. 
 resources | **[Resources](#Resources3)**<br>Resources allocated to SQL Server hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Start time for the daily backup in UTC timezone 
+access | **[Access](#Access3)**<br>Access policy to DB 
 
 
 ### Resources {#Resources3}
@@ -310,7 +335,14 @@ Field | Description
 --- | ---
 resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-sqlserver/concepts/instance-types). 
 disk_size | **int64**<br>Volume of the storage available to a host. 
-disk_type_id | **string**<br><ul><li>network-hdd — network HDD drive, </li><li>network-ssd — network SSD drive, </li><li>local-ssd — local SSD storage.</li></ul> 
+disk_type_id | **string**<br><ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
+
+
+### Access {#Access3}
+
+Field | Description
+--- | ---
+data_lens | **bool**<br>Allow access for DataLens 
 
 
 ## Update {#Update}
@@ -346,6 +378,7 @@ sqlserver_config | **oneof:** `sqlserver_config_2016sp2std` or `sqlserver_config
 &nbsp;&nbsp;sqlserver_config_2016sp2ent | **[config.SQLServerConfig2016sp2ent](#SQLServerConfig2016sp2ent)**<br>Configuration for an SQL Server 2016 SP2 Enterprise edition cluster. 
 resources | **[Resources](#Resources4)**<br>Resources allocated to SQL Server hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Start time for the daily backup in UTC timezone 
+access | **[Access](#Access4)**<br>Access policy to DB 
 
 
 ### Resources {#Resources4}
@@ -354,7 +387,14 @@ Field | Description
 --- | ---
 resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-sqlserver/concepts/instance-types). 
 disk_size | **int64**<br>Volume of the storage available to a host. 
-disk_type_id | **string**<br><ul><li>network-hdd — network HDD drive, </li><li>network-ssd — network SSD drive, </li><li>local-ssd — local SSD storage.</li></ul> 
+disk_type_id | **string**<br><ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
+
+
+### Access {#Access4}
+
+Field | Description
+--- | ---
+data_lens | **bool**<br>Allow access for DataLens 
 
 
 ### Operation {#Operation1}
@@ -418,6 +458,7 @@ sqlserver_config | **oneof:** `sqlserver_config_2016sp2std` or `sqlserver_config
 &nbsp;&nbsp;sqlserver_config_2016sp2ent | **[config.SQLServerConfigSet2016sp2ent](#SQLServerConfigSet2016sp2ent)**<br>Configuration of the SQL Server 2016sp2 enterprise edition instance. 
 resources | **[Resources](#Resources5)**<br>Resources allocated to SQL Server hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Start time for the daily backup in UTC timezone 
+access | **[Access](#Access5)**<br>Access policy to DB 
 
 
 ### Resources {#Resources5}
@@ -426,7 +467,14 @@ Field | Description
 --- | ---
 resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-sqlserver/concepts/instance-types). 
 disk_size | **int64**<br>Volume of the storage available to a host. 
-disk_type_id | **string**<br><ul><li>network-hdd — network HDD drive, </li><li>network-ssd — network SSD drive, </li><li>local-ssd — local SSD storage.</li></ul> 
+disk_type_id | **string**<br><ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
+
+
+### Access {#Access5}
+
+Field | Description
+--- | ---
+data_lens | **bool**<br>Allow access for DataLens 
 
 
 ## Delete {#Delete}
@@ -547,6 +595,7 @@ sqlserver_config | **oneof:** `sqlserver_config_2016sp2std` or `sqlserver_config
 &nbsp;&nbsp;sqlserver_config_2016sp2ent | **[config.SQLServerConfigSet2016sp2ent](#SQLServerConfigSet2016sp2ent)**<br>Configuration of the SQL Server 2016sp2 enterprise edition instance. 
 resources | **[Resources](#Resources6)**<br>Resources allocated to SQL Server hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Start time for the daily backup in UTC timezone 
+access | **[Access](#Access6)**<br>Access policy to DB 
 
 
 ### Resources {#Resources6}
@@ -555,7 +604,14 @@ Field | Description
 --- | ---
 resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-sqlserver/concepts/instance-types). 
 disk_size | **int64**<br>Volume of the storage available to a host. 
-disk_type_id | **string**<br><ul><li>network-hdd — network HDD drive, </li><li>network-ssd — network SSD drive, </li><li>local-ssd — local SSD storage.</li></ul> 
+disk_type_id | **string**<br><ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
+
+
+### Access {#Access6}
+
+Field | Description
+--- | ---
+data_lens | **bool**<br>Allow access for DataLens 
 
 
 ## Stop {#Stop}
@@ -636,6 +692,7 @@ sqlserver_config | **oneof:** `sqlserver_config_2016sp2std` or `sqlserver_config
 &nbsp;&nbsp;sqlserver_config_2016sp2ent | **[config.SQLServerConfigSet2016sp2ent](#SQLServerConfigSet2016sp2ent)**<br>Configuration of the SQL Server 2016sp2 enterprise edition instance. 
 resources | **[Resources](#Resources7)**<br>Resources allocated to SQL Server hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Start time for the daily backup in UTC timezone 
+access | **[Access](#Access7)**<br>Access policy to DB 
 
 
 ### Resources {#Resources7}
@@ -644,7 +701,14 @@ Field | Description
 --- | ---
 resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-sqlserver/concepts/instance-types). 
 disk_size | **int64**<br>Volume of the storage available to a host. 
-disk_type_id | **string**<br><ul><li>network-hdd — network HDD drive, </li><li>network-ssd — network SSD drive, </li><li>local-ssd — local SSD storage.</li></ul> 
+disk_type_id | **string**<br><ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
+
+
+### Access {#Access7}
+
+Field | Description
+--- | ---
+data_lens | **bool**<br>Allow access for DataLens 
 
 
 ## Move {#Move}
@@ -728,6 +792,7 @@ sqlserver_config | **oneof:** `sqlserver_config_2016sp2std` or `sqlserver_config
 &nbsp;&nbsp;sqlserver_config_2016sp2ent | **[config.SQLServerConfigSet2016sp2ent](#SQLServerConfigSet2016sp2ent)**<br>Configuration of the SQL Server 2016sp2 enterprise edition instance. 
 resources | **[Resources](#Resources8)**<br>Resources allocated to SQL Server hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Start time for the daily backup in UTC timezone 
+access | **[Access](#Access8)**<br>Access policy to DB 
 
 
 ### Resources {#Resources8}
@@ -736,7 +801,14 @@ Field | Description
 --- | ---
 resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-sqlserver/concepts/instance-types). 
 disk_size | **int64**<br>Volume of the storage available to a host. 
-disk_type_id | **string**<br><ul><li>network-hdd — network HDD drive, </li><li>network-ssd — network SSD drive, </li><li>local-ssd — local SSD storage.</li></ul> 
+disk_type_id | **string**<br><ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
+
+
+### Access {#Access8}
+
+Field | Description
+--- | ---
+data_lens | **bool**<br>Allow access for DataLens 
 
 
 ## Backup {#Backup}
@@ -817,6 +889,7 @@ sqlserver_config | **oneof:** `sqlserver_config_2016sp2std` or `sqlserver_config
 &nbsp;&nbsp;sqlserver_config_2016sp2ent | **[config.SQLServerConfigSet2016sp2ent](#SQLServerConfigSet2016sp2ent)**<br>Configuration of the SQL Server 2016sp2 enterprise edition instance. 
 resources | **[Resources](#Resources9)**<br>Resources allocated to SQL Server hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Start time for the daily backup in UTC timezone 
+access | **[Access](#Access9)**<br>Access policy to DB 
 
 
 ### Resources {#Resources9}
@@ -825,7 +898,14 @@ Field | Description
 --- | ---
 resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-sqlserver/concepts/instance-types). 
 disk_size | **int64**<br>Volume of the storage available to a host. 
-disk_type_id | **string**<br><ul><li>network-hdd — network HDD drive, </li><li>network-ssd — network SSD drive, </li><li>local-ssd — local SSD storage.</li></ul> 
+disk_type_id | **string**<br><ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
+
+
+### Access {#Access9}
+
+Field | Description
+--- | ---
+data_lens | **bool**<br>Allow access for DataLens 
 
 
 ## Restore {#Restore}
@@ -865,6 +945,7 @@ sqlserver_config | **oneof:** `sqlserver_config_2016sp2std` or `sqlserver_config
 &nbsp;&nbsp;sqlserver_config_2016sp2ent | **[config.SQLServerConfig2016sp2ent](#SQLServerConfig2016sp2ent)**<br>Configuration for an SQL Server 2016 SP2 Enterprise edition cluster. 
 resources | **[Resources](#Resources10)**<br>Resources allocated to SQL Server hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Start time for the daily backup in UTC timezone 
+access | **[Access](#Access10)**<br>Access policy to DB 
 
 
 ### Resources {#Resources10}
@@ -873,7 +954,14 @@ Field | Description
 --- | ---
 resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-sqlserver/concepts/instance-types). 
 disk_size | **int64**<br>Volume of the storage available to a host. 
-disk_type_id | **string**<br><ul><li>network-hdd — network HDD drive, </li><li>network-ssd — network SSD drive, </li><li>local-ssd — local SSD storage.</li></ul> 
+disk_type_id | **string**<br><ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
+
+
+### Access {#Access10}
+
+Field | Description
+--- | ---
+data_lens | **bool**<br>Allow access for DataLens 
 
 
 ### HostSpec {#HostSpec1}
@@ -882,7 +970,7 @@ Field | Description
 --- | ---
 zone_id | **string**<br>ID of the availability zone where the host resides. <br>To get the list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/grpc/zone_service#List) request. The maximum string length in characters is 50.
 subnet_id | **string**<br>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The ID of the network is set in the field [Cluster.network_id](#Cluster8). The maximum string length in characters is 50.
-assign_public_ip | **bool**<br><ul><li>false — don't assign a public IP to the host. </li><li>true — the host should have a public IP address.</li></ul> 
+assign_public_ip | **bool**<br><ul><li>false - don't assign a public IP to the host. </li><li>true - the host should have a public IP address.</li></ul> 
 
 
 ### Operation {#Operation7}
@@ -947,6 +1035,7 @@ sqlserver_config | **oneof:** `sqlserver_config_2016sp2std` or `sqlserver_config
 &nbsp;&nbsp;sqlserver_config_2016sp2ent | **[config.SQLServerConfigSet2016sp2ent](#SQLServerConfigSet2016sp2ent)**<br>Configuration of the SQL Server 2016sp2 enterprise edition instance. 
 resources | **[Resources](#Resources11)**<br>Resources allocated to SQL Server hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Start time for the daily backup in UTC timezone 
+access | **[Access](#Access11)**<br>Access policy to DB 
 
 
 ### Resources {#Resources11}
@@ -955,7 +1044,14 @@ Field | Description
 --- | ---
 resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-sqlserver/concepts/instance-types). 
 disk_size | **int64**<br>Volume of the storage available to a host. 
-disk_type_id | **string**<br><ul><li>network-hdd — network HDD drive, </li><li>network-ssd — network SSD drive, </li><li>local-ssd — local SSD storage.</li></ul> 
+disk_type_id | **string**<br><ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
+
+
+### Access {#Access11}
+
+Field | Description
+--- | ---
+data_lens | **bool**<br>Allow access for DataLens 
 
 
 ## ListLogs {#ListLogs}
@@ -1112,7 +1208,7 @@ Field | Description
 --- | ---
 resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-sqlserver/concepts/instance-types). 
 disk_size | **int64**<br>Volume of the storage available to a host. 
-disk_type_id | **string**<br><ul><li>network-hdd — network HDD drive, </li><li>network-ssd — network SSD drive, </li><li>local-ssd — local SSD storage.</li></ul> 
+disk_type_id | **string**<br><ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
 
 ### Service {#Service}

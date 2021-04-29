@@ -4,43 +4,43 @@ editable: false
 
 # VersionsService
 
-Набор методов для управления версиями ClickHouse.
+A set of methods for managing ClickHouse versions.
 
-| Вызов | Описание |
+| Call | Description |
 | --- | --- |
-| [List](#List) | Возвращает список доступных версий ClickHouse. |
+| [List](#List) | Returns list of available ClickHouse versions. |
 
-## Вызовы VersionsService {#calls}
+## Calls VersionsService {#calls}
 
 ## List {#List}
 
-Возвращает список доступных версий ClickHouse.
+Returns list of available ClickHouse versions.
 
 **rpc List ([ListVersionsRequest](#ListVersionsRequest)) returns ([ListVersionsResponse](#ListVersionsResponse))**
 
 ### ListVersionsRequest {#ListVersionsRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-page_size | **int64**<br>Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем `page_size`, сервис вернет значение [ListVersionsResponse.next_page_token](#ListVersionsResponse), которое можно использовать для получения следующей страницы. Значение по умолчанию: 100. Допустимые значения — от 0 до 1000 включительно.
-page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListVersionsResponse.next_page_token](#ListVersionsResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
+page_size | **int64**<br>The maximum number of results per page that should be returned. If the number of available results is larger than `page_size`, the service returns a [ListVersionsResponse.next_page_token](#ListVersionsResponse) that can be used to get the next page of results in subsequent ListVersions requests. Default value: 100. Acceptable values are 0 to 1000, inclusive.
+page_token | **string**<br>Page token. Set `page_token` to the [ListVersionsResponse.next_page_token](#ListVersionsResponse) returned by a previous ListVersions request to get the next page of results. The maximum string length in characters is 100.
 
 
 ### ListVersionsResponse {#ListVersionsResponse}
 
-Поле | Описание
+Field | Description
 --- | ---
-version[] | **[Version](#Version)**<br>Список доступных версий. 
-next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе, если количество результатов больше, чем [ListVersionsRequest.page_size](#ListVersionsRequest). Чтобы получить следующую страницу, укажите `next_page_token` в качестве значения для [ListVersionsRequest.page_token](#ListVersionsRequest) в следующем запросе. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
+version[] | **[Version](#Version)**<br>Requested list of available versions. 
+next_page_token | **string**<br>This token allows you to get the next page of results for ListVersions requests, if the number of results is larger than [ListVersionsRequest.page_size](#ListVersionsRequest) specified in the request. To get the next page, specify the value of `next_page_token` as a value for the [ListVersionsRequest.page_token](#ListVersionsRequest) parameter in the next ListVerions request. Subsequent ListVersions requests will have their own `next_page_token` to continue paging through the results. 
 
 
 ### Version {#Version}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор версии. 
-name | **string**<br>Название версии. 
-deprecated | **bool**<br>Является ли версия устаревшей. 
-updatable_to[] | **string**<br>Список версий, до которых можно обновить текущую. 
+id | **string**<br>ID of the version. 
+name | **string**<br>Name of the version. 
+deprecated | **bool**<br>Whether version is deprecated. 
+updatable_to[] | **string**<br>List of versions that can be updated from current. 
 
 

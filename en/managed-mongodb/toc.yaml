@@ -87,7 +87,7 @@ items:
         href: api-ref/authentication.md
       - name: gRPC
         items:
-          - name: Обзор
+          - name: Overview
             href: grpc/index.md
           - name: BackupService
             href: grpc/backup_service.md
@@ -109,6 +109,8 @@ items:
             items:
               - name: Overview
                 href: api-ref/Backup/index.md
+              - name: delete
+                href: api-ref/Backup/delete.md
               - name: get
                 href: api-ref/Backup/get.md
               - name: list

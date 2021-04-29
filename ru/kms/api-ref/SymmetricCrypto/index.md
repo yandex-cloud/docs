@@ -3,12 +3,12 @@ editable: false
 ---
 
 # SymmetricCrypto
-Набор методов, выполняющих симметричное шифрование и дешифрование.
+Set of methods that perform symmetric encryption and decryption.
 
-## Методы {#methods}
-Метод | Описание
+## Methods {#methods}
+Method | Description
 --- | ---
-[decrypt](decrypt.md) | Расшифровывает указанный шифртекст с помощью указанного ключа.
-[encrypt](encrypt.md) | Шифрует заданный текст с помощью указанного ключа.
-[generateDataKey](generateDataKey.md) | Создает новый симметричный ключ шифрования данных (не ключ KMS) и возвращает сгенерированный ключ в виде открытого текста и текста, зашифрованного указанным симметричным ключом KMS.
-[reEncrypt](reEncrypt.md) | Заново шифрует заданный зашифрованный текст с указанным ключом KMS.
+[decrypt](decrypt.md) | Decrypts the given ciphertext with the specified key.
+[encrypt](encrypt.md) | Encrypts given plaintext with the specified key.
+[generateDataKey](generateDataKey.md) | Generates a new symmetric data encryption key (not a KMS key) and returns the generated key as plaintext and as ciphertext encrypted with the specified symmetric KMS key.
+[reEncrypt](reEncrypt.md) | Re-encrypts a ciphertext with the specified KMS key.

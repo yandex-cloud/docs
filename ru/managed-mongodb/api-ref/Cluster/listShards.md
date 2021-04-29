@@ -2,30 +2,30 @@
 editable: false
 ---
 
-# Метод listShards
-Получает список шардов.
+# Method listShards
+Retrieves a list of shards.
  
 
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 GET https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}/shards
 ```
  
-## Path-параметры {#path_params}
+## Path parameters {#path_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-clusterId | Обязательное поле. Идентификатор кластера MongoDB, для которого следует вернуть список баз данных. Чтобы получить идентификатор кластера, используйте запрос [list](/docs/managed-mongodb/api-ref/Cluster/list).  Максимальная длина строки в символах — 50.
+clusterId | Required. ID of the MongoDB cluster to list databases in. To get the cluster ID, use a [list](/docs/managed-mongodb/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
  
-## Query-параметры {#query_params}
+## Query parameters {#query_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-pageSize | Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем [pageSize](/docs/managed-mongodb/api-ref/Cluster/listShards#query_params), сервис вернет значение [nextPageToken](/docs/managed-mongodb/api-ref/Cluster/listShards#responses), которое можно использовать для получения следующей страницы.  Максимальное значение — 1000.
-pageToken | Токен страницы. Установите значение [pageToken](/docs/managed-mongodb/api-ref/Cluster/listShards#query_params) равным значению поля [nextPageToken](/docs/managed-mongodb/api-ref/Cluster/listShards#responses) предыдущего запроса, чтобы получить следующую страницу результатов.  Максимальная длина строки в символах — 100.
+pageSize | The maximum number of results per page to return. If the number of available results is larger than [pageSize](/docs/managed-mongodb/api-ref/Cluster/listShards#query_params), the service returns a [nextPageToken](/docs/managed-mongodb/api-ref/Cluster/listShards#responses) that can be used to get the next page of results in subsequent list requests.  The maximum value is 1000.
+pageToken | Page token. To get the next page of results, set [pageToken](/docs/managed-mongodb/api-ref/Cluster/listShards#query_params) to the [nextPageToken](/docs/managed-mongodb/api-ref/Cluster/listShards#responses) returned by a previous list request.  The maximum string length in characters is 100.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -41,9 +41,9 @@ pageToken | Токен страницы. Установите значение [
 ```
 
  
-Поле | Описание
+Field | Description
 --- | ---
-shards[] | **object**<br><p>Список шардов MongoDB.</p> 
-shards[].<br>name | **string**<br><p>Имя шарда.</p> 
-shards[].<br>clusterId | **string**<br><p>Идентификатор кластера, к которому принадлежит шард.</p> 
-nextPageToken | **string**<br><p>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем <a href="/docs/managed-mongodb/api-ref/Cluster/listShards#query_params">pageSize</a>, используйте <a href="/docs/managed-mongodb/api-ref/Cluster/listShards#responses">nextPageToken</a> в качестве значения параметра <a href="/docs/managed-mongodb/api-ref/Cluster/listShards#query_params">pageToken</a> в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения <a href="/docs/managed-mongodb/api-ref/Cluster/listShards#responses">nextPageToken</a> для перебора страниц результатов.</p> 
+shards[] | **object**<br><p>List of MongoDB shards.</p> 
+shards[].<br>name | **string**<br><p>Name of the shard.</p> 
+shards[].<br>clusterId | **string**<br><p>ID of the cluster that the shard belongs to.</p> 
+nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/managed-mongodb/api-ref/Cluster/listShards#query_params">pageSize</a>, use the <a href="/docs/managed-mongodb/api-ref/Cluster/listShards#responses">nextPageToken</a> as the value for the <a href="/docs/managed-mongodb/api-ref/Cluster/listShards#query_params">pageToken</a> parameter in the next list request. Each subsequent list request will have its own <a href="/docs/managed-mongodb/api-ref/Cluster/listShards#responses">nextPageToken</a> to continue paging through the results.</p> 

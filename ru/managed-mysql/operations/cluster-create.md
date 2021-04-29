@@ -119,6 +119,21 @@
      Пример структуры конфигурационного файла:
 
      ```hcl
+     terraform {
+       required_providers {
+         yandex = {
+           source = "yandex-cloud/yandex"
+         }
+       }
+     }
+
+     provider "yandex" {
+       token     = "<OAuth или статический ключ сервисного аккаунта>"
+       cloud_id  = "<идентификатор облака>"
+       folder_id = "<идентификатор каталога>"
+       zone      = "<зона доступности>"
+     }
+
      resource "yandex_mdb_mysql_cluster" "<имя кластера>" {
        name               = "<имя кластера>"
        environment        = "<окружение, PRESTABLE или PRODUCTION>"
@@ -232,21 +247,30 @@
 - Terraform
 
   Допустим, нужно создать {{ MY }}-кластер и сеть для него со следующими характеристиками:
-  - С именем `my-mysql`.
-  - Версии `8.0`.
-  - В окружении `PRESTABLE`.
-  - В облаке с идентификатором `{{ tf-cloud-id }}`.
-  - В каталоге с идентификатором `{{ tf-folder-id }}`.
-  - В новой сети `mynet`.
-  - В новой группе безопасности `mysql-sg`, разрешающей подключение к кластеру из интернета через порт `{{ port-mmy }}`.
-  - С одним хостом класса `{{ host-class }}` в новой подсети `mysubnet`, в зоне доступности `{{ zone-id }}`. Подсеть `mysubnet` будет иметь диапазон `10.5.0.0/24`.
-  - С быстрым сетевым хранилищем (`{{ disk-type-example }}`) объемом 20 ГБ.
-  - С одним пользователем (`user1`), с паролем `user1user1`.
-  - С одной базой данных `db1`, в которой пользователь `user1` имеет полные права (эквивалент `GRANT ALL PRIVILEGES on db1.*`).
+
+    - С именем `my-mysql`.
+    - Версии `8.0`.
+    - В окружении `PRESTABLE`.
+    - В облаке с идентификатором `{{ tf-cloud-id }}`.
+    - В каталоге с идентификатором `{{ tf-folder-id }}`.
+    - В новой сети `mynet`.
+    - С одним хостом класса `{{ host-class }}` в новой подсети `mysubnet`, в зоне доступности `{{ zone-id }}`. Подсеть `mysubnet` будет иметь диапазон `10.5.0.0/24`.
+    - В новой группе безопасности `mysql-sg`, разрешающей подключение к кластеру из интернета через порт `{{ port-mmy }}`.
+    - С быстрым сетевым хранилищем (`{{ disk-type-example }}`) объемом 20 ГБ.
+    - С одним пользователем (`user1`), с паролем `user1user1`.
+    - С одной базой данных `db1`, в которой пользователь `user1` имеет полные права (эквивалент `GRANT ALL PRIVILEGES on db1.*`).
 
   Конфигурационный файл для такого кластера выглядит так:
 
-  ```hcl
+  ```go
+  terraform {
+    required_providers {
+      yandex = {
+        source = "yandex-cloud/yandex"
+      }
+    }
+  }
+
   provider "yandex" {
     token     = "<OAuth или статический ключ сервисного аккаунта>"
     cloud_id  = "{{ tf-cloud-id }}"
@@ -286,7 +310,9 @@
     }
   }
 
-  resource "yandex_vpc_network" "mynet" { name = "mynet" }
+  resource "yandex_vpc_network" "mynet" {
+    name = "mynet"
+  }
 
   resource "yandex_vpc_security_group" "mysql-sg" {
     name       = "mysql-sg"
@@ -304,6 +330,6 @@
     name           = "mysubnet"
     zone           = "{{ zone-id }}"
     network_id     = yandex_vpc_network.mynet.id
-    v4_cidr_blocks = [ "10.5.0.0/24" ]
+    v4_cidr_blocks = ["10.5.0.0/24"]
   }
   ```

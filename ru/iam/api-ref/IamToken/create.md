@@ -2,36 +2,36 @@
 editable: false
 ---
 
-# Метод create
-Создает IAM-токен для указанного субъекта.
+# Method create
+Creates an IAM token for the specified identity.
  
 
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 POST https://iam.api.cloud.yandex.net/iam/v1/tokens
 ```
  
-## Параметры в теле запроса {#body_params}
+## Body parameters {#body_params}
  
 ```json 
 {
 
-  //  включает только одно из полей `yandexPassportOauthToken`, `jwt`
+  //  includes only one of the fields `yandexPassportOauthToken`, `jwt`
   "yandexPassportOauthToken": "string",
   "jwt": "string",
-  // конец списка возможных полей
+  // end of the list of possible fields
 
 }
 ```
 
  
-Поле | Описание
+Field | Description
 --- | ---
-yandexPassportOauthToken | **string** <br> включает только одно из полей `yandexPassportOauthToken`, `jwt`<br><br><p>OAuth-токен для аккаунта в Яндекса.Паспорте. Подробнее см. в разделе <a href="/docs/iam/concepts/authorization/oauth-token">OAuth-токен</a>.</p> 
-jwt | **string** <br> включает только одно из полей `yandexPassportOauthToken`, `jwt`<br><br><p>JSON Web Token (JWT) для сервисного аккаунта. Подробнее см. в разделе <a href="/docs/iam/operations/iam-token/create-for-sa">Получить IAM-токен для сервисного аккаунта</a>.</p> 
+yandexPassportOauthToken | **string** <br> includes only one of the fields `yandexPassportOauthToken`, `jwt`<br><br><p>OAuth token for a Yandex.Passport account. For more information, see <a href="/docs/iam/concepts/authorization/oauth-token">OAuth token</a>.</p> 
+jwt | **string** <br> includes only one of the fields `yandexPassportOauthToken`, `jwt`<br><br><p>JSON Web Token (JWT) for a service account. For more information, see <a href="/docs/iam/operations/iam-token/create-for-sa">Get IAM token for a service account</a>.</p> 
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -42,7 +42,7 @@ jwt | **string** <br> включает только одно из полей `ya
 ```
 
  
-Поле | Описание
+Field | Description
 --- | ---
-iamToken | **string**<br><p>IAM-токен для указанного субъекта.</p> <p>Передавайте токен в заголовке `Authorization` для дальнейших запросов к API. Например, `Authorization: Bearer [iam_token]`.</p> 
-expiresAt | **string** (date-time)<br><p>Время окончания действия IAM-токена.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
+iamToken | **string**<br><p>IAM token for the specified identity.</p> <p>You should pass the token in the `Authorization` header for any further API requests. For example, `Authorization: Bearer [iam_token]`.</p> 
+expiresAt | **string** (date-time)<br><p>IAM token expiration time.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 

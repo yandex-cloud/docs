@@ -3,9 +3,9 @@ editable: false
 ---
 
 # Yandex Certificate Manager API
-Методы справочника API сгруппированы по ресурсам. Чтобы выполнить операцию над ресурсом, отправьте HTTP-запрос к соответствующему URL. Подробнее об архитектуре API Яндекс.Облака, см. [Концепции API Яндекс.Облака](/docs/api-design-guide/).
+This API reference is organized by resource. Actions are performed by sending HTTP requests to resource URLs or making RPC calls. For more information about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
 
-Ресурс | Описание
+Resource | Description
 --- | ---
-[Certificate](Certificate/index.md) | Набор методов для управления сертификатами.
-[CertificateContent](CertificateContent/index.md) | Набор методов для управления содержимым сертификата.
+[Certificate](Certificate/index.md) | A set of methods for managing certificates.
+[CertificateContent](CertificateContent/index.md) | A set of methods for managing certificate content.

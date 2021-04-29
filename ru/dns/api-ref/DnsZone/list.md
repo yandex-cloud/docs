@@ -2,26 +2,26 @@
 editable: false
 ---
 
-# Метод list
-Возвращает список зон DNS в указанном каталоге.
+# Method list
+Retrieves the list of DNS zones in the specified folder.
  
 
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 GET https://dns.api.cloud.yandex.net/dns/v1/zones
 ```
  
-## Query-параметры {#query_params}
+## Query parameters {#query_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-folderId | Обязательное поле. Идентификатор каталога для получения списка зон DNS.   Чтобы получить идентификатор каталога, используйте запрос [list](/docs/resource-manager/api-ref/Folder/list).
-pageSize | Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем `page_size`, сервис вернет значение [nextPageToken](/docs/dns/api-ref/DnsZone/list#responses), которое можно использовать для получения следующей страницы.  Максимальное значение — 1000.
-pageToken | Токен страницы. Установите значение `page_token` равным значению поля [nextPageToken](/docs/dns/api-ref/DnsZone/list#responses) предыдущего запроса, чтобы получить следующую страницу результатов.  Максимальная длина строки в символах — 1000.
-filter | Параметры фильтрации зон DNS в ответе.  В параметрах фильтрации указываются:  1. Имя поля. Фильтрация осуществляется только по полю [DnsZone.name](/docs/dns/api-ref/DnsZone#representation).  2. Оператор. Поддерживаются операторы `=` и `!=` для одиночных значений, `IN` и `NOT IN` для списков значений. 3. Значение или списки значений. Значение длиной от 3 до 63 символов, совпадающее с регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]`. Пример фильтра: `name=my-dns-zone`.  Максимальная длина строки в символах — 1000.
+folderId | Required. ID of the folder to list DNS zones in.   To get the folder ID use a [list](/docs/resource-manager/api-ref/Folder/list) request.
+pageSize | The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [nextPageToken](/docs/dns/api-ref/DnsZone/list#responses) that can be used to get the next page of results in subsequent list requests.  The maximum value is 1000.
+pageToken | Page token. To get the next page of results, set `page_token` to the  [nextPageToken](/docs/dns/api-ref/DnsZone/list#responses) returned by a previous list request.  The maximum string length in characters is 1000.
+filter | A filter expression that filters DNS zones listed in the response.  The expression must specify:  1. The field name. Currently you can use filtering only on the [DnsZone.name](/docs/dns/api-ref/DnsZone#representation) field.  2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. 3. The value or lists of values. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]`. Example of a filter: `name=my-dns-zone`.  The maximum string length in characters is 1000.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -48,17 +48,17 @@ filter | Параметры фильтрации зон DNS в ответе.  В
 ```
 
  
-Поле | Описание
+Field | Description
 --- | ---
-dnsZones[] | **object**<br><p>Зона DNS. Подробнее см. в разделе <a href="/docs/dns/concepts/dns-zone">Зоны DNS</a>.</p> 
-dnsZones[].<br>id | **string**<br><p>Идентификатор зоны DNS. Генерируется при создании.</p> 
-dnsZones[].<br>folderId | **string**<br><p>Идентификатор каталога, которому принадлежит зона DNS.</p> 
-dnsZones[].<br>createdAt | **string** (date-time)<br><p>Время создания ресурса.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-dnsZones[].<br>name | **string**<br><p>Имя зоны DNS. Имя должно быть уникальным в каталоге.</p> 
-dnsZones[].<br>description | **string**<br><p>Описание зоны DNS.</p> 
-dnsZones[].<br>labels | **object**<br><p>Метки зон DNS в формате `key:value`.</p> 
-dnsZones[].<br>zone | **string**<br><p>Суффикс зоны DNS.</p> 
-dnsZones[].<br>privateVisibility | **object**<br><p>Настройки внутренней зоны. Указывают, будут ли записи в зоне видны только из сетей VPC.</p> <p>Конфигурация для внутренних зон.</p> 
-dnsZones[].<br>privateVisibility.<br>networkIds[] | **string**<br><p>Идентификаторы сетей.</p> <p>Количество элементов должно находиться в диапазоне от 0 до 10. Длина строки в символах должна быть равна 20.</p> 
-dnsZones[].<br>publicVisibility | **object**<br><p>Настройки публичной зоны. Указывают, являются ли записи в пределах зоны публичными.</p> <p>Конфигурация для публичных зон.</p> 
-nextPageToken | **string**<br><p>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем <a href="/docs/dns/api-ref/DnsZone/list#query_params">pageSize</a>, используйте `next_page_token` в качестве значения параметра <a href="/docs/dns/api-ref/DnsZone/list#query_params">pageToken</a> в следующем запросе списка ресурсов.</p> <p>Каждая следующая страница будет иметь свой `next_page_token` для продолжения перебора страниц результатов.</p> 
+dnsZones[] | **object**<br><p>A DNS zone. For details about the concept, see <a href="/docs/dns/concepts/dns-zone">DNS zones</a>.</p> 
+dnsZones[].<br>id | **string**<br><p>ID of the DNS zone. Generated at creation time.</p> 
+dnsZones[].<br>folderId | **string**<br><p>ID of the folder that the DNS zone belongs to.</p> 
+dnsZones[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+dnsZones[].<br>name | **string**<br><p>Name of the DNS zone. The name is unique within the folder.</p> 
+dnsZones[].<br>description | **string**<br><p>Description of the DNS zone.</p> 
+dnsZones[].<br>labels | **object**<br><p>DNS zone labels as `key:value` pairs.</p> 
+dnsZones[].<br>zone | **string**<br><p>DNS zone suffix.</p> 
+dnsZones[].<br>privateVisibility | **object**<br><p>Privately visible zone settings. Specifies whether records within the zone are visible from a VPC networks only.</p> <p>Configuration for privately visible zones.</p> 
+dnsZones[].<br>privateVisibility.<br>networkIds[] | **string**<br><p>Network IDs.</p> <p>The number of elements must be in the range 0-10. The string length in characters for each value must be equal to 20.</p> 
+dnsZones[].<br>publicVisibility | **object**<br><p>Publicly visible zone settings. Indicates whether records within the zone are publicly visible.</p> <p>Configuration for publicly visible zones.</p> 
+nextPageToken | **string**<br><p>Token for getting the next page of the list. If the number of results is greater than the specified <a href="/docs/dns/api-ref/DnsZone/list#query_params">pageSize</a>, use `next_page_token` as the value for the <a href="/docs/dns/api-ref/DnsZone/list#query_params">pageToken</a> parameter in the next list request.</p> <p>Each subsequent page will have its own `next_page_token` to continue paging through the results.</p> 

@@ -3,8 +3,8 @@ editable: false
 ---
 
 # TargetGroup
-Набор методов для управления ресурсами TargetGroup.
-## JSON-представление {#representation}
+A set of methods for managing TargetGroup resources.
+## JSON Representation {#representation}
 ```json 
 {
   "id": "string",
@@ -23,27 +23,27 @@ editable: false
 }
 ```
  
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br><p>Только для вывода. Идентификатор целевой группы.</p> 
-folderId | **string**<br><p>Идентификатор каталога, которому принадлежит целевая группа.</p> 
-createdAt | **string** (date-time)<br><p>Только для вывода. Время создания ресурса в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> .</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-name | **string**<br><p>Имя целевой группы. Имя должно быть уникальным в каталоге. Длина имени должна быть от 3 до 63 символов.</p> 
-description | **string**<br><p>Описание целевой группы. Длина 0-256 символов.</p> 
-labels | **object**<br><p>Метки ресурса в формате `` key:value ``. Максимум 64 метки на ресурс.</p> 
-regionId | **string**<br><p>Идентификатор региона, в котором находится целевая группа.</p> 
-targets[] | **object**<br><p>Ресурс Target. Подробнее см. в разделе <a href="/docs/network-load-balancer/target-resources">Целевые группы и ресурсы</a>.</p> 
-targets[].<br>subnetId | **string**<br><p>Идентификатор подсети, к которой подключены целевые ресурсы. В пределах одной зоны доступности все ресурсы целевой группы должны быть подключены к одной подсети.</p> <p>Максимальная длина строки в символах — 50.</p> 
-targets[].<br>address | **string**<br><p>IP-адрес целевого ресурса.</p> 
+id | **string**<br><p>Output only. ID of the target group.</p> 
+folderId | **string**<br><p>ID of the folder that the target group belongs to.</p> 
+createdAt | **string** (date-time)<br><p>Output only. Creation timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+name | **string**<br><p>Name of the target group. The name is unique within the folder. 3-63 characters long.</p> 
+description | **string**<br><p>Description of the target group. 0-256 characters long.</p> 
+labels | **object**<br><p>Resource labels as `` key:value `` pairs. Maximum of 64 per resource.</p> 
+regionId | **string**<br><p>ID of the region where the target group resides.</p> 
+targets[] | **object**<br><p>A Target resource. For more information, see <a href="/docs/network-load-balancer/target-resources">Target groups and resources</a>.</p> 
+targets[].<br>subnetId | **string**<br><p>ID of the subnet that targets are connected to. All targets in the target group must be connected to the same subnet within a single availability zone.</p> <p>The maximum string length in characters is 50.</p> 
+targets[].<br>address | **string**<br><p>IP address of the target.</p> 
 
-## Методы {#methods}
-Метод | Описание
+## Methods {#methods}
+Method | Description
 --- | ---
-[addTargets](addTargets.md) | Добавляет ресурсы в целевую группу.
-[create](create.md) | Создает целевую группу в указанном каталоге и добавляет в нее указанные целевые ресурсы.
-[delete](delete.md) | Удаляет указанную целевую группу.
-[get](get.md) | Возвращает указанный ресурс TargetGroup.
-[list](list.md) | Возвращает список TargetGroup ресурсов в указанном каталоге..
-[listOperations](listOperations.md) | Возвращает список операций для указанной целевой группы.
-[removeTargets](removeTargets.md) | Удаляет ресурсы из целевой группы.
-[update](update.md) | Обновляет указанную целевую группу.
+[addTargets](addTargets.md) | Adds targets to the target group.
+[create](create.md) | Creates a target group in the specified folder and adds the specified targets to it.
+[delete](delete.md) | Deletes the specified target group.
+[get](get.md) | Returns the specified TargetGroup resource.
+[list](list.md) | Retrieves the list of TargetGroup resources in the specified folder.
+[listOperations](listOperations.md) | Lists operations for the specified target group.
+[removeTargets](removeTargets.md) | Removes targets from the target group.
+[update](update.md) | Updates the specified target group.

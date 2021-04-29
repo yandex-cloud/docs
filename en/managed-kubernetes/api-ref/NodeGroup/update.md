@@ -66,7 +66,10 @@ nodeGroupId | Required. ID of the node group to update. To get the node group ID
           "string"
         ]
       }
-    ]
+    ],
+    "placementPolicy": {
+      "placementGroupId": "string"
+    }
   },
   "scalePolicy": {
 
@@ -184,6 +187,8 @@ nodeTemplate.<br>networkInterfaceSpecs[].<br>primaryV6AddressSpec | **object**<b
 nodeTemplate.<br>networkInterfaceSpecs[].<br>primaryV6AddressSpec.<br>oneToOneNatSpec | **object**<br><p>One-to-one NAT configuration. Setting up one-to-one NAT ensures that public IP addresses are assigned to nodes, and therefore internet is accessible for all nodes of the node group. If the field is not set, NAT will not be set up.</p> 
 nodeTemplate.<br>networkInterfaceSpecs[].<br>primaryV6AddressSpec.<br>oneToOneNatSpec.<br>ipVersion | **string**<br><p>IP version for the public IP address.</p> <ul> <li>IPV4: IPv4 address, for example 192.168.0.0.</li> <li>IPV6: IPv6 address, not available yet.</li> </ul> 
 nodeTemplate.<br>networkInterfaceSpecs[].<br>securityGroupIds[] | **string**<br><p>IDs of security groups.</p> 
+nodeTemplate.<br>placementPolicy | **object**<br>
+nodeTemplate.<br>placementPolicy.<br>placementGroupId | **string**<br><p>Identifier of placement group</p> 
 scalePolicy | **object**<br><p>Scale policy of the node group.</p> 
 scalePolicy.<br>fixedScale | **object**<br>Fixed scale policy of the node group. <br>`scalePolicy` includes only one of the fields `fixedScale`, `autoScale`<br><br>
 scalePolicy.<br>fixedScale.<br>size | **string** (int64)<br><p>Number of nodes in the node group.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 

@@ -2,24 +2,24 @@
 editable: false
 ---
 
-# Метод get
-Возвращает информацию об указанном пользователе Elasticsearch.
+# Method get
+Returns the specified Elasticsearch user.
  
-Чтобы получить список доступных пользователей Elasticsearch, выполните запрос [list](/docs/managed-elasticsearch/api-ref/User/list).
+To get the list of available Elasticsearch users, make a [list](/docs/managed-elasticsearch/api-ref/User/list) request.
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 GET https://mdb.api.cloud.yandex.net/managed-elasticsearch/v1/clusters/{clusterId}/users/{userName}
 ```
  
-## Path-параметры {#path_params}
+## Path parameters {#path_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-clusterId | Обязательное поле. Идентификатор кластера Elasticsearch, к которому принадлежит пользователь.  Чтобы получить идентификатор кластера, выполните запрос [list](/docs/managed-elasticsearch/api-ref/Cluster/list).  Максимальная длина строки в символах — 50.
-userName | Обязательное поле. Имя запрашиваемого пользователя Elasticsearch.  Чтобы получить имя пользователя, выполните запрос [list](/docs/managed-elasticsearch/api-ref/User/list).  Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_]* ``.
+clusterId | Required. ID of the Elasticsearch cluster the user belongs to.  To get the cluster ID, make a [list](/docs/managed-elasticsearch/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
+userName | Required. Name of the Elasticsearch user to return.  To get the name of the user, make a [list](/docs/managed-elasticsearch/api-ref/User/list) request.  The maximum string length in characters is 63. Value must match the regular expression `` [a-zA-Z0-9_]* ``.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -28,9 +28,9 @@ userName | Обязательное поле. Имя запрашиваемог�
   "clusterId": "string"
 }
 ```
-Пользователь Elasticsearch.
+An Elasticsearch user.
  
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br><p>Имя пользователя Elasticsearch.</p> 
-clusterId | **string**<br><p>Идентификатор кластера Elasticsearch, к которому принадлежит пользователь.</p> 
+name | **string**<br><p>Name of the Elasticsearch user.</p> 
+clusterId | **string**<br><p>ID of the Elasticsearch cluster the user belongs to.</p> 

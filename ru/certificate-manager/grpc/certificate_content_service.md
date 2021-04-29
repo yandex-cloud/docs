@@ -4,33 +4,33 @@ editable: false
 
 # CertificateContentService
 
-Набор методов для управления содержимым сертификата.
+A set of methods for managing certificate content.
 
-| Вызов | Описание |
+| Call | Description |
 | --- | --- |
-| [Get](#Get) | Возвращает цепочку сертификатов доверия и закрытый ключ указанного сертификата. |
+| [Get](#Get) | Returns chain and private key of the specified certificate. |
 
-## Вызовы CertificateContentService {#calls}
+## Calls CertificateContentService {#calls}
 
 ## Get {#Get}
 
-Возвращает цепочку сертификатов доверия и закрытый ключ указанного сертификата.
+Returns chain and private key of the specified certificate.
 
 **rpc Get ([GetCertificateContentRequest](#GetCertificateContentRequest)) returns ([GetCertificateContentResponse](#GetCertificateContentResponse))**
 
 ### GetCertificateContentRequest {#GetCertificateContentRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-certificate_id | **string**<br>Идентификатор сертификата для загрузки контента. 
+certificate_id | **string**<br>ID of the certificate to download content. 
 
 
 ### GetCertificateContentResponse {#GetCertificateContentResponse}
 
-Поле | Описание
+Field | Description
 --- | ---
-certificate_id | **string**<br>Идентификатор сертификата. 
-certificate_chain[] | **string**<br>Содержимое цепочки сертификатов доверия сертификата в PEM-encoded формате. 
-private_key | **string**<br>Содержимое закрытого ключа сертификата в PEM-encoded формате. 
+certificate_id | **string**<br>ID of the certificate. 
+certificate_chain[] | **string**<br>PEM-encoded certificate chain content of the certificate. 
+private_key | **string**<br>PEM-encoded private key content of the certificate. 
 
 

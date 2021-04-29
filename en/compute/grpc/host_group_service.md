@@ -473,6 +473,7 @@ Field | Description
 --- | ---
 address | **string**<br>An IPv4 internal network address that is assigned to the instance for this network interface. 
 one_to_one_nat | **[OneToOneNat](#OneToOneNat)**<br>One-to-one NAT configuration. If missing, NAT has not been set up. 
+dns_records[] | **[DnsRecord](#DnsRecord)**<br>Internal DNS configuration 
 
 
 ### OneToOneNat {#OneToOneNat}
@@ -481,6 +482,21 @@ Field | Description
 --- | ---
 address | **string**<br>An external IP address associated with this instance. 
 ip_version | enum **IpVersion**<br>IP version for the external IP address. <ul><li>`IPV4`: IPv4 address, for example 192.0.2.235.</li><li>`IPV6`: IPv6 address. Not available yet.</li><ul/>
+dns_records[] | **[DnsRecord](#DnsRecord)**<br>External DNS configuration 
+
+
+### DnsRecord {#DnsRecord}
+
+Field | Description
+--- | ---
+fqdn | **string**<br> 
+
+
+### DnsRecord {#DnsRecord1}
+
+Field | Description
+--- | ---
+fqdn | **string**<br> 
 
 
 ### SchedulingPolicy {#SchedulingPolicy}

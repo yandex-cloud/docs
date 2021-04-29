@@ -2,23 +2,23 @@
 editable: false
 ---
 
-# Метод update
-Обновляет указанный балансировщик.
+# Method update
+Updates the specified network load balancer.
  
 
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
-PATCH https://load-balancer.api.cloud.yandex.net/network-load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}
+PATCH https://load-balancer.api.cloud.yandex.net/load-balancer/v1alpha/networkLoadBalancers/{networkLoadBalancerId}
 ```
  
-## Path-параметры {#path_params}
+## Path parameters {#path_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-networkLoadBalancerId | Обязательное поле. Идентификатор обновляемого балансировщика.  Чтобы получить идентификатор балансировщика, используйте запрос [list](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list).  Максимальная длина строки в символах — 50.
+networkLoadBalancerId | Required. ID of the network load balancer to update. To get the network load balancer ID, use a [list](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list) request.  The maximum string length in characters is 50.
  
-## Параметры в теле запроса {#body_params}
+## Body parameters {#body_params}
  
 ```json 
 {
@@ -28,10 +28,8 @@ networkLoadBalancerId | Обязательное поле. Идентифика�
   "labels": "object",
   "listenerSpecs": [
     {
-      "name": "string",
       "port": "string",
       "protocol": "string",
-      "targetPort": "string",
       "externalAddressSpec": {
         "address": "string",
         "ipVersion": "string"
@@ -49,7 +47,7 @@ networkLoadBalancerId | Обязательное поле. Идентифика�
           "unhealthyThreshold": "string",
           "healthyThreshold": "string",
 
-          // `attachedTargetGroups[].healthChecks[]` включает только одно из полей `tcpOptions`, `httpOptions`
+          // `attachedTargetGroups[].healthChecks[]` includes only one of the fields `tcpOptions`, `httpOptions`
           "tcpOptions": {
             "port": "string"
           },
@@ -57,7 +55,7 @@ networkLoadBalancerId | Обязательное поле. Идентифика�
             "port": "string",
             "path": "string"
           },
-          // конец списка возможных полей`attachedTargetGroups[].healthChecks[]`
+          // end of the list of possible fields`attachedTargetGroups[].healthChecks[]`
 
         }
       ]
@@ -67,35 +65,33 @@ networkLoadBalancerId | Обязательное поле. Идентифика�
 ```
 
  
-Поле | Описание
+Field | Description
 --- | ---
-updateMask | **string**<br><p>Маска, определяющая, какие поля ресурса NetworkLoadBalancer будут обновлены.</p> <p>Имена всех обновляемых полей, разделенные запятыми. Только значения указанных полей будут изменены. Остальные останутся нетронутыми. Если поле указано в параметре `` updateMask `` и в запросе не было отправлено значение для этого поля, значение поля будет сброшено на значение по умолчанию. Значение по умолчанию для большинства полей — null или 0.</p> <p>Если в запросе не передается `` updateMask ``, значения всех полей будут обновлены. Для полей, указанных в запросе, будут использованы переданные значения. Значения остальных полей будут сброшены на значения по умолчанию.</p> 
-name | **string**<br><p>Имя балансировщика. Имя должно быть уникальным в каталоге.</p> <p>Значение должно соответствовать регулярному выражению `` [a-z][-a-z0-9]{1,61}[a-z0-9] ``.</p> 
-description | **string**<br><p>Описание балансировщика.</p> <p>Максимальная длина строки в символах — 256.</p> 
-labels | **object**<br><p>Метки ресурса в формате `` ключ:значение ``.</p> <p>Имеющийся набор меток полностью перезаписывается набором, переданным в запросе.</p> <p>Не более 64 на ресурс. Длина строки в символах для каждого ключа должна быть от 1 до 63. Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``. Максимальная длина строки в символах для каждого значения — 63. Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.</p> 
-listenerSpecs[] | **object**<br><p>Спецификация обработчика, которая будет использоваться балансировщиком.</p> 
-listenerSpecs[].<br>name | **string**<br><p>Обязательное поле. Имя обработчика. У обработчиков одного балансировщика должны быть уникальные имена. Длина 3-63 символов.</p> <p>Значение должно соответствовать регулярному выражению `` \|[a-z][-a-z0-9]{1,61}[a-z0-9] ``.</p> 
-listenerSpecs[].<br>port | **string** (int64)<br><p>Порт для входящего трафика.</p> <p>Допустимые значения — от 1 до 32767 включительно.</p> 
-listenerSpecs[].<br>protocol | **string**<br>Обязательное поле. Сетевой протокол для входящего трафика.<br><p>Сетевой протокол для использования при проверке.</p> <ul> <li>TCP: Протокол TCP.</li> </ul> 
-listenerSpecs[].<br>targetPort | **string** (int64)<br><p>Порты целевых ресурсов для входящего трафика. Допустимые значения — от 1 до 32767 включительно.</p> 
-listenerSpecs[].<br>externalAddressSpec | **object**<br>Спецификация внешнего IP-адреса.<br><p>Спецификация внешнего адреса для `ListenerSpec`.</p> 
-listenerSpecs[].<br>externalAddressSpec.<br>address | **string**<br><p>Публичный IP-адрес для обработчика. Если адрес передается в методе <a href="/docs/network-load-balancer/api-ref/NetworkLoadBalancer/update">update</a>, он заменит существующий адрес обработчика.</p> 
-listenerSpecs[].<br>externalAddressSpec.<br>ipVersion | **string**<br><p>Версия IP-адреса.</p> <p>Версия IP-адресов, с которыми работает балансировщик нагрузки. В настоящее время доступны только адреса IPv4.</p> <ul> <li>IPV4: Протокол IPv4.</li> <li>IPV6: Протокол IPv6.</li> </ul> 
-attachedTargetGroups[] | **object**<br><p>Ресурс AttachedTargetGroup. Дополнительные сведения см. в разделе <a href="/docs/network-load-balancer/concepts/target-resources">Целевые группы и ресурсы</a></p> 
-attachedTargetGroups[].<br>targetGroupId | **string**<br><p>Обязательное поле. Идентификатор целевой группы.</p> <p>Максимальная длина строки в символах — 50.</p> 
-attachedTargetGroups[].<br>healthChecks[] | **object**<br><p>Ресурс HealthCheck. Подробнее см. в разделе <a href="/docs/network-load-balancer/concepts/health-check">Проверка состояния</a>.</p> 
-attachedTargetGroups[].<br>healthChecks[].<br>name | **string**<br><p>Обязательное поле. Название проверки состояния. Имя должно быть уникальным в каталоге. Длина имени должна быть от 3 до 63 символов.</p> <p>Значение должно соответствовать регулярному выражению `` \|[a-z][-a-z0-9]{1,61}[a-z0-9] ``.</p> 
-attachedTargetGroups[].<br>healthChecks[].<br>interval | **string**<br><p>Интервал между проверками работоспособности. Формат значения: `` Ns ``, где N — количество секунд. Значение по умолчанию — 2 секунды.</p> 
-attachedTargetGroups[].<br>healthChecks[].<br>timeout | **string**<br><p>Время, за которое целевой ресурс должен ответить на проверку. Формат значения: `` Ns ``, где N — количество секунд Значение по умолчанию — 1 секунда.</p> 
-attachedTargetGroups[].<br>healthChecks[].<br>unhealthyThreshold | **string** (int64)<br><p>Количество неудачных проверок работоспособности перед изменением состояния целевого ресурса на `` UNHEALTHY ``. Значение по умолчанию — 2.</p> <p>Допустимые значения — от 2 до 10 включительно.</p> 
-attachedTargetGroups[].<br>healthChecks[].<br>healthyThreshold | **string** (int64)<br><p>Количество успешных проверок состояния, необходимых для установки целевому ресурсу статуса `` HEALTHY ``. Значение по умолчанию — 2.</p> <p>Допустимые значения — от 2 до 10 включительно.</p> 
-attachedTargetGroups[].<br>healthChecks[].<br>tcpOptions | **object**<br>Протокол TCP. <br>`attachedTargetGroups[].healthChecks[]` включает только одно из полей `tcpOptions`, `httpOptions`<br><br><p>Конфигурация проверки состояния по протоколу TCP.</p> 
-attachedTargetGroups[].<br>healthChecks[].<br>tcpOptions.<br>port | **string** (int64)<br><p>Настройки для проверок состояния по протоколу TCP.</p> <p>Допустимые значения — от 1 до 32767 включительно.</p> 
-attachedTargetGroups[].<br>healthChecks[].<br>httpOptions | **object**<br>Протокол HTTP. <br>`attachedTargetGroups[].healthChecks[]` включает только одно из полей `tcpOptions`, `httpOptions`<br><br><p>Конфигурация проверки состояния по протоколу HTTP.</p> 
-attachedTargetGroups[].<br>healthChecks[].<br>httpOptions.<br>port | **string** (int64)<br><p>Настройки для проверок состояния по протоколу HTTP.</p> <p>Допустимые значения — от 1 до 32767 включительно.</p> 
-attachedTargetGroups[].<br>healthChecks[].<br>httpOptions.<br>path | **string**<br><p>URL для отправки запросов проверки состояния, который будет установлен всем ресурсам целевой группы. Например `` /ping ``. Путь по умолчанию — `` / ``.</p> 
+updateMask | **string**<br><p>Field mask that specifies which fields of the NetworkLoadBalancer resource are going to be updated.</p> <p>A comma-separated names off ALL fields to be updated. Оnly the specified fields will be changed. The others will be left untouched. If the field is specified in `` updateMask `` and no value for that field was sent in the request, the field's value will be reset to the default. The default value for most fields is null or 0.</p> <p>If `` updateMask `` is not sent in the request, all fields' values will be updated. Fields specified in the request will be updated to provided values. The rest of the fields will be reset to the default.</p> 
+name | **string**<br><p>Name of the network load balancer. The name must be unique within the folder.</p> <p>Value must match the regular expression `` \|[a-z][-a-z0-9]{1,61}[a-z0-9] ``.</p> 
+description | **string**<br><p>Description of the network load balancer.</p> <p>The maximum string length in characters is 256.</p> 
+labels | **object**<br><p>Resource labels as `` key:value `` pairs.</p> <p>The existing set of `` labels `` is completely replaced with the provided set.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression `` [a-z][-_0-9a-z]* ``. The maximum string length in characters for each value is 63. Each value must match the regular expression `` [-_0-9a-z]* ``.</p> 
+listenerSpecs[] | **object**<br><p>Listener specification that will be used by a network load balancer.</p> 
+listenerSpecs[].<br>port | **string** (int64)<br><p>Port for incoming traffic.</p> <p>Acceptable values are 1 to 65535, inclusive.</p> 
+listenerSpecs[].<br>protocol | **string**<br>Required. Protocol for incoming traffic.<br><p>Network protocol to use.</p> 
+listenerSpecs[].<br>externalAddressSpec | **object**<br>External IP address specification.<br><p>External address specification that is used by `ListenerSpec`.</p> 
+listenerSpecs[].<br>externalAddressSpec.<br>address | **string**<br><p>Dynamic IP address for a listener. Must be empty when creating a new network load balancer. Must be provided when updating an existing load balancer.</p> 
+listenerSpecs[].<br>externalAddressSpec.<br>ipVersion | **string**<br><p>IP version.</p> <p>IP version of the addresses that the load balancer works with. Only IPv4 is currently available.</p> <ul> <li>IPV4: IPv4</li> <li>IPV6: IPv6</li> </ul> 
+attachedTargetGroups[] | **object**<br><p>An AttachedTargetGroup resource. For more information, see <a href="/docs/network-load-balancer/concepts">Attached Target Groups</a></p> 
+attachedTargetGroups[].<br>targetGroupId | **string**<br><p>Required. ID of the target group.</p> <p>The maximum string length in characters is 50.</p> 
+attachedTargetGroups[].<br>healthChecks[] | **object**<br><p>A HealthCheck resource. For more information, see <a href="/docs/network-load-balancer/concepts/health-check">Health check</a>.</p> 
+attachedTargetGroups[].<br>healthChecks[].<br>name | **string**<br><p>Required. Name of the health check. The name must be unique for each target group that attached to a single load balancer. 3-63 characters long.</p> <p>Value must match the regular expression `` \|[a-z][-a-z0-9]{1,61}[a-z0-9] ``.</p> 
+attachedTargetGroups[].<br>healthChecks[].<br>interval | **string**<br><p>The interval between health checks. The default is 2 seconds.</p> 
+attachedTargetGroups[].<br>healthChecks[].<br>timeout | **string**<br><p>Timeout for a target to return a response for the health check. The default is 1 second.</p> 
+attachedTargetGroups[].<br>healthChecks[].<br>unhealthyThreshold | **string** (int64)<br><p>Number of failed health checks before changing the status to `` UNHEALTHY ``. The default is 2.</p> <p>Acceptable values are 2 to 10, inclusive.</p> 
+attachedTargetGroups[].<br>healthChecks[].<br>healthyThreshold | **string** (int64)<br><p>Number of successful health checks required in order to set the `` HEALTHY `` status for the target. The default is 2.</p> <p>Acceptable values are 2 to 10, inclusive.</p> 
+attachedTargetGroups[].<br>healthChecks[].<br>tcpOptions | **object**<br>Options for TCP health check. <br>`attachedTargetGroups[].healthChecks[]` includes only one of the fields `tcpOptions`, `httpOptions`<br><br><p>Configuration option for a TCP health check.</p> 
+attachedTargetGroups[].<br>healthChecks[].<br>tcpOptions.<br>port | **string** (int64)<br><p>Port to use for TCP health checks.</p> <p>Acceptable values are 1 to 65535, inclusive.</p> 
+attachedTargetGroups[].<br>healthChecks[].<br>httpOptions | **object**<br>Options for HTTP health check. <br>`attachedTargetGroups[].healthChecks[]` includes only one of the fields `tcpOptions`, `httpOptions`<br><br><p>Configuration option for an HTTP health check.</p> 
+attachedTargetGroups[].<br>healthChecks[].<br>httpOptions.<br>port | **string** (int64)<br><p>Port to use for HTTP health checks.</p> <p>Acceptable values are 1 to 65535, inclusive.</p> 
+attachedTargetGroups[].<br>healthChecks[].<br>httpOptions.<br>path | **string**<br><p>URL path to set for health checking requests for every target in the target group. For example `` /ping ``.</p> 
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -108,7 +104,7 @@ attachedTargetGroups[].<br>healthChecks[].<br>httpOptions.<br>path | **string**<
   "done": true,
   "metadata": "object",
 
-  //  включает только одно из полей `error`, `response`
+  //  includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
     "message": "string",
@@ -117,24 +113,23 @@ attachedTargetGroups[].<br>healthChecks[].<br>httpOptions.<br>path | **string**<
     ]
   },
   "response": "object",
-  // конец списка возможных полей
+  // end of the list of possible fields
 
 }
 ```
-Ресурс Operation. Дополнительные сведения см. в разделе
-[Объект Operation](/docs/api-design-guide/concepts/operation).
+An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
  
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br><p>Идентификатор операции.</p> 
-description | **string**<br><p>Описание операции. Длина описания должна быть от 0 до 256 символов.</p> 
-createdAt | **string** (date-time)<br><p>Время создания ресурса в формате в <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-createdBy | **string**<br><p>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию.</p> 
-modifiedAt | **string** (date-time)<br><p>Время, когда ресурс Operation последний раз обновлялся. Значение в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-done | **boolean** (boolean)<br><p>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`.</p> 
-metadata | **object**<br><p>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`.</p> 
-error | **object**<br>Описание ошибки в случае сбоя или отмены операции. <br> включает только одно из полей `error`, `response`<br><br><p>Описание ошибки в случае сбоя или отмены операции.</p> 
-error.<br>code | **integer** (int32)<br><p>Код ошибки. Значение из списка <a href="https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto">google.rpc.Code</a>.</p> 
-error.<br>message | **string**<br><p>Текст ошибки.</p> 
-error.<br>details[] | **object**<br><p>Список сообщений с подробными сведениями об ошибке.</p> 
-response | **object** <br> включает только одно из полей `error`, `response`<br><br><p>Результат операции в случае успешного завершения. Если исходный метод не возвращает никаких данных при успешном завершении, например метод Delete, поле содержит объект <a href="https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty">google.protobuf.Empty</a>. Если исходный метод — это стандартный метод Create / Update, поле содержит целевой ресурс операции. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `response`.</p> 
+id | **string**<br><p>ID of the operation.</p> 
+description | **string**<br><p>Description of the operation. 0-256 characters long.</p> 
+createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+createdBy | **string**<br><p>ID of the user or service account who initiated the operation.</p> 
+modifiedAt | **string** (date-time)<br><p>The time when the Operation resource was last modified.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+done | **boolean** (boolean)<br><p>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available.</p> 
+metadata | **object**<br><p>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any.</p> 
+error | **object**<br>The error result of the operation in case of failure or cancellation. <br> includes only one of the fields `error`, `response`<br><br><p>The error result of the operation in case of failure or cancellation.</p> 
+error.<br>code | **integer** (int32)<br><p>Error code. An enum value of <a href="https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto">google.rpc.Code</a>.</p> 
+error.<br>message | **string**<br><p>An error message.</p> 
+error.<br>details[] | **object**<br><p>A list of messages that carry the error details.</p> 
+response | **object** <br> includes only one of the fields `error`, `response`<br><br><p>The normal response of the operation in case of success. If the original method returns no data on success, such as Delete, the response is <a href="https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty">google.protobuf.Empty</a>. If the original method is the standard Create/Update, the response should be the target resource of the operation. Any method that returns a long-running operation should document the response type, if any.</p> 

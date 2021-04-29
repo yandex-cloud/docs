@@ -3,8 +3,8 @@ editable: false
 ---
 
 # User
-Набор методов для управления пользователями SQL Server.
-## JSON-представление {#representation}
+A set of methods for managing SQL Server users.
+## JSON Representation {#representation}
 ```json 
 {
   "name": "string",
@@ -20,21 +20,21 @@ editable: false
 }
 ```
  
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br><p>Имя пользователя SQL Server.</p> 
-clusterId | **string**<br><p>Идентификатор кластера SQL Server, которому принадлежит пользователь.</p> 
-permissions[] | **object**<br><p>Набор разрешений, предоставленных пользователю.</p> 
-permissions[].<br>databaseName | **string**<br><p>Имя базы данных, для которой предоставляется разрешение.</p> 
-permissions[].<br>roles[] | **string**<br><ul> <li>DB_OWNER: Члены этой роли могут выполнять все действия по настройке и обслуживанию базы данных, а также удалять базу данных SQL Server.</li> <li>DB_SECURITYADMIN: Члены этой роли могут управлять разрешениями и членством в пользовательских ролях. Они потенциально могут повысить свои привилегии, поэтому их действия должны контролироваться.</li> <li>DB_ACCESSADMIN: Члены этой роли могут управлять доступом к базе данных для пользователей Windows, групп Windows и пользователей SQL Server.</li> <li>DB_BACKUPOPERATOR: Члены этой роли могут создавать резервные копии базы данных.</li> <li>DB_DDLADMIN: Члены этой роли могут выполнять в базе данных любую команду языка описания данных (DDL).</li> <li>DB_DATAWRITER: Члены этой роли могут добавлять, удалять или изменять данные во всех пользовательских таблицах.</li> <li>DB_DATAREADER: Члены этой роли могут читать все данные из всех пользовательских таблиц.</li> <li>DB_DENYDATAWRITER: Члены этой роли не могут добавлять, изменять или удалять никакие данные в пользовательских таблицах базы данных. Подобное ограничение привилегий имеет более высокий приоритет, чем предоставление, поэтому вы можете использовать эту роль для быстрого ограничения привилегий без явного отзыва разрешений или ролей.</li> <li>DB_DENYDATAREADER: Члены этой фиксированной роли базы данных не могут читать никакие данные из пользовательских таблиц в базе данных. Подобное ограничение привилегий имеет более высокий приоритет, чем предоставление, поэтому вы можете использовать эту роль для быстрого ограничения привилегий без явного отзыва разрешений или ролей.</li> </ul> 
+name | **string**<br><p>Name of the SQL Server user.</p> 
+clusterId | **string**<br><p>ID of the SQL Server cluster the user belongs to.</p> 
+permissions[] | **object**<br><p>Set of permissions granted to the user.</p> 
+permissions[].<br>databaseName | **string**<br><p>Name of the database the permission grants access to.</p> 
+permissions[].<br>roles[] | **string**<br><ul> <li>DB_OWNER: Members of this fixed database role can perform all configuration and maintenance activities on the database, and can also drop the database in SQL Server.</li> <li>DB_SECURITYADMIN: Members of this fixed database role can modify role membership for custom roles only and manage permissions. They can potentially elevate their privileges and their actions should be monitored.</li> <li>DB_ACCESSADMIN: Members of this fixed database role can add or remove access to the database for Windows logins, Windows groups, and SQL Server logins.</li> <li>DB_BACKUPOPERATOR: Members of this fixed database role can back up the database.</li> <li>DB_DDLADMIN: Members of this fixed database role can run any Data Definition Language (DDL) command in a database.</li> <li>DB_DATAWRITER: Members of this fixed database role can add, delete, or change data in all user tables.</li> <li>DB_DATAREADER: Members of this fixed database role can read all data from all user tables.</li> <li>DB_DENYDATAWRITER: Members of this fixed database role cannot add, modify, or delete any data in the user tables within a database. Denial has a higher priority than a grant, so you can use this role to quickly restrict one's privileges without explicitly revoking permissions or roles.</li> <li>DB_DENYDATAREADER: Members of this fixed database role cannot read any data in the user tables within a database. Denial has a higher priority than a grant, so you can use this role to quickly restrict one's privileges without explicitly revoking permissions or roles.</li> </ul> 
 
-## Методы {#methods}
-Метод | Описание
+## Methods {#methods}
+Method | Description
 --- | ---
-[create](create.md) | Создает пользователя SQL Server в указанном кластере.
-[delete](delete.md) | Удаляет указанного пользователя SQL Server.
-[get](get.md) | Возвращает указанного пользователя SQL Server.
-[grantPermission](grantPermission.md) | Предоставляет разрешение указанному пользователю SQL Server.
-[list](list.md) | Возвращает список пользователей SQL Server в указанном кластере.
-[revokePermission](revokePermission.md) | Отзывает разрешение у указанного пользователя SQL Server.
-[update](update.md) | Изменяет указанного пользователя SQL Server.
+[create](create.md) | Creates an SQL Server user in the specified cluster.
+[delete](delete.md) | Deletes the specified SQL Server user.
+[get](get.md) | Returns the specified SQL Server user.
+[grantPermission](grantPermission.md) | Grants a permission to the specified SQL Server user.
+[list](list.md) | Retrieves a list of SQL Server users in the specified cluster.
+[revokePermission](revokePermission.md) | Revokes a permission from the specified SQL Server user.
+[update](update.md) | Modifies the specified SQL Server user.

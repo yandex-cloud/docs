@@ -4,1072 +4,1112 @@ editable: false
 
 # ClusterService
 
-Набор методов для управления кластерами Elasticsearch.
+A set of methods for managing Elasticsearch clusters.
 
-| Вызов | Описание |
+| Call | Description |
 | --- | --- |
-| [Get](#Get) | Возвращает указанный кластер Elasticsearch. |
-| [List](#List) | Получает список кластеров Elasticsearch, принадлежащих указанному каталогу. |
-| [Create](#Create) | Создает новый кластер Elasticsearch в указанном каталоге. |
-| [Update](#Update) | Изменяет указанный кластер Elasticsearch. |
-| [Delete](#Delete) | Удаляет указанный кластер Elasticsearch. |
-| [Move](#Move) | Перемещает кластер Elasticsearch в указанный каталог. |
-| [Start](#Start) | Запускает указанный кластер Elasticsearch. |
-| [Stop](#Stop) | Останавливает указанный кластер Elasticsearch. |
-| [ListLogs](#ListLogs) | Получает логи для указанного кластера Elasticsearch. |
-| [StreamLogs](#StreamLogs) | То же самое, что [ListLogs](#ListLogs), с той разницей, что со стороны сервера передается поток логов. |
-| [ListOperations](#ListOperations) | Получает список операций для указанного кластера Elasticsearch. |
-| [ListHosts](#ListHosts) | Получает список хостов для указанного кластера Elasticsearch. |
-| [AddHosts](#AddHosts) | Добавляет новые хосты в указанный кластер Elasticsearch. |
-| [DeleteHosts](#DeleteHosts) | Удаляет хосты из указанного кластера Elasticsearch. |
+| [Get](#Get) | Returns the specified Elasticsearch cluster. |
+| [List](#List) | Retrieves the list of Elasticsearch clusters that belong to the specified folder. |
+| [Create](#Create) | Creates a new Elasticsearch cluster in the specified folder. |
+| [Update](#Update) | Updates the specified Elasticsearch cluster. |
+| [Delete](#Delete) | Deletes the specified Elasticsearch cluster. |
+| [Move](#Move) | Moves the specified Elasticsearch cluster to the specified folder. |
+| [Start](#Start) | Starts the specified Elasticsearch cluster. |
+| [Stop](#Stop) | Stops the specified Elasticsearch cluster. |
+| [ListLogs](#ListLogs) | Retrieves logs for the specified Elasticsearch cluster. |
+| [StreamLogs](#StreamLogs) | Same as [ListLogs](#ListLogs) but using server-side streaming. |
+| [ListOperations](#ListOperations) | Retrieves the list of operations for the specified Elasticsearch cluster. |
+| [ListHosts](#ListHosts) | Retrieves a list of hosts for the specified Elasticsearch cluster. |
+| [AddHosts](#AddHosts) | Adds new hosts to the specified Elasticsearch cluster. |
+| [DeleteHosts](#DeleteHosts) | Deletes specified hosts from the specified Elasticsearch cluster. |
 
-## Вызовы ClusterService {#calls}
+## Calls ClusterService {#calls}
 
 ## Get {#Get}
 
-Возвращает указанный кластер Elasticsearch. <br>Чтобы получить список доступных кластеров Elasticsearch, выполните запрос [List](#List).
+Returns the specified Elasticsearch cluster. <br>To get the list of available Elasticsearch clusters, make a [List](#List) request.
 
 **rpc Get ([GetClusterRequest](#GetClusterRequest)) returns ([Cluster](#Cluster))**
 
 ### GetClusterRequest {#GetClusterRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера Elasticsearch. <br>Чтобы получить идентификатор кластера, выполните запрос [ClusterService.List](#List). Максимальная длина строки в символах — 50.
+cluster_id | **string**<br>Required. ID of the Elasticsearch cluster to return. <br>To get the cluster ID, make a [ClusterService.List](#List) request. The maximum string length in characters is 50.
 
 
 ### Cluster {#Cluster}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор кластера Elasticsearch. Этот идентификатор генерируется при создании кластера. 
-folder_id | **string**<br>Идентификатор каталога, которому принадлежит кластер Elasticsearch. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания. 
-name | **string**<br>Имя кластера Elasticsearch. Имя должно быть уникальным в рамках каталога. Длина 1-63 символов. 
-description | **string**<br>Описание кластера Elasticsearch. Длина описания должна быть от 0 до 256 символов. 
-labels | **map<string,string>**<br>Пользовательские метки для кластера Elasticsearch в виде пар `key:value`. Максимум 64 на ресурс. 
-environment | enum **Environment**<br>Среда развертывания кластера Elasticsearch. <ul><li>`PRODUCTION`: стабильная среда с осторожной политикой обновления — во время регулярного обслуживания применяются только срочные исправления.</li><li>`PRESTABLE`: среда с более агрессивной политикой обновления — новые версии развертываются независимо от обратной совместимости.</li><ul/>
-monitoring[] | **[Monitoring](#Monitoring)**<br>Описание систем мониторинга, относящихся к кластеру Elasticsearch. 
-config | **[ClusterConfig](#ClusterConfig)**<br>Конфигурация кластера Elasticsearch. 
-network_id | **string**<br>Идентификатор сети, к которой принадлежит кластер. 
-health | enum **Health**<br>Здоровье кластера. <ul><li>`HEALTH_UNKNOWN`: состояние кластера неизвестно ([Host.health](#Host) всех хостов в кластере — `UNKNOWN`).</li><li>`ALIVE`: кластер работает нормально ([Host.health](#Host) всех хостов в кластере — `ALIVE`).</li><li>`DEAD`: кластер не работает ([Host.health](#Host) всех хостов в кластере — `DEAD`).</li><li>`DEGRADED`: кластер находится в состоянии деградации ([Host.health](#Host) по крайней мере одного из хостов в кластере — не `ALIVE`).</li><ul/>
-status | enum **Status**<br>Текущее состояние кластера. <ul><li>`STATUS_UNKNOWN`: состояние кластера неизвестно.</li><li>`CREATING`: кластер создается.</li><li>`RUNNING`: кластер работает нормально.</li><li>`ERROR`: в кластере произошла ошибка, блокирующая работу.</li><li>`UPDATING`: кластер изменяется.</li><li>`STOPPING`: кластер останавливается.</li><li>`STOPPED`: кластер остановлен.</li><li>`STARTING`: кластер запускается.</li><ul/>
+id | **string**<br>ID of the Elasticsearch cluster. This ID is assigned at creation time. 
+folder_id | **string**<br>ID of the folder that the Elasticsearch cluster belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+name | **string**<br>Name of the Elasticsearch cluster. The name must be unique within the folder. 1-63 characters long. 
+description | **string**<br>Description of the Elasticsearch cluster. 0-256 characters long. 
+labels | **map<string,string>**<br>Custom labels for the Elasticsearch cluster as `key:value` pairs. A maximum of 64 labels per resource is allowed. 
+environment | enum **Environment**<br>Deployment environment of the Elasticsearch cluster. <ul><li>`PRODUCTION`: stable environment with a conservative update policy when only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: environment with a more aggressive update policy when new versions are rolled out irrespective of backward compatibility.</li><ul/>
+monitoring[] | **[Monitoring](#Monitoring)**<br>Description of monitoring systems relevant to the Elasticsearch cluster. 
+config | **[ClusterConfig](#ClusterConfig)**<br>Configuration of the Elasticsearch cluster. 
+network_id | **string**<br>ID of the network that the cluster belongs to. 
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: state of the cluster is unknown ([Host.health](#Host) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: cluster is alive and well ([Host.health](#Host) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: cluster is inoperable ([Host.health](#Host) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: cluster is in degraded state ([Host.health](#Host) of at least one of the hosts in the cluster is not `ALIVE`).</li><ul/>
+status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: cluster state is unknown.</li><li>`CREATING`: cluster is being created.</li><li>`RUNNING`: cluster is running normally.</li><li>`ERROR`: cluster encountered a problem and cannot operate.</li><li>`UPDATING`: cluster is being updated.</li><li>`STOPPING`: cluster is stopping.</li><li>`STOPPED`: cluster stopped.</li><li>`STARTING`: cluster is starting.</li><ul/>
+security_group_ids[] | **string**<br>User security groups 
+service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
 
 
 ### Monitoring {#Monitoring}
 
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br>Название системы мониторинга. 
-description | **string**<br>Описание системы мониторинга. 
-link | **string**<br>Ссылка на графики системы мониторинга для кластера Elasticsearch. 
+name | **string**<br>Name of the monitoring system. 
+description | **string**<br>Description of the monitoring system. 
+link | **string**<br>Link to the monitoring system charts for the Elasticsearch cluster. 
 
 
 ### ClusterConfig {#ClusterConfig}
 
-Поле | Описание
+Field | Description
 --- | ---
-version | **string**<br>Версия Elasticsearch. 
-elasticsearch | **[Elasticsearch](#Elasticsearch)**<br>Конфигурация и распределение ресурсов для узлов Elasticsearch. 
+version | **string**<br>Elasticsearch version. 
+elasticsearch | **[Elasticsearch](#Elasticsearch)**<br>Configuration and resource allocation for Elasticsearch nodes. 
+edition | **string**<br>ElasticSearch edition. 
 
 
 ### Elasticsearch {#Elasticsearch}
 
-Поле | Описание
+Field | Description
 --- | ---
-data_node | **[DataNode](#DataNode)**<br>Конфигурация и распределение ресурсов для узлов Elasticsearch с ролью Data node. 
-master_node | **[MasterNode](#MasterNode)**<br>Конфигурация и распределение ресурсов для узлов Elasticsearch с ролью Master node. 
+data_node | **[DataNode](#DataNode)**<br>Configuration and resource allocation for Elasticsearch data nodes. 
+master_node | **[MasterNode](#MasterNode)**<br>Configuration and resource allocation for Elasticsearch master nodes. 
+plugins[] | **string**<br>Cluster wide plugins 
 
 
 ### DataNode {#DataNode}
 
-Поле | Описание
+Field | Description
 --- | ---
-config | **oneof:** `elasticsearch_config_set_7_6`<br>
-&nbsp;&nbsp;elasticsearch_config_set_7_6 | **[config.ElasticsearchConfigSet7_6](#ElasticsearchConfigSet7_6)**<br>Конфигурация Elasticsearch 7.6 для узла с ролью Data node. 
-resources | **[Resources](#Resources)**<br>Ресурсы, выделенные узлам Elasticsearch с ролью Data node. 
+config | **oneof:** `elasticsearch_config_set_7`<br>
+&nbsp;&nbsp;elasticsearch_config_set_7 | **[config.ElasticsearchConfigSet7](#ElasticsearchConfigSet7)**<br>Elasticsearch 7.x data node configuration. 
+resources | **[Resources](#Resources)**<br>Resources allocated to Elasticsearch data nodes. 
 
 
 ### MasterNode {#MasterNode}
 
-Поле | Описание
+Field | Description
 --- | ---
-resources | **[Resources](#Resources)**<br>Ресурсы, выделенные узлам Elasticsearch с ролью Master node. 
+resources | **[Resources](#Resources)**<br>Resources allocated to Elasticsearch master nodes. 
 
 
 ## List {#List}
 
-Получает список кластеров Elasticsearch, принадлежащих указанному каталогу.
+Retrieves the list of Elasticsearch clusters that belong to the specified folder.
 
 **rpc List ([ListClustersRequest](#ListClustersRequest)) returns ([ListClustersResponse](#ListClustersResponse))**
 
 ### ListClustersRequest {#ListClustersRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-folder_id | **string**<br>Обязательное поле. Идентификатор каталога, для которого нужно получить список кластеров Elasticsearch. <br>Чтобы получить идентификатор каталога, выполните запрос [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List). Максимальная длина строки в символах — 50.
-page_size | **int64**<br>Максимальное количество результатов на одной странице в ответе. Если количество результатов больше чем `page_size`, сервис вернет значение [ListClustersResponse.next_page_token](#ListClustersResponse), которое можно использовать для получения следующей страницы. Максимальное значение — 1000.
-page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListClustersResponse.next_page_token](#ListClustersResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
-filter | **string**<br><ol><li>Имя поля, по которому нужно выполнить фильтрацию. В настоящее время фильтрацию можно использовать только по полю [Cluster.name](#Cluster1). </li><li>Условный оператор. Поддерживаются операторы `=` и `!=` для одиночных значений, `IN` и `NOT IN` для списков значений. </li><li>Значение. Должно содержать от 1 до 63 символов и соответствовать регулярному выражению `^[a-zA-Z0-9_-]+$`. </li></ol> Максимальная длина строки в символах — 1000.
+folder_id | **string**<br>Required. ID of the folder to list Elasticsearch clusters in. <br>To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. The maximum string length in characters is 50.
+page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClustersResponse.next_page_token](#ListClustersResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
+page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListClustersResponse.next_page_token](#ListClustersResponse) returned by a previous list request. The maximum string length in characters is 100.
+filter | **string**<br><ol><li>The field name to filter by. Currently you can only use filtering with the [Cluster.name](#Cluster1) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 1-63 characters long and match the regular expression `^[a-zA-Z0-9_-]+$`. </li></ol> The maximum string length in characters is 1000.
 
 
 ### ListClustersResponse {#ListClustersResponse}
 
-Поле | Описание
+Field | Description
 --- | ---
-clusters[] | **[Cluster](#Cluster1)**<br>Список кластеров Elasticsearch. 
-next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. <br>Если количество результатов больше чем [ListClustersRequest.page_size](#ListClustersRequest), используйте `next_page_token` в качестве значения параметра [ListClustersRequest.page_token](#ListClustersRequest) в следующем запросе. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
+clusters[] | **[Cluster](#Cluster1)**<br>List of Elasticsearch clusters. 
+next_page_token | **string**<br>Token that allows you to get the next page of results for list requests. <br>If the number of results is larger than [ListClustersRequest.page_size](#ListClustersRequest), use `next_page_token` as the value for the [ListClustersRequest.page_token](#ListClustersRequest) parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
 ### Cluster {#Cluster1}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор кластера Elasticsearch. Этот идентификатор генерируется при создании кластера. 
-folder_id | **string**<br>Идентификатор каталога, которому принадлежит кластер Elasticsearch. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания. 
-name | **string**<br>Имя кластера Elasticsearch. Имя должно быть уникальным в рамках каталога. Длина 1-63 символов. 
-description | **string**<br>Описание кластера Elasticsearch. Длина описания должна быть от 0 до 256 символов. 
-labels | **map<string,string>**<br>Пользовательские метки для кластера Elasticsearch в виде пар `key:value`. Максимум 64 на ресурс. 
-environment | enum **Environment**<br>Среда развертывания кластера Elasticsearch. <ul><li>`PRODUCTION`: стабильная среда с осторожной политикой обновления — во время регулярного обслуживания применяются только срочные исправления.</li><li>`PRESTABLE`: среда с более агрессивной политикой обновления — новые версии развертываются независимо от обратной совместимости.</li><ul/>
-monitoring[] | **[Monitoring](#Monitoring1)**<br>Описание систем мониторинга, относящихся к кластеру Elasticsearch. 
-config | **[ClusterConfig](#ClusterConfig1)**<br>Конфигурация кластера Elasticsearch. 
-network_id | **string**<br>Идентификатор сети, к которой принадлежит кластер. 
-health | enum **Health**<br>Здоровье кластера. <ul><li>`HEALTH_UNKNOWN`: состояние кластера неизвестно ([Host.health](#Host) всех хостов в кластере — `UNKNOWN`).</li><li>`ALIVE`: кластер работает нормально ([Host.health](#Host) всех хостов в кластере — `ALIVE`).</li><li>`DEAD`: кластер не работает ([Host.health](#Host) всех хостов в кластере — `DEAD`).</li><li>`DEGRADED`: кластер находится в состоянии деградации ([Host.health](#Host) по крайней мере одного из хостов в кластере — не `ALIVE`).</li><ul/>
-status | enum **Status**<br>Текущее состояние кластера. <ul><li>`STATUS_UNKNOWN`: состояние кластера неизвестно.</li><li>`CREATING`: кластер создается.</li><li>`RUNNING`: кластер работает нормально.</li><li>`ERROR`: в кластере произошла ошибка, блокирующая работу.</li><li>`UPDATING`: кластер изменяется.</li><li>`STOPPING`: кластер останавливается.</li><li>`STOPPED`: кластер остановлен.</li><li>`STARTING`: кластер запускается.</li><ul/>
+id | **string**<br>ID of the Elasticsearch cluster. This ID is assigned at creation time. 
+folder_id | **string**<br>ID of the folder that the Elasticsearch cluster belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+name | **string**<br>Name of the Elasticsearch cluster. The name must be unique within the folder. 1-63 characters long. 
+description | **string**<br>Description of the Elasticsearch cluster. 0-256 characters long. 
+labels | **map<string,string>**<br>Custom labels for the Elasticsearch cluster as `key:value` pairs. A maximum of 64 labels per resource is allowed. 
+environment | enum **Environment**<br>Deployment environment of the Elasticsearch cluster. <ul><li>`PRODUCTION`: stable environment with a conservative update policy when only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: environment with a more aggressive update policy when new versions are rolled out irrespective of backward compatibility.</li><ul/>
+monitoring[] | **[Monitoring](#Monitoring1)**<br>Description of monitoring systems relevant to the Elasticsearch cluster. 
+config | **[ClusterConfig](#ClusterConfig1)**<br>Configuration of the Elasticsearch cluster. 
+network_id | **string**<br>ID of the network that the cluster belongs to. 
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: state of the cluster is unknown ([Host.health](#Host) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: cluster is alive and well ([Host.health](#Host) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: cluster is inoperable ([Host.health](#Host) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: cluster is in degraded state ([Host.health](#Host) of at least one of the hosts in the cluster is not `ALIVE`).</li><ul/>
+status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: cluster state is unknown.</li><li>`CREATING`: cluster is being created.</li><li>`RUNNING`: cluster is running normally.</li><li>`ERROR`: cluster encountered a problem and cannot operate.</li><li>`UPDATING`: cluster is being updated.</li><li>`STOPPING`: cluster is stopping.</li><li>`STOPPED`: cluster stopped.</li><li>`STARTING`: cluster is starting.</li><ul/>
+security_group_ids[] | **string**<br>User security groups 
+service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
 
 
 ### Monitoring {#Monitoring1}
 
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br>Название системы мониторинга. 
-description | **string**<br>Описание системы мониторинга. 
-link | **string**<br>Ссылка на графики системы мониторинга для кластера Elasticsearch. 
+name | **string**<br>Name of the monitoring system. 
+description | **string**<br>Description of the monitoring system. 
+link | **string**<br>Link to the monitoring system charts for the Elasticsearch cluster. 
 
 
 ### ClusterConfig {#ClusterConfig1}
 
-Поле | Описание
+Field | Description
 --- | ---
-version | **string**<br>Версия Elasticsearch. 
-elasticsearch | **[Elasticsearch](#Elasticsearch1)**<br>Конфигурация и распределение ресурсов для узлов Elasticsearch. 
+version | **string**<br>Elasticsearch version. 
+elasticsearch | **[Elasticsearch](#Elasticsearch1)**<br>Configuration and resource allocation for Elasticsearch nodes. 
+edition | **string**<br>ElasticSearch edition. 
 
 
 ### Elasticsearch {#Elasticsearch1}
 
-Поле | Описание
+Field | Description
 --- | ---
-data_node | **[DataNode](#DataNode1)**<br>Конфигурация и распределение ресурсов для узлов Elasticsearch с ролью Data node. 
-master_node | **[MasterNode](#MasterNode1)**<br>Конфигурация и распределение ресурсов для узлов Elasticsearch с ролью Master node. 
+data_node | **[DataNode](#DataNode1)**<br>Configuration and resource allocation for Elasticsearch data nodes. 
+master_node | **[MasterNode](#MasterNode1)**<br>Configuration and resource allocation for Elasticsearch master nodes. 
+plugins[] | **string**<br>Cluster wide plugins 
 
 
 ### DataNode {#DataNode1}
 
-Поле | Описание
+Field | Description
 --- | ---
-config | **oneof:** `elasticsearch_config_set_7_6`<br>
-&nbsp;&nbsp;elasticsearch_config_set_7_6 | **[config.ElasticsearchConfigSet7_6](#ElasticsearchConfigSet7_6)**<br>Конфигурация Elasticsearch 7.6 для узла с ролью Data node. 
-resources | **[Resources](#Resources)**<br>Ресурсы, выделенные узлам Elasticsearch с ролью Data node. 
+config | **oneof:** `elasticsearch_config_set_7`<br>
+&nbsp;&nbsp;elasticsearch_config_set_7 | **[config.ElasticsearchConfigSet7](#ElasticsearchConfigSet7)**<br>Elasticsearch 7.x data node configuration. 
+resources | **[Resources](#Resources)**<br>Resources allocated to Elasticsearch data nodes. 
 
 
 ### MasterNode {#MasterNode1}
 
-Поле | Описание
+Field | Description
 --- | ---
-resources | **[Resources](#Resources)**<br>Ресурсы, выделенные узлам Elasticsearch с ролью Master node. 
+resources | **[Resources](#Resources)**<br>Resources allocated to Elasticsearch master nodes. 
 
 
 ## Create {#Create}
 
-Создает новый кластер Elasticsearch в указанном каталоге.
+Creates a new Elasticsearch cluster in the specified folder.
 
 **rpc Create ([CreateClusterRequest](#CreateClusterRequest)) returns ([operation.Operation](#Operation))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateClusterMetadata](#CreateClusterMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster2)<br>
 
 ### CreateClusterRequest {#CreateClusterRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-folder_id | **string**<br>Обязательное поле. Идентификатор каталога, в котором будет создан кластер Elasticsearch. Максимальная длина строки в символах — 50.
-name | **string**<br>Обязательное поле. Имя кластера Elasticsearch. Имя должно быть уникальным в рамках каталога. Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_-]* `.
-description | **string**<br>Описание кластера Elasticsearch. Максимальная длина строки в символах — 256.
-labels | **map<string,string>**<br>Пользовательские метки для кластера Elasticsearch в виде пар `key:value`. <br>Например, "project": "mvp" или "source": "dictionary". Не более 64 на ресурс. Максимальная длина строки в символах для каждого значения — 63. Каждое значение должно соответствовать регулярному выражению ` [-_0-9a-z]* `. Длина строки в символах для каждого ключа должна быть от 1 до 63. Каждый ключ должен соответствовать регулярному выражению ` [a-z][-_0-9a-z]* `.
-environment | **[Cluster.Environment](#Cluster2)**<br>Среда развертывания кластера Elasticsearch. 
-config_spec | **[ConfigSpec](#ConfigSpec)**<br>Обязательное поле. Конфигурация Elasticsearch и хостов для кластера. 
-user_specs[] | **[UserSpec](#UserSpec)**<br>Одно или несколько описаний пользователей, которых нужно создать в кластере Elasticsearch. Количество элементов должно быть больше 0.
-host_specs[] | **[HostSpec](#HostSpec)**<br>Одна или несколько конфигураций хостов, создаваемых в кластере Elasticsearch. Количество элементов должно быть больше 0.
-network_id | **string**<br>Обязательное поле. Идентификатор сети, в которой будет создан кластер Elasticsearch. Максимальная длина строки в символах — 50.
+folder_id | **string**<br>Required. ID of the folder to create the Elasticsearch cluster in. The maximum string length in characters is 50.
+name | **string**<br>Required. Name of the Elasticsearch cluster. The name must be unique within the folder. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+description | **string**<br>Description of the Elasticsearch cluster. The maximum string length in characters is 256.
+labels | **map<string,string>**<br>Custom labels for the Elasticsearch cluster as `key:value` pairs. <br>For example, "project": "mvp" or "source": "dictionary". No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+environment | **[Cluster.Environment](#Cluster2)**<br>Deployment environment of the Elasticsearch cluster. 
+config_spec | **[ConfigSpec](#ConfigSpec)**<br>Required. Elasticsearch and hosts configuration for the cluster. 
+user_specs[] | **[UserSpec](#UserSpec)**<br>One or more descriptions of users to be created in Elasticsearch cluster. 
+host_specs[] | **[HostSpec](#HostSpec)**<br>One or more configurations of hosts to be created in the Elasticsearch cluster. The number of elements must be greater than 0.
+network_id | **string**<br>Required. ID of the network to create the Elasticsearch cluster in. The maximum string length in characters is 50.
+security_group_ids[] | **string**<br>User security groups 
+service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
 
 
 ### ConfigSpec {#ConfigSpec}
 
-Поле | Описание
+Field | Description
 --- | ---
-version | **string**<br>Версия Elasticsearch. 
-elasticsearch_spec | **[ElasticsearchSpec](#ElasticsearchSpec)**<br>Конфигурация и распределение ресурсов для узлов Elasticsearch. 
+version | **string**<br>Elasticsearch version. 
+elasticsearch_spec | **[ElasticsearchSpec](#ElasticsearchSpec)**<br>Configuration and resource allocation for Elasticsearch nodes. 
+edition | **string**<br>ElasticSearch edition. 
+admin_password | **string**<br>ElasticSearch admin password. 
 
 
 ### ElasticsearchSpec {#ElasticsearchSpec}
 
-Поле | Описание
+Field | Description
 --- | ---
-data_node | **[DataNode](#DataNode2)**<br>Конфигурация и распределение ресурсов для узлов Elasticsearch с ролью Data node. 
-master_node | **[MasterNode](#MasterNode2)**<br>Конфигурация и распределение ресурсов для узлов Elasticsearch с ролью Master node. 
+data_node | **[DataNode](#DataNode2)**<br>Configuration and resource allocation for Elasticsearch data nodes. 
+master_node | **[MasterNode](#MasterNode2)**<br>Configuration and resource allocation for Elasticsearch master nodes. 
+plugins[] | **string**<br>Cluster wide plugins The maximum string length in characters for each value is 50.
 
 
 ### DataNode {#DataNode2}
 
-Поле | Описание
+Field | Description
 --- | ---
-config | **oneof:** `elasticsearch_config_7_6`<br>Конфигурация Elasticsearch для узла с ролью Data node.
-&nbsp;&nbsp;elasticsearch_config_7_6 | **[config.ElasticsearchConfig7_6](#ElasticsearchConfig7_6)**<br>Конфигурация Elasticsearch для узла с ролью Data node. 
-resources | **[Resources](#Resources)**<br>Ресурсы, выделенные узлам Elasticsearch с ролью Data node. 
+config | **oneof:** `elasticsearch_config_7`<br>Elasticsearch data node configuration.
+&nbsp;&nbsp;elasticsearch_config_7 | **[config.ElasticsearchConfig7](#ElasticsearchConfig7)**<br>Elasticsearch data node configuration. 
+resources | **[Resources](#Resources)**<br>Resources allocated to Elasticsearch data nodes. 
 
 
 ### MasterNode {#MasterNode2}
 
-Поле | Описание
+Field | Description
 --- | ---
-resources | **[Resources](#Resources)**<br>Ресурсы, выделенные узлам Elasticsearch с ролью Master node. 
+resources | **[Resources](#Resources)**<br>Resources allocated to Elasticsearch master nodes. 
 
 
 ### UserSpec {#UserSpec}
 
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br>Обязательное поле. Имя пользователя Elasticsearch. Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_]* `.
-password | **string**<br>Обязательное поле. Пароль пользователя Elasticsearch. Длина строки в символах должна быть от 8 до 128.
+name | **string**<br>Required. Name of the Elasticsearch user. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
+password | **string**<br>Required. Password of the Elasticsearch user. The string length in characters must be 8-128.
 
 
 ### HostSpec {#HostSpec}
 
-Поле | Описание
+Field | Description
 --- | ---
-zone_id | **string**<br>Идентификатор зоны доступности, в которой находится хост. Максимальная длина строки в символах — 50.
-subnet_id | **string**<br>Идентификатор подсети, в которой находится хост. Максимальная длина строки в символах — 50.
-assign_public_ip | **bool**<br>Флаг, определяющий, назначен ли хосту публичный IP-адрес. <br>Если значение равно `true`, то этот хост доступен в Интернете через его публичный IP-адрес. 
-type | **[Host.Type](#Host)**<br>Обязательное поле. Тип хоста. 
-shard_name | **string**<br>Имя шарда, который нужно создать на хосте. Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_-]* `.
+zone_id | **string**<br>ID of the availability zone where the host resides. The maximum string length in characters is 50.
+subnet_id | **string**<br>ID of the subnet the host resides in. The maximum string length in characters is 50.
+assign_public_ip | **bool**<br>The flag that defines whether a public IP address is assigned to the host. <br>If the value is `true`, then this host is available on the Internet via it's public IP address. 
+type | **[Host.Type](#Host)**<br>Required. Host type. 
+shard_name | **string**<br>The shard name to create on the host. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
 ### Operation {#Operation}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateClusterMetadata](#CreateClusterMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster2)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateClusterMetadata](#CreateClusterMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster2)>**<br>if operation finished successfully. 
 
 
 ### CreateClusterMetadata {#CreateClusterMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Идентификатор создаваемого кластера Elasticsearch. 
+cluster_id | **string**<br>ID of the Elasticsearch cluster that is being created. 
 
 
 ### Cluster {#Cluster2}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор кластера Elasticsearch. Этот идентификатор генерируется при создании кластера. 
-folder_id | **string**<br>Идентификатор каталога, которому принадлежит кластер Elasticsearch. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания. 
-name | **string**<br>Имя кластера Elasticsearch. Имя должно быть уникальным в рамках каталога. Длина 1-63 символов. 
-description | **string**<br>Описание кластера Elasticsearch. Длина описания должна быть от 0 до 256 символов. 
-labels | **map<string,string>**<br>Пользовательские метки для кластера Elasticsearch в виде пар `key:value`. Максимум 64 на ресурс. 
-environment | enum **Environment**<br>Среда развертывания кластера Elasticsearch. <ul><li>`PRODUCTION`: стабильная среда с осторожной политикой обновления — во время регулярного обслуживания применяются только срочные исправления.</li><li>`PRESTABLE`: среда с более агрессивной политикой обновления — новые версии развертываются независимо от обратной совместимости.</li><ul/>
-monitoring[] | **[Monitoring](#Monitoring2)**<br>Описание систем мониторинга, относящихся к кластеру Elasticsearch. 
-config | **[ClusterConfig](#ClusterConfig2)**<br>Конфигурация кластера Elasticsearch. 
-network_id | **string**<br>Идентификатор сети, к которой принадлежит кластер. 
-health | enum **Health**<br>Здоровье кластера. <ul><li>`HEALTH_UNKNOWN`: состояние кластера неизвестно ([Host.health](#Host) всех хостов в кластере — `UNKNOWN`).</li><li>`ALIVE`: кластер работает нормально ([Host.health](#Host) всех хостов в кластере — `ALIVE`).</li><li>`DEAD`: кластер не работает ([Host.health](#Host) всех хостов в кластере — `DEAD`).</li><li>`DEGRADED`: кластер находится в состоянии деградации ([Host.health](#Host) по крайней мере одного из хостов в кластере — не `ALIVE`).</li><ul/>
-status | enum **Status**<br>Текущее состояние кластера. <ul><li>`STATUS_UNKNOWN`: состояние кластера неизвестно.</li><li>`CREATING`: кластер создается.</li><li>`RUNNING`: кластер работает нормально.</li><li>`ERROR`: в кластере произошла ошибка, блокирующая работу.</li><li>`UPDATING`: кластер изменяется.</li><li>`STOPPING`: кластер останавливается.</li><li>`STOPPED`: кластер остановлен.</li><li>`STARTING`: кластер запускается.</li><ul/>
+id | **string**<br>ID of the Elasticsearch cluster. This ID is assigned at creation time. 
+folder_id | **string**<br>ID of the folder that the Elasticsearch cluster belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+name | **string**<br>Name of the Elasticsearch cluster. The name must be unique within the folder. 1-63 characters long. 
+description | **string**<br>Description of the Elasticsearch cluster. 0-256 characters long. 
+labels | **map<string,string>**<br>Custom labels for the Elasticsearch cluster as `key:value` pairs. A maximum of 64 labels per resource is allowed. 
+environment | enum **Environment**<br>Deployment environment of the Elasticsearch cluster. <ul><li>`PRODUCTION`: stable environment with a conservative update policy when only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: environment with a more aggressive update policy when new versions are rolled out irrespective of backward compatibility.</li><ul/>
+monitoring[] | **[Monitoring](#Monitoring2)**<br>Description of monitoring systems relevant to the Elasticsearch cluster. 
+config | **[ClusterConfig](#ClusterConfig2)**<br>Configuration of the Elasticsearch cluster. 
+network_id | **string**<br>ID of the network that the cluster belongs to. 
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: state of the cluster is unknown ([Host.health](#Host) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: cluster is alive and well ([Host.health](#Host) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: cluster is inoperable ([Host.health](#Host) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: cluster is in degraded state ([Host.health](#Host) of at least one of the hosts in the cluster is not `ALIVE`).</li><ul/>
+status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: cluster state is unknown.</li><li>`CREATING`: cluster is being created.</li><li>`RUNNING`: cluster is running normally.</li><li>`ERROR`: cluster encountered a problem and cannot operate.</li><li>`UPDATING`: cluster is being updated.</li><li>`STOPPING`: cluster is stopping.</li><li>`STOPPED`: cluster stopped.</li><li>`STARTING`: cluster is starting.</li><ul/>
+security_group_ids[] | **string**<br>User security groups 
+service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
 
 
 ### Monitoring {#Monitoring2}
 
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br>Название системы мониторинга. 
-description | **string**<br>Описание системы мониторинга. 
-link | **string**<br>Ссылка на графики системы мониторинга для кластера Elasticsearch. 
+name | **string**<br>Name of the monitoring system. 
+description | **string**<br>Description of the monitoring system. 
+link | **string**<br>Link to the monitoring system charts for the Elasticsearch cluster. 
 
 
 ### ClusterConfig {#ClusterConfig2}
 
-Поле | Описание
+Field | Description
 --- | ---
-version | **string**<br>Версия Elasticsearch. 
-elasticsearch | **[Elasticsearch](#Elasticsearch2)**<br>Конфигурация и распределение ресурсов для узлов Elasticsearch. 
+version | **string**<br>Elasticsearch version. 
+elasticsearch | **[Elasticsearch](#Elasticsearch2)**<br>Configuration and resource allocation for Elasticsearch nodes. 
+edition | **string**<br>ElasticSearch edition. 
 
 
 ### Elasticsearch {#Elasticsearch2}
 
-Поле | Описание
+Field | Description
 --- | ---
-data_node | **[DataNode](#DataNode3)**<br>Конфигурация и распределение ресурсов для узлов Elasticsearch с ролью Data node. 
-master_node | **[MasterNode](#MasterNode3)**<br>Конфигурация и распределение ресурсов для узлов Elasticsearch с ролью Master node. 
+data_node | **[DataNode](#DataNode3)**<br>Configuration and resource allocation for Elasticsearch data nodes. 
+master_node | **[MasterNode](#MasterNode3)**<br>Configuration and resource allocation for Elasticsearch master nodes. 
+plugins[] | **string**<br>Cluster wide plugins 
 
 
 ### DataNode {#DataNode3}
 
-Поле | Описание
+Field | Description
 --- | ---
-config | **oneof:** `elasticsearch_config_set_7_6`<br>
-&nbsp;&nbsp;elasticsearch_config_set_7_6 | **[config.ElasticsearchConfigSet7_6](#ElasticsearchConfigSet7_6)**<br>Конфигурация Elasticsearch 7.6 для узла с ролью Data node. 
-resources | **[Resources](#Resources)**<br>Ресурсы, выделенные узлам Elasticsearch с ролью Data node. 
+config | **oneof:** `elasticsearch_config_set_7`<br>
+&nbsp;&nbsp;elasticsearch_config_set_7 | **[config.ElasticsearchConfigSet7](#ElasticsearchConfigSet7)**<br>Elasticsearch 7.x data node configuration. 
+resources | **[Resources](#Resources)**<br>Resources allocated to Elasticsearch data nodes. 
 
 
 ### MasterNode {#MasterNode3}
 
-Поле | Описание
+Field | Description
 --- | ---
-resources | **[Resources](#Resources)**<br>Ресурсы, выделенные узлам Elasticsearch с ролью Master node. 
+resources | **[Resources](#Resources)**<br>Resources allocated to Elasticsearch master nodes. 
 
 
 ## Update {#Update}
 
-Изменяет указанный кластер Elasticsearch.
+Updates the specified Elasticsearch cluster.
 
 **rpc Update ([UpdateClusterRequest](#UpdateClusterRequest)) returns ([operation.Operation](#Operation1))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateClusterMetadata](#UpdateClusterMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster3)<br>
 
 ### UpdateClusterRequest {#UpdateClusterRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера Elasticsearch, который нужно изменить. <br>Чтобы получить идентификатор кластера Elasticsearch, выполните запрос [ClusterService.List](#List). Максимальная длина строки в символах — 50.
+cluster_id | **string**<br>Required. ID of the Elasticsearch cluster to update. <br>To get the Elasticsearch cluster ID, make a [ClusterService.List](#List) request. The maximum string length in characters is 50.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br> 
-description | **string**<br>Новое описание кластера Elasticsearch. Максимальная длина строки в символах — 256.
-labels | **map<string,string>**<br>Пользовательские метки для кластера Elasticsearch в виде пар `key:value`. <br>Например, "project": "mvp" или "source": "dictionary". <br>Новый набор меток полностью заменит старый. Чтобы добавить метку, запросите текущий набор меток с помощью метода [ClusterService.Get](#Get), затем отправьте запрос [ClusterService.Update](#Update), добавив новую метку в этот набор. Не более 64 на ресурс. Максимальная длина строки в символах для каждого значения — 63. Каждое значение должно соответствовать регулярному выражению ` [-_0-9a-z]* `. Длина строки в символах для каждого ключа должна быть от 1 до 63. Каждый ключ должен соответствовать регулярному выражению ` [a-z][-_0-9a-z]* `.
-config_spec | **[ConfigSpec](#ConfigSpec)**<br>Новая конфигурация и ресурсы для хостов кластера Elasticsearch. <br>Используйте параметр `update_mask` чтобы предотвратить сброс настроек кластера, не перечисленных в `config_spec`, на значения по умолчанию. 
-name | **string**<br>Новое имя кластера Elasticsearch. Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_-]* `.
+description | **string**<br>New description of the Elasticsearch cluster. The maximum string length in characters is 256.
+labels | **map<string,string>**<br>Custom labels for the Elasticsearch cluster as `key:value` pairs. <br>For example, "project": "mvp" or "source": "dictionary". <br>The new set of labels will completely replace the old ones. To add a label, request the current set with the [ClusterService.Get](#Get) method, then send an [ClusterService.Update](#Update) request with the new label added to the set. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+config_spec | **[ConfigSpec](#ConfigSpec)**<br>New configuration and resources for hosts in the Elasticsearch cluster. <br>Use `update_mask` to prevent reverting all cluster settings that are not listed in `config_spec` to their default values. 
+name | **string**<br>New name for the Elasticsearch cluster. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+security_group_ids[] | **string**<br>User security groups 
+service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
 
 
 ### ConfigSpec {#ConfigSpec1}
 
-Поле | Описание
+Field | Description
 --- | ---
-version | **string**<br>Версия Elasticsearch. 
-elasticsearch_spec | **[ElasticsearchSpec](#ElasticsearchSpec)**<br>Конфигурация и распределение ресурсов для узлов Elasticsearch. 
+version | **string**<br>Elasticsearch version. 
+elasticsearch_spec | **[ElasticsearchSpec](#ElasticsearchSpec)**<br>Configuration and resource allocation for Elasticsearch nodes. 
+edition | **string**<br>ElasticSearch edition. 
+admin_password | **string**<br>ElasticSearch admin password. 
 
 
 ### ElasticsearchSpec {#ElasticsearchSpec1}
 
-Поле | Описание
+Field | Description
 --- | ---
-data_node | **[DataNode](#DataNode4)**<br>Конфигурация и распределение ресурсов для узлов Elasticsearch с ролью Data node. 
-master_node | **[MasterNode](#MasterNode4)**<br>Конфигурация и распределение ресурсов для узлов Elasticsearch с ролью Master node. 
+data_node | **[DataNode](#DataNode4)**<br>Configuration and resource allocation for Elasticsearch data nodes. 
+master_node | **[MasterNode](#MasterNode4)**<br>Configuration and resource allocation for Elasticsearch master nodes. 
+plugins[] | **string**<br>Cluster wide plugins The maximum string length in characters for each value is 50.
 
 
 ### DataNode {#DataNode4}
 
-Поле | Описание
+Field | Description
 --- | ---
-config | **oneof:** `elasticsearch_config_7_6`<br>Конфигурация Elasticsearch для узла с ролью Data node.
-&nbsp;&nbsp;elasticsearch_config_7_6 | **[config.ElasticsearchConfig7_6](#ElasticsearchConfig7_6)**<br>Конфигурация Elasticsearch для узла с ролью Data node. 
-resources | **[Resources](#Resources)**<br>Ресурсы, выделенные узлам Elasticsearch с ролью Data node. 
+config | **oneof:** `elasticsearch_config_7`<br>Elasticsearch data node configuration.
+&nbsp;&nbsp;elasticsearch_config_7 | **[config.ElasticsearchConfig7](#ElasticsearchConfig7)**<br>Elasticsearch data node configuration. 
+resources | **[Resources](#Resources)**<br>Resources allocated to Elasticsearch data nodes. 
 
 
 ### MasterNode {#MasterNode4}
 
-Поле | Описание
+Field | Description
 --- | ---
-resources | **[Resources](#Resources)**<br>Ресурсы, выделенные узлам Elasticsearch с ролью Master node. 
+resources | **[Resources](#Resources)**<br>Resources allocated to Elasticsearch master nodes. 
 
 
 ### Operation {#Operation1}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateClusterMetadata](#UpdateClusterMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster3)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateClusterMetadata](#UpdateClusterMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster3)>**<br>if operation finished successfully. 
 
 
 ### UpdateClusterMetadata {#UpdateClusterMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Идентификатор изменяемого кластера Elasticsearch. 
+cluster_id | **string**<br>ID of the Elasticsearch cluster that is being updated. 
 
 
 ### Cluster {#Cluster3}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор кластера Elasticsearch. Этот идентификатор генерируется при создании кластера. 
-folder_id | **string**<br>Идентификатор каталога, которому принадлежит кластер Elasticsearch. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания. 
-name | **string**<br>Имя кластера Elasticsearch. Имя должно быть уникальным в рамках каталога. Длина 1-63 символов. 
-description | **string**<br>Описание кластера Elasticsearch. Длина описания должна быть от 0 до 256 символов. 
-labels | **map<string,string>**<br>Пользовательские метки для кластера Elasticsearch в виде пар `key:value`. Максимум 64 на ресурс. 
-environment | enum **Environment**<br>Среда развертывания кластера Elasticsearch. <ul><li>`PRODUCTION`: стабильная среда с осторожной политикой обновления — во время регулярного обслуживания применяются только срочные исправления.</li><li>`PRESTABLE`: среда с более агрессивной политикой обновления — новые версии развертываются независимо от обратной совместимости.</li><ul/>
-monitoring[] | **[Monitoring](#Monitoring3)**<br>Описание систем мониторинга, относящихся к кластеру Elasticsearch. 
-config | **[ClusterConfig](#ClusterConfig3)**<br>Конфигурация кластера Elasticsearch. 
-network_id | **string**<br>Идентификатор сети, к которой принадлежит кластер. 
-health | enum **Health**<br>Здоровье кластера. <ul><li>`HEALTH_UNKNOWN`: состояние кластера неизвестно ([Host.health](#Host) всех хостов в кластере — `UNKNOWN`).</li><li>`ALIVE`: кластер работает нормально ([Host.health](#Host) всех хостов в кластере — `ALIVE`).</li><li>`DEAD`: кластер не работает ([Host.health](#Host) всех хостов в кластере — `DEAD`).</li><li>`DEGRADED`: кластер находится в состоянии деградации ([Host.health](#Host) по крайней мере одного из хостов в кластере — не `ALIVE`).</li><ul/>
-status | enum **Status**<br>Текущее состояние кластера. <ul><li>`STATUS_UNKNOWN`: состояние кластера неизвестно.</li><li>`CREATING`: кластер создается.</li><li>`RUNNING`: кластер работает нормально.</li><li>`ERROR`: в кластере произошла ошибка, блокирующая работу.</li><li>`UPDATING`: кластер изменяется.</li><li>`STOPPING`: кластер останавливается.</li><li>`STOPPED`: кластер остановлен.</li><li>`STARTING`: кластер запускается.</li><ul/>
+id | **string**<br>ID of the Elasticsearch cluster. This ID is assigned at creation time. 
+folder_id | **string**<br>ID of the folder that the Elasticsearch cluster belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+name | **string**<br>Name of the Elasticsearch cluster. The name must be unique within the folder. 1-63 characters long. 
+description | **string**<br>Description of the Elasticsearch cluster. 0-256 characters long. 
+labels | **map<string,string>**<br>Custom labels for the Elasticsearch cluster as `key:value` pairs. A maximum of 64 labels per resource is allowed. 
+environment | enum **Environment**<br>Deployment environment of the Elasticsearch cluster. <ul><li>`PRODUCTION`: stable environment with a conservative update policy when only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: environment with a more aggressive update policy when new versions are rolled out irrespective of backward compatibility.</li><ul/>
+monitoring[] | **[Monitoring](#Monitoring3)**<br>Description of monitoring systems relevant to the Elasticsearch cluster. 
+config | **[ClusterConfig](#ClusterConfig3)**<br>Configuration of the Elasticsearch cluster. 
+network_id | **string**<br>ID of the network that the cluster belongs to. 
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: state of the cluster is unknown ([Host.health](#Host) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: cluster is alive and well ([Host.health](#Host) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: cluster is inoperable ([Host.health](#Host) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: cluster is in degraded state ([Host.health](#Host) of at least one of the hosts in the cluster is not `ALIVE`).</li><ul/>
+status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: cluster state is unknown.</li><li>`CREATING`: cluster is being created.</li><li>`RUNNING`: cluster is running normally.</li><li>`ERROR`: cluster encountered a problem and cannot operate.</li><li>`UPDATING`: cluster is being updated.</li><li>`STOPPING`: cluster is stopping.</li><li>`STOPPED`: cluster stopped.</li><li>`STARTING`: cluster is starting.</li><ul/>
+security_group_ids[] | **string**<br>User security groups 
+service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
 
 
 ### Monitoring {#Monitoring3}
 
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br>Название системы мониторинга. 
-description | **string**<br>Описание системы мониторинга. 
-link | **string**<br>Ссылка на графики системы мониторинга для кластера Elasticsearch. 
+name | **string**<br>Name of the monitoring system. 
+description | **string**<br>Description of the monitoring system. 
+link | **string**<br>Link to the monitoring system charts for the Elasticsearch cluster. 
 
 
 ### ClusterConfig {#ClusterConfig3}
 
-Поле | Описание
+Field | Description
 --- | ---
-version | **string**<br>Версия Elasticsearch. 
-elasticsearch | **[Elasticsearch](#Elasticsearch3)**<br>Конфигурация и распределение ресурсов для узлов Elasticsearch. 
+version | **string**<br>Elasticsearch version. 
+elasticsearch | **[Elasticsearch](#Elasticsearch3)**<br>Configuration and resource allocation for Elasticsearch nodes. 
+edition | **string**<br>ElasticSearch edition. 
 
 
 ### Elasticsearch {#Elasticsearch3}
 
-Поле | Описание
+Field | Description
 --- | ---
-data_node | **[DataNode](#DataNode5)**<br>Конфигурация и распределение ресурсов для узлов Elasticsearch с ролью Data node. 
-master_node | **[MasterNode](#MasterNode5)**<br>Конфигурация и распределение ресурсов для узлов Elasticsearch с ролью Master node. 
+data_node | **[DataNode](#DataNode5)**<br>Configuration and resource allocation for Elasticsearch data nodes. 
+master_node | **[MasterNode](#MasterNode5)**<br>Configuration and resource allocation for Elasticsearch master nodes. 
+plugins[] | **string**<br>Cluster wide plugins 
 
 
 ### DataNode {#DataNode5}
 
-Поле | Описание
+Field | Description
 --- | ---
-config | **oneof:** `elasticsearch_config_set_7_6`<br>
-&nbsp;&nbsp;elasticsearch_config_set_7_6 | **[config.ElasticsearchConfigSet7_6](#ElasticsearchConfigSet7_6)**<br>Конфигурация Elasticsearch 7.6 для узла с ролью Data node. 
-resources | **[Resources](#Resources)**<br>Ресурсы, выделенные узлам Elasticsearch с ролью Data node. 
+config | **oneof:** `elasticsearch_config_set_7`<br>
+&nbsp;&nbsp;elasticsearch_config_set_7 | **[config.ElasticsearchConfigSet7](#ElasticsearchConfigSet7)**<br>Elasticsearch 7.x data node configuration. 
+resources | **[Resources](#Resources)**<br>Resources allocated to Elasticsearch data nodes. 
 
 
 ### MasterNode {#MasterNode5}
 
-Поле | Описание
+Field | Description
 --- | ---
-resources | **[Resources](#Resources)**<br>Ресурсы, выделенные узлам Elasticsearch с ролью Master node. 
+resources | **[Resources](#Resources)**<br>Resources allocated to Elasticsearch master nodes. 
 
 
 ## Delete {#Delete}
 
-Удаляет указанный кластер Elasticsearch.
+Deletes the specified Elasticsearch cluster.
 
 **rpc Delete ([DeleteClusterRequest](#DeleteClusterRequest)) returns ([operation.Operation](#Operation2))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[DeleteClusterMetadata](#DeleteClusterMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
 
 ### DeleteClusterRequest {#DeleteClusterRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор удаляемого кластера Elasticsearch. <br>Чтобы получить идентификатор кластера Elasticsearch, выполните запрос [ClusterService.List](#List). Максимальная длина строки в символах — 50.
+cluster_id | **string**<br>Required. ID of the Elasticsearch cluster to delete. <br>To get the Elasticsearch cluster ID, make a [ClusterService.List](#List) request. The maximum string length in characters is 50.
 
 
 ### Operation {#Operation2}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteClusterMetadata](#DeleteClusterMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteClusterMetadata](#DeleteClusterMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>if operation finished successfully. 
 
 
 ### DeleteClusterMetadata {#DeleteClusterMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Идентификатор удаляемого кластера Elasticsearch. 
+cluster_id | **string**<br>ID of the Elasticsearch cluster that is being deleted. 
 
 
 ## Move {#Move}
 
-Перемещает кластер Elasticsearch в указанный каталог.
+Moves the specified Elasticsearch cluster to the specified folder.
 
 **rpc Move ([MoveClusterRequest](#MoveClusterRequest)) returns ([operation.Operation](#Operation3))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[MoveClusterMetadata](#MoveClusterMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster4)<br>
 
 ### MoveClusterRequest {#MoveClusterRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера Elasticsearch, который нужно переместить. <br>Чтобы получить идентификатор кластера Elasticsearch, выполните запрос [ClusterService.List](#List). Максимальная длина строки в символах — 50.
-destination_folder_id | **string**<br>Обязательное поле. Идентификатор каталога, в который следует переместить кластер. Максимальная длина строки в символах — 50.
+cluster_id | **string**<br>Required. ID of the Elasticsearch cluster to move. <br>To get the Elasticsearch cluster ID, make a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+destination_folder_id | **string**<br>Required. ID of the destination folder. The maximum string length in characters is 50.
 
 
 ### Operation {#Operation3}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[MoveClusterMetadata](#MoveClusterMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster4)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[MoveClusterMetadata](#MoveClusterMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster4)>**<br>if operation finished successfully. 
 
 
 ### MoveClusterMetadata {#MoveClusterMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Идентификатор перемещаемого кластера Elasticsearch. 
-source_folder_id | **string**<br>Идентификатор исходного каталога. 
-destination_folder_id | **string**<br>Идентификатор каталога, в который следует переместить кластер. 
+cluster_id | **string**<br>ID of the Elasticsearch cluster being moved. 
+source_folder_id | **string**<br>ID of the source folder. 
+destination_folder_id | **string**<br>ID of the destination folder. 
 
 
 ### Cluster {#Cluster4}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор кластера Elasticsearch. Этот идентификатор генерируется при создании кластера. 
-folder_id | **string**<br>Идентификатор каталога, которому принадлежит кластер Elasticsearch. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания. 
-name | **string**<br>Имя кластера Elasticsearch. Имя должно быть уникальным в рамках каталога. Длина 1-63 символов. 
-description | **string**<br>Описание кластера Elasticsearch. Длина описания должна быть от 0 до 256 символов. 
-labels | **map<string,string>**<br>Пользовательские метки для кластера Elasticsearch в виде пар `key:value`. Максимум 64 на ресурс. 
-environment | enum **Environment**<br>Среда развертывания кластера Elasticsearch. <ul><li>`PRODUCTION`: стабильная среда с осторожной политикой обновления — во время регулярного обслуживания применяются только срочные исправления.</li><li>`PRESTABLE`: среда с более агрессивной политикой обновления — новые версии развертываются независимо от обратной совместимости.</li><ul/>
-monitoring[] | **[Monitoring](#Monitoring4)**<br>Описание систем мониторинга, относящихся к кластеру Elasticsearch. 
-config | **[ClusterConfig](#ClusterConfig4)**<br>Конфигурация кластера Elasticsearch. 
-network_id | **string**<br>Идентификатор сети, к которой принадлежит кластер. 
-health | enum **Health**<br>Здоровье кластера. <ul><li>`HEALTH_UNKNOWN`: состояние кластера неизвестно ([Host.health](#Host) всех хостов в кластере — `UNKNOWN`).</li><li>`ALIVE`: кластер работает нормально ([Host.health](#Host) всех хостов в кластере — `ALIVE`).</li><li>`DEAD`: кластер не работает ([Host.health](#Host) всех хостов в кластере — `DEAD`).</li><li>`DEGRADED`: кластер находится в состоянии деградации ([Host.health](#Host) по крайней мере одного из хостов в кластере — не `ALIVE`).</li><ul/>
-status | enum **Status**<br>Текущее состояние кластера. <ul><li>`STATUS_UNKNOWN`: состояние кластера неизвестно.</li><li>`CREATING`: кластер создается.</li><li>`RUNNING`: кластер работает нормально.</li><li>`ERROR`: в кластере произошла ошибка, блокирующая работу.</li><li>`UPDATING`: кластер изменяется.</li><li>`STOPPING`: кластер останавливается.</li><li>`STOPPED`: кластер остановлен.</li><li>`STARTING`: кластер запускается.</li><ul/>
+id | **string**<br>ID of the Elasticsearch cluster. This ID is assigned at creation time. 
+folder_id | **string**<br>ID of the folder that the Elasticsearch cluster belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+name | **string**<br>Name of the Elasticsearch cluster. The name must be unique within the folder. 1-63 characters long. 
+description | **string**<br>Description of the Elasticsearch cluster. 0-256 characters long. 
+labels | **map<string,string>**<br>Custom labels for the Elasticsearch cluster as `key:value` pairs. A maximum of 64 labels per resource is allowed. 
+environment | enum **Environment**<br>Deployment environment of the Elasticsearch cluster. <ul><li>`PRODUCTION`: stable environment with a conservative update policy when only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: environment with a more aggressive update policy when new versions are rolled out irrespective of backward compatibility.</li><ul/>
+monitoring[] | **[Monitoring](#Monitoring4)**<br>Description of monitoring systems relevant to the Elasticsearch cluster. 
+config | **[ClusterConfig](#ClusterConfig4)**<br>Configuration of the Elasticsearch cluster. 
+network_id | **string**<br>ID of the network that the cluster belongs to. 
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: state of the cluster is unknown ([Host.health](#Host) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: cluster is alive and well ([Host.health](#Host) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: cluster is inoperable ([Host.health](#Host) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: cluster is in degraded state ([Host.health](#Host) of at least one of the hosts in the cluster is not `ALIVE`).</li><ul/>
+status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: cluster state is unknown.</li><li>`CREATING`: cluster is being created.</li><li>`RUNNING`: cluster is running normally.</li><li>`ERROR`: cluster encountered a problem and cannot operate.</li><li>`UPDATING`: cluster is being updated.</li><li>`STOPPING`: cluster is stopping.</li><li>`STOPPED`: cluster stopped.</li><li>`STARTING`: cluster is starting.</li><ul/>
+security_group_ids[] | **string**<br>User security groups 
+service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
 
 
 ### Monitoring {#Monitoring4}
 
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br>Название системы мониторинга. 
-description | **string**<br>Описание системы мониторинга. 
-link | **string**<br>Ссылка на графики системы мониторинга для кластера Elasticsearch. 
+name | **string**<br>Name of the monitoring system. 
+description | **string**<br>Description of the monitoring system. 
+link | **string**<br>Link to the monitoring system charts for the Elasticsearch cluster. 
 
 
 ### ClusterConfig {#ClusterConfig4}
 
-Поле | Описание
+Field | Description
 --- | ---
-version | **string**<br>Версия Elasticsearch. 
-elasticsearch | **[Elasticsearch](#Elasticsearch4)**<br>Конфигурация и распределение ресурсов для узлов Elasticsearch. 
+version | **string**<br>Elasticsearch version. 
+elasticsearch | **[Elasticsearch](#Elasticsearch4)**<br>Configuration and resource allocation for Elasticsearch nodes. 
+edition | **string**<br>ElasticSearch edition. 
 
 
 ### Elasticsearch {#Elasticsearch4}
 
-Поле | Описание
+Field | Description
 --- | ---
-data_node | **[DataNode](#DataNode6)**<br>Конфигурация и распределение ресурсов для узлов Elasticsearch с ролью Data node. 
-master_node | **[MasterNode](#MasterNode6)**<br>Конфигурация и распределение ресурсов для узлов Elasticsearch с ролью Master node. 
+data_node | **[DataNode](#DataNode6)**<br>Configuration and resource allocation for Elasticsearch data nodes. 
+master_node | **[MasterNode](#MasterNode6)**<br>Configuration and resource allocation for Elasticsearch master nodes. 
+plugins[] | **string**<br>Cluster wide plugins 
 
 
 ### DataNode {#DataNode6}
 
-Поле | Описание
+Field | Description
 --- | ---
-config | **oneof:** `elasticsearch_config_set_7_6`<br>
-&nbsp;&nbsp;elasticsearch_config_set_7_6 | **[config.ElasticsearchConfigSet7_6](#ElasticsearchConfigSet7_6)**<br>Конфигурация Elasticsearch 7.6 для узла с ролью Data node. 
-resources | **[Resources](#Resources)**<br>Ресурсы, выделенные узлам Elasticsearch с ролью Data node. 
+config | **oneof:** `elasticsearch_config_set_7`<br>
+&nbsp;&nbsp;elasticsearch_config_set_7 | **[config.ElasticsearchConfigSet7](#ElasticsearchConfigSet7)**<br>Elasticsearch 7.x data node configuration. 
+resources | **[Resources](#Resources)**<br>Resources allocated to Elasticsearch data nodes. 
 
 
 ### MasterNode {#MasterNode6}
 
-Поле | Описание
+Field | Description
 --- | ---
-resources | **[Resources](#Resources)**<br>Ресурсы, выделенные узлам Elasticsearch с ролью Master node. 
+resources | **[Resources](#Resources)**<br>Resources allocated to Elasticsearch master nodes. 
 
 
 ## Start {#Start}
 
-Запускает указанный кластер Elasticsearch.
+Starts the specified Elasticsearch cluster.
 
 **rpc Start ([StartClusterRequest](#StartClusterRequest)) returns ([operation.Operation](#Operation4))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[StartClusterMetadata](#StartClusterMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster5)<br>
 
 ### StartClusterRequest {#StartClusterRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера Elasticsearch, который нужно запустить. <br>Чтобы получить идентификатор кластера Elasticsearch, выполните запрос [ClusterService.List](#List). Максимальная длина строки в символах — 50.
+cluster_id | **string**<br>Required. ID of the Elasticsearch cluster to start. <br>To get the Elasticsearch cluster ID, make a [ClusterService.List](#List) request. The maximum string length in characters is 50.
 
 
 ### Operation {#Operation4}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[StartClusterMetadata](#StartClusterMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster5)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[StartClusterMetadata](#StartClusterMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster5)>**<br>if operation finished successfully. 
 
 
 ### StartClusterMetadata {#StartClusterMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Идентификатор кластера Elasticsearch. 
+cluster_id | **string**<br>ID of the Elasticsearch cluster. 
 
 
 ### Cluster {#Cluster5}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор кластера Elasticsearch. Этот идентификатор генерируется при создании кластера. 
-folder_id | **string**<br>Идентификатор каталога, которому принадлежит кластер Elasticsearch. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания. 
-name | **string**<br>Имя кластера Elasticsearch. Имя должно быть уникальным в рамках каталога. Длина 1-63 символов. 
-description | **string**<br>Описание кластера Elasticsearch. Длина описания должна быть от 0 до 256 символов. 
-labels | **map<string,string>**<br>Пользовательские метки для кластера Elasticsearch в виде пар `key:value`. Максимум 64 на ресурс. 
-environment | enum **Environment**<br>Среда развертывания кластера Elasticsearch. <ul><li>`PRODUCTION`: стабильная среда с осторожной политикой обновления — во время регулярного обслуживания применяются только срочные исправления.</li><li>`PRESTABLE`: среда с более агрессивной политикой обновления — новые версии развертываются независимо от обратной совместимости.</li><ul/>
-monitoring[] | **[Monitoring](#Monitoring5)**<br>Описание систем мониторинга, относящихся к кластеру Elasticsearch. 
-config | **[ClusterConfig](#ClusterConfig5)**<br>Конфигурация кластера Elasticsearch. 
-network_id | **string**<br>Идентификатор сети, к которой принадлежит кластер. 
-health | enum **Health**<br>Здоровье кластера. <ul><li>`HEALTH_UNKNOWN`: состояние кластера неизвестно ([Host.health](#Host) всех хостов в кластере — `UNKNOWN`).</li><li>`ALIVE`: кластер работает нормально ([Host.health](#Host) всех хостов в кластере — `ALIVE`).</li><li>`DEAD`: кластер не работает ([Host.health](#Host) всех хостов в кластере — `DEAD`).</li><li>`DEGRADED`: кластер находится в состоянии деградации ([Host.health](#Host) по крайней мере одного из хостов в кластере — не `ALIVE`).</li><ul/>
-status | enum **Status**<br>Текущее состояние кластера. <ul><li>`STATUS_UNKNOWN`: состояние кластера неизвестно.</li><li>`CREATING`: кластер создается.</li><li>`RUNNING`: кластер работает нормально.</li><li>`ERROR`: в кластере произошла ошибка, блокирующая работу.</li><li>`UPDATING`: кластер изменяется.</li><li>`STOPPING`: кластер останавливается.</li><li>`STOPPED`: кластер остановлен.</li><li>`STARTING`: кластер запускается.</li><ul/>
+id | **string**<br>ID of the Elasticsearch cluster. This ID is assigned at creation time. 
+folder_id | **string**<br>ID of the folder that the Elasticsearch cluster belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+name | **string**<br>Name of the Elasticsearch cluster. The name must be unique within the folder. 1-63 characters long. 
+description | **string**<br>Description of the Elasticsearch cluster. 0-256 characters long. 
+labels | **map<string,string>**<br>Custom labels for the Elasticsearch cluster as `key:value` pairs. A maximum of 64 labels per resource is allowed. 
+environment | enum **Environment**<br>Deployment environment of the Elasticsearch cluster. <ul><li>`PRODUCTION`: stable environment with a conservative update policy when only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: environment with a more aggressive update policy when new versions are rolled out irrespective of backward compatibility.</li><ul/>
+monitoring[] | **[Monitoring](#Monitoring5)**<br>Description of monitoring systems relevant to the Elasticsearch cluster. 
+config | **[ClusterConfig](#ClusterConfig5)**<br>Configuration of the Elasticsearch cluster. 
+network_id | **string**<br>ID of the network that the cluster belongs to. 
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: state of the cluster is unknown ([Host.health](#Host) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: cluster is alive and well ([Host.health](#Host) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: cluster is inoperable ([Host.health](#Host) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: cluster is in degraded state ([Host.health](#Host) of at least one of the hosts in the cluster is not `ALIVE`).</li><ul/>
+status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: cluster state is unknown.</li><li>`CREATING`: cluster is being created.</li><li>`RUNNING`: cluster is running normally.</li><li>`ERROR`: cluster encountered a problem and cannot operate.</li><li>`UPDATING`: cluster is being updated.</li><li>`STOPPING`: cluster is stopping.</li><li>`STOPPED`: cluster stopped.</li><li>`STARTING`: cluster is starting.</li><ul/>
+security_group_ids[] | **string**<br>User security groups 
+service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
 
 
 ### Monitoring {#Monitoring5}
 
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br>Название системы мониторинга. 
-description | **string**<br>Описание системы мониторинга. 
-link | **string**<br>Ссылка на графики системы мониторинга для кластера Elasticsearch. 
+name | **string**<br>Name of the monitoring system. 
+description | **string**<br>Description of the monitoring system. 
+link | **string**<br>Link to the monitoring system charts for the Elasticsearch cluster. 
 
 
 ### ClusterConfig {#ClusterConfig5}
 
-Поле | Описание
+Field | Description
 --- | ---
-version | **string**<br>Версия Elasticsearch. 
-elasticsearch | **[Elasticsearch](#Elasticsearch5)**<br>Конфигурация и распределение ресурсов для узлов Elasticsearch. 
+version | **string**<br>Elasticsearch version. 
+elasticsearch | **[Elasticsearch](#Elasticsearch5)**<br>Configuration and resource allocation for Elasticsearch nodes. 
+edition | **string**<br>ElasticSearch edition. 
 
 
 ### Elasticsearch {#Elasticsearch5}
 
-Поле | Описание
+Field | Description
 --- | ---
-data_node | **[DataNode](#DataNode7)**<br>Конфигурация и распределение ресурсов для узлов Elasticsearch с ролью Data node. 
-master_node | **[MasterNode](#MasterNode7)**<br>Конфигурация и распределение ресурсов для узлов Elasticsearch с ролью Master node. 
+data_node | **[DataNode](#DataNode7)**<br>Configuration and resource allocation for Elasticsearch data nodes. 
+master_node | **[MasterNode](#MasterNode7)**<br>Configuration and resource allocation for Elasticsearch master nodes. 
+plugins[] | **string**<br>Cluster wide plugins 
 
 
 ### DataNode {#DataNode7}
 
-Поле | Описание
+Field | Description
 --- | ---
-config | **oneof:** `elasticsearch_config_set_7_6`<br>
-&nbsp;&nbsp;elasticsearch_config_set_7_6 | **[config.ElasticsearchConfigSet7_6](#ElasticsearchConfigSet7_6)**<br>Конфигурация Elasticsearch 7.6 для узла с ролью Data node. 
-resources | **[Resources](#Resources)**<br>Ресурсы, выделенные узлам Elasticsearch с ролью Data node. 
+config | **oneof:** `elasticsearch_config_set_7`<br>
+&nbsp;&nbsp;elasticsearch_config_set_7 | **[config.ElasticsearchConfigSet7](#ElasticsearchConfigSet7)**<br>Elasticsearch 7.x data node configuration. 
+resources | **[Resources](#Resources)**<br>Resources allocated to Elasticsearch data nodes. 
 
 
 ### MasterNode {#MasterNode7}
 
-Поле | Описание
+Field | Description
 --- | ---
-resources | **[Resources](#Resources)**<br>Ресурсы, выделенные узлам Elasticsearch с ролью Master node. 
+resources | **[Resources](#Resources)**<br>Resources allocated to Elasticsearch master nodes. 
 
 
 ## Stop {#Stop}
 
-Останавливает указанный кластер Elasticsearch.
+Stops the specified Elasticsearch cluster.
 
 **rpc Stop ([StopClusterRequest](#StopClusterRequest)) returns ([operation.Operation](#Operation5))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[StopClusterMetadata](#StopClusterMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster6)<br>
 
 ### StopClusterRequest {#StopClusterRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера Elasticsearch, который нужно остановить. <br>Чтобы получить идентификатор кластера Elasticsearch, выполните запрос [ClusterService.List](#List). Максимальная длина строки в символах — 50.
+cluster_id | **string**<br>Required. ID of the Elasticsearch cluster to stop. <br>To get the Elasticsearch cluster ID, make a [ClusterService.List](#List) request. The maximum string length in characters is 50.
 
 
 ### Operation {#Operation5}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[StopClusterMetadata](#StopClusterMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster6)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[StopClusterMetadata](#StopClusterMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster6)>**<br>if operation finished successfully. 
 
 
 ### StopClusterMetadata {#StopClusterMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Идентификатор кластера Elasticsearch. 
+cluster_id | **string**<br>ID of the Elasticsearch cluster. 
 
 
 ### Cluster {#Cluster6}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор кластера Elasticsearch. Этот идентификатор генерируется при создании кластера. 
-folder_id | **string**<br>Идентификатор каталога, которому принадлежит кластер Elasticsearch. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания. 
-name | **string**<br>Имя кластера Elasticsearch. Имя должно быть уникальным в рамках каталога. Длина 1-63 символов. 
-description | **string**<br>Описание кластера Elasticsearch. Длина описания должна быть от 0 до 256 символов. 
-labels | **map<string,string>**<br>Пользовательские метки для кластера Elasticsearch в виде пар `key:value`. Максимум 64 на ресурс. 
-environment | enum **Environment**<br>Среда развертывания кластера Elasticsearch. <ul><li>`PRODUCTION`: стабильная среда с осторожной политикой обновления — во время регулярного обслуживания применяются только срочные исправления.</li><li>`PRESTABLE`: среда с более агрессивной политикой обновления — новые версии развертываются независимо от обратной совместимости.</li><ul/>
-monitoring[] | **[Monitoring](#Monitoring6)**<br>Описание систем мониторинга, относящихся к кластеру Elasticsearch. 
-config | **[ClusterConfig](#ClusterConfig6)**<br>Конфигурация кластера Elasticsearch. 
-network_id | **string**<br>Идентификатор сети, к которой принадлежит кластер. 
-health | enum **Health**<br>Здоровье кластера. <ul><li>`HEALTH_UNKNOWN`: состояние кластера неизвестно ([Host.health](#Host) всех хостов в кластере — `UNKNOWN`).</li><li>`ALIVE`: кластер работает нормально ([Host.health](#Host) всех хостов в кластере — `ALIVE`).</li><li>`DEAD`: кластер не работает ([Host.health](#Host) всех хостов в кластере — `DEAD`).</li><li>`DEGRADED`: кластер находится в состоянии деградации ([Host.health](#Host) по крайней мере одного из хостов в кластере — не `ALIVE`).</li><ul/>
-status | enum **Status**<br>Текущее состояние кластера. <ul><li>`STATUS_UNKNOWN`: состояние кластера неизвестно.</li><li>`CREATING`: кластер создается.</li><li>`RUNNING`: кластер работает нормально.</li><li>`ERROR`: в кластере произошла ошибка, блокирующая работу.</li><li>`UPDATING`: кластер изменяется.</li><li>`STOPPING`: кластер останавливается.</li><li>`STOPPED`: кластер остановлен.</li><li>`STARTING`: кластер запускается.</li><ul/>
+id | **string**<br>ID of the Elasticsearch cluster. This ID is assigned at creation time. 
+folder_id | **string**<br>ID of the folder that the Elasticsearch cluster belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+name | **string**<br>Name of the Elasticsearch cluster. The name must be unique within the folder. 1-63 characters long. 
+description | **string**<br>Description of the Elasticsearch cluster. 0-256 characters long. 
+labels | **map<string,string>**<br>Custom labels for the Elasticsearch cluster as `key:value` pairs. A maximum of 64 labels per resource is allowed. 
+environment | enum **Environment**<br>Deployment environment of the Elasticsearch cluster. <ul><li>`PRODUCTION`: stable environment with a conservative update policy when only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: environment with a more aggressive update policy when new versions are rolled out irrespective of backward compatibility.</li><ul/>
+monitoring[] | **[Monitoring](#Monitoring6)**<br>Description of monitoring systems relevant to the Elasticsearch cluster. 
+config | **[ClusterConfig](#ClusterConfig6)**<br>Configuration of the Elasticsearch cluster. 
+network_id | **string**<br>ID of the network that the cluster belongs to. 
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: state of the cluster is unknown ([Host.health](#Host) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: cluster is alive and well ([Host.health](#Host) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: cluster is inoperable ([Host.health](#Host) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: cluster is in degraded state ([Host.health](#Host) of at least one of the hosts in the cluster is not `ALIVE`).</li><ul/>
+status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: cluster state is unknown.</li><li>`CREATING`: cluster is being created.</li><li>`RUNNING`: cluster is running normally.</li><li>`ERROR`: cluster encountered a problem and cannot operate.</li><li>`UPDATING`: cluster is being updated.</li><li>`STOPPING`: cluster is stopping.</li><li>`STOPPED`: cluster stopped.</li><li>`STARTING`: cluster is starting.</li><ul/>
+security_group_ids[] | **string**<br>User security groups 
+service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
 
 
 ### Monitoring {#Monitoring6}
 
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br>Название системы мониторинга. 
-description | **string**<br>Описание системы мониторинга. 
-link | **string**<br>Ссылка на графики системы мониторинга для кластера Elasticsearch. 
+name | **string**<br>Name of the monitoring system. 
+description | **string**<br>Description of the monitoring system. 
+link | **string**<br>Link to the monitoring system charts for the Elasticsearch cluster. 
 
 
 ### ClusterConfig {#ClusterConfig6}
 
-Поле | Описание
+Field | Description
 --- | ---
-version | **string**<br>Версия Elasticsearch. 
-elasticsearch | **[Elasticsearch](#Elasticsearch6)**<br>Конфигурация и распределение ресурсов для узлов Elasticsearch. 
+version | **string**<br>Elasticsearch version. 
+elasticsearch | **[Elasticsearch](#Elasticsearch6)**<br>Configuration and resource allocation for Elasticsearch nodes. 
+edition | **string**<br>ElasticSearch edition. 
 
 
 ### Elasticsearch {#Elasticsearch6}
 
-Поле | Описание
+Field | Description
 --- | ---
-data_node | **[DataNode](#DataNode8)**<br>Конфигурация и распределение ресурсов для узлов Elasticsearch с ролью Data node. 
-master_node | **[MasterNode](#MasterNode8)**<br>Конфигурация и распределение ресурсов для узлов Elasticsearch с ролью Master node. 
+data_node | **[DataNode](#DataNode8)**<br>Configuration and resource allocation for Elasticsearch data nodes. 
+master_node | **[MasterNode](#MasterNode8)**<br>Configuration and resource allocation for Elasticsearch master nodes. 
+plugins[] | **string**<br>Cluster wide plugins 
 
 
 ### DataNode {#DataNode8}
 
-Поле | Описание
+Field | Description
 --- | ---
-config | **oneof:** `elasticsearch_config_set_7_6`<br>
-&nbsp;&nbsp;elasticsearch_config_set_7_6 | **[config.ElasticsearchConfigSet7_6](#ElasticsearchConfigSet7_6)**<br>Конфигурация Elasticsearch 7.6 для узла с ролью Data node. 
-resources | **[Resources](#Resources)**<br>Ресурсы, выделенные узлам Elasticsearch с ролью Data node. 
+config | **oneof:** `elasticsearch_config_set_7`<br>
+&nbsp;&nbsp;elasticsearch_config_set_7 | **[config.ElasticsearchConfigSet7](#ElasticsearchConfigSet7)**<br>Elasticsearch 7.x data node configuration. 
+resources | **[Resources](#Resources)**<br>Resources allocated to Elasticsearch data nodes. 
 
 
 ### MasterNode {#MasterNode8}
 
-Поле | Описание
+Field | Description
 --- | ---
-resources | **[Resources](#Resources)**<br>Ресурсы, выделенные узлам Elasticsearch с ролью Master node. 
+resources | **[Resources](#Resources)**<br>Resources allocated to Elasticsearch master nodes. 
 
 
 ## ListLogs {#ListLogs}
 
-Получает логи для указанного кластера Elasticsearch. <br>Дополнительные сведения о логах см. в разделе документации [Logs](/docs/managed-elasticsearch/operations/cluster-logs).
+Retrieves logs for the specified Elasticsearch cluster. <br>For more information about logs, see the [Logs](/docs/managed-elasticsearch/operations/cluster-logs) section in the documentation.
 
 **rpc ListLogs ([ListClusterLogsRequest](#ListClusterLogsRequest)) returns ([ListClusterLogsResponse](#ListClusterLogsResponse))**
 
 ### ListClusterLogsRequest {#ListClusterLogsRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера Elasticsearch, для которого нужно получить логи. <br>Чтобы получить идентификатор кластера Elasticsearch, выполните запрос [ClusterService.List](#List). Максимальная длина строки в символах — 50.
-column_filter[] | **string**<br>Столбцы, которые нужно запросить из лога. <br>Если столбцы не указаны, записи логов возвращаются целиком. 
-from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Временная метка, начиная с которой следует запросить логи. 
-to_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Временная метка, до которой следует запросить логи. 
-page_size | **int64**<br>Максимальное количество результатов на одной странице в ответе. <br>Если количество результатов больше чем `page_size`, сервис вернет значение [ListClusterLogsResponse.next_page_token](#ListClusterLogsResponse), которое можно использовать для получения следующей страницы. Максимальное значение — 1000.
-page_token | **string**<br>Токен страницы. <br>Установите значение `page_token` равным значению поля [ListClusterLogsResponse.next_page_token](#ListClusterLogsResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
-always_next_page_token | **bool**<br>Флаг, определяющий поведение при предоставлении маркера следующей страницы. <br>Если этот флаг установлен в `true`, этот метод API всегда будет возвращать [ListClusterLogsResponse.next_page_token](#ListClusterLogsResponse), даже если текущая страница пуста. 
-filter | **string**<br><ol><li>Имя поля, по которому нужно выполнить фильтрацию. В настоящее время фильтрацию можно использовать только по полю `hostname`. </li><li>Условный оператор. Поддерживаются операторы `=` и `!=` для одиночных значений, `IN` и `NOT IN` для списков значений. </li><li>Значение. Должно содержать от 1 до 63 символов и соответствовать регулярному выражению `^[a-z0-9.-]{1,61}$`. </li></ol> Максимальная длина строки в символах — 1000.
+cluster_id | **string**<br>Required. ID of the Elasticsearch cluster to request logs for. <br>To get the Elasticsearch cluster ID, make a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+column_filter[] | **string**<br>Columns from the logs table to request. <br>If no columns are specified, full log records are returned. 
+from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Start timestamp for the logs request. 
+to_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>End timestamp for the logs request. 
+page_size | **int64**<br>The maximum number of results per page to return. <br>If the number of available results is larger than `page_size`, the service returns a [ListClusterLogsResponse.next_page_token](#ListClusterLogsResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
+page_token | **string**<br>Page token. <br>To get the next page of results, set `page_token` to the [ListClusterLogsResponse.next_page_token](#ListClusterLogsResponse) returned by a previous list request. The maximum string length in characters is 100.
+always_next_page_token | **bool**<br>The flag that defines behavior of providing the next page token. <br>If this flag is set to `true`, this API method will always return [ListClusterLogsResponse.next_page_token](#ListClusterLogsResponse), even if current page is empty. 
+filter | **string**<br><ol><li>The field name to filter by. Currently filtering can be applied to the `hostname` field. </li><li>A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 1-63 characters long and match the regular expression `^[a-z0-9.-]{1,61}$`. </li></ol> The maximum string length in characters is 1000.
+service_type | enum **ServiceType**<br>Type of the service to request logs about. <ul><ul/>
 
 
 ### ListClusterLogsResponse {#ListClusterLogsResponse}
 
-Поле | Описание
+Field | Description
 --- | ---
-logs[] | **[LogRecord](#LogRecord)**<br>Запрошенные записи в логе. 
-next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. <br>Если количество результатов больше чем [ListClusterLogsRequest.page_size](#ListClusterLogsRequest), используйте `next_page_token` в качестве значения параметра [ListClusterLogsRequest.page_token](#ListClusterLogsRequest) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. <br>Это значение взаимозаменяемо с [StreamLogRecord.next_record_token](#StreamLogRecord) из метода StreamLogs. 
+logs[] | **[LogRecord](#LogRecord)**<br>Requested log records. 
+next_page_token | **string**<br>Token that allows you to get the next page of results for list requests. <br>If the number of results is larger than [ListClusterLogsRequest.page_size](#ListClusterLogsRequest), use `next_page_token` as the value for the [ListClusterLogsRequest.page_token](#ListClusterLogsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. <br>This value is interchangeable with [StreamLogRecord.next_record_token](#StreamLogRecord) from StreamLogs method. 
 
 
 ### LogRecord {#LogRecord}
 
-Поле | Описание
+Field | Description
 --- | ---
-timestamp | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Временная метка для записи в логе. 
-message | **map<string,string>**<br>Содержимое записи в логе. 
+timestamp | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Log record timestamp. 
+message | **map<string,string>**<br>Contents of the log record. 
 
 
 ## StreamLogs {#StreamLogs}
 
-То же самое, что [ListLogs](#ListLogs), с той разницей, что со стороны сервера передается поток логов. Допускается использовать семантику `tail -f` при работе с потоком логов.
+Same as [ListLogs](#ListLogs) but using server-side streaming. Also supports `tail -f` semantics.
 
 **rpc StreamLogs ([StreamClusterLogsRequest](#StreamClusterLogsRequest)) returns (stream [StreamLogRecord](#StreamLogRecord))**
 
 ### StreamClusterLogsRequest {#StreamClusterLogsRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера Elasticsearch. <br>Чтобы получить идентификатор кластера Elasticsearch, выполните запрос [ClusterService.List](#List). Максимальная длина строки в символах — 50.
-column_filter[] | **string**<br>Столбцы, которые нужно запросить из лога. <br>Если столбцы не указаны, записи логов возвращаются целиком. 
-from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Временная метка, начиная с которой следует запросить логи. 
-to_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Временная метка, до которой следует запросить логи. <br>Если значение этого поля не задано, то будут отправлены все существующие записи в логе, а затем и новые по мере их появления. В сущности, это эквивалентно семантике `tail -f`. 
-record_token | **string**<br>Токен записи. <br>Задайте значение `record_token` равным значению [StreamLogRecord.next_record_token](#StreamLogRecord), возвращенному предыдущим запросом [ClusterService.StreamLogs](#StreamLogs) чтобы продолжить стриминг со следующей записи в логе. Максимальная длина строки в символах — 100.
-filter | **string**<br><ol><li>Имя поля, по которому нужно выполнить фильтрацию. В настоящее время фильтрацию можно использовать только по полю `hostname`. </li><li>Условный оператор. Поддерживаются операторы `=` и `!=` для одиночных значений, `IN` и `NOT IN` для списков значений. </li><li>Значение. Должно содержать от 3 до 63 символов и соответствовать регулярному выражению `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`. </li></ol> Максимальная длина строки в символах — 1000.
+cluster_id | **string**<br>Required. ID of the Elasticsearch cluster. <br>To get the Elasticsearch cluster ID, make a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+column_filter[] | **string**<br>Columns from logs table to get in the response. <br>If no columns are specified, full log records are returned. 
+from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Start timestamp for the logs request. 
+to_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>End timestamp for the logs request. <br>If this field is not set, all existing logs will be sent and then the new ones asthey appear. In essence it has `tail -f` semantics. 
+record_token | **string**<br>Record token. <br>Set `record_token` to the [StreamLogRecord.next_record_token](#StreamLogRecord) returned by a previous [ClusterService.StreamLogs](#StreamLogs) request to start streaming from next log record. The maximum string length in characters is 100.
+filter | **string**<br><ol><li>The field name to filter by. Currently filtering can be applied to the `hostname` field. </li><li>A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`. </li></ol> The maximum string length in characters is 1000.
+service_type | enum **ServiceType**<br>Type of the service to request logs about. <ul><ul/>
 
 
 ### StreamLogRecord {#StreamLogRecord}
 
-Поле | Описание
+Field | Description
 --- | ---
-record | **[LogRecord](#LogRecord)**<br>Одна из запрошенных записей в логе. 
-next_record_token | **string**<br>Этот токен позволяет продолжить работу с потоком логов, начиная с этой записи. <br>Чтобы продолжить работу с потоком, укажите значение `next_record_token` в качестве значения параметра [StreamClusterLogsRequest.record_token](#StreamClusterLogsRequest) в следующем запросе StreamLogs. <br>Это значение взаимозаменяемо с [ListClusterLogsResponse.next_page_token](#ListClusterLogsResponse) из метода ListLogs. 
+record | **[LogRecord](#LogRecord)**<br>One of the requested log records. 
+next_record_token | **string**<br>This token allows you to continue streaming logs starting from the exact same record. <br>To continue streaming, specify value of `next_record_token` as value for [StreamClusterLogsRequest.record_token](#StreamClusterLogsRequest) parameter in the next StreamLogs request. <br>This value is interchangeable with [ListClusterLogsResponse.next_page_token](#ListClusterLogsResponse) from ListLogs method. 
 
 
 ### LogRecord {#LogRecord1}
 
-Поле | Описание
+Field | Description
 --- | ---
-timestamp | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Временная метка для записи в логе. 
-message | **map<string,string>**<br>Содержимое записи в логе. 
+timestamp | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Log record timestamp. 
+message | **map<string,string>**<br>Contents of the log record. 
 
 
 ## ListOperations {#ListOperations}
 
-Получает список операций для указанного кластера Elasticsearch.
+Retrieves the list of operations for the specified Elasticsearch cluster.
 
 **rpc ListOperations ([ListClusterOperationsRequest](#ListClusterOperationsRequest)) returns ([ListClusterOperationsResponse](#ListClusterOperationsResponse))**
 
 ### ListClusterOperationsRequest {#ListClusterOperationsRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера Elasticsearch, для которого нужно получить список операций. <br>Чтобы получить идентификатор кластера Elasticsearch, выполните запрос [ClusterService.List](#List). Максимальная длина строки в символах — 50.
-page_size | **int64**<br>Максимальное количество результатов на одной странице в ответе. <br>Если количество результатов больше чем `page_size`, сервис вернет значение [ListClusterOperationsResponse.next_page_token](#ListClusterOperationsResponse), которое можно использовать для получения следующей страницы. Максимальное значение — 1000.
-page_token | **string**<br>Токен страницы. <br>Установите значение `page_token` равным значению поля [ListClusterOperationsResponse.next_page_token](#ListClusterOperationsResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
+cluster_id | **string**<br>Required. ID of the Elasticsearch cluster to list operations for. <br>To get the Elasticsearch cluster ID, make a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+page_size | **int64**<br>The maximum number of results per page to return. <br>If the number of available results is larger than `page_size`, the service returns a [ListClusterOperationsResponse.next_page_token](#ListClusterOperationsResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
+page_token | **string**<br>Page token. <br>To get the next page of results, set `page_token` to the [ListClusterOperationsResponse.next_page_token](#ListClusterOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
 
 
 ### ListClusterOperationsResponse {#ListClusterOperationsResponse}
 
-Поле | Описание
+Field | Description
 --- | ---
-operations[] | **[operation.Operation](#Operation6)**<br>Список операций для указанного кластера Elasticsearch. 
-next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. <br>Если количество результатов больше чем [ListClusterOperationsRequest.page_size](#ListClusterOperationsRequest), используйте `next_page_token` в качестве значения параметра [ListClusterOperationsRequest.page_token](#ListClusterOperationsRequest) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
+operations[] | **[operation.Operation](#Operation6)**<br>List of operations for the specified Elasticsearch cluster. 
+next_page_token | **string**<br>Token that allows you to get the next page of results for list requests. <br>If the number of results is larger than [ListClusterOperationsRequest.page_size](#ListClusterOperationsRequest), use the `next_page_token` as the value for the [ListClusterOperationsRequest.page_token](#ListClusterOperationsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
 ### Operation {#Operation6}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**<br>Результат операции в случае успешного завершения. Если исходный метод не возвращает никаких данных при успешном завершении, например метод Delete, поле содержит объект [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty). Если исходный метод — это стандартный метод Create / Update, поле содержит целевой ресурс операции. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `response`. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**<br>The normal response of the operation in case of success. If the original method returns no data on success, such as Delete, the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty). If the original method is the standard Create/Update, the response should be the target resource of the operation. Any method that returns a long-running operation should document the response type, if any. 
 
 
 ## ListHosts {#ListHosts}
 
-Получает список хостов для указанного кластера Elasticsearch.
+Retrieves a list of hosts for the specified Elasticsearch cluster.
 
 **rpc ListHosts ([ListClusterHostsRequest](#ListClusterHostsRequest)) returns ([ListClusterHostsResponse](#ListClusterHostsResponse))**
 
 ### ListClusterHostsRequest {#ListClusterHostsRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера Elasticsearch. <br>Чтобы получить идентификатор кластера Elasticsearch, выполните запрос [ClusterService.List](#List). Максимальная длина строки в символах — 50.
-page_size | **int64**<br>Максимальное количество результатов на одной странице в ответе. <br>Если количество результатов больше чем `page_size`, сервис вернет значение [ListClusterHostsResponse.next_page_token](#ListClusterHostsResponse), которое можно использовать для получения следующей страницы. Максимальное значение — 1000.
-page_token | **string**<br>Токен страницы. <br>Установите значение `page_token` равным значению поля [ListClusterHostsResponse.next_page_token](#ListClusterHostsResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
+cluster_id | **string**<br>Required. ID of the Elasticsearch cluster. <br>To get the Elasticsearch cluster ID, make a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+page_size | **int64**<br>The maximum number of results per page to return. <br>If the number of available results is larger than `page_size`, the service returns a [ListClusterHostsResponse.next_page_token](#ListClusterHostsResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
+page_token | **string**<br>Page token. <br>To get the next page of results, set `page_token` to the [ListClusterHostsResponse.next_page_token](#ListClusterHostsResponse) returned by a previous list request. The maximum string length in characters is 100.
 
 
 ### ListClusterHostsResponse {#ListClusterHostsResponse}
 
-Поле | Описание
+Field | Description
 --- | ---
-hosts[] | **[Host](#Host)**<br>Список хостов. 
-next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. <br>Если количество результатов больше чем [ListClusterHostsRequest.page_size](#ListClusterHostsRequest), используйте `next_page_token` в качестве значения параметра [ListClusterHostsRequest.page_token](#ListClusterHostsRequest) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
+hosts[] | **[Host](#Host)**<br>List of hosts. 
+next_page_token | **string**<br>Token that allows you to get the next page of results for list requests. <br>If the number of results is larger than [ListClusterHostsRequest.page_size](#ListClusterHostsRequest), use the `next_page_token` as the value for the [ListClusterHostsRequest.page_token](#ListClusterHostsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
 ### Host {#Host}
 
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br>Имя хоста. 
-cluster_id | **string**<br>Идентификатор кластера Elasticsearch. 
-zone_id | **string**<br>Идентификатор зоны доступности, в которой находится хост. 
-type | enum **Type**<br>Тип хоста. <ul><li>`DATA_NODE`: этот хост является узлом Elasticsearch с ролью Data node.</li><li>`MASTER_NODE`: этот хост является узлом Elasticsearch с ролью Master node.</li><ul/>
+name | **string**<br>Name of the host. 
+cluster_id | **string**<br>ID of the Elasticsearch cluster. 
+zone_id | **string**<br>ID of the availability zone where the host resides. 
+type | enum **Type**<br>Host type. <ul><li>`DATA_NODE`: the host is an Elasticsearch data node.</li><li>`MASTER_NODE`: the host is an Elasticsearch master node.</li><ul/>
 resources | **[Resources](#Resources)**<br> 
-health | enum **Health**<br>Агрегированные данные о работоспособности хоста. <ul><li>`UNKNOWN`: состояние хоста неизвестно.</li><li>`ALIVE`: хост работает и выполняет все свои функции.</li><li>`DEAD`: хост не работает и не выполняет свои функции.</li><li>`DEGRADED`: хост находится в состоянии деградации и может выполнять только некоторые свои функции.</li><ul/>
-services[] | **[Service](#Service)**<br>Сервисы, предоставляемые хостом. 
-subnet_id | **string**<br>Идентификатор подсети, в которой находится хост. 
-assign_public_ip | **bool**<br>Флаг, определяющий, назначен ли хосту публичный IP-адрес. <br>Если значение равно `true`, то этот хост доступен в Интернете через его публичный IP-адрес. 
+health | enum **Health**<br>Aggregated host health data. <ul><li>`UNKNOWN`: health of the host is unknown.</li><li>`ALIVE`: the host is performing all its functions normally.</li><li>`DEAD`: the host is inoperable and cannot perform any of its essential functions.</li><li>`DEGRADED`: the host is degraded and can perform only some of its essential functions.</li><ul/>
+services[] | **[Service](#Service)**<br>Services provided by the host. 
+subnet_id | **string**<br>ID of the subnet the host resides in. 
+assign_public_ip | **bool**<br>The flag that defines whether a public IP address is assigned to the host. <br>If the value is `true`, then this host is available on the Internet via it's public IP address. 
 
 
 ### Resources {#Resources}
 
-Поле | Описание
+Field | Description
 --- | ---
-resource_preset_id | **string**<br>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т.д.). Все доступные наборы ресурсов перечислены в [документации](/docs/managed-elasticsearch/concepts/instance-types). 
-disk_size | **int64**<br>Объем хранилища, доступного хосту, в байтах. 
-disk_type_id | **string**<br>Тип хранилища для хоста. Все доступные типы перечислены в [документации](/docs/managed-elasticsearch/concepts/storage). 
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-elasticsearch/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
+disk_type_id | **string**<br>Type of the storage environment for the host. All available types are listed in the [documentation](/docs/managed-elasticsearch/concepts/storage). 
 
 
 ### Service {#Service}
 
-Поле | Описание
+Field | Description
 --- | ---
-type | enum **Type**<br>Тип сервиса, предоставляемого хостом. <ul><li>`ELASTICSEARCH`: сервис Elasticsearch.</li><ul/>
-health | enum **Health**<br>Данные о работоспособности сервиса. <ul><li>`UNKNOWN`: состояние сервиса неизвестно.</li><li>`ALIVE`: сервис работает в штатном режиме.</li><li>`DEAD`: сервис не работает или не отвечает.</li><ul/>
+type | enum **Type**<br>Type of the service provided by the host. <ul><li>`ELASTICSEARCH`: the Elasticsearch service.</li><ul/>
+health | enum **Health**<br>Service health data. <ul><li>`UNKNOWN`: health of the service is unknown.</li><li>`ALIVE`: the service is working normally.</li><li>`DEAD`: the service is dead or unresponsive.</li><ul/>
 
 
 ## AddHosts {#AddHosts}
 
-Добавляет новые хосты в указанный кластер Elasticsearch.
+Adds new hosts to the specified Elasticsearch cluster.
 
 **rpc AddHosts ([AddClusterHostsRequest](#AddClusterHostsRequest)) returns ([operation.Operation](#Operation7))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[AddClusterHostsMetadata](#AddClusterHostsMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
 
 ### AddClusterHostsRequest {#AddClusterHostsRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера Elasticsearch. <br>Чтобы получить идентификатор кластера Elasticsearch, выполните запрос [ClusterService.List](#List). Максимальная длина строки в символах — 50.
-host_specs[] | **[HostSpec](#HostSpec)**<br>Одна или несколько конфигураций хостов, добавляемых в кластер Elasticsearch. Количество элементов должно быть больше 0.
+cluster_id | **string**<br>Required. ID of the Elasticsearch cluster. <br>To get the Elasticsearch cluster ID, make a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+host_specs[] | **[HostSpec](#HostSpec)**<br>One or more configurations of hosts to be added to the Elasticsearch cluster. The number of elements must be greater than 0.
 
 
 ### HostSpec {#HostSpec1}
 
-Поле | Описание
+Field | Description
 --- | ---
-zone_id | **string**<br>Идентификатор зоны доступности, в которой находится хост. Максимальная длина строки в символах — 50.
-subnet_id | **string**<br>Идентификатор подсети, в которой находится хост. Максимальная длина строки в символах — 50.
-assign_public_ip | **bool**<br>Флаг, определяющий, назначен ли хосту публичный IP-адрес. <br>Если значение равно `true`, то этот хост доступен в Интернете через его публичный IP-адрес. 
-type | **[Host.Type](#Host1)**<br>Обязательное поле. Тип хоста. 
-shard_name | **string**<br>Имя шарда, который нужно создать на хосте. Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_-]* `.
+zone_id | **string**<br>ID of the availability zone where the host resides. The maximum string length in characters is 50.
+subnet_id | **string**<br>ID of the subnet the host resides in. The maximum string length in characters is 50.
+assign_public_ip | **bool**<br>The flag that defines whether a public IP address is assigned to the host. <br>If the value is `true`, then this host is available on the Internet via it's public IP address. 
+type | **[Host.Type](#Host1)**<br>Required. Host type. 
+shard_name | **string**<br>The shard name to create on the host. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
 ### Operation {#Operation7}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[AddClusterHostsMetadata](#AddClusterHostsMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[AddClusterHostsMetadata](#AddClusterHostsMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>if operation finished successfully. 
 
 
 ### AddClusterHostsMetadata {#AddClusterHostsMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Идентификатор кластера Elasticsearch. 
-host_names[] | **string**<br>Имена хостов, которые добавляются. 
+cluster_id | **string**<br>ID of the Elasticsearch cluster. 
+host_names[] | **string**<br>Names of the host that are being added. 
 
 
 ## DeleteHosts {#DeleteHosts}
 
-Удаляет хосты из указанного кластера Elasticsearch.
+Deletes specified hosts from the specified Elasticsearch cluster.
 
 **rpc DeleteHosts ([DeleteClusterHostsRequest](#DeleteClusterHostsRequest)) returns ([operation.Operation](#Operation8))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[DeleteClusterHostsMetadata](#DeleteClusterHostsMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
 
 ### DeleteClusterHostsRequest {#DeleteClusterHostsRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера Elasticsearch. <br>Чтобы получить идентификатор кластера Elasticsearch, выполните запрос [ClusterService.List](#List). Максимальная длина строки в символах — 50.
-host_names[] | **string**<br>Имена хостов, которые следует удалить. Количество элементов должно быть больше 0. Максимальная длина строки в символах для каждого значения — 253.
+cluster_id | **string**<br>Required. ID of the Elasticsearch cluster. <br>To get the Elasticsearch cluster ID, make a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+host_names[] | **string**<br>Names of the hosts to delete. The number of elements must be greater than 0. The maximum string length in characters for each value is 253.
 
 
 ### Operation {#Operation8}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteClusterHostsMetadata](#DeleteClusterHostsMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteClusterHostsMetadata](#DeleteClusterHostsMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>if operation finished successfully. 
 
 
 ### DeleteClusterHostsMetadata {#DeleteClusterHostsMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Идентификатор кластера Elasticsearch. 
-host_names[] | **string**<br>Имена хостов, которые удаляются. 
+cluster_id | **string**<br>ID of the Elasticsearch cluster. 
+host_names[] | **string**<br>Names of the hosts that are being deleted. 
 
 

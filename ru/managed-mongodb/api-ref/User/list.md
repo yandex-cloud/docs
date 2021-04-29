@@ -2,30 +2,30 @@
 editable: false
 ---
 
-# Метод list
-Получает список ресурсов User для указанного кластера MongoDB.
+# Method list
+Retrieves the list of MongoDB User resources in the specified cluster.
  
 
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 GET https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}/users
 ```
  
-## Path-параметры {#path_params}
+## Path parameters {#path_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-clusterId | Обязательное поле. Идентификатор кластера, для которого нужно получить список пользователей MongoDB. Чтобы получить идентификатор кластера, используйте запрос [list](/docs/managed-mongodb/api-ref/Cluster/list).  Максимальная длина строки в символах — 50.
+clusterId | Required. ID of the cluster to list MongoDB users in. To get the cluster ID, use a [list](/docs/managed-mongodb/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
  
-## Query-параметры {#query_params}
+## Query parameters {#query_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-pageSize | Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем [pageSize](/docs/managed-mongodb/api-ref/User/list#query_params), сервис вернет значение [nextPageToken](/docs/managed-mongodb/api-ref/User/list#responses), которое можно использовать для получения следующей страницы.  Максимальное значение — 1000.
-pageToken | Токен страницы. Установите значение [pageToken](/docs/managed-mongodb/api-ref/User/list#query_params) равным значению поля [nextPageToken](/docs/managed-mongodb/api-ref/User/list#responses) предыдущего запроса, чтобы получить следующую страницу результатов.  Максимальная длина строки в символах — 100.
+pageSize | The maximum value is 1000.
+pageToken | Page token. To get the next page of results, set [pageToken](/docs/managed-mongodb/api-ref/User/list#query_params) to the  [nextPageToken](/docs/managed-mongodb/api-ref/User/list#responses) returned by a previous list request.  The maximum string length in characters is 100.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -49,12 +49,12 @@ pageToken | Токен страницы. Установите значение [
 ```
 
  
-Поле | Описание
+Field | Description
 --- | ---
-users[] | **object**<br><p>Ресурс User для MongoDB. Подробнее см. в разделе <a href="/docs/managed-mongodb/concepts">Developer's Guide</a>.</p> 
-users[].<br>name | **string**<br><p>Имя пользователя базы данных MongoDB.</p> 
-users[].<br>clusterId | **string**<br><p>Идентификатор кластера MongoDB, к которому принадлежит пользователь.</p> 
-users[].<br>permissions[] | **object**<br><p>Набор разрешений, предоставленных пользователю.</p> 
-users[].<br>permissions[].<br>databaseName | **string**<br><p>Имя базы данных, к которой предоставляет доступ разрешение.</p> 
-users[].<br>permissions[].<br>roles[] | **string**<br><p>Роли MongoDB базы данных `databaseName`, которые предоставляет разрешение.</p> 
-nextPageToken | **string**<br><p>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем <a href="/docs/managed-mongodb/api-ref/User/list#query_params">pageSize</a>, используйте <a href="/docs/managed-mongodb/api-ref/User/list#responses">nextPageToken</a> в качестве значения параметра <a href="/docs/managed-mongodb/api-ref/User/list#query_params">pageToken</a> в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения <a href="/docs/managed-mongodb/api-ref/User/list#responses">nextPageToken</a> для перебора страниц результатов.</p> 
+users[] | **object**<br><p>A MongoDB User resource. For more information, see the <a href="/docs/managed-mongodb/concepts">Developer's Guide</a>.</p> 
+users[].<br>name | **string**<br><p>Name of the MongoDB user.</p> 
+users[].<br>clusterId | **string**<br><p>ID of the MongoDB cluster the user belongs to.</p> 
+users[].<br>permissions[] | **object**<br><p>Set of permissions granted to the user.</p> 
+users[].<br>permissions[].<br>databaseName | **string**<br><p>Name of the database that the permission grants access to.</p> 
+users[].<br>permissions[].<br>roles[] | **string**<br><p>MongoDB roles for the `databaseName` database that the permission grants.</p> 
+nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/managed-mongodb/api-ref/User/list#query_params">pageSize</a>, use the <a href="/docs/managed-mongodb/api-ref/User/list#responses">nextPageToken</a> as the value for the <a href="/docs/managed-mongodb/api-ref/User/list#query_params">pageToken</a> parameter in the next list request. Each subsequent list request will have its own <a href="/docs/managed-mongodb/api-ref/User/list#responses">nextPageToken</a> to continue paging through the results.</p> 

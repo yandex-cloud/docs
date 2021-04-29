@@ -3,11 +3,12 @@ editable: false
 ---
 
 # Yandex Virtual Private Cloud API
-Методы справочника API сгруппированы по ресурсам. Чтобы выполнить операцию над ресурсом, отправьте HTTP-запрос к соответствующему URL или выполните RPC-вызов. Подробнее об архитектуре API Яндекс.Облака, см. [Концепции API Яндекс.Облака](/docs/api-design-guide/).
+This API reference is organized by resource. Actions are performed by sending HTTP requests to resource URLs or making RPC calls. For more information about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
 
-Ресурс | Описание
+Resource | Description
 --- | ---
-[Address](Address/index.md) | Набор методов для управления адресами.
-[Network](Network/index.md) | Набор методов для управления облачными сетями.
-[RouteTable](RouteTable/index.md) | Набор методов для управления таблицами маршрутизации.
-[Subnet](Subnet/index.md) | Набор методов для управления подсетями.
+[Address](Address/index.md) | A set of methods for managing Address resources.
+[Network](Network/index.md) | A set of methods for managing Network resources.
+[RouteTable](RouteTable/index.md) | A set of methods for managing RouteTable resources.
+[SecurityGroup](SecurityGroup/index.md) | 
+[Subnet](Subnet/index.md) | A set of methods for managing Subnet resources.

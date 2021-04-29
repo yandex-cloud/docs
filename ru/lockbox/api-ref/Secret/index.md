@@ -3,8 +3,8 @@ editable: false
 ---
 
 # Secret
-Набор методов для управления секретами.
-## JSON-представление {#representation}
+A set of methods for managing secrets.
+## JSON Representation {#representation}
 ```json 
 {
   "id": "string",
@@ -30,41 +30,41 @@ editable: false
 }
 ```
  
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br><p>Идентификатор секрета.</p> 
-folderId | **string**<br><p>Идентификатор каталога, которому принадлежит секрет.</p> 
-createdAt | **string** (date-time)<br><p>Время создания.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-name | **string**<br><p>Имя секрета.</p> 
-description | **string**<br><p>(опционально) Описание секрета.</p> 
-labels | **object**<br><p>Пользовательские метки для секрета в виде пар `key:value`. Максимум 64 на ключ.</p> 
-kmsKeyId | **string**<br><p>(опционально) Идентификатор пользовательского ключа KMS. Если пользовательский ключ не указан, для шифрования и расшифровки используется системный ключ.</p> 
-status | **string**<br><p>Статус секрета.</p> <ul> <li>CREATING: Секрет создается.</li> <li>ACTIVE: Секрет активен и к нему можно получить доступ.</li> </ul> <p>Можно установить в INACTIVE с помощью метода <a href="/docs/lockbox/api-ref/Secret/deactivate">deactivate</a>.</p> <ul> <li>INACTIVE: Секрет неактивен и не может быть использован.</li> </ul> <p>Можно установить в ACTIVE с помощью метода <a href="/docs/lockbox/api-ref/Secret/activate">activate</a>.</p> 
-currentVersion | **object**<br><p>Текущая версия секрета.</p> 
-currentVersion.<br>id | **string**<br><p>Идентификатор версии.</p> 
-currentVersion.<br>secretId | **string**<br><p>Идентификатор секрета, которому принадлежит версия.</p> 
-currentVersion.<br>createdAt | **string** (date-time)<br><p>Время создания версии ключа.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-currentVersion.<br>destroyAt | **string** (date-time)<br><p>Время, когда версия ключа будет уничтожена. Пустой, если статус `ACTIVE`.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-currentVersion.<br>description | **string**<br><p>(опционально) Описание версии.</p> 
-currentVersion.<br>status | **string**<br><p>Статус секрета.</p> <ul> <li>ACTIVE: Секрет активен и к нему можно получить доступ.</li> <li>SCHEDULED_FOR_DESTRUCTION: Версия запланирована к уничтожению. Время, когда она будет уничтожена, указано в поле `destroyAt`.</li> <li>DESTROYED: Версия уничтожена и не может быть восстановлена.</li> </ul> 
-currentVersion.<br>payloadEntryKeys[] | **string**<br><p>Ключи содержимого версии.</p> 
-deletionProtection | **boolean** (boolean)<br><p>Флаг, запрещающий удаление секрета.</p> 
+id | **string**<br><p>ID of the secret.</p> 
+folderId | **string**<br><p>ID of the folder that the secret belongs to.</p> 
+createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+name | **string**<br><p>Name of the secret.</p> 
+description | **string**<br><p>Description of the secret.</p> 
+labels | **object**<br><p>Custom labels for the secret as `key:value` pairs. Maximum 64 per key.</p> 
+kmsKeyId | **string**<br><p>Optional ID of the KMS key will be used to encrypt and decrypt the secret.</p> 
+status | **string**<br><p>Status of the secret.</p> <ul> <li>CREATING: The secret is being created.</li> <li>ACTIVE: The secret is active and the secret payload can be accessed.</li> </ul> <p>Can be set to INACTIVE using the <a href="/docs/lockbox/api-ref/Secret/deactivate">deactivate</a> method.</p> <ul> <li>INACTIVE: The secret is inactive and unusable.</li> </ul> <p>Can be set to ACTIVE using the <a href="/docs/lockbox/api-ref/Secret/deactivate">deactivate</a> method.</p> 
+currentVersion | **object**<br><p>Current (i.e. the `latest`) version of the secret.</p> 
+currentVersion.<br>id | **string**<br><p>ID of the version.</p> 
+currentVersion.<br>secretId | **string**<br><p>ID of the secret that the version belongs to.</p> 
+currentVersion.<br>createdAt | **string** (date-time)<br><p>Time when the version was created.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+currentVersion.<br>destroyAt | **string** (date-time)<br><p>Time when the version is going to be destroyed. Empty unless the status is `SCHEDULED_FOR_DESTRUCTION`.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+currentVersion.<br>description | **string**<br><p>Description of the version.</p> 
+currentVersion.<br>status | **string**<br><p>Status of the secret.</p> <ul> <li>ACTIVE: The version is active and the secret payload can be accessed.</li> <li>SCHEDULED_FOR_DESTRUCTION: The version is scheduled for destruction, the time when it will be destroyed is specified in the `destroyAt` field.</li> <li>DESTROYED: The version is destroyed and cannot be recovered.</li> </ul> 
+currentVersion.<br>payloadEntryKeys[] | **string**<br><p>Keys of the entries contained in the version payload.</p> 
+deletionProtection | **boolean** (boolean)<br><p>Flag that inhibits deletion of the secret.</p> 
 
-## Методы {#methods}
-Метод | Описание
+## Methods {#methods}
+Method | Description
 --- | ---
-[activate](activate.md) | Активирует указанный секрет.
-[addVersion](addVersion.md) | Добавляет новую версию на основе предыдущей.
-[cancelVersionDestruction](cancelVersionDestruction.md) | Отменяет запланированное уничтожение версии, если версия еще не была уничтожена.
-[create](create.md) | Создает секрет в указанном каталоге.
-[deactivate](deactivate.md) | Деактивирует указанный секрет.
-[delete](delete.md) | Удаляет указанный секрет.
-[get](get.md) | Возвращает указанный секрет.
-[list](list.md) | Возвращает список секретов в указанном каталоге.
-[listAccessBindings](listAccessBindings.md) | Возвращает список привязок прав доступа для указанного сертификата.
-[listOperations](listOperations.md) | Возвращает список операций для указанного секрета.
-[listVersions](listVersions.md) | Возвращает список версий указанного секрета.
-[scheduleVersionDestruction](scheduleVersionDestruction.md) | Планирует уничтожение указанной версии ключа.
-[setAccessBindings](setAccessBindings.md) | Устанавливает привязки прав доступа для секрета.
-[update](update.md) | Обновляет указанный секрет.
-[updateAccessBindings](updateAccessBindings.md) | Обновляет привязки прав доступа для секрета.
+[activate](activate.md) | Activates the specified secret.
+[addVersion](addVersion.md) | Adds new version based on a previous one.
+[cancelVersionDestruction](cancelVersionDestruction.md) | Cancels previously scheduled version destruction, if the version hasn't been destroyed yet.
+[create](create.md) | Creates a secret in the specified folder.
+[deactivate](deactivate.md) | Deactivates the specified secret.
+[delete](delete.md) | Deletes the specified secret.
+[get](get.md) | Returns the specified secret.
+[list](list.md) | Retrieves the list of secrets in the specified folder.
+[listAccessBindings](listAccessBindings.md) | Lists existing access bindings for the specified secret.
+[listOperations](listOperations.md) | Lists operations for the specified secret.
+[listVersions](listVersions.md) | Retrieves the list of versions of the specified secret.
+[scheduleVersionDestruction](scheduleVersionDestruction.md) | Schedules the specified version for destruction.
+[setAccessBindings](setAccessBindings.md) | Sets access bindings for the secret.
+[update](update.md) | Updates the specified secret.
+[updateAccessBindings](updateAccessBindings.md) | Updates access bindings for the secret.

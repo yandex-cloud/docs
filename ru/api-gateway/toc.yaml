@@ -49,13 +49,13 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
-  - name: Справочник API
+  - name: Справочник API (англ.)
     items:
-      - name: Аутентификация в API
+      - name: Authentication
         href: api-ref/authentication.md
       - name: gRPC
         items:
-          - name: Обзор
+          - name: Overview
             href: grpc/index.md
           - name: ApiGatewayService
             href: grpc/apigateway_service.md
@@ -63,12 +63,14 @@ items:
             href: grpc/operation_service.md
       - name: REST
         items:
-          - name: Обзор
+          - name: Overview
             href: apigateway/api-ref/index.md
           - name: ApiGateway
             items:
-              - name: Обзор
+              - name: Overview
                 href: apigateway/api-ref/ApiGateway/index.md
+              - name: addDomain
+                href: apigateway/api-ref/ApiGateway/addDomain.md
               - name: create
                 href: apigateway/api-ref/ApiGateway/create.md
               - name: delete
@@ -83,6 +85,8 @@ items:
                 href: apigateway/api-ref/ApiGateway/listAccessBindings.md
               - name: listOperations
                 href: apigateway/api-ref/ApiGateway/listOperations.md
+              - name: removeDomain
+                href: apigateway/api-ref/ApiGateway/removeDomain.md
               - name: setAccessBindings
                 href: apigateway/api-ref/ApiGateway/setAccessBindings.md
               - name: update

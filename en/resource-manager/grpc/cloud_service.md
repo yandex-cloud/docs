@@ -11,6 +11,7 @@ A set of methods for managing Cloud resources.
 | [Get](#Get) | Returns the specified Cloud resource. |
 | [List](#List) | Retrieves the list of Cloud resources. |
 | [Update](#Update) | Updates the specified cloud. |
+| [Delete](#Delete) | Deletes the specified cloud. |
 | [ListOperations](#ListOperations) | Lists operations for the specified cloud. |
 | [ListAccessBindings](#ListAccessBindings) | access Lists access bindings for the specified cloud. |
 | [SetAccessBindings](#SetAccessBindings) | Sets access bindings for the specified cloud. |
@@ -127,6 +128,48 @@ name | **string**<br>Name of the cloud. 3-63 characters long.
 description | **string**<br>Description of the cloud. 0-256 characters long. 
 
 
+## Delete {#Delete}
+
+Deletes the specified cloud. <br>The method is temporarily unavailable.
+
+**rpc Delete ([DeleteCloudRequest](#DeleteCloudRequest)) returns ([operation.Operation](#Operation1))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[DeleteCloudMetadata](#DeleteCloudMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
+
+### DeleteCloudRequest {#DeleteCloudRequest}
+
+Field | Description
+--- | ---
+cloud_id | **string**<br>Required. ID of the cloud to delete. To get the cloud ID, use a [CloudService.List](#List) request. The maximum string length in characters is 50.
+delete_after | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The timestamp after which the process of deleting the cloud should begin. Until this timestamp, the cloud goes into the PENDING_DELETION state and all resources in this cloud are stopped. In this state, it is possible to cancel the delete operation without any loss. After this timestamp, the status of the cloud will become DELETING and the process of deleting all the resources  of the cloud will be started. If `delete_after` is not specified it will be (now + 24 hours). To initiate an immediate deletion `delete_after` must be <= now. 
+
+
+### Operation {#Operation1}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteCloudMetadata](#DeleteCloudMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>if operation finished successfully. 
+
+
+### DeleteCloudMetadata {#DeleteCloudMetadata}
+
+Field | Description
+--- | ---
+cloud_id | **string**<br>ID of the cloud that is being deleted. 
+delete_after | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The timestamp after which the process of deleting the cloud should begin. 
+
+
 ## ListOperations {#ListOperations}
 
 Lists operations for the specified cloud.
@@ -146,11 +189,11 @@ page_token | **string**<br>Page token. Set `page_token` to the [ListCloudOperati
 
 Field | Description
 --- | ---
-operations[] | **[operation.Operation](#Operation1)**<br>List of operations for the specified cloud. 
+operations[] | **[operation.Operation](#Operation2)**<br>List of operations for the specified cloud. 
 next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListCloudOperationsRequest.page_size](#ListCloudOperationsRequest), use the `next_page_token` as the value for the [ListCloudOperationsRequest.page_token](#ListCloudOperationsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
-### Operation {#Operation1}
+### Operation {#Operation2}
 
 Field | Description
 --- | ---
@@ -209,7 +252,7 @@ type | **string**<br>Required. <ul><li>`userAccount`: An account on Yandex or Ya
 
 Sets access bindings for the specified cloud.
 
-**rpc SetAccessBindings ([SetAccessBindingsRequest](#SetAccessBindingsRequest)) returns ([operation.Operation](#Operation2))**
+**rpc SetAccessBindings ([SetAccessBindingsRequest](#SetAccessBindingsRequest)) returns ([operation.Operation](#Operation3))**
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[SetAccessBindingsMetadata](#SetAccessBindingsMetadata)<br>
@@ -239,7 +282,7 @@ id | **string**<br>Required. <ul><li>`allAuthenticatedUsers`: A special system i
 type | **string**<br>Required. <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul> The maximum string length in characters is 100.
 
 
-### Operation {#Operation2}
+### Operation {#Operation3}
 
 Field | Description
 --- | ---
@@ -266,7 +309,7 @@ resource_id | **string**<br>ID of the resource for which access bindings are bei
 
 Updates access bindings for the specified cloud.
 
-**rpc UpdateAccessBindings ([UpdateAccessBindingsRequest](#UpdateAccessBindingsRequest)) returns ([operation.Operation](#Operation3))**
+**rpc UpdateAccessBindings ([UpdateAccessBindingsRequest](#UpdateAccessBindingsRequest)) returns ([operation.Operation](#Operation4))**
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateAccessBindingsMetadata](#UpdateAccessBindingsMetadata)<br>
@@ -304,7 +347,7 @@ id | **string**<br>Required. <ul><li>`allAuthenticatedUsers`: A special system i
 type | **string**<br>Required. <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul> The maximum string length in characters is 100.
 
 
-### Operation {#Operation3}
+### Operation {#Operation4}
 
 Field | Description
 --- | ---

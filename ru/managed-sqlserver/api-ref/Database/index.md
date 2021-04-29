@@ -3,8 +3,8 @@ editable: false
 ---
 
 # Database
-Набор методов для управления базами данных SQL Server.
-## JSON-представление {#representation}
+A set of methods for managing SQL Server databases.
+## JSON Representation {#representation}
 ```json 
 {
   "name": "string",
@@ -12,15 +12,15 @@ editable: false
 }
 ```
  
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br><p>Имя базы данных.</p> 
-clusterId | **string**<br><p>Идентификатор кластера SQL Server, которому принадлежит база данных.</p> 
+name | **string**<br><p>Name of the database.</p> 
+clusterId | **string**<br><p>ID of the SQL Server cluster the database belongs to.</p> 
 
-## Методы {#methods}
-Метод | Описание
+## Methods {#methods}
+Method | Description
 --- | ---
-[create](create.md) | Создает новую базу данных SQL Server в указанном кластере.
-[delete](delete.md) | Удаляет указанную базу данных SQL Server.
-[get](get.md) | Возвращает указанную базу данных SQL Server.
-[list](list.md) | Возвращает список баз данных SQL Server в указанном кластере.
+[create](create.md) | Creates a new SQL Server database in the specified cluster.
+[delete](delete.md) | Deletes the specified SQL Server database.
+[get](get.md) | Returns the specified SQL Server database.
+[list](list.md) | Retrieves the list of SQL Server databases in the specified cluster.

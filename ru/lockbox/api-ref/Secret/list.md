@@ -2,25 +2,25 @@
 editable: false
 ---
 
-# Метод list
-Возвращает список секретов в указанном каталоге.
+# Method list
+Retrieves the list of secrets in the specified folder.
  
 
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 GET https://lockbox.api.cloud.yandex.net/lockbox/v1/secrets
 ```
  
-## Query-параметры {#query_params}
+## Query parameters {#query_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-folderId | Обязательное поле. Идентификатор каталога для получения списка секретов.  Максимальная длина строки в символах — 50.
-pageSize | Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем `page_size`, сервис вернет значение [ListSecretsRequest.next_page_token], которое можно использовать для получения следующей страницы. Значение по умолчанию: 100.  Максимальное значение — 1000.
-pageToken | Токен страницы. Установите значение `page_token` равным значению поля [ListSecretsRequest.next_page_token], прошлого запроса, чтобы получить следующую страницу результатов.  Максимальная длина строки в символах — 100.
+folderId | Required. ID of the folder to list secrets in.  The maximum string length in characters is 50.
+pageSize | The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListSecretsRequest.next_page_token] that can be used to get the next page of results in subsequent list requests. Default value: 100.  The maximum value is 1000.
+pageToken | Page token. To get the next page of results, set `page_token` to the [ListSecretsRequest.next_page_token] returned by a previous list request.  The maximum string length in characters is 100.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -54,24 +54,24 @@ pageToken | Токен страницы. Установите значение `
 ```
 
  
-Поле | Описание
+Field | Description
 --- | ---
-secrets[] | **object**<br><p>Секрет, который состоит из нескольких версий.</p> 
-secrets[].<br>id | **string**<br><p>Идентификатор секрета.</p> 
-secrets[].<br>folderId | **string**<br><p>Идентификатор каталога, которому принадлежит секрет.</p> 
-secrets[].<br>createdAt | **string** (date-time)<br><p>Время создания.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-secrets[].<br>name | **string**<br><p>Имя секрета.</p> 
-secrets[].<br>description | **string**<br><p>(опционально) Описание секрета.</p> 
-secrets[].<br>labels | **object**<br><p>Пользовательские метки для секрета в виде пар `key:value`. Максимум 64 на ключ.</p> 
-secrets[].<br>kmsKeyId | **string**<br><p>(опционально) Идентификатор пользовательского ключа KMS. Если пользовательский ключ не указан, для шифрования и расшифровки используется системный ключ.</p> 
-secrets[].<br>status | **string**<br><p>Статус секрета.</p> <ul> <li>CREATING: Секрет создается.</li> <li>ACTIVE: Секрет активен и к нему можно получить доступ.</li> </ul> <p>Можно установить в INACTIVE с помощью метода <a href="/docs/lockbox/api-ref/Secret/deactivate">deactivate</a>.</p> <ul> <li>INACTIVE: Секрет неактивен и не может быть использован.</li> </ul> <p>Можно установить в ACTIVE с помощью метода <a href="/docs/lockbox/api-ref/Secret/activate">activate</a>.</p> 
-secrets[].<br>currentVersion | **object**<br><p>Текущая версия секрета.</p> 
-secrets[].<br>currentVersion.<br>id | **string**<br><p>Идентификатор версии.</p> 
-secrets[].<br>currentVersion.<br>secretId | **string**<br><p>Идентификатор секрета, которому принадлежит версия.</p> 
-secrets[].<br>currentVersion.<br>createdAt | **string** (date-time)<br><p>Время создания версии ключа.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-secrets[].<br>currentVersion.<br>destroyAt | **string** (date-time)<br><p>Время, когда версия ключа будет уничтожена. Пустой, если статус `ACTIVE`.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-secrets[].<br>currentVersion.<br>description | **string**<br><p>(опционально) Описание версии.</p> 
-secrets[].<br>currentVersion.<br>status | **string**<br><p>Статус секрета.</p> <ul> <li>ACTIVE: Секрет активен и к нему можно получить доступ.</li> <li>SCHEDULED_FOR_DESTRUCTION: Версия запланирована к уничтожению. Время, когда она будет уничтожена, указано в поле `destroyAt`.</li> <li>DESTROYED: Версия уничтожена и не может быть восстановлена.</li> </ul> 
-secrets[].<br>currentVersion.<br>payloadEntryKeys[] | **string**<br><p>Ключи содержимого версии.</p> 
-secrets[].<br>deletionProtection | **boolean** (boolean)<br><p>Флаг, запрещающий удаление секрета.</p> 
-nextPageToken | **string**<br><p>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем <a href="/docs/lockbox/api-ref/Secret/list#query_params">pageSize</a>, используйте `next_page_token` в качестве значения параметра <a href="/docs/lockbox/api-ref/Secret/list#query_params">pageToken</a> в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token`, для перебора страниц результатов.</p> 
+secrets[] | **object**<br><p>A secret that may contain several versions of the payload.</p> 
+secrets[].<br>id | **string**<br><p>ID of the secret.</p> 
+secrets[].<br>folderId | **string**<br><p>ID of the folder that the secret belongs to.</p> 
+secrets[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+secrets[].<br>name | **string**<br><p>Name of the secret.</p> 
+secrets[].<br>description | **string**<br><p>Description of the secret.</p> 
+secrets[].<br>labels | **object**<br><p>Custom labels for the secret as `key:value` pairs. Maximum 64 per key.</p> 
+secrets[].<br>kmsKeyId | **string**<br><p>Optional ID of the KMS key will be used to encrypt and decrypt the secret.</p> 
+secrets[].<br>status | **string**<br><p>Status of the secret.</p> <ul> <li>CREATING: The secret is being created.</li> <li>ACTIVE: The secret is active and the secret payload can be accessed.</li> </ul> <p>Can be set to INACTIVE using the <a href="/docs/lockbox/api-ref/Secret/deactivate">deactivate</a> method.</p> <ul> <li>INACTIVE: The secret is inactive and unusable.</li> </ul> <p>Can be set to ACTIVE using the <a href="/docs/lockbox/api-ref/Secret/deactivate">deactivate</a> method.</p> 
+secrets[].<br>currentVersion | **object**<br><p>Current (i.e. the `latest`) version of the secret.</p> 
+secrets[].<br>currentVersion.<br>id | **string**<br><p>ID of the version.</p> 
+secrets[].<br>currentVersion.<br>secretId | **string**<br><p>ID of the secret that the version belongs to.</p> 
+secrets[].<br>currentVersion.<br>createdAt | **string** (date-time)<br><p>Time when the version was created.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+secrets[].<br>currentVersion.<br>destroyAt | **string** (date-time)<br><p>Time when the version is going to be destroyed. Empty unless the status is `SCHEDULED_FOR_DESTRUCTION`.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+secrets[].<br>currentVersion.<br>description | **string**<br><p>Description of the version.</p> 
+secrets[].<br>currentVersion.<br>status | **string**<br><p>Status of the secret.</p> <ul> <li>ACTIVE: The version is active and the secret payload can be accessed.</li> <li>SCHEDULED_FOR_DESTRUCTION: The version is scheduled for destruction, the time when it will be destroyed is specified in the `destroyAt` field.</li> <li>DESTROYED: The version is destroyed and cannot be recovered.</li> </ul> 
+secrets[].<br>currentVersion.<br>payloadEntryKeys[] | **string**<br><p>Keys of the entries contained in the version payload.</p> 
+secrets[].<br>deletionProtection | **boolean** (boolean)<br><p>Flag that inhibits deletion of the secret.</p> 
+nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is greater than the specified <a href="/docs/lockbox/api-ref/Secret/list#query_params">pageSize</a>, use the `next_page_token` as the value for the <a href="/docs/lockbox/api-ref/Secret/list#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results.</p> 

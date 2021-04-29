@@ -3,8 +3,8 @@ editable: false
 ---
 
 # Federation
-Набор методов для управления федерациями.
-## JSON-представление {#representation}
+A set of methods for managing federations.
+## JSON Representation {#representation}
 ```json 
 {
   "id": "string",
@@ -24,30 +24,30 @@ editable: false
 }
 ```
  
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br><p>Обязательное поле. Идентификатор федерации.</p> <p>Максимальная длина строки в символах — 50.</p> 
-folderId | **string**<br><p>Обязательное поле. Идентификатор каталога, которому принадлежит федерация.</p> <p>Максимальная длина строки в символах — 50.</p> 
-name | **string**<br><p>Обязательное поле. Имя федерации.</p> <p>Значение должно соответствовать регулярному выражению `` \|[a-z][-a-z0-9]{1,61}[a-z0-9] ``.</p> 
-description | **string**<br><p>Описание федерации.</p> <p>Максимальная длина строки в символах — 256.</p> 
-createdAt | **string** (date-time)<br><p>Время создания.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-cookieMaxAge | **string**<br><p>Время жизни файлов cookie в браузере в секундах. Если время жизни cookie не истекло, то консоль управления сразу аутентифицирует пользователя и отправляет на главную страницу.</p> <p>Допустимые значения — от 600 seconds до 43200 seconds включительно.</p> 
-autoCreateAccountOnLogin | **boolean** (boolean)<br><p>Добавлять новых пользователей автоматически при успешной аутентификации. Пользователям будет назначена роль `resource-manager.clouds.member` автоматически, но остальные роли надо будет назначить самостоятельно.</p> <p>Если значение `false` , то пользователь, которого не добавили в облако, не сможет войти, даже если пройдет аутентификацию на вашем сервере.</p> 
-issuer | **string**<br><p>Обязательное поле. Идентификатор IdP-сервера, который будет использоваться для аутентификации. Этот же идентификатор сервер IdP указывает в ответе после того, как пользователь проходит аутентификацию.</p> <p>Максимальная длина строки в символах — 8000.</p> 
-ssoBinding | **string**<br><p>Тип привязки для Single Sign-on. Большинство поставщиков поддерживают тип привязки `POST`.</p> <p>Привязка — это отображение сообщения протокола SAML на стандартные форматы сообщений и / или протоколы связи.</p> <ul> <li>POST: Привязка HTTP POST.</li> <li>REDIRECT: Привязка перенаправлением HTTP.</li> <li>ARTIFACT: Привязка артефактом HTTP.</li> </ul> 
-ssoUrl | **string**<br><p>Обязательное поле. URL для Single sign-on. Укажите здесь ссылку на страницу для входа в IdP.</p> <p>Максимальная длина строки в символах — 8000.</p> 
-securitySettings | **object**<br><p>Настройки безопасности федерации.</p> <p>Настройки безопасности федерации.</p> 
-securitySettings.<br>encryptedAssertions | **boolean** (boolean)<br><p>Включить шифрование утверждений.</p> 
-caseInsensitiveNameIds | **boolean** (boolean)<br><p>Использовать нечувствительные к регистру Name ID пользователей.</p> 
+id | **string**<br><p>Required. ID of the federation.</p> <p>The maximum string length in characters is 50.</p> 
+folderId | **string**<br><p>Required. ID of the folder that the federation belongs to.</p> <p>The maximum string length in characters is 50.</p> 
+name | **string**<br><p>Required. Name of the federation.</p> <p>Value must match the regular expression `` \|[a-z][-a-z0-9]{1,61}[a-z0-9] ``.</p> 
+description | **string**<br><p>Description of the federation.</p> <p>The maximum string length in characters is 256.</p> 
+createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+cookieMaxAge | **string**<br><p>Browser cookie lifetime in seconds. If the cookie is still valid, the management console authenticates the user immediately and redirects them to the home page.</p> <p>Acceptable values are 600 seconds to 43200 seconds, inclusive.</p> 
+autoCreateAccountOnLogin | **boolean** (boolean)<br><p>Add new users automatically on successful authentication. The user will get the `resource-manager.clouds.member` role automatically, but you need to grant other roles to them.</p> <p>If the value is `false`, users who aren't added to the cloud can't log in, even if they have authenticated on your server.</p> 
+issuer | **string**<br><p>Required. ID of the IdP server to be used for authentication. The IdP server also responds to IAM with this ID after the user authenticates.</p> <p>The maximum string length in characters is 8000.</p> 
+ssoBinding | **string**<br><p>Single sign-on endpoint binding type. Most Identity Providers support the `POST` binding type.</p> <p>SAML Binding is a mapping of a SAML protocol message onto standard messaging formats and/or communications protocols.</p> <ul> <li>POST: HTTP POST binding.</li> <li>REDIRECT: HTTP redirect binding.</li> <li>ARTIFACT: HTTP artifact binding.</li> </ul> 
+ssoUrl | **string**<br><p>Required. Single sign-on endpoint URL. Specify the link to the IdP login page here.</p> <p>The maximum string length in characters is 8000.</p> 
+securitySettings | **object**<br><p>Federation security settings.</p> <p>Federation security settings.</p> 
+securitySettings.<br>encryptedAssertions | **boolean** (boolean)<br><p>Enable encrypted assertions.</p> 
+caseInsensitiveNameIds | **boolean** (boolean)<br><p>Use case insensitive Name IDs.</p> 
 
-## Методы {#methods}
-Метод | Описание
+## Methods {#methods}
+Method | Description
 --- | ---
-[addUserAccounts](addUserAccounts.md) | Добавляет пользователей в указанную федерацию.
-[create](create.md) | Создает федерацию в указанном каталоге.
-[delete](delete.md) | Удаляет указанную федерацию.
-[get](get.md) | Возвращает указанную федерацию.
-[list](list.md) | Возвращает список федераций в указанном каталоге.
-[listOperations](listOperations.md) | Возвращает список операций для указанной федерации.
-[listUserAccounts](listUserAccounts.md) | Возвращает список пользователей для указанной федерации.
-[update](update.md) | Изменяет указанную федерацию.
+[addUserAccounts](addUserAccounts.md) | Adds users to the specified federation.
+[create](create.md) | Creates a federation in the specified folder.
+[delete](delete.md) | Deletes the specified federation.
+[get](get.md) | Returns the specified federation.
+[list](list.md) | Retrieves the list of federations in the specified folder.
+[listOperations](listOperations.md) | Lists operations for the specified federation.
+[listUserAccounts](listUserAccounts.md) | Lists users for the specified federation.
+[update](update.md) | Updates the specified federation.

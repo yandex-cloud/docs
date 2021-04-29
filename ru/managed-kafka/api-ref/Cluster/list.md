@@ -2,26 +2,26 @@
 editable: false
 ---
 
-# Метод list
-Получает список кластеров Apache Kafka®, принадлежащих указанному каталогу.
+# Method list
+Retrieves the list of Apache Kafka® clusters that belong to the specified folder.
  
 
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 GET https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters
 ```
  
-## Query-параметры {#query_params}
+## Query parameters {#query_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-folderId | Обязательное поле. Идентификатор каталога, для которого нужно получить список кластеров Apache Kafka®.  Чтобы получить идентификатор каталога, выполните запрос [list](/docs/resource-manager/api-ref/Folder/list).  Максимальная длина строки в символах — 50.
-pageSize | Максимальное количество результатов на одной странице в ответе.  Если количество результатов больше чем [pageSize](/docs/managed-kafka/api-ref/Cluster/list#query_params), сервис вернет значение [nextPageToken](/docs/managed-kafka/api-ref/Cluster/list#responses), которое можно использовать для получения следующей страницы.  Максимальное значение — 1000.
-pageToken | Токен страницы.  Установите значение [pageToken](/docs/managed-kafka/api-ref/Cluster/list#query_params) равным значению поля [nextPageToken](/docs/managed-kafka/api-ref/Cluster/list#responses) предыдущего запроса, чтобы получить следующую страницу результатов.  Максимальная длина строки в символах — 100.
-filter | Выражение, позволяющее отфильтровать информацию о ресурсах в ответе, оставив только нужную.  В этом выражении должны быть указаны: 1. Имя поля, по которому нужно выполнить фильтрацию. В настоящее время фильтрацию можно использовать только по полю [Cluster.name](/docs/managed-kafka/api-ref/Cluster#representation). 2. Условный оператор. Поддерживаются операторы `=` и `!=` для одиночных значений, `IN` и `NOT IN` для списков значений. 3. Значение. Должно содержать от 1 до 63 символов и соответствовать регулярному выражению `^[a-zA-Z0-9_-]+$`.  Пример фильтра: `name NOT IN 'test,beta'`.  Максимальная длина строки в символах — 1000.
+folderId | Required. ID of the folder to list Apache Kafka® clusters in.  To get the folder ID, make a [list](/docs/resource-manager/api-ref/Folder/list) request.  The maximum string length in characters is 50.
+pageSize | The maximum number of results per page to return.  If the number of available results is larger than [pageSize](/docs/managed-kafka/api-ref/Cluster/list#query_params), the service returns a [nextPageToken](/docs/managed-kafka/api-ref/Cluster/list#responses) that can be used to get the next page of results in subsequent list requests.  The maximum value is 1000.
+pageToken | Page token.  To get the next page of results, set [pageToken](/docs/managed-kafka/api-ref/Cluster/list#query_params) to the [nextPageToken](/docs/managed-kafka/api-ref/Cluster/list#responses) returned by a previous list request.  The maximum string length in characters is 100.
+filter | Filter support is not currently implemented. Any filters are ignored.  The maximum string length in characters is 1000.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -51,7 +51,7 @@ filter | Выражение, позволяющее отфильтровать �
             "diskTypeId": "string"
           },
 
-          // `clusters[].config.kafka` включает только одно из полей `kafkaConfig_2_1`, `kafkaConfig_2_6`
+          // `clusters[].config.kafka` includes only one of the fields `kafkaConfig_2_1`, `kafkaConfig_2_6`
           "kafkaConfig_2_1": {
             "compressionType": "string",
             "logFlushIntervalMessages": "integer",
@@ -60,7 +60,12 @@ filter | Выражение, позволяющее отфильтровать �
             "logRetentionBytes": "integer",
             "logRetentionHours": "integer",
             "logRetentionMinutes": "integer",
-            "logRetentionMs": "integer"
+            "logRetentionMs": "integer",
+            "logSegmentBytes": "integer",
+            "logPreallocate": true,
+            "socketSendBufferBytes": "integer",
+            "socketReceiveBufferBytes": "integer",
+            "autoCreateTopicsEnable": true
           },
           "kafkaConfig_2_6": {
             "compressionType": "string",
@@ -70,9 +75,14 @@ filter | Выражение, позволяющее отфильтровать �
             "logRetentionBytes": "integer",
             "logRetentionHours": "integer",
             "logRetentionMinutes": "integer",
-            "logRetentionMs": "integer"
+            "logRetentionMs": "integer",
+            "logSegmentBytes": "integer",
+            "logPreallocate": true,
+            "socketSendBufferBytes": "integer",
+            "socketReceiveBufferBytes": "integer",
+            "autoCreateTopicsEnable": true
           },
-          // конец списка возможных полей`clusters[].config.kafka`
+          // end of the list of possible fields`clusters[].config.kafka`
 
         },
         "zookeeper": {
@@ -86,11 +96,18 @@ filter | Выражение, позволяющее отфильтровать �
           "string"
         ],
         "brokersCount": "integer",
-        "assignPublicIp": true
+        "assignPublicIp": true,
+        "unmanagedTopics": true
       },
       "networkId": "string",
       "health": "string",
-      "status": "string"
+      "status": "string",
+      "securityGroupIds": [
+        "string"
+      ],
+      "hostGroupIds": [
+        "string"
+      ]
     }
   ],
   "nextPageToken": "string"
@@ -98,54 +115,67 @@ filter | Выражение, позволяющее отфильтровать �
 ```
 
  
-Поле | Описание
+Field | Description
 --- | ---
-clusters[] | **object**<br><p>Кластер Apache Kafka. Подробнее читайте в разделе <a href="/docs/managed-kafka/concepts">Концепции</a>.</p> 
-clusters[].<br>id | **string**<br><p>Идентификатор кластера Apache Kafka®. Этот идентификатор генерируется при создании кластера.</p> 
-clusters[].<br>folderId | **string**<br><p>Идентификатор каталога, которому принадлежит кластер Apache Kafka®.</p> 
-clusters[].<br>createdAt | **string** (date-time)<br><p>Время создания.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-clusters[].<br>name | **string**<br><p>Имя кластера Apache Kafka®. Имя должно быть уникальным в рамках каталога. Длина 1-63 символов. Значение должно соответствовать регулярному выражению `[a-zA-Z0-9_-]*`.</p> 
-clusters[].<br>description | **string**<br><p>Описание кластера Apache Kafka®. Длина описания должна быть от 0 до 256 символов.</p> 
-clusters[].<br>labels | **object**<br><p>Пользовательские метки для кластера Apache Kafka® в виде пар `key:value`. Максимум 64 на ресурс.</p> 
-clusters[].<br>environment | **string**<br><p>Среда развертывания кластера Apache Kafka®.</p> <ul> <li>PRODUCTION: Стабильная среда с осторожной политикой обновления — во время регулярного обслуживания применяются только срочные исправления.</li> <li>PRESTABLE: Среда с более агрессивной политикой обновления — новые версии развертываются независимо от обратной совместимости.</li> </ul> 
-clusters[].<br>monitoring[] | **object**<br><p>Метаданные системы мониторинга.</p> 
-clusters[].<br>monitoring[].<br>name | **string**<br><p>Название системы мониторинга.</p> 
-clusters[].<br>monitoring[].<br>description | **string**<br><p>Описание системы мониторинга.</p> 
-clusters[].<br>monitoring[].<br>link | **string**<br><p>Ссылка на графики системы мониторинга для кластера Apache Kafka®.</p> 
-clusters[].<br>config | **object**<br><p>Конфигурация кластера Apache Kafka®.</p> 
-clusters[].<br>config.<br>version | **string**<br><p>Версия Apache Kafka®, которая используется в кластере. Возможные значения: `2.1`, `2.6`.</p> 
-clusters[].<br>config.<br>kafka | **object**<br><p>Конфигурация и распределение ресурсов для брокеров Kafka.</p> 
-clusters[].<br>config.<br>kafka.<br>resources | **object**<br>Вычислительные ресурсы, выделенные брокерам Kafka.<br>
-clusters[].<br>config.<br>kafka.<br>resources.<br>resourcePresetId | **string**<br><p>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в <a href="/docs/managed-kafka/concepts/instance-types">документации</a>.</p> 
-clusters[].<br>config.<br>kafka.<br>resources.<br>diskSize | **string** (int64)<br><p>Объем хранилища, доступного хосту, в байтах.</p> 
-clusters[].<br>config.<br>kafka.<br>resources.<br>diskTypeId | **string**<br><p>Тип хранилища для хоста.</p> 
-clusters[].<br>config.<br>kafka.<br>kafkaConfig_2_1 | **object** <br>`clusters[].config.kafka` включает только одно из полей `kafkaConfig_2_1`, `kafkaConfig_2_6`<br><br><p>Конфигурация брокера Kafka версии 2.1.</p> 
-clusters[].<br>config.<br>kafka.<br>kafkaConfig_2_1.<br>compressionType | **string**<br><p>Тип сжатия для топиков кластера.</p> <ul> <li>COMPRESSION_TYPE_UNCOMPRESSED: не использовать кодек (сообщения не сжимаются).</li> <li>COMPRESSION_TYPE_ZSTD: кодек Zstandard.</li> <li>COMPRESSION_TYPE_LZ4: Кодек LZ4.</li> <li>COMPRESSION_TYPE_SNAPPY: Кодек Snappy.</li> <li>COMPRESSION_TYPE_GZIP: кодек GZip.</li> <li>COMPRESSION_TYPE_PRODUCER: кодек задается на стороне производителя (допустимые кодеки: `ZSTD`, `LZ4`, `GZIP` или `SNAPPY`).</li> </ul> 
-clusters[].<br>config.<br>kafka.<br>kafkaConfig_2_1.<br>logFlushIntervalMessages | **integer** (int64)<br><p>Количество сообщений, которые должны быть накоплены в разделе прежде, чем эти сообщения будут сброшены на диск.</p> <p>Это глобальная настройка, которая задается на уровне кластера. Ее можно переопределить на уровне топика с помощью настройки `flushMessages`.</p> 
-clusters[].<br>config.<br>kafka.<br>kafkaConfig_2_1.<br>logFlushIntervalMs | **integer** (int64)<br><p>Максимальное время (в миллисекундах), в течение которого сообщение в любом топике хранится в памяти перед сбросом на диск. Если значение не задано, то используется значение настройки `logFlushSchedulerIntervalMs`.</p> <p>Это глобальная настройка, которая задается на уровне кластера. Ее можно переопределить на уровне топика с помощью настройки `flushMs`.</p> 
-clusters[].<br>config.<br>kafka.<br>kafkaConfig_2_1.<br>logFlushSchedulerIntervalMs | **integer** (int64)<br><p>Частота проверки (в миллисекундах) наличия логов, которые нужно сбросить на диск. Эта проверка выполняется процессом, ответственным за сброс логов.</p> 
-clusters[].<br>config.<br>kafka.<br>kafkaConfig_2_1.<br>logRetentionBytes | **integer** (int64)<br><p>Ограничение размера раздела; Kafka отбросит старые сегменты лога, если , чтобы освободить место, если действует политика `delete` `cleanupPolicy`. Этот настройка полезна, если вам необходимо контролировать размер лога из-за ограниченного дискового пространства.</p> <p>Это глобальная настройка, которая задается на уровне кластера. Ее можно переопределить на уровне топика с помощью настройки `retentionBytes`.</p> 
-clusters[].<br>config.<br>kafka.<br>kafkaConfig_2_1.<br>logRetentionHours | **integer** (int64)<br><p>Количество часов до удаления файла сегмента лога; в течение этого времени Kafka будет хранить файл сегмента лога.</p> 
-clusters[].<br>config.<br>kafka.<br>kafkaConfig_2_1.<br>logRetentionMinutes | **integer** (int64)<br><p>Количество минут до удаления файла сегмента лога; в течение этого времени Kafka будет хранить файл сегмента лога.</p> <p>Если значение не задано, то используется значение настройки `logRetentionHours`.</p> 
-clusters[].<br>config.<br>kafka.<br>kafkaConfig_2_1.<br>logRetentionMs | **integer** (int64)<br><p>Количество миллисекунд до удаления файла сегмента лога; в течение этого времени Kafka будет хранить файл сегмента лога.</p> <p>Если значение не задано, то используется значение настройки `logRetentionMinutes`.</p> <p>Это глобальная настройка, которая задается на уровне кластера. Ее можно переопределить на уровне топика с помощью настройки `retentionMs`.</p> 
-clusters[].<br>config.<br>kafka.<br>kafkaConfig_2_6 | **object** <br>`clusters[].config.kafka` включает только одно из полей `kafkaConfig_2_1`, `kafkaConfig_2_6`<br><br><p>Конфигурация брокера Kafka версии 2.6.</p> 
-clusters[].<br>config.<br>kafka.<br>kafkaConfig_2_6.<br>compressionType | **string**<br><p>Тип сжатия для топиков кластера.</p> <ul> <li>COMPRESSION_TYPE_UNCOMPRESSED: не использовать кодек (сообщения не сжимаются).</li> <li>COMPRESSION_TYPE_ZSTD: кодек Zstandard.</li> <li>COMPRESSION_TYPE_LZ4: Кодек LZ4.</li> <li>COMPRESSION_TYPE_SNAPPY: Кодек Snappy.</li> <li>COMPRESSION_TYPE_GZIP: кодек GZip.</li> <li>COMPRESSION_TYPE_PRODUCER: кодек задается на стороне производителя (допустимые кодеки: `ZSTD`, `LZ4`, `GZIP` или `SNAPPY`).</li> </ul> 
-clusters[].<br>config.<br>kafka.<br>kafkaConfig_2_6.<br>logFlushIntervalMessages | **integer** (int64)<br><p>Количество сообщений, которые должны быть накоплены в разделе прежде, чем эти сообщения будут сброшены на диск.</p> <p>Это глобальная настройка, которая задается на уровне кластера. Ее можно переопределить на уровне топика с помощью настройки `flushMessages`.</p> 
-clusters[].<br>config.<br>kafka.<br>kafkaConfig_2_6.<br>logFlushIntervalMs | **integer** (int64)<br><p>Максимальное время (в миллисекундах), в течение которого сообщение в любом топике хранится в памяти перед сбросом на диск. Если значение не задано, то используется значение настройки `logFlushSchedulerIntervalMs`.</p> <p>Это глобальная настройка, которая задается на уровне кластера. Ее можно переопределить на уровне топика с помощью настройки `flushMs`.</p> 
-clusters[].<br>config.<br>kafka.<br>kafkaConfig_2_6.<br>logFlushSchedulerIntervalMs | **integer** (int64)<br><p>Частота проверки (в миллисекундах) наличия логов, которые нужно сбросить на диск. Эта проверка выполняется процессом, ответственным за сброс логов.</p> 
-clusters[].<br>config.<br>kafka.<br>kafkaConfig_2_6.<br>logRetentionBytes | **integer** (int64)<br><p>Ограничение размера раздела; Kafka отбросит старые сегменты лога, чтобы освободить место, если действует политика `delete` `cleanupPolicy`. Эта настройка полезна, если вам необходимо контролировать размер лога из-за ограниченного дискового пространства.</p> <p>Это глобальная настройка, которая задается на уровне кластера. Ее можно переопределить на уровне топика с помощью настройки `retentionBytes`.</p> 
-clusters[].<br>config.<br>kafka.<br>kafkaConfig_2_6.<br>logRetentionHours | **integer** (int64)<br><p>Количество часов до удаления файла сегмента лога; в течение этого времени Kafka будет хранить файл сегмента лога.</p> 
-clusters[].<br>config.<br>kafka.<br>kafkaConfig_2_6.<br>logRetentionMinutes | **integer** (int64)<br><p>Количество минут до удаления файла сегмента лога; в течение этого времени Kafka будет хранить файл сегмента лога.</p> <p>Если значение не задано, то используется значение настройки `logRetentionHours`.</p> 
-clusters[].<br>config.<br>kafka.<br>kafkaConfig_2_6.<br>logRetentionMs | **integer** (int64)<br><p>Количество миллисекунд до удаления файла сегмента лога; в течение этого времени Kafka будет хранить файл сегмента лога.</p> <p>Если значение не задано, то используется значение настройки `logRetentionMinutes`.</p> <p>Это глобальная настройка, которая задается на уровне кластера. Ее можно переопределить на уровне топика с помощью настройки `retentionMs`.</p> 
-clusters[].<br>config.<br>zookeeper | **object**<br><p>Конфигурация и распределение ресурсов для хостов ZooKeeper.</p> 
-clusters[].<br>config.<br>zookeeper.<br>resources | **object**<br><p>Вычислительные ресурсы, выделенные хостам ZooKeeper.</p> 
-clusters[].<br>config.<br>zookeeper.<br>resources.<br>resourcePresetId | **string**<br><p>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в <a href="/docs/managed-kafka/concepts/instance-types">документации</a>.</p> 
-clusters[].<br>config.<br>zookeeper.<br>resources.<br>diskSize | **string** (int64)<br><p>Объем хранилища, доступного хосту, в байтах.</p> 
-clusters[].<br>config.<br>zookeeper.<br>resources.<br>diskTypeId | **string**<br><p>Тип хранилища для хоста.</p> 
-clusters[].<br>config.<br>zoneId[] | **string**<br><p>Идентификаторы зон доступности, в которых находятся брокеры Kafka.</p> 
-clusters[].<br>config.<br>brokersCount | **integer** (int64)<br><p>Количество брокеров Kafka, развернутых в каждой зоне доступности.</p> 
-clusters[].<br>config.<br>assignPublicIp | **boolean** (boolean)<br><p>Флаг, определяющий, назначен ли кластеру публичный IP-адрес. Если значение равно `true`, то кластер Apache Kafka® доступен в Интернете через его публичный IP-адрес.</p> 
-clusters[].<br>networkId | **string**<br><p>Идентификатор сети, к которой принадлежит кластер.</p> 
-clusters[].<br>health | **string**<br><p>Здоровье кластера.</p> <ul> <li>HEALTH_UNKNOWN: Состояние кластера неизвестно (`health` всех хостов в кластере — `UNKNOWN`).</li> <li>ALIVE: Кластер работает нормально (`health` всех хостов в кластере — `ALIVE`).</li> <li>DEAD: Кластер не работает (`health` всех хостов в кластере — `DEAD`).</li> <li>DEGRADED: Кластер находится в состоянии деградации (`health` по крайней мере одного из хостов в кластере — не `ALIVE`).</li> </ul> 
-clusters[].<br>status | **string**<br><p>Текущее состояние кластера.</p> <ul> <li>STATUS_UNKNOWN: Состояние кластера неизвестно.</li> <li>CREATING: Кластер создается.</li> <li>RUNNING: Кластер работает нормально.</li> <li>ERROR: В кластере произошла ошибка, блокирующая работу.</li> <li>UPDATING: Кластер изменяется.</li> <li>STOPPING: Кластер останавливается.</li> <li>STOPPED: Кластер остановлен.</li> <li>STARTING: Кластер запускается.</li> </ul> 
-nextPageToken | **string**<br><p>Токен для получения следующей страницы результатов в ответе.</p> <p>Если количество результатов больше чем <a href="/docs/managed-kafka/api-ref/Cluster/list#query_params">pageSize</a>, используйте <a href="/docs/managed-kafka/api-ref/Cluster/list#responses">nextPageToken</a> в качестве значения параметра <a href="/docs/managed-kafka/api-ref/Cluster/list#query_params">pageToken</a> в следующем запросе. Все последующие запросы будут получать свои значения <a href="/docs/managed-kafka/api-ref/Cluster/list#responses">nextPageToken</a> для перебора страниц результатов.</p> 
+clusters[] | **object**<br><p>An Apache Kafka® cluster resource. For more information, see the <a href="/docs/managed-kafka/concepts">Concepts</a> section of the documentation.</p> 
+clusters[].<br>id | **string**<br><p>ID of the Apache Kafka® cluster. This ID is assigned at creation time.</p> 
+clusters[].<br>folderId | **string**<br><p>ID of the folder that the Apache Kafka® cluster belongs to.</p> 
+clusters[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+clusters[].<br>name | **string**<br><p>Name of the Apache Kafka® cluster. The name must be unique within the folder. 1-63 characters long. Value must match the regular expression `[a-zA-Z0-9_-]*`.</p> 
+clusters[].<br>description | **string**<br><p>Description of the Apache Kafka® cluster. 0-256 characters long.</p> 
+clusters[].<br>labels | **object**<br><p>Custom labels for the Apache Kafka® cluster as `key:value` pairs. A maximum of 64 labels per resource is allowed.</p> 
+clusters[].<br>environment | **string**<br><p>Deployment environment of the Apache Kafka® cluster.</p> <ul> <li>PRODUCTION: stable environment with a conservative update policy when only hotfixes are applied during regular maintenance.</li> <li>PRESTABLE: environment with a more aggressive update policy when new versions are rolled out irrespective of backward compatibility.</li> </ul> 
+clusters[].<br>monitoring[] | **object**<br><p>Metadata of monitoring system.</p> 
+clusters[].<br>monitoring[].<br>name | **string**<br><p>Name of the monitoring system.</p> 
+clusters[].<br>monitoring[].<br>description | **string**<br><p>Description of the monitoring system.</p> 
+clusters[].<br>monitoring[].<br>link | **string**<br><p>Link to the monitoring system charts for the Apache Kafka® cluster.</p> 
+clusters[].<br>config | **object**<br><p>Configuration of the Apache Kafka® cluster.</p> 
+clusters[].<br>config.<br>version | **string**<br><p>Version of Apache Kafka® used in the cluster. Possible values: `2.1`, `2.6`.</p> 
+clusters[].<br>config.<br>kafka | **object**<br><p>Configuration and resource allocation for Kafka brokers.</p> 
+clusters[].<br>config.<br>kafka.<br>resources | **object**<br>Resources allocated to Kafka brokers.<br>
+clusters[].<br>config.<br>kafka.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory, etc.). All available presets are listed in the <a href="/docs/managed-kafka/concepts/instance-types">documentation</a>.</p> 
+clusters[].<br>config.<br>kafka.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
+clusters[].<br>config.<br>kafka.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host.</p> 
+clusters[].<br>config.<br>kafka.<br>kafkaConfig_2_1 | **object** <br>`clusters[].config.kafka` includes only one of the fields `kafkaConfig_2_1`, `kafkaConfig_2_6`<br><br><p>Kafka version 2.1 broker configuration.</p> 
+clusters[].<br>config.<br>kafka.<br>kafkaConfig_2_1.<br>compressionType | **string**<br><p>Cluster topics compression type.</p> <ul> <li>COMPRESSION_TYPE_UNCOMPRESSED: no codec (uncompressed).</li> <li>COMPRESSION_TYPE_ZSTD: Zstandard codec.</li> <li>COMPRESSION_TYPE_LZ4: LZ4 codec.</li> <li>COMPRESSION_TYPE_SNAPPY: Snappy codec.</li> <li>COMPRESSION_TYPE_GZIP: GZip codec.</li> <li>COMPRESSION_TYPE_PRODUCER: the codec to use is set by a producer (can be any of `ZSTD`, `LZ4`, `GZIP` or `SNAPPY` codecs).</li> </ul> 
+clusters[].<br>config.<br>kafka.<br>kafkaConfig_2_1.<br>logFlushIntervalMessages | **integer** (int64)<br><p>The number of messages accumulated on a log partition before messages are flushed to disk.</p> <p>This is the global cluster-level setting that can be overridden on a topic level by using the `flushMessages` setting.</p> 
+clusters[].<br>config.<br>kafka.<br>kafkaConfig_2_1.<br>logFlushIntervalMs | **integer** (int64)<br><p>The maximum time (in milliseconds) that a message in any topic is kept in memory before flushed to disk. If not set, the value of `logFlushSchedulerIntervalMs` is used.</p> <p>This is the global cluster-level setting that can be overridden on a topic level by using the `flushMs` setting.</p> 
+clusters[].<br>config.<br>kafka.<br>kafkaConfig_2_1.<br>logFlushSchedulerIntervalMs | **integer** (int64)<br><p>The frequency of checks (in milliseconds) for any logs that need to be flushed to disk. This check is done by the log flusher.</p> 
+clusters[].<br>config.<br>kafka.<br>kafkaConfig_2_1.<br>logRetentionBytes | **integer** (int64)<br><p>Partition size limit; Kafka will discard old log segments to free up space if `delete` `cleanupPolicy` is in effect. This setting is helpful if you need to control the size of a log due to limited disk space.</p> <p>This is the global cluster-level setting that can be overridden on a topic level by using the `retentionBytes` setting.</p> 
+clusters[].<br>config.<br>kafka.<br>kafkaConfig_2_1.<br>logRetentionHours | **integer** (int64)<br><p>The number of hours to keep a log segment file before deleting it.</p> 
+clusters[].<br>config.<br>kafka.<br>kafkaConfig_2_1.<br>logRetentionMinutes | **integer** (int64)<br><p>The number of minutes to keep a log segment file before deleting it.</p> <p>If not set, the value of `logRetentionHours` is used.</p> 
+clusters[].<br>config.<br>kafka.<br>kafkaConfig_2_1.<br>logRetentionMs | **integer** (int64)<br><p>The number of milliseconds to keep a log segment file before deleting it.</p> <p>If not set, the value of `logRetentionMinutes` is used.</p> <p>This is the global cluster-level setting that can be overridden on a topic level by using the `retentionMs` setting.</p> 
+clusters[].<br>config.<br>kafka.<br>kafkaConfig_2_1.<br>logSegmentBytes | **integer** (int64)<br><p>The maximum size of a single log file.</p> <p>This is the global cluster-level setting that can be overridden on a topic level by using the `segmentBytes` setting.</p> 
+clusters[].<br>config.<br>kafka.<br>kafkaConfig_2_1.<br>logPreallocate | **boolean** (boolean)<br><p>Should pre allocate file when create new segment?</p> <p>This is the global cluster-level setting that can be overridden on a topic level by using the `preallocate` setting.</p> 
+clusters[].<br>config.<br>kafka.<br>kafkaConfig_2_1.<br>socketSendBufferBytes | **integer** (int64)<br><p>The SO_SNDBUF buffer of the socket server sockets. If the value is -1, the OS default will be used.</p> 
+clusters[].<br>config.<br>kafka.<br>kafkaConfig_2_1.<br>socketReceiveBufferBytes | **integer** (int64)<br><p>The SO_RCVBUF buffer of the socket server sockets. If the value is -1, the OS default will be used.</p> 
+clusters[].<br>config.<br>kafka.<br>kafkaConfig_2_1.<br>autoCreateTopicsEnable | **boolean** (boolean)<br><p>Enable auto creation of topic on the server</p> 
+clusters[].<br>config.<br>kafka.<br>kafkaConfig_2_6 | **object** <br>`clusters[].config.kafka` includes only one of the fields `kafkaConfig_2_1`, `kafkaConfig_2_6`<br><br><p>Kafka version 2.6 broker configuration.</p> 
+clusters[].<br>config.<br>kafka.<br>kafkaConfig_2_6.<br>compressionType | **string**<br><p>Cluster topics compression type.</p> <ul> <li>COMPRESSION_TYPE_UNCOMPRESSED: no codec (uncompressed).</li> <li>COMPRESSION_TYPE_ZSTD: Zstandard codec.</li> <li>COMPRESSION_TYPE_LZ4: LZ4 codec.</li> <li>COMPRESSION_TYPE_SNAPPY: Snappy codec.</li> <li>COMPRESSION_TYPE_GZIP: GZip codec.</li> <li>COMPRESSION_TYPE_PRODUCER: the codec to use is set by a producer (can be any of `ZSTD`, `LZ4`, `GZIP` or `SNAPPY` codecs).</li> </ul> 
+clusters[].<br>config.<br>kafka.<br>kafkaConfig_2_6.<br>logFlushIntervalMessages | **integer** (int64)<br><p>The number of messages accumulated on a log partition before messages are flushed to disk.</p> <p>This is the global cluster-level setting that can be overridden on a topic level by using the `flushMessages` setting.</p> 
+clusters[].<br>config.<br>kafka.<br>kafkaConfig_2_6.<br>logFlushIntervalMs | **integer** (int64)<br><p>The maximum time (in milliseconds) that a message in any topic is kept in memory before flushed to disk. If not set, the value of `logFlushSchedulerIntervalMs` is used.</p> <p>This is the global cluster-level setting that can be overridden on a topic level by using the `flushMs` setting.</p> 
+clusters[].<br>config.<br>kafka.<br>kafkaConfig_2_6.<br>logFlushSchedulerIntervalMs | **integer** (int64)<br><p>The frequency of checks (in milliseconds) for any logs that need to be flushed to disk. This check is done by the log flusher.</p> 
+clusters[].<br>config.<br>kafka.<br>kafkaConfig_2_6.<br>logRetentionBytes | **integer** (int64)<br><p>Partition size limit; Kafka will discard old log segments to free up space if `delete` `cleanupPolicy` is in effect. This setting is helpful if you need to control the size of a log due to limited disk space.</p> <p>This is the global cluster-level setting that can be overridden on a topic level by using the `retentionBytes` setting.</p> 
+clusters[].<br>config.<br>kafka.<br>kafkaConfig_2_6.<br>logRetentionHours | **integer** (int64)<br><p>The number of hours to keep a log segment file before deleting it.</p> 
+clusters[].<br>config.<br>kafka.<br>kafkaConfig_2_6.<br>logRetentionMinutes | **integer** (int64)<br><p>The number of minutes to keep a log segment file before deleting it.</p> <p>If not set, the value of `logRetentionHours` is used.</p> 
+clusters[].<br>config.<br>kafka.<br>kafkaConfig_2_6.<br>logRetentionMs | **integer** (int64)<br><p>The number of milliseconds to keep a log segment file before deleting it.</p> <p>If not set, the value of `logRetentionMinutes` is used.</p> <p>This is the global cluster-level setting that can be overridden on a topic level by using the `retentionMs` setting.</p> 
+clusters[].<br>config.<br>kafka.<br>kafkaConfig_2_6.<br>logSegmentBytes | **integer** (int64)<br><p>The maximum size of a single log file.</p> <p>This is the global cluster-level setting that can be overridden on a topic level by using the `segmentBytes` setting.</p> 
+clusters[].<br>config.<br>kafka.<br>kafkaConfig_2_6.<br>logPreallocate | **boolean** (boolean)<br><p>Should pre allocate file when create new segment?</p> <p>This is the global cluster-level setting that can be overridden on a topic level by using the `preallocate` setting.</p> 
+clusters[].<br>config.<br>kafka.<br>kafkaConfig_2_6.<br>socketSendBufferBytes | **integer** (int64)<br><p>The SO_SNDBUF buffer of the socket server sockets. If the value is -1, the OS default will be used.</p> 
+clusters[].<br>config.<br>kafka.<br>kafkaConfig_2_6.<br>socketReceiveBufferBytes | **integer** (int64)<br><p>The SO_RCVBUF buffer of the socket server sockets. If the value is -1, the OS default will be used.</p> 
+clusters[].<br>config.<br>kafka.<br>kafkaConfig_2_6.<br>autoCreateTopicsEnable | **boolean** (boolean)<br><p>Enable auto creation of topic on the server</p> 
+clusters[].<br>config.<br>zookeeper | **object**<br><p>Configuration and resource allocation for ZooKeeper hosts.</p> 
+clusters[].<br>config.<br>zookeeper.<br>resources | **object**<br><p>Resources allocated to ZooKeeper hosts.</p> 
+clusters[].<br>config.<br>zookeeper.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory, etc.). All available presets are listed in the <a href="/docs/managed-kafka/concepts/instance-types">documentation</a>.</p> 
+clusters[].<br>config.<br>zookeeper.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
+clusters[].<br>config.<br>zookeeper.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host.</p> 
+clusters[].<br>config.<br>zoneId[] | **string**<br><p>IDs of availability zones where Kafka brokers reside.</p> 
+clusters[].<br>config.<br>brokersCount | **integer** (int64)<br><p>The number of Kafka brokers deployed in each availability zone.</p> 
+clusters[].<br>config.<br>assignPublicIp | **boolean** (boolean)<br><p>The flag that defines whether a public IP address is assigned to the cluster. If the value is `true`, then Apache Kafka® cluster is available on the Internet via it's public IP address.</p> 
+clusters[].<br>config.<br>unmanagedTopics | **boolean** (boolean)<br><p>Allows to manage topics via AdminAPI</p> 
+clusters[].<br>networkId | **string**<br><p>ID of the network that the cluster belongs to.</p> 
+clusters[].<br>health | **string**<br><p>Aggregated cluster health.</p> <ul> <li>HEALTH_UNKNOWN: state of the cluster is unknown (`health` of all hosts in the cluster is `UNKNOWN`).</li> <li>ALIVE: cluster is alive and well (`health` of all hosts in the cluster is `ALIVE`).</li> <li>DEAD: cluster is inoperable (`health` of all hosts in the cluster is `DEAD`).</li> <li>DEGRADED: cluster is in degraded state (`health` of at least one of the hosts in the cluster is not `ALIVE`).</li> </ul> 
+clusters[].<br>status | **string**<br><p>Current state of the cluster.</p> <ul> <li>STATUS_UNKNOWN: cluster state is unknown.</li> <li>CREATING: cluster is being created.</li> <li>RUNNING: cluster is running normally.</li> <li>ERROR: cluster encountered a problem and cannot operate.</li> <li>UPDATING: cluster is being updated.</li> <li>STOPPING: cluster is stopping.</li> <li>STOPPED: cluster stopped.</li> <li>STARTING: cluster is starting.</li> </ul> 
+clusters[].<br>securityGroupIds[] | **string**<br><p>User security groups</p> 
+clusters[].<br>hostGroupIds[] | **string**<br><p>Host groups hosting VMs of the cluster.</p> 
+nextPageToken | **string**<br><p>Token that allows you to get the next page of results for list requests.</p> <p>If the number of results is larger than <a href="/docs/managed-kafka/api-ref/Cluster/list#query_params">pageSize</a>, use <a href="/docs/managed-kafka/api-ref/Cluster/list#responses">nextPageToken</a> as the value for the <a href="/docs/managed-kafka/api-ref/Cluster/list#query_params">pageToken</a> parameter in the next list request. Each subsequent list request will have its own <a href="/docs/managed-kafka/api-ref/Cluster/list#responses">nextPageToken</a> to continue paging through the results.</p> 

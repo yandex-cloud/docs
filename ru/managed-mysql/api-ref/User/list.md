@@ -2,30 +2,30 @@
 editable: false
 ---
 
-# Метод list
-Получает список пользователей MySQL в указанном кластере.
+# Method list
+Retrieves a list of MySQL users in the specified cluster.
  
 
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 GET https://mdb.api.cloud.yandex.net/managed-mysql/v1alpha/clusters/{clusterId}/users
 ```
  
-## Path-параметры {#path_params}
+## Path parameters {#path_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-clusterId | Обязательное поле. Идентификатор кластера для вывода списка пользователей MySQL. Чтобы получить идентификатор кластера, используйте запрос [list](/docs/managed-mysql/api-ref/Cluster/list).  Максимальная длина строки в символах — 50.
+clusterId | Required. ID of the cluster to list MySQL users in. To get the cluster ID, use a [list](/docs/managed-mysql/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
  
-## Query-параметры {#query_params}
+## Query parameters {#query_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-pageSize | Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем [pageSize](/docs/managed-mysql/api-ref/User/list#query_params), сервис вернет значение [nextPageToken](/docs/managed-mysql/api-ref/User/list#responses), которое можно использовать для получения следующей страницы.  Допустимые значения — от 0 до 1000 включительно.
-pageToken | Токен страницы. Установите значение [pageToken](/docs/managed-mysql/api-ref/User/list#query_params) равным значению поля [nextPageToken](/docs/managed-mysql/api-ref/User/list#responses) предыдущего запроса, чтобы получить следующую страницу результатов.  Максимальная длина строки в символах — 100.
+pageSize | The maximum number of results per page to return. If the number of available results is larger than [pageSize](/docs/managed-mysql/api-ref/User/list#query_params), the service returns a [nextPageToken](/docs/managed-mysql/api-ref/User/list#responses) that can be used to get the next page of results in subsequent list requests.  Acceptable values are 0 to 1000, inclusive.
+pageToken | Page token. To get the next page of results, set [pageToken](/docs/managed-mysql/api-ref/User/list#query_params) to the [nextPageToken](/docs/managed-mysql/api-ref/User/list#responses) returned by a previous list request.  The maximum string length in characters is 100.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -49,12 +49,12 @@ pageToken | Токен страницы. Установите значение [
 ```
 
  
-Поле | Описание
+Field | Description
 --- | ---
-users[] | **object**<br><p>Пользователь MySQL. Подробнее см. в <a href="/docs/managed-mysql/concepts">документации</a>.</p> 
-users[].<br>name | **string**<br><p>Имя пользователя MySQL.</p> 
-users[].<br>clusterId | **string**<br><p>Идентификатор кластера MySQL, которому принадлежит пользователь.</p> 
-users[].<br>permissions[] | **object**<br><p>Набор разрешений, предоставленных пользователю.</p> 
-users[].<br>permissions[].<br>databaseName | **string**<br><p>Имя базы данных, к которой предоставляет доступ разрешение.</p> 
-users[].<br>permissions[].<br>roles[] | **string**<br><ul> <li>ALL_PRIVILEGES: Все привилегии, которые могут быть предоставлены пользователю.</li> <li>ALTER: Изменение таблиц.</li> <li>ALTER_ROUTINE: Изменение хранимых процедур и функций.</li> <li>CREATE: Создание таблиц или индексов.</li> <li>CREATE_ROUTINE: Создание хранимых процедур.</li> <li>CREATE_TEMPORARY_TABLES: Создание временных таблиц.</li> <li>CREATE_VIEW: Создание представлений.</li> <li>DELETE: Удаление таблиц.</li> <li>DROP: Удаление таблиц или представлений.</li> <li>EVENT: Создание, изменение, удаление или отображение событий для планировщика событий.</li> <li>EXECUTE: Выполнение хранимых процедур.</li> <li>INDEX: Создание и удаление индексов.</li> <li>INSERT: Вставка строк в базу данных.</li> <li>LOCK_TABLES: Использование инструкции LOCK TABLES для таблиц, доступных с привилегией SELECT.</li> <li>SELECT: Получение строк из таблиц.</li> </ul> <p>Некоторые операторы SELECT могут быть разрешены без привилегии SELECT. Привилегия SELECT необходима для всех операторов, считывающих значения столбцов. Подробнее в <a href="https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_select">документации MySQL</a>.</p> <ul> <li>SHOW_VIEW: Использование инструкции SHOW CREATE VIEW. Также необходимо для представлений, используемых с EXPLAIN.</li> <li>TRIGGER: Создание, удаление, выполнение или отображение триггеров для таблицы.</li> <li>UPDATE: Обновление строк в базе данных.</li> </ul> 
-nextPageToken | **string**<br><p>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем <a href="/docs/managed-mysql/api-ref/User/list#query_params">pageSize</a>, используйте <a href="/docs/managed-mysql/api-ref/User/list#responses">nextPageToken</a> в качестве значения параметра <a href="/docs/managed-mysql/api-ref/User/list#query_params">pageToken</a> в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения <a href="/docs/managed-mysql/api-ref/User/list#responses">nextPageToken</a> для перебора страниц результатов.</p> 
+users[] | **object**<br><p>A MySQL user. For more information, see the <a href="/docs/managed-mysql/concepts">documentation</a>.</p> 
+users[].<br>name | **string**<br><p>Name of the MySQL user.</p> 
+users[].<br>clusterId | **string**<br><p>ID of the MySQL cluster the user belongs to.</p> 
+users[].<br>permissions[] | **object**<br><p>Set of permissions granted to the user.</p> 
+users[].<br>permissions[].<br>databaseName | **string**<br><p>Name of the database that the permission grants access to.</p> 
+users[].<br>permissions[].<br>roles[] | **string**<br><ul> <li>ALL_PRIVILEGES: All privileges that can be made available to the user.</li> <li>ALTER: Altering tables.</li> <li>ALTER_ROUTINE: Altering stored routines (stored procedures and functions).</li> <li>CREATE: Creating tables or indexes.</li> <li>CREATE_ROUTINE: Creating stored routines.</li> <li>CREATE_TEMPORARY_TABLES: Creating temporary tables.</li> <li>CREATE_VIEW: Creating views.</li> <li>DELETE: Deleting tables.</li> <li>DROP: Removing tables or views.</li> <li>EVENT: Creating, altering, dropping, or displaying events for the Event Scheduler.</li> <li>EXECUTE: Executing stored routines.</li> <li>INDEX: Creating and removing indexes.</li> <li>INSERT: Inserting rows into the database.</li> <li>LOCK_TABLES: Using LOCK TABLES statement for tables available with SELECT privilege.</li> <li>SELECT: Selecting rows from tables.</li> </ul> <p>Some SELECT statements can be allowed without the SELECT privilege. All statements that read column values require the SELECT privilege. See details in <a href="https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_select">MySQL documentation</a>.</p> <ul> <li>SHOW_VIEW: Using the SHOW CREATE VIEW statement. Also needed for views used with EXPLAIN.</li> <li>TRIGGER: Creating, removing, executing, or displaying triggers for a table.</li> <li>UPDATE: Updating rows in the database.</li> </ul> 
+nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/managed-mysql/api-ref/User/list#query_params">pageSize</a>, use the <a href="/docs/managed-mysql/api-ref/User/list#responses">nextPageToken</a> as the value for the <a href="/docs/managed-mysql/api-ref/User/list#query_params">pageToken</a> parameter in the next list request. Each subsequent list request will have its own <a href="/docs/managed-mysql/api-ref/User/list#responses">nextPageToken</a> to continue paging through the results.</p> 

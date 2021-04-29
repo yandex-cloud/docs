@@ -2,24 +2,23 @@
 editable: false
 ---
 
-# Метод get
-Возвращает указанный ресурс Disk.
+# Method get
+Returns the specified Disk resource.
  
-Чтобы получить список доступных ресурсов Disk, используйте
-запрос [list](/docs/compute/api-ref/Disk/list).
+To get the list of available Disk resources, make a [list](/docs/compute/api-ref/Disk/list) request.
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 GET https://compute.api.cloud.yandex.net/compute/v1/disks/{diskId}
 ```
  
-## Path-параметры {#path_params}
+## Path parameters {#path_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-diskId | Обязательное поле. Идентификатор возвращаемого ресурса Disk. Чтобы получить идентификатор диска, используйте запрос [list](/docs/compute/api-ref/Disk/list).  Максимальная длина строки в символах — 50.
+diskId | Required. ID of the Disk resource to return. To get the disk ID use a [list](/docs/compute/api-ref/Disk/list) request.  The maximum string length in characters is 50.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -33,6 +32,7 @@ diskId | Обязательное поле. Идентификатор возв�
   "typeId": "string",
   "zoneId": "string",
   "size": "string",
+  "blockSize": "string",
   "productIds": [
     "string"
   ],
@@ -40,29 +40,35 @@ diskId | Обязательное поле. Идентификатор возв�
   "instanceIds": [
     "string"
   ],
+  "diskPlacementPolicy": {
+    "placementGroupId": "string"
+  },
 
-  //  включает только одно из полей `sourceImageId`, `sourceSnapshotId`
+  //  includes only one of the fields `sourceImageId`, `sourceSnapshotId`
   "sourceImageId": "string",
   "sourceSnapshotId": "string",
-  // конец списка возможных полей
+  // end of the list of possible fields
 
 }
 ```
-Ресурс Disk. Дополнительные сведения см. в разделе [Диски](/docs/compute/concepts/disk).
+A Disk resource. For more information, see [Disks](/docs/compute/concepts/disk).
  
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br><p>Идентификатор типа диска.</p> 
-folderId | **string**<br><p>Идентификатор каталога, которому принадлежит диск.</p> 
-createdAt | **string** (date-time)<br><p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-name | **string**<br><p>Имя диска. Длина 1-63 символов.</p> 
-description | **string**<br><p>Описание диска. Длина описания должна быть от 0 до 256 символов.</p> 
-labels | **object**<br><p>Метки ресурса в формате `key:value`. Максимум 64 на ресурс.</p> 
-typeId | **string**<br><p>Идентификатор типа диска.</p> 
-zoneId | **string**<br><p>Идентификатор зоны доступности, в которой находится хост.</p> 
-size | **string** (int64)<br><p>Размер диска в байтах.</p> 
-productIds[] | **string**<br><p>Идентификаторы лицензий, указывающие, какие лицензии подключены к этому ресурсу. Идентификаторы лицензий используются для расчета дополнительной платы за использование виртуальной машины.</p> <p>Правильный идентификатор лицензии генерируется Яндекс.Облаком. Идентификаторы наследуются новыми ресурсами, созданными из этого ресурса.</p> <p>Если вам известны идентификаторы лицензий, укажите их при создании образа. Например, если создать образ диска с помощью сторонней утилиты и загрузить его в Yandex Object Storage, то идентификаторы лицензий будут потеряны. Вы можете указать их в запросе <a href="/docs/compute/api-ref/Image/create">create</a>.</p> 
-status | **string**<br>Текущий статус диска.<br><ul> <li>CREATING: Диск создается.</li> <li>READY: Диск готов к использованию.</li> <li>ERROR: С диском произошла ошибка, блокирующая работу.</li> <li>DELETING: Диск удаляется.</li> </ul> 
-instanceIds[] | **string**<br><p>Массив виртуальных машин, к которым подключен диск.</p> 
-sourceImageId | **string** <br> включает только одно из полей `sourceImageId`, `sourceSnapshotId`<br><br><p>Идентификатор образа, из которого был создан диск.</p> 
-sourceSnapshotId | **string** <br> включает только одно из полей `sourceImageId`, `sourceSnapshotId`<br><br><p>Идентификатор снимка, из которого был создан диск.</p> 
+id | **string**<br><p>ID of the disk.</p> 
+folderId | **string**<br><p>ID of the folder that the disk belongs to.</p> 
+createdAt | **string** (date-time)<br><p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+name | **string**<br><p>Name of the disk. 1-63 characters long.</p> 
+description | **string**<br><p>Description of the disk. 0-256 characters long.</p> 
+labels | **object**<br><p>Resource labels as `key:value` pairs. Maximum of 64 per resource.</p> 
+typeId | **string**<br><p>ID of the disk type.</p> 
+zoneId | **string**<br><p>ID of the availability zone where the disk resides.</p> 
+size | **string** (int64)<br><p>Size of the disk, specified in bytes.</p> 
+blockSize | **string** (int64)<br><p>Block size of the disk, specifiedin bytes.</p> 
+productIds[] | **string**<br><p>License IDs that indicate which licenses are attached to this resource. License IDs are used to calculate additional charges for the use of the virtual machine.</p> <p>The correct license ID is generated by Yandex.Cloud. IDs are inherited by new resources created from this resource.</p> <p>If you know the license IDs, specify them when you create the image. For example, if you create a disk image using a third-party utility and load it into Yandex Object Storage, the license IDs will be lost. You can specify them in the <a href="/docs/compute/api-ref/Image/create">create</a> request.</p> 
+status | **string**<br>Current status of the disk.<br><ul> <li>CREATING: Disk is being created.</li> <li>READY: Disk is ready to use.</li> <li>ERROR: Disk encountered a problem and cannot operate.</li> <li>DELETING: Disk is being deleted.</li> </ul> 
+instanceIds[] | **string**<br><p>Array of instances to which the disk is attached.</p> 
+diskPlacementPolicy | **object**<br>Placement policy configuration.<br>
+diskPlacementPolicy.<br>placementGroupId | **string**<br><p>Placement group ID.</p> 
+sourceImageId | **string** <br> includes only one of the fields `sourceImageId`, `sourceSnapshotId`<br><br><p>ID of the image that was used for disk creation.</p> 
+sourceSnapshotId | **string** <br> includes only one of the fields `sourceImageId`, `sourceSnapshotId`<br><br><p>ID of the snapshot that was used for disk creation.</p> 

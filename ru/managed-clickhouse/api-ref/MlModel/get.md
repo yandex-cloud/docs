@@ -2,24 +2,24 @@
 editable: false
 ---
 
-# Метод get
-Возвращает указанную модель машинного обучения.
+# Method get
+Returns the specified machine learning model.
  
-Чтобы получить список доступных подкластеров Data Proc, выполните запрос "[list](/docs/managed-clickhouse/api-ref/MlModel/list)".
+To get the list of all available models, make a [list](/docs/managed-clickhouse/api-ref/MlModel/list) request.
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 GET https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}/mlModels/{mlModelName}
 ```
  
-## Path-параметры {#path_params}
+## Path parameters {#path_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-clusterId | Обязательное поле. Идентификатор кластера ClickHouse, к которому принадлежит модель.  Максимальная длина строки в символах — 50.
-mlModelName | Обязательное поле. Имя возвращаемой модели.  Чтобы получить имя модели, используйте запрос "[list](/docs/managed-clickhouse/api-ref/MlModel/list)".  Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_-]* ``.
+clusterId | Required. ID of the cluster that the model belongs to.  The maximum string length in characters is 50.
+mlModelName | Required. Name of the model to return.  To get a model name make a [list](/docs/managed-clickhouse/api-ref/MlModel/list) request.  The maximum string length in characters is 63. Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -32,9 +32,9 @@ mlModelName | Обязательное поле. Имя возвращаемой
 ```
 
  
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br><p>Имя модели.</p> 
-clusterId | **string**<br><p>Идентификатор кластера ClickHouse, к которому принадлежит модель.</p> 
-type | **string**<br><p>Тип модели.</p> <ul> <li>ML_MODEL_TYPE_CATBOOST: Модель CatBoost.</li> </ul> 
-uri | **string**<br><p>URL файла модели. Вы можете использовать только модели, хранящиеся в Yandex Object Storage.</p> 
+name | **string**<br><p>Name of the the model.</p> 
+clusterId | **string**<br><p>ID of the ClickHouse cluster that the model belongs to.</p> 
+type | **string**<br><p>Type of the model.</p> <ul> <li>ML_MODEL_TYPE_CATBOOST: CatBoost model.</li> </ul> 
+uri | **string**<br><p>Model file URL. You can only use models stored in Yandex Object Storage.</p> 

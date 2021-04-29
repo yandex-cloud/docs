@@ -3,9 +3,10 @@ editable: false
 ---
 
 # IamToken
-Набор методов для управления IAM-токенами.
+A set of methods for managing IAM tokens.
 
-## Методы {#methods}
-Метод | Описание
+## Methods {#methods}
+Method | Description
 --- | ---
-[create](create.md) | Создает IAM-токен для указанного субъекта.
+[create](create.md) | Creates an IAM token for the specified identity.
+[createForServiceAccount](createForServiceAccount.md) | Create iam token for service account.

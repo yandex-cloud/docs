@@ -4,516 +4,516 @@ editable: false
 
 # UserService
 
-Набор методов для управления пользователями MySQL.
+A set of methods for managing MySQL users.
 
-| Вызов | Описание |
+| Call | Description |
 | --- | --- |
-| [Get](#Get) | Возвращает указанного пользователя MySQL. |
-| [List](#List) | Получает список пользователей MySQL в указанном кластере. |
-| [Create](#Create) | Создает пользователя MySQL в указанном кластере. |
-| [Update](#Update) | Изменяет указанного пользователя MySQL. |
-| [Delete](#Delete) | Удаляет указанного пользователя MySQL. |
-| [GrantPermission](#GrantPermission) | Предоставляет разрешение указанному пользователю MySQL. |
-| [RevokePermission](#RevokePermission) | Отзывает разрешение у указанного пользователя MySQL. |
+| [Get](#Get) | Returns the specified MySQL user. |
+| [List](#List) | Retrieves a list of MySQL users in the specified cluster. |
+| [Create](#Create) | Creates a MySQL user in the specified cluster. |
+| [Update](#Update) | Modifies the specified MySQL user. |
+| [Delete](#Delete) | Deletes the specified MySQL user. |
+| [GrantPermission](#GrantPermission) | Grants a permission to the specified MySQL user. |
+| [RevokePermission](#RevokePermission) | Revokes a permission from the specified MySQL user. |
 
-## Вызовы UserService {#calls}
+## Calls UserService {#calls}
 
 ## Get {#Get}
 
-Возвращает указанного пользователя MySQL. <br>Чтобы получить список доступных пользователей MySQL, выполните запрос [List](#List).
+Returns the specified MySQL user. <br>To get the list of available MySQL users, make a [List](#List) request.
 
 **rpc Get ([GetUserRequest](#GetUserRequest)) returns ([User](#User))**
 
 ### GetUserRequest {#GetUserRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера MySQL. Максимальная длина строки в символах — 50.
-user_name | **string**<br>Обязательное поле. Обязательное поле. Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_]* `.
+cluster_id | **string**<br>Required. ID of the MySQL cluster. The maximum string length in characters is 50.
+user_name | **string**<br>Required. Required. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
 
 
 ### User {#User}
 
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br>Имя пользователя MySQL. 
-cluster_id | **string**<br>Идентификатор кластера MySQL, которому принадлежит пользователь. 
-permissions[] | **[Permission](#Permission)**<br>Набор разрешений, предоставленных пользователю. 
-global_permissions[] | enum **GlobalPermission**<br>Набор глобальных разрешений, которые следует предоставить пользователю. <ul><li>`REPLICATION_CLIENT`: Разрешает использование SHOW MASTER STATUS, SHOW SLAVE STATUS, и SHOW BINARY LOGS.</li><li>`REPLICATION_SLAVE`: Разрешает использование SHOW SLAVE HOSTS, SHOW RELAYLOG EVENTS и SHOW BINLOG EVENTS.</li><li>`PROCESS`: Разрешает использование SHOW ENGINE INNODB STATUS.</li><ul/>
-connection_limits | **[ConnectionLimits](#ConnectionLimits)**<br>Набор ограничений на коннекты пользователя. 
-authentication_plugin | enum **AuthPlugin**<br>Аутентификационный плагин пользователя. <ul><li>`MYSQL_NATIVE_PASSWORD`: Использует [Native Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/native-pluggable-authentication.html).</li><li>`CACHING_SHA2_PASSWORD`: Использует [Caching SHA-2 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/caching-sha2-pluggable-authentication.html).</li><li>`SHA256_PASSWORD`: Использует [SHA-256 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/sha256-pluggable-authentication.html).</li><ul/>
+name | **string**<br>Name of the MySQL user. 
+cluster_id | **string**<br>ID of the MySQL cluster the user belongs to. 
+permissions[] | **[Permission](#Permission)**<br>Set of permissions granted to the user. 
+global_permissions[] | enum **GlobalPermission**<br>Set of global permissions to grant to the user. <ul><li>`REPLICATION_CLIENT`: Enables use of the SHOW MASTER STATUS, SHOW SLAVE STATUS, and SHOW BINARY LOGS statements.</li><li>`REPLICATION_SLAVE`: Enables the account to request updates that have been made to databases on the master server, using the SHOW SLAVE HOSTS, SHOW RELAYLOG EVENTS, and SHOW BINLOG EVENTS statements.</li><li>`PROCESS`: Enables display of information about the threads executing within the server (that is, information about the statements being executed by sessions). The privilege enables use of SHOW PROCESSLIST or mysqladmin processlist to see threads belonging to other accounts; you can always see your own threads. The PROCESS privilege also enables use of SHOW ENGINE.</li><ul/>
+connection_limits | **[ConnectionLimits](#ConnectionLimits)**<br>Set of user connection limits. 
+authentication_plugin | enum **AuthPlugin**<br>User authentication plugin. <ul><li>`MYSQL_NATIVE_PASSWORD`: Use [Native Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/native-pluggable-authentication.html).</li><li>`CACHING_SHA2_PASSWORD`: Use [Caching SHA-2 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/caching-sha2-pluggable-authentication.html).</li><li>`SHA256_PASSWORD`: Use [SHA-256 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/sha256-pluggable-authentication.html).</li><ul/>
 
 
 ### Permission {#Permission}
 
-Поле | Описание
+Field | Description
 --- | ---
-database_name | **string**<br>Имя базы данных, к которой предоставляет доступ разрешение. 
-roles[] | enum **Privilege**<br>Роли, предоставленные пользователю в базе данных. Минимальное количество элементов — 1.<ul><li>`ALL_PRIVILEGES`: Все привилегии, которые могут быть предоставлены пользователю.</li><li>`ALTER`: Изменение таблиц.</li><li>`ALTER_ROUTINE`: Изменение хранимых процедур и функций.</li><li>`CREATE`: Создание таблиц или индексов.</li><li>`CREATE_ROUTINE`: Создание хранимых процедур.</li><li>`CREATE_TEMPORARY_TABLES`: Создание временных таблиц.</li><li>`CREATE_VIEW`: Создание представлений.</li><li>`DELETE`: Удаление таблиц.</li><li>`DROP`: Удаление таблиц или представлений.</li><li>`EVENT`: Создание, изменение, удаление или отображение событий для планировщика событий.</li><li>`EXECUTE`: Выполнение хранимых процедур.</li><li>`INDEX`: Создание и удаление индексов.</li><li>`INSERT`: Вставка строк в базу данных.</li><li>`LOCK_TABLES`: Использование инструкции LOCK TABLES для таблиц, доступных с привилегией SELECT.</li><li>`SELECT`: Получение строк из таблиц. <br>Некоторые операторы SELECT могут быть разрешены без привилегии SELECT. Привилегия SELECT необходима для всех операторов, считывающих значения столбцов. Подробнее в [документации MySQL](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_select).</li><li>`SHOW_VIEW`: Использование инструкции SHOW CREATE VIEW. Также необходимо для представлений, используемых с EXPLAIN.</li><li>`TRIGGER`: Создание, удаление, выполнение или отображение триггеров для таблицы.</li><li>`UPDATE`: Обновление строк в базе данных.</li><li>`REFERENCES`: Создание внешних ключей для таблиц.</li><ul/>
+database_name | **string**<br>Name of the database that the permission grants access to. 
+roles[] | enum **Privilege**<br>Roles granted to the user within the database. The minimum number of elements is 1.<ul><li>`ALL_PRIVILEGES`: All privileges that can be made available to the user.</li><li>`ALTER`: Altering tables.</li><li>`ALTER_ROUTINE`: Altering stored routines (stored procedures and functions).</li><li>`CREATE`: Creating tables or indexes.</li><li>`CREATE_ROUTINE`: Creating stored routines.</li><li>`CREATE_TEMPORARY_TABLES`: Creating temporary tables.</li><li>`CREATE_VIEW`: Creating views.</li><li>`DELETE`: Deleting tables.</li><li>`DROP`: Removing tables or views.</li><li>`EVENT`: Creating, altering, dropping, or displaying events for the Event Scheduler.</li><li>`EXECUTE`: Executing stored routines.</li><li>`INDEX`: Creating and removing indexes.</li><li>`INSERT`: Inserting rows into the database.</li><li>`LOCK_TABLES`: Using LOCK TABLES statement for tables available with SELECT privilege.</li><li>`SELECT`: Selecting rows from tables. <br>Some SELECT statements can be allowed without the SELECT privilege. All statements that read column values require the SELECT privilege. See details in [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_select).</li><li>`SHOW_VIEW`: Using the SHOW CREATE VIEW statement. Also needed for views used with EXPLAIN.</li><li>`TRIGGER`: Creating, removing, executing, or displaying triggers for a table.</li><li>`UPDATE`: Updating rows in the database.</li><li>`REFERENCES`: Creation of a foreign key constraint for the parent table.</li><ul/>
 
 
 ### ConnectionLimits {#ConnectionLimits}
 
-Поле | Описание
+Field | Description
 --- | ---
-max_questions_per_hour | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Максимально допустимое число вопросов в час. Минимальная значение — 0.
-max_updates_per_hour | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Максимально допустимое число апдейтов в час. Минимальная значение — 0.
-max_connections_per_hour | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Максимально допустимое число коннектов в час. Минимальная значение — 0.
-max_user_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Максимально допустимое число коннектов. Минимальная значение — 0.
+max_questions_per_hour | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum permitted number of user questions per hour. The minimum value is 0.
+max_updates_per_hour | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum permitted number of user updates per hour. The minimum value is 0.
+max_connections_per_hour | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum permitted number of simultaneous client connections per hour. The minimum value is 0.
+max_user_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum number of simultaneous connections permitted to any given MySQL user account. The minimum value is 0.
 
 
 ## List {#List}
 
-Получает список пользователей MySQL в указанном кластере.
+Retrieves a list of MySQL users in the specified cluster.
 
 **rpc List ([ListUsersRequest](#ListUsersRequest)) returns ([ListUsersResponse](#ListUsersResponse))**
 
 ### ListUsersRequest {#ListUsersRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера для вывода списка пользователей MySQL. Чтобы получить идентификатор кластера, используйте запрос [ClusterService.List](./cluster_service#List). Максимальная длина строки в символах — 50.
-page_size | **int64**<br>Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем `page_size`, сервис вернет значение [ListUsersResponse.next_page_token](#ListUsersResponse), которое можно использовать для получения следующей страницы. Допустимые значения — от 0 до 1000 включительно.
-page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListUsersResponse.next_page_token](#ListUsersResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
+cluster_id | **string**<br>Required. ID of the cluster to list MySQL users in. To get the cluster ID, use a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
+page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListUsersResponse.next_page_token](#ListUsersResponse) that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 1000, inclusive.
+page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListUsersResponse.next_page_token](#ListUsersResponse) returned by a previous list request. The maximum string length in characters is 100.
 
 
 ### ListUsersResponse {#ListUsersResponse}
 
-Поле | Описание
+Field | Description
 --- | ---
-users[] | **[User](#User1)**<br>Запрошенный список пользователей MySQL. 
-next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListUsersRequest.page_size](#ListUsersRequest), используйте `next_page_token` в качестве значения параметра [ListUsersRequest.page_token](#ListUsersRequest) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
+users[] | **[User](#User1)**<br>Requested list of MySQL users. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListUsersRequest.page_size](#ListUsersRequest), use the `next_page_token` as the value for the [ListUsersRequest.page_token](#ListUsersRequest) parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
 ### User {#User1}
 
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br>Имя пользователя MySQL. 
-cluster_id | **string**<br>Идентификатор кластера MySQL, которому принадлежит пользователь. 
-permissions[] | **[Permission](#Permission1)**<br>Набор разрешений, предоставленных пользователю. 
-global_permissions[] | enum **GlobalPermission**<br>Набор глобальных разрешений, которые следует предоставить пользователю. <ul><li>`REPLICATION_CLIENT`: Разрешает использование SHOW MASTER STATUS, SHOW SLAVE STATUS, и SHOW BINARY LOGS.</li><li>`REPLICATION_SLAVE`: Разрешает использование SHOW SLAVE HOSTS, SHOW RELAYLOG EVENTS и SHOW BINLOG EVENTS.</li><li>`PROCESS`: Разрешает использование SHOW ENGINE INNODB STATUS.</li><ul/>
-connection_limits | **[ConnectionLimits](#ConnectionLimits1)**<br>Набор ограничений на коннекты пользователя. 
-authentication_plugin | enum **AuthPlugin**<br>Аутентификационный плагин пользователя. <ul><li>`MYSQL_NATIVE_PASSWORD`: Использует [Native Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/native-pluggable-authentication.html).</li><li>`CACHING_SHA2_PASSWORD`: Использует [Caching SHA-2 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/caching-sha2-pluggable-authentication.html).</li><li>`SHA256_PASSWORD`: Использует [SHA-256 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/sha256-pluggable-authentication.html).</li><ul/>
+name | **string**<br>Name of the MySQL user. 
+cluster_id | **string**<br>ID of the MySQL cluster the user belongs to. 
+permissions[] | **[Permission](#Permission1)**<br>Set of permissions granted to the user. 
+global_permissions[] | enum **GlobalPermission**<br>Set of global permissions to grant to the user. <ul><li>`REPLICATION_CLIENT`: Enables use of the SHOW MASTER STATUS, SHOW SLAVE STATUS, and SHOW BINARY LOGS statements.</li><li>`REPLICATION_SLAVE`: Enables the account to request updates that have been made to databases on the master server, using the SHOW SLAVE HOSTS, SHOW RELAYLOG EVENTS, and SHOW BINLOG EVENTS statements.</li><li>`PROCESS`: Enables display of information about the threads executing within the server (that is, information about the statements being executed by sessions). The privilege enables use of SHOW PROCESSLIST or mysqladmin processlist to see threads belonging to other accounts; you can always see your own threads. The PROCESS privilege also enables use of SHOW ENGINE.</li><ul/>
+connection_limits | **[ConnectionLimits](#ConnectionLimits1)**<br>Set of user connection limits. 
+authentication_plugin | enum **AuthPlugin**<br>User authentication plugin. <ul><li>`MYSQL_NATIVE_PASSWORD`: Use [Native Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/native-pluggable-authentication.html).</li><li>`CACHING_SHA2_PASSWORD`: Use [Caching SHA-2 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/caching-sha2-pluggable-authentication.html).</li><li>`SHA256_PASSWORD`: Use [SHA-256 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/sha256-pluggable-authentication.html).</li><ul/>
 
 
 ### Permission {#Permission1}
 
-Поле | Описание
+Field | Description
 --- | ---
-database_name | **string**<br>Имя базы данных, к которой предоставляет доступ разрешение. 
-roles[] | enum **Privilege**<br>Роли, предоставленные пользователю в базе данных. Минимальное количество элементов — 1.<ul><li>`ALL_PRIVILEGES`: Все привилегии, которые могут быть предоставлены пользователю.</li><li>`ALTER`: Изменение таблиц.</li><li>`ALTER_ROUTINE`: Изменение хранимых процедур и функций.</li><li>`CREATE`: Создание таблиц или индексов.</li><li>`CREATE_ROUTINE`: Создание хранимых процедур.</li><li>`CREATE_TEMPORARY_TABLES`: Создание временных таблиц.</li><li>`CREATE_VIEW`: Создание представлений.</li><li>`DELETE`: Удаление таблиц.</li><li>`DROP`: Удаление таблиц или представлений.</li><li>`EVENT`: Создание, изменение, удаление или отображение событий для планировщика событий.</li><li>`EXECUTE`: Выполнение хранимых процедур.</li><li>`INDEX`: Создание и удаление индексов.</li><li>`INSERT`: Вставка строк в базу данных.</li><li>`LOCK_TABLES`: Использование инструкции LOCK TABLES для таблиц, доступных с привилегией SELECT.</li><li>`SELECT`: Получение строк из таблиц. <br>Некоторые операторы SELECT могут быть разрешены без привилегии SELECT. Привилегия SELECT необходима для всех операторов, считывающих значения столбцов. Подробнее в [документации MySQL](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_select).</li><li>`SHOW_VIEW`: Использование инструкции SHOW CREATE VIEW. Также необходимо для представлений, используемых с EXPLAIN.</li><li>`TRIGGER`: Создание, удаление, выполнение или отображение триггеров для таблицы.</li><li>`UPDATE`: Обновление строк в базе данных.</li><li>`REFERENCES`: Создание внешних ключей для таблиц.</li><ul/>
+database_name | **string**<br>Name of the database that the permission grants access to. 
+roles[] | enum **Privilege**<br>Roles granted to the user within the database. The minimum number of elements is 1.<ul><li>`ALL_PRIVILEGES`: All privileges that can be made available to the user.</li><li>`ALTER`: Altering tables.</li><li>`ALTER_ROUTINE`: Altering stored routines (stored procedures and functions).</li><li>`CREATE`: Creating tables or indexes.</li><li>`CREATE_ROUTINE`: Creating stored routines.</li><li>`CREATE_TEMPORARY_TABLES`: Creating temporary tables.</li><li>`CREATE_VIEW`: Creating views.</li><li>`DELETE`: Deleting tables.</li><li>`DROP`: Removing tables or views.</li><li>`EVENT`: Creating, altering, dropping, or displaying events for the Event Scheduler.</li><li>`EXECUTE`: Executing stored routines.</li><li>`INDEX`: Creating and removing indexes.</li><li>`INSERT`: Inserting rows into the database.</li><li>`LOCK_TABLES`: Using LOCK TABLES statement for tables available with SELECT privilege.</li><li>`SELECT`: Selecting rows from tables. <br>Some SELECT statements can be allowed without the SELECT privilege. All statements that read column values require the SELECT privilege. See details in [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_select).</li><li>`SHOW_VIEW`: Using the SHOW CREATE VIEW statement. Also needed for views used with EXPLAIN.</li><li>`TRIGGER`: Creating, removing, executing, or displaying triggers for a table.</li><li>`UPDATE`: Updating rows in the database.</li><li>`REFERENCES`: Creation of a foreign key constraint for the parent table.</li><ul/>
 
 
 ### ConnectionLimits {#ConnectionLimits1}
 
-Поле | Описание
+Field | Description
 --- | ---
-max_questions_per_hour | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Максимально допустимое число вопросов в час. Минимальная значение — 0.
-max_updates_per_hour | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Максимально допустимое число апдейтов в час. Минимальная значение — 0.
-max_connections_per_hour | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Максимально допустимое число коннектов в час. Минимальная значение — 0.
-max_user_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Максимально допустимое число коннектов. Минимальная значение — 0.
+max_questions_per_hour | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum permitted number of user questions per hour. The minimum value is 0.
+max_updates_per_hour | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum permitted number of user updates per hour. The minimum value is 0.
+max_connections_per_hour | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum permitted number of simultaneous client connections per hour. The minimum value is 0.
+max_user_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum number of simultaneous connections permitted to any given MySQL user account. The minimum value is 0.
 
 
 ## Create {#Create}
 
-Создает пользователя MySQL в указанном кластере.
+Creates a MySQL user in the specified cluster.
 
 **rpc Create ([CreateUserRequest](#CreateUserRequest)) returns ([operation.Operation](#Operation))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateUserMetadata](#CreateUserMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[User](#User2)<br>
 
 ### CreateUserRequest {#CreateUserRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера MySQL, для которого следует создать пользователя. Чтобы получить идентификатор кластера, используйте запрос [ClusterService.List](./cluster_service#List). Максимальная длина строки в символах — 50.
-user_spec | **[UserSpec](#UserSpec)**<br>Обязательное поле. Свойства создаваемого пользователя. 
+cluster_id | **string**<br>Required. ID of the MySQL cluster to create a user for. To get the cluster ID, use a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
+user_spec | **[UserSpec](#UserSpec)**<br>Required. Properties of the user to be created. 
 
 
 ### UserSpec {#UserSpec}
 
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br>Обязательное поле. Имя пользователя MySQL. Максимальная длина строки в символах — 32. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_]* `.
-password | **string**<br>Обязательное поле. Пароль пользователя MySQL. Длина строки в символах должна быть от 8 до 128.
-permissions[] | **[Permission](#Permission2)**<br>Набор разрешений, которые следует предоставить пользователю. 
-global_permissions[] | enum **GlobalPermission**<br>Набор глобальных разрешений, которые следует предоставить пользователю. <ul><li>`REPLICATION_CLIENT`: Разрешает использование SHOW MASTER STATUS, SHOW SLAVE STATUS, и SHOW BINARY LOGS.</li><li>`REPLICATION_SLAVE`: Разрешает использование SHOW SLAVE HOSTS, SHOW RELAYLOG EVENTS и SHOW BINLOG EVENTS.</li><li>`PROCESS`: Разрешает использование SHOW ENGINE INNODB STATUS.</li><ul/>
-connection_limits | **[ConnectionLimits](#ConnectionLimits2)**<br>Набор ограничений на коннекты пользователя. 
-authentication_plugin | enum **AuthPlugin**<br>Аутентификационный плагин пользователя. <ul><li>`MYSQL_NATIVE_PASSWORD`: Использует [Native Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/native-pluggable-authentication.html).</li><li>`CACHING_SHA2_PASSWORD`: Использует [Caching SHA-2 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/caching-sha2-pluggable-authentication.html).</li><li>`SHA256_PASSWORD`: Использует [SHA-256 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/sha256-pluggable-authentication.html).</li><ul/>
+name | **string**<br>Required. Name of the MySQL user. The maximum string length in characters is 32. Value must match the regular expression ` [a-zA-Z0-9_]* `.
+password | **string**<br>Required. Password of the MySQL user. The string length in characters must be 8-128.
+permissions[] | **[Permission](#Permission2)**<br>Set of permissions to grant to the user. 
+global_permissions[] | enum **GlobalPermission**<br>Set of global permissions to grant to the user. <ul><li>`REPLICATION_CLIENT`: Enables use of the SHOW MASTER STATUS, SHOW SLAVE STATUS, and SHOW BINARY LOGS statements.</li><li>`REPLICATION_SLAVE`: Enables the account to request updates that have been made to databases on the master server, using the SHOW SLAVE HOSTS, SHOW RELAYLOG EVENTS, and SHOW BINLOG EVENTS statements.</li><li>`PROCESS`: Enables display of information about the threads executing within the server (that is, information about the statements being executed by sessions). The privilege enables use of SHOW PROCESSLIST or mysqladmin processlist to see threads belonging to other accounts; you can always see your own threads. The PROCESS privilege also enables use of SHOW ENGINE.</li><ul/>
+connection_limits | **[ConnectionLimits](#ConnectionLimits2)**<br>Set of user connection limits. 
+authentication_plugin | enum **AuthPlugin**<br>User authentication plugin. <ul><li>`MYSQL_NATIVE_PASSWORD`: Use [Native Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/native-pluggable-authentication.html).</li><li>`CACHING_SHA2_PASSWORD`: Use [Caching SHA-2 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/caching-sha2-pluggable-authentication.html).</li><li>`SHA256_PASSWORD`: Use [SHA-256 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/sha256-pluggable-authentication.html).</li><ul/>
 
 
 ### Permission {#Permission2}
 
-Поле | Описание
+Field | Description
 --- | ---
-database_name | **string**<br>Имя базы данных, к которой предоставляет доступ разрешение. 
-roles[] | enum **Privilege**<br>Роли, предоставленные пользователю в базе данных. Минимальное количество элементов — 1.<ul><li>`ALL_PRIVILEGES`: Все привилегии, которые могут быть предоставлены пользователю.</li><li>`ALTER`: Изменение таблиц.</li><li>`ALTER_ROUTINE`: Изменение хранимых процедур и функций.</li><li>`CREATE`: Создание таблиц или индексов.</li><li>`CREATE_ROUTINE`: Создание хранимых процедур.</li><li>`CREATE_TEMPORARY_TABLES`: Создание временных таблиц.</li><li>`CREATE_VIEW`: Создание представлений.</li><li>`DELETE`: Удаление таблиц.</li><li>`DROP`: Удаление таблиц или представлений.</li><li>`EVENT`: Создание, изменение, удаление или отображение событий для планировщика событий.</li><li>`EXECUTE`: Выполнение хранимых процедур.</li><li>`INDEX`: Создание и удаление индексов.</li><li>`INSERT`: Вставка строк в базу данных.</li><li>`LOCK_TABLES`: Использование инструкции LOCK TABLES для таблиц, доступных с привилегией SELECT.</li><li>`SELECT`: Получение строк из таблиц. <br>Некоторые операторы SELECT могут быть разрешены без привилегии SELECT. Привилегия SELECT необходима для всех операторов, считывающих значения столбцов. Подробнее в [документации MySQL](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_select).</li><li>`SHOW_VIEW`: Использование инструкции SHOW CREATE VIEW. Также необходимо для представлений, используемых с EXPLAIN.</li><li>`TRIGGER`: Создание, удаление, выполнение или отображение триггеров для таблицы.</li><li>`UPDATE`: Обновление строк в базе данных.</li><li>`REFERENCES`: Создание внешних ключей для таблиц.</li><ul/>
+database_name | **string**<br>Name of the database that the permission grants access to. 
+roles[] | enum **Privilege**<br>Roles granted to the user within the database. The minimum number of elements is 1.<ul><li>`ALL_PRIVILEGES`: All privileges that can be made available to the user.</li><li>`ALTER`: Altering tables.</li><li>`ALTER_ROUTINE`: Altering stored routines (stored procedures and functions).</li><li>`CREATE`: Creating tables or indexes.</li><li>`CREATE_ROUTINE`: Creating stored routines.</li><li>`CREATE_TEMPORARY_TABLES`: Creating temporary tables.</li><li>`CREATE_VIEW`: Creating views.</li><li>`DELETE`: Deleting tables.</li><li>`DROP`: Removing tables or views.</li><li>`EVENT`: Creating, altering, dropping, or displaying events for the Event Scheduler.</li><li>`EXECUTE`: Executing stored routines.</li><li>`INDEX`: Creating and removing indexes.</li><li>`INSERT`: Inserting rows into the database.</li><li>`LOCK_TABLES`: Using LOCK TABLES statement for tables available with SELECT privilege.</li><li>`SELECT`: Selecting rows from tables. <br>Some SELECT statements can be allowed without the SELECT privilege. All statements that read column values require the SELECT privilege. See details in [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_select).</li><li>`SHOW_VIEW`: Using the SHOW CREATE VIEW statement. Also needed for views used with EXPLAIN.</li><li>`TRIGGER`: Creating, removing, executing, or displaying triggers for a table.</li><li>`UPDATE`: Updating rows in the database.</li><li>`REFERENCES`: Creation of a foreign key constraint for the parent table.</li><ul/>
 
 
 ### ConnectionLimits {#ConnectionLimits2}
 
-Поле | Описание
+Field | Description
 --- | ---
-max_questions_per_hour | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Максимально допустимое число вопросов в час. Минимальная значение — 0.
-max_updates_per_hour | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Максимально допустимое число апдейтов в час. Минимальная значение — 0.
-max_connections_per_hour | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Максимально допустимое число коннектов в час. Минимальная значение — 0.
-max_user_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Максимально допустимое число коннектов. Минимальная значение — 0.
+max_questions_per_hour | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum permitted number of user questions per hour. The minimum value is 0.
+max_updates_per_hour | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum permitted number of user updates per hour. The minimum value is 0.
+max_connections_per_hour | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum permitted number of simultaneous client connections per hour. The minimum value is 0.
+max_user_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum number of simultaneous connections permitted to any given MySQL user account. The minimum value is 0.
 
 
 ### Operation {#Operation}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateUserMetadata](#CreateUserMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[User](#User2)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateUserMetadata](#CreateUserMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[User](#User2)>**<br>if operation finished successfully. 
 
 
 ### CreateUserMetadata {#CreateUserMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Идентификатор кластера MySQL, в котором создается пользователь. 
-user_name | **string**<br>Имя создаваемого пользователя. 
+cluster_id | **string**<br>ID of the MySQL cluster the user is being created for. 
+user_name | **string**<br>Name of the user that is being created. 
 
 
 ### User {#User2}
 
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br>Имя пользователя MySQL. 
-cluster_id | **string**<br>Идентификатор кластера MySQL, которому принадлежит пользователь. 
-permissions[] | **[Permission](#Permission3)**<br>Набор разрешений, предоставленных пользователю. 
-global_permissions[] | enum **GlobalPermission**<br>Набор глобальных разрешений, которые следует предоставить пользователю. <ul><li>`REPLICATION_CLIENT`: Разрешает использование SHOW MASTER STATUS, SHOW SLAVE STATUS, и SHOW BINARY LOGS.</li><li>`REPLICATION_SLAVE`: Разрешает использование SHOW SLAVE HOSTS, SHOW RELAYLOG EVENTS и SHOW BINLOG EVENTS.</li><li>`PROCESS`: Разрешает использование SHOW ENGINE INNODB STATUS.</li><ul/>
-connection_limits | **[ConnectionLimits](#ConnectionLimits3)**<br>Набор ограничений на коннекты пользователя. 
-authentication_plugin | enum **AuthPlugin**<br>Аутентификационный плагин пользователя. <ul><li>`MYSQL_NATIVE_PASSWORD`: Использует [Native Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/native-pluggable-authentication.html).</li><li>`CACHING_SHA2_PASSWORD`: Использует [Caching SHA-2 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/caching-sha2-pluggable-authentication.html).</li><li>`SHA256_PASSWORD`: Использует [SHA-256 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/sha256-pluggable-authentication.html).</li><ul/>
+name | **string**<br>Name of the MySQL user. 
+cluster_id | **string**<br>ID of the MySQL cluster the user belongs to. 
+permissions[] | **[Permission](#Permission3)**<br>Set of permissions granted to the user. 
+global_permissions[] | enum **GlobalPermission**<br>Set of global permissions to grant to the user. <ul><li>`REPLICATION_CLIENT`: Enables use of the SHOW MASTER STATUS, SHOW SLAVE STATUS, and SHOW BINARY LOGS statements.</li><li>`REPLICATION_SLAVE`: Enables the account to request updates that have been made to databases on the master server, using the SHOW SLAVE HOSTS, SHOW RELAYLOG EVENTS, and SHOW BINLOG EVENTS statements.</li><li>`PROCESS`: Enables display of information about the threads executing within the server (that is, information about the statements being executed by sessions). The privilege enables use of SHOW PROCESSLIST or mysqladmin processlist to see threads belonging to other accounts; you can always see your own threads. The PROCESS privilege also enables use of SHOW ENGINE.</li><ul/>
+connection_limits | **[ConnectionLimits](#ConnectionLimits3)**<br>Set of user connection limits. 
+authentication_plugin | enum **AuthPlugin**<br>User authentication plugin. <ul><li>`MYSQL_NATIVE_PASSWORD`: Use [Native Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/native-pluggable-authentication.html).</li><li>`CACHING_SHA2_PASSWORD`: Use [Caching SHA-2 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/caching-sha2-pluggable-authentication.html).</li><li>`SHA256_PASSWORD`: Use [SHA-256 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/sha256-pluggable-authentication.html).</li><ul/>
 
 
 ### Permission {#Permission3}
 
-Поле | Описание
+Field | Description
 --- | ---
-database_name | **string**<br>Имя базы данных, к которой предоставляет доступ разрешение. 
-roles[] | enum **Privilege**<br>Роли, предоставленные пользователю в базе данных. Минимальное количество элементов — 1.<ul><li>`ALL_PRIVILEGES`: Все привилегии, которые могут быть предоставлены пользователю.</li><li>`ALTER`: Изменение таблиц.</li><li>`ALTER_ROUTINE`: Изменение хранимых процедур и функций.</li><li>`CREATE`: Создание таблиц или индексов.</li><li>`CREATE_ROUTINE`: Создание хранимых процедур.</li><li>`CREATE_TEMPORARY_TABLES`: Создание временных таблиц.</li><li>`CREATE_VIEW`: Создание представлений.</li><li>`DELETE`: Удаление таблиц.</li><li>`DROP`: Удаление таблиц или представлений.</li><li>`EVENT`: Создание, изменение, удаление или отображение событий для планировщика событий.</li><li>`EXECUTE`: Выполнение хранимых процедур.</li><li>`INDEX`: Создание и удаление индексов.</li><li>`INSERT`: Вставка строк в базу данных.</li><li>`LOCK_TABLES`: Использование инструкции LOCK TABLES для таблиц, доступных с привилегией SELECT.</li><li>`SELECT`: Получение строк из таблиц. <br>Некоторые операторы SELECT могут быть разрешены без привилегии SELECT. Привилегия SELECT необходима для всех операторов, считывающих значения столбцов. Подробнее в [документации MySQL](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_select).</li><li>`SHOW_VIEW`: Использование инструкции SHOW CREATE VIEW. Также необходимо для представлений, используемых с EXPLAIN.</li><li>`TRIGGER`: Создание, удаление, выполнение или отображение триггеров для таблицы.</li><li>`UPDATE`: Обновление строк в базе данных.</li><li>`REFERENCES`: Создание внешних ключей для таблиц.</li><ul/>
+database_name | **string**<br>Name of the database that the permission grants access to. 
+roles[] | enum **Privilege**<br>Roles granted to the user within the database. The minimum number of elements is 1.<ul><li>`ALL_PRIVILEGES`: All privileges that can be made available to the user.</li><li>`ALTER`: Altering tables.</li><li>`ALTER_ROUTINE`: Altering stored routines (stored procedures and functions).</li><li>`CREATE`: Creating tables or indexes.</li><li>`CREATE_ROUTINE`: Creating stored routines.</li><li>`CREATE_TEMPORARY_TABLES`: Creating temporary tables.</li><li>`CREATE_VIEW`: Creating views.</li><li>`DELETE`: Deleting tables.</li><li>`DROP`: Removing tables or views.</li><li>`EVENT`: Creating, altering, dropping, or displaying events for the Event Scheduler.</li><li>`EXECUTE`: Executing stored routines.</li><li>`INDEX`: Creating and removing indexes.</li><li>`INSERT`: Inserting rows into the database.</li><li>`LOCK_TABLES`: Using LOCK TABLES statement for tables available with SELECT privilege.</li><li>`SELECT`: Selecting rows from tables. <br>Some SELECT statements can be allowed without the SELECT privilege. All statements that read column values require the SELECT privilege. See details in [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_select).</li><li>`SHOW_VIEW`: Using the SHOW CREATE VIEW statement. Also needed for views used with EXPLAIN.</li><li>`TRIGGER`: Creating, removing, executing, or displaying triggers for a table.</li><li>`UPDATE`: Updating rows in the database.</li><li>`REFERENCES`: Creation of a foreign key constraint for the parent table.</li><ul/>
 
 
 ### ConnectionLimits {#ConnectionLimits3}
 
-Поле | Описание
+Field | Description
 --- | ---
-max_questions_per_hour | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Максимально допустимое число вопросов в час. Минимальная значение — 0.
-max_updates_per_hour | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Максимально допустимое число апдейтов в час. Минимальная значение — 0.
-max_connections_per_hour | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Максимально допустимое число коннектов в час. Минимальная значение — 0.
-max_user_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Максимально допустимое число коннектов. Минимальная значение — 0.
+max_questions_per_hour | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum permitted number of user questions per hour. The minimum value is 0.
+max_updates_per_hour | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum permitted number of user updates per hour. The minimum value is 0.
+max_connections_per_hour | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum permitted number of simultaneous client connections per hour. The minimum value is 0.
+max_user_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum number of simultaneous connections permitted to any given MySQL user account. The minimum value is 0.
 
 
 ## Update {#Update}
 
-Изменяет указанного пользователя MySQL.
+Modifies the specified MySQL user.
 
 **rpc Update ([UpdateUserRequest](#UpdateUserRequest)) returns ([operation.Operation](#Operation1))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateUserMetadata](#UpdateUserMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[User](#User3)<br>
 
 ### UpdateUserRequest {#UpdateUserRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера MySQL, которому принадлежит пользователь. Чтобы получить идентификатор кластера, используйте запрос [ClusterService.List](./cluster_service#List). Максимальная длина строки в символах — 50.
-user_name | **string**<br>Обязательное поле. Имя пользователя, которого следует изменить. Чтобы получить имя пользователя, используйте запрос [UserService.List](#List). Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_]* `.
-update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Маска, которая указывает, какие атрибуты пользователя MySQL должны быть обновлены. 
-password | **string**<br>Новый пароль для пользователя. Длина строки в символах должна быть от 8 до 128.
-permissions[] | **[Permission](#Permission4)**<br>Новый набор разрешений для пользователя. 
-global_permissions[] | enum **GlobalPermission**<br>Новый набор глобальных разрешений, которые следует предоставить пользователю. <ul><li>`REPLICATION_CLIENT`: Разрешает использование SHOW MASTER STATUS, SHOW SLAVE STATUS, и SHOW BINARY LOGS.</li><li>`REPLICATION_SLAVE`: Разрешает использование SHOW SLAVE HOSTS, SHOW RELAYLOG EVENTS и SHOW BINLOG EVENTS.</li><li>`PROCESS`: Разрешает использование SHOW ENGINE INNODB STATUS.</li><ul/>
-connection_limits | **[ConnectionLimits](#ConnectionLimits4)**<br>Набор изменившихся ограничений на коннекты пользователя. 
-authentication_plugin | enum **AuthPlugin**<br>Новый аутентификационный плагин пользователя. <ul><li>`MYSQL_NATIVE_PASSWORD`: Использует [Native Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/native-pluggable-authentication.html).</li><li>`CACHING_SHA2_PASSWORD`: Использует [Caching SHA-2 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/caching-sha2-pluggable-authentication.html).</li><li>`SHA256_PASSWORD`: Использует [SHA-256 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/sha256-pluggable-authentication.html).</li><ul/>
+cluster_id | **string**<br>Required. ID of the MySQL cluster the user belongs to. To get the cluster ID use a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
+user_name | **string**<br>Required. Name of the user to be updated. To get the name of the user use a [UserService.List](#List) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
+update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the MySQL user should be updated. 
+password | **string**<br>New password for the user. The string length in characters must be 8-128.
+permissions[] | **[Permission](#Permission4)**<br>New set of permissions for the user. 
+global_permissions[] | enum **GlobalPermission**<br>New set of global permissions to grant to the user. <ul><li>`REPLICATION_CLIENT`: Enables use of the SHOW MASTER STATUS, SHOW SLAVE STATUS, and SHOW BINARY LOGS statements.</li><li>`REPLICATION_SLAVE`: Enables the account to request updates that have been made to databases on the master server, using the SHOW SLAVE HOSTS, SHOW RELAYLOG EVENTS, and SHOW BINLOG EVENTS statements.</li><li>`PROCESS`: Enables display of information about the threads executing within the server (that is, information about the statements being executed by sessions). The privilege enables use of SHOW PROCESSLIST or mysqladmin processlist to see threads belonging to other accounts; you can always see your own threads. The PROCESS privilege also enables use of SHOW ENGINE.</li><ul/>
+connection_limits | **[ConnectionLimits](#ConnectionLimits4)**<br>Set of changed user connection limits. 
+authentication_plugin | enum **AuthPlugin**<br>New user authentication plugin. <ul><li>`MYSQL_NATIVE_PASSWORD`: Use [Native Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/native-pluggable-authentication.html).</li><li>`CACHING_SHA2_PASSWORD`: Use [Caching SHA-2 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/caching-sha2-pluggable-authentication.html).</li><li>`SHA256_PASSWORD`: Use [SHA-256 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/sha256-pluggable-authentication.html).</li><ul/>
 
 
 ### Permission {#Permission4}
 
-Поле | Описание
+Field | Description
 --- | ---
-database_name | **string**<br>Имя базы данных, к которой предоставляет доступ разрешение. 
-roles[] | enum **Privilege**<br>Роли, предоставленные пользователю в базе данных. Минимальное количество элементов — 1.<ul><li>`ALL_PRIVILEGES`: Все привилегии, которые могут быть предоставлены пользователю.</li><li>`ALTER`: Изменение таблиц.</li><li>`ALTER_ROUTINE`: Изменение хранимых процедур и функций.</li><li>`CREATE`: Создание таблиц или индексов.</li><li>`CREATE_ROUTINE`: Создание хранимых процедур.</li><li>`CREATE_TEMPORARY_TABLES`: Создание временных таблиц.</li><li>`CREATE_VIEW`: Создание представлений.</li><li>`DELETE`: Удаление таблиц.</li><li>`DROP`: Удаление таблиц или представлений.</li><li>`EVENT`: Создание, изменение, удаление или отображение событий для планировщика событий.</li><li>`EXECUTE`: Выполнение хранимых процедур.</li><li>`INDEX`: Создание и удаление индексов.</li><li>`INSERT`: Вставка строк в базу данных.</li><li>`LOCK_TABLES`: Использование инструкции LOCK TABLES для таблиц, доступных с привилегией SELECT.</li><li>`SELECT`: Получение строк из таблиц. <br>Некоторые операторы SELECT могут быть разрешены без привилегии SELECT. Привилегия SELECT необходима для всех операторов, считывающих значения столбцов. Подробнее в [документации MySQL](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_select).</li><li>`SHOW_VIEW`: Использование инструкции SHOW CREATE VIEW. Также необходимо для представлений, используемых с EXPLAIN.</li><li>`TRIGGER`: Создание, удаление, выполнение или отображение триггеров для таблицы.</li><li>`UPDATE`: Обновление строк в базе данных.</li><li>`REFERENCES`: Создание внешних ключей для таблиц.</li><ul/>
+database_name | **string**<br>Name of the database that the permission grants access to. 
+roles[] | enum **Privilege**<br>Roles granted to the user within the database. The minimum number of elements is 1.<ul><li>`ALL_PRIVILEGES`: All privileges that can be made available to the user.</li><li>`ALTER`: Altering tables.</li><li>`ALTER_ROUTINE`: Altering stored routines (stored procedures and functions).</li><li>`CREATE`: Creating tables or indexes.</li><li>`CREATE_ROUTINE`: Creating stored routines.</li><li>`CREATE_TEMPORARY_TABLES`: Creating temporary tables.</li><li>`CREATE_VIEW`: Creating views.</li><li>`DELETE`: Deleting tables.</li><li>`DROP`: Removing tables or views.</li><li>`EVENT`: Creating, altering, dropping, or displaying events for the Event Scheduler.</li><li>`EXECUTE`: Executing stored routines.</li><li>`INDEX`: Creating and removing indexes.</li><li>`INSERT`: Inserting rows into the database.</li><li>`LOCK_TABLES`: Using LOCK TABLES statement for tables available with SELECT privilege.</li><li>`SELECT`: Selecting rows from tables. <br>Some SELECT statements can be allowed without the SELECT privilege. All statements that read column values require the SELECT privilege. See details in [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_select).</li><li>`SHOW_VIEW`: Using the SHOW CREATE VIEW statement. Also needed for views used with EXPLAIN.</li><li>`TRIGGER`: Creating, removing, executing, or displaying triggers for a table.</li><li>`UPDATE`: Updating rows in the database.</li><li>`REFERENCES`: Creation of a foreign key constraint for the parent table.</li><ul/>
 
 
 ### ConnectionLimits {#ConnectionLimits4}
 
-Поле | Описание
+Field | Description
 --- | ---
-max_questions_per_hour | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Максимально допустимое число вопросов в час. Минимальная значение — 0.
-max_updates_per_hour | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Максимально допустимое число апдейтов в час. Минимальная значение — 0.
-max_connections_per_hour | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Максимально допустимое число коннектов в час. Минимальная значение — 0.
-max_user_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Максимально допустимое число коннектов. Минимальная значение — 0.
+max_questions_per_hour | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum permitted number of user questions per hour. The minimum value is 0.
+max_updates_per_hour | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum permitted number of user updates per hour. The minimum value is 0.
+max_connections_per_hour | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum permitted number of simultaneous client connections per hour. The minimum value is 0.
+max_user_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum number of simultaneous connections permitted to any given MySQL user account. The minimum value is 0.
 
 
 ### Operation {#Operation1}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateUserMetadata](#UpdateUserMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[User](#User3)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateUserMetadata](#UpdateUserMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[User](#User3)>**<br>if operation finished successfully. 
 
 
 ### UpdateUserMetadata {#UpdateUserMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Идентификатор кластера MySQL, которому принадлежит пользователь. 
-user_name | **string**<br>Имя изменяемого пользователя. 
+cluster_id | **string**<br>ID of the MySQL cluster the user belongs to. 
+user_name | **string**<br>Name of the user that is being updated. 
 
 
 ### User {#User3}
 
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br>Имя пользователя MySQL. 
-cluster_id | **string**<br>Идентификатор кластера MySQL, которому принадлежит пользователь. 
-permissions[] | **[Permission](#Permission5)**<br>Набор разрешений, предоставленных пользователю. 
-global_permissions[] | enum **GlobalPermission**<br>Набор глобальных разрешений, которые следует предоставить пользователю. <ul><li>`REPLICATION_CLIENT`: Разрешает использование SHOW MASTER STATUS, SHOW SLAVE STATUS, и SHOW BINARY LOGS.</li><li>`REPLICATION_SLAVE`: Разрешает использование SHOW SLAVE HOSTS, SHOW RELAYLOG EVENTS и SHOW BINLOG EVENTS.</li><li>`PROCESS`: Разрешает использование SHOW ENGINE INNODB STATUS.</li><ul/>
-connection_limits | **[ConnectionLimits](#ConnectionLimits5)**<br>Набор ограничений на коннекты пользователя. 
-authentication_plugin | enum **AuthPlugin**<br>Аутентификационный плагин пользователя. <ul><li>`MYSQL_NATIVE_PASSWORD`: Использует [Native Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/native-pluggable-authentication.html).</li><li>`CACHING_SHA2_PASSWORD`: Использует [Caching SHA-2 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/caching-sha2-pluggable-authentication.html).</li><li>`SHA256_PASSWORD`: Использует [SHA-256 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/sha256-pluggable-authentication.html).</li><ul/>
+name | **string**<br>Name of the MySQL user. 
+cluster_id | **string**<br>ID of the MySQL cluster the user belongs to. 
+permissions[] | **[Permission](#Permission5)**<br>Set of permissions granted to the user. 
+global_permissions[] | enum **GlobalPermission**<br>Set of global permissions to grant to the user. <ul><li>`REPLICATION_CLIENT`: Enables use of the SHOW MASTER STATUS, SHOW SLAVE STATUS, and SHOW BINARY LOGS statements.</li><li>`REPLICATION_SLAVE`: Enables the account to request updates that have been made to databases on the master server, using the SHOW SLAVE HOSTS, SHOW RELAYLOG EVENTS, and SHOW BINLOG EVENTS statements.</li><li>`PROCESS`: Enables display of information about the threads executing within the server (that is, information about the statements being executed by sessions). The privilege enables use of SHOW PROCESSLIST or mysqladmin processlist to see threads belonging to other accounts; you can always see your own threads. The PROCESS privilege also enables use of SHOW ENGINE.</li><ul/>
+connection_limits | **[ConnectionLimits](#ConnectionLimits5)**<br>Set of user connection limits. 
+authentication_plugin | enum **AuthPlugin**<br>User authentication plugin. <ul><li>`MYSQL_NATIVE_PASSWORD`: Use [Native Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/native-pluggable-authentication.html).</li><li>`CACHING_SHA2_PASSWORD`: Use [Caching SHA-2 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/caching-sha2-pluggable-authentication.html).</li><li>`SHA256_PASSWORD`: Use [SHA-256 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/sha256-pluggable-authentication.html).</li><ul/>
 
 
 ### Permission {#Permission5}
 
-Поле | Описание
+Field | Description
 --- | ---
-database_name | **string**<br>Имя базы данных, к которой предоставляет доступ разрешение. 
-roles[] | enum **Privilege**<br>Роли, предоставленные пользователю в базе данных. Минимальное количество элементов — 1.<ul><li>`ALL_PRIVILEGES`: Все привилегии, которые могут быть предоставлены пользователю.</li><li>`ALTER`: Изменение таблиц.</li><li>`ALTER_ROUTINE`: Изменение хранимых процедур и функций.</li><li>`CREATE`: Создание таблиц или индексов.</li><li>`CREATE_ROUTINE`: Создание хранимых процедур.</li><li>`CREATE_TEMPORARY_TABLES`: Создание временных таблиц.</li><li>`CREATE_VIEW`: Создание представлений.</li><li>`DELETE`: Удаление таблиц.</li><li>`DROP`: Удаление таблиц или представлений.</li><li>`EVENT`: Создание, изменение, удаление или отображение событий для планировщика событий.</li><li>`EXECUTE`: Выполнение хранимых процедур.</li><li>`INDEX`: Создание и удаление индексов.</li><li>`INSERT`: Вставка строк в базу данных.</li><li>`LOCK_TABLES`: Использование инструкции LOCK TABLES для таблиц, доступных с привилегией SELECT.</li><li>`SELECT`: Получение строк из таблиц. <br>Некоторые операторы SELECT могут быть разрешены без привилегии SELECT. Привилегия SELECT необходима для всех операторов, считывающих значения столбцов. Подробнее в [документации MySQL](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_select).</li><li>`SHOW_VIEW`: Использование инструкции SHOW CREATE VIEW. Также необходимо для представлений, используемых с EXPLAIN.</li><li>`TRIGGER`: Создание, удаление, выполнение или отображение триггеров для таблицы.</li><li>`UPDATE`: Обновление строк в базе данных.</li><li>`REFERENCES`: Создание внешних ключей для таблиц.</li><ul/>
+database_name | **string**<br>Name of the database that the permission grants access to. 
+roles[] | enum **Privilege**<br>Roles granted to the user within the database. The minimum number of elements is 1.<ul><li>`ALL_PRIVILEGES`: All privileges that can be made available to the user.</li><li>`ALTER`: Altering tables.</li><li>`ALTER_ROUTINE`: Altering stored routines (stored procedures and functions).</li><li>`CREATE`: Creating tables or indexes.</li><li>`CREATE_ROUTINE`: Creating stored routines.</li><li>`CREATE_TEMPORARY_TABLES`: Creating temporary tables.</li><li>`CREATE_VIEW`: Creating views.</li><li>`DELETE`: Deleting tables.</li><li>`DROP`: Removing tables or views.</li><li>`EVENT`: Creating, altering, dropping, or displaying events for the Event Scheduler.</li><li>`EXECUTE`: Executing stored routines.</li><li>`INDEX`: Creating and removing indexes.</li><li>`INSERT`: Inserting rows into the database.</li><li>`LOCK_TABLES`: Using LOCK TABLES statement for tables available with SELECT privilege.</li><li>`SELECT`: Selecting rows from tables. <br>Some SELECT statements can be allowed without the SELECT privilege. All statements that read column values require the SELECT privilege. See details in [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_select).</li><li>`SHOW_VIEW`: Using the SHOW CREATE VIEW statement. Also needed for views used with EXPLAIN.</li><li>`TRIGGER`: Creating, removing, executing, or displaying triggers for a table.</li><li>`UPDATE`: Updating rows in the database.</li><li>`REFERENCES`: Creation of a foreign key constraint for the parent table.</li><ul/>
 
 
 ### ConnectionLimits {#ConnectionLimits5}
 
-Поле | Описание
+Field | Description
 --- | ---
-max_questions_per_hour | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Максимально допустимое число вопросов в час. Минимальная значение — 0.
-max_updates_per_hour | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Максимально допустимое число апдейтов в час. Минимальная значение — 0.
-max_connections_per_hour | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Максимально допустимое число коннектов в час. Минимальная значение — 0.
-max_user_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Максимально допустимое число коннектов. Минимальная значение — 0.
+max_questions_per_hour | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum permitted number of user questions per hour. The minimum value is 0.
+max_updates_per_hour | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum permitted number of user updates per hour. The minimum value is 0.
+max_connections_per_hour | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum permitted number of simultaneous client connections per hour. The minimum value is 0.
+max_user_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum number of simultaneous connections permitted to any given MySQL user account. The minimum value is 0.
 
 
 ## Delete {#Delete}
 
-Удаляет указанного пользователя MySQL.
+Deletes the specified MySQL user.
 
 **rpc Delete ([DeleteUserRequest](#DeleteUserRequest)) returns ([operation.Operation](#Operation2))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[DeleteUserMetadata](#DeleteUserMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
 
 ### DeleteUserRequest {#DeleteUserRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера MySQL, которому принадлежит пользователь. Чтобы получить идентификатор кластера, используйте запрос [ClusterService.List](./cluster_service#List). Максимальная длина строки в символах — 50.
-user_name | **string**<br>Обязательное поле. Имя удаляемого пользователя. Чтобы получить имя пользователя, используйте запрос [UserService.List](#List). Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_]* `.
+cluster_id | **string**<br>Required. ID of the MySQL cluster the user belongs to. To get the cluster ID, use a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
+user_name | **string**<br>Required. Name of the user to delete. To get the name of the user, use a [UserService.List](#List) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
 
 
 ### Operation {#Operation2}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteUserMetadata](#DeleteUserMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteUserMetadata](#DeleteUserMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>if operation finished successfully. 
 
 
 ### DeleteUserMetadata {#DeleteUserMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Идентификатор кластера MySQL, которому принадлежит пользователь. 
-user_name | **string**<br>Имя удаляемого пользователя. 
+cluster_id | **string**<br>ID of the MySQL cluster the user belongs to. 
+user_name | **string**<br>Name of the user that is being deleted. 
 
 
 ## GrantPermission {#GrantPermission}
 
-Предоставляет разрешение указанному пользователю MySQL.
+Grants a permission to the specified MySQL user.
 
 **rpc GrantPermission ([GrantUserPermissionRequest](#GrantUserPermissionRequest)) returns ([operation.Operation](#Operation3))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[GrantUserPermissionMetadata](#GrantUserPermissionMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[User](#User4)<br>
 
 ### GrantUserPermissionRequest {#GrantUserPermissionRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера MySQL, которому принадлежит пользователь. Чтобы получить идентификатор кластера, используйте запрос [ClusterService.List](./cluster_service#List). Максимальная длина строки в символах — 50.
-user_name | **string**<br>Обязательное поле. Имя пользователя, которому следует предоставить разрешение. Чтобы получить имя пользователя, используйте запрос [UserService.List](#List). Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_]* `.
-permission | **[Permission](#Permission6)**<br>Обязательное поле. Разрешение, которое должно быть предоставлено указанному пользователю. 
+cluster_id | **string**<br>Required. ID of the MySQL cluster the user belongs to. To get the cluster ID, use a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
+user_name | **string**<br>Required. Name of the user to grant the permission to. To get the name of the user, use a [UserService.List](#List) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
+permission | **[Permission](#Permission6)**<br>Required. Permission that should be granted to the specified user. 
 
 
 ### Permission {#Permission6}
 
-Поле | Описание
+Field | Description
 --- | ---
-database_name | **string**<br>Имя базы данных, к которой предоставляет доступ разрешение. 
-roles[] | enum **Privilege**<br>Роли, предоставленные пользователю в базе данных. Минимальное количество элементов — 1.<ul><li>`ALL_PRIVILEGES`: Все привилегии, которые могут быть предоставлены пользователю.</li><li>`ALTER`: Изменение таблиц.</li><li>`ALTER_ROUTINE`: Изменение хранимых процедур и функций.</li><li>`CREATE`: Создание таблиц или индексов.</li><li>`CREATE_ROUTINE`: Создание хранимых процедур.</li><li>`CREATE_TEMPORARY_TABLES`: Создание временных таблиц.</li><li>`CREATE_VIEW`: Создание представлений.</li><li>`DELETE`: Удаление таблиц.</li><li>`DROP`: Удаление таблиц или представлений.</li><li>`EVENT`: Создание, изменение, удаление или отображение событий для планировщика событий.</li><li>`EXECUTE`: Выполнение хранимых процедур.</li><li>`INDEX`: Создание и удаление индексов.</li><li>`INSERT`: Вставка строк в базу данных.</li><li>`LOCK_TABLES`: Использование инструкции LOCK TABLES для таблиц, доступных с привилегией SELECT.</li><li>`SELECT`: Получение строк из таблиц. <br>Некоторые операторы SELECT могут быть разрешены без привилегии SELECT. Привилегия SELECT необходима для всех операторов, считывающих значения столбцов. Подробнее в [документации MySQL](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_select).</li><li>`SHOW_VIEW`: Использование инструкции SHOW CREATE VIEW. Также необходимо для представлений, используемых с EXPLAIN.</li><li>`TRIGGER`: Создание, удаление, выполнение или отображение триггеров для таблицы.</li><li>`UPDATE`: Обновление строк в базе данных.</li><li>`REFERENCES`: Создание внешних ключей для таблиц.</li><ul/>
+database_name | **string**<br>Name of the database that the permission grants access to. 
+roles[] | enum **Privilege**<br>Roles granted to the user within the database. The minimum number of elements is 1.<ul><li>`ALL_PRIVILEGES`: All privileges that can be made available to the user.</li><li>`ALTER`: Altering tables.</li><li>`ALTER_ROUTINE`: Altering stored routines (stored procedures and functions).</li><li>`CREATE`: Creating tables or indexes.</li><li>`CREATE_ROUTINE`: Creating stored routines.</li><li>`CREATE_TEMPORARY_TABLES`: Creating temporary tables.</li><li>`CREATE_VIEW`: Creating views.</li><li>`DELETE`: Deleting tables.</li><li>`DROP`: Removing tables or views.</li><li>`EVENT`: Creating, altering, dropping, or displaying events for the Event Scheduler.</li><li>`EXECUTE`: Executing stored routines.</li><li>`INDEX`: Creating and removing indexes.</li><li>`INSERT`: Inserting rows into the database.</li><li>`LOCK_TABLES`: Using LOCK TABLES statement for tables available with SELECT privilege.</li><li>`SELECT`: Selecting rows from tables. <br>Some SELECT statements can be allowed without the SELECT privilege. All statements that read column values require the SELECT privilege. See details in [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_select).</li><li>`SHOW_VIEW`: Using the SHOW CREATE VIEW statement. Also needed for views used with EXPLAIN.</li><li>`TRIGGER`: Creating, removing, executing, or displaying triggers for a table.</li><li>`UPDATE`: Updating rows in the database.</li><li>`REFERENCES`: Creation of a foreign key constraint for the parent table.</li><ul/>
 
 
 ### Operation {#Operation3}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[GrantUserPermissionMetadata](#GrantUserPermissionMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[User](#User4)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[GrantUserPermissionMetadata](#GrantUserPermissionMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[User](#User4)>**<br>if operation finished successfully. 
 
 
 ### GrantUserPermissionMetadata {#GrantUserPermissionMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Идентификатор кластера MySQL, которому принадлежит пользователь. Чтобы получить идентификатор кластера, используйте запрос [ClusterService.List](./cluster_service#List). 
-user_name | **string**<br>Имя пользователя, которому предоставляется разрешение. 
+cluster_id | **string**<br>ID of the MySQL cluster the user belongs to. To get the cluster ID, use a [ClusterService.List](./cluster_service#List) request. 
+user_name | **string**<br>Name of the user that is being granted a permission. 
 
 
 ### User {#User4}
 
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br>Имя пользователя MySQL. 
-cluster_id | **string**<br>Идентификатор кластера MySQL, которому принадлежит пользователь. 
-permissions[] | **[Permission](#Permission7)**<br>Набор разрешений, предоставленных пользователю. 
-global_permissions[] | enum **GlobalPermission**<br>Набор глобальных разрешений, которые следует предоставить пользователю. <ul><li>`REPLICATION_CLIENT`: Разрешает использование SHOW MASTER STATUS, SHOW SLAVE STATUS, и SHOW BINARY LOGS.</li><li>`REPLICATION_SLAVE`: Разрешает использование SHOW SLAVE HOSTS, SHOW RELAYLOG EVENTS и SHOW BINLOG EVENTS.</li><li>`PROCESS`: Разрешает использование SHOW ENGINE INNODB STATUS.</li><ul/>
-connection_limits | **[ConnectionLimits](#ConnectionLimits6)**<br>Набор ограничений на коннекты пользователя. 
-authentication_plugin | enum **AuthPlugin**<br>Аутентификационный плагин пользователя. <ul><li>`MYSQL_NATIVE_PASSWORD`: Использует [Native Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/native-pluggable-authentication.html).</li><li>`CACHING_SHA2_PASSWORD`: Использует [Caching SHA-2 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/caching-sha2-pluggable-authentication.html).</li><li>`SHA256_PASSWORD`: Использует [SHA-256 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/sha256-pluggable-authentication.html).</li><ul/>
+name | **string**<br>Name of the MySQL user. 
+cluster_id | **string**<br>ID of the MySQL cluster the user belongs to. 
+permissions[] | **[Permission](#Permission7)**<br>Set of permissions granted to the user. 
+global_permissions[] | enum **GlobalPermission**<br>Set of global permissions to grant to the user. <ul><li>`REPLICATION_CLIENT`: Enables use of the SHOW MASTER STATUS, SHOW SLAVE STATUS, and SHOW BINARY LOGS statements.</li><li>`REPLICATION_SLAVE`: Enables the account to request updates that have been made to databases on the master server, using the SHOW SLAVE HOSTS, SHOW RELAYLOG EVENTS, and SHOW BINLOG EVENTS statements.</li><li>`PROCESS`: Enables display of information about the threads executing within the server (that is, information about the statements being executed by sessions). The privilege enables use of SHOW PROCESSLIST or mysqladmin processlist to see threads belonging to other accounts; you can always see your own threads. The PROCESS privilege also enables use of SHOW ENGINE.</li><ul/>
+connection_limits | **[ConnectionLimits](#ConnectionLimits6)**<br>Set of user connection limits. 
+authentication_plugin | enum **AuthPlugin**<br>User authentication plugin. <ul><li>`MYSQL_NATIVE_PASSWORD`: Use [Native Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/native-pluggable-authentication.html).</li><li>`CACHING_SHA2_PASSWORD`: Use [Caching SHA-2 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/caching-sha2-pluggable-authentication.html).</li><li>`SHA256_PASSWORD`: Use [SHA-256 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/sha256-pluggable-authentication.html).</li><ul/>
 
 
 ### Permission {#Permission7}
 
-Поле | Описание
+Field | Description
 --- | ---
-database_name | **string**<br>Имя базы данных, к которой предоставляет доступ разрешение. 
-roles[] | enum **Privilege**<br>Роли, предоставленные пользователю в базе данных. Минимальное количество элементов — 1.<ul><li>`ALL_PRIVILEGES`: Все привилегии, которые могут быть предоставлены пользователю.</li><li>`ALTER`: Изменение таблиц.</li><li>`ALTER_ROUTINE`: Изменение хранимых процедур и функций.</li><li>`CREATE`: Создание таблиц или индексов.</li><li>`CREATE_ROUTINE`: Создание хранимых процедур.</li><li>`CREATE_TEMPORARY_TABLES`: Создание временных таблиц.</li><li>`CREATE_VIEW`: Создание представлений.</li><li>`DELETE`: Удаление таблиц.</li><li>`DROP`: Удаление таблиц или представлений.</li><li>`EVENT`: Создание, изменение, удаление или отображение событий для планировщика событий.</li><li>`EXECUTE`: Выполнение хранимых процедур.</li><li>`INDEX`: Создание и удаление индексов.</li><li>`INSERT`: Вставка строк в базу данных.</li><li>`LOCK_TABLES`: Использование инструкции LOCK TABLES для таблиц, доступных с привилегией SELECT.</li><li>`SELECT`: Получение строк из таблиц. <br>Некоторые операторы SELECT могут быть разрешены без привилегии SELECT. Привилегия SELECT необходима для всех операторов, считывающих значения столбцов. Подробнее в [документации MySQL](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_select).</li><li>`SHOW_VIEW`: Использование инструкции SHOW CREATE VIEW. Также необходимо для представлений, используемых с EXPLAIN.</li><li>`TRIGGER`: Создание, удаление, выполнение или отображение триггеров для таблицы.</li><li>`UPDATE`: Обновление строк в базе данных.</li><li>`REFERENCES`: Создание внешних ключей для таблиц.</li><ul/>
+database_name | **string**<br>Name of the database that the permission grants access to. 
+roles[] | enum **Privilege**<br>Roles granted to the user within the database. The minimum number of elements is 1.<ul><li>`ALL_PRIVILEGES`: All privileges that can be made available to the user.</li><li>`ALTER`: Altering tables.</li><li>`ALTER_ROUTINE`: Altering stored routines (stored procedures and functions).</li><li>`CREATE`: Creating tables or indexes.</li><li>`CREATE_ROUTINE`: Creating stored routines.</li><li>`CREATE_TEMPORARY_TABLES`: Creating temporary tables.</li><li>`CREATE_VIEW`: Creating views.</li><li>`DELETE`: Deleting tables.</li><li>`DROP`: Removing tables or views.</li><li>`EVENT`: Creating, altering, dropping, or displaying events for the Event Scheduler.</li><li>`EXECUTE`: Executing stored routines.</li><li>`INDEX`: Creating and removing indexes.</li><li>`INSERT`: Inserting rows into the database.</li><li>`LOCK_TABLES`: Using LOCK TABLES statement for tables available with SELECT privilege.</li><li>`SELECT`: Selecting rows from tables. <br>Some SELECT statements can be allowed without the SELECT privilege. All statements that read column values require the SELECT privilege. See details in [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_select).</li><li>`SHOW_VIEW`: Using the SHOW CREATE VIEW statement. Also needed for views used with EXPLAIN.</li><li>`TRIGGER`: Creating, removing, executing, or displaying triggers for a table.</li><li>`UPDATE`: Updating rows in the database.</li><li>`REFERENCES`: Creation of a foreign key constraint for the parent table.</li><ul/>
 
 
 ### ConnectionLimits {#ConnectionLimits6}
 
-Поле | Описание
+Field | Description
 --- | ---
-max_questions_per_hour | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Максимально допустимое число вопросов в час. Минимальная значение — 0.
-max_updates_per_hour | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Максимально допустимое число апдейтов в час. Минимальная значение — 0.
-max_connections_per_hour | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Максимально допустимое число коннектов в час. Минимальная значение — 0.
-max_user_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Максимально допустимое число коннектов. Минимальная значение — 0.
+max_questions_per_hour | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum permitted number of user questions per hour. The minimum value is 0.
+max_updates_per_hour | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum permitted number of user updates per hour. The minimum value is 0.
+max_connections_per_hour | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum permitted number of simultaneous client connections per hour. The minimum value is 0.
+max_user_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum number of simultaneous connections permitted to any given MySQL user account. The minimum value is 0.
 
 
 ## RevokePermission {#RevokePermission}
 
-Отзывает разрешение у указанного пользователя MySQL.
+Revokes a permission from the specified MySQL user.
 
 **rpc RevokePermission ([RevokeUserPermissionRequest](#RevokeUserPermissionRequest)) returns ([operation.Operation](#Operation4))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[RevokeUserPermissionMetadata](#RevokeUserPermissionMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[User](#User5)<br>
 
 ### RevokeUserPermissionRequest {#RevokeUserPermissionRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера MySQL, которому принадлежит пользователь. Чтобы получить идентификатор кластера, используйте запрос [ClusterService.List](./cluster_service#List). Максимальная длина строки в символах — 50.
-user_name | **string**<br>Обязательное поле. Имя пользователя, у которого следует отозвать разрешение. Чтобы получить имя пользователя, используйте запрос [UserService.List](#List). Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_]* `.
-permission | **[Permission](#Permission8)**<br>Обязательное поле. Разрешение, которое должно быть отозвано у указанного пользователя. 
+cluster_id | **string**<br>Required. ID of the MySQL cluster the user belongs to. To get the cluster ID, use a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
+user_name | **string**<br>Required. Name of the user to revoke a permission from. To get the name of the user, use a [UserService.List](#List) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
+permission | **[Permission](#Permission8)**<br>Required. Permission that should be revoked from the specified user. 
 
 
 ### Permission {#Permission8}
 
-Поле | Описание
+Field | Description
 --- | ---
-database_name | **string**<br>Имя базы данных, к которой предоставляет доступ разрешение. 
-roles[] | enum **Privilege**<br>Роли, предоставленные пользователю в базе данных. Минимальное количество элементов — 1.<ul><li>`ALL_PRIVILEGES`: Все привилегии, которые могут быть предоставлены пользователю.</li><li>`ALTER`: Изменение таблиц.</li><li>`ALTER_ROUTINE`: Изменение хранимых процедур и функций.</li><li>`CREATE`: Создание таблиц или индексов.</li><li>`CREATE_ROUTINE`: Создание хранимых процедур.</li><li>`CREATE_TEMPORARY_TABLES`: Создание временных таблиц.</li><li>`CREATE_VIEW`: Создание представлений.</li><li>`DELETE`: Удаление таблиц.</li><li>`DROP`: Удаление таблиц или представлений.</li><li>`EVENT`: Создание, изменение, удаление или отображение событий для планировщика событий.</li><li>`EXECUTE`: Выполнение хранимых процедур.</li><li>`INDEX`: Создание и удаление индексов.</li><li>`INSERT`: Вставка строк в базу данных.</li><li>`LOCK_TABLES`: Использование инструкции LOCK TABLES для таблиц, доступных с привилегией SELECT.</li><li>`SELECT`: Получение строк из таблиц. <br>Некоторые операторы SELECT могут быть разрешены без привилегии SELECT. Привилегия SELECT необходима для всех операторов, считывающих значения столбцов. Подробнее в [документации MySQL](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_select).</li><li>`SHOW_VIEW`: Использование инструкции SHOW CREATE VIEW. Также необходимо для представлений, используемых с EXPLAIN.</li><li>`TRIGGER`: Создание, удаление, выполнение или отображение триггеров для таблицы.</li><li>`UPDATE`: Обновление строк в базе данных.</li><li>`REFERENCES`: Создание внешних ключей для таблиц.</li><ul/>
+database_name | **string**<br>Name of the database that the permission grants access to. 
+roles[] | enum **Privilege**<br>Roles granted to the user within the database. The minimum number of elements is 1.<ul><li>`ALL_PRIVILEGES`: All privileges that can be made available to the user.</li><li>`ALTER`: Altering tables.</li><li>`ALTER_ROUTINE`: Altering stored routines (stored procedures and functions).</li><li>`CREATE`: Creating tables or indexes.</li><li>`CREATE_ROUTINE`: Creating stored routines.</li><li>`CREATE_TEMPORARY_TABLES`: Creating temporary tables.</li><li>`CREATE_VIEW`: Creating views.</li><li>`DELETE`: Deleting tables.</li><li>`DROP`: Removing tables or views.</li><li>`EVENT`: Creating, altering, dropping, or displaying events for the Event Scheduler.</li><li>`EXECUTE`: Executing stored routines.</li><li>`INDEX`: Creating and removing indexes.</li><li>`INSERT`: Inserting rows into the database.</li><li>`LOCK_TABLES`: Using LOCK TABLES statement for tables available with SELECT privilege.</li><li>`SELECT`: Selecting rows from tables. <br>Some SELECT statements can be allowed without the SELECT privilege. All statements that read column values require the SELECT privilege. See details in [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_select).</li><li>`SHOW_VIEW`: Using the SHOW CREATE VIEW statement. Also needed for views used with EXPLAIN.</li><li>`TRIGGER`: Creating, removing, executing, or displaying triggers for a table.</li><li>`UPDATE`: Updating rows in the database.</li><li>`REFERENCES`: Creation of a foreign key constraint for the parent table.</li><ul/>
 
 
 ### Operation {#Operation4}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[RevokeUserPermissionMetadata](#RevokeUserPermissionMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[User](#User5)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[RevokeUserPermissionMetadata](#RevokeUserPermissionMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[User](#User5)>**<br>if operation finished successfully. 
 
 
 ### RevokeUserPermissionMetadata {#RevokeUserPermissionMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Идентификатор кластера MySQL, которому принадлежит пользователь. 
-user_name | **string**<br>Имя пользователя, чье разрешение отзывается. 
+cluster_id | **string**<br>ID of the MySQL cluster the user belongs to. 
+user_name | **string**<br>Name of the user whose permission is being revoked. 
 
 
 ### User {#User5}
 
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br>Имя пользователя MySQL. 
-cluster_id | **string**<br>Идентификатор кластера MySQL, которому принадлежит пользователь. 
-permissions[] | **[Permission](#Permission9)**<br>Набор разрешений, предоставленных пользователю. 
-global_permissions[] | enum **GlobalPermission**<br>Набор глобальных разрешений, которые следует предоставить пользователю. <ul><li>`REPLICATION_CLIENT`: Разрешает использование SHOW MASTER STATUS, SHOW SLAVE STATUS, и SHOW BINARY LOGS.</li><li>`REPLICATION_SLAVE`: Разрешает использование SHOW SLAVE HOSTS, SHOW RELAYLOG EVENTS и SHOW BINLOG EVENTS.</li><li>`PROCESS`: Разрешает использование SHOW ENGINE INNODB STATUS.</li><ul/>
-connection_limits | **[ConnectionLimits](#ConnectionLimits7)**<br>Набор ограничений на коннекты пользователя. 
-authentication_plugin | enum **AuthPlugin**<br>Аутентификационный плагин пользователя. <ul><li>`MYSQL_NATIVE_PASSWORD`: Использует [Native Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/native-pluggable-authentication.html).</li><li>`CACHING_SHA2_PASSWORD`: Использует [Caching SHA-2 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/caching-sha2-pluggable-authentication.html).</li><li>`SHA256_PASSWORD`: Использует [SHA-256 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/sha256-pluggable-authentication.html).</li><ul/>
+name | **string**<br>Name of the MySQL user. 
+cluster_id | **string**<br>ID of the MySQL cluster the user belongs to. 
+permissions[] | **[Permission](#Permission9)**<br>Set of permissions granted to the user. 
+global_permissions[] | enum **GlobalPermission**<br>Set of global permissions to grant to the user. <ul><li>`REPLICATION_CLIENT`: Enables use of the SHOW MASTER STATUS, SHOW SLAVE STATUS, and SHOW BINARY LOGS statements.</li><li>`REPLICATION_SLAVE`: Enables the account to request updates that have been made to databases on the master server, using the SHOW SLAVE HOSTS, SHOW RELAYLOG EVENTS, and SHOW BINLOG EVENTS statements.</li><li>`PROCESS`: Enables display of information about the threads executing within the server (that is, information about the statements being executed by sessions). The privilege enables use of SHOW PROCESSLIST or mysqladmin processlist to see threads belonging to other accounts; you can always see your own threads. The PROCESS privilege also enables use of SHOW ENGINE.</li><ul/>
+connection_limits | **[ConnectionLimits](#ConnectionLimits7)**<br>Set of user connection limits. 
+authentication_plugin | enum **AuthPlugin**<br>User authentication plugin. <ul><li>`MYSQL_NATIVE_PASSWORD`: Use [Native Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/native-pluggable-authentication.html).</li><li>`CACHING_SHA2_PASSWORD`: Use [Caching SHA-2 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/caching-sha2-pluggable-authentication.html).</li><li>`SHA256_PASSWORD`: Use [SHA-256 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/sha256-pluggable-authentication.html).</li><ul/>
 
 
 ### Permission {#Permission9}
 
-Поле | Описание
+Field | Description
 --- | ---
-database_name | **string**<br>Имя базы данных, к которой предоставляет доступ разрешение. 
-roles[] | enum **Privilege**<br>Роли, предоставленные пользователю в базе данных. Минимальное количество элементов — 1.<ul><li>`ALL_PRIVILEGES`: Все привилегии, которые могут быть предоставлены пользователю.</li><li>`ALTER`: Изменение таблиц.</li><li>`ALTER_ROUTINE`: Изменение хранимых процедур и функций.</li><li>`CREATE`: Создание таблиц или индексов.</li><li>`CREATE_ROUTINE`: Создание хранимых процедур.</li><li>`CREATE_TEMPORARY_TABLES`: Создание временных таблиц.</li><li>`CREATE_VIEW`: Создание представлений.</li><li>`DELETE`: Удаление таблиц.</li><li>`DROP`: Удаление таблиц или представлений.</li><li>`EVENT`: Создание, изменение, удаление или отображение событий для планировщика событий.</li><li>`EXECUTE`: Выполнение хранимых процедур.</li><li>`INDEX`: Создание и удаление индексов.</li><li>`INSERT`: Вставка строк в базу данных.</li><li>`LOCK_TABLES`: Использование инструкции LOCK TABLES для таблиц, доступных с привилегией SELECT.</li><li>`SELECT`: Получение строк из таблиц. <br>Некоторые операторы SELECT могут быть разрешены без привилегии SELECT. Привилегия SELECT необходима для всех операторов, считывающих значения столбцов. Подробнее в [документации MySQL](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_select).</li><li>`SHOW_VIEW`: Использование инструкции SHOW CREATE VIEW. Также необходимо для представлений, используемых с EXPLAIN.</li><li>`TRIGGER`: Создание, удаление, выполнение или отображение триггеров для таблицы.</li><li>`UPDATE`: Обновление строк в базе данных.</li><li>`REFERENCES`: Создание внешних ключей для таблиц.</li><ul/>
+database_name | **string**<br>Name of the database that the permission grants access to. 
+roles[] | enum **Privilege**<br>Roles granted to the user within the database. The minimum number of elements is 1.<ul><li>`ALL_PRIVILEGES`: All privileges that can be made available to the user.</li><li>`ALTER`: Altering tables.</li><li>`ALTER_ROUTINE`: Altering stored routines (stored procedures and functions).</li><li>`CREATE`: Creating tables or indexes.</li><li>`CREATE_ROUTINE`: Creating stored routines.</li><li>`CREATE_TEMPORARY_TABLES`: Creating temporary tables.</li><li>`CREATE_VIEW`: Creating views.</li><li>`DELETE`: Deleting tables.</li><li>`DROP`: Removing tables or views.</li><li>`EVENT`: Creating, altering, dropping, or displaying events for the Event Scheduler.</li><li>`EXECUTE`: Executing stored routines.</li><li>`INDEX`: Creating and removing indexes.</li><li>`INSERT`: Inserting rows into the database.</li><li>`LOCK_TABLES`: Using LOCK TABLES statement for tables available with SELECT privilege.</li><li>`SELECT`: Selecting rows from tables. <br>Some SELECT statements can be allowed without the SELECT privilege. All statements that read column values require the SELECT privilege. See details in [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_select).</li><li>`SHOW_VIEW`: Using the SHOW CREATE VIEW statement. Also needed for views used with EXPLAIN.</li><li>`TRIGGER`: Creating, removing, executing, or displaying triggers for a table.</li><li>`UPDATE`: Updating rows in the database.</li><li>`REFERENCES`: Creation of a foreign key constraint for the parent table.</li><ul/>
 
 
 ### ConnectionLimits {#ConnectionLimits7}
 
-Поле | Описание
+Field | Description
 --- | ---
-max_questions_per_hour | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Максимально допустимое число вопросов в час. Минимальная значение — 0.
-max_updates_per_hour | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Максимально допустимое число апдейтов в час. Минимальная значение — 0.
-max_connections_per_hour | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Максимально допустимое число коннектов в час. Минимальная значение — 0.
-max_user_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Максимально допустимое число коннектов. Минимальная значение — 0.
+max_questions_per_hour | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum permitted number of user questions per hour. The minimum value is 0.
+max_updates_per_hour | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum permitted number of user updates per hour. The minimum value is 0.
+max_connections_per_hour | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum permitted number of simultaneous client connections per hour. The minimum value is 0.
+max_user_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum number of simultaneous connections permitted to any given MySQL user account. The minimum value is 0.
 
 

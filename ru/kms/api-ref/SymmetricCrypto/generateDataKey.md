@@ -2,25 +2,24 @@
 editable: false
 ---
 
-# Метод generateDataKey
-Создает новый симметричный ключ шифрования данных (не ключ KMS) и возвращает
-сгенерированный ключ в виде открытого текста и текста, зашифрованного указанным
-симметричным ключом KMS.
+# Method generateDataKey
+Generates a new symmetric data encryption key (not a KMS key) and returns
+the generated key as plaintext and as ciphertext encrypted with the specified symmetric KMS key.
  
 
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 POST https://kms.yandex/kms/v1/keys/{keyId}:generateDataKey
 ```
  
-## Path-параметры {#path_params}
+## Path parameters {#path_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-keyId | Обязательное поле. Идентификатор симметричного ключа KMS, с помощью которого должен быть зашифрован сгенерированный ключ шифрования данных.  Максимальная длина строки в символах — 50.
+keyId | Required. ID of the symmetric KMS key that the generated data key should be encrypted with.  The maximum string length in characters is 50.
  
-## Параметры в теле запроса {#body_params}
+## Body parameters {#body_params}
  
 ```json 
 {
@@ -32,14 +31,14 @@ keyId | Обязательное поле. Идентификатор симме
 ```
 
  
-Поле | Описание
+Field | Description
 --- | ---
-versionId | **string**<br><p>Идентификатор версии ключа, с которой следует зашифровать сгенерированный ключ шифрования данных. По умолчанию используется основная версия, если версия не указана явно.</p> <p>Максимальная длина строки в символах — 50.</p> 
-aadContext | **string** (byte)<br><p>Дополнительные аутентифицированные данные (контекст AAD), необязательное поле. Если данные указаны, то их потребуется передать для расшифровки с помощью `SymmetricDecryptRequest`. Необходимо закодировать в формате base64.</p> <p>Максимальная длина строки в символах — 8192.</p> 
-dataKeySpec | **string**<br><p>Алгоритм шифрования и длина для сгенерированного ключа шифрования данных.</p> <p>Поддерживаемые алгоритмы симметричного шифрования.</p> <ul> <li>AES_128: Алгоритм AES со 128-битными ключами.</li> <li>AES_192: Алгоритм AES с 192-битными ключами.</li> <li>AES_256: Алгоритм AES с 256-битными ключами.</li> </ul> 
-skipPlaintext | **boolean** (boolean)<br><p>Если `true`, метод не возвращает ключ щифрования данных в виде открытого текста. Значение по умолчанию `false`.</p> 
+versionId | **string**<br><p>ID of the key version to encrypt the generated data key with. Defaults to the primary version if not specified.</p> <p>The maximum string length in characters is 50.</p> 
+aadContext | **string** (byte)<br><p>Additional authenticated data (AAD context), optional. If specified, this data will be required for decryption with the `SymmetricDecryptRequest`. Should be encoded with base64.</p> <p>The maximum string length in characters is 8192.</p> 
+dataKeySpec | **string**<br><p>Encryption algorithm and key length for the generated data key.</p> <p>Supported symmetric encryption algorithms.</p> <ul> <li>AES_128: AES algorithm with 128-bit keys.</li> <li>AES_192: AES algorithm with 192-bit keys.</li> <li>AES_256: AES algorithm with 256-bit keys.</li> </ul> 
+skipPlaintext | **boolean** (boolean)<br><p>If `true`, the method won't return the data key as plaintext. Default value is `false`.</p> 
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -52,9 +51,9 @@ skipPlaintext | **boolean** (boolean)<br><p>Если `true`, метод не в�
 ```
 
  
-Поле | Описание
+Field | Description
 --- | ---
-keyId | **string**<br><p>Идентификатор симметричного ключа KMS, с помощью которого был зашифрован сгенерированный ключ шифрования данных.</p> 
-versionId | **string**<br><p>Идентификатор версии ключа, которая использовалась для шифрования.</p> 
-dataKeyPlaintext | **string** (byte)<br><p>Сгенерированный ключ шифрования данных в виде открытого текста. Это поле пусто, если параметр <a href="/docs/kms/api-ref/SymmetricCrypto/generateDataKey#body_params">skipPlaintext</a> был установлен в `true`.</p> 
-dataKeyCiphertext | **string** (byte)<br><p>Зашифрованный ключ шифрования данных.</p> 
+keyId | **string**<br><p>ID of the symmetric KMS key that was used to encrypt the generated data key.</p> 
+versionId | **string**<br><p>ID of the key version that was used for encryption.</p> 
+dataKeyPlaintext | **string** (byte)<br><p>Generated data key as plaintext. The field is empty, if the <a href="/docs/kms/api-ref/SymmetricCrypto/generateDataKey#body_params">skipPlaintext</a> parameter was set to `true`.</p> 
+dataKeyCiphertext | **string** (byte)<br><p>The encrypted data key.</p> 

@@ -3,8 +3,8 @@ editable: false
 ---
 
 # NodeGroup
-Набор методов для управления группами узлов.
-## JSON-представление {#representation}
+A set of methods for managing node groups.
+## JSON Representation {#representation}
 ```json 
 {
   "id": "string",
@@ -19,7 +19,8 @@ editable: false
     "resourcesSpec": {
       "memory": "string",
       "cores": "string",
-      "coreFraction": "string"
+      "coreFraction": "string",
+      "gpus": "string"
     },
     "bootDiskSpec": {
       "diskTypeId": "string",
@@ -33,11 +34,34 @@ editable: false
     },
     "schedulingPolicy": {
       "preemptible": true
+    },
+    "networkInterfaceSpecs": [
+      {
+        "subnetIds": [
+          "string"
+        ],
+        "primaryV4AddressSpec": {
+          "oneToOneNatSpec": {
+            "ipVersion": "string"
+          }
+        },
+        "primaryV6AddressSpec": {
+          "oneToOneNatSpec": {
+            "ipVersion": "string"
+          }
+        },
+        "securityGroupIds": [
+          "string"
+        ]
+      }
+    ],
+    "placementPolicy": {
+      "placementGroupId": "string"
     }
   },
   "scalePolicy": {
 
-    // `scalePolicy` включает только одно из полей `fixedScale`, `autoScale`
+    // `scalePolicy` includes only one of the fields `fixedScale`, `autoScale`
     "fixedScale": {
       "size": "string"
     },
@@ -46,7 +70,7 @@ editable: false
       "maxSize": "string",
       "initialSize": "string"
     },
-    // конец списка возможных полей`scalePolicy`
+    // end of the list of possible fields`scalePolicy`
 
   },
   "allocationPolicy": {
@@ -56,6 +80,10 @@ editable: false
         "subnetId": "string"
       }
     ]
+  },
+  "deployPolicy": {
+    "maxUnavailable": "string",
+    "maxExpansion": "string"
   },
   "instanceGroupId": "string",
   "nodeVersion": "string",
@@ -70,7 +98,7 @@ editable: false
     "autoRepair": true,
     "maintenanceWindow": {
 
-      // `maintenancePolicy.maintenanceWindow` включает только одно из полей `anytime`, `dailyMaintenanceWindow`, `weeklyMaintenanceWindow`
+      // `maintenancePolicy.maintenanceWindow` includes only one of the fields `anytime`, `dailyMaintenanceWindow`, `weeklyMaintenanceWindow`
       "anytime": {},
       "dailyMaintenanceWindow": {
         "startTime": {
@@ -97,87 +125,116 @@ editable: false
           }
         ]
       },
-      // конец списка возможных полей`maintenancePolicy.maintenanceWindow`
+      // end of the list of possible fields`maintenancePolicy.maintenanceWindow`
 
     }
   },
   "allowedUnsafeSysctls": [
     "string"
-  ]
+  ],
+  "nodeTaints": [
+    {
+      "key": "string",
+      "value": "string",
+      "effect": "string"
+    }
+  ],
+  "nodeLabels": "object"
 }
 ```
  
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br><p>Идентификатор группы узлов.</p> 
-clusterId | **string**<br><p>Идентификатор кластера, к которому принадлежит группа узлов.</p> 
-createdAt | **string** (date-time)<br><p>Время создания.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-name | **string**<br><p>Новое имя группы узлов. Имя уникально в рамках каталога.</p> 
-description | **string**<br><p>Новое описание группы узлов. Длина описания должна быть от 0 до 256 символов.</p> 
-labels | **object**<br><p>Метки ресурса в формате `key:value`. Максимум 64 метки на ресурс.</p> 
-status | **string**<br><p>Статус группы узлов.</p> <ul> <li>PROVISIONING: Группа узлов ожидает выделения ресурсов.</li> <li>RUNNING: Группа узлов запущена.</li> <li>RECONCILING: Группа узлов ожидает выполнения некоторых работ, например, обновления программного обеспечения узла.</li> <li>STOPPING: Группа узлов останавливается.</li> <li>STOPPED: Группа узлов остановлена.</li> <li>DELETING: Группа узлов удаляется.</li> <li>STARTING: Группа узлов запускается.</li> </ul> 
-nodeTemplate | **object**<br><p>Шаблон узла, задающий параметры вычислительных экземпляров для группы узлов.</p> 
-nodeTemplate.<br>platformId | **string**<br><p>Идентификатор аппаратной платформы виртуальной машины.</p> 
-nodeTemplate.<br>resourcesSpec | **object**<br><p>Вычислительные ресурсы узла, такие как объем памяти и количество ядер.</p> 
-nodeTemplate.<br>resourcesSpec.<br>memory | **string** (int64)<br><p>Объем памяти в байтах, доступный виртуальной машине.</p> <p>Допустимые значения — от 0 до 274877906944 включительно.</p> 
-nodeTemplate.<br>resourcesSpec.<br>cores | **string** (int64)<br><p>Количество ядер, доступное узлу.</p> <p>Значение должно быть равно 0, 1, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30 или 32.</p> 
-nodeTemplate.<br>resourcesSpec.<br>coreFraction | **string** (int64)<br><p>Базовый уровень производительности CPU с возможностью повышения производительности выше этого уровня. Это поле устанавливает базовую производительность для каждого ядра.</p> <p>Значение должно быть равно 0, 5, 20, 50 или 100.</p> 
-nodeTemplate.<br>bootDiskSpec | **object**<br><p>Спецификация загрузочного диска, который будет подключен к узлу.</p> 
-nodeTemplate.<br>bootDiskSpec.<br>diskTypeId | **string**<br><p>Идентификатор типа диска.</p> <p>Значение должно соответствовать регулярному выражению `` \|network-ssd\|network-hdd ``.</p> 
-nodeTemplate.<br>bootDiskSpec.<br>diskSize | **string** (int64)<br><p>Размер диска в байтах.</p> <p>Допустимые значения — от 0 до 4398046511104 включительно.</p> 
-nodeTemplate.<br>metadata | **object**<br><p>Метаданные, назначаемые этому шаблону виртуальной машины, в формате ``key:value``. Сюда входят пользовательские метаданные и предопределенные ключи.</p> <p>Например, вы можете использовать метаданные для предоставления вашего открытого SSH-ключа узлу. Дополнительные сведения см. в разделе <a href="/docs/compute/concepts/vm-metadata">Metadata</a>.</p> <p>Не более 128 на ресурс. Длина строки в символах для каждого ключа должна быть от 1 до 63. Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``. Максимальная длина строки в символах для каждого значения — 262144.</p> 
-nodeTemplate.<br>v4AddressSpec | **object**<br><p>Спецификация для создания сетевых интерфейсов для вычислительных экземпляров группы узлов.</p> 
-nodeTemplate.<br>v4AddressSpec.<br>oneToOneNatSpec | **object**<br><p>Конфигурация one-to-one NAT. Настройка one-to-one NAT гарантирует, что узлам будут назначены публичные IP-адреса. Поэтому интернет будет доступен на всех узлах группы узлов. Если поле не задано, NAT не будет настроен.</p> 
-nodeTemplate.<br>v4AddressSpec.<br>oneToOneNatSpec.<br>ipVersion | **string**<br><p>Версия IP для публичного IP-адреса.</p> <ul> <li>IPV4: IPv4-адрес, например 192.168.0.0.</li> <li>IPV6: IPv6-адрес, на данный момент не доступен.</li> </ul> 
-nodeTemplate.<br>schedulingPolicy | **object**<br><p>Политика планирования.</p> 
-nodeTemplate.<br>schedulingPolicy.<br>preemptible | **boolean** (boolean)<br><p>Если значение равно `true` — будет создана прерываемая виртуальная машина. Значение по умолчанию: `false`. Прерываемые виртуальные машины будут принудительно остановлены в срок, не превышающий 24 часа с момента их создания. Остановленные виртуальные машины можно запустить повторно, без потери данных. Дополнительные сведения см. в разделе <a href="/docs/compute/concepts/preemptible-vm">Preemptible Virtual Machines</a>.</p> 
-scalePolicy | **object**<br><p>Политика масштабирования группы узлов. Дополнительные сведения см. в разделе <a href="/docs/compute/concepts/instance-groups/policies#scale-policy">Scaling policy</a>.</p> 
-scalePolicy.<br>fixedScale | **object**<br>Политика масштабирования группы узлов. <br>`scalePolicy` включает только одно из полей `fixedScale`, `autoScale`<br><br>
-scalePolicy.<br>fixedScale.<br>size | **string** (int64)<br><p>Количество узлов в группе узлов.</p> <p>Допустимые значения — от 0 до 100 включительно.</p> 
-scalePolicy.<br>autoScale | **object**<br>Политика масштабирования группы узлов. <br>`scalePolicy` включает только одно из полей `fixedScale`, `autoScale`<br><br>
-scalePolicy.<br>autoScale.<br>minSize | **string** (int64)<br><p>Минимальное количество узлов в группе узлов.</p> <p>Допустимые значения — от 0 до 100 включительно.</p> 
-scalePolicy.<br>autoScale.<br>maxSize | **string** (int64)<br><p>Максимальное количество узлов в группе узлов.</p> <p>Допустимые значения — от 0 до 100 включительно.</p> 
-scalePolicy.<br>autoScale.<br>initialSize | **string** (int64)<br><p>Начальный размер группы узлов.</p> <p>Допустимые значения — от 0 до 100 включительно.</p> 
-allocationPolicy | **object**<br><p>Политика распределения, с помощью которой ресурсы для групп узлов распределяются по зонам и регионам.</p> 
-allocationPolicy.<br>locations[] | **object**<br><p>Список местоположений (зон доступности и подсетей), в которых будут выделены ресурсы для группы узлов.</p> 
-allocationPolicy.<br>locations[].<br>zoneId | **string**<br><p>Обязательное поле. Идентификатор зоны доступности, в которой могут находиться узлы.</p> 
-allocationPolicy.<br>locations[].<br>subnetId | **string**<br><p>Идентификатор подсети. Если сеть, выбранная для кластера Kubernetes, имеет только одну подсеть в указанной зоне, идентификатор подсети может быть опущен.</p> 
-instanceGroupId | **string**<br><p>Идентификатор группы виртуальных машин, связанной с этой группой узлов.</p> 
-nodeVersion | **string**<br><p>Версия компонентов Kubernetes, которая запущена на узлах. Устарел. Используйте version_info.current_version.</p> 
-versionInfo | **object**<br><p>Подробная информация о версии Kubernetes, которая запущена на мастере.</p> 
-versionInfo.<br>currentVersion | **string**<br><p>Текущая версия Kubernetes, формат: major.minor (например, 1.15).</p> 
-versionInfo.<br>newRevisionAvailable | **boolean** (boolean)<br><p>Новые версии могут включать патчи Kubernetes (например, 1.15.1 -&gt; 1.15.2), а также некоторые обновления внутренних компонентов — новые функции или исправления ошибок в конкретных компонентах Яндекса на мастере или на узлах.</p> 
-versionInfo.<br>newRevisionSummary | **string**<br><p>Описание изменений, которые будут применены при обновлении до последней версии. Пусто, если поле `new_revision_available` имеет значение `false`.</p> 
-versionInfo.<br>versionDeprecated | **boolean** (boolean)<br><p>Текущая версия устарела, компонент кластера Kubernetes (мастер или группа узлов) должен быть обновлен.</p> 
-maintenancePolicy | **object**<br><p>Политика обновления группы узлов.</p> 
-maintenancePolicy.<br>autoUpgrade | **boolean** (boolean)<br><p>Если установлено значение `true`, автоматическое обновление устанавливается без участия пользователя в заданный промежуток времени. Если установлено значение `false`, автоматическое обновление отключено.</p> 
-maintenancePolicy.<br>autoRepair | **boolean** (boolean)<br><p>Если установлено значение `true`, автоматическое восстановление включено. Значение по умолчанию: `false`.</p> 
-maintenancePolicy.<br>maintenanceWindow | **object**<br><p>Настройки окна обновления. Обновление начнется в указанное время и продлится не более указанного времени. Время устанавливается в формате UTC.</p> 
-maintenancePolicy.<br>maintenanceWindow.<br>anytime | **object**<br>Обновление мастера в любое время. <br>`maintenancePolicy.maintenanceWindow` включает только одно из полей `anytime`, `dailyMaintenanceWindow`, `weeklyMaintenanceWindow`<br><br>
-maintenancePolicy.<br>maintenanceWindow.<br>dailyMaintenanceWindow | **object**<br>Обновление мастера в любой день в течение указанного временного окна. <br>`maintenancePolicy.maintenanceWindow` включает только одно из полей `anytime`, `dailyMaintenanceWindow`, `weeklyMaintenanceWindow`<br><br>
-maintenancePolicy.<br>maintenanceWindow.<br>dailyMaintenanceWindow.<br>startTime | **object**<br><p>Обязательное поле. Время начала окна обновлений, указывается в часовом поясе UTC.</p> <p>Время суток. Дата и часовой пояс либо не учитываются, либо задаются в других местах.</p> <p>API может разрешить использование високосной секунды.</p> <p>Связанные типы: <a href="https://github.com/googleapis/googleapis/blob/master/google/type/date.proto">google.type.Date</a> и <a href="https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto">google.protobuf.Timestamp</a>.</p> 
-maintenancePolicy.<br>maintenanceWindow.<br>dailyMaintenanceWindow.<br>startTime.<br>hours | **integer** (int32)<br><p>Часы. Допустимые значения: от 0 до 23.</p> <p>API может разрешить использовать значение в формате &quot;24:00:00&quot; в требующих этого сценариях (например, для указания времени закрытия учреждения).</p> 
-maintenancePolicy.<br>maintenanceWindow.<br>dailyMaintenanceWindow.<br>startTime.<br>minutes | **integer** (int32)<br><p>Минуты. Допустимые значения: от 0 до 59.</p> 
-maintenancePolicy.<br>maintenanceWindow.<br>dailyMaintenanceWindow.<br>startTime.<br>seconds | **integer** (int32)<br><p>Секунды. Стандартные допустимые значения: от 0 до 59.</p> <p>API может разрешить использовать значение 60, если также разрешено использование високосной секунды.</p> 
-maintenancePolicy.<br>maintenanceWindow.<br>dailyMaintenanceWindow.<br>startTime.<br>nanos | **integer** (int32)<br><p>Доли секунды (в наносекундах). Допустимые значения: от 0 до 999999999.</p> 
-maintenancePolicy.<br>maintenanceWindow.<br>dailyMaintenanceWindow.<br>duration | **string**<br><p>Длительность окна обновлений.</p> <p>Допустимые значения — от 3600 seconds до 86400 seconds включительно.</p> 
-maintenancePolicy.<br>maintenanceWindow.<br>weeklyMaintenanceWindow | **object**<br>Обновление мастера в выбранные дни в течение указанного временного окна. <br>`maintenancePolicy.maintenanceWindow` включает только одно из полей `anytime`, `dailyMaintenanceWindow`, `weeklyMaintenanceWindow`<br><br>
-maintenancePolicy.<br>maintenanceWindow.<br>weeklyMaintenanceWindow.<br>daysOfWeek[] | **object**<br><p>Обязательное поле. Дни недели и окно обновлений для этих дней, когда разрешены автоматические обновления.</p> <p>Количество элементов должно находиться в диапазоне от 1 до 7.</p> 
+id | **string**<br><p>ID of the node group.</p> 
+clusterId | **string**<br><p>ID of the cluster that the node group belongs to.</p> 
+createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+name | **string**<br><p>Name of the node group. The name is unique within the folder.</p> 
+description | **string**<br><p>Description of the node group. 0-256 characters long.</p> 
+labels | **object**<br><p>Resource labels as `key:value` pairs. Maximum of 64 per resource.</p> 
+status | **string**<br><p>Status of the node group.</p> <ul> <li>PROVISIONING: Node group is waiting for resources to be allocated.</li> <li>RUNNING: Node group is running.</li> <li>RECONCILING: Node group is waiting for some work to be done, such as upgrading node software.</li> <li>STOPPING: Node group is being stopped.</li> <li>STOPPED: Node group stopped.</li> <li>DELETING: Node group is being deleted.</li> <li>STARTING: Node group is being started.</li> </ul> 
+nodeTemplate | **object**<br><p>Node template that specifies parameters of the compute instances for the node group.</p> 
+nodeTemplate.<br>platformId | **string**<br><p>ID of the hardware platform configuration for the node.</p> 
+nodeTemplate.<br>resourcesSpec | **object**<br><p>Computing resources of the node such as the amount of memory and number of cores.</p> 
+nodeTemplate.<br>resourcesSpec.<br>memory | **string** (int64)<br><p>Amount of memory available to the node, specified in bytes.</p> <p>The minimum value is 0.</p> 
+nodeTemplate.<br>resourcesSpec.<br>cores | **string** (int64)<br><p>Number of cores available to the node.</p> <p>The minimum value is 0.</p> 
+nodeTemplate.<br>resourcesSpec.<br>coreFraction | **string** (int64)<br><p>Baseline level of CPU performance with the possibility to burst performance above that baseline level. This field sets baseline performance for each core.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+nodeTemplate.<br>resourcesSpec.<br>gpus | **string** (int64)<br><p>Number of GPUs available to the node.</p> <p>The minimum value is 0.</p> 
+nodeTemplate.<br>bootDiskSpec | **object**<br><p>Specification for the boot disk that will be attached to the node.</p> 
+nodeTemplate.<br>bootDiskSpec.<br>diskTypeId | **string**<br><p>ID of the disk type.</p> <p>Value must match the regular expression `` \|network-ssd\|network-hdd ``.</p> 
+nodeTemplate.<br>bootDiskSpec.<br>diskSize | **string** (int64)<br><p>Size of the disk, specified in bytes.</p> <p>Acceptable values are 0 to 4398046511104, inclusive.</p> 
+nodeTemplate.<br>metadata | **object**<br><p>The metadata as `key:value` pairs assigned to this instance template. This includes custom metadata and predefined keys.</p> <p>For example, you may use the metadata in order to provide your public SSH key to the node. For more information, see <a href="/docs/compute/concepts/vm-metadata">Metadata</a>.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression `` [a-z][-_0-9a-z]* ``. The maximum string length in characters for each value is 131072.</p> 
+nodeTemplate.<br>v4AddressSpec | **object**<br><p>Specification for the create network interfaces for the node group compute instances. Deprecated, please use network_interface_specs.</p> 
+nodeTemplate.<br>v4AddressSpec.<br>oneToOneNatSpec | **object**<br><p>One-to-one NAT configuration. Setting up one-to-one NAT ensures that public IP addresses are assigned to nodes, and therefore internet is accessible for all nodes of the node group. If the field is not set, NAT will not be set up.</p> 
+nodeTemplate.<br>v4AddressSpec.<br>oneToOneNatSpec.<br>ipVersion | **string**<br><p>IP version for the public IP address.</p> <ul> <li>IPV4: IPv4 address, for example 192.168.0.0.</li> <li>IPV6: IPv6 address, not available yet.</li> </ul> 
+nodeTemplate.<br>schedulingPolicy | **object**<br><p>Scheduling policy configuration.</p> 
+nodeTemplate.<br>schedulingPolicy.<br>preemptible | **boolean** (boolean)<br><p>True for preemptible compute instances. Default value is false. Preemptible compute instances are stopped at least once every 24 hours, and can be stopped at any time if their resources are needed by Compute. For more information, see <a href="/docs/compute/concepts/preemptible-vm">Preemptible Virtual Machines</a>.</p> 
+nodeTemplate.<br>networkInterfaceSpecs[] | **object**<br><p>New api, to specify network interfaces for the node group compute instances. Can not be used together with 'v4_address_spec'</p> 
+nodeTemplate.<br>networkInterfaceSpecs[].<br>subnetIds[] | **string**<br><p>IDs of the subnets.</p> 
+nodeTemplate.<br>networkInterfaceSpecs[].<br>primaryV4AddressSpec | **object**<br><p>Primary IPv4 address that is assigned to the instance for this network interface.</p> 
+nodeTemplate.<br>networkInterfaceSpecs[].<br>primaryV4AddressSpec.<br>oneToOneNatSpec | **object**<br><p>One-to-one NAT configuration. Setting up one-to-one NAT ensures that public IP addresses are assigned to nodes, and therefore internet is accessible for all nodes of the node group. If the field is not set, NAT will not be set up.</p> 
+nodeTemplate.<br>networkInterfaceSpecs[].<br>primaryV4AddressSpec.<br>oneToOneNatSpec.<br>ipVersion | **string**<br><p>IP version for the public IP address.</p> <ul> <li>IPV4: IPv4 address, for example 192.168.0.0.</li> <li>IPV6: IPv6 address, not available yet.</li> </ul> 
+nodeTemplate.<br>networkInterfaceSpecs[].<br>primaryV6AddressSpec | **object**<br><p>Primary IPv6 address that is assigned to the instance for this network interface.</p> 
+nodeTemplate.<br>networkInterfaceSpecs[].<br>primaryV6AddressSpec.<br>oneToOneNatSpec | **object**<br><p>One-to-one NAT configuration. Setting up one-to-one NAT ensures that public IP addresses are assigned to nodes, and therefore internet is accessible for all nodes of the node group. If the field is not set, NAT will not be set up.</p> 
+nodeTemplate.<br>networkInterfaceSpecs[].<br>primaryV6AddressSpec.<br>oneToOneNatSpec.<br>ipVersion | **string**<br><p>IP version for the public IP address.</p> <ul> <li>IPV4: IPv4 address, for example 192.168.0.0.</li> <li>IPV6: IPv6 address, not available yet.</li> </ul> 
+nodeTemplate.<br>networkInterfaceSpecs[].<br>securityGroupIds[] | **string**<br><p>IDs of security groups.</p> 
+nodeTemplate.<br>placementPolicy | **object**<br>
+nodeTemplate.<br>placementPolicy.<br>placementGroupId | **string**<br><p>Identifier of placement group</p> 
+scalePolicy | **object**<br><p>Scale policy of the node group.  For more information, see <a href="/docs/compute/concepts/instance-groups/policies#scale-policy">Scaling policy</a>.</p> 
+scalePolicy.<br>fixedScale | **object**<br>Fixed scale policy of the node group. <br>`scalePolicy` includes only one of the fields `fixedScale`, `autoScale`<br><br>
+scalePolicy.<br>fixedScale.<br>size | **string** (int64)<br><p>Number of nodes in the node group.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+scalePolicy.<br>autoScale | **object**<br>Auto scale policy of the node group. <br>`scalePolicy` includes only one of the fields `fixedScale`, `autoScale`<br><br>
+scalePolicy.<br>autoScale.<br>minSize | **string** (int64)<br><p>Minimum number of nodes in the node group.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+scalePolicy.<br>autoScale.<br>maxSize | **string** (int64)<br><p>Maximum number of nodes in the node group.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+scalePolicy.<br>autoScale.<br>initialSize | **string** (int64)<br><p>Initial number of nodes in the node group.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+allocationPolicy | **object**<br><p>Allocation policy by which resources for node group are allocated to zones and regions.</p> 
+allocationPolicy.<br>locations[] | **object**<br><p>List of locations where resources for the node group will be allocated.</p> 
+allocationPolicy.<br>locations[].<br>zoneId | **string**<br><p>Required. ID of the availability zone where the nodes may reside.</p> 
+allocationPolicy.<br>locations[].<br>subnetId | **string**<br><p>ID of the subnet. If a network chosen for the Kubernetes cluster has only one subnet in the specified zone, subnet ID may be omitted.</p> 
+deployPolicy | **object**<br><p>Deploy policy according to which the updates are rolled out.</p> 
+deployPolicy.<br>maxUnavailable | **string** (int64)<br><p>The maximum number of running instances that can be taken offline (i.e., stopped or deleted) at the same time during the update process. If `maxExpansion` is not specified or set to zero, `maxUnavailable` must be set to a non-zero value.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+deployPolicy.<br>maxExpansion | **string** (int64)<br><p>The maximum number of instances that can be temporarily allocated above the group's target size during the update process. If `maxUnavailable` is not specified or set to zero, `maxExpansion` must be set to a non-zero value.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+instanceGroupId | **string**<br><p>ID of the managed instance group associated with this node group.</p> 
+nodeVersion | **string**<br><p>Version of Kubernetes components that runs on the nodes. Deprecated. Use version_info.current_version.</p> 
+versionInfo | **object**<br><p>Detailed information about the Kubernetes version that is running on the node.</p> 
+versionInfo.<br>currentVersion | **string**<br><p>Current Kubernetes version, format: major.minor (e.g. 1.15).</p> 
+versionInfo.<br>newRevisionAvailable | **boolean** (boolean)<br><p>Newer revisions may include Kubernetes patches (e.g 1.15.1 -&gt; 1.15.2) as well as some internal component updates - new features or bug fixes in Yandex specific components either on the master or nodes.</p> 
+versionInfo.<br>newRevisionSummary | **string**<br><p>Description of the changes to be applied when updating to the latest revision. Empty if new_revision_available is false.</p> 
+versionInfo.<br>versionDeprecated | **boolean** (boolean)<br><p>The current version is on the deprecation schedule, component (master or node group) should be upgraded.</p> 
+maintenancePolicy | **object**<br><p>Maintenance policy of the node group.</p> 
+maintenancePolicy.<br>autoUpgrade | **boolean** (boolean)<br><p>If set to true, automatic updates are installed in the specified period of time with no interaction from the user. If set to false, automatic upgrades are disabled.</p> 
+maintenancePolicy.<br>autoRepair | **boolean** (boolean)<br><p>If set to true, automatic repairs are enabled. Default value is false.</p> 
+maintenancePolicy.<br>maintenanceWindow | **object**<br><p>Maintenance window settings. Update will start at the specified time and last no more than the specified duration. The time is set in UTC.</p> 
+maintenancePolicy.<br>maintenanceWindow.<br>anytime | **object**<br>Updating the master at any time. <br>`maintenancePolicy.maintenanceWindow` includes only one of the fields `anytime`, `dailyMaintenanceWindow`, `weeklyMaintenanceWindow`<br><br>
+maintenancePolicy.<br>maintenanceWindow.<br>dailyMaintenanceWindow | **object**<br>Updating the master on any day during the specified time window. <br>`maintenancePolicy.maintenanceWindow` includes only one of the fields `anytime`, `dailyMaintenanceWindow`, `weeklyMaintenanceWindow`<br><br>
+maintenancePolicy.<br>maintenanceWindow.<br>dailyMaintenanceWindow.<br>startTime | **object**<br><p>Required. Window start time, in the UTC timezone.</p> <p>Represents a time of day. The date and time zone are either not significant or are specified elsewhere. An API may choose to allow leap seconds. Related types are <a href="https://github.com/googleapis/googleapis/blob/master/google/type/date.proto">google.type.Date</a> and <a href="https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto">google.protobuf.Timestamp</a>.</p> 
+maintenancePolicy.<br>maintenanceWindow.<br>dailyMaintenanceWindow.<br>startTime.<br>hours | **integer** (int32)<br><p>Hours of day in 24 hour format. Should be from 0 to 23. An API may choose to allow the value &quot;24:00:00&quot; for scenarios like business closing time.</p> 
+maintenancePolicy.<br>maintenanceWindow.<br>dailyMaintenanceWindow.<br>startTime.<br>minutes | **integer** (int32)<br><p>Minutes of hour of day. Must be from 0 to 59.</p> 
+maintenancePolicy.<br>maintenanceWindow.<br>dailyMaintenanceWindow.<br>startTime.<br>seconds | **integer** (int32)<br><p>Seconds of minutes of the time. Must normally be from 0 to 59. An API may allow the value 60 if it allows leap-seconds.</p> 
+maintenancePolicy.<br>maintenanceWindow.<br>dailyMaintenanceWindow.<br>startTime.<br>nanos | **integer** (int32)<br><p>Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.</p> 
+maintenancePolicy.<br>maintenanceWindow.<br>dailyMaintenanceWindow.<br>duration | **string**<br><p>Window duration.</p> <p>Acceptable values are 3600 seconds to 86400 seconds, inclusive.</p> 
+maintenancePolicy.<br>maintenanceWindow.<br>weeklyMaintenanceWindow | **object**<br>Updating the master on selected days during the specified time window. <br>`maintenancePolicy.maintenanceWindow` includes only one of the fields `anytime`, `dailyMaintenanceWindow`, `weeklyMaintenanceWindow`<br><br>
+maintenancePolicy.<br>maintenanceWindow.<br>weeklyMaintenanceWindow.<br>daysOfWeek[] | **object**<br><p>Required. Days of the week and the maintenance window for these days when automatic updates are allowed.</p> <p>The number of elements must be in the range 1-7.</p> 
 maintenancePolicy.<br>maintenanceWindow.<br>weeklyMaintenanceWindow.<br>daysOfWeek[].<br>days[] | **string**<br><p>Represents a day of week.</p> <ul> <li>DAY_OF_WEEK_UNSPECIFIED: The unspecified day-of-week.</li> <li>MONDAY: The day-of-week of Monday.</li> <li>TUESDAY: The day-of-week of Tuesday.</li> <li>WEDNESDAY: The day-of-week of Wednesday.</li> <li>THURSDAY: The day-of-week of Thursday.</li> <li>FRIDAY: The day-of-week of Friday.</li> <li>SATURDAY: The day-of-week of Saturday.</li> <li>SUNDAY: The day-of-week of Sunday.</li> </ul> 
-maintenancePolicy.<br>maintenanceWindow.<br>weeklyMaintenanceWindow.<br>daysOfWeek[].<br>startTime | **object**<br><p>Обязательное поле. Время начала окна обновлений, указывается в часовом поясе UTC.</p> <p>Время суток. Дата и часовой пояс либо не учитываются, либо задаются в других местах.</p> <p>API может разрешить использование високосной секунды.</p> <p>Связанные типы: <a href="https://github.com/googleapis/googleapis/blob/master/google/type/date.proto">google.type.Date</a> и <a href="https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto">google.protobuf.Timestamp</a>.</p> 
-maintenancePolicy.<br>maintenanceWindow.<br>weeklyMaintenanceWindow.<br>daysOfWeek[].<br>startTime.<br>hours | **integer** (int32)<br><p>Часы. Допустимые значения: от 0 до 23.</p> <p>API может разрешить использовать значение в формате &quot;24:00:00&quot; в требующих этого сценариях (например, для указания времени закрытия учреждения).</p> 
-maintenancePolicy.<br>maintenanceWindow.<br>weeklyMaintenanceWindow.<br>daysOfWeek[].<br>startTime.<br>minutes | **integer** (int32)<br><p>Минуты. Допустимые значения: от 0 до 59.</p> 
-maintenancePolicy.<br>maintenanceWindow.<br>weeklyMaintenanceWindow.<br>daysOfWeek[].<br>startTime.<br>seconds | **integer** (int32)<br><p>Секунды. Стандартные допустимые значения: от 0 до 59.</p> <p>API может разрешить использовать значение 60, если также разрешено использование високосной секунды.</p> 
-maintenancePolicy.<br>maintenanceWindow.<br>weeklyMaintenanceWindow.<br>daysOfWeek[].<br>startTime.<br>nanos | **integer** (int32)<br><p>Доли секунды (в наносекундах). Допустимые значения: от 0 до 999999999.</p> 
-maintenancePolicy.<br>maintenanceWindow.<br>weeklyMaintenanceWindow.<br>daysOfWeek[].<br>duration | **string**<br><p>Длительность окна обновлений.</p> <p>Допустимые значения — от 3600 seconds до 86400 seconds включительно.</p> 
-allowedUnsafeSysctls[] | **string**<br><p>Поддержка параметров unsafe sysctl. Дополнительные сведения см. в <a href="https://kubernetes.io/docs/tasks/administer-cluster/sysctl-cluster/">documentation</a>.</p> 
+maintenancePolicy.<br>maintenanceWindow.<br>weeklyMaintenanceWindow.<br>daysOfWeek[].<br>startTime | **object**<br><p>Required. Window start time, in the UTC timezone.</p> <p>Represents a time of day. The date and time zone are either not significant or are specified elsewhere. An API may choose to allow leap seconds. Related types are <a href="https://github.com/googleapis/googleapis/blob/master/google/type/date.proto">google.type.Date</a> and <a href="https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto">google.protobuf.Timestamp</a>.</p> 
+maintenancePolicy.<br>maintenanceWindow.<br>weeklyMaintenanceWindow.<br>daysOfWeek[].<br>startTime.<br>hours | **integer** (int32)<br><p>Hours of day in 24 hour format. Should be from 0 to 23. An API may choose to allow the value &quot;24:00:00&quot; for scenarios like business closing time.</p> 
+maintenancePolicy.<br>maintenanceWindow.<br>weeklyMaintenanceWindow.<br>daysOfWeek[].<br>startTime.<br>minutes | **integer** (int32)<br><p>Minutes of hour of day. Must be from 0 to 59.</p> 
+maintenancePolicy.<br>maintenanceWindow.<br>weeklyMaintenanceWindow.<br>daysOfWeek[].<br>startTime.<br>seconds | **integer** (int32)<br><p>Seconds of minutes of the time. Must normally be from 0 to 59. An API may allow the value 60 if it allows leap-seconds.</p> 
+maintenancePolicy.<br>maintenanceWindow.<br>weeklyMaintenanceWindow.<br>daysOfWeek[].<br>startTime.<br>nanos | **integer** (int32)<br><p>Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.</p> 
+maintenancePolicy.<br>maintenanceWindow.<br>weeklyMaintenanceWindow.<br>daysOfWeek[].<br>duration | **string**<br><p>Window duration.</p> <p>Acceptable values are 3600 seconds to 86400 seconds, inclusive.</p> 
+allowedUnsafeSysctls[] | **string**<br><p>Support for unsafe sysctl parameters. For more details see <a href="https://kubernetes.io/docs/tasks/administer-cluster/sysctl-cluster/">documentation</a>.</p> 
+nodeTaints[] | **object**<br><p>Taints that are applied to the nodes of the node group at creation time.</p> 
+nodeTaints[].<br>key | **string**<br><p>The taint key to be applied to a node.</p> 
+nodeTaints[].<br>value | **string**<br><p>The taint value corresponding to the taint key.</p> 
+nodeTaints[].<br>effect | **string**<br><p>The effect of the taint on pods that do not tolerate the taint.</p> <ul> <li>NO_SCHEDULE: Do not allow new pods to schedule onto the node unless they tolerate the taint, but allow all pods submitted to Kubelet without going through the scheduler to start, and allow all already-running pods to continue running.</li> <li>PREFER_NO_SCHEDULE: Like NO_SCHEDULE, but the scheduler tries not to schedule new pods onto the node, rather than prohibiting new pods from scheduling onto the node entirely. Enforced by the scheduler.</li> <li>NO_EXECUTE: Evict any already-running pods that do not tolerate the taint.</li> </ul> 
+nodeLabels | **object**<br><p>Labels that are assigned to the nodes of the node group at creation time.</p> 
 
-## Методы {#methods}
-Метод | Описание
+## Methods {#methods}
+Method | Description
 --- | ---
-[create](create.md) | Создает группу узлов в указанном кластере Kubernetes.
-[delete](delete.md) | Удаляет указанную группу узлов.
-[get](get.md) | Возвращает указанную группу узлов.
-[list](list.md) | Возвращает список групп узлов в указанном кластере Kubernetes.
-[listOperations](listOperations.md) | Возвращает список операций для указанной группы узлов.
-[update](update.md) | Изменяет указанную группу узлов.
+[create](create.md) | Creates a node group in the specified Kubernetes cluster.
+[delete](delete.md) | Deletes the specified node group.
+[get](get.md) | Returns the specified node group.
+[list](list.md) | Retrieves the list of node group in the specified Kubernetes cluster.
+[listNodes](listNodes.md) | Retrieves the list of nodes in the specified Kubernetes cluster.
+[listOperations](listOperations.md) | Lists operations for the specified node group.
+[update](update.md) | Updates the specified node group.

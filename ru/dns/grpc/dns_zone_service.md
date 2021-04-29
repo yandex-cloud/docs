@@ -4,59 +4,59 @@ editable: false
 
 # DnsZoneService
 
-Набор методов для управления зонами DNS.
+A set of methods for managing DNS zones.
 
-| Вызов | Описание |
+| Call | Description |
 | --- | --- |
-| [Get](#Get) | Возвращает указанную зону DNS. |
-| [List](#List) | Возвращает список зон DNS в указанном каталоге. |
-| [Create](#Create) | Создает зону DNS в указанном каталоге. |
-| [Update](#Update) | Обновляет указанную зону DNS. |
-| [Delete](#Delete) | Удаляет указанную зону DNS. |
-| [GetRecordSet](#GetRecordSet) | Возвращает указанный набор записей. |
-| [ListRecordSets](#ListRecordSets) | Возвращает список наборов записей в указанном каталоге. |
-| [UpdateRecordSets](#UpdateRecordSets) | Метод со строгим контролем за изменением состояния зоны. |
-| [UpsertRecordSets](#UpsertRecordSets) | Метод без строгого контроля за изменением состояния зоны. |
-| [ListOperations](#ListOperations) | Возвращает список операций для указанной зоны DNS. |
-| [ListAccessBindings](#ListAccessBindings) | Возвращает список привязок прав доступа для указанной зоны DNS. |
-| [SetAccessBindings](#SetAccessBindings) | Задает список привязок прав доступа для указанной зоны DNS. |
-| [UpdateAccessBindings](#UpdateAccessBindings) | Обновляет привязки прав доступа для указанной зоны DNS. |
+| [Get](#Get) | Returns the specified DNS zone. |
+| [List](#List) | Retrieves the list of DNS zones in the specified folder. |
+| [Create](#Create) | Creates a DNS zone in the specified folder. |
+| [Update](#Update) | Updates the specified DNS zone. |
+| [Delete](#Delete) | Deletes the specified DNS zone. |
+| [GetRecordSet](#GetRecordSet) | Returns the specified record set. |
+| [ListRecordSets](#ListRecordSets) | Retrieves the list of record sets in the specified folder. |
+| [UpdateRecordSets](#UpdateRecordSets) | Method with strict control for changing zone state. |
+| [UpsertRecordSets](#UpsertRecordSets) | Method without strict control for changing zone state. |
+| [ListOperations](#ListOperations) | Lists operations for the specified DNS zone. |
+| [ListAccessBindings](#ListAccessBindings) | Lists existing access bindings for the specified DNS zone. |
+| [SetAccessBindings](#SetAccessBindings) | Sets access bindings for the specified DNS zone. |
+| [UpdateAccessBindings](#UpdateAccessBindings) | Updates access bindings for the specified DNS zone. |
 
-## Вызовы DnsZoneService {#calls}
+## Calls DnsZoneService {#calls}
 
 ## Get {#Get}
 
-Возвращает указанную зону DNS. <br>Чтобы получить список доступных зон, используйте запрос [List](#List).
+Returns the specified DNS zone. <br>To get the list of all available DNS zones, make a [List](#List) request.
 
 **rpc Get ([GetDnsZoneRequest](#GetDnsZoneRequest)) returns ([DnsZone](#DnsZone))**
 
 ### GetDnsZoneRequest {#GetDnsZoneRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-dns_zone_id | **string**<br>Обязательное поле. Идентификатор возвращаемой зоны DNS. <br>Чтобы получить идентификатор зоны DNS, выполните запрос [DnsZoneService.List](#List). 
+dns_zone_id | **string**<br>Required. ID of the DNS zone to return. <br>To get a DNS zone ID, make a [DnsZoneService.List](#List) request. 
 
 
 ### DnsZone {#DnsZone}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор зоны DNS. Генерируется при создании. 
-folder_id | **string**<br>Идентификатор каталога, которому принадлежит зона DNS. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса. 
-name | **string**<br>Имя зоны DNS. Имя должно быть уникальным в каталоге. 
-description | **string**<br>Описание зоны DNS. 
-labels | **map<string,string>**<br>Метки зон DNS в формате `key:value`. 
-zone | **string**<br>Суффикс зоны DNS. 
-private_visibility | **[PrivateVisibility](#PrivateVisibility)**<br>Настройки внутренней зоны. Указывают, будут ли записи в зоне видны только из сетей VPC. 
-public_visibility | **[PublicVisibility](#PublicVisibility)**<br>Настройки публичной зоны. Указывают, являются ли записи в пределах зоны публичными. 
+id | **string**<br>ID of the DNS zone. Generated at creation time. 
+folder_id | **string**<br>ID of the folder that the DNS zone belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+name | **string**<br>Name of the DNS zone. The name is unique within the folder. 
+description | **string**<br>Description of the DNS zone. 
+labels | **map<string,string>**<br>DNS zone labels as `key:value` pairs. 
+zone | **string**<br>DNS zone suffix. 
+private_visibility | **[PrivateVisibility](#PrivateVisibility)**<br>Privately visible zone settings. Specifies whether records within the zone are visible from a VPC networks only. 
+public_visibility | **[PublicVisibility](#PublicVisibility)**<br>Publicly visible zone settings. Indicates whether records within the zone are publicly visible. 
 
 
 ### PrivateVisibility {#PrivateVisibility}
 
-Поле | Описание
+Field | Description
 --- | ---
-network_ids[] | **string**<br>Идентификаторы сетей. Количество элементов должно находиться в диапазоне от 0 до 10. Длина строки в символах должна быть равна 20.
+network_ids[] | **string**<br>Network IDs. The number of elements must be in the range 0-10. The string length in characters for each value must be equal to 20.
 
 
 ### PublicVisibility {#PublicVisibility}
@@ -65,48 +65,48 @@ network_ids[] | **string**<br>Идентификаторы сетей. Коли�
 
 ## List {#List}
 
-Возвращает список зон DNS в указанном каталоге.
+Retrieves the list of DNS zones in the specified folder.
 
 **rpc List ([ListDnsZonesRequest](#ListDnsZonesRequest)) returns ([ListDnsZonesResponse](#ListDnsZonesResponse))**
 
 ### ListDnsZonesRequest {#ListDnsZonesRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-folder_id | **string**<br>Обязательное поле. Идентификатор каталога для получения списка зон DNS. <br>Чтобы получить идентификатор каталога, используйте запрос [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List). 
-page_size | **int64**<br>Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем `page_size`, сервис вернет значение [ListDnsZonesResponse.next_page_token](#ListDnsZonesResponse), которое можно использовать для получения следующей страницы. Максимальное значение — 1000.
-page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListDnsZonesResponse.next_page_token](#ListDnsZonesResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 1000.
-filter | **string**<br><ol><li>Имя поля. Фильтрация осуществляется только по полю [DnsZone.name](#DnsZone1). </li><li>Оператор. Поддерживаются операторы `=` и `!=` для одиночных значений, `IN` и `NOT IN` для списков значений. </li><li>Значение или списки значений. Значение длиной от 3 до 63 символов, совпадающее с регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]`. Пример фильтра: `name=my-dns-zone`.</li></ol> Максимальная длина строки в символах — 1000.
+folder_id | **string**<br>Required. ID of the folder to list DNS zones in. <br>To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. 
+page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListDnsZonesResponse.next_page_token](#ListDnsZonesResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
+page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListDnsZonesResponse.next_page_token](#ListDnsZonesResponse) returned by a previous list request. The maximum string length in characters is 1000.
+filter | **string**<br><ol><li>The field name. Currently you can use filtering only on the [DnsZone.name](#DnsZone1) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value or lists of values. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]`. </li></ol> The maximum string length in characters is 1000.
 
 
 ### ListDnsZonesResponse {#ListDnsZonesResponse}
 
-Поле | Описание
+Field | Description
 --- | ---
-dns_zones[] | **[DnsZone](#DnsZone1)**<br>Зоны DNS в указанном каталоге. 
-next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListDnsZonesRequest.page_size](#ListDnsZonesRequest), используйте `next_page_token` в качестве значения параметра [ListDnsZonesRequest.page_token](#ListDnsZonesRequest) в следующем запросе списка ресурсов. <br>Каждая следующая страница будет иметь свой `next_page_token` для продолжения перебора страниц результатов. 
+dns_zones[] | **[DnsZone](#DnsZone1)**<br>List of DNS zones in the specified folder. 
+next_page_token | **string**<br>Token for getting the next page of the list. If the number of results is greater than the specified [ListDnsZonesRequest.page_size](#ListDnsZonesRequest), use `next_page_token` as the value for the [ListDnsZonesRequest.page_token](#ListDnsZonesRequest) parameter in the next list request. <br>Each subsequent page will have its own `next_page_token` to continue paging through the results. 
 
 
 ### DnsZone {#DnsZone1}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор зоны DNS. Генерируется при создании. 
-folder_id | **string**<br>Идентификатор каталога, которому принадлежит зона DNS. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса. 
-name | **string**<br>Имя зоны DNS. Имя должно быть уникальным в каталоге. 
-description | **string**<br>Описание зоны DNS. 
-labels | **map<string,string>**<br>Метки зон DNS в формате `key:value`. 
-zone | **string**<br>Суффикс зоны DNS. 
-private_visibility | **[PrivateVisibility](#PrivateVisibility1)**<br>Настройки внутренней зоны. Указывают, будут ли записи в зоне видны только из сетей VPC. 
-public_visibility | **[PublicVisibility](#PublicVisibility1)**<br>Настройки публичной зоны. Указывают, являются ли записи в пределах зоны публичными. 
+id | **string**<br>ID of the DNS zone. Generated at creation time. 
+folder_id | **string**<br>ID of the folder that the DNS zone belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+name | **string**<br>Name of the DNS zone. The name is unique within the folder. 
+description | **string**<br>Description of the DNS zone. 
+labels | **map<string,string>**<br>DNS zone labels as `key:value` pairs. 
+zone | **string**<br>DNS zone suffix. 
+private_visibility | **[PrivateVisibility](#PrivateVisibility1)**<br>Privately visible zone settings. Specifies whether records within the zone are visible from a VPC networks only. 
+public_visibility | **[PublicVisibility](#PublicVisibility1)**<br>Publicly visible zone settings. Indicates whether records within the zone are publicly visible. 
 
 
 ### PrivateVisibility {#PrivateVisibility1}
 
-Поле | Описание
+Field | Description
 --- | ---
-network_ids[] | **string**<br>Идентификаторы сетей. Количество элементов должно находиться в диапазоне от 0 до 10. Длина строки в символах должна быть равна 20.
+network_ids[] | **string**<br>Network IDs. The number of elements must be in the range 0-10. The string length in characters for each value must be equal to 20.
 
 
 ### PublicVisibility {#PublicVisibility1}
@@ -115,32 +115,32 @@ network_ids[] | **string**<br>Идентификаторы сетей. Коли�
 
 ## Create {#Create}
 
-Создает зону DNS в указанном каталоге.
+Creates a DNS zone in the specified folder.
 
 **rpc Create ([CreateDnsZoneRequest](#CreateDnsZoneRequest)) returns ([operation.Operation](#Operation))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateDnsZoneMetadata](#CreateDnsZoneMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[DnsZone](#DnsZone2)<br>
 
 ### CreateDnsZoneRequest {#CreateDnsZoneRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-folder_id | **string**<br>Обязательное поле. Идентификатор каталога для получения списка зон DNS. <br>Чтобы получить идентификатор каталога, используйте запрос [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List). Максимальная длина строки в символах — 50.
-name | **string**<br>Имя зоны DNS. Имя должно быть уникальным в каталоге. Значение должно соответствовать регулярному выражению ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
-description | **string**<br>Описание зоны DNS. Максимальная длина строки в символах — 256.
-labels | **map<string,string>**<br>Метки зон DNS в формате `key:value`. Не более 64 на ресурс. Максимальная длина строки в символах для каждого значения — 63. Каждое значение должно соответствовать регулярному выражению ` [-_./\\@0-9a-z]* `. Длина строки в символах для каждого ключа должна быть от 1 до 63. Каждый ключ должен соответствовать регулярному выражению ` [a-z][-_./\\@0-9a-z]* `.
-zone | **string**<br>Обязательное поле. Суффикс зоны DNS. Максимальная длина строки в символах — 255. Значение должно соответствовать регулярному выражению ` [.]|[a-z0-9][-a-z0-9.]*\\. `.
-private_visibility | **[PrivateVisibility](#PrivateVisibility2)**<br>Настройки внутренней зоны. Должно быть указано хотя бы одно из двух полей настроек видимости. 
-public_visibility | **[PublicVisibility](#PublicVisibility2)**<br>Настройки публичной зоны. Должно быть указано хотя бы одно из двух полей настроек видимости. 
+folder_id | **string**<br>Required. ID of the folder to create DNS zones in. <br>To get a folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. The maximum string length in characters is 50.
+name | **string**<br>Name of the DNS zone. The name must be unique within the folder. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
+description | **string**<br>Description of the DNS zone. The maximum string length in characters is 256.
+labels | **map<string,string>**<br>DNS zone labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
+zone | **string**<br>Required. DNS zone suffix. The maximum string length in characters is 255. Value must match the regular expression ` [.]|[a-z0-9][-a-z0-9.]*\\. `.
+private_visibility | **[PrivateVisibility](#PrivateVisibility2)**<br>Privately visible zone settings. At least one of two visibility fields must be set. 
+public_visibility | **[PublicVisibility](#PublicVisibility2)**<br>Publicly visible zone settings. At least one of two visibility fields must be set. 
 
 
 ### PrivateVisibility {#PrivateVisibility2}
 
-Поле | Описание
+Field | Description
 --- | ---
-network_ids[] | **string**<br>Идентификаторы сетей. Количество элементов должно находиться в диапазоне от 0 до 10. Длина строки в символах должна быть равна 20.
+network_ids[] | **string**<br>Network IDs. The number of elements must be in the range 0-10. The string length in characters for each value must be equal to 20.
 
 
 ### PublicVisibility {#PublicVisibility2}
@@ -149,47 +149,47 @@ network_ids[] | **string**<br>Идентификаторы сетей. Коли�
 
 ### Operation {#Operation}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateDnsZoneMetadata](#CreateDnsZoneMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DnsZone](#DnsZone2)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateDnsZoneMetadata](#CreateDnsZoneMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DnsZone](#DnsZone2)>**<br>if operation finished successfully. 
 
 
 ### CreateDnsZoneMetadata {#CreateDnsZoneMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-dns_zone_id | **string**<br>Идентификатор создаваемой зоны DNS. 
+dns_zone_id | **string**<br>ID of the DNS zone that is being created. 
 
 
 ### DnsZone {#DnsZone2}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор зоны DNS. Генерируется при создании. 
-folder_id | **string**<br>Идентификатор каталога, которому принадлежит зона DNS. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса. 
-name | **string**<br>Имя зоны DNS. Имя должно быть уникальным в каталоге. 
-description | **string**<br>Описание зоны DNS. 
-labels | **map<string,string>**<br>Метки зон DNS в формате `key:value`. 
-zone | **string**<br>Суффикс зоны DNS. 
-private_visibility | **[PrivateVisibility](#PrivateVisibility3)**<br>Настройки внутренней зоны. Указывают, будут ли записи в зоне видны только из сетей VPC. 
-public_visibility | **[PublicVisibility](#PublicVisibility3)**<br>Настройки публичной зоны. Указывают, являются ли записи в пределах зоны публичными. 
+id | **string**<br>ID of the DNS zone. Generated at creation time. 
+folder_id | **string**<br>ID of the folder that the DNS zone belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+name | **string**<br>Name of the DNS zone. The name is unique within the folder. 
+description | **string**<br>Description of the DNS zone. 
+labels | **map<string,string>**<br>DNS zone labels as `key:value` pairs. 
+zone | **string**<br>DNS zone suffix. 
+private_visibility | **[PrivateVisibility](#PrivateVisibility3)**<br>Privately visible zone settings. Specifies whether records within the zone are visible from a VPC networks only. 
+public_visibility | **[PublicVisibility](#PublicVisibility3)**<br>Publicly visible zone settings. Indicates whether records within the zone are publicly visible. 
 
 
 ### PrivateVisibility {#PrivateVisibility3}
 
-Поле | Описание
+Field | Description
 --- | ---
-network_ids[] | **string**<br>Идентификаторы сетей. Количество элементов должно находиться в диапазоне от 0 до 10. Длина строки в символах должна быть равна 20.
+network_ids[] | **string**<br>Network IDs. The number of elements must be in the range 0-10. The string length in characters for each value must be equal to 20.
 
 
 ### PublicVisibility {#PublicVisibility3}
@@ -198,32 +198,32 @@ network_ids[] | **string**<br>Идентификаторы сетей. Коли�
 
 ## Update {#Update}
 
-Обновляет указанную зону DNS.
+Updates the specified DNS zone.
 
 **rpc Update ([UpdateDnsZoneRequest](#UpdateDnsZoneRequest)) returns ([operation.Operation](#Operation1))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateDnsZoneMetadata](#UpdateDnsZoneMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[DnsZone](#DnsZone3)<br>
 
 ### UpdateDnsZoneRequest {#UpdateDnsZoneRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-dns_zone_id | **string**<br>Идентификатор обновляемой зоны DNS. <br>Чтобы получить идентификатор зоны DNS, выполните запрос [DnsZoneService.List](#List). Длина строки в символах должна быть равна 20.
-update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Маска поля, указывающая, какие поля ресурса DnsZone будут обновлены. 
-name | **string**<br>Новое имя для зоны DNS. Имя должно быть уникальным в каталоге. Значение должно соответствовать регулярному выражению ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
-description | **string**<br>Новое описание зоны DNS. Максимальная длина строки в символах — 256.
-labels | **map<string,string>**<br><ol><li>Запросите текущий набор меток с помощью запроса [DnsZoneService.Get](#Get). </li><li>Добавьте или удалите метку в этом наборе. </li><li>Отправьте новый набор в этом поле.</li></ol> Не более 64 на ресурс. Максимальная длина строки в символах для каждого значения — 63. Каждое значение должно соответствовать регулярному выражению ` [-_./\\@0-9a-z]* `. Длина строки в символах для каждого ключа должна быть от 1 до 63. Каждый ключ должен соответствовать регулярному выражению ` [a-z][-_./\\@0-9a-z]* `.
-private_visibility | **[PrivateVisibility](#PrivateVisibility4)**<br>Новые идентификаторы сетей для внутренних зон. 
-public_visibility | **[PublicVisibility](#PublicVisibility4)**<br>Конфигурация публичной видимости зоны. 
+dns_zone_id | **string**<br>ID of the DNS zone to update. <br>To get the DNS zone ID, make a [DnsZoneService.List](#List) request. The string length in characters must be equal to 20.
+update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask specifying which fields of the DNS zone resource are going to be updated. 
+name | **string**<br>New name for the DNS zone. The name must be unique within the folder. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
+description | **string**<br>New description of the DNS zone. The maximum string length in characters is 256.
+labels | **map<string,string>**<br><ol><li>Get the current set of labels with a [DnsZoneService.Get](#Get) request. </li><li>Add or remove a label in this set. </li><li>Send the new set in this field.</li></ol> No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
+private_visibility | **[PrivateVisibility](#PrivateVisibility4)**<br>Change network IDs for private visibility. 
+public_visibility | **[PublicVisibility](#PublicVisibility4)**<br>Public visibility configuration. 
 
 
 ### PrivateVisibility {#PrivateVisibility4}
 
-Поле | Описание
+Field | Description
 --- | ---
-network_ids[] | **string**<br>Идентификаторы сетей. Количество элементов должно находиться в диапазоне от 0 до 10. Длина строки в символах должна быть равна 20.
+network_ids[] | **string**<br>Network IDs. The number of elements must be in the range 0-10. The string length in characters for each value must be equal to 20.
 
 
 ### PublicVisibility {#PublicVisibility4}
@@ -232,47 +232,47 @@ network_ids[] | **string**<br>Идентификаторы сетей. Коли�
 
 ### Operation {#Operation1}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateDnsZoneMetadata](#UpdateDnsZoneMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DnsZone](#DnsZone3)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateDnsZoneMetadata](#UpdateDnsZoneMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DnsZone](#DnsZone3)>**<br>if operation finished successfully. 
 
 
 ### UpdateDnsZoneMetadata {#UpdateDnsZoneMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-dns_zone_id | **string**<br>Идентификатор обновляемой зоны DNS. 
+dns_zone_id | **string**<br>ID of the DNS zone that is being updated. 
 
 
 ### DnsZone {#DnsZone3}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор зоны DNS. Генерируется при создании. 
-folder_id | **string**<br>Идентификатор каталога, которому принадлежит зона DNS. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса. 
-name | **string**<br>Имя зоны DNS. Имя должно быть уникальным в каталоге. 
-description | **string**<br>Описание зоны DNS. 
-labels | **map<string,string>**<br>Метки зон DNS в формате `key:value`. 
-zone | **string**<br>Суффикс зоны DNS. 
-private_visibility | **[PrivateVisibility](#PrivateVisibility5)**<br>Настройки внутренней зоны. Указывают, будут ли записи в зоне видны только из сетей VPC. 
-public_visibility | **[PublicVisibility](#PublicVisibility5)**<br>Настройки публичной зоны. Указывают, являются ли записи в пределах зоны публичными. 
+id | **string**<br>ID of the DNS zone. Generated at creation time. 
+folder_id | **string**<br>ID of the folder that the DNS zone belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+name | **string**<br>Name of the DNS zone. The name is unique within the folder. 
+description | **string**<br>Description of the DNS zone. 
+labels | **map<string,string>**<br>DNS zone labels as `key:value` pairs. 
+zone | **string**<br>DNS zone suffix. 
+private_visibility | **[PrivateVisibility](#PrivateVisibility5)**<br>Privately visible zone settings. Specifies whether records within the zone are visible from a VPC networks only. 
+public_visibility | **[PublicVisibility](#PublicVisibility5)**<br>Publicly visible zone settings. Indicates whether records within the zone are publicly visible. 
 
 
 ### PrivateVisibility {#PrivateVisibility5}
 
-Поле | Описание
+Field | Description
 --- | ---
-network_ids[] | **string**<br>Идентификаторы сетей. Количество элементов должно находиться в диапазоне от 0 до 10. Длина строки в символах должна быть равна 20.
+network_ids[] | **string**<br>Network IDs. The number of elements must be in the range 0-10. The string length in characters for each value must be equal to 20.
 
 
 ### PublicVisibility {#PublicVisibility5}
@@ -281,146 +281,146 @@ network_ids[] | **string**<br>Идентификаторы сетей. Коли�
 
 ## Delete {#Delete}
 
-Удаляет указанную зону DNS.
+Deletes the specified DNS zone.
 
 **rpc Delete ([DeleteDnsZoneRequest](#DeleteDnsZoneRequest)) returns ([operation.Operation](#Operation2))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[DeleteDnsZoneMetadata](#DeleteDnsZoneMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
 
 ### DeleteDnsZoneRequest {#DeleteDnsZoneRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-dns_zone_id | **string**<br>Идентификатор удаляемой зоны DNS. <br>Чтобы получить идентификатор зоны DNS, выполните запрос [DnsZoneService.List](#List). Длина строки в символах должна быть равна 20.
+dns_zone_id | **string**<br>ID of the DNS zone to delete. <br>To get a DNS zone ID, make a [DnsZoneService.List](#List) request. The string length in characters must be equal to 20.
 
 
 ### Operation {#Operation2}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteDnsZoneMetadata](#DeleteDnsZoneMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteDnsZoneMetadata](#DeleteDnsZoneMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>if operation finished successfully. 
 
 
 ### DeleteDnsZoneMetadata {#DeleteDnsZoneMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-dns_zone_id | **string**<br>Идентификатор удаляемой зоны DNS. 
+dns_zone_id | **string**<br>ID of the DNS zone that is being deleted. 
 
 
 ## GetRecordSet {#GetRecordSet}
 
-Возвращает указанный набор записей.
+Returns the specified record set.
 
 **rpc GetRecordSet ([GetDnsZoneRecordSetRequest](#GetDnsZoneRecordSetRequest)) returns ([RecordSet](#RecordSet))**
 
 ### GetDnsZoneRecordSetRequest {#GetDnsZoneRecordSetRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-dns_zone_id | **string**<br>Идентификатор зоны DNS для получения набора записей. <br>Чтобы получить идентификатор зоны DNS, выполните запрос [DnsZoneService.List](#List). Длина строки в символах должна быть равна 20.
-name | **string**<br>Обязательное поле. Имя набора записей. Максимальная длина строки в символах — 255.
-type | **string**<br>Обязательное поле. Тип набора записей. Максимальная длина строки в символах — 10.
+dns_zone_id | **string**<br>ID of the DNS zone to get record set from. <br>To get a DNS zone ID, make a [DnsZoneService.List](#List) request. The string length in characters must be equal to 20.
+name | **string**<br>Required. Name of the record set. The maximum string length in characters is 255.
+type | **string**<br>Required. Type of the record set. The maximum string length in characters is 10.
 
 
 ### RecordSet {#RecordSet}
 
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br>Доменное имя. Длина строки в символах должна быть от 1 до 254.
-type | **string**<br>Тип записи. Длина строки в символах должна быть от 1 до 20.
-ttl | **int64**<br>Время жизни записи в секундах. Допустимые значения — от 0 до 2147483647 включительно.
-data[] | **string**<br>Значение набора записей. Количество элементов должно находиться в диапазоне от 1 до 100. Длина строки в символах для каждого значения должна быть от 1 до 255.
+name | **string**<br>Domain name. The string length in characters must be 1-254.
+type | **string**<br>Record type. The string length in characters must be 1-20.
+ttl | **int64**<br>Time to live in seconds. Acceptable values are 0 to 2147483647, inclusive.
+data[] | **string**<br>Data of the record set. The number of elements must be in the range 1-100. The string length in characters for each value must be 1-255.
 
 
 ## ListRecordSets {#ListRecordSets}
 
-Возвращает список наборов записей в указанном каталоге.
+Retrieves the list of record sets in the specified folder.
 
 **rpc ListRecordSets ([ListDnsZoneRecordSetsRequest](#ListDnsZoneRecordSetsRequest)) returns ([ListDnsZoneRecordSetsResponse](#ListDnsZoneRecordSetsResponse))**
 
 ### ListDnsZoneRecordSetsRequest {#ListDnsZoneRecordSetsRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-dns_zone_id | **string**<br>Идентификатор зоны DNS для получения списка наборов записей. <br>Чтобы получить идентификатор зоны DNS, выполните запрос [DnsZoneService.List](#List). Длина строки в символах должна быть равна 20.
-page_size | **int64**<br>Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем `page_size`, сервис вернет значение [ListDnsZoneRecordSetsResponse.next_page_token](#ListDnsZoneRecordSetsResponse), которое можно использовать для получения следующей страницы. Максимальное значение — 1000.
-page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListDnsZoneRecordSetsResponse.next_page_token](#ListDnsZoneRecordSetsResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 1000.
-filter | **string**<br><ol><li>Имя поля. В настоящее время вы можете использовать фильтрацию только для полей [RecordSet.name](#RecordSet1) и [RecordSet.type](#RecordSet1) . </li><li>Оператор. Поддерживаются операторы `=` и `!=` для одиночных значений, `IN` и `NOT IN` для списков значений. </li><li>Значение или списки значений. Значение длиной от 3 до 63 символов, совпадающее с регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]`. Пример фильтра: `name=my-record-set`.</li></ol> Максимальная длина строки в символах — 1000.
+dns_zone_id | **string**<br>ID of the DNS zone to list record sets in. <br>To get a DNS zone ID, make a [DnsZoneService.List](#List) request. The string length in characters must be equal to 20.
+page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListDnsZoneRecordSetsResponse.next_page_token](#ListDnsZoneRecordSetsResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
+page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListDnsZoneRecordSetsResponse.next_page_token](#ListDnsZoneRecordSetsResponse) returned by a previous list request. The maximum string length in characters is 1000.
+filter | **string**<br><ol><li>The field name. Currently you can use filtering only on the [RecordSet.name](#RecordSet1) and [RecordSet.type](#RecordSet1) fields. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value or lists of values. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]`. </li></ol> The maximum string length in characters is 1000.
 
 
 ### ListDnsZoneRecordSetsResponse {#ListDnsZoneRecordSetsResponse}
 
-Поле | Описание
+Field | Description
 --- | ---
-record_sets[] | **[RecordSet](#RecordSet1)**<br>Список наборов записей в указанной зоне DNS. 
-next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListDnsZoneRecordSetsRequest.page_size](#ListDnsZoneRecordSetsRequest), используйте `next_page_token` в качестве значения параметра [ListDnsZoneRecordSetsRequest.page_token](#ListDnsZoneRecordSetsRequest) в следующем запросе списка ресурсов. <br>Каждая следующая страница будет иметь свой `next_page_token` для продолжения перебора страниц результатов. 
+record_sets[] | **[RecordSet](#RecordSet1)**<br>List of record sets in the specified DNS zone. 
+next_page_token | **string**<br>Token for getting the next page of the list. If the number of results is greater than the specified [ListDnsZoneRecordSetsRequest.page_size](#ListDnsZoneRecordSetsRequest), use `next_page_token` as the value for the [ListDnsZoneRecordSetsRequest.page_token](#ListDnsZoneRecordSetsRequest) parameter in the next list request. <br>Each subsequent page will have its own `next_page_token` to continue paging through the results. 
 
 
 ### RecordSet {#RecordSet1}
 
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br>Доменное имя. Длина строки в символах должна быть от 1 до 254.
-type | **string**<br>Тип записи. Длина строки в символах должна быть от 1 до 20.
-ttl | **int64**<br>Время жизни записи в секундах. Допустимые значения — от 0 до 2147483647 включительно.
-data[] | **string**<br>Значение набора записей. Количество элементов должно находиться в диапазоне от 1 до 100. Длина строки в символах для каждого значения должна быть от 1 до 255.
+name | **string**<br>Domain name. The string length in characters must be 1-254.
+type | **string**<br>Record type. The string length in characters must be 1-20.
+ttl | **int64**<br>Time to live in seconds. Acceptable values are 0 to 2147483647, inclusive.
+data[] | **string**<br>Data of the record set. The number of elements must be in the range 1-100. The string length in characters for each value must be 1-255.
 
 
 ## UpdateRecordSets {#UpdateRecordSets}
 
-<ol><li>Удаленная запись не найдена. </li><li>Найдена запись с совпадающим типом и именем, но другим TTL или значением. </li><li>Предпринята попытка добавить запись с существующим именем и типом. Сначала происходит удаление. Если запись с одинаковым именем и типом существует в обоих списках, то существующая запись будет удалена, а новая добавлена.</li></ol>
+<ol><li>Deleted record is not found. </li><li>Found record with matched type and name but different TTL or value. </li><li>Attempted to add record with existing name and type. </li></ol>
 
 **rpc UpdateRecordSets ([UpdateRecordSetsRequest](#UpdateRecordSetsRequest)) returns ([operation.Operation](#Operation3))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateRecordSetsMetadata](#UpdateRecordSetsMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
 
 ### UpdateRecordSetsRequest {#UpdateRecordSetsRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-dns_zone_id | **string**<br>Идентификатор зоны DNS, в которой требуется обновить набор записей. <br>Чтобы получить идентификатор зоны DNS, выполните запрос [DnsZoneService.List](#List). Длина строки в символах должна быть равна 20.
-deletions[] | **[RecordSet](#RecordSet2)**<br>Список наборов записей, которые следует удалить. Максимальное количество элементов — 1000.
-additions[] | **[RecordSet](#RecordSet2)**<br>Список наборов записей, которые следует добавить. Максимальное количество элементов — 1000.
+dns_zone_id | **string**<br>ID of the DNS zone to update record sets in. <br>To get a DNS zone ID, make a [DnsZoneService.List](#List) request. The string length in characters must be equal to 20.
+deletions[] | **[RecordSet](#RecordSet2)**<br>List of record sets to delete. The maximum number of elements is 1000.
+additions[] | **[RecordSet](#RecordSet2)**<br>List of record sets to add. The maximum number of elements is 1000.
 
 
 ### RecordSet {#RecordSet2}
 
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br>Доменное имя. Длина строки в символах должна быть от 1 до 254.
-type | **string**<br>Тип записи. Длина строки в символах должна быть от 1 до 20.
-ttl | **int64**<br>Время жизни записи в секундах. Допустимые значения — от 0 до 2147483647 включительно.
-data[] | **string**<br>Значение набора записей. Количество элементов должно находиться в диапазоне от 1 до 100. Длина строки в символах для каждого значения должна быть от 1 до 255.
+name | **string**<br>Domain name. The string length in characters must be 1-254.
+type | **string**<br>Record type. The string length in characters must be 1-20.
+ttl | **int64**<br>Time to live in seconds. Acceptable values are 0 to 2147483647, inclusive.
+data[] | **string**<br>Data of the record set. The number of elements must be in the range 1-100. The string length in characters for each value must be 1-255.
 
 
 ### Operation {#Operation3}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateRecordSetsMetadata](#UpdateRecordSetsMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateRecordSetsMetadata](#UpdateRecordSetsMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>if operation finished successfully. 
 
 
 ### UpdateRecordSetsMetadata {#UpdateRecordSetsMetadata}
@@ -429,48 +429,48 @@ result | **oneof:** `error` или `response`<br>Результат операц
 
 ## UpsertRecordSets {#UpsertRecordSets}
 
-Метод без строгого контроля за изменением состояния зоны. Если удаленная запись не существует, ничего не происходит. Удаляет записи, соответствующие всем указанным полям, что позволяет удалять только указанные записи из набора записей.
+Method without strict control for changing zone state. Nothing happens if deleted record doesn't exist. Deletes records that match all specified fields which allows to delete only specified records from a record set.
 
 **rpc UpsertRecordSets ([UpsertRecordSetsRequest](#UpsertRecordSetsRequest)) returns ([operation.Operation](#Operation4))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpsertRecordSetsMetadata](#UpsertRecordSetsMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
 
 ### UpsertRecordSetsRequest {#UpsertRecordSetsRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-dns_zone_id | **string**<br>Идентификатор зоны DNS, в которую нужно добавить новую запись или обновить существующую. <br>Чтобы получить идентификатор зоны DNS, выполните запрос [DnsZoneService.List](#List). Длина строки в символах должна быть равна 20.
-deletions[] | **[RecordSet](#RecordSet3)**<br>Удаление только указанных записей из соответствующих наборов записей. Максимальное количество элементов — 1000.
-replacements[] | **[RecordSet](#RecordSet3)**<br>Полная замена указанных наборов записей. Максимальное количество элементов — 1000.
-merges[] | **[RecordSet](#RecordSet3)**<br>Замена указанных записей или добавление новых, если указанных наборов записей не существует. Максимальное количество элементов — 1000.
+dns_zone_id | **string**<br>ID of the DNS zone to upsert record sets to. <br>To get a DNS zone ID, make a [DnsZoneService.List](#List) request. The string length in characters must be equal to 20.
+deletions[] | **[RecordSet](#RecordSet3)**<br>Delete only specified records from corresponding record sets. The maximum number of elements is 1000.
+replacements[] | **[RecordSet](#RecordSet3)**<br>Entirely replace specified record sets. The maximum number of elements is 1000.
+merges[] | **[RecordSet](#RecordSet3)**<br>Replace specified records or add new ones if no such record sets exists. The maximum number of elements is 1000.
 
 
 ### RecordSet {#RecordSet3}
 
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br>Доменное имя. Длина строки в символах должна быть от 1 до 254.
-type | **string**<br>Тип записи. Длина строки в символах должна быть от 1 до 20.
-ttl | **int64**<br>Время жизни записи в секундах. Допустимые значения — от 0 до 2147483647 включительно.
-data[] | **string**<br>Значение набора записей. Количество элементов должно находиться в диапазоне от 1 до 100. Длина строки в символах для каждого значения должна быть от 1 до 255.
+name | **string**<br>Domain name. The string length in characters must be 1-254.
+type | **string**<br>Record type. The string length in characters must be 1-20.
+ttl | **int64**<br>Time to live in seconds. Acceptable values are 0 to 2147483647, inclusive.
+data[] | **string**<br>Data of the record set. The number of elements must be in the range 1-100. The string length in characters for each value must be 1-255.
 
 
 ### Operation {#Operation4}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpsertRecordSetsMetadata](#UpsertRecordSetsMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpsertRecordSetsMetadata](#UpsertRecordSetsMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>if operation finished successfully. 
 
 
 ### UpsertRecordSetsMetadata {#UpsertRecordSetsMetadata}
@@ -479,202 +479,202 @@ result | **oneof:** `error` или `response`<br>Результат операц
 
 ## ListOperations {#ListOperations}
 
-Возвращает список операций для указанной зоны DNS.
+Lists operations for the specified DNS zone.
 
 **rpc ListOperations ([ListDnsZoneOperationsRequest](#ListDnsZoneOperationsRequest)) returns ([ListDnsZoneOperationsResponse](#ListDnsZoneOperationsResponse))**
 
 ### ListDnsZoneOperationsRequest {#ListDnsZoneOperationsRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-dns_zone_id | **string**<br>Идентификатор зоны DNS, для которой запрашивается список операций. <br>Чтобы получить идентификатор зоны DNS, выполните запрос [DnsZoneService.List](#List). Длина строки в символах должна быть равна 20.
-page_size | **int64**<br>Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем `page_size`, сервис вернет значение [ListDnsZoneOperationsResponse.next_page_token](#ListDnsZoneOperationsResponse), которое можно использовать для получения следующей страницы. Допустимые значения — от 0 до 1000 включительно.
-page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListDnsZoneOperationsResponse.next_page_token](#ListDnsZoneOperationsResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 1000.
-filter | **string**<br><ol><li>Имя поля. Фильтрация осуществляется только по полю [DnsZone.name](#DnsZone4). </li><li>Оператор. Поддерживаются операторы `=` и `!=` для одиночных значений, `IN` и `NOT IN` для списков значений. </li><li>Значение или списки значений. Значение длиной от 3 до 63 символов, совпадающее с регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]`. Пример фильтра: `name=my-dns-zone`.</li></ol> Максимальная длина строки в символах — 1000.
+dns_zone_id | **string**<br>ID of the DNS zone to list operations for. <br>To get a DNS zone ID, make a [DnsZoneService.List](#List) request. The string length in characters must be equal to 20.
+page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListDnsZoneOperationsResponse.next_page_token](#ListDnsZoneOperationsResponse) that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 1000, inclusive.
+page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListDnsZoneOperationsResponse.next_page_token](#ListDnsZoneOperationsResponse) returned by a previous list request. The maximum string length in characters is 1000.
+filter | **string**<br><ol><li>The field name. Currently you can use filtering only on the [DnsZone.name](#DnsZone4) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value or lists of values. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]`. </li></ol> The maximum string length in characters is 1000.
 
 
 ### ListDnsZoneOperationsResponse {#ListDnsZoneOperationsResponse}
 
-Поле | Описание
+Field | Description
 --- | ---
-operations[] | **[operation.Operation](#Operation5)**<br>Список операций для указанной зоны DNS. 
-next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListDnsZoneOperationsRequest.page_size](#ListDnsZoneOperationsRequest), используйте `next_page_token` в качестве значения параметра [ListDnsZoneOperationsRequest.page_token](#ListDnsZoneOperationsRequest) в следующем запросе списка ресурсов. <br>Каждая следующая страница будет иметь свой `next_page_token` для продолжения перебора страниц результатов. 
+operations[] | **[operation.Operation](#Operation5)**<br>List of operations for the specified DNS zone. 
+next_page_token | **string**<br>Token for getting the next page of the list. If the number of results is greater than the specified [ListDnsZoneOperationsRequest.page_size](#ListDnsZoneOperationsRequest), use `next_page_token` as the value for the [ListDnsZoneOperationsRequest.page_token](#ListDnsZoneOperationsRequest) parameter in the next list request. <br>Each subsequent page will have its own `next_page_token` to continue paging through the results. 
 
 
 ### Operation {#Operation5}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**<br>Результат операции в случае успешного завершения. Если исходный метод не возвращает никаких данных при успешном завершении, например метод Delete, поле содержит объект [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty). Если исходный метод — это стандартный метод Create / Update, поле содержит целевой ресурс операции. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `response`. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**<br>The normal response of the operation in case of success. If the original method returns no data on success, such as Delete, the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty). If the original method is the standard Create/Update, the response should be the target resource of the operation. Any method that returns a long-running operation should document the response type, if any. 
 
 
 ## ListAccessBindings {#ListAccessBindings}
 
-Возвращает список привязок прав доступа для указанной зоны DNS.
+Lists existing access bindings for the specified DNS zone.
 
 **rpc ListAccessBindings ([ListAccessBindingsRequest](#ListAccessBindingsRequest)) returns ([ListAccessBindingsResponse](#ListAccessBindingsResponse))**
 
 ### ListAccessBindingsRequest {#ListAccessBindingsRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-resource_id | **string**<br>Обязательное поле. Идентификатор ресурса, для которого запрашивается список привязок прав доступа. <br>Чтобы получить идентификатор ресурса, используйте соответствующий запрос List. Например, используйте запрос [yandex.cloud.resourcemanager.v1.CloudService.List](/docs/resource-manager/grpc/cloud_service#List) для получения идентификатора ресурса Cloud. Максимальная длина строки в символах — 50.
-page_size | **int64**<br>Максимальное число возвращаемых результатов на странице. Если количество результатов больше чем `page_size`, сервис вернет значение [ListAccessBindingsResponse.next_page_token](#ListAccessBindingsResponse), которое можно использовать для получения следующей страницы. Значение по умолчанию: 100. Максимальное значение — 1000.
-page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListAccessBindingsResponse.next_page_token](#ListAccessBindingsResponse) прошлого запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
+resource_id | **string**<br>Required. ID of the resource to list access bindings for. <br>To get the resource ID, use a corresponding List request. For example, use the [yandex.cloud.resourcemanager.v1.CloudService.List](/docs/resource-manager/grpc/cloud_service#List) request to get the Cloud resource ID. The maximum string length in characters is 50.
+page_size | **int64**<br>The maximum number of results per page that should be returned. If the number of available results is larger than `page_size`, the service returns a [ListAccessBindingsResponse.next_page_token](#ListAccessBindingsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
+page_token | **string**<br>Page token. Set `page_token` to the [ListAccessBindingsResponse.next_page_token](#ListAccessBindingsResponse) returned by a previous list request to get the next page of results. The maximum string length in characters is 100.
 
 
 ### ListAccessBindingsResponse {#ListAccessBindingsResponse}
 
-Поле | Описание
+Field | Description
 --- | ---
-access_bindings[] | **[AccessBinding](#AccessBinding)**<br>Список привязок прав доступа для указанного ресурса. 
-next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListAccessBindingsRequest.page_size](#ListAccessBindingsRequest), используйте `next_page_token` в качестве значения параметра [ListAccessBindingsRequest.page_token](#ListAccessBindingsRequest) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
+access_bindings[] | **[AccessBinding](#AccessBinding)**<br>List of access bindings for the specified resource. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListAccessBindingsRequest.page_size](#ListAccessBindingsRequest), use the `next_page_token` as the value for the [ListAccessBindingsRequest.page_token](#ListAccessBindingsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
 ### AccessBinding {#AccessBinding}
 
-Поле | Описание
+Field | Description
 --- | ---
-role_id | **string**<br>Обязательное поле. Идентификатор ресурса `yandex.cloud.iam.v1.Role` который назначен для субъекта, указанного в параметре `subject`. Максимальная длина строки в символах — 50.
-subject | **[Subject](#Subject)**<br>Обязательное поле. Субъект, для которого создается привязка прав доступа. Может представлять собой аккаунт с уникальным идентификатором в облаке или системную группу с общим системным идентификатором. 
+role_id | **string**<br>Required. ID of the `yandex.cloud.iam.v1.Role` that is assigned to the `subject`. The maximum string length in characters is 50.
+subject | **[Subject](#Subject)**<br>Required. Identity for which access binding is being created. It can represent an account with a unique ID or several accounts with a system identifier. 
 
 
 ### Subject {#Subject}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Обязательное поле. <ul><li>`allAuthenticatedUsers`: Специальный системный идентификатор, представляющий любого пользователя, прошедшего аутентификацию. Его можно использовать только если в параметре `type` указано `system`. </li><li>`allUsers`: Специальный системный идентификатор, представляющий любого пользователя. Аутентификация не требуется. Например, при запросе через API не надо будет указывать IAM-токен. </li><li>`<идентификатор пользователя в облаке>`: Идентификатор, представляющий учетную запись пользователя. Его можно использовать только если в параметре `type` передано одно из следующих значений: `userAccount`, `federatedUser` или `serviceAccount`.</li></ul> Максимальная длина строки в символах — 50.
-type | **string**<br>Обязательное поле. <ul><li>`userAccount` — аккаунт на Яндексе или Яндекс.Коннекте, добавленный в Яндекс.Облако. </li><li>`serviceAccount` — сервисный аккаунт. Этот тип представляет ресурс `yandex.cloud.iam.v1.ServiceAccount`. </li><li>`federatedUser` — федеративный аккаунт. Этот тип представляет пользователя из федерации удостоверений, например Active Directory. </li><li>`system` — системная группа. Представляет набор аккаунтов, который описывается общим системным идентификатором. </li></ul> Максимальная длина строки в символах — 100.
+id | **string**<br>Required. <ul><li>`allAuthenticatedUsers`: A special system identifier that represents anyone </li><li>`allUsers`: A special system identifier that represents anyone. No authentication is required. </li><li>`<cloud generated id>`: An identifier that represents a user account. </li></ul> The maximum string length in characters is 50.
+type | **string**<br>Required. <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul> The maximum string length in characters is 100.
 
 
 ## SetAccessBindings {#SetAccessBindings}
 
-Задает список привязок прав доступа для указанной зоны DNS.
+Sets access bindings for the specified DNS zone.
 
 **rpc SetAccessBindings ([SetAccessBindingsRequest](#SetAccessBindingsRequest)) returns ([operation.Operation](#Operation6))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[SetAccessBindingsMetadata](#SetAccessBindingsMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
 
 ### SetAccessBindingsRequest {#SetAccessBindingsRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-resource_id | **string**<br>Обязательное поле. Идентификатор ресурса, для которого задается список привязок прав доступа. <br>Чтобы получить идентификатор ресурса, используйте соответствующий запрос List. Максимальная длина строки в символах — 50.
-access_bindings[] | **[AccessBinding](#AccessBinding)**<br>Обязательное поле. Привязки прав доступа, которые будут установлены. Дополнительные сведения см. в разделе [Привязка прав доступа](/docs/iam/concepts/access-control/#access-bindings). 
+resource_id | **string**<br>Required. ID of the resource for which access bindings are being set. <br>To get the resource ID, use a corresponding List request. The maximum string length in characters is 50.
+access_bindings[] | **[AccessBinding](#AccessBinding)**<br>Required. Access bindings to be set. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings). 
 
 
 ### AccessBinding {#AccessBinding1}
 
-Поле | Описание
+Field | Description
 --- | ---
-role_id | **string**<br>Обязательное поле. Идентификатор ресурса `yandex.cloud.iam.v1.Role` который назначен для субъекта, указанного в параметре `subject`. Максимальная длина строки в символах — 50.
-subject | **[Subject](#Subject)**<br>Обязательное поле. Субъект, для которого создается привязка прав доступа. Может представлять собой аккаунт с уникальным идентификатором в облаке или системную группу с общим системным идентификатором. 
+role_id | **string**<br>Required. ID of the `yandex.cloud.iam.v1.Role` that is assigned to the `subject`. The maximum string length in characters is 50.
+subject | **[Subject](#Subject)**<br>Required. Identity for which access binding is being created. It can represent an account with a unique ID or several accounts with a system identifier. 
 
 
 ### Subject {#Subject1}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Обязательное поле. <ul><li>`allAuthenticatedUsers`: Специальный системный идентификатор, представляющий любого пользователя, прошедшего аутентификацию. Его можно использовать только если в параметре `type` указано `system`. </li><li>`allUsers`: Специальный системный идентификатор, представляющий любого пользователя. Аутентификация не требуется. Например, при запросе через API не надо будет указывать IAM-токен. </li><li>`<идентификатор пользователя в облаке>`: Идентификатор, представляющий учетную запись пользователя. Его можно использовать только если в параметре `type` передано одно из следующих значений: `userAccount`, `federatedUser` или `serviceAccount`.</li></ul> Максимальная длина строки в символах — 50.
-type | **string**<br>Обязательное поле. <ul><li>`userAccount` — аккаунт на Яндексе или Яндекс.Коннекте, добавленный в Яндекс.Облако. </li><li>`serviceAccount` — сервисный аккаунт. Этот тип представляет ресурс `yandex.cloud.iam.v1.ServiceAccount`. </li><li>`federatedUser` — федеративный аккаунт. Этот тип представляет пользователя из федерации удостоверений, например Active Directory. </li><li>`system` — системная группа. Представляет набор аккаунтов, который описывается общим системным идентификатором. </li></ul> Максимальная длина строки в символах — 100.
+id | **string**<br>Required. <ul><li>`allAuthenticatedUsers`: A special system identifier that represents anyone </li><li>`allUsers`: A special system identifier that represents anyone. No authentication is required. </li><li>`<cloud generated id>`: An identifier that represents a user account. </li></ul> The maximum string length in characters is 50.
+type | **string**<br>Required. <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul> The maximum string length in characters is 100.
 
 
 ### Operation {#Operation6}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[SetAccessBindingsMetadata](#SetAccessBindingsMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[SetAccessBindingsMetadata](#SetAccessBindingsMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>if operation finished successfully. 
 
 
 ### SetAccessBindingsMetadata {#SetAccessBindingsMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-resource_id | **string**<br>Идентификатор ресурса, для которого задается список привязок прав доступа. 
+resource_id | **string**<br>ID of the resource for which access bindings are being set. 
 
 
 ## UpdateAccessBindings {#UpdateAccessBindings}
 
-Обновляет привязки прав доступа для указанной зоны DNS.
+Updates access bindings for the specified DNS zone.
 
 **rpc UpdateAccessBindings ([UpdateAccessBindingsRequest](#UpdateAccessBindingsRequest)) returns ([operation.Operation](#Operation7))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateAccessBindingsMetadata](#UpdateAccessBindingsMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
 
 ### UpdateAccessBindingsRequest {#UpdateAccessBindingsRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-resource_id | **string**<br>Обязательное поле. Идентификатор ресурса, для которого обновляется список привязок прав доступа. Максимальная длина строки в символах — 50.
-access_binding_deltas[] | **[AccessBindingDelta](#AccessBindingDelta)**<br>Обязательное поле. Изменения в список привязок прав доступа. Количество элементов должно быть больше 0.
+resource_id | **string**<br>Required. ID of the resource for which access bindings are being updated. The maximum string length in characters is 50.
+access_binding_deltas[] | **[AccessBindingDelta](#AccessBindingDelta)**<br>Required. Updates to access bindings. The number of elements must be greater than 0.
 
 
 ### AccessBindingDelta {#AccessBindingDelta}
 
-Поле | Описание
+Field | Description
 --- | ---
-action | enum **AccessBindingAction**<br>Обязательное поле. Действие, которое надо выполнить с привязкой прав доступа. <ul><li>`ADD`: Добавление новой привязки прав доступа.</li><li>`REMOVE`: Удаление привязки прав доступа.</li><ul/>
-access_binding | **[AccessBinding](#AccessBinding)**<br>Обязательное поле. Привязка прав доступа. Дополнительные сведения см. в разделе [Привязка прав доступа](/docs/iam/concepts/access-control/#access-bindings). 
+action | enum **AccessBindingAction**<br>Required. The action that is being performed on an access binding. <ul><li>`ADD`: Addition of an access binding.</li><li>`REMOVE`: Removal of an access binding.</li><ul/>
+access_binding | **[AccessBinding](#AccessBinding)**<br>Required. Access binding. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings). 
 
 
 ### AccessBinding {#AccessBinding2}
 
-Поле | Описание
+Field | Description
 --- | ---
-role_id | **string**<br>Обязательное поле. Идентификатор ресурса `yandex.cloud.iam.v1.Role` который назначен для субъекта, указанного в параметре `subject`. Максимальная длина строки в символах — 50.
-subject | **[Subject](#Subject)**<br>Обязательное поле. Субъект, для которого создается привязка прав доступа. Может представлять собой аккаунт с уникальным идентификатором в облаке или системную группу с общим системным идентификатором. 
+role_id | **string**<br>Required. ID of the `yandex.cloud.iam.v1.Role` that is assigned to the `subject`. The maximum string length in characters is 50.
+subject | **[Subject](#Subject)**<br>Required. Identity for which access binding is being created. It can represent an account with a unique ID or several accounts with a system identifier. 
 
 
 ### Subject {#Subject2}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Обязательное поле. <ul><li>`allAuthenticatedUsers`: Специальный системный идентификатор, представляющий любого пользователя, прошедшего аутентификацию. Его можно использовать только если в параметре `type` указано `system`. </li><li>`allUsers`: Специальный системный идентификатор, представляющий любого пользователя. Аутентификация не требуется. Например, при запросе через API не надо будет указывать IAM-токен. </li><li>`<идентификатор пользователя в облаке>`: Идентификатор, представляющий учетную запись пользователя. Его можно использовать только если в параметре `type` передано одно из следующих значений: `userAccount`, `federatedUser` или `serviceAccount`.</li></ul> Максимальная длина строки в символах — 50.
-type | **string**<br>Обязательное поле. <ul><li>`userAccount` — аккаунт на Яндексе или Яндекс.Коннекте, добавленный в Яндекс.Облако. </li><li>`serviceAccount` — сервисный аккаунт. Этот тип представляет ресурс `yandex.cloud.iam.v1.ServiceAccount`. </li><li>`federatedUser` — федеративный аккаунт. Этот тип представляет пользователя из федерации удостоверений, например Active Directory. </li><li>`system` — системная группа. Представляет набор аккаунтов, который описывается общим системным идентификатором. </li></ul> Максимальная длина строки в символах — 100.
+id | **string**<br>Required. <ul><li>`allAuthenticatedUsers`: A special system identifier that represents anyone </li><li>`allUsers`: A special system identifier that represents anyone. No authentication is required. </li><li>`<cloud generated id>`: An identifier that represents a user account. </li></ul> The maximum string length in characters is 50.
+type | **string**<br>Required. <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul> The maximum string length in characters is 100.
 
 
 ### Operation {#Operation7}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateAccessBindingsMetadata](#UpdateAccessBindingsMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateAccessBindingsMetadata](#UpdateAccessBindingsMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>if operation finished successfully. 
 
 
 ### UpdateAccessBindingsMetadata {#UpdateAccessBindingsMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-resource_id | **string**<br>Идентификатор ресурса, для которого обновляется список привязок прав доступа. 
+resource_id | **string**<br>ID of the resource for which access bindings are being updated. 
 
 

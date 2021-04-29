@@ -51,18 +51,18 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
-  - name: Справочник API
+  - name: Справочник API (англ.)
     items:
-      - name: Аутентификация в API
+      - name: Authentication
         href: api-ref/authentication.md
       - name: gRPC
         items:
-          - name: Обзор
+          - name: Overview
             href: grpc/index.md
+          - name: AuthService
+            href: grpc/auth_service.md
           - name: ClusterService
             href: grpc/cluster_service.md
-          - name: OperationService
-            href: grpc/operation_service.md
           - name: ResourcePresetService
             href: grpc/resource_preset_service.md
           - name: UserService
@@ -71,11 +71,29 @@ items:
             href: grpc/operation_service.md
       - name: REST
         items:
-          - name: Обзор
+          - name: Overview
             href: api-ref/index.md
+          - name: Auth
+            items:
+              - name: Overview
+                href: api-ref/Auth/index.md
+              - name: addProviders
+                href: api-ref/Auth/addProviders.md
+              - name: deleteProvider
+                href: api-ref/Auth/deleteProvider.md
+              - name: deleteProviders
+                href: api-ref/Auth/deleteProviders.md
+              - name: getProvider
+                href: api-ref/Auth/getProvider.md
+              - name: listProviders
+                href: api-ref/Auth/listProviders.md
+              - name: updateProvider
+                href: api-ref/Auth/updateProvider.md
+              - name: updateProviders
+                href: api-ref/Auth/updateProviders.md
           - name: Cluster
             items:
-              - name: Обзор
+              - name: Overview
                 href: api-ref/Cluster/index.md
               - name: addHosts
                 href: api-ref/Cluster/addHosts.md
@@ -105,15 +123,9 @@ items:
                 href: api-ref/Cluster/streamLogs.md
               - name: update
                 href: api-ref/Cluster/update.md
-          - name: Operation
-            items:
-              - name: Обзор
-                href: api-ref/Operation/index.md
-              - name: get
-                href: api-ref/Operation/get.md
           - name: ResourcePreset
             items:
-              - name: Обзор
+              - name: Overview
                 href: api-ref/ResourcePreset/index.md
               - name: get
                 href: api-ref/ResourcePreset/get.md
@@ -121,12 +133,24 @@ items:
                 href: api-ref/ResourcePreset/list.md
           - name: User
             items:
-              - name: Обзор
+              - name: Overview
                 href: api-ref/User/index.md
+              - name: create
+                href: api-ref/User/create.md
+              - name: delete
+                href: api-ref/User/delete.md
               - name: get
                 href: api-ref/User/get.md
               - name: list
                 href: api-ref/User/list.md
+              - name: update
+                href: api-ref/User/update.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/Operation/index.md
+              - name: get
+                href: api-ref/Operation/get.md
   - name: Вопросы и ответы
     href: qa/index.md
 base: ru/managed-elasticsearch

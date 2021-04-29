@@ -2,23 +2,23 @@
 editable: false
 ---
 
-# Метод listPasswords
-Возвращает список паролей для указанного устройства.
+# Method listPasswords
+Retrieves the list of passwords for the specified device.
  
 
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 GET https://iot-devices.api.cloud.yandex.net/iot-devices/v1/devices/{deviceId}/passwords
 ```
  
-## Path-параметры {#path_params}
+## Path parameters {#path_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-deviceId | Обязательное поле. Идентификатор реестра для получения списка паролей.  Чтобы получить идентификатор реестра, используйте запрос [list](/docs/iot-core/api-ref/Registry/list).  Максимальная длина строки в символах — 50.
+deviceId | Required. ID of the registry to list passwords in.  To get a registry ID make a [list](/docs/iot-core/api-ref/Registry/list) request.  The maximum string length in characters is 50.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -34,9 +34,9 @@ deviceId | Обязательное поле. Идентификатор рее�
 ```
 
  
-Поле | Описание
+Field | Description
 --- | ---
-passwords[] | **object**<br><p>Пароль устройства.</p> 
-passwords[].<br>deviceId | **string**<br><p>Идентификатор устройства, которому принадлежит пароль.</p> 
-passwords[].<br>id | **string**<br><p>Идентификатор пароля.</p> 
-passwords[].<br>createdAt | **string** (date-time)<br><p>Время создания.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
+passwords[] | **object**<br><p>A device password.</p> 
+passwords[].<br>deviceId | **string**<br><p>ID of the device that the password belongs to.</p> 
+passwords[].<br>id | **string**<br><p>ID of the password.</p> 
+passwords[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 

@@ -3,8 +3,8 @@ editable: false
 ---
 
 # Database
-Набор методов для управления базами данных MySQL.
-## JSON-представление {#representation}
+A set of methods for managing MySQL databases.
+## JSON Representation {#representation}
 ```json 
 {
   "name": "string",
@@ -12,15 +12,15 @@ editable: false
 }
 ```
  
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br><p>Имя базы данных.</p> 
-clusterId | **string**<br><p>Идентификатор кластера MySQL, которому принадлежит база данных.</p> 
+name | **string**<br><p>Name of the database.</p> 
+clusterId | **string**<br><p>ID of the MySQL cluster that the database belongs to.</p> 
 
-## Методы {#methods}
-Метод | Описание
+## Methods {#methods}
+Method | Description
 --- | ---
-[create](create.md) | Создает новую базу данных MySQL в указанном кластере.
-[delete](delete.md) | Удаляет указанную базу данных MySQL.
-[get](get.md) | Возвращает указанную базу данных MySQL.
-[list](list.md) | Получает список баз данных MySQL в указанном кластере.
+[create](create.md) | Creates a new MySQL database in the specified cluster.
+[delete](delete.md) | Deletes the specified MySQL database.
+[get](get.md) | Returns the specified MySQL database.
+[list](list.md) | Retrieves the list of MySQL databases in the specified cluster.

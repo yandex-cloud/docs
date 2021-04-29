@@ -3,8 +3,8 @@ editable: false
 ---
 
 # Backup
-Набор методов для управления резервными копиями SQL Server.
-## JSON-представление {#representation}
+A set of methods for managing SQL Server backups.
+## JSON Representation {#representation}
 ```json 
 {
   "id": "string",
@@ -15,16 +15,16 @@ editable: false
 }
 ```
  
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br><p>Идентификатор резервной копии.</p> 
-folderId | **string**<br><p>Идентификатор каталога, которому принадлежит резервная копия.</p> 
-createdAt | **string** (date-time)<br><p>Время создания (т. е. когда операция резервного копирования была завершена).</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-sourceClusterId | **string**<br><p>Идентификатор кластера SQL Server, для которого была создана резервная копия.</p> 
-startedAt | **string** (date-time)<br><p>Время запуска операции резервного копирования.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
+id | **string**<br><p>ID of the backup.</p> 
+folderId | **string**<br><p>ID of the folder that the backup belongs to.</p> 
+createdAt | **string** (date-time)<br><p>Creation timestamp (i.e. when the backup operation was completed).</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+sourceClusterId | **string**<br><p>ID of the SQL Server cluster that the backup was created for.</p> 
+startedAt | **string** (date-time)<br><p>Time when the backup operation was started.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 
-## Методы {#methods}
-Метод | Описание
+## Methods {#methods}
+Method | Description
 --- | ---
-[get](get.md) | Возвращает указанную резервную копию SQL Server.
-[list](list.md) | Возвращает список резервных копий SQL Server, доступных в указанном каталоге.
+[get](get.md) | Returns the specified SQL Server backup.
+[list](list.md) | Retrieves the list of SQL Server backups available for the specified folder.

@@ -4,54 +4,54 @@ editable: false
 
 # HostGroupService
 
-Набор методов для управления группами выделенных хостов.
+A set of methods for managing groups of dedicated hosts.
 
-| Вызов | Описание |
+| Call | Description |
 | --- | --- |
-| [Get](#Get) | Возвращает информацию об указанной группе выделенных хостов. |
-| [List](#List) | Возвращает список доступных групп выделенных хостов в указанном каталоге. |
-| [Create](#Create) | Создает группу выделенных хостов в указанном каталоге. |
-| [Update](#Update) | Обновляет параметры указанной группы выделенных хостов. |
-| [Delete](#Delete) | Удаляет указанную группу выделенных хостов. |
-| [ListOperations](#ListOperations) | Возвращает список операций указанной группы выделенных хостов. |
-| [ListInstances](#ListInstances) | Список ВМ, привязанных к указанной группе выделенных хостов. |
-| [ListHosts](#ListHosts) | Список выделенных хостов, привязанных к указанной группе хостов. |
+| [Get](#Get) | Returns the specified host group. |
+| [List](#List) | Retrieves the list of host groups in the specified folder. |
+| [Create](#Create) | Creates a host group in the specified folder. |
+| [Update](#Update) | Updates the specified host group. |
+| [Delete](#Delete) | Deletes the specified host group. |
+| [ListOperations](#ListOperations) | Lists operations for the specified host group. |
+| [ListInstances](#ListInstances) | Lists instances that belongs to the specified host group. |
+| [ListHosts](#ListHosts) | Lists hosts that belongs to the specified host group. |
 
-## Вызовы HostGroupService {#calls}
+## Calls HostGroupService {#calls}
 
 ## Get {#Get}
 
-Возвращает информацию об указанной группе выделенных хостов.
+Returns the specified host group.
 
 **rpc Get ([GetHostGroupRequest](#GetHostGroupRequest)) returns ([HostGroup](#HostGroup))**
 
 ### GetHostGroupRequest {#GetHostGroupRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-host_group_id | **string**<br>Обязательное поле. Идентификатор группы выделенных хостов. Чтобы получить идентификатор группы выделенных хостов, используйте запрос [HostGroupService.List](#List). Максимальная длина строки в символах — 50.
+host_group_id | **string**<br>Required. ID of the host group to return. To get the host group ID, use [HostGroupService.List](#List) request. The maximum string length in characters is 50.
 
 
 ### HostGroup {#HostGroup}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор группы выделенных хостов. 
-folder_id | **string**<br>Идентификатор каталога, к которому принадлежит группа выделенных хостов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания группы выделенных хостов в текстовом формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-name | **string**<br>Имя группы выделенных хостов. Имя должно быть уникальным в каталоге. 
-description | **string**<br>Описание группы выделенных хостов. 
-labels | **map<string,string>**<br>Метки ресурса в формате `ключ:значение`. 
-zone_id | **string**<br>Зона доступности, в которой размещены все выделенные хосты. 
-status | enum **Status**<br>Статус группы выделенных хостов. <ul><ul/>
-type_id | **string**<br>Идентификатор типа выделенного хоста. Ресурсы, предоставляемые каждым выделенным хостом группы. 
-maintenance_policy | enum **MaintenancePolicy**<br>Политика обслуживания. <ul><li>`RESTART`: После обслуживания перезапустить ВМ на том же выделенном хосте.</li><li>`MIGRATE`: Перенести ВМ на другой выделенный хост перед обслуживанием.</li><ul/>
-scale_policy | **[ScalePolicy](#ScalePolicy)**<br>Политика масштабирования. На данный момент поддерживается только фиксированное количество выделенных хостов. 
+id | **string**<br>ID of the group. 
+folder_id | **string**<br>ID of the folder that the group belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
+name | **string**<br>Name of the group. The name is unique within the folder. 
+description | **string**<br>Description of the group. 
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
+zone_id | **string**<br>Availability zone where all dedicated hosts are allocated. 
+status | enum **Status**<br>Status of the group. <ul><ul/>
+type_id | **string**<br>ID of host type. Resources provided by each host of the group. 
+maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events. <ul><li>`RESTART`: Restart instances on the same host after maintenance event.</li><li>`MIGRATE`: Migrate instances to another host before maintenance event.</li><ul/>
+scale_policy | **[ScalePolicy](#ScalePolicy)**<br>Scale policy. Only fixed number of hosts are supported at this moment. 
 
 
 ### ScalePolicy {#ScalePolicy}
 
-Поле | Описание
+Field | Description
 --- | ---
 scale_type | **oneof:** `fixed_scale`<br>
 &nbsp;&nbsp;fixed_scale | **[FixedScale](#FixedScale)**<br> 
@@ -59,55 +59,55 @@ scale_type | **oneof:** `fixed_scale`<br>
 
 ### FixedScale {#FixedScale}
 
-Поле | Описание
+Field | Description
 --- | ---
 size | **int64**<br> 
 
 
 ## List {#List}
 
-Возвращает список доступных групп выделенных хостов в указанном каталоге.
+Retrieves the list of host groups in the specified folder.
 
 **rpc List ([ListHostGroupsRequest](#ListHostGroupsRequest)) returns ([ListHostGroupsResponse](#ListHostGroupsResponse))**
 
 ### ListHostGroupsRequest {#ListHostGroupsRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-folder_id | **string**<br>Обязательное поле. Идентификатор каталога, в котором созданы группы выделенных хостов. Чтобы получить идентификатор каталога, используйте запрос [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List). Максимальная длина строки в символах — 50.
-page_size | **int64**<br>Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем `page_size`, сервис вернет значение [ListHostGroupsResponse.next_page_token](#ListHostGroupsResponse), которое можно использовать для получения следующей страницы. Максимальное значение — 1000.
-page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListHostGroupsResponse.next_page_token](#ListHostGroupsResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
-filter | **string**<br>Параметры фильтрации ресурса в ответе. В настоящее время фильтрация осуществляется только по полю [HostGroup.name](#HostGroup1). Максимальная длина строки в символах — 1000.
+folder_id | **string**<br>Required. ID of the folder to list host groups in. To get the folder ID, use [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. The maximum string length in characters is 50.
+page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListHostGroupsResponse.next_page_token](#ListHostGroupsResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
+page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListHostGroupsResponse.next_page_token](#ListHostGroupsResponse) returned by a previous list request. The maximum string length in characters is 100.
+filter | **string**<br>A filter expression that filters resources listed in the response. Currently you can use filtering only on the [HostGroup.name](#HostGroup1) field. The maximum string length in characters is 1000.
 
 
 ### ListHostGroupsResponse {#ListHostGroupsResponse}
 
-Поле | Описание
+Field | Description
 --- | ---
-host_groups[] | **[HostGroup](#HostGroup1)**<br>Возвращает список групп выделенных хостов указанного каталога. 
-next_page_token | **string**<br>Этот токен позволяет получить следующую страницу результатов для списка запросов. Если количество результатов больше чем [ListHostGroupsRequest.page_size](#ListHostGroupsRequest), используйте `next_page_token` в качестве значения параметра [ListHostGroupsRequest.page_token](#ListHostGroupsRequest) в следующем запросе списка ресурсов. Каждая следующая страница будет иметь свой `next_page_token` для продолжения перебора страниц результатов. 
+host_groups[] | **[HostGroup](#HostGroup1)**<br>Lists host groups for the specified folder. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListHostGroupsRequest.page_size](#ListHostGroupsRequest), use `next_page_token` as the value for the [ListHostGroupsRequest.page_token](#ListHostGroupsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
 ### HostGroup {#HostGroup1}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор группы выделенных хостов. 
-folder_id | **string**<br>Идентификатор каталога, к которому принадлежит группа выделенных хостов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания группы выделенных хостов в текстовом формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-name | **string**<br>Имя группы выделенных хостов. Имя должно быть уникальным в каталоге. 
-description | **string**<br>Описание группы выделенных хостов. 
-labels | **map<string,string>**<br>Метки ресурса в формате `ключ:значение`. 
-zone_id | **string**<br>Зона доступности, в которой размещены все выделенные хосты. 
-status | enum **Status**<br>Статус группы выделенных хостов. <ul><ul/>
-type_id | **string**<br>Идентификатор типа выделенного хоста. Ресурсы, предоставляемые каждым выделенным хостом группы. 
-maintenance_policy | enum **MaintenancePolicy**<br>Политика обслуживания. <ul><li>`RESTART`: После обслуживания перезапустить ВМ на том же выделенном хосте.</li><li>`MIGRATE`: Перенести ВМ на другой выделенный хост перед обслуживанием.</li><ul/>
-scale_policy | **[ScalePolicy](#ScalePolicy1)**<br>Политика масштабирования. На данный момент поддерживается только фиксированное количество выделенных хостов. 
+id | **string**<br>ID of the group. 
+folder_id | **string**<br>ID of the folder that the group belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
+name | **string**<br>Name of the group. The name is unique within the folder. 
+description | **string**<br>Description of the group. 
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
+zone_id | **string**<br>Availability zone where all dedicated hosts are allocated. 
+status | enum **Status**<br>Status of the group. <ul><ul/>
+type_id | **string**<br>ID of host type. Resources provided by each host of the group. 
+maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events. <ul><li>`RESTART`: Restart instances on the same host after maintenance event.</li><li>`MIGRATE`: Migrate instances to another host before maintenance event.</li><ul/>
+scale_policy | **[ScalePolicy](#ScalePolicy1)**<br>Scale policy. Only fixed number of hosts are supported at this moment. 
 
 
 ### ScalePolicy {#ScalePolicy1}
 
-Поле | Описание
+Field | Description
 --- | ---
 scale_type | **oneof:** `fixed_scale`<br>
 &nbsp;&nbsp;fixed_scale | **[FixedScale](#FixedScale1)**<br> 
@@ -115,38 +115,38 @@ scale_type | **oneof:** `fixed_scale`<br>
 
 ### FixedScale {#FixedScale1}
 
-Поле | Описание
+Field | Description
 --- | ---
 size | **int64**<br> 
 
 
 ## Create {#Create}
 
-Создает группу выделенных хостов в указанном каталоге.
+Creates a host group in the specified folder.
 
 **rpc Create ([CreateHostGroupRequest](#CreateHostGroupRequest)) returns ([operation.Operation](#Operation))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateHostGroupMetadata](#CreateHostGroupMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[HostGroup](#HostGroup2)<br>
 
 ### CreateHostGroupRequest {#CreateHostGroupRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-folder_id | **string**<br>Обязательное поле. Идентификатор каталога, в котором будет создана группа выделенных хостов. Чтобы получить идентификатор каталога, используйте запрос [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List). Максимальная длина строки в символах — 50.
-name | **string**<br>Имя группы выделенных хостов. Значение должно соответствовать регулярному выражению ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
-description | **string**<br>Описание группы выделенных хостов. Максимальная длина строки в символах — 256.
-labels | **map<string,string>**<br>Метки ресурса в формате `ключ:значение`. Не более 64 на ресурс. Максимальная длина строки в символах для каждого значения — 63. Каждое значение должно соответствовать регулярному выражению ` [-_./\\@0-9a-z]* `. Длина строки в символах для каждого ключа должна быть от 1 до 63. Каждый ключ должен соответствовать регулярному выражению ` [a-z][-_./\\@0-9a-z]* `.
-zone_id | **string**<br>Обязательное поле. Зона доступности, в которой размещены все выделенные хосты. Максимальная длина строки в символах — 50.
-type_id | **string**<br>Обязательное поле. Идентификатор типа выделенного хоста. Ресурсы, предоставляемые каждым выделенным хостом группы. Максимальная длина строки в символах — 50.
-maintenance_policy | enum **MaintenancePolicy**<br>Политика обслуживания. <ul><li>`RESTART`: После обслуживания перезапустить ВМ на том же выделенном хосте.</li><li>`MIGRATE`: Перенести ВМ на другой выделенный хост перед обслуживанием.</li><ul/>
-scale_policy | **[ScalePolicy](#ScalePolicy2)**<br>Политика масштабирования. На данный момент поддерживается только фиксированное количество выделенных хостов. 
+folder_id | **string**<br>Required. ID of the folder to create a host group in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. The maximum string length in characters is 50.
+name | **string**<br>Name of the group. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
+description | **string**<br>Description of the group. The maximum string length in characters is 256.
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
+zone_id | **string**<br>Required. Availability zone where all dedicated hosts will be allocated. The maximum string length in characters is 50.
+type_id | **string**<br>Required. ID of host type. Resources provided by each host of the group. The maximum string length in characters is 50.
+maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events. <ul><li>`RESTART`: Restart instances on the same host after maintenance event.</li><li>`MIGRATE`: Migrate instances to another host before maintenance event.</li><ul/>
+scale_policy | **[ScalePolicy](#ScalePolicy2)**<br>Scale policy. Only fixed number of hosts are supported at this moment. 
 
 
 ### ScalePolicy {#ScalePolicy2}
 
-Поле | Описание
+Field | Description
 --- | ---
 scale_type | **oneof:** `fixed_scale`<br>
 &nbsp;&nbsp;fixed_scale | **[FixedScale](#FixedScale2)**<br> 
@@ -154,54 +154,54 @@ scale_type | **oneof:** `fixed_scale`<br>
 
 ### FixedScale {#FixedScale2}
 
-Поле | Описание
+Field | Description
 --- | ---
 size | **int64**<br> 
 
 
 ### Operation {#Operation}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateHostGroupMetadata](#CreateHostGroupMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[HostGroup](#HostGroup2)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateHostGroupMetadata](#CreateHostGroupMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[HostGroup](#HostGroup2)>**<br>if operation finished successfully. 
 
 
 ### CreateHostGroupMetadata {#CreateHostGroupMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-host_group_id | **string**<br>Идентификатор создаваемой группы выделенных хостов. 
+host_group_id | **string**<br>ID of the host group that is being created. 
 
 
 ### HostGroup {#HostGroup2}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор группы выделенных хостов. 
-folder_id | **string**<br>Идентификатор каталога, к которому принадлежит группа выделенных хостов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания группы выделенных хостов в текстовом формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-name | **string**<br>Имя группы выделенных хостов. Имя должно быть уникальным в каталоге. 
-description | **string**<br>Описание группы выделенных хостов. 
-labels | **map<string,string>**<br>Метки ресурса в формате `ключ:значение`. 
-zone_id | **string**<br>Зона доступности, в которой размещены все выделенные хосты. 
-status | enum **Status**<br>Статус группы выделенных хостов. <ul><ul/>
-type_id | **string**<br>Идентификатор типа выделенного хоста. Ресурсы, предоставляемые каждым выделенным хостом группы. 
-maintenance_policy | enum **MaintenancePolicy**<br>Политика обслуживания. <ul><li>`RESTART`: После обслуживания перезапустить ВМ на том же выделенном хосте.</li><li>`MIGRATE`: Перенести ВМ на другой выделенный хост перед обслуживанием.</li><ul/>
-scale_policy | **[ScalePolicy](#ScalePolicy3)**<br>Политика масштабирования. На данный момент поддерживается только фиксированное количество выделенных хостов. 
+id | **string**<br>ID of the group. 
+folder_id | **string**<br>ID of the folder that the group belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
+name | **string**<br>Name of the group. The name is unique within the folder. 
+description | **string**<br>Description of the group. 
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
+zone_id | **string**<br>Availability zone where all dedicated hosts are allocated. 
+status | enum **Status**<br>Status of the group. <ul><ul/>
+type_id | **string**<br>ID of host type. Resources provided by each host of the group. 
+maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events. <ul><li>`RESTART`: Restart instances on the same host after maintenance event.</li><li>`MIGRATE`: Migrate instances to another host before maintenance event.</li><ul/>
+scale_policy | **[ScalePolicy](#ScalePolicy3)**<br>Scale policy. Only fixed number of hosts are supported at this moment. 
 
 
 ### ScalePolicy {#ScalePolicy3}
 
-Поле | Описание
+Field | Description
 --- | ---
 scale_type | **oneof:** `fixed_scale`<br>
 &nbsp;&nbsp;fixed_scale | **[FixedScale](#FixedScale3)**<br> 
@@ -209,37 +209,37 @@ scale_type | **oneof:** `fixed_scale`<br>
 
 ### FixedScale {#FixedScale3}
 
-Поле | Описание
+Field | Description
 --- | ---
 size | **int64**<br> 
 
 
 ## Update {#Update}
 
-Обновляет параметры указанной группы выделенных хостов.
+Updates the specified host group.
 
 **rpc Update ([UpdateHostGroupRequest](#UpdateHostGroupRequest)) returns ([operation.Operation](#Operation1))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateHostGroupMetadata](#UpdateHostGroupMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[HostGroup](#HostGroup3)<br>
 
 ### UpdateHostGroupRequest {#UpdateHostGroupRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-host_group_id | **string**<br>Обязательное поле. Идентификатор обновляемой группы выделенных хостов. Для получения идентификатора группы выделенных хостов используйте запрос [HostGroupService.List](#List). Максимальная длина строки в символах — 50.
-update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Маска, определяющая, какие поля ресурса HostGroup будут обновлены. 
-name | **string**<br>Имя группы выделенных хостов. Значение должно соответствовать регулярному выражению ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
-description | **string**<br>Описание группы выделенных хостов. Максимальная длина строки в символах — 256.
-labels | **map<string,string>**<br>Метки ресурса в формате `ключ:значение`. <br>Существующий набор меток полностью заменяется предоставленным набором. Не более 64 на ресурс. Максимальная длина строки в символах для каждого значения — 63. Каждое значение должно соответствовать регулярному выражению ` [-_./\\@0-9a-z]* `. Длина строки в символах для каждого ключа должна быть от 1 до 63. Каждый ключ должен соответствовать регулярному выражению ` [a-z][-_./\\@0-9a-z]* `.
-maintenance_policy | enum **MaintenancePolicy**<br>Политика обслуживания. <ul><li>`RESTART`: После обслуживания перезапустить ВМ на том же выделенном хосте.</li><li>`MIGRATE`: Перенести ВМ на другой выделенный хост перед обслуживанием.</li><ul/>
-scale_policy | **[ScalePolicy](#ScalePolicy4)**<br>Политика масштабирования. На данный момент поддерживается только фиксированное количество выделенных хостов. 
+host_group_id | **string**<br>Required. ID of the host group to update. To get the host group ID, use an [HostGroupService.List](#List) request. The maximum string length in characters is 50.
+update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the HostGroup resource are going to be updated. 
+name | **string**<br>Name of the group. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
+description | **string**<br>Description of the group. The maximum string length in characters is 256.
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. <br>The existing set of `labels` is completely replaced by the provided set. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
+maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events <ul><li>`RESTART`: Restart instances on the same host after maintenance event.</li><li>`MIGRATE`: Migrate instances to another host before maintenance event.</li><ul/>
+scale_policy | **[ScalePolicy](#ScalePolicy4)**<br>Scale policy. Only fixed number of hosts are supported at this moment. 
 
 
 ### ScalePolicy {#ScalePolicy4}
 
-Поле | Описание
+Field | Description
 --- | ---
 scale_type | **oneof:** `fixed_scale`<br>
 &nbsp;&nbsp;fixed_scale | **[FixedScale](#FixedScale4)**<br> 
@@ -247,54 +247,54 @@ scale_type | **oneof:** `fixed_scale`<br>
 
 ### FixedScale {#FixedScale4}
 
-Поле | Описание
+Field | Description
 --- | ---
 size | **int64**<br> 
 
 
 ### Operation {#Operation1}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateHostGroupMetadata](#UpdateHostGroupMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[HostGroup](#HostGroup3)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateHostGroupMetadata](#UpdateHostGroupMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[HostGroup](#HostGroup3)>**<br>if operation finished successfully. 
 
 
 ### UpdateHostGroupMetadata {#UpdateHostGroupMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-host_group_id | **string**<br>Идентификатор обновлеяемой группы выделенных хостов. 
+host_group_id | **string**<br>ID of the host group that is being updated. 
 
 
 ### HostGroup {#HostGroup3}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор группы выделенных хостов. 
-folder_id | **string**<br>Идентификатор каталога, к которому принадлежит группа выделенных хостов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания группы выделенных хостов в текстовом формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-name | **string**<br>Имя группы выделенных хостов. Имя должно быть уникальным в каталоге. 
-description | **string**<br>Описание группы выделенных хостов. 
-labels | **map<string,string>**<br>Метки ресурса в формате `ключ:значение`. 
-zone_id | **string**<br>Зона доступности, в которой размещены все выделенные хосты. 
-status | enum **Status**<br>Статус группы выделенных хостов. <ul><ul/>
-type_id | **string**<br>Идентификатор типа выделенного хоста. Ресурсы, предоставляемые каждым выделенным хостом группы. 
-maintenance_policy | enum **MaintenancePolicy**<br>Политика обслуживания. <ul><li>`RESTART`: После обслуживания перезапустить ВМ на том же выделенном хосте.</li><li>`MIGRATE`: Перенести ВМ на другой выделенный хост перед обслуживанием.</li><ul/>
-scale_policy | **[ScalePolicy](#ScalePolicy5)**<br>Политика масштабирования. На данный момент поддерживается только фиксированное количество выделенных хостов. 
+id | **string**<br>ID of the group. 
+folder_id | **string**<br>ID of the folder that the group belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
+name | **string**<br>Name of the group. The name is unique within the folder. 
+description | **string**<br>Description of the group. 
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
+zone_id | **string**<br>Availability zone where all dedicated hosts are allocated. 
+status | enum **Status**<br>Status of the group. <ul><ul/>
+type_id | **string**<br>ID of host type. Resources provided by each host of the group. 
+maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events. <ul><li>`RESTART`: Restart instances on the same host after maintenance event.</li><li>`MIGRATE`: Migrate instances to another host before maintenance event.</li><ul/>
+scale_policy | **[ScalePolicy](#ScalePolicy5)**<br>Scale policy. Only fixed number of hosts are supported at this moment. 
 
 
 ### ScalePolicy {#ScalePolicy5}
 
-Поле | Описание
+Field | Description
 --- | ---
 scale_type | **oneof:** `fixed_scale`<br>
 &nbsp;&nbsp;fixed_scale | **[FixedScale](#FixedScale5)**<br> 
@@ -302,228 +302,263 @@ scale_type | **oneof:** `fixed_scale`<br>
 
 ### FixedScale {#FixedScale5}
 
-Поле | Описание
+Field | Description
 --- | ---
 size | **int64**<br> 
 
 
 ## Delete {#Delete}
 
-Удаляет указанную группу выделенных хостов.
+Deletes the specified host group.
 
 **rpc Delete ([DeleteHostGroupRequest](#DeleteHostGroupRequest)) returns ([operation.Operation](#Operation2))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[DeleteHostGroupMetadata](#DeleteHostGroupMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
 
 ### DeleteHostGroupRequest {#DeleteHostGroupRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-host_group_id | **string**<br>Обязательное поле. Идентификатор группы выделенных хостов, которую следует удалить. Чтобы получить идентификатор группы выделенных хостов, используйте запрос [HostGroupService.List](#List). Максимальная длина строки в символах — 50.
+host_group_id | **string**<br>Required. ID of the host group to delete. To get the host group ID, use [HostGroupService.List](#List) request. The maximum string length in characters is 50.
 
 
 ### Operation {#Operation2}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteHostGroupMetadata](#DeleteHostGroupMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteHostGroupMetadata](#DeleteHostGroupMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>if operation finished successfully. 
 
 
 ### DeleteHostGroupMetadata {#DeleteHostGroupMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-host_group_id | **string**<br>Идентификатор удаляемой группы выделенных хостов. 
+host_group_id | **string**<br>ID of the host group that is being deleted. 
 
 
 ## ListOperations {#ListOperations}
 
-Возвращает список операций указанной группы выделенных хостов.
+Lists operations for the specified host group.
 
 **rpc ListOperations ([ListHostGroupOperationsRequest](#ListHostGroupOperationsRequest)) returns ([ListHostGroupOperationsResponse](#ListHostGroupOperationsResponse))**
 
 ### ListHostGroupOperationsRequest {#ListHostGroupOperationsRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-host_group_id | **string**<br>Обязательное поле. Идентификатор группы выделенных хостов для которой запрашивается список операций. Чтобы получить идентификатор группы выделенных хостов, используйте запрос [HostGroupService.List](#List). Максимальная длина строки в символах — 50.
-page_size | **int64**<br>Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем `page_size`, сервис вернет значение [ListHostGroupOperationsResponse.next_page_token](#ListHostGroupOperationsResponse), которое можно использовать для получения следующей страницы. Максимальное значение — 1000.
-page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListHostGroupOperationsResponse.next_page_token](#ListHostGroupOperationsResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
+host_group_id | **string**<br>Required. ID of the host group to list operations for. To get the host group ID, use [HostGroupService.List](#List) request. The maximum string length in characters is 50.
+page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListHostGroupOperationsResponse.next_page_token](#ListHostGroupOperationsResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
+page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListHostGroupOperationsResponse.next_page_token](#ListHostGroupOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
 
 
 ### ListHostGroupOperationsResponse {#ListHostGroupOperationsResponse}
 
-Поле | Описание
+Field | Description
 --- | ---
-operations[] | **[operation.Operation](#Operation3)**<br>Список операций для указанной группы выделенных хостов. 
-next_page_token | **string**<br>Этот токен позволяет получить следующую страницу результатов для списка запросов. Если количество результатов больше чем [ListHostGroupOperationsRequest.page_size](#ListHostGroupOperationsRequest), используйте `next_page_token` в качестве значения параметра [ListHostGroupOperationsRequest.page_token](#ListHostGroupOperationsRequest) в следующем запросе списка ресурсов. Каждая следующая страница будет иметь свой `next_page_token` для продолжения перебора страниц результатов. 
+operations[] | **[operation.Operation](#Operation3)**<br>List of operations for the specified host group. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListHostGroupOperationsRequest.page_size](#ListHostGroupOperationsRequest), use the `next_page_token` as the value for the [ListHostGroupOperationsRequest.page_token](#ListHostGroupOperationsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
 ### Operation {#Operation3}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**<br>Результат операции в случае успешного завершения. Если исходный метод не возвращает никаких данных при успешном завершении, например метод Delete, поле содержит объект [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty). Если исходный метод — это стандартный метод Create / Update, поле содержит целевой ресурс операции. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `response`. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**<br>The normal response of the operation in case of success. If the original method returns no data on success, such as Delete, the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty). If the original method is the standard Create/Update, the response should be the target resource of the operation. Any method that returns a long-running operation should document the response type, if any. 
 
 
 ## ListInstances {#ListInstances}
 
-Список ВМ, привязанных к указанной группе выделенных хостов.
+Lists instances that belongs to the specified host group.
 
 **rpc ListInstances ([ListHostGroupInstancesRequest](#ListHostGroupInstancesRequest)) returns ([ListHostGroupInstancesResponse](#ListHostGroupInstancesResponse))**
 
 ### ListHostGroupInstancesRequest {#ListHostGroupInstancesRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-host_group_id | **string**<br>Обязательное поле. Идентификатор группы выделенных хостов, для которой запрашивается список ВМ. Чтобы получить идентификатор группы выделенных хостов, используйте запрос [HostGroupService.List](#List). Максимальная длина строки в символах — 50.
-page_size | **int64**<br>Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем `page_size`, сервис вернет значение [ListHostGroupInstancesResponse.next_page_token](#ListHostGroupInstancesResponse), которое можно использовать для получения следующей страницы. Максимальное значение — 1000.
-page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListHostGroupInstancesResponse.next_page_token](#ListHostGroupInstancesResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
-filter | **string**<br>Параметры фильтрации ресурсов в ответе. В настоящее время фильтрация осуществляется только по полю [Host.id](#Host). Чтобы получить идентификатор выделенного хоста, используйте запрос [HostGroupService.ListHosts](#ListHosts). Максимальная длина строки в символах — 1000.
+host_group_id | **string**<br>Required. ID of the host group to list instances for. To get the host group ID, use [HostGroupService.List](#List) request. The maximum string length in characters is 50.
+page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListHostGroupInstancesResponse.next_page_token](#ListHostGroupInstancesResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
+page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListHostGroupInstancesResponse.next_page_token](#ListHostGroupInstancesResponse) returned by a previous list request. The maximum string length in characters is 100.
+filter | **string**<br>A filter expression that filters resources listed in the response. Currently you can use filtering only on the [Host.id](#Host) field. To get the host ID, use [HostGroupService.ListHosts](#ListHosts) request. The maximum string length in characters is 1000.
 
 
 ### ListHostGroupInstancesResponse {#ListHostGroupInstancesResponse}
 
-Поле | Описание
+Field | Description
 --- | ---
-instances[] | **[Instance](#Instance)**<br>Список ВМ для указанной группы выделенных хостов. 
-next_page_token | **string**<br>Этот токен позволяет получить следующую страницу результатов для списка запросов. Если количество результатов больше чем [ListHostGroupInstancesRequest.page_size](#ListHostGroupInstancesRequest), используйте `next_page_token` в качестве значения параметра [ListHostGroupInstancesRequest.page_token](#ListHostGroupInstancesRequest) в следующем запросе списка ресурсов. Каждая следующая страница будет иметь свой `next_page_token` для продолжения перебора страниц результатов. 
+instances[] | **[Instance](#Instance)**<br>Lists instances for the specified host group. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is more than [ListHostGroupInstancesRequest.page_size](#ListHostGroupInstancesRequest), use `next_page_token` as the value for the [ListHostGroupInstancesRequest.page_token](#ListHostGroupInstancesRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
 ### Instance {#Instance}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор виртуальной машины. 
-folder_id | **string**<br>Идентификатор каталога, которому принадлежит виртуальная машина. 
+id | **string**<br>ID of the instance. 
+folder_id | **string**<br>ID of the folder that the instance belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
-name | **string**<br>Имя виртуальной машины. Длина 1-63 символов. 
-description | **string**<br>Описание виртуальной машины. Длина описания должна быть от 0 до 256 символов. 
-labels | **map<string,string>**<br>Метки ресурса в формате `key:value`. Максимум 64 на ресурс. 
-zone_id | **string**<br>Идентификатор зоны доступности, где находится виртуальная машина. 
-platform_id | **string**<br>Идентификатор аппаратной платформы виртуальной машины. 
-resources | **[Resources](#Resources)**<br>Вычислительные ресурсы виртуальной машины, такие как объем памяти и количество ядер. 
-status | enum **Status**<br>Статус виртуальной машины. <ul><li>`PROVISIONING`: Виртуальная машина ожидает выделения ресурсов.</li><li>`RUNNING`: Виртуальная машина работает нормально.</li><li>`STOPPING`: Виртуальная машина останавливается.</li><li>`STOPPED`: Виртуальная машина остановлена.</li><li>`STARTING`: Виртуальная машина запускается.</li><li>`RESTARTING`: Виртуальная машина перезапускается.</li><li>`UPDATING`: Виртуальная машина обновляется.</li><li>`ERROR`: С виртуальной машиной произошла ошибка, блокирующая работу.</li><li>`CRASHED`: Виртуальная машина аварийно завершила работу и будет перезапущена автоматически.</li><li>`DELETING`: Виртуальная машина удаляется.</li><ul/>
-metadata | **map<string,string>**<br>Метаданные в формате пар `key:value`, назначаемые данной виртуальной машине. Сюда входят пользовательские метаданные и предопределенные ключи. <br>Например, можно использовать метаданные для доставки открытого ключа SSH на виртуальную машину. Дополнительные сведения см. в разделе [Метаданные виртуальной машины](/docs/compute/concepts/vm-metadata). 
-boot_disk | **[AttachedDisk](#AttachedDisk)**<br>Загрузочный диск, подключенный к виртуальной машине. 
-secondary_disks[] | **[AttachedDisk](#AttachedDisk)**<br>Массив дополнительных дисков, подключенных к виртуальной машине. 
-network_interfaces[] | **[NetworkInterface](#NetworkInterface)**<br>Массив сетевых интерфейсов, присоединенных к виртуальной машине. 
-fqdn | **string**<br>Доменное имя виртуальной машины. FQDN определяется сервером в формате `<hostname>.<region_id>.internal` при создании виртуальной машины. Если имя хоста не было указано при создании виртуальной машины, FQDN будет `<id>.auto.internal`. 
-scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy)**<br>Конфигурация политики планирования. 
-service_account_id | **string**<br>Идентификатор сервисного аккаунта для [аутентификации изнутри виртуальной машины](/docs/compute/operations/vm-connect/auth-inside-vm). Чтобы получить идентификатор сервисного аккаунта, используйте запрос [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/grpc/service_account_service#List). 
-network_settings | **[NetworkSettings](#NetworkSettings)**<br>Не указывайте это поле, сетевые настройки пока не поддерживаются. 
+name | **string**<br>Name of the instance. 1-63 characters long. 
+description | **string**<br>Description of the instance. 0-256 characters long. 
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
+zone_id | **string**<br>ID of the availability zone where the instance resides. 
+platform_id | **string**<br>ID of the hardware platform configuration for the instance. 
+resources | **[Resources](#Resources)**<br>Computing resources of the instance such as the amount of memory and number of cores. 
+status | enum **Status**<br>Status of the instance. <ul><li>`PROVISIONING`: Instance is waiting for resources to be allocated.</li><li>`RUNNING`: Instance is running normally.</li><li>`STOPPING`: Instance is being stopped.</li><li>`STOPPED`: Instance stopped.</li><li>`STARTING`: Instance is being started.</li><li>`RESTARTING`: Instance is being restarted.</li><li>`UPDATING`: Instance is being updated.</li><li>`ERROR`: Instance encountered a problem and cannot operate.</li><li>`CRASHED`: Instance crashed and will be restarted automatically.</li><li>`DELETING`: Instance is being deleted.</li><ul/>
+metadata | **map<string,string>**<br>The metadata `key:value` pairs assigned to this instance. This includes custom metadata and predefined keys. <br>For example, you may use the metadata in order to provide your public SSH key to the instance. For more information, see [Metadata](/docs/compute/concepts/vm-metadata). 
+boot_disk | **[AttachedDisk](#AttachedDisk)**<br>Boot disk that is attached to the instance. 
+secondary_disks[] | **[AttachedDisk](#AttachedDisk)**<br>Array of secondary disks that are attached to the instance. 
+network_interfaces[] | **[NetworkInterface](#NetworkInterface)**<br>Array of network interfaces that are attached to the instance. 
+fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
+scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy)**<br>Scheduling policy configuration. 
+service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/grpc/service_account_service#List) request. 
+network_settings | **[NetworkSettings](#NetworkSettings)**<br>Network Settings 
+placement_policy | **[PlacementPolicy](#PlacementPolicy)**<br>Placement policy configuration. 
 
 
 ### Resources {#Resources}
 
-Поле | Описание
+Field | Description
 --- | ---
-memory | **int64**<br>Объем памяти в байтах, доступный виртуальной машине. 
-cores | **int64**<br>Количество ядер, доступное виртуальной машине. 
-core_fraction | **int64**<br>Базовый уровень производительности CPU с возможностью повышения производительности выше этого уровня. Это поле устанавливает базовую производительность для каждого ядра. 
-gpus | **int64**<br>Количество GPU, доступное виртуальной машине. 
+memory | **int64**<br>The amount of memory available to the instance, specified in bytes. 
+cores | **int64**<br>The number of cores available to the instance. 
+core_fraction | **int64**<br>Baseline level of CPU performance with the ability to burst performance above that baseline level. This field sets baseline performance for each core. 
+gpus | **int64**<br>The number of GPUs available to the instance. 
 
 
 ### AttachedDisk {#AttachedDisk}
 
-Поле | Описание
+Field | Description
 --- | ---
-mode | enum **Mode**<br>Режим доступа к ресурсу Disk. <ul><li>`READ_ONLY`: Доступ на чтение.</li><li>`READ_WRITE`: Доступ на чтение и запись.</li><ul/>
-device_name | **string**<br>Cерийный номер, который отображается в директории /dev/disk/by-id/ на виртуальной машине с операционной системой Linux. <br>Это значение может использоваться для ссылки на устройство внутри виртуальной машины при монтировании, изменении размера и т. д. 
-auto_delete | **bool**<br>Указывает, должен ли диск автоматически удалиться при удалении виртуальной машины. 
-disk_id | **string**<br>Идентификатор диска, подключенного к виртуальной машине. 
+mode | enum **Mode**<br>Access mode to the Disk resource. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li><ul/>
+device_name | **string**<br>Serial number that is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. 
+auto_delete | **bool**<br>Specifies whether the disk will be auto-deleted when the instance is deleted. 
+disk_id | **string**<br>ID of the disk that is attached to the instance. 
 
 
 ### NetworkInterface {#NetworkInterface}
 
-Поле | Описание
+Field | Description
 --- | ---
-index | **string**<br>Индекс сетевого интерфейса, генерируемого сервером, 0,1,2... В настоящее время для каждой виртуальной машины поддерживается только один сетевой интерфейс. 
-mac_address | **string**<br>MAC-адрес, назначенный сетевому интерфейсу. 
-subnet_id | **string**<br>Идентификатор подсети. 
-primary_v4_address | **[PrimaryAddress](#PrimaryAddress)**<br>Основной IPv4-адрес, который назначен виртуальной машине для данного сетевого интерфейса. 
-primary_v6_address | **[PrimaryAddress](#PrimaryAddress)**<br>Основной IPv6-адрес, который назначен виртуальной машине для данного сетевого интерфейса. IPv6 еще не доступен. 
+index | **string**<br>The index of the network interface, generated by the server, 0,1,2... etc. Currently only one network interface is supported per instance. 
+mac_address | **string**<br>MAC address that is assigned to the network interface. 
+subnet_id | **string**<br>ID of the subnet. 
+primary_v4_address | **[PrimaryAddress](#PrimaryAddress)**<br>Primary IPv4 address that is assigned to the instance for this network interface. 
+primary_v6_address | **[PrimaryAddress](#PrimaryAddress)**<br>Primary IPv6 address that is assigned to the instance for this network interface. IPv6 not available yet. 
+security_group_ids[] | **string**<br>ID's of security groups attached to the interface 
 
 
 ### PrimaryAddress {#PrimaryAddress}
 
-Поле | Описание
+Field | Description
 --- | ---
-address | **string**<br>Внутренний IPv4-адрес, назначенный виртуальной машине для данного сетевого интерфейса. 
-one_to_one_nat | **[OneToOneNat](#OneToOneNat)**<br>Конфигурация one-to-one NAT. Если она отсутствует, NAT не был настроен. 
+address | **string**<br>An IPv4 internal network address that is assigned to the instance for this network interface. 
+one_to_one_nat | **[OneToOneNat](#OneToOneNat)**<br>One-to-one NAT configuration. If missing, NAT has not been set up. 
+dns_records[] | **[DnsRecord](#DnsRecord)**<br>Internal DNS configuration 
 
 
 ### OneToOneNat {#OneToOneNat}
 
-Поле | Описание
+Field | Description
 --- | ---
-address | **string**<br>Публичный IP-адрес, связанный с данной виртуальной машиной. 
-ip_version | enum **IpVersion**<br>Версия IP для публичного IP-адреса. <ul><li>`IPV4`: IPv4-адрес, например 192.0.2.235.</li><li>`IPV6`: <ol><li>На данный момент не доступен.</li></ol></li><ul/>
+address | **string**<br>An external IP address associated with this instance. 
+ip_version | enum **IpVersion**<br>IP version for the external IP address. <ul><li>`IPV4`: IPv4 address, for example 192.0.2.235.</li><li>`IPV6`: IPv6 address. Not available yet.</li><ul/>
+dns_records[] | **[DnsRecord](#DnsRecord)**<br>External DNS configuration 
+
+
+### DnsRecord {#DnsRecord}
+
+Field | Description
+--- | ---
+fqdn | **string**<br> 
+
+
+### DnsRecord {#DnsRecord1}
+
+Field | Description
+--- | ---
+fqdn | **string**<br> 
 
 
 ### SchedulingPolicy {#SchedulingPolicy}
 
-Поле | Описание
+Field | Description
 --- | ---
-preemptible | **bool**<br>Если значение равно true — будет создана прерываемая виртуальная машина. Дополнительные сведения см. в разделе [Прерываемые виртуальные машины](/docs/compute/concepts/preemptible-vm). 
+preemptible | **bool**<br>True for short-lived compute instances. For more information, see [Preemptible VMs](/docs/compute/concepts/preemptible-vm). 
 
 
 ### NetworkSettings {#NetworkSettings}
 
-Поле | Описание
+Field | Description
 --- | ---
-type | enum **[Type](./disk_type#undefined)**<br>Не указывайте это поле, сетевые настройки пока не поддерживаются. <ul><li>`STANDARD`: Стандартная сеть.</li><li>`SOFTWARE_ACCELERATED`: Сеть с программным ускорением.</li><li>`HARDWARE_ACCELERATED`: Сеть с аппаратным ускорением (этот тип пока недоступен, значение зарезервировано для использования в будущем).</li><ul/>
+type | enum **[Type](./disk_type#undefined)**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li><ul/>
+
+
+### PlacementPolicy {#PlacementPolicy}
+
+Field | Description
+--- | ---
+placement_group_id | **string**<br>Placement group ID. 
+host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule)**<br>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. 
+
+
+### HostAffinityRule {#HostAffinityRule}
+
+Field | Description
+--- | ---
+key | **string**<br>Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId' 
+op | enum **Operator**<br>Include or exclude action <ul><ul/>
+values[] | **string**<br>Affinity value or host ID or host group ID 
 
 
 ## ListHosts {#ListHosts}
 
-Список выделенных хостов, привязанных к указанной группе хостов.
+Lists hosts that belongs to the specified host group.
 
 **rpc ListHosts ([ListHostGroupHostsRequest](#ListHostGroupHostsRequest)) returns ([ListHostGroupHostsResponse](#ListHostGroupHostsResponse))**
 
 ### ListHostGroupHostsRequest {#ListHostGroupHostsRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-host_group_id | **string**<br>Обязательное поле. Идентификатор группы выделенных хостов, для которой запрашивается список хостов. Чтобы получить идентификатор группы выделенных хостов, используйте запрос [HostGroupService.List](#List). Максимальная длина строки в символах — 50.
-page_size | **int64**<br>Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем `page_size`, сервис вернет значение [ListHostGroupHostsResponse.next_page_token](#ListHostGroupHostsResponse), которое можно использовать для получения следующей страницы. Максимальное значение — 1000.
-page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListHostGroupHostsResponse.next_page_token](#ListHostGroupHostsResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
+host_group_id | **string**<br>Required. ID of the host group to list hosts for. To get the host group ID, use [HostGroupService.List](#List) request. The maximum string length in characters is 50.
+page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListHostGroupHostsResponse.next_page_token](#ListHostGroupHostsResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
+page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListHostGroupHostsResponse.next_page_token](#ListHostGroupHostsResponse) returned by a previous list request. The maximum string length in characters is 100.
 
 
 ### ListHostGroupHostsResponse {#ListHostGroupHostsResponse}
 
-Поле | Описание
+Field | Description
 --- | ---
-hosts[] | **[Host](#Host)**<br>Список выделенных хостов для указанной группы хостов. 
-next_page_token | **string**<br>Этот токен позволяет получить следующую страницу результатов для списка запросов. Если количество результатов больше чем [ListHostGroupHostsRequest.page_size](#ListHostGroupHostsRequest), используйте `next_page_token` в качестве значения параметра [ListHostGroupHostsRequest.page_token](#ListHostGroupHostsRequest) в следующем запросе списка ресурсов. Каждая следующая страница будет иметь свой `next_page_token` для продолжения перебора страниц результатов. 
+hosts[] | **[Host](#Host)**<br>Lists hosts for the specified host group. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is more than [ListHostGroupHostsRequest.page_size](#ListHostGroupHostsRequest), use `next_page_token` as the value for the [ListHostGroupHostsRequest.page_token](#ListHostGroupHostsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
 ### Host {#Host}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор выделенного хоста. 
-status | enum **Status**<br>Текущий статус выделенного хоста. Новые ВМ не могут запускаться на выделенном хосте в статусе DOWN. <ul><ul/>
-server_id | **string**<br>Идентификатор физического сервера, которому принадлежит выделенный хост. 
+id | **string**<br>ID of the host. 
+status | enum **Status**<br>Current status of the host. New instances are unable to start on host in DOWN status. <ul><ul/>
+server_id | **string**<br>ID of the physical server that the host belongs to. 
 
 

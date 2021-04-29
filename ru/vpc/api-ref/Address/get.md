@@ -2,23 +2,23 @@
 editable: false
 ---
 
-# Метод get
-Возвращает информацию об указанном адресе.
+# Method get
+Returns the specified Address resource.
  
-Чтобы получить список доступных адресов, используйте запрос [list](/docs/vpc/api-ref/Address/list).
+To get the list of all available Address resources, make a [list](/docs/vpc/api-ref/Address/list) request.
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 GET https://vpc.api.cloud.yandex.net/vpc/v1/addresses/{addressId}
 ```
  
-## Path-параметры {#path_params}
+## Path parameters {#path_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-addressId | Обязательное поле. Идентификатор возвращаемого адреса.  Чтобы получить идентификатор адреса, используйте запрос [list](/docs/vpc/api-ref/Address/list).  Максимальная длина строки в символах — 50.
+addressId | Required. ID of the Address resource to return.  To get Address resource ID make a [list](/docs/vpc/api-ref/Address/list) request.  The maximum string length in characters is 50.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -31,6 +31,8 @@ addressId | Обязательное поле. Идентификатор воз
   "labels": "object",
   "reserved": true,
   "used": true,
+  "type": "string",
+  "ipVersion": "string",
   "externalIpv4Address": {
     "address": "string",
     "zoneId": "string",
@@ -41,21 +43,23 @@ addressId | Обязательное поле. Идентификатор воз
   }
 }
 ```
-Ресурс Адрес. Подробнее см. [документацию](/docs/vpc/concepts/address).
+An Address resource. For more information, see [Address](/docs/vpc/concepts/address).
  
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br><p>Идентификатор адреса. Генерируется при создании.</p> 
-folderId | **string**<br><p>Идентификатор каталога, которому принадлежит адрес.</p> 
-createdAt | **string** (date-time)<br><p>Время создания ресурса.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-name | **string**<br><p>Имя адреса. Имя должно быть уникальным в каталоге.</p> 
-description | **string**<br><p>Описание адреса.</p> 
-labels | **object**<br><p>Метки адреса в формате `ключ:значение`.</p> 
-reserved | **boolean** (boolean)<br><p>Определяет, зарезервирован ли адрес (статический ли он).</p> 
-used | **boolean** (boolean)<br><p>Определяет, используется ли адрес.</p> 
+id | **string**<br><p>ID of the address. Generated at creation time.</p> 
+folderId | **string**<br><p>ID of the folder that the address belongs to.</p> 
+createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+name | **string**<br><p>Name of the address. The name is unique within the folder.</p> 
+description | **string**<br><p>Description of the address.</p> 
+labels | **object**<br><p>Resource labels as `key:value` pairs.</p> 
+reserved | **boolean** (boolean)<br><p>Specifies if address is reserved or not.</p> 
+used | **boolean** (boolean)<br><p>Specifies if address is used or not.</p> 
+type | **string**<br>Type of the IP address.<br><ul> <li>INTERNAL: Internal IP address.</li> <li>EXTERNAL: Public IP address.</li> </ul> 
+ipVersion | **string**<br>Vervion of the IP address.<br><ul> <li>IPV4: IPv4 address.</li> <li>IPV6: IPv6 address.</li> </ul> 
 externalIpv4Address | **object**<br>
-externalIpv4Address.<br>address | **string**<br><p>Значение адреса.</p> 
-externalIpv4Address.<br>zoneId | **string**<br><p>Зона доступности, из которой будет выделен адрес.</p> 
-externalIpv4Address.<br>requirements | **object**<br><p>Параметры выделяемого адреса, например защита от DDoS-атак.</p> 
-externalIpv4Address.<br>requirements.<br>ddosProtectionProvider | **string**<br><p>Идентификатор провайдера защиты от DDoS-атак.</p> 
-externalIpv4Address.<br>requirements.<br>outgoingSmtpCapability | **string**<br><p>Возможность отправки SMTP-трафика.</p> 
+externalIpv4Address.<br>address | **string**<br><p>Value of address.</p> 
+externalIpv4Address.<br>zoneId | **string**<br><p>Availability zone from which the address will be allocated.</p> 
+externalIpv4Address.<br>requirements | **object**<br><p>Parameters of the allocated address, for example DDoS Protection.</p> 
+externalIpv4Address.<br>requirements.<br>ddosProtectionProvider | **string**<br><p>DDoS protection provider ID.</p> 
+externalIpv4Address.<br>requirements.<br>outgoingSmtpCapability | **string**<br><p>Capability to send SMTP traffic.</p> 

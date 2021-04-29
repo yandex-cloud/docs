@@ -4,67 +4,67 @@ editable: false
 
 # ResourcePresetService
 
-Набор методов для управления ресурсами ResourcePreset.
+A set of methods for managing ResourcePreset resources.
 
-| Вызов | Описание |
+| Call | Description |
 | --- | --- |
-| [Get](#Get) | Возвращает указанный ресурс ResourcePreset. |
-| [List](#List) | Получает список доступных ресурсов ResourcePreset. |
+| [Get](#Get) | Returns the specified ResourcePreset resource. |
+| [List](#List) | Retrieves the list of available ResourcePreset resources. |
 
-## Вызовы ResourcePresetService {#calls}
+## Calls ResourcePresetService {#calls}
 
 ## Get {#Get}
 
-Возвращает указанный ресурс ResourcePreset. <br>Чтобы получить список доступных ресурсов ResourcePreset, используйте запрос [List](#List).
+Returns the specified ResourcePreset resource. <br>To get the list of available ResourcePreset resources, make a [List](#List) request.
 
 **rpc Get ([GetResourcePresetRequest](#GetResourcePresetRequest)) returns ([ResourcePreset](#ResourcePreset))**
 
 ### GetResourcePresetRequest {#GetResourcePresetRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-resource_preset_id | **string**<br>Обязательное поле. Идентификатор набора ресурсов, данные о котором запрашиваются. Чтобы получить идентификатор набора ресурсов, используйте запрос [ResourcePresetService.List](#List). 
+resource_preset_id | **string**<br>Required. Required. ID of the resource preset to return. To get the resource preset ID, use a [ResourcePresetService.List](#List) request. 
 
 
 ### ResourcePreset {#ResourcePreset}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор конфигурации ресурсов. 
-zone_ids[] | **string**<br>Идентификаторы зон доступности, в которых доступен данный набор ресурсов. 
-cores | **int64**<br>Количество ядер CPU для хоста Data Proc, созданного с данным набором ресурсов. 
-memory | **int64**<br>Объем оперативной памяти для хоста Data Proc, созданного с данным набором ресурсов, в байтах. 
+id | **string**<br>ID of the ResourcePreset resource. 
+zone_ids[] | **string**<br>IDs of availability zones where the resource preset is available. 
+cores | **int64**<br>Number of CPU cores for a Data Proc host created with the preset. 
+memory | **int64**<br>RAM volume for a Data Proc host created with the preset, in bytes. 
 
 
 ## List {#List}
 
-Получает список доступных ресурсов ResourcePreset.
+Retrieves the list of available ResourcePreset resources.
 
 **rpc List ([ListResourcePresetsRequest](#ListResourcePresetsRequest)) returns ([ListResourcePresetsResponse](#ListResourcePresetsResponse))**
 
 ### ListResourcePresetsRequest {#ListResourcePresetsRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-page_size | **int64**<br>Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем `page_size`, сервис вернет значение [ListResourcePresetsResponse.next_page_token](#ListResourcePresetsResponse), которое можно использовать для получения следующей страницы. Максимальное значение — 1000.
-page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListResourcePresetsResponse.next_page_token](#ListResourcePresetsResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
+page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListResourcePresetsResponse.next_page_token](#ListResourcePresetsResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
+page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListResourcePresetsResponse.next_page_token](#ListResourcePresetsResponse) returned by a previous list request. The maximum string length in characters is 100.
 
 
 ### ListResourcePresetsResponse {#ListResourcePresetsResponse}
 
-Поле | Описание
+Field | Description
 --- | ---
-resource_presets[] | **[ResourcePreset](#ResourcePreset1)**<br>Список ресурсов ResourcePreset. 
-next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListResourcePresetsRequest.page_size](#ListResourcePresetsRequest), используйте `next_page_token` в качестве значения параметра [ListResourcePresetsRequest.page_token](#ListResourcePresetsRequest) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. Максимальная длина строки в символах — 100.
+resource_presets[] | **[ResourcePreset](#ResourcePreset1)**<br>List of ResourcePreset resources. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListResourcePresetsRequest.page_size](#ListResourcePresetsRequest), use the `next_page_token` as the value for the [ListResourcePresetsRequest.page_token](#ListResourcePresetsRequest) parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. The maximum string length in characters is 100.
 
 
 ### ResourcePreset {#ResourcePreset1}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор конфигурации ресурсов. 
-zone_ids[] | **string**<br>Идентификаторы зон доступности, в которых доступен данный набор ресурсов. 
-cores | **int64**<br>Количество ядер CPU для хоста Data Proc, созданного с данным набором ресурсов. 
-memory | **int64**<br>Объем оперативной памяти для хоста Data Proc, созданного с данным набором ресурсов, в байтах. 
+id | **string**<br>ID of the ResourcePreset resource. 
+zone_ids[] | **string**<br>IDs of availability zones where the resource preset is available. 
+cores | **int64**<br>Number of CPU cores for a Data Proc host created with the preset. 
+memory | **int64**<br>RAM volume for a Data Proc host created with the preset, in bytes. 
 
 

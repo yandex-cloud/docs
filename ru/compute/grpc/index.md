@@ -1,18 +1,19 @@
 # Yandex Compute Cloud API
-Методы справочника API сгруппированы по ресурсам. Чтобы выполнить операцию над ресурсом, отправьте HTTP-запрос к соответствующему URL. Подробнее об архитектуре API Яндекс.Облака, см. [Концепции API Яндекс.Облака](/docs/api-design-guide/).
+This API reference is organized by resource. Actions are performed by sending HTTP requests to resource URLs or making RPC calls. For more information about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
 
-Спецификации API Яндекс.Облака смотрите на [GitHub](https://github.com/yandex-cloud/cloudapi).
+See the interface definitions of Yandex.Cloud API on [GitHub](https://github.com/yandex-cloud/cloudapi).
 
-Сервис | Описание
+Service | Description
 --- | ---
-[DiskService](./disk_service.md) | Набор методов для управления ресурсами Disk.
-[DiskTypeService](./disk_type_service.md) | Набор методов для получения информации о типах дисков.
-[HostGroupService](./host_group_service.md) | Набор методов для управления группами выделенных хостов.
-[HostTypeService](./host_type_service.md) | Набор методов для просмотра возможных конфигураций выделенного хоста.
-[ImageService](./image_service.md) | Набор методов для управления ресурсами Image.
-[InstanceService](./instance_service.md) | Набор методов для управления ресурсами Instance.
-[PlacementGroupService](./placement_group_service.md) | Набор методов для управления группами размещения.
-[SnapshotService](./snapshot_service.md) | Набор методов для управления ресурсами Snapshot.
-[ZoneService](./zone_service.md) | Набор методов для получения информации о зонах доступности.
-[InstanceGroupService](./instance_group_service.md) | Набор методов для управления ресурсами InstanceGroup.
-[OperationService](./operation_service.md) | Набор методов для управления операциями в асинхронных запросах API. Ссылки указаны относительно домена `operation.api.cloud.yandex.net`.
+[DiskPlacementGroupService](./disk_placement_group_service.md) | A set of methods for managing DiskPlacementGroup resources.
+[DiskService](./disk_service.md) | A set of methods for managing Disk resources.
+[DiskTypeService](./disk_type_service.md) | A set of methods to retrieve information about disk types.
+[HostGroupService](./host_group_service.md) | A set of methods for managing groups of dedicated hosts.
+[HostTypeService](./host_type_service.md) | Set of methods to view possible host configurations.
+[ImageService](./image_service.md) | A set of methods for managing Image resources.
+[InstanceService](./instance_service.md) | A set of methods for managing Instance resources.
+[PlacementGroupService](./placement_group_service.md) | A set of methods for managing placement groups.
+[SnapshotService](./snapshot_service.md) | A set of methods for managing Snapshot resources.
+[ZoneService](./zone_service.md) | A set of methods to retrieve information about availability zones.
+[InstanceGroupService](./instance_group_service.md) | A set of methods for managing InstanceGroup resources.
+[OperationService](./operation_service.md) | A set of methods for managing operations for asynchronous API requests.

@@ -3,9 +3,9 @@ editable: false
 ---
 
 # Version
-Набор методов для управления версиями Kubernetes.
+A set of methods for managing Kubernetes versions.
 
-## Методы {#methods}
-Метод | Описание
+## Methods {#methods}
+Method | Description
 --- | ---
-[list](list.md) | Возвращает список версий в указанном релизном канале.
+[list](list.md) | Retrieves the list of versions in the specified release channel.

@@ -2,23 +2,23 @@
 editable: false
 ---
 
-# Метод get
-Возвращает указанный реестр.
+# Method get
+Returns the specified registry.
  
-Чтобы получить список доступных реестров, используйте запрос [list](/docs/iot-core/api-ref/Registry/list).
+To get the list of available registries, make a [list](/docs/iot-core/api-ref/Registry/list) request.
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 GET https://iot-devices.api.cloud.yandex.net/iot-devices/v1/registries/{registryId}
 ```
  
-## Path-параметры {#path_params}
+## Path parameters {#path_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-registryId | Обязательное поле. Идентификатор возвращаемого реестра.  Чтобы получить идентификатор реестра, используйте запрос [list](/docs/iot-core/api-ref/Registry/list).  Максимальная длина строки в символах — 50.
+registryId | Required. ID of the registry to return.  To get a registry ID make a [list](/docs/iot-core/api-ref/Registry/list) request.  The maximum string length in characters is 50.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -33,15 +33,15 @@ registryId | Обязательное поле. Идентификатор во�
   "logGroupId": "string"
 }
 ```
-Реестр. Дополнительные сведения см. в разделе [Реестр](/docs/iot-core/concepts/index#registry).
+A registry. For more information, see [Registry](/docs/iot-core/concepts/index#registry).
  
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br><p>Идентификатор реестра.</p> 
-folderId | **string**<br><p>Идентификатор каталога, которому принадлежит реестр.</p> 
-createdAt | **string** (date-time)<br><p>Время создания.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-name | **string**<br><p>Название реестра. Имя уникально в рамках каталога.</p> 
-description | **string**<br><p>Описание реестра. Длина описания должна быть от 0 до 256 символов.</p> 
-labels | **object**<br><p>Метки группы размещения в формате `key:value`. Максимум 64 метки на ресурс.</p> 
-status | **string**<br><p>Статус реестра.</p> <ul> <li>CREATING: Реестр создается.</li> <li>ACTIVE: Реестр готов к использованию.</li> <li>DELETING: Реестр удаляется.</li> </ul> 
-logGroupId | **string**<br><p>Идентификатор группы журналов для указанного реестра.</p> 
+id | **string**<br><p>ID of the registry.</p> 
+folderId | **string**<br><p>ID of the folder that the registry belongs to.</p> 
+createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+name | **string**<br><p>Name of the registry. The name is unique within the folder.</p> 
+description | **string**<br><p>Description of the registry. 0-256 characters long.</p> 
+labels | **object**<br><p>Resource labels as `key:value` pairs. Maximum of 64 per resource.</p> 
+status | **string**<br><p>Status of the registry.</p> <ul> <li>CREATING: Registry is being created.</li> <li>ACTIVE: Registry is ready to use.</li> <li>DELETING: Registry is being deleted.</li> </ul> 
+logGroupId | **string**<br><p>ID of the logs group for the specified registry.</p> 

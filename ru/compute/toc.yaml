@@ -289,14 +289,16 @@ items:
             href: pricing-archive/pricing-01032019.md
           - name: С 1 марта до 1 мая 2019 года
             href: pricing-archive/pricing-30042019.md
-  - name: Справочник API
+  - name: Справочник API (англ.)
     items:
-      - name: Аутентификация в API
+      - name: Authentication
         href: api-ref/authentication.md
       - name: gRPC
         items:
-          - name: Обзор
+          - name: Overview
             href: grpc/index.md
+          - name: DiskPlacementGroupService
+            href: grpc/disk_placement_group_service.md
           - name: DiskService
             href: grpc/disk_service.md
           - name: DiskTypeService
@@ -321,11 +323,11 @@ items:
             href: grpc/operation_service.md
       - name: REST
         items:
-          - name: Обзор
+          - name: Overview
             href: api-ref/index.md
           - name: Disk
             items:
-              - name: Обзор
+              - name: Overview
                 href: api-ref/Disk/index.md
               - name: create
                 href: api-ref/Disk/create.md
@@ -339,9 +341,27 @@ items:
                 href: api-ref/Disk/listOperations.md
               - name: update
                 href: api-ref/Disk/update.md
+          - name: DiskPlacementGroup
+            items:
+              - name: Overview
+                href: api-ref/DiskPlacementGroup/index.md
+              - name: create
+                href: api-ref/DiskPlacementGroup/create.md
+              - name: delete
+                href: api-ref/DiskPlacementGroup/delete.md
+              - name: get
+                href: api-ref/DiskPlacementGroup/get.md
+              - name: list
+                href: api-ref/DiskPlacementGroup/list.md
+              - name: listDisks
+                href: api-ref/DiskPlacementGroup/listDisks.md
+              - name: listOperations
+                href: api-ref/DiskPlacementGroup/listOperations.md
+              - name: update
+                href: api-ref/DiskPlacementGroup/update.md
           - name: DiskType
             items:
-              - name: Обзор
+              - name: Overview
                 href: api-ref/DiskType/index.md
               - name: get
                 href: api-ref/DiskType/get.md
@@ -349,7 +369,7 @@ items:
                 href: api-ref/DiskType/list.md
           - name: HostGroup
             items:
-              - name: Обзор
+              - name: Overview
                 href: api-ref/HostGroup/index.md
               - name: create
                 href: api-ref/HostGroup/create.md
@@ -369,7 +389,7 @@ items:
                 href: api-ref/HostGroup/update.md
           - name: HostType
             items:
-              - name: Обзор
+              - name: Overview
                 href: api-ref/HostType/index.md
               - name: get
                 href: api-ref/HostType/get.md
@@ -377,7 +397,7 @@ items:
                 href: api-ref/HostType/list.md
           - name: Image
             items:
-              - name: Обзор
+              - name: Overview
                 href: api-ref/Image/index.md
               - name: create
                 href: api-ref/Image/create.md
@@ -395,8 +415,10 @@ items:
                 href: api-ref/Image/update.md
           - name: Instance
             items:
-              - name: Обзор
+              - name: Overview
                 href: api-ref/Instance/index.md
+              - name: addOneToOneNat
+                href: api-ref/Instance/addOneToOneNat.md
               - name: attachDisk
                 href: api-ref/Instance/attachDisk.md
               - name: create
@@ -413,6 +435,8 @@ items:
                 href: api-ref/Instance/list.md
               - name: listOperations
                 href: api-ref/Instance/listOperations.md
+              - name: removeOneToOneNat
+                href: api-ref/Instance/removeOneToOneNat.md
               - name: restart
                 href: api-ref/Instance/restart.md
               - name: start
@@ -423,9 +447,11 @@ items:
                 href: api-ref/Instance/update.md
               - name: updateMetadata
                 href: api-ref/Instance/updateMetadata.md
+              - name: updateNetworkInterface
+                href: api-ref/Instance/updateNetworkInterface.md
           - name: PlacementGroup
             items:
-              - name: Обзор
+              - name: Overview
                 href: api-ref/PlacementGroup/index.md
               - name: create
                 href: api-ref/PlacementGroup/create.md
@@ -443,7 +469,7 @@ items:
                 href: api-ref/PlacementGroup/update.md
           - name: Snapshot
             items:
-              - name: Обзор
+              - name: Overview
                 href: api-ref/Snapshot/index.md
               - name: create
                 href: api-ref/Snapshot/create.md
@@ -459,7 +485,7 @@ items:
                 href: api-ref/Snapshot/update.md
           - name: Zone
             items:
-              - name: Обзор
+              - name: Overview
                 href: api-ref/Zone/index.md
               - name: get
                 href: api-ref/Zone/get.md
@@ -467,13 +493,13 @@ items:
                 href: api-ref/Zone/list.md
           - name: Operation
             items:
-              - name: Обзор
+              - name: Overview
                 href: api-ref/Operation/index.md
               - name: get
                 href: api-ref/Operation/get.md
           - name: InstanceGroup
             items:
-              - name: Обзор
+              - name: Overview
                 href: api-ref/InstanceGroup/index.md
               - name: createFromYaml
                 href: api-ref/InstanceGroup/createFromYaml.md
@@ -491,12 +517,18 @@ items:
                 href: api-ref/InstanceGroup/stop.md
               - name: create
                 href: api-ref/InstanceGroup/create.md
+              - name: listAccessBindings
+                href: api-ref/InstanceGroup/listAccessBindings.md
+              - name: setAccessBindings
+                href: api-ref/InstanceGroup/setAccessBindings.md
               - name: updateFromYaml
                 href: api-ref/InstanceGroup/updateFromYaml.md
               - name: listLogRecords
                 href: api-ref/InstanceGroup/listLogRecords.md
               - name: listInstances
                 href: api-ref/InstanceGroup/listInstances.md
+              - name: updateAccessBindings
+                href: api-ref/InstanceGroup/updateAccessBindings.md
               - name: listOperations
                 href: api-ref/InstanceGroup/listOperations.md
   - name: Вопросы и ответы

@@ -2,24 +2,24 @@
 editable: false
 ---
 
-# Метод get
-Возвращает указанный API-шлюз. Обратите внимание, что возвращаются только базовые параметры API-шлюза. Чтобы получить соответствующую спецификацию OpenAPI,
-сделайте [getOpenapiSpec](/docs/api-gateway/api-ref/ApiGateway/getOpenapiSpec) запрос.
+# Method get
+Returns the specified API gateway. Note that only API gateway basic attributes are returned.
+To get associated openapi specification, make a [getOpenapiSpec](/docs/functions/api-gateway/api-ref/ApiGateway/getOpenapiSpec) request.
  
-Чтобы получить список всех доступных API-шлюзов, сделайте [list](/docs/api-gateway/api-ref/ApiGateway/list) запрос.
+To get the list of all available API gateways, make a [list](/docs/functions/api-gateway/api-ref/ApiGateway/list) request.
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 GET https://serverless-apigateway.api.cloud.yandex.net/apigateways/v1/apigateways/{apiGatewayId}
 ```
  
-## Path-параметры {#path_params}
+## Path parameters {#path_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-apiGatewayId | Обязательное поле. Идентификатор возвращаемого API-шлюза.  Чтобы получить идентификатор API-шлюза, сделайте [list](/docs/api-gateway/api-ref/ApiGateway/list) запрос.
+apiGatewayId | Required. ID of the API gateway to return.  To get a API gateway ID make a [list](/docs/functions/api-gateway/api-ref/ApiGateway/list) request.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -32,19 +32,32 @@ apiGatewayId | Обязательное поле. Идентификатор в�
   "labels": "object",
   "status": "string",
   "domain": "string",
-  "logGroupId": "string"
+  "logGroupId": "string",
+  "attachedDomains": [
+    {
+      "domainId": "string",
+      "certificateId": "string",
+      "enabled": true,
+      "domain": "string"
+    }
+  ]
 }
 ```
 
  
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br><p>Идентификатор API-шлюза. Генерируется при создании.</p> 
-folderId | **string**<br><p>Идентификатор каталога, которому принадлежит API-шлюз.</p> 
-createdAt | **string** (date-time)<br><p>Время создания API-шлюза.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-name | **string**<br><p>Имя API-шлюза. Имя уникально в рамках каталога.</p> 
-description | **string**<br><p>Описание API-шлюза.</p> 
-labels | **object**<br><p>Метки API-шлюза в формате `key:value` .</p> 
-status | **string**<br><p>Состояние API-шлюза.</p> <ul> <li>CREATING: API-шлюз создается.</li> <li>ACTIVE: API-шлюз готов к использованию.</li> <li>DELETING: API-шлюз удаляется.</li> <li>ERROR: Сбой API-шлюза. Единственное разрешенное действие c API-шлюзом — удаление.</li> </ul> 
-domain | **string**<br><p>Домен по умолчанию для API-шлюза. Генерируется при создании.</p> 
-logGroupId | **string**<br><p>Идентификатор группы журналов выполнения для API-шлюза.</p> 
+id | **string**<br><p>ID of the API gateway. Generated at creation time.</p> 
+folderId | **string**<br><p>ID of the folder that the API gateway belongs to.</p> 
+createdAt | **string** (date-time)<br><p>Creation timestamp for the API-gateway.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+name | **string**<br><p>Name of the API gateway. The name is unique within the folder.</p> 
+description | **string**<br><p>Description of the API gateway.</p> 
+labels | **object**<br><p>API gateway labels as `key:value` pairs.</p> 
+status | **string**<br><p>Status of the API gateway.</p> <ul> <li>CREATING: API gateway is being created.</li> <li>ACTIVE: API gateway is ready for use.</li> <li>DELETING: API gateway is being deleted.</li> <li>ERROR: API gateway failed. The only allowed action is delete.</li> <li>UPDATING: API gateway is being updated.</li> </ul> 
+domain | **string**<br><p>Default domain for the API gateway. Generated at creation time.</p> 
+logGroupId | **string**<br><p>ID of the log group for the API gateway.</p> 
+attachedDomains[] | **object**<br><p>List of domains attached to API gateway.</p> 
+attachedDomains[].<br>domainId | **string**<br><p>ID of the domain.</p> 
+attachedDomains[].<br>certificateId | **string**<br><p>ID of the domain certificate.</p> 
+attachedDomains[].<br>enabled | **boolean** (boolean)<br><p>Enabling flag.</p> 
+attachedDomains[].<br>domain | **string**<br><p>Name of the domain.</p> 

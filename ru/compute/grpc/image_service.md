@@ -4,376 +4,376 @@ editable: false
 
 # ImageService
 
-Набор методов для управления ресурсами Image.
+A set of methods for managing Image resources.
 
-| Вызов | Описание |
+| Call | Description |
 | --- | --- |
-| [Get](#Get) | Возвращает указанный ресурс Image. |
-| [GetLatestByFamily](#GetLatestByFamily) | Возвращает последний образ из указанного семейства образов. |
-| [List](#List) | Возвращает список доступных ресурсов Image в указанном каталоге. |
-| [Create](#Create) | Создает образ в указанном каталоге. |
-| [Update](#Update) | Изменяет указанный образ. |
-| [Delete](#Delete) | Удаляет указанный образ. |
-| [ListOperations](#ListOperations) | Список операций для указанного образа. |
+| [Get](#Get) | Returns the specified Image resource. |
+| [GetLatestByFamily](#GetLatestByFamily) | Returns the latest image that is part of an image family. |
+| [List](#List) | Retrieves the list of Image resources in the specified folder. |
+| [Create](#Create) | Creates an image in the specified folder. |
+| [Update](#Update) | Updates the specified image. |
+| [Delete](#Delete) | Deletes the specified image. |
+| [ListOperations](#ListOperations) | Lists operations for the specified image. |
 
-## Вызовы ImageService {#calls}
+## Calls ImageService {#calls}
 
 ## Get {#Get}
 
-Возвращает указанный ресурс Image. <br>Чтобы получить список доступных ресурсов Image, используйте запрос [List](#List).
+Returns the specified Image resource. <br>To get the list of available Image resources, make a [List](#List) request.
 
 **rpc Get ([GetImageRequest](#GetImageRequest)) returns ([Image](#Image))**
 
 ### GetImageRequest {#GetImageRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-image_id | **string**<br>Обязательное поле. Идентификатор возвращаемого ресурса Image. Чтобы получить идентификатор образа, используйте запрос [ImageService.List](#List). Максимальная длина строки в символах — 50.
+image_id | **string**<br>Required. ID of the Image resource to return. To get the image ID, use a [ImageService.List](#List) request. The maximum string length in characters is 50.
 
 
 ### Image {#Image}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор образа. 
-folder_id | **string**<br>Идентификатор каталога, которому принадлежит образ диска. 
+id | **string**<br>ID of the image. 
+folder_id | **string**<br>ID of the folder that the image belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
-name | **string**<br>Имя образа. Длина 1-63 символов. 
-description | **string**<br>Описание образа. Длина описания должна быть от 0 до 256 символов. 
-labels | **map<string,string>**<br>Метки ресурса в формате `ключ:значение`. Максимум 64 на ресурс. 
-family | **string**<br>Имя семейства образов, к которому принадлежит этот образ. <br>Вы можете получить самый последний образ из семейства образов, используя запрос [yandex.cloud.compute.v1.ImageService.GetLatestByFamily](/docs/compute/grpc/image_service#GetLatestByFamily), чтобы создать диск из этого образа. 
-storage_size | **int64**<br>Размер образа в байтах. 
-min_disk_size | **int64**<br>Минимальный размер диска, который будет создан из этого образа. 
-product_ids[] | **string**<br>Идентификаторы лицензий, указывающие, какие лицензии подключены к этому ресурсу. Идентификаторы лицензий используются для расчета дополнительной платы за использование виртуальной машины. <br>Правильный идентификатор лицензии генерируется Яндекс.Облаком. Идентификаторы наследуются новыми ресурсами, созданными из этого ресурса. <br>Если вам известны идентификаторы лицензий, укажите их при создании образа. Например, если создать образ диска с помощью сторонней утилиты и загрузить его в Yandex Object Storage, то идентификаторы лицензий будут потеряны. Вы можете указать их в запросе [yandex.cloud.compute.v1.ImageService.Create](/docs/compute/grpc/image_service#Create). 
-status | enum **Status**<br>Текущий статус образа диска. <ul><li>`CREATING`: Образ диска создается.</li><li>`READY`: Образ диска готов к использованию.</li><li>`ERROR`: С образом произошла ошибка, блокирующая работу.</li><li>`DELETING`: Образ диска удаляется.</li><ul/>
-os | **[Os](#Os)**<br>Операционная система, содержащаяся в образе. 
+name | **string**<br>Name of the image. 1-63 characters long. 
+description | **string**<br>Description of the image. 0-256 characters long. 
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
+family | **string**<br>The name of the image family to which this image belongs. <br>You can get the most recent image from a family by using the [yandex.cloud.compute.v1.ImageService.GetLatestByFamily](/docs/compute/grpc/image_service#GetLatestByFamily) request and create the disk from this image. 
+storage_size | **int64**<br>The size of the image, specified in bytes. 
+min_disk_size | **int64**<br>Minimum size of the disk which will be created from this image. 
+product_ids[] | **string**<br>License IDs that indicate which licenses are attached to this resource. License IDs are used to calculate additional charges for the use of the virtual machine. <br>The correct license ID is generated by Yandex.Cloud. IDs are inherited by new resources created from this resource. <br>If you know the license IDs, specify them when you create the image. For example, if you create a disk image using a third-party utility and load it into Yandex Object Storage, the license IDs will be lost. You can specify them in the [yandex.cloud.compute.v1.ImageService.Create](/docs/compute/grpc/image_service#Create) request. 
+status | enum **Status**<br>Current status of the image. <ul><li>`CREATING`: Image is being created.</li><li>`READY`: Image is ready to use.</li><li>`ERROR`: Image encountered a problem and cannot operate.</li><li>`DELETING`: Image is being deleted.</li><ul/>
+os | **[Os](#Os)**<br>Operating system that is contained in the image. 
 
 
 ### Os {#Os}
 
-Поле | Описание
+Field | Description
 --- | ---
-type | enum **[Type](./disk_type#undefined)**<br>Тип операционной системы. Значение по умолчанию — `LINUX`. <br>Это поле используется для правильной эмуляции vCPU и расчета стоимости использования виртуальной машины. <ul><li>`LINUX`: Операционная система Linux.</li><li>`WINDOWS`: Операционная система Windows.</li><ul/>
+type | enum **[Type](./disk_type#undefined)**<br>Operating system type. The default is `LINUX`. <br>This field is used to correctly emulate a vCPU and calculate the cost of using an instance. <ul><li>`LINUX`: Linux operating system.</li><li>`WINDOWS`: Windows operating system.</li><ul/>
 
 
 ## GetLatestByFamily {#GetLatestByFamily}
 
-Возвращает последний образ из указанного семейства образов.
+Returns the latest image that is part of an image family.
 
 **rpc GetLatestByFamily ([GetImageLatestByFamilyRequest](#GetImageLatestByFamilyRequest)) returns ([Image](#Image1))**
 
 ### GetImageLatestByFamilyRequest {#GetImageLatestByFamilyRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-folder_id | **string**<br>Обязательное поле. Идентификатор каталога для получения образа. Чтобы получить идентификатор каталога, используйте запрос [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List). Максимальная длина строки в символах — 50.
-family | **string**<br>Имя семейства образов для поиска. Значение должно соответствовать регулярному выражению ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+folder_id | **string**<br>Required. ID of the folder to get the image from. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. The maximum string length in characters is 50.
+family | **string**<br>Name of the image family to search for. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 
 
 ### Image {#Image1}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор образа. 
-folder_id | **string**<br>Идентификатор каталога, которому принадлежит образ диска. 
+id | **string**<br>ID of the image. 
+folder_id | **string**<br>ID of the folder that the image belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
-name | **string**<br>Имя образа. Длина 1-63 символов. 
-description | **string**<br>Описание образа. Длина описания должна быть от 0 до 256 символов. 
-labels | **map<string,string>**<br>Метки ресурса в формате `ключ:значение`. Максимум 64 на ресурс. 
-family | **string**<br>Имя семейства образов, к которому принадлежит этот образ. <br>Вы можете получить самый последний образ из семейства образов, используя запрос [yandex.cloud.compute.v1.ImageService.GetLatestByFamily](/docs/compute/grpc/image_service#GetLatestByFamily), чтобы создать диск из этого образа. 
-storage_size | **int64**<br>Размер образа в байтах. 
-min_disk_size | **int64**<br>Минимальный размер диска, который будет создан из этого образа. 
-product_ids[] | **string**<br>Идентификаторы лицензий, указывающие, какие лицензии подключены к этому ресурсу. Идентификаторы лицензий используются для расчета дополнительной платы за использование виртуальной машины. <br>Правильный идентификатор лицензии генерируется Яндекс.Облаком. Идентификаторы наследуются новыми ресурсами, созданными из этого ресурса. <br>Если вам известны идентификаторы лицензий, укажите их при создании образа. Например, если создать образ диска с помощью сторонней утилиты и загрузить его в Yandex Object Storage, то идентификаторы лицензий будут потеряны. Вы можете указать их в запросе [yandex.cloud.compute.v1.ImageService.Create](/docs/compute/grpc/image_service#Create). 
-status | enum **Status**<br>Текущий статус образа диска. <ul><li>`CREATING`: Образ диска создается.</li><li>`READY`: Образ диска готов к использованию.</li><li>`ERROR`: С образом произошла ошибка, блокирующая работу.</li><li>`DELETING`: Образ диска удаляется.</li><ul/>
-os | **[Os](#Os1)**<br>Операционная система, содержащаяся в образе. 
+name | **string**<br>Name of the image. 1-63 characters long. 
+description | **string**<br>Description of the image. 0-256 characters long. 
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
+family | **string**<br>The name of the image family to which this image belongs. <br>You can get the most recent image from a family by using the [yandex.cloud.compute.v1.ImageService.GetLatestByFamily](/docs/compute/grpc/image_service#GetLatestByFamily) request and create the disk from this image. 
+storage_size | **int64**<br>The size of the image, specified in bytes. 
+min_disk_size | **int64**<br>Minimum size of the disk which will be created from this image. 
+product_ids[] | **string**<br>License IDs that indicate which licenses are attached to this resource. License IDs are used to calculate additional charges for the use of the virtual machine. <br>The correct license ID is generated by Yandex.Cloud. IDs are inherited by new resources created from this resource. <br>If you know the license IDs, specify them when you create the image. For example, if you create a disk image using a third-party utility and load it into Yandex Object Storage, the license IDs will be lost. You can specify them in the [yandex.cloud.compute.v1.ImageService.Create](/docs/compute/grpc/image_service#Create) request. 
+status | enum **Status**<br>Current status of the image. <ul><li>`CREATING`: Image is being created.</li><li>`READY`: Image is ready to use.</li><li>`ERROR`: Image encountered a problem and cannot operate.</li><li>`DELETING`: Image is being deleted.</li><ul/>
+os | **[Os](#Os1)**<br>Operating system that is contained in the image. 
 
 
 ### Os {#Os1}
 
-Поле | Описание
+Field | Description
 --- | ---
-type | enum **[Type](./disk_type#undefined)**<br>Тип операционной системы. Значение по умолчанию — `LINUX`. <br>Это поле используется для правильной эмуляции vCPU и расчета стоимости использования виртуальной машины. <ul><li>`LINUX`: Операционная система Linux.</li><li>`WINDOWS`: Операционная система Windows.</li><ul/>
+type | enum **[Type](./disk_type#undefined)**<br>Operating system type. The default is `LINUX`. <br>This field is used to correctly emulate a vCPU and calculate the cost of using an instance. <ul><li>`LINUX`: Linux operating system.</li><li>`WINDOWS`: Windows operating system.</li><ul/>
 
 
 ## List {#List}
 
-Возвращает список доступных ресурсов Image в указанном каталоге.
+Retrieves the list of Image resources in the specified folder.
 
 **rpc List ([ListImagesRequest](#ListImagesRequest)) returns ([ListImagesResponse](#ListImagesResponse))**
 
 ### ListImagesRequest {#ListImagesRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-folder_id | **string**<br>Обязательное поле. Идентификатор каталога для получения списка образов. Чтобы получить идентификатор каталога, используйте запрос [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List). Максимальная длина строки в символах — 50.
-page_size | **int64**<br>Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем `page_size`, сервис вернет значение [ListImagesResponse.next_page_token](#ListImagesResponse), которое можно использовать для получения следующей страницы. Максимальное значение — 1000.
-page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListImagesResponse.next_page_token](#ListImagesResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
-filter | **string**<br><ol><li>Имя поля. В настоящее время фильтрация осуществляется только по полю [Image.name](#Image2). </li><li>Оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений. </li><li>Значение. Должен содержать от 3 до 63 символов и соответствовать регулярному выражению `^[a-z]([-a-z0-9]{,61}[a-z0-9])?$`.</li></ol> Максимальная длина строки в символах — 1000.
+folder_id | **string**<br>Required. ID of the folder to list images in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. The maximum string length in characters is 50.
+page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListImagesResponse.next_page_token](#ListImagesResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
+page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListImagesResponse.next_page_token](#ListImagesResponse) returned by a previous list request. The maximum string length in characters is 100.
+filter | **string**<br><ol><li>The field name. Currently you can use filtering only on the [Image.name](#Image2) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z]([-a-z0-9]{,61}[a-z0-9])?$`.</li></ol> The maximum string length in characters is 1000.
 
 
 ### ListImagesResponse {#ListImagesResponse}
 
-Поле | Описание
+Field | Description
 --- | ---
-images[] | **[Image](#Image2)**<br>Список образов. 
-next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListSnapshotsRequest.page_size](#ListSnapshotsRequest), используйте `next_page_token` в качестве значения параметра [ListSnapshotsRequest.page_token](#ListSnapshotsRequest) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
+images[] | **[Image](#Image2)**<br>List of images. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListSnapshotsRequest.page_size](#ListSnapshotsRequest), use the `next_page_token` as the value for the [ListSnapshotsRequest.page_token](#ListSnapshotsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
 ### Image {#Image2}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор образа. 
-folder_id | **string**<br>Идентификатор каталога, которому принадлежит образ диска. 
+id | **string**<br>ID of the image. 
+folder_id | **string**<br>ID of the folder that the image belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
-name | **string**<br>Имя образа. Длина 1-63 символов. 
-description | **string**<br>Описание образа. Длина описания должна быть от 0 до 256 символов. 
-labels | **map<string,string>**<br>Метки ресурса в формате `ключ:значение`. Максимум 64 на ресурс. 
-family | **string**<br>Имя семейства образов, к которому принадлежит этот образ. <br>Вы можете получить самый последний образ из семейства образов, используя запрос [yandex.cloud.compute.v1.ImageService.GetLatestByFamily](/docs/compute/grpc/image_service#GetLatestByFamily), чтобы создать диск из этого образа. 
-storage_size | **int64**<br>Размер образа в байтах. 
-min_disk_size | **int64**<br>Минимальный размер диска, который будет создан из этого образа. 
-product_ids[] | **string**<br>Идентификаторы лицензий, указывающие, какие лицензии подключены к этому ресурсу. Идентификаторы лицензий используются для расчета дополнительной платы за использование виртуальной машины. <br>Правильный идентификатор лицензии генерируется Яндекс.Облаком. Идентификаторы наследуются новыми ресурсами, созданными из этого ресурса. <br>Если вам известны идентификаторы лицензий, укажите их при создании образа. Например, если создать образ диска с помощью сторонней утилиты и загрузить его в Yandex Object Storage, то идентификаторы лицензий будут потеряны. Вы можете указать их в запросе [yandex.cloud.compute.v1.ImageService.Create](/docs/compute/grpc/image_service#Create). 
-status | enum **Status**<br>Текущий статус образа диска. <ul><li>`CREATING`: Образ диска создается.</li><li>`READY`: Образ диска готов к использованию.</li><li>`ERROR`: С образом произошла ошибка, блокирующая работу.</li><li>`DELETING`: Образ диска удаляется.</li><ul/>
-os | **[Os](#Os2)**<br>Операционная система, содержащаяся в образе. 
+name | **string**<br>Name of the image. 1-63 characters long. 
+description | **string**<br>Description of the image. 0-256 characters long. 
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
+family | **string**<br>The name of the image family to which this image belongs. <br>You can get the most recent image from a family by using the [yandex.cloud.compute.v1.ImageService.GetLatestByFamily](/docs/compute/grpc/image_service#GetLatestByFamily) request and create the disk from this image. 
+storage_size | **int64**<br>The size of the image, specified in bytes. 
+min_disk_size | **int64**<br>Minimum size of the disk which will be created from this image. 
+product_ids[] | **string**<br>License IDs that indicate which licenses are attached to this resource. License IDs are used to calculate additional charges for the use of the virtual machine. <br>The correct license ID is generated by Yandex.Cloud. IDs are inherited by new resources created from this resource. <br>If you know the license IDs, specify them when you create the image. For example, if you create a disk image using a third-party utility and load it into Yandex Object Storage, the license IDs will be lost. You can specify them in the [yandex.cloud.compute.v1.ImageService.Create](/docs/compute/grpc/image_service#Create) request. 
+status | enum **Status**<br>Current status of the image. <ul><li>`CREATING`: Image is being created.</li><li>`READY`: Image is ready to use.</li><li>`ERROR`: Image encountered a problem and cannot operate.</li><li>`DELETING`: Image is being deleted.</li><ul/>
+os | **[Os](#Os2)**<br>Operating system that is contained in the image. 
 
 
 ### Os {#Os2}
 
-Поле | Описание
+Field | Description
 --- | ---
-type | enum **[Type](./disk_type#undefined)**<br>Тип операционной системы. Значение по умолчанию — `LINUX`. <br>Это поле используется для правильной эмуляции vCPU и расчета стоимости использования виртуальной машины. <ul><li>`LINUX`: Операционная система Linux.</li><li>`WINDOWS`: Операционная система Windows.</li><ul/>
+type | enum **[Type](./disk_type#undefined)**<br>Operating system type. The default is `LINUX`. <br>This field is used to correctly emulate a vCPU and calculate the cost of using an instance. <ul><li>`LINUX`: Linux operating system.</li><li>`WINDOWS`: Windows operating system.</li><ul/>
 
 
 ## Create {#Create}
 
-Создает образ в указанном каталоге. <br>Вы можете создать образ из диска, снимка, другого образа или URI. Метод запускает асинхронную операцию, которую можно отменить перед тем, как она завершится.
+Creates an image in the specified folder. <br>You can create an image from a disk, snapshot, other image or URI. Method starts an asynchronous operation that can be cancelled while it is in progress.
 
 **rpc Create ([CreateImageRequest](#CreateImageRequest)) returns ([operation.Operation](#Operation))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateImageMetadata](#CreateImageMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Image](#Image3)<br>
 
 ### CreateImageRequest {#CreateImageRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-folder_id | **string**<br>Обязательное поле. Идентификатор каталога для создания образа. Чтобы получить идентификатор каталога, используйте запрос [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List). Максимальная длина строки в символах — 50.
-name | **string**<br>Имя образа. Значение должно соответствовать регулярному выражению ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
-description | **string**<br>Описание образа. Максимальная длина строки в символах — 256.
-labels | **map<string,string>**<br>Метки ресурса в формате `ключ:значение`. Не более 64 на ресурс. Максимальная длина строки в символах для каждого значения — 63. Каждое значение должно соответствовать регулярному выражению ` [-_0-9a-z]* `. Длина строки в символах для каждого ключа должна быть от 1 до 63. Каждый ключ должен соответствовать регулярному выражению ` [a-z][-_0-9a-z]* `.
-family | **string**<br>Имя семейства образов, к которому принадлежит этот образ. Дополнительные сведения см. в разделе [Семейство образов](/docs/compute/concepts/image#family). <br>Чтобы получить информацию о последнем образе в семействе, используйте запрос [ImageService.GetLatestByFamily](#GetLatestByFamily). Значение должно соответствовать регулярному выражению ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
-min_disk_size | **int64**<br>Минимальный размер диска, который будет создан из этого образа. Указывается в байтах. Значение должно быть больше размера исходных данных. Допустимые значения — от 4194304 до 4398046511104 включительно.
-product_ids[] | **string**<br>Идентификаторы лицензий, указывающие, какие лицензии подключены к этому ресурсу. Идентификаторы лицензий используются для расчета дополнительной платы за использование виртуальной машины. <br>Правильный идентификатор лицензии генерируется Яндекс.Облаком. Идентификаторы наследуются новыми ресурсами, созданными из этого ресурса. <br>Если вам известны идентификаторы лицензий, укажите их при создании образа. Например, если создать образ диска с помощью сторонней утилиты и загрузить его в Yandex Object Storage, то идентификаторы лицензий будут потеряны. Вы можете указать их в этом запросе. Максимальная длина строки в символах для каждого значения — 50.
-source | **oneof:** `image_id`, `disk_id`, `snapshot_id` или `uri`<br>
-&nbsp;&nbsp;image_id | **string**<br>Идентификатор образа, из которого будет создан новый образ. Максимальная длина строки в символах — 50.
-&nbsp;&nbsp;disk_id | **string**<br>Идентификатор диска, из которого будет создан образ. Максимальная длина строки в символах — 50.
-&nbsp;&nbsp;snapshot_id | **string**<br>Идентификатор снимка, из которого будет создан образ. Максимальная длина строки в символах — 50.
-&nbsp;&nbsp;uri | **string**<br>URI образа, из которого будет создан новый образ. В настоящее время поддерживаются только ссылки на образы, которые хранятся в Yandex Object Storage. В настоящее время поддерживаются только форматы Qcow2, VMDK и VHD. 
-os | **[Os](#Os3)**<br>Операционная система, содержащаяся в образе. <br>По умолчанию наследуется от исходного ресурса, если в качестве источника вы использовали `image_id` или `disk_id`. 
+folder_id | **string**<br>Required. ID of the folder to create an image in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. The maximum string length in characters is 50.
+name | **string**<br>Name of the image. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
+description | **string**<br>Description of the image. The maximum string length in characters is 256.
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
+family | **string**<br>The name of the image family to which this image belongs. For more information, see [Image family](/docs/compute/concepts/image#family). <br>To get an information about the most recent image from a family, use a [ImageService.GetLatestByFamily](#GetLatestByFamily) request. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+min_disk_size | **int64**<br>Minimum size of the disk that will be created from this image. Specified in bytes. Should be more than the volume of source data. Acceptable values are 4194304 to 4398046511104, inclusive.
+product_ids[] | **string**<br>License IDs that indicate which licenses are attached to this resource. License IDs are used to calculate additional charges for the use of the virtual machine. <br>The correct license ID is generated by Yandex.Cloud. IDs are inherited by new resources created from this resource. <br>If you know the license IDs, specify them when you create the image. For example, if you create a disk image using a third-party utility and load it into Yandex Object Storage, the license IDs will be lost. You can specify them in this request. The maximum string length in characters for each value is 50.
+source | **oneof:** `image_id`, `disk_id`, `snapshot_id` or `uri`<br>
+&nbsp;&nbsp;image_id | **string**<br>ID of the source image to create the new image from. The maximum string length in characters is 50.
+&nbsp;&nbsp;disk_id | **string**<br>ID of the disk to create the image from. The maximum string length in characters is 50.
+&nbsp;&nbsp;snapshot_id | **string**<br>ID of the snapshot to create the image from. The maximum string length in characters is 50.
+&nbsp;&nbsp;uri | **string**<br>URI of the source image to create the new image from. Currently only supports links to images that are stored in Yandex Object Storage. Currently only supports Qcow2, VMDK, and VHD formats. 
+os | **[Os](#Os3)**<br>Operating system that is contained in the image. <br>If not specified and you used the `image_id` or `disk_id` field to set the source, then the value can be inherited from the source resource. 
 
 
 ### Os {#Os3}
 
-Поле | Описание
+Field | Description
 --- | ---
-type | enum **[Type](./disk_type#undefined)**<br>Тип операционной системы. Значение по умолчанию — `LINUX`. <br>Это поле используется для правильной эмуляции vCPU и расчета стоимости использования виртуальной машины. <ul><li>`LINUX`: Операционная система Linux.</li><li>`WINDOWS`: Операционная система Windows.</li><ul/>
+type | enum **[Type](./disk_type#undefined)**<br>Operating system type. The default is `LINUX`. <br>This field is used to correctly emulate a vCPU and calculate the cost of using an instance. <ul><li>`LINUX`: Linux operating system.</li><li>`WINDOWS`: Windows operating system.</li><ul/>
 
 
 ### Operation {#Operation}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateImageMetadata](#CreateImageMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Image](#Image3)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateImageMetadata](#CreateImageMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Image](#Image3)>**<br>if operation finished successfully. 
 
 
 ### CreateImageMetadata {#CreateImageMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-image_id | **string**<br>Идентификатор создаваемого образа. 
+image_id | **string**<br>ID of the image that is being created. 
 
 
 ### Image {#Image3}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор образа. 
-folder_id | **string**<br>Идентификатор каталога, которому принадлежит образ диска. 
+id | **string**<br>ID of the image. 
+folder_id | **string**<br>ID of the folder that the image belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
-name | **string**<br>Имя образа. Длина 1-63 символов. 
-description | **string**<br>Описание образа. Длина описания должна быть от 0 до 256 символов. 
-labels | **map<string,string>**<br>Метки ресурса в формате `ключ:значение`. Максимум 64 на ресурс. 
-family | **string**<br>Имя семейства образов, к которому принадлежит этот образ. <br>Вы можете получить самый последний образ из семейства образов, используя запрос [yandex.cloud.compute.v1.ImageService.GetLatestByFamily](/docs/compute/grpc/image_service#GetLatestByFamily), чтобы создать диск из этого образа. 
-storage_size | **int64**<br>Размер образа в байтах. 
-min_disk_size | **int64**<br>Минимальный размер диска, который будет создан из этого образа. 
-product_ids[] | **string**<br>Идентификаторы лицензий, указывающие, какие лицензии подключены к этому ресурсу. Идентификаторы лицензий используются для расчета дополнительной платы за использование виртуальной машины. <br>Правильный идентификатор лицензии генерируется Яндекс.Облаком. Идентификаторы наследуются новыми ресурсами, созданными из этого ресурса. <br>Если вам известны идентификаторы лицензий, укажите их при создании образа. Например, если создать образ диска с помощью сторонней утилиты и загрузить его в Yandex Object Storage, то идентификаторы лицензий будут потеряны. Вы можете указать их в запросе [yandex.cloud.compute.v1.ImageService.Create](/docs/compute/grpc/image_service#Create). 
-status | enum **Status**<br>Текущий статус образа диска. <ul><li>`CREATING`: Образ диска создается.</li><li>`READY`: Образ диска готов к использованию.</li><li>`ERROR`: С образом произошла ошибка, блокирующая работу.</li><li>`DELETING`: Образ диска удаляется.</li><ul/>
-os | **[Os](#Os4)**<br>Операционная система, содержащаяся в образе. 
+name | **string**<br>Name of the image. 1-63 characters long. 
+description | **string**<br>Description of the image. 0-256 characters long. 
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
+family | **string**<br>The name of the image family to which this image belongs. <br>You can get the most recent image from a family by using the [yandex.cloud.compute.v1.ImageService.GetLatestByFamily](/docs/compute/grpc/image_service#GetLatestByFamily) request and create the disk from this image. 
+storage_size | **int64**<br>The size of the image, specified in bytes. 
+min_disk_size | **int64**<br>Minimum size of the disk which will be created from this image. 
+product_ids[] | **string**<br>License IDs that indicate which licenses are attached to this resource. License IDs are used to calculate additional charges for the use of the virtual machine. <br>The correct license ID is generated by Yandex.Cloud. IDs are inherited by new resources created from this resource. <br>If you know the license IDs, specify them when you create the image. For example, if you create a disk image using a third-party utility and load it into Yandex Object Storage, the license IDs will be lost. You can specify them in the [yandex.cloud.compute.v1.ImageService.Create](/docs/compute/grpc/image_service#Create) request. 
+status | enum **Status**<br>Current status of the image. <ul><li>`CREATING`: Image is being created.</li><li>`READY`: Image is ready to use.</li><li>`ERROR`: Image encountered a problem and cannot operate.</li><li>`DELETING`: Image is being deleted.</li><ul/>
+os | **[Os](#Os4)**<br>Operating system that is contained in the image. 
 
 
 ### Os {#Os4}
 
-Поле | Описание
+Field | Description
 --- | ---
-type | enum **[Type](./disk_type#undefined)**<br>Тип операционной системы. Значение по умолчанию — `LINUX`. <br>Это поле используется для правильной эмуляции vCPU и расчета стоимости использования виртуальной машины. <ul><li>`LINUX`: Операционная система Linux.</li><li>`WINDOWS`: Операционная система Windows.</li><ul/>
+type | enum **[Type](./disk_type#undefined)**<br>Operating system type. The default is `LINUX`. <br>This field is used to correctly emulate a vCPU and calculate the cost of using an instance. <ul><li>`LINUX`: Linux operating system.</li><li>`WINDOWS`: Windows operating system.</li><ul/>
 
 
 ## Update {#Update}
 
-Изменяет указанный образ.
+Updates the specified image.
 
 **rpc Update ([UpdateImageRequest](#UpdateImageRequest)) returns ([operation.Operation](#Operation1))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateImageMetadata](#UpdateImageMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Image](#Image4)<br>
 
 ### UpdateImageRequest {#UpdateImageRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-image_id | **string**<br>Обязательное поле. Идентификатор изменяемого ресурса Image. Чтобы получить идентификатор образа, используйте запрос [ImageService.List](#List). Максимальная длина строки в символах — 50.
-update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Маска, определяющая, какие поля ресурса Image будут обновлены. 
-name | **string**<br>Имя образа. Значение должно соответствовать регулярному выражению ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
-description | **string**<br>Описание образа. Максимальная длина строки в символах — 256.
-min_disk_size | **int64**<br>Минимальный размер диска, который может быть создан из этого образа. Указывается в байтах. Должен быть больше объема исходных данных и больше размера виртуального диска. Допустимые значения — от 4194304 до 4398046511104 включительно.
-labels | **map<string,string>**<br>Метки ресурса в формате `ключ:значение`. <br>Существующий набор `labels` полностью перезаписывается набором, переданным в запросе. Не более 64 на ресурс. Максимальная длина строки в символах для каждого значения — 63. Каждое значение должно соответствовать регулярному выражению ` [-_0-9a-z]* `. Длина строки в символах для каждого ключа должна быть от 1 до 63. Каждый ключ должен соответствовать регулярному выражению ` [a-z][-_0-9a-z]* `.
+image_id | **string**<br>Required. ID of the Image resource to update. To get the image ID, use a [ImageService.List](#List) request. The maximum string length in characters is 50.
+update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the Image resource are going to be updated. 
+name | **string**<br>Name of the image. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
+description | **string**<br>Description of the image. The maximum string length in characters is 256.
+min_disk_size | **int64**<br>Minimum size of the disk that can be created from this image. Specified in bytes. Should be more than the volume of source data and more than the virtual disk size. Acceptable values are 4194304 to 4398046511104, inclusive.
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. <br>Existing set of `labels` is completely replaced by the provided set. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
 
 
 ### Operation {#Operation1}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateImageMetadata](#UpdateImageMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Image](#Image4)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateImageMetadata](#UpdateImageMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Image](#Image4)>**<br>if operation finished successfully. 
 
 
 ### UpdateImageMetadata {#UpdateImageMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-image_id | **string**<br>Идентификатор изменяемого ресурса Disk. 
+image_id | **string**<br>ID of the Image resource that is being updated. 
 
 
 ### Image {#Image4}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор образа. 
-folder_id | **string**<br>Идентификатор каталога, которому принадлежит образ диска. 
+id | **string**<br>ID of the image. 
+folder_id | **string**<br>ID of the folder that the image belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
-name | **string**<br>Имя образа. Длина 1-63 символов. 
-description | **string**<br>Описание образа. Длина описания должна быть от 0 до 256 символов. 
-labels | **map<string,string>**<br>Метки ресурса в формате `ключ:значение`. Максимум 64 на ресурс. 
-family | **string**<br>Имя семейства образов, к которому принадлежит этот образ. <br>Вы можете получить самый последний образ из семейства образов, используя запрос [yandex.cloud.compute.v1.ImageService.GetLatestByFamily](/docs/compute/grpc/image_service#GetLatestByFamily), чтобы создать диск из этого образа. 
-storage_size | **int64**<br>Размер образа в байтах. 
-min_disk_size | **int64**<br>Минимальный размер диска, который будет создан из этого образа. 
-product_ids[] | **string**<br>Идентификаторы лицензий, указывающие, какие лицензии подключены к этому ресурсу. Идентификаторы лицензий используются для расчета дополнительной платы за использование виртуальной машины. <br>Правильный идентификатор лицензии генерируется Яндекс.Облаком. Идентификаторы наследуются новыми ресурсами, созданными из этого ресурса. <br>Если вам известны идентификаторы лицензий, укажите их при создании образа. Например, если создать образ диска с помощью сторонней утилиты и загрузить его в Yandex Object Storage, то идентификаторы лицензий будут потеряны. Вы можете указать их в запросе [yandex.cloud.compute.v1.ImageService.Create](/docs/compute/grpc/image_service#Create). 
-status | enum **Status**<br>Текущий статус образа диска. <ul><li>`CREATING`: Образ диска создается.</li><li>`READY`: Образ диска готов к использованию.</li><li>`ERROR`: С образом произошла ошибка, блокирующая работу.</li><li>`DELETING`: Образ диска удаляется.</li><ul/>
-os | **[Os](#Os5)**<br>Операционная система, содержащаяся в образе. 
+name | **string**<br>Name of the image. 1-63 characters long. 
+description | **string**<br>Description of the image. 0-256 characters long. 
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
+family | **string**<br>The name of the image family to which this image belongs. <br>You can get the most recent image from a family by using the [yandex.cloud.compute.v1.ImageService.GetLatestByFamily](/docs/compute/grpc/image_service#GetLatestByFamily) request and create the disk from this image. 
+storage_size | **int64**<br>The size of the image, specified in bytes. 
+min_disk_size | **int64**<br>Minimum size of the disk which will be created from this image. 
+product_ids[] | **string**<br>License IDs that indicate which licenses are attached to this resource. License IDs are used to calculate additional charges for the use of the virtual machine. <br>The correct license ID is generated by Yandex.Cloud. IDs are inherited by new resources created from this resource. <br>If you know the license IDs, specify them when you create the image. For example, if you create a disk image using a third-party utility and load it into Yandex Object Storage, the license IDs will be lost. You can specify them in the [yandex.cloud.compute.v1.ImageService.Create](/docs/compute/grpc/image_service#Create) request. 
+status | enum **Status**<br>Current status of the image. <ul><li>`CREATING`: Image is being created.</li><li>`READY`: Image is ready to use.</li><li>`ERROR`: Image encountered a problem and cannot operate.</li><li>`DELETING`: Image is being deleted.</li><ul/>
+os | **[Os](#Os5)**<br>Operating system that is contained in the image. 
 
 
 ### Os {#Os5}
 
-Поле | Описание
+Field | Description
 --- | ---
-type | enum **[Type](./disk_type#undefined)**<br>Тип операционной системы. Значение по умолчанию — `LINUX`. <br>Это поле используется для правильной эмуляции vCPU и расчета стоимости использования виртуальной машины. <ul><li>`LINUX`: Операционная система Linux.</li><li>`WINDOWS`: Операционная система Windows.</li><ul/>
+type | enum **[Type](./disk_type#undefined)**<br>Operating system type. The default is `LINUX`. <br>This field is used to correctly emulate a vCPU and calculate the cost of using an instance. <ul><li>`LINUX`: Linux operating system.</li><li>`WINDOWS`: Windows operating system.</li><ul/>
 
 
 ## Delete {#Delete}
 
-Удаляет указанный образ. <br>Удаление образа — необратимая операция, восстановить удаленный образ невозможно.
+Deletes the specified image. <br>Deleting an image removes its data permanently and is irreversible.
 
 **rpc Delete ([DeleteImageRequest](#DeleteImageRequest)) returns ([operation.Operation](#Operation2))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[DeleteImageMetadata](#DeleteImageMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
 
 ### DeleteImageRequest {#DeleteImageRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-image_id | **string**<br>Обязательное поле. Идентификатор удаляемого образа. Чтобы получить идентификатор образа, используйте запрос [ImageService.List](#List). Максимальная длина строки в символах — 50.
+image_id | **string**<br>Required. ID of the image to delete. To get the image ID, use a [ImageService.List](#List) request. The maximum string length in characters is 50.
 
 
 ### Operation {#Operation2}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteImageMetadata](#DeleteImageMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteImageMetadata](#DeleteImageMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>if operation finished successfully. 
 
 
 ### DeleteImageMetadata {#DeleteImageMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-image_id | **string**<br>Идентификатор удаляемого образа. 
+image_id | **string**<br>ID of the image that is being deleted. 
 
 
 ## ListOperations {#ListOperations}
 
-Список операций для указанного образа.
+Lists operations for the specified image.
 
 **rpc ListOperations ([ListImageOperationsRequest](#ListImageOperationsRequest)) returns ([ListImageOperationsResponse](#ListImageOperationsResponse))**
 
 ### ListImageOperationsRequest {#ListImageOperationsRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-image_id | **string**<br>Обязательное поле. Идентификатор ресурса Image, для которого запрашивается список операций. Максимальная длина строки в символах — 50.
-page_size | **int64**<br>Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем `page_size`, сервис вернет значение [ListImageOperationsResponse.next_page_token](#ListImageOperationsResponse), которое можно использовать для получения следующей страницы. Максимальное значение — 1000.
-page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListImageOperationsResponse.next_page_token](#ListImageOperationsResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
+image_id | **string**<br>Required. ID of the Image resource to list operations for. The maximum string length in characters is 50.
+page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListImageOperationsResponse.next_page_token](#ListImageOperationsResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
+page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListImageOperationsResponse.next_page_token](#ListImageOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
 
 
 ### ListImageOperationsResponse {#ListImageOperationsResponse}
 
-Поле | Описание
+Field | Description
 --- | ---
-operations[] | **[operation.Operation](#Operation3)**<br>Список операций для указанного образа. 
-next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListImageOperationsRequest.page_size](#ListImageOperationsRequest), используйте `next_page_token` в качестве значения параметра [ListImageOperationsRequest.page_token](#ListImageOperationsRequest) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
+operations[] | **[operation.Operation](#Operation3)**<br>List of operations for the specified image. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListImageOperationsRequest.page_size](#ListImageOperationsRequest), use the `next_page_token` as the value for the [ListImageOperationsRequest.page_token](#ListImageOperationsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
 ### Operation {#Operation3}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**<br>Результат операции в случае успешного завершения. Если исходный метод не возвращает никаких данных при успешном завершении, например метод Delete, поле содержит объект [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty). Если исходный метод — это стандартный метод Create / Update, поле содержит целевой ресурс операции. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `response`. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**<br>The normal response of the operation in case of success. If the original method returns no data on success, such as Delete, the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty). If the original method is the standard Create/Update, the response should be the target resource of the operation. Any method that returns a long-running operation should document the response type, if any. 
 
 

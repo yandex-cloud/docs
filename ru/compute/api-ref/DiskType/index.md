@@ -3,8 +3,8 @@ editable: false
 ---
 
 # DiskType
-Набор методов для получения информации о типах дисков.
-## JSON-представление {#representation}
+A set of methods to retrieve information about disk types.
+## JSON Representation {#representation}
 ```json 
 {
   "id": "string",
@@ -15,14 +15,14 @@ editable: false
 }
 ```
  
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br><p>Идентификатор типа диска.</p> 
-description | **string**<br><p>Описание диска. Длина описания должна быть от 0 до 256 символов.</p> 
-zoneIds[] | **string**<br><p>Массив зон доступности, в которых доступен тип диска.</p> 
+id | **string**<br><p>ID of the disk type.</p> 
+description | **string**<br><p>Description of the disk type. 0-256 characters long.</p> 
+zoneIds[] | **string**<br><p>Array of availability zones where the disk type is available.</p> 
 
-## Методы {#methods}
-Метод | Описание
+## Methods {#methods}
+Method | Description
 --- | ---
-[get](get.md) | Возвращает сведения об указанном типе диска.
-[list](list.md) | Получает список типов дисков для указанного каталога.
+[get](get.md) | Returns the information about specified disk type.
+[list](list.md) | Retrieves the list of disk types for the specified folder.

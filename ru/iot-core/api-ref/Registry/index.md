@@ -3,8 +3,8 @@ editable: false
 ---
 
 # Registry
-Набор методов для управления реестрами.
-## JSON-представление {#representation}
+A set of methods for managing registry.
+## JSON Representation {#representation}
 ```json 
 {
   "id": "string",
@@ -18,30 +18,30 @@ editable: false
 }
 ```
  
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br><p>Идентификатор реестра.</p> 
-folderId | **string**<br><p>Идентификатор каталога, которому принадлежит реестр.</p> 
-createdAt | **string** (date-time)<br><p>Время создания.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-name | **string**<br><p>Название реестра. Имя уникально в рамках каталога.</p> 
-description | **string**<br><p>Описание реестра. Длина описания должна быть от 0 до 256 символов.</p> 
-labels | **object**<br><p>Метки группы размещения в формате `key:value`. Максимум 64 метки на ресурс.</p> 
-status | **string**<br><p>Статус реестра.</p> <ul> <li>CREATING: Реестр создается.</li> <li>ACTIVE: Реестр готов к использованию.</li> <li>DELETING: Реестр удаляется.</li> </ul> 
-logGroupId | **string**<br><p>Идентификатор группы журналов для указанного реестра.</p> 
+id | **string**<br><p>ID of the registry.</p> 
+folderId | **string**<br><p>ID of the folder that the registry belongs to.</p> 
+createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+name | **string**<br><p>Name of the registry. The name is unique within the folder.</p> 
+description | **string**<br><p>Description of the registry. 0-256 characters long.</p> 
+labels | **object**<br><p>Resource labels as `key:value` pairs. Maximum of 64 per resource.</p> 
+status | **string**<br><p>Status of the registry.</p> <ul> <li>CREATING: Registry is being created.</li> <li>ACTIVE: Registry is ready to use.</li> <li>DELETING: Registry is being deleted.</li> </ul> 
+logGroupId | **string**<br><p>ID of the logs group for the specified registry.</p> 
 
-## Методы {#methods}
-Метод | Описание
+## Methods {#methods}
+Method | Description
 --- | ---
-[addCertificate](addCertificate.md) | Добавляет сертификат.
-[addPassword](addPassword.md) | Добавляет пароль для указанного реестра.
-[create](create.md) | Создает реестр в указанном каталоге.
-[delete](delete.md) | Удаляет указанный реестр.
-[deleteCertificate](deleteCertificate.md) | Удаляет указанный сертификат реестра.
-[deletePassword](deletePassword.md) | Удаляет указанный пароль.
-[get](get.md) | Возвращает указанный реестр.
-[list](list.md) | Возвращает список реестров в указанном каталоге.
-[listCertificates](listCertificates.md) | Возвращает список сертификатов реестра для указанного реестра.
-[listDeviceTopicAliases](listDeviceTopicAliases.md) | Возвращает список алиасов устройств для указанного реестра.
-[listOperations](listOperations.md) | Возвращает список операций для указанного реестра.
-[listPasswords](listPasswords.md) | Возращает список паролей для указанного реестра.
-[update](update.md) | Обновляет указанный реестр.
+[addCertificate](addCertificate.md) | Adds a certificate.
+[addPassword](addPassword.md) | Adds password for the specified registry.
+[create](create.md) | Creates a registry in the specified folder.
+[delete](delete.md) | Deletes the specified registry.
+[deleteCertificate](deleteCertificate.md) | Deletes the specified registry certificate.
+[deletePassword](deletePassword.md) | Deletes the specified password.
+[get](get.md) | Returns the specified registry.
+[list](list.md) | Retrieves the list of registries in the specified folder.
+[listCertificates](listCertificates.md) | Retrieves the list of registry certificates for the specified registry.
+[listDeviceTopicAliases](listDeviceTopicAliases.md) | Retrieves the list of device topic aliases for the specified registry.
+[listOperations](listOperations.md) | Lists operations for the specified registry.
+[listPasswords](listPasswords.md) | Retrieves the list of passwords for the specified registry.
+[update](update.md) | Updates the specified registry.

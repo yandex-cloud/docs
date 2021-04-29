@@ -61,6 +61,8 @@ items:
             items:
               - name: Overview
                 href: apigateway/api-ref/ApiGateway/index.md
+              - name: addDomain
+                href: apigateway/api-ref/ApiGateway/addDomain.md
               - name: create
                 href: apigateway/api-ref/ApiGateway/create.md
               - name: delete
@@ -75,6 +77,8 @@ items:
                 href: apigateway/api-ref/ApiGateway/listAccessBindings.md
               - name: listOperations
                 href: apigateway/api-ref/ApiGateway/listOperations.md
+              - name: removeDomain
+                href: apigateway/api-ref/ApiGateway/removeDomain.md
               - name: setAccessBindings
                 href: apigateway/api-ref/ApiGateway/setAccessBindings.md
               - name: update

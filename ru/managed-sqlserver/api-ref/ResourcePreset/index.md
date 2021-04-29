@@ -3,8 +3,8 @@ editable: false
 ---
 
 # ResourcePreset
-Методы для работы с наборами вычислительных ресурсов.
-## JSON-представление {#representation}
+A set of methods for managing resource presets.
+## JSON Representation {#representation}
 ```json 
 {
   "id": "string",
@@ -16,15 +16,15 @@ editable: false
 }
 ```
  
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br><p>Идентификатор набора вычислительных ресурсов.</p> 
-zoneIds[] | **string**<br><p>Идентификаторы зон доступности, в которых доступен этот набор вычислительных ресурсов.</p> 
-cores | **string** (int64)<br><p>Количество процессорных ядер для хоста SQL, созданного с данным набором вычислительных ресурсов.</p> 
-memory | **string** (int64)<br><p>Объем оперативной памяти для хоста SQL Server, созданного с данным набором вычислительных ресурсов, в байтах.</p> 
+id | **string**<br><p>ID of the resource preset.</p> 
+zoneIds[] | **string**<br><p>IDs of availability zones where the resource preset is available.</p> 
+cores | **string** (int64)<br><p>Number of CPU cores for an SQL Server host created with the preset.</p> 
+memory | **string** (int64)<br><p>RAM volume for an SQL Server host created with the preset, in bytes.</p> 
 
-## Методы {#methods}
-Метод | Описание
+## Methods {#methods}
+Method | Description
 --- | ---
-[get](get.md) | Возвращает указанный набор вычислительных ресурсов.
-[list](list.md) | Возвращает список доступных наборов вычислительных ресурсов.
+[get](get.md) | Returns the specified resource preset.
+[list](list.md) | Retrieves the list of available resource presets.

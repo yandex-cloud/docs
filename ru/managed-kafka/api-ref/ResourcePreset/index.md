@@ -3,8 +3,8 @@ editable: false
 ---
 
 # ResourcePreset
-Методы для работы с шаблонами ресурсов.
-## JSON-представление {#representation}
+A set of methods for managing Kafka resource presets.
+## JSON Representation {#representation}
 ```json 
 {
   "id": "string",
@@ -16,15 +16,15 @@ editable: false
 }
 ```
  
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br><p>Идентификатор набора ресурсов.</p> 
-zoneIds[] | **string**<br><p>Идентификаторы зон доступности, в которых доступен этот набор вычислительных ресурсов.</p> 
-cores | **string** (int64)<br><p>Количество процессорных ядер для брокера Kafka, созданного с помощью набора вычислительных ресурсов.</p> 
-memory | **string** (int64)<br><p>Объем оперативной памяти для брокера Kafka, созданного с помощью набора вычислительных ресурсов, в байтах.</p> 
+id | **string**<br><p>ID of the resource preset.</p> 
+zoneIds[] | **string**<br><p>IDs of availability zones where the resource preset is available.</p> 
+cores | **string** (int64)<br><p>Number of CPU cores for a Kafka broker created with the preset.</p> 
+memory | **string** (int64)<br><p>RAM volume for a Kafka broker created with the preset, in bytes.</p> 
 
-## Методы {#methods}
-Метод | Описание
+## Methods {#methods}
+Method | Description
 --- | ---
-[get](get.md) | Возвращает указанный шаблон ресурса.
-[list](list.md) | Возвращает список доступных шаблонов ресурсов.
+[get](get.md) | Returns the specified resource preset.
+[list](list.md) | Retrieves the list of available resource presets.

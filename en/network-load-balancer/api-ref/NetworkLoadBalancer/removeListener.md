@@ -9,7 +9,7 @@ Removes the listener from the specified network load balancer.
  
 ## HTTP request {#https-request}
 ```
-POST https://load-balancer.api.cloud.yandex.net/network-load-balancer/v1alpha/networkLoadBalancers/{networkLoadBalancerId}:removeListener
+POST https://load-balancer.api.cloud.yandex.net/load-balancer/v1alpha/networkLoadBalancers/{networkLoadBalancerId}:removeListener
 ```
  
 ## Path parameters {#path_params}

@@ -4,58 +4,57 @@ editable: false
 
 # UserAccountService
 
-Набор методов управления пользовательскими аккаунтами. Сейчас используется только 
-для [аккаунтов Яндекс.Паспорта](/docs/iam/concepts/#passport).
+A set of methods for managing user accounts. Currently applicable only for [Yandex.Passport accounts](/docs/iam/concepts/#passport).
 
-| Вызов | Описание |
+| Call | Description |
 | --- | --- |
-| [Get](#Get) | Возвращает указанный ресурс UserAccount. |
+| [Get](#Get) | Returns the specified UserAccount resource. |
 
-## Вызовы UserAccountService {#calls}
+## Calls UserAccountService {#calls}
 
 ## Get {#Get}
 
-Возвращает указанный ресурс UserAccount.
+Returns the specified UserAccount resource.
 
 **rpc Get ([GetUserAccountRequest](#GetUserAccountRequest)) returns ([UserAccount](#UserAccount))**
 
 ### GetUserAccountRequest {#GetUserAccountRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-user_account_id | **string**<br>Обязательное поле. Идентификатор запрашиваемого ресурса UserAccount. Максимальная длина строки в символах — 50.
+user_account_id | **string**<br>Required. ID of the UserAccount resource to return. The maximum string length in characters is 50.
 
 
 ### UserAccount {#UserAccount}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор аккаунта пользователя 
-user_account | **oneof:** `yandex_passport_user_account` или `saml_user_account`<br>
-&nbsp;&nbsp;yandex_passport_user_account | **[YandexPassportUserAccount](#YandexPassportUserAccount)**<br>Ресурс YandexPassportUserAccount. 
-&nbsp;&nbsp;saml_user_account | **[SamlUserAccount](#SamlUserAccount)**<br>Пользователь федерации. 
+id | **string**<br>ID of the user account. 
+user_account | **oneof:** `yandex_passport_user_account` or `saml_user_account`<br>
+&nbsp;&nbsp;yandex_passport_user_account | **[YandexPassportUserAccount](#YandexPassportUserAccount)**<br>A YandexPassportUserAccount resource. 
+&nbsp;&nbsp;saml_user_account | **[SamlUserAccount](#SamlUserAccount)**<br>A SAML federated user. 
 
 
 ### YandexPassportUserAccount {#YandexPassportUserAccount}
 
-Поле | Описание
+Field | Description
 --- | ---
-login | **string**<br>Логин аккаунта Яндекс.Паспорта. 
-default_email | **string**<br>Email используемый по умолчанию для пользователя с аккаунтом Яндекс.Паспорта. 
+login | **string**<br>Login of the Yandex.Passport user account. 
+default_email | **string**<br>Default email of the Yandex.Passport user account. 
 
 
 ### SamlUserAccount {#SamlUserAccount}
 
-Поле | Описание
+Field | Description
 --- | ---
-federation_id | **string**<br>Обязательное поле. Идентификатор федерации, которой принадлежит пользователь. Максимальная длина строки в символах — 50.
-name_id | **string**<br>Обязательное поле. Идентификатор имени пользоваетля федерации. Идентификатор имени должен быть уникальным в федерации. Длина 1-256 символов. Длина строки в символах должна быть от 1 до 256.
-attributes | **map<string,Attribute>**<br>Дополнительные атрибуты пользователя. 
+federation_id | **string**<br>Required. ID of the federation that the federation belongs to. The maximum string length in characters is 50.
+name_id | **string**<br>Required. Name Id of the SAML federated user. The name is unique within the federation. 1-256 characters long. The string length in characters must be 1-256.
+attributes | **map<string,Attribute>**<br>Additional attributes of the SAML federated user. 
 
 
 ### Attribute {#Attribute}
 
-Поле | Описание
+Field | Description
 --- | ---
 value[] | **string**<br> 
 

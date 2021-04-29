@@ -36,6 +36,8 @@ filter | A filter expression that filters Address listed in the response.  The e
       "labels": "object",
       "reserved": true,
       "used": true,
+      "type": "string",
+      "ipVersion": "string",
       "externalIpv4Address": {
         "address": "string",
         "zoneId": "string",
@@ -62,6 +64,8 @@ addresses[].<br>description | **string**<br><p>Description of the address.</p>
 addresses[].<br>labels | **object**<br><p>Resource labels as `key:value` pairs.</p> 
 addresses[].<br>reserved | **boolean** (boolean)<br><p>Specifies if address is reserved or not.</p> 
 addresses[].<br>used | **boolean** (boolean)<br><p>Specifies if address is used or not.</p> 
+addresses[].<br>type | **string**<br>Type of the IP address.<br><ul> <li>INTERNAL: Internal IP address.</li> <li>EXTERNAL: Public IP address.</li> </ul> 
+addresses[].<br>ipVersion | **string**<br>Vervion of the IP address.<br><ul> <li>IPV4: IPv4 address.</li> <li>IPV6: IPv6 address.</li> </ul> 
 addresses[].<br>externalIpv4Address | **object**<br>
 addresses[].<br>externalIpv4Address.<br>address | **string**<br><p>Value of address.</p> 
 addresses[].<br>externalIpv4Address.<br>zoneId | **string**<br><p>Availability zone from which the address will be allocated.</p> 

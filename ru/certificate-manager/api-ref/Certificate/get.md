@@ -2,29 +2,29 @@
 editable: false
 ---
 
-# Метод get
-Возвращает информацию об указанном сертификате.
+# Method get
+Returns the specified certificate.
  
-Чтобы получить список доступных сертификатов, используйте запрос [list](/docs/certificate-manager/api-ref/Certificate/list).
+To get the list of available certificates, make a [list](/docs/certificate-manager/api-ref/Certificate/list) request.
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 GET https://certificate-manager.api.cloud.yandex.net/certificate-manager/v1/certificates/{certificateId}
 ```
  
-## Path-параметры {#path_params}
+## Path parameters {#path_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-certificateId | Обязательное поле. Идентификатор возвращаемого сертификата.  Чтобы получить идентификатор сертификата, используйте запрос [list](/docs/certificate-manager/api-ref/Certificate/list).  Максимальная длина строки в символах — 50.
+certificateId | Required. ID of the certificate to return.  To get the ID of a certificate use a [list](/docs/certificate-manager/api-ref/Certificate/list) request.  The maximum string length in characters is 50.
  
-## Query-параметры {#query_params}
+## Query parameters {#query_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-view | Тип вывода сертификата.<ul> <li>BASIC: Вывод основной информации о сертификате.</li> <li>FULL: Вывод полной информации о сертификате, включающей данные для прохождения процедуры проверки прав владения доменом.</li> </ul> 
+view | The output type of the certificate.<ul> <li>BASIC: Output basic information about the certificate.</li> <li>FULL: Output full information about the certificate including domain challenges.</li> </ul> 
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -57,7 +57,7 @@ view | Тип вывода сертификата.<ul> <li>BASIC: Вывод о�
       "message": "string",
       "error": "string",
 
-      // `challenges[]` включает только одно из полей `dnsChallenge`, `httpChallenge`
+      // `challenges[]` includes only one of the fields `dnsChallenge`, `httpChallenge`
       "dnsChallenge": {
         "name": "string",
         "type": "string",
@@ -67,44 +67,44 @@ view | Тип вывода сертификата.<ul> <li>BASIC: Вывод о�
         "url": "string",
         "content": "string"
       },
-      // конец списка возможных полей`challenges[]`
+      // end of the list of possible fields`challenges[]`
 
     }
   ]
 }
 ```
-Сертификат. Подробнее об этом читайте в [документации](docs/certificate-manager/concepts/).
+A certificate. For details about the concept, see [documentation](docs/certificate-manager/concepts/).
  
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br><p>Идентификатор сертификата. Генерируется при создании.</p> 
-folderId | **string**<br><p>Идентификатор каталога, которому принадлежит сертификат.</p> 
-createdAt | **string** (date-time)<br><p>Время создания ресурса.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-name | **string**<br><p>Имя сертификата. Имя должно быть уникальным в каталоге.</p> 
-description | **string**<br><p>Описание сертификата.</p> 
-labels | **object**<br><p>Метки ресурса в формате `ключ:значение`.</p> 
-type | **string**<br><p>Тип сертификата.</p> <p>Поддерживаемые типы сертификатов.</p> <ul> <li>IMPORTED: Сертификат импортирован пользователем.</li> <li>MANAGED: Сертификат создан сервисом.</li> </ul> 
-domains[] | **string**<br><p>Полные доменные имена сертификата.</p> 
-status | **string**<br><p>Статус сертификата.</p> <ul> <li>VALIDATING: Требуется проверка доменов сертификатов. Используется только для сертификатов от Let's Encrypt®.</li> <li>INVALID: Выдача сертификата не удалась. Используется только для сертификатов от Let's Encrypt®.</li> <li>ISSUED: Сертификат выдан.</li> <li>REVOKED: Сертификат отозван или аннулирован.</li> <li>RENEWING: Сертификат обновляется. Используется только для сертификатов от Let's Encrypt®.</li> <li>RENEWAL_FAILED: Обновление сертификата не удалось. Используется только для сертификатов от Let's Encrypt®.</li> </ul> 
-issuer | **string**<br><p>Уникальное имя <a href="https://tools.ietf.org/html/rfc1779">Distinguished Name</a> центра сертификации, выпустившего сертификат.</p> 
-subject | **string**<br><p>Уникальное имя <a href="https://tools.ietf.org/html/rfc1779">Distinguished Name</a> сущности, связанной с открытым ключом, содержащимся в сертификате.</p> 
-serial | **string**<br><p>Серийный номер сертификата.</p> 
-updatedAt | **string** (date-time)<br><p>Время последнего изменения сертификата.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-issuedAt | **string** (date-time)<br><p>Время выдачи сертификата.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-notAfter | **string** (date-time)<br><p>Время, по истечении которого сертификат считается недействительным.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-notBefore | **string** (date-time)<br><p>Время, после наступления которого сертификат считается действительным.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-challenges[] | **object**<br><p>Процедура проверки домена.</p> 
-challenges[].<br>domain | **string**<br><p>Домен, права на владение которым проверяются.</p> 
-challenges[].<br>type | **string**<br>Тип процедуры проверки.<br><p>Поддерживаемые типы проверки домена.</p> <ul> <li>DNS: Тип проверки домена, использующий DNS-записи.</li> <li>HTTP: Тип проверки домена, использующий HTTP-файлы.</li> </ul> 
-challenges[].<br>createdAt | **string** (date-time)<br><p>Время, когда была начата процедура проверки.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-challenges[].<br>updatedAt | **string** (date-time)<br><p>Время последней проверки.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-challenges[].<br>status | **string**<br>Статус процедуры проверки.<br><ul> <li>PENDING: Процедура проверки ждет, пока пользователь выполнит действия, необходимые для прохождения проверки.</li> <li>PROCESSING: Процедура проверки ожидает одобрения от Let's Encrypt®.</li> <li>VALID: Процедура проверки пройдена.</li> <li>INVALID: Проверка прав для определенного домена завершилась неудачно или истек недельный период, выделенный для проверки.</li> </ul> 
-challenges[].<br>message | **string**<br><p>Описание процедуры проверки.</p> 
-challenges[].<br>error | **string**<br><p>Ошибка процедуры проверки.</p> 
-challenges[].<br>dnsChallenge | **object**<br>DNS-запись. <br>`challenges[]` включает только одно из полей `dnsChallenge`, `httpChallenge`<br><br>
-challenges[].<br>dnsChallenge.<br>name | **string**<br><p>Имя DNS-записи.</p> 
-challenges[].<br>dnsChallenge.<br>type | **string**<br><p>Тип DNS-записи.</p> 
-challenges[].<br>dnsChallenge.<br>value | **string**<br><p>Значение DNS-записи.</p> 
-challenges[].<br>httpChallenge | **object**<br>HTTP-файл. <br>`challenges[]` включает только одно из полей `dnsChallenge`, `httpChallenge`<br><br>
-challenges[].<br>httpChallenge.<br>url | **string**<br><p>Расположение HTTP-файла.</p> 
-challenges[].<br>httpChallenge.<br>content | **string**<br><p>Содержимое HTTP-файла.</p> 
+id | **string**<br><p>ID of the certificate. Generated at creation time.</p> 
+folderId | **string**<br><p>ID of the folder that the certificate belongs to.</p> 
+createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+name | **string**<br><p>Name of the certificate. The name is unique within the folder.</p> 
+description | **string**<br><p>Description of the certificate.</p> 
+labels | **object**<br><p>Certificate labels as `key:value` pairs.</p> 
+type | **string**<br><p>Type of the certificate.</p> <p>Supported certificate types.</p> <ul> <li>IMPORTED: The certificate is imported by user.</li> <li>MANAGED: The certificate is created by service.</li> </ul> 
+domains[] | **string**<br><p>Fully qualified domain names of the certificate.</p> 
+status | **string**<br><p>Status of the certificate.</p> <ul> <li>VALIDATING: The certificate domains validation are required. Used only for managed certificates.</li> <li>INVALID: The certificate issuance is failed. Used only for managed certificates.</li> <li>ISSUED: The certificate is issued.</li> <li>REVOKED: The certificate is revoked.</li> <li>RENEWING: The certificate renewal is started. Used only for managed certificates.</li> <li>RENEWAL_FAILED: The certificate renewal is failed. Used only for managed certificates.</li> </ul> 
+issuer | **string**<br><p><a href="https://tools.ietf.org/html/rfc1779">Distinguished Name</a> of the certificate authority that issued the certificate.</p> 
+subject | **string**<br><p><a href="https://tools.ietf.org/html/rfc1779">Distinguished Name</a> of the entity that is associated with the public key contained in the certificate.</p> 
+serial | **string**<br><p>Serial number of the certificate.</p> 
+updatedAt | **string** (date-time)<br><p>Time when the certificate is updated.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+issuedAt | **string** (date-time)<br><p>Time when the certificate is issued.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+notAfter | **string** (date-time)<br><p>Time after which the certificate is not valid.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+notBefore | **string** (date-time)<br><p>Time before which the certificate is not valid.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+challenges[] | **object**<br><p>Domain validation challenge.</p> 
+challenges[].<br>domain | **string**<br><p>Domain of the challenge.</p> 
+challenges[].<br>type | **string**<br>Type of the challenge.<br><p>Supported domain validation types.</p> <ul> <li>DNS: Domain validation type that using DNS-records.</li> <li>HTTP: Domain validation type that using HTTP-files.</li> </ul> 
+challenges[].<br>createdAt | **string** (date-time)<br><p>Time when the challenge is created.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+challenges[].<br>updatedAt | **string** (date-time)<br><p>Time when the challenge is updated.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+challenges[].<br>status | **string**<br>Status of the challenge.<br><ul> <li>PENDING: The challenge is waiting to be completed.</li> <li>PROCESSING: The challenge is awaiting approval from Let's Encrypt.</li> <li>VALID: The challenge is complete.</li> <li>INVALID: The rights check for a specific domain failed or the one-week period allocated for the check expired.</li> </ul> 
+challenges[].<br>message | **string**<br><p>Description of the challenge.</p> 
+challenges[].<br>error | **string**<br><p>Error of the challenge.</p> 
+challenges[].<br>dnsChallenge | **object**<br>DNS-record. <br>`challenges[]` includes only one of the fields `dnsChallenge`, `httpChallenge`<br><br>
+challenges[].<br>dnsChallenge.<br>name | **string**<br><p>Name of the DNS record.</p> 
+challenges[].<br>dnsChallenge.<br>type | **string**<br><p>Type of the DNS-record.</p> 
+challenges[].<br>dnsChallenge.<br>value | **string**<br><p>Value of the DNS-record.</p> 
+challenges[].<br>httpChallenge | **object**<br>HTTP-file. <br>`challenges[]` includes only one of the fields `dnsChallenge`, `httpChallenge`<br><br>
+challenges[].<br>httpChallenge.<br>url | **string**<br><p>Location of the HTTP file.</p> 
+challenges[].<br>httpChallenge.<br>content | **string**<br><p>Content of the HTTP file.</p> 

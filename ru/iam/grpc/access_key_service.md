@@ -4,239 +4,239 @@ editable: false
 
 # AccessKeyService
 
-Набор методов управления ключами доступа.
+A set of methods for managing access keys.
 
-| Вызов | Описание |
+| Call | Description |
 | --- | --- |
-| [List](#List) | Возвращает список ключей доступа для указанного сервисного аккаунта. |
-| [Get](#Get) | Возвращает указанный ключ доступа. |
-| [Create](#Create) | Создает ключ доступа для указанного сервисного аккаунта. |
-| [Update](#Update) | Обновляет указанный ключ доступа. |
-| [Delete](#Delete) | Удаляет указанный ключ доступа. |
-| [ListOperations](#ListOperations) | Возвращает список операций для указанного ключа доступа. |
+| [List](#List) | Retrieves the list of access keys for the specified service account. |
+| [Get](#Get) | Returns the specified access key. |
+| [Create](#Create) | Creates an access key for the specified service account. |
+| [Update](#Update) | Updates the specified access key. |
+| [Delete](#Delete) | Deletes the specified access key. |
+| [ListOperations](#ListOperations) | Retrieves the list of operations for the specified access key. |
 
-## Вызовы AccessKeyService {#calls}
+## Calls AccessKeyService {#calls}
 
 ## List {#List}
 
-Возвращает список ключей доступа для указанного сервисного аккаунта.
+Retrieves the list of access keys for the specified service account.
 
 **rpc List ([ListAccessKeysRequest](#ListAccessKeysRequest)) returns ([ListAccessKeysResponse](#ListAccessKeysResponse))**
 
 ### ListAccessKeysRequest {#ListAccessKeysRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-service_account_id | **string**<br>Идентификатор сервисного аккаунта, для которого запрашивается список ключей доступа. Чтобы получить идентификатор сервисного аккаунта, используйте запрос [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/grpc/service_account_service#List). Если параметр не указан, то используется идентификатор субъекта, который сделал запрос. Максимальная длина строки в символах — 50.
-page_size | **int64**<br>Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем `page_size`, сервис вернет значение [ListAccessKeysResponse.next_page_token](#ListAccessKeysResponse), которое можно использовать для получения следующей страницы. Значение по умолчанию: 100. Максимальное значение — 1000.
-page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListAccessKeysResponse.next_page_token](#ListAccessKeysResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
+service_account_id | **string**<br>ID of the service account to list access keys for. To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/grpc/service_account_service#List) request. If not specified, it defaults to the subject that made the request. The maximum string length in characters is 50.
+page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListAccessKeysResponse.next_page_token](#ListAccessKeysResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
+page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListAccessKeysResponse.next_page_token](#ListAccessKeysResponse) returned by a previous list request. The maximum string length in characters is 100.
 
 
 ### ListAccessKeysResponse {#ListAccessKeysResponse}
 
-Поле | Описание
+Field | Description
 --- | ---
-access_keys[] | **[AccessKey](#AccessKey)**<br>Список ключей доступа. 
-next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListAccessKeysRequest.page_size](#ListAccessKeysRequest), используйте `next_page_token` в качестве значения параметра [ListAccessKeysRequest.page_token](#ListAccessKeysRequest) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
+access_keys[] | **[AccessKey](#AccessKey)**<br>List of access keys. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListAccessKeysRequest.page_size](#ListAccessKeysRequest), use the `next_page_token` as the value for the [ListAccessKeysRequest.page_token](#ListAccessKeysRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
 ### AccessKey {#AccessKey}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор ресурса AccessKey. Он используется для управления идентификатором ключа доступа и секретным ключом доступа. 
-service_account_id | **string**<br>Идентификатор сервисного аккаунта, которому принадлежит ключ доступа. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания. 
-description | **string**<br>Описание ключа доступа. Длина описания должна быть от 0 до 256 символов. 
-key_id | **string**<br>Идентификатор ключа доступа. Ключ совместим с сервисами AWS. 
+id | **string**<br>ID of the AccessKey resource. It is used to manage secret credentials: an access key ID and a secret access key. 
+service_account_id | **string**<br>ID of the service account that the access key belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+description | **string**<br>Description of the access key. 0-256 characters long. 
+key_id | **string**<br>ID of the access key. The key is AWS compatible. 
 
 
 ## Get {#Get}
 
-Возвращает указанный ключ доступа. <br>Чтобы получить список доступных ключей доступа, используйте запрос [List](#List).
+Returns the specified access key. <br>To get the list of available access keys, make a [List](#List) request.
 
 **rpc Get ([GetAccessKeyRequest](#GetAccessKeyRequest)) returns ([AccessKey](#AccessKey1))**
 
 ### GetAccessKeyRequest {#GetAccessKeyRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-access_key_id | **string**<br>Обязательное поле. Идентификатор запрашиваемого ресурса AccessKey. Чтобы получить идентификатор ключа доступа, используйте запрос [AccessKeyService.List](#List). Максимальная длина строки в символах — 50.
+access_key_id | **string**<br>Required. ID of the AccessKey resource to return. To get the access key ID, use a [AccessKeyService.List](#List) request. The maximum string length in characters is 50.
 
 
 ### AccessKey {#AccessKey1}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор ресурса AccessKey. Он используется для управления идентификатором ключа доступа и секретным ключом доступа. 
-service_account_id | **string**<br>Идентификатор сервисного аккаунта, которому принадлежит ключ доступа. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания. 
-description | **string**<br>Описание ключа доступа. Длина описания должна быть от 0 до 256 символов. 
-key_id | **string**<br>Идентификатор ключа доступа. Ключ совместим с сервисами AWS. 
+id | **string**<br>ID of the AccessKey resource. It is used to manage secret credentials: an access key ID and a secret access key. 
+service_account_id | **string**<br>ID of the service account that the access key belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+description | **string**<br>Description of the access key. 0-256 characters long. 
+key_id | **string**<br>ID of the access key. The key is AWS compatible. 
 
 
 ## Create {#Create}
 
-Создает ключ доступа для указанного сервисного аккаунта.
+Creates an access key for the specified service account.
 
 **rpc Create ([CreateAccessKeyRequest](#CreateAccessKeyRequest)) returns ([CreateAccessKeyResponse](#CreateAccessKeyResponse))**
 
 ### CreateAccessKeyRequest {#CreateAccessKeyRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-service_account_id | **string**<br>Идентификатор сервисного аккаунта для создания ключа доступа. Чтобы получить идентификатор сервисного аккаунта, используйте запрос [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/grpc/service_account_service#List). Если параметр не указан, то используется идентификатор субъекта, который сделал запрос. Максимальная длина строки в символах — 50.
-description | **string**<br>Описание ключа доступа. Максимальная длина строки в символах — 256.
+service_account_id | **string**<br>ID of the service account to create an access key for. To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/grpc/service_account_service#List) request. If not specified, it defaults to the subject that made the request. The maximum string length in characters is 50.
+description | **string**<br>Description of the access key. The maximum string length in characters is 256.
 
 
 ### CreateAccessKeyResponse {#CreateAccessKeyResponse}
 
-Поле | Описание
+Field | Description
 --- | ---
-access_key | **[AccessKey](#AccessKey2)**<br>Ресурс AccessKey. 
-secret | **string**<br>Секретный ключ доступа. Ключ совместим с сервисами AWS. 
+access_key | **[AccessKey](#AccessKey2)**<br>AccessKey resource. 
+secret | **string**<br>Secret access key. The key is AWS compatible. 
 
 
 ### AccessKey {#AccessKey2}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор ресурса AccessKey. Он используется для управления идентификатором ключа доступа и секретным ключом доступа. 
-service_account_id | **string**<br>Идентификатор сервисного аккаунта, которому принадлежит ключ доступа. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания. 
-description | **string**<br>Описание ключа доступа. Длина описания должна быть от 0 до 256 символов. 
-key_id | **string**<br>Идентификатор ключа доступа. Ключ совместим с сервисами AWS. 
+id | **string**<br>ID of the AccessKey resource. It is used to manage secret credentials: an access key ID and a secret access key. 
+service_account_id | **string**<br>ID of the service account that the access key belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+description | **string**<br>Description of the access key. 0-256 characters long. 
+key_id | **string**<br>ID of the access key. The key is AWS compatible. 
 
 
 ## Update {#Update}
 
-Обновляет указанный ключ доступа.
+Updates the specified access key.
 
 **rpc Update ([UpdateAccessKeyRequest](#UpdateAccessKeyRequest)) returns ([operation.Operation](#Operation))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateAccessKeyMetadata](#UpdateAccessKeyMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[AccessKey](#AccessKey3)<br>
 
 ### UpdateAccessKeyRequest {#UpdateAccessKeyRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-access_key_id | **string**<br>Обязательное поле. Идентификатор обновляемого ресурса AccessKey. Чтобы получить идентификатор ключа доступа, используйте запрос [AccessKeyService.List](#List). Максимальная длина строки в символах — 50.
-update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Маска, определяющая, какие поля ресурса AccessKey будут обновлены. 
-description | **string**<br>Описание ключа доступа. Максимальная длина строки в символах — 256.
+access_key_id | **string**<br>Required. ID of the AccessKey resource to update. To get the access key ID, use a [AccessKeyService.List](#List) request. The maximum string length in characters is 50.
+update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the Accesskey resource are going to be updated. 
+description | **string**<br>Description of the access key. The maximum string length in characters is 256.
 
 
 ### Operation {#Operation}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateAccessKeyMetadata](#UpdateAccessKeyMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[AccessKey](#AccessKey3)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateAccessKeyMetadata](#UpdateAccessKeyMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[AccessKey](#AccessKey3)>**<br>if operation finished successfully. 
 
 
 ### UpdateAccessKeyMetadata {#UpdateAccessKeyMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-access_key_id | **string**<br>Идентификатор изменяемого ресурса AccessKey. 
+access_key_id | **string**<br>ID of the AccessKey resource that is being updated. 
 
 
 ### AccessKey {#AccessKey3}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор ресурса AccessKey. Он используется для управления идентификатором ключа доступа и секретным ключом доступа. 
-service_account_id | **string**<br>Идентификатор сервисного аккаунта, которому принадлежит ключ доступа. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания. 
-description | **string**<br>Описание ключа доступа. Длина описания должна быть от 0 до 256 символов. 
-key_id | **string**<br>Идентификатор ключа доступа. Ключ совместим с сервисами AWS. 
+id | **string**<br>ID of the AccessKey resource. It is used to manage secret credentials: an access key ID and a secret access key. 
+service_account_id | **string**<br>ID of the service account that the access key belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+description | **string**<br>Description of the access key. 0-256 characters long. 
+key_id | **string**<br>ID of the access key. The key is AWS compatible. 
 
 
 ## Delete {#Delete}
 
-Удаляет указанный ключ доступа.
+Deletes the specified access key.
 
 **rpc Delete ([DeleteAccessKeyRequest](#DeleteAccessKeyRequest)) returns ([operation.Operation](#Operation1))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[DeleteAccessKeyMetadata](#DeleteAccessKeyMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
 
 ### DeleteAccessKeyRequest {#DeleteAccessKeyRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-access_key_id | **string**<br>Обязательное поле. Идентификатор ключа доступа, который следует удалить. Чтобы получить идентификатор ключа доступа, используйте запрос [AccessKeyService.List](#List). Максимальная длина строки в символах — 50.
+access_key_id | **string**<br>Required. ID of the access key to delete. To get the access key ID, use a [AccessKeyService.List](#List) request. The maximum string length in characters is 50.
 
 
 ### Operation {#Operation1}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteAccessKeyMetadata](#DeleteAccessKeyMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteAccessKeyMetadata](#DeleteAccessKeyMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>if operation finished successfully. 
 
 
 ### DeleteAccessKeyMetadata {#DeleteAccessKeyMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-access_key_id | **string**<br>Идентификатор удаляемого ключа доступа. 
+access_key_id | **string**<br>ID of the access key that is being deleted. 
 
 
 ## ListOperations {#ListOperations}
 
-Возвращает список операций для указанного ключа доступа.
+Retrieves the list of operations for the specified access key.
 
 **rpc ListOperations ([ListAccessKeyOperationsRequest](#ListAccessKeyOperationsRequest)) returns ([ListAccessKeyOperationsResponse](#ListAccessKeyOperationsResponse))**
 
 ### ListAccessKeyOperationsRequest {#ListAccessKeyOperationsRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-access_key_id | **string**<br>Обязательное поле. Идентификатор ключа доступа, для которого требуется получть список операций. Максимальная длина строки в символах — 50.
-page_size | **int64**<br>Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем `page_size`, сервис вернет значение [ListAccessKeyOperationsResponse.next_page_token](#ListAccessKeyOperationsResponse), которое можно использовать для получения следующей страницы. Значение по умолчанию: 100. Допустимые значения — от 0 до 1000 включительно.
-page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListAccessKeyOperationsResponse.next_page_token](#ListAccessKeyOperationsResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
+access_key_id | **string**<br>Required. ID of the key to list operations for. The maximum string length in characters is 50.
+page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListAccessKeyOperationsResponse.next_page_token](#ListAccessKeyOperationsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. Acceptable values are 0 to 1000, inclusive.
+page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListAccessKeyOperationsResponse.next_page_token](#ListAccessKeyOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
 
 
 ### ListAccessKeyOperationsResponse {#ListAccessKeyOperationsResponse}
 
-Поле | Описание
+Field | Description
 --- | ---
-operations[] | **[operation.Operation](#Operation2)**<br>Список операций для указанного ключа доступа. 
-next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListAccessKeyOperationsRequest.page_size](#ListAccessKeyOperationsRequest), используйте `next_page_token` в качестве значения параметра [ListAccessKeyOperationsRequest.page_token](#ListAccessKeyOperationsRequest) в следующем запросе списка ключей доступа. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
+operations[] | **[operation.Operation](#Operation2)**<br>List of operations for the specified access key. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListAccessKeyOperationsRequest.page_size](#ListAccessKeyOperationsRequest), use the `next_page_token` as the value for the [ListAccessKeyOperationsRequest.page_token](#ListAccessKeyOperationsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
 ### Operation {#Operation2}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**<br>Результат операции в случае успешного завершения. Если исходный метод не возвращает никаких данных при успешном завершении, например метод Delete, поле содержит объект [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty). Если исходный метод — это стандартный метод Create / Update, поле содержит целевой ресурс операции. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `response`. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**<br>The normal response of the operation in case of success. If the original method returns no data on success, such as Delete, the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty). If the original method is the standard Create/Update, the response should be the target resource of the operation. Any method that returns a long-running operation should document the response type, if any. 
 
 

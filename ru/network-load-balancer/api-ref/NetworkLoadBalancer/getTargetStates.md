@@ -2,29 +2,29 @@
 editable: false
 ---
 
-# Метод getTargetStates
-Возвращает состояния целевых ресурсов в подключенной целевой группе.
+# Method getTargetStates
+Gets states of target resources in the attached target group.
  
 
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
-GET https://load-balancer.api.cloud.yandex.net/network-load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}:getTargetStates
+GET https://load-balancer.api.cloud.yandex.net/load-balancer/v1alpha/networkLoadBalancers/{networkLoadBalancerId}:getTargetStates
 ```
  
-## Path-параметры {#path_params}
+## Path parameters {#path_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-networkLoadBalancerId | Идентификатор ресурса NetworkLoadBalancer с присоединенной целевой группой.  Максимальная длина строки в символах — 50.
+networkLoadBalancerId | ID of the NetworkLoadBalancer resource with an attached target group.  The maximum string length in characters is 50.
  
-## Query-параметры {#query_params}
+## Query parameters {#query_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-targetGroupId | Идентификатор целевой группы для получения состояний ресурсов.  Максимальная длина строки в символах — 50.
+targetGroupId | ID of the target group to get states of resources from.  The maximum string length in characters is 50.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -40,9 +40,9 @@ targetGroupId | Идентификатор целевой группы для п
 ```
 
  
-Поле | Описание
+Field | Description
 --- | ---
-targetStates[] | **object**<br><p>Состояние целевого ресурса по результатам последней проверки.</p> 
-targetStates[].<br>subnetId | **string**<br><p>Идентификатор подсети, к которой подключен целевой ресурс.</p> 
-targetStates[].<br>address | **string**<br><p>IP-адрес целевого ресурса.</p> 
-targetStates[].<br>status | **string**<br><p>Состояние целевого ресурса.</p> <p>Состояние целевого ресурса.</p> <ul> <li>INITIAL: Балансировщик настраивает проверку состояния для этого целевого ресурса.</li> <li>HEALTHY: Проверка состояния пройдена и целевой ресурс готов принимать трафик.</li> <li>UNHEALTHY: Проверка состояния не пройдена и целевой ресурс не принимает трафик.</li> <li>DRAINING: Целевой ресурс удаляется и балансировщик больше не передает трафик этому ресурсу.</li> <li>INACTIVE: Балансировщик остановлен и не выполняет проверки состояния для этого целевого ресурса или ресурс подключен к балансировщику без обработчика.</li> </ul> 
+targetStates[] | **object**<br><p>State of the target that was returned after the last health check.</p> 
+targetStates[].<br>subnetId | **string**<br><p>ID of the subnet that the target is connected to.</p> 
+targetStates[].<br>address | **string**<br><p>IP address of the target.</p> 
+targetStates[].<br>status | **string**<br><p>Status of the target.</p> <p>Status of the target.</p> <ul> <li>INITIAL: The network load balancer is setting up health checks for this target.</li> <li>HEALTHY: Health check passed and the target is ready to receive traffic.</li> <li>UNHEALTHY: Health check failed and the target is not receiving traffic.</li> <li>DRAINING: Target is being deleted and the network load balancer is no longer sending traffic to this target.</li> <li>INACTIVE: The network load balancer is stopped and not performing health checks on this target.</li> </ul> 

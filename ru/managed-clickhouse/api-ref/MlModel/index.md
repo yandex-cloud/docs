@@ -3,8 +3,8 @@ editable: false
 ---
 
 # MlModel
-Набор методов управления моделями машинного обучения.
-## JSON-представление {#representation}
+A set of methods for managing machine learning models.
+## JSON Representation {#representation}
 ```json 
 {
   "name": "string",
@@ -14,18 +14,18 @@ editable: false
 }
 ```
  
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br><p>Имя модели.</p> 
-clusterId | **string**<br><p>Идентификатор кластера ClickHouse, к которому принадлежит модель.</p> 
-type | **string**<br><p>Тип модели.</p> <ul> <li>ML_MODEL_TYPE_CATBOOST: Модель CatBoost.</li> </ul> 
-uri | **string**<br><p>URL файла модели. Вы можете использовать только модели, хранящиеся в Yandex Object Storage.</p> 
+name | **string**<br><p>Name of the the model.</p> 
+clusterId | **string**<br><p>ID of the ClickHouse cluster that the model belongs to.</p> 
+type | **string**<br><p>Type of the model.</p> <ul> <li>ML_MODEL_TYPE_CATBOOST: CatBoost model.</li> </ul> 
+uri | **string**<br><p>Model file URL. You can only use models stored in Yandex Object Storage.</p> 
 
-## Методы {#methods}
-Метод | Описание
+## Methods {#methods}
+Method | Description
 --- | ---
-[create](create.md) | Создает модель машинного обучения в указанном кластере.
-[delete](delete.md) | Удаляет указанную модель машинного обучения.
-[get](get.md) | Возвращает указанную модель машинного обучения.
-[list](list.md) | Возвращает список моделей машинного обучения в указанном кластере.
-[update](update.md) | Обновляет указанную модель машинного обучения.
+[create](create.md) | Creates a machine learning model in the specified cluster.
+[delete](delete.md) | Deletes the specified machine learning model.
+[get](get.md) | Returns the specified machine learning model.
+[list](list.md) | Retrieves the list of machine learning models in the specified cluster.
+[update](update.md) | Updates the specified machine learning model.

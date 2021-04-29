@@ -109,13 +109,13 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
-  - name: Справочник API
+  - name: Справочник API (англ.)
     items:
-      - name: Аутентификация в API
+      - name: Authentication
         href: api-ref/authentication.md
       - name: gRPC
         items:
-          - name: Обзор
+          - name: Overview
             href: grpc/index.md
           - name: ApiKeyService
             href: grpc/api_key_service.md
@@ -141,11 +141,11 @@ items:
             href: grpc/operation_service.md
       - name: REST
         items:
-          - name: Обзор
+          - name: Overview
             href: api-ref/index.md
           - name: ApiKey
             items:
-              - name: Обзор
+              - name: Overview
                 href: api-ref/ApiKey/index.md
               - name: create
                 href: api-ref/ApiKey/create.md
@@ -161,13 +161,15 @@ items:
                 href: api-ref/ApiKey/update.md
           - name: IamToken
             items:
-              - name: Обзор
+              - name: Overview
                 href: api-ref/IamToken/index.md
               - name: create
                 href: api-ref/IamToken/create.md
+              - name: createForServiceAccount
+                href: api-ref/IamToken/createForServiceAccount.md
           - name: Key
             items:
-              - name: Обзор
+              - name: Overview
                 href: api-ref/Key/index.md
               - name: create
                 href: api-ref/Key/create.md
@@ -183,7 +185,7 @@ items:
                 href: api-ref/Key/update.md
           - name: Role
             items:
-              - name: Обзор
+              - name: Overview
                 href: api-ref/Role/index.md
               - name: get
                 href: api-ref/Role/get.md
@@ -191,7 +193,7 @@ items:
                 href: api-ref/Role/list.md
           - name: ServiceAccount
             items:
-              - name: Обзор
+              - name: Overview
                 href: api-ref/ServiceAccount/index.md
               - name: create
                 href: api-ref/ServiceAccount/create.md
@@ -213,25 +215,25 @@ items:
                 href: api-ref/ServiceAccount/updateAccessBindings.md
           - name: UserAccount
             items:
-              - name: Обзор
+              - name: Overview
                 href: api-ref/UserAccount/index.md
               - name: get
                 href: api-ref/UserAccount/get.md
           - name: YandexPassportUserAccount
             items:
-              - name: Обзор
+              - name: Overview
                 href: api-ref/YandexPassportUserAccount/index.md
               - name: getByLogin
                 href: api-ref/YandexPassportUserAccount/getByLogin.md
           - name: Operation
             items:
-              - name: Обзор
+              - name: Overview
                 href: api-ref/Operation/index.md
               - name: get
                 href: api-ref/Operation/get.md
           - name: Federation
             items:
-              - name: Обзор
+              - name: Overview
                 href: api-ref/Federation/index.md
               - name: update
                 href: api-ref/Federation/update.md
@@ -251,7 +253,7 @@ items:
                 href: api-ref/Federation/listOperations.md
           - name: Certificate
             items:
-              - name: Обзор
+              - name: Overview
                 href: api-ref/Certificate/index.md
               - name: update
                 href: api-ref/Certificate/update.md
@@ -267,7 +269,7 @@ items:
                 href: api-ref/Certificate/listOperations.md
           - name: AccessKey
             items:
-              - name: Обзор
+              - name: Overview
                 href: api-ref/AccessKey/index.md
               - name: update
                 href: api-ref/AccessKey/update.md

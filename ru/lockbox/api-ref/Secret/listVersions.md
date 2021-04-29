@@ -2,30 +2,30 @@
 editable: false
 ---
 
-# Метод listVersions
-Возвращает список версий указанного секрета.
+# Method listVersions
+Retrieves the list of versions of the specified secret.
  
 
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 GET https://lockbox.api.cloud.yandex.net/lockbox/v1/secrets/{secretId}/versions
 ```
  
-## Path-параметры {#path_params}
+## Path parameters {#path_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-secretId | Обязательное поле. Идентификатор секрета для получения списка версий.  Максимальная длина строки в символах — 50.
+secretId | Required. ID of the secret to list versions for.  The maximum string length in characters is 50.
  
-## Query-параметры {#query_params}
+## Query parameters {#query_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-pageSize | Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем `page_size`, сервис вернет значение [ListVersionsRequest.next_page_token], которое можно использовать для получения следующей страницы. Значение по умолчанию: 100.  Максимальное значение — 1000.
-pageToken | Токен страницы. Установите значение `page_token` равным значению поля [ListVersionsRequest.next_page_toke], прошлого запроса, чтобы получить следующую страницу результатов.  Максимальная длина строки в символах — 100.
+pageSize | The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListVersionsRequest.next_page_token] that can be used to get the next page of results in subsequent list requests. Default value: 100.  The maximum value is 1000.
+pageToken | Page token. To get the next page of results, set `page_token` to the [ListVersionsRequest.next_page_token] returned by a previous list request.  The maximum string length in characters is 100.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -48,14 +48,14 @@ pageToken | Токен страницы. Установите значение `
 ```
 
  
-Поле | Описание
+Field | Description
 --- | ---
-versions[] | **object**<br><p>Список версий для указанного секрета.</p> 
-versions[].<br>id | **string**<br><p>Идентификатор версии.</p> 
-versions[].<br>secretId | **string**<br><p>Идентификатор секрета, которому принадлежит версия.</p> 
-versions[].<br>createdAt | **string** (date-time)<br><p>Время создания версии ключа.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-versions[].<br>destroyAt | **string** (date-time)<br><p>Время, когда версия ключа будет уничтожена. Пустой, если статус `ACTIVE`.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-versions[].<br>description | **string**<br><p>(опционально) Описание версии.</p> 
-versions[].<br>status | **string**<br><p>Статус секрета.</p> <ul> <li>ACTIVE: Секрет активен и к нему можно получить доступ.</li> <li>SCHEDULED_FOR_DESTRUCTION: Версия запланирована к уничтожению. Время, когда она будет уничтожена, указано в поле `destroyAt`.</li> <li>DESTROYED: Версия уничтожена и не может быть восстановлена.</li> </ul> 
-versions[].<br>payloadEntryKeys[] | **string**<br><p>Ключи содержимого версии.</p> 
-nextPageToken | **string**<br><p>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем <a href="/docs/lockbox/api-ref/Secret/listVersions#query_params">pageSize</a>, используйте `next_page_token` в качестве значения параметра <a href="/docs/lockbox/api-ref/Secret/listVersions#query_params">pageToken</a> в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token`, для перебора страниц результатов.</p> 
+versions[] | **object**<br><p>List of versions for the specified secret.</p> 
+versions[].<br>id | **string**<br><p>ID of the version.</p> 
+versions[].<br>secretId | **string**<br><p>ID of the secret that the version belongs to.</p> 
+versions[].<br>createdAt | **string** (date-time)<br><p>Time when the version was created.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+versions[].<br>destroyAt | **string** (date-time)<br><p>Time when the version is going to be destroyed. Empty unless the status is `SCHEDULED_FOR_DESTRUCTION`.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+versions[].<br>description | **string**<br><p>Description of the version.</p> 
+versions[].<br>status | **string**<br><p>Status of the secret.</p> <ul> <li>ACTIVE: The version is active and the secret payload can be accessed.</li> <li>SCHEDULED_FOR_DESTRUCTION: The version is scheduled for destruction, the time when it will be destroyed is specified in the `destroyAt` field.</li> <li>DESTROYED: The version is destroyed and cannot be recovered.</li> </ul> 
+versions[].<br>payloadEntryKeys[] | **string**<br><p>Keys of the entries contained in the version payload.</p> 
+nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is greater than the specified <a href="/docs/lockbox/api-ref/Secret/listVersions#query_params">pageSize</a>, use the `next_page_token` as the value for the <a href="/docs/lockbox/api-ref/Secret/listVersions#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results.</p> 

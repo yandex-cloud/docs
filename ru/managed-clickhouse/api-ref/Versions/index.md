@@ -3,9 +3,9 @@ editable: false
 ---
 
 # Versions
-Набор методов для управления версиями ClickHouse.
+A set of methods for managing ClickHouse versions.
 
-## Методы {#methods}
-Метод | Описание
+## Methods {#methods}
+Method | Description
 --- | ---
-[list](list.md) | Возвращает список доступных версий ClickHouse.
+[list](list.md) | Returns list of available ClickHouse versions.

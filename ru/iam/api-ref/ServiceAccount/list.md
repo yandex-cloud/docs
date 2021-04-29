@@ -2,26 +2,26 @@
 editable: false
 ---
 
-# Метод list
-Возвращает список доступных ресурсов ServiceAccount в указанном каталоге.
+# Method list
+Retrieves the list of ServiceAccount resources in the specified folder.
  
 
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 GET https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts
 ```
  
-## Query-параметры {#query_params}
+## Query parameters {#query_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-folderId | Обязательное поле. Идентификатор каталога для получения списка сервисных аккаунтов. Чтобы получить идентификатор каталога, используйте запрос [list](/docs/resource-manager/api-ref/Folder/list).  Максимальная длина строки в символах — 50.
-pageSize | Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем [pageSize](/docs/iam/api-ref/ServiceAccount/list#query_params), сервис вернет значение [nextPageToken](/docs/iam/api-ref/ServiceAccount/list#responses), которое можно использовать для получения следующей страницы. Значение по умолчанию: 100.  Максимальное значение — 1000.
-pageToken | Токен страницы. Установите значение [pageToken](/docs/iam/api-ref/ServiceAccount/list#query_params) равным значению поля [nextPageToken](/docs/iam/api-ref/ServiceAccount/list#responses) предыдущего запроса, чтобы получить следующую страницу результатов.  Максимальная длина строки в символах — 100.
-filter | Параметры фильтрации ресурсов в ответе. В параметрах фильтрации указываются: 1. Имя поля. В настоящее время фильтрация осуществляется только по полю [ServiceAccount.name](/docs/iam/api-ref/ServiceAccount#representation). 2. Оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений. 3. Значение. Значение длиной от 3 до 63 символов, совпадающее с регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.  Максимальная длина строки в символах — 1000.
+folderId | Required. ID of the folder to list service accounts in. To get the folder ID, use a [list](/docs/resource-manager/api-ref/Folder/list) request.  The maximum string length in characters is 50.
+pageSize | The maximum number of results per page to return. If the number of available results is larger than [pageSize](/docs/iam/api-ref/ServiceAccount/list#query_params), the service returns a [nextPageToken](/docs/iam/api-ref/ServiceAccount/list#responses) that can be used to get the next page of results in subsequent list requests. Default value: 100  The maximum value is 1000.
+pageToken | Page token. To get the next page of results, set [pageToken](/docs/iam/api-ref/ServiceAccount/list#query_params) to the [nextPageToken](/docs/iam/api-ref/ServiceAccount/list#responses) returned by a previous list request.  The maximum string length in characters is 100.
+filter | A filter expression that filters resources listed in the response. The expression must specify: 1. The field name. Currently you can use filtering only on the [ServiceAccount.name](/docs/iam/api-ref/ServiceAccount#representation) field. 2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. 3. The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.  The maximum string length in characters is 1000.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -40,12 +40,12 @@ filter | Параметры фильтрации ресурсов в ответ�
 ```
 
  
-Поле | Описание
+Field | Description
 --- | ---
-serviceAccounts[] | **object**<br><p>Ресурс ServiceAccount. Дополнительные сведения см. в разделе <a href="/docs/iam/concepts/users/service-accounts">Сервисные аккаунты</a>.</p> 
-serviceAccounts[].<br>id | **string**<br><p>Идентификатор сервисного аккаунта.</p> 
-serviceAccounts[].<br>folderId | **string**<br><p>Идентификатор каталога, которому принадлежит сервисный аккаунт.</p> 
-serviceAccounts[].<br>createdAt | **string** (date-time)<br><p>Время создания.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-serviceAccounts[].<br>name | **string**<br><p>Имя сервисного аккаунта. Имя должно быть уникальным в облаке. Длина 3-63 символов.</p> 
-serviceAccounts[].<br>description | **string**<br><p>Описание сервисного аккаунта. Длина описания должна быть от 0 до 256 символов.</p> 
-nextPageToken | **string**<br><p>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем <a href="/docs/iam/api-ref/ServiceAccount/list#query_params">pageSize</a>, используйте <a href="/docs/iam/api-ref/ServiceAccount/list#responses">nextPageToken</a> в качестве значения параметра <a href="/docs/iam/api-ref/ServiceAccount/list#query_params">pageToken</a> в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения <a href="/docs/iam/api-ref/ServiceAccount/list#responses">nextPageToken</a> для перебора страниц результатов.</p> 
+serviceAccounts[] | **object**<br><p>A ServiceAccount resource. For more information, see <a href="/docs/iam/concepts/users/service-accounts">Service accounts</a>.</p> 
+serviceAccounts[].<br>id | **string**<br><p>ID of the service account.</p> 
+serviceAccounts[].<br>folderId | **string**<br><p>ID of the folder that the service account belongs to.</p> 
+serviceAccounts[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+serviceAccounts[].<br>name | **string**<br><p>Name of the service account. The name is unique within the cloud. 3-63 characters long.</p> 
+serviceAccounts[].<br>description | **string**<br><p>Description of the service account. 0-256 characters long.</p> 
+nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/iam/api-ref/ServiceAccount/list#query_params">pageSize</a>, use the <a href="/docs/iam/api-ref/ServiceAccount/list#responses">nextPageToken</a> as the value for the <a href="/docs/iam/api-ref/ServiceAccount/list#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own <a href="/docs/iam/api-ref/ServiceAccount/list#responses">nextPageToken</a> to continue paging through the results.</p> 

@@ -63,13 +63,13 @@ items:
         items:
           - name: До 1 февраля 2020 года
             href: pricing-archive/pricing-01022020.md
-  - name: Справочник API
+  - name: Справочник API (англ.)
     items:
-      - name: Аутентификация в API
+      - name: Authentication
         href: api-ref/authentication.md
       - name: gRPC
         items:
-          - name: Обзор
+          - name: Overview
             href: grpc/index.md
           - name: BackupService
             href: grpc/backup_service.md
@@ -81,11 +81,11 @@ items:
             href: grpc/operation_service.md
       - name: REST
         items:
-          - name: Обзор
+          - name: Overview
             href: api-ref/index.md
           - name: Backup
             items:
-              - name: Обзор
+              - name: Overview
                 href: api-ref/Backup/index.md
               - name: get
                 href: api-ref/Backup/get.md
@@ -93,10 +93,12 @@ items:
                 href: api-ref/Backup/list.md
           - name: Cluster
             items:
-              - name: Обзор
+              - name: Overview
                 href: api-ref/Cluster/index.md
               - name: addHosts
                 href: api-ref/Cluster/addHosts.md
+              - name: addShard
+                href: api-ref/Cluster/addShard.md
               - name: backup
                 href: api-ref/Cluster/backup.md
               - name: create
@@ -105,8 +107,12 @@ items:
                 href: api-ref/Cluster/delete.md
               - name: deleteHosts
                 href: api-ref/Cluster/deleteHosts.md
+              - name: deleteShard
+                href: api-ref/Cluster/deleteShard.md
               - name: get
                 href: api-ref/Cluster/get.md
+              - name: getShard
+                href: api-ref/Cluster/getShard.md
               - name: list
                 href: api-ref/Cluster/list.md
               - name: listBackups
@@ -117,6 +123,14 @@ items:
                 href: api-ref/Cluster/listLogs.md
               - name: listOperations
                 href: api-ref/Cluster/listOperations.md
+              - name: listShards
+                href: api-ref/Cluster/listShards.md
+              - name: move
+                href: api-ref/Cluster/move.md
+              - name: rebalance
+                href: api-ref/Cluster/rebalance.md
+              - name: rescheduleMaintenance
+                href: api-ref/Cluster/rescheduleMaintenance.md
               - name: restore
                 href: api-ref/Cluster/restore.md
               - name: start
@@ -125,11 +139,13 @@ items:
                 href: api-ref/Cluster/startFailover.md
               - name: stop
                 href: api-ref/Cluster/stop.md
+              - name: streamLogs
+                href: api-ref/Cluster/streamLogs.md
               - name: update
                 href: api-ref/Cluster/update.md
           - name: ResourcePreset
             items:
-              - name: Обзор
+              - name: Overview
                 href: api-ref/ResourcePreset/index.md
               - name: get
                 href: api-ref/ResourcePreset/get.md
@@ -137,7 +153,7 @@ items:
                 href: api-ref/ResourcePreset/list.md
           - name: Operation
             items:
-              - name: Обзор
+              - name: Overview
                 href: api-ref/Operation/index.md
               - name: get
                 href: api-ref/Operation/get.md

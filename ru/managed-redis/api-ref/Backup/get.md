@@ -2,23 +2,23 @@
 editable: false
 ---
 
-# Метод get
-Возвращает указанную резервную копию Redis.
+# Method get
+Returns the specified Redis backup.
  
-Чтобы получить список доступных резервных копий Redis, используйте запрос [list](/docs/managed-redis/api-ref/Backup/list).
+To get the list of available Redis backups, make a [list](/docs/managed-redis/api-ref/Backup/list) request.
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
-GET https://mdb.api.cloud.yandex.net/managed-redis/v1alpha/backups/{backupId}
+GET https://mdb.api.cloud.yandex.net/managed-redis/v1/backups/{backupId}
 ```
  
-## Path-параметры {#path_params}
+## Path parameters {#path_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-backupId | Обязательное поле. Идентификатор резервной копии Redis, информацию о которой нужно запросить. Чтобы получить идентификатор резервной копии, используйте запрос [listBackups](/docs/managed-redis/api-ref/Cluster/listBackups).
+backupId | Required. ID of the Redis backup to return. To get the backup ID, use a [listBackups](/docs/managed-redis/api-ref/Cluster/listBackups) request.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -27,16 +27,20 @@ backupId | Обязательное поле. Идентификатор рез�
   "folderId": "string",
   "createdAt": "string",
   "sourceClusterId": "string",
-  "startedAt": "string"
+  "startedAt": "string",
+  "sourceShardNames": [
+    "string"
+  ]
 }
 ```
-Описание резервной копии Redis. Подробнее смотрите в [документации](/docs/managed-redis/concepts/backup) Managed
-Service for Redis.
+Description of a Redis backup. For more information, see
+the Managed Service for Redis [documentation](/docs/managed-redis/concepts/backup).
  
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br><p>Идентификатор резервной копии.</p> 
-folderId | **string**<br><p>Идентификатор каталога, которому принадлежит резервная копия.</p> 
-createdAt | **string** (date-time)<br><p>Время создания в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> (т. е. когда операция резервного копирования была завершена).</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-sourceClusterId | **string**<br><p>Идентификатор кластера Redis, для которого была создана резервная копия.</p> 
-startedAt | **string** (date-time)<br><p>Время запуска операции резервного копирования в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
+id | **string**<br><p>ID of the backup.</p> 
+folderId | **string**<br><p>ID of the folder that the backup belongs to.</p> 
+createdAt | **string** (date-time)<br><p>Creation timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format (i.e. when the backup operation was completed).</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+sourceClusterId | **string**<br><p>ID of the Redis cluster that the backup was created for.</p> 
+startedAt | **string** (date-time)<br><p>Start timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format (i.e. when the backup operation was started).</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+sourceShardNames[] | **string**<br><p>Shard names used as a source for backup.</p> 

@@ -3,8 +3,8 @@ editable: false
 ---
 
 # ServiceAccount
-Набор методов для управления ресурсами ServiceAccount.
-## JSON-представление {#representation}
+A set of methods for managing ServiceAccount resources.
+## JSON Representation {#representation}
 ```json 
 {
   "id": "string",
@@ -15,23 +15,23 @@ editable: false
 }
 ```
  
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br><p>Идентификатор сервисного аккаунта.</p> 
-folderId | **string**<br><p>Идентификатор каталога, которому принадлежит сервисный аккаунт.</p> 
-createdAt | **string** (date-time)<br><p>Время создания.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-name | **string**<br><p>Имя сервисного аккаунта. Имя должно быть уникальным в облаке. Длина 3-63 символов.</p> 
-description | **string**<br><p>Описание сервисного аккаунта. Длина описания должна быть от 0 до 256 символов.</p> 
+id | **string**<br><p>ID of the service account.</p> 
+folderId | **string**<br><p>ID of the folder that the service account belongs to.</p> 
+createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+name | **string**<br><p>Name of the service account. The name is unique within the cloud. 3-63 characters long.</p> 
+description | **string**<br><p>Description of the service account. 0-256 characters long.</p> 
 
-## Методы {#methods}
-Метод | Описание
+## Methods {#methods}
+Method | Description
 --- | ---
-[create](create.md) | Создает сервисный аккаунт в указанном каталоге.
-[delete](delete.md) | Удаляет указанный сервисный аккаунт.
-[get](get.md) | Возвращает указанный ресурс ServiceAccount.
-[list](list.md) | Возвращает список доступных ресурсов ServiceAccount в указанном каталоге.
-[listAccessBindings](listAccessBindings.md) | Возвращает список привязок прав доступа для указанного сервисного аккаунта.
-[listOperations](listOperations.md) | Возвращает список операций для указанного сервисного аккаунта.
-[setAccessBindings](setAccessBindings.md) | Задает список привязок прав доступа для указанного сервисного аккаунта.
-[update](update.md) | Обновляет указанный сервисный аккаунт.
-[updateAccessBindings](updateAccessBindings.md) | Обновляет список привязок прав доступа для указанного сервисного аккаунта.
+[create](create.md) | Creates a service account in the specified folder.
+[delete](delete.md) | Deletes the specified service account.
+[get](get.md) | Returns the specified ServiceAccount resource.
+[list](list.md) | Retrieves the list of ServiceAccount resources in the specified folder.
+[listAccessBindings](listAccessBindings.md) | Lists access bindings for the specified service account.
+[listOperations](listOperations.md) | Lists operations for the specified service account.
+[setAccessBindings](setAccessBindings.md) | Sets access bindings for the service account.
+[update](update.md) | Updates the specified service account.
+[updateAccessBindings](updateAccessBindings.md) | Updates access bindings for the specified service account.

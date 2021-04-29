@@ -3,8 +3,8 @@ editable: false
 ---
 
 # Role
-Набор методов для управления ресурсами Role.
-## JSON-представление {#representation}
+A set of methods for managing Role resources.
+## JSON Representation {#representation}
 ```json 
 {
   "id": "string",
@@ -12,13 +12,13 @@ editable: false
 }
 ```
  
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br><p>Идентификатор роли.</p> 
-description | **string**<br><p>Описание роли. Длина описания должна быть от 0 до 256 символов.</p> 
+id | **string**<br><p>ID of the role.</p> 
+description | **string**<br><p>Description of the role. 0-256 characters long.</p> 
 
-## Методы {#methods}
-Метод | Описание
+## Methods {#methods}
+Method | Description
 --- | ---
-[get](get.md) | Возвращает указанный ресурс Role.
-[list](list.md) | Возвращает список доступных ресурсов Role.
+[get](get.md) | Returns the specified Role resource.
+[list](list.md) | Retrieves the list of Role resources.

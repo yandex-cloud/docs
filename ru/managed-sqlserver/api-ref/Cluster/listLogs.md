@@ -2,36 +2,36 @@
 editable: false
 ---
 
-# Метод listLogs
-Возвращает логи для указанного кластера SQL Server.
+# Method listLogs
+Retrieves logs for the specified SQL Server cluster.
  
-Для получения дополнительной информации о логах см. раздел [Просмотр логов кластера](/docs/managed-sqlserver/operations/cluster-logs)" в документации.
+For more information about logs, see the [Logs](/docs/managed-sqlserver/operations/cluster-logs) section in the documentation.
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 GET https://mdb.api.cloud.yandex.net/mdb/sqlserver/v1alpha/clusters/{clusterId}:logs
 ```
  
-## Path-параметры {#path_params}
+## Path parameters {#path_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-clusterId | Обязательное поле. Идентификатор кластера SQL Server, для которого нужно получить логи.  Чтобы получить идентификатор кластера SQL Server, используйте запрос [list](/docs/managed-sqlserver/api-ref/Cluster/list).  Максимальная длина строки в символах — 50.
+clusterId | Required. ID of the SQL Server cluster to request logs for.  To get the SQL Server cluster ID, use a [list](/docs/managed-sqlserver/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
  
-## Query-параметры {#query_params}
+## Query parameters {#query_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-columnFilter | Столбцы, которые нужно запросить из лога.  Если столбцы не указаны, записи логов возвращаются целиком.
-serviceType | Тип сервиса, для которого следует запросить логи.<ul> <li>SQLSERVER_ERROR: Лог с ошибками SQL Server.</li> <li>SQLSERVER_APPLICATION: Лог приложений SQL Server.</li> </ul> 
-fromTime | Временная метка, начиная с которой следует запросить логи.  Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
-toTime | Временная метка, до которой следует запросить логи.  Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
-pageSize | Максимальное количество результатов на одной странице в ответе. Если количество результатов больше чем `page_size`, сервис вернет значение [nextPageToken](/docs/managed-sqlserver/api-ref/Cluster/listLogs#responses), которое можно использовать для получения следующей страницы.  Допустимые значения — от 0 до 1000 включительно.
-pageToken | Токен страницы. Установите значение `page_token` равным значению поля [nextPageToken](/docs/managed-sqlserver/api-ref/Cluster/listLogs#responses) предыдущего запроса, чтобы получить следующую страницу результатов.  Максимальная длина строки в символах — 100.
-alwaysNextPageToken | Всегда возвращать `next_page_token`, даже если текущая страница пуста.
-filter | Выражение, позволяющее отфильтровать информацию о ресурсах в ответе, оставив только нужную.  В этом выражении должны быть указаны: 1. Имя поля, по которому нужно выполнить фильтрацию. В настоящее время фильтрацию можно использовать только по полю [LogRecord.logs.message.hostname]. 2. Условный оператор. Поддерживаются операторы `=` и `!=` для одиночных значений, `IN` и `NOT IN` для списков значений. 3. Значение. Должно содержать от 1 до 63 символов и соответствовать регулярному выражению `^[a-z0-9.-]{1,61}$`.  Примеры фильтров: `message.hostname='node1.db.cloud.yandex.net'`  Максимальная длина строки в символах — 1000.
+columnFilter | Columns from the logs table to request.  If no columns are specified, entire log records are returned.
+serviceType | Type of the service to request logs about.<ul> <li>SQLSERVER_ERROR: SQL Server error log.</li> <li>SQLSERVER_APPLICATION: SQL Server application log.</li> </ul> 
+fromTime | Start timestamp for the logs request.  String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+toTime | End timestamp for the logs request.  String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+pageSize | The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [nextPageToken](/docs/managed-sqlserver/api-ref/Cluster/listLogs#responses) that can be used to get the next page of results in subsequent list requests.  Acceptable values are 0 to 1000, inclusive.
+pageToken | Page token. To get the next page of results, set `page_token` to the [nextPageToken](/docs/managed-sqlserver/api-ref/Cluster/listLogs#responses) returned by a previous list request.  The maximum string length in characters is 100.
+alwaysNextPageToken | Always return `next_page_token`, even if current page is empty.
+filter | A filter expression that filters resources listed in the response.  The expression must specify: 1. The field name to filter by. Currently filtering can be applied to the [LogRecord.logs.message.hostname] field. 2. A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. 3. The value. Must be 1-63 characters long and match the regular expression `^[a-z0-9.-]{1,61}$`.  Examples of a filter: `message.hostname='node1.db.cloud.yandex.net'`  The maximum string length in characters is 1000.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -47,9 +47,9 @@ filter | Выражение, позволяющее отфильтровать �
 ```
 
  
-Поле | Описание
+Field | Description
 --- | ---
-logs[] | **object**<br><p>Запрошенные записи в логе.</p> 
-logs[].<br>timestamp | **string** (date-time)<br><p>Временная метка для записи в логе.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-logs[].<br>message | **object**<br><p>Содержимое записи в логе.</p> 
-nextPageToken | **string**<br><p>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем <a href="/docs/managed-sqlserver/api-ref/Cluster/listLogs#query_params">pageSize</a>, используйте `next_page_token` в качестве значения параметра <a href="/docs/managed-sqlserver/api-ref/Cluster/listLogs#query_params">pageToken</a> в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов.</p> 
+logs[] | **object**<br><p>Requested log records.</p> 
+logs[].<br>timestamp | **string** (date-time)<br><p>Log record timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+logs[].<br>message | **object**<br><p>Contents of the log record.</p> 
+nextPageToken | **string**<br><p>Token that allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/managed-sqlserver/api-ref/Cluster/listLogs#query_params">pageSize</a>, use the `next_page_token` as the value for the <a href="/docs/managed-sqlserver/api-ref/Cluster/listLogs#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results.</p> 

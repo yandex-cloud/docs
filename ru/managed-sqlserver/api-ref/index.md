@@ -3,13 +3,12 @@ editable: false
 ---
 
 # Yandex Managed Service for SQL Server API
-Методы справочника API сгруппированы по ресурсам. Чтобы выполнить операцию над ресурсом, отправьте HTTP-запрос к соответствующему URL. Подробнее об архитектуре API Яндекс.Облака, см. [Концепции API Яндекс.Облака](/docs/api-design-guide/).
+This API reference is organized by resource. Actions are performed by sending HTTP requests to resource URLs or making RPC calls. For more information about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
 
-Ресурс | Описание
+Resource | Description
 --- | ---
-[Backup](Backup/index.md) | Набор методов для управления резервными копиями SQL Server.
-[Cluster](Cluster/index.md) | Набор методов для управления кластерами SQL Server.
-[Database](Database/index.md) | Набор методов для управления базами данных SQL Server.
-[Operation](Operation/index.md) | Набор методов для управления операциями в асинхронных запросах API.
-[ResourcePreset](ResourcePreset/index.md) | Методы для работы с наборами вычислительных ресурсов.
-[User](User/index.md) | Набор методов для управления пользователями SQL Server.
+[Backup](Backup/index.md) | A set of methods for managing SQL Server backups.
+[Cluster](Cluster/index.md) | A set of methods for managing SQL Server clusters.
+[Database](Database/index.md) | A set of methods for managing SQL Server databases.
+[ResourcePreset](ResourcePreset/index.md) | A set of methods for managing resource presets.
+[User](User/index.md) | A set of methods for managing SQL Server users.

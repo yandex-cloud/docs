@@ -52,13 +52,13 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
-  - name: Справочник API
+  - name: Справочник API (англ.)
     items:
-      - name: Аутентификация в API
+      - name: Authentication
         href: api-ref/authentication.md
       - name: gRPC
         items:
-          - name: Обзор
+          - name: Overview
             href: grpc/index.md
           - name: ClusterService
             href: grpc/cluster_service.md
@@ -72,11 +72,11 @@ items:
             href: grpc/operation_service.md
       - name: REST
         items:
-          - name: Обзор
+          - name: Overview
             href: api-ref/index.md
           - name: Cluster
             items:
-              - name: Обзор
+              - name: Overview
                 href: api-ref/Cluster/index.md
               - name: create
                 href: api-ref/Cluster/create.md
@@ -90,6 +90,8 @@ items:
                 href: api-ref/Cluster/listHosts.md
               - name: listOperations
                 href: api-ref/Cluster/listOperations.md
+              - name: listUILinks
+                href: api-ref/Cluster/listUILinks.md
               - name: start
                 href: api-ref/Cluster/start.md
               - name: stop
@@ -98,7 +100,7 @@ items:
                 href: api-ref/Cluster/update.md
           - name: Job
             items:
-              - name: Обзор
+              - name: Overview
                 href: api-ref/Job/index.md
               - name: create
                 href: api-ref/Job/create.md
@@ -106,9 +108,11 @@ items:
                 href: api-ref/Job/get.md
               - name: list
                 href: api-ref/Job/list.md
+              - name: listLog
+                href: api-ref/Job/listLog.md
           - name: ResourcePreset
             items:
-              - name: Обзор
+              - name: Overview
                 href: api-ref/ResourcePreset/index.md
               - name: get
                 href: api-ref/ResourcePreset/get.md
@@ -116,7 +120,7 @@ items:
                 href: api-ref/ResourcePreset/list.md
           - name: Subcluster
             items:
-              - name: Обзор
+              - name: Overview
                 href: api-ref/Subcluster/index.md
               - name: create
                 href: api-ref/Subcluster/create.md

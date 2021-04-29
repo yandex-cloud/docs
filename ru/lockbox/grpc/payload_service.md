@@ -4,43 +4,43 @@ editable: false
 
 # PayloadService
 
-Набор методов доступа к содержимому секретов.
+Set of methods to access payload of secrets.
 
-| Вызов | Описание |
+| Call | Description |
 | --- | --- |
-| [Get](#Get) | Возвращает содержимое указанного секрета. |
+| [Get](#Get) | Returns the payload of the specified secret. |
 
-## Вызовы PayloadService {#calls}
+## Calls PayloadService {#calls}
 
 ## Get {#Get}
 
-Возвращает содержимое указанного секрета. <br>Чтобы получить список доступных секретов, выполните запрос [SecretService.List](./secret_service#List).
+Returns the payload of the specified secret. <br>To get the list of all available secrets, make a [SecretService.List](./secret_service#List) request.
 
 **rpc Get ([GetPayloadRequest](#GetPayloadRequest)) returns ([Payload](#Payload))**
 
 ### GetPayloadRequest {#GetPayloadRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-secret_id | **string**<br>Обязательное поле. Идентификатор секрета. Максимальная длина строки в символах — 50.
-version_id | **string**<br>(опционально) Идентификатор версии. Если не указан, возвращается содержимое текущей версии. Максимальная длина строки в символах — 50.
+secret_id | **string**<br>Required. ID of the secret. The maximum string length in characters is 50.
+version_id | **string**<br>Optional ID of the version. The maximum string length in characters is 50.
 
 
 ### Payload {#Payload}
 
-Поле | Описание
+Field | Description
 --- | ---
-version_id | **string**<br>Идентификатор версии, которой принадлежит содержимое. 
-entries[] | **[Entry](#Entry)**<br>Записи содержимого версии. 
+version_id | **string**<br>ID of the version that the payload belongs to. 
+entries[] | **[Entry](#Entry)**<br>Payload entries. 
 
 
 ### Entry {#Entry}
 
-Поле | Описание
+Field | Description
 --- | ---
-key | **string**<br>Неконфиденциальный ключ содержимого версии. 
-value | **oneof:** `text_value` или `binary_value`<br>Конфиденциальная часть содержимого версии.
-&nbsp;&nbsp;text_value | **string**<br>Текстовое значение. 
-&nbsp;&nbsp;binary_value | **bytes**<br>Двоичное значение. 
+key | **string**<br>Non-confidential key of the entry. 
+value | **oneof:** `text_value` or `binary_value`<br>Confidential value of the entry.
+&nbsp;&nbsp;text_value | **string**<br>Text value. 
+&nbsp;&nbsp;binary_value | **bytes**<br>Binary value. 
 
 

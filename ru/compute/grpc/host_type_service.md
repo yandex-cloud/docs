@@ -4,65 +4,65 @@ editable: false
 
 # HostTypeService
 
-Набор методов для просмотра возможных конфигураций выделенного хоста.
+Set of methods to view possible host configurations.
 
-| Вызов | Описание |
+| Call | Description |
 | --- | --- |
-| [Get](#Get) | Возвращает информацию об указанном типе выделенного хоста. |
-| [List](#List) | Список доступных типов выделенных хостов. |
+| [Get](#Get) | Returns information about specified host type. |
+| [List](#List) | List avaliable host types. |
 
-## Вызовы HostTypeService {#calls}
+## Calls HostTypeService {#calls}
 
 ## Get {#Get}
 
-Возвращает информацию об указанном типе выделенного хоста.
+Returns information about specified host type.
 
 **rpc Get ([GetHostTypeRequest](#GetHostTypeRequest)) returns ([HostType](#HostType))**
 
 ### GetHostTypeRequest {#GetHostTypeRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-host_type_id | **string**<br>Обязательное поле. Идентификатор возвращаемого типа выделенного хоста. <br>Чтобы получить идентификатор типа выделенного хоста, используйте запрос [HostTypeService.List](#List). Максимальная длина строки в символах — 50.
+host_type_id | **string**<br>Required. ID of the host type to return. <br>To get a host type ID make a [HostTypeService.List](#List) request. The maximum string length in characters is 50.
 
 
 ### HostType {#HostType}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Уникальный идентификатор типа выделенного хоста. 
-cores | **int64**<br>Общее количество ядер, доступных для ВМ выделенного хоста. 
-memory | **int64**<br>Объем памяти, доступный для ВМ выделенного хоста. 
+id | **string**<br>Unique type identifier. 
+cores | **int64**<br>Total number of cores available for instances. 
+memory | **int64**<br>Ammount of memory available for instances. 
 
 
 ## List {#List}
 
-Список доступных типов выделенных хостов.
+List avaliable host types.
 
 **rpc List ([ListHostTypesRequest](#ListHostTypesRequest)) returns ([ListHostTypesResponse](#ListHostTypesResponse))**
 
 ### ListHostTypesRequest {#ListHostTypesRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-page_size | **int64**<br>Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем `page_size`, сервис вернет значение [ListHostTypesResponse.next_page_token](#ListHostTypesResponse), которое можно использовать для получения следующей страницы. Максимальное значение — 1000.
-page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListHostTypesResponse.next_page_token](#ListHostTypesResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
+page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListHostTypesResponse.next_page_token](#ListHostTypesResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
+page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListHostTypesResponse.next_page_token](#ListHostTypesResponse) returned by a previous list request. The maximum string length in characters is 100.
 
 
 ### ListHostTypesResponse {#ListHostTypesResponse}
 
-Поле | Описание
+Field | Description
 --- | ---
-host_types[] | **[HostType](#HostType1)**<br>Список типов выделенных хостов. 
-next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListHostTypesRequest.page_size](#ListHostTypesRequest), используйте `next_page_token` в качестве значения параметра [ListHostTypesRequest.page_token](#ListHostTypesRequest) в следующем запросе списка ресурсов. <br>Каждая следующая страница будет иметь свой `next_page_token` для продолжения перебора страниц результатов. 
+host_types[] | **[HostType](#HostType1)**<br>Lists host types. 
+next_page_token | **string**<br>Token for getting the next page of the list. If the number of results is greater than the specified [ListHostTypesRequest.page_size](#ListHostTypesRequest), use `next_page_token` as the value for the [ListHostTypesRequest.page_token](#ListHostTypesRequest) parameter in the next list request. <br>Each subsequent page will have its own `next_page_token` to continue paging through the results. 
 
 
 ### HostType {#HostType1}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Уникальный идентификатор типа выделенного хоста. 
-cores | **int64**<br>Общее количество ядер, доступных для ВМ выделенного хоста. 
-memory | **int64**<br>Объем памяти, доступный для ВМ выделенного хоста. 
+id | **string**<br>Unique type identifier. 
+cores | **int64**<br>Total number of cores available for instances. 
+memory | **int64**<br>Ammount of memory available for instances. 
 
 

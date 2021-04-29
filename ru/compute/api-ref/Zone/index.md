@@ -3,8 +3,8 @@ editable: false
 ---
 
 # Zone
-Набор методов для получения информации о зонах доступности.
-## JSON-представление {#representation}
+A set of methods to retrieve information about availability zones.
+## JSON Representation {#representation}
 ```json 
 {
   "id": "string",
@@ -13,14 +13,14 @@ editable: false
 }
 ```
  
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br><p>Идентификатор зоны.</p> 
-regionId | **string**<br><p>Идентификатор региона.</p> 
-status | **string**<br><p>Статус зоны доступности.</p> <ul> <li>UP: Зона доступна. Вы можете обращаться к ресурсам в этой зоне.</li> <li>DOWN: Зона недоступна.</li> </ul> 
+id | **string**<br><p>ID of the zone.</p> 
+regionId | **string**<br><p>ID of the region.</p> 
+status | **string**<br><p>Status of the zone.</p> <ul> <li>UP: Zone is available. You can access the resources allocated in this zone.</li> <li>DOWN: Zone is not available.</li> </ul> 
 
-## Методы {#methods}
-Метод | Описание
+## Methods {#methods}
+Method | Description
 --- | ---
-[get](get.md) | Возвращает сведения об указанной зоне доступности.
-[list](list.md) | Возвращает список зон доступности.
+[get](get.md) | Returns the information about the specified availability zone.
+[list](list.md) | Retrieves the list of availability zones.

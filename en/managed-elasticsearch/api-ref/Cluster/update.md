@@ -45,13 +45,19 @@ clusterId | Required. ID of the Elasticsearch cluster to update.  To get the Ela
           "diskSize": "string",
           "diskTypeId": "string"
         }
-      }
-    }
+      },
+      "plugins": [
+        "string"
+      ]
+    },
+    "edition": "string",
+    "adminPassword": "string"
   },
   "name": "string",
   "securityGroupIds": [
     "string"
-  ]
+  ],
+  "serviceAccountId": "string"
 }
 ```
 
@@ -77,8 +83,12 @@ configSpec.<br>elasticsearchSpec.<br>masterNode.<br>resources | **object**<br><p
 configSpec.<br>elasticsearchSpec.<br>masterNode.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-elasticsearch/concepts/instance-types">documentation</a>.</p> 
 configSpec.<br>elasticsearchSpec.<br>masterNode.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
 configSpec.<br>elasticsearchSpec.<br>masterNode.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host. All available types are listed in the <a href="/docs/managed-elasticsearch/concepts/storage">documentation</a>.</p> 
+configSpec.<br>elasticsearchSpec.<br>plugins[] | **string**<br><p>Cluster wide plugins</p> <p>The maximum string length in characters for each value is 50.</p> 
+configSpec.<br>edition | **string**<br><p>ElasticSearch edition.</p> 
+configSpec.<br>adminPassword | **string**<br><p>ElasticSearch admin password.</p> 
 name | **string**<br><p>New name for the Elasticsearch cluster.</p> <p>The maximum string length in characters is 63. Value must match the regular expression `` [a-zA-Z0-9_-]* ``.</p> 
 securityGroupIds[] | **string**<br><p>User security groups</p> 
+serviceAccountId | **string**<br><p>ID of the service account used for access to Yandex Object Storage.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

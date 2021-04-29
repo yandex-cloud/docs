@@ -3,8 +3,8 @@ editable: false
 ---
 
 # Database
-Набор методов для управления ресурсами Database для PostgreSQL.
-## JSON-представление {#representation}
+A set of methods for managing PostgreSQL Database resources.
+## JSON Representation {#representation}
 ```json 
 {
   "name": "string",
@@ -21,22 +21,22 @@ editable: false
 }
 ```
  
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br><p>Имя базы данных.</p> 
-clusterId | **string**<br><p>Идентификатор кластера PostgreSQL, к которому принадлежит база данных.</p> 
-owner | **string**<br><p>Имя пользователя, назначенного владельцем базы данных.</p> 
-lcCollate | **string**<br><p>POSIX-локаль для порядка сортировки строк. Может быть установлен только во время создания.</p> 
-lcCtype | **string**<br><p>POSIX-локаль для классификации символов. Может быть установлена только во время создания.</p> 
-extensions[] | **object**<br><p>Расширения PostgreSQL, включенные для базы данных.</p> 
-extensions[].<br>name | **string**<br><p>Имя расширения, например `pg_trgm` или `pg_btree`. Расширения, которые поддерживает Managed Service for PostgreSQL, <a href="/docs/managed-postgresql/operations/cluster-extensions">перечислены в документации</a>.</p> 
-extensions[].<br>version | **string**<br><p>Версия расширения.</p> 
+name | **string**<br><p>Name of the database.</p> 
+clusterId | **string**<br><p>ID of the PostgreSQL cluster that the database belongs to.</p> 
+owner | **string**<br><p>Name of the user assigned as the owner of the database.</p> 
+lcCollate | **string**<br><p>POSIX locale for string sorting order. Can only be set at creation time.</p> 
+lcCtype | **string**<br><p>POSIX locale for character classification. Can only be set at creation time.</p> 
+extensions[] | **object**<br><p>PostgreSQL extensions enabled for the database.</p> 
+extensions[].<br>name | **string**<br><p>Name of the extension, e.g. `pg_trgm` or `pg_btree`. Extensions supported by Managed Service for PostgreSQL are <a href="/docs/managed-postgresql/operations/cluster-extensions">listed in the Developer's Guide</a>.</p> 
+extensions[].<br>version | **string**<br><p>Version of the extension.</p> 
 
-## Методы {#methods}
-Метод | Описание
+## Methods {#methods}
+Method | Description
 --- | ---
-[create](create.md) | Создает новую базу данных PostgreSQL в указанном кластере.
-[delete](delete.md) | Удаляет указанную базу данных PostgreSQL.
-[get](get.md) | Возвращает указанный ресурс Database для PostgreSQL.
-[list](list.md) | Получает список ресурсов Database для указанного кластера PostgreSQL.
-[update](update.md) | Изменяет указанную базу данных PostgreSQL.
+[create](create.md) | Creates a new PostgreSQL database in the specified cluster.
+[delete](delete.md) | Deletes the specified PostgreSQL database.
+[get](get.md) | Returns the specified PostgreSQL Database resource.
+[list](list.md) | Retrieves the list of PostgreSQL Database resources in the specified cluster.
+[update](update.md) | Updates the specified PostgreSQL database.

@@ -3,8 +3,8 @@ editable: false
 ---
 
 # PlacementGroup
-Набор методов для управления группами размещения.
-## JSON-представление {#representation}
+A set of methods for managing placement groups.
+## JSON Representation {#representation}
 ```json 
 {
   "id": "string",
@@ -17,23 +17,23 @@ editable: false
 }
 ```
  
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br><p>Идентификатор группы размещения. Генерируется при создании.</p> 
-folderId | **string**<br><p>Идентификатор каталога, которому принадлежит группа размещения.</p> 
-createdAt | **string** (date-time)<br><p>Время создания ресурса.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-name | **string**<br><p>Имя группы размещения. Имя уникально в рамках каталога.</p> 
-description | **string**<br><p>Описание группы размещения. Длина описания должна быть от 0 до 256 символов.</p> 
-labels | **object**<br><p>Метки групп размещения в формате `key:value`.</p> 
-spreadPlacementStrategy | **object**<br><p>Это пустая структура, которую необходимо передать для явного указания стратегии размещения.</p> 
+id | **string**<br><p>ID of the placement group. Generated at creation time.</p> 
+folderId | **string**<br><p>ID of the folder that the placement group belongs to.</p> 
+createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+name | **string**<br><p>Name of the placement group. The name is unique within the folder.</p> 
+description | **string**<br><p>Description of the placement group. 0-256 characters long.</p> 
+labels | **object**<br><p>Placement group labels as `key:value` pairs.</p> 
+spreadPlacementStrategy | **object**<br><p>This is an empty structure that must be passed to explicitly specify the required placement strategy.</p> 
 
-## Методы {#methods}
-Метод | Описание
+## Methods {#methods}
+Method | Description
 --- | ---
-[create](create.md) | Создает группу размещения в указанном каталоге.
-[delete](delete.md) | Удаляет указанную группу размещения.
-[get](get.md) | Возвращает указанную группу размещения.
-[list](list.md) | Возвращает список групп размещения в указанном каталоге.
-[listInstances](listInstances.md) | Возвращает список виртуальных машин в указанной группе размещения.
-[listOperations](listOperations.md) | Возвращает список операций указанной группы размещения.
-[update](update.md) | Обновляет указанную группу размещения.
+[create](create.md) | Creates a placement group in the specified folder.
+[delete](delete.md) | Deletes the specified placement group.
+[get](get.md) | Returns the specified placement group.
+[list](list.md) | Retrieves the list of placement groups in the specified folder.
+[listInstances](listInstances.md) | Lists instances for the specified placement group.
+[listOperations](listOperations.md) | Lists operations for the specified placement group.
+[update](update.md) | Updates the specified placement group.

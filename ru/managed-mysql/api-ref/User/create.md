@@ -2,23 +2,23 @@
 editable: false
 ---
 
-# Метод create
-Создает пользователя MySQL в указанном кластере.
+# Method create
+Creates a MySQL user in the specified cluster.
  
 
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 POST https://mdb.api.cloud.yandex.net/managed-mysql/v1alpha/clusters/{clusterId}/users
 ```
  
-## Path-параметры {#path_params}
+## Path parameters {#path_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-clusterId | Обязательное поле. Идентификатор кластера MySQL, для которого следует создать пользователя. Чтобы получить идентификатор кластера, используйте запрос [list](/docs/managed-mysql/api-ref/Cluster/list).  Максимальная длина строки в символах — 50.
+clusterId | Required. ID of the MySQL cluster to create a user for. To get the cluster ID, use a [list](/docs/managed-mysql/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
  
-## Параметры в теле запроса {#body_params}
+## Body parameters {#body_params}
  
 ```json 
 {
@@ -38,16 +38,16 @@ clusterId | Обязательное поле. Идентификатор кла
 ```
 
  
-Поле | Описание
+Field | Description
 --- | ---
-userSpec | **object**<br><p>Обязательное поле. Свойства создаваемого пользователя.</p> 
-userSpec.<br>name | **string**<br><p>Обязательное поле. Имя пользователя MySQL.</p> <p>Максимальная длина строки в символах — 32. Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_]* ``.</p> 
-userSpec.<br>password | **string**<br><p>Обязательное поле. Пароль пользователя MySQL.</p> <p>Длина строки в символах должна быть от 8 до 128.</p> 
-userSpec.<br>permissions[] | **object**<br><p>Набор разрешений, которые следует предоставить пользователю.</p> 
-userSpec.<br>permissions[].<br>databaseName | **string**<br><p>Имя базы данных, к которой предоставляет доступ разрешение.</p> 
-userSpec.<br>permissions[].<br>roles[] | **string**<br><ul> <li>ALL_PRIVILEGES: Все привилегии, которые могут быть предоставлены пользователю.</li> <li>ALTER: Изменение таблиц.</li> <li>ALTER_ROUTINE: Изменение хранимых процедур и функций.</li> <li>CREATE: Создание таблиц или индексов.</li> <li>CREATE_ROUTINE: Создание хранимых процедур.</li> <li>CREATE_TEMPORARY_TABLES: Создание временных таблиц.</li> <li>CREATE_VIEW: Создание представлений.</li> <li>DELETE: Удаление таблиц.</li> <li>DROP: Удаление таблиц или представлений.</li> <li>EVENT: Создание, изменение, удаление или отображение событий для планировщика событий.</li> <li>EXECUTE: Выполнение хранимых процедур.</li> <li>INDEX: Создание и удаление индексов.</li> <li>INSERT: Вставка строк в базу данных.</li> <li>LOCK_TABLES: Использование инструкции LOCK TABLES для таблиц, доступных с привилегией SELECT.</li> <li>SELECT: Получение строк из таблиц.</li> </ul> <p>Некоторые операторы SELECT могут быть разрешены без привилегии SELECT. Привилегия SELECT необходима для всех операторов, считывающих значения столбцов. Подробнее в <a href="https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_select">документации MySQL</a>.</p> <ul> <li>SHOW_VIEW: Использование инструкции SHOW CREATE VIEW. Также необходимо для представлений, используемых с EXPLAIN.</li> <li>TRIGGER: Создание, удаление, выполнение или отображение триггеров для таблицы.</li> <li>UPDATE: Обновление строк в базе данных.</li> </ul> 
+userSpec | **object**<br><p>Required. Properties of the user to be created.</p> 
+userSpec.<br>name | **string**<br><p>Required. Name of the MySQL user.</p> <p>The maximum string length in characters is 32. Value must match the regular expression `` [a-zA-Z0-9_]* ``.</p> 
+userSpec.<br>password | **string**<br><p>Required. Password of the MySQL user.</p> <p>The string length in characters must be 8-128.</p> 
+userSpec.<br>permissions[] | **object**<br><p>Set of permissions to grant to the user.</p> 
+userSpec.<br>permissions[].<br>databaseName | **string**<br><p>Name of the database that the permission grants access to.</p> 
+userSpec.<br>permissions[].<br>roles[] | **string**<br><ul> <li>ALL_PRIVILEGES: All privileges that can be made available to the user.</li> <li>ALTER: Altering tables.</li> <li>ALTER_ROUTINE: Altering stored routines (stored procedures and functions).</li> <li>CREATE: Creating tables or indexes.</li> <li>CREATE_ROUTINE: Creating stored routines.</li> <li>CREATE_TEMPORARY_TABLES: Creating temporary tables.</li> <li>CREATE_VIEW: Creating views.</li> <li>DELETE: Deleting tables.</li> <li>DROP: Removing tables or views.</li> <li>EVENT: Creating, altering, dropping, or displaying events for the Event Scheduler.</li> <li>EXECUTE: Executing stored routines.</li> <li>INDEX: Creating and removing indexes.</li> <li>INSERT: Inserting rows into the database.</li> <li>LOCK_TABLES: Using LOCK TABLES statement for tables available with SELECT privilege.</li> <li>SELECT: Selecting rows from tables.</li> </ul> <p>Some SELECT statements can be allowed without the SELECT privilege. All statements that read column values require the SELECT privilege. See details in <a href="https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_select">MySQL documentation</a>.</p> <ul> <li>SHOW_VIEW: Using the SHOW CREATE VIEW statement. Also needed for views used with EXPLAIN.</li> <li>TRIGGER: Creating, removing, executing, or displaying triggers for a table.</li> <li>UPDATE: Updating rows in the database.</li> </ul> 
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -60,7 +60,7 @@ userSpec.<br>permissions[].<br>roles[] | **string**<br><ul> <li>ALL_PRIVILEGES: 
   "done": true,
   "metadata": "object",
 
-  //  включает только одно из полей `error`, `response`
+  //  includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
     "message": "string",
@@ -69,24 +69,23 @@ userSpec.<br>permissions[].<br>roles[] | **string**<br><ul> <li>ALL_PRIVILEGES: 
     ]
   },
   "response": "object",
-  // конец списка возможных полей
+  // end of the list of possible fields
 
 }
 ```
-Ресурс Operation. Дополнительные сведения см. в разделе
-[Объект Operation](/docs/api-design-guide/concepts/operation).
+An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
  
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br><p>Идентификатор операции.</p> 
-description | **string**<br><p>Описание операции. Длина описания должна быть от 0 до 256 символов.</p> 
-createdAt | **string** (date-time)<br><p>Время создания ресурса в формате в <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-createdBy | **string**<br><p>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию.</p> 
-modifiedAt | **string** (date-time)<br><p>Время, когда ресурс Operation последний раз обновлялся. Значение в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-done | **boolean** (boolean)<br><p>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`.</p> 
-metadata | **object**<br><p>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`.</p> 
-error | **object**<br>Описание ошибки в случае сбоя или отмены операции. <br> включает только одно из полей `error`, `response`<br><br><p>Описание ошибки в случае сбоя или отмены операции.</p> 
-error.<br>code | **integer** (int32)<br><p>Код ошибки. Значение из списка <a href="https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto">google.rpc.Code</a>.</p> 
-error.<br>message | **string**<br><p>Текст ошибки.</p> 
-error.<br>details[] | **object**<br><p>Список сообщений с подробными сведениями об ошибке.</p> 
-response | **object** <br> включает только одно из полей `error`, `response`<br><br><p>Результат операции в случае успешного завершения. Если исходный метод не возвращает никаких данных при успешном завершении, например метод Delete, поле содержит объект <a href="https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty">google.protobuf.Empty</a>. Если исходный метод — это стандартный метод Create / Update, поле содержит целевой ресурс операции. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `response`.</p> 
+id | **string**<br><p>ID of the operation.</p> 
+description | **string**<br><p>Description of the operation. 0-256 characters long.</p> 
+createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+createdBy | **string**<br><p>ID of the user or service account who initiated the operation.</p> 
+modifiedAt | **string** (date-time)<br><p>The time when the Operation resource was last modified.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+done | **boolean** (boolean)<br><p>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available.</p> 
+metadata | **object**<br><p>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any.</p> 
+error | **object**<br>The error result of the operation in case of failure or cancellation. <br> includes only one of the fields `error`, `response`<br><br><p>The error result of the operation in case of failure or cancellation.</p> 
+error.<br>code | **integer** (int32)<br><p>Error code. An enum value of <a href="https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto">google.rpc.Code</a>.</p> 
+error.<br>message | **string**<br><p>An error message.</p> 
+error.<br>details[] | **object**<br><p>A list of messages that carry the error details.</p> 
+response | **object** <br> includes only one of the fields `error`, `response`<br><br><p>The normal response of the operation in case of success. If the original method returns no data on success, such as Delete, the response is <a href="https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty">google.protobuf.Empty</a>. If the original method is the standard Create/Update, the response should be the target resource of the operation. Any method that returns a long-running operation should document the response type, if any.</p> 

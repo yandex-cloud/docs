@@ -4,678 +4,761 @@ editable: false
 
 # ClusterService
 
-Набор методов для управления кластерами Data Proc.
+A set of methods for managing Data Proc clusters.
 
-| Вызов | Описание |
+| Call | Description |
 | --- | --- |
-| [Get](#Get) | Возвращает указанный кластер Data Proc. |
-| [List](#List) | Возвращает список кластеров в указанном каталоге. |
-| [Create](#Create) | Создает кластер в указанном каталоге. |
-| [Update](#Update) | Обновляет конфигурацию указанного кластера. |
-| [Delete](#Delete) | Удаляет указанный кластер. |
-| [Start](#Start) | Запускает указанный кластер. |
-| [Stop](#Stop) | Останавливает указанный кластер. |
-| [ListOperations](#ListOperations) | Список операций для указанного кластера. |
-| [ListHosts](#ListHosts) | Получает список хостов для указанного кластера. |
+| [Get](#Get) | Returns the specified cluster. |
+| [List](#List) | Retrieves the list of clusters in the specified folder. |
+| [Create](#Create) | Creates a cluster in the specified folder. |
+| [Update](#Update) | Updates the configuration of the specified cluster. |
+| [Delete](#Delete) | Deletes the specified cluster. |
+| [Start](#Start) | Starts the specified cluster. |
+| [Stop](#Stop) | Stops the specified cluster. |
+| [ListOperations](#ListOperations) | Lists operations for the specified cluster. |
+| [ListHosts](#ListHosts) | Retrieves the list of hosts in the specified cluster. |
+| [ListUILinks](#ListUILinks) | Retrieves a list of links to web interfaces being proxied by Data Proc UI Proxy. |
 
-## Вызовы ClusterService {#calls}
+## Calls ClusterService {#calls}
 
 ## Get {#Get}
 
-Возвращает указанный кластер Data Proc. <br>Чтобы получить список доступных кластеров Data Proc, выполните запрос [ClusterService.List](#List).
+Returns the specified cluster. <br>To get the list of all available clusters, make a [ClusterService.List](#List) request.
 
 **rpc Get ([GetClusterRequest](#GetClusterRequest)) returns ([Cluster](#Cluster))**
 
 ### GetClusterRequest {#GetClusterRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера Data Proc. <br>Чтобы получить идентификатор кластера, выполните запрос [ClusterService.List](#List). Максимальная длина строки в символах — 50.
+cluster_id | **string**<br>Required. ID of the Data Proc cluster. <br>To get a cluster ID make a [ClusterService.List](#List) request. The maximum string length in characters is 50.
 
 
 ### Cluster {#Cluster}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор кластера. Генерируется во время создания. 
-folder_id | **string**<br>Идентификатор каталога, которому принадлежит кластер. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания. 
-name | **string**<br>Имя кластера. Имя уникально в рамках каталога. Длина строки в символах должна быть от 1 до 63.
-description | **string**<br>Описание кластера. Длина строки в символах должна быть от 0 до 256.
-labels | **map<string,string>**<br>Метки кластера как пары `key:value`. Не более 64 на ресурс.
-monitoring[] | **[Monitoring](#Monitoring)**<br>Описание систем мониторинга, относящихся к кластеру. 
-config | **[ClusterConfig](#ClusterConfig)**<br>Конфигурация кластера. 
-health | enum **Health**<br>Агрегированная работоспособность кластера. <ul><li>`HEALTH_UNKNOWN`: Состояние кластера неизвестно ([Host.health](#Host) для каждого хоста в кластере — UNKNOWN).</li><li>`ALIVE`: Кластер работает нормально ([Host.health](#Host) для каждого хоста в кластере — ALIVE).</li><li>`DEAD`: Кластер не работает ([Host.health](#Host) для каждого хоста в кластере — DEAD).</li><li>`DEGRADED`: Кластер работает неоптимально ([Host.health](#Host) по крайней мере для одного хоста в кластере не ALIVE).</li><ul/>
-status | enum **Status**<br>Состояние кластера. <ul><li>`STATUS_UNKNOWN`: Состояние кластера неизвестно.</li><li>`CREATING`: Кластер создается.</li><li>`RUNNING`: Кластер работает нормально.</li><li>`ERROR`: На кластере произошла ошибка, блокирующая работу.</li><li>`STOPPING`: Кластер останавливается.</li><li>`STOPPED`: Кластер остановлен.</li><li>`STARTING`: Кластер запускается.</li><ul/>
-zone_id | **string**<br>Идентификатор зоны доступности, в которой находится кластер. 
-service_account_id | **string**<br>Идентификатор сервисного аккаунта, которым пользуется агент Data Proc для управления задачами. 
-bucket | **string**<br>Имя бакета Object Storage, который используется для задач Data Proc. 
+id | **string**<br>ID of the cluster. Generated at creation time. 
+folder_id | **string**<br>ID of the folder that the cluster belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+name | **string**<br>Name of the cluster. The name is unique within the folder. The string length in characters must be 1-63.
+description | **string**<br>Description of the cluster. The string length in characters must be 0-256.
+labels | **map<string,string>**<br>Cluster labels as `key:value` pairs. No more than 64 per resource.
+monitoring[] | **[Monitoring](#Monitoring)**<br>Monitoring systems relevant to the cluster. 
+config | **[ClusterConfig](#ClusterConfig)**<br>Configuration of the cluster. 
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
+status | enum **Status**<br>Cluster status. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+zone_id | **string**<br>ID of the availability zone where the cluster resides. 
+service_account_id | **string**<br>ID of service account for the Data Proc manager agent. 
+bucket | **string**<br>Object Storage bucket to be used for Data Proc jobs that are run in the cluster. 
+ui_proxy | **bool**<br>Whether UI Proxy feature is enabled. 
+security_group_ids[] | **string**<br>User security groups. 
+host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
 
 
 ### Monitoring {#Monitoring}
 
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br>Название системы мониторинга. 
-description | **string**<br>Описание системы мониторинга. 
-link | **string**<br>Ссылка на систему мониторинга. 
+name | **string**<br>Name of the monitoring system. 
+description | **string**<br>Description of the monitoring system. 
+link | **string**<br>Link to the monitoring system. 
 
 
 ### ClusterConfig {#ClusterConfig}
 
-Поле | Описание
+Field | Description
 --- | ---
-version_id | **string**<br>Версия образа, которая используется при подготовке кластера. Все доступные версии перечислены в [документации](/docs/managed-hadoop/concepts/image-versions). 
-hadoop | **[HadoopConfig](#HadoopConfig)**<br>Настройки конфигурации, специфические для Data Proc. 
+version_id | **string**<br>Image version for cluster provisioning. All available versions are listed in the [documentation](/docs/managed-hadoop/concepts/image-versions). 
+hadoop | **[HadoopConfig](#HadoopConfig)**<br>Data Proc specific configuration options. 
 
 
 ### HadoopConfig {#HadoopConfig}
 
-Поле | Описание
+Field | Description
 --- | ---
-services[] | enum **[Service](./cluster_service#undefined)**<br>Набор компонентов, используемых в кластере (если список пуст, используется набор по умолчанию). <ul><ul/>
-properties | **map<string,string>**<br>Свойства, установленные для всех хостов в конфигурациях `*-site.xml`. В ключе должны быть указаны компонент и свойство. <br>Например, используйте ключ 'hdfs:dfs.replication', чтобы установить свойство `dfs.replication` в файле `/etc/hadoop/conf/hdfs-site.xml`. 
-ssh_public_keys[] | **string**<br>Список публичных ключей SSH для доступа к хостам кластера. 
+services[] | enum **[Service](./cluster_service#undefined)**<br>Set of services used in the cluster (if empty, the default set is used). <ul><ul/>
+properties | **map<string,string>**<br>Properties set for all hosts in `*-site.xml` configurations. The key should indicate the service and the property. <br>For example, use the key 'hdfs:dfs.replication' to set the `dfs.replication` property in the file `/etc/hadoop/conf/hdfs-site.xml`. 
+ssh_public_keys[] | **string**<br>List of public SSH keys to access to cluster hosts. 
 
 
 ## List {#List}
 
-Возвращает список кластеров в указанном каталоге.
+Retrieves the list of clusters in the specified folder.
 
 **rpc List ([ListClustersRequest](#ListClustersRequest)) returns ([ListClustersResponse](#ListClustersResponse))**
 
 ### ListClustersRequest {#ListClustersRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-folder_id | **string**<br>Обязательное поле. Идентификатор каталога, для которого нужно получить список кластеров. <br>Чтобы получить идентификатор каталога, используйте запрос [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List). Максимальная длина строки в символах — 50.
-page_size | **int64**<br>Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем `page_size`, сервис вернет значение [ListClustersResponse.next_page_token](#ListClustersResponse), которое можно использовать для получения следующей страницы. Значение по умолчанию: 100. Максимальное значение — 1000.
-page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListClustersResponse.next_page_token](#ListClustersResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
-filter | **string**<br><ol><li>Имя поля. В настоящее время фильтрация осуществляется только по полю [Cluster.name](#Cluster1). </li><li>Оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений. </li><li>Значение. Значение длиной от 3 до 63 символов, совпадающее с регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]`. Пример фильтра: `name=my-cluster`.</li></ol> Максимальная длина строки в символах — 1000.
+folder_id | **string**<br>Required. ID of the folder to list clusters in. <br>To get the folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. The maximum string length in characters is 50.
+page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClustersResponse.next_page_token](#ListClustersResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
+page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListClustersResponse.next_page_token](#ListClustersResponse) returned by a previous list request. The maximum string length in characters is 100.
+filter | **string**<br><ol><li>The field name. Currently you can use filtering only on [Cluster.name](#Cluster1) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]. </li></ol> The maximum string length in characters is 1000.
 
 
 ### ListClustersResponse {#ListClustersResponse}
 
-Поле | Описание
+Field | Description
 --- | ---
-clusters[] | **[Cluster](#Cluster1)**<br>Возвращает список кластеров в указанном каталоге. 
-next_page_token | **string**<br>Токен для получения следующей страницы списка. Если количество результатов больше чем [ListClustersRequest.page_size](#ListClustersRequest), используйте `next_page_token` в качестве значения параметра [ListClustersRequest.page_token](#ListClustersRequest) в следующем запросе списка ресурсов. <br>У каждой последующей страницы будет собственный `next_page_token`, чтобы можно было продолжать просматривать результаты. 
+clusters[] | **[Cluster](#Cluster1)**<br>List of clusters in the specified folder. 
+next_page_token | **string**<br>Token for getting the next page of the list. If the number of results is greater than the specified [ListClustersRequest.page_size](#ListClustersRequest), use `next_page_token` as the value for the [ListClustersRequest.page_token](#ListClustersRequest) parameter in the next list request. <br>Each subsequent page will have its own `next_page_token` to continue paging through the results. 
 
 
 ### Cluster {#Cluster1}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор кластера. Генерируется во время создания. 
-folder_id | **string**<br>Идентификатор каталога, которому принадлежит кластер. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания. 
-name | **string**<br>Имя кластера. Имя уникально в рамках каталога. Длина строки в символах должна быть от 1 до 63.
-description | **string**<br>Описание кластера. Длина строки в символах должна быть от 0 до 256.
-labels | **map<string,string>**<br>Метки кластера как пары `key:value`. Не более 64 на ресурс.
-monitoring[] | **[Monitoring](#Monitoring1)**<br>Описание систем мониторинга, относящихся к кластеру. 
-config | **[ClusterConfig](#ClusterConfig1)**<br>Конфигурация кластера. 
-health | enum **Health**<br>Агрегированная работоспособность кластера. <ul><li>`HEALTH_UNKNOWN`: Состояние кластера неизвестно ([Host.health](#Host) для каждого хоста в кластере — UNKNOWN).</li><li>`ALIVE`: Кластер работает нормально ([Host.health](#Host) для каждого хоста в кластере — ALIVE).</li><li>`DEAD`: Кластер не работает ([Host.health](#Host) для каждого хоста в кластере — DEAD).</li><li>`DEGRADED`: Кластер работает неоптимально ([Host.health](#Host) по крайней мере для одного хоста в кластере не ALIVE).</li><ul/>
-status | enum **Status**<br>Состояние кластера. <ul><li>`STATUS_UNKNOWN`: Состояние кластера неизвестно.</li><li>`CREATING`: Кластер создается.</li><li>`RUNNING`: Кластер работает нормально.</li><li>`ERROR`: На кластере произошла ошибка, блокирующая работу.</li><li>`STOPPING`: Кластер останавливается.</li><li>`STOPPED`: Кластер остановлен.</li><li>`STARTING`: Кластер запускается.</li><ul/>
-zone_id | **string**<br>Идентификатор зоны доступности, в которой находится кластер. 
-service_account_id | **string**<br>Идентификатор сервисного аккаунта, которым пользуется агент Data Proc для управления задачами. 
-bucket | **string**<br>Имя бакета Object Storage, который используется для задач Data Proc. 
+id | **string**<br>ID of the cluster. Generated at creation time. 
+folder_id | **string**<br>ID of the folder that the cluster belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+name | **string**<br>Name of the cluster. The name is unique within the folder. The string length in characters must be 1-63.
+description | **string**<br>Description of the cluster. The string length in characters must be 0-256.
+labels | **map<string,string>**<br>Cluster labels as `key:value` pairs. No more than 64 per resource.
+monitoring[] | **[Monitoring](#Monitoring1)**<br>Monitoring systems relevant to the cluster. 
+config | **[ClusterConfig](#ClusterConfig1)**<br>Configuration of the cluster. 
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
+status | enum **Status**<br>Cluster status. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+zone_id | **string**<br>ID of the availability zone where the cluster resides. 
+service_account_id | **string**<br>ID of service account for the Data Proc manager agent. 
+bucket | **string**<br>Object Storage bucket to be used for Data Proc jobs that are run in the cluster. 
+ui_proxy | **bool**<br>Whether UI Proxy feature is enabled. 
+security_group_ids[] | **string**<br>User security groups. 
+host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
 
 
 ### Monitoring {#Monitoring1}
 
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br>Название системы мониторинга. 
-description | **string**<br>Описание системы мониторинга. 
-link | **string**<br>Ссылка на систему мониторинга. 
+name | **string**<br>Name of the monitoring system. 
+description | **string**<br>Description of the monitoring system. 
+link | **string**<br>Link to the monitoring system. 
 
 
 ### ClusterConfig {#ClusterConfig1}
 
-Поле | Описание
+Field | Description
 --- | ---
-version_id | **string**<br>Версия образа, которая используется при подготовке кластера. Все доступные версии перечислены в [документации](/docs/managed-hadoop/concepts/image-versions). 
-hadoop | **[HadoopConfig](#HadoopConfig1)**<br>Настройки конфигурации, специфические для Data Proc. 
+version_id | **string**<br>Image version for cluster provisioning. All available versions are listed in the [documentation](/docs/managed-hadoop/concepts/image-versions). 
+hadoop | **[HadoopConfig](#HadoopConfig1)**<br>Data Proc specific configuration options. 
 
 
 ### HadoopConfig {#HadoopConfig1}
 
-Поле | Описание
+Field | Description
 --- | ---
-services[] | enum **[Service](./cluster_service#undefined)**<br>Набор компонентов, используемых в кластере (если список пуст, используется набор по умолчанию). <ul><ul/>
-properties | **map<string,string>**<br>Свойства, установленные для всех хостов в конфигурациях `*-site.xml`. В ключе должны быть указаны компонент и свойство. <br>Например, используйте ключ 'hdfs:dfs.replication', чтобы установить свойство `dfs.replication` в файле `/etc/hadoop/conf/hdfs-site.xml`. 
-ssh_public_keys[] | **string**<br>Список публичных ключей SSH для доступа к хостам кластера. 
+services[] | enum **[Service](./cluster_service#undefined)**<br>Set of services used in the cluster (if empty, the default set is used). <ul><ul/>
+properties | **map<string,string>**<br>Properties set for all hosts in `*-site.xml` configurations. The key should indicate the service and the property. <br>For example, use the key 'hdfs:dfs.replication' to set the `dfs.replication` property in the file `/etc/hadoop/conf/hdfs-site.xml`. 
+ssh_public_keys[] | **string**<br>List of public SSH keys to access to cluster hosts. 
 
 
 ## Create {#Create}
 
-Создает кластер в указанном каталоге.
+Creates a cluster in the specified folder.
 
 **rpc Create ([CreateClusterRequest](#CreateClusterRequest)) returns ([operation.Operation](#Operation))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateClusterMetadata](#CreateClusterMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster2)<br>
 
 ### CreateClusterRequest {#CreateClusterRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-folder_id | **string**<br>Обязательное поле. Идентификатор каталога, в котором нужно создать кластер. <br>Чтобы получить идентификатор каталога, используйте запрос [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List). Максимальная длина строки в символах — 50.
-name | **string**<br>Имя кластера. Имя должно быть уникальным в рамках каталога. Имя не может быть изменено после того, как кластер Data Proc был создан. Значение должно соответствовать регулярному выражению ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
-description | **string**<br>Описание кластера. Максимальная длина строки в символах — 256.
-labels | **map<string,string>**<br>Метки кластера как пары `ключ: значение`. Не более 64 на ресурс. Максимальная длина строки в символах для каждого значения — 63. Каждое значение должно соответствовать регулярному выражению ` [-_0-9a-z]* `. Длина строки в символах для каждого ключа должна быть от 1 до 63. Каждый ключ должен соответствовать регулярному выражению ` [a-z][-_0-9a-z]* `.
-config_spec | **[CreateClusterConfigSpec](#CreateClusterConfigSpec)**<br>Обязательное поле. Конфигурация и ресурсы хостов, которые должны быть созданы для кластера Data Proc. 
-zone_id | **string**<br>Обязательное поле. Идентификатор зоны доступности, в которой должен быть размещен кластер. <br>Чтобы получить список доступных зон, отправьте запрос [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/grpc/zone_service#List). Максимальная длина строки в символах — 50.
-service_account_id | **string**<br>Обязательное поле. Идентификатор сервисного аккаунта, которым должен пользоваться агент Data Proc для управления задачами. 
-bucket | **string**<br>Имя бакета Object Storage, который следует использовать для задач Data Proc. 
+folder_id | **string**<br>Required. ID of the folder to create a cluster in. <br>To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. The maximum string length in characters is 50.
+name | **string**<br>Name of the cluster. The name must be unique within the folder. The name can't be changed after the Data Proc cluster is created. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+description | **string**<br>Description of the cluster. The maximum string length in characters is 256.
+labels | **map<string,string>**<br>Cluster labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+config_spec | **[CreateClusterConfigSpec](#CreateClusterConfigSpec)**<br>Required. Configuration and resources for hosts that should be created with the cluster. 
+zone_id | **string**<br>Required. ID of the availability zone where the cluster should be placed. <br>To get the list of available zones make a [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/grpc/zone_service#List) request. The maximum string length in characters is 50.
+service_account_id | **string**<br>Required. ID of the service account to be used by the Data Proc manager agent. 
+bucket | **string**<br>Name of the Object Storage bucket to use for Data Proc jobs. 
+ui_proxy | **bool**<br>Enable UI Proxy feature. 
+security_group_ids[] | **string**<br>User security groups. 
+host_group_ids[] | **string**<br>Host groups to place VMs of cluster on. 
 
 
 ### CreateClusterConfigSpec {#CreateClusterConfigSpec}
 
-Поле | Описание
+Field | Description
 --- | ---
-version_id | **string**<br>Версия образа, которая используется при подготовке кластера. <br>Все доступные версии перечислены в [документации](/docs/data-proc/concepts/image-versions). 
-hadoop | **[HadoopConfig](#HadoopConfig2)**<br>Настройки, специфические для Data Proc. 
-subclusters_spec[] | **[CreateSubclusterConfigSpec](#CreateSubclusterConfigSpec)**<br>Спецификация создания подкластеров. 
+version_id | **string**<br>Version of the image for cluster provisioning. <br>All available versions are listed in the [documentation](/docs/data-proc/concepts/image-versions). 
+hadoop | **[HadoopConfig](#HadoopConfig2)**<br>Data Proc specific options. 
+subclusters_spec[] | **[CreateSubclusterConfigSpec](#CreateSubclusterConfigSpec)**<br>Specification for creating subclusters. 
 
 
 ### HadoopConfig {#HadoopConfig2}
 
-Поле | Описание
+Field | Description
 --- | ---
-services[] | enum **[Service](./cluster_service#undefined)**<br>Набор компонентов, используемых в кластере (если список пуст, используется набор по умолчанию). <ul><ul/>
-properties | **map<string,string>**<br>Свойства, установленные для всех хостов в конфигурациях `*-site.xml`. В ключе должны быть указаны компонент и свойство. <br>Например, используйте ключ 'hdfs:dfs.replication', чтобы установить свойство `dfs.replication` в файле `/etc/hadoop/conf/hdfs-site.xml`. 
-ssh_public_keys[] | **string**<br>Список публичных ключей SSH для доступа к хостам кластера. 
+services[] | enum **[Service](./cluster_service#undefined)**<br>Set of services used in the cluster (if empty, the default set is used). <ul><ul/>
+properties | **map<string,string>**<br>Properties set for all hosts in `*-site.xml` configurations. The key should indicate the service and the property. <br>For example, use the key 'hdfs:dfs.replication' to set the `dfs.replication` property in the file `/etc/hadoop/conf/hdfs-site.xml`. 
+ssh_public_keys[] | **string**<br>List of public SSH keys to access to cluster hosts. 
 
 
 ### CreateSubclusterConfigSpec {#CreateSubclusterConfigSpec}
 
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br>Имя подкластера. Значение должно соответствовать регулярному выражению ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
-role | enum **Role**<br>Обязательное поле. Роль подкластера в кластере Data Proc. <ul><li>`MASTERNODE`: <ul><li>HDFS: Namenode, Secondary Namenode </li><li>YARN: ResourceManager, Timeline Server </li><li>HBase Master </li><li>Hive: Server, Metastore, HCatalog </li><li>Spark History Server </li><li>Zeppelin </li><li>ZooKeeper</li></ul></li><li>`DATANODE`: <ul><li>HDFS DataNode </li><li>YARN NodeManager </li><li>HBase RegionServer </li><li>библиотеки Spark</li></ul></li><li>`COMPUTENODE`: <ul><li>YARN NodeManager </li><li>библиотеки Spark</li></ul></li><ul/>
-resources | **[Resources](#Resources)**<br>Обязательное поле. Конфигурация ресурсов для хостов в подкластере. 
-subnet_id | **string**<br>Обязательное поле. Идентификатор подсети VPC, используемой для хостов подкластера. Максимальная длина строки в символах — 50.
-hosts_count | **int64**<br>Обязательное поле. Количество хостов в подкластере. Минимальная значение — 1.
+name | **string**<br>Name of the subcluster. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+role | enum **Role**<br>Required. Role of the subcluster in the Data Proc cluster. <ul><li>`MASTERNODE`: <ul><li>HDFS: Namenode, Secondary Namenode </li><li>YARN: ResourceManager, Timeline Server </li><li>HBase Master </li><li>Hive: Server, Metastore, HCatalog </li><li>Spark History Server </li><li>Zeppelin </li><li>ZooKeeper</li></ul></li><li>`DATANODE`: <ul><li>HDFS DataNode </li><li>YARN NodeManager </li><li>HBase RegionServer </li><li>Spark libraries</li></ul></li><li>`COMPUTENODE`: <ul><li>YARN NodeManager </li><li>Spark libraries</li></ul></li><ul/>
+resources | **[Resources](#Resources)**<br>Required. Resource configuration for hosts in the subcluster. 
+subnet_id | **string**<br>Required. ID of the VPC subnet used for hosts in the subcluster. The maximum string length in characters is 50.
+hosts_count | **int64**<br>Required. Number of hosts in the subcluster. The minimum value is 1.
+autoscaling_config | **[AutoscalingConfig](#AutoscalingConfig)**<br>Configuration for instance group based subclusters 
 
 
 ### Resources {#Resources}
 
-Поле | Описание
+Field | Description
 --- | ---
-resource_preset_id | **string**<br>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в [документации](/docs/data-proc/concepts/instance-types). 
-disk_type_id | **string**<br><ul><li>network-hdd — сетевой HDD-диск; </li><li>network-ssd — сетевой SSD-диск.</li></ul> 
-disk_size | **int64**<br>Объем хранилища, доступного хосту, в байтах. 
+resource_preset_id | **string**<br>ID of the resource preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/data-proc/concepts/instance-types). 
+disk_type_id | **string**<br><ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive.</li></ul> 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
+
+
+### AutoscalingConfig {#AutoscalingConfig}
+
+Field | Description
+--- | ---
+max_hosts_count | **int64**<br>Upper limit for total instance subcluster count. Acceptable values are 1 to 100, inclusive.
+preemptible | **bool**<br>Preemptible instances are stopped at least once every 24 hours, and can be stopped at any time if their resources are needed by Compute. For more information, see [Preemptible Virtual Machines](/docs/compute/concepts/preemptible-vm). 
+measurement_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Time in seconds allotted for averaging metrics. Acceptable values are 1m to 10m, inclusive.
+warmup_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>The warmup time of the instance in seconds. During this time, traffic is sent to the instance, but instance metrics are not collected. The maximum value is 10m.
+stabilization_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Minimum amount of time in seconds allotted for monitoring before Instance Groups can reduce the number of instances in the group. During this time, the group size doesn't decrease, even if the new metric values indicate that it should. Acceptable values are 1m to 30m, inclusive.
+cpu_utilization_target | **double**<br>Defines an autoscaling rule based on the average CPU utilization of the instance group. Acceptable values are 10 to 100, inclusive.
+decommission_timeout | **int64**<br>Timeout to gracefully decommission nodes during downscaling. In seconds. Default value: 120 Acceptable values are 0 to 86400, inclusive.
 
 
 ### Operation {#Operation}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateClusterMetadata](#CreateClusterMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster2)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateClusterMetadata](#CreateClusterMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster2)>**<br>if operation finished successfully. 
 
 
 ### CreateClusterMetadata {#CreateClusterMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Идентификатор создаваемого кластера. 
+cluster_id | **string**<br>ID of the cluster that is being created. 
 
 
 ### Cluster {#Cluster2}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор кластера. Генерируется во время создания. 
-folder_id | **string**<br>Идентификатор каталога, которому принадлежит кластер. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания. 
-name | **string**<br>Имя кластера. Имя уникально в рамках каталога. Длина строки в символах должна быть от 1 до 63.
-description | **string**<br>Описание кластера. Длина строки в символах должна быть от 0 до 256.
-labels | **map<string,string>**<br>Метки кластера как пары `key:value`. Не более 64 на ресурс.
-monitoring[] | **[Monitoring](#Monitoring2)**<br>Описание систем мониторинга, относящихся к кластеру. 
-config | **[ClusterConfig](#ClusterConfig2)**<br>Конфигурация кластера. 
-health | enum **Health**<br>Агрегированная работоспособность кластера. <ul><li>`HEALTH_UNKNOWN`: Состояние кластера неизвестно ([Host.health](#Host) для каждого хоста в кластере — UNKNOWN).</li><li>`ALIVE`: Кластер работает нормально ([Host.health](#Host) для каждого хоста в кластере — ALIVE).</li><li>`DEAD`: Кластер не работает ([Host.health](#Host) для каждого хоста в кластере — DEAD).</li><li>`DEGRADED`: Кластер работает неоптимально ([Host.health](#Host) по крайней мере для одного хоста в кластере не ALIVE).</li><ul/>
-status | enum **Status**<br>Состояние кластера. <ul><li>`STATUS_UNKNOWN`: Состояние кластера неизвестно.</li><li>`CREATING`: Кластер создается.</li><li>`RUNNING`: Кластер работает нормально.</li><li>`ERROR`: На кластере произошла ошибка, блокирующая работу.</li><li>`STOPPING`: Кластер останавливается.</li><li>`STOPPED`: Кластер остановлен.</li><li>`STARTING`: Кластер запускается.</li><ul/>
-zone_id | **string**<br>Идентификатор зоны доступности, в которой находится кластер. 
-service_account_id | **string**<br>Идентификатор сервисного аккаунта, которым пользуется агент Data Proc для управления задачами. 
-bucket | **string**<br>Имя бакета Object Storage, который используется для задач Data Proc. 
+id | **string**<br>ID of the cluster. Generated at creation time. 
+folder_id | **string**<br>ID of the folder that the cluster belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+name | **string**<br>Name of the cluster. The name is unique within the folder. The string length in characters must be 1-63.
+description | **string**<br>Description of the cluster. The string length in characters must be 0-256.
+labels | **map<string,string>**<br>Cluster labels as `key:value` pairs. No more than 64 per resource.
+monitoring[] | **[Monitoring](#Monitoring2)**<br>Monitoring systems relevant to the cluster. 
+config | **[ClusterConfig](#ClusterConfig2)**<br>Configuration of the cluster. 
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
+status | enum **Status**<br>Cluster status. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+zone_id | **string**<br>ID of the availability zone where the cluster resides. 
+service_account_id | **string**<br>ID of service account for the Data Proc manager agent. 
+bucket | **string**<br>Object Storage bucket to be used for Data Proc jobs that are run in the cluster. 
+ui_proxy | **bool**<br>Whether UI Proxy feature is enabled. 
+security_group_ids[] | **string**<br>User security groups. 
+host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
 
 
 ### Monitoring {#Monitoring2}
 
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br>Название системы мониторинга. 
-description | **string**<br>Описание системы мониторинга. 
-link | **string**<br>Ссылка на систему мониторинга. 
+name | **string**<br>Name of the monitoring system. 
+description | **string**<br>Description of the monitoring system. 
+link | **string**<br>Link to the monitoring system. 
 
 
 ### ClusterConfig {#ClusterConfig2}
 
-Поле | Описание
+Field | Description
 --- | ---
-version_id | **string**<br>Версия образа, которая используется при подготовке кластера. Все доступные версии перечислены в [документации](/docs/managed-hadoop/concepts/image-versions). 
-hadoop | **[HadoopConfig](#HadoopConfig3)**<br>Настройки конфигурации, специфические для Data Proc. 
+version_id | **string**<br>Image version for cluster provisioning. All available versions are listed in the [documentation](/docs/managed-hadoop/concepts/image-versions). 
+hadoop | **[HadoopConfig](#HadoopConfig3)**<br>Data Proc specific configuration options. 
 
 
 ### HadoopConfig {#HadoopConfig3}
 
-Поле | Описание
+Field | Description
 --- | ---
-services[] | enum **[Service](./cluster_service#undefined)**<br>Набор компонентов, используемых в кластере (если список пуст, используется набор по умолчанию). <ul><ul/>
-properties | **map<string,string>**<br>Свойства, установленные для всех хостов в конфигурациях `*-site.xml`. В ключе должны быть указаны компонент и свойство. <br>Например, используйте ключ 'hdfs:dfs.replication', чтобы установить свойство `dfs.replication` в файле `/etc/hadoop/conf/hdfs-site.xml`. 
-ssh_public_keys[] | **string**<br>Список публичных ключей SSH для доступа к хостам кластера. 
+services[] | enum **[Service](./cluster_service#undefined)**<br>Set of services used in the cluster (if empty, the default set is used). <ul><ul/>
+properties | **map<string,string>**<br>Properties set for all hosts in `*-site.xml` configurations. The key should indicate the service and the property. <br>For example, use the key 'hdfs:dfs.replication' to set the `dfs.replication` property in the file `/etc/hadoop/conf/hdfs-site.xml`. 
+ssh_public_keys[] | **string**<br>List of public SSH keys to access to cluster hosts. 
 
 
 ## Update {#Update}
 
-Обновляет конфигурацию указанного кластера.
+Updates the configuration of the specified cluster.
 
 **rpc Update ([UpdateClusterRequest](#UpdateClusterRequest)) returns ([operation.Operation](#Operation1))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateClusterMetadata](#UpdateClusterMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster3)<br>
 
 ### UpdateClusterRequest {#UpdateClusterRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Идентификатор кластера, который следует изменить. <br>Чтобы получить идентификатор кластера, выполните запрос [ClusterService.List](#List). Максимальная длина строки в символах — 50.
-update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Маска поля, которая указывает, какие атрибуты кластера должны быть изменены. 
-description | **string**<br>Новое описание кластера. Максимальная длина строки в символах — 256.
-labels | **map<string,string>**<br>Новый набор меток кластера в виде пар `ключ: значение`. Не более 64 на ресурс. Максимальная длина строки в символах для каждого значения — 63. Каждое значение должно соответствовать регулярному выражению ` [-_0-9a-z]* `. Длина строки в символах для каждого ключа должна быть от 1 до 63. Каждый ключ должен соответствовать регулярному выражению ` [a-z][-_0-9a-z]* `.
-config_spec | **[UpdateClusterConfigSpec](#UpdateClusterConfigSpec)**<br>Конфигурация и ресурсы хостов, которые должны быть созданы для кластера Data Proc. 
-name | **string**<br>Новое имя кластера Data Proc. Имя должно быть уникальным в рамках каталога. Значение должно соответствовать регулярному выражению ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
-service_account_id | **string**<br>Идентификатор сервисного аккаунта, которым должен пользоваться агент Data Proc для управления задачами. 
-bucket | **string**<br>Имя нового бакета Object Storage, который следует использовать для задач Data Proc. 
+cluster_id | **string**<br>ID of the cluster to update. <br>To get the cluster ID, make a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which attributes of the cluster should be updated. 
+description | **string**<br>New description for the cluster. The maximum string length in characters is 256.
+labels | **map<string,string>**<br>A new set of cluster labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+config_spec | **[UpdateClusterConfigSpec](#UpdateClusterConfigSpec)**<br>Configuration and resources for hosts that should be created with the Data Proc cluster. 
+name | **string**<br>New name for the Data Proc cluster. The name must be unique within the folder. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+service_account_id | **string**<br>ID of the new service account to be used by the Data Proc manager agent. 
+bucket | **string**<br>Name of the new Object Storage bucket to use for Data Proc jobs. 
+decommission_timeout | **int64**<br>Timeout to gracefully decommission nodes. In seconds. Default value: 0 Acceptable values are 0 to 86400, inclusive.
+ui_proxy | **bool**<br>Enable UI Proxy feature. 
+security_group_ids[] | **string**<br>User security groups. 
 
 
 ### UpdateClusterConfigSpec {#UpdateClusterConfigSpec}
 
-Поле | Описание
+Field | Description
 --- | ---
-subclusters_spec[] | **[UpdateSubclusterConfigSpec](#UpdateSubclusterConfigSpec)**<br>Новая конфигурация для подкластеров в кластере. 
+subclusters_spec[] | **[UpdateSubclusterConfigSpec](#UpdateSubclusterConfigSpec)**<br>New configuration for subclusters in a cluster. 
 
 
 ### UpdateSubclusterConfigSpec {#UpdateSubclusterConfigSpec}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор подкластера, который следует изменить. <br>Чтобы получить идентификатор подкластера, используйте запрос [SubclusterService.List](./subcluster_service#List). 
-name | **string**<br>Имя подкластера. Значение должно соответствовать регулярному выражению ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
-resources | **[Resources](#Resources1)**<br>Конфигурация ресурсов для каждого хоста в подкластере. 
-hosts_count | **int64**<br>Количество хостов в подкластере. Минимальная значение — 1.
+id | **string**<br>ID of the subcluster to update. <br>To get the subcluster ID make a [SubclusterService.List](./subcluster_service#List) request. 
+name | **string**<br>Name of the subcluster. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+resources | **[Resources](#Resources1)**<br>Resource configuration for each host in the subcluster. 
+hosts_count | **int64**<br>Number of hosts in the subcluster. The minimum value is 1.
+autoscaling_config | **[AutoscalingConfig](#AutoscalingConfig1)**<br>Configuration for instance group based subclusters 
 
 
 ### Resources {#Resources1}
 
-Поле | Описание
+Field | Description
 --- | ---
-resource_preset_id | **string**<br>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в [документации](/docs/data-proc/concepts/instance-types). 
-disk_type_id | **string**<br><ul><li>network-hdd — сетевой HDD-диск; </li><li>network-ssd — сетевой SSD-диск.</li></ul> 
-disk_size | **int64**<br>Объем хранилища, доступного хосту, в байтах. 
+resource_preset_id | **string**<br>ID of the resource preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/data-proc/concepts/instance-types). 
+disk_type_id | **string**<br><ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive.</li></ul> 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
+
+
+### AutoscalingConfig {#AutoscalingConfig1}
+
+Field | Description
+--- | ---
+max_hosts_count | **int64**<br>Upper limit for total instance subcluster count. Acceptable values are 1 to 100, inclusive.
+preemptible | **bool**<br>Preemptible instances are stopped at least once every 24 hours, and can be stopped at any time if their resources are needed by Compute. For more information, see [Preemptible Virtual Machines](/docs/compute/concepts/preemptible-vm). 
+measurement_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Time in seconds allotted for averaging metrics. Acceptable values are 1m to 10m, inclusive.
+warmup_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>The warmup time of the instance in seconds. During this time, traffic is sent to the instance, but instance metrics are not collected. The maximum value is 10m.
+stabilization_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Minimum amount of time in seconds allotted for monitoring before Instance Groups can reduce the number of instances in the group. During this time, the group size doesn't decrease, even if the new metric values indicate that it should. Acceptable values are 1m to 30m, inclusive.
+cpu_utilization_target | **double**<br>Defines an autoscaling rule based on the average CPU utilization of the instance group. Acceptable values are 10 to 100, inclusive.
+decommission_timeout | **int64**<br>Timeout to gracefully decommission nodes during downscaling. In seconds. Default value: 120 Acceptable values are 0 to 86400, inclusive.
 
 
 ### Operation {#Operation1}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateClusterMetadata](#UpdateClusterMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster3)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateClusterMetadata](#UpdateClusterMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster3)>**<br>if operation finished successfully. 
 
 
 ### UpdateClusterMetadata {#UpdateClusterMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Идентификатор кластера, который изменяется. 
+cluster_id | **string**<br>ID of the cluster that is being updated. 
 
 
 ### Cluster {#Cluster3}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор кластера. Генерируется во время создания. 
-folder_id | **string**<br>Идентификатор каталога, которому принадлежит кластер. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания. 
-name | **string**<br>Имя кластера. Имя уникально в рамках каталога. Длина строки в символах должна быть от 1 до 63.
-description | **string**<br>Описание кластера. Длина строки в символах должна быть от 0 до 256.
-labels | **map<string,string>**<br>Метки кластера как пары `key:value`. Не более 64 на ресурс.
-monitoring[] | **[Monitoring](#Monitoring3)**<br>Описание систем мониторинга, относящихся к кластеру. 
-config | **[ClusterConfig](#ClusterConfig3)**<br>Конфигурация кластера. 
-health | enum **Health**<br>Агрегированная работоспособность кластера. <ul><li>`HEALTH_UNKNOWN`: Состояние кластера неизвестно ([Host.health](#Host) для каждого хоста в кластере — UNKNOWN).</li><li>`ALIVE`: Кластер работает нормально ([Host.health](#Host) для каждого хоста в кластере — ALIVE).</li><li>`DEAD`: Кластер не работает ([Host.health](#Host) для каждого хоста в кластере — DEAD).</li><li>`DEGRADED`: Кластер работает неоптимально ([Host.health](#Host) по крайней мере для одного хоста в кластере не ALIVE).</li><ul/>
-status | enum **Status**<br>Состояние кластера. <ul><li>`STATUS_UNKNOWN`: Состояние кластера неизвестно.</li><li>`CREATING`: Кластер создается.</li><li>`RUNNING`: Кластер работает нормально.</li><li>`ERROR`: На кластере произошла ошибка, блокирующая работу.</li><li>`STOPPING`: Кластер останавливается.</li><li>`STOPPED`: Кластер остановлен.</li><li>`STARTING`: Кластер запускается.</li><ul/>
-zone_id | **string**<br>Идентификатор зоны доступности, в которой находится кластер. 
-service_account_id | **string**<br>Идентификатор сервисного аккаунта, которым пользуется агент Data Proc для управления задачами. 
-bucket | **string**<br>Имя бакета Object Storage, который используется для задач Data Proc. 
+id | **string**<br>ID of the cluster. Generated at creation time. 
+folder_id | **string**<br>ID of the folder that the cluster belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+name | **string**<br>Name of the cluster. The name is unique within the folder. The string length in characters must be 1-63.
+description | **string**<br>Description of the cluster. The string length in characters must be 0-256.
+labels | **map<string,string>**<br>Cluster labels as `key:value` pairs. No more than 64 per resource.
+monitoring[] | **[Monitoring](#Monitoring3)**<br>Monitoring systems relevant to the cluster. 
+config | **[ClusterConfig](#ClusterConfig3)**<br>Configuration of the cluster. 
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
+status | enum **Status**<br>Cluster status. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+zone_id | **string**<br>ID of the availability zone where the cluster resides. 
+service_account_id | **string**<br>ID of service account for the Data Proc manager agent. 
+bucket | **string**<br>Object Storage bucket to be used for Data Proc jobs that are run in the cluster. 
+ui_proxy | **bool**<br>Whether UI Proxy feature is enabled. 
+security_group_ids[] | **string**<br>User security groups. 
+host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
 
 
 ### Monitoring {#Monitoring3}
 
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br>Название системы мониторинга. 
-description | **string**<br>Описание системы мониторинга. 
-link | **string**<br>Ссылка на систему мониторинга. 
+name | **string**<br>Name of the monitoring system. 
+description | **string**<br>Description of the monitoring system. 
+link | **string**<br>Link to the monitoring system. 
 
 
 ### ClusterConfig {#ClusterConfig3}
 
-Поле | Описание
+Field | Description
 --- | ---
-version_id | **string**<br>Версия образа, которая используется при подготовке кластера. Все доступные версии перечислены в [документации](/docs/managed-hadoop/concepts/image-versions). 
-hadoop | **[HadoopConfig](#HadoopConfig4)**<br>Настройки конфигурации, специфические для Data Proc. 
+version_id | **string**<br>Image version for cluster provisioning. All available versions are listed in the [documentation](/docs/managed-hadoop/concepts/image-versions). 
+hadoop | **[HadoopConfig](#HadoopConfig4)**<br>Data Proc specific configuration options. 
 
 
 ### HadoopConfig {#HadoopConfig4}
 
-Поле | Описание
+Field | Description
 --- | ---
-services[] | enum **[Service](./cluster_service#undefined)**<br>Набор компонентов, используемых в кластере (если список пуст, используется набор по умолчанию). <ul><ul/>
-properties | **map<string,string>**<br>Свойства, установленные для всех хостов в конфигурациях `*-site.xml`. В ключе должны быть указаны компонент и свойство. <br>Например, используйте ключ 'hdfs:dfs.replication', чтобы установить свойство `dfs.replication` в файле `/etc/hadoop/conf/hdfs-site.xml`. 
-ssh_public_keys[] | **string**<br>Список публичных ключей SSH для доступа к хостам кластера. 
+services[] | enum **[Service](./cluster_service#undefined)**<br>Set of services used in the cluster (if empty, the default set is used). <ul><ul/>
+properties | **map<string,string>**<br>Properties set for all hosts in `*-site.xml` configurations. The key should indicate the service and the property. <br>For example, use the key 'hdfs:dfs.replication' to set the `dfs.replication` property in the file `/etc/hadoop/conf/hdfs-site.xml`. 
+ssh_public_keys[] | **string**<br>List of public SSH keys to access to cluster hosts. 
 
 
 ## Delete {#Delete}
 
-Удаляет указанный кластер.
+Deletes the specified cluster.
 
 **rpc Delete ([DeleteClusterRequest](#DeleteClusterRequest)) returns ([operation.Operation](#Operation2))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[DeleteClusterMetadata](#DeleteClusterMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
 
 ### DeleteClusterRequest {#DeleteClusterRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор удаляемого кластера. <br>Чтобы получить идентификатор кластера, выполните запрос [ClusterService.List](#List). Максимальная длина строки в символах — 50.
+cluster_id | **string**<br>Required. ID of the cluster to delete. <br>To get a cluster ID, make a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+decommission_timeout | **int64**<br>Timeout to gracefully decommission nodes. In seconds. Default value: 0 Acceptable values are 0 to 86400, inclusive.
 
 
 ### Operation {#Operation2}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteClusterMetadata](#DeleteClusterMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteClusterMetadata](#DeleteClusterMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>if operation finished successfully. 
 
 
 ### DeleteClusterMetadata {#DeleteClusterMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Идентификатор удаляемого кластера Data Proc. 
+cluster_id | **string**<br>ID of the Data Proc cluster that is being deleted. 
 
 
 ## Start {#Start}
 
-Запускает указанный кластер.
+Starts the specified cluster.
 
 **rpc Start ([StartClusterRequest](#StartClusterRequest)) returns ([operation.Operation](#Operation3))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[StartClusterMetadata](#StartClusterMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster4)<br>
 
 ### StartClusterRequest {#StartClusterRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера, который следует запустить. <br>Чтобы получить идентификатор кластера, выполните запрос [ClusterService.List](#List). Максимальная длина строки в символах — 50.
+cluster_id | **string**<br>Required. ID of the cluster to start. <br>To get a cluster ID, make a [ClusterService.List](#List) request. The maximum string length in characters is 50.
 
 
 ### Operation {#Operation3}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[StartClusterMetadata](#StartClusterMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster4)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[StartClusterMetadata](#StartClusterMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster4)>**<br>if operation finished successfully. 
 
 
 ### StartClusterMetadata {#StartClusterMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Идентификатор запускаемого кластера Data Proc. 
+cluster_id | **string**<br>ID of the Data Proc cluster that is being started. 
 
 
 ### Cluster {#Cluster4}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор кластера. Генерируется во время создания. 
-folder_id | **string**<br>Идентификатор каталога, которому принадлежит кластер. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания. 
-name | **string**<br>Имя кластера. Имя уникально в рамках каталога. Длина строки в символах должна быть от 1 до 63.
-description | **string**<br>Описание кластера. Длина строки в символах должна быть от 0 до 256.
-labels | **map<string,string>**<br>Метки кластера как пары `key:value`. Не более 64 на ресурс.
-monitoring[] | **[Monitoring](#Monitoring4)**<br>Описание систем мониторинга, относящихся к кластеру. 
-config | **[ClusterConfig](#ClusterConfig4)**<br>Конфигурация кластера. 
-health | enum **Health**<br>Агрегированная работоспособность кластера. <ul><li>`HEALTH_UNKNOWN`: Состояние кластера неизвестно ([Host.health](#Host) для каждого хоста в кластере — UNKNOWN).</li><li>`ALIVE`: Кластер работает нормально ([Host.health](#Host) для каждого хоста в кластере — ALIVE).</li><li>`DEAD`: Кластер не работает ([Host.health](#Host) для каждого хоста в кластере — DEAD).</li><li>`DEGRADED`: Кластер работает неоптимально ([Host.health](#Host) по крайней мере для одного хоста в кластере не ALIVE).</li><ul/>
-status | enum **Status**<br>Состояние кластера. <ul><li>`STATUS_UNKNOWN`: Состояние кластера неизвестно.</li><li>`CREATING`: Кластер создается.</li><li>`RUNNING`: Кластер работает нормально.</li><li>`ERROR`: На кластере произошла ошибка, блокирующая работу.</li><li>`STOPPING`: Кластер останавливается.</li><li>`STOPPED`: Кластер остановлен.</li><li>`STARTING`: Кластер запускается.</li><ul/>
-zone_id | **string**<br>Идентификатор зоны доступности, в которой находится кластер. 
-service_account_id | **string**<br>Идентификатор сервисного аккаунта, которым пользуется агент Data Proc для управления задачами. 
-bucket | **string**<br>Имя бакета Object Storage, который используется для задач Data Proc. 
+id | **string**<br>ID of the cluster. Generated at creation time. 
+folder_id | **string**<br>ID of the folder that the cluster belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+name | **string**<br>Name of the cluster. The name is unique within the folder. The string length in characters must be 1-63.
+description | **string**<br>Description of the cluster. The string length in characters must be 0-256.
+labels | **map<string,string>**<br>Cluster labels as `key:value` pairs. No more than 64 per resource.
+monitoring[] | **[Monitoring](#Monitoring4)**<br>Monitoring systems relevant to the cluster. 
+config | **[ClusterConfig](#ClusterConfig4)**<br>Configuration of the cluster. 
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
+status | enum **Status**<br>Cluster status. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+zone_id | **string**<br>ID of the availability zone where the cluster resides. 
+service_account_id | **string**<br>ID of service account for the Data Proc manager agent. 
+bucket | **string**<br>Object Storage bucket to be used for Data Proc jobs that are run in the cluster. 
+ui_proxy | **bool**<br>Whether UI Proxy feature is enabled. 
+security_group_ids[] | **string**<br>User security groups. 
+host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
 
 
 ### Monitoring {#Monitoring4}
 
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br>Название системы мониторинга. 
-description | **string**<br>Описание системы мониторинга. 
-link | **string**<br>Ссылка на систему мониторинга. 
+name | **string**<br>Name of the monitoring system. 
+description | **string**<br>Description of the monitoring system. 
+link | **string**<br>Link to the monitoring system. 
 
 
 ### ClusterConfig {#ClusterConfig4}
 
-Поле | Описание
+Field | Description
 --- | ---
-version_id | **string**<br>Версия образа, которая используется при подготовке кластера. Все доступные версии перечислены в [документации](/docs/managed-hadoop/concepts/image-versions). 
-hadoop | **[HadoopConfig](#HadoopConfig5)**<br>Настройки конфигурации, специфические для Data Proc. 
+version_id | **string**<br>Image version for cluster provisioning. All available versions are listed in the [documentation](/docs/managed-hadoop/concepts/image-versions). 
+hadoop | **[HadoopConfig](#HadoopConfig5)**<br>Data Proc specific configuration options. 
 
 
 ### HadoopConfig {#HadoopConfig5}
 
-Поле | Описание
+Field | Description
 --- | ---
-services[] | enum **[Service](./cluster_service#undefined)**<br>Набор компонентов, используемых в кластере (если список пуст, используется набор по умолчанию). <ul><ul/>
-properties | **map<string,string>**<br>Свойства, установленные для всех хостов в конфигурациях `*-site.xml`. В ключе должны быть указаны компонент и свойство. <br>Например, используйте ключ 'hdfs:dfs.replication', чтобы установить свойство `dfs.replication` в файле `/etc/hadoop/conf/hdfs-site.xml`. 
-ssh_public_keys[] | **string**<br>Список публичных ключей SSH для доступа к хостам кластера. 
+services[] | enum **[Service](./cluster_service#undefined)**<br>Set of services used in the cluster (if empty, the default set is used). <ul><ul/>
+properties | **map<string,string>**<br>Properties set for all hosts in `*-site.xml` configurations. The key should indicate the service and the property. <br>For example, use the key 'hdfs:dfs.replication' to set the `dfs.replication` property in the file `/etc/hadoop/conf/hdfs-site.xml`. 
+ssh_public_keys[] | **string**<br>List of public SSH keys to access to cluster hosts. 
 
 
 ## Stop {#Stop}
 
-Останавливает указанный кластер.
+Stops the specified cluster.
 
 **rpc Stop ([StopClusterRequest](#StopClusterRequest)) returns ([operation.Operation](#Operation4))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[StopClusterMetadata](#StopClusterMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster5)<br>
 
 ### StopClusterRequest {#StopClusterRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера, который следует остановить. <br>Чтобы получить идентификатор кластера, выполните запрос [ClusterService.List](#List). Максимальная длина строки в символах — 50.
+cluster_id | **string**<br>Required. ID of the cluster to stop. <br>To get a cluster ID, make a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+decommission_timeout | **int64**<br>Timeout to gracefully decommission nodes. In seconds. Default value: 0 Acceptable values are 0 to 86400, inclusive.
 
 
 ### Operation {#Operation4}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[StopClusterMetadata](#StopClusterMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster5)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[StopClusterMetadata](#StopClusterMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster5)>**<br>if operation finished successfully. 
 
 
 ### StopClusterMetadata {#StopClusterMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Идентификатор останавливаемого кластера Data Proc. 
+cluster_id | **string**<br>ID of the Data Proc cluster that is being stopped. 
 
 
 ### Cluster {#Cluster5}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор кластера. Генерируется во время создания. 
-folder_id | **string**<br>Идентификатор каталога, которому принадлежит кластер. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания. 
-name | **string**<br>Имя кластера. Имя уникально в рамках каталога. Длина строки в символах должна быть от 1 до 63.
-description | **string**<br>Описание кластера. Длина строки в символах должна быть от 0 до 256.
-labels | **map<string,string>**<br>Метки кластера как пары `key:value`. Не более 64 на ресурс.
-monitoring[] | **[Monitoring](#Monitoring5)**<br>Описание систем мониторинга, относящихся к кластеру. 
-config | **[ClusterConfig](#ClusterConfig5)**<br>Конфигурация кластера. 
-health | enum **Health**<br>Агрегированная работоспособность кластера. <ul><li>`HEALTH_UNKNOWN`: Состояние кластера неизвестно ([Host.health](#Host) для каждого хоста в кластере — UNKNOWN).</li><li>`ALIVE`: Кластер работает нормально ([Host.health](#Host) для каждого хоста в кластере — ALIVE).</li><li>`DEAD`: Кластер не работает ([Host.health](#Host) для каждого хоста в кластере — DEAD).</li><li>`DEGRADED`: Кластер работает неоптимально ([Host.health](#Host) по крайней мере для одного хоста в кластере не ALIVE).</li><ul/>
-status | enum **Status**<br>Состояние кластера. <ul><li>`STATUS_UNKNOWN`: Состояние кластера неизвестно.</li><li>`CREATING`: Кластер создается.</li><li>`RUNNING`: Кластер работает нормально.</li><li>`ERROR`: На кластере произошла ошибка, блокирующая работу.</li><li>`STOPPING`: Кластер останавливается.</li><li>`STOPPED`: Кластер остановлен.</li><li>`STARTING`: Кластер запускается.</li><ul/>
-zone_id | **string**<br>Идентификатор зоны доступности, в которой находится кластер. 
-service_account_id | **string**<br>Идентификатор сервисного аккаунта, которым пользуется агент Data Proc для управления задачами. 
-bucket | **string**<br>Имя бакета Object Storage, который используется для задач Data Proc. 
+id | **string**<br>ID of the cluster. Generated at creation time. 
+folder_id | **string**<br>ID of the folder that the cluster belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+name | **string**<br>Name of the cluster. The name is unique within the folder. The string length in characters must be 1-63.
+description | **string**<br>Description of the cluster. The string length in characters must be 0-256.
+labels | **map<string,string>**<br>Cluster labels as `key:value` pairs. No more than 64 per resource.
+monitoring[] | **[Monitoring](#Monitoring5)**<br>Monitoring systems relevant to the cluster. 
+config | **[ClusterConfig](#ClusterConfig5)**<br>Configuration of the cluster. 
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
+status | enum **Status**<br>Cluster status. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+zone_id | **string**<br>ID of the availability zone where the cluster resides. 
+service_account_id | **string**<br>ID of service account for the Data Proc manager agent. 
+bucket | **string**<br>Object Storage bucket to be used for Data Proc jobs that are run in the cluster. 
+ui_proxy | **bool**<br>Whether UI Proxy feature is enabled. 
+security_group_ids[] | **string**<br>User security groups. 
+host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
 
 
 ### Monitoring {#Monitoring5}
 
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br>Название системы мониторинга. 
-description | **string**<br>Описание системы мониторинга. 
-link | **string**<br>Ссылка на систему мониторинга. 
+name | **string**<br>Name of the monitoring system. 
+description | **string**<br>Description of the monitoring system. 
+link | **string**<br>Link to the monitoring system. 
 
 
 ### ClusterConfig {#ClusterConfig5}
 
-Поле | Описание
+Field | Description
 --- | ---
-version_id | **string**<br>Версия образа, которая используется при подготовке кластера. Все доступные версии перечислены в [документации](/docs/managed-hadoop/concepts/image-versions). 
-hadoop | **[HadoopConfig](#HadoopConfig6)**<br>Настройки конфигурации, специфические для Data Proc. 
+version_id | **string**<br>Image version for cluster provisioning. All available versions are listed in the [documentation](/docs/managed-hadoop/concepts/image-versions). 
+hadoop | **[HadoopConfig](#HadoopConfig6)**<br>Data Proc specific configuration options. 
 
 
 ### HadoopConfig {#HadoopConfig6}
 
-Поле | Описание
+Field | Description
 --- | ---
-services[] | enum **[Service](./cluster_service#undefined)**<br>Набор компонентов, используемых в кластере (если список пуст, используется набор по умолчанию). <ul><ul/>
-properties | **map<string,string>**<br>Свойства, установленные для всех хостов в конфигурациях `*-site.xml`. В ключе должны быть указаны компонент и свойство. <br>Например, используйте ключ 'hdfs:dfs.replication', чтобы установить свойство `dfs.replication` в файле `/etc/hadoop/conf/hdfs-site.xml`. 
-ssh_public_keys[] | **string**<br>Список публичных ключей SSH для доступа к хостам кластера. 
+services[] | enum **[Service](./cluster_service#undefined)**<br>Set of services used in the cluster (if empty, the default set is used). <ul><ul/>
+properties | **map<string,string>**<br>Properties set for all hosts in `*-site.xml` configurations. The key should indicate the service and the property. <br>For example, use the key 'hdfs:dfs.replication' to set the `dfs.replication` property in the file `/etc/hadoop/conf/hdfs-site.xml`. 
+ssh_public_keys[] | **string**<br>List of public SSH keys to access to cluster hosts. 
 
 
 ## ListOperations {#ListOperations}
 
-Список операций для указанного кластера.
+Lists operations for the specified cluster.
 
 **rpc ListOperations ([ListClusterOperationsRequest](#ListClusterOperationsRequest)) returns ([ListClusterOperationsResponse](#ListClusterOperationsResponse))**
 
 ### ListClusterOperationsRequest {#ListClusterOperationsRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера, для которого запрашивается список операций. Максимальная длина строки в символах — 50.
-page_size | **int64**<br>Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем `page_size`, сервис вернет значение [ListClusterOperationsResponse.next_page_token](#ListClusterOperationsResponse), которое можно использовать для получения следующей страницы. Значение по умолчанию: 100. Максимальное значение — 1000.
-page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListClusterOperationsResponse.next_page_token](#ListClusterOperationsResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
+cluster_id | **string**<br>Required. ID of the cluster to list operations for. The maximum string length in characters is 50.
+page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClusterOperationsResponse.next_page_token](#ListClusterOperationsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
+page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListClusterOperationsResponse.next_page_token](#ListClusterOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
 
 
 ### ListClusterOperationsResponse {#ListClusterOperationsResponse}
 
-Поле | Описание
+Field | Description
 --- | ---
-operations[] | **[operation.Operation](#Operation5)**<br>Список операций для указанного кластера. 
-next_page_token | **string**<br>Токен для получения следующей страницы списка. Если количество результатов больше чем [ListClusterOperationsRequest.page_size](#ListClusterOperationsRequest), используйте `next_page_token` в качестве значения параметра [ListClusterOperationsRequest.page_token](#ListClusterOperationsRequest) в следующем запросе списка ресурсов. <br>У каждой последующей страницы будет собственный `next_page_token`, чтобы можно было продолжать просматривать результаты. 
+operations[] | **[operation.Operation](#Operation5)**<br>List of operations for the specified cluster. 
+next_page_token | **string**<br>Token for getting the next page of the list. If the number of results is greater than the specified [ListClusterOperationsRequest.page_size](#ListClusterOperationsRequest), use `next_page_token` as the value for the [ListClusterOperationsRequest.page_token](#ListClusterOperationsRequest) parameter in the next list request. <br>Each subsequent page will have its own `next_page_token` to continue paging through the results. 
 
 
 ### Operation {#Operation5}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**<br>Результат операции в случае успешного завершения. Если исходный метод не возвращает никаких данных при успешном завершении, например метод Delete, поле содержит объект [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty). Если исходный метод — это стандартный метод Create / Update, поле содержит целевой ресурс операции. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `response`. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**<br>The normal response of the operation in case of success. If the original method returns no data on success, such as Delete, the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty). If the original method is the standard Create/Update, the response should be the target resource of the operation. Any method that returns a long-running operation should document the response type, if any. 
 
 
 ## ListHosts {#ListHosts}
 
-Получает список хостов для указанного кластера.
+Retrieves the list of hosts in the specified cluster.
 
 **rpc ListHosts ([ListClusterHostsRequest](#ListClusterHostsRequest)) returns ([ListClusterHostsResponse](#ListClusterHostsResponse))**
 
 ### ListClusterHostsRequest {#ListClusterHostsRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Идентификатор кластера, для которого запрашивается список хостов. <br>Чтобы получить идентификатор кластера, выполните запрос [ClusterService.List](#List). Максимальная длина строки в символах — 50.
-page_size | **int64**<br>Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем `page_size`, сервис вернет значение [ListClusterHostsResponse.next_page_token](#ListClusterHostsResponse), которое можно использовать для получения следующей страницы. Значение по умолчанию: 100. Максимальное значение — 1000.
-page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListClusterHostsResponse.next_page_token](#ListClusterHostsResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
-filter | **string**<br><ol><li>Имя поля. В настоящее время фильтрация осуществляется только по полю [Cluster.name](#Cluster6). </li><li>Оператор. Может быть `=` или `!=` для отдельных значений, `IN` или `NOT IN` для списков значений. </li><li>Значение. Значение длиной от 3 до 63 символов, совпадающее с регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]`. Пример фильтра: `name=my-host`.</li></ol> Максимальная длина строки в символах — 1000.
+cluster_id | **string**<br>ID of the cluster to list hosts for. <br>To get a cluster ID, make a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClusterHostsResponse.next_page_token](#ListClusterHostsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
+page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListClusterHostsResponse.next_page_token](#ListClusterHostsResponse) returned by a previous list request. The maximum string length in characters is 100.
+filter | **string**<br><ol><li>The field name. Currently you can use filtering only on [Cluster.name](#Cluster6) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]. </li></ol> The maximum string length in characters is 1000.
 
 
 ### ListClusterHostsResponse {#ListClusterHostsResponse}
 
-Поле | Описание
+Field | Description
 --- | ---
-hosts[] | **[Host](#Host)**<br>Запрошенный список хостов. 
-next_page_token | **string**<br>Токен для получения следующей страницы списка. Если количество результатов больше чем [ListClusterHostsRequest.page_size](#ListClusterHostsRequest), используйте `next_page_token` в качестве значения параметра [ListClusterHostsRequest.page_token](#ListClusterHostsRequest) в следующем запросе списка ресурсов. <br>Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
+hosts[] | **[Host](#Host)**<br>Requested list of hosts. 
+next_page_token | **string**<br>Token for getting the next page of the list. If the number of results is greater than the specified [ListClusterHostsRequest.page_size](#ListClusterHostsRequest), use `next_page_token` as the value for the [ListClusterHostsRequest.page_token](#ListClusterHostsRequest) parameter in the next list request. <br>Each subsequent page will have its own `next_page_token` to continue paging through the results. 
 
 
 ### Host {#Host}
 
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br>Имя хоста Data Proc. Data Proc генерирует имя хоста при его создании, после этого имя невозможно изменить. Имя уникально для всех существующих хостов Data Proc в Яндекс.Облаке, так как оно определяет полное доменное имя (FQDN) хоста. 
-subcluster_id | **string**<br>Идентификатор подкластера Data Proc, которому принадлежит хост. 
-health | enum **Health**<br>Код состояния хоста. <ul><li>`HEALTH_UNKNOWN`: Состояние кластера неизвестно ([Host.health](#Host) для каждого хоста в кластере — UNKNOWN).</li><li>`ALIVE`: Кластер работает нормально ([Host.health](#Host) для каждого хоста в кластере — ALIVE).</li><li>`DEAD`: Кластер не работает ([Host.health](#Host) для каждого хоста в кластере — DEAD).</li><li>`DEGRADED`: Кластер работает неоптимально ([Host.health](#Host) по крайней мере для одного хоста в кластере не ALIVE).</li><ul/>
-compute_instance_id | **string**<br>Идентификатор виртуальной машины Cloud Compute, используемой в качестве хоста Data Proc. 
-role | enum **Role**<br>Роль хоста в кластере. <ul><li>`MASTERNODE`: <ul><li>HDFS: Namenode, Secondary Namenode </li><li>YARN: ResourceManager, Timeline Server </li><li>HBase Master </li><li>Hive: Server, Metastore, HCatalog </li><li>Spark History Server </li><li>Zeppelin </li><li>ZooKeeper</li></ul></li><li>`DATANODE`: <ul><li>HDFS DataNode </li><li>YARN NodeManager </li><li>HBase RegionServer </li><li>библиотеки Spark</li></ul></li><li>`COMPUTENODE`: <ul><li>YARN NodeManager </li><li>библиотеки Spark</li></ul></li><ul/>
+name | **string**<br>Name of the Data Proc host. The host name is assigned by Data Proc at creation time and cannot be changed. The name is generated to be unique across all existing Data Proc hosts in Yandex.Cloud, as it defines the FQDN of the host. 
+subcluster_id | **string**<br>ID of the Data Proc subcluster that the host belongs to. 
+health | enum **Health**<br>Host status code. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
+compute_instance_id | **string**<br>ID of the Compute virtual machine that is used as the Data Proc host. 
+role | enum **Role**<br>Role of the host in the cluster. <ul><li>`MASTERNODE`: <ul><li>HDFS: Namenode, Secondary Namenode </li><li>YARN: ResourceManager, Timeline Server </li><li>HBase Master </li><li>Hive: Server, Metastore, HCatalog </li><li>Spark History Server </li><li>Zeppelin </li><li>ZooKeeper</li></ul></li><li>`DATANODE`: <ul><li>HDFS DataNode </li><li>YARN NodeManager </li><li>HBase RegionServer </li><li>Spark libraries</li></ul></li><li>`COMPUTENODE`: <ul><li>YARN NodeManager </li><li>Spark libraries</li></ul></li><ul/>
+
+
+## ListUILinks {#ListUILinks}
+
+Retrieves a list of links to web interfaces being proxied by Data Proc UI Proxy.
+
+**rpc ListUILinks ([ListUILinksRequest](#ListUILinksRequest)) returns ([ListUILinksResponse](#ListUILinksResponse))**
+
+### ListUILinksRequest {#ListUILinksRequest}
+
+Field | Description
+--- | ---
+cluster_id | **string**<br>Required. ID of the Hadoop cluster. The maximum string length in characters is 50.
+
+
+### ListUILinksResponse {#ListUILinksResponse}
+
+Field | Description
+--- | ---
+links[] | **[UILink](#UILink)**<br>Requested list of ui links. 
+
+
+### UILink {#UILink}
+
+Field | Description
+--- | ---
+name | **string**<br> 
+url | **string**<br> 
 
 

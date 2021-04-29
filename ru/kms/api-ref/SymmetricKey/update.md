@@ -2,23 +2,23 @@
 editable: false
 ---
 
-# Метод update
-Изменяет указанный симметричный ключ KMS.
+# Method update
+Updates the specified symmetric KMS key.
  
 
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 PATCH https://kms.api.cloud.yandex.net/kms/v1/keys/{keyId}
 ```
  
-## Path-параметры {#path_params}
+## Path parameters {#path_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-keyId | Обязательное поле. Идентификатор симметричного ключа KMS, который следует изменить. Чтобы получить идентификатор симметричного ключа используйте запрос [list](/docs/kms/api-ref/SymmetricKey/list).  Максимальная длина строки в символах — 50.
+keyId | Required. ID of the symmetric KMS key to update. To get the ID of a symmetric KMS key use a [list](/docs/kms/api-ref/SymmetricKey/list) request.  The maximum string length in characters is 50.
  
-## Параметры в теле запроса {#body_params}
+## Body parameters {#body_params}
  
 ```json 
 {
@@ -34,18 +34,18 @@ keyId | Обязательное поле. Идентификатор симме
 ```
 
  
-Поле | Описание
+Field | Description
 --- | ---
-updateMask | **string**<br><p>Обязательное поле. Маска, определяющая, какие атрибуты указанного симметричного ключа KMS будут обновлены.</p> <p>Имена всех обновляемых полей, разделенные запятыми. Только значения указанных полей будут изменены. Остальные останутся нетронутыми. Если поле указано в параметре `` updateMask `` и в запросе не было отправлено значение для этого поля, значение поля будет сброшено на значение по умолчанию. Значение по умолчанию для большинства полей — null или 0.</p> <p>Если в запросе не передается `` updateMask ``, значения всех полей будут обновлены. Для полей, указанных в запросе, будут использованы переданные значения. Значения остальных полей будут сброшены на значения по умолчанию.</p> 
-name | **string**<br><p>Новое имя симметричного ключа KMS.</p> <p>Максимальная длина строки в символах — 100.</p> 
-description | **string**<br><p>Новое описание симметричного ключа KMS.</p> <p>Максимальная длина строки в символах — 1024.</p> 
-status | **string**<br><p>Новый статус для симметричного ключа KMS. С помощью метода <a href="/docs/kms/api-ref/SymmetricKey/update">update</a> вы можете установить только статус ACTIVE или INACTIVE.</p> <ul> <li>CREATING: Ключ создается.</li> <li>ACTIVE: Ключ активен и может использоваться для шифрования и дешифрования. Можно установить в INACTIVE с помощью метода <a href="/docs/kms/api-ref/SymmetricKey/update">update</a>.</li> <li>INACTIVE: Ключ неактивен и не может быть использован. Можно установить в ACTIVE с помощью метода <a href="/docs/kms/api-ref/SymmetricKey/update">update</a>.</li> </ul> 
-labels | **object**<br><p>Пользовательские метки для ключа в виде пар `key:value`. Максимум 64 на ключ.</p> <p>Не более 64 на ресурс. Максимальная длина строки в символах для каждого ключа — 63. Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``. Максимальная длина строки в символах для каждого значения — 63. Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.</p> 
-defaultAlgorithm | **string**<br><p>Алгоритм шифрования по умолчанию, который следует использовать с новыми версиями симметричного ключа KMS.</p> <p>Поддерживаемые алгоритмы симметричного шифрования.</p> <ul> <li>AES_128: Алгоритм AES со 128-битными ключами.</li> <li>AES_192: Алгоритм AES с 192-битными ключами.</li> <li>AES_256: Алгоритм AES с 256-битными ключами.</li> </ul> 
-rotationPeriod | **string**<br><p>Период времени между автоматическими ротациями симметричного ключа KMS.</p> 
-deletionProtection | **boolean** (boolean)<br><p>Флаг, запрещающий удаление симметричного ключа KMS</p> 
+updateMask | **string**<br><p>Required. Field mask that specifies which attributes of the symmetric KMS key are going to be updated.</p> <p>A comma-separated names off ALL fields to be updated. Оnly the specified fields will be changed. The others will be left untouched. If the field is specified in `` updateMask `` and no value for that field was sent in the request, the field's value will be reset to the default. The default value for most fields is null or 0.</p> <p>If `` updateMask `` is not sent in the request, all fields' values will be updated. Fields specified in the request will be updated to provided values. The rest of the fields will be reset to the default.</p> 
+name | **string**<br><p>New name for the symmetric KMS key.</p> <p>The maximum string length in characters is 100.</p> 
+description | **string**<br><p>New description for the symmetric KMS key.</p> <p>The maximum string length in characters is 1024.</p> 
+status | **string**<br><p>New status for the symmetric KMS key. Using the <a href="/docs/kms/api-ref/SymmetricKey/update">update</a> method you can only set ACTIVE or INACTIVE status.</p> <ul> <li>CREATING: The key is being created.</li> <li>ACTIVE: The key is active and can be used for encryption and decryption. Can be set to INACTIVE using the <a href="/docs/kms/api-ref/SymmetricKey/update">update</a> method.</li> <li>INACTIVE: The key is inactive and unusable. Can be set to ACTIVE using the <a href="/docs/kms/api-ref/SymmetricKey/update">update</a> method.</li> </ul> 
+labels | **object**<br><p>Custom labels for the symmetric KMS key as `key:value` pairs. Maximum 64 per key.</p> <p>No more than 64 per resource. The maximum string length in characters for each key is 63. Each key must match the regular expression `` [a-z][-_0-9a-z]* ``. The maximum string length in characters for each value is 63. Each value must match the regular expression `` [-_0-9a-z]* ``.</p> 
+defaultAlgorithm | **string**<br><p>Default encryption algorithm to be used with new versions of the symmetric KMS key.</p> <p>Supported symmetric encryption algorithms.</p> <ul> <li>AES_128: AES algorithm with 128-bit keys.</li> <li>AES_192: AES algorithm with 192-bit keys.</li> <li>AES_256: AES algorithm with 256-bit keys.</li> </ul> 
+rotationPeriod | **string**<br><p>Time period between automatic symmetric KMS key rotations.</p> 
+deletionProtection | **boolean** (boolean)<br><p>Flag that inhibits deletion of the symmetric KMS key</p> 
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -58,7 +58,7 @@ deletionProtection | **boolean** (boolean)<br><p>Флаг, запрещающи�
   "done": true,
   "metadata": "object",
 
-  //  включает только одно из полей `error`, `response`
+  //  includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
     "message": "string",
@@ -67,24 +67,23 @@ deletionProtection | **boolean** (boolean)<br><p>Флаг, запрещающи�
     ]
   },
   "response": "object",
-  // конец списка возможных полей
+  // end of the list of possible fields
 
 }
 ```
-Ресурс Operation. Дополнительные сведения см. в разделе
-[Объект Operation](/docs/api-design-guide/concepts/operation).
+An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
  
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br><p>Идентификатор операции.</p> 
-description | **string**<br><p>Описание операции. Длина описания должна быть от 0 до 256 символов.</p> 
-createdAt | **string** (date-time)<br><p>Время создания ресурса в формате в <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-createdBy | **string**<br><p>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию.</p> 
-modifiedAt | **string** (date-time)<br><p>Время, когда ресурс Operation последний раз обновлялся. Значение в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-done | **boolean** (boolean)<br><p>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`.</p> 
-metadata | **object**<br><p>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`.</p> 
-error | **object**<br>Описание ошибки в случае сбоя или отмены операции. <br> включает только одно из полей `error`, `response`<br><br><p>Описание ошибки в случае сбоя или отмены операции.</p> 
-error.<br>code | **integer** (int32)<br><p>Код ошибки. Значение из списка <a href="https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto">google.rpc.Code</a>.</p> 
-error.<br>message | **string**<br><p>Текст ошибки.</p> 
-error.<br>details[] | **object**<br><p>Список сообщений с подробными сведениями об ошибке.</p> 
-response | **object** <br> включает только одно из полей `error`, `response`<br><br><p>Результат операции в случае успешного завершения. Если исходный метод не возвращает никаких данных при успешном завершении, например метод Delete, поле содержит объект <a href="https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty">google.protobuf.Empty</a>. Если исходный метод — это стандартный метод Create / Update, поле содержит целевой ресурс операции. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `response`.</p> 
+id | **string**<br><p>ID of the operation.</p> 
+description | **string**<br><p>Description of the operation. 0-256 characters long.</p> 
+createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+createdBy | **string**<br><p>ID of the user or service account who initiated the operation.</p> 
+modifiedAt | **string** (date-time)<br><p>The time when the Operation resource was last modified.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+done | **boolean** (boolean)<br><p>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available.</p> 
+metadata | **object**<br><p>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any.</p> 
+error | **object**<br>The error result of the operation in case of failure or cancellation. <br> includes only one of the fields `error`, `response`<br><br><p>The error result of the operation in case of failure or cancellation.</p> 
+error.<br>code | **integer** (int32)<br><p>Error code. An enum value of <a href="https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto">google.rpc.Code</a>.</p> 
+error.<br>message | **string**<br><p>An error message.</p> 
+error.<br>details[] | **object**<br><p>A list of messages that carry the error details.</p> 
+response | **object** <br> includes only one of the fields `error`, `response`<br><br><p>The normal response of the operation in case of success. If the original method returns no data on success, such as Delete, the response is <a href="https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty">google.protobuf.Empty</a>. If the original method is the standard Create/Update, the response should be the target resource of the operation. Any method that returns a long-running operation should document the response type, if any.</p> 

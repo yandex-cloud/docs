@@ -2,24 +2,24 @@
 editable: false
 ---
 
-# Метод getShard
-Возвращает указанный шард.
+# Method getShard
+Returns the specified shard.
  
 
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 GET https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}/shards/{shardName}
 ```
  
-## Path-параметры {#path_params}
+## Path parameters {#path_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-clusterId | Обязательное поле. Идентификатор MongoDB-кластера, которому принадлежит шард. Чтобы получить идентификатор кластера, используйте запрос [List].  Максимальная длина строки в символах — 50.
-shardName | Обязательное поле. Имя запрашиваемого шарда MongoDB. Чтобы получить имя шарда, используйте запрос [ListShards].  Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_-]* ``.
+clusterId | Required. ID of the MongoDB cluster that the shard belongs to. To get the cluster ID use a [list](/docs/managed-mongodb/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
+shardName | Required. Name of the MongoDB shard to return. To get the name of the shard use a [listShards](/docs/managed-mongodb/api-ref/Cluster/listShards) request.  The maximum string length in characters is 63. Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -30,7 +30,7 @@ shardName | Обязательное поле. Имя запрашиваемог
 ```
 
  
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br><p>Имя шарда.</p> 
-clusterId | **string**<br><p>Идентификатор кластера, к которому принадлежит шард.</p> 
+name | **string**<br><p>Name of the shard.</p> 
+clusterId | **string**<br><p>ID of the cluster that the shard belongs to.</p> 

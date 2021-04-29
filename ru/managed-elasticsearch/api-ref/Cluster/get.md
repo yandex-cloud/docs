@@ -2,23 +2,23 @@
 editable: false
 ---
 
-# Метод get
-Возвращает указанный кластер Elasticsearch.
+# Method get
+Returns the specified Elasticsearch cluster.
  
-Чтобы получить список доступных кластеров Elasticsearch, выполните запрос [list](/docs/managed-elasticsearch/api-ref/Cluster/list).
+To get the list of available Elasticsearch clusters, make a [list](/docs/managed-elasticsearch/api-ref/Cluster/list) request.
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 GET https://mdb.api.cloud.yandex.net/managed-elasticsearch/v1/clusters/{clusterId}
 ```
  
-## Path-параметры {#path_params}
+## Path parameters {#path_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-clusterId | Обязательное поле. Идентификатор кластера Elasticsearch.  Чтобы получить идентификатор кластера, выполните запрос [list](/docs/managed-elasticsearch/api-ref/Cluster/list).  Максимальная длина строки в символах — 50.
+clusterId | Required. ID of the Elasticsearch cluster to return.  To get the cluster ID, make a [list](/docs/managed-elasticsearch/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -46,18 +46,18 @@ clusterId | Обязательное поле. Идентификатор кла
           "diskSize": "string",
           "diskTypeId": "string"
         },
-        "elasticsearchConfigSet_7_6": {
+        "elasticsearchConfigSet_7": {
           "effectiveConfig": {
-            "fielddataCacheSize": "integer",
-            "maxClauseCount": "integer"
+            "maxClauseCount": "integer",
+            "fielddataCacheSize": "string"
           },
           "userConfig": {
-            "fielddataCacheSize": "integer",
-            "maxClauseCount": "integer"
+            "maxClauseCount": "integer",
+            "fielddataCacheSize": "string"
           },
           "defaultConfig": {
-            "fielddataCacheSize": "integer",
-            "maxClauseCount": "integer"
+            "maxClauseCount": "integer",
+            "fielddataCacheSize": "string"
           }
         }
       },
@@ -67,52 +67,65 @@ clusterId | Обязательное поле. Идентификатор кла
           "diskSize": "string",
           "diskTypeId": "string"
         }
-      }
-    }
+      },
+      "plugins": [
+        "string"
+      ]
+    },
+    "edition": "string"
   },
   "networkId": "string",
   "health": "string",
-  "status": "string"
+  "status": "string",
+  "securityGroupIds": [
+    "string"
+  ],
+  "serviceAccountId": "string"
 }
 ```
-Кластер Elasticsearch. Подробнее читайте в разделе [Концепции](/docs/managed-elasticsearch/concepts) документации.
+An Elasticsearch cluster resource.
+For more information, see the [Concepts](/docs/managed-elasticsearch/concepts) section of the documentation.
  
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br><p>Идентификатор кластера Elasticsearch. Этот идентификатор генерируется при создании кластера.</p> 
-folderId | **string**<br><p>Идентификатор каталога, которому принадлежит кластер Elasticsearch.</p> 
-createdAt | **string** (date-time)<br><p>Время создания.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-name | **string**<br><p>Имя кластера Elasticsearch. Имя должно быть уникальным в рамках каталога. Длина 1-63 символов.</p> 
-description | **string**<br><p>Описание кластера Elasticsearch. Длина описания должна быть от 0 до 256 символов.</p> 
-labels | **object**<br><p>Пользовательские метки для кластера Elasticsearch в виде пар `key:value`. Максимум 64 на ресурс.</p> 
-environment | **string**<br><p>Среда развертывания кластера Elasticsearch.</p> <ul> <li>PRODUCTION: стабильная среда с осторожной политикой обновления — во время регулярного обслуживания применяются только срочные исправления.</li> <li>PRESTABLE: среда с более агрессивной политикой обновления — новые версии развертываются независимо от обратной совместимости.</li> </ul> 
-monitoring[] | **object**<br><p>Метаданные системы мониторинга.</p> 
-monitoring[].<br>name | **string**<br><p>Название системы мониторинга.</p> 
-monitoring[].<br>description | **string**<br><p>Описание системы мониторинга.</p> 
-monitoring[].<br>link | **string**<br><p>Ссылка на графики системы мониторинга для кластера Elasticsearch.</p> 
-config | **object**<br><p>Конфигурация кластера Elasticsearch.</p> 
-config.<br>version | **string**<br><p>Версия Elasticsearch.</p> 
-config.<br>elasticsearch | **object**<br><p>Конфигурация и распределение ресурсов для узлов Elasticsearch.</p> 
-config.<br>elasticsearch.<br>dataNode | **object**<br><p>Конфигурация и распределение ресурсов для узлов Elasticsearch с ролью Data node.</p> 
-config.<br>elasticsearch.<br>dataNode.<br>resources | **object**<br>Ресурсы, выделенные узлам Elasticsearch с ролью Data node.<br>
-config.<br>elasticsearch.<br>dataNode.<br>resources.<br>resourcePresetId | **string**<br><p>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т.д.). Все доступные наборы ресурсов перечислены в <a href="/docs/managed-elasticsearch/concepts/instance-types">документации</a>.</p> 
-config.<br>elasticsearch.<br>dataNode.<br>resources.<br>diskSize | **string** (int64)<br><p>Объем хранилища, доступного хосту, в байтах.</p> 
-config.<br>elasticsearch.<br>dataNode.<br>resources.<br>diskTypeId | **string**<br><p>Тип хранилища для хоста. Все доступные типы перечислены в <a href="/docs/managed-elasticsearch/concepts/storage">документации</a>.</p> 
-config.<br>elasticsearch.<br>dataNode.<br>elasticsearchConfigSet_7_6 | **object**<br>Конфигурация Elasticsearch 7.6 для узла с ролью Data node.<br><p>Конфигурация Elasticsearch 7.6 для узла с ролью Data node.</p> 
-config.<br>elasticsearch.<br>dataNode.<br>elasticsearchConfigSet_7_6.<br>effectiveConfig | **object**<br><p>Обязательное поле. Действующие настройки для кластера Elasticsearch (сочетание параметров, определенных в `userConfig` и `defaultConfig`).</p> <p>Здесь перечислены поддерживаемые параметры конфигурации Elasticsearch 7.6.</p> <p>Подробное описание всех параметров доступно в <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html">документации Elasticsearch</a>.</p> <p>Любые параметры, не перечисленные здесь, не поддерживаются.</p> 
-config.<br>elasticsearch.<br>dataNode.<br>elasticsearchConfigSet_7_6.<br>effectiveConfig.<br>fielddataCacheSize | **integer** (int64)<br><p>Максимальный процент от общего объема кучи (heap), который может выделяться под кэш данных в полях.</p> <p>Все значения полей, помещенные в этот кэш, загружаются в память для обеспечения быстрого доступа к этим значениям при работе с документами. Построение кэша данных для поля — затратная операция, поэтому рекомендуется иметь достаточный объем памяти для этого кэша и поддерживать его в заполненном состоянии.</p> <p>Значение по умолчанию: не ограничено.</p> <p>См. подробное описание в <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-fielddata.html">документации Elasticsearch</a>.</p> 
-config.<br>elasticsearch.<br>dataNode.<br>elasticsearchConfigSet_7_6.<br>effectiveConfig.<br>maxClauseCount | **integer** (int64)<br><p>Максимальное число выражений, которое может содержаться в булевом запросе (bool query).</p> <p>Эта настройка позволяет не допустить разрастания поисковых запросов до больших размеров, чтобы запросы не потребляли много памяти и ресурсов процессора. Настройка влияет не только на запросы типа `bool`, но и на многие другие запросы, которые неявно преобразуются Elasticsearch в запросы типа `bool`.</p> <p>Значение по умолчанию: `1024`.</p> <p>См. подробное описание в <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/search-settings.html">документации Elasticsearch</a>.</p> 
-config.<br>elasticsearch.<br>dataNode.<br>elasticsearchConfigSet_7_6.<br>userConfig | **object**<br><p>Пользовательские настройки для кластера Elasticsearch.</p> <p>Здесь перечислены поддерживаемые параметры конфигурации Elasticsearch 7.6.</p> <p>Подробное описание всех параметров доступно в <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html">документации Elasticsearch</a>.</p> <p>Любые параметры, не перечисленные здесь, не поддерживаются.</p> 
-config.<br>elasticsearch.<br>dataNode.<br>elasticsearchConfigSet_7_6.<br>userConfig.<br>fielddataCacheSize | **integer** (int64)<br><p>Максимальный процент от общего объема кучи (heap), который может выделяться под кэш данных в полях.</p> <p>Все значения полей, помещенные в этот кэш, загружаются в память для обеспечения быстрого доступа к этим значениям при работе с документами. Построение кэша данных для поля — затратная операция, поэтому рекомендуется иметь достаточный объем памяти для этого кэша и поддерживать его в заполненном состоянии.</p> <p>Значение по умолчанию: не ограничено.</p> <p>См. подробное описание в <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-fielddata.html">документации Elasticsearch</a>.</p> 
-config.<br>elasticsearch.<br>dataNode.<br>elasticsearchConfigSet_7_6.<br>userConfig.<br>maxClauseCount | **integer** (int64)<br><p>Максимальное число выражений, которое может содержаться в булевом запросе (bool query).</p> <p>Эта настройка позволяет не допустить разрастания поисковых запросов до больших размеров, чтобы запросы не потребляли много памяти и ресурсов процессора. Настройка влияет не только на запросы типа `bool`, но и на многие другие запросы, которые неявно преобразуются Elasticsearch в запросы типа `bool`.</p> <p>Значение по умолчанию: `1024`.</p> <p>См. подробное описание в <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/search-settings.html">документации Elasticsearch</a>.</p> 
-config.<br>elasticsearch.<br>dataNode.<br>elasticsearchConfigSet_7_6.<br>defaultConfig | **object**<br><p>Настройки по умолчанию для кластера Elasticsearch.</p> <p>Здесь перечислены поддерживаемые параметры конфигурации Elasticsearch 7.6.</p> <p>Подробное описание всех параметров доступно в <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html">документации Elasticsearch</a>.</p> <p>Любые параметры, не перечисленные здесь, не поддерживаются.</p> 
-config.<br>elasticsearch.<br>dataNode.<br>elasticsearchConfigSet_7_6.<br>defaultConfig.<br>fielddataCacheSize | **integer** (int64)<br><p>Максимальный процент от общего объема кучи (heap), который может выделяться под кэш данных в полях.</p> <p>Все значения полей, помещенные в этот кэш, загружаются в память для обеспечения быстрого доступа к этим значениям при работе с документами. Построение кэша данных для поля — затратная операция, поэтому рекомендуется иметь достаточный объем памяти для этого кэша и поддерживать его в заполненном состоянии.</p> <p>Значение по умолчанию: не ограничено.</p> <p>См. подробное описание в <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-fielddata.html">документации Elasticsearch</a>.</p> 
-config.<br>elasticsearch.<br>dataNode.<br>elasticsearchConfigSet_7_6.<br>defaultConfig.<br>maxClauseCount | **integer** (int64)<br><p>Максимальное число выражений, которое может содержаться в булевом запросе (bool query).</p> <p>Эта настройка позволяет не допустить разрастания поисковых запросов до больших размеров, чтобы запросы не потребляли много памяти и ресурсов процессора. Настройка влияет не только на запросы типа `bool`, но и на многие другие запросы, которые неявно преобразуются Elasticsearch в запросы типа `bool`.</p> <p>Значение по умолчанию: `1024`.</p> <p>См. подробное описание в <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/search-settings.html">документации Elasticsearch</a>.</p> 
-config.<br>elasticsearch.<br>masterNode | **object**<br><p>Конфигурация и распределение ресурсов для узлов Elasticsearch с ролью Master node.</p> 
-config.<br>elasticsearch.<br>masterNode.<br>resources | **object**<br><p>Ресурсы, выделенные узлам Elasticsearch с ролью Master node.</p> 
-config.<br>elasticsearch.<br>masterNode.<br>resources.<br>resourcePresetId | **string**<br><p>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т.д.). Все доступные наборы ресурсов перечислены в <a href="/docs/managed-elasticsearch/concepts/instance-types">документации</a>.</p> 
-config.<br>elasticsearch.<br>masterNode.<br>resources.<br>diskSize | **string** (int64)<br><p>Объем хранилища, доступного хосту, в байтах.</p> 
-config.<br>elasticsearch.<br>masterNode.<br>resources.<br>diskTypeId | **string**<br><p>Тип хранилища для хоста. Все доступные типы перечислены в <a href="/docs/managed-elasticsearch/concepts/storage">документации</a>.</p> 
-networkId | **string**<br><p>Идентификатор сети, к которой принадлежит кластер.</p> 
-health | **string**<br><p>Здоровье кластера.</p> <ul> <li>HEALTH_UNKNOWN: состояние кластера неизвестно (`health` всех хостов в кластере — `UNKNOWN`).</li> <li>ALIVE: кластер работает нормально (`health` всех хостов в кластере — `ALIVE`).</li> <li>DEAD: кластер не работает (`health` всех хостов в кластере — `DEAD`).</li> <li>DEGRADED: кластер находится в состоянии деградации (`health` по крайней мере одного из хостов в кластере — не `ALIVE`).</li> </ul> 
-status | **string**<br><p>Текущее состояние кластера.</p> <ul> <li>STATUS_UNKNOWN: состояние кластера неизвестно.</li> <li>CREATING: кластер создается.</li> <li>RUNNING: кластер работает нормально.</li> <li>ERROR: в кластере произошла ошибка, блокирующая работу.</li> <li>UPDATING: кластер изменяется.</li> <li>STOPPING: кластер останавливается.</li> <li>STOPPED: кластер остановлен.</li> <li>STARTING: кластер запускается.</li> </ul> 
+id | **string**<br><p>ID of the Elasticsearch cluster. This ID is assigned at creation time.</p> 
+folderId | **string**<br><p>ID of the folder that the Elasticsearch cluster belongs to.</p> 
+createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+name | **string**<br><p>Name of the Elasticsearch cluster. The name must be unique within the folder. 1-63 characters long.</p> 
+description | **string**<br><p>Description of the Elasticsearch cluster. 0-256 characters long.</p> 
+labels | **object**<br><p>Custom labels for the Elasticsearch cluster as `key:value` pairs. A maximum of 64 labels per resource is allowed.</p> 
+environment | **string**<br><p>Deployment environment of the Elasticsearch cluster.</p> <ul> <li>PRODUCTION: stable environment with a conservative update policy when only hotfixes are applied during regular maintenance.</li> <li>PRESTABLE: environment with a more aggressive update policy when new versions are rolled out irrespective of backward compatibility.</li> </ul> 
+monitoring[] | **object**<br><p>Metadata of monitoring system.</p> 
+monitoring[].<br>name | **string**<br><p>Name of the monitoring system.</p> 
+monitoring[].<br>description | **string**<br><p>Description of the monitoring system.</p> 
+monitoring[].<br>link | **string**<br><p>Link to the monitoring system charts for the Elasticsearch cluster.</p> 
+config | **object**<br><p>Configuration of the Elasticsearch cluster.</p> 
+config.<br>version | **string**<br><p>Elasticsearch version.</p> 
+config.<br>elasticsearch | **object**<br><p>Configuration and resource allocation for Elasticsearch nodes.</p> 
+config.<br>elasticsearch.<br>dataNode | **object**<br><p>Configuration and resource allocation for Elasticsearch data nodes.</p> 
+config.<br>elasticsearch.<br>dataNode.<br>resources | **object**<br>Resources allocated to Elasticsearch data nodes.<br><p>Computational resources.</p> 
+config.<br>elasticsearch.<br>dataNode.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-elasticsearch/concepts/instance-types">documentation</a>.</p> 
+config.<br>elasticsearch.<br>dataNode.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
+config.<br>elasticsearch.<br>dataNode.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host. All available types are listed in the <a href="/docs/managed-elasticsearch/concepts/storage">documentation</a>.</p> 
+config.<br>elasticsearch.<br>dataNode.<br>elasticsearchConfigSet_7 | **object**<br>Elasticsearch 7.x data node configuration.<br><p>Elasticsearch 7.x data node configuration.</p> 
+config.<br>elasticsearch.<br>dataNode.<br>elasticsearchConfigSet_7.<br>effectiveConfig | **object**<br><p>Required. Effective settings for an Elasticsearch cluster (a combination of settings defined in `userConfig` and `defaultConfig`).</p> <p>Elasticsearch 7.x supported configuration options are listed here.</p> <p>Detailed description for each set of options is available in <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html">Elasticsearch documentation</a>.</p> <p>Any options that are not listed here are not supported.</p> 
+config.<br>elasticsearch.<br>dataNode.<br>elasticsearchConfigSet_7.<br>effectiveConfig.<br>maxClauseCount | **integer** (int64)<br><p>The maximum number of clauses a boolean query can contain.</p> <p>The limit is in place to prevent searches from becoming too large and taking up too much CPU and memory. It affects not only Elasticsearch's `bool` query, but many other queries that are implicitly converted to `bool` query by Elastcsearch.</p> <p>Default value: `1024`.</p> <p>See in-depth description in <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/search-settings.html">Elasticsearch documentation</a>.</p> 
+config.<br>elasticsearch.<br>dataNode.<br>elasticsearchConfigSet_7.<br>effectiveConfig.<br>fielddataCacheSize | **string**<br><p>The maximum percentage or absolute value (10%, 512mb) of heap space that is allocated to field data cache.</p> <p>All the field values that are placed in this cache, get loaded to memory in order to provide fast document based access to those values. Building the field data cache for a field can be an expensive operations, so its recommended to have enough memory for this cache, and to keep it loaded.</p> <p>Default value: unbounded.</p> <p>See in-depth description in <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-fielddata.html">Elasticsearch documentation</a>.</p> 
+config.<br>elasticsearch.<br>dataNode.<br>elasticsearchConfigSet_7.<br>userConfig | **object**<br><p>User-defined settings for an Elasticsearch cluster.</p> <p>Elasticsearch 7.x supported configuration options are listed here.</p> <p>Detailed description for each set of options is available in <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html">Elasticsearch documentation</a>.</p> <p>Any options that are not listed here are not supported.</p> 
+config.<br>elasticsearch.<br>dataNode.<br>elasticsearchConfigSet_7.<br>userConfig.<br>maxClauseCount | **integer** (int64)<br><p>The maximum number of clauses a boolean query can contain.</p> <p>The limit is in place to prevent searches from becoming too large and taking up too much CPU and memory. It affects not only Elasticsearch's `bool` query, but many other queries that are implicitly converted to `bool` query by Elastcsearch.</p> <p>Default value: `1024`.</p> <p>See in-depth description in <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/search-settings.html">Elasticsearch documentation</a>.</p> 
+config.<br>elasticsearch.<br>dataNode.<br>elasticsearchConfigSet_7.<br>userConfig.<br>fielddataCacheSize | **string**<br><p>The maximum percentage or absolute value (10%, 512mb) of heap space that is allocated to field data cache.</p> <p>All the field values that are placed in this cache, get loaded to memory in order to provide fast document based access to those values. Building the field data cache for a field can be an expensive operations, so its recommended to have enough memory for this cache, and to keep it loaded.</p> <p>Default value: unbounded.</p> <p>See in-depth description in <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-fielddata.html">Elasticsearch documentation</a>.</p> 
+config.<br>elasticsearch.<br>dataNode.<br>elasticsearchConfigSet_7.<br>defaultConfig | **object**<br><p>Default settings for an Elasticsearch cluster.</p> <p>Elasticsearch 7.x supported configuration options are listed here.</p> <p>Detailed description for each set of options is available in <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html">Elasticsearch documentation</a>.</p> <p>Any options that are not listed here are not supported.</p> 
+config.<br>elasticsearch.<br>dataNode.<br>elasticsearchConfigSet_7.<br>defaultConfig.<br>maxClauseCount | **integer** (int64)<br><p>The maximum number of clauses a boolean query can contain.</p> <p>The limit is in place to prevent searches from becoming too large and taking up too much CPU and memory. It affects not only Elasticsearch's `bool` query, but many other queries that are implicitly converted to `bool` query by Elastcsearch.</p> <p>Default value: `1024`.</p> <p>See in-depth description in <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/search-settings.html">Elasticsearch documentation</a>.</p> 
+config.<br>elasticsearch.<br>dataNode.<br>elasticsearchConfigSet_7.<br>defaultConfig.<br>fielddataCacheSize | **string**<br><p>The maximum percentage or absolute value (10%, 512mb) of heap space that is allocated to field data cache.</p> <p>All the field values that are placed in this cache, get loaded to memory in order to provide fast document based access to those values. Building the field data cache for a field can be an expensive operations, so its recommended to have enough memory for this cache, and to keep it loaded.</p> <p>Default value: unbounded.</p> <p>See in-depth description in <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-fielddata.html">Elasticsearch documentation</a>.</p> 
+config.<br>elasticsearch.<br>masterNode | **object**<br><p>Configuration and resource allocation for Elasticsearch master nodes.</p> 
+config.<br>elasticsearch.<br>masterNode.<br>resources | **object**<br><p>Resources allocated to Elasticsearch master nodes.</p> <p>Computational resources.</p> 
+config.<br>elasticsearch.<br>masterNode.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-elasticsearch/concepts/instance-types">documentation</a>.</p> 
+config.<br>elasticsearch.<br>masterNode.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
+config.<br>elasticsearch.<br>masterNode.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host. All available types are listed in the <a href="/docs/managed-elasticsearch/concepts/storage">documentation</a>.</p> 
+config.<br>elasticsearch.<br>plugins[] | **string**<br><p>Cluster wide plugins</p> 
+config.<br>edition | **string**<br><p>ElasticSearch edition.</p> 
+networkId | **string**<br><p>ID of the network that the cluster belongs to.</p> 
+health | **string**<br><p>Aggregated cluster health.</p> <ul> <li>HEALTH_UNKNOWN: state of the cluster is unknown (`health` of all hosts in the cluster is `UNKNOWN`).</li> <li>ALIVE: cluster is alive and well (`health` of all hosts in the cluster is `ALIVE`).</li> <li>DEAD: cluster is inoperable (`health` of all hosts in the cluster is `DEAD`).</li> <li>DEGRADED: cluster is in degraded state (`health` of at least one of the hosts in the cluster is not `ALIVE`).</li> </ul> 
+status | **string**<br><p>Current state of the cluster.</p> <ul> <li>STATUS_UNKNOWN: cluster state is unknown.</li> <li>CREATING: cluster is being created.</li> <li>RUNNING: cluster is running normally.</li> <li>ERROR: cluster encountered a problem and cannot operate.</li> <li>UPDATING: cluster is being updated.</li> <li>STOPPING: cluster is stopping.</li> <li>STOPPED: cluster stopped.</li> <li>STARTING: cluster is starting.</li> </ul> 
+securityGroupIds[] | **string**<br><p>User security groups</p> 
+serviceAccountId | **string**<br><p>ID of the service account used for access to Yandex Object Storage.</p> 

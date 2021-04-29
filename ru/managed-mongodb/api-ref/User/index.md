@@ -3,8 +3,8 @@ editable: false
 ---
 
 # User
-Набор методов для управления ресурсами User для MongoDB.
-## JSON-представление {#representation}
+A set of methods for managing MongoDB User resources.
+## JSON Representation {#representation}
 ```json 
 {
   "name": "string",
@@ -20,21 +20,21 @@ editable: false
 }
 ```
  
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br><p>Имя пользователя базы данных MongoDB.</p> 
-clusterId | **string**<br><p>Идентификатор кластера MongoDB, к которому принадлежит пользователь.</p> 
-permissions[] | **object**<br><p>Набор разрешений, предоставленных пользователю.</p> 
-permissions[].<br>databaseName | **string**<br><p>Имя базы данных, к которой предоставляет доступ разрешение.</p> 
-permissions[].<br>roles[] | **string**<br><p>Роли MongoDB базы данных `databaseName`, которые предоставляет разрешение.</p> 
+name | **string**<br><p>Name of the MongoDB user.</p> 
+clusterId | **string**<br><p>ID of the MongoDB cluster the user belongs to.</p> 
+permissions[] | **object**<br><p>Set of permissions granted to the user.</p> 
+permissions[].<br>databaseName | **string**<br><p>Name of the database that the permission grants access to.</p> 
+permissions[].<br>roles[] | **string**<br><p>MongoDB roles for the `databaseName` database that the permission grants.</p> 
 
-## Методы {#methods}
-Метод | Описание
+## Methods {#methods}
+Method | Description
 --- | ---
-[create](create.md) | Создает пользователя MongoDB в указанном кластере.
-[delete](delete.md) | Удаляет указанного пользователя MongoDB.
-[get](get.md) | Возвращает указанный ресурс User для MongoDB.
-[grantPermission](grantPermission.md) | Предоставляет разрешение указанному пользователю MongoDB.
-[list](list.md) | Получает список ресурсов User для указанного кластера MongoDB.
-[revokePermission](revokePermission.md) | Отзывает разрешение у указанного пользователя MongoDB.
-[update](update.md) | Изменяет указанного пользователя MongoDB.
+[create](create.md) | Creates a MongoDB user in the specified cluster.
+[delete](delete.md) | Deletes the specified MongoDB user.
+[get](get.md) | Returns the specified MongoDB User resource.
+[grantPermission](grantPermission.md) | Grants permission to the specified MongoDB user.
+[list](list.md) | Retrieves the list of MongoDB User resources in the specified cluster.
+[revokePermission](revokePermission.md) | Revokes permission from the specified MongoDB user.
+[update](update.md) | Updates the specified MongoDB user.

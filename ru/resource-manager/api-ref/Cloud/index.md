@@ -3,8 +3,8 @@ editable: false
 ---
 
 # Cloud
-Набор методов для управления ресурсом Cloud.
-## JSON-представление {#representation}
+A set of methods for managing Cloud resources.
+## JSON Representation {#representation}
 ```json 
 {
   "id": "string",
@@ -14,20 +14,20 @@ editable: false
 }
 ```
  
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br><p>Идентификатор облака.</p> 
-createdAt | **string** (date-time)<br><p>Время создания.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-name | **string**<br><p>Имя облака. Длина имени должна быть от 3 до 63 символов.</p> 
-description | **string**<br><p>Описание облака. Длина описания должна быть от 0 до 256 символов.</p> 
+id | **string**<br><p>ID of the cloud.</p> 
+createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+name | **string**<br><p>Name of the cloud. 3-63 characters long.</p> 
+description | **string**<br><p>Description of the cloud. 0-256 characters long.</p> 
 
-## Методы {#methods}
-Метод | Описание
+## Methods {#methods}
+Method | Description
 --- | ---
-[get](get.md) | Возвращает указанный ресурс Cloud.
-[list](list.md) | Возвращает список доступных ресурсов Cloud.
-[listAccessBindings](listAccessBindings.md) | Возвращает список привязок прав доступа для указанного облака.
-[listOperations](listOperations.md) | Возвращает список операций для указанного облака.
-[setAccessBindings](setAccessBindings.md) | Задает список привязок прав доступа для указанного облака.
-[update](update.md) | Обновляет указанное облако.
-[updateAccessBindings](updateAccessBindings.md) | Обновляет список привязок прав доступа для указанного облака.
+[get](get.md) | Returns the specified Cloud resource.
+[list](list.md) | Retrieves the list of Cloud resources.
+[listAccessBindings](listAccessBindings.md) | Lists access bindings for the specified cloud.
+[listOperations](listOperations.md) | Lists operations for the specified cloud.
+[setAccessBindings](setAccessBindings.md) | Sets access bindings for the specified cloud.
+[update](update.md) | Updates the specified cloud.
+[updateAccessBindings](updateAccessBindings.md) | Updates access bindings for the specified cloud.

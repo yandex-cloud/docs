@@ -4,65 +4,65 @@ editable: false
 
 # DiskTypeService
 
-Набор методов для получения информации о типах дисков.
+A set of methods to retrieve information about disk types.
 
-| Вызов | Описание |
+| Call | Description |
 | --- | --- |
-| [Get](#Get) | Возвращает сведения об указанном типе диска. |
-| [List](#List) | Получает список типов дисков для указанного каталога. |
+| [Get](#Get) | Returns the information about specified disk type. |
+| [List](#List) | Retrieves the list of disk types for the specified folder. |
 
-## Вызовы DiskTypeService {#calls}
+## Calls DiskTypeService {#calls}
 
 ## Get {#Get}
 
-Возвращает сведения об указанном типе диска. <br>Чтобы получить список доступных типов дисков, выполните запрос [List](#List).
+Returns the information about specified disk type. <br>To get the list of available disk types, make a [List](#List) request.
 
 **rpc Get ([GetDiskTypeRequest](#GetDiskTypeRequest)) returns ([DiskType](#DiskType))**
 
 ### GetDiskTypeRequest {#GetDiskTypeRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-disk_type_id | **string**<br>Обязательное поле. Идентификатор типа диска для возврата сведений о диске. Чтобы получить идентификатор типа диска, используйте запрос [DiskTypeService.List](#List). 
+disk_type_id | **string**<br>Required. ID of the disk type to return information about. To get the disk type ID use a [DiskTypeService.List](#List) request. 
 
 
 ### DiskType {#DiskType}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор типа диска. 
-description | **string**<br>Описание диска. Длина описания должна быть от 0 до 256 символов. 
-zone_ids[] | **string**<br>Массив зон доступности, в которых доступен тип диска. 
+id | **string**<br>ID of the disk type. 
+description | **string**<br>Description of the disk type. 0-256 characters long. 
+zone_ids[] | **string**<br>Array of availability zones where the disk type is available. 
 
 
 ## List {#List}
 
-Получает список типов дисков для указанного каталога.
+Retrieves the list of disk types for the specified folder.
 
 **rpc List ([ListDiskTypesRequest](#ListDiskTypesRequest)) returns ([ListDiskTypesResponse](#ListDiskTypesResponse))**
 
 ### ListDiskTypesRequest {#ListDiskTypesRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-page_size | **int64**<br>Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем `page_size`, сервис вернет значение [ListDiskTypesResponse.next_page_token](#ListDiskTypesResponse), которое можно использовать для получения следующей страницы. Максимальное значение — 1000.
-page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListDiskTypesResponse.next_page_token](#ListDiskTypesResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
+page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListDiskTypesResponse.next_page_token](#ListDiskTypesResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
+page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListDiskTypesResponse.next_page_token](#ListDiskTypesResponse) returned by a previous list request. The maximum string length in characters is 100.
 
 
 ### ListDiskTypesResponse {#ListDiskTypesResponse}
 
-Поле | Описание
+Field | Description
 --- | ---
-disk_types[] | **[DiskType](#DiskType1)**<br>Список типов дисков. 
-next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListDiskTypesRequest.page_size](#ListDiskTypesRequest), используйте `next_page_token` в качестве значения параметра [ListDiskTypesRequest.page_token](#ListDiskTypesRequest) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
+disk_types[] | **[DiskType](#DiskType1)**<br>List of disk types. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListDiskTypesRequest.page_size](#ListDiskTypesRequest), use the `next_page_token` as the value for the [ListDiskTypesRequest.page_token](#ListDiskTypesRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
 ### DiskType {#DiskType1}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор типа диска. 
-description | **string**<br>Описание диска. Длина описания должна быть от 0 до 256 символов. 
-zone_ids[] | **string**<br>Массив зон доступности, в которых доступен тип диска. 
+id | **string**<br>ID of the disk type. 
+description | **string**<br>Description of the disk type. 0-256 characters long. 
+zone_ids[] | **string**<br>Array of availability zones where the disk type is available. 
 
 

@@ -19,7 +19,7 @@ Parameter | Description
 folderId | Required. ID of the folder to list Elasticsearch clusters in.  To get the folder ID, make a [list](/docs/resource-manager/api-ref/Folder/list) request.  The maximum string length in characters is 50.
 pageSize | The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [nextPageToken](/docs/managed-elasticsearch/api-ref/Cluster/list#responses) that can be used to get the next page of results in subsequent list requests.  The maximum value is 1000.
 pageToken | Page token. To get the next page of results, set `page_token` to the [nextPageToken](/docs/managed-elasticsearch/api-ref/Cluster/list#responses) returned by a previous list request.  The maximum string length in characters is 100.
-filter | A filter expression that filters resources listed in the response.  The expression must specify: 1. The field name to filter by. Currently you can only use filtering with the [Cluster.name](/docs/managed-elasticsearch/api-ref/Cluster#representation) field. 2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. 3. The value. Мust be 1-63 characters long and match the regular expression `^[a-zA-Z0-9_-]+$`.  Example of a filter: `name NOT IN 'test,beta'`.  The maximum string length in characters is 1000.
+filter | A filter expression that filters resources listed in the response.  The expression must specify: 1. The field name to filter by. Currently you can only use filtering with the [Cluster.name](/docs/managed-elasticsearch/api-ref/Cluster#representation) field. 2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. 3. The value. Must be 1-63 characters long and match the regular expression `^[a-zA-Z0-9_-]+$`.  Example of a filter: `name NOT IN 'test,beta'`.  The maximum string length in characters is 1000.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -72,15 +72,20 @@ filter | A filter expression that filters resources listed in the response.  The
               "diskSize": "string",
               "diskTypeId": "string"
             }
-          }
-        }
+          },
+          "plugins": [
+            "string"
+          ]
+        },
+        "edition": "string"
       },
       "networkId": "string",
       "health": "string",
       "status": "string",
       "securityGroupIds": [
         "string"
-      ]
+      ],
+      "serviceAccountId": "string"
     }
   ],
   "nextPageToken": "string"
@@ -125,8 +130,11 @@ clusters[].<br>config.<br>elasticsearch.<br>masterNode.<br>resources | **object*
 clusters[].<br>config.<br>elasticsearch.<br>masterNode.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-elasticsearch/concepts/instance-types">documentation</a>.</p> 
 clusters[].<br>config.<br>elasticsearch.<br>masterNode.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
 clusters[].<br>config.<br>elasticsearch.<br>masterNode.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host. All available types are listed in the <a href="/docs/managed-elasticsearch/concepts/storage">documentation</a>.</p> 
+clusters[].<br>config.<br>elasticsearch.<br>plugins[] | **string**<br><p>Cluster wide plugins</p> 
+clusters[].<br>config.<br>edition | **string**<br><p>ElasticSearch edition.</p> 
 clusters[].<br>networkId | **string**<br><p>ID of the network that the cluster belongs to.</p> 
 clusters[].<br>health | **string**<br><p>Aggregated cluster health.</p> <ul> <li>HEALTH_UNKNOWN: state of the cluster is unknown (`health` of all hosts in the cluster is `UNKNOWN`).</li> <li>ALIVE: cluster is alive and well (`health` of all hosts in the cluster is `ALIVE`).</li> <li>DEAD: cluster is inoperable (`health` of all hosts in the cluster is `DEAD`).</li> <li>DEGRADED: cluster is in degraded state (`health` of at least one of the hosts in the cluster is not `ALIVE`).</li> </ul> 
 clusters[].<br>status | **string**<br><p>Current state of the cluster.</p> <ul> <li>STATUS_UNKNOWN: cluster state is unknown.</li> <li>CREATING: cluster is being created.</li> <li>RUNNING: cluster is running normally.</li> <li>ERROR: cluster encountered a problem and cannot operate.</li> <li>UPDATING: cluster is being updated.</li> <li>STOPPING: cluster is stopping.</li> <li>STOPPED: cluster stopped.</li> <li>STARTING: cluster is starting.</li> </ul> 
 clusters[].<br>securityGroupIds[] | **string**<br><p>User security groups</p> 
+clusters[].<br>serviceAccountId | **string**<br><p>ID of the service account used for access to Yandex Object Storage.</p> 
 nextPageToken | **string**<br><p>Token that allows you to get the next page of results for list requests.</p> <p>If the number of results is larger than <a href="/docs/managed-elasticsearch/api-ref/Cluster/list#query_params">pageSize</a>, use `next_page_token` as the value for the <a href="/docs/managed-elasticsearch/api-ref/Cluster/list#query_params">pageToken</a> parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results.</p> 

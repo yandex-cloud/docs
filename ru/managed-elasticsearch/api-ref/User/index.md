@@ -3,8 +3,8 @@ editable: false
 ---
 
 # User
-Набор методов для управления пользователями Elasticsearch.
-## JSON-представление {#representation}
+A set of methods for managing Elasticsearch users.
+## JSON Representation {#representation}
 ```json 
 {
   "name": "string",
@@ -12,13 +12,16 @@ editable: false
 }
 ```
  
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br><p>Имя пользователя Elasticsearch.</p> 
-clusterId | **string**<br><p>Идентификатор кластера Elasticsearch, к которому принадлежит пользователь.</p> 
+name | **string**<br><p>Name of the Elasticsearch user.</p> 
+clusterId | **string**<br><p>ID of the Elasticsearch cluster the user belongs to.</p> 
 
-## Методы {#methods}
-Метод | Описание
+## Methods {#methods}
+Method | Description
 --- | ---
-[get](get.md) | Возвращает информацию об указанном пользователе Elasticsearch.
-[list](list.md) | Получает список пользователей Elasticsearch в указанном кластере.
+[create](create.md) | Creates a user in the specified cluster.
+[delete](delete.md) | Deletes the specified user.
+[get](get.md) | Returns the specified Elasticsearch user.
+[list](list.md) | Retrieves the list of Elasticsearch users in the specified cluster.
+[update](update.md) | Updates the specified user.

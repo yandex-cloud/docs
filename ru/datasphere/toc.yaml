@@ -53,6 +53,8 @@ items:
         href: concepts/data-proc.md
       - name: Фоновые операции
         href: concepts/async.md
+      - name: Хранение приватных данных
+        href: concepts/secrets.md
       - name: Использование TensorBoard в DataSphere
         href: concepts/tensorboard.md
       - name: Квоты и лимиты
@@ -63,8 +65,6 @@ items:
         href: early-access/index.md
       - name: Специальные фоновые операции
         href: early-access/repeat.md
-      - name: Хранение приватных данных
-        href: early-access/secrets.md
   - name: Сценарии использования
     items:
       - name: Знакомство с DataSphere

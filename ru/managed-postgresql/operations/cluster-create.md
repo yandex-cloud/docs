@@ -145,7 +145,22 @@
 
      Пример структуры конфигурационного файла:
 
-     ```
+     ```hcl
+     terraform {
+       required_providers {
+         yandex = {
+           source = "yandex-cloud/yandex"
+         }
+       }
+     }
+
+     provider "yandex" {
+       token     = "<OAuth или статический ключ сервисного аккаунта>"
+       cloud_id  = "<идентификатор облака>"
+       folder_id = "<идентификатор каталога>"
+       zone      = "<зона доступности>"
+     }
+
      resource "yandex_mdb_postgresql_cluster" "<имя кластера>" {
        name        = "<имя кластера>"
        environment = "<окружение, PRESTABLE или PRODUCTION>"
@@ -254,7 +269,7 @@
   - Версии `13`.
   - В окружении `PRESTABLE`.
   - В облаке с идентификатором `{{ tf-cloud-id }}`.
-  - В каталоге `{{ tf-folder-id }}`.
+  - В каталоге с идентификатором `{{ tf-folder-id }}`.
   - В новой сети `mynet`.
   - В новой группе безопасности `pgsql-sg`, разрешающей подключение к кластеру из интернета через порт `6432`.
   - С одним хостом класса `{{ host-class }}` в новой подсети `mysubnet`, в зоне доступности `{{ zone-id }}`. Подсеть `mysubnet` будет иметь диапазон `10.5.0.0/24`.
@@ -262,9 +277,17 @@
   - С одним пользователем (`user1`), с паролем `user1user1`.
   - С одной базой данных `db1`, принадлежащей пользователю `user1`.
 
-  Конфигурационный файл кластера выглядит так:
+  Конфигурационный файл для такого кластера выглядит так:
 
-  ```
+  ```go
+  terraform {
+    required_providers {
+      yandex = {
+        source = "yandex-cloud/yandex"
+      }
+    }
+  }
+
   provider "yandex" {
     token     = "<OAuth или статический ключ сервисного аккаунта>"
     cloud_id  = "{{ tf-cloud-id }}"
@@ -306,7 +329,9 @@
     }
   }
 
-  resource "yandex_vpc_network" "mynet" {  name = "mynet" }
+  resource "yandex_vpc_network" "mynet" {
+    name = "mynet"
+  }
 
   resource "yandex_vpc_subnet" "mysubnet" {
     name           = "mysubnet"

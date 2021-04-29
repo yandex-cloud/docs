@@ -4,289 +4,455 @@ editable: false
 
 # SubnetService
 
-Набор методов для управления подсетями.
+A set of methods for managing Subnet resources.
 
-| Вызов | Описание |
+| Call | Description |
 | --- | --- |
-| [Get](#Get) | Возвращает указанный ресурс Subnet. |
-| [List](#List) | Возвращает список доступных подсетей в указанном каталоге. |
-| [Create](#Create) | Создает подсеть в указанных каталоге и сети. |
-| [Update](#Update) | Обновляет параметры указанной подсети. |
-| [Delete](#Delete) | Удаляет указанную подсеть. |
-| [ListOperations](#ListOperations) | Возвращает список операций для указанной подсети. |
+| [Get](#Get) | Returns the specified Subnet resource. |
+| [List](#List) | Retrieves the list of Subnet resources in the specified folder. |
+| [Create](#Create) | Creates a subnet in the specified folder and network. |
+| [Update](#Update) | Updates the specified subnet. |
+| [Delete](#Delete) | Deletes the specified subnet. |
+| [ListOperations](#ListOperations) | List operations for the specified subnet. |
+| [Move](#Move) | Move subnet to another folder. |
+| [ListUsedAddresses](#ListUsedAddresses) | List used addresses in specified subnet. |
 
-## Вызовы SubnetService {#calls}
+## Calls SubnetService {#calls}
 
 ## Get {#Get}
 
-Возвращает указанный ресурс Subnet. <br>Чтобы получить список доступных подсетей, используйте запрос [List](#List).
+Returns the specified Subnet resource. <br>To get the list of available Subnet resources, make a [List](#List) request.
 
 **rpc Get ([GetSubnetRequest](#GetSubnetRequest)) returns ([Subnet](#Subnet))**
 
 ### GetSubnetRequest {#GetSubnetRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-subnet_id | **string**<br>Обязательное поле. Идентификатор возвращаемого ресурса Subnet. <br>Чтобы получить идентификатор подсети, используйте запрос [SubnetService.List](#List). Максимальная длина строки в символах — 50.
+subnet_id | **string**<br>Required. ID of the Subnet resource to return. To get the subnet ID use a [SubnetService.List](#List) request. The maximum string length in characters is 50.
 
 
 ### Subnet {#Subnet}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор подсети. 
-folder_id | **string**<br>Идентификатор каталога, которому принадлежит подсеть. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-name | **string**<br>Имя подсети. Имя должно быть уникальным в каталоге. Длина имени должна быть от 3 до 63 символов. 
-description | **string**<br>Описание подсети. Длина описания должна быть от 0 до 256 символов. 
-labels | **map<string,string>**<br>Метки ресурса в формате `` ключ:значение ``. Максимум 64 метки на ресурс. 
-network_id | **string**<br>Идентификатор облачной сети, к которой принадлежит подсеть. 
-zone_id | **string**<br>Идентификатор зоны доступности, где находится подсеть. 
+id | **string**<br>ID of the subnet. 
+folder_id | **string**<br>ID of the folder that the subnet belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
+name | **string**<br>Name of the subnet. The name is unique within the project. 3-63 characters long. 
+description | **string**<br>Optional description of the subnet. 0-256 characters long. 
+labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
+network_id | **string**<br>ID of the network the subnet belongs to. 
+zone_id | **string**<br>ID of the availability zone where the subnet resides. 
 v4_cidr_blocks[] | **string**<br><ol><li></li></ol> 
-v6_cidr_blocks[] | **string**<br>IPv6 еще не доступен. 
+v6_cidr_blocks[] | **string**<br>IPv6 not available yet. 
+route_table_id | **string**<br>ID of route table the subnet is linked to. 
+dhcp_options | **[DhcpOptions](#DhcpOptions)**<br> 
+
+
+### DhcpOptions {#DhcpOptions}
+
+Field | Description
+--- | ---
+domain_name_servers[] | **string**<br> 
+domain_name | **string**<br> 
+ntp_servers[] | **string**<br> 
 
 
 ## List {#List}
 
-Возвращает список доступных подсетей в указанном каталоге.
+Retrieves the list of Subnet resources in the specified folder.
 
 **rpc List ([ListSubnetsRequest](#ListSubnetsRequest)) returns ([ListSubnetsResponse](#ListSubnetsResponse))**
 
 ### ListSubnetsRequest {#ListSubnetsRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-folder_id | **string**<br>Обязательное поле. Идентификатор каталога для получения списка подсетей. Чтобы получить идентификатор каталога, используйте запрос [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List). Максимальная длина строки в символах — 50.
-page_size | **int64**<br>Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем `page_size`, сервис вернет значение [ListSubnetsResponse.next_page_token](#ListSubnetsResponse), которое можно использовать для получения следующей страницы. Значение по умолчанию: 100. Максимальное значение — 1000.
-page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListSubnetsResponse.next_page_token](#ListSubnetsResponse) прошлого запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
-filter | **string**<br><ol><li>Имя поля. В настоящее время фильтрация осуществляется только по полю [Subnet.name](#Subnet1). </li><li>Оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений. </li><li>Значение. Значение длиной от 3 до 63 символов, совпадающее с регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.</li></ol> Максимальная длина строки в символах — 1000.
+folder_id | **string**<br>Required. ID of the folder to list subnets in. To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. The maximum string length in characters is 50.
+page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListSubnetsResponse.next_page_token](#ListSubnetsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
+page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListSubnetsResponse.next_page_token](#ListSubnetsResponse) returned by a previous list request. The maximum string length in characters is 100.
+filter | **string**<br><ol><li>The field name. Currently you can use filtering only on [Subnet.name](#Subnet1) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.</li></ol> The maximum string length in characters is 1000.
 
 
 ### ListSubnetsResponse {#ListSubnetsResponse}
 
-Поле | Описание
+Field | Description
 --- | ---
-subnets[] | **[Subnet](#Subnet1)**<br>Список подсетей. 
-next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListSubnetsRequest.page_size](#ListSubnetsRequest), используйте `next_page_token` в качестве значения параметра [ListSubnetsRequest.page_token](#ListSubnetsRequest) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token`, для перебора страниц результатов. 
+subnets[] | **[Subnet](#Subnet1)**<br>List of Subnet resources. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListSubnetsRequest.page_size](#ListSubnetsRequest), use the `next_page_token` as the value for the [ListSubnetsRequest.page_token](#ListSubnetsRequest) query parameter in the next list request. Subsequent list requests will have their own `next_page_token` to continue paging through the results. 
 
 
 ### Subnet {#Subnet1}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор подсети. 
-folder_id | **string**<br>Идентификатор каталога, которому принадлежит подсеть. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-name | **string**<br>Имя подсети. Имя должно быть уникальным в каталоге. Длина имени должна быть от 3 до 63 символов. 
-description | **string**<br>Описание подсети. Длина описания должна быть от 0 до 256 символов. 
-labels | **map<string,string>**<br>Метки ресурса в формате `` ключ:значение ``. Максимум 64 метки на ресурс. 
-network_id | **string**<br>Идентификатор облачной сети, к которой принадлежит подсеть. 
-zone_id | **string**<br>Идентификатор зоны доступности, где находится подсеть. 
+id | **string**<br>ID of the subnet. 
+folder_id | **string**<br>ID of the folder that the subnet belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
+name | **string**<br>Name of the subnet. The name is unique within the project. 3-63 characters long. 
+description | **string**<br>Optional description of the subnet. 0-256 characters long. 
+labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
+network_id | **string**<br>ID of the network the subnet belongs to. 
+zone_id | **string**<br>ID of the availability zone where the subnet resides. 
 v4_cidr_blocks[] | **string**<br><ol><li></li></ol> 
-v6_cidr_blocks[] | **string**<br>IPv6 еще не доступен. 
+v6_cidr_blocks[] | **string**<br>IPv6 not available yet. 
+route_table_id | **string**<br>ID of route table the subnet is linked to. 
+dhcp_options | **[DhcpOptions](#DhcpOptions1)**<br> 
+
+
+### DhcpOptions {#DhcpOptions1}
+
+Field | Description
+--- | ---
+domain_name_servers[] | **string**<br> 
+domain_name | **string**<br> 
+ntp_servers[] | **string**<br> 
 
 
 ## Create {#Create}
 
-Создает подсеть в указанных каталоге и сети. Метод запускает асинхронную операцию, которую можно отменить перед тем, как она завершится.
+Creates a subnet in the specified folder and network. Method starts an asynchronous operation that can be cancelled while it is in progress.
 
 **rpc Create ([CreateSubnetRequest](#CreateSubnetRequest)) returns ([operation.Operation](#Operation))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateSubnetMetadata](#CreateSubnetMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Subnet](#Subnet2)<br>
 
 ### CreateSubnetRequest {#CreateSubnetRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-folder_id | **string**<br>Обязательное поле. Идентификатор каталога, в котором создается подсеть. Чтобы получить идентификатор каталога, используйте запрос [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List). Максимальная длина строки в символах — 50.
-name | **string**<br>Имя подсети. Имя должно быть уникальным в каталоге. Значение должно соответствовать регулярному выражению ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
-description | **string**<br>Описание подсети. Максимальная длина строки в символах — 256.
-labels | **map<string,string>**<br>Метки ресурса в формате `` ключ:значение ``. Не более 64 на ресурс. Максимальная длина строки в символах для каждого значения — 63. Каждое значение должно соответствовать регулярному выражению ` [-_0-9a-z]* `. Длина строки в символах для каждого ключа должна быть от 1 до 63. Каждый ключ должен соответствовать регулярному выражению ` [a-z][-_0-9a-z]* `.
-network_id | **string**<br>Обязательное поле. Идентификатор облачной сети, в которой создается подсеть. Максимальная длина строки в символах — 50.
-zone_id | **string**<br>Идентификатор зоны доступности, где находится подсеть. Чтобы получить список доступных зон, используйте запрос [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/grpc/zone_service#List). Максимальная длина строки в символах — 50.
-v4_cidr_blocks[] | **string**<br><ol><li></li></ol> 
-v6_cidr_blocks[] | **string**<br>Диапазоны IPv6 еще не доступны. 
-route_table_id | **string**<br>ID of route table the subnet is linked to. Максимальная длина строки в символах — 50.
+folder_id | **string**<br>Required. ID of the folder to create a subnet in. To get folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. The maximum string length in characters is 50.
+name | **string**<br>Name of the subnet. The name must be unique within the folder. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+description | **string**<br>Description of the subnet. The maximum string length in characters is 256.
+labels | **map<string,string>**<br>Resource labels, `` key:value `` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+network_id | **string**<br>Required. ID of the network to create subnet in. The maximum string length in characters is 50.
+zone_id | **string**<br>Required. ID of the availability zone where the subnet resides. To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/grpc/zone_service#List) request. The maximum string length in characters is 50.
+v4_cidr_blocks[] | **string**<br>Required. <ol><li></li></ol> 
+route_table_id | **string**<br>IPv6 not available yet. repeated string v6_cidr_blocks = 8; ID of route table the subnet is linked to. The maximum string length in characters is 50.
+dhcp_options | **[DhcpOptions](#DhcpOptions2)**<br> 
+
+
+### DhcpOptions {#DhcpOptions2}
+
+Field | Description
+--- | ---
+domain_name_servers[] | **string**<br> 
+domain_name | **string**<br> 
+ntp_servers[] | **string**<br> 
 
 
 ### Operation {#Operation}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateSubnetMetadata](#CreateSubnetMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Subnet](#Subnet2)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateSubnetMetadata](#CreateSubnetMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Subnet](#Subnet2)>**<br>if operation finished successfully. 
 
 
 ### CreateSubnetMetadata {#CreateSubnetMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-subnet_id | **string**<br>Идентификатор создаваемой подсети. 
+subnet_id | **string**<br>ID of the subnet that is being created. 
 
 
 ### Subnet {#Subnet2}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор подсети. 
-folder_id | **string**<br>Идентификатор каталога, которому принадлежит подсеть. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-name | **string**<br>Имя подсети. Имя должно быть уникальным в каталоге. Длина имени должна быть от 3 до 63 символов. 
-description | **string**<br>Описание подсети. Длина описания должна быть от 0 до 256 символов. 
-labels | **map<string,string>**<br>Метки ресурса в формате `` ключ:значение ``. Максимум 64 метки на ресурс. 
-network_id | **string**<br>Идентификатор облачной сети, к которой принадлежит подсеть. 
-zone_id | **string**<br>Идентификатор зоны доступности, где находится подсеть. 
+id | **string**<br>ID of the subnet. 
+folder_id | **string**<br>ID of the folder that the subnet belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
+name | **string**<br>Name of the subnet. The name is unique within the project. 3-63 characters long. 
+description | **string**<br>Optional description of the subnet. 0-256 characters long. 
+labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
+network_id | **string**<br>ID of the network the subnet belongs to. 
+zone_id | **string**<br>ID of the availability zone where the subnet resides. 
 v4_cidr_blocks[] | **string**<br><ol><li></li></ol> 
-v6_cidr_blocks[] | **string**<br>IPv6 еще не доступен. 
+v6_cidr_blocks[] | **string**<br>IPv6 not available yet. 
+route_table_id | **string**<br>ID of route table the subnet is linked to. 
+dhcp_options | **[DhcpOptions](#DhcpOptions3)**<br> 
+
+
+### DhcpOptions {#DhcpOptions3}
+
+Field | Description
+--- | ---
+domain_name_servers[] | **string**<br> 
+domain_name | **string**<br> 
+ntp_servers[] | **string**<br> 
 
 
 ## Update {#Update}
 
-Обновляет параметры указанной подсети. Метод запускает асинхронную операцию, которую можно отменить перед тем, как она завершится.
+Updates the specified subnet. Method starts an asynchronous operation that can be cancelled while it is in progress.
 
 **rpc Update ([UpdateSubnetRequest](#UpdateSubnetRequest)) returns ([operation.Operation](#Operation1))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateSubnetMetadata](#UpdateSubnetMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Subnet](#Subnet3)<br>
 
 ### UpdateSubnetRequest {#UpdateSubnetRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-subnet_id | **string**<br>Обязательное поле. Идентификатор обновляемого ресурса Subnet. Максимальная длина строки в символах — 50.
-update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Маска, определяющая, какие поля ресурса Subnet будут обновлены. 
-name | **string**<br>Имя подсети. Имя должно быть уникальным в каталоге. Значение должно соответствовать регулярному выражению ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
-description | **string**<br>Описание подсети. Максимальная длина строки в символах — 256.
-labels | **map<string,string>**<br>Метки ресурса в формате `` ключ:значение ``. Не более 64 на ресурс. Максимальная длина строки в символах для каждого значения — 63. Каждое значение должно соответствовать регулярному выражению ` [-_0-9a-z]* `. Длина строки в символах для каждого ключа должна быть от 1 до 63. Каждый ключ должен соответствовать регулярному выражению ` [a-z][-_0-9a-z]* `.
-route_table_id | **string**<br>ID of route table the subnet is linked to. Максимальная длина строки в символах — 50.
+subnet_id | **string**<br>Required. ID of the Subnet resource to update. The maximum string length in characters is 50.
+update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the Subnet resource are going to be updated. 
+name | **string**<br>Name of the subnet. The name must be unique within the folder. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+description | **string**<br>Description of the subnet. The maximum string length in characters is 256.
+labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+route_table_id | **string**<br>ID of route table the subnet is linked to. The maximum string length in characters is 50.
+dhcp_options | **[DhcpOptions](#DhcpOptions4)**<br> 
+
+
+### DhcpOptions {#DhcpOptions4}
+
+Field | Description
+--- | ---
+domain_name_servers[] | **string**<br> 
+domain_name | **string**<br> 
+ntp_servers[] | **string**<br> 
 
 
 ### Operation {#Operation1}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateSubnetMetadata](#UpdateSubnetMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Subnet](#Subnet3)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateSubnetMetadata](#UpdateSubnetMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Subnet](#Subnet3)>**<br>if operation finished successfully. 
 
 
 ### UpdateSubnetMetadata {#UpdateSubnetMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-subnet_id | **string**<br>Идентификатор обновляемого ресурса Subnet. 
+subnet_id | **string**<br>ID of the Subnet resource that is being updated. 
 
 
 ### Subnet {#Subnet3}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор подсети. 
-folder_id | **string**<br>Идентификатор каталога, которому принадлежит подсеть. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-name | **string**<br>Имя подсети. Имя должно быть уникальным в каталоге. Длина имени должна быть от 3 до 63 символов. 
-description | **string**<br>Описание подсети. Длина описания должна быть от 0 до 256 символов. 
-labels | **map<string,string>**<br>Метки ресурса в формате `` ключ:значение ``. Максимум 64 метки на ресурс. 
-network_id | **string**<br>Идентификатор облачной сети, к которой принадлежит подсеть. 
-zone_id | **string**<br>Идентификатор зоны доступности, где находится подсеть. 
+id | **string**<br>ID of the subnet. 
+folder_id | **string**<br>ID of the folder that the subnet belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
+name | **string**<br>Name of the subnet. The name is unique within the project. 3-63 characters long. 
+description | **string**<br>Optional description of the subnet. 0-256 characters long. 
+labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
+network_id | **string**<br>ID of the network the subnet belongs to. 
+zone_id | **string**<br>ID of the availability zone where the subnet resides. 
 v4_cidr_blocks[] | **string**<br><ol><li></li></ol> 
-v6_cidr_blocks[] | **string**<br>IPv6 еще не доступен. 
+v6_cidr_blocks[] | **string**<br>IPv6 not available yet. 
+route_table_id | **string**<br>ID of route table the subnet is linked to. 
+dhcp_options | **[DhcpOptions](#DhcpOptions5)**<br> 
+
+
+### DhcpOptions {#DhcpOptions5}
+
+Field | Description
+--- | ---
+domain_name_servers[] | **string**<br> 
+domain_name | **string**<br> 
+ntp_servers[] | **string**<br> 
 
 
 ## Delete {#Delete}
 
-Удаляет указанную подсеть.
+Deletes the specified subnet.
 
 **rpc Delete ([DeleteSubnetRequest](#DeleteSubnetRequest)) returns ([operation.Operation](#Operation2))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[DeleteSubnetMetadata](#DeleteSubnetMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
 
 ### DeleteSubnetRequest {#DeleteSubnetRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-subnet_id | **string**<br>Обязательное поле. Идентификатор удаляемой подсети. Чтобы получить идентификатор подсети, используйте запрос [SubnetService.List](#List). Максимальная длина строки в символах — 50.
+subnet_id | **string**<br>Required. ID of the subnet to delete. To get the subnet ID use a [SubnetService.List](#List) request. The maximum string length in characters is 50.
 
 
 ### Operation {#Operation2}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteSubnetMetadata](#DeleteSubnetMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteSubnetMetadata](#DeleteSubnetMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>if operation finished successfully. 
 
 
 ### DeleteSubnetMetadata {#DeleteSubnetMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-subnet_id | **string**<br>Идентификатор удаляемого ресурса Subnet. 
+subnet_id | **string**<br>ID of the Subnet resource that is being deleted. 
 
 
 ## ListOperations {#ListOperations}
 
-Возвращает список операций для указанной подсети.
+List operations for the specified subnet.
 
 **rpc ListOperations ([ListSubnetOperationsRequest](#ListSubnetOperationsRequest)) returns ([ListSubnetOperationsResponse](#ListSubnetOperationsResponse))**
 
 ### ListSubnetOperationsRequest {#ListSubnetOperationsRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-subnet_id | **string**<br>Обязательное поле. Идентификатор ресурса Subnet, для которого запрашивается список операций. Максимальная длина строки в символах — 50.
-page_size | **int64**<br>Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем `page_size`, сервис вернет значение [ListNetworkOperationsResponse.next_page_token](#ListNetworkOperationsResponse), которое можно использовать для получения следующей страницы. Значение по умолчанию: 100. Максимальное значение — 1000.
-page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListNetworkSubnetsResponse.next_page_token](#ListNetworkSubnetsResponse) прошлого запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
+subnet_id | **string**<br>Required. ID of the Subnet resource to list operations for. The maximum string length in characters is 50.
+page_size | **int64**<br>The maximum number of results per page that should be returned. If the number of available results is larger than `page_size`, the service returns a [ListSubnetOperationsResponse.next_page_token](#ListSubnetOperationsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
+page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListSubnetOperationsResponse.next_page_token](#ListSubnetOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
 
 
 ### ListSubnetOperationsResponse {#ListSubnetOperationsResponse}
 
-Поле | Описание
+Field | Description
 --- | ---
-operations[] | **[operation.Operation](#Operation3)**<br>Список операций для указанного ресурса Subnet. 
-next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListNetworkSubnetsRequest.page_size](#ListNetworkSubnetsRequest), используйте `next_page_token` в качестве значения параметра [ListNetworkSubnetsRequest.page_token](#ListNetworkSubnetsRequest) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token`, для перебора страниц результатов. 
+operations[] | **[operation.Operation](#Operation3)**<br>List of operations for the specified Subnet resource. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListSubnetOperationsRequest.page_size](#ListSubnetOperationsRequest), use the `next_page_token` as the value for the [ListSubnetOperationsRequest.page_token](#ListSubnetOperationsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
 ### Operation {#Operation3}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**<br>Результат операции в случае успешного завершения. Если исходный метод не возвращает никаких данных при успешном завершении, например метод Delete, поле содержит объект [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty). Если исходный метод — это стандартный метод Create / Update, поле содержит целевой ресурс операции. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `response`. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**<br>The normal response of the operation in case of success. If the original method returns no data on success, such as Delete, the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty). If the original method is the standard Create/Update, the response should be the target resource of the operation. Any method that returns a long-running operation should document the response type, if any. 
+
+
+## Move {#Move}
+
+Move subnet to another folder.
+
+**rpc Move ([MoveSubnetRequest](#MoveSubnetRequest)) returns ([operation.Operation](#Operation4))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[MoveSubnetMetadata](#MoveSubnetMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Subnet](#Subnet4)<br>
+
+### MoveSubnetRequest {#MoveSubnetRequest}
+
+Field | Description
+--- | ---
+subnet_id | **string**<br>Required. ID of the Subnet resource to move. The maximum string length in characters is 50.
+destination_folder_id | **string**<br>Required. ID of the destination folder. The maximum string length in characters is 50.
+
+
+### Operation {#Operation4}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[MoveSubnetMetadata](#MoveSubnetMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Subnet](#Subnet4)>**<br>if operation finished successfully. 
+
+
+### MoveSubnetMetadata {#MoveSubnetMetadata}
+
+Field | Description
+--- | ---
+subnet_id | **string**<br>ID of the Subnet resource that is being moved. 
+
+
+### Subnet {#Subnet4}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the subnet. 
+folder_id | **string**<br>ID of the folder that the subnet belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
+name | **string**<br>Name of the subnet. The name is unique within the project. 3-63 characters long. 
+description | **string**<br>Optional description of the subnet. 0-256 characters long. 
+labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
+network_id | **string**<br>ID of the network the subnet belongs to. 
+zone_id | **string**<br>ID of the availability zone where the subnet resides. 
+v4_cidr_blocks[] | **string**<br><ol><li></li></ol> 
+v6_cidr_blocks[] | **string**<br>IPv6 not available yet. 
+route_table_id | **string**<br>ID of route table the subnet is linked to. 
+dhcp_options | **[DhcpOptions](#DhcpOptions6)**<br> 
+
+
+### DhcpOptions {#DhcpOptions6}
+
+Field | Description
+--- | ---
+domain_name_servers[] | **string**<br> 
+domain_name | **string**<br> 
+ntp_servers[] | **string**<br> 
+
+
+## ListUsedAddresses {#ListUsedAddresses}
+
+List used addresses in specified subnet.
+
+**rpc ListUsedAddresses ([ListUsedAddressesRequest](#ListUsedAddressesRequest)) returns ([ListUsedAddressesResponse](#ListUsedAddressesResponse))**
+
+### ListUsedAddressesRequest {#ListUsedAddressesRequest}
+
+Field | Description
+--- | ---
+subnet_id | **string**<br>Required.  
+page_size | **int64**<br> 
+page_token | **string**<br> 
+filter | **string**<br> 
+
+
+### ListUsedAddressesResponse {#ListUsedAddressesResponse}
+
+Field | Description
+--- | ---
+addresses[] | **[UsedAddress](#UsedAddress)**<br> 
+next_page_token | **string**<br> 
+
+
+### UsedAddress {#UsedAddress}
+
+Field | Description
+--- | ---
+address | **string**<br> 
+ip_version | enum **IpVersion**<br> <ul><ul/>
+references[] | **[reference.Reference](./#reference)**<br> 
 
 

@@ -17,6 +17,8 @@ items:
             href: operations/cloud/set-access-bindings.md
           - name: Switch clouds
             href: operations/cloud/switch-cloud.md
+          - name: Cloud incident notifications
+            href: operations/cloud/notify.md
       - name: Folders
         items:
           - name: Creating a folder
@@ -27,10 +29,14 @@ items:
             href: operations/folder/set-access-bindings.md
           - name: Getting the folder ID
             href: operations/folder/get-id.md
+          - name: Folder incident notifications
+            href: operations/folder/notify.md
   - name: Concepts
     items:
       - name: Hierarchy of Yandex.Cloud resources
         href: concepts/resources-hierarchy.md
+      - name: Notifications from Yandex.Cloud
+        href: concepts/notify.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Access management

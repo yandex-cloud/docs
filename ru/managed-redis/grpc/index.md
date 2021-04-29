@@ -1,11 +1,11 @@
 # Yandex Managed Service for Redis API
-Методы справочника API сгруппированы по ресурсам. Чтобы выполнить операцию над ресурсом выполните RPC-вызов. Подробнее об архитектуре API Яндекс.Облака, см. [Концепции API Яндекс.Облака](/docs/api-design-guide/).
+This API reference is organized by resource. Actions are performed by sending HTTP requests to resource URLs or making RPC calls. For more information about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
 
-Спецификации API Яндекс.Облака смотрите на [GitHub](https://github.com/yandex-cloud/cloudapi).
+See the interface definitions of Yandex.Cloud API on [GitHub](https://github.com/yandex-cloud/cloudapi).
 
-Сервис | Описание
+Service | Description
 --- | ---
-[BackupService](./backup_service.md) | Методы для управления резервными копиями Redis.
-[ClusterService](./cluster_service.md) | Методы для управления кластерами Redis.
-[ResourcePresetService](./resource_preset_service.md) | Методы для работы с наборами ресурсов.
-[OperationService](./operation_service.md) | Набор методов для управления операциями в асинхронных запросах API. Ссылки указаны относительно домена `operation.api.cloud.yandex.net`.
+[BackupService](./backup_service.md) | A set of methods for managing Redis backups.
+[ClusterService](./cluster_service.md) | A set of methods for managing Redis clusters.
+[ResourcePresetService](./resource_preset_service.md) | A set of methods for working with resource presets.
+[OperationService](./operation_service.md) | A set of methods for managing operations for asynchronous API requests.

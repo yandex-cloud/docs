@@ -2,24 +2,23 @@
 editable: false
 ---
 
-# Метод get
-Возвращает указанный ресурс Network.
+# Method get
+Returns the specified Network resource.
  
-Чтобы получить список доступных ресурсов Network, используйте
-запрос [list](/docs/vpc/api-ref/Network/list).
+Get the list of available Network resources by making a [list](/docs/vpc/api-ref/Network/list) request.
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 GET https://vpc.api.cloud.yandex.net/vpc/v1/networks/{networkId}
 ```
  
-## Path-параметры {#path_params}
+## Path parameters {#path_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-networkId | Обязательное поле. Идентификатор возвращаемого ресурса Network. Чтобы получить идентификатор облачной сети, используйте запрос [list](/docs/vpc/api-ref/Network/list).  Максимальная длина строки в символах — 50.
+networkId | Required. ID of the Network resource to return. To get the network ID, use a [list](/docs/vpc/api-ref/Network/list) request.  The maximum string length in characters is 50.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -33,14 +32,14 @@ networkId | Обязательное поле. Идентификатор воз
   "defaultSecurityGroupId": "string"
 }
 ```
-Ресурс Network. Подробнее см. [Сети](/vpc/concepts/network).
+A Network resource. For more information, see [Networks](/docs/vpc/concepts/network).
  
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br><p>Идентификатор облачной сети.</p> 
-folderId | **string**<br><p>Идентификатор каталога, которому принадлежит сеть.</p> 
-createdAt | **string** (date-time)<br><p>Время создания ресурса в формате в <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-name | **string**<br><p>Имя облачной сети. Имя должно быть уникальным в каталоге. Длина имени должна быть от 3 до 63 символов.</p> 
-description | **string**<br><p>Описание облачной сети. Длина описания должна быть от 0 до 256 символов.</p> 
-labels | **object**<br><p>Метки ресурса в формате `` ключ:значение ``. Максимум 64 метки на ресурс.</p> 
-defaultSecurityGroupId | **string**<br><p>Идентификатор группы безопасности по умолчанию.</p> 
+id | **string**<br><p>ID of the network.</p> 
+folderId | **string**<br><p>ID of the folder that the network belongs to.</p> 
+createdAt | **string** (date-time)<br><p>Creation timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+name | **string**<br><p>Name of the network. The name is unique within the folder. 3-63 characters long.</p> 
+description | **string**<br><p>Optional description of the network. 0-256 characters long.</p> 
+labels | **object**<br><p>Resource labels as `` key:value `` pairs. Maximum of 64 per resource.</p> 
+defaultSecurityGroupId | **string**<br><p>ID of default security group for network.</p> 

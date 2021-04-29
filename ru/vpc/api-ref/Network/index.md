@@ -3,8 +3,8 @@ editable: false
 ---
 
 # Network
-Набор методов для управления облачными сетями.
-## JSON-представление {#representation}
+A set of methods for managing Network resources.
+## JSON Representation {#representation}
 ```json 
 {
   "id": "string",
@@ -17,23 +17,24 @@ editable: false
 }
 ```
  
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br><p>Идентификатор облачной сети.</p> 
-folderId | **string**<br><p>Идентификатор каталога, которому принадлежит сеть.</p> 
-createdAt | **string** (date-time)<br><p>Время создания ресурса в формате в <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-name | **string**<br><p>Имя облачной сети. Имя должно быть уникальным в каталоге. Длина имени должна быть от 3 до 63 символов.</p> 
-description | **string**<br><p>Описание облачной сети. Длина описания должна быть от 0 до 256 символов.</p> 
-labels | **object**<br><p>Метки ресурса в формате `` ключ:значение ``. Максимум 64 метки на ресурс.</p> 
-defaultSecurityGroupId | **string**<br><p>Идентификатор группы безопасности по умолчанию.</p> 
+id | **string**<br><p>ID of the network.</p> 
+folderId | **string**<br><p>ID of the folder that the network belongs to.</p> 
+createdAt | **string** (date-time)<br><p>Creation timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+name | **string**<br><p>Name of the network. The name is unique within the folder. 3-63 characters long.</p> 
+description | **string**<br><p>Optional description of the network. 0-256 characters long.</p> 
+labels | **object**<br><p>Resource labels as `` key:value `` pairs. Maximum of 64 per resource.</p> 
+defaultSecurityGroupId | **string**<br><p>ID of default security group for network.</p> 
 
-## Методы {#methods}
-Метод | Описание
+## Methods {#methods}
+Method | Description
 --- | ---
-[create](create.md) | Создает облачную сеть в указанном каталоге. Метод запускает асинхронную операцию, которую можно отменить перед тем, как она завершится.
-[delete](delete.md) | Удаляет указанную облачную сеть.
-[get](get.md) | Возвращает указанный ресурс Network.
-[list](list.md) | Возвращает список доступных ресурсов Network в указанном каталоге.
-[listOperations](listOperations.md) | Возвращает список операций для указанной облачной сети.
-[listSubnets](listSubnets.md) | Возвращает список доступных подсетей в указанной облачной сети.
-[update](update.md) | Обновляет параметры указанной облачной сети. Метод запускает асинхронную операцию, которую можно отменить перед тем, как она завершится.
+[create](create.md) | Creates a network in the specified folder using the data specified in the request. Method starts an asynchronous operation that can be cancelled while it is in progress.
+[delete](delete.md) | Deletes the specified network.
+[get](get.md) | Returns the specified Network resource.
+[list](list.md) | Retrieves the list of Network resources in the specified folder.
+[listOperations](listOperations.md) | Lists operations for the specified network.
+[listSubnets](listSubnets.md) | Lists subnets from the specified network.
+[move](move.md) | Move network to another folder.
+[update](update.md) | Updates the specified network. Method starts an asynchronous operation that can be cancelled while it is in progress.

@@ -3,8 +3,8 @@ editable: false
 ---
 
 # AccessKey
-Набор методов управления ключами доступа.
-## JSON-представление {#representation}
+A set of methods for managing access keys.
+## JSON Representation {#representation}
 ```json 
 {
   "id": "string",
@@ -15,20 +15,20 @@ editable: false
 }
 ```
  
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br><p>Идентификатор ресурса AccessKey. Он используется для управления идентификатором ключа доступа и секретным ключом доступа.</p> 
-serviceAccountId | **string**<br><p>Идентификатор сервисного аккаунта, которому принадлежит ключ доступа.</p> 
-createdAt | **string** (date-time)<br><p>Время создания.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-description | **string**<br><p>Описание ключа доступа. Длина описания должна быть от 0 до 256 символов.</p> 
-keyId | **string**<br><p>Идентификатор ключа доступа. Ключ совместим с сервисами AWS.</p> 
+id | **string**<br><p>ID of the AccessKey resource. It is used to manage secret credentials: an access key ID and a secret access key.</p> 
+serviceAccountId | **string**<br><p>ID of the service account that the access key belongs to.</p> 
+createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+description | **string**<br><p>Description of the access key. 0-256 characters long.</p> 
+keyId | **string**<br><p>ID of the access key. The key is AWS compatible.</p> 
 
-## Методы {#methods}
-Метод | Описание
+## Methods {#methods}
+Method | Description
 --- | ---
-[create](create.md) | Создает ключ доступа для указанного сервисного аккаунта.
-[delete](delete.md) | Удаляет указанный ключ доступа.
-[get](get.md) | Возвращает указанный ключ доступа.
-[list](list.md) | Возвращает список ключей доступа для указанного сервисного аккаунта.
-[listOperations](listOperations.md) | Возвращает список операций для указанного ключа доступа.
-[update](update.md) | Обновляет указанный ключ доступа.
+[create](create.md) | Creates an access key for the specified service account.
+[delete](delete.md) | Deletes the specified access key.
+[get](get.md) | Returns the specified access key.
+[list](list.md) | Retrieves the list of access keys for the specified service account.
+[listOperations](listOperations.md) | Retrieves the list of operations for the specified access key.
+[update](update.md) | Updates the specified access key.

@@ -3,8 +3,8 @@ editable: false
 ---
 
 # YandexPassportUserAccount
-Набор методов для управления ресурсами YandexPassportUserAccount.
-## JSON-представление {#representation}
+A set of methods for managing YandexPassportUserAccount resources.
+## JSON Representation {#representation}
 ```json 
 {
   "login": "string",
@@ -12,12 +12,12 @@ editable: false
 }
 ```
  
-Поле | Описание
+Field | Description
 --- | ---
-login | **string**<br><p>Логин аккаунта Яндекс.Паспорта.</p> 
-defaultEmail | **string**<br><p>Email используемый по умолчанию для пользователя с аккаунтом Яндекс.Паспорта.</p> 
+login | **string**<br><p>Login of the Yandex.Passport user account.</p> 
+defaultEmail | **string**<br><p>Default email of the Yandex.Passport user account.</p> 
 
-## Методы {#methods}
-Метод | Описание
+## Methods {#methods}
+Method | Description
 --- | ---
-[getByLogin](getByLogin.md) | Возвращает указанный ресурс YandexPassportUserAccount.
+[getByLogin](getByLogin.md) | Returns the specified YandexPassportUserAccount resource.

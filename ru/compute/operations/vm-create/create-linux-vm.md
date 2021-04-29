@@ -57,6 +57,9 @@
       ```
 
       Будет создана виртуальная машина `first-instance`.
+
+  {% include [ip-fqdn-connection](../../../_includes/ip-fqdn-connection.md) %}
+
 - API
 
   Создайте виртуальную машину с помощью метода [Create](../../api-ref/Instance/create.md) для ресурса `Instance`:
@@ -165,6 +168,8 @@
         https://compute.api.cloud.yandex.net/compute/v1/instances
       ```
 
+  {% include [ip-fqdn-connection](../../../_includes/ip-fqdn-connection.md) %}
+
 - Terraform
 
   Если у вас ещё нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).  
@@ -252,9 +257,9 @@
 
      После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
-{% endlist %}
+  {% include [ip-fqdn-connection](../../../_includes/ip-fqdn-connection.md) %}
 
-{% include [ip-fqdn-connection](../../../_includes/ip-fqdn-connection.md) %}
+{% endlist %}
 
 #### См. также {#see-also}
 

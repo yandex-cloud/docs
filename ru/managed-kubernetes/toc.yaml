@@ -103,13 +103,13 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
-  - name: Справочник API
+  - name: Справочник API (англ.)
     items:
-      - name: Аутентификация в API
+      - name: Authentication
         href: api-ref/authentication.md
       - name: gRPC
         items:
-          - name: Обзор
+          - name: Overview
             href: grpc/index.md
           - name: ClusterService
             href: grpc/cluster_service.md
@@ -121,11 +121,11 @@ items:
             href: grpc/operation_service.md
       - name: REST
         items:
-          - name: Обзор
+          - name: Overview
             href: api-ref/index.md
           - name: Cluster
             items:
-              - name: Обзор
+              - name: Overview
                 href: api-ref/Cluster/index.md
               - name: create
                 href: api-ref/Cluster/create.md
@@ -137,13 +137,19 @@ items:
                 href: api-ref/Cluster/list.md
               - name: listNodeGroups
                 href: api-ref/Cluster/listNodeGroups.md
+              - name: listNodes
+                href: api-ref/Cluster/listNodes.md
               - name: listOperations
                 href: api-ref/Cluster/listOperations.md
+              - name: start
+                href: api-ref/Cluster/start.md
+              - name: stop
+                href: api-ref/Cluster/stop.md
               - name: update
                 href: api-ref/Cluster/update.md
           - name: NodeGroup
             items:
-              - name: Обзор
+              - name: Overview
                 href: api-ref/NodeGroup/index.md
               - name: create
                 href: api-ref/NodeGroup/create.md
@@ -153,13 +159,15 @@ items:
                 href: api-ref/NodeGroup/get.md
               - name: list
                 href: api-ref/NodeGroup/list.md
+              - name: listNodes
+                href: api-ref/NodeGroup/listNodes.md
               - name: listOperations
                 href: api-ref/NodeGroup/listOperations.md
               - name: update
                 href: api-ref/NodeGroup/update.md
           - name: Version
             items:
-              - name: Обзор
+              - name: Overview
                 href: api-ref/Version/index.md
               - name: list
                 href: api-ref/Version/list.md

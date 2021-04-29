@@ -65,7 +65,7 @@ topicName | Required. Name of the Kafka topic resource to return.  To get the na
 }
 ```
 An Kafka topic.
-For more information, see the [Concepts → Topics and partitions](/docs/managed-kafka/concepts/topics) section of the documentation.
+For more information, see the [Concepts -> Topics and partitions](/docs/managed-kafka/concepts/topics) section of the documentation.
  
 Field | Description
 --- | ---

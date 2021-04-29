@@ -4,2404 +4,3132 @@ editable: false
 
 # ClusterService
 
-Набор методов для управления кластерами ClickHouse.
+A set of methods for managing ClickHouse clusters.
 
-| Вызов | Описание |
+| Call | Description |
 | --- | --- |
-| [Get](#Get) | Возвращает указанный ClickHouse-кластер. |
-| [List](#List) | Получает список ClickHouse-кластеров, принадлежащих указанному каталогу. |
-| [Create](#Create) | Создает кластер ClickHouse в указанном каталоге. |
-| [Update](#Update) | Изменяет указанный кластер ClickHouse. |
-| [Delete](#Delete) | Удаляет указанный кластер ClickHouse. |
-| [Start](#Start) | Запускает указанный кластер ClickHouse. |
-| [Stop](#Stop) | Останавливает указанный кластер ClickHouse. |
-| [Move](#Move) | Перемещает кластер ClickHouse в указанный каталог. |
-| [AddZookeeper](#AddZookeeper) | Добавляет подкластер ZooKeeper в указанный кластер ClickHouse. |
-| [Backup](#Backup) | Создает резервную копию для указанного кластера ClickHouse. |
-| [Restore](#Restore) | Создает новый кластер ClickHouse с использованием указанной резервной копии. |
-| [ListLogs](#ListLogs) | Получает логи для указанного кластера ClickHouse. |
-| [StreamLogs](#StreamLogs) | То же самое, что ListLogs, с той разницей, что со стороны сервера передается поток логов. |
-| [ListOperations](#ListOperations) | Получает список ресурсов Operation для указанного кластера. |
-| [ListBackups](#ListBackups) | Получает список доступных резервных копий для указанного кластера ClickHouse. |
-| [ListHosts](#ListHosts) | Получает список хостов для указанного кластера. |
-| [AddHosts](#AddHosts) | Создает новые хосты для кластера. |
-| [DeleteHosts](#DeleteHosts) | Удаляет указанные хосты кластера. |
-| [GetShard](#GetShard) | Возвращает указанный шард. |
-| [ListShards](#ListShards) | Получает список шардов, принадлежащих указанному кластеру. |
-| [AddShard](#AddShard) | Создает новый шард в указанном кластере. |
-| [UpdateShard](#UpdateShard) | Изменяет указанный шард. |
-| [DeleteShard](#DeleteShard) | Удаляет указанный шард. |
-| [GetShardGroup](#GetShardGroup) | Возвращает указанную группу шардов. |
-| [ListShardGroups](#ListShardGroups) | Получает список групп шардов, принадлежащих указанному кластеру. |
-| [CreateShardGroup](#CreateShardGroup) | Создает новую группу шардов в указанном кластере. |
-| [UpdateShardGroup](#UpdateShardGroup) | Изменяет указанную группу шардов. |
-| [DeleteShardGroup](#DeleteShardGroup) | Удаляет указанную группу шардов. |
-| [CreateExternalDictionary](#CreateExternalDictionary) | Создает внешний словарь для указанного кластера ClickHouse. |
-| [DeleteExternalDictionary](#DeleteExternalDictionary) | Удаляет указанный внешний словарь. |
+| [Get](#Get) | Returns the specified ClickHouse cluster. |
+| [List](#List) | Retrieves a list of ClickHouse clusters that belong to the specified folder. |
+| [Create](#Create) | Creates a ClickHouse cluster in the specified folder. |
+| [Update](#Update) | Updates the specified ClickHouse cluster. |
+| [Delete](#Delete) | Deletes the specified ClickHouse cluster. |
+| [Start](#Start) | Starts the specified ClickHouse cluster. |
+| [Stop](#Stop) | Stops the specified ClickHouse cluster. |
+| [Move](#Move) | Moves a ClickHouse cluster to the specified folder. |
+| [AddZookeeper](#AddZookeeper) | Adds a ZooKeeper subcluster to the specified ClickHouse cluster. |
+| [Backup](#Backup) | Creates a backup for the specified ClickHouse cluster. |
+| [Restore](#Restore) | Creates a new ClickHouse cluster using the specified backup. |
+| [RescheduleMaintenance](#RescheduleMaintenance) | Reschedules planned maintenance operation. |
+| [ListLogs](#ListLogs) | Retrieves logs for the specified ClickHouse cluster. |
+| [StreamLogs](#StreamLogs) | Same as ListLogs but using server-side streaming. |
+| [ListOperations](#ListOperations) | Retrieves the list of Operation resources for the specified cluster. |
+| [ListBackups](#ListBackups) | Retrieves the list of available backups for the specified ClickHouse cluster. |
+| [ListHosts](#ListHosts) | Retrieves a list of hosts for the specified cluster. |
+| [AddHosts](#AddHosts) | Creates new hosts for a cluster. |
+| [DeleteHosts](#DeleteHosts) | Deletes the specified hosts for a cluster. |
+| [GetShard](#GetShard) | Returns the specified shard. |
+| [ListShards](#ListShards) | Retrieves a list of shards that belong to the specified cluster. |
+| [AddShard](#AddShard) | Creates a new shard in the specified cluster. |
+| [UpdateShard](#UpdateShard) | Modifies the specified shard. |
+| [DeleteShard](#DeleteShard) | Deletes the specified shard. |
+| [GetShardGroup](#GetShardGroup) | Returns the specified shard group. |
+| [ListShardGroups](#ListShardGroups) | Retrieves a list of shard groups that belong to specified cluster. |
+| [CreateShardGroup](#CreateShardGroup) | Creates a new shard group in the specified cluster. |
+| [UpdateShardGroup](#UpdateShardGroup) | Updates the specified shard group. |
+| [DeleteShardGroup](#DeleteShardGroup) | Deletes the specified shard group. |
+| [CreateExternalDictionary](#CreateExternalDictionary) | Creates an external dictionary for the specified ClickHouse cluster. |
+| [DeleteExternalDictionary](#DeleteExternalDictionary) | Deletes the specified external dictionary. |
 
-## Вызовы ClusterService {#calls}
+## Calls ClusterService {#calls}
 
 ## Get {#Get}
 
-Возвращает указанный ClickHouse-кластер. <br>Чтобы получить список доступных кластеров ClickHouse, выполните запрос [List](#List).
+Returns the specified ClickHouse cluster. <br>To get the list of available ClickHouse clusters, make a [List](#List) request.
 
 **rpc Get ([GetClusterRequest](#GetClusterRequest)) returns ([Cluster](#Cluster))**
 
 ### GetClusterRequest {#GetClusterRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор возвращаемого ресурса Cluster для ClickHouse. Чтобы получить идентификатор кластера, используйте запрос [ClusterService.List](#List). Максимальная длина строки в символах — 50.
+cluster_id | **string**<br>Required. ID of the ClickHouse Cluster resource to return. To get the cluster ID, use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
 
 
 ### Cluster {#Cluster}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор кластера ClickHouse. Этот идентификатор генерирует MDB при создании кластера. 
-folder_id | **string**<br>Идентификатор каталога, которому принадлежит кластер ClickHouse. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) . 
-name | **string**<br>Имя кластера ClickHouse. Имя уникально в рамках каталога. Длина 1-63 символов. 
-description | **string**<br>Описание кластера ClickHouse. Длина описания должна быть от 0 до 256 символов. 
-labels | **map<string,string>**<br>Пользовательские метки для кластера ClickHouse в виде пар `key:value`. Максимум 64 на ресурс. 
-environment | enum **Environment**<br>Среда развертывания кластера ClickHouse. <ul><li>`PRODUCTION`: Стабильная среда с осторожной политикой обновления: во время регулярного обслуживания применяются только срочные исправления.</li><li>`PRESTABLE`: Среда с более агрессивной политикой обновления: новые версии развертываются независимо от обратной совместимости.</li><ul/>
-monitoring[] | **[Monitoring](#Monitoring)**<br>Описание систем мониторинга, относящихся к данному кластеру ClickHouse. 
-config | **[ClusterConfig](#ClusterConfig)**<br>Конфигурация кластера ClickHouse. 
-network_id | **string**<br>Идентификатор сети, к которой принадлежит кластер. 
-health | enum **Health**<br>Здоровье кластера. <ul><li>`HEALTH_UNKNOWN`: Состояние кластера неизвестно ([Host.health](#Host) для каждого хоста в кластере — UNKNOWN).</li><li>`ALIVE`: Кластер работает нормально ([Host.health](#Host) для каждого хоста в кластере — ALIVE).</li><li>`DEAD`: Кластер не работает ([Host.health](#Host) для каждого хоста в кластере — DEAD).</li><li>`DEGRADED`: Кластер работает неоптимально ([Host.health](#Host) по крайней мере для одного хоста в кластере не ALIVE).</li><ul/>
-status | enum **Status**<br>Текущее состояние кластера. <ul><li>`STATUS_UNKNOWN`: Состояние кластера неизвестно.</li><li>`CREATING`: Кластер создается.</li><li>`RUNNING`: Кластер работает нормально.</li><li>`ERROR`: В кластере произошла ошибка, блокирующая работу.</li><li>`UPDATING`: Кластер изменяется.</li><li>`STOPPING`: Кластер останавливается.</li><li>`STOPPED`: Кластер остановлен.</li><li>`STARTING`: Кластер запускается.</li><ul/>
-service_account_id | **string**<br>Идентификатор сервисного аккаунта, используемого для доступа к Yandex Object Storage. 
+id | **string**<br>ID of the ClickHouse cluster. This ID is assigned by MDB at creation time. 
+folder_id | **string**<br>ID of the folder that the ClickHouse cluster belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
+name | **string**<br>Name of the ClickHouse cluster. The name is unique within the folder. 1-63 characters long. 
+description | **string**<br>Description of the ClickHouse cluster. 0-256 characters long. 
+labels | **map<string,string>**<br>Custom labels for the ClickHouse cluster as `key:value` pairs. Maximum 64 per resource. 
+environment | enum **Environment**<br>Deployment environment of the ClickHouse cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
+monitoring[] | **[Monitoring](#Monitoring)**<br>Description of monitoring systems relevant to the ClickHouse cluster. 
+config | **[ClusterConfig](#ClusterConfig)**<br>Configuration of the ClickHouse cluster. 
+network_id | **string**<br>ID of the network that the cluster belongs to. 
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
+status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow)**<br>Maintenance window for the cluster. 
+planned_operation | **[MaintenanceOperation](#MaintenanceOperation)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
+security_group_ids[] | **string**<br>User security groups 
 
 
 ### Monitoring {#Monitoring}
 
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br>Название системы мониторинга. 
-description | **string**<br>Описание системы мониторинга. 
-link | **string**<br>Ссылка на графики системы мониторинга для данного кластера ClickHouse. 
+name | **string**<br>Name of the monitoring system. 
+description | **string**<br>Description of the monitoring system. 
+link | **string**<br>Link to the monitoring system charts for the ClickHouse cluster. 
 
 
 ### ClusterConfig {#ClusterConfig}
 
-Поле | Описание
+Field | Description
 --- | ---
-version | **string**<br>Версия серверного программного обеспечения ClickHouse. 
-clickhouse | **[Clickhouse](#Clickhouse)**<br>Конфигурация и распределение ресурсов для хостов ClickHouse. 
-zookeeper | **[Zookeeper](#Zookeeper)**<br>Конфигурация и распределение ресурсов для хостов ZooKeeper. 
-backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Время запуска ежедневного резервного копирования, в часовом поясе UTC. 
-access | **[Access](#Access)**<br>Политика доступа для внешних сервисов. 
+version | **string**<br>Version of the ClickHouse server software. 
+clickhouse | **[Clickhouse](#Clickhouse)**<br>Configuration and resource allocation for ClickHouse hosts. 
+zookeeper | **[Zookeeper](#Zookeeper)**<br>Configuration and resource allocation for ZooKeeper hosts. 
+backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
+access | **[Access](#Access)**<br>Access policy for external services. 
+cloud_storage | **[CloudStorage](#CloudStorage)**<br> 
+sql_database_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether database management through SQL commands is enabled. 
+sql_user_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether user management through SQL commands is enabled. 
 
 
 ### Clickhouse {#Clickhouse}
 
-Поле | Описание
+Field | Description
 --- | ---
-config | **`config.ClickhouseConfigSet`**<br>Параметры конфигурации сервера ClickHouse. 
-resources | **[Resources](#Resources)**<br>Ресурсы, выделенные хостам ClickHouse. 
+config | **`config.ClickhouseConfigSet`**<br>Configuration settings of a ClickHouse server. 
+resources | **[Resources](#Resources)**<br>Resources allocated to ClickHouse hosts. 
 
 
 ### Zookeeper {#Zookeeper}
 
-Поле | Описание
+Field | Description
 --- | ---
-resources | **[Resources](#Resources)**<br>Ресурсы, выделенные хостам ZooKeeper. 
+resources | **[Resources](#Resources)**<br>Resources allocated to ZooKeeper hosts. 
 
 
 ### Access {#Access}
 
-Поле | Описание
+Field | Description
 --- | ---
-data_lens | **bool**<br>Разрешить экспорт данных из кластера в Yandex DataLens. 
-web_sql | **bool**<br>Разрешить SQL-запросы к базам данных кластера из консоли управления облаком. <br>Подробнее см. в [SQL-запросы в консоли управления](/docs/managed-clickhouse/operations/web-sql-query). 
-metrika | **bool**<br>Разрешить импорт данных из Яндекс.Метрики и AppMetrica в кластер. <br>Подробнее см. в [Экспорт данных в Яндекс.Облако](https://appmetrica.yandex.ru/docs/cloud/index.html). 
-serverless | **bool**<br>Разрешить доступ к кластеру для Serverless. 
+data_lens | **bool**<br>Allow to export data from the cluster to Yandex DataLens. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
+metrika | **bool**<br>Allow to import data from Yandex.Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex.Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
+serverless | **bool**<br>Allow access to cluster for Serverless. 
+
+
+### CloudStorage {#CloudStorage}
+
+Field | Description
+--- | ---
+enabled | **bool**<br>Whether to use Yandex Object Storage for storing ClickHouse data. 
+
+
+### MaintenanceWindow {#MaintenanceWindow}
+
+Field | Description
+--- | ---
+policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow)**<br>Maintenance operation can be scheduled on a weekly basis. 
+
+
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow}
+
+
+
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow}
+
+Field | Description
+--- | ---
+day | enum **WeekDay**<br>Day of the week (in `DDD` format). <ul><ul/>
+hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
+
+
+### MaintenanceOperation {#MaintenanceOperation}
+
+Field | Description
+--- | ---
+info | **string**<br>Information about this maintenance operation. The maximum string length in characters is 256.
+delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time until which this maintenance operation is delayed. 
 
 
 ## List {#List}
 
-Получает список ClickHouse-кластеров, принадлежащих указанному каталогу.
+Retrieves a list of ClickHouse clusters that belong to the specified folder.
 
 **rpc List ([ListClustersRequest](#ListClustersRequest)) returns ([ListClustersResponse](#ListClustersResponse))**
 
 ### ListClustersRequest {#ListClustersRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-folder_id | **string**<br>Обязательное поле. Идентификатор каталога для вывода списка кластеров ClickHouse. Чтобы получить идентификатор каталога, используйте запрос [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List). Максимальная длина строки в символах — 50.
-page_size | **int64**<br>Максимальное количество результатов на одной странице в ответе. Если количество результатов больше чем `page_size`, сервис вернет значение [ListClustersResponse.next_page_token](#ListClustersResponse), которое можно использовать для получения следующей страницы. Максимальное значение — 1000.
-page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListClustersResponse.next_page_token](#ListClustersResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
-filter | **string**<br><ol><li>Имя поля. В настоящее время фильтрацию можно использовать только по полю [Cluster.name](#Cluster1). </li><li>Условный оператор. Поддерживаются операторы `=` и `!=` для одиночных значений, `IN` и `NOT IN` для списков значений. </li><li>Значение. Должно содержать от 1 до 63 символов и соответствовать регулярному выражению `^[a-zA-Z0-9_-]+$`.</li></ol> Максимальная длина строки в символах — 1000.
+folder_id | **string**<br>Required. ID of the folder to list ClickHouse clusters in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. The maximum string length in characters is 50.
+page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClustersResponse.next_page_token](#ListClustersResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
+page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListClustersResponse.next_page_token](#ListClustersResponse) returned by a previous list request. The maximum string length in characters is 100.
+filter | **string**<br><ol><li>The field name. Currently you can only use filtering with the [Cluster.name](#Cluster1) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 1-63 characters long and match the regular expression `^[a-zA-Z0-9_-]+$`.</li></ol> The maximum string length in characters is 1000.
 
 
 ### ListClustersResponse {#ListClustersResponse}
 
-Поле | Описание
+Field | Description
 --- | ---
-clusters[] | **[Cluster](#Cluster1)**<br>Список ресурсов Cluster для ClickHouse. 
-next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListClustersRequest.page_size](#ListClustersRequest), используйте `next_page_token` в качестве значения параметра [ListClustersRequest.page_token](#ListClustersRequest) в следующем запросе. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
+clusters[] | **[Cluster](#Cluster1)**<br>List of ClickHouse Cluster resources. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClustersRequest.page_size](#ListClustersRequest), use the `next_page_token` as the value for the [ListClustersRequest.page_token](#ListClustersRequest) parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
 ### Cluster {#Cluster1}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор кластера ClickHouse. Этот идентификатор генерирует MDB при создании кластера. 
-folder_id | **string**<br>Идентификатор каталога, которому принадлежит кластер ClickHouse. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) . 
-name | **string**<br>Имя кластера ClickHouse. Имя уникально в рамках каталога. Длина 1-63 символов. 
-description | **string**<br>Описание кластера ClickHouse. Длина описания должна быть от 0 до 256 символов. 
-labels | **map<string,string>**<br>Пользовательские метки для кластера ClickHouse в виде пар `key:value`. Максимум 64 на ресурс. 
-environment | enum **Environment**<br>Среда развертывания кластера ClickHouse. <ul><li>`PRODUCTION`: Стабильная среда с осторожной политикой обновления: во время регулярного обслуживания применяются только срочные исправления.</li><li>`PRESTABLE`: Среда с более агрессивной политикой обновления: новые версии развертываются независимо от обратной совместимости.</li><ul/>
-monitoring[] | **[Monitoring](#Monitoring1)**<br>Описание систем мониторинга, относящихся к данному кластеру ClickHouse. 
-config | **[ClusterConfig](#ClusterConfig1)**<br>Конфигурация кластера ClickHouse. 
-network_id | **string**<br>Идентификатор сети, к которой принадлежит кластер. 
-health | enum **Health**<br>Здоровье кластера. <ul><li>`HEALTH_UNKNOWN`: Состояние кластера неизвестно ([Host.health](#Host) для каждого хоста в кластере — UNKNOWN).</li><li>`ALIVE`: Кластер работает нормально ([Host.health](#Host) для каждого хоста в кластере — ALIVE).</li><li>`DEAD`: Кластер не работает ([Host.health](#Host) для каждого хоста в кластере — DEAD).</li><li>`DEGRADED`: Кластер работает неоптимально ([Host.health](#Host) по крайней мере для одного хоста в кластере не ALIVE).</li><ul/>
-status | enum **Status**<br>Текущее состояние кластера. <ul><li>`STATUS_UNKNOWN`: Состояние кластера неизвестно.</li><li>`CREATING`: Кластер создается.</li><li>`RUNNING`: Кластер работает нормально.</li><li>`ERROR`: В кластере произошла ошибка, блокирующая работу.</li><li>`UPDATING`: Кластер изменяется.</li><li>`STOPPING`: Кластер останавливается.</li><li>`STOPPED`: Кластер остановлен.</li><li>`STARTING`: Кластер запускается.</li><ul/>
-service_account_id | **string**<br>Идентификатор сервисного аккаунта, используемого для доступа к Yandex Object Storage. 
+id | **string**<br>ID of the ClickHouse cluster. This ID is assigned by MDB at creation time. 
+folder_id | **string**<br>ID of the folder that the ClickHouse cluster belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
+name | **string**<br>Name of the ClickHouse cluster. The name is unique within the folder. 1-63 characters long. 
+description | **string**<br>Description of the ClickHouse cluster. 0-256 characters long. 
+labels | **map<string,string>**<br>Custom labels for the ClickHouse cluster as `key:value` pairs. Maximum 64 per resource. 
+environment | enum **Environment**<br>Deployment environment of the ClickHouse cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
+monitoring[] | **[Monitoring](#Monitoring1)**<br>Description of monitoring systems relevant to the ClickHouse cluster. 
+config | **[ClusterConfig](#ClusterConfig1)**<br>Configuration of the ClickHouse cluster. 
+network_id | **string**<br>ID of the network that the cluster belongs to. 
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
+status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow1)**<br>Maintenance window for the cluster. 
+planned_operation | **[MaintenanceOperation](#MaintenanceOperation1)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
+security_group_ids[] | **string**<br>User security groups 
 
 
 ### Monitoring {#Monitoring1}
 
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br>Название системы мониторинга. 
-description | **string**<br>Описание системы мониторинга. 
-link | **string**<br>Ссылка на графики системы мониторинга для данного кластера ClickHouse. 
+name | **string**<br>Name of the monitoring system. 
+description | **string**<br>Description of the monitoring system. 
+link | **string**<br>Link to the monitoring system charts for the ClickHouse cluster. 
 
 
 ### ClusterConfig {#ClusterConfig1}
 
-Поле | Описание
+Field | Description
 --- | ---
-version | **string**<br>Версия серверного программного обеспечения ClickHouse. 
-clickhouse | **[Clickhouse](#Clickhouse1)**<br>Конфигурация и распределение ресурсов для хостов ClickHouse. 
-zookeeper | **[Zookeeper](#Zookeeper1)**<br>Конфигурация и распределение ресурсов для хостов ZooKeeper. 
-backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Время запуска ежедневного резервного копирования, в часовом поясе UTC. 
-access | **[Access](#Access1)**<br>Политика доступа для внешних сервисов. 
+version | **string**<br>Version of the ClickHouse server software. 
+clickhouse | **[Clickhouse](#Clickhouse1)**<br>Configuration and resource allocation for ClickHouse hosts. 
+zookeeper | **[Zookeeper](#Zookeeper1)**<br>Configuration and resource allocation for ZooKeeper hosts. 
+backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
+access | **[Access](#Access1)**<br>Access policy for external services. 
+cloud_storage | **[CloudStorage](#CloudStorage1)**<br> 
+sql_database_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether database management through SQL commands is enabled. 
+sql_user_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether user management through SQL commands is enabled. 
 
 
 ### Clickhouse {#Clickhouse1}
 
-Поле | Описание
+Field | Description
 --- | ---
-config | **`config.ClickhouseConfigSet`**<br>Параметры конфигурации сервера ClickHouse. 
-resources | **[Resources](#Resources)**<br>Ресурсы, выделенные хостам ClickHouse. 
+config | **`config.ClickhouseConfigSet`**<br>Configuration settings of a ClickHouse server. 
+resources | **[Resources](#Resources)**<br>Resources allocated to ClickHouse hosts. 
 
 
 ### Zookeeper {#Zookeeper1}
 
-Поле | Описание
+Field | Description
 --- | ---
-resources | **[Resources](#Resources)**<br>Ресурсы, выделенные хостам ZooKeeper. 
+resources | **[Resources](#Resources)**<br>Resources allocated to ZooKeeper hosts. 
 
 
 ### Access {#Access1}
 
-Поле | Описание
+Field | Description
 --- | ---
-data_lens | **bool**<br>Разрешить экспорт данных из кластера в Yandex DataLens. 
-web_sql | **bool**<br>Разрешить SQL-запросы к базам данных кластера из консоли управления облаком. <br>Подробнее см. в [SQL-запросы в консоли управления](/docs/managed-clickhouse/operations/web-sql-query). 
-metrika | **bool**<br>Разрешить импорт данных из Яндекс.Метрики и AppMetrica в кластер. <br>Подробнее см. в [Экспорт данных в Яндекс.Облако](https://appmetrica.yandex.ru/docs/cloud/index.html). 
-serverless | **bool**<br>Разрешить доступ к кластеру для Serverless. 
+data_lens | **bool**<br>Allow to export data from the cluster to Yandex DataLens. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
+metrika | **bool**<br>Allow to import data from Yandex.Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex.Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
+serverless | **bool**<br>Allow access to cluster for Serverless. 
+
+
+### CloudStorage {#CloudStorage1}
+
+Field | Description
+--- | ---
+enabled | **bool**<br>Whether to use Yandex Object Storage for storing ClickHouse data. 
+
+
+### MaintenanceWindow {#MaintenanceWindow1}
+
+Field | Description
+--- | ---
+policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow1)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow1)**<br>Maintenance operation can be scheduled on a weekly basis. 
+
+
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow1}
+
+
+
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow1}
+
+Field | Description
+--- | ---
+day | enum **WeekDay**<br>Day of the week (in `DDD` format). <ul><ul/>
+hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
+
+
+### MaintenanceOperation {#MaintenanceOperation1}
+
+Field | Description
+--- | ---
+info | **string**<br>Information about this maintenance operation. The maximum string length in characters is 256.
+delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time until which this maintenance operation is delayed. 
 
 
 ## Create {#Create}
 
-Создает кластер ClickHouse в указанном каталоге.
+Creates a ClickHouse cluster in the specified folder.
 
 **rpc Create ([CreateClusterRequest](#CreateClusterRequest)) returns ([operation.Operation](#Operation))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateClusterMetadata](#CreateClusterMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster2)<br>
 
 ### CreateClusterRequest {#CreateClusterRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-folder_id | **string**<br>Обязательное поле. Идентификатор каталога, в котором нужно создать кластер ClickHouse. Максимальная длина строки в символах — 50.
-name | **string**<br>Обязательное поле. Имя кластера ClickHouse. Имя должно быть уникальным в рамках каталога. Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_-]* `.
-description | **string**<br>Описание кластера ClickHouse. Максимальная длина строки в символах — 256.
-labels | **map<string,string>**<br>Пользовательские метки для кластера ClickHouse в виде пар `key:value`. Максимум 64 на ресурс. Например, "project": "mvp" или "source": "dictionary". Не более 64 на ресурс. Максимальная длина строки в символах для каждого значения — 63. Каждое значение должно соответствовать регулярному выражению ` [-_0-9a-z]* `. Максимальная длина строки в символах для каждого ключа — 63. Каждый ключ должен соответствовать регулярному выражению ` [a-z][-_0-9a-z]* `.
-environment | **[Cluster.Environment](#Cluster2)**<br>Обязательное поле. Среда развертывания кластера ClickHouse. 
-config_spec | **[ConfigSpec](#ConfigSpec)**<br>Обязательное поле. Конфигурация и ресурсы для хостов, которые должны быть созданы для кластера ClickHouse. 
-database_specs[] | **[DatabaseSpec](#DatabaseSpec)**<br>Описания баз данных, которые нужно создать в кластере ClickHouse. Количество элементов должно быть больше 0.
-user_specs[] | **[UserSpec](#UserSpec)**<br>Описания пользователей базы данных, которых нужно создать в кластере ClickHouse. Количество элементов должно быть больше 0.
-host_specs[] | **[HostSpec](#HostSpec)**<br>Конфигурации для отдельных хостов, которые должны быть созданы для кластера ClickHouse. Количество элементов должно быть больше 0.
-network_id | **string**<br>Обязательное поле. Идентификатор сети, в которой нужно создать кластер. Максимальная длина строки в символах — 50.
-shard_name | **string**<br>Имя первого шарда в кластере. Если параметр не указан, используется значение `shard1`. Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_-]* `.
-service_account_id | **string**<br>Идентификатор сервисного аккаунта, используемого для доступа к Yandex Object Storage. 
+folder_id | **string**<br>Required. ID of the folder to create the ClickHouse cluster in. The maximum string length in characters is 50.
+name | **string**<br>Required. Name of the ClickHouse cluster. The name must be unique within the folder. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+description | **string**<br>Description of the ClickHouse cluster. The maximum string length in characters is 256.
+labels | **map<string,string>**<br>Custom labels for the ClickHouse cluster as `key:value` pairs. Maximum 64 per resource. For example, "project": "mvp" or "source": "dictionary". No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+environment | **[Cluster.Environment](#Cluster2)**<br>Required. Deployment environment of the ClickHouse cluster. 
+config_spec | **[ConfigSpec](#ConfigSpec)**<br>Required. Configuration and resources for hosts that should be created for the ClickHouse cluster. 
+database_specs[] | **[DatabaseSpec](#DatabaseSpec)**<br>Descriptions of databases to be created in the ClickHouse cluster. The number of elements must be greater than 0.
+user_specs[] | **[UserSpec](#UserSpec)**<br>Descriptions of database users to be created in the ClickHouse cluster. The number of elements must be greater than 0.
+host_specs[] | **[HostSpec](#HostSpec)**<br>Individual configurations for hosts that should be created for the ClickHouse cluster. The number of elements must be greater than 0.
+network_id | **string**<br>Required. ID of the network to create the cluster in. The maximum string length in characters is 50.
+shard_name | **string**<br>Name of the first shard in cluster. If not set, defaults to the value 'shard1'. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
+security_group_ids[] | **string**<br>User security groups 
 
 
 ### ConfigSpec {#ConfigSpec}
 
-Поле | Описание
+Field | Description
 --- | ---
-version | **string**<br>Версия серверного программного обеспечения ClickHouse. 
-clickhouse | **[Clickhouse](#Clickhouse2)**<br>Конфигурация и ресурсы для сервера ClickHouse. 
-zookeeper | **[Zookeeper](#Zookeeper2)**<br>Конфигурация и ресурсы для сервера ZooKeeper. 
-backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Время запуска ежедневного резервного копирования, в часовом поясе UTC. 
-access | **[Access](#Access2)**<br>Политика доступа для внешних сервисов. <br>Если вы хотите, чтобы определенный сервис получил доступ к кластеру ClickHouse — задайте необходимые значения в этой политике. 
+version | **string**<br>Version of the ClickHouse server software. 
+clickhouse | **[Clickhouse](#Clickhouse2)**<br>Configuration and resources for a ClickHouse server. 
+zookeeper | **[Zookeeper](#Zookeeper2)**<br>Configuration and resources for a ZooKeeper server. 
+backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
+access | **[Access](#Access2)**<br>Access policy for external services. <br>If you want a specific service to access the ClickHouse cluster, then set the necessary values in this policy. 
+cloud_storage | **[CloudStorage](#CloudStorage2)**<br> 
+sql_database_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether database management through SQL commands is enabled. 
+sql_user_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether user management through SQL commands is enabled. 
+admin_password | **string**<br>Password for user 'admin' that has SQL user management access. 
 
 
 ### Clickhouse {#Clickhouse2}
 
-Поле | Описание
+Field | Description
 --- | ---
-config | **`config.ClickhouseConfig`**<br>Конфигурация для сервера ClickHouse. 
-resources | **[Resources](#Resources)**<br>Ресурсы, выделенные хостам ClickHouse. 
+config | **`config.ClickhouseConfig`**<br>Configuration for a ClickHouse server. 
+resources | **[Resources](#Resources)**<br>Resources allocated to ClickHouse hosts. 
 
 
 ### Zookeeper {#Zookeeper2}
 
-Поле | Описание
+Field | Description
 --- | ---
-resources | **[Resources](#Resources)**<br>Ресурсы, выделенные хостам ZooKeeper. Если не задано, будет использоваться минимальный доступный набор ресурсов. Все доступные наборы ресурсов можно получить с помощью запроса [ResourcePresetService.List](./resource_preset_service#List). 
+resources | **[Resources](#Resources)**<br>Resources allocated to ZooKeeper hosts. If not set, minimal available resources will be used. All available resource presets can be retrieved with a [ResourcePresetService.List](./resource_preset_service#List) request. 
 
 
 ### Access {#Access2}
 
-Поле | Описание
+Field | Description
 --- | ---
-data_lens | **bool**<br>Разрешить экспорт данных из кластера в Yandex DataLens. 
-web_sql | **bool**<br>Разрешить SQL-запросы к базам данных кластера из консоли управления облаком. <br>Подробнее см. в [SQL-запросы в консоли управления](/docs/managed-clickhouse/operations/web-sql-query). 
-metrika | **bool**<br>Разрешить импорт данных из Яндекс.Метрики и AppMetrica в кластер. <br>Подробнее см. в [Экспорт данных в Яндекс.Облако](https://appmetrica.yandex.ru/docs/cloud/index.html). 
-serverless | **bool**<br>Разрешить доступ к кластеру для Serverless. 
+data_lens | **bool**<br>Allow to export data from the cluster to Yandex DataLens. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
+metrika | **bool**<br>Allow to import data from Yandex.Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex.Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
+serverless | **bool**<br>Allow access to cluster for Serverless. 
+
+
+### CloudStorage {#CloudStorage2}
+
+Field | Description
+--- | ---
+enabled | **bool**<br>Whether to use Yandex Object Storage for storing ClickHouse data. 
 
 
 ### DatabaseSpec {#DatabaseSpec}
 
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br>Обязательное поле. Имя базы данных ClickHouse. Длина 1-63 символов. Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_-]* `.
+name | **string**<br>Required. Name of the ClickHouse database. 1-63 characters long. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
 ### UserSpec {#UserSpec}
 
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br>Обязательное поле. Имя пользователя базы данных ClickHouse. Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_]* `.
-password | **string**<br>Обязательное поле. Пароль пользователя ClickHouse. Длина строки в символах должна быть от 8 до 128.
-permissions[] | **[Permission](#Permission)**<br>Набор разрешений, которые следует предоставить пользователю. 
+name | **string**<br>Required. Name of the ClickHouse user. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
+password | **string**<br>Required. Password of the ClickHouse user. The string length in characters must be 8-128.
+permissions[] | **[Permission](#Permission)**<br>Set of permissions to grant to the user. 
 settings | **[UserSettings](#UserSettings)**<br> 
-quotas[] | **[UserQuota](#UserQuota)**<br>Набор квот, назначенных пользователю. 
+quotas[] | **[UserQuota](#UserQuota)**<br>Set of quotas assigned to the user. 
 
 
 ### Permission {#Permission}
 
-Поле | Описание
+Field | Description
 --- | ---
-database_name | **string**<br>Имя базы данных, к которой предоставляет доступ разрешение. 
+database_name | **string**<br>Name of the database that the permission grants access to. 
 
 
 ### UserSettings {#UserSettings}
 
-Поле | Описание
+Field | Description
 --- | ---
-readonly | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Ограничивает разрешения для запросов, не относящихся к DDL. Чтобы ограничить разрешения для DDL-запросов, используйте настройку `allow_ddl`. <br>- `0` (по умолчанию) — нет ограничений. - `1`— разрешено выполнять только запросы на чтение данных. - `2` — разрешено выполнять запросы на чтение данных и изменение настроек. <br>См. подробное описание в [документации ClickHouse](https://clickhouse.tech/docs/ru/operations/settings/permissions-for-queries/#settings_readonly). Допустимые значения — от 0 до 2 включительно.
-allow_ddl | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Определяет, разрешены ли DDL-запросы (например, `CREATE`, `ALTER`, `RENAME`, и т.д.). <br>Значение по умолчанию: `true`. <br>См. подробное описание в [документации ClickHouse](https://clickhouse.tech/docs/ru/operations/settings/permissions-for-queries/#settings_allow_ddl). 
-insert_quorum | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Включает или выключает кворумную запись в кластере ClickHouse. Если значение меньше `2`, то кворумная запись выключена, в противном случае она включена. <br>Кворумная запись позволяет гарантировать, что за время, не большее чем `insert_quorum_timeout`, ClickHouse смог без ошибок записать данные в кворум из `insert_quorum` реплик. Все реплики в кворуме консистентны, т.е. содержат данные всех более ранних запросов `INSERT`. Использование кворума при записи позволяет гарантировать, что данные не потеряются при выходе из строя одной или нескольких реплик. <br>При чтении данных, записанных с помощью кворумной записи, можно использовать настройку `select_sequential_consistency`. <br>См. подробное описание в [документации ClickHouse](https://clickhouse.tech/docs/ru/operations/settings/settings/#settings-insert_quorum). Минимальная значение — 0.
-connect_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Время ожидания соединения в миллисекундах. <br>Значение должно быть больше `0` (по умолчанию: `10000`, 10 секунд). Значение должно быть больше 0.
-receive_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Время ожидания приема данных в миллисекундах. <br>Значение должно быть больше `0` (по умолчанию: `300000`, 300 секунд, 5 минут). Значение должно быть больше 0.
-send_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Время ожидания отправки данных в миллисекундах. <br>Значение должно быть больше `0` (по умолчанию: `300000`, 300 секунд, 5 минут). Значение должно быть больше 0.
-insert_quorum_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Время ожидания кворумной записи в миллисекундах. <br>Если кворумная запись включена, время ожидания прошло, а запись в `insert_quorum` реплик так не состоялась, то ClickHouse прервет выполнение `INSERT`-запроса и вернет ошибку. В этом случае клиент должен повторить запрос на запись того же блока на эту же или любую другую реплику. <br>Минимальное значение: `1000`, одна секунда (по умолчанию: `60000`, одна минута). Минимальная значение — 1000.
-select_sequential_consistency | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Определяет поведение `SELECT`-запросов для реплицированных таблиц: если эта настройка включена, ClickHouse прервет выполнение запроса и вернет сообщение об ошибке в случае, если в реплике нет фрагментов данных, записанных с помощью кворумной записи. Фрагменты данных, записанные без использования кворумной записи, прочитаны не будут. <br>Значение по умолчанию: `false` (последовательная консистентность выключена). 
-max_replica_delay_for_distributed_queries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Максимальная задержка реплики в миллисекундах. Если реплика отстает на значение больше установленного, она перестает использоваться и становится устаревшей. <br>Минимальное значение: `1000`, 1 секунда (по умолчанию: `300000`, 300 секунд, 5 минут). <br>См. подробное описание в [документации ClickHouse](https://clickhouse.tech/docs/ru/operations/settings/settings/#settings-max_replica_delay_for_distributed_queries). Минимальная значение — 1000.
-fallback_to_stale_replicas_for_distributed_queries | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Включает или выключает форсирование запроса в устаревшую реплику в случае, если актуальные данные недоступны. Если этот параметр включен, то из устаревших реплик таблицы ClickHouse выбирает наиболее актуальную. Используется при выполнении `SELECT` из распределенной таблицы, которая указывает на реплицированные таблицы. <br>Значение по умолчанию: `true` (форсирование запроса включено). <br>См. подробное описание в [документации ClickHouse](https://clickhouse.tech/docs/ru/operations/settings/settings/#settings-fallback_to_stale_replicas_for_distributed_queries). 
-replication_alter_partitions_sync | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Условия ожидания завершения асинхронных действий на репликах для запросов `ALTER`: <br>- `0` — не ждать. - `1` — ждать выполнения только у себя (значение по умолчанию). - `2` — ждать всех. <br>См. подробное описание в [документации ClickHouse](https://clickhouse.tech/docs/ru/sql-reference/statements/alter/#synchronicity-of-alter-queries). Допустимые значения — от 0 до 2 включительно.
-distributed_product_mode | enum **DistributedProductMode**<br>Определяет поведение распределенных подзапросов. <br>См. подробное описание в [документации ClickHouse](https://clickhouse.tech/docs/ru/operations/settings/settings/#distributed-product-mode). <ul><li>`DISTRIBUTED_PRODUCT_MODE_DENY`: Значение по умолчанию. Запрещает использование этих типов подзапросов (возвращает исключение "Double-distributed in/JOIN subqueries is denied").</li><li>`DISTRIBUTED_PRODUCT_MODE_LOCAL`: Заменяет базу данных и таблицу в подзапросе локальными для конечного сервера (шарда), оставляя обычный IN / JOIN.</li><li>`DISTRIBUTED_PRODUCT_MODE_GLOBAL`: Заменяет IN/JOIN запрос на GLOBAL IN/GLOBAL JOIN.</li><li>`DISTRIBUTED_PRODUCT_MODE_ALLOW`: Позволяет использовать эти типы подзапросов.</li><ul/>
-distributed_aggregation_memory_efficient | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Включает или выключает режим экономии памяти при распределенной агрегации. <br>При распределённой обработке запроса внешняя агрегация производится на удалённых серверах. Для того чтобы на сервере-инициаторе запроса использовалось немного оперативной памяти, нужно включить эту настройку. <br>Значение по умолчанию: `false` (режим экономии памяти выключен). <br>См. подробное описание в [документации ClickHouse](https://clickhouse.tech/docs/ru/sql-reference/statements/select/group-by/#select-group-by-in-external-memory). 
-distributed_ddl_task_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Время ожидания выполнения DDL-запросов в миллисекундах. 
-skip_unavailable_shards | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Включает или выключает тихий пропуск недоступных шардов. <br>Шард считается недоступным, если все его реплики недоступны. <br>Значение по умолчанию: `false` (тихий пропуск недоступных шардов выключен). <br>См. подробное описание в [документации ClickHouse](https://clickhouse.tech/docs/ru/operations/settings/settings/#settings-skip_unavailable_shards). 
-compile | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Включает или выключает компиляцию запросов. Если вы выполняете большое количество структурно идентичных запросов — включите эту настройку. При включенной компиляции такие запросы могут выполняться быстрее за счет использования скомпилированных частей запроса. <br>Эта настройка используется совместно с `min_count_to_compile`. <br>Значение по умолчанию: `false` (компиляция выключена). <br>См. подробное описание в [документации ClickHouse](https://clickhouse.tech/docs/ru/operations/settings/settings/#compile). 
-min_count_to_compile | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>После какого количества структурно идентичных запросов начать компиляцию. <br>Минимальное значение: `0` (по умолчанию: `3`). <br>Для значения `0` компиляция выполняется синхронно: запрос ожидает окончания процесса компиляции перед продолжением выполнения. Рекомендуется использовать это значение только в целях тестирования. <br>Для всех других значений компиляция выполняется асинхронно, в отдельном потоке. Когда часть запроса будет скомпилирована, она сразу же будет использована ClickHouse для подходящих запросов (включая те, которые выполняются в данный момент). <br>См. подробное описание в [документации ClickHouse](https://clickhouse.tech/docs/ru/operations/settings/settings/#min-count-to-compile). Минимальная значение — 0.
-compile_expressions | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Включает или выключает компиляцию выражений. Если вы выполняете большое количество запросов, в которых используются идентичные выражения — включите эту настройку. При включенной компиляции выражений такие запросы могут выполняться быстрее за счет использования скомпилированных выражений. <br>Эта настройка используется совместно с `min_count_to_compile_expression`. <br>Значение по умолчанию: `false` (компиляция выражений выключена). 
-min_count_to_compile_expression | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>После какого количества идентичных выражений начать их компиляцию. <br>Минимальное значение: `0` (по умолчанию: `3`). <br>Для значения `0` компиляция выполняется синхронно: запрос ожидает окончания процесса компиляции выражения перед продолжением выполнения. Рекомендуется использовать это значение только в целях тестирования. <br>Для всех других значений компиляция выполняется асинхронно, в отдельном потоке. Когда выражение будет скомпилировано, оно сразу же будет использовано ClickHouse для подходящих запросов (включая те, которые выполняются в данный момент). Минимальная значение — 0.
-max_block_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Максимальный размер блока для чтения. <br>Данные в ClickHouse обрабатываются по блокам (наборам кусочков столбцов). Внутренние циклы обработки для одного блока достаточно эффективны, но есть заметные издержки на каждый блок. <br>Эта настройка — рекомендация, какой размер блока (в количестве строк) загружать из таблиц. <br>Значение должно быть больше `0` (по умолчанию: `65536`). <br>См. подробное описание в [документации ClickHouse](https://clickhouse.tech/docs/ru/operations/settings/settings/#setting-max_block_size). Значение должно быть больше 0.
-min_insert_block_size_rows | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Ограничивает минимальное количество строк в блоке, который может быть вставлен в таблицу запросом `INSERT`. Блоки меньшего размера склеиваются в блоки большего размера. <br>Минимальное значение: `0`, склейка блоков выключена (по умолчанию: `1048576`). Минимальная значение — 0.
-min_insert_block_size_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Ограничивает минимальное количество байтов в блоке, который может быть вставлен в таблицу запросом `INSERT`. Блоки меньшего размера склеиваются в блоки большего размера. <br>Минимальное значение: `0`, склейка блоков выключена (по умолчанию: `‭268435456‬‬`, 256 МБ). Минимальная значение — 0.
-max_insert_block_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Позволяет формировать блоки указанного размера (в байтах) при вставке в таблицу. Эта настройка действует только в тех случаях, когда сервер сам формирует такие блоки. <br>Значение должно быть больше `0` (по умолчанию: `1048576`). <br>См. подробное описание в [документации ClickHouse](https://clickhouse.tech/docs/ru/operations/settings/settings/#settings-max_insert_block_size). Значение должно быть больше 0.
-min_bytes_to_use_direct_io | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>минимальный объём данных в байтах, необходимый для прямого (небуферизованного) чтения (Direct I/O) на диск. <br>По умолчанию ClickHouse читает данные не напрямую с диска, а полагается на файловую систему и её кэш. Такое чтение эффективно при небольших объемах данных. Если данные читаются в больших объемах, эффективнее читать с диска напрямую, минуя кэш файловой системы. <br>Если общий объём хранения всех данных для чтения превышает заданное значение настройки, тогда ClickHouse читает данные с диска напрямую. <br>Минимальное значение и значение по умолчанию: `0` (прямой ввод/вывод отключен). Минимальная значение — 0.
-use_uncompressed_cache | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Определяет, использовать ли кэш разжатых блоков. Использование кэша несжатых блоков может существенно сократить задержку и увеличить пропускную способность при работе с большим количеством коротких запросов. Включите эту настройку для пользователей, от которых идут частые короткие запросы. <br>Этот настройка действует только для таблиц семейства MergeTree. <br>Значение по умолчанию: `false` (кэш не используется). <br>См. подробное описание в [документации ClickHouse](https://clickhouse.tech/docs/ru/operations/settings/settings/#setting-use_uncompressed_cache). 
-merge_tree_max_rows_to_use_cache | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Ограничивает максимальный размер запроса в строках для использования кэша несжатых данных. Кэш не используется для запросов, превышающих указанный размер. <br>Эта настройка используется совместно с `use_uncompressed_cache`. <br>Значение должно быть больше `0` (по умолчанию: `128x8192`). Значение должно быть больше 0.
-merge_tree_max_bytes_to_use_cache | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Ограничивает максимальный размер запроса в байтах для использования кэша несжатых данных. Кэш не используется для запросов, превышающих указанный размер. <br>Эта настройка используется совместно с `use_uncompressed_cache`. <br>Значение должно быть больше `0` (по умолчанию: `192x10x1024x1024`). Значение должно быть больше 0.
-merge_tree_min_rows_for_concurrent_read | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Ограничивает минимальное количество строк, которое надо прочитать из файла, чтобы использовать одновременное чтение. Если количество строк, прочитанных из файла, превышает заданное значение, то ClickHouse пытается выполнить одновременное чтение из этого файла в несколько потоков. <br>Этот настройка действует только для таблиц семейства MergeTree. <br>Значение должно быть больше `0` (по умолчанию: `20x8192`). Значение должно быть больше 0.
-merge_tree_min_bytes_for_concurrent_read | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Ограничивает минимальное количество байт, которое надо прочитать из файла, чтобы использовать одновременное чтение. Если количество байт, прочитанных из файла, превышает заданное значение, то ClickHouse пытается выполнить одновременное чтение из этого файла в несколько потоков. <br>Этот настройка действует только для таблиц семейства MergeTree. <br>Значение должно быть больше `0` (по умолчанию: `24x10x1024x1024`). Значение должно быть больше 0.
-max_bytes_before_external_group_by | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>задает порог потребления оперативной памяти (в байтах), по достижению которого временные данные, накопленные при выполнении операции агрегации `GROUP BY`, сбрасываются на диск для экономии оперативной памяти. <br>По умолчанию агрегирование выполняется в памяти с помощью хэш-таблицы. Запрос может привести к необходимости агрегации больших объемов данных, которые могут не поместиться в оперативную память и вызвать ошибку при выполнении запроса (см. настройку `max_memory_usage`). Для таких запросов используйте эту настройку, чтобы ClickHouse сбрасывал данные на диск и успешно выполнял агрегацию. <br>Минимальное значение и значение по умолчанию: `0`, `GROUP BY` во внешней памяти отключен. <br>При использовании агрегации во внешней памяти рекомендуется задать значение этой настройки в два раза меньше значения настройки `max_memory_usage`(по умолчанию максимальное использование памяти ограничено десятью гигабайтами). <br>См. подробное описание в [документации ClickHouse](https://clickhouse.tech/docs/ru/sql-reference/statements/select/group-by/#select-group-by-in-external-memory). <br>Смотрите также настройку `distributed_aggregation_memory_efficient`. 
-max_bytes_before_external_sort | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Настройка аналогична `max_bytes_before_external_group_by`, за исключением того, что она применяется для операции сортировки (`ORDER BY`). 
-group_by_two_level_threshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Определяет порог количества ключей, при достижении которого начинается двухуровневая агрегация. <br>Минимальное значение: `0`, порог не установлен (по умолчанию: `10000‬‬`). 
-group_by_two_level_threshold_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Определяет порог количества байт в агрегате, при достижении которого начинается двухуровневая агрегация. <br>Минимальное значение: `0`, порог не установлен (по умолчанию: `100000000‬‬`). 
-priority | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Определяет приоритет запроса. <br>- `0` — приоритет не используется. - `1` — наивысший приоритет. - и так далее. Чем больше число, тем ниже приоритет. <br>Эта настройка выставляется для каждого запроса по отдельности. <br>Если ClickHouse в текущий момент времени выполняет запросы с более высокими приоритетами, чем приоритет поступившего запроса, то выполнение такого запроса приостанавливается до завершения выполнения более приоритетных запросов. <br>Минимальное значение и значение по умолчанию: `0`, приоритет не используется. Минимальная значение — 0.
-max_threads | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Ограничивает максимальное количество потоков обработки запроса (без учёта потоков для чтения данных с удалённых серверов). <br>Этот параметр относится к потокам, которые выполняют параллельно одни стадии конвейера выполнения запроса. <br>Минимальное значение и значение по умолчанию: `0` (значение вычисляется автоматически — это количество процессорных ядер без учёта Hyper-Threading). <br>См. подробное описание в [документации ClickHouse](https://clickhouse.tech/docs/ru/operations/settings/settings/#settings-max_threads). Значение должно быть больше 0.
-max_memory_usage | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Ограничивает максимально возможный объём оперативной памяти (в байтах) для выполнения запроса на одном сервере. Настройка не учитывает объём свободной памяти или общий объём памяти на машине. <br>Ограничение действует на один запрос, в пределах одного сервера. <br>Минимальное значение: `0`, нет ограничения. В конфигурационном файле по умолчанию ограничение равно `10737418240` (10 ГБ). <br>Если вы также используете настройки `max_bytes_before_external_group_by` или `max_bytes_before_external_sort`, рекомендуется, чтобы их значения были в два раза меньше значения `max_memory_usage`. <br>См. подробное описание в [документации ClickHouse](https://clickhouse.tech/docs/ru/operations/settings/query-complexity/#settings_max_memory_usage). Минимальная значение — 0.
-max_memory_usage_for_user | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Ограничивает максимально возможный объём оперативной памяти (в байтах) для выполнения запросов пользователя на одном сервере. Настройка не учитывает объём свободной памяти или общий объём памяти на машине. <br>Ограничение действует на все запросы пользователя, которые выполняются одновременно в пределах одного сервера. <br>Минимальное значение и значение по умолчанию: `0`, нет ограничения. Минимальная значение — 0.
-max_network_bandwidth | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Ограничивает скорость обмена данными по сети (байт в секунду) при выполнении одного запроса. <br>Минимальное значение и значение по умолчанию: `0`, нет ограничения. 
-max_network_bandwidth_for_user | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Ограничивает скорость обмена данными по сети (байт в секунду). Эта настройка влияет на все одновременно выполняющиеся запросы пользователя. <br>Минимальное значение и значение по умолчанию: `0`, нет ограничения. 
-force_index_by_date | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Если эта настройка включена, то запрос не выполняется при условии, что использовать индекс по дате невозможно. Этот настройка действует только для таблиц семейства MergeTree. <br>Значение по умолчанию: `false` (настройка отключена, запрос выполняется, даже если ClickHouse не может использовать индекс по дате). <br>См. подробное описание в [документации ClickHouse](https://clickhouse.tech/docs/ru/operations/settings/settings/#settings-force_index_by_date). 
-force_primary_key | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Если эта настройка включена, то запрос не выполняется при условии, что использовать индекс по первичному ключу невозможно. Этот настройка действует только для таблиц семейства MergeTree. <br>Значение по умолчанию: `false` (настройка отключена, запрос выполняется, даже если ClickHouse не может использовать индекс по первичному ключу). <br>См. подробное описание в [документации ClickHouse](https://clickhouse.tech/docs/ru/operations/settings/settings/#settings-force_primary_key). 
-max_rows_to_read | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Ограничивает максимальное количество строк, которое можно прочитать из таблицы при выполнении запроса. <br>Минимальное значение и значение по умолчанию: `0`, нет ограничения. <br>См. подробное описание в [документации ClickHouse](https://clickhouse.tech/docs/ru/operations/settings/query-complexity/#max-rows-to-read). Минимальная значение — 0.
-max_bytes_to_read | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Ограничивает максимальное количество байт (несжатых данных), которое можно прочитать из таблицы при выполнении запроса. <br>Минимальное значение и значение по умолчанию: `0`, нет ограничения. Минимальная значение — 0.
-read_overflow_mode | enum **OverflowMode**<br>Определяет поведение ClickHouse в ситуации, когда количество прочитанных данных [превысило ограничения](https://clickhouse.tech/docs/ru/operations/settings/query-complexity/#restrictions-on-query-complexity). <br>- `throw` — прервать выполнение запроса, вернуть ошибку. - `break` — прервать выполнение запроса, вернуть неполный результат. <ul><ul/>
-max_rows_to_group_by | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Ограничивает максимальное количество уникальных ключей, получаемых в процессе агрегации. Эта настройка позволяет ограничить потребление оперативной памяти при агрегации. <br>Минимальное значение и значение по умолчанию: `0`, нет ограничения. Минимальная значение — 0.
-group_by_overflow_mode | enum **GroupByOverflowMode**<br>Определяет поведение ClickHouse в ситуации, когда количество уникальных ключей при агрегации [превысило ограничения](https://clickhouse.tech/docs/ru/operations/settings/query-complexity/#restrictions-on-query-complexity). <br>- `throw` — прервать выполнение запроса, вернуть ошибку. - `break` — прервать выполнение запроса, вернуть неполный результат. - `any` — выполнить `GROUP BY` приближённо, продолжая агрегацию для ключей, которые попали в набор, без добавления новых ключей в набор. <ul><ul/>
-max_rows_to_sort | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Ограничивает максимальное количество строк для сортировки. Эта настройка позволяет ограничить потребление оперативной памяти при сортировке. <br>Минимальное значение и значение по умолчанию: `0`, нет ограничения. Минимальная значение — 0.
-max_bytes_to_sort | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Ограничивает максимальное количество байт (несжатых данных), которое можно прочитать из таблицы до сортировки. Эта настройка позволяет ограничить потребление оперативной памяти при сортировке. <br>Минимальное значение и значение по умолчанию: `0`, нет ограничения. Минимальная значение — 0.
-sort_overflow_mode | enum **OverflowMode**<br>Определяет поведение ClickHouse в ситуации, когда количество строк, полученных перед сортировкой, [превысило ограничения](https://clickhouse.tech/docs/ru/operations/settings/query-complexity/#restrictions-on-query-complexity). <br>- `throw` — прервать выполнение запроса, вернуть ошибку. - `break` — прервать выполнение запроса, вернуть неполный результат. <ul><ul/>
-max_result_rows | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Ограничивает количество строк результата. Это ограничение также проверяется для подзапросов и частей распределенных запросов, выполняемых на удаленных серверах. <br>Минимальное значение и значение по умолчанию: `0`, нет ограничения. Минимальная значение — 0.
-max_result_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Ограничивает количество байт результата. Это ограничение также проверяется для подзапросов и частей распределенных запросов, выполняемых на удаленных серверах. <br>Минимальное значение и значение по умолчанию: `0`, нет ограничения. Минимальная значение — 0.
-result_overflow_mode | enum **OverflowMode**<br>определяет поведение ClickHouse в ситуации, когда объём результата [превысил ограничения](https://clickhouse.tech/docs/ru/operations/settings/query-complexity/#restrictions-on-query-complexity). <br>- `throw` — прервать выполнение запроса, вернуть ошибку. - `break` — прервать выполнение запроса, вернуть неполный результат. <ul><ul/>
-max_rows_in_distinct | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Ограничивает максимальное количество различных строк при использовании `DISTINCT`. <br>Минимальное значение и значение по умолчанию: `0`, нет ограничения. Минимальная значение — 0.
-max_bytes_in_distinct | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Ограничивает максимальное количество байт (несжатых данных), занимаемых хэш-таблицей, при использовании `DISTINCT`. Минимальная значение — 0.
-distinct_overflow_mode | enum **OverflowMode**<br>Определяет поведение ClickHouse в ситуации, когда количество данных при выполнении запроса `DISTINCT` [превысило ограничения](https://clickhouse.tech/docs/ru/operations/settings/query-complexity/#restrictions-on-query-complexity). <br>- `throw` — прервать выполнение запроса, вернуть ошибку. - `break` — прервать выполнение запроса, вернуть неполный результат. <ul><ul/>
-max_rows_to_transfer | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Ограничивает максимальное количество строк, которое можно передать на удалённый сервер или сохранить во временную таблицу при использовании `GLOBAL IN`. <br>Минимальное значение и значение по умолчанию: `0`, нет ограничения. Минимальная значение — 0.
-max_bytes_to_transfer | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Ограничивает максимальное количество байт (несжатых данных), которых можно передать на удалённый сервер или сохранить во временную таблицу, при использовании `GLOBAL IN`. <br>Минимальное значение и значение по умолчанию: `0`, нет ограничения. Минимальная значение — 0.
-transfer_overflow_mode | enum **OverflowMode**<br>Определяет поведение ClickHouse в ситуации, когда количество данных для передачи на другой сервер [превысило ограничения](https://clickhouse.tech/docs/ru/operations/settings/query-complexity/#restrictions-on-query-complexity). <br>- `throw` — прервать выполнение запроса, вернуть ошибку. - `break` — прервать выполнение запроса, вернуть неполный результат. <ul><ul/>
-max_execution_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Ограничивает максимальное время выполнения запроса в миллисекундах. На данный момент это ограничение не проверяется при одной из стадий сортировки а также при слиянии и финализации агрегатных функций. <br>Минимальное значение и значение по умолчанию: `0`, нет ограничения. Минимальная значение — 0.
-timeout_overflow_mode | enum **OverflowMode**<br>Определяет поведение ClickHouse в ситуации, когда запрос [превысил ограничения](https://clickhouse.tech/docs/ru/operations/settings/query-complexity/#restrictions-on-query-complexity) на время исполнения. <br>- `throw` — прервать выполнение запроса, вернуть ошибку. - `break` — прервать выполнение запроса, вернуть неполный результат. <ul><ul/>
-max_columns_to_read | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Ограничивает максимальное количество столбцов, которые можно читать из таблицы в одном запросе. Если запрос требует чтения большего количества столбцов — он будет завершен с ошибкой. <br>Минимальное значение и значение по умолчанию: `0`, нет ограничения. Минимальная значение — 0.
-max_temporary_columns | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Ограничивает максимальное количество временных столбцов, которое должно храниться в оперативной памяти одновременно при выполнении запроса (с учетом постоянных столбцов) <br>Минимальное значение и значение по умолчанию: `0`, нет ограничения. Минимальная значение — 0.
-max_temporary_non_const_columns | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Ограничивает максимальное количество временных столбцов, которое должно храниться в оперативной памяти одновременно при выполнении запроса (без учета постоянных столбцов). <br>Минимальное значение и значение по умолчанию: `0`, нет ограничения. Минимальная значение — 0.
-max_query_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Ограничивает размер наибольшей части запроса (в байтах), которая может быть передана в оперативную память для разбора с помощью парсера SQL. <br>Значение должно быть больше `0` (по умолчанию: `262144`). <br>См. подробное описание в [документации ClickHouse](https://clickhouse.tech/docs/ru/operations/settings/settings/#settings-max_query_size). Значение должно быть больше 0.
-max_ast_depth | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Ограничивает максимальную глубину вложенности синтаксического дерева. <br>Для больших и сложных запросов может быть построено синтаксическое дерево очень большой глубины. При помощи этой настройки вы можете запретить выполнение излишне больших или неоптимальных запросов для больших таблиц. <br>Например, запрос `SELECT *` в большинстве случаев породит более сложное и глубокое синтаксическое дерево, чем запрос `SELECT ... WHERE ...` с ограничениями и условиями. Наложение ограничения с помощью настройки может побудить пользователя оптимизировать излишне сложные запросы. <br>Значение должно быть больше `0` (по умолчанию: `1000`). Слишком маленькое значение может привести к невозможности выполнения большинства запросов. <br>См. подробное описание в [документации ClickHouse](https://clickhouse.tech/docs/ru/operations/settings/query-complexity/#max-ast-depth). Значение должно быть больше 0.
-max_ast_elements | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Ограничивает максимальное количество элементов синтаксического дерева запроса (количество узлов дерева). <br>Для больших и сложных запросов может быть построено синтаксическое дерево c очень большим количеством элементов. При помощи этой настройки вы можете запретить выполнение излишне больших или неоптимальных запросов для больших таблиц. <br>Значение должно быть больше `0` (по умолчанию: `50000`). Слишком маленькое значение может привести к невозможности выполнения большинства запросов. <br>См. подробное описание в [документации ClickHouse](https://clickhouse.tech/docs/ru/operations/settings/query-complexity/#max-ast-elements). Значение должно быть больше 0.
-max_expanded_ast_elements | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Ограничивает максимальное количество элементов синтаксического дерева запроса (количество узлов дерева) после раскрытия псевдонимов и звездочки. <br>Для больших и сложных запросов может быть построено синтаксическое дерево c очень большим количеством элементов. При помощи этой настройки вы можете запретить выполнение излишне больших или неоптимальных запросов для больших таблиц. <br>Значение должно быть больше `0` (по умолчанию: `500000`). Слишком маленькое значение может привести к невозможности выполнения большинства запросов. Значение должно быть больше 0.
-input_format_values_interpret_expressions | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Включает или выключает парсер SQL, если потоковый парсер не может проанализировать данные. <br>Используйте эту настройку, если значения, которые вы хотите вставить в таблицу, содержат в себе выражения SQL. <br>Например, при вставке в таблицу значения, содержащего в себе выражение `now()`, потоковый парсер не сможет распознать это выражение; запрос `INSERT` завершится с ошибкой, и никакие данные не будут вставлены в таблицу. При включенном парсере SQL выражение будет распознано корректно и в качестве значения будет вставлен результат выполнения SQL-функции `now()` (текущая дата и время). <br>Эта настройка действует только в том случае, если вы используете формат [Values](https://clickhouse.tech/docs/ru/interfaces/formats/#data-format-values) при вставке данных. <br>Значение по умолчанию: `true` (парсер SQL включен). <br>См. подробное описание в [документации ClickHouse](https://clickhouse.tech/docs/ru/operations/settings/settings/#settings-input_format_values_interpret_expressions). 
-input_format_defaults_for_omitted_fields | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Включает или выключает замену пропущенных полей значениями по умолчанию для типа данных столбца при вставке данных запросом `INSERT`. <br>Значение по умолчанию: `true` (замена включена). 
-output_format_json_quote_64bit_integers | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Определяет формат чисел в JSON-выводе. <br>Если эта настройка включена, то при выводе в JSON 64-битные числа (`UInt64` и `Int64`) выводятся в кавычках (из соображений совместимости с большинством реализаций JavaScript). Иначе — без кавычек. <br>Значение по умолчанию: `false` (вывод 64-битных целых чисел в кавычках выключен). 
-output_format_json_quote_denormals | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Включает вывод специальных значений для чисел с плавающей запятой (`+nan`, `-nan`, `+inf` и `-inf`) при выводе в JSON. <br>Значение по умолчанию: `false` (специальные значения не выводятся). 
-low_cardinality_allow_in_native_format | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Определяет, использовать ли тип LowCardinality в Native-формате. <br>- `true` (по умолчанию) — да, использовать. - `false`— конвертировать столбцы LowCardinality в обычные столбцы для запроса `SELECT`, и конвертировать обычные столбцы в требуемый LowCardinality-столбец для запроса `INSERT`. <br>Столбцы этого типа, также известные как «разреженные столбцы», позволяют более эффективно хранить данные в виде хэш-таблиц. Если данные это позволяют, ClickHouse использует столбец типа LowCardinality. <br>Если вы используете сторонний клиент для ClickHouse, который не умеет работать со столбцами типа LowCardinality, то такой клиент не сможет правильно интерпретировать результат запроса, если в запросе будет присутствовать столбец типа LowCardinality. Выключите эту настройку, чтобы включать в результат столбец в обычном формате и позволить сторонним клиентам обработать результат. <br>Официальный клиент ClickHouse умеет работать со столбцами типа LowCardinality. <br>Значение по умолчанию: `true` (столбцы LowCardinality используются в Native-формате). 
-empty_result_for_aggregation_by_empty_set | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Позволяет возвращать пустой результат при выполнении агрегации данных без ключей (без `GROUP BY`) для пустого множества (например, `SELECT count(*) FROM table WHERE 0`). <br>- `true`— ClickHouse вернет пустой результат. - `false` (по умолчанию) — ClickHouse вернет результат, состоящий из одной строки со значениями `NULL` для агрегатных функций, в соответствии со стандартом SQL. 
-http_connection_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Время ожидания установления HTTP-соединения в миллисекундах. <br>Значение должно быть больше `0` (по умолчанию: `1000`, 1 секунда). 
-http_receive_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Время ожидания приема данных через HTTP-соединение в миллисекундах. <br>Значение должно быть больше `0` (по умолчанию: `1800000`, 1800 секунд, 30 минут). 
-http_send_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Время ожидания отправки данных через HTTP-соединение в миллисекундах. <br>Значение должно быть больше `0` (по умолчанию: `1800000`, 1800 секунд, 30 минут). 
-enable_http_compression | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Включает или выключает сжатие данных в ответе на HTTP-запрос. <br>По умолчанию ClickHouse хранит данные в сжатом виде. При выполнении запроса его результат представлен в несжатом виде. С помощью этой настройки вы можете указать ClickHouse сжимать результат запроса при отправке по HTTP. <br>Чтобы ClickHouse сжал ответ при включенной настройке, добавьте в HTTP-запрос заголовок @b. <br>ClickHouse поддерживает следующие методы сжатия: `gzip`, `br` и `deflate`. <br>Значение по умолчанию: `false` (сжатие выключено). <br>См. подробное описание в [документации ClickHouse](https://clickhouse.tech/docs/ru/interfaces/http/). 
-send_progress_in_http_headers | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Включает отсылку уведомления о ходе выполнения с использованием HTTP-заголовков `X-ClickHouse-Progress`. <br>Значение по умолчанию: `false` (отсылка уведомлений выключена). 
-http_headers_progress_interval | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Задает минимальный интервал (в миллисекундах) между уведомлениями о ходе выполнения запроса с помощью HTTP-заголовка `X-ClickHouse-Progress`. <br>Значение должно быть больше `0` (по умолчанию: `100`). 
-add_http_cors_header | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Включает заголовок CORS в HTTP-ответы. <br>Значение по умолчанию: `false` (заголовок не включается в HTTP-ответы). 
+readonly | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br><ul><li>**0** (default)-no restrictions. </li><li>**1**-only read data queries are allowed. </li><li>**2**-read data and change settings queries are allowed. </li></ul> Acceptable values are 0 to 2, inclusive.
+allow_ddl | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Determines whether DDL queries are allowed (e.g., **CREATE**, **ALTER**, **RENAME**, etc). <br>Default value: **true**. <br>See in-depth description in [ClickHouse documentation](https://clickhouse.tech/docs/en/operations/settings/permissions-for-queries/#settings_allow_ddl). 
+insert_quorum | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br><ul><li>replicas with no errors until the `insert_quorum_timeout` expires. </li><li>queries. </li></ul> The minimum value is 0.
+connect_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br><ul><li>(default: **10000**, 10 seconds).</li></ul> Value must be greater than 0.
+receive_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br><ul><li>(default: **300000**, 300 seconds or 5 minutes).</li></ul> Value must be greater than 0.
+send_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br><ul><li>(default: **300000**, 300 seconds or 5 minutes).</li></ul> Value must be greater than 0.
+insert_quorum_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br><ul><li>query and return an error. </li></ul> The minimum value is 1000.
+select_sequential_consistency | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br><ul><li>queries from the replicated table: if enabled, ClickHouse will terminate a query with error message in case the replica does not have a chunk written with the quorum and will not read the parts that have not yet been written with the quorum. </li><li>(sequential consistency is disabled).</li></ul> 
+max_replica_delay_for_distributed_queries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Max replica delay in milliseconds. If a replica lags more than the set value, this replica is not used and becomes a stale one. <br>Minimum value: **1000**, 1 second (default: **300000**, 300 seconds or 5 minutes). <br>See in-depth description in [ClickHouse documentation](https://clickhouse.tech/docs/en/operations/settings/settings/#settings-max_replica_delay_for_distributed_queries). The minimum value is 1000.
+fallback_to_stale_replicas_for_distributed_queries | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br><ul><li>query from a distributed table that points to replicated tables. </li><li>(query forcing is enabled). </li></ul> 
+replication_alter_partitions_sync | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br><ul><li>queries on replicated tables: </li><li>**0**-do not wait for replicas. </li><li>**1**-only wait for own execution (default). </li><li>**2**-wait for all replicas. </li></ul> Acceptable values are 0 to 2, inclusive.
+distributed_product_mode | enum **DistributedProductMode**<br>Determine the behavior of distributed subqueries. <br>See in-depth description in [ClickHouse documentation](https://clickhouse.tech/docs/en/operations/settings/settings/#distributed-product-mode). <ul><li>`DISTRIBUTED_PRODUCT_MODE_DENY`: Default value. Prohibits using these types of subqueries (returns the "Double-distributed in/JOIN subqueries is denied" exception).</li><li>`DISTRIBUTED_PRODUCT_MODE_LOCAL`: Replaces the database and table in the subquery with local ones for the destination server (shard), leaving the normal IN/JOIN.</li><li>`DISTRIBUTED_PRODUCT_MODE_GLOBAL`: Replaces the IN/JOIN query with GLOBAL IN/GLOBAL JOIN.</li><li>`DISTRIBUTED_PRODUCT_MODE_ALLOW`: Allows the use of these types of subqueries.</li><ul/>
+distributed_aggregation_memory_efficient | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br><ul><li>(memory saving mode is disabled). </li></ul> 
+distributed_ddl_task_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Timeout for DDL queries, in milliseconds. 
+skip_unavailable_shards | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br><ul><li>(silent skipping is disabled). </li></ul> 
+compile | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br><ul><li>(compilation is disabled). </li></ul> 
+min_count_to_compile | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br><ul><li>(default: **3**). </li><li>value compilation is synchronous: a query waits for compilation process to complete prior to continuing execution. </li></ul> The minimum value is 0.
+compile_expressions | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br><ul><li>(expression compilation is disabled).</li></ul> 
+min_count_to_compile_expression | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br><ul><li>(default: **3**). </li><li>value compilation is synchronous: a query waits for expression compilation process to complete prior to continuing execution. </li></ul> The minimum value is 0.
+max_block_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br><ul><li>(default: **65536**). </li></ul> Value must be greater than 0.
+min_insert_block_size_rows | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br><ul><li>query. </li></ul> The minimum value is 0.
+min_insert_block_size_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br><ul><li>query. </li></ul> The minimum value is 0.
+max_insert_block_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br><ul><li>(default: **1048576**). </li></ul> Value must be greater than 0.
+min_bytes_to_use_direct_io | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Limits the minimum number of bytes to enable unbuffered direct reads from disk (Direct I/O). <br>By default, ClickHouse does not read data directly from disk, but relies on the filesystem and its cache instead. Such reading strategy is effective when the data volume is small. If the amount of the data to read is huge, it is more effective to read directly from the disk, bypassing the filesystem cache. <br>If the total amount of the data to read is greater than the value of this setting, then ClickHouse will fetch this data directly from the disk. <br>Minimal value and default value: **0**, Direct I/O is disabled. The minimum value is 0.
+use_uncompressed_cache | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br><ul><li>(uncompressed cache is disabled). </li></ul> 
+merge_tree_max_rows_to_use_cache | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br><ul><li>(default: **128x8192**).</li></ul> Value must be greater than 0.
+merge_tree_max_bytes_to_use_cache | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br><ul><li>(default: **192x10x1024x1024**).</li></ul> Value must be greater than 0.
+merge_tree_min_rows_for_concurrent_read | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br><ul><li>(default: **20x8192**).</li></ul> Value must be greater than 0.
+merge_tree_min_bytes_for_concurrent_read | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br><ul><li>(default: **24x10x1024x1024**).</li></ul> Value must be greater than 0.
+max_bytes_before_external_group_by | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br><ul><li>operation, should be flushed to disk to limit the RAM comsumption. </li><li>in the external memory is disabled. </li></ul> 
+max_bytes_before_external_sort | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>This setting is equivalent of the `max_bytes_before_external_group_by` setting, except for it is for sort operation (**ORDER BY**), not aggregation. 
+group_by_two_level_threshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the threshold of the number of keys, after that the two-level aggregation should be used. <br>Minimal value: **0**, threshold is not set (default: **10000**). 
+group_by_two_level_threshold_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the threshold of the number of bytes, after that the two-level aggregation should be used. <br>Minimal value: **0**, threshold is not set (default: **100000000**). 
+priority | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br><ul><li>**0**-priority is not used. </li><li>**1**-the highest priority. </li><li>and so on. The higher the number, the lower a query's priority. </li></ul> The minimum value is 0.
+max_threads | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br><ul><li>(the thread number is calculated automatically based on the number of physical CPU cores, no HyperThreading cores are taken into account). </li></ul> Value must be greater than 0.
+max_memory_usage | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br><ul><li>(10 GB). </li></ul> The minimum value is 0.
+max_memory_usage_for_user | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Limits the maximum memory usage (in bytes) for processing of user's queries on a single server. This setting does not take server's free RAM amount or total RAM amount into account. <br>This limitation is enforced for all queries that belong to one user and run simultaneously on a single server. <br>Minimal value and default value: **0**, no limitation is set. The minimum value is 0.
+max_network_bandwidth | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum speed of data exchange over the network in bytes per second for a query. <br>Minimal value and default value: **0**, no limitation is set. 
+max_network_bandwidth_for_user | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum speed of data exchange over the network in bytes per second for all concurrently running user queries. <br>Minimal value and default value: **0**, no limitation is set. 
+force_index_by_date | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br><ul><li>(setting is disabled, query executes even if ClickHouse can't use index by date). </li></ul> 
+force_primary_key | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br><ul><li>(setting is disabled, query executes even if ClickHouse can't use index by primary key). </li></ul> 
+max_rows_to_read | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Limits the maximum number of rows that can be read from a table when running a query. <br>Minimal value and default value: **0**, no limitation is set. <br>See in-depth description in [ClickHouse documentation](https://clickhouse.tech/docs/en/operations/settings/query-complexity/#max-rows-to-read). The minimum value is 0.
+max_bytes_to_read | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Limits the maximum number of bytes (uncompressed data) that can be read from a table when running a query. <br>Minimal value and default value: **0**, no limitation is set. The minimum value is 0.
+read_overflow_mode | enum **OverflowMode**<br><ul><li>**throw**-abort query execution, return an error. </li><li>**break**-stop query execution, return partial result.</li></ul> <ul><ul/>
+max_rows_to_group_by | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Limits the maximum number of unique keys received from aggregation function. This setting helps to reduce RAM consumption while doing aggregation. <br>Minimal value and default value: **0**, no limitation is set. The minimum value is 0.
+group_by_overflow_mode | enum **GroupByOverflowMode**<br><ul><li>**throw**-abort query execution, return an error. </li><li>**break**-stop query execution, return partial result. </li><li>**any**-perform approximate **GROUP BY** operation by continuing aggregation for the keys that got into the set, but don't add new keys to the set.</li></ul> <ul><ul/>
+max_rows_to_sort | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Limits the maximum number of rows that can be read from a table for sorting. This setting helps to reduce RAM consumption. <br>Minimal value and default value: **0**, no limitation is set. The minimum value is 0.
+max_bytes_to_sort | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Limits the maximum number of bytes (uncompressed data) that can be read from a table for sorting. This setting helps to reduce RAM consumption. <br>Minimal value and default value: **0**, no limitation is set. The minimum value is 0.
+sort_overflow_mode | enum **OverflowMode**<br><ul><li>**throw**-abort query execution, return an error. </li><li>**break**-stop query execution, return partial result.</li></ul> <ul><ul/>
+max_result_rows | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Limits the number of rows in the result. This limitation is also checked for subqueries and parts of distributed queries that run on remote servers. <br>Minimal value and default value: **0**, no limitation is set. The minimum value is 0.
+max_result_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Limits the number of bytes in the result. This limitation is also checked for subqueries and parts of distributed queries that run on remote servers. <br>Minimal value and default value: **0**, no limitation is set. The minimum value is 0.
+result_overflow_mode | enum **OverflowMode**<br><ul><li>**throw**-abort query execution, return an error. </li><li>**break**-stop query execution, return partial result.</li></ul> <ul><ul/>
+max_rows_in_distinct | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Limits the maximum number of different rows when using **DISTINCT**. <br>Minimal value and default value: **0**, no limitation is set. The minimum value is 0.
+max_bytes_in_distinct | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Limits the maximum size of a hash table in bytes (uncompressed data) when using **DISTINCT**. The minimum value is 0.
+distinct_overflow_mode | enum **OverflowMode**<br><ul><li>**throw**-abort query execution, return an error. </li><li>**break**-stop query execution, return partial result.</li></ul> <ul><ul/>
+max_rows_to_transfer | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Limits the maximum number of rows that can be passed to a remote server or saved in a temporary table when using **GLOBAL IN**. <br>Minimal value and default value: **0**, no limitation is set. The minimum value is 0.
+max_bytes_to_transfer | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Limits the maximum number of bytes (uncompressed data) that can be passed to a remote server or saved in a temporary table when using **GLOBAL IN**. <br>Minimal value and default value: **0**, no limitation is set. The minimum value is 0.
+transfer_overflow_mode | enum **OverflowMode**<br><ul><li>**throw**-abort query execution, return an error. </li><li>**break**-stop query execution, return partial result.</li></ul> <ul><ul/>
+max_execution_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Limits the maximum query execution time in milliseconds. At this moment, this limitation is not checked when passing one of the sorting stages, as well as merging and finalizing aggregation funictions. <br>Minimal value and default value: **0**, no limitation is set. The minimum value is 0.
+timeout_overflow_mode | enum **OverflowMode**<br><ul><li>**throw**-abort query execution, return an error. </li><li>**break**-stop query execution, return partial result.</li></ul> <ul><ul/>
+max_rows_in_set | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Limit on the number of rows in the set resulting from the execution of the IN section. The minimum value is 0.
+max_bytes_in_set | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Limit on the number of bytes in the set resulting from the execution of the IN section. The minimum value is 0.
+set_overflow_mode | enum **OverflowMode**<br>Determine the behavior on exceeding max_rows_in_set or max_bytes_in_set limit. Possible values: OVERFLOW_MODE_THROW, OVERFLOW_MODE_BREAK. <ul><ul/>
+max_rows_in_join | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Limit on maximum size of the hash table for JOIN, in rows. The minimum value is 0.
+max_bytes_in_join | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Limit on maximum size of the hash table for JOIN, in bytes. The minimum value is 0.
+join_overflow_mode | enum **OverflowMode**<br>Determine the behavior on exceeding max_rows_in_join or max_bytes_in_join limit. Possible values: OVERFLOW_MODE_THROW, OVERFLOW_MODE_BREAK. <ul><ul/>
+max_columns_to_read | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Limits the maximum number of columns that can be read from a table in a single query. If the query requires to read more columns to complete, then it will be aborted. <br>Minimal value and default value: **0**, no limitation is set. The minimum value is 0.
+max_temporary_columns | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Limits the maximum number of temporary columns that must be kept in RAM at the same time when running a query, including constant columns. <br>Minimal value and default value: **0**, no limitation is set. The minimum value is 0.
+max_temporary_non_const_columns | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Limits the maximum number of temporary columns that must be kept in RAM at the same time when running a query, excluding constant columns. <br>Minimal value and default value: **0**, no limitation is set. The minimum value is 0.
+max_query_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br><ul><li>(default: **262144**). </li></ul> Value must be greater than 0.
+max_ast_depth | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br><ul><li>query may result in more complex and deeper syntax tree, compared to the **SELECT ... WHERE ...** query, containing constraints and conditions, in the most cases. </li><li>(default: **1000**). </li></ul> Value must be greater than 0.
+max_ast_elements | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br><ul><li>(default: **50000**). </li></ul> Value must be greater than 0.
+max_expanded_ast_elements | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br><ul><li>(default: **500000**). </li></ul> Value must be greater than 0.
+min_execution_speed | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Minimal execution speed in rows per second. The minimum value is 0.
+min_execution_speed_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Minimal execution speed in bytes per second. The minimum value is 0.
+count_distinct_implementation | enum **CountDistinctImplementation**<br>Aggregate function to use for implementation of count(DISTINCT ...). <ul><ul/>
+input_format_values_interpret_expressions | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br><ul><li>expression; therefore an **INSERT** query for this value will fail and no data will be inserted into a table. </li><li>expression will be parsed as SQL function, interpreted, and the current date and time will be inserted into the table as a result. </li><li>(SQL parser is enabled). </li></ul> 
+input_format_defaults_for_omitted_fields | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br><ul><li>queries. </li><li>(replacing is enabled).</li></ul> 
+output_format_json_quote_64bit_integers | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br><ul><li>and **Int64**) will be quoted when written to JSON output in order to maintain compatibility with the most of the JavaScript engines. </li><li>(quoting 64-bit integers is disabled).</li></ul> 
+output_format_json_quote_denormals | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br><ul><li>and **-inf**) in JSON output format. </li><li>(special values do not present in output).</li></ul> 
+low_cardinality_allow_in_native_format | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br><ul><li>**true** (default)-yes, use. </li><li>**false**-convert LowCardinality columns to regular columns when doing **SELECT**, and convert regular columns to LowCardinality when doing **INSERT**. </li><li>(LowCardinality columns are used in Native format).</li></ul> 
+empty_result_for_aggregation_by_empty_set | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br><ul><li>operation absent) on empty set (e.g., **SELECT count(*) FROM table WHERE 0**). </li><li>**true**-ClickHouse will return an empty result for such queries. </li><li>**false** (default)-ClickHouse will return a single-line result consisting of **NULL** values for aggregation functions, in accordance with SQL standard.</li></ul> 
+joined_subquery_requires_alias | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
+join_use_nulls | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
+transform_null_in | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
+http_connection_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br><ul><li>(default: **1000**, 1 second).</li></ul> 
+http_receive_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br><ul><li>(default: **1800000**, 1800 seconds, 30 minutes).</li></ul> 
+http_send_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br><ul><li>(default: **1800000**, 1800 seconds, 30 minutes).</li></ul> 
+enable_http_compression | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br><ul><li>HTTP header in a HTTP request to force compression of HTTP response from ClickHouse. </li><li>and **deflate**. </li><li>(compression is disabled). </li></ul> 
+send_progress_in_http_headers | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br><ul><li>HTTP header. </li><li>(notifications disabled).</li></ul> 
+http_headers_progress_interval | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br><ul><li>HTTP header, in milliseconds. </li><li>(default: **100**).</li></ul> 
+add_http_cors_header | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br><ul><li>(header is not added).</li></ul> 
+quota_mode | enum **QuotaMode**<br>Quota accounting mode. Possible values: QUOTA_MODE_DEFAULT, QUOTA_MODE_KEYED and QUOTA_MODE_KEYED_BY_IP. <ul><ul/>
 
 
 ### UserQuota {#UserQuota}
 
-Поле | Описание
+Field | Description
 --- | ---
-interval_duration | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Длительность интервала для квоты в миллисекундах. Минимальное значение — 1 секунда. Минимальная значение — 1000.
-queries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Общее количество запросов. 0-неограниченно. Минимальная значение — 0.
-errors | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Количество запросов, которые вызвали исключение. 0-неограниченно. Минимальная значение — 0.
-result_rows | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Общее число строк, приведенных в результате. 0-неограниченно. Минимальная значение — 0.
-read_rows | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Общее число исходных строк, считанных из таблиц для выполнения запроса, на всех удаленных серверах. 0-неограниченно. Минимальная значение — 0.
-execution_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Общее время выполнения запроса, в миллисекундах. 0-неограниченно. Минимальная значение — 0.
+interval_duration | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Duration of interval for quota in milliseconds. Minimal value is 1 second. The minimum value is 1000.
+queries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The total number of queries. 0 - unlimited. The minimum value is 0.
+errors | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of queries that threw exception. 0 - unlimited. The minimum value is 0.
+result_rows | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The total number of rows given as the result.. 0 - unlimited. The minimum value is 0.
+read_rows | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The total number of source rows read from tables for running the query, on all remote servers. 0 - unlimited. The minimum value is 0.
+execution_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The total query execution time, in milliseconds (wall time). 0 - unlimited. The minimum value is 0.
 
 
 ### HostSpec {#HostSpec}
 
-Поле | Описание
+Field | Description
 --- | ---
-zone_id | **string**<br>Идентификатор зоны доступности, в которой находится хост. Чтобы получить список доступных зон, используйте запрос [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/grpc/zone_service#List). Максимальная длина строки в символах — 50.
-type | **[Host.Type](#Host)**<br>Обязательное поле. Тип развертываемого хоста. 
-subnet_id | **string**<br>Идентификатор подсети, к которой должен принадлежать хост. Эта подсеть должна быть частью сети, к которой принадлежит кластер. Идентификатор сети задается в поле [Cluster.network_id](#Cluster2). Максимальная длина строки в символах — 50.
-assign_public_ip | **bool**<br><ul><li>false — не назначать хосту публичный IP-адрес. </li><li>true — у хоста должен быть публичный IP-адрес.</li></ul> 
-shard_name | **string**<br>Имя шарда, которому принадлежит хост. Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_-]* `.
+zone_id | **string**<br>ID of the availability zone where the host resides. To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/grpc/zone_service#List) request. The maximum string length in characters is 50.
+type | **[Host.Type](#Host)**<br>Required. Type of the host to be deployed. 
+subnet_id | **string**<br>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The ID of the network is set in the [Cluster.network_id](#Cluster2) field. The maximum string length in characters is 50.
+assign_public_ip | **bool**<br><ul><li>false - don't assign a public IP to the host. </li><li>true - the host should have a public IP address.</li></ul> 
+shard_name | **string**<br>Name of the shard that the host is assigned to. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
 ### Operation {#Operation}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateClusterMetadata](#CreateClusterMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster2)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateClusterMetadata](#CreateClusterMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster2)>**<br>if operation finished successfully. 
 
 
 ### CreateClusterMetadata {#CreateClusterMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Идентификатор создаваемого кластера ClickHouse. 
+cluster_id | **string**<br>ID of the ClickHouse cluster that is being created. 
 
 
 ### Cluster {#Cluster2}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор кластера ClickHouse. Этот идентификатор генерирует MDB при создании кластера. 
-folder_id | **string**<br>Идентификатор каталога, которому принадлежит кластер ClickHouse. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) . 
-name | **string**<br>Имя кластера ClickHouse. Имя уникально в рамках каталога. Длина 1-63 символов. 
-description | **string**<br>Описание кластера ClickHouse. Длина описания должна быть от 0 до 256 символов. 
-labels | **map<string,string>**<br>Пользовательские метки для кластера ClickHouse в виде пар `key:value`. Максимум 64 на ресурс. 
-environment | enum **Environment**<br>Среда развертывания кластера ClickHouse. <ul><li>`PRODUCTION`: Стабильная среда с осторожной политикой обновления: во время регулярного обслуживания применяются только срочные исправления.</li><li>`PRESTABLE`: Среда с более агрессивной политикой обновления: новые версии развертываются независимо от обратной совместимости.</li><ul/>
-monitoring[] | **[Monitoring](#Monitoring2)**<br>Описание систем мониторинга, относящихся к данному кластеру ClickHouse. 
-config | **[ClusterConfig](#ClusterConfig2)**<br>Конфигурация кластера ClickHouse. 
-network_id | **string**<br>Идентификатор сети, к которой принадлежит кластер. 
-health | enum **Health**<br>Здоровье кластера. <ul><li>`HEALTH_UNKNOWN`: Состояние кластера неизвестно ([Host.health](#Host) для каждого хоста в кластере — UNKNOWN).</li><li>`ALIVE`: Кластер работает нормально ([Host.health](#Host) для каждого хоста в кластере — ALIVE).</li><li>`DEAD`: Кластер не работает ([Host.health](#Host) для каждого хоста в кластере — DEAD).</li><li>`DEGRADED`: Кластер работает неоптимально ([Host.health](#Host) по крайней мере для одного хоста в кластере не ALIVE).</li><ul/>
-status | enum **Status**<br>Текущее состояние кластера. <ul><li>`STATUS_UNKNOWN`: Состояние кластера неизвестно.</li><li>`CREATING`: Кластер создается.</li><li>`RUNNING`: Кластер работает нормально.</li><li>`ERROR`: В кластере произошла ошибка, блокирующая работу.</li><li>`UPDATING`: Кластер изменяется.</li><li>`STOPPING`: Кластер останавливается.</li><li>`STOPPED`: Кластер остановлен.</li><li>`STARTING`: Кластер запускается.</li><ul/>
-service_account_id | **string**<br>Идентификатор сервисного аккаунта, используемого для доступа к Yandex Object Storage. 
+id | **string**<br>ID of the ClickHouse cluster. This ID is assigned by MDB at creation time. 
+folder_id | **string**<br>ID of the folder that the ClickHouse cluster belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
+name | **string**<br>Name of the ClickHouse cluster. The name is unique within the folder. 1-63 characters long. 
+description | **string**<br>Description of the ClickHouse cluster. 0-256 characters long. 
+labels | **map<string,string>**<br>Custom labels for the ClickHouse cluster as `key:value` pairs. Maximum 64 per resource. 
+environment | enum **Environment**<br>Deployment environment of the ClickHouse cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
+monitoring[] | **[Monitoring](#Monitoring2)**<br>Description of monitoring systems relevant to the ClickHouse cluster. 
+config | **[ClusterConfig](#ClusterConfig2)**<br>Configuration of the ClickHouse cluster. 
+network_id | **string**<br>ID of the network that the cluster belongs to. 
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
+status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow2)**<br>Maintenance window for the cluster. 
+planned_operation | **[MaintenanceOperation](#MaintenanceOperation2)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
+security_group_ids[] | **string**<br>User security groups 
 
 
 ### Monitoring {#Monitoring2}
 
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br>Название системы мониторинга. 
-description | **string**<br>Описание системы мониторинга. 
-link | **string**<br>Ссылка на графики системы мониторинга для данного кластера ClickHouse. 
+name | **string**<br>Name of the monitoring system. 
+description | **string**<br>Description of the monitoring system. 
+link | **string**<br>Link to the monitoring system charts for the ClickHouse cluster. 
 
 
 ### ClusterConfig {#ClusterConfig2}
 
-Поле | Описание
+Field | Description
 --- | ---
-version | **string**<br>Версия серверного программного обеспечения ClickHouse. 
-clickhouse | **[Clickhouse](#Clickhouse3)**<br>Конфигурация и распределение ресурсов для хостов ClickHouse. 
-zookeeper | **[Zookeeper](#Zookeeper3)**<br>Конфигурация и распределение ресурсов для хостов ZooKeeper. 
-backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Время запуска ежедневного резервного копирования, в часовом поясе UTC. 
-access | **[Access](#Access3)**<br>Политика доступа для внешних сервисов. 
+version | **string**<br>Version of the ClickHouse server software. 
+clickhouse | **[Clickhouse](#Clickhouse3)**<br>Configuration and resource allocation for ClickHouse hosts. 
+zookeeper | **[Zookeeper](#Zookeeper3)**<br>Configuration and resource allocation for ZooKeeper hosts. 
+backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
+access | **[Access](#Access3)**<br>Access policy for external services. 
+cloud_storage | **[CloudStorage](#CloudStorage3)**<br> 
+sql_database_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether database management through SQL commands is enabled. 
+sql_user_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether user management through SQL commands is enabled. 
 
 
 ### Clickhouse {#Clickhouse3}
 
-Поле | Описание
+Field | Description
 --- | ---
-config | **`config.ClickhouseConfigSet`**<br>Параметры конфигурации сервера ClickHouse. 
-resources | **[Resources](#Resources)**<br>Ресурсы, выделенные хостам ClickHouse. 
+config | **`config.ClickhouseConfigSet`**<br>Configuration settings of a ClickHouse server. 
+resources | **[Resources](#Resources)**<br>Resources allocated to ClickHouse hosts. 
 
 
 ### Zookeeper {#Zookeeper3}
 
-Поле | Описание
+Field | Description
 --- | ---
-resources | **[Resources](#Resources)**<br>Ресурсы, выделенные хостам ZooKeeper. 
+resources | **[Resources](#Resources)**<br>Resources allocated to ZooKeeper hosts. 
 
 
 ### Access {#Access3}
 
-Поле | Описание
+Field | Description
 --- | ---
-data_lens | **bool**<br>Разрешить экспорт данных из кластера в Yandex DataLens. 
-web_sql | **bool**<br>Разрешить SQL-запросы к базам данных кластера из консоли управления облаком. <br>Подробнее см. в [SQL-запросы в консоли управления](/docs/managed-clickhouse/operations/web-sql-query). 
-metrika | **bool**<br>Разрешить импорт данных из Яндекс.Метрики и AppMetrica в кластер. <br>Подробнее см. в [Экспорт данных в Яндекс.Облако](https://appmetrica.yandex.ru/docs/cloud/index.html). 
-serverless | **bool**<br>Разрешить доступ к кластеру для Serverless. 
+data_lens | **bool**<br>Allow to export data from the cluster to Yandex DataLens. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
+metrika | **bool**<br>Allow to import data from Yandex.Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex.Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
+serverless | **bool**<br>Allow access to cluster for Serverless. 
+
+
+### CloudStorage {#CloudStorage3}
+
+Field | Description
+--- | ---
+enabled | **bool**<br>Whether to use Yandex Object Storage for storing ClickHouse data. 
+
+
+### MaintenanceWindow {#MaintenanceWindow2}
+
+Field | Description
+--- | ---
+policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow2)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow2)**<br>Maintenance operation can be scheduled on a weekly basis. 
+
+
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow2}
+
+
+
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow2}
+
+Field | Description
+--- | ---
+day | enum **WeekDay**<br>Day of the week (in `DDD` format). <ul><ul/>
+hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
+
+
+### MaintenanceOperation {#MaintenanceOperation2}
+
+Field | Description
+--- | ---
+info | **string**<br>Information about this maintenance operation. The maximum string length in characters is 256.
+delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time until which this maintenance operation is delayed. 
 
 
 ## Update {#Update}
 
-Изменяет указанный кластер ClickHouse.
+Updates the specified ClickHouse cluster.
 
 **rpc Update ([UpdateClusterRequest](#UpdateClusterRequest)) returns ([operation.Operation](#Operation1))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateClusterMetadata](#UpdateClusterMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster3)<br>
 
 ### UpdateClusterRequest {#UpdateClusterRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор ресурса Cluster для ClickHouse, который следует обновить. Чтобы получить идентификатор кластера ClickHouse, используйте запрос [ClusterService.List](#List). Максимальная длина строки в символах — 50.
-update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Маска, которая указывает, какие поля ресурса Cluster для ClickHouse должны быть изменены. 
-description | **string**<br>Новое описание кластера ClickHouse. Максимальная длина строки в символах — 256.
-labels | **map<string,string>**<br>Пользовательские метки для кластера ClickHouse в виде пар `key:value`. Максимум 64 на ресурс. Например, "project": "mvp" или "source": "dictionary". <br>Новый набор меток полностью заменит старый. Чтобы добавить метку, запросите текущий набор меток с помощью метода [ClusterService.Get](#Get), затем отправьте запрос [ClusterService.Update](#Update), добавив новую метку в этот набор. Не более 64 на ресурс. Максимальная длина строки в символах для каждого значения — 63. Каждое значение должно соответствовать регулярному выражению ` [-_0-9a-z]* `. Максимальная длина строки в символах для каждого ключа — 63. Каждый ключ должен соответствовать регулярному выражению ` [a-z][-_0-9a-z]* `.
-config_spec | **[ConfigSpec](#ConfigSpec)**<br>Новая конфигурация и ресурсы для хостов кластера. 
-name | **string**<br>Новое имя кластера. Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_-]* `.
-service_account_id | **string**<br>Идентификатор сервисного аккаунта, используемого для доступа к Yandex Object Storage. 
+cluster_id | **string**<br>Required. ID of the ClickHouse Cluster resource to update. To get the ClickHouse cluster ID, use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the ClickHouse Cluster resource should be updated. 
+description | **string**<br>New description of the ClickHouse cluster. The maximum string length in characters is 256.
+labels | **map<string,string>**<br>Custom labels for the ClickHouse cluster as `key:value` pairs. Maximum 64 per resource. For example, "project": "mvp" or "source": "dictionary". <br>The new set of labels will completely replace the old ones. To add a label, request the current set with the [ClusterService.Get](#Get) method, then send an [ClusterService.Update](#Update) request with the new label added to the set. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+config_spec | **[ConfigSpec](#ConfigSpec)**<br>New configuration and resources for hosts in the cluster. 
+name | **string**<br>New name for the cluster. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow3)**<br>New maintenance window settings for the cluster. 
+security_group_ids[] | **string**<br>User security groups 
 
 
 ### ConfigSpec {#ConfigSpec1}
 
-Поле | Описание
+Field | Description
 --- | ---
-version | **string**<br>Версия серверного программного обеспечения ClickHouse. 
-clickhouse | **[Clickhouse](#Clickhouse4)**<br>Конфигурация и ресурсы для сервера ClickHouse. 
-zookeeper | **[Zookeeper](#Zookeeper4)**<br>Конфигурация и ресурсы для сервера ZooKeeper. 
-backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Время запуска ежедневного резервного копирования, в часовом поясе UTC. 
-access | **[Access](#Access4)**<br>Политика доступа для внешних сервисов. <br>Если вы хотите, чтобы определенный сервис получил доступ к кластеру ClickHouse — задайте необходимые значения в этой политике. 
+version | **string**<br>Version of the ClickHouse server software. 
+clickhouse | **[Clickhouse](#Clickhouse4)**<br>Configuration and resources for a ClickHouse server. 
+zookeeper | **[Zookeeper](#Zookeeper4)**<br>Configuration and resources for a ZooKeeper server. 
+backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
+access | **[Access](#Access4)**<br>Access policy for external services. <br>If you want a specific service to access the ClickHouse cluster, then set the necessary values in this policy. 
+cloud_storage | **[CloudStorage](#CloudStorage4)**<br> 
+sql_database_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether database management through SQL commands is enabled. 
+sql_user_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether user management through SQL commands is enabled. 
+admin_password | **string**<br>Password for user 'admin' that has SQL user management access. 
 
 
 ### Clickhouse {#Clickhouse4}
 
-Поле | Описание
+Field | Description
 --- | ---
-config | **`config.ClickhouseConfig`**<br>Конфигурация для сервера ClickHouse. 
-resources | **[Resources](#Resources)**<br>Ресурсы, выделенные хостам ClickHouse. 
+config | **`config.ClickhouseConfig`**<br>Configuration for a ClickHouse server. 
+resources | **[Resources](#Resources)**<br>Resources allocated to ClickHouse hosts. 
 
 
 ### Zookeeper {#Zookeeper4}
 
-Поле | Описание
+Field | Description
 --- | ---
-resources | **[Resources](#Resources)**<br>Ресурсы, выделенные хостам ZooKeeper. Если не задано, будет использоваться минимальный доступный набор ресурсов. Все доступные наборы ресурсов можно получить с помощью запроса [ResourcePresetService.List](./resource_preset_service#List). 
+resources | **[Resources](#Resources)**<br>Resources allocated to ZooKeeper hosts. If not set, minimal available resources will be used. All available resource presets can be retrieved with a [ResourcePresetService.List](./resource_preset_service#List) request. 
 
 
 ### Access {#Access4}
 
-Поле | Описание
+Field | Description
 --- | ---
-data_lens | **bool**<br>Разрешить экспорт данных из кластера в Yandex DataLens. 
-web_sql | **bool**<br>Разрешить SQL-запросы к базам данных кластера из консоли управления облаком. <br>Подробнее см. в [SQL-запросы в консоли управления](/docs/managed-clickhouse/operations/web-sql-query). 
-metrika | **bool**<br>Разрешить импорт данных из Яндекс.Метрики и AppMetrica в кластер. <br>Подробнее см. в [Экспорт данных в Яндекс.Облако](https://appmetrica.yandex.ru/docs/cloud/index.html). 
-serverless | **bool**<br>Разрешить доступ к кластеру для Serverless. 
+data_lens | **bool**<br>Allow to export data from the cluster to Yandex DataLens. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
+metrika | **bool**<br>Allow to import data from Yandex.Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex.Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
+serverless | **bool**<br>Allow access to cluster for Serverless. 
+
+
+### CloudStorage {#CloudStorage4}
+
+Field | Description
+--- | ---
+enabled | **bool**<br>Whether to use Yandex Object Storage for storing ClickHouse data. 
+
+
+### MaintenanceWindow {#MaintenanceWindow3}
+
+Field | Description
+--- | ---
+policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow3)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow3)**<br>Maintenance operation can be scheduled on a weekly basis. 
+
+
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow3}
+
+
+
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow3}
+
+Field | Description
+--- | ---
+day | enum **WeekDay**<br>Day of the week (in `DDD` format). <ul><ul/>
+hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
 
 
 ### Operation {#Operation1}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateClusterMetadata](#UpdateClusterMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster3)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateClusterMetadata](#UpdateClusterMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster3)>**<br>if operation finished successfully. 
 
 
 ### UpdateClusterMetadata {#UpdateClusterMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Идентификатор изменяемого ресурса Cluster для ClickHouse. 
+cluster_id | **string**<br>ID of the ClickHouse Cluster resource that is being updated. 
 
 
 ### Cluster {#Cluster3}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор кластера ClickHouse. Этот идентификатор генерирует MDB при создании кластера. 
-folder_id | **string**<br>Идентификатор каталога, которому принадлежит кластер ClickHouse. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) . 
-name | **string**<br>Имя кластера ClickHouse. Имя уникально в рамках каталога. Длина 1-63 символов. 
-description | **string**<br>Описание кластера ClickHouse. Длина описания должна быть от 0 до 256 символов. 
-labels | **map<string,string>**<br>Пользовательские метки для кластера ClickHouse в виде пар `key:value`. Максимум 64 на ресурс. 
-environment | enum **Environment**<br>Среда развертывания кластера ClickHouse. <ul><li>`PRODUCTION`: Стабильная среда с осторожной политикой обновления: во время регулярного обслуживания применяются только срочные исправления.</li><li>`PRESTABLE`: Среда с более агрессивной политикой обновления: новые версии развертываются независимо от обратной совместимости.</li><ul/>
-monitoring[] | **[Monitoring](#Monitoring3)**<br>Описание систем мониторинга, относящихся к данному кластеру ClickHouse. 
-config | **[ClusterConfig](#ClusterConfig3)**<br>Конфигурация кластера ClickHouse. 
-network_id | **string**<br>Идентификатор сети, к которой принадлежит кластер. 
-health | enum **Health**<br>Здоровье кластера. <ul><li>`HEALTH_UNKNOWN`: Состояние кластера неизвестно ([Host.health](#Host) для каждого хоста в кластере — UNKNOWN).</li><li>`ALIVE`: Кластер работает нормально ([Host.health](#Host) для каждого хоста в кластере — ALIVE).</li><li>`DEAD`: Кластер не работает ([Host.health](#Host) для каждого хоста в кластере — DEAD).</li><li>`DEGRADED`: Кластер работает неоптимально ([Host.health](#Host) по крайней мере для одного хоста в кластере не ALIVE).</li><ul/>
-status | enum **Status**<br>Текущее состояние кластера. <ul><li>`STATUS_UNKNOWN`: Состояние кластера неизвестно.</li><li>`CREATING`: Кластер создается.</li><li>`RUNNING`: Кластер работает нормально.</li><li>`ERROR`: В кластере произошла ошибка, блокирующая работу.</li><li>`UPDATING`: Кластер изменяется.</li><li>`STOPPING`: Кластер останавливается.</li><li>`STOPPED`: Кластер остановлен.</li><li>`STARTING`: Кластер запускается.</li><ul/>
-service_account_id | **string**<br>Идентификатор сервисного аккаунта, используемого для доступа к Yandex Object Storage. 
+id | **string**<br>ID of the ClickHouse cluster. This ID is assigned by MDB at creation time. 
+folder_id | **string**<br>ID of the folder that the ClickHouse cluster belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
+name | **string**<br>Name of the ClickHouse cluster. The name is unique within the folder. 1-63 characters long. 
+description | **string**<br>Description of the ClickHouse cluster. 0-256 characters long. 
+labels | **map<string,string>**<br>Custom labels for the ClickHouse cluster as `key:value` pairs. Maximum 64 per resource. 
+environment | enum **Environment**<br>Deployment environment of the ClickHouse cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
+monitoring[] | **[Monitoring](#Monitoring3)**<br>Description of monitoring systems relevant to the ClickHouse cluster. 
+config | **[ClusterConfig](#ClusterConfig3)**<br>Configuration of the ClickHouse cluster. 
+network_id | **string**<br>ID of the network that the cluster belongs to. 
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
+status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow4)**<br>Maintenance window for the cluster. 
+planned_operation | **[MaintenanceOperation](#MaintenanceOperation3)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
+security_group_ids[] | **string**<br>User security groups 
 
 
 ### Monitoring {#Monitoring3}
 
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br>Название системы мониторинга. 
-description | **string**<br>Описание системы мониторинга. 
-link | **string**<br>Ссылка на графики системы мониторинга для данного кластера ClickHouse. 
+name | **string**<br>Name of the monitoring system. 
+description | **string**<br>Description of the monitoring system. 
+link | **string**<br>Link to the monitoring system charts for the ClickHouse cluster. 
 
 
 ### ClusterConfig {#ClusterConfig3}
 
-Поле | Описание
+Field | Description
 --- | ---
-version | **string**<br>Версия серверного программного обеспечения ClickHouse. 
-clickhouse | **[Clickhouse](#Clickhouse5)**<br>Конфигурация и распределение ресурсов для хостов ClickHouse. 
-zookeeper | **[Zookeeper](#Zookeeper5)**<br>Конфигурация и распределение ресурсов для хостов ZooKeeper. 
-backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Время запуска ежедневного резервного копирования, в часовом поясе UTC. 
-access | **[Access](#Access5)**<br>Политика доступа для внешних сервисов. 
+version | **string**<br>Version of the ClickHouse server software. 
+clickhouse | **[Clickhouse](#Clickhouse5)**<br>Configuration and resource allocation for ClickHouse hosts. 
+zookeeper | **[Zookeeper](#Zookeeper5)**<br>Configuration and resource allocation for ZooKeeper hosts. 
+backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
+access | **[Access](#Access5)**<br>Access policy for external services. 
+cloud_storage | **[CloudStorage](#CloudStorage5)**<br> 
+sql_database_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether database management through SQL commands is enabled. 
+sql_user_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether user management through SQL commands is enabled. 
 
 
 ### Clickhouse {#Clickhouse5}
 
-Поле | Описание
+Field | Description
 --- | ---
-config | **`config.ClickhouseConfigSet`**<br>Параметры конфигурации сервера ClickHouse. 
-resources | **[Resources](#Resources)**<br>Ресурсы, выделенные хостам ClickHouse. 
+config | **`config.ClickhouseConfigSet`**<br>Configuration settings of a ClickHouse server. 
+resources | **[Resources](#Resources)**<br>Resources allocated to ClickHouse hosts. 
 
 
 ### Zookeeper {#Zookeeper5}
 
-Поле | Описание
+Field | Description
 --- | ---
-resources | **[Resources](#Resources)**<br>Ресурсы, выделенные хостам ZooKeeper. 
+resources | **[Resources](#Resources)**<br>Resources allocated to ZooKeeper hosts. 
 
 
 ### Access {#Access5}
 
-Поле | Описание
+Field | Description
 --- | ---
-data_lens | **bool**<br>Разрешить экспорт данных из кластера в Yandex DataLens. 
-web_sql | **bool**<br>Разрешить SQL-запросы к базам данных кластера из консоли управления облаком. <br>Подробнее см. в [SQL-запросы в консоли управления](/docs/managed-clickhouse/operations/web-sql-query). 
-metrika | **bool**<br>Разрешить импорт данных из Яндекс.Метрики и AppMetrica в кластер. <br>Подробнее см. в [Экспорт данных в Яндекс.Облако](https://appmetrica.yandex.ru/docs/cloud/index.html). 
-serverless | **bool**<br>Разрешить доступ к кластеру для Serverless. 
+data_lens | **bool**<br>Allow to export data from the cluster to Yandex DataLens. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
+metrika | **bool**<br>Allow to import data from Yandex.Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex.Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
+serverless | **bool**<br>Allow access to cluster for Serverless. 
+
+
+### CloudStorage {#CloudStorage5}
+
+Field | Description
+--- | ---
+enabled | **bool**<br>Whether to use Yandex Object Storage for storing ClickHouse data. 
+
+
+### MaintenanceWindow {#MaintenanceWindow4}
+
+Field | Description
+--- | ---
+policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow4)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow4)**<br>Maintenance operation can be scheduled on a weekly basis. 
+
+
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow4}
+
+
+
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow4}
+
+Field | Description
+--- | ---
+day | enum **WeekDay**<br>Day of the week (in `DDD` format). <ul><ul/>
+hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
+
+
+### MaintenanceOperation {#MaintenanceOperation3}
+
+Field | Description
+--- | ---
+info | **string**<br>Information about this maintenance operation. The maximum string length in characters is 256.
+delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time until which this maintenance operation is delayed. 
 
 
 ## Delete {#Delete}
 
-Удаляет указанный кластер ClickHouse.
+Deletes the specified ClickHouse cluster.
 
 **rpc Delete ([DeleteClusterRequest](#DeleteClusterRequest)) returns ([operation.Operation](#Operation2))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[DeleteClusterMetadata](#DeleteClusterMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
 
 ### DeleteClusterRequest {#DeleteClusterRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера ClickHouse, который нужно удалить. Чтобы получить идентификатор кластера ClickHouse, используйте запрос [ClusterService.List](#List). Максимальная длина строки в символах — 50.
+cluster_id | **string**<br>Required. ID of the ClickHouse cluster to delete. To get the ClickHouse cluster ID, use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
 
 
 ### Operation {#Operation2}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteClusterMetadata](#DeleteClusterMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteClusterMetadata](#DeleteClusterMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>if operation finished successfully. 
 
 
 ### DeleteClusterMetadata {#DeleteClusterMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Идентификатор удаляемого кластера ClickHouse. 
+cluster_id | **string**<br>ID of the ClickHouse cluster that is being deleted. 
 
 
 ## Start {#Start}
 
-Запускает указанный кластер ClickHouse.
+Starts the specified ClickHouse cluster.
 
 **rpc Start ([StartClusterRequest](#StartClusterRequest)) returns ([operation.Operation](#Operation3))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[StartClusterMetadata](#StartClusterMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster4)<br>
 
 ### StartClusterRequest {#StartClusterRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера ClickHouse, который следует запустить. Максимальная длина строки в символах — 50.
+cluster_id | **string**<br>Required. ID of the ClickHouse cluster to start. The maximum string length in characters is 50.
 
 
 ### Operation {#Operation3}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[StartClusterMetadata](#StartClusterMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster4)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[StartClusterMetadata](#StartClusterMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster4)>**<br>if operation finished successfully. 
 
 
 ### StartClusterMetadata {#StartClusterMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Идентификатор запускаемого кластера ClickHouse. 
+cluster_id | **string**<br>ID of the ClickHouse cluster being started. 
 
 
 ### Cluster {#Cluster4}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор кластера ClickHouse. Этот идентификатор генерирует MDB при создании кластера. 
-folder_id | **string**<br>Идентификатор каталога, которому принадлежит кластер ClickHouse. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) . 
-name | **string**<br>Имя кластера ClickHouse. Имя уникально в рамках каталога. Длина 1-63 символов. 
-description | **string**<br>Описание кластера ClickHouse. Длина описания должна быть от 0 до 256 символов. 
-labels | **map<string,string>**<br>Пользовательские метки для кластера ClickHouse в виде пар `key:value`. Максимум 64 на ресурс. 
-environment | enum **Environment**<br>Среда развертывания кластера ClickHouse. <ul><li>`PRODUCTION`: Стабильная среда с осторожной политикой обновления: во время регулярного обслуживания применяются только срочные исправления.</li><li>`PRESTABLE`: Среда с более агрессивной политикой обновления: новые версии развертываются независимо от обратной совместимости.</li><ul/>
-monitoring[] | **[Monitoring](#Monitoring4)**<br>Описание систем мониторинга, относящихся к данному кластеру ClickHouse. 
-config | **[ClusterConfig](#ClusterConfig4)**<br>Конфигурация кластера ClickHouse. 
-network_id | **string**<br>Идентификатор сети, к которой принадлежит кластер. 
-health | enum **Health**<br>Здоровье кластера. <ul><li>`HEALTH_UNKNOWN`: Состояние кластера неизвестно ([Host.health](#Host) для каждого хоста в кластере — UNKNOWN).</li><li>`ALIVE`: Кластер работает нормально ([Host.health](#Host) для каждого хоста в кластере — ALIVE).</li><li>`DEAD`: Кластер не работает ([Host.health](#Host) для каждого хоста в кластере — DEAD).</li><li>`DEGRADED`: Кластер работает неоптимально ([Host.health](#Host) по крайней мере для одного хоста в кластере не ALIVE).</li><ul/>
-status | enum **Status**<br>Текущее состояние кластера. <ul><li>`STATUS_UNKNOWN`: Состояние кластера неизвестно.</li><li>`CREATING`: Кластер создается.</li><li>`RUNNING`: Кластер работает нормально.</li><li>`ERROR`: В кластере произошла ошибка, блокирующая работу.</li><li>`UPDATING`: Кластер изменяется.</li><li>`STOPPING`: Кластер останавливается.</li><li>`STOPPED`: Кластер остановлен.</li><li>`STARTING`: Кластер запускается.</li><ul/>
-service_account_id | **string**<br>Идентификатор сервисного аккаунта, используемого для доступа к Yandex Object Storage. 
+id | **string**<br>ID of the ClickHouse cluster. This ID is assigned by MDB at creation time. 
+folder_id | **string**<br>ID of the folder that the ClickHouse cluster belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
+name | **string**<br>Name of the ClickHouse cluster. The name is unique within the folder. 1-63 characters long. 
+description | **string**<br>Description of the ClickHouse cluster. 0-256 characters long. 
+labels | **map<string,string>**<br>Custom labels for the ClickHouse cluster as `key:value` pairs. Maximum 64 per resource. 
+environment | enum **Environment**<br>Deployment environment of the ClickHouse cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
+monitoring[] | **[Monitoring](#Monitoring4)**<br>Description of monitoring systems relevant to the ClickHouse cluster. 
+config | **[ClusterConfig](#ClusterConfig4)**<br>Configuration of the ClickHouse cluster. 
+network_id | **string**<br>ID of the network that the cluster belongs to. 
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
+status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow5)**<br>Maintenance window for the cluster. 
+planned_operation | **[MaintenanceOperation](#MaintenanceOperation4)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
+security_group_ids[] | **string**<br>User security groups 
 
 
 ### Monitoring {#Monitoring4}
 
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br>Название системы мониторинга. 
-description | **string**<br>Описание системы мониторинга. 
-link | **string**<br>Ссылка на графики системы мониторинга для данного кластера ClickHouse. 
+name | **string**<br>Name of the monitoring system. 
+description | **string**<br>Description of the monitoring system. 
+link | **string**<br>Link to the monitoring system charts for the ClickHouse cluster. 
 
 
 ### ClusterConfig {#ClusterConfig4}
 
-Поле | Описание
+Field | Description
 --- | ---
-version | **string**<br>Версия серверного программного обеспечения ClickHouse. 
-clickhouse | **[Clickhouse](#Clickhouse6)**<br>Конфигурация и распределение ресурсов для хостов ClickHouse. 
-zookeeper | **[Zookeeper](#Zookeeper6)**<br>Конфигурация и распределение ресурсов для хостов ZooKeeper. 
-backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Время запуска ежедневного резервного копирования, в часовом поясе UTC. 
-access | **[Access](#Access6)**<br>Политика доступа для внешних сервисов. 
+version | **string**<br>Version of the ClickHouse server software. 
+clickhouse | **[Clickhouse](#Clickhouse6)**<br>Configuration and resource allocation for ClickHouse hosts. 
+zookeeper | **[Zookeeper](#Zookeeper6)**<br>Configuration and resource allocation for ZooKeeper hosts. 
+backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
+access | **[Access](#Access6)**<br>Access policy for external services. 
+cloud_storage | **[CloudStorage](#CloudStorage6)**<br> 
+sql_database_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether database management through SQL commands is enabled. 
+sql_user_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether user management through SQL commands is enabled. 
 
 
 ### Clickhouse {#Clickhouse6}
 
-Поле | Описание
+Field | Description
 --- | ---
-config | **`config.ClickhouseConfigSet`**<br>Параметры конфигурации сервера ClickHouse. 
-resources | **[Resources](#Resources)**<br>Ресурсы, выделенные хостам ClickHouse. 
+config | **`config.ClickhouseConfigSet`**<br>Configuration settings of a ClickHouse server. 
+resources | **[Resources](#Resources)**<br>Resources allocated to ClickHouse hosts. 
 
 
 ### Zookeeper {#Zookeeper6}
 
-Поле | Описание
+Field | Description
 --- | ---
-resources | **[Resources](#Resources)**<br>Ресурсы, выделенные хостам ZooKeeper. 
+resources | **[Resources](#Resources)**<br>Resources allocated to ZooKeeper hosts. 
 
 
 ### Access {#Access6}
 
-Поле | Описание
+Field | Description
 --- | ---
-data_lens | **bool**<br>Разрешить экспорт данных из кластера в Yandex DataLens. 
-web_sql | **bool**<br>Разрешить SQL-запросы к базам данных кластера из консоли управления облаком. <br>Подробнее см. в [SQL-запросы в консоли управления](/docs/managed-clickhouse/operations/web-sql-query). 
-metrika | **bool**<br>Разрешить импорт данных из Яндекс.Метрики и AppMetrica в кластер. <br>Подробнее см. в [Экспорт данных в Яндекс.Облако](https://appmetrica.yandex.ru/docs/cloud/index.html). 
-serverless | **bool**<br>Разрешить доступ к кластеру для Serverless. 
+data_lens | **bool**<br>Allow to export data from the cluster to Yandex DataLens. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
+metrika | **bool**<br>Allow to import data from Yandex.Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex.Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
+serverless | **bool**<br>Allow access to cluster for Serverless. 
+
+
+### CloudStorage {#CloudStorage6}
+
+Field | Description
+--- | ---
+enabled | **bool**<br>Whether to use Yandex Object Storage for storing ClickHouse data. 
+
+
+### MaintenanceWindow {#MaintenanceWindow5}
+
+Field | Description
+--- | ---
+policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow5)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow5)**<br>Maintenance operation can be scheduled on a weekly basis. 
+
+
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow5}
+
+
+
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow5}
+
+Field | Description
+--- | ---
+day | enum **WeekDay**<br>Day of the week (in `DDD` format). <ul><ul/>
+hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
+
+
+### MaintenanceOperation {#MaintenanceOperation4}
+
+Field | Description
+--- | ---
+info | **string**<br>Information about this maintenance operation. The maximum string length in characters is 256.
+delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time until which this maintenance operation is delayed. 
 
 
 ## Stop {#Stop}
 
-Останавливает указанный кластер ClickHouse.
+Stops the specified ClickHouse cluster.
 
 **rpc Stop ([StopClusterRequest](#StopClusterRequest)) returns ([operation.Operation](#Operation4))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[StopClusterMetadata](#StopClusterMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster5)<br>
 
 ### StopClusterRequest {#StopClusterRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера ClickHouse, который следует остановить. Максимальная длина строки в символах — 50.
+cluster_id | **string**<br>Required. ID of the ClickHouse cluster to stop. The maximum string length in characters is 50.
 
 
 ### Operation {#Operation4}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[StopClusterMetadata](#StopClusterMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster5)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[StopClusterMetadata](#StopClusterMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster5)>**<br>if operation finished successfully. 
 
 
 ### StopClusterMetadata {#StopClusterMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Идентификатор останавливаемого кластера ClickHouse. 
+cluster_id | **string**<br>ID of the ClickHouse cluster being stopped. 
 
 
 ### Cluster {#Cluster5}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор кластера ClickHouse. Этот идентификатор генерирует MDB при создании кластера. 
-folder_id | **string**<br>Идентификатор каталога, которому принадлежит кластер ClickHouse. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) . 
-name | **string**<br>Имя кластера ClickHouse. Имя уникально в рамках каталога. Длина 1-63 символов. 
-description | **string**<br>Описание кластера ClickHouse. Длина описания должна быть от 0 до 256 символов. 
-labels | **map<string,string>**<br>Пользовательские метки для кластера ClickHouse в виде пар `key:value`. Максимум 64 на ресурс. 
-environment | enum **Environment**<br>Среда развертывания кластера ClickHouse. <ul><li>`PRODUCTION`: Стабильная среда с осторожной политикой обновления: во время регулярного обслуживания применяются только срочные исправления.</li><li>`PRESTABLE`: Среда с более агрессивной политикой обновления: новые версии развертываются независимо от обратной совместимости.</li><ul/>
-monitoring[] | **[Monitoring](#Monitoring5)**<br>Описание систем мониторинга, относящихся к данному кластеру ClickHouse. 
-config | **[ClusterConfig](#ClusterConfig5)**<br>Конфигурация кластера ClickHouse. 
-network_id | **string**<br>Идентификатор сети, к которой принадлежит кластер. 
-health | enum **Health**<br>Здоровье кластера. <ul><li>`HEALTH_UNKNOWN`: Состояние кластера неизвестно ([Host.health](#Host) для каждого хоста в кластере — UNKNOWN).</li><li>`ALIVE`: Кластер работает нормально ([Host.health](#Host) для каждого хоста в кластере — ALIVE).</li><li>`DEAD`: Кластер не работает ([Host.health](#Host) для каждого хоста в кластере — DEAD).</li><li>`DEGRADED`: Кластер работает неоптимально ([Host.health](#Host) по крайней мере для одного хоста в кластере не ALIVE).</li><ul/>
-status | enum **Status**<br>Текущее состояние кластера. <ul><li>`STATUS_UNKNOWN`: Состояние кластера неизвестно.</li><li>`CREATING`: Кластер создается.</li><li>`RUNNING`: Кластер работает нормально.</li><li>`ERROR`: В кластере произошла ошибка, блокирующая работу.</li><li>`UPDATING`: Кластер изменяется.</li><li>`STOPPING`: Кластер останавливается.</li><li>`STOPPED`: Кластер остановлен.</li><li>`STARTING`: Кластер запускается.</li><ul/>
-service_account_id | **string**<br>Идентификатор сервисного аккаунта, используемого для доступа к Yandex Object Storage. 
+id | **string**<br>ID of the ClickHouse cluster. This ID is assigned by MDB at creation time. 
+folder_id | **string**<br>ID of the folder that the ClickHouse cluster belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
+name | **string**<br>Name of the ClickHouse cluster. The name is unique within the folder. 1-63 characters long. 
+description | **string**<br>Description of the ClickHouse cluster. 0-256 characters long. 
+labels | **map<string,string>**<br>Custom labels for the ClickHouse cluster as `key:value` pairs. Maximum 64 per resource. 
+environment | enum **Environment**<br>Deployment environment of the ClickHouse cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
+monitoring[] | **[Monitoring](#Monitoring5)**<br>Description of monitoring systems relevant to the ClickHouse cluster. 
+config | **[ClusterConfig](#ClusterConfig5)**<br>Configuration of the ClickHouse cluster. 
+network_id | **string**<br>ID of the network that the cluster belongs to. 
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
+status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow6)**<br>Maintenance window for the cluster. 
+planned_operation | **[MaintenanceOperation](#MaintenanceOperation5)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
+security_group_ids[] | **string**<br>User security groups 
 
 
 ### Monitoring {#Monitoring5}
 
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br>Название системы мониторинга. 
-description | **string**<br>Описание системы мониторинга. 
-link | **string**<br>Ссылка на графики системы мониторинга для данного кластера ClickHouse. 
+name | **string**<br>Name of the monitoring system. 
+description | **string**<br>Description of the monitoring system. 
+link | **string**<br>Link to the monitoring system charts for the ClickHouse cluster. 
 
 
 ### ClusterConfig {#ClusterConfig5}
 
-Поле | Описание
+Field | Description
 --- | ---
-version | **string**<br>Версия серверного программного обеспечения ClickHouse. 
-clickhouse | **[Clickhouse](#Clickhouse7)**<br>Конфигурация и распределение ресурсов для хостов ClickHouse. 
-zookeeper | **[Zookeeper](#Zookeeper7)**<br>Конфигурация и распределение ресурсов для хостов ZooKeeper. 
-backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Время запуска ежедневного резервного копирования, в часовом поясе UTC. 
-access | **[Access](#Access7)**<br>Политика доступа для внешних сервисов. 
+version | **string**<br>Version of the ClickHouse server software. 
+clickhouse | **[Clickhouse](#Clickhouse7)**<br>Configuration and resource allocation for ClickHouse hosts. 
+zookeeper | **[Zookeeper](#Zookeeper7)**<br>Configuration and resource allocation for ZooKeeper hosts. 
+backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
+access | **[Access](#Access7)**<br>Access policy for external services. 
+cloud_storage | **[CloudStorage](#CloudStorage7)**<br> 
+sql_database_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether database management through SQL commands is enabled. 
+sql_user_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether user management through SQL commands is enabled. 
 
 
 ### Clickhouse {#Clickhouse7}
 
-Поле | Описание
+Field | Description
 --- | ---
-config | **`config.ClickhouseConfigSet`**<br>Параметры конфигурации сервера ClickHouse. 
-resources | **[Resources](#Resources)**<br>Ресурсы, выделенные хостам ClickHouse. 
+config | **`config.ClickhouseConfigSet`**<br>Configuration settings of a ClickHouse server. 
+resources | **[Resources](#Resources)**<br>Resources allocated to ClickHouse hosts. 
 
 
 ### Zookeeper {#Zookeeper7}
 
-Поле | Описание
+Field | Description
 --- | ---
-resources | **[Resources](#Resources)**<br>Ресурсы, выделенные хостам ZooKeeper. 
+resources | **[Resources](#Resources)**<br>Resources allocated to ZooKeeper hosts. 
 
 
 ### Access {#Access7}
 
-Поле | Описание
+Field | Description
 --- | ---
-data_lens | **bool**<br>Разрешить экспорт данных из кластера в Yandex DataLens. 
-web_sql | **bool**<br>Разрешить SQL-запросы к базам данных кластера из консоли управления облаком. <br>Подробнее см. в [SQL-запросы в консоли управления](/docs/managed-clickhouse/operations/web-sql-query). 
-metrika | **bool**<br>Разрешить импорт данных из Яндекс.Метрики и AppMetrica в кластер. <br>Подробнее см. в [Экспорт данных в Яндекс.Облако](https://appmetrica.yandex.ru/docs/cloud/index.html). 
-serverless | **bool**<br>Разрешить доступ к кластеру для Serverless. 
+data_lens | **bool**<br>Allow to export data from the cluster to Yandex DataLens. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
+metrika | **bool**<br>Allow to import data from Yandex.Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex.Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
+serverless | **bool**<br>Allow access to cluster for Serverless. 
+
+
+### CloudStorage {#CloudStorage7}
+
+Field | Description
+--- | ---
+enabled | **bool**<br>Whether to use Yandex Object Storage for storing ClickHouse data. 
+
+
+### MaintenanceWindow {#MaintenanceWindow6}
+
+Field | Description
+--- | ---
+policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow6)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow6)**<br>Maintenance operation can be scheduled on a weekly basis. 
+
+
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow6}
+
+
+
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow6}
+
+Field | Description
+--- | ---
+day | enum **WeekDay**<br>Day of the week (in `DDD` format). <ul><ul/>
+hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
+
+
+### MaintenanceOperation {#MaintenanceOperation5}
+
+Field | Description
+--- | ---
+info | **string**<br>Information about this maintenance operation. The maximum string length in characters is 256.
+delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time until which this maintenance operation is delayed. 
 
 
 ## Move {#Move}
 
-Перемещает кластер ClickHouse в указанный каталог.
+Moves a ClickHouse cluster to the specified folder.
 
 **rpc Move ([MoveClusterRequest](#MoveClusterRequest)) returns ([operation.Operation](#Operation5))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[MoveClusterMetadata](#MoveClusterMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster6)<br>
 
 ### MoveClusterRequest {#MoveClusterRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера ClickHouse, который следует переместить. Максимальная длина строки в символах — 50.
-destination_folder_id | **string**<br>Обязательное поле. Идентификатор каталога, в который следует переместить кластер. Максимальная длина строки в символах — 50.
+cluster_id | **string**<br>Required. ID of the ClickHouse cluster to move. The maximum string length in characters is 50.
+destination_folder_id | **string**<br>Required. ID of the destination folder. The maximum string length in characters is 50.
 
 
 ### Operation {#Operation5}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[MoveClusterMetadata](#MoveClusterMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster6)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[MoveClusterMetadata](#MoveClusterMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster6)>**<br>if operation finished successfully. 
 
 
 ### MoveClusterMetadata {#MoveClusterMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Идентификатор перемещаемого кластера ClickHouse. 
-source_folder_id | **string**<br>Идентификатор исходного каталога. 
-destination_folder_id | **string**<br>Идентификатор каталога, в который следует переместить кластер. 
+cluster_id | **string**<br>ID of the ClickHouse cluster being moved. 
+source_folder_id | **string**<br>ID of the source folder. 
+destination_folder_id | **string**<br>ID of the destination folder. 
 
 
 ### Cluster {#Cluster6}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор кластера ClickHouse. Этот идентификатор генерирует MDB при создании кластера. 
-folder_id | **string**<br>Идентификатор каталога, которому принадлежит кластер ClickHouse. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) . 
-name | **string**<br>Имя кластера ClickHouse. Имя уникально в рамках каталога. Длина 1-63 символов. 
-description | **string**<br>Описание кластера ClickHouse. Длина описания должна быть от 0 до 256 символов. 
-labels | **map<string,string>**<br>Пользовательские метки для кластера ClickHouse в виде пар `key:value`. Максимум 64 на ресурс. 
-environment | enum **Environment**<br>Среда развертывания кластера ClickHouse. <ul><li>`PRODUCTION`: Стабильная среда с осторожной политикой обновления: во время регулярного обслуживания применяются только срочные исправления.</li><li>`PRESTABLE`: Среда с более агрессивной политикой обновления: новые версии развертываются независимо от обратной совместимости.</li><ul/>
-monitoring[] | **[Monitoring](#Monitoring6)**<br>Описание систем мониторинга, относящихся к данному кластеру ClickHouse. 
-config | **[ClusterConfig](#ClusterConfig6)**<br>Конфигурация кластера ClickHouse. 
-network_id | **string**<br>Идентификатор сети, к которой принадлежит кластер. 
-health | enum **Health**<br>Здоровье кластера. <ul><li>`HEALTH_UNKNOWN`: Состояние кластера неизвестно ([Host.health](#Host) для каждого хоста в кластере — UNKNOWN).</li><li>`ALIVE`: Кластер работает нормально ([Host.health](#Host) для каждого хоста в кластере — ALIVE).</li><li>`DEAD`: Кластер не работает ([Host.health](#Host) для каждого хоста в кластере — DEAD).</li><li>`DEGRADED`: Кластер работает неоптимально ([Host.health](#Host) по крайней мере для одного хоста в кластере не ALIVE).</li><ul/>
-status | enum **Status**<br>Текущее состояние кластера. <ul><li>`STATUS_UNKNOWN`: Состояние кластера неизвестно.</li><li>`CREATING`: Кластер создается.</li><li>`RUNNING`: Кластер работает нормально.</li><li>`ERROR`: В кластере произошла ошибка, блокирующая работу.</li><li>`UPDATING`: Кластер изменяется.</li><li>`STOPPING`: Кластер останавливается.</li><li>`STOPPED`: Кластер остановлен.</li><li>`STARTING`: Кластер запускается.</li><ul/>
-service_account_id | **string**<br>Идентификатор сервисного аккаунта, используемого для доступа к Yandex Object Storage. 
+id | **string**<br>ID of the ClickHouse cluster. This ID is assigned by MDB at creation time. 
+folder_id | **string**<br>ID of the folder that the ClickHouse cluster belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
+name | **string**<br>Name of the ClickHouse cluster. The name is unique within the folder. 1-63 characters long. 
+description | **string**<br>Description of the ClickHouse cluster. 0-256 characters long. 
+labels | **map<string,string>**<br>Custom labels for the ClickHouse cluster as `key:value` pairs. Maximum 64 per resource. 
+environment | enum **Environment**<br>Deployment environment of the ClickHouse cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
+monitoring[] | **[Monitoring](#Monitoring6)**<br>Description of monitoring systems relevant to the ClickHouse cluster. 
+config | **[ClusterConfig](#ClusterConfig6)**<br>Configuration of the ClickHouse cluster. 
+network_id | **string**<br>ID of the network that the cluster belongs to. 
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
+status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow7)**<br>Maintenance window for the cluster. 
+planned_operation | **[MaintenanceOperation](#MaintenanceOperation6)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
+security_group_ids[] | **string**<br>User security groups 
 
 
 ### Monitoring {#Monitoring6}
 
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br>Название системы мониторинга. 
-description | **string**<br>Описание системы мониторинга. 
-link | **string**<br>Ссылка на графики системы мониторинга для данного кластера ClickHouse. 
+name | **string**<br>Name of the monitoring system. 
+description | **string**<br>Description of the monitoring system. 
+link | **string**<br>Link to the monitoring system charts for the ClickHouse cluster. 
 
 
 ### ClusterConfig {#ClusterConfig6}
 
-Поле | Описание
+Field | Description
 --- | ---
-version | **string**<br>Версия серверного программного обеспечения ClickHouse. 
-clickhouse | **[Clickhouse](#Clickhouse8)**<br>Конфигурация и распределение ресурсов для хостов ClickHouse. 
-zookeeper | **[Zookeeper](#Zookeeper8)**<br>Конфигурация и распределение ресурсов для хостов ZooKeeper. 
-backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Время запуска ежедневного резервного копирования, в часовом поясе UTC. 
-access | **[Access](#Access8)**<br>Политика доступа для внешних сервисов. 
+version | **string**<br>Version of the ClickHouse server software. 
+clickhouse | **[Clickhouse](#Clickhouse8)**<br>Configuration and resource allocation for ClickHouse hosts. 
+zookeeper | **[Zookeeper](#Zookeeper8)**<br>Configuration and resource allocation for ZooKeeper hosts. 
+backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
+access | **[Access](#Access8)**<br>Access policy for external services. 
+cloud_storage | **[CloudStorage](#CloudStorage8)**<br> 
+sql_database_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether database management through SQL commands is enabled. 
+sql_user_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether user management through SQL commands is enabled. 
 
 
 ### Clickhouse {#Clickhouse8}
 
-Поле | Описание
+Field | Description
 --- | ---
-config | **`config.ClickhouseConfigSet`**<br>Параметры конфигурации сервера ClickHouse. 
-resources | **[Resources](#Resources)**<br>Ресурсы, выделенные хостам ClickHouse. 
+config | **`config.ClickhouseConfigSet`**<br>Configuration settings of a ClickHouse server. 
+resources | **[Resources](#Resources)**<br>Resources allocated to ClickHouse hosts. 
 
 
 ### Zookeeper {#Zookeeper8}
 
-Поле | Описание
+Field | Description
 --- | ---
-resources | **[Resources](#Resources)**<br>Ресурсы, выделенные хостам ZooKeeper. 
+resources | **[Resources](#Resources)**<br>Resources allocated to ZooKeeper hosts. 
 
 
 ### Access {#Access8}
 
-Поле | Описание
+Field | Description
 --- | ---
-data_lens | **bool**<br>Разрешить экспорт данных из кластера в Yandex DataLens. 
-web_sql | **bool**<br>Разрешить SQL-запросы к базам данных кластера из консоли управления облаком. <br>Подробнее см. в [SQL-запросы в консоли управления](/docs/managed-clickhouse/operations/web-sql-query). 
-metrika | **bool**<br>Разрешить импорт данных из Яндекс.Метрики и AppMetrica в кластер. <br>Подробнее см. в [Экспорт данных в Яндекс.Облако](https://appmetrica.yandex.ru/docs/cloud/index.html). 
-serverless | **bool**<br>Разрешить доступ к кластеру для Serverless. 
+data_lens | **bool**<br>Allow to export data from the cluster to Yandex DataLens. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
+metrika | **bool**<br>Allow to import data from Yandex.Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex.Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
+serverless | **bool**<br>Allow access to cluster for Serverless. 
+
+
+### CloudStorage {#CloudStorage8}
+
+Field | Description
+--- | ---
+enabled | **bool**<br>Whether to use Yandex Object Storage for storing ClickHouse data. 
+
+
+### MaintenanceWindow {#MaintenanceWindow7}
+
+Field | Description
+--- | ---
+policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow7)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow7)**<br>Maintenance operation can be scheduled on a weekly basis. 
+
+
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow7}
+
+
+
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow7}
+
+Field | Description
+--- | ---
+day | enum **WeekDay**<br>Day of the week (in `DDD` format). <ul><ul/>
+hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
+
+
+### MaintenanceOperation {#MaintenanceOperation6}
+
+Field | Description
+--- | ---
+info | **string**<br>Information about this maintenance operation. The maximum string length in characters is 256.
+delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time until which this maintenance operation is delayed. 
 
 
 ## AddZookeeper {#AddZookeeper}
 
-Добавляет подкластер ZooKeeper в указанный кластер ClickHouse.
+Adds a ZooKeeper subcluster to the specified ClickHouse cluster.
 
 **rpc AddZookeeper ([AddClusterZookeeperRequest](#AddClusterZookeeperRequest)) returns ([operation.Operation](#Operation6))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[AddClusterZookeeperMetadata](#AddClusterZookeeperMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster7)<br>
 
 ### AddClusterZookeeperRequest {#AddClusterZookeeperRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера ClickHouse, который следует изменить. Максимальная длина строки в символах — 50.
-resources | **[Resources](#Resources)**<br>Ресурсы, выделенные хостам ZooKeeper. 
-host_specs[] | **[HostSpec](#HostSpec)**<br>Конфигурация хостов ZooKeeper. 
+cluster_id | **string**<br>Required. ID of the ClickHouse cluster to modify. The maximum string length in characters is 50.
+resources | **[Resources](#Resources)**<br>Resources allocated to Zookeeper hosts. 
+host_specs[] | **[HostSpec](#HostSpec)**<br>Configuration of ZooKeeper hosts. 
 
 
 ### Resources {#Resources}
 
-Поле | Описание
+Field | Description
 --- | ---
-resource_preset_id | **string**<br>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в [документации](/docs/managed-clickhouse/concepts/instance-types). 
-disk_size | **int64**<br>Объем хранилища, доступного хосту, в байтах. 
-disk_type_id | **string**<br><ul><li>network-hdd — сетевой HDD-диск; </li><li>network-ssd — сетевой SSD-диск; </li><li>local-ssd — локальное SSD-хранилище.</li></ul> 
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-clickhouse/concepts/instance-types) 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
+disk_type_id | **string**<br><ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
 
 ### HostSpec {#HostSpec1}
 
-Поле | Описание
+Field | Description
 --- | ---
-zone_id | **string**<br>Идентификатор зоны доступности, в которой находится хост. Чтобы получить список доступных зон, используйте запрос [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/grpc/zone_service#List). Максимальная длина строки в символах — 50.
-type | **[Host.Type](#Host)**<br>Обязательное поле. Тип развертываемого хоста. 
-subnet_id | **string**<br>Идентификатор подсети, к которой должен принадлежать хост. Эта подсеть должна быть частью сети, к которой принадлежит кластер. Идентификатор сети задается в поле [Cluster.network_id](#Cluster7). Максимальная длина строки в символах — 50.
-assign_public_ip | **bool**<br><ul><li>false — не назначать хосту публичный IP-адрес. </li><li>true — у хоста должен быть публичный IP-адрес.</li></ul> 
-shard_name | **string**<br>Имя шарда, которому принадлежит хост. Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_-]* `.
+zone_id | **string**<br>ID of the availability zone where the host resides. To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/grpc/zone_service#List) request. The maximum string length in characters is 50.
+type | **[Host.Type](#Host)**<br>Required. Type of the host to be deployed. 
+subnet_id | **string**<br>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The ID of the network is set in the [Cluster.network_id](#Cluster7) field. The maximum string length in characters is 50.
+assign_public_ip | **bool**<br><ul><li>false - don't assign a public IP to the host. </li><li>true - the host should have a public IP address.</li></ul> 
+shard_name | **string**<br>Name of the shard that the host is assigned to. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
 ### Operation {#Operation6}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[AddClusterZookeeperMetadata](#AddClusterZookeeperMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster7)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[AddClusterZookeeperMetadata](#AddClusterZookeeperMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster7)>**<br>if operation finished successfully. 
 
 
 ### AddClusterZookeeperMetadata {#AddClusterZookeeperMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Идентификатор кластера ClickHouse. 
+cluster_id | **string**<br>ID of the ClickHouse cluster. 
 
 
 ### Cluster {#Cluster7}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор кластера ClickHouse. Этот идентификатор генерирует MDB при создании кластера. 
-folder_id | **string**<br>Идентификатор каталога, которому принадлежит кластер ClickHouse. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) . 
-name | **string**<br>Имя кластера ClickHouse. Имя уникально в рамках каталога. Длина 1-63 символов. 
-description | **string**<br>Описание кластера ClickHouse. Длина описания должна быть от 0 до 256 символов. 
-labels | **map<string,string>**<br>Пользовательские метки для кластера ClickHouse в виде пар `key:value`. Максимум 64 на ресурс. 
-environment | enum **Environment**<br>Среда развертывания кластера ClickHouse. <ul><li>`PRODUCTION`: Стабильная среда с осторожной политикой обновления: во время регулярного обслуживания применяются только срочные исправления.</li><li>`PRESTABLE`: Среда с более агрессивной политикой обновления: новые версии развертываются независимо от обратной совместимости.</li><ul/>
-monitoring[] | **[Monitoring](#Monitoring7)**<br>Описание систем мониторинга, относящихся к данному кластеру ClickHouse. 
-config | **[ClusterConfig](#ClusterConfig7)**<br>Конфигурация кластера ClickHouse. 
-network_id | **string**<br>Идентификатор сети, к которой принадлежит кластер. 
-health | enum **Health**<br>Здоровье кластера. <ul><li>`HEALTH_UNKNOWN`: Состояние кластера неизвестно ([Host.health](#Host) для каждого хоста в кластере — UNKNOWN).</li><li>`ALIVE`: Кластер работает нормально ([Host.health](#Host) для каждого хоста в кластере — ALIVE).</li><li>`DEAD`: Кластер не работает ([Host.health](#Host) для каждого хоста в кластере — DEAD).</li><li>`DEGRADED`: Кластер работает неоптимально ([Host.health](#Host) по крайней мере для одного хоста в кластере не ALIVE).</li><ul/>
-status | enum **Status**<br>Текущее состояние кластера. <ul><li>`STATUS_UNKNOWN`: Состояние кластера неизвестно.</li><li>`CREATING`: Кластер создается.</li><li>`RUNNING`: Кластер работает нормально.</li><li>`ERROR`: В кластере произошла ошибка, блокирующая работу.</li><li>`UPDATING`: Кластер изменяется.</li><li>`STOPPING`: Кластер останавливается.</li><li>`STOPPED`: Кластер остановлен.</li><li>`STARTING`: Кластер запускается.</li><ul/>
-service_account_id | **string**<br>Идентификатор сервисного аккаунта, используемого для доступа к Yandex Object Storage. 
+id | **string**<br>ID of the ClickHouse cluster. This ID is assigned by MDB at creation time. 
+folder_id | **string**<br>ID of the folder that the ClickHouse cluster belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
+name | **string**<br>Name of the ClickHouse cluster. The name is unique within the folder. 1-63 characters long. 
+description | **string**<br>Description of the ClickHouse cluster. 0-256 characters long. 
+labels | **map<string,string>**<br>Custom labels for the ClickHouse cluster as `key:value` pairs. Maximum 64 per resource. 
+environment | enum **Environment**<br>Deployment environment of the ClickHouse cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
+monitoring[] | **[Monitoring](#Monitoring7)**<br>Description of monitoring systems relevant to the ClickHouse cluster. 
+config | **[ClusterConfig](#ClusterConfig7)**<br>Configuration of the ClickHouse cluster. 
+network_id | **string**<br>ID of the network that the cluster belongs to. 
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
+status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow8)**<br>Maintenance window for the cluster. 
+planned_operation | **[MaintenanceOperation](#MaintenanceOperation7)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
+security_group_ids[] | **string**<br>User security groups 
 
 
 ### Monitoring {#Monitoring7}
 
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br>Название системы мониторинга. 
-description | **string**<br>Описание системы мониторинга. 
-link | **string**<br>Ссылка на графики системы мониторинга для данного кластера ClickHouse. 
+name | **string**<br>Name of the monitoring system. 
+description | **string**<br>Description of the monitoring system. 
+link | **string**<br>Link to the monitoring system charts for the ClickHouse cluster. 
 
 
 ### ClusterConfig {#ClusterConfig7}
 
-Поле | Описание
+Field | Description
 --- | ---
-version | **string**<br>Версия серверного программного обеспечения ClickHouse. 
-clickhouse | **[Clickhouse](#Clickhouse9)**<br>Конфигурация и распределение ресурсов для хостов ClickHouse. 
-zookeeper | **[Zookeeper](#Zookeeper9)**<br>Конфигурация и распределение ресурсов для хостов ZooKeeper. 
-backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Время запуска ежедневного резервного копирования, в часовом поясе UTC. 
-access | **[Access](#Access9)**<br>Политика доступа для внешних сервисов. 
+version | **string**<br>Version of the ClickHouse server software. 
+clickhouse | **[Clickhouse](#Clickhouse9)**<br>Configuration and resource allocation for ClickHouse hosts. 
+zookeeper | **[Zookeeper](#Zookeeper9)**<br>Configuration and resource allocation for ZooKeeper hosts. 
+backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
+access | **[Access](#Access9)**<br>Access policy for external services. 
+cloud_storage | **[CloudStorage](#CloudStorage9)**<br> 
+sql_database_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether database management through SQL commands is enabled. 
+sql_user_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether user management through SQL commands is enabled. 
 
 
 ### Clickhouse {#Clickhouse9}
 
-Поле | Описание
+Field | Description
 --- | ---
-config | **`config.ClickhouseConfigSet`**<br>Параметры конфигурации сервера ClickHouse. 
-resources | **[Resources](#Resources1)**<br>Ресурсы, выделенные хостам ClickHouse. 
+config | **`config.ClickhouseConfigSet`**<br>Configuration settings of a ClickHouse server. 
+resources | **[Resources](#Resources1)**<br>Resources allocated to ClickHouse hosts. 
 
 
 ### Zookeeper {#Zookeeper9}
 
-Поле | Описание
+Field | Description
 --- | ---
-resources | **[Resources](#Resources1)**<br>Ресурсы, выделенные хостам ZooKeeper. 
+resources | **[Resources](#Resources1)**<br>Resources allocated to ZooKeeper hosts. 
 
 
 ### Access {#Access9}
 
-Поле | Описание
+Field | Description
 --- | ---
-data_lens | **bool**<br>Разрешить экспорт данных из кластера в Yandex DataLens. 
-web_sql | **bool**<br>Разрешить SQL-запросы к базам данных кластера из консоли управления облаком. <br>Подробнее см. в [SQL-запросы в консоли управления](/docs/managed-clickhouse/operations/web-sql-query). 
-metrika | **bool**<br>Разрешить импорт данных из Яндекс.Метрики и AppMetrica в кластер. <br>Подробнее см. в [Экспорт данных в Яндекс.Облако](https://appmetrica.yandex.ru/docs/cloud/index.html). 
-serverless | **bool**<br>Разрешить доступ к кластеру для Serverless. 
+data_lens | **bool**<br>Allow to export data from the cluster to Yandex DataLens. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
+metrika | **bool**<br>Allow to import data from Yandex.Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex.Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
+serverless | **bool**<br>Allow access to cluster for Serverless. 
+
+
+### CloudStorage {#CloudStorage9}
+
+Field | Description
+--- | ---
+enabled | **bool**<br>Whether to use Yandex Object Storage for storing ClickHouse data. 
+
+
+### MaintenanceWindow {#MaintenanceWindow8}
+
+Field | Description
+--- | ---
+policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow8)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow8)**<br>Maintenance operation can be scheduled on a weekly basis. 
+
+
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow8}
+
+
+
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow8}
+
+Field | Description
+--- | ---
+day | enum **WeekDay**<br>Day of the week (in `DDD` format). <ul><ul/>
+hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
+
+
+### MaintenanceOperation {#MaintenanceOperation7}
+
+Field | Description
+--- | ---
+info | **string**<br>Information about this maintenance operation. The maximum string length in characters is 256.
+delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time until which this maintenance operation is delayed. 
 
 
 ## Backup {#Backup}
 
-Создает резервную копию для указанного кластера ClickHouse.
+Creates a backup for the specified ClickHouse cluster.
 
 **rpc Backup ([BackupClusterRequest](#BackupClusterRequest)) returns ([operation.Operation](#Operation7))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[BackupClusterMetadata](#BackupClusterMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster8)<br>
 
 ### BackupClusterRequest {#BackupClusterRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера ClickHouse, для которого следует создать резервную копию. Чтобы получить идентификатор кластера ClickHouse, используйте запрос [ClusterService.List](#List). Максимальная длина строки в символах — 50.
+cluster_id | **string**<br>Required. ID of the ClickHouse cluster to back up. To get the ClickHouse cluster ID use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
 
 
 ### Operation {#Operation7}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[BackupClusterMetadata](#BackupClusterMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster8)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[BackupClusterMetadata](#BackupClusterMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster8)>**<br>if operation finished successfully. 
 
 
 ### BackupClusterMetadata {#BackupClusterMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Идентификатор кластера ClickHouse, для которого выполняется резервное копирование. 
+cluster_id | **string**<br>ID of the ClickHouse cluster that is being backed up. 
 
 
 ### Cluster {#Cluster8}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор кластера ClickHouse. Этот идентификатор генерирует MDB при создании кластера. 
-folder_id | **string**<br>Идентификатор каталога, которому принадлежит кластер ClickHouse. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) . 
-name | **string**<br>Имя кластера ClickHouse. Имя уникально в рамках каталога. Длина 1-63 символов. 
-description | **string**<br>Описание кластера ClickHouse. Длина описания должна быть от 0 до 256 символов. 
-labels | **map<string,string>**<br>Пользовательские метки для кластера ClickHouse в виде пар `key:value`. Максимум 64 на ресурс. 
-environment | enum **Environment**<br>Среда развертывания кластера ClickHouse. <ul><li>`PRODUCTION`: Стабильная среда с осторожной политикой обновления: во время регулярного обслуживания применяются только срочные исправления.</li><li>`PRESTABLE`: Среда с более агрессивной политикой обновления: новые версии развертываются независимо от обратной совместимости.</li><ul/>
-monitoring[] | **[Monitoring](#Monitoring8)**<br>Описание систем мониторинга, относящихся к данному кластеру ClickHouse. 
-config | **[ClusterConfig](#ClusterConfig8)**<br>Конфигурация кластера ClickHouse. 
-network_id | **string**<br>Идентификатор сети, к которой принадлежит кластер. 
-health | enum **Health**<br>Здоровье кластера. <ul><li>`HEALTH_UNKNOWN`: Состояние кластера неизвестно ([Host.health](#Host) для каждого хоста в кластере — UNKNOWN).</li><li>`ALIVE`: Кластер работает нормально ([Host.health](#Host) для каждого хоста в кластере — ALIVE).</li><li>`DEAD`: Кластер не работает ([Host.health](#Host) для каждого хоста в кластере — DEAD).</li><li>`DEGRADED`: Кластер работает неоптимально ([Host.health](#Host) по крайней мере для одного хоста в кластере не ALIVE).</li><ul/>
-status | enum **Status**<br>Текущее состояние кластера. <ul><li>`STATUS_UNKNOWN`: Состояние кластера неизвестно.</li><li>`CREATING`: Кластер создается.</li><li>`RUNNING`: Кластер работает нормально.</li><li>`ERROR`: В кластере произошла ошибка, блокирующая работу.</li><li>`UPDATING`: Кластер изменяется.</li><li>`STOPPING`: Кластер останавливается.</li><li>`STOPPED`: Кластер остановлен.</li><li>`STARTING`: Кластер запускается.</li><ul/>
-service_account_id | **string**<br>Идентификатор сервисного аккаунта, используемого для доступа к Yandex Object Storage. 
+id | **string**<br>ID of the ClickHouse cluster. This ID is assigned by MDB at creation time. 
+folder_id | **string**<br>ID of the folder that the ClickHouse cluster belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
+name | **string**<br>Name of the ClickHouse cluster. The name is unique within the folder. 1-63 characters long. 
+description | **string**<br>Description of the ClickHouse cluster. 0-256 characters long. 
+labels | **map<string,string>**<br>Custom labels for the ClickHouse cluster as `key:value` pairs. Maximum 64 per resource. 
+environment | enum **Environment**<br>Deployment environment of the ClickHouse cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
+monitoring[] | **[Monitoring](#Monitoring8)**<br>Description of monitoring systems relevant to the ClickHouse cluster. 
+config | **[ClusterConfig](#ClusterConfig8)**<br>Configuration of the ClickHouse cluster. 
+network_id | **string**<br>ID of the network that the cluster belongs to. 
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
+status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow9)**<br>Maintenance window for the cluster. 
+planned_operation | **[MaintenanceOperation](#MaintenanceOperation8)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
+security_group_ids[] | **string**<br>User security groups 
 
 
 ### Monitoring {#Monitoring8}
 
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br>Название системы мониторинга. 
-description | **string**<br>Описание системы мониторинга. 
-link | **string**<br>Ссылка на графики системы мониторинга для данного кластера ClickHouse. 
+name | **string**<br>Name of the monitoring system. 
+description | **string**<br>Description of the monitoring system. 
+link | **string**<br>Link to the monitoring system charts for the ClickHouse cluster. 
 
 
 ### ClusterConfig {#ClusterConfig8}
 
-Поле | Описание
+Field | Description
 --- | ---
-version | **string**<br>Версия серверного программного обеспечения ClickHouse. 
-clickhouse | **[Clickhouse](#Clickhouse10)**<br>Конфигурация и распределение ресурсов для хостов ClickHouse. 
-zookeeper | **[Zookeeper](#Zookeeper10)**<br>Конфигурация и распределение ресурсов для хостов ZooKeeper. 
-backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Время запуска ежедневного резервного копирования, в часовом поясе UTC. 
-access | **[Access](#Access10)**<br>Политика доступа для внешних сервисов. 
+version | **string**<br>Version of the ClickHouse server software. 
+clickhouse | **[Clickhouse](#Clickhouse10)**<br>Configuration and resource allocation for ClickHouse hosts. 
+zookeeper | **[Zookeeper](#Zookeeper10)**<br>Configuration and resource allocation for ZooKeeper hosts. 
+backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
+access | **[Access](#Access10)**<br>Access policy for external services. 
+cloud_storage | **[CloudStorage](#CloudStorage10)**<br> 
+sql_database_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether database management through SQL commands is enabled. 
+sql_user_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether user management through SQL commands is enabled. 
 
 
 ### Clickhouse {#Clickhouse10}
 
-Поле | Описание
+Field | Description
 --- | ---
-config | **`config.ClickhouseConfigSet`**<br>Параметры конфигурации сервера ClickHouse. 
-resources | **[Resources](#Resources1)**<br>Ресурсы, выделенные хостам ClickHouse. 
+config | **`config.ClickhouseConfigSet`**<br>Configuration settings of a ClickHouse server. 
+resources | **[Resources](#Resources1)**<br>Resources allocated to ClickHouse hosts. 
 
 
 ### Zookeeper {#Zookeeper10}
 
-Поле | Описание
+Field | Description
 --- | ---
-resources | **[Resources](#Resources1)**<br>Ресурсы, выделенные хостам ZooKeeper. 
+resources | **[Resources](#Resources1)**<br>Resources allocated to ZooKeeper hosts. 
 
 
 ### Access {#Access10}
 
-Поле | Описание
+Field | Description
 --- | ---
-data_lens | **bool**<br>Разрешить экспорт данных из кластера в Yandex DataLens. 
-web_sql | **bool**<br>Разрешить SQL-запросы к базам данных кластера из консоли управления облаком. <br>Подробнее см. в [SQL-запросы в консоли управления](/docs/managed-clickhouse/operations/web-sql-query). 
-metrika | **bool**<br>Разрешить импорт данных из Яндекс.Метрики и AppMetrica в кластер. <br>Подробнее см. в [Экспорт данных в Яндекс.Облако](https://appmetrica.yandex.ru/docs/cloud/index.html). 
-serverless | **bool**<br>Разрешить доступ к кластеру для Serverless. 
+data_lens | **bool**<br>Allow to export data from the cluster to Yandex DataLens. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
+metrika | **bool**<br>Allow to import data from Yandex.Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex.Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
+serverless | **bool**<br>Allow access to cluster for Serverless. 
+
+
+### CloudStorage {#CloudStorage10}
+
+Field | Description
+--- | ---
+enabled | **bool**<br>Whether to use Yandex Object Storage for storing ClickHouse data. 
+
+
+### MaintenanceWindow {#MaintenanceWindow9}
+
+Field | Description
+--- | ---
+policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow9)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow9)**<br>Maintenance operation can be scheduled on a weekly basis. 
+
+
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow9}
+
+
+
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow9}
+
+Field | Description
+--- | ---
+day | enum **WeekDay**<br>Day of the week (in `DDD` format). <ul><ul/>
+hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
+
+
+### MaintenanceOperation {#MaintenanceOperation8}
+
+Field | Description
+--- | ---
+info | **string**<br>Information about this maintenance operation. The maximum string length in characters is 256.
+delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time until which this maintenance operation is delayed. 
 
 
 ## Restore {#Restore}
 
-Создает новый кластер ClickHouse с использованием указанной резервной копии.
+Creates a new ClickHouse cluster using the specified backup.
 
 **rpc Restore ([RestoreClusterRequest](#RestoreClusterRequest)) returns ([operation.Operation](#Operation8))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[RestoreClusterMetadata](#RestoreClusterMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster9)<br>
 
 ### RestoreClusterRequest {#RestoreClusterRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-backup_id | **string**<br>Обязательное поле. Идентификатор резервной копии, из которой следует создать кластер. Чтобы получить идентификатор резервной копии, используйте запрос [ClusterService.ListBackups](#ListBackups). 
-name | **string**<br>Обязательное поле. Имя нового кластера ClickHouse. Имя должно быть уникальным в рамках каталога. Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_-]* `.
-description | **string**<br>Описание нового кластера ClickHouse. Максимальная длина строки в символах — 256.
-labels | **map<string,string>**<br>Пользовательские метки для кластера ClickHouse в виде пар `key:value`. Максимум 64 на ресурс. Например, "project": "mvp" или "source": "dictionary". Не более 64 на ресурс. Максимальная длина строки в символах для каждого значения — 63. Каждое значение должно соответствовать регулярному выражению ` [-_0-9a-z]* `. Максимальная длина строки в символах для каждого ключа — 63. Каждый ключ должен соответствовать регулярному выражению ` [a-z][-_0-9a-z]* `.
-environment | **[Cluster.Environment](#Cluster9)**<br>Обязательное поле. Среда развертывания для нового кластера ClickHouse. 
-config_spec | **[ConfigSpec](#ConfigSpec)**<br>Обязательное поле. Конфигурация для создаваемого кластера ClickHouse. 
-host_specs[] | **[HostSpec](#HostSpec)**<br>Конфигурации для хостов ClickHouse, которые должны быть созданы для кластера, создаваемого из резервной копии. Количество элементов должно быть больше 0.
-network_id | **string**<br>Обязательное поле. Идентификатор сети, в которой нужно создать кластер. Максимальная длина строки в символах — 50.
-folder_id | **string**<br>Идентификатор каталога, в котором нужно создать кластер ClickHouse. Максимальная длина строки в символах — 50.
-service_account_id | **string**<br>Идентификатор сервисного аккаунта, используемого для доступа к Yandex Object Storage. 
+backup_id | **string**<br>Required. ID of the backup to create a cluster from. To get the backup ID, use a [ClusterService.ListBackups](#ListBackups) request. 
+name | **string**<br>Required. Name of the new ClickHouse cluster. The name must be unique within the folder. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+description | **string**<br>Description of the new ClickHouse cluster. The maximum string length in characters is 256.
+labels | **map<string,string>**<br>Custom labels for the ClickHouse cluster as `key:value` pairs. Maximum 64 per resource. For example, "project": "mvp" or "source": "dictionary". No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+environment | **[Cluster.Environment](#Cluster9)**<br>Required. Deployment environment of the new ClickHouse cluster. 
+config_spec | **[ConfigSpec](#ConfigSpec)**<br>Required. Configuration for the ClickHouse cluster to be created. 
+host_specs[] | **[HostSpec](#HostSpec)**<br>Configurations for ClickHouse hosts that should be created for the cluster that is being created from the backup. The number of elements must be greater than 0.
+network_id | **string**<br>Required. ID of the network to create the ClickHouse cluster in. The maximum string length in characters is 50.
+folder_id | **string**<br>ID of the folder to create the ClickHouse cluster in. The maximum string length in characters is 50.
+service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
+security_group_ids[] | **string**<br>User security groups 
 
 
 ### ConfigSpec {#ConfigSpec2}
 
-Поле | Описание
+Field | Description
 --- | ---
-version | **string**<br>Версия серверного программного обеспечения ClickHouse. 
-clickhouse | **[Clickhouse](#Clickhouse11)**<br>Конфигурация и ресурсы для сервера ClickHouse. 
-zookeeper | **[Zookeeper](#Zookeeper11)**<br>Конфигурация и ресурсы для сервера ZooKeeper. 
-backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Время запуска ежедневного резервного копирования, в часовом поясе UTC. 
-access | **[Access](#Access11)**<br>Политика доступа для внешних сервисов. <br>Если вы хотите, чтобы определенный сервис получил доступ к кластеру ClickHouse — задайте необходимые значения в этой политике. 
+version | **string**<br>Version of the ClickHouse server software. 
+clickhouse | **[Clickhouse](#Clickhouse11)**<br>Configuration and resources for a ClickHouse server. 
+zookeeper | **[Zookeeper](#Zookeeper11)**<br>Configuration and resources for a ZooKeeper server. 
+backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
+access | **[Access](#Access11)**<br>Access policy for external services. <br>If you want a specific service to access the ClickHouse cluster, then set the necessary values in this policy. 
+cloud_storage | **[CloudStorage](#CloudStorage11)**<br> 
+sql_database_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether database management through SQL commands is enabled. 
+sql_user_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether user management through SQL commands is enabled. 
+admin_password | **string**<br>Password for user 'admin' that has SQL user management access. 
 
 
 ### Clickhouse {#Clickhouse11}
 
-Поле | Описание
+Field | Description
 --- | ---
-config | **`config.ClickhouseConfig`**<br>Конфигурация для сервера ClickHouse. 
-resources | **[Resources](#Resources1)**<br>Ресурсы, выделенные хостам ClickHouse. 
+config | **`config.ClickhouseConfig`**<br>Configuration for a ClickHouse server. 
+resources | **[Resources](#Resources1)**<br>Resources allocated to ClickHouse hosts. 
 
 
 ### Zookeeper {#Zookeeper11}
 
-Поле | Описание
+Field | Description
 --- | ---
-resources | **[Resources](#Resources1)**<br>Ресурсы, выделенные хостам ZooKeeper. Если не задано, будет использоваться минимальный доступный набор ресурсов. Все доступные наборы ресурсов можно получить с помощью запроса [ResourcePresetService.List](./resource_preset_service#List). 
+resources | **[Resources](#Resources1)**<br>Resources allocated to ZooKeeper hosts. If not set, minimal available resources will be used. All available resource presets can be retrieved with a [ResourcePresetService.List](./resource_preset_service#List) request. 
 
 
 ### Access {#Access11}
 
-Поле | Описание
+Field | Description
 --- | ---
-data_lens | **bool**<br>Разрешить экспорт данных из кластера в Yandex DataLens. 
-web_sql | **bool**<br>Разрешить SQL-запросы к базам данных кластера из консоли управления облаком. <br>Подробнее см. в [SQL-запросы в консоли управления](/docs/managed-clickhouse/operations/web-sql-query). 
-metrika | **bool**<br>Разрешить импорт данных из Яндекс.Метрики и AppMetrica в кластер. <br>Подробнее см. в [Экспорт данных в Яндекс.Облако](https://appmetrica.yandex.ru/docs/cloud/index.html). 
-serverless | **bool**<br>Разрешить доступ к кластеру для Serverless. 
+data_lens | **bool**<br>Allow to export data from the cluster to Yandex DataLens. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
+metrika | **bool**<br>Allow to import data from Yandex.Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex.Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
+serverless | **bool**<br>Allow access to cluster for Serverless. 
+
+
+### CloudStorage {#CloudStorage11}
+
+Field | Description
+--- | ---
+enabled | **bool**<br>Whether to use Yandex Object Storage for storing ClickHouse data. 
 
 
 ### HostSpec {#HostSpec2}
 
-Поле | Описание
+Field | Description
 --- | ---
-zone_id | **string**<br>Идентификатор зоны доступности, в которой находится хост. Чтобы получить список доступных зон, используйте запрос [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/grpc/zone_service#List). Максимальная длина строки в символах — 50.
-type | **[Host.Type](#Host)**<br>Обязательное поле. Тип развертываемого хоста. 
-subnet_id | **string**<br>Идентификатор подсети, к которой должен принадлежать хост. Эта подсеть должна быть частью сети, к которой принадлежит кластер. Идентификатор сети задается в поле [Cluster.network_id](#Cluster9). Максимальная длина строки в символах — 50.
-assign_public_ip | **bool**<br><ul><li>false — не назначать хосту публичный IP-адрес. </li><li>true — у хоста должен быть публичный IP-адрес.</li></ul> 
-shard_name | **string**<br>Имя шарда, которому принадлежит хост. Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_-]* `.
+zone_id | **string**<br>ID of the availability zone where the host resides. To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/grpc/zone_service#List) request. The maximum string length in characters is 50.
+type | **[Host.Type](#Host)**<br>Required. Type of the host to be deployed. 
+subnet_id | **string**<br>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The ID of the network is set in the [Cluster.network_id](#Cluster9) field. The maximum string length in characters is 50.
+assign_public_ip | **bool**<br><ul><li>false - don't assign a public IP to the host. </li><li>true - the host should have a public IP address.</li></ul> 
+shard_name | **string**<br>Name of the shard that the host is assigned to. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
 ### Operation {#Operation8}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[RestoreClusterMetadata](#RestoreClusterMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster9)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[RestoreClusterMetadata](#RestoreClusterMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster9)>**<br>if operation finished successfully. 
 
 
 ### RestoreClusterMetadata {#RestoreClusterMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Идентификатор нового кластера ClickHouse, создаваемого из резервной копии. 
-backup_id | **string**<br>Идентификатор резервной копии, используемой для создания кластера. 
+cluster_id | **string**<br>ID of the new ClickHouse cluster that is being created from a backup. 
+backup_id | **string**<br>ID of the backup that is being used for creating a cluster. 
 
 
 ### Cluster {#Cluster9}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор кластера ClickHouse. Этот идентификатор генерирует MDB при создании кластера. 
-folder_id | **string**<br>Идентификатор каталога, которому принадлежит кластер ClickHouse. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) . 
-name | **string**<br>Имя кластера ClickHouse. Имя уникально в рамках каталога. Длина 1-63 символов. 
-description | **string**<br>Описание кластера ClickHouse. Длина описания должна быть от 0 до 256 символов. 
-labels | **map<string,string>**<br>Пользовательские метки для кластера ClickHouse в виде пар `key:value`. Максимум 64 на ресурс. 
-environment | enum **Environment**<br>Среда развертывания кластера ClickHouse. <ul><li>`PRODUCTION`: Стабильная среда с осторожной политикой обновления: во время регулярного обслуживания применяются только срочные исправления.</li><li>`PRESTABLE`: Среда с более агрессивной политикой обновления: новые версии развертываются независимо от обратной совместимости.</li><ul/>
-monitoring[] | **[Monitoring](#Monitoring9)**<br>Описание систем мониторинга, относящихся к данному кластеру ClickHouse. 
-config | **[ClusterConfig](#ClusterConfig9)**<br>Конфигурация кластера ClickHouse. 
-network_id | **string**<br>Идентификатор сети, к которой принадлежит кластер. 
-health | enum **Health**<br>Здоровье кластера. <ul><li>`HEALTH_UNKNOWN`: Состояние кластера неизвестно ([Host.health](#Host) для каждого хоста в кластере — UNKNOWN).</li><li>`ALIVE`: Кластер работает нормально ([Host.health](#Host) для каждого хоста в кластере — ALIVE).</li><li>`DEAD`: Кластер не работает ([Host.health](#Host) для каждого хоста в кластере — DEAD).</li><li>`DEGRADED`: Кластер работает неоптимально ([Host.health](#Host) по крайней мере для одного хоста в кластере не ALIVE).</li><ul/>
-status | enum **Status**<br>Текущее состояние кластера. <ul><li>`STATUS_UNKNOWN`: Состояние кластера неизвестно.</li><li>`CREATING`: Кластер создается.</li><li>`RUNNING`: Кластер работает нормально.</li><li>`ERROR`: В кластере произошла ошибка, блокирующая работу.</li><li>`UPDATING`: Кластер изменяется.</li><li>`STOPPING`: Кластер останавливается.</li><li>`STOPPED`: Кластер остановлен.</li><li>`STARTING`: Кластер запускается.</li><ul/>
-service_account_id | **string**<br>Идентификатор сервисного аккаунта, используемого для доступа к Yandex Object Storage. 
+id | **string**<br>ID of the ClickHouse cluster. This ID is assigned by MDB at creation time. 
+folder_id | **string**<br>ID of the folder that the ClickHouse cluster belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
+name | **string**<br>Name of the ClickHouse cluster. The name is unique within the folder. 1-63 characters long. 
+description | **string**<br>Description of the ClickHouse cluster. 0-256 characters long. 
+labels | **map<string,string>**<br>Custom labels for the ClickHouse cluster as `key:value` pairs. Maximum 64 per resource. 
+environment | enum **Environment**<br>Deployment environment of the ClickHouse cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
+monitoring[] | **[Monitoring](#Monitoring9)**<br>Description of monitoring systems relevant to the ClickHouse cluster. 
+config | **[ClusterConfig](#ClusterConfig9)**<br>Configuration of the ClickHouse cluster. 
+network_id | **string**<br>ID of the network that the cluster belongs to. 
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
+status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow10)**<br>Maintenance window for the cluster. 
+planned_operation | **[MaintenanceOperation](#MaintenanceOperation9)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
+security_group_ids[] | **string**<br>User security groups 
 
 
 ### Monitoring {#Monitoring9}
 
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br>Название системы мониторинга. 
-description | **string**<br>Описание системы мониторинга. 
-link | **string**<br>Ссылка на графики системы мониторинга для данного кластера ClickHouse. 
+name | **string**<br>Name of the monitoring system. 
+description | **string**<br>Description of the monitoring system. 
+link | **string**<br>Link to the monitoring system charts for the ClickHouse cluster. 
 
 
 ### ClusterConfig {#ClusterConfig9}
 
-Поле | Описание
+Field | Description
 --- | ---
-version | **string**<br>Версия серверного программного обеспечения ClickHouse. 
-clickhouse | **[Clickhouse](#Clickhouse12)**<br>Конфигурация и распределение ресурсов для хостов ClickHouse. 
-zookeeper | **[Zookeeper](#Zookeeper12)**<br>Конфигурация и распределение ресурсов для хостов ZooKeeper. 
-backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Время запуска ежедневного резервного копирования, в часовом поясе UTC. 
-access | **[Access](#Access12)**<br>Политика доступа для внешних сервисов. 
+version | **string**<br>Version of the ClickHouse server software. 
+clickhouse | **[Clickhouse](#Clickhouse12)**<br>Configuration and resource allocation for ClickHouse hosts. 
+zookeeper | **[Zookeeper](#Zookeeper12)**<br>Configuration and resource allocation for ZooKeeper hosts. 
+backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
+access | **[Access](#Access12)**<br>Access policy for external services. 
+cloud_storage | **[CloudStorage](#CloudStorage12)**<br> 
+sql_database_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether database management through SQL commands is enabled. 
+sql_user_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether user management through SQL commands is enabled. 
 
 
 ### Clickhouse {#Clickhouse12}
 
-Поле | Описание
+Field | Description
 --- | ---
-config | **`config.ClickhouseConfigSet`**<br>Параметры конфигурации сервера ClickHouse. 
-resources | **[Resources](#Resources1)**<br>Ресурсы, выделенные хостам ClickHouse. 
+config | **`config.ClickhouseConfigSet`**<br>Configuration settings of a ClickHouse server. 
+resources | **[Resources](#Resources1)**<br>Resources allocated to ClickHouse hosts. 
 
 
 ### Zookeeper {#Zookeeper12}
 
-Поле | Описание
+Field | Description
 --- | ---
-resources | **[Resources](#Resources1)**<br>Ресурсы, выделенные хостам ZooKeeper. 
+resources | **[Resources](#Resources1)**<br>Resources allocated to ZooKeeper hosts. 
 
 
 ### Access {#Access12}
 
-Поле | Описание
+Field | Description
 --- | ---
-data_lens | **bool**<br>Разрешить экспорт данных из кластера в Yandex DataLens. 
-web_sql | **bool**<br>Разрешить SQL-запросы к базам данных кластера из консоли управления облаком. <br>Подробнее см. в [SQL-запросы в консоли управления](/docs/managed-clickhouse/operations/web-sql-query). 
-metrika | **bool**<br>Разрешить импорт данных из Яндекс.Метрики и AppMetrica в кластер. <br>Подробнее см. в [Экспорт данных в Яндекс.Облако](https://appmetrica.yandex.ru/docs/cloud/index.html). 
-serverless | **bool**<br>Разрешить доступ к кластеру для Serverless. 
+data_lens | **bool**<br>Allow to export data from the cluster to Yandex DataLens. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
+metrika | **bool**<br>Allow to import data from Yandex.Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex.Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
+serverless | **bool**<br>Allow access to cluster for Serverless. 
+
+
+### CloudStorage {#CloudStorage12}
+
+Field | Description
+--- | ---
+enabled | **bool**<br>Whether to use Yandex Object Storage for storing ClickHouse data. 
+
+
+### MaintenanceWindow {#MaintenanceWindow10}
+
+Field | Description
+--- | ---
+policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow10)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow10)**<br>Maintenance operation can be scheduled on a weekly basis. 
+
+
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow10}
+
+
+
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow10}
+
+Field | Description
+--- | ---
+day | enum **WeekDay**<br>Day of the week (in `DDD` format). <ul><ul/>
+hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
+
+
+### MaintenanceOperation {#MaintenanceOperation9}
+
+Field | Description
+--- | ---
+info | **string**<br>Information about this maintenance operation. The maximum string length in characters is 256.
+delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time until which this maintenance operation is delayed. 
+
+
+## RescheduleMaintenance {#RescheduleMaintenance}
+
+Reschedules planned maintenance operation.
+
+**rpc RescheduleMaintenance ([RescheduleMaintenanceRequest](#RescheduleMaintenanceRequest)) returns ([operation.Operation](#Operation9))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[RescheduleMaintenanceMetadata](#RescheduleMaintenanceMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster10)<br>
+
+### RescheduleMaintenanceRequest {#RescheduleMaintenanceRequest}
+
+Field | Description
+--- | ---
+cluster_id | **string**<br>Required. ID of the ClickHouse cluster to reschedule the maintenance operation for. The maximum string length in characters is 50.
+reschedule_type | enum **RescheduleType**<br>Required. The type of reschedule request. <ul><li>`IMMEDIATE`: Start the maintenance operation immediately.</li><li>`NEXT_AVAILABLE_WINDOW`: Start the maintenance operation within the next available maintenance window.</li><li>`SPECIFIC_TIME`: Start the maintenance operation at the specific time.</li><ul/>
+delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time until which this maintenance operation should be delayed. The value should be ahead of the first time when the maintenance operation has been scheduled for no more than two weeks. The value can also point to the past moment of time if `reschedule_type.IMMEDIATE` reschedule type is chosen. 
+
+
+### Operation {#Operation9}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[RescheduleMaintenanceMetadata](#RescheduleMaintenanceMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster10)>**<br>if operation finished successfully. 
+
+
+### RescheduleMaintenanceMetadata {#RescheduleMaintenanceMetadata}
+
+Field | Description
+--- | ---
+cluster_id | **string**<br>Required. ID of the ClickHouse cluster. 
+delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Required. The time until which this maintenance operation is to be delayed. 
+
+
+### Cluster {#Cluster10}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the ClickHouse cluster. This ID is assigned by MDB at creation time. 
+folder_id | **string**<br>ID of the folder that the ClickHouse cluster belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
+name | **string**<br>Name of the ClickHouse cluster. The name is unique within the folder. 1-63 characters long. 
+description | **string**<br>Description of the ClickHouse cluster. 0-256 characters long. 
+labels | **map<string,string>**<br>Custom labels for the ClickHouse cluster as `key:value` pairs. Maximum 64 per resource. 
+environment | enum **Environment**<br>Deployment environment of the ClickHouse cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
+monitoring[] | **[Monitoring](#Monitoring10)**<br>Description of monitoring systems relevant to the ClickHouse cluster. 
+config | **[ClusterConfig](#ClusterConfig10)**<br>Configuration of the ClickHouse cluster. 
+network_id | **string**<br>ID of the network that the cluster belongs to. 
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
+status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow11)**<br>Maintenance window for the cluster. 
+planned_operation | **[MaintenanceOperation](#MaintenanceOperation10)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
+security_group_ids[] | **string**<br>User security groups 
+
+
+### Monitoring {#Monitoring10}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the monitoring system. 
+description | **string**<br>Description of the monitoring system. 
+link | **string**<br>Link to the monitoring system charts for the ClickHouse cluster. 
+
+
+### ClusterConfig {#ClusterConfig10}
+
+Field | Description
+--- | ---
+version | **string**<br>Version of the ClickHouse server software. 
+clickhouse | **[Clickhouse](#Clickhouse13)**<br>Configuration and resource allocation for ClickHouse hosts. 
+zookeeper | **[Zookeeper](#Zookeeper13)**<br>Configuration and resource allocation for ZooKeeper hosts. 
+backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
+access | **[Access](#Access13)**<br>Access policy for external services. 
+cloud_storage | **[CloudStorage](#CloudStorage13)**<br> 
+sql_database_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether database management through SQL commands is enabled. 
+sql_user_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether user management through SQL commands is enabled. 
+
+
+### Clickhouse {#Clickhouse13}
+
+Field | Description
+--- | ---
+config | **`config.ClickhouseConfigSet`**<br>Configuration settings of a ClickHouse server. 
+resources | **[Resources](#Resources1)**<br>Resources allocated to ClickHouse hosts. 
+
+
+### Zookeeper {#Zookeeper13}
+
+Field | Description
+--- | ---
+resources | **[Resources](#Resources1)**<br>Resources allocated to ZooKeeper hosts. 
+
+
+### Access {#Access13}
+
+Field | Description
+--- | ---
+data_lens | **bool**<br>Allow to export data from the cluster to Yandex DataLens. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
+metrika | **bool**<br>Allow to import data from Yandex.Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex.Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
+serverless | **bool**<br>Allow access to cluster for Serverless. 
+
+
+### CloudStorage {#CloudStorage13}
+
+Field | Description
+--- | ---
+enabled | **bool**<br>Whether to use Yandex Object Storage for storing ClickHouse data. 
+
+
+### MaintenanceWindow {#MaintenanceWindow11}
+
+Field | Description
+--- | ---
+policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow11)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow11)**<br>Maintenance operation can be scheduled on a weekly basis. 
+
+
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow11}
+
+
+
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow11}
+
+Field | Description
+--- | ---
+day | enum **WeekDay**<br>Day of the week (in `DDD` format). <ul><ul/>
+hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
+
+
+### MaintenanceOperation {#MaintenanceOperation10}
+
+Field | Description
+--- | ---
+info | **string**<br>Information about this maintenance operation. The maximum string length in characters is 256.
+delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time until which this maintenance operation is delayed. 
 
 
 ## ListLogs {#ListLogs}
 
-Получает логи для указанного кластера ClickHouse.
+Retrieves logs for the specified ClickHouse cluster.
 
 **rpc ListLogs ([ListClusterLogsRequest](#ListClusterLogsRequest)) returns ([ListClusterLogsResponse](#ListClusterLogsResponse))**
 
 ### ListClusterLogsRequest {#ListClusterLogsRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера ClickHouse, для которого следует запросить логи. Чтобы получить идентификатор кластера ClickHouse, используйте запрос [ClusterService.List](#List). Максимальная длина строки в символах — 50.
-column_filter[] | **string**<br>Столбцы из таблицы логов, которые нужно запросить. Если столбцы не указаны, записи логов возвращаются целиком. 
-service_type | enum **ServiceType**<br>Тип сервиса, для которого следует запросить логи. <ul><li>`CLICKHOUSE`: Логи работы ClickHouse.</li><ul/>
-from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Начало периода, для которого следует запросить логи, в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-to_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Конец периода, для которого следует запросить логи, в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-page_size | **int64**<br>Максимальное количество результатов на одной странице в ответе. Если количество результатов больше чем `page_size`, сервис вернет значение [ListClusterLogsResponse.next_page_token](#ListClusterLogsResponse), которое можно использовать для получения следующей страницы. Максимальное значение — 1000.
-page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListClusterLogsResponse.next_page_token](#ListClusterLogsResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
+cluster_id | **string**<br>Required. ID of the ClickHouse cluster to request logs for. To get the ClickHouse cluster ID, use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+column_filter[] | **string**<br>Columns from logs table to request. If no columns are specified, entire log records are returned. 
+service_type | enum **ServiceType**<br>Type of the service to request logs about. <ul><li>`CLICKHOUSE`: Logs of ClickHouse activity.</li><ul/>
+from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Start timestamp for the logs request, in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
+to_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>End timestamp for the logs request, in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
+page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClusterLogsResponse.next_page_token](#ListClusterLogsResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
+page_token | **string**<br>Page token.  To get the next page of results, set `page_token` to the [ListClusterLogsResponse.next_page_token](#ListClusterLogsResponse) returned by a previous list request. The maximum string length in characters is 100.
 
 
 ### ListClusterLogsResponse {#ListClusterLogsResponse}
 
-Поле | Описание
+Field | Description
 --- | ---
-logs[] | **[LogRecord](#LogRecord)**<br>Запрошенные записи в логе. 
-next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListClusterLogsRequest.page_size](#ListClusterLogsRequest), используйте `next_page_token` в качестве значения параметра [ListClusterLogsRequest.page_token](#ListClusterLogsRequest) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. Это значение взаимозаменяемо с [StreamLogRecord.next_record_token](#StreamLogRecord) из метода StreamLogs. 
+logs[] | **[LogRecord](#LogRecord)**<br>Requested log records. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClusterLogsRequest.page_size](#ListClusterLogsRequest), use the `next_page_token` as the value for the [ListClusterLogsRequest.page_token](#ListClusterLogsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. This value is interchangeable with the [StreamLogRecord.next_record_token](#StreamLogRecord) from StreamLogs method. 
 
 
 ### LogRecord {#LogRecord}
 
-Поле | Описание
+Field | Description
 --- | ---
-timestamp | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Отметка времени для записи журнала в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) текстовом формате. 
-message | **map<string,string>**<br>Содержимое записи в логе. 
+timestamp | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Log record timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
+message | **map<string,string>**<br>Contents of the log record. 
 
 
 ## StreamLogs {#StreamLogs}
 
-То же самое, что ListLogs, с той разницей, что со стороны сервера передается поток логов. Допускается использовать семантику 'tail-f' при работе с потоком логов.
+Same as ListLogs but using server-side streaming. Also allows for `tail -f` semantics.
 
 **rpc StreamLogs ([StreamClusterLogsRequest](#StreamClusterLogsRequest)) returns (stream [StreamLogRecord](#StreamLogRecord))**
 
 ### StreamClusterLogsRequest {#StreamClusterLogsRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Обязательное поле. Идентификатор кластера ClickHouse. Максимальная длина строки в символах — 50.
-column_filter[] | **string**<br>Столбцы, которые нужно запросить из лога. 
-service_type | enum **ServiceType**<br> <ul><li>`CLICKHOUSE`: Логи работы ClickHouse.</li><ul/>
-from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Временная метка, начиная с которой следует запросить логи. 
-to_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Временная метка, до которой следует запросить логи. Если значение этого поля не задано, то будут отправлены все существующие записи в логе, а затем и новые по мере их появления. В сущности, это эквивалентно семантике `tail -f`. 
-record_token | **string**<br>Токен записи. Задайте значение `record_token` равным значению [StreamLogRecord.next_record_token](#StreamLogRecord), возвращенному предыдущим запросом StreamLogs, чтобы продолжить стриминг со следующей записи в логе. Максимальная длина строки в символах — 100.
+cluster_id | **string**<br>Required. Required. ID of the ClickHouse cluster. The maximum string length in characters is 50.
+column_filter[] | **string**<br>Columns from logs table to get in the response. 
+service_type | enum **ServiceType**<br> <ul><li>`CLICKHOUSE`: Logs of ClickHouse activity.</li><ul/>
+from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Start timestamp for the logs request. 
+to_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>End timestamp for the logs request. If this field is not set, all existing logs will be sent and then the new ones as they appear. In essence it has `tail -f` semantics. 
+record_token | **string**<br>Record token. Set `record_token` to the [StreamLogRecord.next_record_token](#StreamLogRecord) returned by a previous StreamLogs request to start streaming from next log record. The maximum string length in characters is 100.
+filter | **string**<br><ol><li>The field name. Currently filtering can be applied to the [LogRecord.logs.message.hostname](#LogRecord), [LogRecord.logs.message.severity](#LogRecord) fields. </li><li>A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 1-63 characters long and match the regular expression `^[a-z0-9.-]{1,61}$`. </li></ol> The maximum string length in characters is 1000.
 
 
 ### StreamLogRecord {#StreamLogRecord}
 
-Поле | Описание
+Field | Description
 --- | ---
-record | **[LogRecord](#LogRecord)**<br>Одна из запрошенных записей в логе. 
-next_record_token | **string**<br>Этот токен позволяет продолжить работу с потоком логов, начиная с этой записи. Чтобы продолжить работу с потоком, укажите значение `next_record_token` в качестве значения параметра [StreamClusterLogsRequest.record_token](#StreamClusterLogsRequest) в следующем запросе StreamLogs. Это значение взаимозаменяемо с [ListClusterLogsResponse.next_page_token](#ListClusterLogsResponse) из метода ListLogs. 
+record | **[LogRecord](#LogRecord)**<br>One of the requested log records. 
+next_record_token | **string**<br>This token allows you to continue streaming logs starting from the exact same record. To continue streaming, specify value of [next_record_token [as value for the [StreamClusterLogsRequest.record_token] parameter in the next StreamLogs request. This value is interchangeable with the [ListClusterLogsResponse.next_page_token](#ListClusterLogsResponse) from ListLogs method. 
 
 
 ### LogRecord {#LogRecord1}
 
-Поле | Описание
+Field | Description
 --- | ---
-timestamp | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Отметка времени для записи журнала в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) текстовом формате. 
-message | **map<string,string>**<br>Содержимое записи в логе. 
+timestamp | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Log record timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
+message | **map<string,string>**<br>Contents of the log record. 
 
 
 ## ListOperations {#ListOperations}
 
-Получает список ресурсов Operation для указанного кластера.
+Retrieves the list of Operation resources for the specified cluster.
 
 **rpc ListOperations ([ListClusterOperationsRequest](#ListClusterOperationsRequest)) returns ([ListClusterOperationsResponse](#ListClusterOperationsResponse))**
 
 ### ListClusterOperationsRequest {#ListClusterOperationsRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор ресурса Cluster для ClickHouse, для которого запрашивается список операций. Максимальная длина строки в символах — 50.
-page_size | **int64**<br>Максимальное количество результатов на одной странице в ответе. Если количество результатов больше чем `page_size`, сервис вернет значение [ListClusterOperationsResponse.next_page_token](#ListClusterOperationsResponse), которое можно использовать для получения следующей страницы. Максимальное значение — 1000.
-page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListClusterOperationsResponse.next_page_token](#ListClusterOperationsResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
+cluster_id | **string**<br>Required. ID of the ClickHouse Cluster resource to list operations for. The maximum string length in characters is 50.
+page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClusterOperationsResponse.next_page_token](#ListClusterOperationsResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
+page_token | **string**<br>Page token.  To get the next page of results, set `page_token` to the [ListClusterOperationsResponse.next_page_token](#ListClusterOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
 
 
 ### ListClusterOperationsResponse {#ListClusterOperationsResponse}
 
-Поле | Описание
+Field | Description
 --- | ---
-operations[] | **[operation.Operation](#Operation9)**<br>Список ресурсов Operation для указанного кластера ClickHouse. 
-next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListClusterOperationsRequest.page_size](#ListClusterOperationsRequest), используйте `next_page_token` в качестве значения параметра [ListClusterOperationsRequest.page_token](#ListClusterOperationsRequest) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
+operations[] | **[operation.Operation](#Operation10)**<br>List of Operation resources for the specified ClickHouse cluster. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClusterOperationsRequest.page_size](#ListClusterOperationsRequest), use the `next_page_token` as the value for the [ListClusterOperationsRequest.page_token](#ListClusterOperationsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
-### Operation {#Operation9}
+### Operation {#Operation10}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**<br>Результат операции в случае успешного завершения. Если исходный метод не возвращает никаких данных при успешном завершении, например метод Delete, поле содержит объект [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty). Если исходный метод — это стандартный метод Create / Update, поле содержит целевой ресурс операции. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `response`. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**<br>The normal response of the operation in case of success. If the original method returns no data on success, such as Delete, the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty). If the original method is the standard Create/Update, the response should be the target resource of the operation. Any method that returns a long-running operation should document the response type, if any. 
 
 
 ## ListBackups {#ListBackups}
 
-Получает список доступных резервных копий для указанного кластера ClickHouse.
+Retrieves the list of available backups for the specified ClickHouse cluster.
 
 **rpc ListBackups ([ListClusterBackupsRequest](#ListClusterBackupsRequest)) returns ([ListClusterBackupsResponse](#ListClusterBackupsResponse))**
 
 ### ListClusterBackupsRequest {#ListClusterBackupsRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера ClickHouse. Чтобы получить идентификатор кластера ClickHouse, используйте запрос [ClusterService.List](#List). Максимальная длина строки в символах — 50.
-page_size | **int64**<br>Максимальное количество результатов на одной странице в ответе. Если количество результатов больше чем `page_size`, сервис вернет значение [ListClusterBackupsResponse.next_page_token](#ListClusterBackupsResponse), которое можно использовать для получения следующей страницы. Максимальное значение — 1000.
-page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListClusterBackupsResponse.next_page_token](#ListClusterBackupsResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
+cluster_id | **string**<br>Required. ID of the ClickHouse cluster. To get the ClickHouse cluster ID, use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClusterBackupsResponse.next_page_token](#ListClusterBackupsResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
+page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListClusterBackupsResponse.next_page_token](#ListClusterBackupsResponse) returned by a previous list request. The maximum string length in characters is 100.
 
 
 ### ListClusterBackupsResponse {#ListClusterBackupsResponse}
 
-Поле | Описание
+Field | Description
 --- | ---
-backups[] | **[Backup](#Backup)**<br>Список ресурсов Backup для ClickHouse. 
-next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListClusterBackupsRequest.page_size](#ListClusterBackupsRequest), используйте `next_page_token` в качестве значения параметра [ListClusterBackupsRequest.page_token](#ListClusterBackupsRequest) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
+backups[] | **[Backup](#Backup)**<br>List of ClickHouse Backup resources. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClusterBackupsRequest.page_size](#ListClusterBackupsRequest), use the `next_page_token` as the value for the [ListClusterBackupsRequest.page_token](#ListClusterBackupsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
 ### Backup {#Backup}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор резервной копии. 
-folder_id | **string**<br>Идентификатор каталога, которому принадлежит резервная копия. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) (т. е. когда операция резервного копирования была завершена). 
-source_cluster_id | **string**<br>Идентификатор кластера ClickHouse, для которого была создана резервная копия. 
-source_shard_names[] | **string**<br>Имена шардов, включенных в резервную копию. 
-started_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время запуска операции резервного копирования. 
+id | **string**<br>ID of the backup. 
+folder_id | **string**<br>ID of the folder that the backup belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format (i.e. when the backup operation was completed). 
+source_cluster_id | **string**<br>ID of the ClickHouse cluster that the backup was created for. 
+source_shard_names[] | **string**<br>Names of the shards included in the backup. 
+started_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the backup operation was started. 
 
 
 ## ListHosts {#ListHosts}
 
-Получает список хостов для указанного кластера.
+Retrieves a list of hosts for the specified cluster.
 
 **rpc ListHosts ([ListClusterHostsRequest](#ListClusterHostsRequest)) returns ([ListClusterHostsResponse](#ListClusterHostsResponse))**
 
 ### ListClusterHostsRequest {#ListClusterHostsRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера ClickHouse. Чтобы получить идентификатор кластера ClickHouse, используйте запрос [ClusterService.List](#List). Максимальная длина строки в символах — 50.
-page_size | **int64**<br>Максимальное количество результатов на одной странице в ответе. Если количество результатов больше чем `page_size`, сервис вернет значение [ListClusterHostsResponse.next_page_token](#ListClusterHostsResponse), которое можно использовать для получения следующей страницы. Максимальное значение — 1000.
-page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListClusterHostsResponse.next_page_token](#ListClusterHostsResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
+cluster_id | **string**<br>Required. ID of the ClickHouse cluster. To get the ClickHouse cluster ID use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClusterHostsResponse.next_page_token](#ListClusterHostsResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
+page_token | **string**<br>Page token.  To get the next page of results, set `page_token` to the [ListClusterHostsResponse.next_page_token](#ListClusterHostsResponse) returned by a previous list request. The maximum string length in characters is 100.
 
 
 ### ListClusterHostsResponse {#ListClusterHostsResponse}
 
-Поле | Описание
+Field | Description
 --- | ---
-hosts[] | **[Host](#Host)**<br>Запрошенный список хостов для кластера. 
-next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListClusterHostsRequest.page_size](#ListClusterHostsRequest), используйте `next_page_token` в качестве значения параметра [ListClusterHostsRequest.page_token](#ListClusterHostsRequest) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
+hosts[] | **[Host](#Host)**<br>Requested list of hosts for the cluster. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClusterHostsRequest.page_size](#ListClusterHostsRequest), use the `next_page_token` as the value for the [ListClusterHostsRequest.page_token](#ListClusterHostsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
 ### Host {#Host}
 
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br>Имя хоста ClickHouse. Имя хоста назначается MDB во время создания и не может быть изменено. Длина 1-63 символов. <br>Имя уникально для всех существующих хостов MDB в Яндекс.Облаке, так как оно определяет полное доменное имя (FQDN) хоста. 
-cluster_id | **string**<br>Идентификатор хоста ClickHouse. Этот идентификатор генерирует MDB при создании. 
-zone_id | **string**<br>Идентификатор зоны доступности, в которой находится хост ClickHouse. 
-type | enum **Type**<br>Тип хоста. <ul><li>`CLICKHOUSE`: Хост ClickHouse.</li><li>`ZOOKEEPER`: Хост ZooKeeper.</li><ul/>
-resources | **[Resources](#Resources1)**<br>Ресурсы, выделенные хосту ClickHouse. 
-health | enum **Health**<br>Код работоспособности хоста. <ul><li>`UNKNOWN`: Состояние хоста неизвестно.</li><li>`ALIVE`: Хост работает и выполняет все свои функции.</li><li>`DEAD`: Хост не работает и не может выполнять свои основные функции.</li><li>`DEGRADED`: Хост деградировал, и может выполнять только некоторые из своих основных функций.</li><ul/>
-services[] | **[Service](#Service)**<br>Сервисы, предоставляемые хостом. 
-subnet_id | **string**<br>Идентификатор подсети, к которой принадлежит хост. 
-assign_public_ip | **bool**<br>Флаг, показывающий статус публичного IP-адреса для этого хоста. 
+name | **string**<br>Name of the ClickHouse host. The host name is assigned by MDB at creation time, and cannot be changed. 1-63 characters long. <br>The name is unique across all existing MDB hosts in Yandex.Cloud, as it defines the FQDN of the host. 
+cluster_id | **string**<br>ID of the ClickHouse host. The ID is assigned by MDB at creation time. 
+zone_id | **string**<br>ID of the availability zone where the ClickHouse host resides. 
+type | enum **Type**<br>Type of the host. <ul><li>`CLICKHOUSE`: ClickHouse host.</li><li>`ZOOKEEPER`: ZooKeeper host.</li><ul/>
+resources | **[Resources](#Resources1)**<br>Resources allocated to the ClickHouse host. 
+health | enum **Health**<br>Status code of the aggregated health of the host. <ul><li>`UNKNOWN`: Health of the host is unknown.</li><li>`ALIVE`: The host is performing all its functions normally.</li><li>`DEAD`: The host is inoperable, and cannot perform any of its essential functions.</li><li>`DEGRADED`: The host is degraded, and can perform only some of its essential functions.</li><ul/>
+services[] | **[Service](#Service)**<br>Services provided by the host. 
+subnet_id | **string**<br>ID of the subnet that the host belongs to. 
+assign_public_ip | **bool**<br>Flag showing public IP assignment status to this host. 
 shard_name | **string**<br> 
 
 
 ### Resources {#Resources1}
 
-Поле | Описание
+Field | Description
 --- | ---
-resource_preset_id | **string**<br>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в [документации](/docs/managed-clickhouse/concepts/instance-types). 
-disk_size | **int64**<br>Объем хранилища, доступного хосту, в байтах. 
-disk_type_id | **string**<br><ul><li>network-hdd — сетевой HDD-диск; </li><li>network-ssd — сетевой SSD-диск; </li><li>local-ssd — локальное SSD-хранилище.</li></ul> 
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-clickhouse/concepts/instance-types) 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
+disk_type_id | **string**<br><ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
 
 ### Service {#Service}
 
-Поле | Описание
+Field | Description
 --- | ---
-type | enum **Type**<br>Тип сервиса, предоставляемого хостом. <ul><li>`CLICKHOUSE`: Хост — это сервер ClickHouse.</li><li>`ZOOKEEPER`: Хост — сервер ZooKeeper.</li><ul/>
-health | enum **Health**<br>Код состояния доступности сервера. <ul><li>`UNKNOWN`: Работоспособность сервера неизвестна.</li><li>`ALIVE`: Сервер работает нормально.</li><li>`DEAD`: Сервер отключен или не отвечает.</li><ul/>
+type | enum **Type**<br>Type of the service provided by the host. <ul><li>`CLICKHOUSE`: The host is a ClickHouse server.</li><li>`ZOOKEEPER`: The host is a ZooKeeper server.</li><ul/>
+health | enum **Health**<br>Status code of server availability. <ul><li>`UNKNOWN`: Health of the server is unknown.</li><li>`ALIVE`: The server is working normally.</li><li>`DEAD`: The server is dead or unresponsive.</li><ul/>
 
 
 ## AddHosts {#AddHosts}
 
-Создает новые хосты для кластера.
+Creates new hosts for a cluster.
 
-**rpc AddHosts ([AddClusterHostsRequest](#AddClusterHostsRequest)) returns ([operation.Operation](#Operation10))**
+**rpc AddHosts ([AddClusterHostsRequest](#AddClusterHostsRequest)) returns ([operation.Operation](#Operation11))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[AddClusterHostsMetadata](#AddClusterHostsMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
 
 ### AddClusterHostsRequest {#AddClusterHostsRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера ClickHouse, для которого следует добавить хосты. Чтобы получить идентификатор кластера ClickHouse, используйте запрос [ClusterService.List](#List). Максимальная длина строки в символах — 50.
-host_specs[] | **[HostSpec](#HostSpec)**<br>Конфигурации для хостов ClickHouse, которые должны быть добавлены в кластер. Количество элементов должно быть больше 0.
+cluster_id | **string**<br>Required. ID of the ClickHouse cluster to add hosts to. To get the ClickHouse cluster ID, use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+host_specs[] | **[HostSpec](#HostSpec)**<br>Configurations for ClickHouse hosts that should be added to the cluster. The number of elements must be greater than 0.
+copy_schema | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether to copy schema to new ClickHouse hosts from replicas. 
 
 
 ### HostSpec {#HostSpec3}
 
-Поле | Описание
+Field | Description
 --- | ---
-zone_id | **string**<br>Идентификатор зоны доступности, в которой находится хост. Чтобы получить список доступных зон, используйте запрос [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/grpc/zone_service#List). Максимальная длина строки в символах — 50.
-type | **[Host.Type](#Host1)**<br>Обязательное поле. Тип развертываемого хоста. 
-subnet_id | **string**<br>Идентификатор подсети, к которой должен принадлежать хост. Эта подсеть должна быть частью сети, к которой принадлежит кластер. Идентификатор сети задается в поле [Cluster.network_id](#Cluster10). Максимальная длина строки в символах — 50.
-assign_public_ip | **bool**<br><ul><li>false — не назначать хосту публичный IP-адрес. </li><li>true — у хоста должен быть публичный IP-адрес.</li></ul> 
-shard_name | **string**<br>Имя шарда, которому принадлежит хост. Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_-]* `.
+zone_id | **string**<br>ID of the availability zone where the host resides. To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/grpc/zone_service#List) request. The maximum string length in characters is 50.
+type | **[Host.Type](#Host1)**<br>Required. Type of the host to be deployed. 
+subnet_id | **string**<br>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The ID of the network is set in the [Cluster.network_id](#Cluster11) field. The maximum string length in characters is 50.
+assign_public_ip | **bool**<br><ul><li>false - don't assign a public IP to the host. </li><li>true - the host should have a public IP address.</li></ul> 
+shard_name | **string**<br>Name of the shard that the host is assigned to. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
-### Operation {#Operation10}
+### Operation {#Operation11}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[AddClusterHostsMetadata](#AddClusterHostsMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[AddClusterHostsMetadata](#AddClusterHostsMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>if operation finished successfully. 
 
 
 ### AddClusterHostsMetadata {#AddClusterHostsMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Идентификатор кластера ClickHouse, в который добавляются хосты. 
-host_names[] | **string**<br>Имена хостов, добавляемых в кластер. 
+cluster_id | **string**<br>ID of the ClickHouse cluster to which the hosts are being added. 
+host_names[] | **string**<br>Names of hosts that are being added to the cluster. 
 
 
 ## DeleteHosts {#DeleteHosts}
 
-Удаляет указанные хосты кластера.
+Deletes the specified hosts for a cluster.
 
-**rpc DeleteHosts ([DeleteClusterHostsRequest](#DeleteClusterHostsRequest)) returns ([operation.Operation](#Operation11))**
+**rpc DeleteHosts ([DeleteClusterHostsRequest](#DeleteClusterHostsRequest)) returns ([operation.Operation](#Operation12))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[DeleteClusterHostsMetadata](#DeleteClusterHostsMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
 
 ### DeleteClusterHostsRequest {#DeleteClusterHostsRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера ClickHouse из которого следует удалить хосты. Чтобы получить идентификатор кластера ClickHouse, используйте запрос [ClusterService.List](#List). Максимальная длина строки в символах — 50.
-host_names[] | **string**<br>Имена хостов, которые следует удалить. Количество элементов должно быть больше 0. Максимальная длина строки в символах для каждого значения — 253.
+cluster_id | **string**<br>Required. ID of the ClickHouse cluster to remove hosts from. To get the ClickHouse cluster ID, use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+host_names[] | **string**<br>Names of hosts to delete. The number of elements must be greater than 0. The maximum string length in characters for each value is 253.
 
 
-### Operation {#Operation11}
+### Operation {#Operation12}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteClusterHostsMetadata](#DeleteClusterHostsMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteClusterHostsMetadata](#DeleteClusterHostsMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>if operation finished successfully. 
 
 
 ### DeleteClusterHostsMetadata {#DeleteClusterHostsMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Идентификатор кластера ClickHouse из которого следует удалить хосты. 
-host_names[] | **string**<br>Имена удаляемых хостов. 
+cluster_id | **string**<br>ID of the ClickHouse cluster to remove hosts from. 
+host_names[] | **string**<br>Names of hosts that are being deleted. 
 
 
 ## GetShard {#GetShard}
 
-Возвращает указанный шард.
+Returns the specified shard.
 
 **rpc GetShard ([GetClusterShardRequest](#GetClusterShardRequest)) returns ([Shard](#Shard))**
 
 ### GetClusterShardRequest {#GetClusterShardRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера, к которому принадлежит шард. Чтобы получить идентификатор кластера, используйте запрос [ClusterService.List](#List)(#List). Чтобы получить имя базы данных, используйте запрос [ClusterService.List]. Максимальная длина строки в символах — 50.
-shard_name | **string**<br>Обязательное поле. Имя шарда, информацию о котором нужно запросить. Чтобы получить имя шарда, используйте запрос [ClusterService.ListShards](#ListShards). Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_-]* `.
+cluster_id | **string**<br>Required. ID of the cluster that the shard belongs to. To get the cluster ID, use a [ClusterService.List](#List)(#List) request. To get the name of the database, use a [ClusterService.List] request. The maximum string length in characters is 50.
+shard_name | **string**<br>Required. Name of the shard to request information about. To get the name of a shard, use a [ClusterService.ListShards](#ListShards) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
 ### Shard {#Shard}
 
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br>Имя шарда. 
-cluster_id | **string**<br>Идентификатор кластера, к которому принадлежит шард. 
-config | **[ShardConfig](#ShardConfig)**<br>Конфигурация шарда. 
+name | **string**<br>Name of the shard. 
+cluster_id | **string**<br>ID of the cluster that the shard belongs to. 
+config | **[ShardConfig](#ShardConfig)**<br>Configuration of the shard. 
 
 
 ### ShardConfig {#ShardConfig}
 
-Поле | Описание
+Field | Description
 --- | ---
-clickhouse | **[Clickhouse](#Clickhouse13)**<br>Конфигурация ClickHouse для шарда. 
+clickhouse | **[Clickhouse](#Clickhouse14)**<br>ClickHouse configuration for a shard. 
 
 
-### Clickhouse {#Clickhouse13}
+### Clickhouse {#Clickhouse14}
 
-Поле | Описание
+Field | Description
 --- | ---
-config | **`config.ClickhouseConfigSet`**<br>Настройки ClickHouse для шарда. 
-resources | **[Resources](#Resources2)**<br>Вычислительные ресурсы для шарда. 
-weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Относительный вес шарда, который учитывается при записи данных в кластер. <br>Подробнее см. в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/table_engines/distributed/). 
+config | **`config.ClickhouseConfigSet`**<br>ClickHouse settings for a shard. 
+resources | **[Resources](#Resources2)**<br>Computational resources for a shard. 
+weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Relative weight of a shard considered when writing data to the cluster. For details, see [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/table_engines/distributed/). 
 
 
 ## ListShards {#ListShards}
 
-Получает список шардов, принадлежащих указанному кластеру.
+Retrieves a list of shards that belong to the specified cluster.
 
 **rpc ListShards ([ListClusterShardsRequest](#ListClusterShardsRequest)) returns ([ListClusterShardsResponse](#ListClusterShardsResponse))**
 
 ### ListClusterShardsRequest {#ListClusterShardsRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера ClickHouse, для которого нужно вывести список шардов. Чтобы получить идентификатор кластера, используйте запрос [ClusterService.List](#List). Максимальная длина строки в символах — 50.
-page_size | **int64**<br>Максимальное количество результатов на одной странице в ответе. Если количество результатов больше чем `page_size`, сервис вернет значение [ListClusterShardsResponse.next_page_token](#ListClusterShardsResponse), которое можно использовать для получения следующей страницы. Допустимые значения — от 0 до 1000 включительно.
-page_token | **string**<br>Номер страницы. Чтобы получить следующую страницу результатов, установите значение `page_token` равным значению поля [ListClusterShardsResponse.next_page_token](#ListClusterShardsResponse) прошлого запроса. Максимальная длина строки в символах — 100.
+cluster_id | **string**<br>Required. ID of the ClickHouse cluster to list shards in. To get the cluster ID, use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClusterShardsResponse.next_page_token](#ListClusterShardsResponse) that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 1000, inclusive.
+page_token | **string**<br>Page token.  to get the next page of results, set `page_token` to the [ListClusterShardsResponse.next_page_token](#ListClusterShardsResponse) returned by a previous list request. The maximum string length in characters is 100.
 
 
 ### ListClusterShardsResponse {#ListClusterShardsResponse}
 
-Поле | Описание
+Field | Description
 --- | ---
-shards[] | **[Shard](#Shard1)**<br>Список шардов ClickHouse. 
-next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListClusterShardsRequest.page_size](#ListClusterShardsRequest), используйте `next_page_token` в качестве значения параметра [ListClusterShardsRequest.page_token](#ListClusterShardsRequest) в следующем запросе. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
+shards[] | **[Shard](#Shard1)**<br>List of ClickHouse shards. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClusterShardsRequest.page_size](#ListClusterShardsRequest), use the `next_page_token` as the value for the [ListClusterShardsRequest.page_token](#ListClusterShardsRequest) parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
 ### Shard {#Shard1}
 
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br>Имя шарда. 
-cluster_id | **string**<br>Идентификатор кластера, к которому принадлежит шард. 
-config | **[ShardConfig](#ShardConfig1)**<br>Конфигурация шарда. 
+name | **string**<br>Name of the shard. 
+cluster_id | **string**<br>ID of the cluster that the shard belongs to. 
+config | **[ShardConfig](#ShardConfig1)**<br>Configuration of the shard. 
 
 
 ### ShardConfig {#ShardConfig1}
 
-Поле | Описание
+Field | Description
 --- | ---
-clickhouse | **[Clickhouse](#Clickhouse14)**<br>Конфигурация ClickHouse для шарда. 
+clickhouse | **[Clickhouse](#Clickhouse15)**<br>ClickHouse configuration for a shard. 
 
 
-### Clickhouse {#Clickhouse14}
+### Clickhouse {#Clickhouse15}
 
-Поле | Описание
+Field | Description
 --- | ---
-config | **`config.ClickhouseConfigSet`**<br>Настройки ClickHouse для шарда. 
-resources | **[Resources](#Resources2)**<br>Вычислительные ресурсы для шарда. 
-weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Относительный вес шарда, который учитывается при записи данных в кластер. <br>Подробнее см. в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/table_engines/distributed/). 
+config | **`config.ClickhouseConfigSet`**<br>ClickHouse settings for a shard. 
+resources | **[Resources](#Resources2)**<br>Computational resources for a shard. 
+weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Relative weight of a shard considered when writing data to the cluster. For details, see [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/table_engines/distributed/). 
 
 
 ## AddShard {#AddShard}
 
-Создает новый шард в указанном кластере.
+Creates a new shard in the specified cluster.
 
-**rpc AddShard ([AddClusterShardRequest](#AddClusterShardRequest)) returns ([operation.Operation](#Operation12))**
+**rpc AddShard ([AddClusterShardRequest](#AddClusterShardRequest)) returns ([operation.Operation](#Operation13))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[AddClusterShardMetadata](#AddClusterShardMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Shard](#Shard2)<br>
 
 ### AddClusterShardRequest {#AddClusterShardRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера ClickHouse, к которому нужно добавить шард. Чтобы получить идентификатор кластера ClickHouse, используйте запрос [ClusterService.List](#List). Максимальная длина строки в символах — 50.
-shard_name | **string**<br>Обязательное поле. Имя нового шарда. Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_-]* `.
-config_spec | **[ShardConfigSpec](#ShardConfigSpec)**<br>Конфигурация нового шарда. 
-host_specs[] | **[HostSpec](#HostSpec)**<br>Конфигурации для хостов ClickHouse, которые должны быть созданы вместе с шардом. Количество элементов должно быть больше 0.
+cluster_id | **string**<br>Required. ID of the ClickHouse cluster to add a shard to. To get the ClickHouse cluster ID, use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+shard_name | **string**<br>Required. Name for the new shard. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+config_spec | **[ShardConfigSpec](#ShardConfigSpec)**<br>Configuration of the new shard. 
+host_specs[] | **[HostSpec](#HostSpec)**<br>Configurations for ClickHouse hosts that should be created with the shard. The number of elements must be greater than 0.
+copy_schema | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether to copy schema to hosts of the shard to be created. The schema is copied from hosts of an existing shard. 
 
 
 ### ShardConfigSpec {#ShardConfigSpec}
 
-Поле | Описание
+Field | Description
 --- | ---
-clickhouse | **[Clickhouse](#Clickhouse15)**<br>Конфигурация ClickHouse для шарда. 
-
-
-### Clickhouse {#Clickhouse15}
-
-Поле | Описание
---- | ---
-config | **`config.ClickhouseConfig`**<br>Настройки ClickHouse для шарда. 
-resources | **[Resources](#Resources2)**<br>Вычислительные ресурсы для шарда. 
-weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Относительный вес шарда, который учитывается при записи данных в кластер. Подробнее см. в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/table_engines/distributed/). 
-
-
-### HostSpec {#HostSpec4}
-
-Поле | Описание
---- | ---
-zone_id | **string**<br>Идентификатор зоны доступности, в которой находится хост. Чтобы получить список доступных зон, используйте запрос [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/grpc/zone_service#List). Максимальная длина строки в символах — 50.
-type | **[Host.Type](#Host1)**<br>Обязательное поле. Тип развертываемого хоста. 
-subnet_id | **string**<br>Идентификатор подсети, к которой должен принадлежать хост. Эта подсеть должна быть частью сети, к которой принадлежит кластер. Идентификатор сети задается в поле [Cluster.network_id](#Cluster10). Максимальная длина строки в символах — 50.
-assign_public_ip | **bool**<br><ul><li>false — не назначать хосту публичный IP-адрес. </li><li>true — у хоста должен быть публичный IP-адрес.</li></ul> 
-shard_name | **string**<br>Имя шарда, которому принадлежит хост. Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_-]* `.
-
-
-### Operation {#Operation12}
-
-Поле | Описание
---- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[AddClusterShardMetadata](#AddClusterShardMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Shard](#Shard2)>**<br>в случае успешного выполнения операции. 
-
-
-### AddClusterShardMetadata {#AddClusterShardMetadata}
-
-Поле | Описание
---- | ---
-cluster_id | **string**<br>Идентификатор кластера, в который добавляется шард. 
-shard_name | **string**<br>Имя создаваемого шарда. 
-
-
-### Shard {#Shard2}
-
-Поле | Описание
---- | ---
-name | **string**<br>Имя шарда. 
-cluster_id | **string**<br>Идентификатор кластера, к которому принадлежит шард. 
-config | **[ShardConfig](#ShardConfig2)**<br>Конфигурация шарда. 
-
-
-### ShardConfig {#ShardConfig2}
-
-Поле | Описание
---- | ---
-clickhouse | **[Clickhouse](#Clickhouse16)**<br>Конфигурация ClickHouse для шарда. 
+clickhouse | **[Clickhouse](#Clickhouse16)**<br>ClickHouse configuration for a shard. 
 
 
 ### Clickhouse {#Clickhouse16}
 
-Поле | Описание
+Field | Description
 --- | ---
-config | **`config.ClickhouseConfigSet`**<br>Настройки ClickHouse для шарда. 
-resources | **[Resources](#Resources2)**<br>Вычислительные ресурсы для шарда. 
-weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Относительный вес шарда, который учитывается при записи данных в кластер. <br>Подробнее см. в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/table_engines/distributed/). 
+config | **`config.ClickhouseConfig`**<br>ClickHouse settings for the shard. 
+resources | **[Resources](#Resources2)**<br>Computational resources for the shard. 
+weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Relative weight of the shard considered when writing data to the cluster. For details, see [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/table_engines/distributed/). 
+
+
+### HostSpec {#HostSpec4}
+
+Field | Description
+--- | ---
+zone_id | **string**<br>ID of the availability zone where the host resides. To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/grpc/zone_service#List) request. The maximum string length in characters is 50.
+type | **[Host.Type](#Host1)**<br>Required. Type of the host to be deployed. 
+subnet_id | **string**<br>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The ID of the network is set in the [Cluster.network_id](#Cluster11) field. The maximum string length in characters is 50.
+assign_public_ip | **bool**<br><ul><li>false - don't assign a public IP to the host. </li><li>true - the host should have a public IP address.</li></ul> 
+shard_name | **string**<br>Name of the shard that the host is assigned to. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+
+
+### Operation {#Operation13}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[AddClusterShardMetadata](#AddClusterShardMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Shard](#Shard2)>**<br>if operation finished successfully. 
+
+
+### AddClusterShardMetadata {#AddClusterShardMetadata}
+
+Field | Description
+--- | ---
+cluster_id | **string**<br>ID of the cluster that a shard is being added to. 
+shard_name | **string**<br>Name of the shard being created. 
+
+
+### Shard {#Shard2}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the shard. 
+cluster_id | **string**<br>ID of the cluster that the shard belongs to. 
+config | **[ShardConfig](#ShardConfig2)**<br>Configuration of the shard. 
+
+
+### ShardConfig {#ShardConfig2}
+
+Field | Description
+--- | ---
+clickhouse | **[Clickhouse](#Clickhouse17)**<br>ClickHouse configuration for a shard. 
+
+
+### Clickhouse {#Clickhouse17}
+
+Field | Description
+--- | ---
+config | **`config.ClickhouseConfigSet`**<br>ClickHouse settings for a shard. 
+resources | **[Resources](#Resources2)**<br>Computational resources for a shard. 
+weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Relative weight of a shard considered when writing data to the cluster. For details, see [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/table_engines/distributed/). 
 
 
 ## UpdateShard {#UpdateShard}
 
-Изменяет указанный шард.
+Modifies the specified shard.
 
-**rpc UpdateShard ([UpdateClusterShardRequest](#UpdateClusterShardRequest)) returns ([operation.Operation](#Operation13))**
+**rpc UpdateShard ([UpdateClusterShardRequest](#UpdateClusterShardRequest)) returns ([operation.Operation](#Operation14))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateClusterShardMetadata](#UpdateClusterShardMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Shard](#Shard3)<br>
 
 ### UpdateClusterShardRequest {#UpdateClusterShardRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера ClickHouse, которому принадлежит шард. Чтобы получить идентификатор кластера, используйте запрос [ClusterService.List](#List). Максимальная длина строки в символах — 50.
-shard_name | **string**<br>Обязательное поле. Имя шарда, который следует изменить. Чтобы получить имя шарда, используйте запрос [ClusterService.ListShards](#ListShards). Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_-]* `.
-update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Маска, которая указывает, какие атрибуты шарда должны быть изменены. 
-config_spec | **[ShardConfigSpec](#ShardConfigSpec)**<br>Новая конфигурация для указанного шарда. 
+cluster_id | **string**<br>Required. ID of the ClickHouse cluster the shard belongs to. To get the cluster ID, use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+shard_name | **string**<br>Required. Name of the shard to be updated. To get the name of a shard, use a [ClusterService.ListShards](#ListShards) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which attributes of the ClickHouse shard should be updated. 
+config_spec | **[ShardConfigSpec](#ShardConfigSpec)**<br>New configuration for the specified shard. 
 
 
 ### ShardConfigSpec {#ShardConfigSpec1}
 
-Поле | Описание
+Field | Description
 --- | ---
-clickhouse | **[Clickhouse](#Clickhouse17)**<br>Конфигурация ClickHouse для шарда. 
-
-
-### Clickhouse {#Clickhouse17}
-
-Поле | Описание
---- | ---
-config | **`config.ClickhouseConfig`**<br>Настройки ClickHouse для шарда. 
-resources | **[Resources](#Resources2)**<br>Вычислительные ресурсы для шарда. 
-weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Относительный вес шарда, который учитывается при записи данных в кластер. Подробнее см. в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/table_engines/distributed/). 
-
-
-### Operation {#Operation13}
-
-Поле | Описание
---- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateClusterShardMetadata](#UpdateClusterShardMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Shard](#Shard3)>**<br>в случае успешного выполнения операции. 
-
-
-### UpdateClusterShardMetadata {#UpdateClusterShardMetadata}
-
-Поле | Описание
---- | ---
-cluster_id | **string**<br>Идентификатор кластера, содержащего обновляемый шард. 
-shard_name | **string**<br>Имя обновляемого шарда. 
-
-
-### Shard {#Shard3}
-
-Поле | Описание
---- | ---
-name | **string**<br>Имя шарда. 
-cluster_id | **string**<br>Идентификатор кластера, к которому принадлежит шард. 
-config | **[ShardConfig](#ShardConfig3)**<br>Конфигурация шарда. 
-
-
-### ShardConfig {#ShardConfig3}
-
-Поле | Описание
---- | ---
-clickhouse | **[Clickhouse](#Clickhouse18)**<br>Конфигурация ClickHouse для шарда. 
+clickhouse | **[Clickhouse](#Clickhouse18)**<br>ClickHouse configuration for a shard. 
 
 
 ### Clickhouse {#Clickhouse18}
 
-Поле | Описание
+Field | Description
 --- | ---
-config | **`config.ClickhouseConfigSet`**<br>Настройки ClickHouse для шарда. 
-resources | **[Resources](#Resources2)**<br>Вычислительные ресурсы для шарда. 
-weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Относительный вес шарда, который учитывается при записи данных в кластер. <br>Подробнее см. в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/table_engines/distributed/). 
+config | **`config.ClickhouseConfig`**<br>ClickHouse settings for the shard. 
+resources | **[Resources](#Resources2)**<br>Computational resources for the shard. 
+weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Relative weight of the shard considered when writing data to the cluster. For details, see [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/table_engines/distributed/). 
+
+
+### Operation {#Operation14}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateClusterShardMetadata](#UpdateClusterShardMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Shard](#Shard3)>**<br>if operation finished successfully. 
+
+
+### UpdateClusterShardMetadata {#UpdateClusterShardMetadata}
+
+Field | Description
+--- | ---
+cluster_id | **string**<br>ID of the cluster that contains the shard being updated. 
+shard_name | **string**<br>Name of the shard being updated. 
+
+
+### Shard {#Shard3}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the shard. 
+cluster_id | **string**<br>ID of the cluster that the shard belongs to. 
+config | **[ShardConfig](#ShardConfig3)**<br>Configuration of the shard. 
+
+
+### ShardConfig {#ShardConfig3}
+
+Field | Description
+--- | ---
+clickhouse | **[Clickhouse](#Clickhouse19)**<br>ClickHouse configuration for a shard. 
+
+
+### Clickhouse {#Clickhouse19}
+
+Field | Description
+--- | ---
+config | **`config.ClickhouseConfigSet`**<br>ClickHouse settings for a shard. 
+resources | **[Resources](#Resources2)**<br>Computational resources for a shard. 
+weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Relative weight of a shard considered when writing data to the cluster. For details, see [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/table_engines/distributed/). 
 
 
 ## DeleteShard {#DeleteShard}
 
-Удаляет указанный шард.
+Deletes the specified shard.
 
-**rpc DeleteShard ([DeleteClusterShardRequest](#DeleteClusterShardRequest)) returns ([operation.Operation](#Operation14))**
+**rpc DeleteShard ([DeleteClusterShardRequest](#DeleteClusterShardRequest)) returns ([operation.Operation](#Operation15))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[DeleteClusterShardMetadata](#DeleteClusterShardMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
 
 ### DeleteClusterShardRequest {#DeleteClusterShardRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера ClickHouse, которому принадлежит шард. Чтобы получить идентификатор кластера, используйте запрос [ClusterService.List](#List). Максимальная длина строки в символах — 50.
-shard_name | **string**<br>Обязательное поле. Имя удаляемого шарда. Чтобы получить имя шарда, используйте запрос [ClusterService.ListShards](#ListShards). Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_-]* `.
+cluster_id | **string**<br>Required. ID of the ClickHouse cluster the shard belongs to. To get the cluster ID, use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+shard_name | **string**<br>Required. Name of the shard to be deleted. To get the name of a shard, use a [ClusterService.ListShards](#ListShards) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
-### Operation {#Operation14}
+### Operation {#Operation15}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteClusterShardMetadata](#DeleteClusterShardMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteClusterShardMetadata](#DeleteClusterShardMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>if operation finished successfully. 
 
 
 ### DeleteClusterShardMetadata {#DeleteClusterShardMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Идентификатор кластера, содержащего удаляемый шард. 
-shard_name | **string**<br>Имя удаляемого шарда. 
+cluster_id | **string**<br>ID of the cluster that contains the shard being deleted. 
+shard_name | **string**<br>Name of the shard being deleted. 
 
 
 ## GetShardGroup {#GetShardGroup}
 
-Возвращает указанную группу шардов.
+Returns the specified shard group.
 
 **rpc GetShardGroup ([GetClusterShardGroupRequest](#GetClusterShardGroupRequest)) returns ([ShardGroup](#ShardGroup))**
 
 ### GetClusterShardGroupRequest {#GetClusterShardGroupRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера, к которому принадлежит группа шардов. Максимальная длина строки в символах — 50.
-shard_group_name | **string**<br>Обязательное поле. Имя группы шардов, информацию о которой нужно запросить. Чтобы получить имя группы шардов, используйте запрос [ClusterService.ListShardGroups](#ListShardGroups). Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_-]* `.
+cluster_id | **string**<br>Required. ID of the cluster that the shard group belongs to. <br>To get the cluster ID, make a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+shard_group_name | **string**<br>Required. Name of the shard group to request information about. <br>To get the name of a shard group, make a [ClusterService.ListShardGroups](#ListShardGroups) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
 ### ShardGroup {#ShardGroup}
 
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br>Имя группы шардов. 
-cluster_id | **string**<br>Идентификатор кластера, к которому принадлежит группа шардов. 
-description | **string**<br>Описание группы шардов кластера ClickHouse. Длина описания должна быть от 0 до 256 символов. 
-shard_names[] | **string**<br>Список имен шардов, содержащихся в группе шардов. 
+name | **string**<br>Name of the shard group. 
+cluster_id | **string**<br>ID of the ClickHouse cluster that the shard group belongs to. 
+description | **string**<br>Description of the shard group. 0-256 characters long. 
+shard_names[] | **string**<br>List of shard names contained in the shard group. 
 
 
 ## ListShardGroups {#ListShardGroups}
 
-Получает список групп шардов, принадлежащих указанному кластеру.
+Retrieves a list of shard groups that belong to specified cluster.
 
 **rpc ListShardGroups ([ListClusterShardGroupsRequest](#ListClusterShardGroupsRequest)) returns ([ListClusterShardGroupsResponse](#ListClusterShardGroupsResponse))**
 
 ### ListClusterShardGroupsRequest {#ListClusterShardGroupsRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера, к которому принадлежит группа шардов. Максимальная длина строки в символах — 50.
-page_size | **int64**<br>Максимальное количество результатов на одной странице в ответе. Если количество результатов больше чем `page_size`, сервис вернет значение [ListClusterShardGroupsResponse.next_page_token](#ListClusterShardGroupsResponse), которое можно использовать для получения следующей страницы. Допустимые значения — от 0 до 1000 включительно.
-page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListClusterShardGroupsResponse.next_page_token](#ListClusterShardGroupsResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
+cluster_id | **string**<br>Required. ID of the cluster that the shard group belongs to. <br>To get the cluster ID, make a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+page_size | **int64**<br>The maximum number of results per page to return. <br>If the number of available results is larger than `page_size`, the service returns a [ListClusterShardGroupsResponse.next_page_token](#ListClusterShardGroupsResponse) that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 1000, inclusive.
+page_token | **string**<br>Page token. <br>To get the next page of results, set `page_token` to the [ListClusterShardGroupsResponse.next_page_token](#ListClusterShardGroupsResponse) returned by a previous list request. The maximum string length in characters is 100.
 
 
 ### ListClusterShardGroupsResponse {#ListClusterShardGroupsResponse}
 
-Поле | Описание
+Field | Description
 --- | ---
-shard_groups[] | **[ShardGroup](#ShardGroup1)**<br>Список групп шардов кластера ClickHouse. 
-next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListClusterShardGroupsRequest.page_size](#ListClusterShardGroupsRequest), используйте `next_page_token` в качестве значения параметра [ListClusterShardGroupsRequest.page_token](#ListClusterShardGroupsRequest) в следующем запросе. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
+shard_groups[] | **[ShardGroup](#ShardGroup1)**<br>List of ClickHouse cluster's shard groups. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. <br>If the number of results is larger than [ListClusterShardGroupsRequest.page_size](#ListClusterShardGroupsRequest), use the `next_page_token` as the value for the [ListClusterShardGroupsRequest.page_token](#ListClusterShardGroupsRequest) parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
 ### ShardGroup {#ShardGroup1}
 
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br>Имя группы шардов. 
-cluster_id | **string**<br>Идентификатор кластера, к которому принадлежит группа шардов. 
-description | **string**<br>Описание группы шардов кластера ClickHouse. Длина описания должна быть от 0 до 256 символов. 
-shard_names[] | **string**<br>Список имен шардов, содержащихся в группе шардов. 
+name | **string**<br>Name of the shard group. 
+cluster_id | **string**<br>ID of the ClickHouse cluster that the shard group belongs to. 
+description | **string**<br>Description of the shard group. 0-256 characters long. 
+shard_names[] | **string**<br>List of shard names contained in the shard group. 
 
 
 ## CreateShardGroup {#CreateShardGroup}
 
-Создает новую группу шардов в указанном кластере.
+Creates a new shard group in the specified cluster.
 
-**rpc CreateShardGroup ([CreateClusterShardGroupRequest](#CreateClusterShardGroupRequest)) returns ([operation.Operation](#Operation15))**
+**rpc CreateShardGroup ([CreateClusterShardGroupRequest](#CreateClusterShardGroupRequest)) returns ([operation.Operation](#Operation16))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateClusterShardGroupMetadata](#CreateClusterShardGroupMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[ShardGroup](#ShardGroup2)<br>
 
 ### CreateClusterShardGroupRequest {#CreateClusterShardGroupRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера ClickHouse, в который нужно добавить группу шардов. Чтобы получить идентификатор кластера ClickHouse, используйте запрос [ClusterService.List](#List). Максимальная длина строки в символах — 50.
-shard_group_name | **string**<br>Обязательное поле. Имя для новой группы шардов. Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_-]* `.
-description | **string**<br>Описание группы шардов кластера ClickHouse. Длина описания должна быть от 0 до 256 символов. 
-shard_names[] | **string**<br>Список имен шардов, принадлежащих к новой группе. 
+cluster_id | **string**<br>Required. ID of the ClickHouse cluster to add a shard group to. <br>To get the cluster ID, make a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+shard_group_name | **string**<br>Required. Name for the new shard group. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+description | **string**<br>Description of the new shard group. 0-256 characters long. 
+shard_names[] | **string**<br>List of shard names that should be put into the new group. <br>To get the list, make a [ClusterService.ListShardGroups](#ListShardGroups) request. 
 
 
-### Operation {#Operation15}
+### Operation {#Operation16}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateClusterShardGroupMetadata](#CreateClusterShardGroupMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[ShardGroup](#ShardGroup2)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateClusterShardGroupMetadata](#CreateClusterShardGroupMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[ShardGroup](#ShardGroup2)>**<br>if operation finished successfully. 
 
 
 ### CreateClusterShardGroupMetadata {#CreateClusterShardGroupMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Идентификатор кластера ClickHouse, в который нужно добавить группу шардов. 
-shard_group_name | **string**<br>Имя для новой группы шардов. 
+cluster_id | **string**<br>ID of the cluster to add a shard group to. 
+shard_group_name | **string**<br>Name of the shard group that is being added. 
 
 
 ### ShardGroup {#ShardGroup2}
 
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br>Имя группы шардов. 
-cluster_id | **string**<br>Идентификатор кластера, к которому принадлежит группа шардов. 
-description | **string**<br>Описание группы шардов кластера ClickHouse. Длина описания должна быть от 0 до 256 символов. 
-shard_names[] | **string**<br>Список имен шардов, содержащихся в группе шардов. 
+name | **string**<br>Name of the shard group. 
+cluster_id | **string**<br>ID of the ClickHouse cluster that the shard group belongs to. 
+description | **string**<br>Description of the shard group. 0-256 characters long. 
+shard_names[] | **string**<br>List of shard names contained in the shard group. 
 
 
 ## UpdateShardGroup {#UpdateShardGroup}
 
-Изменяет указанную группу шардов.
+Updates the specified shard group.
 
-**rpc UpdateShardGroup ([UpdateClusterShardGroupRequest](#UpdateClusterShardGroupRequest)) returns ([operation.Operation](#Operation16))**
+**rpc UpdateShardGroup ([UpdateClusterShardGroupRequest](#UpdateClusterShardGroupRequest)) returns ([operation.Operation](#Operation17))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateClusterShardGroupMetadata](#UpdateClusterShardGroupMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[ShardGroup](#ShardGroup3)<br>
 
 ### UpdateClusterShardGroupRequest {#UpdateClusterShardGroupRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера, содержащего обновляемую группу шардов. Максимальная длина строки в символах — 50.
-shard_group_name | **string**<br>Обязательное поле. Имя группы шардов, которую следует изменить. Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_-]* `.
-update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Маска, которая указывает, какие атрибуты группы шардов должны быть изменены. 
-description | **string**<br>Описание группы шардов кластера ClickHouse. Длина описания должна быть от 0 до 256 символов. 
-shard_names[] | **string**<br>Обновленный список имен шардов, принадлежащих к новой группе. 
+cluster_id | **string**<br>Required. ID of the ClickHouse cluster that contains the shard group to update. <br>To get the cluster ID, make a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+shard_group_name | **string**<br>Required. Name of the shard group that should be updated. <br>To get the name, make a [ClusterService.ListShardGroups](#ListShardGroups) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br> 
+description | **string**<br>Updated description of the shard group. 0-256 characters long. 
+shard_names[] | **string**<br>Updated list of shard names that belongs to the shard group. 
 
 
-### Operation {#Operation16}
+### Operation {#Operation17}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateClusterShardGroupMetadata](#UpdateClusterShardGroupMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[ShardGroup](#ShardGroup3)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateClusterShardGroupMetadata](#UpdateClusterShardGroupMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[ShardGroup](#ShardGroup3)>**<br>if operation finished successfully. 
 
 
 ### UpdateClusterShardGroupMetadata {#UpdateClusterShardGroupMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Идентификатор кластера, содержащего обновляемую группу шардов. 
-shard_group_name | **string**<br>Имя группы шардов, которую следует изменить. 
+cluster_id | **string**<br>ID of the cluster that contains the shard group being updated. 
+shard_group_name | **string**<br>Name of the shard group that is being updated. 
 
 
 ### ShardGroup {#ShardGroup3}
 
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br>Имя группы шардов. 
-cluster_id | **string**<br>Идентификатор кластера, к которому принадлежит группа шардов. 
-description | **string**<br>Описание группы шардов кластера ClickHouse. Длина описания должна быть от 0 до 256 символов. 
-shard_names[] | **string**<br>Список имен шардов, содержащихся в группе шардов. 
+name | **string**<br>Name of the shard group. 
+cluster_id | **string**<br>ID of the ClickHouse cluster that the shard group belongs to. 
+description | **string**<br>Description of the shard group. 0-256 characters long. 
+shard_names[] | **string**<br>List of shard names contained in the shard group. 
 
 
 ## DeleteShardGroup {#DeleteShardGroup}
 
-Удаляет указанную группу шардов.
+Deletes the specified shard group.
 
-**rpc DeleteShardGroup ([DeleteClusterShardGroupRequest](#DeleteClusterShardGroupRequest)) returns ([operation.Operation](#Operation17))**
+**rpc DeleteShardGroup ([DeleteClusterShardGroupRequest](#DeleteClusterShardGroupRequest)) returns ([operation.Operation](#Operation18))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[DeleteClusterShardGroupMetadata](#DeleteClusterShardGroupMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
 
 ### DeleteClusterShardGroupRequest {#DeleteClusterShardGroupRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера ClickHouse, которому принадлежит группа шардов. Максимальная длина строки в символах — 50.
-shard_group_name | **string**<br>Обязательное поле. Имя группы шардов, которую следует удалить. Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_-]* `.
-
-
-### Operation {#Operation17}
-
-Поле | Описание
---- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteClusterShardGroupMetadata](#DeleteClusterShardGroupMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>в случае успешного выполнения операции. 
-
-
-### DeleteClusterShardGroupMetadata {#DeleteClusterShardGroupMetadata}
-
-Поле | Описание
---- | ---
-cluster_id | **string**<br>Идентификатор кластера ClickHouse, которому принадлежит группа шардов. 
-shard_group_name | **string**<br>Имя группы шардов, которую следует удалить. 
-
-
-## CreateExternalDictionary {#CreateExternalDictionary}
-
-Создает внешний словарь для указанного кластера ClickHouse.
-
-**rpc CreateExternalDictionary ([CreateClusterExternalDictionaryRequest](#CreateClusterExternalDictionaryRequest)) returns ([operation.Operation](#Operation18))**
-
-Метаданные и результат операции:<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateClusterExternalDictionaryMetadata](#CreateClusterExternalDictionaryMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster10)<br>
-
-### CreateClusterExternalDictionaryRequest {#CreateClusterExternalDictionaryRequest}
-
-Поле | Описание
---- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера ClickHouse, для которого следует создать внешний словарь. Чтобы получить идентификатор кластера, используйте запрос [ClusterService.List](#List). Максимальная длина строки в символах — 50.
-external_dictionary | **[config.ClickhouseConfig.ExternalDictionary](#ClickhouseConfig)**<br>Конфигурация внешнего словаря. 
+cluster_id | **string**<br>Required. ID of the ClickHouse cluster that contains the shard group to delete. <br>To get the cluster ID, make a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+shard_group_name | **string**<br>Required. Name of the shard group that should be deleted. <br>To get the name, make a [ClusterService.ListShardGroups](#ListShardGroups) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
 ### Operation {#Operation18}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateClusterExternalDictionaryMetadata](#CreateClusterExternalDictionaryMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster10)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteClusterShardGroupMetadata](#DeleteClusterShardGroupMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>if operation finished successfully. 
 
 
-### CreateClusterExternalDictionaryMetadata {#CreateClusterExternalDictionaryMetadata}
+### DeleteClusterShardGroupMetadata {#DeleteClusterShardGroupMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Идентификатор кластера, для которого создается внешний словарь. 
+cluster_id | **string**<br>ID of the cluster that contains the shard group being deleted. 
+shard_group_name | **string**<br>Name of the shard group that is being deleted. 
 
 
-### Cluster {#Cluster10}
+## CreateExternalDictionary {#CreateExternalDictionary}
 
-Поле | Описание
---- | ---
-id | **string**<br>Идентификатор кластера ClickHouse. Этот идентификатор генерирует MDB при создании кластера. 
-folder_id | **string**<br>Идентификатор каталога, которому принадлежит кластер ClickHouse. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) . 
-name | **string**<br>Имя кластера ClickHouse. Имя уникально в рамках каталога. Длина 1-63 символов. 
-description | **string**<br>Описание кластера ClickHouse. Длина описания должна быть от 0 до 256 символов. 
-labels | **map<string,string>**<br>Пользовательские метки для кластера ClickHouse в виде пар `key:value`. Максимум 64 на ресурс. 
-environment | enum **Environment**<br>Среда развертывания кластера ClickHouse. <ul><li>`PRODUCTION`: Стабильная среда с осторожной политикой обновления: во время регулярного обслуживания применяются только срочные исправления.</li><li>`PRESTABLE`: Среда с более агрессивной политикой обновления: новые версии развертываются независимо от обратной совместимости.</li><ul/>
-monitoring[] | **[Monitoring](#Monitoring10)**<br>Описание систем мониторинга, относящихся к данному кластеру ClickHouse. 
-config | **[ClusterConfig](#ClusterConfig10)**<br>Конфигурация кластера ClickHouse. 
-network_id | **string**<br>Идентификатор сети, к которой принадлежит кластер. 
-health | enum **Health**<br>Здоровье кластера. <ul><li>`HEALTH_UNKNOWN`: Состояние кластера неизвестно ([Host.health](#Host1) для каждого хоста в кластере — UNKNOWN).</li><li>`ALIVE`: Кластер работает нормально ([Host.health](#Host1) для каждого хоста в кластере — ALIVE).</li><li>`DEAD`: Кластер не работает ([Host.health](#Host1) для каждого хоста в кластере — DEAD).</li><li>`DEGRADED`: Кластер работает неоптимально ([Host.health](#Host1) по крайней мере для одного хоста в кластере не ALIVE).</li><ul/>
-status | enum **Status**<br>Текущее состояние кластера. <ul><li>`STATUS_UNKNOWN`: Состояние кластера неизвестно.</li><li>`CREATING`: Кластер создается.</li><li>`RUNNING`: Кластер работает нормально.</li><li>`ERROR`: В кластере произошла ошибка, блокирующая работу.</li><li>`UPDATING`: Кластер изменяется.</li><li>`STOPPING`: Кластер останавливается.</li><li>`STOPPED`: Кластер остановлен.</li><li>`STARTING`: Кластер запускается.</li><ul/>
-service_account_id | **string**<br>Идентификатор сервисного аккаунта, используемого для доступа к Yandex Object Storage. 
+Creates an external dictionary for the specified ClickHouse cluster.
 
+**rpc CreateExternalDictionary ([CreateClusterExternalDictionaryRequest](#CreateClusterExternalDictionaryRequest)) returns ([operation.Operation](#Operation19))**
 
-### Monitoring {#Monitoring10}
-
-Поле | Описание
---- | ---
-name | **string**<br>Название системы мониторинга. 
-description | **string**<br>Описание системы мониторинга. 
-link | **string**<br>Ссылка на графики системы мониторинга для данного кластера ClickHouse. 
-
-
-### ClusterConfig {#ClusterConfig10}
-
-Поле | Описание
---- | ---
-version | **string**<br>Версия серверного программного обеспечения ClickHouse. 
-clickhouse | **[Clickhouse](#Clickhouse19)**<br>Конфигурация и распределение ресурсов для хостов ClickHouse. 
-zookeeper | **[Zookeeper](#Zookeeper13)**<br>Конфигурация и распределение ресурсов для хостов ZooKeeper. 
-backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Время запуска ежедневного резервного копирования, в часовом поясе UTC. 
-access | **[Access](#Access13)**<br>Политика доступа для внешних сервисов. 
-
-
-### Clickhouse {#Clickhouse19}
-
-Поле | Описание
---- | ---
-config | **`config.ClickhouseConfigSet`**<br>Параметры конфигурации сервера ClickHouse. 
-resources | **[Resources](#Resources2)**<br>Ресурсы, выделенные хостам ClickHouse. 
-
-
-### Zookeeper {#Zookeeper13}
-
-Поле | Описание
---- | ---
-resources | **[Resources](#Resources2)**<br>Ресурсы, выделенные хостам ZooKeeper. 
-
-
-### Access {#Access13}
-
-Поле | Описание
---- | ---
-data_lens | **bool**<br>Разрешить экспорт данных из кластера в Yandex DataLens. 
-web_sql | **bool**<br>Разрешить SQL-запросы к базам данных кластера из консоли управления облаком. <br>Подробнее см. в [SQL-запросы в консоли управления](/docs/managed-clickhouse/operations/web-sql-query). 
-metrika | **bool**<br>Разрешить импорт данных из Яндекс.Метрики и AppMetrica в кластер. <br>Подробнее см. в [Экспорт данных в Яндекс.Облако](https://appmetrica.yandex.ru/docs/cloud/index.html). 
-serverless | **bool**<br>Разрешить доступ к кластеру для Serverless. 
-
-
-## DeleteExternalDictionary {#DeleteExternalDictionary}
-
-Удаляет указанный внешний словарь.
-
-**rpc DeleteExternalDictionary ([DeleteClusterExternalDictionaryRequest](#DeleteClusterExternalDictionaryRequest)) returns ([operation.Operation](#Operation19))**
-
-Метаданные и результат операции:<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[DeleteClusterExternalDictionaryMetadata](#DeleteClusterExternalDictionaryMetadata)<br>
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateClusterExternalDictionaryMetadata](#CreateClusterExternalDictionaryMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster11)<br>
 
-### DeleteClusterExternalDictionaryRequest {#DeleteClusterExternalDictionaryRequest}
+### CreateClusterExternalDictionaryRequest {#CreateClusterExternalDictionaryRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера ClickHouse, для которого следует удалить внешний словарь. Чтобы получить идентификатор кластера, используйте запрос [ClusterService.List](#List). Максимальная длина строки в символах — 50.
-external_dictionary_name | **string**<br>Имя удаляемого внешнего словаря. 
+cluster_id | **string**<br>Required. ID of the ClickHouse cluster to create the external dictionary for. To get the cluster ID, use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+external_dictionary | **[config.ClickhouseConfig.ExternalDictionary](#ClickhouseConfig)**<br>Configuration of the external dictionary. 
 
 
 ### Operation {#Operation19}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteClusterExternalDictionaryMetadata](#DeleteClusterExternalDictionaryMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster11)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateClusterExternalDictionaryMetadata](#CreateClusterExternalDictionaryMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster11)>**<br>if operation finished successfully. 
 
 
-### DeleteClusterExternalDictionaryMetadata {#DeleteClusterExternalDictionaryMetadata}
+### CreateClusterExternalDictionaryMetadata {#CreateClusterExternalDictionaryMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-cluster_id | **string**<br>Идентификатор кластера, для которого удаляется внешний словарь. 
+cluster_id | **string**<br>ID of the cluster for which an external dictionary is being created. 
 
 
 ### Cluster {#Cluster11}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор кластера ClickHouse. Этот идентификатор генерирует MDB при создании кластера. 
-folder_id | **string**<br>Идентификатор каталога, которому принадлежит кластер ClickHouse. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) . 
-name | **string**<br>Имя кластера ClickHouse. Имя уникально в рамках каталога. Длина 1-63 символов. 
-description | **string**<br>Описание кластера ClickHouse. Длина описания должна быть от 0 до 256 символов. 
-labels | **map<string,string>**<br>Пользовательские метки для кластера ClickHouse в виде пар `key:value`. Максимум 64 на ресурс. 
-environment | enum **Environment**<br>Среда развертывания кластера ClickHouse. <ul><li>`PRODUCTION`: Стабильная среда с осторожной политикой обновления: во время регулярного обслуживания применяются только срочные исправления.</li><li>`PRESTABLE`: Среда с более агрессивной политикой обновления: новые версии развертываются независимо от обратной совместимости.</li><ul/>
-monitoring[] | **[Monitoring](#Monitoring11)**<br>Описание систем мониторинга, относящихся к данному кластеру ClickHouse. 
-config | **[ClusterConfig](#ClusterConfig11)**<br>Конфигурация кластера ClickHouse. 
-network_id | **string**<br>Идентификатор сети, к которой принадлежит кластер. 
-health | enum **Health**<br>Здоровье кластера. <ul><li>`HEALTH_UNKNOWN`: Состояние кластера неизвестно ([Host.health](#Host1) для каждого хоста в кластере — UNKNOWN).</li><li>`ALIVE`: Кластер работает нормально ([Host.health](#Host1) для каждого хоста в кластере — ALIVE).</li><li>`DEAD`: Кластер не работает ([Host.health](#Host1) для каждого хоста в кластере — DEAD).</li><li>`DEGRADED`: Кластер работает неоптимально ([Host.health](#Host1) по крайней мере для одного хоста в кластере не ALIVE).</li><ul/>
-status | enum **Status**<br>Текущее состояние кластера. <ul><li>`STATUS_UNKNOWN`: Состояние кластера неизвестно.</li><li>`CREATING`: Кластер создается.</li><li>`RUNNING`: Кластер работает нормально.</li><li>`ERROR`: В кластере произошла ошибка, блокирующая работу.</li><li>`UPDATING`: Кластер изменяется.</li><li>`STOPPING`: Кластер останавливается.</li><li>`STOPPED`: Кластер остановлен.</li><li>`STARTING`: Кластер запускается.</li><ul/>
-service_account_id | **string**<br>Идентификатор сервисного аккаунта, используемого для доступа к Yandex Object Storage. 
+id | **string**<br>ID of the ClickHouse cluster. This ID is assigned by MDB at creation time. 
+folder_id | **string**<br>ID of the folder that the ClickHouse cluster belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
+name | **string**<br>Name of the ClickHouse cluster. The name is unique within the folder. 1-63 characters long. 
+description | **string**<br>Description of the ClickHouse cluster. 0-256 characters long. 
+labels | **map<string,string>**<br>Custom labels for the ClickHouse cluster as `key:value` pairs. Maximum 64 per resource. 
+environment | enum **Environment**<br>Deployment environment of the ClickHouse cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
+monitoring[] | **[Monitoring](#Monitoring11)**<br>Description of monitoring systems relevant to the ClickHouse cluster. 
+config | **[ClusterConfig](#ClusterConfig11)**<br>Configuration of the ClickHouse cluster. 
+network_id | **string**<br>ID of the network that the cluster belongs to. 
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host1) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host1) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host1) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host1) for at least one host in the cluster is not ALIVE).</li><ul/>
+status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow12)**<br>Maintenance window for the cluster. 
+planned_operation | **[MaintenanceOperation](#MaintenanceOperation11)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
+security_group_ids[] | **string**<br>User security groups 
 
 
 ### Monitoring {#Monitoring11}
 
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br>Название системы мониторинга. 
-description | **string**<br>Описание системы мониторинга. 
-link | **string**<br>Ссылка на графики системы мониторинга для данного кластера ClickHouse. 
+name | **string**<br>Name of the monitoring system. 
+description | **string**<br>Description of the monitoring system. 
+link | **string**<br>Link to the monitoring system charts for the ClickHouse cluster. 
 
 
 ### ClusterConfig {#ClusterConfig11}
 
-Поле | Описание
+Field | Description
 --- | ---
-version | **string**<br>Версия серверного программного обеспечения ClickHouse. 
-clickhouse | **[Clickhouse](#Clickhouse20)**<br>Конфигурация и распределение ресурсов для хостов ClickHouse. 
-zookeeper | **[Zookeeper](#Zookeeper14)**<br>Конфигурация и распределение ресурсов для хостов ZooKeeper. 
-backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Время запуска ежедневного резервного копирования, в часовом поясе UTC. 
-access | **[Access](#Access14)**<br>Политика доступа для внешних сервисов. 
+version | **string**<br>Version of the ClickHouse server software. 
+clickhouse | **[Clickhouse](#Clickhouse20)**<br>Configuration and resource allocation for ClickHouse hosts. 
+zookeeper | **[Zookeeper](#Zookeeper14)**<br>Configuration and resource allocation for ZooKeeper hosts. 
+backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
+access | **[Access](#Access14)**<br>Access policy for external services. 
+cloud_storage | **[CloudStorage](#CloudStorage14)**<br> 
+sql_database_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether database management through SQL commands is enabled. 
+sql_user_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether user management through SQL commands is enabled. 
 
 
 ### Clickhouse {#Clickhouse20}
 
-Поле | Описание
+Field | Description
 --- | ---
-config | **`config.ClickhouseConfigSet`**<br>Параметры конфигурации сервера ClickHouse. 
-resources | **[Resources](#Resources2)**<br>Ресурсы, выделенные хостам ClickHouse. 
+config | **`config.ClickhouseConfigSet`**<br>Configuration settings of a ClickHouse server. 
+resources | **[Resources](#Resources2)**<br>Resources allocated to ClickHouse hosts. 
 
 
 ### Zookeeper {#Zookeeper14}
 
-Поле | Описание
+Field | Description
 --- | ---
-resources | **[Resources](#Resources2)**<br>Ресурсы, выделенные хостам ZooKeeper. 
+resources | **[Resources](#Resources2)**<br>Resources allocated to ZooKeeper hosts. 
 
 
 ### Access {#Access14}
 
-Поле | Описание
+Field | Description
 --- | ---
-data_lens | **bool**<br>Разрешить экспорт данных из кластера в Yandex DataLens. 
-web_sql | **bool**<br>Разрешить SQL-запросы к базам данных кластера из консоли управления облаком. <br>Подробнее см. в [SQL-запросы в консоли управления](/docs/managed-clickhouse/operations/web-sql-query). 
-metrika | **bool**<br>Разрешить импорт данных из Яндекс.Метрики и AppMetrica в кластер. <br>Подробнее см. в [Экспорт данных в Яндекс.Облако](https://appmetrica.yandex.ru/docs/cloud/index.html). 
-serverless | **bool**<br>Разрешить доступ к кластеру для Serverless. 
+data_lens | **bool**<br>Allow to export data from the cluster to Yandex DataLens. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
+metrika | **bool**<br>Allow to import data from Yandex.Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex.Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
+serverless | **bool**<br>Allow access to cluster for Serverless. 
+
+
+### CloudStorage {#CloudStorage14}
+
+Field | Description
+--- | ---
+enabled | **bool**<br>Whether to use Yandex Object Storage for storing ClickHouse data. 
+
+
+### MaintenanceWindow {#MaintenanceWindow12}
+
+Field | Description
+--- | ---
+policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow12)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow12)**<br>Maintenance operation can be scheduled on a weekly basis. 
+
+
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow12}
+
+
+
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow12}
+
+Field | Description
+--- | ---
+day | enum **WeekDay**<br>Day of the week (in `DDD` format). <ul><ul/>
+hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
+
+
+### MaintenanceOperation {#MaintenanceOperation11}
+
+Field | Description
+--- | ---
+info | **string**<br>Information about this maintenance operation. The maximum string length in characters is 256.
+delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time until which this maintenance operation is delayed. 
+
+
+## DeleteExternalDictionary {#DeleteExternalDictionary}
+
+Deletes the specified external dictionary.
+
+**rpc DeleteExternalDictionary ([DeleteClusterExternalDictionaryRequest](#DeleteClusterExternalDictionaryRequest)) returns ([operation.Operation](#Operation20))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[DeleteClusterExternalDictionaryMetadata](#DeleteClusterExternalDictionaryMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster12)<br>
+
+### DeleteClusterExternalDictionaryRequest {#DeleteClusterExternalDictionaryRequest}
+
+Field | Description
+--- | ---
+cluster_id | **string**<br>Required. ID of the ClickHouse cluster to delete the external dictionary from. To get the cluster ID, use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+external_dictionary_name | **string**<br>Name of the external dictionary to delete. 
+
+
+### Operation {#Operation20}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteClusterExternalDictionaryMetadata](#DeleteClusterExternalDictionaryMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster12)>**<br>if operation finished successfully. 
+
+
+### DeleteClusterExternalDictionaryMetadata {#DeleteClusterExternalDictionaryMetadata}
+
+Field | Description
+--- | ---
+cluster_id | **string**<br>ID of the cluster where an external dictionary is being deleted. 
+
+
+### Cluster {#Cluster12}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the ClickHouse cluster. This ID is assigned by MDB at creation time. 
+folder_id | **string**<br>ID of the folder that the ClickHouse cluster belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
+name | **string**<br>Name of the ClickHouse cluster. The name is unique within the folder. 1-63 characters long. 
+description | **string**<br>Description of the ClickHouse cluster. 0-256 characters long. 
+labels | **map<string,string>**<br>Custom labels for the ClickHouse cluster as `key:value` pairs. Maximum 64 per resource. 
+environment | enum **Environment**<br>Deployment environment of the ClickHouse cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
+monitoring[] | **[Monitoring](#Monitoring12)**<br>Description of monitoring systems relevant to the ClickHouse cluster. 
+config | **[ClusterConfig](#ClusterConfig12)**<br>Configuration of the ClickHouse cluster. 
+network_id | **string**<br>ID of the network that the cluster belongs to. 
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host1) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host1) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host1) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host1) for at least one host in the cluster is not ALIVE).</li><ul/>
+status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow13)**<br>Maintenance window for the cluster. 
+planned_operation | **[MaintenanceOperation](#MaintenanceOperation12)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
+security_group_ids[] | **string**<br>User security groups 
+
+
+### Monitoring {#Monitoring12}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the monitoring system. 
+description | **string**<br>Description of the monitoring system. 
+link | **string**<br>Link to the monitoring system charts for the ClickHouse cluster. 
+
+
+### ClusterConfig {#ClusterConfig12}
+
+Field | Description
+--- | ---
+version | **string**<br>Version of the ClickHouse server software. 
+clickhouse | **[Clickhouse](#Clickhouse21)**<br>Configuration and resource allocation for ClickHouse hosts. 
+zookeeper | **[Zookeeper](#Zookeeper15)**<br>Configuration and resource allocation for ZooKeeper hosts. 
+backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
+access | **[Access](#Access15)**<br>Access policy for external services. 
+cloud_storage | **[CloudStorage](#CloudStorage15)**<br> 
+sql_database_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether database management through SQL commands is enabled. 
+sql_user_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether user management through SQL commands is enabled. 
+
+
+### Clickhouse {#Clickhouse21}
+
+Field | Description
+--- | ---
+config | **`config.ClickhouseConfigSet`**<br>Configuration settings of a ClickHouse server. 
+resources | **[Resources](#Resources2)**<br>Resources allocated to ClickHouse hosts. 
+
+
+### Zookeeper {#Zookeeper15}
+
+Field | Description
+--- | ---
+resources | **[Resources](#Resources2)**<br>Resources allocated to ZooKeeper hosts. 
+
+
+### Access {#Access15}
+
+Field | Description
+--- | ---
+data_lens | **bool**<br>Allow to export data from the cluster to Yandex DataLens. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
+metrika | **bool**<br>Allow to import data from Yandex.Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex.Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
+serverless | **bool**<br>Allow access to cluster for Serverless. 
+
+
+### CloudStorage {#CloudStorage15}
+
+Field | Description
+--- | ---
+enabled | **bool**<br>Whether to use Yandex Object Storage for storing ClickHouse data. 
+
+
+### MaintenanceWindow {#MaintenanceWindow13}
+
+Field | Description
+--- | ---
+policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow13)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow13)**<br>Maintenance operation can be scheduled on a weekly basis. 
+
+
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow13}
+
+
+
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow13}
+
+Field | Description
+--- | ---
+day | enum **WeekDay**<br>Day of the week (in `DDD` format). <ul><ul/>
+hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
+
+
+### MaintenanceOperation {#MaintenanceOperation12}
+
+Field | Description
+--- | ---
+info | **string**<br>Information about this maintenance operation. The maximum string length in characters is 256.
+delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time until which this maintenance operation is delayed. 
 
 

@@ -3,12 +3,12 @@ editable: false
 ---
 
 # Yandex Managed Service for MySQL API
-Методы справочника API сгруппированы по ресурсам. Чтобы выполнить операцию над ресурсом, отправьте HTTP-запрос к соответствующему URL или выполните RPC-вызов. Подробнее об архитектуре API Яндекс.Облака, см. [Концепции API Яндекс.Облака](/docs/api-design-guide/).
+This API reference is organized by resource. Actions are performed by sending HTTP requests to resource URLs or making RPC calls. For more information about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
 
-Ресурс | Описание
+Resource | Description
 --- | ---
-[Backup](Backup/index.md) | Набор методов для управления резервными копиями MySQL.
-[Cluster](Cluster/index.md) | Набор методов для управления кластерами MySQL.
-[Database](Database/index.md) | Набор методов для управления базами данных MySQL.
-[ResourcePreset](ResourcePreset/index.md) | Методы для работы с наборами ресурсов.
-[User](User/index.md) | Набор методов для управления пользователями MySQL.
+[Backup](Backup/index.md) | A set of methods for managing MySQL backups.
+[Cluster](Cluster/index.md) | A set of methods for managing MySQL clusters.
+[Database](Database/index.md) | A set of methods for managing MySQL databases.
+[ResourcePreset](ResourcePreset/index.md) | A set of methods for managing resource presets.
+[User](User/index.md) | A set of methods for managing MySQL users.

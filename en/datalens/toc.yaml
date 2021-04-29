@@ -21,6 +21,10 @@ items:
         href: solutions/data-from-appmetrica-visualization.md
       - name: Visualizing geodata from a CSV file
         href: solutions/data-from-csv-geo-visualization.md
+      - name: >-
+          Visualizing data from a ClickHouse database with geolayers from the
+          Marketplace
+        href: solutions/data-from-ch-to-geolayers-visualization.md
   - name: Step-by-step instructions
     items:
       - name: All instructions
@@ -109,7 +113,7 @@ items:
     items:
       - name: Overview
         href: concepts/index.md
-      - name: Connections
+      - name: Connection
         href: concepts/connection.md
       - name: Data types
         href: concepts/data-types.md

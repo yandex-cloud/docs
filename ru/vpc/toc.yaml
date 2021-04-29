@@ -96,17 +96,17 @@ items:
         items:
           - name: До 1 января 2019 года
             href: pricing-archive/pricing-01012019.md
-  - name: Справочник API
+  - name: Справочник API (англ.)
     items:
-      - name: Аутентификация в API
+      - name: Authentication
         href: api-ref/authentication.md
       - name: REST
         items:
-          - name: Обзор
+          - name: Overview
             href: api-ref/index.md
           - name: Address
             items:
-              - name: Обзор
+              - name: Overview
                 href: api-ref/Address/index.md
               - name: create
                 href: api-ref/Address/create.md
@@ -124,7 +124,7 @@ items:
                 href: api-ref/Address/update.md
           - name: Network
             items:
-              - name: Обзор
+              - name: Overview
                 href: api-ref/Network/index.md
               - name: create
                 href: api-ref/Network/create.md
@@ -138,11 +138,13 @@ items:
                 href: api-ref/Network/listOperations.md
               - name: listSubnets
                 href: api-ref/Network/listSubnets.md
+              - name: move
+                href: api-ref/Network/move.md
               - name: update
                 href: api-ref/Network/update.md
           - name: RouteTable
             items:
-              - name: Обзор
+              - name: Overview
                 href: api-ref/RouteTable/index.md
               - name: create
                 href: api-ref/RouteTable/create.md
@@ -154,11 +156,17 @@ items:
                 href: api-ref/RouteTable/list.md
               - name: listOperations
                 href: api-ref/RouteTable/listOperations.md
+              - name: move
+                href: api-ref/RouteTable/move.md
               - name: update
                 href: api-ref/RouteTable/update.md
+          - name: SecurityGroup
+            items:
+              - name: Overview
+                href: api-ref/SecurityGroup/index.md
           - name: Subnet
             items:
-              - name: Обзор
+              - name: Overview
                 href: api-ref/Subnet/index.md
               - name: create
                 href: api-ref/Subnet/create.md
@@ -170,17 +178,19 @@ items:
                 href: api-ref/Subnet/list.md
               - name: listOperations
                 href: api-ref/Subnet/listOperations.md
+              - name: move
+                href: api-ref/Subnet/move.md
               - name: update
                 href: api-ref/Subnet/update.md
           - name: Operation
             items:
-              - name: Обзор
+              - name: Overview
                 href: api-ref/Operation/index.md
               - name: get
                 href: api-ref/Operation/get.md
       - name: gRPC
         items:
-          - name: Обзор
+          - name: Overview
             href: grpc/index.md
           - name: AddressService
             href: grpc/address_service.md
@@ -188,6 +198,8 @@ items:
             href: grpc/network_service.md
           - name: RouteTableService
             href: grpc/route_table_service.md
+          - name: SecurityGroupService
+            href: grpc/security_group_service.md
           - name: SubnetService
             href: grpc/subnet_service.md
           - name: OperationService

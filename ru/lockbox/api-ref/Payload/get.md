@@ -2,29 +2,29 @@
 editable: false
 ---
 
-# Метод get
-Возвращает содержимое указанного секрета.
+# Method get
+Returns the payload of the specified secret.
  
-Чтобы получить список доступных секретов, выполните запрос [list](/docs/lockbox/api-ref/Secret/list).
+To get the list of all available secrets, make a [list](/docs/lockbox/api-ref/Secret/list) request.
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 GET https://payload.lockbox.api.cloud.yandex.net/lockbox/v1/secrets/{secretId}/payload
 ```
  
-## Path-параметры {#path_params}
+## Path parameters {#path_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-secretId | Обязательное поле. Идентификатор секрета.  Максимальная длина строки в символах — 50.
+secretId | Required. ID of the secret.  The maximum string length in characters is 50.
  
-## Query-параметры {#query_params}
+## Query parameters {#query_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-versionId | (опционально) Идентификатор версии. Если не указан, возвращается содержимое текущей версии.  Максимальная длина строки в символах — 50.
+versionId | Optional ID of the version.  The maximum string length in characters is 50.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -34,21 +34,21 @@ versionId | (опционально) Идентификатор версии. Е
     {
       "key": "string",
 
-      // `entries[]` включает только одно из полей `textValue`, `binaryValue`
+      // `entries[]` includes only one of the fields `textValue`, `binaryValue`
       "textValue": "string",
       "binaryValue": "string",
-      // конец списка возможных полей`entries[]`
+      // end of the list of possible fields`entries[]`
 
     }
   ]
 }
 ```
-Содержимое версии.
+A payload.
  
-Поле | Описание
+Field | Description
 --- | ---
-versionId | **string**<br><p>Идентификатор версии, которой принадлежит содержимое.</p> 
-entries[] | **object**<br><p>Записи содержимого версии.</p> 
-entries[].<br>key | **string**<br><p>Неконфиденциальный ключ содержимого версии.</p> 
-entries[].<br>textValue | **string** <br>`entries[]` включает только одно из полей `textValue`, `binaryValue`<br><br><p>Текстовое значение.</p> 
-entries[].<br>binaryValue | **string** (byte) <br>`entries[]` включает только одно из полей `textValue`, `binaryValue`<br><br><p>Двоичное значение.</p> 
+versionId | **string**<br><p>ID of the version that the payload belongs to.</p> 
+entries[] | **object**<br><p>Payload entries.</p> 
+entries[].<br>key | **string**<br><p>Non-confidential key of the entry.</p> 
+entries[].<br>textValue | **string** <br>`entries[]` includes only one of the fields `textValue`, `binaryValue`<br><br><p>Text value.</p> 
+entries[].<br>binaryValue | **string** (byte) <br>`entries[]` includes only one of the fields `textValue`, `binaryValue`<br><br><p>Binary value.</p> 

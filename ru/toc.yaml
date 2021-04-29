@@ -1,18 +1,56 @@
 title: Документация Yandex.Cloud
 href: index.yaml
 items:
+  - name: api-design-guide
+    href: api-design-guide/
+  - name: api-gateway
+    href: api-gateway/
+  - name: application-load-balancer
+    href: application-load-balancer/
+  - name: billing
+    href: billing/
+  - name: certificate-manager
+    href: certificate-manager/
   - name: CLI
     href: cli/
+  - name: compute
+    href: compute/
+  - name: container-registry
+    href: container-registry/
+  - name: cos
+    href: cos/
+  - name: data-proc
+    href: data-proc/
+  - name: data-transfer
+    href: data-transfer/
   - name: DataLens
     href: datalens/
-  - name: MDB
-    href: mdb/
+  - name: datalens-api
+    href: datalens-api/
+  - name: datasphere
+    href: datasphere/
+  - name: dns
+    href: dns/
+  - name: free-trial
+    href: free-trial/
+  - name: functions
+    href: functions/
+  - name: iam
+    href: iam/
+  - name: iot-core
+    href: iot-core/
+  - name: kms
+    href: kms/
+  - name: lockbox
+    href: lockbox/
   - name: Managed ClickHouse
     href: managed-clickhouse/
   - name: Managed Elasticsearch
     href: managed-elasticsearch/
   - name: Managed Kafka
     href: managed-kafka/
+  - name: managed-kubernetes
+    href: managed-kubernetes/
   - name: Managed MongoDB
     href: managed-mongodb/
   - name: Managed MySQL
@@ -21,4 +59,44 @@ items:
     href: managed-postgresql/
   - name: Managed Redis
     href: managed-redis/
+  - name: managed-sqlserver
+    href: managed-sqlserver/
+  - name: marketplace
+    href: marketplace/
+  - name: MDB
+    href: mdb/
+  - name: message-queue
+    href: message-queue/
+  - name: microsoft
+    href: microsoft/
+  - name: monitoring
+    href: monitoring/
+  - name: network-load-balancer
+    href: network-load-balancer/
+  - name: organization
+    href: organization/
+  - name: overview
+    href: overview/
+  - name: partner
+    href: partner/
+  - name: resource-manager
+    href: resource-manager/
+  - name: solutions
+    href: solutions/
+  - name: speechkit
+    href: speechkit/
+  - name: storage
+    href: storage/
+  - name: support
+    href: support/
+  - name: tracker
+    href: tracker/
+  - name: translate
+    href: translate/
+  - name: vision
+    href: vision/
+  - name: vpc
+    href: vpc/
+  - name: ydb
+    href: ydb/
 base: ru

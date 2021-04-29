@@ -3,17 +3,17 @@ editable: false
 ---
 
 # Yandex IAM API
-Методы справочника API сгруппированы по ресурсам. Чтобы выполнить операцию над ресурсом, отправьте HTTP-запрос к соответствующему URL или выполните RPC-вызов. Подробнее об архитектуре API Яндекс.Облака, см. [Концепции API Яндекс.Облака](/docs/api-design-guide/).
+This API reference is organized by resource. Actions are performed by sending HTTP requests to resource URLs or making RPC calls. For more information about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
 
-Ресурс | Описание
+Resource | Description
 --- | ---
-[ApiKey](ApiKey/index.md) | Набор методов управления API-ключами.
-[IamToken](IamToken/index.md) | Набор методов для управления IAM-токенами.
-[Key](Key/index.md) | Набор методов для управления ресурсами Key.
-[Role](Role/index.md) | Набор методов для управления ресурсами Role.
-[ServiceAccount](ServiceAccount/index.md) | Набор методов для управления ресурсами ServiceAccount.
-[UserAccount](UserAccount/index.md) | Набор методов управления пользовательскими аккаунтами. Сейчас используется только для [аккаунтов Яндекс.Паспорта](/docs/iam/concepts/#passport).
-[YandexPassportUserAccount](YandexPassportUserAccount/index.md) | Набор методов для управления ресурсами YandexPassportUserAccount.
-[Federation](Federation/index.md) | Набор методов для управления федерациями.
-[Certificate](Certificate/index.md) | Набор методов для управления сертификатами.
-[AccessKey](AccessKey/index.md) | Набор методов управления ключами доступа.
+[ApiKey](ApiKey/index.md) | A set of methods for managing API keys.
+[IamToken](IamToken/index.md) | A set of methods for managing IAM tokens.
+[Key](Key/index.md) | A set of methods for managing Key resources.
+[Role](Role/index.md) | A set of methods for managing Role resources.
+[ServiceAccount](ServiceAccount/index.md) | A set of methods for managing ServiceAccount resources.
+[UserAccount](UserAccount/index.md) | A set of methods for managing user accounts. Currently applicable only for [Yandex.Passport accounts](/docs/iam/concepts/#passport).
+[YandexPassportUserAccount](YandexPassportUserAccount/index.md) | A set of methods for managing YandexPassportUserAccount resources.
+[Federation](Federation/index.md) | A set of methods for managing federations.
+[Certificate](Certificate/index.md) | A set of methods for managing certificates.
+[AccessKey](AccessKey/index.md) | A set of methods for managing access keys.

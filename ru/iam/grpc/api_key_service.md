@@ -4,235 +4,235 @@ editable: false
 
 # ApiKeyService
 
-Набор методов управления API-ключами.
+A set of methods for managing API keys.
 
-| Вызов | Описание |
+| Call | Description |
 | --- | --- |
-| [List](#List) | Возвращает список API-ключей для указанного сервисного аккаунта. |
-| [Get](#Get) | Возвращает указанный API-ключ. |
-| [Create](#Create) | Создает API-ключ для указанного сервисного аккаунта. |
-| [Update](#Update) | Обновляет указанный API-ключ. |
-| [Delete](#Delete) | Удаляет указанный API-ключ. |
-| [ListOperations](#ListOperations) | Возвращает список операций для указанного API ключа. |
+| [List](#List) | Retrieves the list of API keys for the specified service account. |
+| [Get](#Get) | Returns the specified API key. |
+| [Create](#Create) | Creates an API key for the specified service account. |
+| [Update](#Update) | Updates the specified API key. |
+| [Delete](#Delete) | Deletes the specified API key. |
+| [ListOperations](#ListOperations) | Retrieves the list of operations for the specified API key. |
 
-## Вызовы ApiKeyService {#calls}
+## Calls ApiKeyService {#calls}
 
 ## List {#List}
 
-Возвращает список API-ключей для указанного сервисного аккаунта.
+Retrieves the list of API keys for the specified service account.
 
 **rpc List ([ListApiKeysRequest](#ListApiKeysRequest)) returns ([ListApiKeysResponse](#ListApiKeysResponse))**
 
 ### ListApiKeysRequest {#ListApiKeysRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-service_account_id | **string**<br>Идентификатор сервисного аккаунта, для которого запрашивается список API-ключей. Чтобы получить идентификатор сервисного аккаунта, используйте запрос [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/grpc/service_account_service#List). Если параметр не указан, то используется идентификатор субъекта, который сделал запрос. Максимальная длина строки в символах — 50.
-page_size | **int64**<br>Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем `page_size`, сервис вернет значение [ListApiKeysResponse.next_page_token](#ListApiKeysResponse), которое можно использовать для получения следующей страницы. Значение по умолчанию: 100. Допустимые значения — от 0 до 1000 включительно.
-page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListApiKeysResponse.next_page_token](#ListApiKeysResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
+service_account_id | **string**<br>ID of the service account to list API keys for. To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/grpc/service_account_service#List) request. If not specified, it defaults to the subject that made the request. The maximum string length in characters is 50.
+page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListApiKeysResponse.next_page_token](#ListApiKeysResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. Acceptable values are 0 to 1000, inclusive.
+page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListApiKeysResponse.next_page_token](#ListApiKeysResponse) returned by a previous list request. The maximum string length in characters is 100.
 
 
 ### ListApiKeysResponse {#ListApiKeysResponse}
 
-Поле | Описание
+Field | Description
 --- | ---
-api_keys[] | **[ApiKey](#ApiKey)**<br>Список API-ключей. 
-next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListApiKeysRequest.page_size](#ListApiKeysRequest), используйте `next_page_token` в качестве значения параметра [ListApiKeysRequest.page_token](#ListApiKeysRequest) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
+api_keys[] | **[ApiKey](#ApiKey)**<br>List of API keys. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListApiKeysRequest.page_size](#ListApiKeysRequest), use the `next_page_token` as the value for the [ListApiKeysRequest.page_token](#ListApiKeysRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
 ### ApiKey {#ApiKey}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор API-ключа. 
-service_account_id | **string**<br>Идентификатор сервисного аккаунта, которому принадлежит API-ключ. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания. 
-description | **string**<br>Описание API-ключа. Длина описания должна быть от 0 до 256 символов. 
+id | **string**<br>ID of the API Key. 
+service_account_id | **string**<br>ID of the service account that the API key belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+description | **string**<br>Description of the API key. 0-256 characters long. 
 
 
 ## Get {#Get}
 
-Возвращает указанный API-ключ. <br>Чтобы получить список доступных API-ключ, используйте запрос [List](#List).
+Returns the specified API key. <br>To get the list of available API keys, make a [List](#List) request.
 
 **rpc Get ([GetApiKeyRequest](#GetApiKeyRequest)) returns ([ApiKey](#ApiKey1))**
 
 ### GetApiKeyRequest {#GetApiKeyRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-api_key_id | **string**<br>Обязательное поле. Идентификатор возвращаемого API-ключа. Чтобы получить идентификатор ключа, используйте запрос [ApiKeyService.List](#List). Максимальная длина строки в символах — 50.
+api_key_id | **string**<br>Required. ID of the API key to return. To get the API key ID, use a [ApiKeyService.List](#List) request. The maximum string length in characters is 50.
 
 
 ### ApiKey {#ApiKey1}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор API-ключа. 
-service_account_id | **string**<br>Идентификатор сервисного аккаунта, которому принадлежит API-ключ. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания. 
-description | **string**<br>Описание API-ключа. Длина описания должна быть от 0 до 256 символов. 
+id | **string**<br>ID of the API Key. 
+service_account_id | **string**<br>ID of the service account that the API key belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+description | **string**<br>Description of the API key. 0-256 characters long. 
 
 
 ## Create {#Create}
 
-Создает API-ключ для указанного сервисного аккаунта.
+Creates an API key for the specified service account.
 
 **rpc Create ([CreateApiKeyRequest](#CreateApiKeyRequest)) returns ([CreateApiKeyResponse](#CreateApiKeyResponse))**
 
 ### CreateApiKeyRequest {#CreateApiKeyRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-service_account_id | **string**<br>Идентификатор сервисного аккаунта для создания API-ключа. Чтобы получить идентификатор сервисного аккаунта, используйте запрос [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/grpc/service_account_service#List). Если параметр не указан, то используется идентификатор субъекта, который сделал запрос. Максимальная длина строки в символах — 50.
-description | **string**<br>Описание API-ключа. Максимальная длина строки в символах — 256.
+service_account_id | **string**<br>ID of the service account to create an API key for. To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/grpc/service_account_service#List) request. If not specified, it defaults to the subject that made the request. The maximum string length in characters is 50.
+description | **string**<br>Description of the API key. The maximum string length in characters is 256.
 
 
 ### CreateApiKeyResponse {#CreateApiKeyResponse}
 
-Поле | Описание
+Field | Description
 --- | ---
-api_key | **[ApiKey](#ApiKey2)**<br>Ресурс ApiKey. 
-secret | **string**<br>Секретная часть API-ключа. Этот секретный ключ можно использовать для аутентификации при запросах. 
+api_key | **[ApiKey](#ApiKey2)**<br>ApiKey resource. 
+secret | **string**<br>Secret part of the API key. This secret key you may use in the requests for authentication. 
 
 
 ### ApiKey {#ApiKey2}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор API-ключа. 
-service_account_id | **string**<br>Идентификатор сервисного аккаунта, которому принадлежит API-ключ. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания. 
-description | **string**<br>Описание API-ключа. Длина описания должна быть от 0 до 256 символов. 
+id | **string**<br>ID of the API Key. 
+service_account_id | **string**<br>ID of the service account that the API key belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+description | **string**<br>Description of the API key. 0-256 characters long. 
 
 
 ## Update {#Update}
 
-Обновляет указанный API-ключ.
+Updates the specified API key.
 
 **rpc Update ([UpdateApiKeyRequest](#UpdateApiKeyRequest)) returns ([operation.Operation](#Operation))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateApiKeyMetadata](#UpdateApiKeyMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[ApiKey](#ApiKey3)<br>
 
 ### UpdateApiKeyRequest {#UpdateApiKeyRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-api_key_id | **string**<br>Обязательное поле. Идентификатор обновляемого ресурса ApiKey. Чтобы получить идентификатор API-ключа, используйте запрос [ApiKeyService.List](#List). Максимальная длина строки в символах — 50.
-update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Маска, определяющая, какие поля ресурса ApiKey будут обновлены. 
-description | **string**<br>Описание API-ключа. Максимальная длина строки в символах — 256.
+api_key_id | **string**<br>Required. ID of the ApiKey resource to update. To get the API key ID, use a [ApiKeyService.List](#List) request. The maximum string length in characters is 50.
+update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the ApiKey resource are going to be updated. 
+description | **string**<br>Description of the API key. The maximum string length in characters is 256.
 
 
 ### Operation {#Operation}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateApiKeyMetadata](#UpdateApiKeyMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[ApiKey](#ApiKey3)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateApiKeyMetadata](#UpdateApiKeyMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[ApiKey](#ApiKey3)>**<br>if operation finished successfully. 
 
 
 ### UpdateApiKeyMetadata {#UpdateApiKeyMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-api_key_id | **string**<br>Идентификатор изменяемого ресурса ApiKey. 
+api_key_id | **string**<br>ID of the ApiKey resource that is being updated. 
 
 
 ### ApiKey {#ApiKey3}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор API-ключа. 
-service_account_id | **string**<br>Идентификатор сервисного аккаунта, которому принадлежит API-ключ. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания. 
-description | **string**<br>Описание API-ключа. Длина описания должна быть от 0 до 256 символов. 
+id | **string**<br>ID of the API Key. 
+service_account_id | **string**<br>ID of the service account that the API key belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+description | **string**<br>Description of the API key. 0-256 characters long. 
 
 
 ## Delete {#Delete}
 
-Удаляет указанный API-ключ.
+Deletes the specified API key.
 
 **rpc Delete ([DeleteApiKeyRequest](#DeleteApiKeyRequest)) returns ([operation.Operation](#Operation1))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[DeleteApiKeyMetadata](#DeleteApiKeyMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
 
 ### DeleteApiKeyRequest {#DeleteApiKeyRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-api_key_id | **string**<br>Обязательное поле. Идентификатор ключа, который следует удалить. Чтобы получить идентификатор ключа, используйте запрос [ApiKeyService.List](#List). Максимальная длина строки в символах — 50.
+api_key_id | **string**<br>Required. ID of the API key to delete. To get the API key ID, use a [ApiKeyService.List](#List) request. The maximum string length in characters is 50.
 
 
 ### Operation {#Operation1}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteApiKeyMetadata](#DeleteApiKeyMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteApiKeyMetadata](#DeleteApiKeyMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>if operation finished successfully. 
 
 
 ### DeleteApiKeyMetadata {#DeleteApiKeyMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-api_key_id | **string**<br>Идентификатор удаляемого API-ключа. 
+api_key_id | **string**<br>ID of the API key that is being deleted. 
 
 
 ## ListOperations {#ListOperations}
 
-Возвращает список операций для указанного API ключа.
+Retrieves the list of operations for the specified API key.
 
 **rpc ListOperations ([ListApiKeyOperationsRequest](#ListApiKeyOperationsRequest)) returns ([ListApiKeyOperationsResponse](#ListApiKeyOperationsResponse))**
 
 ### ListApiKeyOperationsRequest {#ListApiKeyOperationsRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-api_key_id | **string**<br>Обязательное поле. Идентификатор API-ключа, для которого требуется получть список операций. Максимальная длина строки в символах — 50.
-page_size | **int64**<br>Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем `page_size`, сервис вернет значение [ListApiKeyOperationsResponse.next_page_token](#ListApiKeyOperationsResponse), которое можно использовать для получения следующей страницы. Значение по умолчанию: 100. Допустимые значения — от 0 до 1000 включительно.
-page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListApiKeyOperationsResponse.next_page_token](#ListApiKeyOperationsResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
+api_key_id | **string**<br>Required. ID of the key to list operations for. The maximum string length in characters is 50.
+page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListApiKeyOperationsResponse.next_page_token](#ListApiKeyOperationsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. Acceptable values are 0 to 1000, inclusive.
+page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListApiKeyOperationsResponse.next_page_token](#ListApiKeyOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
 
 
 ### ListApiKeyOperationsResponse {#ListApiKeyOperationsResponse}
 
-Поле | Описание
+Field | Description
 --- | ---
-operations[] | **[operation.Operation](#Operation2)**<br>Список операций для указанного API-ключа. 
-next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListApiKeyOperationsRequest.page_size](#ListApiKeyOperationsRequest), используйте `next_page_token` в качестве значения параметра [ListApiKeyOperationsRequest.page_token](#ListApiKeyOperationsRequest) в следующем запросе списка API-ключей. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
+operations[] | **[operation.Operation](#Operation2)**<br>List of operations for the specified API key. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListApiKeyOperationsRequest.page_size](#ListApiKeyOperationsRequest), use the `next_page_token` as the value for the [ListApiKeyOperationsRequest.page_token](#ListApiKeyOperationsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
 ### Operation {#Operation2}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**<br>Результат операции в случае успешного завершения. Если исходный метод не возвращает никаких данных при успешном завершении, например метод Delete, поле содержит объект [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty). Если исходный метод — это стандартный метод Create / Update, поле содержит целевой ресурс операции. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `response`. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**<br>The normal response of the operation in case of success. If the original method returns no data on success, such as Delete, the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty). If the original method is the standard Create/Update, the response should be the target resource of the operation. Any method that returns a long-running operation should document the response type, if any. 
 
 

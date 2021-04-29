@@ -282,11 +282,11 @@ items:
       - name: gRPC
         items:
           - name: Overview
-            href: grpc/index.md
+            href: functions/api-ref/grpc/index.md
           - name: FunctionService
-            href: grpc/function_service.md
+            href: functions/api-ref/grpc/function_service.md
           - name: OperationService
-            href: grpc/operation_service.md
+            href: functions/api-ref/grpc/operation_service.md
       - name: REST
         items:
           - name: Overview
@@ -336,11 +336,11 @@ items:
       - name: gRPC
         items:
           - name: Overview
-            href: grpc/index.md
+            href: triggers/api-ref/grpc/index.md
           - name: TriggerService
-            href: grpc/trigger_service.md
+            href: triggers/api-ref/grpc/trigger_service.md
           - name: OperationService
-            href: grpc/operation_service.md
+            href: triggers/api-ref/grpc/operation_service.md
       - name: REST
         items:
           - name: Overview

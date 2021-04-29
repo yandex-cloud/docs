@@ -2,23 +2,23 @@
 editable: false
 ---
 
-# Метод attachDisk
-Присоединяет диск к виртуальной машине.
+# Method attachDisk
+Attaches the disk to the instance.
  
 
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 POST https://compute.api.cloud.yandex.net/compute/v1/instances/{instanceId}:attachDisk
 ```
  
-## Path-параметры {#path_params}
+## Path parameters {#path_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-instanceId | Обязательное поле. Идентификатор виртуальной машины для подключения диска. Чтобы получить идентификатор виртуальной машины, используйте запрос [list](/docs/compute/api-ref/Instance/list).  Максимальная длина строки в символах — 50.
+instanceId | Required. ID of the instance to attach the disk to. To get the instance ID, use a [list](/docs/compute/api-ref/Instance/list) request.  The maximum string length in characters is 50.
  
-## Параметры в теле запроса {#body_params}
+## Body parameters {#body_params}
  
 ```json 
 {
@@ -27,43 +27,50 @@ instanceId | Обязательное поле. Идентификатор ви�
     "deviceName": "string",
     "autoDelete": true,
 
-    // `attachedDiskSpec` включает только одно из полей `diskSpec`, `diskId`
+    // `attachedDiskSpec` includes only one of the fields `diskSpec`, `diskId`
     "diskSpec": {
       "name": "string",
       "description": "string",
       "typeId": "string",
       "size": "string",
+      "blockSize": "string",
+      "diskPlacementPolicy": {
+        "placementGroupId": "string"
+      },
 
-      // `attachedDiskSpec.diskSpec` включает только одно из полей `imageId`, `snapshotId`
+      // `attachedDiskSpec.diskSpec` includes only one of the fields `imageId`, `snapshotId`
       "imageId": "string",
       "snapshotId": "string",
-      // конец списка возможных полей`attachedDiskSpec.diskSpec`
+      // end of the list of possible fields`attachedDiskSpec.diskSpec`
 
     },
     "diskId": "string",
-    // конец списка возможных полей`attachedDiskSpec`
+    // end of the list of possible fields`attachedDiskSpec`
 
   }
 }
 ```
 
  
-Поле | Описание
+Field | Description
 --- | ---
-attachedDiskSpec | **object**<br><p>Обязательное поле. Диск для подключения.</p> 
-attachedDiskSpec.<br>mode | **string**<br>Режим, в котором необходимо подключить этот диск.<br><ul> <li>READ_ONLY: Доступ на чтение.</li> <li>READ_WRITE: Доступ на чтение и запись. Значение по умолчанию.</li> </ul> 
-attachedDiskSpec.<br>deviceName | **string**<br><p>Задает уникальный серийный номер, который на виртуальной машине с операционной системой Linux отображается в директории /dev/disk/by-id/.</p> <p>Это значение может использоваться для ссылки на устройство внутри виртуальной машины при монтировании, изменении размера и т. д. Если значение не указано, будет сгенерировано случайное значение.</p> <p>Значение должно соответствовать регулярному выражению `` [a-z][a-z0-9-_]{,19} ``.</p> 
-attachedDiskSpec.<br>autoDelete | **boolean** (boolean)<br><p>Указывает, должен ли диск автоматически удалиться при удалении виртуальной машины.</p> 
-attachedDiskSpec.<br>diskSpec | **object**<br>Спецификация диска. <br>`attachedDiskSpec` включает только одно из полей `diskSpec`, `diskId`<br><br>
-attachedDiskSpec.<br>diskSpec.<br>name | **string**<br><p>Имя диска.</p> <p>Значение должно соответствовать регулярному выражению `` \|[a-z][-a-z0-9]{1,61}[a-z0-9] ``.</p> 
-attachedDiskSpec.<br>diskSpec.<br>description | **string**<br><p>Описание диска.</p> <p>Максимальная длина строки в символах — 256.</p> 
-attachedDiskSpec.<br>diskSpec.<br>typeId | **string**<br><p>Идентификатор типа диска. Чтобы получить список доступных типов дисков, используйте запрос <a href="/docs/compute/api-ref/DiskType/list">list</a>.</p> <p>Максимальная длина строки в символах — 50.</p> 
-attachedDiskSpec.<br>diskSpec.<br>size | **string** (int64)<br><p>Обязательное поле. Размер диска в байтах.</p> <p>Допустимые значения — от 4194304 до 4398046511104 включительно.</p> 
-attachedDiskSpec.<br>diskSpec.<br>imageId | **string** <br>`attachedDiskSpec.diskSpec` включает только одно из полей `imageId`, `snapshotId`<br><br><p>Идентификатор образа для создания диска.</p> <p>Максимальная длина строки в символах — 50.</p> 
-attachedDiskSpec.<br>diskSpec.<br>snapshotId | **string** <br>`attachedDiskSpec.diskSpec` включает только одно из полей `imageId`, `snapshotId`<br><br><p>Идентификатор снимка для восстановления диска.</p> <p>Максимальная длина строки в символах — 50.</p> 
-attachedDiskSpec.<br>diskId | **string** <br>`attachedDiskSpec` включает только одно из полей `diskSpec`, `diskId`<br><br><p>Идентификатор диска, который должен быть подключен.</p> <p>Максимальная длина строки в символах — 50.</p> 
+attachedDiskSpec | **object**<br><p>Required. Disk that should be attached.</p> 
+attachedDiskSpec.<br>mode | **string**<br>The mode in which to attach this disk.<br><ul> <li>READ_ONLY: Read-only access.</li> <li>READ_WRITE: Read/Write access. Default value.</li> </ul> 
+attachedDiskSpec.<br>deviceName | **string**<br><p>Specifies a unique serial number of your choice that is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance.</p> <p>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. If not specified, a random value will be generated.</p> <p>Value must match the regular expression `` [a-z][a-z0-9-_]{,19} ``.</p> 
+attachedDiskSpec.<br>autoDelete | **boolean** (boolean)<br><p>Specifies whether the disk will be auto-deleted when the instance is deleted.</p> 
+attachedDiskSpec.<br>diskSpec | **object**<br>Disk specification. <br>`attachedDiskSpec` includes only one of the fields `diskSpec`, `diskId`<br><br>
+attachedDiskSpec.<br>diskSpec.<br>name | **string**<br><p>Name of the disk.</p> <p>Value must match the regular expression `` \|<a href="%5B-a-z0-9%5D%7B0,61%7D%5Ba-z0-9%5D">a-z</a>? ``.</p> 
+attachedDiskSpec.<br>diskSpec.<br>description | **string**<br><p>Description of the disk.</p> <p>The maximum string length in characters is 256.</p> 
+attachedDiskSpec.<br>diskSpec.<br>typeId | **string**<br><p>ID of the disk type. To get a list of available disk types, use the <a href="/docs/compute/api-ref/DiskType/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
+attachedDiskSpec.<br>diskSpec.<br>size | **string** (int64)<br><p>Required. Size of the disk, specified in bytes.</p> <p>Acceptable values are 4194304 to 4398046511104, inclusive.</p> 
+attachedDiskSpec.<br>diskSpec.<br>blockSize | **string** (int64)<br><p>Block size of the disk, specified in bytes. The default is 4096.</p> 
+attachedDiskSpec.<br>diskSpec.<br>diskPlacementPolicy | **object**<br>Placement policy configuration.<br>
+attachedDiskSpec.<br>diskSpec.<br>diskPlacementPolicy.<br>placementGroupId | **string**<br><p>Placement group ID.</p> 
+attachedDiskSpec.<br>diskSpec.<br>imageId | **string** <br>`attachedDiskSpec.diskSpec` includes only one of the fields `imageId`, `snapshotId`<br><br><p>ID of the image to create the disk from.</p> <p>The maximum string length in characters is 50.</p> 
+attachedDiskSpec.<br>diskSpec.<br>snapshotId | **string** <br>`attachedDiskSpec.diskSpec` includes only one of the fields `imageId`, `snapshotId`<br><br><p>ID of the snapshot to restore the disk from.</p> <p>The maximum string length in characters is 50.</p> 
+attachedDiskSpec.<br>diskId | **string** <br>`attachedDiskSpec` includes only one of the fields `diskSpec`, `diskId`<br><br><p>ID of the disk that should be attached.</p> <p>The maximum string length in characters is 50.</p> 
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -76,7 +83,7 @@ attachedDiskSpec.<br>diskId | **string** <br>`attachedDiskSpec` включает
   "done": true,
   "metadata": "object",
 
-  //  включает только одно из полей `error`, `response`
+  //  includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
     "message": "string",
@@ -85,24 +92,23 @@ attachedDiskSpec.<br>diskId | **string** <br>`attachedDiskSpec` включает
     ]
   },
   "response": "object",
-  // конец списка возможных полей
+  // end of the list of possible fields
 
 }
 ```
-Ресурс Operation. Дополнительные сведения см. в разделе
-[Объект Operation](/docs/api-design-guide/concepts/operation).
+An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
  
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br><p>Идентификатор операции.</p> 
-description | **string**<br><p>Описание операции. Длина описания должна быть от 0 до 256 символов.</p> 
-createdAt | **string** (date-time)<br><p>Время создания ресурса в формате в <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-createdBy | **string**<br><p>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию.</p> 
-modifiedAt | **string** (date-time)<br><p>Время, когда ресурс Operation последний раз обновлялся. Значение в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-done | **boolean** (boolean)<br><p>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`.</p> 
-metadata | **object**<br><p>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`.</p> 
-error | **object**<br>Описание ошибки в случае сбоя или отмены операции. <br> включает только одно из полей `error`, `response`<br><br><p>Описание ошибки в случае сбоя или отмены операции.</p> 
-error.<br>code | **integer** (int32)<br><p>Код ошибки. Значение из списка <a href="https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto">google.rpc.Code</a>.</p> 
-error.<br>message | **string**<br><p>Текст ошибки.</p> 
-error.<br>details[] | **object**<br><p>Список сообщений с подробными сведениями об ошибке.</p> 
-response | **object** <br> включает только одно из полей `error`, `response`<br><br><p>Результат операции в случае успешного завершения. Если исходный метод не возвращает никаких данных при успешном завершении, например метод Delete, поле содержит объект <a href="https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty">google.protobuf.Empty</a>. Если исходный метод — это стандартный метод Create / Update, поле содержит целевой ресурс операции. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `response`.</p> 
+id | **string**<br><p>ID of the operation.</p> 
+description | **string**<br><p>Description of the operation. 0-256 characters long.</p> 
+createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+createdBy | **string**<br><p>ID of the user or service account who initiated the operation.</p> 
+modifiedAt | **string** (date-time)<br><p>The time when the Operation resource was last modified.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+done | **boolean** (boolean)<br><p>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available.</p> 
+metadata | **object**<br><p>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any.</p> 
+error | **object**<br>The error result of the operation in case of failure or cancellation. <br> includes only one of the fields `error`, `response`<br><br><p>The error result of the operation in case of failure or cancellation.</p> 
+error.<br>code | **integer** (int32)<br><p>Error code. An enum value of <a href="https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto">google.rpc.Code</a>.</p> 
+error.<br>message | **string**<br><p>An error message.</p> 
+error.<br>details[] | **object**<br><p>A list of messages that carry the error details.</p> 
+response | **object** <br> includes only one of the fields `error`, `response`<br><br><p>The normal response of the operation in case of success. If the original method returns no data on success, such as Delete, the response is <a href="https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty">google.protobuf.Empty</a>. If the original method is the standard Create/Update, the response should be the target resource of the operation. Any method that returns a long-running operation should document the response type, if any.</p> 

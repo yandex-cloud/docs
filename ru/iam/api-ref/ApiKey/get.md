@@ -2,23 +2,23 @@
 editable: false
 ---
 
-# Метод get
-Возвращает указанный API-ключ.
+# Method get
+Returns the specified API key.
  
-Чтобы получить список доступных API-ключ, используйте запрос [list](/docs/iam/api-ref/ApiKey/list).
+To get the list of available API keys, make a [list](/docs/iam/api-ref/ApiKey/list) request.
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 GET https://iam.api.cloud.yandex.net/iam/v1/apiKeys/{apiKeyId}
 ```
  
-## Path-параметры {#path_params}
+## Path parameters {#path_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-apiKeyId | Обязательное поле. Идентификатор возвращаемого API-ключа. Чтобы получить идентификатор ключа, используйте запрос [list](/docs/iam/api-ref/ApiKey/list).  Максимальная длина строки в символах — 50.
+apiKeyId | Required. ID of the API key to return. To get the API key ID, use a [list](/docs/iam/api-ref/ApiKey/list) request.  The maximum string length in characters is 50.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -29,11 +29,11 @@ apiKeyId | Обязательное поле. Идентификатор воз�
   "description": "string"
 }
 ```
-Ресурс ApiKey.
+An ApiKey resource.
  
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br><p>Идентификатор API-ключа.</p> 
-serviceAccountId | **string**<br><p>Идентификатор сервисного аккаунта, которому принадлежит API-ключ.</p> 
-createdAt | **string** (date-time)<br><p>Время создания.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-description | **string**<br><p>Описание API-ключа. Длина описания должна быть от 0 до 256 символов.</p> 
+id | **string**<br><p>ID of the API Key.</p> 
+serviceAccountId | **string**<br><p>ID of the service account that the API key belongs to.</p> 
+createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+description | **string**<br><p>Description of the API key. 0-256 characters long.</p> 

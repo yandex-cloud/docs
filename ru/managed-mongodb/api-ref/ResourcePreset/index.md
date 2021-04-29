@@ -3,8 +3,8 @@ editable: false
 ---
 
 # ResourcePreset
-Набор методов для управления ресурсами ResourcePreset.
-## JSON-представление {#representation}
+A set of methods for managing ResourcePreset resources.
+## JSON Representation {#representation}
 ```json 
 {
   "id": "string",
@@ -16,15 +16,15 @@ editable: false
 }
 ```
  
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br><p>Идентификатор конфигурации ресурсов.</p> 
-zoneIds[] | **string**<br><p>Идентификаторы зон доступности, в которых доступен данный набор ресурсов.</p> 
-cores | **string** (int64)<br><p>Количество ядер CPU для хоста MongoDB, созданного с данным набором ресурсов.</p> 
-memory | **string** (int64)<br><p>Объем оперативной памяти для хоста MongoDB, созданного с данным набором ресурсов, в байтах.</p> 
+id | **string**<br><p>ID of the ResourcePreset resource.</p> 
+zoneIds[] | **string**<br><p>IDs of availability zones where the resource preset is available.</p> 
+cores | **string** (int64)<br><p>Number of CPU cores for a MongoDB host created with the preset.</p> 
+memory | **string** (int64)<br><p>RAM volume for a MongoDB host created with the preset, in bytes.</p> 
 
-## Методы {#methods}
-Метод | Описание
+## Methods {#methods}
+Method | Description
 --- | ---
-[get](get.md) | Возвращает указанный ресурс ResourcePreset.
-[list](list.md) | Получает список доступных ресурсов ResourcePreset.
+[get](get.md) | Returns the specified ResourcePreset resource.
+[list](list.md) | Retrieves the list of available ResourcePreset resources.

@@ -2,25 +2,25 @@
 editable: false
 ---
 
-# Метод list
-Возвращает список резервных копий, доступных в указанном каталоге.
+# Method list
+Retrieves the list of backups available for the specified folder.
  
 
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 GET https://mdb.api.cloud.yandex.net/managed-mongodb/v1/backups
 ```
  
-## Query-параметры {#query_params}
+## Query parameters {#query_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-folderId | Обязательное поле. Идентификатор каталога для вывода списка резервных копий. Чтобы получить идентификатор каталога, используйте запрос [list](/docs/resource-manager/api-ref/Folder/list).  Максимальная длина строки в символах — 50.
-pageSize | Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем [pageSize](/docs/managed-mongodb/api-ref/Backup/list#query_params), сервис вернет значение [nextPageToken](/docs/managed-mongodb/api-ref/Backup/list#responses), которое можно использовать для получения следующей страницы.  Максимальное значение — 1000.
-pageToken | Токен страницы. Установите значение [pageToken](/docs/managed-mongodb/api-ref/Backup/list#query_params) равным значению поля [nextPageToken](/docs/managed-mongodb/api-ref/Backup/list#responses) предыдущего запроса, чтобы получить следующую страницу результатов.  Максимальная длина строки в символах — 100.
+folderId | Required. ID of the folder to list backups in. To get the folder ID, use a [list](/docs/resource-manager/api-ref/Folder/list) request.  The maximum string length in characters is 50.
+pageSize | The maximum value is 1000.
+pageToken | Page token. To get the next page of results, set [pageToken](/docs/managed-mongodb/api-ref/Backup/list#query_params) to the  [nextPageToken](/docs/managed-mongodb/api-ref/Backup/list#responses) returned by a previous list request.  The maximum string length in characters is 100.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -34,7 +34,9 @@ pageToken | Токен страницы. Установите значение [
       "startedAt": "string",
       "sourceShardNames": [
         "string"
-      ]
+      ],
+      "size": "string",
+      "type": "string"
     }
   ],
   "nextPageToken": "string"
@@ -42,13 +44,15 @@ pageToken | Токен страницы. Установите значение [
 ```
 
  
-Поле | Описание
+Field | Description
 --- | ---
-backups[] | **object**<br><p>Резервная копия MongoDB. Подробнее см. в разделе <a href="/docs/managed-mongodb/concepts">Developer's Guide</a>.</p> 
-backups[].<br>id | **string**<br><p>Идентификатор резервной копии.</p> 
-backups[].<br>folderId | **string**<br><p>Идентификатор каталога, которому принадлежит резервная копия.</p> 
-backups[].<br>createdAt | **string** (date-time)<br><p>Время создания в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> (т. е. когда операция резервного копирования была завершена).</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-backups[].<br>sourceClusterId | **string**<br><p>Идентификатор кластера MongoDB, для которого была создана резервная копия.</p> 
-backups[].<br>startedAt | **string** (date-time)<br><p>Время запуска операции резервного копирования.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-backups[].<br>sourceShardNames[] | **string**<br><p>Имена шардов, которые использовались при создании резервной копии.</p> 
-nextPageToken | **string**<br><p>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем <a href="/docs/managed-mongodb/api-ref/Backup/list#query_params">pageSize</a>, используйте <a href="/docs/managed-mongodb/api-ref/Backup/list#responses">nextPageToken</a> в качестве значения параметра <a href="/docs/managed-mongodb/api-ref/Backup/list#query_params">pageToken</a> в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения <a href="/docs/managed-mongodb/api-ref/Backup/list#responses">nextPageToken</a> для перебора страниц результатов.</p> 
+backups[] | **object**<br><p>A MongoDB Backup resource. For more information, see the <a href="/docs/managed-mongodb/concepts">Developer's Guide</a>.</p> 
+backups[].<br>id | **string**<br><p>ID of the backup.</p> 
+backups[].<br>folderId | **string**<br><p>ID of the folder that the backup belongs to.</p> 
+backups[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format (i.e. when the backup operation was completed).</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+backups[].<br>sourceClusterId | **string**<br><p>ID of the MongoDB cluster that the backup was created for.</p> 
+backups[].<br>startedAt | **string** (date-time)<br><p>Time when the backup operation was started.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+backups[].<br>sourceShardNames[] | **string**<br><p>Shard names used as a source for backup.</p> 
+backups[].<br>size | **string** (int64)<br><p>Size of backup in bytes</p> 
+backups[].<br>type | **string**<br><p>How this backup was created (manual/automatic/etc...)</p> <ul> <li>AUTOMATED: Backup created by automated daily schedule</li> <li>MANUAL: Backup created by user request</li> </ul> 
+nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/managed-mongodb/api-ref/Backup/list#query_params">pageSize</a>, use the <a href="/docs/managed-mongodb/api-ref/Backup/list#responses">nextPageToken</a> as the value for the <a href="/docs/managed-mongodb/api-ref/Backup/list#query_params">pageToken</a> parameter in the next list request. Each subsequent list request will have its own <a href="/docs/managed-mongodb/api-ref/Backup/list#responses">nextPageToken</a> to continue paging through the results.</p> 

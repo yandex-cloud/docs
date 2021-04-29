@@ -53,7 +53,13 @@ clusterId | Required. ID of the Data Proc cluster.  To get a cluster ID make a [
   "zoneId": "string",
   "serviceAccountId": "string",
   "bucket": "string",
-  "uiProxy": true
+  "uiProxy": true,
+  "securityGroupIds": [
+    "string"
+  ],
+  "hostGroupIds": [
+    "string"
+  ]
 }
 ```
 A Data Proc cluster. For details about the concept, see [documentation](/docs/data-proc/concepts/).
@@ -82,3 +88,5 @@ zoneId | **string**<br><p>ID of the availability zone where the cluster resides.
 serviceAccountId | **string**<br><p>ID of service account for the Data Proc manager agent.</p> 
 bucket | **string**<br><p>Object Storage bucket to be used for Data Proc jobs that are run in the cluster.</p> 
 uiProxy | **boolean** (boolean)<br><p>Whether UI Proxy feature is enabled.</p> 
+securityGroupIds[] | **string**<br><p>User security groups.</p> 
+hostGroupIds[] | **string**<br><p>Host groups hosting VMs of the cluster.</p> 

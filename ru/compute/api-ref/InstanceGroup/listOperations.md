@@ -2,31 +2,31 @@
 editable: false
 ---
 
-# Метод listOperations
-Возвращает список операций для указанной группы виртуальных машин.
+# Method listOperations
+Lists operations for the specified instance group.
  
 
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 GET https://compute.api.cloud.yandex.net/compute/v1/instanceGroups/{instanceGroupId}/operations
 ```
  
-## Path-параметры {#path_params}
+## Path parameters {#path_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-instanceGroupId | Обязательное поле. Идентификатор ресурса InstanceGroup, для которого запрашивается список операций. Чтобы получить идентификатор группы виртуальных машин, используйте запрос [list](/docs/compute/api-ref/InstanceGroup/list).  Максимальная длина строки в символах — 50.
+instanceGroupId | Required. ID of the InstanceGroup resource to list operations for. To get the instance group ID, use a [list](/docs/compute/api-ref/InstanceGroup/list) request.  The maximum string length in characters is 50.
  
-## Query-параметры {#query_params}
+## Query parameters {#query_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-pageSize | Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем [pageSize](/docs/compute/api-ref/InstanceGroup/listOperations#query_params), сервис вернет значение [nextPageToken](/docs/compute/api-ref/InstanceGroup/listOperations#responses), которое можно использовать для получения следующей страницы.  Допустимые значения — от 0 до 1000 включительно.
-pageToken | Токен страницы. Установите значение [pageToken](/docs/compute/api-ref/InstanceGroup/listOperations#query_params) равным значению поля [nextPageToken](/docs/compute/api-ref/InstanceGroup/listOperations#responses) предыдущего запроса, чтобы получить следующую страницу результатов.  Максимальная длина строки в символах — 100.
-filter | Параметры фильтрации ресурсов в ответе. В настоящее время фильтрация осуществляется только по полю [InstanceGroup.name](/docs/compute/api-ref/InstanceGroup#representation).  Максимальная длина строки в символах — 1000.
+pageSize | The maximum number of results per page to return. If the number of available results is more than [pageSize](/docs/compute/api-ref/InstanceGroup/listOperations#query_params), the service returns a [nextPageToken](/docs/compute/api-ref/InstanceGroup/listOperations#responses) that can be used to get the next page of results in subsequent list requests.  Acceptable values are 0 to 1000, inclusive.
+pageToken | Page token. To get the next page of results, set [pageToken](/docs/compute/api-ref/InstanceGroup/listOperations#query_params) to the [nextPageToken](/docs/compute/api-ref/InstanceGroup/listOperations#responses) returned by a previous list request.  The maximum string length in characters is 100.
+filter | A filter expression that filters resources listed in the response. Currently you can use filtering only on the [InstanceGroup.name](/docs/compute/api-ref/InstanceGroup#representation) field.  The maximum string length in characters is 1000.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -41,7 +41,7 @@ filter | Параметры фильтрации ресурсов в ответ�
       "done": true,
       "metadata": "object",
 
-      // `operations[]` включает только одно из полей `error`, `response`
+      // `operations[]` includes only one of the fields `error`, `response`
       "error": {
         "code": "integer",
         "message": "string",
@@ -50,7 +50,7 @@ filter | Параметры фильтрации ресурсов в ответ�
         ]
       },
       "response": "object",
-      // конец списка возможных полей`operations[]`
+      // end of the list of possible fields`operations[]`
 
     }
   ],
@@ -59,19 +59,19 @@ filter | Параметры фильтрации ресурсов в ответ�
 ```
 
  
-Поле | Описание
+Field | Description
 --- | ---
-operations[] | **object**<br><p>Ресурс Operation. Дополнительные сведения см. в разделе <a href="/docs/api-design-guide/concepts/operation">Объект Operation</a>.</p> 
-operations[].<br>id | **string**<br><p>Идентификатор операции.</p> 
-operations[].<br>description | **string**<br><p>Описание операции. Длина описания должна быть от 0 до 256 символов.</p> 
-operations[].<br>createdAt | **string** (date-time)<br><p>Время создания ресурса в формате в <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-operations[].<br>createdBy | **string**<br><p>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию.</p> 
-operations[].<br>modifiedAt | **string** (date-time)<br><p>Время, когда ресурс Operation последний раз обновлялся. Значение в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-operations[].<br>done | **boolean** (boolean)<br><p>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`.</p> 
-operations[].<br>metadata | **object**<br><p>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`.</p> 
-operations[].<br>error | **object**<br>Описание ошибки в случае сбоя или отмены операции. <br>`operations[]` включает только одно из полей `error`, `response`<br><br><p>Описание ошибки в случае сбоя или отмены операции.</p> 
-operations[].<br>error.<br>code | **integer** (int32)<br><p>Код ошибки. Значение из списка <a href="https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto">google.rpc.Code</a>.</p> 
-operations[].<br>error.<br>message | **string**<br><p>Текст ошибки.</p> 
-operations[].<br>error.<br>details[] | **object**<br><p>Список сообщений с подробными сведениями об ошибке.</p> 
-operations[].<br>response | **object** <br>`operations[]` включает только одно из полей `error`, `response`<br><br><p>Результат операции в случае успешного завершения. Если исходный метод не возвращает никаких данных при успешном завершении, например метод Delete, поле содержит объект <a href="https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty">google.protobuf.Empty</a>. Если исходный метод — это стандартный метод Create / Update, поле содержит целевой ресурс операции. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `response`.</p> 
-nextPageToken | **string**<br><p>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем <a href="/docs/compute/api-ref/InstanceGroup/listOperations#query_params">pageSize</a>, используйте <a href="/docs/compute/api-ref/InstanceGroup/listOperations#responses">nextPageToken</a> в качестве значения параметра <a href="/docs/compute/api-ref/InstanceGroup/listOperations#query_params">pageToken</a> в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения <a href="/docs/compute/api-ref/InstanceGroup/listOperations#responses">nextPageToken</a> для перебора страниц результатов.</p> 
+operations[] | **object**<br><p>An Operation resource. For more information, see <a href="/docs/api-design-guide/concepts/operation">Operation</a>.</p> 
+operations[].<br>id | **string**<br><p>ID of the operation.</p> 
+operations[].<br>description | **string**<br><p>Description of the operation. 0-256 characters long.</p> 
+operations[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+operations[].<br>createdBy | **string**<br><p>ID of the user or service account who initiated the operation.</p> 
+operations[].<br>modifiedAt | **string** (date-time)<br><p>The time when the Operation resource was last modified.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+operations[].<br>done | **boolean** (boolean)<br><p>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available.</p> 
+operations[].<br>metadata | **object**<br><p>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any.</p> 
+operations[].<br>error | **object**<br>The error result of the operation in case of failure or cancellation. <br>`operations[]` includes only one of the fields `error`, `response`<br><br><p>The error result of the operation in case of failure or cancellation.</p> 
+operations[].<br>error.<br>code | **integer** (int32)<br><p>Error code. An enum value of <a href="https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto">google.rpc.Code</a>.</p> 
+operations[].<br>error.<br>message | **string**<br><p>An error message.</p> 
+operations[].<br>error.<br>details[] | **object**<br><p>A list of messages that carry the error details.</p> 
+operations[].<br>response | **object** <br>`operations[]` includes only one of the fields `error`, `response`<br><br><p>The normal response of the operation in case of success. If the original method returns no data on success, such as Delete, the response is <a href="https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty">google.protobuf.Empty</a>. If the original method is the standard Create/Update, the response should be the target resource of the operation. Any method that returns a long-running operation should document the response type, if any.</p> 
+nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is more than <a href="/docs/compute/api-ref/InstanceGroup/listOperations#query_params">pageSize</a>, use the <a href="/docs/compute/api-ref/InstanceGroup/listOperations#responses">nextPageToken</a> as the value for the <a href="/docs/compute/api-ref/InstanceGroup/listOperations#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own <a href="/docs/compute/api-ref/InstanceGroup/listOperations#responses">nextPageToken</a> to continue paging through the results.</p> 
