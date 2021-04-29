@@ -40,7 +40,7 @@ In April 2021, all existing clusters with this {{ MG }} version will be [forcibl
   1. Select the host class that defines the technical specifications of the VMs where the DB hosts will be deployed. When you change the host class for the cluster, the characteristics of all existing hosts change, too.
 
   1. Under **Storage size**:
-      - Select the type of storage, either a more flexible network type (**network-hdd** or **network-ssd**) or faster local SSD storage (**local-ssd**). The size of the local storage can only be changed in 100 GB increments.
+      - Select [the type of storage](../concepts/storage.md), either a more flexible network type (**network-hdd** or **network-ssd**) or faster local SSD storage (**local-ssd**). The size of the local storage can only be changed in 100 GB increments.
       - Select the size to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
 
   1. Under **Database**, specify the DB attributes:
@@ -53,6 +53,10 @@ In April 2021, all existing clusters with this {{ MG }} version will be [forcibl
   1. If necessary, configure additional cluster settings:
 
      {% include [mmg-extra-settings](../../_includes/mdb/mmg-extra-settings-web-console.md) %}
+
+  1. If necessary, configure additional DBMS settings:
+
+      {% include [mmg-dbms-settings](../../_includes/mdb/mmg-dbms-settings.md) %}
 
   1. Click **Create cluster**.
 
@@ -93,7 +97,7 @@ In April 2021, all existing clusters with this {{ MG }} version will be [forcibl
          --network-name <network name> \
          --host zone-id=<availability zone>,subnet-id=<subnet ID> \
          --mongod-resource-preset <host class> \
-         --user name=<user name>, password=<user password> \
+         --user name=<user name>,password=<user password> \
          --database name=<database name> \
          --mongod-disk-type <network-hdd | network-ssd | local-ssd> \
          --mongod-disk-size <storage size in GB>
@@ -110,7 +114,7 @@ In April 2021, all existing clusters with this {{ MG }} version will be [forcibl
          --network-id {{ network-name }} \
          --host zone-id=<availability zone> \
          --mongod-resource-preset <host class> \
-         --user name=<user name>, password=<user password> \
+         --user name=<user name>,password=<user password> \
          --database name=<database name> \
          --mongod-disk-type local-ssd \
          --mongod-disk-size <storage size in GB>
@@ -156,12 +160,12 @@ In April 2021, all existing clusters with this {{ MG }} version will be [forcibl
      
        resources {
          resource_preset_id = "<host class>"
-         disk_type_id       = "<storage type>"    
+         disk_type_id       = "<storage type>"
          disk_size          = "<storage size in GB>"
        }
      
        host {
-         zone_id   = "<availability zone>"
+         zone_id           = "<availability zone>"
          subnet_id = "<subnet ID>"
        }
      }
@@ -271,7 +275,7 @@ In April 2021, all existing clusters with this {{ MG }} version will be [forcibl
 
   ```
   provider "yandex" {
-    token     = "<OAuth or static key of service account>"
+    token = "<OAuth or static key of service account>"
     cloud_id  = "{{ tf-cloud-id }}"
     folder_id = "${data.yandex_resourcemanager_folder.myfolder.id}"
     zone      = "{{ zone-id }}"
@@ -300,7 +304,7 @@ In April 2021, all existing clusters with this {{ MG }} version will be [forcibl
   
     resources {
       resource_preset_id = "{{ host-class }}"
-      disk_type_id       = "{{ disk-type-example }}"    
+      disk_type_id       = "{{ disk-type-example }}"
       disk_size          = 20
     }
   
