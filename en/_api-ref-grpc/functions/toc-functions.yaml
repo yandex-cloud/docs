@@ -1,0 +1,7 @@
+items:
+  - name: Overview
+    href: functions/api-ref/grpc/index.md
+  - name: FunctionService
+    href: functions/api-ref/grpc/function_service.md
+  - name: OperationService
+    href: functions/api-ref/grpc/operation_service.md
