@@ -11,8 +11,10 @@ items:
         href: operations/registration.md
       - name: Создание тарифа
         href: operations/create-tariff.md
-      - name: Создание образа продукта
+      - name: Создание образа продукта на базе Linux
         href: operations/create-image.md
+      - name: Создание образа продукта на базе Windows
+        href: operations/create-image-ms.md
       - name: Создание продукта
         href: operations/create-product.md
       - name: Изменение продукта
