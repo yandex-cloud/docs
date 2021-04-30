@@ -10,13 +10,13 @@ To set up data delivery from {{ mkf-name }} to {{ mch-name }}:
 
 ## Before you start {#before-you-begin}
 
-1. [Create a {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-create.md)  in any suitable configuration.
+1. [Create a {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-create.md) in any suitable configuration.
 
 1. [Create a {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-create.md) in any suitable configuration and with the `db1` database.
 
    {% note info %}
 
-   You can set up {{ KF }} integration when [creating a cluster](../../managed-clickhouse/operations/cluster-create.md). In this use case, integration will be configured [later](#configure-mch-for-kf).
+   You can set up the {{ KF }} integration at the step of [creating a cluster](../../managed-clickhouse/operations/cluster-create.md). In this use case, integration will be configured [later](#configure-mch-for-kf).
 
    {% endnote %}
 
@@ -34,11 +34,11 @@ To set up data delivery from {{ mkf-name }} to {{ mch-name }}:
 
 ## Set up integration with {{ KF }} for the {{ mch-name }} cluster {#configure-mch-for-kf}
 
-[Enter in the {{ mch-name }} cluster settings](../../managed-clickhouse/operations/update.md#change-clickhouse-config) the authentication credentials for the {{ mkf-name }}  cluster (**DBMS settings → Kafka** section):
+[Enter in the {{ mch-name }} cluster settings](../../managed-clickhouse/operations/update.md#change-clickhouse-config) the authentication credentials for the {{ mkf-name }} cluster (**DBMS settings → Kafka** section):
 
 1. **Sasl mechanism**: `SCRAM-SHA-512`.
 1. **Sasl password**: Password of the [consumer account](#before-you-begin) `reader`.
-1. **Sasl username**: Name of the [consumer account](#before-you-begin) (`reader` in this tutorial).
+1. **Sasl username**: Name of the [consumer account](#before-you-begin) (named `reader` in this tutorial).
 1. **Security protocol**: `SASL_SSL`.
 
 The {{ mch-name }} cluster will use these authentication credentials to access any {{ KF }} topic.
@@ -54,23 +54,23 @@ As an example, let's input the JSON data from the car sensors to the {{ KF }} `d
 - Car coordinates:
   - `latitude`: Latitude.
   - `longitude`: Longitude.
-  - `altitude`: Altitude above sea level.
+  - `altitude`: Altitude above the sea level.
 - `speed`: Current speed.
 - `battery_voltage`: Battery voltage (used for electric cars. For cars with internal combustion engine, this parameter is `null`).
-- `cabin_temperature`: Temperature inside the car.
-- `fuel_level`: Fuel level (used for cars with internal combustion engine. For electric cars, this parameter is `null`).
+- `cabin_temperature`: Temperature in the cabin.
+- `fuel_level`: Fuel level (used for cars with internal combustion engine; for electric cars, this parameter is `null`).
 
-This data will be transmitted as {{ KF }} messages. Each message will contain a JSON object as the following string:
+This data will be transmitted as {{ KF }} messages. Each such message will contain a JSON object as the following string:
 
 ```json
 {"device_id":"iv9a94th6rztooxh5ur2","datetime":"2020-06-05 17:27:00","latitude":"55.70329032","longitude":"37.65472196","altitude":"427.5","speed":"0","battery_voltage":"23.5","cabin_temperature":"17","fuel_level":null}
 ```
 
-When inserting data in the table, the {{ mch-name }} cluster will use [JSONEachRow format](https://clickhouse.tech/docs/en/interfaces/formats/#jsoneachrow). It helps convert a string representation of a JSON object used in {{ KF }} messages to the required set of column values.
+When inserting data in the table, the {{ mch-name }} cluster will use the [JSONEachRow format](https://clickhouse.tech/docs/en/interfaces/formats/#jsoneachrow). It helps to convert a string representation of a JSON object used in {{ KF }} messages to the needed set of column values.
 
 ## In the {{ mch-name }} cluster, create a table on the {{ KF }} engine {#create-kf-table}
 
-Using the above-mentioned data format, create a table to accept data received from {{ mkf-name }} in the {{ mch-name }} cluster:
+Using the above-mentioned data format, create in the {{ mch-name }} cluster a table to accept data received from {{ mkf-name }}:
 
 1. [Connect](../../managed-clickhouse/operations/connect.md#connection-string) to the `db1` database of the {{ mch-name }} cluster using `clickhouse-client`.
 
@@ -87,7 +87,7 @@ Using the above-mentioned data format, create a table to accept data received fr
      speed Float32,
      battery_voltage Nullable(Float32),
      cabin_temperature Float32,
-     fuel_level Nullable(Float32)   
+     fuel_level Nullable(Float32)
    ) ENGINE = Kafka()
    SETTINGS
        kafka_broker_list = '<FQDN of the Kafka broker host>:9091',
@@ -98,7 +98,7 @@ Using the above-mentioned data format, create a table to accept data received fr
 
 This table will be automatically filled with messages read from the `datastore` topic of the {{ mkf-name }} cluster. When reading the data, {{ mch-name }} uses the [existing settings](#configure-mch-for-kf) for the [`reader` consumer account](#before-you-begin).
 
-To learn more about creating a table on the {{ KF }} engine, see the [{{ CH }} documentation](https://clickhouse.tech/docs/en/engines/table-engines/integrations/kafka/).
+To learn more about creating a table on the {{ KF }} engine, see the [documentation for {{ CH }}](https://clickhouse.tech/docs/en/engines/table-engines/integrations/kafka/).
 
 ## Send the test data to the {{ mkf-name }} cluster {#send-sample-data-to-kf}
 
@@ -145,7 +145,7 @@ To learn more about creating a table on the {{ KF }} engine, see the [{{ CH }} d
 1. Send the data from the `sample.json` file to the `datastore` topic of the {{ mkf-name }} cluster using `jq` and `kafkacat`:
 
    ```bash
-   jq -rc . sample.json | kafkacat kafkacat -P  \
+   jq -rc . sample.json | kafkacat kafkacat -P \
       -b rc1a-gjnru23feni92o5a.mdb.yandexcloud.net:9091 \
       -t datastore \
       -k key \
@@ -164,7 +164,7 @@ Although you can read data directly from the `db1.kafka` table, we don't recomme
 
 It's more practical to create a `MATERIALIZED VIEW` and use it to access data. When a materialized view is added to a table on the {{ KF }} engine, it starts collecting data in the background. This lets you continuously receive messages from {{ KF }} and convert them to the required format using `SELECT`.
 
-To create a materialized view for the `db1.kafka` table:
+To create such a view for the `db1.kafka` table:
 
 1. [Connect](../../managed-clickhouse/operations/connect.md#connection-string) to the `db1` database of the {{ mch-name }} cluster using `clickhouse-client`.
 
@@ -183,7 +183,7 @@ To create a materialized view for the `db1.kafka` table:
      cabin_temperature Float32,
      fuel_level Nullable(Float32)
    ) ENGINE = MergeTree()
-   ORDER BY device_id; 	
+   ORDER BY device_id;
    
    CREATE MATERIALIZED VIEW db1.data_view TO db1.kafka_data_source
        AS SELECT * FROM db1.kafka;
@@ -201,5 +201,5 @@ To get all the data from the `db1.data_view` materialized view:
 
 After you execute the query, you should get the {{ mkf-name }} data in the table format.
 
-To learn more about how to work with data received from {{ KF }}, see the [{{ CH }} documentation](https://clickhouse.tech/docs/en/engines/table-engines/integrations/kafka/).
+To learn more about how to work with data received from {{ KF }}, see the [documentation for {{ CH }}](https://clickhouse.tech/docs/en/engines/table-engines/integrations/kafka/).
 

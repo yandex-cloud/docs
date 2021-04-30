@@ -31,7 +31,7 @@
 
 ### Подготовить файл ответов
 
-В каждой версии ОС Windows установлена своя копия `sysprep`. Запустите локально установленную утилиту, расположенную в `$env:SystemRoot\System32\Sysprep\Sysprep.exe`, с ключами `/oobe /generalize /quiet /quit /unattend:<unattend_answer_file_path>`, где `<unattend_answer_file_path>` — путь к [файлу ответов](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/use-answer-files-with-sysprep). Файл ответов необходим для настройки и автоматизации обезличивания ОС. Если при запуске `sysprep` вы не укажете явный путь к файлу ответов, установщик Windows будет искать файл ответов `Autounattend.xml` в [местах по умолчанию](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/windows-setup-automation-overview#implicit-answer-file-search-order).
+В каждой версии ОС Windows установлена своя копия `sysprep`. Запустите локально установленную утилиту, расположенную в `$env:SystemRoot\System32\Sysprep\Sysprep.exe`, с ключами `/oobe /generalize /quiet /quit /unattend:<unattend_answer_file_path>`, где `<unattend_answer_file_path>` — путь к [файлу ответов](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/use-answer-files-with-sysprep). Файл ответов необходим для настройки и автоматизации обезличивания ОС. Если при запуске `sysprep` вы не укажете явный путь к файлу ответов, утилита попробует найти предыдущий файл ответов в кеше или запустится без него. Запуск `sysprep` без файла ответов может повредить подготовленный вами образ.
 
 {% cut "Пример содержимого файла ответов" %}
 

@@ -83,7 +83,7 @@
     ) ENGINE = RabbitMQ
     SETTINGS
       rabbitmq_host_port = '<IP-адрес или FQDN сервера RabbitMQ>:5672',
-      rabbitmq_routing_key_list='cars',
+      rabbitmq_routing_key_list = 'cars',
       rabbitmq_exchange_name = 'exchange',
       rabbitmq_format = 'JSONEachRow';
     ```
