@@ -1,9 +1,20 @@
+---
+title: Website based on Joomla CMS with PostgreSQL – Configure and deploy
+description: Joomla CMS is a web site content management system written in PHP and JavaScript. With this instruction, you will learn how to deploy a site based on CMS Joomla with PostgreSQL database.
+keywords:
+  - joomla
+  - CMS Joomla
+  - postresql
+  - configure joomla
+  - deploy joomla
+  - hosting joomla
+---
+
 # Joomla-based website with PostgreSQL
 
 In these instructions, you'll learn how to deploy a website in Joomla CMS on a database running PostgreSQL in the Yandex.Cloud infrastructure.
 
 To set up a static website on Joomla:
-
 1. [Create a VM for Joomla](#create-vm).
 1. [Create a PostgreSQL DB cluster](#create-cluster).
 1. [Install Joomla and additional components](#install).
@@ -30,7 +41,6 @@ Make sure the selected folder has a network with subnets in the availability zon
 ### Required paid resources {#paid-resources}
 
 The cost of hosting a website in Joomla includes:
-
 * A fee for a continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * A fee for using a dynamic or static external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 * A fee for the PostgreSQL database cluster (see [pricing for {{ mpg-full-name }}](../../managed-postgresql/pricing.md)).
@@ -49,8 +59,8 @@ To create a VM:
 1. Select the **Ubuntu** or **CentOS** public image.
 
 1. Under **Computing resources**:
-    - Choose a [platform](../../compute/concepts/vm-platforms.md).
-    - Specify the necessary number of vCPUs and amount of RAM.
+   * Choose a [platform](../../compute/concepts/vm-platforms.md).
+   * Specify the necessary number of vCPUs and amount of RAM.
 
    The minimum configuration is enough for functional testing:
    * **Platform**: Intel Cascade Lake.
@@ -61,8 +71,9 @@ To create a VM:
 1. In the **Network settings** section, select the subnet to connect the VM to when creating it.
 
 1. Specify data required for accessing the VM:
-    - Enter the username in the **Login** field.
-    - In the **SSH key** field, paste the contents of the public key file.
+   * Enter the username in the **Login** field.
+   * In the **SSH key** field, paste the contents of the public key file.
+
 You need to create a key pair for an SSH connection yourself. To generate keys, use third-party tools, such as `ssh-keygen` utilities on Linux and macOS or [PuTTygen](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) on Windows.
 
 1. Click **Create VM**.
@@ -95,89 +106,89 @@ After the `joomla-pg-tutorial-web` VM's status changes to `RUNNING`, do the foll
 
 1. [Connect](../../compute/operations/vm-connect/ssh.md) to the VM over SSH. You can use the `ssh` tool in Linux and macOS or [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) for Windows.
 
-      The recommended authentication method when connecting over SSH is using a key pair.  Don't forget to set up the created key pair: the private key must match the public key sent to the VM.
+   The recommended authentication method when connecting over SSH is using a key pair.  Don't forget to set up the created key pair: the private key must match the public key sent to the VM.
 
 1. Download and unpack the Joomla archive:
 
-    ```bash
-    $ sudo mkdir -p /var/www/html/
-    $ curl https://downloads.joomla.org/cms/joomla3/3-8-7/Joomla_3-8-7-Stable-Full_Package.tar.gz?format=gz -o Joomla_3-8-7-Stable-Full_Package.tar.gz -L
-    $ sudo mv Joomla_3-8-7-Stable-Full_Package.tar.gz /var/www/html/
-    $ (cd /var/www/html/ && sudo tar -zxvf Joomla_3-8-7-Stable-Full_Package.tar.gz)
-    $ sudo rm /var/www/html/Joomla_3-8-7-Stable-Full_Package.tar.gz
-    $ sudo mv /var/www/html/htaccess.txt /var/www/html/.htaccess
-    ```
+   ```bash
+   sudo mkdir -p /var/www/html/
+   curl https://downloads.joomla.org/cms/joomla3/3-8-7/Joomla_3-8-7-Stable-Full_Package.tar.gz?format=gz -o Joomla_3-8-7-Stable-Full_Package.tar.gz -L
+   sudo mv Joomla_3-8-7-Stable-Full_Package.tar.gz /var/www/html/
+   (cd /var/www/html/ && sudo tar -zxvf Joomla_3-8-7-Stable-Full_Package.tar.gz)
+   sudo rm /var/www/html/Joomla_3-8-7-Stable-Full_Package.tar.gz
+   sudo mv /var/www/html/htaccess.txt /var/www/html/.htaccess
+   ```
 
 1. Install additional components:
 
-    {% list tabs %}
+   {% list tabs %}
 
-    - Ubuntu 14
+   - Ubuntu 14
 
-      ```bash
-      $ echo "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list
-      $ wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
-      $ sudo apt-get update
-      $ sudo apt-get -q -y install php5-pgsql php5-curl php5-json php5-cgi php5 libapache2-mod-php5 php5-mcrypt apache2 php5-common cron debconf-utils sendmail unzip iptables postgresql-client-10
-      $ sudo mkdir ~www-data/.postgresql
-      $ sudo wget "https://crls.yandex.net/allCLCAs.pem" -O ~www-data/.postgresql/root.crt
-      $ sudo chmod 0600 ~www-data/.postgresql/root.crt
-      $ sudo chown -R www-data:www-data ~www-data/.postgresql
-      ```
+     ```bash
+     echo "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list
+     wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+     sudo apt-get update
+     sudo apt-get -q -y install php5-pgsql php5-curl php5-json php5-cgi php5 libapache2-mod-php5 php5-mcrypt apache2 php5-common cron debconf-utils sendmail unzip iptables postgresql-client-10
+     sudo mkdir ~www-data/.postgresql
+     sudo wget "https://crls.yandex.net/allCLCAs.pem" -O ~www-data/.postgresql/root.crt
+     sudo chmod 0600 ~www-data/.postgresql/root.crt
+     sudo chown -R www-data:www-data ~www-data/.postgresql
+     ```
 
-    - Ubuntu 16
+   - Ubuntu 16
 
-      ```bash
-      $ echo "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list
-      $ wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
-      $ sudo apt-get update
-      $ sudo apt-get -q -y install php7.0-pgsql php7.0-curl php7.0-json php7.0-cgi php7.0 libapache2-mod-php7.0 php7.0-mcrypt apache2 php-mail php7.0-common cron debconf-utils sendmail unzip iptables composer postgresql-client-10
-      $ sudo mkdir ~www-data/.postgresql
-      $ sudo wget "https://crls.yandex.net/allCLCAs.pem" -O ~www-data/.postgresql/root.crt
-      $ sudo chmod 0600 ~www-data/.postgresql/root.crt
-      $ sudo chown -R www-data:www-data ~www-data/.postgresql
-      ```
+     ```bash
+     echo "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list
+     wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+     sudo apt-get update
+     sudo apt-get -q -y install php7.0-pgsql php7.0-curl php7.0-json php7.0-cgi php7.0 libapache2-mod-php7.0 php7.0-mcrypt apache2 php-mail php7.0-common cron debconf-utils sendmail unzip iptables composer postgresql-client-10
+     sudo mkdir ~www-data/.postgresql
+     sudo wget "https://crls.yandex.net/allCLCAs.pem" -O ~www-data/.postgresql/root.crt
+     sudo chmod 0600 ~www-data/.postgresql/root.crt
+     sudo chown -R www-data:www-data ~www-data/.postgresql
+     ```
 
-    - Ubuntu 18
+   - Ubuntu 18
 
-      ```bash
-      $ echo "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list
-      $ wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
-      $ sudo apt-get update
-      $ sudo apt-get -q -y install php7.2-pgsql php7.2-curl php7.2-json php7.2-cgi php7.2 libapache2-mod-php7.2 apache2 php-mail php7.2-common cron debconf-utils sendmail unzip iptables composer postgresql-client-10
-      $ sudo mkdir ~www-data/.postgresql
-      $ sudo wget "https://crls.yandex.net/allCLCAs.pem" -O ~www-data/.postgresql/root.crt
-      $ sudo chmod 0600 ~www-data/.postgresql/root.crt
-      $ sudo chown -R www-data:www-data ~www-data/.postgresql
-      ```
+     ```bash
+     echo "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list
+     wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+     sudo apt-get update
+     sudo apt-get -q -y install php7.2-pgsql php7.2-curl php7.2-json php7.2-cgi php7.2 libapache2-mod-php7.2 apache2 php-mail php7.2-common cron debconf-utils sendmail unzip iptables composer postgresql-client-10
+     sudo mkdir ~www-data/.postgresql
+     sudo wget "https://crls.yandex.net/allCLCAs.pem" -O ~www-data/.postgresql/root.crt
+     sudo chmod 0600 ~www-data/.postgresql/root.crt
+     sudo chown -R www-data:www-data ~www-data/.postgresql
+     ```
 
-    - CentOS 6
+   - CentOS 6
 
-      ```bash
-      $ sudo yum -y install https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-6-x86_64/pgdg-centos10-10-2.noarch.rpm
-      $ sudo yum -y install http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
-      $ sudo yum check-update
-      $ sudo yum -y install --enablerepo remi-php72 httpd php php-pgsql php php-common php-mbstring php-zip php-xml nano wget postgresql10
-      $ sudo mkdir ~apache/.postgresql
-      $ sudo wget "https://crls.yandex.net/allCLCAs.pem" -O ~apache/.postgresql/root.crt
-      $ sudo chmod 0600 ~apache/.postgresql/root.crt
-      $ sudo chown -R apache:apache ~apache/.postgresql
-      ```
+     ```bash
+     sudo yum -y install https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-6-x86_64/pgdg-centos10-10-2.noarch.rpm
+     sudo yum -y install http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
+     sudo yum check-update
+     sudo yum -y install --enablerepo remi-php72 httpd php php-pgsql php php-common php-mbstring php-zip php-xml nano wget postgresql10
+     sudo mkdir ~apache/.postgresql
+     sudo wget "https://crls.yandex.net/allCLCAs.pem" -O ~apache/.postgresql/root.crt
+     sudo chmod 0600 ~apache/.postgresql/root.crt
+     sudo chown -R apache:apache ~apache/.postgresql
+     ```
 
-    - CentOS 7
+   - CentOS 7
 
-      ```bash
-      $ sudo yum -y install https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-centos10-10-2.noarch.rpm
-      $ sudo yum -y install http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
-      $ sudo yum check-update
-      $ sudo yum -y install --enablerepo remi-php72 httpd php php-pgsql php php-common php-mbstring php-zip php-xml nano wget postgresql10
-      $ sudo mkdir ~apache/.postgresql
-      $ sudo wget "https://crls.yandex.net/allCLCAs.pem" -O ~apache/.postgresql/root.crt
-      $ sudo chmod 0600 ~apache/.postgresql/root.crt
-      $ sudo chown -R apache:apache ~apache/.postgresql
-      ```
+     ```bash
+     sudo yum -y install https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-centos10-10-2.noarch.rpm
+     sudo yum -y install http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
+     sudo yum check-update
+     sudo yum -y install --enablerepo remi-php72 httpd php php-pgsql php php-common php-mbstring php-zip php-xml nano wget postgresql10
+     sudo mkdir ~apache/.postgresql
+     sudo wget "https://crls.yandex.net/allCLCAs.pem" -O ~apache/.postgresql/root.crt
+     sudo chmod 0600 ~apache/.postgresql/root.crt
+     sudo chown -R apache:apache ~apache/.postgresql
+     ```
 
-    {% endlist %}
+   {% endlist %}
 
 ## Configure the Apache2 web server {#configure-apache2}
 
@@ -188,37 +199,37 @@ After the `joomla-pg-tutorial-web` VM's status changes to `RUNNING`, do the foll
    - Ubuntu 14
 
      ```bash
-     $ sudo a2enmod php5
-     $ sudo a2dismod mpm_event
-     $ sudo a2enmod mpm_prefork
-     $ sudo a2enmod rewrite
-     $ sudo chown -R www-data /var/www/html/
+     sudo a2enmod php5
+     sudo a2dismod mpm_event
+     sudo a2enmod mpm_prefork
+     sudo a2enmod rewrite
+     sudo chown -R www-data /var/www/html/
      ```
 
    - Ubuntu 16
 
      ```bash
-     $ sudo a2enmod php7.0
-     $ sudo a2dismod mpm_event
-     $ sudo a2enmod mpm_prefork
-     $ sudo a2enmod rewrite
-     $ sudo chown -R www-data /var/www/html/
+     sudo a2enmod php7.0
+     sudo a2dismod mpm_event
+     sudo a2enmod mpm_prefork
+     sudo a2enmod rewrite
+     sudo chown -R www-data /var/www/html/
      ```
 
    - Ubuntu 18
 
      ```bash
-     $ sudo a2enmod php7.2
-     $ sudo a2dismod mpm_event
-     $ sudo a2enmod mpm_prefork
-     $ sudo a2enmod rewrite
-     $ sudo chown -R www-data /var/www/html/
+     sudo a2enmod php7.2
+     sudo a2dismod mpm_event
+     sudo a2enmod mpm_prefork
+     sudo a2enmod rewrite
+     sudo chown -R www-data /var/www/html/
      ```
 
    - CentOS
 
      ```bash
-     $ sudo chown -R apache /var/www/html/
+     sudo chown -R apache /var/www/html/
      ```
 
    {% endlist %}
@@ -230,13 +241,13 @@ After the `joomla-pg-tutorial-web` VM's status changes to `RUNNING`, do the foll
    - Ubuntu
 
      ```bash
-     $ sudo nano /etc/apache2/sites-enabled/000-default.conf
+     sudo nano /etc/apache2/sites-enabled/000-default.conf
      ```
 
    - CentOS
 
      ```bash
-     $ sudo nano /etc/httpd/conf.d/joomla.conf
+     sudo nano /etc/httpd/conf.d/joomla.conf
      ```
 
    {% endlist %}
@@ -245,16 +256,16 @@ After the `joomla-pg-tutorial-web` VM's status changes to `RUNNING`, do the foll
 
    ```
    <VirtualHost *:80 [::]:80>
-           ServerAdmin webmaster@localhost
-           DocumentRoot /var/www/html/
-   
-           <Directory /var/www/html/>
-                   DirectoryIndex index.php index.html
-                   DirectorySlash off
-                   RewriteEngine on
-                   RewriteBase /
-                   AllowOverride all
-           </Directory>
+     ServerAdmin webmaster@localhost
+     DocumentRoot /var/www/html/
+
+     <Directory /var/www/html/>
+       DirectoryIndex index.php index.html
+       DirectorySlash off
+       RewriteEngine on
+       RewriteBase /
+       AllowOverride all
+     </Directory>
    </VirtualHost>
    ```
 
@@ -265,13 +276,13 @@ After the `joomla-pg-tutorial-web` VM's status changes to `RUNNING`, do the foll
    - Ubuntu
 
      ```bash
-     $ sudo service apache2 restart
+     sudo service apache2 restart
      ```
 
    - CentOS
 
      ```bash
-     $ sudo service httpd restart
+     sudo service httpd restart
      ```
 
    {% endlist %}
@@ -281,10 +292,10 @@ After the `joomla-pg-tutorial-web` VM's status changes to `RUNNING`, do the foll
    Change the SELinux settings:
 
    ```bash
-   $ sudo semanage fcontext -a -t httpd_sys_content_t "/var/www/html(/.*)?"
-   $ sudo semanage fcontext -a -t httpd_sys_rw_content_t "/var/www/html(/.*)?"
-   $ sudo restorecon -R /var/www/html
-   $ setsebool -P httpd_can_network_connect 1
+   sudo semanage fcontext -a -t httpd_sys_content_t "/var/www/html(/.*)?"
+   sudo semanage fcontext -a -t httpd_sys_rw_content_t "/var/www/html(/.*)?"
+   sudo restorecon -R /var/www/html
+   setsebool -P httpd_can_network_connect 1
    ```
 
 1. This step should only be performed on a VM running CentOS 6.
@@ -292,22 +303,23 @@ After the `joomla-pg-tutorial-web` VM's status changes to `RUNNING`, do the foll
    Open network ports 80 and 443 using the `iptables` utility:
 
    ```bash
-   $ sudo iptables -I INPUT -p tcp -m tcp --dport 80 -j ACCEPT
-   $ sudo iptables -I INPUT -p tcp -m tcp --dport 443 -j ACCEPT
-   $ sudo iptables-save | sudo tee /etc/sysconfig/iptables
+   sudo iptables -I INPUT -p tcp -m tcp --dport 80 -j ACCEPT
+   sudo iptables -I INPUT -p tcp -m tcp --dport 443 -j ACCEPT
+   sudo iptables-save | sudo tee /etc/sysconfig/iptables
    ```
 
 ## Configure Joomla {#configure-joomla}
 
 Configure Joomla following the [instructions](https://docs.joomla.org/J3.x:Installing_Joomla/en) on the project website.
+
 During the configuration process, you'll need the DB connection settings. To get the parameters and configure them correctly, do the following:
 
 1. Get the addresses of the DB cluster hosts in the management console:
-    1. Open the folder where the DB cluster was created.
-    1. Select **{{ mpg-name }}**.
-    1. Select the cluster `joomla-pg-tutorial-db-cluster`.
-    1. Open the **Hosts** tab.
-    1. In the **Address (domain name)** column, find the host addresses.
+   1. Open the folder where the DB cluster was created.
+   1. Select **{{ mpg-name }}**.
+   1. Select the cluster `joomla-pg-tutorial-db-cluster`.
+   1. Open the **Hosts** tab.
+   1. In the **Address (domain name)** column, find the host addresses.
 
 1. At the **Database** step, fill in the following fields  in the Joomla web installer:
    * **DB type**: `PostgreSQL`.
@@ -316,6 +328,7 @@ During the configuration process, you'll need the DB connection settings. To get
      ```
      <address of host 1>,<address of host 2>,<address of host 3> port=6432 sslmode=verify-full target_session_attrs=read-write
      ```
+
    * **Username**:`joomla`.
    * **Password**: enter the DB user's password.
    * **DB name**: `joomla-pg-tutorial-db`.
@@ -343,8 +356,6 @@ You can check the domain name the same way only 15-20 minutes after editing the 
 To stop paying for your deployed server and DB, just [delete the created VM](../../compute/operations/vm-control/vm-delete.md) `joomla-pg-tutorial-web` and [cluster {{ mpg-name }}](../../managed-postgresql/operations/cluster-delete.md) `joomla-pg-tutorial-db-cluster`.
 
 If you reserved a static public IP address specifically for this VM:
-
 1. Open the **Virtual Private Cloud** in your folder.
 1. Go to the **IP addresses** tab.
 1. Find the address you need, click ![ellipsis](../../_assets/options.svg), and select **Delete**.
-

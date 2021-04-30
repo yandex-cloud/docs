@@ -1,3 +1,11 @@
+---
+description: GPU is a graphics processor. GPUs outperform vCPUs in processing certain types of data and can be used for complex computing. Yandex Compute Cloud provides graphics accelerators (GPUs) as part of graphics cards.
+keywords:
+  - gpu
+  - graphics processor
+  - graphics cards
+---
+
 # Graphics accelerators (GPUs)
 
 {{ compute-full-name }} provides graphics accelerators (GPUs) as part of graphics cards. GPUs outperform vCPUs in processing certain types of data and can be used for complex computing.
@@ -16,20 +24,20 @@ Available configurations of computing resources:
 
 * Intel Broadwell with NVIDIA® Tesla® V100 (`gpu-standard-v1`):
 
-  | Number of GPUs | Number of vCPUs | RAM, GB |
-  | --- | --- | --- |
-  | 1 | 8 | 96 |
-  | 2 | 16 | 192 |
-  | 4 | 32 | 384 |
+  Number of GPUs | Number of vCPUs | RAM, GB
+  --- | --- | ---
+  1 | 8 | 96
+  2 | 16 | 192
+  4 | 32 | 384
 
 * Intel Cascade Lake with NVIDIA® Tesla® V100 (`gpu-standard-v2`):
 
-  | Number of GPUs | Number of vCPUs | RAM, GB |
-  | --- | --- | --- |
-  | 1 | 8 | 48 |
-  | 2 | 16 | 96 |
-  | 4 | 32 | 192 |
-  | 8 | 64 | 384 |
+  Number of GPUs | Number of vCPUs | RAM, GB
+  --- | --- | ---
+  1 | 8 | 48
+  2 | 16 | 96
+  4 | 32 | 192
+  8 | 64 | 384
 
 For more information about VM organizational and technical limits, see [Quotas and limits](../concepts/limits.md).
 
@@ -44,7 +52,6 @@ For more information about VM organizational and technical limits, see [Quotas a
 NVIDIA® vGPU software lets you use cards with GPUs for both graphics and computing tasks on vGPUs. This requires the appropriate [licenses](https://www.nvidia.com/content/dam/en-zz/Solutions/design-visualization/solutions/resources/documents1/Virtual-GPU-Packaging-and-Licensing-Guide.pdf).
 
 To use vGPU technology, you need:
-
 * A VM running on the [platform](#vm-platforms.md) `vgpu-standard-v1` with one of the following images:
   * [Ubuntu 18.04 lts vGPU](https://cloud.yandex.com/marketplace/products/f2e8k6h1vu1rc360rr0h).
   * [Windows Server 2019 Datacenter vGPU](https://cloud.yandex.com/marketplace/products/f2ent6cnb49sf5n9s1u2).
@@ -52,11 +59,10 @@ To use vGPU technology, you need:
 * [NVIDIA® vGPU Software License Server](https://docs.nvidia.com/grid/ls/latest/grid-license-server-user-guide/index.html).
 
 To work with the license, you can:
-
 * Use your current license server.
-The current license server must be available over the network from VMs with vGPUs.
+  The current license server must be available over the network from VMs with vGPUs.
 * Create a VM with the NVIDIA® vGPU Software License Server in {{ yandex-cloud }}.
-For information about how to install and configure the license server, see the [NVIDIA documentation](https://docs.nvidia.com/grid/ls/latest/grid-license-server-user-guide/index.html#installing-nvidia-grid-license-server).
+  For information about how to install and configure the license server, see the [NVIDIA documentation](https://docs.nvidia.com/grid/ls/latest/grid-license-server-user-guide/index.html#installing-nvidia-grid-license-server).
 
 ### Configurations of VMs with vGPUs {#config-vgpu}
 
@@ -64,9 +70,9 @@ The following configuration is available for VMs with vGPUs:
 
 * Intel Broadwell with NVIDIA® vGPU Tesla® V100 8G (`vgpu-standard-v1`):
 
-  | Number of vGPUs | Number of vCPUs | RAM, GB | GPU RAM, GB |
-  | --- | --- | --- | --- |
-  | 1 | 4 | 12 | 8 |
+  Number of vGPUs | Number of vCPUs | RAM, GB | GPU RAM, GB
+  --- | --- | --- | ---
+  1 | 4 | 12 | 8
 
 ## See also {#see-also}
 

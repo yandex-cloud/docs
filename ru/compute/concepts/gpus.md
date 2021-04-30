@@ -1,3 +1,14 @@
+---
+description: GPU – это графический процессор, который обрабатывает некоторые типы данных намного эффективнее, чем vCPU. Может использоваться для сложных вычислений. Compute Cloud предоставляет графические ускорители (GPU) и виртуальные графические ускорители (vGPU) в составе графических карт.
+keywords:
+  - gpu
+  - graphics processor
+  - graphics cards 
+  - графический процессор
+  - графические карты
+  - видео карты
+---
+
 # Графические ускорители GPU и vGPU
 
 {{ compute-short-name }} предоставляет графические ускорители (GPU) и виртуальные графические ускорители (vGPU) в составе графических карт. GPU обрабатывают некоторые типы данных эффективнее, чем vCPU, и могут использоваться для сложных вычислений.
@@ -6,7 +17,7 @@
 
 {% note warning %}
 
-В отличие от vGPU, GPU работает в режиме [TCC](https://docs.nvidia.com/nsight-visual-studio-edition/reference/index.html#tesla-compute-cluster), который не использует графические драйверы операционной системы. 
+В отличие от vGPU, GPU работает в режиме [TCC](https://docs.nvidia.com/nsight-visual-studio-edition/reference/index.html#tesla-compute-cluster), который не использует графические драйверы операционной системы.
 
 {% endnote %}
 
@@ -24,7 +35,7 @@
 
 * Платформа Intel Broadwell with NVIDIA® Tesla® V100 (`gpu-standard-v1`):
 
-  Количество GPU | Количество vCPU | Объем RAM, ГБ |
+  Количество GPU | Количество vCPU | Объем RAM, ГБ
   --- | --- | ---
   1 | 8 | 96
   2 | 16 | 192
@@ -32,14 +43,14 @@
 
 * Платформа Intel Cascade Lake with NVIDIA® Tesla® V100 (`gpu-standard-v2`):
 
-  Количество GPU | Количество vCPU | Объем RAM, ГБ |
+  Количество GPU | Количество vCPU | Объем RAM, ГБ
   --- | --- | ---
   1 | 8 | 48
   2 | 16 | 96
   4 | 32 | 192
   8 | 64 | 384
 
-Ознакомиться с организационными и техническими ограничениями виртуальных машин можно в разделе [Квоты и лимиты](../concepts/limits.md).
+Ознакомиться с организационными и техническими ограничениями ВМ можно в разделе [Квоты и лимиты](../concepts/limits.md).
 
 ### Образы операционных систем {#os}
 
@@ -52,7 +63,6 @@
 Технология NVIDIA® vGPU позволяет использовать карты с GPU как для решения графических, так и для вычислительных задач на vGPU. Для этого вам понадобятся соответствующие [лицензии](https://www.nvidia.com/content/dam/en-zz/Solutions/design-visualization/solutions/resources/documents1/Virtual-GPU-Packaging-and-Licensing-Guide.pdf).
 
 Чтобы воспользоваться технологией vGPU, необходимы:
-
 * ВМ на [платформе](#vm-platforms.md) `vgpu-standard-v1` с одним из образов:
   * [Ubuntu 18.04 lts vGPU](https://cloud.yandex.ru/marketplace/products/f2e8k6h1vu1rc360rr0h);
   * [Windows Server 2019 Datacenter vGPU](https://cloud.yandex.ru/marketplace/products/f2ent6cnb49sf5n9s1u2).
@@ -60,27 +70,25 @@
 * Сервер лицензий [NVIDIA® vGPU Software License Server](https://docs.nvidia.com/grid/ls/latest/grid-license-server-user-guide/index.html).
 
 Для работы с лицензией вы можете:
-
 * Использовать свой текущий сервер лицензий.
-  Текущий сервер лицензий должен быть доступен по сети из виртуальных машин с vGPU.
-* Создать ВМ с сервером лицензий NVIDIA® vGPU Software License Server в {{ yandex-cloud }}. 
+  Текущий сервер лицензий должен быть доступен по сети из ВМ с vGPU.
+* Создать ВМ с сервером лицензий NVIDIA® vGPU Software License Server в {{ yandex-cloud }}.
   Как установить и настроить сервер лицензий читайте в [документации NVIDIA](https://docs.nvidia.com/grid/ls/latest/grid-license-server-user-guide/index.html#installing-nvidia-grid-license-server).
 
 ### Конфигурации виртуальных машин с vGPU {#config-vgpu}
 
 Для ВМ с vGPU доступна конфигурация на платформе Intel Broadwell with NVIDIA® vGPU Tesla® V100 8G (`vgpu-standard-v1`):
 
-  Количество vGPU | Количество vCPU | Объем RAM, ГБ | Объем GPU RAM, ГБ
-  --- | --- | --- | ---
-  1 | 4 | 12 | 8
+Количество vGPU | Количество vCPU | Объем RAM, ГБ | Объем GPU RAM, ГБ
+--- | --- | --- | ---
+1 | 4 | 12 | 8
 
 ## Сравнение GPU и vGPU
 
 {% include [gpu-vs-vgpu](../../_includes/compute/gpu-comparation.md) %}
 
-
 ## Смотрите также {#see-also}
 
-* [Создайте виртуальную машину с GPU](../operations/vm-create/create-vm-with-gpu.md).
-* Узнайте, как [добавить GPU к существующей виртуальной машине](../operations/vm-control/vm-update-resources.md#add-gpu).
+* [{#T}](../operations/vm-create/create-vm-with-gpu.md).
+* Узнайте, как [добавить GPU к существующей ВМ](../operations/vm-control/vm-update-resources.md#add-gpu).
 * Узнайте, как [изменить количество GPU](../operations/vm-control/vm-update-resources.md#update-gpu).

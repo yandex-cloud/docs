@@ -1,3 +1,13 @@
+---
+title: {{ MS }} backups
+description: {{ mms-short-name }} provides automatic and manual SQL Server database backups. A backup is automatically created once a day. The backup process start time is set when a {{ MS }} cluster is created or updated.
+keywords:
+  - backup
+  - backup {{ MS }}
+  - ms sql server
+  - {{ MS }}
+---
+
 # Backups
 
 {{ mms-short-name }} provides automatic and manual database backups. Backups take up space in the storage allocated to the cluster. If the total amount of data and backups exceeds the amount of storage, the excess is [billed](../pricing.md).
@@ -11,9 +21,8 @@ To restore a cluster from a backup, [follow the instructions](../operations/clus
 ## Creating backups {#size}
 
 Backups can be made automatically and manually. Regardless of their type, they follow the same guidelines:
-
-- The first backup and every seventh backup are full backups of all databases.
-- Other backups are incremental and only store data that has changed since the previous backup to save storage space.
+* The first backup and every seventh backup are full backups of all databases.
+* Other backups are incremental and only store data that has changed since the previous backup to save storage space.
 
 After a backup is created, it's compressed for storage. The exact backup size currently isn't displayed.
 
@@ -32,4 +41,3 @@ Backup integrity is checked on synthetic data using integration tests available 
 ### Checking backup restoration {#capabilities}
 
 To test the backup feature, [restore a cluster from a backup](../operations/cluster-backups.md) and check the integrity of your data.
-
