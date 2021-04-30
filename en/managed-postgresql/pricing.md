@@ -21,7 +21,7 @@ The cost of {{ mpg-name }} usage is based on:
 
 The cost is calculated for each hour of the host's operation in accordance with its class. Exact class characteristics are given in [{#T}](concepts/instance-types.md).
 
-The minimum billing unit is one hour (for example, the cost of 1.5 hours of operation is the same as the cost of 2 hours of operation). You are not charged for time when the {{ PG }} host is not performing its main functions.
+The minimum billing unit is one minute (for example, the cost of 1.5 minutes of operation is the same as the cost of 2 minutes of operation). You are not charged for time when the {{ PG }} host is not performing its main functions.
 
 ### Disk space usage {#rules-storage}
 
@@ -38,7 +38,7 @@ The following is charged:
 
     * The number of hosts in the cluster does not affect the size of the storage and, consequently, that of free backups.
 
-The cost is specified for one month of use. The minimum billing unit is 1 GB per hour (for example, the cost of storing 1 GB for 1.5 hours is equal to the cost of storage for 2 hours).
+The cost is specified for one month of use. The minimum billing unit is 1 GB per minute (for example, the cost of storing 1 GB for 1.5 minutes is equal to the cost of storage for 2 minutes).
 
 
 ## Discount for committed volumes of services (CVoS) {#cvos}
