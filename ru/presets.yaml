@@ -311,6 +311,7 @@ default:
   port-mpg: 6432
   port-mrd-sentinel: 26379
   port-mrd: 6379
+  port-mrd-tls: 6380
   port-ssh: 22
   sku|RUB|ai:
     mt:

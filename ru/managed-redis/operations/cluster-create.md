@@ -30,6 +30,14 @@
     
      {% endnote %}
 
+  1. Если требуется, включите поддержку шифрованных TLS/SSL-соединений с кластером (для версии {{ RD }} 6 или старше).
+
+     {% note warning %}
+
+     Включить шифрование соединений можно только при создании нового кластера. Отключить шифрование в кластере, для которого оно включено, невозможно.
+
+     {% endnote %}
+
   1. Настройте [класс хостов](../concepts/instance-types.md) кластера:
       - Выберите тип хостов — он определяет их [гарантированную долю vCPU](../../compute/concepts/performance-levels.md). Хосты типа **high-memory** работают с полным использованием ядра, а **burstable** — с частичным.
       - Выберите объем оперативной памяти для хоста.
@@ -87,6 +95,7 @@
          --network-name <имя сети> \
          --host zone-id=<зона доступности>,subnet-id=<идентификатор подсети> \
          --security-group-ids <список идентификаторов групп безопасности> \
+         --enable-tls \
          --resource-preset <класс хоста> \
          --disk-size <размер хранилища в гигабайтах> \
          --password=<пароль пользователя> \
@@ -94,6 +103,14 @@
       ```
       
       Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной зоне доступности создано 2 и больше подсетей.
+      
+- API
+
+  Чтобы создать кластер, воспользуйтесь методом API [create](../api-ref/Cluster/create.md) и передайте в запросе:
+  - Идентификатор каталога, в котором должен быть размещен кластер, в параметре `folderId`.
+  - Имя кластера в параметре `name`.
+  - Идентификаторы групп безопасности в параметре `securityGroupIds`.
+  - Флаг `tlsEnabled=true` для создания кластера с поддержкой шифрованных TLS/SSL-соединений (для версии {{ RD }} 6 или старше).
 
 - Terraform
 
@@ -108,8 +125,8 @@
        * Кластер базы данных — описание кластера и его хостов. При необходимости здесь же можно задать [настройки СУБД](../concepts/settings-list.md#dbms-settings.).
        * Сеть — описание [облачной сети](../../vpc/concepts/network.md#network), в которой будет расположен кластер. Если подходящая сеть у вас уже есть, описывать ее повторно не нужно.
        * Подсети — описание [подсетей](../../vpc/concepts/network.md#network), к которым будут подключены хосты кластера. Если подходящие подсети у вас уже есть, описывать их повторно не нужно.
-
-       Пример структуры конфигурационного файла:
+              
+       Пример структуры конфигурационного файла для создания кластера с поддержкой TLS:
 
        ```hcl
        terraform {
@@ -132,6 +149,7 @@
          environment        = "<окружение>"
          network_id         = "<идентификатор сети>"
          security_group_ids = [ "<идентификаторы групп безопасности>" ]
+         tls_enabled        = true
        
          config {
            password = "<пароль>"
@@ -200,9 +218,11 @@
   Допустим, нужно создать {{ RD }}-кластер со следующими характеристиками:
   
   - С именем `myredis`.
+  - С версией `6.0`.
   - В окружении `production`.
   - В сети `default`.
   - С одним хостом класса `hm1.nano` в подсети `b0rcctk2rvtr8efcch64`, в зоне доступности `{{ zone-id }}` и группе безопасности с идентификатором `{{ security-group }}`.
+  - С поддержкой TLS-соединений.
   - С быстрым сетевым хранилищем (`{{ disk-type-example }}`) объемом 16 ГБ.
   - C паролем `user1user1`.
   
@@ -211,11 +231,14 @@
   ```
   $ {{ yc-mdb-rd }} cluster create \
        --name myredis \
+       --redis-version 6.0 \
        --environment production \
        --network-name default \
        --resource-preset hm1.nano \
        --host zone-id={{ zone-id }},subnet-id=b0rcctk2rvtr8efcch64 \
        --security-group-ids {{ security-group }} \
+       --enable-tls \
+       --disk-type-id {{ disk-type-example }} \
        --disk-size 16 \
        --password=user1user1
   ```
@@ -224,12 +247,14 @@
 
   Допустим, нужно создать {{ RD }}-кластер и сеть для него со следующими характеристиками:
     - С именем `myredis`.
-    - В окружении `PRODUCTION`.
+    - С версией `6.0`.
+    - В окружении `production`.
     - В облаке с идентификатором `{{ tf-cloud-id }}`.
     - В каталоге с идентификатором `{{ tf-folder-id }}`.
     - В новой сети `mynet`.
     - С одним хостом класса `hm1.nano` в новой подсети `mysubnet`, в зоне доступности `{{ zone-id }}`. Подсеть `mysubnet` будет иметь диапазон `10.5.0.0/24`.
-    - В новой группе безопасности `redis-sg`, разрешающей подключения через порт `{{ port-mrd }}` с любых адресов подсети `mysubnet`.
+    - В новой группе безопасности `redis-sg`, разрешающей подключения через порт `{{ port-mrd-tls }}` с любых адресов подсети `mysubnet`.
+    - С поддержкой TLS-соединений.
     - С быстрым сетевым хранилищем (`{{ disk-type-example }}`) объемом 16 ГБ.
     - C паролем `user1user1`.
 
@@ -256,14 +281,17 @@
     environment        = "PRODUCTION"
     network_id         = yandex_vpc_network.mynet.id
     security_group_ids = [ yandex_vpc_security_group.redis-sg.id ]
+    tls_enabled        = true
 
     config {
       password = "user1user1"
+      version = "6.0"
     }
 
     resources {
       resource_preset_id = "hm1.nano"
       disk_size          = 16
+      disk_type_id       = "{{ disk-type-example }}"
     }
 
     host {
@@ -280,14 +308,14 @@
 
     ingress {
       description    = "Redis"
-      port           = {{ port-mrd }}
+      port           = {{ port-mrd-tls }}
       protocol       = "TCP"
       v4_cidr_blocks = ["10.5.0.0/24"]
     }
 
     egress {
       description    = "Redis"
-      port           = {{ port-mrd }}
+      port           = {{ port-mrd-tls }}
       protocol       = "TCP"
       v4_cidr_blocks = ["10.5.0.0/24"]
     }

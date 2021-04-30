@@ -1,3 +1,12 @@
+---
+title: Redis backups
+description: {{ mrd-short-name }} provides automatic and manual Redis database backups. Backups take up space in the storage allocated to the cluster. A backup of all cluster data (an RDB snapshot) is automatically created once a day.
+keywords:
+  - backup
+  - Redis backup
+  - Redis
+---
+
 # Backups
 
 {{ mrd-short-name }} provides automatic and manual database backups. Backups take up space in the storage allocated to the cluster. If the total amount of data and backups exceeds the amount of storage space, the excess is [billed](../pricing.md).
@@ -21,15 +30,14 @@ This may cause the {{ mrd-name }} hosts to run out of memory: they will be resta
 ## Creating backups {#size}
 
 Backups can be made automatically and manually. Regardless of their type, they follow the same guidelines:
-
-- The first backup and every seventh backup are full backups of all databases.
-- Other backups are incremental and only store data that has changed since the previous backup to save storage space.
+* The first backup and every seventh backup are full backups of all databases.
+* Other backups are incremental and only store data that has changed since the previous backup to save storage space.
 
 After a backup is created, it's compressed for storage. The exact backup size currently isn't displayed.
 
 ## Storing backups {#storage}
 
-Backups are stored in Yandex internal storage as logical dumps and are encrypted using [GPG](en.wikipedia.org/wiki/GNU_Privacy_Guard). Each cluster has its own encryption keys.
+Backups are stored in Yandex internal storage as logical dumps and are encrypted using [GPG](https://en.wikipedia.org/wiki/GNU_Privacy_Guard). Each cluster has its own encryption keys.
 
 All backups (automatic or manual) are stored for 7 days.
 
@@ -42,4 +50,3 @@ Backup integrity is checked on synthetic data using integration tests available 
 ### Checking backup recovery {#capabilities}
 
 To test the backup feature, [restore a cluster from a backup](../operations/cluster-backups.md) and check the integrity of your data.
-

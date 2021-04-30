@@ -1,3 +1,10 @@
+---
+description: A virtual machine is similar to a server in the Yandex.Cloud infrastructure. A virtual machine is created in one of the folders in your cloud and inherits access rights from them. When creating a virtual machine, you can choose the availability zone where it will be located.
+keywords:
+  - vm
+  - virtual machine
+---
+
 # Virtual machines
 
 _A VM_ is similar to a server in the cloud infrastructure.
@@ -47,4 +54,3 @@ You can set your own metadata when creating or updating VMs. For example, to con
 When creating a VM, you should specify settings for the network interface connected to it: select the subnet to which the VM will be connected and configure internal and public IP addresses. This allows the VM to interact with other services on the intranet and internet.
 
 For more information, see [{#T}](network.md).
-

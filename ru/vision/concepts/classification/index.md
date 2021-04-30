@@ -1,3 +1,10 @@
+---
+description: Классификация изображений - это возможность позволяющая оценить, насколько изображение соответствует какому-то признаку, например, есть ли на изображении контент для взрослых. Это сократит затраты на ручную модерацию вы сможете блокировать такие изображения автоматически.
+keywords:
+  - image classification
+  - классификация изображений
+---
+
 # Классификация изображений
 
 _Классификация изображений сейчас находится на [стадии Preview](/docs/overview/concepts/launch-stages)._
@@ -14,16 +21,16 @@ _Классификация изображений сейчас находитс
 
 ```json
 {
-    "folderId": "b1gvmob95yysaplct532",
-    "analyze_specs": [{
-        "content": "iVBORw0KGgo...",
-        "features": [{
-            "type": "CLASSIFICATION",
-            "classificationConfig": {
-                "model": "quality"
-            }
-        }]
+  "folderId": "b1gvmob95yysaplct532",
+  "analyze_specs": [{
+    "content": "iVBORw0KGgo...",
+    "features": [{
+      "type": "CLASSIFICATION",
+      "classificationConfig": {
+        "model": "quality"
+      }
     }]
+  }]
 }
 ```
 
@@ -31,25 +38,24 @@ _Классификация изображений сейчас находитс
 
 ```json
 {
-    "folderId": "b1gvmob95yysaplct532",
-    "analyze_specs": [{
-        "content": "iVBORw0KGgo...",
-        "features": [{
-            "type": "CLASSIFICATION",
-            "classificationConfig": {
-                "model": "quality"
-            }
-        },
-        {
-            "type": "CLASSIFICATION",
-            "classificationConfig": {
-                "model": "moderation"
-            }
-        }]
+  "folderId": "b1gvmob95yysaplct532",
+  "analyze_specs": [{
+    "content": "iVBORw0KGgo...",
+    "features": [{
+      "type": "CLASSIFICATION",
+      "classificationConfig": {
+        "model": "quality"
+      }
+    },
+    {
+      "type": "CLASSIFICATION",
+      "classificationConfig": {
+        "model": "moderation"
+      }
     }]
+  }]
 }
 ```
-
 
 ## Ответ сервиса {#service-response}
 
@@ -57,8 +63,8 @@ _Классификация изображений сейчас находитс
 
 ```json
 {
-    "name": "low", // имя признака
-    "probability": 0,71257284 // вероятность соответствия признаку
+  "name": "low", // Имя признака.
+  "probability": 0,71257284 // Вероятность соответствия признаку.
 }
 ```
 
@@ -70,5 +76,5 @@ _Классификация изображений сейчас находитс
 
 #### Что дальше {#what-is-next}
 
-* [Посмотрите список поддерживаемых моделей](supported-models.md)
-* [Посмотрите, как обрабатывать ошибки](../../api-ref/errors-handling.md)
+* [Посмотрите список поддерживаемых моделей](supported-models.md).
+* [Посмотрите, как обрабатывать ошибки](../../api-ref/errors-handling.md).
