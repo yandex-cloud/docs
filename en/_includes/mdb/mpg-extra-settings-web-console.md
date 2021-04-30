@@ -10,3 +10,5 @@
 
 - **Access from the management console**: Select this option to be able to [execute SQL queries](../../managed-postgresql/operations/web-sql-query.md) to cluster databases from the {{ yandex-cloud }} management console.
 
+- **Collect statistics**: Enable this option to use the [{#T}](../../managed-postgresql/operations/performance-diagnostics.md) tool in the cluster. This feature is at the [Preview stage](../../overview/concepts/launch-stages.md).
+
