@@ -1,4 +1,4 @@
-## Примеры
+## Примеры {#examples}
 
 [Таблица с колонками разных типов](https://charts.yandex-team.ru/editor/Examples/promo-table)
 

@@ -13,7 +13,7 @@
 
 ## Мобильная метрика {#appmetrica-source}
 
-### Формирование источника данных
+### Формирование источника данных {#appmetrica-source-forming-data-source}
 
 Для формирования источника данных используется метод `buildSource` модуля `libs/appmetrika/v1`.
 Метод `buildSource` принимает один аргумент: `object` со следующими свойствами:
@@ -32,7 +32,7 @@
 |limit|`number`|Ограничения количества данных|100
 |where|`object`|Дополнительные параметры|`null`
 
-#### Пример
+#### Пример {#appmetrica-source-forming-data-source-example}
 
 Вкладка **Urls**
 ```js
@@ -59,7 +59,7 @@ module.exports = {
 };
 ```
 
-### Примеры
+### Примеры {#appmetrica-source-forming-data-source-examples}
 
 [График по данным из Мобильной метрики](https://charts.yandex-team.ru/editor/Templates/simple-appmetrika)
 
@@ -67,12 +67,12 @@ module.exports = {
 
 ## Мета-информация {#meta-info}
 
-### Формирование источника данных
+### Формирование источника данных {#meta-info-forming-data-source}
 
 Для формирования источника мета-информации используется метод `buildMetaSource` модуля `libs/appmetrika/v1`.
 Метод `buildMetaSource` принимает идентификатор счетчика в качестве аргумента.
 
-#### Пример
+#### Пример {#meta-info-forming-data-source-example}
 
 Вкладка **Urls**
 ```js

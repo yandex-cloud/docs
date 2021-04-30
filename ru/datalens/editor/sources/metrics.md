@@ -7,13 +7,13 @@
 
 ---
 
-## Интеграция
+## Интеграция {#integration}
 
 С сервисом есть более тесная интеграция.
 На странице с графиком есть кнопка **Stat export**.
 В результате вас перенаправит на график в Yandex.Charts.
 
-## Формирование источника данных
+## Формирование источника данных {#forming-data-source}
 
 Для формирования источника данных используется метод `buildSource` модуля `libs/metrics/v1`.
 Метод `buildSource` принимает один аргумент: `object` со следующими свойствами:
@@ -39,7 +39,7 @@
 |system|`string`|Имя системы
 |metric|`string`|Имя метрики
 
-### Пример
+### Пример {#forming-data-source-example}
 
 Вкладка **Urls**
 ```js
@@ -74,6 +74,6 @@ module.exports = {
 };
 ```
 
-## Примеры
+## Примеры {#examples}
 
 [Метрика `proxima-5`, системы `140` и `142`](https://charts.yandex-team.ru/editor/Templates/simple-metrics)

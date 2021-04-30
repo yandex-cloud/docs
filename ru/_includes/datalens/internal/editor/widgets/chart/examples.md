@@ -1,4 +1,4 @@
-## Примеры
+## Примеры {#examples-examples}
 
 [Параметризованный график с данными из Статистики](https://charts.yandex-team.ru/editor/Examples/parametrized-stat-graph)
 

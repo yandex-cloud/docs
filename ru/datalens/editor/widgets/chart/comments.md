@@ -1,11 +1,11 @@
 
 # Комментарии
 
-* [Общая информация](#about-comments)
-* [Каналы](#comment-channels)
-* [Параметры](#comment-params)
+* [Общая информация](#common)
+* [Каналы](#channels)
+* [Параметры](#params)
 
-## Общая информация {#about-comments}
+## Общая информация {#common}
 
 Комментарии доступны для **графиков** с **временным рядом**.
 Чтобы перейти в форму работы с комментариями достаточно кликнуть на соответствующий пункт в меню:
@@ -22,7 +22,7 @@
 
 ![chart-with-menu](../../../../_assets/datalens/internal/editor/widgets/chart/comments-types.png)
 
-## Каналы {#comment-channels}
+## Каналы {#channels}
 
 Каждый комментарий относится к какому-либо каналу.
 Канал по умолчанию - имя скрипта.
@@ -49,13 +49,13 @@ module.exports = {
 
 ![chart-with-menu](../../../../_assets/datalens/internal/editor/widgets/chart/form-with-feeds.png)
 
-## Параметры {#comment-params}
+## Параметры {#params}
 
 Каждый комментарий может иметь набор параметров, формирующих срез.
 
 Значения параметров комментария соотносятся со значениями [параметров графика](/docs/editor/params/).
 Перечислить имена параметров, которые будут проверяться на соответствие, можно
-[на вкладке Config](../../../../_includes/datalens/internal/editor/widgets/chart/config.md) в секции `comments.matchedParams` и отдельно для каждого из каналов.
+[на вкладке Config](index.md#config) в секции `comments.matchedParams` и отдельно для каждого из каналов.
 Например:
 
 ```js

@@ -37,7 +37,7 @@
 
     Описание [доступных параметров](https://tech.yandex.ru/maps/doc/jsapi/2.1/ref/reference/Placemark-docpage#Placemark__constructor-summary).
 
-    #### Простой пример
+    #### Простой пример {#example-simple}
 
     Вкладка **JavaScript**
     ```js
@@ -62,7 +62,7 @@
 
     Описание [меток-диаграмм](https://tech.yandex.ru/maps/doc/jsapi/2.1/dg/concepts/geoobjects-docpage#geoobjects__piechart).
 
-    #### Пример диаграммы
+    #### Пример диаграммы {#example-diagram}
 
     Вкладка **JavaScript**
     ```js
@@ -92,7 +92,7 @@
 
     Описание [доступных параметров](https://tech.yandex.ru/maps/doc/jsapi/2.1/ref/reference/Polyline-docpage#Polyline__constructor-summary).
 
-    #### Пример
+    #### Пример {#polyline-example}
 
     Вкладка **JavaScript**
     ```js
@@ -139,7 +139,7 @@
 
     Описание [доступных параметров](https://tech.yandex.ru/maps/doc/jsapi/2.1/ref/reference/Polygon-docpage#Polygon__constructor-summary).
 
-    #### Пример
+    #### Пример {#polygon-example}
 
     Вкладка **JavaScript**
     ```js
@@ -162,7 +162,7 @@
 
     Описание [доступных параметров](https://tech.yandex.ru/maps/doc/jsapi/2.1/ref/reference/Circle-docpage#Circle__constructor-summary).
 
-    #### Пример
+    #### Пример {#circle-example}
 
     Вкладка **JavaScript**
     ```js
@@ -186,7 +186,7 @@
 
 Описание из [API Яндекс.Карт](https://tech.yandex.ru/maps/doc/jsapi/2.1/dg/concepts/geoobjects-docpage#geoobjects__geoobject_collections).
 
-#### Пример
+#### Пример {#object-collections-example}
 
 Вкладка **JavaScript**
 ```js
@@ -234,7 +234,7 @@ module.exports = [{
 
 Описание из [API Яндекс.Карт](https://tech.yandex.ru/maps/doc/jsapi/2.1/dg/concepts/geoobjects-docpage#geoobjects__clusters).
 
-#### Пример
+#### Пример {#clusters-example}
 
 Вкладка **JavaScript**
 ```js
@@ -288,7 +288,7 @@ module.exports = [{
     Описание [доступных параметров](https://github.com/yandex-shri-fx-team/ymaps-polygonmap/blob/v1.0.1/README.md#new-polygonmapdata-options).
     Доступные наборы полигонов, описывающие территориальное деление можно найти в папке `libs/ymaps`.
 
-    #### Пример с точками
+    #### Пример с точками {#areas-example-dots}
 
     Вкладка **JavaScript**
     ```js
@@ -350,7 +350,7 @@ module.exports = [{
     }];
     ```
 
-    #### Пример со значениями
+    #### Пример со значениями {#areas-example-values}
 
     Вкладка **JavaScript**
     ```js
@@ -415,7 +415,7 @@ module.exports = [{
 
     Описание [доступных параметров](https://github.com/yandex-shri-fx-team/ymaps-gridmap/blob/v1.0.0/README.md#new-gridmapdata-options).
 
-    #### Пример
+    #### Пример {#grid-example}
 
     Вкладка **JavaScript**
     ```js
@@ -464,7 +464,7 @@ module.exports = [{
 
     Описание [доступных параметров](https://github.com/yandex/mapsapi-heatmap/blob/84946349b7b54bf20ea630e7077da09ee7c85dfb/README.md#heatmap-constructor).
 
-    #### Пример
+    #### Пример {#heatmap-example}
 
     Вкладка **JavaScript**
     ```js

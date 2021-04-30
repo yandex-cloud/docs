@@ -1,7 +1,7 @@
 
 # CHYT (ClickHouse over YT)
 
-## Как работать с CHYT из ChartEditor
+## Как работать с CHYT из ChartEditor {#working-from-charteditor}
 
 С помощью ChartEditor вы можете работать с данными из публичных кластеров.
 
@@ -20,7 +20,7 @@
 |query|`string`|Запрос|Обязательное
 |cache|`boolean`|Кеширование|`false`
 
-#### Пример
+#### Пример {#working-from-charteditor-example}
 
 Вкладка **Urls**
 ```js
@@ -42,7 +42,7 @@ module.exports = {
 };
 ```
 
-## Как работать с CHYT из ChartWizard
+## Как работать с CHYT из ChartWizard {#working-from-chartwizard}
 
 Чтобы подключить кластер CHYT и начать работать с ним ChartWizard вам необходимо выполнить следующие шаги:
 * Перейти на [страницу соединений](https://charts.yandex-team.ru/connections).

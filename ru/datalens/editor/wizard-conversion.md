@@ -11,7 +11,7 @@
 Изменения в скрипт рекомендуется добавлять перед `module.exports = result;`, модифицируя содержимое `result`.
 Описание конфигурации в данный момент недокументировано и изменения возможны только на интуитивном уровне.
 
-## API
+## API {#api}
 
 [Аутентификация](../api/auth.md) • [Идентификация](../api/identification.md)
 
@@ -20,7 +20,7 @@
 * `wizardKey` - путь до Wizard чарта
 * `editorKey` - путь до Editor скрипта (**Примечание**: папки должны быть созданы заранее)
 
-### Пример запроса
+### Пример запроса {#example-request}
 
 ```bash
 curl -X POST https://charts.yandex-team.ru/api/wizard/v1/convert \
@@ -32,7 +32,7 @@ curl -X POST https://charts.yandex-team.ru/api/wizard/v1/convert \
   }'
 ```
 
-### Пример ответа
+### Пример ответа {#example-response}
 
 ```json
 {
@@ -46,7 +46,7 @@ curl -X POST https://charts.yandex-team.ru/api/wizard/v1/convert \
 
 ```
 
-## Примеры
+## Примеры {#examples}
 
 * [Wizard to Editor Convert Test/simple-graph-wizard-converted](https://charts.yandex-team.ru/editor/Wizard%20to%20Editor%20Convert%20Test/simple-graph-wizard-converted)
 

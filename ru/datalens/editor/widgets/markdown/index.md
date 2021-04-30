@@ -1,5 +1,5 @@
 # Markdown
-- [Общая информация](#info)
+- [Общая информация](#common-markdown)
 - [JavaScript](#javascript)
 - [Базовые сведения о Markdown](#about-markdown)
     - [Заголовки](#headers)
@@ -13,7 +13,7 @@
     - [Изображения](#images)
 - [Примеры](#examples)
 
-## Общая информация {#info}
+## Общая информация {#common-markdown}
 
 Виджет для отрисовки Markdown — упрощенном языке разметки.
 

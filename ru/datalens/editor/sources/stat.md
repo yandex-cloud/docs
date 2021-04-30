@@ -5,10 +5,10 @@
 **Префикс**: `/_stat` -> `https://api.stat.yandex-team.ru`
 
 **Оглавление**:
-* [Отчеты](#otchety)
-* [Геоданные](#geodannye)
-* [Словари](#slovari)
-* [Значения дименшенов](#znacheniya-dimenshenov)
+* [Отчеты](#reports)
+* [Геоданные](#geo-data)
+* [Словари](#dictionaries)
+* [Значения дименшенов](#dimension-values)
 
 **Дополнительная информация**:
 * [Доступные параметры](https://wiki.yandex-team.ru/statbox/statface/graphics/)
@@ -17,9 +17,9 @@
 
 ---
 
-## Отчеты {#otchety}
+## Отчеты {#reports}
 
-### Формирование источника данных
+### Формирование источника данных {#reports-forming-data-source}
 
 Для формирования источника данных используется метод `buildReportSource` модуля `libs/stat/v1`.
 Метод `buildReportSource` принимает один аргумент: `object` со следующими свойствами:
@@ -45,7 +45,7 @@
 |path|`string[]` `number[]`|Путь|`null`
 |level|`number`|Уровень|1
 
-#### Пример
+#### Пример {#reports-forming-data-source-example}
 
 Вкладка **Urls**
 ```js
@@ -86,13 +86,13 @@ module.exports = {
 };
 ```
 
-### Примеры
+### Примеры {#reports-examples}
 
 [График по данным отчета Статистики](https://charts.yandex-team.ru/editor/Templates/simple-stat-report)
 
 ---
 
-## Геоданные {#geodannye}
+## Геоданные {#geo-data}
 
 Для формирования источника данных используется метод `buildGeoSource` модуля `libs/stat/v1`.
 Метод `buildGeoSource` принимает один аргумент: `object` со следующими свойствами:
@@ -106,7 +106,7 @@ module.exports = {
 |scale|`string`|Скейл|`d`
 |fielddate|`string`|Дата (`YYYY-MM-DD hh:mm:ss`)|Сегодня
 
-#### Пример
+#### Пример {#geo-data-example}
 
 Вкладка **Urls**
 ```js
@@ -131,13 +131,13 @@ module.exports = {
 };
 ```
 
-### Примеры
+### Примеры {#geo-data-examples}
 
 [Всего уточненных посетителей морды за вчера по России](https://charts.yandex-team.ru/editor/Templates/simple-stat-geo)
 
 ---
 
-## Словари {#slovari}
+## Словари {#dictionaries}
 
 Для формирования источника данных используется метод `buildDictSource` модуля `libs/stat/v1`.
 Метод `buildDictSource` принимает один аргумент: `object` со следующими свойствами:
@@ -149,7 +149,7 @@ module.exports = {
 |language|`string`|Язык|`null`
 |keys|`string` `string[]`|Ключи из словаря|`null` (возвращаются все ключи и значения)
 
-#### Пример
+#### Пример {#dictionaries-example}
 
 Вкладка **Urls**
 ```js
@@ -169,7 +169,7 @@ module.exports = {
 };
 ```
 
-## Значения дименшенов {#znacheniya-dimenshenov}
+## Значения дименшенов {#dimension-values}
 
 Для формирования источника данных для запроса значения конкретного
 дименшена используется метод `buildDimensionValues` модуля `libs/stat/v1`.
@@ -183,7 +183,7 @@ module.exports = {
 |dimension|`string`|id дименшена|Обязательное
 |apply_dictionary|`bool`|Наложение словарей|Опциональное
 
-#### Пример
+#### Пример {#dimension-values-example}
 
 Вкладка **Urls**
 ```js
@@ -204,7 +204,7 @@ module.exports = {
 };
 ```
 
-#### Наложение словарей 
+#### Наложение словарей {#dictionary-overlay}
 
 Управляется флагом `apply_dictionary`.
 

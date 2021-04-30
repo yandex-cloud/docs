@@ -1,12 +1,12 @@
 # Карты
 
-* [Общая информация](#about)
+* [Общая информация](#common-map)
 * [JavaScript](#javascript)
 * [Highmaps](#highmaps)
 * [Config](#config)
 * [Примеры](#examples)
 
-## Общая информация {#about}
+## Общая информация {#common-map}
 
 Для отрисовки карт используется библиотека [Highmaps](https://www.highcharts.com/products/highmaps/).
 Доступны следующие типы карт:

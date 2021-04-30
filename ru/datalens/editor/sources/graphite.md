@@ -10,7 +10,7 @@
 
 ---
 
-## Формирование источника данных
+## Формирование источника данных {#forming-data-source}
 
 Для формирования источника данных используется метод `buildSource` модуля `libs/graphite/v1`.
 Метод `buildSource` принимает один аргумент: `object` со следующими свойствами:
@@ -23,7 +23,7 @@
 |until|`number` `string`|Конец периода (секунды или в виде `-30d`, `now`, ...)|Сегодня
 |maxDataPoints|`number`|Ограничение на количество точек|`null` (без ограничения)
 
-### Пример
+### Пример {#forming-data-source-example}
 
 Вкладка **Urls**
 ```js
@@ -45,12 +45,12 @@ module.exports = {
 };
 ```
 
-## Работа с данными из источника
+## Работа с данными из источника {#work-with-data-source}
 
 Метод `prepareGraph` модуля `libs/graphite/v1` принимает в качестве аргумента данные полученные от источника и
 преобразовывает их в данные для отрисовки графика.
 
-### Пример
+### Пример {#work-with-data-source-example}
 
 Вкладка **JavaScript**
 ```js
@@ -67,6 +67,6 @@ const graph = Graphite.prepareGraph(loadedData.graphiteSource);
 module.exports = graph;
 ```
 
-## Примеры
+## Примеры {#examples}
 
 [График по данным из Графана](https://charts.yandex-team.ru/editor/Templates/simple-graphite)

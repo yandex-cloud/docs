@@ -7,13 +7,13 @@
 
 ---
 
-## Особенности
+## Особенности {#features}
 
 Сервис присылает время в UTC формате.
 
 ---
 
-## Формирование источника данных
+## Формирование источника данных {#forming-data-source}
 
 Для формирования источника данных используется метод `buildSource` модуля `libs/razladki/v1`.
 Метод `buildSource` принимает один аргумент: `object` со следующими **обязательными** свойствами:
@@ -25,7 +25,7 @@
 |date_min|`string`|Начало периода (`YYYY-MM-DD hh:mm`)
 |date_max|`string`|Конец периода (`YYYY-MM-DD hh:mm`)
 
-### Пример
+### Пример {#forming-data-source-example}
 
 Вкладка **Urls**
 ```js
@@ -49,7 +49,7 @@ module.exports = {
 };
 ```
 
-## Работа с данными из источника
+## Работа с данными из источника {#work-with-data-source}
 
 Метод `prepareGraph` модуля `libs/razladki/v1` используется для формирования данных для отрисовки и в качестве
 аргументов принимает данные полученные от источника и `object` со следующими свойствами:
@@ -58,7 +58,7 @@ module.exports = {
 |:---|:---|:---|:---
 |useTimeShift|`boolean`|Использовать локальное время (добавляет 3 часа к временному ряду)|`false`
 
-### Пример
+### Пример {#work-with-data-source-example}
 
 Вкладка **JavaScript**
 ```js
@@ -78,6 +78,6 @@ const result = Razladki.prepareGraph(
 module.exports = result;
 ```
 
-## Примеры
+## Примеры {#examples}
 
 [График по данным из Разладок](https://charts.yandex-team.ru/editor/Templates/simple-razladki)

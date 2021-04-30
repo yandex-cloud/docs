@@ -1,11 +1,11 @@
-## Highcharts
+## Highcharts {#highcharts}
 
-### Общая информация
+### Общая информация {#common-highcharts}
 
 В результате выполнения вкладки Highcharts должны быть экпортированы данные для настройки графика средствами
 [Highcharts](http://api.highcharts.com/highcharts).
 
-### Пример
+### Пример {#example-highcharts}
 
 ```js
 module.exports = {

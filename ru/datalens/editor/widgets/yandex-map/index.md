@@ -1,6 +1,6 @@
 # Яндекс.Карта
 
-* [Ограничения](#limits)
+* [Ограничения](#limits-yamap)
 * [JavaScript](#javascript)
   * [Общая информация](#info)
   * [Доступные методы](#methods)
@@ -19,7 +19,7 @@
 * [Yandex.Maps](#yandex-maps)
 * [Примеры](#examples)
 
-## Ограничения {#limits}
+## Ограничения {#limits-yamap}
 
 Порядок координат `[lat, long]`.
 

@@ -1,11 +1,11 @@
-## Config
+## Config {#config}
 
-### Общая информация
+### Общая информация {#common-config}
 
 В результате выполнения вкладки Config должны быть экспортированы данные, отвечающие за дополнительную конфигурацию
 отображения.
 
-### Пример
+### Пример {#example-config}
 
 ```js
 module.exports = {
@@ -109,7 +109,7 @@ module.exports = {
 };
 ```
 
-#### Дополнительные возможности переопределения тултипа
+#### Дополнительные возможности переопределения тултипа {#additional-options-tooltip-config}
 Помимо стандартных для Highcharts методов переопределения строк тултипа [pointFormat](https://api.highcharts.com/highcharts/tooltip.pointFormat) 
 и [pointFormatter](https://api.highcharts.com/highcharts/tooltip.pointFormat) (смотри [пример](https://datalens-staging.yandex-team.ru/editor/5xzcv2k7ler61-tooltip-pointformat-example)), на уровне библиотеки [ChartKit](https://github.yandex-team.ru/data-ui/chartkit) 
 поддержаны два дополнительных метода, которые могут быть определены на вкладке Config: ```replaceCellAt``` - с помощью которого можно переопределить не всю строку, а лишь отдельную ячейку и ```insertCellAt``` - позволяющий добавить
