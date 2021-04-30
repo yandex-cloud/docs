@@ -99,6 +99,8 @@ items:
             href: operations/disk-create/empty.md
           - name: Create an empty disk with a large block
             href: operations/disk-create/empty-disk-blocksize.md
+          - name: Creating a non-replicated disk
+            href: operations/disk-create/nonreplicated.md
       - name: Disk management
         items:
           - name: Creating a disk snapshot
