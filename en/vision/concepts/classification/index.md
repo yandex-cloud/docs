@@ -1,3 +1,9 @@
+---
+description: Image classification is an opportunity to evaluate how an image corresponds to a certain characteristic, for example, whether the image contains adult content. This will reduce the cost of manual moderation – you can block such images automatically.
+keywords:
+  - image classification
+---
+
 # Image classification
 
 _Image classification is currently in the [Preview stage](/docs/overview/concepts/launch-stages)._
@@ -14,16 +20,16 @@ To use this feature, specify `CLASSIFICATION` in the feature type and pass the n
 
 ```json
 {
-    "folderId": "b1gvmob95yysaplct532",
-    "analyze_specs": [{
-        "content": "iVBORw0KGgo...",
-        "features": [{
-            "type": "CLASSIFICATION",
-            "classificationConfig": {
-                "model": "quality"
-            }
-        }]
+  "folderId": "b1gvmob95yysaplct532",
+  "analyze_specs": [{
+    "content": "iVBORw0KGgo...",
+    "features": [{
+      "type": "CLASSIFICATION",
+      "classificationConfig": {
+        "model": "quality"
+      }
     }]
+  }]
 }
 ```
 
@@ -31,22 +37,22 @@ Only one model can be used within a single analysis feature. If you need to appl
 
 ```json
 {
-    "folderId": "b1gvmob95yysaplct532",
-    "analyze_specs": [{
-        "content": "iVBORw0KGgo...",
-        "features": [{
-            "type": "CLASSIFICATION",
-            "classificationConfig": {
-                "model": "quality"
-            }
-        },
-        {
-            "type": "CLASSIFICATION",
-            "classificationConfig": {
-                "model": "moderation"
-            }
-        }]
+  "folderId": "b1gvmob95yysaplct532",
+  "analyze_specs": [{
+    "content": "iVBORw0KGgo...",
+    "features": [{
+      "type": "CLASSIFICATION",
+      "classificationConfig": {
+        "model": "quality"
+      }
+    },
+    {
+      "type": "CLASSIFICATION",
+      "classificationConfig": {
+      "model": "moderation"
+      }
     }]
+  }]
 }
 ```
 
@@ -56,8 +62,8 @@ The service returns a list of properties in the following format:
 
 ```json
 {
-    "name": "low", // property name
-    "probability": 0.71257284 // probability of matching the property
+  "name": "low", // Property name.
+  "probability": 0.71257284 // Probability of matching the property.
 }
 ```
 
@@ -71,4 +77,3 @@ The service returns all properties for the selected model, even if the probabili
 
 * [View the list of supported models](supported-models.md)
 * [See how to handle errors](../../api-ref/errors-handling.md)
-

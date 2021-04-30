@@ -11,9 +11,9 @@ items:
         href: operations/cluster-list.md
       - name: Creating clusters
         href: operations/cluster-create.md
-      - name: Connecting to databases
+      - name: How to connect to a database
         href: operations/connect.md
-      - name: Stop and start the cluster
+      - name: Stopping and starting clusters
         href: operations/cluster-stop.md
       - name: SQL queries in the management console
         href: operations/web-sql-query.md
@@ -29,19 +29,21 @@ items:
         href: operations/cluster-extensions.md
       - name: Managing database users
         href: operations/cluster-users.md
-      - name: Granting permissions and roles
+      - name: Assigning privileges and roles
         href: operations/grant.md
       - name: Managing backups
         href: operations/cluster-backups.md
       - name: Deleting clusters
         href: operations/cluster-delete.md
-      - name: Database migration to the Cloud
+      - name: Performance diagnostics
+        href: operations/performance-diagnostics.md
+      - name: Migrating databases to Yandex.Cloud
         href: operations/data-migration.md
       - name: >-
           Creating a logical replica of Amazon RDS for PostgreSQL in Managed
           Service for PostgreSQL
         href: operations/logical-replica-from-rds.md
-  - name: Solutions
+  - name: Use cases
     items:
       - name: Creating a PostgreSQL cluster for 1C
         href: solutions/1c-postgresql

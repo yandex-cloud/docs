@@ -5,7 +5,6 @@ The {{ vision-full-name }} computer vision service analyzes a transmitted image 
 ## Analysis features {#features}
 
 _Features_ are various types of analysis that the service provides. For example:
-
 * [Text recognition](ocr/index.md)
 * [Face detection](face-detection/index.md)
 * [Image classification](classification/index.md)
@@ -18,19 +17,19 @@ For example, if you want the service to detect faces and recognize text in an im
 
 ```json
 {
-    "folderId": "b1gvmob95yysaplct532",
-    "analyze_specs": [{
-        "content": "iVBORw0KGgo...",
-        "features": [{
-            "type": "FACE_DETECTION"
-        },
-        {
-            "type": "TEXT_DETECTION",
-            "text_detection_config": {
-                "language_codes": ["ru", "en"]
-            }
-        }]
+  "folderId": "b1gvmob95yysaplct532",
+  "analyze_specs": [{
+    "content": "iVBORw0KGgo...",
+    "features": [{
+      "type": "FACE_DETECTION"
+    },
+    {
+      "type": "TEXT_DETECTION",
+      "text_detection_config": {
+      "language_codes": ["ru", "en"]
+      }
     }]
+  }]
 }
 ```
 
@@ -45,13 +44,13 @@ The service returns an array of analysis results for each of the passed specs. E
   "results": [{
     // Results for the first spec.
     "results": [{
-        // Results for the first requested feature, i.e., face detection.
-        "faceDetection": { ... }
-      },
-      {
-        // Results for the second requested feature, i.e., text recognition.
-        "textDetection": { ... }
-      }
+      // Results for the first requested feature, i.e., face detection.
+      "faceDetection": { ... }
+    },
+    {
+      // Results for the second requested feature, i.e., text recognition.
+      "textDetection": { ... }
+    }
     ]
   }]
 }
@@ -68,4 +67,3 @@ If an error occurs during analysis, the service returns the error as a result. [
 * [How text recognition works](ocr/index.md)
 * [How face detection works](face-detection/index.md)
 * [How image classification works](classification/index.md)
-

@@ -1,3 +1,12 @@
+---
+title: MySQL backups
+description: {{ mmy-short-name }} provides automatic and manual MySQL database backups. Backups take up space in the storage allocated to the cluster. A backup is automatically created once a day.
+keywords:
+  - backup
+  - backup MySQL
+  - MySQL
+---
+
 # Backups
 
 {{ mmy-short-name }} provides automatic and manual database backups. Backups take up space in the storage allocated to the cluster. If the total amount of data and backups exceeds the amount of storage space, the excess is [billed](../pricing.md).
@@ -13,9 +22,8 @@ To restore a cluster from a backup, [follow the instructions](../operations/clus
 ## Creating backups {#size}
 
 Backups can be made automatically and manually. Regardless of their type, they follow the same guidelines:
-
-- The first backup and every seventh backup are full backups of all databases.
-- Other backups are incremental and only store data that has changed since the previous backup to save storage space.
+* The first backup and every seventh backup are full backups of all databases.
+* Other backups are incremental and only store data that has changed since the previous backup to save storage space.
 
 After a backup is created, it's compressed for storage. The exact backup size currently isn't displayed.
 

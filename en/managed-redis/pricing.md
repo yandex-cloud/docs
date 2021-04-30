@@ -19,7 +19,7 @@ The cost of {{ mrd-name }} usage is based on:
 
 The cost is calculated for each hour of operation of the host in accordance with the allocated computing resources. Supported resource configurations are listed in the [{#T}](concepts/instance-types.md) section, prices for using vCPU and RAM — in the [Prices](#prices) section.
 
-The minimum billing unit is one hour (for example, the cost of 1.5 hours of operation is the same as the cost of 2 hours of operation). You are not charged for time when the {{ RD }} host is not performing its main functions.
+The minimum billing unit is one minute (for example, the cost of 1.5 minutes of operation is the same as the cost of 2 minutes of operation). You are not charged for time when the {{ RD }} host is not performing its main functions.
 
 ### Disk space usage {#rules-storage}
 
@@ -31,7 +31,7 @@ The following is charged:
     * Backups are stored free of charge as long as the combined size of the DB and all backups is less than the selected storage volume.
     * The requested disk size is allocated for each host, so the number of hosts in the cluster does not affect the storage size and, consequently, the free backup size.
 
-The cost is specified for one month of use. The minimum billing unit is 1 GB per hour (for example, the cost of storing 1 GB for 1.5 hours is equal to the cost of storage for 2 hours).
+The cost is specified for one month of use. The minimum billing unit is 1 GB per minute (for example, the cost of storing 1 GB for 1.5 minutes is equal to the cost of storage for 2 minutes).
 
 ## Discount for committed volumes of services (CVoS) {#cvos}
 

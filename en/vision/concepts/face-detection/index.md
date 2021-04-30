@@ -1,3 +1,10 @@
+---
+description: Face detection is a service that allows you to find people's faces in an image. For example, to tag people in a photo or find all photos with portraits. The service looks for people's faces in the image and highlights them with rectangles. Supported file formats – JPEG, PNG, PDF.
+keywords:
+  - face detection
+  - face detection service
+---
+
 # Face detection
 
 _Face detection is currently at the [Preview stage](/docs/overview/concepts/launch-stages)._
@@ -18,13 +25,13 @@ In the feature type, specify `FACE_DETECTION`:
 
 ```json
 {
-    "folderId": "b1gvmob95yysaplct532",
-    "analyze_specs": [{
-        "content": "iVBORw0KGgo...",
-        "features": [{
-            "type": "FACE_DETECTION"
-        }]
+  "folderId": "b1gvmob95yysaplct532",
+  "analyze_specs": [{
+    "content": "iVBORw0KGgo...",
+    "features": [{
+      "type": "FACE_DETECTION"
     }]
+  }]
 }
 ```
 
@@ -82,4 +89,3 @@ An image in a request must meet the following requirements:
 
 * [Try detecting faces in an image](../../operations/face-detection/index.md)
 * [See how to handle errors](../../api-ref/errors-handling.md)
-

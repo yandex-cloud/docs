@@ -31,31 +31,65 @@
 
 ## Подключитесь к кластеру {#connect}
 
+1. Если ваш кластер развернут с версией 6 или выше и включена поддержка TLS, то настройте SSL-сертификат:
+
+    1. Создайте каталог:
+
+        ```bash
+        $ mkdir ~/.redis
+        ```
+
+    1. Получите сертификат:
+
+        ```bash
+        $ wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.redis/YandexInternalRootCA.crt
+        ```
+
+    1. Настройте права доступа к сертификату:
+
+        ```bash
+        $ chmod 0600 ~/.redis/YandexInternalRootCA.crt
+        ```
+        
 1. [Настройте группы безопасности](operations/connect.md#configuring-security-groups) для облачной сети так, чтобы был разрешен весь необходимый трафик между кластером и хостом, с которого выполняется подключение.
 
 1. Подключитесь к хосту-мастеру кластера {{ RD }}, используя `redis-cli`.
 
+   {% note info %}
+
+   Для подключения к кластеру с поддержкой TLS [скачайте](https://redis.io/download) архив с исходным кодом утилиты и выполните сборку версии утилиты с TLS командой `make BUILD_TLS=yes`.
+
+   {% endnote %}
+
    {% include [see-fqdn-in-console](../_includes/mdb/see-fqdn-in-console.md) %}
 
    Чтобы подключиться:
-   - К мастеру через любой хост кластера с помощью [Sentinel](https://redis.io/topics/sentinel):
+   - К мастеру через любой хост кластера с помощью [Sentinel](https://redis.io/topics/sentinel) (без TLS):
      1. Получите адрес хоста-мастера, используя Sentinel и любой хост {{ RD }}:
-
+     
         ```bash
-        redis-cli -h <FQDN любого хоста {{ RD }}> -p 26379 sentinel get-master-addr-by-name <имя кластера {{ RD }}> | head -n 1
+        redis-cli -h <FQDN любого хоста {{ RD }}> -p {{ port-mrd-sentinel }} sentinel get-master-addr-by-name <имя кластера {{ RD }}> | head -n 1
         ```
 
      1. Подключитесь к хосту с этим адресом:
 
         ```bash
-        redis-cli -с -h <адрес хоста-мастера {{ RD }}> -a <пароль {{ RD }}>
+        redis-cli -h <адрес хоста-мастера {{ RD }}> -a <пароль {{ RD }}>
         ```
-
+        
    - Напрямую к хосту-мастеру:
 
-     ```bash
-     redis-cli -c -h <FQDN хоста-мастера {{ RD }}> -p 6379 -a <пароль {{ RD }}>
-     ```
+      - Подключитесь без использования TLS:
+
+        ```bash
+        redis-cli -h <FQDN хоста-мастера {{ RD }}> -p {{ port-mrd }} -a <пароль {{ RD }}>
+        ```
+
+      - Подключитесь с использованием TLS:
+
+        ```bash
+        redis-cli -h <FQDN хоста-мастера {{ RD }}> -p {{ port-mrd-tls }} -a <пароль {{ RD }}> --tls --cacert ~/.redis/YandexInternalRootCA.crt
+        ```
 
 1. После успешного подключения отправьте команду `PING`. {{ RD }} должен вернуть ответ `PONG`.
 

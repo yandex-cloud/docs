@@ -1,3 +1,9 @@
+---
+description: To evaluate the quality of the image, you can use the model of quality of service Yandex Vision. The service compares similar images and selects better quality or filters lower quality images, for example, so as not to show them in search results. Supported file formats for quality assessment – JPEG, PNG, PDF.
+keywords:
+  - image quality
+---
+
 # Assessing image quality
 
 _Image classification is currently in the [Preview stage](/docs/overview/concepts/launch-stages)._
@@ -16,42 +22,42 @@ In the [batchAnalyze](../../api-ref/Vision/batchAnalyze.md) method, set the `typ
 
 1. Prepare an image file that meets the requirements:
 
-    {% include [file-restrictions](../../../_includes/vision/file-restrictions.md) %}
+   {% include [file-restrictions](../../../_includes/vision/file-restrictions.md) %}
 
-    {% note info %}
+   {% note info %}
 
-    Need an image? [Download a sample](https://storage.yandexcloud.net/vision/face-detection-sample.jpg).
+   Need an image? [Download a sample](https://storage.yandexcloud.net/vision/face-detection-sample.jpg).
 
-    {% endnote %}
+   {% endnote %}
 
 1. Encode the file as Base64:
 
-    {% include [base64-encode-command](../../../_includes/vision/base64-encode-command.md) %}
+   {% include [base64-encode-command](../../../_includes/vision/base64-encode-command.md) %}
 
 1. Create a file with the request body (for example, `body.json`). In the `content` property, specify a [Base64-encoded](../base64-encode.md) image:
 
-    **body.json:**
+   **body.json:**
 
-    ```json
-    {
-        "folderId": "b1gvmob95yysaplct532",
-        "analyze_specs": [{
-            "content": "iVBORw0KGgo...",
-            "features": [{
-                "type": "CLASSIFICATION",
-                "classificationConfig": {
-                    "model": "quality"
-                }
-            }]
-        }]
-    }
-    ```
+   ```json
+   {
+     "folderId": "b1gvmob95yysaplct532",
+     "analyze_specs": [{
+       "content": "iVBORw0KGgo...",
+       "features": [{
+         "type": "CLASSIFICATION",
+         "classificationConfig": {
+           "model": "quality"
+         }
+       }]
+     }]
+   }
+   ```
 
 1. {% include [send-request](../../../_includes/vision/send-request.md) %}
 
-    The response will contain the properties and the probability of matching them. You can use these properties to moderate the image:
+   The response will contain the properties and the probability of matching them. You can use these properties to moderate the image:
 
-    {% include [classification-quality-response](../../../_includes/vision/classification-quality-response.md) %}
+   {% include [classification-quality-response](../../../_includes/vision/classification-quality-response.md) %}
 
 ### Ready-to-use function for sending requests in bash {#oneliner}
 
@@ -59,33 +65,32 @@ In the [batchAnalyze](../../api-ref/Vision/batchAnalyze.md) method, set the `typ
 
 1. Copy the function to the terminal:
 
-    ```bash
-    vision_quality() {
-        curl -H "Authorization: Bearer `yc iam create-token`" \
-        "https://vision.api.cloud.yandex.net/vision/v1/batchAnalyze" \
-        -d @<(cat << EOF
-    {
-        "folderId": "`yc config get folder-id`",
-        "analyze_specs": [{
-            "content": "`base64 -i $1`",
-            "features": [{
-                "type": "CLASSIFICATION",
-                "classificationConfig": {
-                    "model": "quality"
-                }
-            }]
-        }]
-    }
-    EOF
-    )
-    }
-    ```
+   ```bash
+   vision_quality() {
+     curl -H "Authorization: Bearer `yc iam create-token`" \
+     "https://vision.api.cloud.yandex.net/vision/v1/batchAnalyze" \
+     -d @<(cat << EOF
+   {
+     "folderId": "`yc config get folder-id`",
+     "analyze_specs": [{
+       "content": "`base64 -i $1`",
+       "features": [{
+         "type": "CLASSIFICATION",
+         "classificationConfig": {
+           "model": "quality"
+         }
+       }]
+     }]
+   }
+   EOF
+   )
+   }
+   ```
 
-    {% include [oneline-function-hints](../../../_includes/vision/oneline-function-hints.md) %}
+   {% include [oneline-function-hints](../../../_includes/vision/oneline-function-hints.md) %}
 
 1. Now you can call this function by passing the image path in the arguments:
 
-    ```bash
-    vision_quality path/to/image.jpg
-    ```
-
+   ```bash
+   vision_quality path/to/image.jpg
+   ```

@@ -1,9 +1,17 @@
+---
+description: A step-by-step instruction with which you will learn how to quickly create a WordPress website in the cloud. 3 easy steps to deploy a Wordpress site – create a virtual machine, configure Wordpress CMS settings and configure DNS.
+keywords:
+  - creating wordpress website
+  - website wordpress
+  - cms wordpress
+  - configure wordpress
+---
+
 # Creating a website in WordPress
 
 This scenario describes how to create and set up a WordPress CMS-based website using a special VM image.
 
 To set up a website in WordPress:
-
 1. [Create a VM for WordPress](#create-vm).
 1. [Set up WordPress](#wordpress-setup).
 1. [Configure DNS](#configure-dns).
@@ -25,7 +33,6 @@ Make sure the selected folder has a cloud network with a subnet in at least one 
 ### Required paid resources {#paid-resources}
 
 The cost of hosting a website in WordPress includes:
-
 * A fee for a continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * A fee for using a dynamic or static external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
@@ -44,8 +51,8 @@ To create a VM:
 1. Under **Images from {{ marketplace-name }}**, click **Select**. Select the **WordPress** public image.
 
 1. Under **Computing resources**:
-    - Choose a [platform](../../compute/concepts/vm-platforms.md).
-    - Specify the necessary number of vCPUs and amount of RAM.
+   * Choose a [platform](../../compute/concepts/vm-platforms.md).
+   * Specify the necessary number of vCPUs and amount of RAM.
 
    The minimum configuration is enough for testing:
    * **Platform**: Intel Cascade Lake.
@@ -58,8 +65,8 @@ To create a VM:
 1. In **Public address**, select **Automatically**.
 
 1. Specify data required for accessing the VM:
-    - Enter the username in the **Login** field.
-    - In the **SSH key** field, paste the contents of the public key file.
+   * Enter the username in the **Login** field.
+   * In the **SSH key** field, paste the contents of the public key file.
 You need to create a key pair for an SSH connection yourself. For details, see [{#T}](../../compute/operations/vm-connect/ssh.md).
 
 1. Click **Create VM**.
@@ -95,17 +102,14 @@ After the `wordpress` VM's status changes to `RUNNING`, do the following:
 ## Configuring DNS {#configure-dns}
 
 To link the website to your domain, configure DNS at your registrar as follows:
-
 * A record: `@` subdomain (use the VM's public IP address as the address).
-* CNAME record: `www` subdomain (use a domain with a dot at the end as the canonical name, like `example.com).`
+* CNAME record: `www` subdomain (use a domain with a dot at the end as the canonical name, like `example.com`).
 
 ## How to delete created resources {#clear-out}
 
 To stop paying for your deployed server, just [delete](../../compute/operations/vm-control/vm-delete.md) the `wordpress` VM.
 
 If you reserved a static public IP address specifically for this VM:
-
 1. Open the **Virtual Private Cloud** in your folder.
 1. Go to the **IP addresses** tab.
 1. Find the address you need, click ![ellipsis](../../_assets/options.svg), and select **Delete**.
-

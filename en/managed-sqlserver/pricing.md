@@ -42,7 +42,7 @@ You're charged for using licenses monthly on an pre-payment basis. This means th
 
 The cost of using DB hosts is calculated according to the host class. Exact class characteristics are given in [{#T}](concepts/instance-types.md). The host usage fee is charged in accordance with the agreement.
 
-The minimum billing unit is one hour (for example, the cost of 1.5 hours of operation is the same as the cost of 2 hours of operation). You are not charged for the time when the DB host is not performing its main functions.
+The minimum billing unit is one minute (for example, the cost of 1.5 minutes of operation is the same as the cost of 2 minutes of operation). You are not charged for the time when the DB host is not performing its main functions.
 
 ### Disk space usage {#rules-storage}
 
@@ -55,7 +55,7 @@ The disk space usage fee is charged in accordance with the agreement. The follow
   * During an automatic backup, {{ mms-short-name }} doesn't create a new copy, but saves changes to the database compared to the previous copy. This means that storage used by automatic backups increases only in proportion to the volume of changes that are made.
   * The number of hosts in the cluster does not affect the size of the storage and, consequently, that of free backups.
 
-The cost is specified for one month of use. The minimum billing unit is 1 GB per hour (for example, the cost of storing 1 GB for 1.5 hours is equal to the cost of storage for 2 hours).
+The cost is specified for one month of use. The minimum billing unit is 1 GB per minute (for example, the cost of storing 1 GB for 1.5 minutes is equal to the cost of storage for 2 minutes).
 
 ## Pricing {#prices}
 

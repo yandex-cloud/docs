@@ -39,7 +39,7 @@ When you create a cluster with 2 or more {{ KF }} broker hosts, 3 {{ ZK }} hosts
 
 {% endnote %}
 
-The minimum billing unit is one hour (for example, the cost of 1.5 hours of operation is the same as the cost of 2 hours of operation). You aren't charged for time when the broker host or {{ ZK }} host isn't performing its main functions.
+The minimum billing unit is one minute (for example, the cost of 1.5 minutes of operation is the same as the cost of 2 minutes of operation). You aren't charged for time when the broker host or {{ ZK }} host isn't performing its main functions.
 
 ### Disk space usage {#rules-storage}
 
@@ -48,7 +48,7 @@ The following is charged:
 * Storage allocated for clusters.
     * Storage on fast local disks (`local-ssd`) can only be ordered for clusters with more than 3 broker hosts in 100 GB increments.
 
-The cost is specified for one month of use.  The minimum billing unit is 1 GB per hour (for example, the cost of storing 1 GB for 1.5 hours is equal to the cost of storage for 2 hours).
+The cost is specified for one month of use. The minimum billing unit is 1 GB per minute (for example, the cost of storing 1 GB for 1.5 minutes is equal to the cost of storage for 2 minutes).
 
 
 ## Discount for committed volumes of services (CVoS) {#cvos}

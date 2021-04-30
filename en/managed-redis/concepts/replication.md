@@ -1,3 +1,12 @@
+---
+title: Redis replication and fault tolerance
+description: {{ mrd-name }} uses standard Redis replication and provides high availability of cluster data using Redis Sentinel.
+keywords:
+  - replication redis
+  - redis
+  - DB redis
+---
+
 # Replication and fault tolerance
 
 {{ mrd-name }} uses standard Redis replication and provides high availability of cluster data using Redis Sentinel.
@@ -21,4 +30,3 @@ In order to make decisions about cluster performance, the majority of Sentinel s
 A cluster consisting of two hosts does not provide full failover for the same reason: one of the two Sentinel instances will not be enough to assign one host as a master if the other one failed. In this situation, the cluster can only process read operations.
 
 Owners of {{ mrd-name }} clusters can't configure Sentinel services, but they can read the information that the services provide. Read more about Sentinel in the [DBMS documentation](https://redis.io/topics/sentinel).
-
