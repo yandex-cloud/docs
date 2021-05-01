@@ -54,7 +54,7 @@ Create and execute a [function](../../concepts/function.md) in Python that welco
 1. Save the following code to a file named `hello.py`:
 
     ```python
-    defhandler(event, context):
+    def handler(event, context):
         name = event['queryStringParameters']['name']
     
         return {
@@ -66,8 +66,11 @@ Create and execute a [function](../../concepts/function.md) in Python that welco
             'body': 'Hello, {}!'.format(name)
         }
     ```
-
-1. Add the `hello.py` file to the `hello-py.zip` archive.
+2. Add below lines in "requirement.txt" 
+    boto3==1.13.15
+    attrs==19.3.0
+    
+4. Add the `hello.py` and "requirement.txt" files to the `hello-py.zip` archive.
 
 ### Create a function version {#create-version}
 
@@ -113,6 +116,7 @@ Create and execute a [function](../../concepts/function.md) in Python that welco
     * `--memory`: The amount of RAM.
     * `--execution-timeout`: The maximum function execution time before the timeout is reached.
     * `--source-path`: ZIP archive with the function code and required dependencies.
+    * '-- service-account-id: To be entered based on Yandex environment
 
     Result:
 
