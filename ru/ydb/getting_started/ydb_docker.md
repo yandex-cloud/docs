@@ -43,7 +43,7 @@ API для работы с данными разворачивается на п
 Для запуска {{ ydb-short-name }} Docker-контейнера и монтирования нужных директорий выполните команду:
 
 ```bash
-docker run --name ydb-local --rm --hostname localhost --rm -dp 2135:2135 -dp 8765:8765 -v $(pwd)/ydb_certs:/ydb_certs -v $(pwd)/ydb_data:/ydb_data -e YDB_LOCAL_SURVIVE_RESTART=true cr.yandex/yc/yandex-docker-local-ydb:latest
+docker run --name ydb-local --rm --hostname localhost -d -p 2135:2135 -p 8765:8765 -v $(pwd)/ydb_certs:/ydb_certs -v $(pwd)/ydb_data:/ydb_data -e YDB_LOCAL_SURVIVE_RESTART=true cr.yandex/yc/yandex-docker-local-ydb:latest
 ```
 
 Параметры команды:
