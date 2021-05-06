@@ -58,12 +58,9 @@
 
   1. При необходимости задайте дополнительные настройки кластера:
 
-     {% include [mmy-extra-settings](../../_includes/mdb/mmy-extra-settings-web-console.md) %}
+    {% include [mmy-extra-settings](../../_includes/mdb/mmy-extra-settings-web-console.md) %}  
 
-  1. При необходимости задайте настройки СУБД:
-
-     {% include [mmy-dbms-settings](../../_includes/mdb/mmy-dbms-settings.md) %}
-
+  1. При необходимости задайте [настройки СУБД](../concepts/settings-list.md#dbms-settings).
   1. Нажмите кнопку **Создать кластер**.
 
 - CLI
@@ -106,6 +103,8 @@
      ```
 
       Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной зоне доступности создано 2 и больше подсетей.
+
+      При необходимости задайте [настройки СУБД](../concepts/settings-list.md#dbms-settings).
 
 - Terraform
 
