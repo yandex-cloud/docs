@@ -46,6 +46,41 @@
           --cluster-name <новое имя кластера> \
           --description <новое описание кластера>
      ```
+
+- {{ TF }}
+
+    {% note alert %}
+
+    Не изменяйте имя кластера с помощью {{ TF }}. Это приведет к удалению существующего кластера и созданию нового.
+
+    {% endnote %}
+
+    Чтобы изменить описание кластера:
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [{#T}](./cluster-create.md).
+
+    1. Измените в описании кластера {{ mrd-name }} значение параметра `description`:
+
+        ```hcl
+        resource "yandex_mdb_redis_cluster" "<имя кластера>" {
+          name        = "<имя кластера>"
+          description = "<новое описание кластера>"
+          ...
+        }
+        ```
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mrd }}).
+
 - API
 
   Чтобы изменить имя и описание кластера, воспользуйтесь методом API [update](../api-ref/Cluster/update.md): передайте в запросе нужные значения в параметрах `name` и `description`.
@@ -119,6 +154,36 @@
 
      {{ mrd-short-name }} запустит операцию изменения класса хостов для кластера.
 
+- {{ TF }}
+
+    Чтобы изменить [класс хостов](../concepts/instance-types.md) для кластера:
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [{#T}](./cluster-create.md).
+
+    1. Измените в описании кластера {{ mrd-name }} значение параметра `resource_preset_id` в блоке `resources`:
+
+        ```hcl
+        resource "yandex_mdb_redis_cluster" "<имя кластера>" {
+          ...
+          resources {
+            resource_preset_id = "<класс хоста>"
+            ...
+            }
+        }
+        ```
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mrd }}).
+
 - API
 
   Изменить [класс хостов](../concepts/instance-types.md) кластера можно с помощью метода API [update](../api-ref/Cluster/update.md): передайте в запросе нужные значения в параметре `configSpec.resources.resourcePresetId`.
@@ -169,6 +234,36 @@
 
      Если все условия выполнены, {{ mrd-short-name }} запустит операцию по увеличению размера дисков хостов {{ RD }}.
 
+- {{ TF }}
+
+    Чтобы увеличить размер хранилища для кластера:
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [{#T}](./cluster-create.md).
+
+    1. Измените в описании кластера {{ mrd-name }} значение параметра `disk_size` в блоке `resources`:
+
+        ```hcl
+        resource "yandex_mdb_redis_cluster" "<имя кластера>" {
+          ...
+          resources {
+            disk_size = <размер хранилища в гигабайтах>
+            ...
+            }
+        }
+        ```
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mrd }}).
+
 - API
 
   Изменить размер дисков хостов {{ RD }} можно с помощью метода API [update](../api-ref/Cluster/update.md): передайте в запросе нужные значения в параметре `configSpec.resources.diskSize`.
@@ -190,6 +285,38 @@
   1. В разделе **Настройки СУБД** нажмите кнопку **Настроить**.
   1. Настройте доступные параметры в соответствии с [документацией {{ RD }}](https://redis.io/documentation).
   1. Нажмите кнопку **Сохранить**.
+
+- {{ TF }}
+
+    Чтобы изменить [настройки СУБД](../concepts/settings-list.md) для кластера:
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [{#T}](./cluster-create.md).
+
+    1. Измените в описании кластера {{ mrd-name }} значения параметров в блоке `config`:
+
+        ```hcl
+        resource "yandex_mdb_redis_cluster" "<имя кластера>" {
+          ...
+          config {
+            password         = "<пароль>"
+            timeout          = <время в секундах перед отключением неактивных клиентов>
+            maxmemory_policy = "<политика управления памятью при ее дефиците>"
+            version          = "<версия Redis: 5.0 или 6.0>"
+          }
+        }
+        ```
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mrd }}).
 
 - API
 
@@ -273,6 +400,33 @@
         {{ yc-mdb-rd }} cluster update <имя кластера> \
            --security-group-ids <список групп безопасности>
         ```
+
+- {{ TF }}
+
+    Чтобы изменить список групп безопасности кластера:
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [{#T}](./cluster-create.md).
+
+    1. Измените в описании кластера {{ mrd-name }} значение параметрa `security_group_ids`:
+
+        ```hcl
+        resource "yandex_mdb_redis_cluster" "<имя кластера>" {
+          ...
+          security_group_ids = [<список идентификаторов групп безопасности>]
+        }
+        ```
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mrd }}).
 
 - API
 
