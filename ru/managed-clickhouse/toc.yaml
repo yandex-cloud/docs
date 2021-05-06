@@ -19,6 +19,8 @@ items:
         href: operations/web-sql-query.md
       - name: Изменение настроек кластера и базы данных
         href: operations/update.md
+      - name: Настройка доступа к ObjectStorage
+        href: operations/s3-access.md
       - name: Подключение внешних словарей
         href: operations/dictionaries.md
       - name: Подключение собственной геобазы
