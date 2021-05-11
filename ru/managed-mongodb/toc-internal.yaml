@@ -57,14 +57,14 @@ items:
     href: security/index.md
   - name: Ресурсы и квоты
     href: quotas.md
-  - name: Справочник gRPC API
+  - name: Справочник gRPC API (англ.)
     items:
       - name: Authentication
         href: api-ref/gRPC/authentication.md
     include:
       repo: docs
       path: en/_api-ref-grpc/managed-mongodb/api-ref/toc.yaml
-  - name: Справочник REST API
+  - name: Справочник REST API (англ.)
     items:
       - name: Authentication
         href: api-ref/REST/authentication.md
