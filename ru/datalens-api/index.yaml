@@ -16,7 +16,7 @@ links:
   - title: Справочник API
     description: Описание методов HTTP API
     href: api-ref/
-  - title: Authentication
+  - title: Аутентификация в API
     description: Узнайте, как начать пользоваться API
     href: authentication
   - title: Правила тарификации
