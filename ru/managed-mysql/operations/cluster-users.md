@@ -54,7 +54,7 @@
       1. Выберите роль, которую вы хотите добавить пользователю из выпадающего списка.
       1. Повторите два предыдущих шага, пока не будут добавлены все требуемые роли.
   1. Чтобы отозвать роль, выданную по ошибке, нажмите значок ![image](../../_assets/cross.svg) справа от ее имени.
-  1. Задайте [настройки {{ MY }}](#advanced-settings) для пользователя в разделе **Дополнительные настройки**.
+  1. При необходимости задайте [настройки {{ MY }}](../concepts/settings-list.md#dbms-user-settings) для пользователя.
   1. Нажмите кнопку **Добавить**.
 
 - CLI
@@ -116,7 +116,7 @@
   1. Перейдите на страницу каталога и выберите сервис **{{ mmy-name }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **Пользователи**.
   1. Нажмите значок ![image](../../_assets/horizontal-ellipsis.svg) и выберите пункт **Настроить**.
-  1. Задайте [настройки {{ MY }}](#advanced-settings) для пользователя в разделе **Дополнительные настройки**.
+  1. Задайте [настройки {{ MY }}](../concepts/settings-list.md#dbms-user-settings) для пользователя.
   1. Нажмите кнопку **Сохранить**.
 
 - CLI
@@ -125,7 +125,7 @@
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  Чтобы задать [настройки {{ MY }}](#advanced-settings) для пользователя, выполните команду:
+  Чтобы задать [настройки {{ MY }}](../concepts/settings-list.md#dbms-user-settings) для пользователя, выполните команду:
 
   ```
   $ {{ yc-mdb-my }} user update <имя пользователя>
@@ -170,48 +170,3 @@
 {% endlist %}
 
 {% include [user-ro](../../_includes/mdb/mmy-user-examples.md) %}
-
-## Дополнительные настройки {#advanced-settings}
-
-- **Authentication plugin** — плагин аутентификации. Определяет политику аутентификации пользователя.
-
-  Значение по умолчанию — не задано (действует настройка `Default authentication plugin`, задаваемая при создании кластера).
-
-  Подробнее про плагины аутентификации см. [в документации {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/pluggable-authentication.html).
-
-- **Global permissions** — привилегии пользователя на уровне сервера (глобальные привилегии). Одному пользователю можно задать несколько глобальных привилегий. Доступные привилегии:
-  - [REPLICATION CLIENT](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_replication-client) — используйте эту глобальную привилегию если вы хотите подключиться к потоку репликации извне {{ yandex-cloud }}. В этом случае выдайте ее пользователю, под которым клиент репликации будет подключаться к кластеру. Привилегия позволяет использовать следующие операторы:
-    - [SHOW MASTER STATUS](https://dev.mysql.com/doc/refman/8.0/en/show-master-status.html) — предоставляет информацию о состоянии бинарных логов мастера.
-    - [SHOW REPLICA | SLAVE STATUS](https://dev.mysql.com/doc/refman/8.0/en/show-replica-status.html) — предоставляет информацию о состоянии основных параметров потока репликации.
-    - [SHOW BINARY LOGS](https://dev.mysql.com/doc/refman/8.0/en/show-binary-logs.html) — выводит список бинарных логов на сервере.
-  - [REPLICATION SLAVE](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_replication-slave) — используйте эту глобальную привилегию если вы хотите подключиться к потоку репликации извне {{ yandex-cloud }}. В этом случае выдайте ее пользователю, под которым клиент репликации будет подключаться к кластеру. Привилегия позволяет использовать следующие операторы:
-    - [SHOW REPLICAS | SHOW SLAVE HOSTS](https://dev.mysql.com/doc/refman/8.0/en/show-replicas.html) — выводит список зарегистрированных в данный момент реплик.
-    - [SHOW RELAYLOG EVENTS](https://dev.mysql.com/doc/refman/8.0/en/show-relaylog-events.html) — выводит события в логе ретрансляции реплики.
-    - [SHOW BINLOG EVENTS](https://dev.mysql.com/doc/refman/8.0/en/show-binlog-events.html) — выводит события в бинарном логе.
-  - [PROCESS](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_process) — позволяет получать информацию о всех выполняемых на сервере потоках и использовать оператор [SHOW ENGINE](https://dev.mysql.com/doc/refman/8.0/en/show-engine.html) для доступа к [INNODB_-таблицам](https://dev.mysql.com/doc/refman/8.0/en/innodb-information-schema-system-tables.html).
-
-  Значение по умолчанию — не задано (глобальные привилегии не выданы пользователю).
-
-- **Connection limits**  — раздел с настройками ограничений для пользователя.
-
-  - **Max connections per hour** — максимально допустимое для пользователя количество соединений в час.
-
-    Минимальное значение — 0 (нет ограничений).
-    Значение по умолчанию — не задано (нет ограничений).
-
-  - **Max questions per hour** — максимально допустимое для пользователя количество запросов в час. (Не считая запросов, выполняемых в рамках хранимых процедур).
-
-    Минимальное значение — 0 (нет ограничений).
-    Значение по умолчанию — не задано (нет ограничений).
-
-  - **Max updates per hour** — максимально допустимое для пользователя количество запросов `UPDATE` в час.
-
-    Минимальное значение — 0 (нет ограничений).
-    Значение по умолчанию — не задано (нет ограничений).
-
-  - **Max user connections** — максимально допустимое для пользователя количество одновременных соединений.
-
-    Минимальное значение — 0 (нет ограничений).
-    Значение по умолчанию — не задано (действует общая серверная настройка [max_user_connections](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_user_connections)).
-
-  Подробнее см. [в документации {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/user-resources.html).

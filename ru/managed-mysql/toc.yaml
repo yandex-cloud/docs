@@ -63,6 +63,12 @@ items:
         href: concepts/backup.md
       - name: Репликация
         href: concepts/replication.md
+      - name: Настройки MySQL
+        href: concepts/settings-list.md
+  - name: Сценарии использования
+    items:
+      - name: Анализ производительности и оптимизация
+        href: tutorials/profiling.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

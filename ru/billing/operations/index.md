@@ -25,3 +25,5 @@
 [{#T}](create-new-account.md)
 
 [{#T}](get-folder-report.md)
+
+[{#T}](budgets.md)

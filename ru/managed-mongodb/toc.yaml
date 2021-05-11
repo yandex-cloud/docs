@@ -67,6 +67,8 @@ items:
         href: concepts/users-and-roles.md
       - name: Поддерживаемые клиенты
         href: concepts/supported-clients.md
+      - name: Настройки MongoDB
+        href: concepts/settings-list.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
