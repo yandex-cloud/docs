@@ -1,19 +1,28 @@
+---
+description: Network Time Protocol Servers (NTP) – позволяет выполнять настройку синхронизации с общедоступными NTP серверами времени на виртуальных машинах Yandex.Cloud под управлением Windows Server и Linux. Описан порядок настройки серверов для синхронизации.
+keywords:
+  - ntp
+  - ntp server
+  - sntp
+  - синхронизация времени
+  - нтп сервер
+  - ntp сервер
+---
+
 # Настройка синхронизации часов с помощью NTP
 
 На виртуальных машинах {{ yandex-cloud }} можно настроить синхронизацию с общедоступными серверами времени по протоколу [NTPv4](https://tools.ietf.org/html/rfc5905):
+* Для ВМ с ОС Windows Server нужно указать 3 рекомендуемых сервера в настройках синхронизации времени.
+* На ВМ с операционной системой на основе Linux должен быть включен DHCP-клиент с опцией 42, `Network Time Protocol Servers` (опция позволяет автоматически применять список серверов синхронизации, отправляемый сервером DHCP). В образах, предоставляемых {{ yandex-cloud }}, ОС уже настроены нужным образом.
 
- * Для ВМ с ОС Windows Server нужно указать 3 рекомендуемых сервера в настройках синхронизации времени.
- * На ВМ с операционной системой на основе Linux должен быть включен DHCP-клиент с опцией 42, `Network Time Protocol Servers` (опция позволяет автоматически применять список серверов синхронизации, отправляемый сервером DHCP). В образах, предоставляемых {{ yandex-cloud }}, ОС уже настроены нужным образом.
-
-   На случай неработоспособности или недоступности DHCP-сервера укажите запасные серверы синхронизации в настройках системы. Чтобы сделать это, следуйте [инструкциям](#setup).
+  На случай неработоспособности или недоступности DHCP-сервера укажите запасные серверы синхронизации в настройках системы. Чтобы сделать это, следуйте [инструкциям](#setup).
 
 Рекомендуемые серверы синхронизации:
-
- - [ntp0.NL.net](http://support.ntp.org/bin/view/Servers/PublicTimeServer000233)
- - [clock.isc.org](https://support.ntp.org/bin/view/Servers/PublicTimeServer000262)
- - [ntp2.vniiftri.ru](http://support.ntp.org/bin/view/Servers/PublicTimeServer000352)
- - [ntps1-1.cs.tu-berlin.de](http://support.ntp.org/bin/view/Servers/PublicTimeServer000213)
- - [ntp.ix.ru](http://support.ntp.org/bin/view/Servers/PublicTimeServer000766)
+* [ntp0.NL.net](http://support.ntp.org/bin/view/Servers/PublicTimeServer000233)
+* [clock.isc.org](https://support.ntp.org/bin/view/Servers/PublicTimeServer000262)
+* [ntp2.vniiftri.ru](http://support.ntp.org/bin/view/Servers/PublicTimeServer000352)
+* [ntps1-1.cs.tu-berlin.de](http://support.ntp.org/bin/view/Servers/PublicTimeServer000213)
+* [ntp.ix.ru](http://support.ntp.org/bin/view/Servers/PublicTimeServer000766)
 
 Список рекомендуемых серверов может меняться. О том, что вам нужно внести изменения в конфигурацию ВМ, {{ yandex-cloud }} сообщит за 72 часа.
 
@@ -32,13 +41,17 @@
   Укажите запасные серверы в настройках системы:
 
   1. Перечислите запасные серверы в файле `/etc/systemd/timesyncd.conf`, в секции `[Time]` в параметре `FallbackNTP=`, например:
-     ```
+
+     ```bash
      FallbackNTP=ntp0.NL.net clock.isc.org ntp2.vniiftri.ru ntps1-0.eecsit.tu-berlin.de ntp.ix.ru
      ```
+
   1. Установите параметр `UseNTP=true` в конфигурационном файле сервиса `systemd.network`, обычно расположенном в каталоге `/etc/systemd/network` или `/var/lib/systemd/network`.
+
   1. Перезапустите сервис синхронизации:
-     ```
-     $ sudo systemctl restart systemd-timesyncd
+
+     ```bash
+     sudo systemctl restart systemd-timesyncd
      ```
 
 - Linux (ntpd)
@@ -46,7 +59,8 @@
   Укажите адреса нужных серверов в конфигурации `ntpd`:
 
   1. Укажите адреса рекомендуемых серверов в файле `/etc/ntp.conf`. Адреса серверов по умолчанию закомментируйте символом <q>#</q> в начале строки, например:
-     ```
+
+     ```text
      # Use servers from the NTP Pool Project. Approved by Ubuntu Technical Board
      # on 2011-02-08 (LP: #104525). See http://www.pool.ntp.org/join.html for
      # more information.
@@ -60,10 +74,11 @@
      server ntps1-0.eecsit.tu-berlin.de
      server ntp.ix.ru
      ```
+
   2. Перезапустите сервис:
 
-     ```
-     $ sudo service ntp restart
+     ```bash
+     sudo service ntp restart
      ```
 
 - Windows Server
@@ -78,4 +93,3 @@
   ```
 
 {% endlist%}
-

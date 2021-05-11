@@ -5,52 +5,56 @@ items:
     href: quickstart.md
   - name: Step-by-step instructions
     items:
-      - name: All instructions
-        href: operations/index.md
-      - name: Information about existing clusters
-        href: operations/cluster-list.md
-      - name: Creating clusters
-        href: operations/cluster-create.md
-      - name: Connecting to databases
-        href: operations/connect.md
-      - name: Changing cluster and database settings
-        href: operations/update.md
-      - name: Connecting to DataLens
-        href: operations/datalens-connect.md
-      - name: Managing PostgreSQL hosts
-        href: operations/hosts.md
-      - name: Database management
-        href: operations/databases.md
-      - name: How to manage PostgreSQL extensions
-        href: operations/cluster-extensions.md
-      - name: Managing database users
-        href: operations/cluster-users.md
-      - name: Granting permissions and roles
-        href: operations/grant.md
-      - name: Managing backups
-        href: operations/cluster-backups.md
-      - name: Deleting clusters
-        href: operations/cluster-delete.md
-      - name: Database migration to the Cloud
-        href: operations/data-migration.md
+    - name: All instructions
+      href: operations/index.md
+    - name: Information about existing clusters
+      href: operations/cluster-list.md
+    - name: Creating clusters
+      href: operations/cluster-create.md
+    - name: How to connect to a database
+      href: operations/connect.md
+    - name: Changing cluster and database settings
+      href: operations/update.md
+    - name: Connecting to DataLens
+      href: operations/datalens-connect.md
+    - name: Managing PostgreSQL hosts
+      href: operations/hosts.md
+    - name: Database management
+      href: operations/databases.md
+    - name: How to manage PostgreSQL extensions
+      href: operations/cluster-extensions.md
+    - name: Managing database users
+      href: operations/cluster-users.md
+    - name: Assigning privileges and roles
+      href: operations/grant.md
+    - name: Managing backups
+      href: operations/cluster-backups.md
+    - name: Deleting clusters
+      href: operations/cluster-delete.md
+    - name: Performance diagnostics
+      href: operations/performance-diagnostics.md
+    - name: Migrating databases to Yandex.Cloud
+      href: operations/data-migration.md
   - name: Concepts
     items:
-      - name: Relationship between service resources
-        href: concepts/index.md
-      - name: Host classes
-        href: concepts/instance-types.md
-      - name: Network in Yandex Managed Service for PostgreSQL
-        href: concepts/network.md
-      - name: Quotas and limits
-        href: concepts/limits.md
-      - name: Backups
-        href: concepts/backup.md
-      - name: Assigning roles
-        href: concepts/roles.md
-      - name: Replication
-        href: concepts/replication.md
-      - name: Supported clients
-        href: concepts/supported-clients.md
+    - name: Relationship between service resources
+      href: concepts/index.md
+    - name: Host classes
+      href: concepts/instance-types.md
+    - name: Network in Yandex Managed Service for PostgreSQL
+      href: concepts/network.md
+    - name: Quotas and limits
+      href: concepts/limits.md
+    - name: Backups
+      href: concepts/backup.md
+    - name: Assigning roles
+      href: concepts/roles.md
+    - name: Managing connections
+      href: concepts/pooling.md
+    - name: Replication
+      href: concepts/replication.md
+    - name: Supported clients
+      href: concepts/supported-clients.md
   - name: Access management
     href: security/index.md
   - name: Resources and quotas

@@ -13,7 +13,7 @@
 
 ## Метрика {#metrica-source}
 
-### Формирование источника данных
+### Формирование источника данных {#metrica-source-forming-data-source}
 
 Для формирования источника данных используется метод `buildSource` модуля `libs/metrika/v1`.
 Метод `buildSource` принимает один аргумент: `object` со следующими свойствами:
@@ -32,7 +32,7 @@
 |limit|`number`|Ограничения количества данных|100
 |where|`object`|Дополнительные параметры|`null`
 
-#### Пример
+#### Пример {#metrica-source-forming-data-source-example}
 
 Вкладка **Urls**
 ```js
@@ -59,7 +59,7 @@ module.exports = {
 };
 ```
 
-### Примеры
+### Примеры {#metrica-source-examples}
 
 [График по данным из Метрики](https://charts.yandex-team.ru/editor/Templates/simple-metrika)
 
@@ -67,12 +67,12 @@ module.exports = {
 
 ## Мета-информация {#meta-info}
 
-### Формирование источника данных
+### Формирование источника данных {#meta-info-forming-data-source}
 
 Для формирования источника мета-информации используется метод `buildMetaSource` модуля `libs/metrika/v1`.
 Метод `buildMetaSource` принимает идентификатор счетчика в качестве аргумента.
 
-#### Пример
+#### Пример {#meta-info-forming-data-source-examples}
 
 Вкладка **Urls**
 ```js

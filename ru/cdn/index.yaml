@@ -1,0 +1,28 @@
+title: Yandex Cloud CDN
+description:
+  - >-
+    <em>Cервис Yandex Cloud CDN находится на <a
+    href="/docs/overview/concepts/launch-stages">стадии Preview</a></em>.
+  - >-
+    Yandex Cloud CDN позволяет организовать доставку контента до конечных потребителей с помощью сети распространения контента (Content Delivery Network, CDN).
+
+  - >-
+    Это позволяет:
+    <ul>
+      <li>Снизить нагрузку на основные серверы, на которых находится контент, за счет кеширования.</li>
+      <li>Сократить время ожидания контента для потребителя.</li>
+    </ul>
+  - >-
+    Управлять сервисом можно с помощью консоли управления.
+meta:
+  title: Yandex Cloud CDN
+links:
+  - title: Начало работы
+    description: Как начать доставлять контент с помощью CDN
+    href: quickstart
+  - title: Квоты и лимиты
+    description: Технические и организационные ограничения сервиса
+    href: limits
+  - title: Правила тарификации
+    description: Цены и правила расчета стоимости услуг сервиса
+    href: pricing

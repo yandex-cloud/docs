@@ -1,6 +1,6 @@
 # Графики
 
-## Общая информация
+## Общая информация {#common-chart}
 
 Для отрисовки графиков используется библиотека [Highcharts](https://www.highcharts.com/products/highcharts/).
 

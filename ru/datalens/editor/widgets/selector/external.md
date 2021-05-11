@@ -1,6 +1,6 @@
 # Внешний селектор на дашборде
 
-## Общая информация
+## Общая информация {#common-selector}
 
 Чтобы добавить селектор на дашборд, нужно перейти в диалог добавление селектора и выбрать секцию *Внешний селектор*:
 
@@ -14,11 +14,11 @@
 
 ![external-selector-connections](../../../../_assets/datalens/internal/editor/widgets/selector/external-selector-connections.png)
 
-## Специальные параметры
+## Специальные параметры {#special-parameters-selector}
 
 Чтобы **в настройках параметров внешнего селектора** указать [относительную дату](../../params.md#relativedate) нужно использовать формат вида `__relative_-7d`.
 
-## Примеры
+## Примеры {#examples-selector}
 
 [Дашборд: General](https://dash.yandex-team.ru/osw59jy6s6q2l) +
 [Селектор: general-dash-selector](https://charts.yandex-team.ru/editor/gkoxrcwbncrad)
@@ -26,7 +26,7 @@
 [Дашборд: Post update on change](https://dash.yandex-team.ru/10bn4w2h4f4ax) +
 [Селектор: simple-geo-selector](https://charts.yandex-team.ru/editor/Examples/postUpdateOnChange/simple-geo-selector)
 
-## Примечание
+## Примечание {#note-selector}
 
 На данный момент для корректной работы нужно перечислять **параметры** и их **дефолтные значения**
 **на вкладке Params селектора** и **в настройках параметров внешнего селектора**.

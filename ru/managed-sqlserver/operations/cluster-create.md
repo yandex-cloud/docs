@@ -72,6 +72,83 @@
   1. При необходимости задайте [настройки СУБД](../concepts/settings-list.md).
   1. Нажмите кнопку **Создать кластер**.
 
+- Terraform
+
+    {% include [terraform-definition](../../_includes/solutions/terraform-definition.md) %}
+
+    Если у вас еще нет {{ TF }}, [установите его и настройте провайдер](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+    Чтобы создать кластер:
+
+    1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
+
+        - Кластер базы данных — описание кластера и его хостов. При необходимости здесь же можно задать [настройки СУБД](../concepts/settings-list.md).
+        - Сеть — описание [облачной сети](../../vpc/concepts/network.md#network), в которой будет расположен кластер. Если подходящая сеть у вас уже есть, описывать ее повторно не нужно.
+        - Подсети — описание [подсетей](../../vpc/concepts/network.md#network), к которым будут подключены хосты кластера. Если подходящие подсети у вас уже есть, описывать их повторно не нужно.
+
+        Пример структуры конфигурационного файла:
+
+        ```hcl
+        resource "yandex_mdb_sqlserver_cluster" "<имя кластера>" {
+          name               = "<имя кластера>"
+          environment        = "<окружение: PRESTABLE или PRODUCTION>"
+          network_id         = "<идентификатор сети>"
+          version            = "<версия: 2016sp2std или 2016sp2ent>"
+          security_groups_id = ["<список идентификаторов групп безопасности>"]
+
+          resources {
+            resource_preset_id = "<класс хоста>"
+            disk_type_id       = "<тип хранилища>"
+            disk_size          = <размер хранилища в гигабайтах>
+          }
+
+          host {
+            zone      = "<зона доступности>"
+            subnet_id = "<идентификатор подсети>"
+          }
+
+          database = {
+            name = "<имя базы>"
+          }
+
+          user {
+            name     = "<имя пользователя>"
+            password = "<пароль>"
+
+            permission {
+              database_name = "<имя базы>"
+              roles         = ["<список ролей>"]
+            }
+          }
+
+          backup_window_start {
+            hours   = <Час начала резервного копирования>
+            minutes = <Минута начала резервного копирования>
+          }
+        }
+
+        resource "yandex_vpc_network" "<имя сети>" { name = "<имя сети>" }
+
+        resource "yandex_vpc_subnet" "<имя подсети>" {
+          name           = "<имя подсети>"
+          zone           = "<зона доступности>"
+          network_id     = "<идентификатор сети>"
+          v4_cidr_blocks = ["<диапазон>"]
+        }
+        ```
+
+       Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-mms }}).
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Создайте кластер.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+        После этого в указанном каталоге будут созданы все требуемые ресурсы, а в терминале отобразятся IP-адреса виртуальных машин. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+
 - API
 
   Чтобы создать кластер, воспользуйтесь методом API [create](../api-ref/Cluster/create.md) и передайте в запросе:
@@ -82,5 +159,102 @@
   - Конфигурацию баз данных кластера в одном или нескольких параметрах `databaseSpecs`.
   - Конфигурацию учетных записей баз данных кластера в одном или нескольких параметрах `userSpecs`.
   - Идентификатор сети в параметре `networkId`.
+
+{% endlist %}
+
+## Примеры {#examples}
+
+### Создание кластера с одним хостом
+
+{% list tabs %}
+
+- Terraform
+
+    Допустим, нужно создать {{ MS }}-кластер и сеть для него со следующими характеристиками:
+
+    - С именем `mssql-1`.
+    - В окружении `PRODUCTION`.
+    - С версией {{ MS }} `2016 ServicePack 2` и редакцией `Standard Edition`.
+    - В облаке с идентификатором `{{ tf-cloud-id }}`.
+    - В каталоге с идентификатором `{{ tf-folder-id }}`.
+    - В новой сети `mynet`.
+    - В новой группе безопасности `ms-sql-sg`, разрешающей подключение к кластеру из интернета через порт `{{ port-mms }}`.
+    - С одним хостом класса `s2.small` в новой подсети `mysubnet`, в зоне доступности `{{ zone-id }}`. Подсеть `mysubnet` будет иметь диапазон `10.5.0.0/24`.
+    - С быстрым сетевым хранилищем объемом 32 Гб.
+    - С базой данных `db1`.
+    - С пользователем `user1` и паролем `user1user1`. Этот пользователь будет владельцем базы `db1` ([предопределенная роль `DB_OWNER`](./grant.md#predefined-db-roles)).
+
+    Конфигурационный файл для такого кластера выглядит так:
+
+    ```hcl
+    terraform {
+      required_providers {
+        yandex = {
+          source = "yandex-cloud/yandex"
+        }
+      }
+    }
+
+    provider "yandex" {
+      token     = "<OAuth или статический ключ сервисного аккаунта>"
+      cloud_id  = "{{ tf-cloud-id }}"
+      folder_id = "{{ tf-folder-id }}"
+      zone      = "{{ zone-id }}"
+    }
+
+    resource "yandex_mdb_sqlserver_cluster" "mssql-1" {
+      name               = "mssql-1"
+      environment        = "PRODUCTION"
+      version            = "2016sp2std"
+      network_id         = yandex_vpc_network.mynet.id
+      security_group_ids = [yandex_vpc_security_group.ms-sql-sg.id]
+
+      resources {
+        resource_preset_id = "s2.small"
+        disk_type_id       = "network-ssd"
+        disk_size          = 32
+      }
+
+      host {
+        zone             = "{{ zone-id }}"
+        subnet_id        = yandex_vpc_subnet.mysubnet.id
+        assign_public_ip = true
+      }
+
+      database {
+        name = "db1"
+      }
+
+      user {
+        name     = "user1"
+        password = "user1user1"
+        permission {
+          database_name = "db1"
+          roles         = ["OWNER"]
+        }
+      }
+    }
+
+    resource "yandex_vpc_network" "mynet" { name = "mynet" }
+
+    resource "yandex_vpc_subnet" "mysubnet" {
+      name           = "mysubnet"
+      zone           = "{{ zone-id }}"
+      network_id     = yandex_vpc_network.mynet.id
+      v4_cidr_blocks = ["10.5.0.0/24"]
+    }
+
+    resource "yandex_vpc_security_group" "ms-sql-sg" {
+      name       = "ms-sql-sg"
+      network_id = yandex_vpc_network.mynet.id
+
+      ingress {
+        description    = "Public access to SQL Server"
+        port           = {{ port-mms }}
+        protocol       = "TCP"
+        v4_cidr_blocks = ["0.0.0.0/0"]
+      }
+    }
+    ```
 
 {% endlist %}

@@ -1,18 +1,18 @@
-## JavaScript
+## JavaScript {#javascript}
 
-### Общая информация
+### Общая информация {#common}
 
 В результате выполнения вкладки JavaScript должны быть экcпортированы данные для отрисовки таблицы.
 
-### Доступные методы
+### Доступные методы {#available-methods}
 
 * **`ChartEditor.getParams()`** - возвращает объект с нормализованными параметрами.
 
 * **`ChartEditor.getLoadedData()`** - возвращает объект с данными, запрошенными на вкладке Urls.
 
-* **`ChartEditor.updateConfig(config)`** - доопределяет результат вкладки [Config](config.md) аргументом `config`.
+* **`ChartEditor.updateConfig(config)`** - доопределяет результат вкладки [Config](#config) аргументом `config`.
 
-### Пример
+### Пример {#example}
 
 ```js
 // описываем шапку таблицы

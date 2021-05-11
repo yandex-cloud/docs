@@ -1,3 +1,11 @@
+---
+title: Questions and answers (QA) – Virtual machines
+description: Answers to frequently asked questions about virtual machines in Yandex.Cloud infrastructure. Technical characteristics, operations with virtual machines. What virtual machine configuration (memory, processor) you can use.
+keywords:
+  - vm
+  - virtual machines
+---
+
 # Virtual machines
 
 ### Technical parameters {#technical-parameters}
@@ -37,7 +45,6 @@ To avoid losing your data in case of accidental deletion, you can configure disk
 If you configured the [serial console](../operations/serial-console/index.md), you can use it to connect to the VM.
 
 You can also access your data the following way:
-
 1. [Create a snapshot](../operations/disk-control/create-snapshot.md) of the boot disk.
 1. [Create a VM](../operations/vm-create/create-linux-vm.md) from a public image.
 1. [Attach](../operations/vm-control/vm-attach-disk.md) the disk restored from the snapshot to the VM.
@@ -45,7 +52,6 @@ You can also access your data the following way:
 You can then export your data or restore access to the VM.
 
 To restore access:
-
 1. Change the SSH key in the `/home/<username>/.ssh/authorized_keys` file.
 1. Make a snapshot of the attached disk.
 1. [Create a VM with the disk from the snapshot](../operations/vm-create/create-from-snapshots.md).

@@ -10,9 +10,11 @@
 {% endif %}
 
 - [{#T}](connect.md)
+- [{#T}](cluster-stop.md)
 - [{#T}](web-sql-query.md)
 - [{#T}](insert.md)
 - [{#T}](update.md)
+- [{#T}](s3-access.md)
 - [{#T}](dictionaries.md)
 - [{#T}](internal-dictionaries.md)
 - [{#T}](ml-models.md)

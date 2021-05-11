@@ -1,9 +1,20 @@
+---
+title: Доступ к {{ mms-name }}
+description: Чтобы разрешить доступ к ресурсам сервиса {{ mms-name }} (кластеры и хосты БД, резервные копии кластеров, базы данных и их пользователи), назначьте пользователю нужные роли на каталог или облако, в котором эти ресурсы лежат.
+keywords:
+  - доступ
+  - access
+  - настройка доступа
+  - доступ {{ MS }}
+  - ms sql server
+  - {{ MS }}
+---
+
 # Управление доступом
 
 {% if audience != "internal"%}
 
 В этом разделе вы узнаете:
-
 * [на какие ресурсы можно назначить роль](#resources);
 * [какие роли действуют в сервисе](#roles-list);
 * [какие роли необходимы](#required-roles) для того или иного действия.
@@ -23,21 +34,20 @@
 ![image](../../_assets/security/service-roles-hierarchy.svg)
 
 Роли, действующие в сервисе:
-
 * Сервисные роли:
-    * {% include [resource-manager.clouds.owner](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.owner.md) %}
-    * {% include [resource-manager.clouds.member](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.member.md) %}
+  * {% include [resource-manager.clouds.owner](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.owner.md) %}
+  * {% include [resource-manager.clouds.member](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.member.md) %}
 * Примитивные роли:
-    * {% include [viewer](../../_includes/iam/roles/short-descriptions/viewer.md) %}
-    * {% include [editor](../../_includes/iam/roles/short-descriptions/editor.md) %}
-    * {% include [admin](../../_includes/iam/roles/short-descriptions/admin.md) %}
+  * {% include [viewer](../../_includes/iam/roles/short-descriptions/viewer.md) %}
+  * {% include [editor](../../_includes/iam/roles/short-descriptions/editor.md) %}
+  * {% include [admin](../../_includes/iam/roles/short-descriptions/admin.md) %}
 
 ## Какие роли мне необходимы {#required-roles}
 
 В таблице ниже перечислено, какие роли нужны для выполнения указанного действия. Вы всегда можете назначить роль, которая дает более широкие разрешения, нежели указанная. Например, назначить `editor` вместо `viewer`.
 
 Действие | Методы | Необходимые роли
------ | ----- | -----
+--- | --- | ---
 **Просмотр информации** | |
 Просмотр информации о кластере и связанных ресурсах | `get`, `list` | `viewer` на каталог с кластером
 **Управление ресурсами** | |

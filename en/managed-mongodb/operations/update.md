@@ -78,7 +78,7 @@ After creating a cluster, you can:
 
 - API
 
-  You can change the cluster [host class](../concepts/instance-types.md) using the API's [update](../api-ref/Cluster/update.md) method: pass the appropriate values in the request parameter `configSpec.mongodbSpec_3_64_2.mongod.configresources.resourcePresetId`.
+  You can change the cluster [host class](../concepts/instance-types.md) using the API's [update](../api-ref/Cluster/update.md) method: pass the appropriate values in the request parameter `configSpec.mongodbSpec_4_2.mongod.resources.resourcePresetId`.
 
   To request a list of supported values, use the [list](../api-ref/ResourcePreset/list.md) method for the `ResourcePreset` resources.
 
@@ -149,7 +149,7 @@ After creating a cluster, you can:
 
 ## Changing {{ MG }} settings {#change-mongod-config}
 
-You can change the DBMS settings of the hosts in your cluster. All supported settings are described [in the API reference](../api-ref/Cluster/update.md).
+You can change the DBMS settings of the hosts in your cluster.
 
 {% list tabs %}
 
@@ -157,13 +157,13 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 
   1. Go to the folder page and select **{{ mmg-name }}**.
 
-  1. Click the name of the cluster, then click **Edit cluster**.
+  1. Select the cluster and click **Edit cluster** in the top panel.
 
-  1. Under **DBMS settings**, click **Settings**.
+  1. Change the {{ MG }} settings by clicking **Configure** under **DBMS settings**:
 
-  1. Edit the DBMS parameters, then click **Save** in the dialog window and **Save changes** in the Management console.
+      {% include [mmg-dbms-settings](../../_includes/mdb/mmg-dbms-settings.md) %}
 
-  Once you edit the DBMS parameters, the cluster's state changes to **UPDATING**. If the edited parameters can only be applied on DBMS restart, {{ mmg-short-name }} sequentially restarts the DBMS on all the cluster hosts.
+  1. Click **Save changes**.
 
 - CLI
 
@@ -177,7 +177,7 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
   $ {{ yc-mdb-mg }} cluster update-config
   ```
 
-  For example, to set [net.maxIncomingConnections](https://docs.mongodb.com/manual/reference/configuration-options/#net.maxIncomingConnections) to `4096`, run the following command:
+  For example, to set [net.maxIncomingConnections](https://docs.mongodb.com/manual/reference/configuration-options/#mongodb-setting-net.maxIncomingConnections) to `4096`, run the following command:
 
   ```
   $ {{ yc-mdb-mg }} cluster update-config <cluster name>
@@ -189,6 +189,8 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 - API
 
   You can update DBMS settings for a cluster using the API [update](../api-ref/Cluster/update.md) method: pass the appropriate values in the request parameter `configSpec.mongodbSpec_4_2.mongod.config`.
+
+  All supported settings are described [in the API reference](../api-ref/Cluster/update.md).
 
 {% endlist %}
 

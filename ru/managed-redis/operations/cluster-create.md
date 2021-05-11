@@ -30,6 +30,14 @@
     
      {% endnote %}
 
+  1. Если требуется, включите поддержку шифрованных TLS/SSL-соединений с кластером (для версии {{ RD }} 6 или старше).
+
+     {% note warning %}
+
+     Включить шифрование соединений можно только при создании нового кластера. Отключить шифрование в кластере, для которого оно включено, невозможно.
+
+     {% endnote %}
+
   1. Настройте [класс хостов](../concepts/instance-types.md) кластера:
       - Выберите тип хостов — он определяет их [гарантированную долю vCPU](../../compute/concepts/performance-levels.md). Хосты типа **high-memory** работают с полным использованием ядра, а **burstable** — с частичным.
       - Выберите объем оперативной памяти для хоста.
@@ -89,6 +97,7 @@
          --network-name <имя сети> \
          --host zone-id=<зона доступности>,subnet-id=<идентификатор подсети> \
          --security-group-ids <список идентификаторов групп безопасности> \
+         --enable-tls \
          --resource-preset <класс хоста> \
          --disk-size <размер хранилища в гигабайтах> \
          --password=<пароль пользователя> \
@@ -96,76 +105,94 @@
       ```
       
       Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной зоне доступности создано 2 и больше подсетей.
+      
+- API
+
+  Чтобы создать кластер, воспользуйтесь методом API [create](../api-ref/Cluster/create.md) и передайте в запросе:
+  - Идентификатор каталога, в котором должен быть размещен кластер, в параметре `folderId`.
+  - Имя кластера в параметре `name`.
+  - Идентификаторы групп безопасности в параметре `securityGroupIds`.
+  - Флаг `tlsEnabled=true` для создания кластера с поддержкой шифрованных TLS/SSL-соединений (для версии {{ RD }} 6 или старше).
 
 - Terraform
 
   {% include [terraform-definition](../../_includes/solutions/terraform-definition.md) %}
-  
-  Если у вас ещё нет Terraform, [установите его и настройте провайдер](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform). 
-  
-  Чтобы создать кластер: 
-  
+
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  Чтобы создать кластер:
+
     1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
-       * Кластер базы данных — описание кластера и его хостов. При необходимости здесь же можно задать [настройки СУБД](../concepts/settings-list.md#dbms-settings.).
+       * Кластер базы данных — описание кластера и его хостов. При необходимости здесь же можно задать [настройки СУБД](../concepts/settings-list.md).
        * Сеть — описание [облачной сети](../../vpc/concepts/network.md#network), в которой будет расположен кластер. Если подходящая сеть у вас уже есть, описывать ее повторно не нужно.
        * Подсети — описание [подсетей](../../vpc/concepts/network.md#network), к которым будут подключены хосты кластера. Если подходящие подсети у вас уже есть, описывать их повторно не нужно.
 
-       Пример структуры конфигурационного файла:
+       Пример структуры конфигурационного файла для создания кластера с поддержкой TLS:
 
        ```hcl
+       terraform {
+         required_providers {
+           yandex = {
+             source = "yandex-cloud/yandex"
+           }
+         }
+       }
+
+       provider "yandex" {
+         token     = "<OAuth или статический ключ сервисного аккаунта>"
+         cloud_id  = "<идентификатор облака>"
+         folder_id = "<идентификатор каталога>"
+         zone      = "<зона доступности>"
+       }
+
        resource "yandex_mdb_redis_cluster" "<имя кластера>" {
          name               = "<имя кластера>"
-         environment        = "<окружение>"
+         environment        = "<окружение: PRESTABLE или PRODUCTION>"
          network_id         = "<идентификатор сети>"
          security_group_ids = [ "<идентификаторы групп безопасности>" ]
-       
+         tls_enabled        = true
+         sharded            = <шардирование: true или false>
+
          config {
            password = "<пароль>"
+           version  = "<версия Redis: 5.0 или 6.0>"
          }
-       
+
          resources {
            resource_preset_id = "<класс хоста>"
-           disk_size          = <размер диска>
+           disk_type_id       = "<тип хранилища>"
+           disk_size          = <размер хранилища в гигабайтах>
          }
-       
+
          host {
            zone      = "<зона доступности>"
            subnet_id = "<идентификатор подсети>"
          }
        }
-         
+
        resource "yandex_vpc_network" "<имя сети>" { name = "<имя сети>" }
-       
+
        resource "yandex_vpc_subnet" "<имя подсети>" {
-         name           = "<имя подсети>" 
+         name           = "<имя подсети>"
          zone           = "<зона доступности>"
          network_id     = "<идентификатор сети>"
          v4_cidr_blocks = ["<диапазон>"]
        }
        ```
-       
-       Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](https://www.terraform.io/docs/providers/yandex/r/mdb_redis_cluster.html).
-       
-    1. Проверьте корректность конфигурационных файлов.
-       
-       1. В командной строке перейдите в каталог, в котором вы создали конфигурационный файл.
-       1. Выполните проверку с помощь команды:
-          ```
-          terraform plan
-          ```
-       Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет. Это проверочный этап: ресурсы не будут созданы.
-          
+
+       Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-mrd }}).
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
     1. Создайте кластер.
-    
-       1. Если в конфигурации нет ошибок, выполните команду:
-          ```
-          terraform apply
-          ```
-       1. Подтвердите создание ресурсов.
-       
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
        После этого в указанном каталоге будут созданы все требуемые ресурсы, а в терминале отобразятся IP-адреса виртуальных машин. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
-          
+
 {% endlist %}
 
 {% note warning %}
@@ -187,9 +214,11 @@
   Допустим, нужно создать {{ RD }}-кластер со следующими характеристиками:
   
   - С именем `myredis`.
+  - С версией `6.0`.
   - В окружении `production`.
   - В сети `default`.
   - С одним хостом класса `hm1.nano` в подсети `b0rcctk2rvtr8efcch64`, в зоне доступности `{{ zone-id }}` и группе безопасности с идентификатором `{{ security-group }}`.
+  - С поддержкой TLS-соединений.
   - С быстрым сетевым хранилищем (`{{ disk-type-example }}`) объемом 16 ГБ.
   - C паролем `user1user1`.
   
@@ -198,31 +227,45 @@
   ```
   $ {{ yc-mdb-rd }} cluster create \
        --name myredis \
+       --redis-version 6.0 \
        --environment production \
        --network-name default \
        --resource-preset hm1.nano \
        --host zone-id={{ zone-id }},subnet-id=b0rcctk2rvtr8efcch64 \
        --security-group-ids {{ security-group }} \
+       --enable-tls \
+       --disk-type-id {{ disk-type-example }} \
        --disk-size 16 \
        --password=user1user1
   ```
 
 - Terraform
-  
+
   Допустим, нужно создать {{ RD }}-кластер и сеть для него со следующими характеристиками:
+
     - С именем `myredis`.
-    - В окружении `production`.
+    - С версией `6.0`.
+    - В окружении `PRODUCTION`.
     - В облаке с идентификатором `{{ tf-cloud-id }}`.
     - В каталоге с идентификатором `{{ tf-folder-id }}`.
     - В новой сети `mynet`.
-    - С одним хостом класса `hm1.nano` в новой подсети `mysubnet`, в зоне доступности `{{ zone-id }}`. Подсеть `mysubnet` будет иметь диапазон `10.5.0.0/24`.
-    - В новой группе безопасности `redis-sg`, разрешающей подключения через порт `{{ port-mrd }}` с любых адресов подсети `mysubnet`.
+    - С одним хостом класса `{{ host-class }}` в новой подсети `mysubnet`, в зоне доступности `{{ zone-id }}`. Подсеть `mysubnet` будет иметь диапазон `10.5.0.0/24`.
+    - В новой группе безопасности `redis-sg`, разрешающей подключения через порт `{{ port-mrd-tls }}` с любых адресов подсети `mysubnet`.
+    - С поддержкой TLS-соединений.
     - С быстрым сетевым хранилищем (`{{ disk-type-example }}`) объемом 16 ГБ.
     - C паролем `user1user1`.
-    
+
   Конфигурационный файл для такого кластера выглядит так:
-  
+
   ```hcl
+  terraform {
+    required_providers {
+      yandex = {
+        source = "yandex-cloud/yandex"
+      }
+    }
+  }
+
   provider "yandex" {
     token     = "<OAuth или статический ключ сервисного аккаунта>"
     cloud_id  = "{{ tf-cloud-id }}"
@@ -235,13 +278,16 @@
     environment        = "PRODUCTION"
     network_id         = yandex_vpc_network.mynet.id
     security_group_ids = [ yandex_vpc_security_group.redis-sg.id ]
+    tls_enabled        = true
 
     config {
       password = "user1user1"
+      version  = "6.0"
     }
 
     resources {
-      resource_preset_id = "hm1.nano"
+      resource_preset_id = "{{ host-class }}"
+      disk_type_id       = "{{ disk-type-example }}"
       disk_size          = 16
     }
 
@@ -259,25 +305,176 @@
 
     ingress {
       description    = "Redis"
-      port           = {{ port-mrd }}
+      port           = {{ port-mrd-tls }}
       protocol       = "TCP"
       v4_cidr_blocks = ["10.5.0.0/24"]
     }
 
     egress {
       description    = "Redis"
-      port           = {{ port-mrd }}
+      port           = {{ port-mrd-tls }}
       protocol       = "TCP"
       v4_cidr_blocks = ["10.5.0.0/24"]
     }
   }
 
-  resource "yandex_vpc_subnet" "mysubnet" {
+  resource  "yandex_vpc_subnet" "mysubnet" {
     name           = "mysubnet"
     zone           = "{{ zone-id }}"
     network_id     = yandex_vpc_network.mynet.id
     v4_cidr_blocks = ["10.5.0.0/24"]
   }
   ```
+
+{% endlist %}
+
+### Создание шардированного кластера {#creating-a-sharded-cluster}
+
+{% list tabs %}
+
+* Terraform
+
+    Допустим, нужно создать [шардированный](../concepts/sharding.md) {{RD}}-кластер со следующими характеристиками:
+
+    * С именем `myredis`.
+    * В окружении `PRODUCTION`.
+    * В облаке с идентификатором `{{ tf-cloud-id }}`.
+    * В каталоге с идентификатором `{{ tf-folder-id }}`.
+    * В новой сети `mynet`.
+    * С тремя подсетями в сети `mynet`, по одной в каждой зоне доступности:
+        * `subnet-a` с диапазоном `10.1.0.0/24`;
+        * `subnet-b` с диапазоном `10.2.0.0/24`;
+        * `subnet-c` с диапазоном `10.3.0.0/24`.
+    * С тремя хостами класса `{{ host-class }}`, по одному в каждой подсети.
+    * В новой группе безопасности `redis-sg`, разрешающей подключения через порты `{{ port-mrd }}` и `{{ port-mrd-sentinel }}` ([Redis Sentinel](./connect.md)) с любых адресов подсетей.
+    * С быстрым сетевым хранилищем (`{{ disk-type-example }}`) объемом 16 ГБ.
+    * C паролем `user1user1`.
+
+    Конфигурационный файл для такого кластера выглядит так:
+
+    ```hcl
+    terraform {
+      required_providers {
+        yandex = {
+          source = "yandex-cloud/yandex"
+        }
+      }
+    }
+
+    provider "yandex" {
+      token     = "<OAuth или статический ключ сервисного аккаунта>"
+      cloud_id  = "{{ tf-cloud-id }}"
+      folder_id = "{{ tf-folder-id }}"
+      zone      = "{{ zone-id }}"
+    }
+
+    resource "yandex_mdb_redis_cluster" "myredis" {
+      name               = "myredis"
+      environment        = "PRODUCTION"
+      network_id         = yandex_vpc_network.mynet.id
+      security_group_ids = [yandex_vpc_security_group.redis-sg.id]
+      sharded            = true
+
+      config {
+        password = "user1user1"
+      }
+
+      resources {
+        resource_preset_id = "{{ host-class }}"
+        disk_type_id       = "{{ disk-type-example }}"
+        disk_size          = 16
+      }
+
+      host {
+        zone       = "ru-central1-a"
+        subnet_id  = yandex_vpc_subnet.subnet-a.id
+        shard_name = "shard1"
+      }
+
+      host {
+        zone       = "ru-central1-b"
+        subnet_id  = yandex_vpc_subnet.subnet-b.id
+        shard_name = "shard2"
+      }
+
+      host {
+        zone       = "ru-central1-c"
+        subnet_id  = yandex_vpc.subnet.subnet-c.id
+        shard_name = "shard3"
+      }
+    }
+
+    resource "yandex_vpc_network" "mynet" { name = "mynet" }
+
+    resource "yandex_vpc_subnet" "subnet-a" {
+      name           = "subnet-a"
+      zone           = "ru-central1-a"
+      network_id     = yandex_vpc_network.mynet.id
+      v4_cidr_blocks = ["10.1.0.0/24"]
+    }
+
+    resource "yandex_vpc_subnet" "subnet-b" {
+      name           = "subnet-b"
+      zone           = "ru-central1-b"
+      network_id     = yandex_vpc_network.mynet.id
+      v4_cidr_blocks = ["10.2.0.0/24"]
+    }
+
+    resource "yandex_vpc_subnet" "subnet-c" {
+      name           = "subnet-c"
+      zone           = "ru-central1-c"
+      network_id     = yandex_vpc_network.mynet.id
+      v4_cidr_blocks = ["10.3.0.0/24"]
+    }
+
+    resource "yandex_vpc_security_group" "redis-sg" {
+      name       = "redis-sg"
+      network_id = yandex_vpc_network.mynet.id
+
+      ingress {
+        description    = "Redis"
+        port           = {{ port-mrd }}
+        protocol       = "TCP"
+        v4_cidr_blocks = [
+          "10.1.0.0/24",
+          "10.2.0.0/24",
+          "10.3.0.0/24"
+        ]
+      }
+
+      egress {
+        description    = "Redis"
+        port           = {{ port-mrd }}
+        protocol       = "TCP"
+        v4_cidr_blocks = [
+          "10.1.0.0/24",
+          "10.2.0.0/24",
+          "10.3.0.0/24"
+        ]
+      }
+
+      ingress {
+        description    = "Redis Sentinel"
+        port           = {{ port-mrd-sentinel }}
+        protocol       = "TCP"
+        v4_cidr_blocks = [
+          "10.1.0.0/24",
+          "10.2.0.0/24",
+          "10.3.0.0/24"
+        ]
+      }
+
+      egress {
+        description    = "Redis Sentinel"
+        port           = {{ port-mrd-sentinel }}
+        protocol       = "TCP"
+        v4_cidr_blocks = [
+          "10.1.0.0/24",
+          "10.2.0.0/24",
+          "10.3.0.0/24"
+        ]
+      }
+    }
+    ```
 
 {% endlist %}

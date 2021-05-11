@@ -1,3 +1,11 @@
+---
+description: Optical Character Recognition or OCR works on language models trained in a specific set of languages. The service highlights the found text on the image and groups it by levels – words are grouped into lines, lines into blocks, blocks into pages.
+keywords:
+  - ocr
+  - optical character recognition
+  - optical text recognition
+---
+
 # Optical character recognition (OCR)
 
 This section describes how the _Optical Character Recognition (OCR)_ feature works.
@@ -9,17 +17,15 @@ In your request, you specify a list of [analysis features](../index.md#features)
 ### Request configuration {#config}
 
 In the configuration, you can specify:
-
 * The list of languages to be used to [detect the language model](#detect-model) for recognition.
 
   If you don't know the text language, enter `"*"` so that the service can automatically select the most appropriate model.
 
 * The model to be used to detect text in the image. Available models:
-
   * `page` (default): Good for images with any number of lines of text.
   * `line`: Good for recognizing a single line of text. For example, if you don't want to send an entire image, you can cut out a single line and send it for recognition.
 
-       {% include [include](../../../_includes/vision/text-detection-line-note.md) %}
+    {% include [include](../../../_includes/vision/text-detection-line-note.md) %}
 
 ### Language model detection {#detect-model}
 
@@ -46,7 +52,6 @@ The service highlights the text characters found in the image and groups them by
 ![image](../../../_assets/vision/text-detection.jpg)
 
 As a result, the service returns an object that also specifies for each level:
-
 * `pages[]` — Page size.
 * `blocks[]` — Position of the text on the page.
 * `lines[]` — Position and [recognition confidence](#confidence).
@@ -62,22 +67,21 @@ Example of a recognized word with coordinates:
 {
   "boundingBox": {
     "vertices": [{
-        "x": "410",
-        "y": "404"
-      },
-      {
-        "x": "410",
-        "y": "467"
-      },
-      {
-        "x": "559",
-        "y": "467"
-      },
-      {
-        "x": "559",
-        "y": "404"
-      }
-    ]
+      "x": "410",
+      "y": "404"
+    },
+    {
+      "x": "410",
+      "y": "467"
+    },
+    {
+      "x": "559",
+      "y": "467"
+    },
+    {
+      "x": "559",
+      "y": "404"
+    }]
   },
   "languages": [{
     "languageCode": "en",
@@ -99,4 +103,3 @@ Currently, the recognition confidence value is only calculated for lines. The `c
 * [View the list of supported languages and models](supported-languages.md)
 * [View known restrictions for the current version](known-issues.md)
 * [Try recognizing text in an image](../../operations/ocr/text-detection.md)
-

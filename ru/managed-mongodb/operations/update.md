@@ -159,29 +159,26 @@
 
 {% list tabs %}
 
-* Консоль управления
+- Консоль управления
 
   1. Перейдите на страницу каталога и выберите сервис **{{ mmg-name }}**.
   1. Выберите кластер и нажмите кнопку **Изменить кластер** на панели сверху.
-  1. Измените настройки {{ MG }}, нажав кнопку **Настроить** в блоке **Настройки СУБД**:
-
-      {% include [mmg-dbms-settings](../../_includes/mdb/mmg-dbms-settings.md) %}
-
+  1. Измените [настройки {{ MG }}](../concepts/settings-list.md#dbms-cluster-settings), нажав кнопку **Настроить** в блоке **Настройки СУБД**:
   1. Нажмите кнопку **Сохранить изменения**.
 
-* CLI
+- CLI
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  Чтобы изменить настройки СУБД для кластера, используйте команду:
+  Чтобы изменить [настройки {{ MG }}](../concepts/settings-list.md#dbms-cluster-settings) для кластера, используйте команду:
 
   ```
   $ {{ yc-mdb-mg }} cluster update-config
   ```
 
-  Например, для установки значения параметра [net.maxIncomingConnections](https://docs.mongodb.com/manual/reference/configuration-options/#net.maxIncomingConnections) в `4096`, выполните следующую команду:
+  Например, для установки значения параметра [net.maxIncomingConnections](https://docs.mongodb.com/manual/reference/configuration-options/#mongodb-setting-net.maxIncomingConnections) в `4096`, выполните следующую команду:
 
   ```
   $ {{ yc-mdb-mg }} cluster update-config <имя кластера>
@@ -190,9 +187,9 @@
 
   {{ mmg-short-name }} запустит операцию изменения настроек СУБД для кластера. Если изменяемая настройка применяется только с перезапуском СУБД, то {{ mmg-short-name }} последовательно перезапустит СУБД на всех хостах кластера.
 
-* API
+- API
 
-  Изменить настройки СУБД для кластера можно с помощью метода API [update](../api-ref/Cluster/update.md): передайте в запросе нужные значения в параметре `configSpec.mongodbSpec_4_2.mongod.config`.
+  Изменить [настройки {{ MG }}](../concepts/settings-list.md#dbms-cluster-settings) для кластера можно с помощью метода API [update](../api-ref/Cluster/update.md): передайте в запросе нужные значения в параметре `configSpec.mongodbSpec_4_2.mongod.config`.
 
   Все поддерживаемые настройки описаны [в справочнике API](../api-ref/Cluster/update.md).
 
@@ -202,17 +199,17 @@
 
 {% list tabs %}
 
-* Консоль управления
+- Консоль управления
 
   1. Перейдите на страницу каталога и выберите сервис **{{ mmg-name }}**.
   1. Выберите кластер и нажмите кнопку **Изменить кластер** на панели сверху.
   1. Измените дополнительные настройки кластера:
 
      {% include [mmg-extra-settings](../../_includes/mdb/mmg-extra-settings.md) %}
-
+     
   1. Нажмите кнопку **Сохранить изменения**.
 
-* CLI
+- CLI
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -251,7 +248,7 @@
 
     Имя кластера можно [получить со списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-- API
+* API
 
     Воспользуйтесь методом API [update](../api-ref/Cluster/update.md): передайте в запросе нужные значения в параметрах `configSpec.access` и `configSpec.backupWindowStart`.
 

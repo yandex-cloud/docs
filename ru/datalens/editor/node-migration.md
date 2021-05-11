@@ -14,9 +14,9 @@
 [Запуск движка](https://clubs.at.yandex-team.ru/statistics/1403) произошёл 16 февраля 2018 года и мы сделали его средой выполнения по умолчанию для всех новых чартов.
 
 
-## Основные моменты
+## Основные моменты {#basic}
 
-* ### Больше нет "магических" переменных, ChartEditor.setDataSource, ChartEditor.draw
+* ### Больше нет "магических" переменных, ChartEditor.setDataSource, ChartEditor.draw {#no-more-magic-variables}
 
 ```js
 ̶v̶̶a̶̶r̶̶ ̶̶p̶̶a̶̶r̶̶a̶̶m̶̶s̶̶ ̶̶=̶̶ ̶̶{̶̶ ̶̶.̶̶.̶̶.̶̶ ̶̶}̶̶;̶̶
@@ -86,7 +86,7 @@ module.exports = {
 };
 ```
 
-* ### Больше нет "глобальной" переменной params
+* ### Больше нет "глобальной" переменной params {#no-more-global-params}
 
 Теперь необходимо явно получать параметры скрипта:
 
@@ -111,7 +111,7 @@ const scale = ChartEditor.getParam('scale');
 
 **Примечание**: все полученные значения параметров (включая одинарные) будут обернуты в массив, независимо от того, как их описывать на вкладке Params.
 
-* ### Вместо вкладки Includes подключение модулей на вкладках
+* ### Вместо вкладки Includes подключение модулей на вкладках {#instead-of-includes}
 
 Подробнее про модули можно почитать в [соответствующем разделе](modules.md).
 
@@ -139,16 +139,16 @@ const moment = require('vendor/moment/v2.24');
 
 **Примечание**: рекомендуется отказаться от использования модулей семейства `Statbox`, т.к. поддержка по ним не осуществляется.
 
-* ### Отдельные модули для источников вместо ChartEditor.buildUrl
+* ### Отдельные модули для источников вместо ChartEditor.buildUrl {#instead-of-buildurl}
 
 Список доступных источников и примеры использования их модулей можно найти в [соответствующем разделе](sources/index.md#spisok-istochnikov-dannyh).
 
-## Примеры
+## Примеры {#examples}
 
 [Examples/deprecated/parametrized-stat-graph](https://charts.yandex-team.ru/editor/Examples/deprecated/parametrized-stat-graph) -> [Examples/parametrized-stat-graph](https://charts.yandex-team.ru/editor/Examples/parametrized-stat-graph)
 [Examples/deprecated/parametrized-stat-metric](https://charts.yandex-team.ru/editor/Examples/deprecated/parametrized-stat-metric) -> [Examples/parametrized-stat-metric](https://charts.yandex-team.ru/editor/Examples/parametrized-stat-metric)
 
-## Legacy
+## Legacy {#legacy}
 
 Старая среда выполнения продолжит работать в уже существующих чартах (некоторые из которых написаны 7(!) лет назад),
 однако исправляться в них будут только критические ошибки и мы не будем оказывать по ним поддержку в чате и на рассылках.

@@ -1,4 +1,4 @@
-## Примеры
+## Примеры {#examples}
 
 [Доступные контролы](https://charts.yandex-team.ru/editor/Examples/all-controls)
 

@@ -59,6 +59,8 @@ items:
         href: tutorials/hybrid-storage.md
       - name: Getting data from Managed Service for Apache Kafka®
         href: tutorials/fetch-data-from-mkf.md
+      - name: Getting data from RabbitMQ
+        href: tutorials/fetch-data-from-rabbitmq.md
   - name: Concepts
     items:
       - name: Relationship between service resources

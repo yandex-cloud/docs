@@ -6,7 +6,7 @@
 отображения.
 Описание [доступных параметров](https://tech.yandex.ru/maps/doc/jsapi/2.1/ref/reference/Map-docpage#Map__constructor-summary).
 
-### Пример
+### Пример {#example}
 
 Вкладка **Yandex.Maps**
 ```js

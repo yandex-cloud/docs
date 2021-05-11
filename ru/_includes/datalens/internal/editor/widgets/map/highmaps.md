@@ -1,10 +1,10 @@
 ## Highmaps {#highmaps}
 
-### Общая информация
+### Общая информация {#common}
 
 В результате выполнения вкладки Highmaps должны быть экспортированы данные для настройки карты средствами [Highmaps](http://api.highcharts.com/highmaps).
 
-### Пример
+### Пример {#example}
 
 ```js
 module.exports = {

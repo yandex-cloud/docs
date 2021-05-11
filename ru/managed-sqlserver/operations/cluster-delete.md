@@ -11,6 +11,10 @@
   1. Нажмите значок ![image](../../_assets/options.svg) для нужного кластера и выберите пункт **Удалить кластер**.
   1. Подтвердите удаление кластера и нажмите кнопку **Удалить**.
 
+- Terraform
+
+    {% include [terraform-delete-mdb-cluster](../../_includes/mdb/terraform-delete-mdb-cluster.md) %}
+
 - API
 
   Чтобы удалить кластер, воспользуйтесь методом API [delete](../api-ref/Cluster/delete.md): передайте значение идентификатора требуемого кластера в параметре `clusterId` запроса.

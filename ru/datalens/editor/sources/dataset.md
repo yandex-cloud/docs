@@ -4,7 +4,7 @@
 
 **Префикс**: `/_bi` -> `https://back.datalens.yandex-team.ru`
 
-## Формирование источника данных
+## Формирование источника данных {#forming-data-source}
 
 Для формирования источника данных используется метод `buildSource` модуля `libs/dataset/v1`.
 Метод `buildSource` принимает один аргумент типа `object` со следующими свойствами:
@@ -64,7 +64,7 @@
 
 `const {OPERATIONS} = require('libs/dataset/v1');`
 
-### Пример
+### Пример {#forming-data-source-example}
 
 Вкладка **Urls**
 ```js
@@ -104,6 +104,6 @@ module.exports = {
 };
 ```
 
-## Примеры
+## Примеры {#examples}
 
 [График по данным из Датасета](https://charts.yandex-team.ru/editor/8nhx675cmotg6)

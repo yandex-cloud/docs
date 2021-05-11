@@ -1,9 +1,19 @@
+---
+title: {{ mms-name }} access management
+description: To allow access to {{ mms-name }} service resources (DB clusters and hosts, cluster backups, databases, and their users), assign the user the appropriate roles for the folder or cloud hosting the resources.
+keywords:
+  - access
+  - access management
+  - access {{ MS }}
+  - ms sql server
+  - {{ MS }}
+---
+
 # Access management
 
 {% if audience != "internal"%}
 
 In this section, you'll learn:
-
 * [What resources you can assign roles to](#resources).
 * [What roles exist in the service](#roles-list).
 * [What roles are required](#required-roles) for particular actions.
@@ -23,30 +33,29 @@ The diagram shows which roles are available in the service and how they inherit 
 ![image](../../_assets/security/service-roles-hierarchy.svg)
 
 Active roles in the service:
-
-* Service roles:
-    * {% include [resource-manager.clouds.owner](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.owner.md) %}
-    * {% include [resource-manager.clouds.member](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.member.md) %}
+* Service roles
+  * {% include [resource-manager.clouds.owner](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.owner.md) %}
+  * {% include [resource-manager.clouds.member](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.member.md) %}
 * Primitive roles:
-    * {% include [viewer](../../_includes/iam/roles/short-descriptions/viewer.md) %}
-    * {% include [editor](../../_includes/iam/roles/short-descriptions/editor.md) %}
-    * {% include [admin](../../_includes/iam/roles/short-descriptions/admin.md) %}
+  * {% include [viewer](../../_includes/iam/roles/short-descriptions/viewer.md) %}
+  * {% include [editor](../../_includes/iam/roles/short-descriptions/editor.md) %}
+  * {% include [admin](../../_includes/iam/roles/short-descriptions/admin.md) %}
 
 ## What roles do I need {#required-roles}
 
 The table below lists the roles needed to perform a given action. You can always assign a role granting more permissions than the role specified. For example, you can assign `editor` instead of `viewer`.
 
-| Action | Methods | Required roles |
-| ----- | ----- | ----- |
-| **Viewing data** |  |
-| View information about the cluster and related resources | `get`, `list` | `viewer` for the folder hosting the cluster |
-| **Managing resources** |  |
-| Create clusters and backups in the folder | `create` | `editor` for the folder |
-| Change and delete clusters and related resources | `update`, `delete` | `editor` for the folder hosting the cluster |
-| **Managing resource access** |  |
-| [Add](../operations/cluster-users.md#adduser), [edit](../operations/cluster-users.md#updateuser), [remove](../operations/cluster-users.md#removeuser) cluster users | `create`, `update`, `delete` | `editor` for the folder hosting the cluster |
-| [Manage access to databases](../operations/grant.md) in the cluster | `grantPermission`, `revokePermission` | `editor` for the folder hosting the cluster |
-| [Assign](../../iam/operations/roles/grant.md), [revoke](../../iam/operations/roles/revoke.md), and view roles granted for the resource or cloud | `setAccessBindings`, `updateAccessBindings`, `listAccessBindings` | `admin` for this folder or cloud |
+Action | Methods | Required roles
+--- | --- | ---
+**Viewing data** |
+View information about the cluster and related resources | `get`, `list` | `viewer` for the folder hosting the cluster
+**Managing resources** |
+Create clusters and backups in the folder | `create` | `editor` for the folder
+Change and delete clusters and related resources | `update`, `delete` | `editor` for the folder hosting the cluster
+**Managing resource access** |
+[Add](../operations/cluster-users.md#adduser), [edit](../operations/cluster-users.md#updateuser), [remove](../operations/cluster-users.md#removeuser) cluster users | `create`, `update`, `delete` | `editor` for the folder hosting the cluster
+[Manage access to databases](../operations/grant.md) in the cluster | `grantPermission`, `revokePermission` | `editor` for the folder hosting the cluster
+[Assign](../../iam/operations/roles/grant.md), [revoke](../../iam/operations/roles/revoke.md), and view roles granted for the resource or cloud | `setAccessBindings`, `updateAccessBindings`, `listAccessBindings` | `admin` for this folder or cloud
 
 #### What's next
 
@@ -60,4 +69,3 @@ The table below lists the roles needed to perform a given action. You can always
 {% include [abc-roles](../../_includes/mdb/internal/abc-roles.md) %}
 
 {% endif %}
-

@@ -1,10 +1,10 @@
-## JavaScript {#javascrpt}
+## JavaScript {#javascript}
 
-### Общая информация
+### Общая информация {#common}
 
 В результате выполнения вкладки JavaScript должны быть экпортированы данные для отрисовки карты.
 
-### Доступные методы
+### Доступные методы {#available-methods}
 
 * **`ChartEditor.getParams()`** - возвращает объект с нормализованными параметрами.
 
@@ -14,7 +14,7 @@
 
 * **`ChartEditor.updateHighchartsConfig(config)`** - доопределяет результат вкладки [Highmaps](highmaps.md) объектом `config`.
 
-### Пример
+### Пример {#example}
 
 ```js
 // подключаем модуль геоданных карты

@@ -1,3 +1,12 @@
+---
+title: Creating a Linux virtual machine (VM)
+description: Create a Linux virtual machine using {{ compute-name }} from the {{ yandex-cloud }}. You can connect to a Linux virtual machine via ssh tool or PuTTY. Specify Linux virtual machine public address.
+keywords:
+  - linux
+  - linux vm
+  - linux virtual machine
+---
+
 # Creating a Linux VM
 
 Create a Linux [virtual machine](../concepts/vm.md) using {{ compute-name }} from the {{ yandex-cloud }} management console and connect to it.
@@ -26,7 +35,7 @@ If you no longer plan to use a virtual machine, [delete it](../operations/vm-con
 
 ## What's next {#what-is-next}
 
-- Watch [tutorials for creating web services in {{ yandex-cloud }}](../../solutions/web/).
-- Learn [how to use VMs](../operations/).
-- Learn [how to create a VM with a GPU](../operations/vm-create/create-vm-with-gpu.md).
-- Read [answers to frequently asked questions](../qa/general.md).
+* Watch [tutorials for creating web services in {{ yandex-cloud }}](../../solutions/web/).
+* Learn [how to use VMs](../operations/).
+* Learn [how to create a VM with a GPU](../operations/vm-create/create-vm-with-gpu.md).
+* Read [answers to frequently asked questions](../qa/general.md).

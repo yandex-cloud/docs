@@ -385,21 +385,24 @@
   
   ```bash
   sudo apt update && sudo apt install -y golang git && \
-  go get github.com/jackc/pgx && go mod init example
+  go mod init example && go get github.com/jackc/pgx/v4
   ```
   
   **Пример кода для подключения с использованием SSL-соединения:**
   
   `connect.go`
-  ```
+  ```go
   package main
 
   import (
-    "io/ioutil"
+    "context"
     "crypto/tls"
     "crypto/x509"
     "fmt"
-    "github.com/jackc/pgx"
+    "io/ioutil"
+    "os"
+  
+    "github.com/jackc/pgx/v4"
   )
 
   const (
@@ -410,63 +413,70 @@
     dbname   = "<имя БД>"
     ca       = "/home/<домашняя директория>/.postgresql/root.crt"
   )
-
+  
   func main() {
-
+  
     rootCertPool := x509.NewCertPool()
     pem, err := ioutil.ReadFile(ca)
     if err != nil {
       panic(err)
     }
-
+  
     if ok := rootCertPool.AppendCertsFromPEM(pem); !ok {
       panic("Failed to append PEM.")
     }
-
-    config := pgx.ConnConfig {
-      Host: host,
-      Port: port,
-      User: user,
-      Password: password,
-      Database: dbname,
-      TargetSessionAttrs: "read-write",
-      TLSConfig: &tls.Config {
-        RootCAs: rootCertPool,
-        InsecureSkipVerify: true,
-      },
-    }
-
-    conn, err := pgx.Connect(config)
+  
+    connstring := fmt.Sprintf(
+      "host=%s port=%d dbname=%s user=%s password=%s sslmode=verify-full target_session_attrs=read-write",
+      host, port, dbname, user, password)
+  
+    connConfig, err := pgx.ParseConfig(connstring)
     if err != nil {
-      panic(err)
+      fmt.Fprintf(os.Stderr, "Unable to parse config: %v\n", err)
+      os.Exit(1)
     }
-
-    defer conn.Close()
-
+  
+    connConfig.TLSConfig = &tls.Config{
+      RootCAs:            rootCertPool,
+      InsecureSkipVerify: true,
+    }
+  
+    conn, err := pgx.ConnectConfig(context.Background(), connConfig)
+    if err != nil {
+      fmt.Fprintf(os.Stderr, "Unable to connect to database: %v\n", err)
+      os.Exit(1)
+    }
+  
+    defer conn.Close(context.Background())
+  
     var version string
-
-    err = conn.QueryRow("SELECT version()").Scan(&version)
+  
+    err = conn.QueryRow(context.Background(), "select version()").Scan(&version)
     if err != nil {
-      panic(err)
+      fmt.Fprintf(os.Stderr, "QueryRow failed: %v\n", err)
+      os.Exit(1)
     }
-
-    fmt.Println(version)
+  
+    fmt.Println(version)  
   }
   ```
-  
+    
   В отличие от других способов подключения, в этом коде необходимо указывать полный путь к сертификату `root.crt` для {{ PG }} в переменной `ca`.
   
   **Пример кода для подключения без использования SSL-соединения:**
 
   `connect.go`
-  ```
+  ```go
   package main
 
   import (
+    "context"
     "fmt"
-    "github.com/jackc/pgx"
+    "os"
+  
+    "github.com/jackc/pgx/v4"
   )
-
+  
   const (
     host     = "<FQDN одного или нескольких хостов {{ PG }}>"
     port     = 6432
@@ -474,34 +484,37 @@
     password = "<пароль пользователя>"
     dbname   = "<имя БД>"
   )
-
+  
   func main() {
-
-    config := pgx.ConnConfig {
-      Host: host,
-      Port: port,
-      User: user,
-      Password: password,
-      Database: dbname,
-      TargetSessionAttrs: "read-write",
-    }
-
-    conn, err := pgx.Connect(config)
+  
+    connstring := fmt.Sprintf(
+      "host=%s port=%d dbname=%s user=%s password=%s target_session_attrs=read-write",
+      host, port, dbname, user, password)
+  
+    connConfig, err := pgx.ParseConfig(connstring)
     if err != nil {
-      panic(err)
+      fmt.Fprintf(os.Stderr, "Unable to parse config: %v\n", err)
+      os.Exit(1)
     }
-
-    defer conn.Close()
-
+  
+    conn, err := pgx.ConnectConfig(context.Background(), connConfig)
+    if err != nil {
+      fmt.Fprintf(os.Stderr, "Unable to connect to database: %v\n", err)
+      os.Exit(1)
+    }
+  
+    defer conn.Close(context.Background())
+  
     var version string
-
-    err = conn.QueryRow("SELECT version()").Scan(&version)
+  
+    err = conn.QueryRow(context.Background(), "select version()").Scan(&version)
     if err != nil {
-      panic(err)
+      fmt.Fprintf(os.Stderr, "QueryRow failed: %v\n", err)
+      os.Exit(1)
     }
-
-    fmt.Println(version)
-  }
+  
+    fmt.Println(version)  
+  }  
   ```
   
   **Подключение:**

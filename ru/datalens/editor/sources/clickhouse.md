@@ -12,7 +12,7 @@
 
 ---
 
-## Ограничения
+## Ограничения {#limits}
 
 * Для Charts выделены квоты на всех кластерах ClickHouse.
 Они достаточно большие, но просим вас не забывать, что *with great power comes great responsibility*.
@@ -21,7 +21,7 @@
 
 ---
 
-## Формирование источника данных
+## Формирование источника данных {#forming-data-source}
 
 Для формирования источника данных используется метод `buildSource` модуля `libs/clickhouse/v1`.
 Метод `buildSource` принимает один аргумент: `object` со следующими свойствами:
@@ -35,7 +35,7 @@
 
 Предпочтительнее использовать `post` запрос, так как `query` может быть очень длинным и это может привести к ошибкам.
 
-### Пример
+### Пример {#forming-data-source-example}
 
 Вкладка **Urls**
 ```js
@@ -63,6 +63,6 @@ module.exports = {
 };
 ```
 
-## Примеры
+## Примеры {#examples}
 
 [График по данным из ClickHouse](https://charts.yandex-team.ru/editor/Templates/simple-clickhouse)

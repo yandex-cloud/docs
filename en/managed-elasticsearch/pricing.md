@@ -32,11 +32,11 @@ The cost is calculated for each hour of operation of the host in accordance with
 
 You can select the host class both for the hosts with the `Data node` role and hosts with the `Master node` role.
 
-The minimum billing unit is one hour (for example, the cost of 1.5 hours of operation is the same as the cost of 2 hours of operation). You are not charged for time when the {{ ES }} host is not performing its main functions.
+The minimum billing unit is one minute (for example, the cost of 1.5 minutes of operation is the same as the cost of 2 minutes of operation). You are not charged for time when the {{ ES }} host is not performing its main functions.
 
 ### Disk space usage {#rules-storage}
 
-You pay for the storage allocated for DB clusters. The cost is specified for one month of use.  The minimum billing unit is 1 GB per hour (for example, the cost of storing 1 GB for 1.5 hours is equal to the cost of storage for 2 hours).
+You pay for the storage allocated for DB clusters. The cost is specified for one month of use. The minimum billing unit is 1 GB per minute (for example, the cost of storing 1 GB for 1.5 minutes is equal to the cost of storage for 2 minutes).
 
 {% if audience == "draft" %}
 
