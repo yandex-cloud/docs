@@ -16,7 +16,7 @@ To create an AppMetrica connection:
 
 1. Click **Create** and select **Connection**.
 
-1. Select the **AppMetrica** connector.
+1. Select the **AppMetrica** connection.
 
 1. In the field next to the folder name, enter the connection name. You can set any name.
 

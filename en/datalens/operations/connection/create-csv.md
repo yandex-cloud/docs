@@ -20,7 +20,7 @@ To create a connection to a CSV file:
 
 1. Click **Create connection**.
 
-1. Select the **CSV** connector.
+1. Select the **CSV** connection.
 
 1. Click **Select CSV file** and specify the CSV file or drag it to the screen. Information about the added file is displayed in the lower part of the dialog box.
 

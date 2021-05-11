@@ -22,7 +22,7 @@ To create a connection to the Logs API:
 
 1. Click **Create connection**.
 
-1. Select the **Metrica** connector.
+1. Select the **Metrica** connection.
 
 1. Specify the connection parameters:
 

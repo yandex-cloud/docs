@@ -26,7 +26,7 @@ This step is available to users who have an app in AppMetrica. If you don't have
 
     ![image](../../_assets/datalens/solution-06/02-create-connection.png)
 
-1. Select the **AppMetrica** connector.
+1. Select the **AppMetrica** connection.
 
     ![image](../../_assets/datalens/solution-06/03-choose-appmetrica.png)
 
