@@ -1,13 +1,13 @@
 # API комментариев
 
-* [Общая информация](#obshaya-informaciya)
+* [Общая информация](#about)
 * Одиночные операции
-    * [Создание](#sozdat-kommentarij)
-    * [Редактирование](#redaktirovat-kommentarij)
-    * [Удаление](#udalit-kommentarij)
+    * [Создание](#create)
+    * [Редактирование](#update)
+    * [Удаление](#remove)
 * Групповые операции
-    * [Чтение](#poluchit-spisok-kommentariev)
-    * [Удаление](#udalit-kommentarii)
+    * [Чтение](#get)
+    * [Удаление](#remove-feed)
 
 {% include [include](../../../_includes/datalens/internal/comments/common.md) %}
 

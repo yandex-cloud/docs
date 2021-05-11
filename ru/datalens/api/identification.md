@@ -24,7 +24,7 @@ export CHARTS_USER_AGENT="login (login@yandex-team.ru)"
 ```
 
 
-### Пример (cURL, используя строку path)
+### Пример (cURL, используя строку path) {#example-curl-string-path}
 
 ```bash
 curl -X POST "https://charts.yandex-team.ru/api/run" \
@@ -35,7 +35,7 @@ curl -X POST "https://charts.yandex-team.ru/api/run" \
 ```
 
 
-### Пример (cURL, используя хэш path)
+### Пример (cURL, используя хэш path) {#example-curl-hash-path}
 
 ```bash
 curl -X POST "https://charts.yandex-team.ru/api/run" \

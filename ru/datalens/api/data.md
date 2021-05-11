@@ -1,7 +1,7 @@
 # API данных чартов
 
 
-#### Endpoint
+#### Endpoint {#endpoint}
 `POST https://charts.yandex-team.ru/api/run`
 
 Параметры передаются в body запроса как x-www-form-urlencoded, либо как json.
@@ -13,7 +13,7 @@
 Вместо `path` можно передать хэш `params` (например, `{params: {name: 'resure/auxiliary-series', kind: 'Special'}}`).
 
 
-#### Пример (cURL, используя строку path)
+#### Пример (cURL, используя строку path) {#example-curl-string-path}
 
 ```bash
 curl -X "POST" "https://charts.yandex-team.ru/api/run" \
@@ -23,7 +23,7 @@ curl -X "POST" "https://charts.yandex-team.ru/api/run" \
 ```
 
 
-#### Пример (cURL, используя хэш params)
+#### Пример (cURL, используя хэш params) {#example-curl-hash-params}
 
 ```bash
 curl -X "POST" "https://charts.yandex-team.ru/api/run" \
@@ -33,7 +33,7 @@ curl -X "POST" "https://charts.yandex-team.ru/api/run" \
 ```
 
 
-#### Пример (Python, используя строку path)
+#### Пример (Python, используя строку path) {#example-python-string-path}
 
 ```python
 import requests
@@ -62,7 +62,7 @@ fetch_editor_data()
 ```
 
 
-#### Пример (Python, используя хэш params)
+#### Пример (Python, используя хэш params) {#example-python-hash-params}
 
 ```python
 import requests

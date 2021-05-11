@@ -15,7 +15,7 @@ export CHARTS_OAUTH_TOKEN=AQAD-qKSJyAIABAKs8yk1fuH1kIdr1H5k_ccXDX
 ```
 где после `=` нужно подставить OAuth токен, полученный по ссылке выше.
 
-### Пример (cURL, используя строку path)
+### Пример (cURL, используя строку path) {#example-string-path}
 
 ```bash
 curl -X POST "https://charts.yandex-team.ru/api/run" \
@@ -24,7 +24,7 @@ curl -X POST "https://charts.yandex-team.ru/api/run" \
   --data-urlencode "path=/editor/Examples/parametrized-stat-graph"
 ```
 
-### Пример (cURL, используя хэш path)
+### Пример (cURL, используя хэш path) {#example-hash-path}
 
 ```bash
 curl -X POST "https://charts.yandex-team.ru/api/run" \

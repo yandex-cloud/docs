@@ -1,6 +1,6 @@
 # API скриншотов чартов
 
-#### Endpoint
+#### Endpoint {#endpoint}
 `POST https://charts.yandex-team.ru/api/scr/v1/screenshots`
 
 Параметры скриншотов передаются в body запроса как x-www-form-urlencoded.
@@ -21,7 +21,7 @@
 - `type` — если вам нужно делать скриншоты таблиц, этот параметр нужно задать в "table"
 
 
-#### Пример (cURL)
+#### Пример (cURL) {#example-curl}
 
 `curl -X POST -H "Authorization: OAuth QAD-qJSJyANAAAKs7tk1fuH1kIdr1H5k_ccXXX" \
     -H "Content-Type: application/x-www-form-urlencoded" \
@@ -29,7 +29,7 @@
     "https://charts.yandex-team.ru/api/scr/v1/screenshots"`
 
 
-#### Пример (Python)
+#### Пример (Python) {#example-python}
 
 ```python
 import requests
@@ -54,6 +54,6 @@ with open('scr.png', 'wb') as out_file:
 ```
 
 
-#### Ограничения
+#### Ограничения {#limits}
 
 В текущей версии API можно создавать скриншоты только открытых отчетов.

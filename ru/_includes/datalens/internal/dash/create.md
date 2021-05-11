@@ -7,7 +7,7 @@
 * `key` - путь до дашборда (**Примечание**: папки должны быть созданы заранее)
 * `data` - схема дашборда
 
-### Пример запроса
+### Пример запроса {#example-request-create-dash}
 
 ```bash
 curl -X POST "https://api.dash.yandex.net/v1/dashboards" \
@@ -54,7 +54,7 @@ curl -X POST "https://api.dash.yandex.net/v1/dashboards" \
   }'
 ```
 
-### Пример ответа
+### Пример ответа {#example-response-create-dash}
 
 ```json
 {

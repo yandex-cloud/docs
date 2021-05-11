@@ -1,17 +1,17 @@
-## Удалить комментарии
+## Удалить комментарии {#remove-feed}
 
 `DELETE` `https://charts.yandex-team.ru/api/v1/comments?feed={feed}`
 
 В query-параметре запроса передается канал комментариев.
 
-### Пример запроса
+### Пример запроса {#example-request-rbf}
 
 ```bash
 curl -X DELETE "https://charts.yandex-team.ru/api/v1/comments?feed=apanchuk/sales-by-region" \
   -H "Content-Type: application/json" \
 ```
 
-### Пример ответа
+### Пример ответа {#example-response-rbf}
 
 ```json
 [

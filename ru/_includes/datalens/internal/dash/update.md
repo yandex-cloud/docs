@@ -6,7 +6,7 @@
 
 * `data` - схема дашборда
 
-### Пример запроса
+### Пример запроса {#example-request-update-dash}
 
 ```bash
 curl -X POST "https://api.dash.yandex.net/v1/dashboards/ujnm9ovaaewur" \
@@ -229,7 +229,7 @@ curl -X POST "https://api.dash.yandex.net/v1/dashboards/ujnm9ovaaewur" \
   }'
 ```
 
-### Пример ответа
+### Пример ответа {#example-response-update-dash}
 
 ```json
 {

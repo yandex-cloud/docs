@@ -4,7 +4,7 @@
 
 `POST` `https://api.charts.yandex.net/v1/charts/<id>`
 
-### Формат тела запроса
+### Формат тела запроса {#example-body-request-update}
 ```
 {
     data: <Object — данные чарта>
@@ -16,7 +16,7 @@
 
 ¹ — необходимо указать только одно из двух, либо ничего, тогда останется старый type
 
-### Формат ответа
+### Формат ответа {#example-response-1-update}
 ```
 {
     data: <Object — данные чарта>
@@ -27,7 +27,7 @@
 }
 ```
 
-### Пример запроса
+### Пример запроса {#example-request-1-update}
 
 ```bash
 curl --request POST \
@@ -49,7 +49,7 @@ curl --request POST \
 }'
 ```
 
-### Пример ответа
+### Пример ответа {#example-response-2-update}
 
 ```json
 {

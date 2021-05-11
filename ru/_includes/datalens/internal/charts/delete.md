@@ -4,7 +4,7 @@
 
 `DELETE` `https://api.charts.yandex.net/v1/charts/<id>`
 
-### Пример запроса
+### Пример запроса {#example-request-delete}
 
 ```bash
 curl -X DELETE "https://api.charts.yandex.net/v1/charts/ogo5x8piotxul" \
