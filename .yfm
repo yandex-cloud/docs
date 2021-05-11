@@ -1,18 +1,18 @@
 allowHTML: true
 
 ignore:
-  - "en/_api-ref/*"
-  - "en/_api-ref-grpc/*"
-  - "ru/_api-ref/*"
-  - "ru/_api-ref-grpc/*"
-  - "ru/mdb/*"
-  - "en/mdb/*"
-  - "ru/tracker/api-ref/*"
-  - "en/tracker/api-ref/*"
+    - "en/_api-ref/*"
+    - "en/_api-ref-grpc/*"
+    - "ru/_api-ref/*"
+    - "ru/_api-ref-grpc/*"
+    - "ru/mdb/*"
+    - "en/mdb/*"
+    - "ru/tracker/api-ref/*"
+    - "en/tracker/api-ref/*"
 
 connector:
-    type: gitHub
-    gitHub: 
+    type: github
+    github: 
         endpoint: https://api.github.com
         owner: yandex-cloud
         repo: docs
