@@ -6,7 +6,7 @@ items:
     href: overview.md
   - name: Authentication
     href: authentication.md
-  - name: Справочник API (англ.)
+  - name: Справочник API
     items:
       - name: Обзор
         href: api-ref/index.md

@@ -32,7 +32,7 @@ links:
   #- title: "Справочник метрик"
     ##  description: "Описание метрик сервисов Yandex.Cloud"
     ##  href: "metrics-ref/"
-  - title: "Справочник API (англ.)"
+  - title: "Справочник API"
     description: "Описание методов HTTP API"
     href: "api-ref/"
   - title: "Квоты и лимиты"

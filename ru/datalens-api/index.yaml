@@ -13,7 +13,7 @@ links:
   - title: Принцип работы
     description: Узнайте про устройство и возможности API
     href: overview
-  - title: Справочник API (англ.)
+  - title: Справочник API
     description: Описание методов HTTP API
     href: api-ref/
   - title: Authentication
