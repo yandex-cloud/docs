@@ -4,7 +4,16 @@
 
 Чтобы создать подключение к AppMetrica:
 
+{% if audience == "internal" %}
+
+1. Перейдите на [страницу подключений](https://datalens.yandex-team.ru/connections).
+
+{% else %}
+
 1. Перейдите на [страницу подключений](https://datalens.yandex.ru/connections).
+
+{% endif %}
+
 1. Нажмите кнопку **Создать**, выберите **Connection**.
 1. Выберите коннектор **AppMetrica**.
 1. В поле после имени папки задайте имя подключения. Имя может быть произвольным.

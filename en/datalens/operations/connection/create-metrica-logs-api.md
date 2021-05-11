@@ -10,7 +10,15 @@ Before creating a connection to the Yandex.Metrica Logs API, you need to create 
 
 To create a connection to the Logs API:
 
+{% if audience == "internal" %}
+
+1. Go to the [connections page](https://datalens.yandex-team.ru/connections).
+
+{% else %}
+
 1. Go to the [connections page](https://datalens.yandex.com/connections).
+
+{% endif %}
 
 1. Click **Create connection**.
 

@@ -5,7 +5,17 @@
 ## Подключение к MS SQL Server {#ms-sql-server-connection}
 
 Чтобы создать подключение к MS SQL Server:
+
+{% if audience == "internal" %}
+
+1. Перейдите на [страницу подключений](https://datalens.yandex-team.ru/connections).
+
+{% else %}
+
 1. Перейдите на [страницу подключений](https://datalens.yandex.ru/connections).
+
+{% endif %}
+
 1. Нажмите кнопку **Создать подключение**.
 1. Выберите коннектор **MS SQL Server**.
 1. Укажите параметры подключения:

@@ -4,7 +4,15 @@
 
 To create an AppMetrica connection:
 
+{% if audience == "internal" %}
+
+1. Go to the [connections page](https://datalens.yandex-team.ru/connections).
+
+{% else %}
+
 1. Go to the [connections page](https://datalens.yandex.com/connections).
+
+{% endif %}
 
 1. Click **Create** and select **Connection**.
 

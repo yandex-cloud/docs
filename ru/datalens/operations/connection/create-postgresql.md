@@ -5,7 +5,17 @@
 ## Подключение к PostgreSQL {#postgresql-connection}
 
 Чтобы создать подключение к {{ PG }}:
+
+{% if audience == "internal" %}
+
+1. Перейдите на [страницу подключений](https://datalens.yandex-team.ru/connections).
+
+{% else %}
+
 1. Перейдите на [страницу подключений](https://datalens.yandex.ru/connections).
+
+{% endif %}
+
 1. Нажмите кнопку **Создать подключение**.
 1. Выберите коннектор **PostgreSQL**.
 1. Задайте **Имя подключения**. Имя может быть произвольным.

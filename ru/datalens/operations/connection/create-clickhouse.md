@@ -12,7 +12,17 @@
 ## Подключение к ClickHouse {#clickhouse-connection}
 
 Чтобы создать подключение к {{ CH }}:
+
+{% if audience == "internal" %}
+
+1. Перейдите на [страницу подключений](https://datalens.yandex-team.ru/connections).
+
+{% else %}
+
 1. Перейдите на [страницу подключений](https://datalens.yandex.ru/connections).
+
+{% endif %}
+
 1. Нажмите кнопку **Создать подключение**.
 1. Выберите коннектор **ClickHouse**.
 1. Задайте **Имя подключения**. Имя может быть произвольным.

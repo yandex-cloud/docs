@@ -6,7 +6,16 @@
 
 To create an MS SQL Server connection:
 
+{% if audience == "internal" %}
+
+1. Go to the [connections page](https://datalens.yandex-team.ru/connections).
+
+{% else %}
+
 1. Go to the [connections page](https://datalens.yandex.com/connections).
+
+{% endif %}
+
 1. Click **Create connection**.
 1. Select the **MS SQL Server** connector.
 1. Specify the connection parameters:
