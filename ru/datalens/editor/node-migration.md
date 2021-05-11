@@ -141,7 +141,7 @@ const moment = require('vendor/moment/v2.24');
 
 * ### Отдельные модули для источников вместо ChartEditor.buildUrl {#instead-of-buildurl}
 
-Список доступных источников и примеры использования их модулей можно найти в [соответствующем разделе](sources/index.md#spisok-istochnikov-dannyh).
+Список доступных источников и примеры использования их модулей можно найти в [соответствующем разделе](sources/index.md#list-data-sources).
 
 ## Примеры {#examples}
 

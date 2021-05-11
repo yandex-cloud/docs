@@ -6,21 +6,21 @@
 - `GET` `https://api.charts.yandex.net/v1/charts/<id>`
 - `GET` `https://api.charts.yandex.net/v1/charts/entryByKey`
 
-### Пример запроса по `id`
+### Пример запроса по `id` {#example-request-id-read}
 
 ```bash
 curl -X GET "https://api.charts.yandex.net/v1/charts/ogo5x8piotxul" \
   -H "Authorization: OAuth $CHARTS_OAUTH_TOKEN"
 ```
 
-### Пример запроса по `key`
+### Пример запроса по `key` {#example-request-key-read}
 
 ```bash
 curl -X GET "https://api.charts.yandex.net/v1/charts/entryByKey?key=Users/apanchuk/brandNewChart" \
   -H "Authorization: OAuth $CHARTS_OAUTH_TOKEN"
 ```
 
-### Пример ответа
+### Пример ответа {#example-response-read}
 
 ```json
 {

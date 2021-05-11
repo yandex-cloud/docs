@@ -1,4 +1,4 @@
-## Получить список комментариев
+## Получить список комментариев {#get}
 
 `GET` `https://charts.yandex-team.ru/api/v1/comments`
 
@@ -12,13 +12,13 @@
 |params|Уточняющие параметры|
 |matchType|Способ сравнения параметров: `contains` - уточняющие параметры являются подмножеством, `full` - полное совпадение|`full`
 
-### Пример запроса
+### Пример запроса {#example-request-read}
 
 ```bash
 curl -X GET "https://charts.yandex-team.ru/api/v1/comments?feed=comment%2Ffeed&dateFrom=2018-01-01T00%3A00%3A00.000Z&dateTo=2019-01-01T00%3A00%3A00.000Z&params\[scale\]=d&params\[region\]=RU"
 ```
 
-### Пример ответа
+### Пример ответа {#example-response-read}
 
 ```json
 [

@@ -1,10 +1,10 @@
-## Создать комментарий
+## Создать комментарий {#create}
 
 `POST` `https://charts.yandex-team.ru/api/v1/comments`
 
 В теле запроса передаются значения общих параметров.
 
-### Пример запроса
+### Пример запроса {#example-request-create}
 
 ```bash
 curl -X POST "https://charts.yandex-team.ru/api/v1/comments" \
@@ -26,7 +26,7 @@ curl -X POST "https://charts.yandex-team.ru/api/v1/comments" \
   }'
 ```
 
-### Пример ответа
+### Пример ответа {#example-response-create}
 
 ```json
 {

@@ -1,10 +1,10 @@
-## Редактировать комментарий
+## Редактировать комментарий {#update}
 
 `POST` `https://charts.yandex-team.ru/api/v1/comments/{id}`
 
 В теле запроса передаются значения общих параметров.
 
-### Пример запроса
+### Пример запроса {#example-request-edit}
 
 ```bash
 curl -X POST "https://charts.yandex-team.ru/api/v1/comments/69b7c450-59e5-11e8-a90e-f7c9d12c535d" \
@@ -20,7 +20,7 @@ curl -X POST "https://charts.yandex-team.ru/api/v1/comments/69b7c450-59e5-11e8-a
   }'
 ```
 
-### Пример ответа
+### Пример ответа {#example-response-edit}
 
 ```json
 {

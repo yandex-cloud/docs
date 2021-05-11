@@ -4,7 +4,7 @@
 
 `POST` `https://api.charts.yandex.net/v1/charts`
 
-### Формат тела запроса
+### Формат тела запроса {#request-body-format-create}
 ```
 {
     data: <Object — данные чарта>
@@ -16,7 +16,7 @@
 
 ¹ — необходимо указать только одно из двух
 
-### Графики с `type`:
+### Графики с `type`: {#charts-with-type-create}
 
 Допустимые значения type:
 * graph_node — график
@@ -27,7 +27,7 @@
 * markdown_node — markdown виджет
 * module — модуль
 
-#### `graph_node` — график
+#### `graph_node` — график {#graph-node-create}
 ```
 {
     // В data пишется содержимое вкладок
@@ -43,7 +43,7 @@
 
 ![График](../../../../_assets/datalens/internal/charts/7.png)
 
-#### `table_node` — таблица
+#### `table_node` — таблица {#table-node-create}
 ```
 {
     // В data пишется содержимое вкладок
@@ -58,7 +58,7 @@
 
 ![Таблица](../../../../_assets/datalens/internal/charts/9.png)
 
-#### `metric_node` — показатель
+#### `metric_node` — показатель {#metric-node-create}
 ```
 {
     // В data пишется содержимое вкладок
@@ -71,7 +71,7 @@
 
 ![Показатель](../../../../_assets/datalens/internal/charts/11.png)
 
-#### `ymap_node` — карта
+#### `ymap_node` — карта {#ymap-node-create}
 ```
 {
     // В data пишется содержимое вкладок
@@ -84,7 +84,7 @@
 
 ![Карта](../../../../_assets/datalens/internal/charts/8.png)
 
-#### `control_node` — селектор
+#### `control_node` — селектор {#control-node-create}
 ```
 {
     // В data пишется содержимое вкладок
@@ -98,7 +98,7 @@
 
 ![Селектор](../../../../_assets/datalens/internal/charts/12.png)
 
-#### `markdown_node` — markdown виджет
+#### `markdown_node` — markdown виджет {#md-node-create}
 ```
 {
     // В data пишется содержимое вкладок
@@ -111,7 +111,7 @@
 
 ![Markdown виджет](../../../../_assets/datalens/internal/charts/13.png)
 
-#### `module` — модуль
+#### `module` — модуль {#module-create}
 ```
 {
     // В data пишется содержимое вкладок
@@ -123,10 +123,10 @@
 
 ![Модуль](../../../../_assets/datalens/internal/charts/10.png)
 
-### Графики с `template`:
+### Графики с `template`: {#charts-with-teplate-create}
 В данный момент такие генерируемые графики используются для DataLens и Monitoring, их использовать не так просто как классические графики, где все делается руками, но позволяют быстро создавать графики с помощью других интерфейсов (например DataLens Wizard) вместо ChartsEditor. При желании использовать такие графики для своих целей, свяжитесь с нами, создайте тикет в [CHARTS](https://st.yandex-team.ru/createTicket?queue=CHARTS) и опишите вашу ситуацию.
 
-### Формат ответа
+### Формат ответа {#response-format-1-create}
 ```
 {
     data: <Object — данные чарта>
@@ -136,7 +136,7 @@
 }
 ```
 
-### Пример запроса
+### Пример запроса {#request-format-create}
 
 ```bash
 curl --request POST \
@@ -157,7 +157,7 @@ curl --request POST \
 }'
 ```
 
-### Пример ответа
+### Пример ответа {#response-format-2-create}
 
 ```json
 {
