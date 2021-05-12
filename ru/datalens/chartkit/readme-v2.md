@@ -5,13 +5,13 @@
 
 Библиотека для рендеринга скриптов [Yandex Charts](https://charts.yandex-team.ru).
 
-## Установка
+## Установка {#install}
 
 ```bash
 npm i yandex-chartkit
 ```
 
-## Зависимости
+## Зависимости {#dependency}
 
 ```
 "islands": "^5.13.0",
@@ -19,13 +19,13 @@ npm i yandex-chartkit
 "react-dom": ">15.6.0"
 ```
 
-### Для вики-текста/показателя:
+### Для вики-текста/показателя: {#for-indicator}
 
 ```
 https://yastatic.net/jquery/1.11.0/jquery.min.js
 ```
 
-### Для вики-текста
+### Для вики-текста {#for-wiki-text}
 
 [Версии](https://wf.yandex-team.ru/versions)
 
@@ -34,11 +34,11 @@ https://yastatic.net/tools-wf/5.0.15/v-5/wf.js
 https://yastatic.net/tools-wf/5.0.15/v-5/wf.css
 ```
 
-## Подключение в сборку
+## Подключение в сборку {#connection-to-build}
 
 Чтобы избежать дублирования `islands` в итоговом бандле.
 
-### При использовании `"react-build-utils": "^0.15.5"`
+### При использовании `"react-build-utils": "^0.15.5"` {#react-build-utils}
 
 **DEPRECATED**
 
@@ -63,7 +63,7 @@ module.exports = createConfig({
 });
 ```
 
-### При использовании `"webpack-levels": "^0.4.0"`
+### При использовании `"webpack-levels": "^0.4.0"` {#webpack-levels}
 
 ```js
 const webpack = require('webpack');
@@ -90,13 +90,13 @@ configBuilder.use(defaultLevel({
 module.exports = configBuilder.toJS();
 ```
 
-### В остальных случаях (`"webpack": "*"`)
+### В остальных случаях (`"webpack": "*"`) {#webpack}
 
 Аналогично.
 
-## Использование
+## Использование {#using}
 
-### Если ChartKit подключен в сборку
+### Если ChartKit подключен в сборку {#chartkit-to-build}
 
 ```js
 // основная компонента с Node.js графиками из Yandex Charts
@@ -138,7 +138,7 @@ renderMetric(ChartKit);
 renderText(ChartKit);
 ```
 
-### В ином случае
+### В ином случае {#otherwise}
 
 Т.к. подключаются `.css` файлы, в конфиге `webpack`-а нужно добавить путь до папки `node_modules/yandex-chartkit`.
 
@@ -187,7 +187,7 @@ renderMetric(ChartKit);
 renderText(ChartKit);
 ```
 
-### Доступные свойства
+### Доступные свойства {#properties}
 
 ```js
 <ChartKit
@@ -225,7 +225,7 @@ renderText(ChartKit);
 />
 ```
 
-### Настройки
+### Настройки {#settings}
 
 ```js
 // далее перечислены значения по умолчанию

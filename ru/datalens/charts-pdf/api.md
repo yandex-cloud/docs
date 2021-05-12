@@ -1,11 +1,11 @@
 
 # API для получения PDF
 
-#### Метод `GET /api/v1/pdf/<ID шаблона>.pdf`
+#### Метод `GET /api/v1/pdf/<ID шаблона>.pdf` {#get-template}
 
 Получить сгенерированный PDF файл по шаблону, идентификатор которого передается.
 
-#### Метод `POST /api/v1/pdf`
+#### Метод `POST /api/v1/pdf` {#post-pdf}
 
 Получить сгенерированный PDF файл по шаблону, конфигурация которого прокидывается в теле запроса.
 
@@ -49,9 +49,9 @@ curl -X "POST" "https://pdf.charts.yandex-team.ru/api/v1/pdf" \
 }" > file.pdf
 ```
 
-### Работа с шаблонами
+### Работа с шаблонами {#template-work}
 
-#### Метод `POST /api/v1/templates/create`
+#### Метод `POST /api/v1/templates/create` {#post-create}
 
 Создать шаблон.
 
@@ -64,13 +64,13 @@ curl -X "POST" "https://pdf.charts.yandex-team.ru/api/v1/pdf" \
 }
 ```
 
-#### Метод `POST /api/v1/templates/readList`
+#### Метод `POST /api/v1/templates/readList` {#post-readList}
 
 Получить список шаблонов.
 
 Этот запрос посылается с пустым телом.
 
-#### Метод `POST /api/v1/templates/read`
+#### Метод `POST /api/v1/templates/read` {#post-read}
 
 Получить шаблон.
 
@@ -81,7 +81,7 @@ curl -X "POST" "https://pdf.charts.yandex-team.ru/api/v1/pdf" \
 }
 ```
 
-#### Метод `POST /api/v1/templates/removeById`
+#### Метод `POST /api/v1/templates/removeById` {#post-removeById}
 
 Удалить шаблон по идентификатору.
 
@@ -92,7 +92,7 @@ curl -X "POST" "https://pdf.charts.yandex-team.ru/api/v1/pdf" \
 }
 ```
 
-#### Метод `POST /api/v1/templates/editText`
+#### Метод `POST /api/v1/templates/editText` {#post-editText}
 
 Отредактировать код шаблона.
 
@@ -104,7 +104,7 @@ curl -X "POST" "https://pdf.charts.yandex-team.ru/api/v1/pdf" \
 }
 ```
 
-#### Метод `POST /api/v1/templates/editInfo`
+#### Метод `POST /api/v1/templates/editInfo` {#post-editInfo}
 
 Отредактировать информацию шаблона.
 

@@ -5,13 +5,13 @@
 
 Библиотека для рендеринга скриптов [Yandex Charts](https://charts.yandex-team.ru).
 
-## Установка
+## Установка {#install}
 
 ```bash
 npm i @yandex-data-ui/chartkit
 ```
 
-## Зависимости
+## Зависимости {#dependency}
 
 ```
 "lego-on-react": "^3.0.0",
@@ -23,7 +23,7 @@ npm i @yandex-data-ui/chartkit
 ChartsAPI версии 5 и выше
 ```
 
-### Для вики-текста
+### Для вики-текста {#for-wiki-text}
 
 [Версии](https://wf.yandex-team.ru/versions)
 
@@ -33,9 +33,9 @@ https://yastatic.net/tools-wf/5.0.15/v-5/wf.js
 https://yastatic.net/tools-wf/5.0.15/v-5/wf.css
 ```
 
-## Использование
+## Использование {#using}
 
-### Импорты
+### Импорты {#imports}
 
 * Подключения бандла, в который включены `lego-on-react`, `@yandex-data-ui/dt100`, `@yandex-data-ui/react-components`,
 `@yandex-data-ui/common`.
@@ -219,7 +219,7 @@ https://yastatic.net/tools-wf/5.0.15/v-5/wf.css
     @import '~@yandex-data-ui/common/src/styles/yfm.scss';
     ```
 
-### Доступные свойства
+### Доступные свойства {#properties}
 
 ```js
 <ChartKit
@@ -274,7 +274,7 @@ https://yastatic.net/tools-wf/5.0.15/v-5/wf.css
 />
 ```
 
-### Описание темы
+### Описание темы {#theme-description}
 
 Список перекрашиваемых элементов пополняется.
 
@@ -317,7 +317,7 @@ https://yastatic.net/tools-wf/5.0.15/v-5/wf.css
 }
 ```
 
-### Настройки
+### Настройки {#settings}
 
 ```js
 ChartKit.setSettings({

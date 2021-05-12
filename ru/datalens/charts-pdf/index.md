@@ -4,7 +4,7 @@
 - [Шаблоны и слайды](templates.md)
 - [API](api.md)
 
-### О сервисе
+### О сервисе {#about-service}
 
 Адрес сервиса: [pdf.charts.yandex-team.ru](https://pdf.charts.yandex-team.ru).
 

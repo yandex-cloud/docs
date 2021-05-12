@@ -4,13 +4,13 @@
 
 Библиотека для рендеринга скриптов [Yandex Charts](https://charts.yandex-team.ru).
 
-## Установка
+## Установка {#install}
 
 ```bash
 npm i @yandex-data-ui/chartkit
 ```
 
-## Зависимости
+## Зависимости {#dependency}
 
 ```
 "lego-on-react": "^3.0.0",
@@ -19,15 +19,15 @@ npm i @yandex-data-ui/chartkit
 "react-router-dom": "^5.0.0" // если подключается дополнительный модуль control
 ```
 
-## Сообщить о проблеме
+## Сообщить о проблеме {#bug-report}
 
 Если вы хотите сообщить об ошибке или предложить улучшение, то заведите тикет [по ссылке](https://st.yandex-team.ru/createTicket?queue=CHARTS&components%5B%5D=43028&followers%5B%5D=1120000000020711&followers%5B%5D=1120000000046495&followers%5B%5D=1120000000167368&priority=2&type=2).
 
-## Использование
+## Использование {#using}
 
 ### Импорты {#imports}
 
-#### Собранный бандл
+#### Собранный бандл {#bundle}
 
 * `node_modules/@yandex-data-ui/chartkit` должен присутствовать в инклудах лоадера для стилей.
 
@@ -93,7 +93,7 @@ ChartKit.registerPlugins(
 extendHighcharts(ChartKit);
 ```
 
-#### Исходные файлы
+#### Исходные файлы {#files}
 
 * Если используется дополнительный модуль `control`, то для корректного отображения иконок в компонентах
 нужно добавить в зависимости, например, `svg-sprite-loader` и правило для `webpack` следующего вида:
@@ -157,7 +157,7 @@ ChartKit.registerPlugins(
 extendHighcharts(ChartKit);
 ```
 
-### Стилизация {#stilizaciya}
+### Стилизация {#style}
 
 **Важно**: все новые возможности разрабатываются с требованием, что `<ChartKit/>` будет использован вместе с [`<ThemeProvider/>`](https://github.yandex-team.ru/data-ui/common/tree/master/src/components/theme):
 
@@ -172,7 +172,7 @@ import {ThemeProvider} from '@yandex-data-ui/common';
 Если вы используете дополнительный модуль `control` или предопределенный элемент меню `Inspector`,
 то вместе с `<ChartKit/>` должен быть использован [`<ThemeProvider/>`](https://github.yandex-team.ru/data-ui/common/tree/master/src/components/theme)
 
-#### Описание темы
+#### Описание темы {#theme-description}
 
 **DEPRECATED**: данный способ является устаревшим и не будет поддержан в следующей мажорной версии.
 Используйте [`<ThemeProvider/>`](https://github.yandex-team.ru/data-ui/common/tree/master/src/components/theme).
@@ -243,7 +243,7 @@ import {ThemeProvider} from '@yandex-data-ui/common';
 }
 ```
 
-### Доступные свойства {#dostupnye-svojstva}
+### Доступные свойства {#properties}
 
 ```jsx
 <ChartKit
@@ -310,7 +310,7 @@ import {ThemeProvider} from '@yandex-data-ui/common';
 />
 ```
 
-### Общие настройки {#obshie-nastrojki}
+### Общие настройки {#main-settings}
 
 ```jsx
 ChartKit.setGeneralSettings({
@@ -343,7 +343,7 @@ ChartKit.setGeneralSettings({
 });
 ```
 
-### Настройки провайдера данных Charts {#nastrojki-provajdera-dannyh-charts}
+### Настройки провайдера данных Charts {#provider-settings}
 
 ```js
 ChartKit.setDataProviderSettings({
@@ -369,7 +369,7 @@ ChartKit.setDataProviderSettings({
 });
 ```
 
-### Data Provider
+### Data Provider {#data-provider}
 
 ```jsx
 import {ChartKitBase} from '@yandex-data-ui/chartkit';
