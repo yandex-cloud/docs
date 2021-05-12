@@ -31,17 +31,17 @@ The fields define the structure and format of the dataset. The following types o
 
 In the dataset creation interface and wizard, you can duplicate fields, create fields, and use [aggregation functions](#aggregation).
 
-{{ datalens-short-name }} allows you to create calculated fields using formulas.
+{{ datalens-short-name }} lets you create calculated fields using formulas.
 To write formulas, you can use existing dataset fields, constants, and functions.
 For a full list of functions, see [Function reference](../../function-ref/all.md).
 
-To learn more about calculated fields, see [{#T}](../calculations.md).
+For more information about calculated fields, see [{#T}](../calculations/index.md).
 
 ## Data aggregation {#aggregation}
 
 The following aggregation functions are available for fields with different data types:
 
-| Functions | Description | Supported types |
+| Function | Description | Supported types |
 | ----- | ----- | ----- |
 | No | Without aggregation | All types |
 | Average | Arithmetic mean value | `Fractional number`<br/>`Integer` |
