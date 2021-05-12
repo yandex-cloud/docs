@@ -89,6 +89,8 @@ items:
             href: operations/vm-connect/ssh.md
           - name: Connecting to a VM via RDP
             href: operations/vm-connect/rdp.md
+          - name: Connecting to a VM via PowerShell
+            href: operations/vm-connect/powershell.md
           - name: Working with Yandex.Cloud from inside a VM
             href: operations/vm-connect/auth-inside-vm.md
           - name: Installing NVIDIA drivers
