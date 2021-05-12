@@ -25,9 +25,13 @@ items:
         href: operations/failover.md
       - name: Deleting clusters
         href: operations/cluster-delete.md
+  - name: Use cases
+    items:
+      - name: Storing PHP sessions in Managed Service for Redis
+        href: tutorials/redis-as-php-sessions-storage.md
   - name: Concepts
     items:
-      - name: Overview
+      - name: Relationship between service resources
         href: concepts/index.md
       - name: Host classes
         href: concepts/instance-types.md
@@ -43,7 +47,7 @@ items:
         href: concepts/supported-clients.md
       - name: Limitations of Managed Service for Redis
         href: concepts/supported-features.md
-      - name: Service quotas and limits
+      - name: Quotas and limits
         href: concepts/limits.md
   - name: Access management
     href: security/index.md
