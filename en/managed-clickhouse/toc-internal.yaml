@@ -83,6 +83,8 @@ items:
         href: concepts/supported-clients.md
       - name: ClickHouse versioning policy
         href: concepts/update-policy.md
+      - name: ClickHouse settings
+        href: concepts/settings-list.md
   - name: Access management
     href: security/index.md
   - name: Resources and quotas

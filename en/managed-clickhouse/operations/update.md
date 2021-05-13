@@ -175,22 +175,16 @@ After creating a cluster, you can:
 {% list tabs %}
 
 - Management console
-
   1. Go to the folder page and select **{{ mch-name }}**.
-
   1. Select the cluster and click **Edit cluster** in the top panel.
-
-  1. Change the {{ CH }} settings by clicking **Configure** under **DBMS settings**:
-
-     {% include [mch-additional-properties](../../_includes/mdb/mch-additional-properties.md) %}
-
+  1. Change the [{{ CH }} settings](../concepts/settings-list.md#dbms-cluster-settings) by clicking **Configure** under **DBMS settings**:
   1. Click **Save changes**.
 
 - API
 
   Use the [update](../api-ref/Cluster/update.md) API method and pass the required values in the `configSpec.clickhouse.config` request parameter.
 
-  All supported settings are described [in the API reference](../api-ref/Cluster/update.md).
+  All supported settings are described in the [{#T}](../concepts/settings-list.md#dbms-cluster-settings) section and the [API reference](../api-ref/Cluster/update.md).
 
 {% endlist %}
 
