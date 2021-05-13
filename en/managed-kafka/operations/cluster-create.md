@@ -11,7 +11,9 @@ A cluster in {{ mkf-name }} is one or more broker hosts where topics and their p
   To create a cluster, follow these steps:
 
   1. In the management console, select the folder where you want to create a cluster.
+
   1. Select **{{ mkf-name }}**.
+
   1. Click **Create cluster**.
 
   1. Under **Basic parameters**:
@@ -34,7 +36,9 @@ A cluster in {{ mkf-name }} is one or more broker hosts where topics and their p
   1. Under **Network settings**:
 
      1. Select one or more [availability zones](../../overview/concepts/geo-scope.md) where the {{ KF }} brokers will reside.
+
      1. Select the [network](../../vpc/concepts/network.md).
+
      1. Select subnets in each availability zone for this network. To [create a new subnet](../../vpc/operations/subnet-create.md), click **Create new subnet** next to the desired availability zone.
 
         {% note info %}
@@ -45,11 +49,13 @@ A cluster in {{ mkf-name }} is one or more broker hosts where topics and their p
 
      1. To access broker hosts from the internet, select **Public access**. In this case, you can only connect to them over an SSL connection. For more information, see [{#T}](connect.md).
 
-     {% note warning %}
+        {% note warning %}
 
-     You can't request public access after creating a cluster.
+        You can't request public access after creating a cluster.
 
-     {% endnote %}
+        {% endnote %}
+
+     1. Select security groups to control the cluster's network traffic.
 
   1. Under **Hosts**, specify the number of [broker hosts](../concepts/brokers.md) {{ KF }} to be located in each of the selected availability zones.
 
@@ -62,7 +68,7 @@ A cluster in {{ mkf-name }} is one or more broker hosts where topics and their p
 
   1. Click **Create cluster**.
 
-  1. Wait until the cluster is ready: its status on the {{ mkf-short-name }} dashboard changes to `Running` and its state to `Alive`. This may take some time.
+  1. Wait until the cluster is ready: its status on the {{ mkf-short-name }} dashboard changes to **Running** and its state becomes **Alive**. This may take some time.
 
 - CLI
 
@@ -72,7 +78,7 @@ A cluster in {{ mkf-name }} is one or more broker hosts where topics and their p
 
   To create a cluster:
 
-  1. View a description of the CLI's create cluster command:
+  1. View a description of the CLI create cluster command:
 
       ```
       {{ yc-mdb-kf }} cluster create --help
@@ -84,100 +90,106 @@ A cluster in {{ mkf-name }} is one or more broker hosts where topics and their p
       {{ yc-mdb-kf }} cluster create \
          --name <cluster name> \
          --environment <prestable or production> \
+         --version <version: 2.1 or 2.6> \
          --network-name <network name> \
          --brokers-count <number of brokers per zone> \
          --resource-preset <host class> \
          --disk-type <disk type> \
          --disk-size <storage size in GB> \
-         --assign-public-ip <public access>
+         --assign-public-ip <public access> \
+         --security-group-ids <list of security group IDs>
       ```
-
-{% if api != "noshow" %}
 
 - API
 
   To create a cluster, use the [create](../api-ref/Cluster/create.md) API method and pass the following in the request:
   - In the `folderId` parameter, the ID of the folder where the cluster should be placed.
   - The cluster name, in the `name` parameter.
+  - Security group IDs in the parameter `securityGroupIds`.
 
 - Terraform
 
-    {% include [terraform-definition](../../solutions/_solutions_includes/terraform-definition.md) %}
+  {% include [terraform-definition](../../solutions/_solutions_includes/terraform-definition.md) %}
 
-    If you don't have Terraform, [install it and configure the provider](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+  If you don't have Terraform, [install it and configure the provider](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-    To create a cluster:
+  To create a cluster:
 
-    1. In the configuration file, describe the parameters of resources that you want to create:
+  1. In the configuration file, describe the parameters of resources that you want to create:
 
-        {% include [terraform-create-cluster-step-1](../../_includes/mdb/terraform-create-cluster-step-1.md) %}
+     {% include [terraform-create-cluster-step-1](../../_includes/mdb/terraform-create-cluster-step-1.md) %}
 
-        Example configuration file structure:
+     Example configuration file structure:
 
-        ```go
-        terraform {
-          required_providers {
-            yandex = {
-             source = "yandex-cloud/yandex"
-            }
-          }
-        }
-        
-        provider "yandex" {
-          token = "<OAuth or static key of service account>"
-          cloud_id  = "<cloud ID>"
-          folder_id = "<folder ID>"
-          zone      = "<availability zone>"
-        }
-        
-        resource "yandex_mdb_kafka_cluster" "<cluster name>" {
-         environment = "<PRESTABLE or PRODUCTION>"
-         name        = "<cluster name>"
-         network_id  = "<network ID>"
-        
-          config {
-            assign_public_ip = "<public access to the cluster: true or false>"
-            brokers_count    = <number of brokers>
-            version          = "<Apache Kafka version: 2.1 or 2.6>"
-            kafka {
-              resources {
-                disk_size          = <storage size in GB>
-                disk_type_id       = "<storage type: network-ssd, network-hdd, or local-ssd>"
-                resource_preset_id = "<host class>"
-              }
-            }
-        
-            zones = [
-              "<availability zones>"
-            ]
-          }
-        }
-        
-        resource "yandex_vpc_network" "<network name>" {
-          name = "<network name>"
-        }
-        
-        resource "yandex_vpc_subnet" "<subnet name>" {
-          name           = "<subnet name>"
-          zone           = "<availability zone>"
-          network_id     = "<network ID>"
-          v4_cidr_blocks = ["<range>"]
-        }
-        ```
+     ```go
+     terraform {
+       required_providers {
+         yandex = {
+           source = "yandex-cloud/yandex"
+         }
+       }
+     }
+     
+     provider "yandex" {
+       token = "<OAuth or static key of service account>"
+       cloud_id  = "<cloud ID>"
+       folder_id = "<folder ID>"
+       zone      = "<availability zone>"
+     }
+     
+     resource "yandex_mdb_kafka_cluster" "<cluster name>" {
+       environment        = "<PRESTABLE or PRODUCTION>"
+       name               = "<cluster name>"
+       network_id         = "<network ID>"
+       security_group_ids = ["<list of security groups>"]
+     
+       config {
+         assign_public_ip = "<public access to the cluster: true or false>"
+         brokers_count    = <number of brokers>
+         version          = "<Apache Kafka version: 2.1 or 2.6>"
+         kafka {
+           resources {
+             disk_size          = <storage size in GB>
+             disk_type_id       = "<storage type: network-ssd, network-hdd, or local-ssd>"
+             resource_preset_id = "<host class>"
+           }
+         }
+     
+         zones = [
+           "<availability zones>"
+         ]
+       }
+     }
+     
+     resource "yandex_vpc_network" "<network name>" {
+       name = "<network name>"
+     }
+     
+     resource "yandex_vpc_subnet" "<subnet name>" {
+       name           = "<subnet name>"
+       zone           = "<availability zone>"
+       network_id     = "<network ID>"
+       v4_cidr_blocks = ["<range>"]
+     }
+     ```
 
-        For more information about resources that can be created using Terraform, see the [provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_kafka_cluster).
+     For more information about resources that can be created using Terraform, see the [provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_kafka_cluster).
 
-    1. Make sure that the configuration files are correct.
+  1. Make sure that the configuration files are correct.
 
-        {% include [terraform-create-cluster-step-2](../../_includes/mdb/terraform-create-cluster-step-2.md) %}
+     {% include [terraform-create-cluster-step-2](../../_includes/mdb/terraform-create-cluster-step-2.md) %}
 
-    1. Create a cluster.
+  1. Create a cluster.
 
-        {% include [terraform-create-cluster-step-3](../../_includes/mdb/terraform-create-cluster-step-3.md) %}
-
-{% endif %}
+     {% include [terraform-create-cluster-step-3](../../_includes/mdb/terraform-create-cluster-step-3.md) %}
 
 {% endlist %}
+
+{% note warning %}
+
+If you specified security group IDs when creating a cluster, you may also need to [re-configure security groups](connect.md#configuring-security-groups) to connect to the cluster.
+
+{% endnote %}
 
 ## Examples {#examples}
 
@@ -190,21 +202,25 @@ A cluster in {{ mkf-name }} is one or more broker hosts where topics and their p
   Let's say we need to create a {{ mkf-name }} cluster with the following characteristics:
 
   {% if audience != "internal" %}
-  - Named `mykf`.
+  - With the name `mykf`.
   - In the `production` environment.
+  - With {{ KF }} version `2.6`.
   - In the `{{ network-name }}` network.
+  - In the security group `{{ security-group }}`.
   - With one `{{ host-class }}` host in the `{{ zone-id }}` availability zone.
   - With one broker.
   - With 10 GB fast network storage (`{{ disk-type-example }}`).
   - With public access.
 
   {% else %}
-  - Named `mykf`.
+  - With the name `mykf`.
   - In the `production` environment.
+  - With {{ KF }} version `2.6`.
   - In the `{{ network-name }}` network.
+  - In the security group `{{ security-group }}`.
   - With one `{{ host-class }}` host in the `{{ zone-id }}` availability zone.
   - With one broker.
-  - With 10 GB fast local storage (`{{ disk-type-example }}`).
+  - With a 10 GB fast local storage (`{{ disk-type-example }}`).
   - With public access.
 
   {% endif %}
@@ -213,17 +229,19 @@ A cluster in {{ mkf-name }} is one or more broker hosts where topics and their p
 
   {% if audience != "internal" %}
 
-  ```
+  ```bash
   {{ yc-mdb-kf }} cluster create \
   --name mykf \
   --environment production \
+  --version 2.6 \
   --network-name {{ network-name }} \
   --zone-ids {{ zone-id }} \
   --brokers-count 1 \
   --resource-preset {{ host-class }} \
   --disk-size 10 \
   --disk-type {{ disk-type-example }} \
-  --assign-public-ip
+  --assign-public-ip \
+  --security-group-ids {{ security-group }}
   ```
 
   {% else %}
@@ -232,13 +250,15 @@ A cluster in {{ mkf-name }} is one or more broker hosts where topics and their p
   {{ yc-mdb-kf }} cluster create \
   --name mykf \
   --environment production \
+  --version 2.6 \
   --network-name {{ network-name }} \
   --zone-ids {{ zone-id }} \
   --brokers-count 1 \
   --resource-preset {{ host-class }} \
   --disk-size 10 \
   --disk-type {{ disk-type-example }} \
-  --assign-public-ip
+  --assign-public-ip \
+  --security-group-ids {{ security-group }}
   ```
 
   {% endif %}
@@ -248,10 +268,11 @@ A cluster in {{ mkf-name }} is one or more broker hosts where topics and their p
   Let's say we need to create a {{ mkf-name }} cluster with the following characteristics:
     - In the cloud with the ID `{{ tf-cloud-id }}`.
     - In the folder with the ID `{{ tf-folder-id }}`.
-    - Named `mykf`.
+    - With the name `mykf`.
     - In the `PRODUCTION` environment.
     - With {{ KF }} version `2.6`.
     - In the new `mynet` network with the subnet `mysubnet`.
+    - In the new security group `mykf-sg` allowing connection to the cluster from the Internet via port `9091`.
     - With one `{{ host-class }}` host in the `{{ zone-id }}` availability zone.
     - With one broker.
     - With 10 GB fast network storage (`{{ disk-type-example }}`).
@@ -259,7 +280,7 @@ A cluster in {{ mkf-name }} is one or more broker hosts where topics and their p
 
   The configuration file for the cluster looks like this:
 
-    ```go
+    ```hcl
     terraform {
       required_providers {
         yandex = {
@@ -279,6 +300,7 @@ A cluster in {{ mkf-name }} is one or more broker hosts where topics and their p
       environment = "PRODUCTION"
       name        = "mykf"
       network_id  = yandex_vpc_network.mynet.id
+      security_group_ids = [ yandex_vpc_security_group.mykf-sg.id ]
     
       config {
         assign_public_ip = true
@@ -298,8 +320,8 @@ A cluster in {{ mkf-name }} is one or more broker hosts where topics and their p
       }
     }
     
-    resource "yandex_vpc_network" "{{ network-name }}" {
-      name = "{{ network-name }}"
+    resource "yandex_vpc_network" "mynet" {
+      name = "mynet"
     }
     
     resource "yandex_vpc_subnet" "mysubnet" {
@@ -307,6 +329,18 @@ A cluster in {{ mkf-name }} is one or more broker hosts where topics and their p
       zone           = "{{ zone-id }}"
       network_id     = yandex_vpc_network.mynet.id
       v4_cidr_blocks = ["10.5.0.0/24"]
+    }
+    
+    resource "yandex_vpc_security_group" "mykf-sg" {
+      name       = "mykf-sg"
+      network_id = yandex_vpc_network.mynet.id
+    
+      ingress {
+        description    = "Kafka"
+        port           = 9091
+        protocol       = "TCP"
+        v4_cidr_blocks = [ "0.0.0.0/0" ]
+      }
     }
     ```
 
