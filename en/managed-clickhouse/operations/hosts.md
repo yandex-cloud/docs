@@ -129,7 +129,15 @@ The number of hosts in {{ mch-short-name }} clusters is limited by the CPU and R
 
      {{ mch-short-name }} will run the add host operation.
 
-     {% if audience != "internal" %} The subnet ID should be specified if the availability zone contains multiple subnets, otherwise {{ mch-short-name }} automatically selects the single subnet. {% endif %} The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+     {% if audience != "internal" %}
+
+     The subnet ID should be specified if the availability zone contains multiple subnets, otherwise {{ mch-short-name }} automatically selects a single subnet. You can retrieve the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+     {% else %}
+
+     You can query the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+     {% endif %}
 
 - API
 

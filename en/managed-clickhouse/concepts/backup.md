@@ -9,7 +9,15 @@ keywords:
 
 # Backups
 
-{{ mch-short-name }} provides automatic and manual database backups. Backups take up space in the storage allocated to the cluster. {% if audience != "internal" %} If the total amount of data and backups exceeds the amount of storage, the excess is [billed](../pricing.md). {% endif %}
+{% if audience != "internal" %}
+
+{{ mch-short-name }} provides automatic and manual database backups. Backups take up space in the storage allocated to the cluster. If the total amount of data and backups exceeds the amount of storage, the excess is [billed](../pricing.md).
+
+{% else %}
+
+{{ mch-short-name }} provides automatic and manual database backups. Backups take up space in the storage allocated to the cluster.
+
+{% endif %}
 
 Backups are automatically created once a day and stored for {{ mch-backup-retention }} days. You can't disable automatic backups or change the retention period.
 
@@ -20,8 +28,9 @@ To restore a cluster from a backup, [follow the instructions](../operations/clus
 ## Creating backups {#size}
 
 Backups can be made automatically and manually. Regardless of the type, backups are created incrementally:
-* When creating another backup, [data parts](https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/mergetree/#mergetree-data-storage) are checked for uniqueness.
-* If there are identical [data parts](https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/mergetree/#mergetree-data-storage) in at least one of the existing backups and they are no older than {{ mch-dedup-retention }} days, they are not duplicated.
+
+- When creating another backup, [data parts](https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/mergetree/#mergetree-data-storage) are checked for uniqueness.
+- If there are identical [data parts](https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/mergetree/#mergetree-data-storage) in at least one of the existing backups and they are no older than {{ mch-dedup-retention }} days, they are not duplicated.
 
 Backup data is stored only for the `MergeTree` engine family. For other engines, backups only store table schemas. Learn more about engines in the [documentation for {{ CH }}](https://clickhouse.tech/docs/en/engines/table-engines/).
 
@@ -40,3 +49,4 @@ Backup integrity is checked on synthetic data using integration tests available 
 ### Checking backup recovery {#capabilities}
 
 To test the backup feature, [restore a cluster from a backup](../operations/cluster-backups.md) and check the integrity of your data.
+

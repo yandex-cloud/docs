@@ -24,7 +24,9 @@ The amount of memory allocated to a host is also determined by the `maxmemory` c
 
 {% endnote %}
 
-{% if audience != "internal" %} A DB cluster connected to a cloud network can be accessed by all VMs connected to the same cloud network. [Learn more about networking](../../vpc/). {% endif %}
+{% if audience != "internal" %}
+A DB cluster connected to a cloud network can be accessed by all VMs connected to the same cloud network. [Learn more about networking](../../vpc/).
+{% endif %}
 
 {% include [monitoring-access](../../_includes/mdb/monitoring-access.md) %}
 
