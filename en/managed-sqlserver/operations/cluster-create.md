@@ -1,6 +1,6 @@
 # Creating {{ MS }} clusters
 
-A {{ MS }} cluster is one or more database hosts that replication can be configured between. Replication is enabled by default in any cluster consisting of more than one host: the master host accepts write requests, synchronously duplicates changes in the primary replica, and does it asynchronously in all the others.
+A {{ MS }} cluster is one or more database hosts that replication can be configured between. Replication is enabled by default in any cluster consisting of more than one host: the master host accepts write requests, then duplicates changes synchronously in the primary replica and asynchronously in all the others.
 
 {% note info %}
 
@@ -20,7 +20,7 @@ If database storage is 95% full, the cluster switches to read-only mode. Plan an
 
   1. Click **Create cluster**.
 
-  1. Enter the cluster name in the **Cluster name** field. The cluster name must be unique within the folder.
+  1. Enter a name for the cluster in the **Cluster name** field. The cluster name must be unique within the folder.
 
   1. Select the environment where you want to create the cluster (you can't change the environment once the cluster is created):
       - `PRODUCTION`: For stable versions of your apps.
@@ -36,7 +36,10 @@ If database storage is 95% full, the cluster switches to read-only mode. Plan an
 
   1. Under **Storage size**:
 
-      {% if audience != "internal" %} - Select the type of storage, either more flexible network storage (**network-hdd** or **network-ssd**) or faster local SSD storage (**local-ssd**). The size of local storage can only be changed in 100 GB increments. {% endif %}
+      {% if audience != "internal" %}
+
+      - Select the type of storage, either a more flexible network type (**network-hdd** or **network-ssd**) or faster local SSD storage (**local-ssd**). The size of the local storage can only be changed in 100 GB increments.{% endif %}
+
       - Select the size to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
 
   1. Under **Database**, specify the database attributes:
@@ -51,6 +54,8 @@ If database storage is 95% full, the cluster switches to read-only mode. Plan an
      * At the moment, you can create an **Enterprise Edition** cluster with either one or three hosts.
 
      {% endnote %}
+
+  1. If necessary, configure the [DBMS settings](../concepts/settings-list.md).
 
   1. Click **Create cluster**.
 

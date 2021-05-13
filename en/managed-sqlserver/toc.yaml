@@ -43,6 +43,8 @@ items:
         href: concepts/storage.md
       - name: Backups
         href: concepts/backup.md
+      - name: SQL Server settings
+        href: concepts/settings-list.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy
