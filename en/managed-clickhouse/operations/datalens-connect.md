@@ -32,7 +32,8 @@ To enable {{ datalens-name }} to connect to your cluster and work with its data,
 
      {% cut "I don't have the "Create connection" button" %}
 
-     If instead of the **Create connection** button you see a "{{ datalens-name }} not activated" message, it means that you either didn't activate {{ datalens-name }} or connected it in a different folder. To connect your cluster to a {{ datalens-name }} instance from another folder, follow the [instructions](../../datalens/operations/connection/create-clickhouse.md) in the documentation for {{ datalens-name }}.
+     
+     If instead of the **Create connection** button you see a message saying "{{ datalens-name }} not activated", it means that you either haven't activated {{ datalens-name }} or connected it in a different folder. To connect your cluster to a {{ datalens-name }} instance from another folder, follow the [instructions](../../datalens/operations/connection/create-clickhouse.md) in the {{ datalens-name }} documentation.
 
      {% endcut %}
 
@@ -54,7 +55,8 @@ Once the connection is created, you can:
 - [Create datasets](../../datalens/concepts/dataset/index.md) with the cluster data using the connection.
 - Visualize the datasets using [charts](../../datalens/concepts/chart.md) and [dashboards](../../datalens/concepts/dashboard.md).
 
-See also an [example of data visualization from {{ CH }}](../../solutions/datalens/data-from-ch-visualization.md).
+
+See an [example of data visualization from {{ CH }}](../../solutions/datalens/data-from-ch-visualization.md).
 
 ## Viewing a list of cluster connections {#connectors-list}
 
@@ -104,7 +106,7 @@ See also an [example of data visualization from {{ CH }}](../../solutions/datale
       1. Select the cluster and its host from the drop-down lists or [create a new cluster](cluster-create.md) in the folder with {{ datalens-name }} by clicking **Create new**.
       1. Select a user from the drop-down list.
       1. Enter this user's password.
-1. If the cluster and {{ datalens-name }} are in different folders, use the settings from the [instructions](../../datalens/operations/connection/create-clickhouse.md) in the documentation for {{ datalens-name }}.
+   1. If the cluster and {{ datalens-name }} are in different folders, use the settings from the [instructions](../../datalens/operations/connection/create-clickhouse.md) in the {{ datalens-name }} documentation.
 
    Leave the **HTTP interface port** and **HTTPS** setting values unchanged.
 

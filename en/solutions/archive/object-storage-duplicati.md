@@ -2,30 +2,46 @@
 
 To set up backups in {{ objstorage-name }} via Duplicati:
 
+1. [Before you start](#before-you-begin)
 1. [Create a bucket](#create-bucket)
 1. [Create a service account](#create-service-account)
 1. [Create a static access key](#create-access-key)
 1. [Install Duplicati](#install-duplicati)
 1. [Configure Duplicati](#configure-duplicati)
 1. [Test your backup](#test-backup)
+1. [Delete the created cloud resources](#clear-out)
 
-The free version of Duplicati allows you to create a maximum of 200 GB of backups.
+## Before you start {#before-you-begin}
 
-## 1. Create a bucket {#create-bucket}
+Before using {{ objstorage-full-name }}, sign up for {{ yandex-cloud }} and create a billing account:
+
+{% include [prepare-register-billing](../_solutions_includes/prepare-register-billing.md) %}
+
+If you have an active billing account, you can create or select a folder to place your bucket in. Go to the [Yandex.Cloud homepage](https://console.cloud.yandex.ru/cloud) and select or create a folder where you want to create a bucket. [Learn more about the resource hierarchy in {{ yandex-cloud }}](../../resource-manager/concepts/resources-hierarchy.md).
+
+### Required paid resources {#paid-resources}
+
+The cost for backup and recovery includes:
+
+* A fee for data storage (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md#prices-storage)).
+* A fee for data operations (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md#prices-operations)).
+* The cost of outgoing traffic from {{ yandex-cloud }} to the internet (see [{{ objstorage-full-name }} pricing](../../storage/pricing#prices-storage.md#prices-traffic)).
+
+## Create a bucket {#create-bucket}
 
 To create a bucket for backups:
 
 {% include [create-bucket](../_solutions_includes/create-public-bucket.md) %}
 
-## 2. Create a service account {#create-service-account}
+## Create a service account {#create-service-account}
 
-Create a service account with the `editor` role.
+Create a [service account](../../iam/operations/sa/create.md) with the `editor` role.
 
-## 3. Create a static access key {#create-access-key}
+## Create a static access key {#create-access-key}
 
-Create static access keys. Save the ID and private key right away. You won't be able to access the private key parameters again after you close the window.
+Create [static access keys](../../iam/operations/sa/create-access-key.md). Save the ID and secret access key right away. You won't be able to access the private key parameters again after you close the window.
 
-## 4. Install Duplicati {#install-duplicati}
+## Install Duplicati {#install-duplicati}
 
 {% list tabs %}
 
@@ -41,7 +57,7 @@ Create static access keys. Save the ID and private key right away. You won't be 
 
 {% endlist %}
 
-## 5. Configure Duplicati {#configure-duplicati}
+## Configure Duplicati {#configure-duplicati}
 
 To configure Duplicati to work with {{ objstorage-name }}:
 
@@ -61,7 +77,7 @@ To configure Duplicati to work with {{ objstorage-name }}:
 1. Set the backup schedule or deselect the **Automatically run backups** option to create backups manually. Click **Next**.
 1. Specify the volume size and set the storage duration. Click **Save**.
 
-## 6. Test your backup {#test-backup}
+## Test the backup procedure {#test-backup}
 
 To test a backup:
 
@@ -71,4 +87,8 @@ To test a backup:
 1. Go to the folder containing the bucket where your backups are stored.
 1. Open the **Object Storage** service.
 1. Open the `backup` bucket and check whether all the necessary files have been copied.
+
+## How to delete created resources {#clear-out}
+
+{% include [clear-out](../_solutions_includes/storage-clear-out.md) %}
 

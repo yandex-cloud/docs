@@ -9,13 +9,21 @@ items:
         href: operations/index.md
       - name: Working with metrics
         items:
+          - name: Delivering Linux system metrics
+            href: operations/unified-agent/linux_metrics.md
+          - name: Delivering custom application metrics
+            href: operations/unified-agent/pull_prometheus.md
+          - name: Delivering metrics from HAProxy and other third-party applications
+            href: operations/unified-agent/haproxy.md
+          - name: Delivering metrics from hosts outside Yandex.Cloud
+            href: operations/unified-agent/non-yc.md
+          - name: Writing custom metrics via the API
+            href: operations/metric/add.md
           - name: Getting a list of metrics
             href: operations/metric/list.md
           - name: Downloading metrics
             href: operations/metric/get.md
-          - name: Writing custom metrics
-            href: operations/metric/add.md
-          - name: Export metrics in Prometheus format
+          - name: Exporting metrics in Prometheus format
             href: operations/metric/prometheusExport.md
       - name: Working with dashboards
         items:
@@ -39,7 +47,7 @@ items:
             href: operations/alert/delete-alert.md
   - name: Concepts
     items:
-      - name: Overview
+      - name: Service overview
         href: concepts/index.md
       - name: Data model
         href: concepts/data-model.md
@@ -53,6 +61,18 @@ items:
             href: concepts/visualization/widget.md
           - name: Dashboards
             href: concepts/visualization/dashboard.md
+      - name: Transmitting metrics
+        items:
+          - name: Agent for delivering metrics
+            items:
+              - name: Overview
+                href: concepts/data-collection/unified-agent/index.md
+              - name: Installation and startup
+                href: concepts/data-collection/unified-agent/installation.md
+              - name: Configuration
+                href: concepts/data-collection/unified-agent/configuration.md
+              - name: Best practices for using the agent
+                href: concepts/data-collection/unified-agent/best-practices.md
       - name: Query language
         href: concepts/querying.md
       - name: Alerting
@@ -75,7 +95,7 @@ items:
             href: pricing-archive/pricing-01102020.md
   - name: API reference
     items:
-      - name: Authentication in the API
+      - name: API authentication
         href: api-ref/authentication.md
       - name: REST
         items:

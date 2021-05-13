@@ -89,6 +89,8 @@ items:
             href: operations/vm-connect/ssh.md
           - name: Connecting to a VM via RDP
             href: operations/vm-connect/rdp.md
+          - name: Connecting to a VM via PowerShell
+            href: operations/vm-connect/powershell.md
           - name: Working with Yandex.Cloud from inside a VM
             href: operations/vm-connect/auth-inside-vm.md
           - name: Installing NVIDIA drivers
@@ -193,7 +195,7 @@ items:
             href: concepts/vm-platforms.md
           - name: vCPU performance levels
             href: concepts/performance-levels.md
-          - name: Graphics accelerators (GPUs)
+          - name: Graphics accelerators (GPUs and vGPUs)
             href: concepts/gpus.md
           - name: Preemptible VMs
             href: concepts/preemptible-vm.md

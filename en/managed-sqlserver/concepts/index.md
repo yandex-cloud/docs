@@ -30,7 +30,7 @@ When creating a cluster, specify:
 
   For more information about editions, see the [documentation for {{ MS }}](https://docs.microsoft.com/en-us/sql/sql-server/editions-and-components-of-sql-server-2016?view=sql-server-ver15).
 
-A database cluster created in a folder can be accessed by all VM instances connected to the same cloud network. [Learn more about networking](../../vpc/).
+ A database cluster created in a folder can be accessed by all VMs connected to the same cloud network. [Learn more about networking](../../vpc/).
 
 {% include [monitoring-access](../../_includes/mdb/monitoring-access.md) %}
 

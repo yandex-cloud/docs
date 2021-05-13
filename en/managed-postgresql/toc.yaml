@@ -39,6 +39,8 @@ items:
         href: operations/performance-diagnostics.md
       - name: Migrating databases to Yandex.Cloud
         href: operations/data-migration.md
+      - name: Monitoring the state of a cluster and hosts
+        href: operations/monitoring.md
       - name: >-
           Creating a logical replica of Amazon RDS for PostgreSQL in Managed
           Service for PostgreSQL

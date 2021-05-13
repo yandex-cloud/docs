@@ -1,12 +1,12 @@
-# Writing custom metrics
+# Writing custom metrics via the API
 
-To write a metric, use the [write](../../api-ref/MetricsData/write.md) method.
+To start writing custom metrics via the API, use the [write](../../api-ref/MetricsData/write.md) method.
 
 {% include [before-beginning](../../../_includes/monitoring/before-beginning.md) %}
 
 ### Sample request {#sample-request}
 
-1. Create a file with the request body (for example, `body.json`). In the `metrics` property, specify the list of metrics to write. Pass the required labels in the query parameters and additional labels in the body of the request.
+1. Create a file with the request body (for example, `body.json`). In the `metrics` property, specify the list of metrics to write. Send the required labels in the request parameters and additional labels in the request body.
 
     **body.json:**
 
@@ -39,6 +39,7 @@ To write a metric, use the [write](../../api-ref/MetricsData/write.md) method.
     Sample response:
 
     **output.json:**
+
     ```json
     {
         "metrics_written":"1"

@@ -47,6 +47,8 @@ items:
         href: archive/object-storage-duplicati.md
       - name: Backup to Object Storage via Bacula
         href: archive/backup-with-bacula.md
+      - name: Backup to Object Storage via Veritas Backup Exec
+        href: archive/object-storage-veritas.md
       - name: Digitizing archives in Yandex Vision
         href: archive/archive-from-vision-to-object-storage.md
   - name: Test environment
@@ -59,7 +61,7 @@ items:
         href: testing/ci-for-snapshots.md
       - name: High-performance computing on preemptible VMs
         href: testing/hpc-on-preemptible.md
-  - name: Infrastructure management
+  - name: Performing infrastructure management
     items:
       - name: All use cases
         href: infrastructure-management/index.md

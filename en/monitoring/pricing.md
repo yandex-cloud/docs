@@ -7,28 +7,29 @@ editable: false
 
 ## What goes into the cost of using {{ monitoring-short-name }} {#rules}
 
-Currently, {{ monitoring-short-name }} users are charged for writing custom metrics via the [API](api-ref/index.md) and reading any metrics via the [API](api-ref/index.md).
+The cost of using {{ monitoring-short-name }} includes writing custom metrics via the [API](api-ref/index.md) as well as reading metrics via the [API](api-ref/index.md).
 
-Pricing specifics:
-* After writing or reading the first 50 million values, the cost of writes is reduced. See [Pricing](#prices).
-* Writes of {{ yandex-cloud }} resource metrics collected automatically are free of charge.
-* Reads using the {{ monitoring-short-name }} interface and the {{ yandex-cloud }} console are free of charge.
-* Incoming and outgoing traffic in {{ monitoring-short-name }} is free of charge.
+Pricing features:
+
+* After writing or reading the first 50 million values, the writing cost is reduced. For details, see [Pricing](#prices).
+* There is no charge for writing {{ yandex-cloud }} resource metrics collected automatically.
+* Reading metrics via the {{ monitoring-short-name }} interface and {{ yandex-cloud }}  console is not charged.
+* Incoming and outgoing traffic in {{ monitoring-short-name }} is not charged.
 
 ### Pricing {#prices}
 
+         
+         
+
 The minimum billable unit is one metric value. The cost is rounded to the nearest hundredth.
 
-
-For example, the cost of writing the first 86,400 values is `$0.007754` and rounded to `$0.01`. The cost of writing 870,000 values is `$0.078077` and rounded to `$0.08`. Where `$0.089744` is the price per 50 million metrics.
-
-         
-         
+For example, the cost of writing the first 86,400 values is `$0.007754` and rounded to `$0.01`. The cost of writing 870,000 values is `$0.078077` and rounded to `$0.08`. Where `$0.089744` is the price per 50 million metrics. 
          
 {% include [usd.md](../_pricing/monitoring/usd.md) %}
 
 
-### Cost calculation example {#example}
+
+### Example of cost calculation {#example}
 
 Let's say you're writing 20 metrics to {{ monitoring-short-name }} with a frequency of **1 value per minute**. Then the following number of values will be written within 30 days:
 

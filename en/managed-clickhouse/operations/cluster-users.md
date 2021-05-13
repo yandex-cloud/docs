@@ -68,12 +68,12 @@ To learn more about managing users using SQL, see the [documentation for {{ CH }
      1. Click **Add** to the right of the drop-down list.
      1. Repeat the previous two steps until all the required databases are selected.
      1. To delete a database that was added by mistake, click ![image](../../_assets/cross.svg) to the right of the database name in the **Permissions** list.
-  1. Configure [additional settings](#advanced-settings) for the user:
-     1. Set [quotas](#quota-settings) in **Additional settings → Quota**:
+  1. Configure [additional settings](../concepts/settings-list.md) for the user:
+     1. Set [quotas](../concepts/settings-list.md#quota-settings) in **Additional settings → Quotas**:
         1. To add a quota, click ![image](../../_assets/plus.svg) or **+ Quotas**. You can add multiple quotas that will be valid at the same time.
         1. To delete a quota, click ![image](../../_assets/vertical-ellipsis.svg) to the right of the quota name and select **Delete**.
-        1. To change a quota, set the required [setting values](#quota-settings) for it.
-     1. Configure [{{ CH }}](#clickhouse-settings) in **Additional settings → Settings**.
+        1. To change a quota, set the required setting values for it.
+     1. Configure [{{ CH }}](../concepts/settings-list.md#user-level-settings) in **Additional settings → Settings**.
   1. Click **Add**.
 
   See also: [Example of creating a read-only user](#example-create-readonly-user).
@@ -95,7 +95,7 @@ To learn more about managing users using SQL, see the [documentation for {{ CH }
        --settings=<list of {{ CH }} settings for the user>
   ```
 
-  For more information about [quotas](#quota-settings) and [{{ CH }} settings](#clickhouse-settings), see [Additional settings](#advanced-settings).
+  For more information about [quotas](../concepts/settings-list.md#quota-settings) and [{{ CH }} settings](../concepts/settings-list.md#user-level-settings), see [{#T}](../concepts/settings-list.md).
 
   To set multiple quotas, list them using the required number of `--quota` parameters in the command:
 
@@ -183,11 +183,11 @@ To learn more about managing users using SQL, see the [documentation for {{ CH }
         1. Click **Add** to the right of the drop-down list.
         1. Repeat the previous two steps until all the required databases are selected.
      1. To revoke access to a specific database, remove it from the **Permissions** list by clicking ![image](../../_assets/cross.svg) to the right of the database name.
-  1. Set [quotas](#quota-settings) for the user in **Additional settings → Quotas**:
+  1. Set [quotas](../concepts/settings-list.md#quota-settings) for the user in **Additional settings → Quotas**:
      1. To add a quota, click ![image](../../_assets/plus.svg) or **+ Quotas**. You can add multiple quotas that will be valid at the same time.
      1. To delete a quota, click ![image](../../_assets/vertical-ellipsis.svg) to the right of the quota name and select **Delete**.
-     1. To change a quota, set the required [setting values](#quota-settings) for it.
-  1. Change the [settings of {{ CH }}](#clickhouse-settings) for the user in **Additional settings → Settings**.
+     1. To change a quota, set the required setting values for it.
+  1. Change the [{{ CH }} settings](../concepts/settings-list.md#dbms-user-settings) for the user in **Additional settings → Settings**.
   1. Click **Save**.
 
 - CLI
@@ -212,7 +212,7 @@ To learn more about managing users using SQL, see the [documentation for {{ CH }
 
      To revoke access to a specific database, remove its name from the list and pass the updated list to the command.
 
-  1. To change the user's [quota settings](#quota-settings), run the command with a list of all quotas, using the `--quota` parameters (one parameter per quota):
+  1. To change the user's [quota settings](../concepts/settings-list.md#quota-settings), run the command with a list of all quotas, using `--quota` parameters (one parameter per quota):
 
      ```
      $ {{ yc-mdb-ch }} user update <username>
@@ -233,7 +233,9 @@ Before running the command, make sure that you included the settings for new and
 
      To delete one or more user quotas, exclude their settings from the list and pass the updated list of `--quota` parameters to the command.
 
-  1. To change the [settings of {{ CH }}](#clickhouse-settings) for the user, run the command by listing the updated settings using the `--settings` parameter:
+     When setting an interval, you can use an entry with units: hours (`h`), minutes (`m`), seconds (`s`), and milliseconds (`ms`). Sample entry: `3h20m10s7000ms` (the resulting value is still represented in milliseconds: `12017000`). The interval value must be a multiple of 1000 milliseconds (a value like `1s500ms` is incorrect).
+
+  1. To change the [{{ CH }} settings](../concepts/settings-list.md#dbms-user-settings) for the user, run the command by listing the updated settings in the `--settings` parameter:
 
      ```
      $ {{ yc-mdb-ch }} user update <username>
@@ -257,16 +259,16 @@ Before running the command, make sure that you included the settings for new and
       GRANT SELECT ON <database name>.* TO <username>;
       ```
 
-  1. To change [quota settings](#quota-settings) for the user, use the [CREATE QUOTA](https://clickhouse.tech/docs/en/sql-reference/statements/create/quota/#create-quota-statement), [ALTER QUOTA](https://clickhouse.tech/docs/en/sql-reference/statements/alter/quota/#alter-quota-statement), and [DROP QUOTA](https://clickhouse.tech/docs/en/sql-reference/statements/drop/#drop-quota-statement) queries. For example, limit the total number of user requests for a 15-month period:
+  1. To change [quota settings](../concepts/settings-list.md#quota-settings) for the user, use the [CREATE QUOTA](https://clickhouse.tech/docs/en/sql-reference/statements/create/quota/#create-quota-statement), [ALTER QUOTA](https://clickhouse.tech/docs/en/sql-reference/statements/alter/quota/#alter-quota-statement), and [DROP QUOTA](https://clickhouse.tech/docs/en/sql-reference/statements/drop/#drop-quota-statement) queries. For example, limit the total number of user requests for a 15-month period:
 
       ```sql
       CREATE QUOTA <quota name> FOR INTERVAL 15 MONTH MAX QUERIES 100 TO <username>;
       ```
 
-  1. To change the user account, use the [ALTER USER](https://clickhouse.tech/docs/en/sql-reference/statements/alter/user/) query. For example, to change the [settings {{ CH }}](#clickhouse-settings), run the following command listing the settings you want to change:
+  1. To change the user account, use the [ALTER USER](https://clickhouse.tech/docs/en/sql-reference/statements/alter/user/) request. For example, to change the [{{ CH }} settings](../concepts/settings-list.md#dbms-user-settings), run the following command listing the settings you want to change:
 
       ```sql
-      ALTER USER <username> SETTINGS <{{ CH }} settings>;
+      ALTER USER <username> SETTINGS {{ CH }} settings>;
       ```
 
 {% endlist %}
@@ -302,7 +304,7 @@ Before running the command, make sure that you included the settings for new and
   1. Delete the user:
 
       ```sql
-      DROP USER ;
+      DROP USER <username>;
       ```
 
   To learn more about deleting objects, see the [documentation for{{ CH }}](https://clickhouse.tech/docs/en/sql-reference/statements/drop/).
@@ -1011,18 +1013,19 @@ By default, the SQL parser is enabled.
 
     The default is `false` (DDL queries are not allowed).
 
-    For more information, see the [documentation for {{ CH }}](https://clickhouse.tech/docs/en/operations/settings/permissions-for-queries/#settings_allow_ddl).
+  1. [Connect](connect.md) to the `mych` cluster using the [admin account](#sql-user-management).
 
-  - **`readonly`**{#setting-cli-readonly}: Enables or disables queries to read data, write data, and edit parameters:
-    - `0`: Any types of queries are allowed without limitations (default).
-    - `1`: Only read data queries are allowed.
-    - `2`: Read data and edit settings queries are allowed.
+  1. Create a user:
 
-    This setting doesn't affect running DDL queries. To enable or disable DDL queries, use the [Allow DDL](#setting-cli-allow-ddl) setting.
+      ```sql
+      CREATE USER ro-user IDENTIFIED WITH sha256_password BY 'Passw0rd';
+      ```
 
-    For more information, see the [documentation for {{ CH }}](https://clickhouse.tech/docs/en/operations/settings/permissions-for-queries/#settings_readonly).
+  1. Grant the user read rights to all objects in the `db1` database:
 
-    See also: [Example of creating a read-only user](#example-create-readonly-user).
+      ```sql
+      GRANT SELECT ON db1.* TO ro-user;
+      ```
 
 - SQL
 

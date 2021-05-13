@@ -14,7 +14,7 @@ Create a [service account](../../concepts/users/service-accounts.md) to manage r
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. See the description of the create service account command:
+  1. See the description of the command for creating a service account:
 
       ```
       $ yc iam service-account create --help

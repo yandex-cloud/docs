@@ -1,37 +1,46 @@
 title: Yandex Monitoring
 description:
   - >-
-    You can use Yandex Monitoring to collect and store metrics and display them
-    in charts on dashboards.
+    Yandex Monitoring lets you collect and store metrics and display them as
+    charts on dashboards.
   - >-
-    The Yandex.Cloud <a href="https://yandex.com/legal/cloud_sla">Service Level
-    Agreement</a> applies to Yandex.Monitoring. For the service-specific SLA,
-    see <a href="https://yandex.com/legal/cloud_sla_ym">Yandex Monitoring
-    Service Level Agreement</a>.
+    The service is subject to the <a
+    href="https://yandex.com/legal/cloud_sla">Service Level Agreement</a>. The
+    service level is defined in the <a
+    href="https://yandex.com/legal/cloud_sla_ym">Service Level for Yandex
+    Monitoring</a>.
 meta:
   title: Yandex Monitoring
 links:
   - title: Getting started
-    description: Start tracking your metrics
+    description: Start monitoring your metrics
     href: quickstart
   - title: Step-by-step instructions
-    description: Instructions for routine operations
+    description: Instructions on how to perform routine operations
     href: operations/
   - title: Concepts
-    description: Learn about this service and available features
+    description: Learn about basic concepts and service functions
     href: concepts/
+  - title: Agent for delivering metrics
+    description: >-
+      Set up delivery of system metrics or application metrics via Yandex
+      Unified Agent
+    href: concepts/data-collection/unified-agent/index
+  - title: Query language
+    description: Description of query language for converting metrics
+    href: concepts/querying
   - title: Alerting
-    description: Set up alerts for changes to metrics
+    description: Set up metric change alerts
     href: concepts/alerting
-  - title: API reference guide
+  - title: API reference
     description: HTTP API method descriptions
     href: api-ref/
   - title: Quotas and limits
     description: Technical and organizational limitations of the service
     href: concepts/limits
-  - title: Access control
-    description: Access rights for using the service
+  - title: Access management
+    description: Configure access rights to work with the service
     href: security/
-  - title: Pricing
-    description: Prices and cost calculation
+  - title: Pricing policy
+    description: Service pricing and cost calculations
     href: pricing

@@ -111,7 +111,7 @@ items:
             href: operations/permission/request.md
   - name: Concepts
     items:
-      - name: Overview
+      - name: Service overview
         href: concepts/index.md
       - name: Connection
         href: concepts/connection.md
@@ -134,7 +134,11 @@ items:
       - name: DataLens Public
         href: concepts/datalens-public.md
       - name: Calculated fields
-        href: concepts/calculations.md
+        items:
+          - name: Overview
+            href: concepts/calculations/index.md
+          - name: Formula syntax
+            href: concepts/calculations/formula-syntax.md
       - name: Marketplace
         href: concepts/marketplace.md
       - name: Backups in DataLens
@@ -153,7 +157,7 @@ items:
         href: pricing.md
       - name: Archive
         items:
-          - name: Policy before March 1, 2021
+          - name: Rules before March 1, 2021
             href: pricing-archive/pricing-01032021.md
   - name: Function reference
     items:

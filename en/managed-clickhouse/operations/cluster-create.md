@@ -4,7 +4,8 @@
 
 {% note warning %}
 
-When creating a {{ CH }} cluster with 2 or more hosts, {{ mch-short-name }} automatically creates a cluster of 3 ZooKeeper hosts for managing replication and fault tolerance. These hosts are considered when calculating the cost of the [quotas]({{ link-console-quotas }}) used by the cloud and the. Read more about replication for [{{ CH }}](../concepts/replication.md#clickhouse).
+
+When creating a {{ CH }} cluster with 2 or more hosts, {{ mch-short-name }} automatically creates a cluster of 3 ZooKeeper hosts for managing replication and fault tolerance. These hosts are considered when calculating the [resource quotas]({{ link-console-quotas }}) used by the cloud and the cluster cost. Read more about replication for [{{ CH }}](../concepts/replication.md#clickhouse).
 
 {% endnote %}
 
@@ -12,8 +13,8 @@ When creating a {{ CH }} cluster with 2 or more hosts, {{ mch-short-name }} auto
 The number of hosts that can be created together with a {{ CH }} cluster depends on the selected [type of storage](../concepts/storage.md):
 
 * With **local storage**, you can create a cluster with 2 or more replicas (to ensure fault tolerance, a minimum of 2 replicas is necessary). If the [available folder resources](../concepts/limits.md) are still sufficient, you can add extra replicas.
-* With **network storage**, you can request any number of hosts (from one to the maximum for the current [quota](../concepts/limits.md)).
-* With **hybrid storage**, you can only create a cluster with a single host. After creating this cluster, you can [add shards](shards.md#add-shard) consisting of only one host. Such a cluster isn't tolerant to host failures, but if this happens, the data in the shard or cluster is saved. Hybrid storage is at the [Preview](https://cloud.yandex.com/docs/overview/concepts/launch-stages) stage.
+* With **network storage**, you can request any number of hosts (from one to a maximum for the current [quota](../concepts/limits.md)).
+* With **hybrid storage**, you can only create a cluster with a single host. After creating this cluster, you can [add shards](shards.md#add-shard) consisting of only one host. Such a cluster isn't tolerant to host failures, but if this happens, the data in the shard or cluster is saved. Hybrid storage is at the [Preview](../../overview/concepts/launch-stages.md) stage.
 
 {% list tabs %}
 
@@ -62,9 +63,7 @@ The number of hosts that can be created together with a {{ CH }} cluster depends
 
      {% include [mch-extra-settings](../../_includes/mdb/mch-extra-settings-web-console-new-cluster-wizard.md) %}
 
-  1. If necessary, configure the DBMS settings:
-
-     {% include [mch-additional-properties](../../_includes/mdb/mch-additional-properties.md) %}
+  1. If necessary, configure the [DBMS settings](../concepts/settings-list.md#dbms-cluster-settings).
 
   1. Click **Create cluster**.
 
@@ -103,7 +102,7 @@ The number of hosts that can be created together with a {{ CH }} cluster depends
         --clickhouse-resource-preset <host class> \
         --clickhouse-disk-type <network-hdd | network-ssd | local-ssd> \
         --clickhouse-disk-size <storage size in GB> \
-        --user name=<имя пользователя>,password=<user password> \
+        --user name=<username>,password=<user password> \
         --database name=<DB name>
      ```
 
@@ -118,7 +117,7 @@ The number of hosts that can be created together with a {{ CH }} cluster depends
   To create a cluster:
 
     1. In the configuration file, describe the parameters of resources that you want to create:
-       * Database cluster: Description of the cluster and its hosts.
+       * Database cluster: Description of the cluster and its hosts. If necessary, you can also configure the [DBMS settings](../concepts/settings-list.md#dbms-cluster-settings) here.
        * Network: Description of the [cloud network](../../vpc/concepts/network.md#network) where the cluster will be located. If you already have a suitable network, you don't need to describe it again.
        * Subnets: Description of the [subnets](../../vpc/concepts/network.md#network) to connect the cluster hosts to. If you already have suitable subnets, you don't need to describe them again.
 
@@ -127,7 +126,7 @@ The number of hosts that can be created together with a {{ CH }} cluster depends
        ```
        resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
          name        = "<cluster name>"
-         environment = ""
+         environment = "<environment>"
          network_id  = "<network ID>"
        
          clickhouse {
@@ -167,7 +166,7 @@ The number of hosts that can be created together with a {{ CH }} cluster depends
        }
        ```
 
-       For more information about resources that you can create using Terraform, see the [provider's documentation](https://www.terraform.io/docs/providers/yandex/r/mdb_clickhouse_cluster.html).
+       For more information about resources that you can create using Terraform, see the [provider's documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
 
     1. Make sure that the configuration files are correct.
        1. In the command line, go to the folder where you created the configuration file.
@@ -185,7 +184,7 @@ The number of hosts that can be created together with a {{ CH }} cluster depends
           ```
           terraform apply
           ```
-       2. Confirm that you want to create the resources.
+       1. Confirm that you want to create the resources.
 
        After this, all the necessary resources will be created in the specified folder and the IP addresses of the VMs will be displayed in the terminal. You can check resource availability and their settings in the [management console]({{ link-console-main }}).
 

@@ -16,7 +16,7 @@ The {{monitoring-full-name}} query language supports the following expressions f
 
   > The `host="*"` selector returns all metrics that have the `host` label.
 
-- `label="<glob>"`: Returns all metrics with labels whose values satisfy a [glob expression](https://en.wikipedia.org/wiki/Template:Search_templates).
+- `label="<glob>"`: Returns all metrics with labels whose values satisfy a [glob expression](https://en.wikipedia.org/wiki/Glob_(programming)).
 
   - `*`: Any number of characters (including none).
 
@@ -37,7 +37,7 @@ The {{monitoring-full-name}} query language supports the following data types:
 * _timeseries_vector_: A set of time series (metrics).
 * _number_: A real number.
 * _string_: A string in single or double quotes.
-* _duration_: A time period in `15s, 10m, 3h, 7d, 2w.` format (without quotation marks).
+* _duration_: A time period in the format `15s, 10m, 3h, 7d, 2w.` (without quotation marks).
 
 ## Functions {#functions}
 
@@ -199,73 +199,73 @@ The rank functions order a metric vector by the aggregation function value in th
 
 #### bottom_avg
 
-**bottom_avg**(*limit: number*, *source: timeseries_vector*): *timeseries_vector*
+**bottom_avg**(*source: timeseries_vector*, *limit: number*): *timeseries_vector*
 
 Returns the _limit_ of metrics with a minimum average value.
 
 #### bottom_count
 
-**bottom_count**(*limit: number*, *source: timeseries_vector*): *timeseries_vector*
+**bottom_count**(*source: timeseries_vector*, *limit: number*): *timeseries_vector*
 
 Returns the _limit_ of metrics with a minimum number of values.
 
 #### bottom_last
 
-**bottom_last**(*limit: number*, *source: timeseries_vector*): *timeseries_vector*
+**bottom_last**(*source: timeseries_vector*, *limit: number*): *timeseries_vector*
 
 Returns the _limit_ of metrics with the minimum last value.
 
 #### bottom_max
 
-**bottom_max**(*limit: number*, *source: timeseries_vector*): *timeseries_vector*
+**bottom_max**(*source: timeseries_vector*, *limit: number*): *timeseries_vector*
 
 Returns the _limit_ of metrics with the lowest max value.
 
 #### bottom_min
 
-**bottom_min**(*limit: number*, *source: timeseries_vector*): *timeseries_vector*
+**bottom_min**(*source: timeseries_vector*, *limit: number*): *timeseries_vector*
 
 Returns the _limit_ of metrics with the lowest min value.
 
 #### bottom_sum
 
-**bottom_sum**(*limit: number*, *source: timeseries_vector*): *timeseries_vector*
+**bottom_sum**(*source: timeseries_vector*, *limit: number*): *timeseries_vector*
 
 Returns the _limit_ of metrics with the lowest sum value.
 
 #### top_avg
 
-**top_avg**(*limit: number*, *source: timeseries_vector*): *timeseries_vector*
+**top_avg**(*source: timeseries_vector*, *limit: number*): *timeseries_vector*
 
 Returns the _limit_ of metrics with the top average value.
 
 #### top_count
 
-**top_count**(*limit: number*, *source: timeseries_vector*): *timeseries_vector*
+**top_count**(*source: timeseries_vector*, *limit: number*): *timeseries_vector*
 
 Returns the _limit_ of metrics with a maximum number of values.
 
 #### top_last
 
-**top_last**(*limit: number*, *source: timeseries_vector*): *timeseries_vector*
+**top_last**(*source: timeseries_vector*, *limit: number*): *timeseries_vector*
 
 Returns the _limit_ of metrics with the top last value.
 
 #### top_max
 
-**top_max**(*limit: number*, *source: timeseries_vector*): *timeseries_vector*
+**top_max**(*source: timeseries_vector*, *limit: number*): *timeseries_vector*
 
 Returns the _limit_ of metrics with the top max value.
 
 #### top_min
 
-**top_min**(*limit: number*, *source: timeseries_vector*): *timeseries_vector*
+**top_min**(*source: timeseries_vector*, *limit: number*): *timeseries_vector*
 
-Returns the _limit_ of metrics with the top min value.
+Returns the _limit_ of metrics with the top minimum value.
 
 #### top_sum
 
-**top_sum**(*limit: number*, *source: timeseries_vector*): *timeseries_vector*
+**top_sum**(*source: timeseries_vector*, *limit: number*): *timeseries_vector*
 
 Returns the _limit_ of metrics with the top sum value.
 
@@ -283,14 +283,14 @@ Calculates the absolute value.
 
 **asap**(*source: timeseries_vector*): *timeseries_vector*
 
-Smoothes time series based on the [ASAP algorithm](http://futuredata.stanford.edu/asap/).
+Smooths time series based on the [ASAP algorithm](http://futuredata.stanford.edu/asap/).
 Time series points are averaged using a moving average with a dynamic window. The window width is automatically selected so as to remove as much noise as possible while retaining important information.
 
 #### ceil
 
 **ceil**(*source: timeseries_vector*): *timeseries_vector*
 
-Rounds the point values up to the nearest integer.
+Rounds point values up to the nearest integer.
 
 #### derivative
 
@@ -308,13 +308,13 @@ Calculates the difference between the values of each pair of neighboring points.
 
 **drop_above**(*source: timeseries_vector*, *threshold: number*): *timeseries_vector*
 
-Drops points with a value above the _threshold_ (not including the value itself). In the dropped points, the metric value is equal to `NaN`.
+Drops points with a value above the _threshold_ (not including the value itself). In dropped points, the metric value is equal to `NaN`.
 
 #### drop_below
 
 **drop_below**(*source: timeseries_vector*, *threshold: number*): *timeseries_vector*
 
-Drops points with a value below the _threshold_ (not including the value itself). In the dropped points, the metric value is equal to `NaN`.
+Drops points with a value above the _threshold_ (not including the value itself). In dropped points, the metric value is equal to `NaN`.
 
 #### drop_nan
 
@@ -330,13 +330,13 @@ Calculates an exponential function: raises _e_ to a power equal to the value of 
 
 **floor**(*source: timeseries_vector*): *timeseries_vector*
 
-Rounds the point values down to the nearest integer.
+Rounds point values down to the nearest integer.
 
 #### fract
 
 **fract**(*source: timeseries_vector*): *timeseries_vector*
 
-Selects the real part of the point values.
+Selects the real part of point values.
 
 #### heaviside
 
@@ -360,7 +360,7 @@ Calculates the natural logarithm.
 
 **moving_avg**(*source: timeseries_vector*, *window: duration*): *timeseries_vector*
 
-Calculates the moving average with the _window_ window width.
+Calculates the moving average across a _window_ window width.
 
 For example, the `moving_avg({...}, 1d)` query returns the moving average with a window of 1 day.
 
@@ -368,7 +368,7 @@ For example, the `moving_avg({...}, 1d)` query returns the moving average with a
 
 **moving_percentile**(*source: timeseries_vector*, *window: duration*, *rank: number*): *timeseries_vector*
 
-Calculates the moving percentile: the percentile of the _rank_ level (from 0 to 100) among the points in the window with the _window_ width.
+Calculates the moving percentile: the percentile of the _rank_ level (from 0 to 100) among the points in a window with a _window_ width.
 
 For example, the `moving_percentile({...}, 1h, 99.9)` query returns the moving 99.9 percentile with a window of 1 hour.
 
@@ -388,7 +388,7 @@ Calculates the power function: raises the point value to the *power* power.
 
 **ramp**(*source: timeseries_vector*): *timeseries_vector*
 
-Replaces points with a negative value with 0.
+Resets points with a negative value to 0.
 
 #### replace_nan
 
@@ -406,9 +406,9 @@ Rounds values to the nearest integer.
 
 **shift**(*source: timeseries_vector*, *window: duration*): *timeseries_vector*
 
-Adds the `window` value to point timestamps. This function lets you compare current metric values with values for a different time interval.
+Adds the `window` value to point timestamps. This function lets you compare current metric values with the values for a different time interval.
 
-For example, `shift({...}, 1w)` returns metrics with a shift for a week ahead, meaning that the chosen time window will contain values that are week old.
+For example, `shift({...}, 1w)` returns metrics shifted a week ahead, meaning that the chosen time window will contain values that are week old.
 
 #### sign
 
@@ -420,13 +420,13 @@ Calculates the *sgn(x)* function. The function is 1 for positive point values, 0
 
 **sqrt**(*source: timeseries_vector*): *timeseries_vector*
 
-Calculates the square root of the point values.
+Calculates the square root of point values.
 
 #### trunc
 
 **trunc**(*source: timeseries_vector*): *timeseries_vector*
 
-Truncates the real part of the point value.
+Truncates the real part of point values.
 
 ### Other {#other-functions}
 
@@ -434,10 +434,11 @@ Truncates the real part of the point value.
 
 **alias**(*source: timeseries_vector*, *arg1: string*): *timeseries_vector*
 
-Renames metrics. As an argument, you can use [mustache templates](https://mustache.github.io/) in the `not_var{{label}}` format to substitute the label value in the new metric name.
+Renames metrics. As an argument, you can use [mustache templates](https://mustache.github.io/) in the `not_var{{label}}` format to substitute a label value in a new metric name.
 
 #### drop_empty_series
 
 **drop_empty_series**(*source: timeseries_vector*): *timeseries_vector*
 
-Drops time series where there are either no points in the specified time range or all points have the `NaN` value.
+Drops time series where either there are no points in the specified time range or all points have the `NaN` value.
+

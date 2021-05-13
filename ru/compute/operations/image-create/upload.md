@@ -1,8 +1,8 @@
 # Загрузить свой образ диска в {{ yandex-cloud }}
 
-Эта инструкция описывает, как загрузить файл образа в {{ objstorage-full-name }}, а также создать из него [образ](../../concepts/image.md) и виртуальную машину в сервисе {{ compute-name }}.
+Эта инструкция описывает, как загрузить в {{ objstorage-full-name }} файл образа с ОС Linux, а также создать из него [образ](../../concepts/image.md) и виртуальную машину в сервисе {{ compute-name }}. 
 
-Поддерживаются известные системы виртуализации. О том, как подготовить ВМ, см. в разделе [{#T}](custom-image.md).
+Поддерживаются известные системы виртуализации.
 
 {% note warning %}
 
@@ -10,11 +10,17 @@
 
 {% endnote %}
 
+## Подготовьте файл с образом {#prepare-file}
+
+{% include [image-create-requirements](../../../_includes/compute/image-create-requirements.md) %}
+
+Инструкции по настройке см. в разделе [{#T}](custom-image.md).
+
 ## Загрузите файл образа в {{ objstorage-name }} {#upload-file}
 
 Загрузите файл с образом в сервис {{ objstorage-name }} и получите ссылку на загруженный образ:
 1. Если у вас еще нет бакета в {{ objstorage-name }}, [создайте](../../../storage/operations/buckets/create.md) его.
-1. [Загрузите образ](../../../storage/operations/objects/upload.md) в ваш бакет. В терминах {{ objstorage-name }} загружаемый файл образа будет называться _объектом_.
+1. Загрузите образ в ваш бакет, например, [через консоль управления](../../../storage/operations/objects/upload.md), с помощью [AWS CLI](../../../storage/tools/aws-cli.md) или [WinSCP](../../../storage/tools/winscp.md). В терминах {{ objstorage-name }} загружаемый файл образа будет называться _объектом_.
 1. [Получите ссылку](../../../storage/operations/objects/link-for-download.md) на загруженный образ. Используйте эту ссылку при создании образа в {{ compute-name }}.
 
 ## Создайте образ в {{ compute-name }} {#create-image}

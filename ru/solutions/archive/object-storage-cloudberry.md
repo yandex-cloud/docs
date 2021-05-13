@@ -49,13 +49,13 @@
 
 - Windows
 
-  1. [Скачайте](https://www.cloudberrylab.com/download.aspx?prod=cbexplorer&src=ms) и установите CloudBerry Backup. Для загрузки введите в поле свой адрес электронной почты и нажмите кнопку **Download**
+  1. [Скачайте](https://www.msp360.com/download.aspx?prod=cbbbm&p=backup) и установите CloudBerry Backup. Для загрузки введите в поле свой адрес электронной почты и нажмите кнопку **Download**
   1. Запустите CloudBerry Backup и выберите пункт **Use Home Edition (free)**. Нажмите кнопку **Next**.
   1. Введите ключ из письма или нажмите кнопку **I do not have activation code** и введите адрес своей электронной почты. Нажмите кнопку **Start FreeTrial**.
 
 - macOS
 
-  1. [Скачайте](https://www.cloudberrylab.com/download.aspx?prod=cbexplorer&src=ms) и установите CloudBerry Backup. Для загрузки введите в поле свой адрес электронной почты и нажмите кнопку **Download**
+  1. [Скачайте](https://www.msp360.com/download.aspx?prod=cbbmac&p=backup) и установите CloudBerry Backup. Для загрузки введите в поле свой адрес электронной почты и нажмите кнопку **Download**
   1. Запустите CloudBerry Backup и выберите пункт **Use Home Edition (free)**. Нажмите кнопку **Next**.
   1. Введите имя пользователя и свой адрес электронной почты. На указанный адрес придет ключ регистрации.
   1. Проверьте почту и скопируйте полученный ключ в поле **Enter registration key**.
@@ -64,7 +64,7 @@
 
 - Linux
 
-  1. [Скачайте](https://www.cloudberrylab.com/download.aspx?prod=cbexplorer&src=ms) и установите CloudBerry Backup. Для загрузки выберите версию, подходящую для вашего дистрибутива Linux, введите в поле свой адрес электронной почты и нажмите кнопку **Download**
+  1. [Скачайте](https://www.msp360.com/download.aspx?prod=cbbub1214&p=backup) и установите CloudBerry Backup. Для загрузки выберите версию, подходящую для вашего дистрибутива Linux, введите в поле свой адрес электронной почты и нажмите кнопку **Download**
   1. Запустите CloudBerry Backup и выберите пункт **Use Home Edition (free)**. Нажмите кнопку **Next**.
   1. Введите имя пользователя и свой адрес электронной почты. На указанный адрес придет ключ регистрации.
   1. Проверьте почту и скопируйте полученный ключ в поле **Enter registration key**.
