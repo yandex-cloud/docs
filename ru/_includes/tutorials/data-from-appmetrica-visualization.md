@@ -27,7 +27,7 @@
 
     ![image](../../_assets/datalens/solution-06/02-create-connection.png)
 
-1. Выберите коннектор **AppMetrica**.
+1. Выберите подключение **AppMetrica**.
 
     ![image](../../_assets/datalens/solution-06/03-choose-appmetrica.png)
 

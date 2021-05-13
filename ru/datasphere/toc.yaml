@@ -49,6 +49,8 @@ items:
         href: concepts/configurations.md
       - name: Интеграция с системами контроля версий и данных
         href: concepts/dvc-and-git.md
+      - name: Сохранение состояния
+        href: concepts/save-state.md
       - name: Интеграция с Data Proc
         href: concepts/data-proc.md
       - name: Фоновые операции

@@ -7,7 +7,7 @@ You can create an unlimited number of charts based on a single dataset.
 
 The workspace in the wizard interface is divided into three main panels:
 
-1. A dataset panel where available fields are displayed: **Dimensions** and **Measures**. You can add a [calculated field](calculations.md) to the list.
+1. A dataset panel where available fields are displayed: **Dimensions** and **Measures**. You can add a [calculated field](calculations/index.md) to the list.
 1. A visualization setup panel where you can select the chart type. Each type has its own set of sections (such as X-axis, Y-axis, and filters) where you can drag and drop fields.
 1. A preview panel where the visualization is displayed.
 
@@ -15,7 +15,7 @@ Charts let you quickly analyze and test hypotheses. You can also save charts and
 
 {% note warning %}
 
-{{ datalens-short-name }} limits the number of data rows displayed in charts. Read about them in the section [{#T}](limits.md).
+{{ datalens-short-name }} limits the number of data rows displayed in charts. For more information, see [{#T}](limits.md).
 
 {% endnote %}
 
@@ -26,7 +26,7 @@ The following types of charts are available in {{ datalens-full-name }}:
 * **Diagrams**:
    - [Line chart](#line-chart)
    - [Area chart](#area-chart)
-   - [Stacked area chart](#normalized-area-chart)
+   - [Normalized area chart](#normalized-area-chart)
    - [Column chart](#bar-chart)
    - [Normalized column chart](#normalized-bar-chart)
    - [Bar chart](#horizontal-bar-chart)
@@ -35,7 +35,7 @@ The following types of charts are available in {{ datalens-full-name }}:
    - [Pie chart](#pie-chart)
    - [Tree chart](#tree-chart)
 * **Tables**:
-   - [Flat table](#flat-table)
+   - [Table](#flat-table)
    - [Pivot table](#pivot-table)
 * **Geographical map**:
    - [Map](#map-chart)
@@ -52,8 +52,8 @@ Displays changes to measures by dimension as a single or multiple horizontal lin
 | Section<br/> in the wizard | Description |
 | ----- | ---- |
 | X | Dimension. Only one field can be specified |
-| Y | Measure.  You can specify multiple measures.<br/>If you add more than one measure to a section, the **Colors** section contains a dimension named`Measure Names` |
-| Y2 | Measure.  Use it to add a second Y-axis to a chart. You can specify multiple measures.<br/>If you add more than one measure to a section, the **Colors** section contains a dimension named`Measure Names` |
+| Y | Measure.  You can specify multiple measures.<br/>If you add more than one measure to a section, the **Colors** section contains a dimension named `Measure Names` |
+| Y2 | Measure.  Use it to add a second Y-axis to a chart. You can specify multiple measures.<br/>If you add more than one measure to a section, the **Colors** section contains a dimension named `Measure Names` |
 | Filters | Dimension or measure. Used as a filter |
 | Colors | Dimension or the `Measure Names` field. Affects the color of lines. `Measure Names` is removed by deleting measures from the Y-axis |
 | Sorting | Dimension. Can only use one dimension from the X-axis. Affects the sorting of the X-axis |
@@ -72,9 +72,9 @@ Displays changes to measures by dimensions as areas, showing the contribution of
 | Sorting | Dimension. Can only use one dimension from the X-axis. Affects the sorting of the X-axis |
 | Signatures | Measure. Displays measure values on the chart |
 
-### Stacked area chart {#normalized-area-chart}
+### Normalized area chart {#normalized-area-chart}
 
-Stacked area chart that shows the ratio of measures as a percentage.
+Normalized area chart that shows the ratio of measures as a percentage.
 
 | Section<br/> in the wizard | Description |
 | ----- | ---- |
@@ -120,7 +120,7 @@ Displays data as flat horizontal bars.
 | Y | Dimensions. One or two dimensions can be specified |
 | X | Measure. You can specify multiple measures. If you add more than one measure to a section, the **Colors** section contains a dimension named `Measure Names`. `Measure Names` can be moved to the Y-axis |
 | Filters | Dimension or measure. Used as a filter |
-| Colors | Dimension or the `Measure Names` field. Affects the color of lines. `Measure Names` can be removed by deleting measures from the X-axis |
+| Colors | Dimension or the `Measure Names` field. Affects the color of lines. `Measure Names` is removed by deleting measures from the Y-axis |
 | Sorting | Dimension or measure. Affects the sorting of columns |
 | Signatures | Measure. Displays measure values on the chart |
 
@@ -133,7 +133,7 @@ Normalized bar chart that shows the ratio of measures.
 | Y | Dimensions. One or two dimensions can be specified |
 | X | Measure. You can specify multiple measures. If you add more than one measure to a section, the **Colors** section contains a dimension named `Measure Names`. `Measure Names` can be moved to the Y-axis |
 | Filters | Dimension or measure. Used as a filter |
-| Colors | Dimension or the `Measure Names` field. Affects the color of lines. `Measure Names` can be removed by deleting measures from the X-axis |
+| Colors | Dimension or the `Measure Names` field. Affects the color of lines. `Measure Names` is removed by deleting measures from the Y-axis |
 | Sorting | Dimension or measure. Affects the sorting of columns |
 | Signatures | Measure. Displays measure values on the chart |
 
@@ -175,7 +175,7 @@ Use this chart to compare proportions in a hierarchy.
 | Filters | Dimension or measure. Used as a filter |
 | Colors | Dimension or measure. Affects the shading of rectangles in a chart |
 
-### Flat table {#flat-table}
+### Simple table {#flat-table}
 
 Displays data in table format, where the first row defines the names of fields and the remaining rows define their values.
 
@@ -193,7 +193,7 @@ Displays data in table format, where rows and columns may contain dimension valu
 | Section<br/> in the wizard | Description |
 | ----- | ---- |
 | Columns | Dimensions |
-| Rows | Dimensions |
+| Strings | Dimensions |
 | Measures | Measures. If you add more than one measure to a section, the **Columns** section contains the `Measure Names` dimension that defines the location of the measure headers. `Measure Names` can be moved to **Rows** |
 | Filters | Dimension or measure. Used as a filter |
 | Colors | Measure. Affects shading of all cells containing indicators. It may contain only one indicator |
@@ -225,7 +225,7 @@ Displays geographical points on the map.
 
 | Section<br/> in the wizard | Description |
 | ----- | ---- |
-| Geopoints | Measure with the type `Geopoint` |
+| Geopoints | Measure with the `Geopoint` type |
 | Size | Measure. Affects the size of the point |
 | Layer filters | Dimension or measure. Used as a filter for the current layer |
 | General filters | Dimension or measure. Used as a filter for the whole chart |
@@ -239,7 +239,7 @@ Displays shaded areas on the map.
 
 | Section<br/> in the wizard | Description |
 | ----- | ---- |
-| Geopolygons | Measure with the type `Geopolygon` |
+| Geopolygons | Measure with the `Geopolygon` type |
 | Layer filters | Dimension or measure. Used as a filter for the current layer |
 | General filters | Dimension or measure. Used as a filter for the whole chart |
 | Colors | Dimension or measure. Affects the color of points |
@@ -250,7 +250,7 @@ Displays geographical points on the map with different shading intensity.
 
 | Section<br/> in the wizard | Description |
 | ----- | ---- |
-| Geopoints | Measure with the type `Geopoint` |
+| Geopoints | Measure with the `Geopoint` type |
 | Filters | Dimension or measure. Used as a filter for the current layer |
 | General filters | Dimension or measure. Used as a filter for the whole chart |
 | Colors | Dimension or measure. Affects the intensity of point fill |
@@ -299,6 +299,7 @@ Working with linked datasets in geovisualizations on different layers:
 * Filters in the **Layer filters** section that use linked dimensions apply to all datasets within the current layer.
 * Filters in the **Layer filters** section that use non-linked dimensions only apply to their own dataset within the current layer.
 * There are no restrictions on using non-linked dimensions in different layers.
+
 
 ## Publishing a chart {#public-access}
 

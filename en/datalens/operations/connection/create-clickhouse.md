@@ -13,11 +13,12 @@
 
 To create a {{ CH }} connection:
 
+
 1. Go to the [connections page](https://datalens.yandex.com/connections).
 
 1. Click **Create connection**.
 
-1. Select the **ClickHouse** connector.
+1. Select the **ClickHouse** connection.
 
 1. Enter a **Connection name**. You can set any name.
 

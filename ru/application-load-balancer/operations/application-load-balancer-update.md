@@ -59,7 +59,7 @@
        - zone_id: ru-central1-c
          subnet_id: fo2ap2nrhjk9vpfdnno8
      log_group_id: eolul9ap0bv02i8bsp87
-     created_at: "2021-02-14T16:47:52.057994243Z"
+     created_at: "2021-04-26T12:12:13.624832586Z"
      ```
 
 {% endlist %}

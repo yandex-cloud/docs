@@ -6,9 +6,11 @@
 
 To create an MS SQL Server connection:
 
+
 1. Go to the [connections page](https://datalens.yandex.com/connections).
+
 1. Click **Create connection**.
-1. Select the **MS SQL Server** connector.
+1. Select the **MS SQL Server** connection.
 1. Specify the connection parameters:
     - **Connection name**. Specify a name for the connection. You can set any name.
     - **Hostname or IP**. Specify the path to the MS SQL Server host.

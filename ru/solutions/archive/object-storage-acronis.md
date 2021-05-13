@@ -49,7 +49,7 @@
 ## Протестируйте резервное копирование {#test-backup}
 
 1. Настройте резервное копирование в Acronis Backup по [инструкции](https://www.acronis.com/ru-ru/support/documentation/BackupService/index.html#33507.html).
-1. Выполните резервное копирование по [инструкции](https://www.acronis.com/ru-ru/support/documentation/BackupService/index.html#33512.html).
+1. Выполните резервное копирование по [инструкции](https://www.acronis.com/ru-ru/support/documentation/BackupService/index.html#38855.html).
 
 ## Как удалить созданные ресурсы {#clear-out}
 

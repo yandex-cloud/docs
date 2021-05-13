@@ -8,11 +8,12 @@ You can only upload a CSV file once. To reupload an updated CSV file, create a n
 
 To create a connection to a CSV file:
 
+
 1. Go to the [connections page](https://datalens.yandex.com/connections).
 
 1. Click **Create connection**.
 
-1. Select the **CSV** connector.
+1. Select the **CSV** connection.
 
 1. Click **Select CSV file** and specify the CSV file or drag it to the screen. Information about the added file is displayed in the lower part of the dialog box.
 

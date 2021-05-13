@@ -1,43 +1,61 @@
-# Backup to  {{ objstorage-full-name }} via CloudBerry Desktop Backup
+# Backup to {{ objstorage-full-name }} via CloudBerry Desktop Backup
 
 To set up backups in {{ objstorage-name }} via CloudBerry Desktop Backup:
 
+1. [Before you start](#before-you-begin)
 1. [Create a bucket](#create-bucket)
 1. [Create a service account](#create-service-account)
 1. [Create a static access key](#create-access-key)
 1. [Install CloudBerry Desktop Backup](#install-cloudberry)
 1. [Configure CloudBerry Desktop Backup](#configure-cloudberry)
 1. [Test your backup](#test-backup)
+1. [Delete the created cloud resources](#clear-out)
 
 The free version of CloudBerry Desktop Backup allows you to create a maximum of 200 GB of backups.
 
-## 1. Create a bucket {#create-bucket}
+## Before you start {#before-you-begin}
+
+Before using {{ objstorage-full-name }}, sign up for {{ yandex-cloud }} and create a billing account:
+
+{% include [prepare-register-billing](../_solutions_includes/prepare-register-billing.md) %}
+
+If you have an active billing account, you can create or select a folder to place your bucket in. Go to the [Yandex.Cloud homepage](https://console.cloud.yandex.ru/cloud) and select or create a folder where you want to create a bucket. [Learn more about the resource hierarchy in {{ yandex-cloud }}](../../resource-manager/concepts/resources-hierarchy.md).
+
+### Required paid resources {#paid-resources}
+
+The cost for backup and recovery includes:
+
+* A fee for data storage (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md#prices-storage)).
+* A fee for data operations (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md#prices-operations)).
+* The cost of outgoing traffic from {{ yandex-cloud }} to the internet (see [{{ objstorage-full-name }} pricing](../../storage/pricing#prices-storage.md#prices-traffic)).
+
+## Create a bucket {#create-bucket}
 
 To create a bucket for backups:
 
 {% include [create-bucket](../_solutions_includes/create-public-bucket.md) %}
 
-## 2. Create a service account {#create-service-account}
+## Create a service account {#create-service-account}
 
-Create a service account with the `editor` role.
+Create a [service account](../../iam/operations/sa/create.md) with the `editor` role.
 
-## 3. Create a static access key {#create-access-key}
+## Create a static access key {#create-access-key}
 
-Create static access keys. Save the ID and private key right away. You won't be able to access the private key parameters again after you close the window.
+Create [static access keys](../../iam/operations/sa/create-access-key.md). Save the ID and secret access key right away. You won't be able to access the private key parameters again after you close the window.
 
-## 4. Install CloudBerry Desktop Backup {#install-cloudberry}
+## Install CloudBerry Desktop Backup {#install-cloudberry}
 
 {% list tabs %}
 
 - Windows
 
-  1. [Download](https://www.cloudberrylab.com/download.aspx?prod=cbexplorer&src=ms) and install CloudBerry Backup. To download it, enter your email address in the field and click **Download**
+  1. [Download](https://www.msp360.com/download.aspx?prod=cbbbm&p=backup) and install CloudBerry Backup. To download it, enter your email address in the field and click **Download**
   1. Run CloudBerry Backup and select **Use Home Edition (free)**. Click **Next**.
   1. Enter the key from the message or click **I do not have activation code** and enter your email address. Click **Start FreeTrial**.
 
 - macOS
 
-  1. [Download](https://www.cloudberrylab.com/download.aspx?prod=cbexplorer&src=ms) and install CloudBerry Backup. To download it, enter your email address in the field and click **Download**
+  1. [Download](https://www.msp360.com/download.aspx?prod=cbbmac&p=backup) and install CloudBerry Backup. To download it, enter your email address in the field and click **Download**
   1. Run CloudBerry Backup and select **Use Home Edition (free)**. Click **Next**.
   1. Enter your username and email address. The registration key will be sent to the specified address.
   1. Check your email and copy and paste the received key into the **Enter registration key** field.
@@ -46,7 +64,7 @@ Create static access keys. Save the ID and private key right away. You won't be 
 
 - Linux
 
-  1. [Download](https://www.cloudberrylab.com/download.aspx?prod=cbexplorer&src=ms) and install CloudBerry Backup. To download it, select the version that suits your Linux distribution, enter your email address in the field and click **Download**
+  1. [Download](https://www.msp360.com/download.aspx?prod=cbbub1214&p=backup) and install CloudBerry Backup. To download it, select the version for your Linux distribution, enter your email address in the field, and click **Download**
   1. Run CloudBerry Backup and select **Use Home Edition (free)**. Click **Next**.
   1. Enter your username and email address. The registration key will be sent to the specified address.
   1. Check your email and copy and paste the received key into the **Enter registration key** field.
@@ -55,7 +73,7 @@ Create static access keys. Save the ID and private key right away. You won't be 
 
 {% endlist %}
 
-## 5. Configure CloudBerry Backup {#configure-cloudberry}
+## Configure CloudBerry Backup {#configure-cloudberry}
 
 To configure CloudBerry Backup to work with {{ objstorage-name }}:
 
@@ -107,7 +125,7 @@ To configure CloudBerry Backup to work with {{ objstorage-name }}:
 
   1. If you want to get notifications about the progress of backups, select the **I want to receive a notification email when plan completes** option.
 
-     If you only want to get notifications about failed backups, select the **When the plan fails** option. To get notifications about all events, select the **In all cases** option. Specify your email address in the **Email** field, name in the **User name** field, and the subject of the message from CloudBerry in the **Email subject** field. If this is the first time you are setting up notifications, you will receive a message asking you to confirm your email address. Follow the link in the message to enable notifications. Click **Next**.
+     If you only want to get notifications about failed backups, select the **When the plan fails** option. To get notifications about all events, select the **In all cases** option. Specify your email address in the **Email** field, name in the **User name** field, and the subject of the message from CloudBerry in the **Email subject** field. If this is the first time you are setting up notifications, you will receive a message asking you to confirm your email address. Follow the link in the message to enableget notifications. Click **Next**.
 
   1. Check the backup plan and click **Next**.
 
@@ -145,13 +163,13 @@ To configure CloudBerry Backup to work with {{ objstorage-name }}:
 
   1. If you want to get notifications about the progress of backups, select the **I want to receive a notification email when plan completes** option.
 
-     If you only want to get notifications about failed backups, select the **When the plan fails** option. To get notifications about all events, select the **In all cases** option. Specify your email address in the **Email** field, name in the **User name** field, and the subject of the message from CloudBerry in the **Email subject** field. If this is the first time you are setting up notifications, you will receive a message asking you to confirm your email address. Follow the link in the message to enable notifications. Click **Continue**.
+     If you only want to get notifications about failed backups, select the **When the plan fails** option. To get notifications about all events, select the **In all cases** option. Specify your email address in the **Email** field, name in the **User name** field, and the subject of the message from CloudBerry in the **Email subject** field. If this is the first time you are setting up notifications, you will receive a message asking you to confirm your email address. Follow the link in the message to enableget notifications. Click **Continue**.
 
   1. Check the backup plan and click **Done**.
 
 {% endlist %}
 
-## 6. Test your backup {#test-backup}
+## Test the backup procedure {#test-backup}
 
 To test a backup:
 
@@ -176,4 +194,8 @@ To test a backup:
   1. Open the `backup` bucket and check whether all the necessary files have been copied.
 
 {% endlist %}
+
+## How to delete created resources {#clear-out}
+
+{% include [clear-out](../_solutions_includes/storage-clear-out.md) %}
 

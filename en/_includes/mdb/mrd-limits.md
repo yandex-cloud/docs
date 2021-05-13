@@ -10,11 +10,14 @@
 #### Limits {#mrd-limits}
 
 
-| Type of limit | Value |
-| ----- | ----- |
-| Lowest host class | b1.nano (`burstable` with 2 GB RAM) |
-| Highest host class | hm1.9xlarge (`high-memory` with 256 GB RAM) |
-| Maximum number of hosts per cluster | 7 |
-| Minimum disk size per cluster | 2 times more than the amount of RAM selected |
-| Maximum disk size per cluster | 8 times more than the amount of RAM selected |
+| Type of limit | Minimum value | Maximum value |
+| ----- | ----- | ---- |
+| Host class | b1.nano (`burstable` with 2 GB RAM) | hm2.512xlarge (`high-memory` with 512 GB RAM) |
+| Number of hosts in an unsharded cluster | 1 | 7 |
+| Number of shards in a sharded cluster | 3 | 10 |
+| Number of hosts in a shard when using network storage | 1 | 7 |
+| Number of hosts in a shard when using local storage | 2 | 7 |
+| Number of hosts in a sharded cluster | 3 (3 shards × 1 host) | 70 (10 shards × 7 hosts) |
+| Amount of data on the host when using network storage | Twice the amount of RAM selected | {{ mrd-max-disk-size }} |
+| Amount of data on the host when using local storage | Twice the amount of RAM selected | 1400 GB |
 

@@ -6,11 +6,12 @@
 
 To create a {{ MY }} connection:
 
+
 1. Go to the [connections page](https://datalens.yandex.com/connections).
 
 1. Click **Create connection**.
 
-1. Select the **MySQL** connector.
+1. Select the **MySQL** connection.
 
 1. Enter a **Connection name**. You can set any name.
 
