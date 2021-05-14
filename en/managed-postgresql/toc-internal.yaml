@@ -37,6 +37,10 @@ items:
       href: operations/data-migration.md
     - name: Monitoring the state of a cluster and hosts
       href: operations/monitoring.md
+  - name: Use cases
+    items:
+    - name: Migrating databases from Managed Service for PostgreSQL
+      href: solutions/outbound-replication.md
   - name: Concepts
     items:
     - name: Relationship between service resources
