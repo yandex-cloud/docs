@@ -3,7 +3,7 @@
 Queries can be sent to YDB in the following ways:
 
 * From the [management console](#web-sql).
-* From an application written using the [YDB SDK](../sdk/index.md) for [Java](https://github.com/yandex-cloud/ydb-java-sdk), [Python](https://github.com/yandex-cloud/ydb-python-sdk), or [Go](https://github.com/yandex-cloud/ydb-go-sdk).
+* From an application written using the [YDB SDK](../sdk/index.md) for [Java](https://github.com/yandex-cloud/ydb-java-sdk), [Python](https://github.com/yandex-cloud/ydb-python-sdk), [Node.js](https://github.com/yandex-cloud/ydb-nodejs-sdk), [PHP](https://github.com/yandex-cloud/ydb-php-sdk) or [Go](https://github.com/yandex-cloud/ydb-go-sdk).
 * Using the [API compatible with Amazon DynamoDB](../docapi/api-ref/index.md) (for document tables).
 
 In this section, we are going to use the management console to execute queries.

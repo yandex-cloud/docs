@@ -26,7 +26,7 @@
 
    The {{ ydb-full-name }} serverless mode supports data operations using both the YDB API and [Document API](../docapi/api-ref/index.md), an Amazon DynamoDB-compatible HTTP API. You can use this API to perform operations on document tables.
 
-{{ ydb-short-name }} provides the YDB API and its implementations as the [YDB CLI](../quickstart/examples-ydb-cli.md) and [YDB SDK](../sdk/index.md) for [Java](https://github.com/yandex-cloud/ydb-java-sdk), [Python](https://github.com/yandex-cloud/ydb-python-sdk), [Node.js](https://github.com/yandex-cloud/ydb-nodejs-sdk), and [Go](https://github.com/yandex-cloud/ydb-go-sdk)
+{{ ydb-short-name }} provides the YDB API and its implementations as the [YDB CLI](../quickstart/examples-ydb-cli.md) and [YDB SDK](../sdk/index.md) for [Java](https://github.com/yandex-cloud/ydb-java-sdk), [Python](https://github.com/yandex-cloud/ydb-python-sdk), [Node.js](https://github.com/yandex-cloud/ydb-nodejs-sdk), [PHP](https://github.com/yandex-cloud/ydb-php-sdk), and [Go](https://github.com/yandex-cloud/ydb-go-sdk)
 
 {{ ydb-short-name }} supports a relational [data model](datamodel.md) and manages tables with a predefined schema. To make it easier to organize tables, directories can be created like in the file system.
 
