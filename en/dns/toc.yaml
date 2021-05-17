@@ -1,0 +1,44 @@
+title: Yandex Cloud DNS
+href: index.yaml
+items:
+  - name: Getting started
+    href: quickstart.md
+  - name: Step-by-step instructions
+    items:
+      - name: All instructions
+        href: operations/index.md
+      - name: Zones
+        items:
+          - name: Creating an internal DNS zone
+            href: operations/zone-create-private.md
+          - name: Creating a public DNS zone
+            href: operations/zone-create-public.md
+          - name: Updating a DNS zone
+            href: operations/zone-update.md
+          - name: Deleting a DNS zone
+            href: operations/zone-delete.md
+      - name: Records
+        items:
+          - name: Creating a record
+            href: operations/resource-record-create.md
+          - name: Updating a record
+            href: operations/resource-record-update.md
+          - name: Deleting a record
+            href: operations/resource-record-delete.md
+  - name: Concepts
+    items:
+      - name: Overview
+        href: concepts/index.md
+      - name: DNS zones
+        href: concepts/dns-zone.md
+      - name: Resource records
+        href: concepts/resource-record.md
+      - name: Integration with Yandex Compute Cloud
+        href: concepts/compute-integration.md
+      - name: Quotas and limits
+        href: concepts/limits.md
+  - name: Access management
+    href: security/index.md
+  - name: Pricing policy
+    href: pricing.md
+base: en/dns

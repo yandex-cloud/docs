@@ -2,7 +2,7 @@
 
 If necessary, you can stop and restart {{ KF }} clusters. When a cluster is stopped, all data in it is retained: it will be available again when you restart the cluster.
 
-## Stop a cluster {#stop-cluster}
+## Stopping a cluster {#stop-cluster}
 
 {% list tabs %}
 
@@ -13,6 +13,18 @@ If necessary, you can stop and restart {{ KF }} clusters. When a cluster is stop
   1. Find the cluster in the list and click ![options](../../_assets/horizontal-ellipsis.svg), and select **Stop cluster**.
   1. In the dialog box that opens, confirm that you want to stop the cluster and click **Stop**.
 
+- CLI
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  To stop a cluster, run the command:
+
+  ```
+  {{ yc-mdb-kf }} cluster stop <cluster name or ID>
+  ```
+
 
 - API
 
@@ -22,9 +34,9 @@ If necessary, you can stop and restart {{ KF }} clusters. When a cluster is stop
 
 {% endlist %}
 
-## Start a cluster {#start-cluster}
+## Starting a cluster {#start-cluster}
 
-You can restart `STOPPED` clusters.
+You can restart **STOPPED** clusters.
 
 {% list tabs %}
 
@@ -35,6 +47,18 @@ You can restart `STOPPED` clusters.
   1. Find the stopped cluster you need in the list and click ![options](../../_assets/horizontal-ellipsis.svg), and select **Start cluster**.
   1. In the window that opens, click **Start**.
 
+- CLI
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  To start a cluster, run the command:
+
+  ```
+  {{ yc-mdb-kf }} cluster start <cluster name or ID>
+  ```
+
 
 - API
 
@@ -43,3 +67,4 @@ You can restart `STOPPED` clusters.
   To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
 
 {% endlist %}
+

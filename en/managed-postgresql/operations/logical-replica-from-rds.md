@@ -54,8 +54,7 @@ For example:
     protocol: tcp, port: 5432, source: 84.201.175.90/32
     ```
 
-    Where
-    * `84.201.175.90` is a public IP address.
+    Where `84.201.175.90` is a public IP address.
 
 ## Settings for {{ mpg-name }} {#mdb-pg-set}
 
@@ -118,7 +117,7 @@ Learn more about creating subscriptions [in the {{ PG }} documentation](https://
 
 * External tables are not replicated.
 
-* To view errors related to logical replication, see the {{ mpg-name }} logs.
+* To view errors relating to logical replication, see the {{ mpg-name }} logs.
 
 * If you need to re-create a subscription, delete all data from the tables on the subscriber side to prevent `primary key` restriction errors.
 

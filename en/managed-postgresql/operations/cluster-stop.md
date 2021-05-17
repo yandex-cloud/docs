@@ -4,7 +4,7 @@ If necessary, you can stop and restart a DB cluster. You are not charged for the
 
 {% include [pricing-status-warning.md](../../_includes/mdb/pricing-status-warning.md) %}
 
-## Stop a cluster {#stop-cluster}
+## Stopping a cluster {#stop-cluster}
 
 {% include [cluster-stop](../../_includes/mdb/cluster-stop.md) %}
 
@@ -19,9 +19,9 @@ If necessary, you can stop and restart a DB cluster. You are not charged for the
 
 {% endlist %}
 
-## Start a cluster {#start-cluster}
+## Starting a cluster {#start-cluster}
 
-You can restart `STOPPED` clusters.
+You can restart **STOPPED** clusters.
 
 {% list tabs %}
 
@@ -33,3 +33,4 @@ You can restart `STOPPED` clusters.
   1. Confirm that you want to start the cluster: click **Start** in the dialog box that opens.
 
 {% endlist %}
+

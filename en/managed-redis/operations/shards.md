@@ -74,6 +74,13 @@ The cluster name and ID can be requested with a [list of clusters in the folder]
 
   1. Click **Create shard**.
 
+<<<<<<< HEAD
+  After adding a new shard, you must [rebalance your cluster](../concepts/sharding.md#scaling):
+  1. Wait until the cluster status changes to **Running**.
+  1. Open the **Hosts** tab and click **Rebalance cluster**. Click **OK**.
+
+=======
+>>>>>>> develop
 - CLI
 
   {% include [cli-install](../../_includes/cli-install.md) %}
@@ -88,6 +95,15 @@ The cluster name and ID can be requested with a [list of clusters in the folder]
     --host zone-id=<availability zone>,subnet-name=<subnet name>
   ```
 
+<<<<<<< HEAD
+  After adding a new shard, you must rebalance your cluster:
+
+  ```
+  $ yc managed-redis cluster --cluster-name test-sharding-2 rebalance
+  ```
+
+=======
+>>>>>>> develop
 {% endlist %}
 
 To be able to place data in the new shard, start {{ mrd-name }} [cluster rebalancing](#rebalance-cluster).

@@ -10,7 +10,7 @@
      {% include [name-fqdn](../compute/name-fqdn.md) %}
 
    * Select a [service account](../../iam/concepts/users/service-accounts.md) from the list or create a new one. To be able to create, update, and delete group instances, assign the `editor` role to the service account. All operations in {{ ig-name }} are performed on behalf of the service account.
-1. In the **Allocation** section, select the desired **Availability zones**. Instances of a group may reside in [different availability zones and regions](../../overview/concepts/geo-scope.md).
+1. In the **Allocation** section, select the desired **availability zones**. Instances of a group may reside in [different availability zones and regions](../../overview/concepts/geo-scope.md).
 1. Under **Instance template**, click **Define** to set up the configuration for a basic instance:
    * Under **Basic parameters**, enter the template **Description**:
    * Under **Images from Cloud Marketplace**, select a public [image](../../compute/operations/images-with-pre-installed-software/get-list.md).
@@ -28,6 +28,7 @@
        * In the **Public IP** field, choose a method for assigning an IP address:
          * **Auto**: Assign a random IP address from the {{ yandex-cloud }} IP pool.
          * **No address**: Don't assign a public IP address.
+       * (optional) Create a record for the VM in the [DNS zone](../../dns/concepts/dns-zone.md). Expand the **DNS settings for internal addresses** section and specify the zone, FQDN, and TTL for the record. For more information, see [Yandex Cloud DNS integration with Yandex Compute Cloud](../../dns/concepts/compute-integration.md).
    * Under **Access**, specify the information required to access the instance:
      * Specify a **Service account** to be linked to the instance.
      * Enter the username in the **Login** field.

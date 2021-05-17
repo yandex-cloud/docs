@@ -1,6 +1,6 @@
 # Запуск тестового приложения с помощью YDB SDK
 
-Для знакомства с работой {{ ydb-short-name }} SDK вы можете воспользоваться тестовыми приложениями на [Python](https://github.com/yandex-cloud/ydb-python-sdk), [Go](https://github.com/yandex-cloud/ydb-go-sdk), [Node.js](https://github.com/yandex-cloud/ydb-nodejs-sdk) или [Java](https://github.com/yandex-cloud/ydb-java-sdk). Для этого необходимо настроить подключение к базе данных, после чего установить и запустить соответствующее тестовое приложение.
+Для знакомства с работой {{ ydb-short-name }} SDK вы можете воспользоваться тестовыми приложениями на [Python](https://github.com/yandex-cloud/ydb-python-sdk), [Go](https://github.com/yandex-cloud/ydb-go-sdk), [Node.js](https://github.com/yandex-cloud/ydb-nodejs-sdk), [PHP](https://github.com/yandex-cloud/ydb-php-sdk) или [Java](https://github.com/yandex-cloud/ydb-java-sdk). Для этого необходимо настроить подключение к базе данных, после чего установить и запустить соответствующее тестовое приложение.
 
 {% note info %}
 

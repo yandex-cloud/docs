@@ -1,13 +1,13 @@
 # Migrating databases to {{ mpg-name }}
 
-To migrate your database to {{ mpg-name }}, you need to transfer the data directly, close the old database for writing, and then transfer the load to the database cluster in Yandex.Cloud.
+To migrate your database to {{ mpg-name }}, you need to directly transfer the data, disable writing to the old database, and then switch the load over to the database cluster in {{ yandex-cloud }}.
 
 There are two ways to migrate data to a {{ mpg-name }} cluster:
 
 * Logical replication is the recommended method ([subscriptions](https://www.postgresql.org/docs/current/sql-createsubscription.html)). The subscription mechanism that logical replication is built on lets data be transferred to the {{ mpg-name }} cluster with minimal downtime.
 * Restoring a database from a dump using `pg_dump`.
 
-Below, the DBMS server you are migrating data from is called the _source server_, and the {{ mpg-name }}  cluster that you are migrating to is the _destination server_.
+Below, the DBMS server you are migrating data from is called the _source server_, and the {{ mpg-name }} cluster that you are migrating to is the _destination server_.
 
 The instructions assume that you are familiar with basic Linux administration.
 
@@ -46,7 +46,7 @@ Migration stages:
       wal_level = logical                    # minimal, replica, or logical
       ```
 
-1. Configure host authentication on the source. To do this, add the cluster hosts in Yandex.Cloud to the file `pg_hba.conf` (on Debian and Ubuntu distributions, the default path is `/etc/postgresql/10/main/pg_hba.conf`).
+1. Configure host authentication on the source. To do this, add the cluster hosts in {{ yandex-cloud }} to the file `pg_hba.conf` (on Debian and Ubuntu distributions, the file is located at `/etc/postgresql/10/main/pg_hba.conf` by default).
 
    For this the lines that will allow incoming connections to the database from the specified hosts should be added.
 
@@ -87,20 +87,20 @@ Migration stages:
 Using the `pg_dump` utility, create a file with the database schema to be applied in the {{ mpg-name }} cluster.
 
 ```bash
-pg_dump -h <DBMS server address> - U <username> -p <port> --schema-only --no-privileges --no-subscriptions -d <database name> -Fd -f /tmp/db_dump
+pg_dump -h <DBMS server address> -U <username> -p <port> --schema-only --no-privileges --no-subscriptions -d <database name> -Fd -f /tmp/db_dump
 ```
 
-This command excludes all data associated with privileges and roles in order to avoid conflicts with the database settings in Yandex.Cloud. If your database requires additional users, [create them](cluster-users.md#adduser).
+This export command skips all data associated with privileges and roles to avoid conflicts with the database settings in {{ yandex-cloud }}. If your database requires additional users, [create them](cluster-users.md#adduser).
 
 ### Create a {{ mpg-name }} cluster and restore the database schema {#restore-schema}
 
-If you don't have a {{ PG }} cluster in Yandex.Cloud, [create one {{ mpg-name }}](cluster-create.md). When creating a cluster, specify the same database name that's on the source server.
+If you don't have a {{ PG }} cluster in {{ yandex-cloud }}, [create a {{ mpg-name }} cluster](cluster-create.md). When creating a cluster, specify the same database name that's on the source server.
 
 Restore the schema in the new cluster:
 
 ```bash
 pg_restore -Fd -v --single-transaction -s --no-privileges \
-          -h <receiving address> \
+          -h <source address> \
           -U <username> \
           -p 6432 \
           -d <database name> /tmp/db_dump
@@ -162,12 +162,12 @@ To fully complete synchronization between the source and the destination, disabl
 
 1. Restore sequences on the {{ mpg-name }} host:
 
-   ```
+   ```bash
    psql -h <DBMS server address> -U <username> -p 6432 -d <database name> \
         < /tmp/seq-data.sql
    ```
 
-### Disable replication and transfer the load {#transfer-load}
+### Disable replication and switch over the load {#transfer-load}
 
 When replication is complete and you move the sequences, remove the subscription on the destination server (in the {{ mpg-name }} cluster):
 
@@ -177,22 +177,22 @@ When replication is complete and you move the sequences, remove the subscription
 
 Afterwards, the load can be transferred to the receiving server. Since transferring sequences is a relatively quick and easily automated process, migrating to {{ mpg-name }} is possible with minimal downtime.
 
-## Restore a database from a dump {#backup}
+## Restore a database from dump {#backup}
 
-To migrate data from an existing {{ PG }} database to {{ mpg-name }}, use `pg_dump` and `pg_restore`: create a dump of a working database and restore it to the Yandex.Cloud {{ PG }} cluster.
+To migrate data from an existing {{ PG }} database to {{ mpg-name }}, use `pg_dump` and `pg_restore`: create a dump of your running database and restore it to the {{ PG }} cluster in {{ yandex-cloud }}.
 
 {% note info %}
 
-To use `pg-restore`, you may need to expand the `pg_repack` database.
+To use `pg-restore`, you might need the `pg_repack` database extension.
 
 {% endnote %}
 
-Before trying to import your data, check whether the DBMS versions of the existing database and your cluster in Yandex.Cloud match. If not, you won't be able to restore the created dump. To migrate to {{ PG }} version 11 or 12, you can use [logical replication](#logical_replication).
+Before trying to import your data, check whether the DBMS versions of the existing database and your cluster in {{ yandex-cloud }} match. If not, you won't be able to restore the created dump. To migrate to {{ PG }} version 11 or 12, you can use [logical replication](#logical_replication).
 
 Migration stages:
 
 1. [Create a dump of the database you want to migrate](#dump).
-1. [(optional) Create a virtual machine in Yandex.Cloud and upload the database dump to it](#create-vm).
+1. [(optional) Create a virtual machine in {{ yandex-cloud }} and upload the database dump to it](#create-vm).
 1. [Create a cluster {{ mpg-name }}](#create-cluster).
 1. [Restore data from the dump to the cluster](#restore).
 
@@ -202,30 +202,30 @@ Use [pg_dump](https://www.postgresql.org/docs/current/app-pgdump.html) to create
 
 1. Before creating a dump, we recommend switching the database to <q>read-only</q> to avoid losing data that might appear while the dump is created. The database dump itself is created using the following command:
 
-    ```
-    $ pg_dump -h <DBMS server address> -U <username> -Fd -d <DB name> -f ~/db_dump
+    ```bash
+    pg_dump -h <DBMS server address> -U <username> -Fd -d <database name> -f ~/db_dump
     ```
 
 1. To speed up the process, you can start dumping with multiple processor cores. To do this, set the `-j` flag with the number equal to the number of cores available to the DBMS:
 
-    ```
-    $ pg_dump -h <DBMS server address> -U <username> -j 4 -Fd -d <database name> ~/db_dump
+    ```bash
+    pg_dump -h <DBMS server address> -U <username> -j 4 -Fd -d <database name> -f ~/db_dump
     ```
 
 1. Archive the dump:
 
-    ```
-    $ tar -cvzf db_dump.tar.gz ~/db_dump
+    ```bash
+    tar -cvzf db_dump.tar.gz ~/db_dump
     ```
 
 For more information about `pg_dump`, see the [documentation {{ PG }}](https://www.postgresql.org/docs/current/app-pgdump.html).
 
-### (optional) Create a virtual machine in Yandex.Cloud and upload a dump to it {#create-vm}
+### (optional) Create a virtual machine in {{ yandex-cloud }} and upload the dump to it {#create-vm}
 
 Transfer your data to an intermediate VM in {{ compute-name }} if:
 
 * Your {{ mpg-name }} cluster is not accessible from the internet.
-* Your hardware or connection to the cluster in Yandex.Cloud is not very reliable.
+* Your hardware or connection to the cluster in {{ yandex-cloud }} is not very reliable.
 
 The required amount of RAM and processor cores depends on the amount of data to migrate and the required migration speed.
 
@@ -233,7 +233,7 @@ To prepare the virtual machine to restore the dump:
 
 1. In the management console, [create a new virtual machine](../../compute/operations/vm-create/create-linux-vm.md) from the Ubuntu 18.04 image. The VM parameters depend on the size of the database you want to migrate. The minimum configuration (1 core, 2 GB RAM, 10 GB disk space) should be sufficient to migrate a database that's up to 1 GB in size. The bigger the database being migrated, the more RAM and storage space you need (at least twice as large as the size of the database).
 
-    The virtual machine must be in the same network and availability zone as the {{ PG }} cluster. Additionally, the VM must be assigned an external IP address so that you can load the dump from outside Yandex.Cloud.
+    The virtual machine must be in the same network and availability zone as the {{ PG }} cluster. Additionally, the VM must be assigned an external IP address so that you can load the dump from outside {{ yandex-cloud }}.
 
 1. Set up the [{{ PG }} apt repository](https://www.postgresql.org/download/linux/ubuntu/).
 
@@ -250,23 +250,26 @@ To prepare the virtual machine to restore the dump:
    
    # For PostgreSQL 12
    $ sudo apt install postgresql-client-12
+   
+   # For PostgreSQL 13
+   $ sudo apt install postgresql-client-13
    ```
 
 1. Move the DB dump to the VM. For example, you can use `scp`:
 
-    ```
+    ```bash
     scp ~/db_dump.tar.gz <VM username>@<VM public address>:/tmp/db_dump.tar.gz
     ```
 
 1. Unpack the dump:
 
-    ```
+    ```bash
     tar -xzf /tmp/db_dump.tar.gz
     ```
 
-### Create a cluster {{ mpg-name }} {#create-cluster}
+### Create a {{ mpg-name }} cluster {#create-cluster}
 
-Make sure that the computing power and storage size of the cluster are appropriate for the environment where the existing databases are deployed and [create a cluster](cluster-create.md).
+Make sure that the computing capacity and storage size of the cluster are appropriate for the environment where the existing databases are deployed and [create a cluster](cluster-create.md).
 
 ### Restore data in the new environment {#restore}
 
@@ -274,11 +277,11 @@ Use the [pg_restore](https://www.postgresql.org/docs/current/app-pgrestore.html)
 
 The version of `pg_restore` must match the `pg_dump` version, and the major version must be at least as high as on the DB where the dump is deployed.
 
-For example, to restore a {{ PG }} 10, {{ PG }} 11, or {{ PG }} 12 database from a dump, use `pg_restore 10`, `pg_restore 11`, or `pg_restore 12`, respectively.
+In other words, to restore a dump of {{ PG }} 10, {{ PG }} 11, {{ PG }} 12, or {{ PG }} 13, use `pg_restore 10`, `pg_restore 11`, `pg_restore 12`, or `pg_restore 13`, respectively.
 
 If you only need to restore a single schema, add the `-n <schema name>` flag (without it, the command only runs on behalf of the database owner). Best practice is to restore data with the `--single-transaction` flag to avoid an inconsistent state of the database if an error occurs:
 
-```
+```bash
 pg_restore -Fd \
            -v \
            -h <pgsql_host_address> \

@@ -1,12 +1,13 @@
 # Working with the SDK
 
-When writing your app, you can use the SDKs available for [Python](https://github.com/yandex-cloud/ydb-python-sdk), [Go](https://github.com/yandex-cloud/ydb-go-sdk), and [Java](https://github.com/yandex-cloud/ydb-java-sdk).
+When writing your app, you can use the SDKs available for [Python](https://github.com/yandex-cloud/ydb-python-sdk), [Go](https://github.com/yandex-cloud/ydb-go-sdk), [Node.js](https://github.com/yandex-cloud/ydb-nodejs-sdk), [PHP](https://github.com/yandex-cloud/ydb-php-sdk), and [Java](https://github.com/yandex-cloud/ydb-java-sdk).
 
 This page explains in detail the `basic_example_v1` test app code available as part of the SDK:
 
 * For [Python](https://github.com/yandex-cloud/ydb-python-sdk/tree/master/kikimr/public/sdk/python/examples/basic_example_v1)
 * For [Go](https://github.com/yandex-cloud/ydb-go-sdk/tree/master/example/basic_example_v1)
 * For [Java](https://github.com/yandex-cloud/ydb-java-sdk/tree/master/examples/src/main/java/com/yandex/ydb/examples/basic_example_v1)
+* For [NodeJS](https://github.com/yandex-cloud/ydb-nodejs-sdk/tree/master/examples/basic-example-v1)
 
 To launch the app, connect to the database. For more information, see [{#T}](../quickstart/launch-test-app.md).
 

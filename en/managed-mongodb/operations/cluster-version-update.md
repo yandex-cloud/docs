@@ -36,33 +36,33 @@ To upgrade a {{ mmg-name }} cluster:
   1. In the **Version** field, click *4.0*, *4.2*, or *4.4*.
   1. Click **Save changes**.
 
-  Once the update is launched, the cluster status changes to `UPDATING`. Wait for the operation to complete and then check the cluster version.
+  Once the update is launched, the cluster status changes to **UPDATING**. Wait for the operation to complete and then check the cluster version.
 
 - CLI
 
   1. Get a list of your {{ MG }} clusters using the command:
 
-     ```
+     ```bash
      yc managed-mongodb cluster list
      ```
 
   1. Get information about a cluster and check the {{ MG }} version in the `config.version` parameter:
 
-     ```
+     ```bash
      yc managed-mongodb cluster get <cluster ID>
      ```
 
   1. Start the {{ MG }} update:
 
-     ```
+     ```bash
      yc managed-mongodb cluster update <cluster ID> --mongodb-version=<new version ID>
      ```
 
-     When the update starts, the cluster status switches to `UPDATING`. Wait for the operation to complete and then check the cluster version.
+     When the update starts, the cluster status switches to **UPDATING**. Wait for the operation to complete and then check the cluster version.
 
   1. After the update, all the MongoDB features that are not backward-compatible with the previous version are disabled. To remove this restriction, run the command:
 
-     ```
+     ```bash
      yc managed-mongodb cluster update <cluster ID> --feature-compatibility-version=<new version ID>
      ```
 
@@ -118,13 +118,13 @@ Let's say you need to update the cluster from version 3.6 to version 4.0.
 
    1. To update the `c9qutgkd4b2o9umqog97` cluster to version 4.0, run the command:
 
-      ```
+      ```bash
       $ yc managed-mongodb cluster update c9qutgkd4b2o9umqog97 --mongodb-version=4.0
       ```
 
    1. To enable all 4.0 features in the `c9qutgkd4b2o9umqog97` cluster, run the command:
 
-      ```
+      ```bash
       $ yc managed-mongodb cluster update c9qutgkd4b2o9umqog97 --feature-compatibility-version=4.0
       ```
 

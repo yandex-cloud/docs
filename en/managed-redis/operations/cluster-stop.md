@@ -19,7 +19,7 @@ If necessary, you can stop and restart a DB cluster. You are not charged for the
 
 ## Starting a cluster {#start-cluster}
 
-You can restart `STOPPED` clusters.
+You can restart **STOPPED** clusters.
 
 {% list tabs %}
 

@@ -2,7 +2,7 @@
 
 {{ ml-platform-full-name }} is a machine learning (ML) development environment that combines the familiar Jupyter® Notebook interface, serverless computing technology, and seamless use of different computing resource configurations. {{ ml-platform-full-name }} helps significantly reduce the cost of machine learning compared to computing on your own hardware or other cloud platforms.
 
-If you never used Jupyter Notebook, try it: notebooks are convenient as they help you execute code sequentially and immediately visualize the results. Notebooks are also helpful for making analytical reports and articles: you can add explanations between the code cells in [Markdown](https://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/Working%20With%20Markdown%20Cells.html).
+If you never used Jupyter Notebook, try it: notebooks are convenient as they help you execute code sequentially and immediately visualize the results. Notebooks are also helpful for drafting analytical reports and papers: you can add explanations between code cells in [Markdown](https://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/Working%20With%20Markdown%20Cells.html).
 
 ## Advantages of the service {#advantages}
 
@@ -16,7 +16,7 @@ If you're missing a package, you can [install it](../operations/projects/install
 
 ### Automatic maintenance of computing resources {#auto-service}
 
-The service automatically manages resource allocation. If you don't perform any computations, no resources are allocated. If you use early access features, the amount of vCPU and memory usage is shown directly in the notebook interface.
+The service automatically manages resource allocation. If you don't perform any computations, no resources are allocated. If you use [early access](../early-access/index.md) features, the amount of vCPU and memory usage is shown directly in the notebook interface.
 
 ### Saving states at shutdown {#save-state}
 
@@ -28,7 +28,7 @@ If you close the notebook tab, the state of the interpreter, all variables, and 
 
 Different computing resources are required for different tasks. For some of them, a regular processor is enough, but for others, you need a GPU.
 
-{{ ml-platform-name }} supports different computing resource [configurations](configurations.md). By default, projects run with the minimal <q>c1.4 </q> configuration (32 GB RAM and 4 vCPUs).
+{{ ml-platform-name }} supports different computing resource [configurations](configurations.md). By default, projects run with the minimal <q>c1.4</q> configuration (32 GB RAM and 4 vCPUs).
 
 You can [change the configuration](../operations/projects/control-compute-resources.md) at any time when working in the notebook. The state of the interpreter is maintained.
 
@@ -39,6 +39,10 @@ You can [export your notebook as HTML](../operations/projects/publication.md) wi
 ## Current service limitations {#known-restrictions}
 
 For more information about service limits, see [{#T}](limits.md).
+
+## Early access mode {#early-access}
+
+Try out new {{ ml-platform-name }} features before they are released in [early access mode](../early-access/index.md) and tell us what you think about them.
 
 #### See also {#see-also}
 

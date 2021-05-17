@@ -6,7 +6,7 @@ A topic is a way to group message streams into categories. [Producers](producers
 
 For example, if the data producer is an online store, you can create separate topics for logging user actions, storing data about their shopping cart, keeping records about transactions, and so on.
 
-{{ mkf-name }} manages the storage of topic messages and enables:
+{{ mkf-name }} manages storage of topic messages and enables:
 
 - Partition replication: provided that a cluster consists of at least two [brokers](brokers.md) and the replication factor set for topics is greater than one.
 - Message compaction.
@@ -22,3 +22,4 @@ Using partitions, you can:
 - Provide fault tolerance: a partition can be replicated to a specified number of brokers.
 
 For more information about topics and partitions, see the [documentation for {{ KF }}](https://kafka.apache.org/documentation/#intro_topics).
+

@@ -185,6 +185,6 @@ Use the `encrypt` and `decrypt` methods to encrypt and decrypt data. The code us
 #### See also {#see-also}
 
 * [Yandex.Cloud Java SDK](https://github.com/yandex-cloud/java-sdk).
-* [Examples of how to use {{ kms-short-name }} with the Java SDK](https://github.com/yandex-cloud/java-sdk/tree/master/src/main/java/yandex/cloud/sdk/examples/kms).
+* [Examples of how to use {{ kms-short-name }} with the Java SDK](https://github.com/yandex-cloud/java-sdk/tree/master/java-sdk-examples/src/main/java/yandex/cloud/sdk/examples/kms).
 * [Yandex.Cloud Go SDK](https://github.com/yandex-cloud/go-sdk).
 

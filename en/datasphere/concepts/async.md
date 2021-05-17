@@ -1,22 +1,23 @@
 # Background operations
 
-You can run time-consuming operations like model training in the background. To do this, use special cells where your code is executed asynchronously. In this case, you can continue working with a notebook. 
+You can run time-consuming operations like model training in the background. To do this, use special cells where your code is executed asynchronously. In this case, you can continue working with a notebook.
 
-If another part of the notebook uses the same variable as an asynchronous operation, a notification appears in the notebook and you'll need to explicitly specify the value of the variable when the asynchronous operation is complete.
+If another part of a notebook uses the same variable as an asynchronous operation, a notification appears in the notebook, and you'll need to specify the variable value explicitly when the asynchronous operation is complete.
 
-Specifics of background operations: 
+Specifics of background operations:
+
 * Running operations in the background does not guarantee their immediate execution.
 * In general, background operations may take longer than regular ones.
-* Background operations can run on [preemptible](../../compute/concepts/preemptible-vm.md) VMs and resources.
+* Background operations can run on [preemptible](../../compute/concepts/preemptible-vm.md) virtual machines and resources.
 * Different pricing policies apply to background operations. For more information, see [{#T}](../pricing.md).
 
 ## Running a background operation {#run}
 
-To run a background operation, add the `#pragma async` comment to the cell.  
+To run a background operation, add the `#pragma async` comment to the cell.
 
 To run a test background operation:
-1. Specify a test model like:
 
+1. Specify a test model, such as:
 
 	```
 	mnist = tf.keras.datasets.mnist
@@ -54,4 +55,7 @@ To run a test background operation:
 
 While the model is being trained, you can perform operations in other cells.
 
+## Aborting a background operation {#interrupt}
+
+{% include [interrupt](../../_includes/datasphere/interrupt-cell.md) %}
 
