@@ -53,9 +53,9 @@
 
 ### Как подключиться к внешней базе данных? {#connect-external-db}
 
-Чтобы подключить внешние БД ClickHouse, PostgreSQL, MySQL, MS SQL Server или Oracle Database к внутреннему DataLens (datalens.yandex-team.ru), откройте доступ к кластеру `_DL_INT_BACK_PROD_NETS_` в [Puncher](https://puncher.yandex-team.ru/). См. [скриншот](https://jing.yandex-team.ru/files/elenbaskakova/Pravila_2019-01-22_19-48-39.png).
+Чтобы подключить внешние БД ClickHouse, PostgreSQL, MySQL, MS SQL Server или Oracle Database к внутреннему DataLens (datalens.yandex-team.ru), откройте доступ к кластеру `_DL_INT_BACK_PROD_NETS_` в [Puncher](https://puncher.yandex-team.ru/). См. [изображение](https://jing.yandex-team.ru/files/elenbaskakova/Pravila_2019-01-22_19-48-39.png).
 
-### Поддерживаете ли тип GEO из PostgreSQL? {#geo-in-postgresql}
+### Поддерживаете ли тип GEO из PostgreSQL?
 
 В PostgreSQL нет типа `GEO`, но есть тип `PostGIS`. DataLens его не поддерживает. Тип `геоточка` и `геополигон` — это строковые типы определенного формата.
 
@@ -79,8 +79,7 @@ DataLens может подключаться к Яндекс.Метрике од
 
 Сейчас процесс загрузки файла устроен таким образом, что создается несколько реплик в разных датацентрах для обеспечения отказоустойчивости. Это занимает некоторое время.
 
-
-## Материализация данных {#data-materialization}
+## Материализация данных
 
 ### Как настроить уведомления о падении материализации? {#how-to-configure-notifications}
 
@@ -108,7 +107,7 @@ DataLens может подключаться к Яндекс.Метрике од
 
 Если вы получаете ошибку в DataLens при создании датасета на основе динамической таблицы следующего вида: `Dynamic store read for table <название таблицы> is disabled; in order to read dynamic stores, set attribute "enable_dynamic_store_read" to true and remount table; if you indeed want to read only static part of dynamic table, pass setting chyt.dynamic_table.enable_dynamic_store_read = 0`.
 
-Это значит, что таблицу надо перемонитировать и выставить атрибут `enable_dynamic_store_read` в CHYT.
+Это значит, что таблицу надо перемонтировать и выставить атрибут `enable_dynamic_store_read` в CHYT.
 
 Чтобы перемонтировать таблицу, обратитесь к владельцу данных в YT (как это сделать см. [пост в Этушке](https://clubs.at.yandex-team.ru/yt/4033)).
 
@@ -116,7 +115,7 @@ DataLens может подключаться к Яндекс.Метрике од
 
 Поддерживается ограниченный [перечень операторов и функций](https://cloud.yandex.ru/docs/datalens/function-ref/availability).
 
-Если вы хотите использовать полную мощь вычисляемых выражений вместе с данными из Яндекс.Метрики, то можете попробовать использовать альтернативный способ подключения через (App)Metrica Logs API. В нем не будут доступны агрегации, используемые Яндекс.Метрикой по умолчанию, но зато будет полная свобода использовать любые вычисляемые выражения. При создании такого подключения задайте параметры собственной БД ClickHouse.
+Если вы хотите использовать всю функциональность вычисляемых выражений вместе с данными из Яндекс.Метрики, используйте альтернативный способ подключения через (App)Metrica Logs API. В нем не будут доступны агрегации, используемые Яндекс.Метрикой по умолчанию, но зато вы свободно можете использовать любые вычисляемые выражения. При создании такого подключения укажите параметры собственной БД ClickHouse.
 
 ### Как создать агрегацию над полем в подключении Statface Report или (App)Metrica API? {#how-to-create-aggregation}
 
@@ -145,13 +144,17 @@ DataLens работает с датами в формате ISO. Это знач
 1. Нажать кнопку **Обновить поля** в датасете.
 1. Если в исходных данных range и добавлены колонки только в последних, то стоит отметить, что chyt сам берёт пересечение множеств колонок по всему range (уточнение спросить у Антона Васильева). Обсуждение в [Telegram](https://t.me/c/1068660824/45777).
 
-###  Некорректно отображаются символы кириллицы в датасете {#incorrect-cyrillic-symbols}
+### Некорректно отображаются символы кириллицы в датасете {#incorrect-cyrillic-symbols}
 
 Если ваш датасет создан поверх подключения CHYT, убедитесь, что поле в YT имеет тип `string`. {{ datalens-short-name }} не работает со специфическими типами данных, например, с типом `any` в YT.
 
 ### Как связать два датасета через селектор? {#how-to-add-common-selector}
 
 См. пример на [дашборде](https://datalens.yandex-team.ru/vpcr34sjm4wmp-primer-svyazi-dvuh-datasetov-cherez-selektor?state=7ae8de37186).
+
+### Как добавить нумерацию строк в таблице? {#add-line-numeration}
+
+Добавьте нумерацию строк с помощью вычисляемого поля, например, `RSUM(ANY(1))`. См. [изображение](https://jing.yandex-team.ru/files/elenbaskakova/add-line-numeration.png).
 
 ## Датасеты DataLens в Editor {#datalens-datasets-in-editor}
 
@@ -386,9 +389,8 @@ DataLens работает с датами в формате ISO. Это знач
 
 ### Можно ли откатить версию объекта {{ datalens-short-name }} в прошлом? {#dl-rollback}
 
-Пользователь самостоятельно сделать это не может (см. [тикет](https://st.yandex-team.ru/DLFR-458).
-Заведите тикет в очередь [DLHELP](https://st.yandex-team.ru/DLHELP/). В тикете укажите объекты {{ datalens-short-name }} и версию (время), к которому трребуется вернуть объект.
-
+Пользователь не может самостоятельно откатить версию объекта (см. [тикет](https://st.yandex-team.ru/DLFR-458)).
+Заведите тикет в очереди [DLHELP](https://st.yandex-team.ru/DLHELP/). В тикете укажите объекты {{ datalens-short-name }} и версию (время), к которому требуется вернуть объект.
 
 ## Как сообщить о проблеме {#how-to-resolve-problem}
 
