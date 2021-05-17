@@ -309,7 +309,7 @@ default:
   port-ssh: 22
 internal:
   audience: internal
-  console-link: yc.yandex-team.ru
+  console-link: https://yc.yandex-team.ru
   s3-storage-host: s3.mds.yandex.net
   yc-install-path: /mcdev/yandex-cli/install.sh
   yc-windows-path: /mcdev/yandex-cli/install.ps1

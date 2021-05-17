@@ -1,0 +1,26 @@
+title: Yandex Cloud DNS
+description:
+  - "<em>Yandex Cloud DNS is at the <a href=\"/docs/overview/concepts/launch-stages\">Preview</a> stage.</em>"
+  - >-
+    Yandex Cloud DNS is used for managing DNS zones and domain names of your resources.
+meta:
+  title: Yandex Cloud DNS
+links:
+  - title: Getting started
+    description: Create your first DNS zone
+    href: quickstart
+  - title: Step-by-step instructions
+    description: Instructions on how to perform routine operations
+    href: operations/index
+  - title: Concepts
+    description: Learn about the concepts and resources of the service
+    href: concepts/index
+  - title: Quotas and limits
+    description: Technical and organizational limitations of the service
+    href: concepts/limits
+  - title: Access management
+    description: Configure access rights to work with the service
+    href: security/
+  - title: Pricing policy
+    description: Pricing and cost calculation for services
+    href: pricing
