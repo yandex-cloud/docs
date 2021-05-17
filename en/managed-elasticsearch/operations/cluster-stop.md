@@ -2,7 +2,7 @@
 
 If necessary, you can stop and restart {{ ES }} clusters. When a cluster is stopped, all data in it is retained: it will be available again when you restart the cluster.
 
-You are not charged for the time when your cluster is stopped, but you still pay for the storage size based on the [pricing policy](../pricing.md#prices-storage).
+You are not charged for the time when your cluster remains stopped: you still pay only for the storage size based on the [pricing policy](../pricing.md#prices-storage).
 
 {% include [pricing-status-warning.md](../../_includes/mdb/pricing-status-warning.md) %}
 
@@ -27,7 +27,7 @@ You are not charged for the time when your cluster is stopped, but you still pay
 
 ## Starting a cluster {#start-cluster}
 
-You can restart `STOPPED` clusters.
+You can restart **STOPPED** clusters.
 
 {% list tabs %}
 

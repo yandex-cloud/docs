@@ -20,7 +20,7 @@ You can change the {{ CH }} version used by the cluster to any of the [supported
 
     To get a list of available versions, run the command:
 
-    ```
+    ```bash
     yc managed-clickhouse version list
     ```
 
@@ -57,16 +57,17 @@ To change the {{ CH }} version:
     1. In the **Version** field, select the version.
     1. Click **Save changes**.
 
-    When the change starts, the cluster status switches to `UPDATING`. Wait for the operation to complete and then check the cluster version.
+    When the change starts, the cluster status switches to **UPDATING**. Wait for the operation to complete and then check the cluster version.
 
 - CLI
 
     {% include [cli-install](../../_includes/cli-install.md) %}
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
     1. Get a list of your {{ CH }} clusters:
 
-        ```
+        ```bash
         $ yc managed-clickhouse cluster list
         +----------------------+---------------+---------------------+--------+---------+
         |          ID          |     NAME      |     CREATED AT      | HEALTH | STATUS  |
@@ -74,9 +75,10 @@ To change the {{ CH }} version:
         | c9q8p8j2gaih8iti42mh | clickhouse691 | 2019-04-23 12:44:17 | ALIVE  | RUNNING |
         +----------------------+---------------+---------------------+--------+---------+
         ```
+
     1. Get information about a cluster and check the {{ CH }} version in your cluster in the `config.version` parameter:
 
-        ```
+        ```bash
         $ yc managed-clickhouse cluster get c9q8p8j2gaih8iti42mh
         id: c9q8p8j2gaih8iti42mh
         folder_id: b1gqs1teo2q2a4vnmi2t
@@ -91,13 +93,14 @@ To change the {{ CH }} version:
             version: "19.1"
             ...
         ```
+
     1. Execute the version change {{ CH }}:
 
-        ```
+        ```bash
         $ yc managed-clickhouse cluster update --id c9q8p8j2gaih8iti42mh --version 19.4
         ```
 
-    When the change starts, the cluster status switches to `UPDATING`. Wait for the operation to complete and then check the cluster version.
+    When the change starts, the cluster status switches to **UPDATING**. Wait for the operation to complete and then check the cluster version.
 
 - API
 

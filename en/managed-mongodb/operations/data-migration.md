@@ -13,20 +13,20 @@ Sequence of actions:
 1. [Create a {{ mmg-name }} cluster](#create-cluster) where the restored database will be deployed.
 1. [Restore data from the dump](#restore) in the cluster using`mongorestore`.
 
-### Create a dump {#dump}
+## Create a dump {#dump}
 
 You can create a database dump using `mongodump`. For more information about this utility, see the [{{ MG }} documentation](https://docs.mongodb.com/manual/reference/program/mongodump/).
 
 1. Install `mongodump` and other utilities for working with MongoDB. Example for Ubuntu and Debian distributions:
 
-    ```
-    $ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD75D9DCB49F368818C72E52529D4
+    ```bash
+    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD75D9DCB49F368818C72E52529D4
     ...
-    $ echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.0.list
+    echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.0.list
     ...
-    $ sudo apt-get update
+    sudo apt-get update
     ...
-    $ sudo apt-get install mongodb-org-shell mongodb-org-tools
+    sudo apt-get install mongodb-org-shell mongodb-org-tools
     ```
 
     Instructions for other platforms, as well as more information about installing utilities, can be found on the [Install MongoDB](https://docs.mongodb.com/manual/installation/) page.
@@ -35,23 +35,23 @@ You can create a database dump using `mongodump`. For more information about thi
 
 1. Create a database dump:
 
-    ```
-    $ mongodump --host <DBMS server address> --port <port> --username <username> --password "<password>" --db <database name> --out ~/db_dump
+    ```bash
+    mongodump --host <DBMS server address> --port <port> --username <username> --password "<password>" --db <database name> --out ~/db_dump
     ```
 
    If you can use multiple processor cores to create a dump, use the `- j` flag with the number of cores available:
 
-    ```
-    $ mongodump --host <DBMS server address> --port <port> --username <username> --password "<password>" -j <number of cores> --db <database name> --out ~/db_dump
+    ```bash
+    mongodump --host <DBMS server name> --port <port> --username <username> --password "<password>" -j <number of cores> --db <database name> --out ~/db_dump
     ```
 
 1. Archive the dump:
 
-    ```
-    $ tar -cvzf db_dump.tar.gz ~/db_dump
+    ```bash
+    tar -cvzf db_dump.tar.gz ~/db_dump
     ```
 
-### (optional) Create a VM for loading a dump {#create-vm}
+## (optional) Create a VM for loading a dump {#create-vm}
 
 You need an intermediate virtual machine in {{ compute-full-name }} if:
 
@@ -62,31 +62,31 @@ To prepare the virtual machine to restore the dump:
 
 1. In the management console, [create a new virtual machine](../../compute/operations/vm-create/create-linux-vm.md) from the Ubuntu 18.04 image. The required amount of RAM and processor cores depends on the amount of data to migrate and the required migration speed.
 
-   The minimum configuration (1 core, 2 GB RAM, 10 GB disk space) should be sufficient to migrate a DB up to 1 GB in size. The bigger the database being migrated, the more RAM and storage space you need (at least twice the size of the database).
+   The minimum configuration (1 core, 2 GB RAM, 10 GB disk space) should be sufficient to migrate a database that's up to 1 GB in size. The bigger the database being migrated, the more RAM and storage space you need (at least twice the size of the database).
 
    The virtual machine must be in the same network and availability zone as the {{ mmg-name }} cluster master host. The VM must be also assigned an external IP address so that you can upload the dump file from outside {{ yandex-cloud }}.
 
 1. Install the {{ MG }} client and additional utilities for working with the DBMS:
 
-    ```
-    $ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD75D9DCB49F368818C72E52529D4
+    ```bash
+    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD75D9DCB49F368818C72E52529D4
     ...
-    $ echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.0.list
+    echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.0.list
     ...
-    $ sudo apt-get update
+    sudo apt-get update
     ...
-    $ sudo apt-get install mongodb-org-shell mongodb-org-tools
+    sudo apt-get install mongodb-org-shell mongodb-org-tools
     ```
 
 1. Move the DB dump from your server to the VM. For example, you can use the `scp` utility:
 
-    ```
+    ```bash
     scp ~/db_dump.tar.gz <VM username>@<VM public address>:/tmp/db_dump.tar.gz
     ```
 
 1. Unpack the dump on the virtual machine:
 
-    ```
+    ```bash
     tar -xzf /tmp/db_dump.tar.gz
     ```
 
@@ -100,7 +100,7 @@ Create a cluster with the computing power and storage size appropriate for the e
 
 Use the [mongorestore](https://docs.mongodb.com/manual/reference/program/mongorestore/) utility to restore your DB dump.
 
-* If you restore from a dump stored on a {{ yandex-cloud }} VM:
+* If you restore a dump from the VM in {{ yandex-cloud }}:
 
     ```
     $ mongorestore --host <DBMS server address> \

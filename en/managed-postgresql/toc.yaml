@@ -49,6 +49,8 @@ items:
     items:
       - name: Creating a PostgreSQL cluster for 1C
         href: solutions/1c-postgresql
+      - name: Migrating databases from Managed Service for PostgreSQL
+        href: solutions/outbound-replication.md
   - name: Concepts
     items:
       - name: Relationship between service resources

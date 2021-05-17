@@ -1,12 +1,14 @@
 # Работа с SDK
 
-При написании своего приложения можно использовать SDK, доступные для языков [Python](https://github.com/yandex-cloud/ydb-python-sdk), [Go](https://github.com/yandex-cloud/ydb-go-sdk) и [Java](https://github.com/yandex-cloud/ydb-java-sdk).
+При написании своего приложения можно использовать SDK, доступные для языков [Python](https://github.com/yandex-cloud/ydb-python-sdk), [Go](https://github.com/yandex-cloud/ydb-go-sdk), [Node.js](https://github.com/yandex-cloud/ydb-nodejs-sdk), [PHP](https://github.com/yandex-cloud/ydb-php-sdk) и [Java](https://github.com/yandex-cloud/ydb-java-sdk).
 
 На этой странице подробно разбирается код тестового приложения, доступного в составе SDK:
 
 * Для [Python](https://github.com/yandex-cloud/ydb-python-sdk/tree/master/examples/basic_example_v1)
 * Для [Go](https://github.com/yandex-cloud/ydb-go-sdk/tree/master/example/basic_example_v1)
 * Для [Java](https://github.com/yandex-cloud/ydb-java-sdk/tree/master/examples/src/main/java/com/yandex/ydb/examples/basic_example)
+* Для [NodeJS](https://github.com/yandex-cloud/ydb-nodejs-sdk/tree/master/examples/basic-example-v1)
+
 
 Чтобы запустить приложение, необходимо подключиться к базе данных. Подробнее читайте в разделе [{#T}](../quickstart/launch-test-app.md).
 
