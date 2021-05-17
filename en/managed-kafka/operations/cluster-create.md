@@ -54,8 +54,11 @@ A cluster in {{ mkf-name }} is one or more broker hosts where topics and their p
         You can't request public access after creating a cluster.
 
         {% endnote %}
+<<<<<<< HEAD
+=======
 
      1. Select security groups to control the cluster's network traffic.
+>>>>>>> develop
 
   1. Under **Hosts**, specify the number of [broker hosts](../concepts/brokers.md) {{ KF }} to be located in each of the selected availability zones.
 
@@ -68,7 +71,11 @@ A cluster in {{ mkf-name }} is one or more broker hosts where topics and their p
 
   1. Click **Create cluster**.
 
+<<<<<<< HEAD
+  1. Wait until the cluster is ready: its status on the {{ mkf-short-name }} dashboard changes to **Running** and its state to **Alive**. This may take some time.
+=======
   1. Wait until the cluster is ready: its status on the {{ mkf-short-name }} dashboard changes to **Running** and its state becomes **Alive**. This may take some time.
+>>>>>>> develop
 
 - CLI
 
@@ -92,7 +99,7 @@ A cluster in {{ mkf-name }} is one or more broker hosts where topics and their p
          --environment <prestable or production> \
          --version <version: 2.1 or 2.6> \
          --network-name <network name> \
-         --brokers-count <number of brokers per zone> \
+         --brokers-count <number of brokers in the zone> \
          --resource-preset <host class> \
          --disk-type <disk type> \
          --disk-size <storage size in GB> \
@@ -109,7 +116,72 @@ A cluster in {{ mkf-name }} is one or more broker hosts where topics and their p
 
 - Terraform
 
+<<<<<<< HEAD
+    {% include [terraform-definition](../../solutions/_solutions_includes/terraform-definition.md) %}
+
+    If you don't have Terraform, [install it and configure the provider](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+    To create a cluster:
+
+    1. In the configuration file, describe the parameters of resources that you want to create:
+
+        {% include [terraform-create-cluster-step-1](../../_includes/mdb/terraform-create-cluster-step-1.md) %}
+
+        Example configuration file structure:
+
+        ```go
+        terraform {
+          required_providers {
+            yandex = {
+             source = "yandex-cloud/yandex"
+            }
+          }
+        }
+        
+        provider "yandex" {
+          token = "<OAuth or static key of service account>"
+          cloud_id  = "<cloud ID>"
+          folder_id = "<folder ID>"
+          zone      = "<availability zone>"
+        }
+        
+        resource "yandex_mdb_kafka_cluster" "<cluster name>" {
+          environment = "<PRESTABLE or PRODUCTION>"
+          name        = "<cluster name>"
+          network_id  = "<network ID>"
+        
+          config {
+            assign_public_ip = "<public access to the cluster: true or false>"
+            brokers_count    = <number of brokers>
+            version          = "<Apache Kafka version: 2.1 or 2.6>"
+            kafka {
+              resources {
+                disk_size          = <storage size in GB>
+                disk_type_id       = "<storage type: network-ssd, network-hdd, or local-ssd>"
+                resource_preset_id = "<host class>"
+              }
+            }
+        
+            zones = [
+              "<availability zones>"
+            ]
+          }
+        }
+        
+        resource "yandex_vpc_network" "<network name>" {
+          name = "<network name>"
+        }
+        
+        resource "yandex_vpc_subnet" "<subnet name>" {
+          name           = "<subnet name>"
+          zone           = "<availability zone>"
+          network_id     = "<network ID>"
+          v4_cidr_blocks = ["<range>"]
+        }
+        ```
+=======
   {% include [terraform-definition](../../solutions/_solutions_includes/terraform-definition.md) %}
+>>>>>>> develop
 
   If you don't have Terraform, [install it and configure the provider](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
 
@@ -266,7 +338,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 - Terraform
 
   Let's say we need to create a {{ mkf-name }} cluster with the following characteristics:
-    - In the cloud with the ID `{{ tf-cloud-id }}`.
+    - In the cloud with ID `{{ tf-cloud-id }}`.
     - In the folder with the ID `{{ tf-folder-id }}`.
     - With the name `mykf`.
     - In the `PRODUCTION` environment.

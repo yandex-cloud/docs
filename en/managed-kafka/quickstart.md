@@ -7,6 +7,28 @@ To get started with the service:
 1. [Create an account](#account-create).
 1. [Connect to the cluster](#connect).
 
+{% if audience == "internal" %}
+
+For the internal MDB service, the [web interface]({{ console-link }}) is deployed, where you can manually create a database cluster. For more about quotas and the correlation between ABC services and clouds and folders, see [{#T}](../mdb/access.md).
+
+## Access to DB clusters {#access}
+
+The rules for accessing MDB clusters are already given in [Puncher](https://puncher.yandex-team.ru/): from [Yandex server networks](https://puncher.yandex-team.ru/tasks?id=5cb878a6d5626d264a13ff8a) and [for developers](https://puncher.yandex-team.ru/tasks?id=5d0254aad89cb03fee5006d4).
+
+If you need more rules, request access to the `_PGAASINTERNALNETS_` macro. To connect to {{ KF }}, specify port 9091 (SASL_TLS) in your request.
+
+## CLI setup
+
+If you plan to use the CLI, install and configure it according to the [instructions](../cli/quickstart.md).
+
+   If you did everything correctly, the list clusters query should now work:
+
+   ```bash
+   {{ yc-mdb-kf }} cluster list
+   ```
+
+{% else %}
+
 ## Before you start {#before-you-begin}
 
 1. Go to the [management console]({{ link-console-main }}). Then log in to {{ yandex-cloud }} or sign up if you don't have an account yet.
@@ -15,10 +37,25 @@ To get started with the service:
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
-You can connect to an {{ KF }} cluster from both inside and outside {{ yandex-cloud }}:
+1. You can connect to an {{ KF }} cluster from both inside and outside {{ yandex-cloud }}:
+   - To connect from inside {{ yandex-cloud }}, create a [Linux](../compute/quickstart/quick-create-linux.md)- or [Windows](../compute/quickstart/quick-create-windows.md)-based virtual machine, which must be in the same network as the cluster.
+   - To connect to a cluster from the internet, enable public access to the cluster when [creating](operations/cluster-create.md) it.
 
-- To connect from inside {{ yandex-cloud }}, you need to use a [Linux](../compute/quickstart/quick-create-linux.md) or [Windows](../compute/quickstart/quick-create-windows.md)-based virtual machine, which must be in the same network as the cluster.
-- To connect to a cluster from the internet, enable public access to the cluster when [creating](operations/cluster-create.md) it.
+   {% note info %}
+
+   The next step assumes that you connect to the cluster from a [Linux](../compute/quickstart/quick-create-linux.md)-based VM.
+
+   {% endnote %}
+
+1. [Connect](../compute/operations/vm-connect/ssh.md) to the VM via SSH.
+
+1. Install the `kafkacat` utility, an open source application that can function as a universal data producer or consumer:
+
+   ```bash
+   $ sudo apt-get install kafkacat
+   ```
+
+{% endif %}
 
 ## Create a cluster {#cluster-create}
 
@@ -28,11 +65,11 @@ To create a cluster:
 1. Select **{{ mkf-name }}**.
 1. Click **Create cluster**.
 1. Set the cluster parameters and click **Create cluster**. This process is described in detail in [{#T}](operations/cluster-create.md).
-1. Wait until the cluster is ready: its status on the {{ mkf-short-name }} dashboard changes to `Running` and its state to `Alive`. This may take some time.
+1. Wait until the cluster is ready: its status on the {{ mkf-short-name }} dashboard changes to **Running** and its state to **Alive**. This may take some time.
 
 Then create a topic in the cluster.
 
-## Create a topic {#topic-create}
+## Create the topic {#topic-create}
 
 [Topic](./concepts/topics.md) is a way to group message streams into categories. [Producers](./concepts/producers-consumers.md) write messages to a topic and [consumers](./concepts/producers-consumers.md) read messages from it.
 
@@ -69,19 +106,11 @@ You can connect producers and consumers to clusters using one account. Both the 
 
 To connect to a cluster:
 
-1. [Create a Linux VM](../compute/quickstart/quick-create-linux.md) in the same [cloud network](../vpc/concepts/network.md) as the cluster.
-1. [Connect](../compute/operations/vm-connect/ssh.md) to the VM via SSH.
-1. On the VM, install the `kafkacat` utility, an open source application that can work as a universal data producer or consumer:
-
-   ```bash
-   $ sudo apt-get install kafkacat
-   ```
-
 1. Install an SSL certificate on the VM:
 
    {% if audience != "internal" %}
 
-   ```
+   ```bash
    $ sudo mkdir -p /usr/local/share/ca-certificates/Yandex
    $ sudo wget "https://{{ s3-storage-host }}{{ pem-path }}" -O /usr/local/share/ca-certificates/Yandex/YandexCA.crt
    $ sudo chmod 655 /usr/local/share/ca-certificates/Yandex/YandexCA.crt
@@ -136,3 +165,4 @@ For more information about connecting to {{ mkf-name }} clusters, see [{#T}](ope
 
 - Read about [service concepts](./concepts/index.md).
 - Learn more about [creating clusters](./operations/cluster-create.md) and [connecting to clusters](./operations/connect.md).
+

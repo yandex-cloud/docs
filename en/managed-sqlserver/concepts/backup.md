@@ -18,11 +18,18 @@ The backup process start time is set when a cluster is created or updated. The b
 
 To restore a cluster from a backup, [follow the instructions](../operations/cluster-backups.md).
 
+{% note warning %}
+
+You can't use SQL commands to change the [recovery model](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/recovery-models-sql-server?view=sql-server-2016) for backup and recovery operations.
+
+{% endnote %}
+
 ## Creating backups {#size}
 
 Backups can be made automatically and manually. Regardless of their type, they follow the same guidelines:
-* The first backup and every seventh backup are full backups of all databases.
-* Other backups are incremental and only store data that has changed since the previous backup to save storage space.
+
+- The first backup and every seventh backup are full backups of all databases.
+- Other backups are incremental and only store data that has changed since the previous backup to save storage space.
 
 After a backup is created, it's compressed for storage. The exact backup size currently isn't displayed.
 
@@ -38,6 +45,7 @@ All backups (automatic or manual) are stored for 7 days. You can store one or tw
 
 Backup integrity is checked on synthetic data using integration tests available in the service. For user clusters, backups currently aren't checked.
 
-### Checking backup restoration {#capabilities}
+### Checking backup recovery {#capabilities}
 
 To test the backup feature, [restore a cluster from a backup](../operations/cluster-backups.md) and check the integrity of your data.
+

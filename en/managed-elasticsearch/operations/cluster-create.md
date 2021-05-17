@@ -1,6 +1,6 @@
 # Creating clusters
 
-A {{ mes-name }} cluster is a group of multiple linked {{ ES }} hosts. A cluster provides high search performance by distributing search and indexing tasks across all cluster hosts with the _Data node_ role. To learn more about roles in the cluster, see [{#T}](../concepts/hosts-roles.md).
+{{ mes-name }} cluster is a group of multiple linked {{ ES }} hosts. A cluster provides high search performance by distributing search and indexing tasks across all cluster hosts with the _Data node_ role. To learn more about roles in the cluster, see [{#T}](../concepts/index.md).
 
 ## Creating a cluster {#create-cluster}
 
@@ -23,19 +23,17 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
      1. Select the environment where you want to create the cluster (you can't change the environment once the cluster is created):
         - `PRODUCTION`: For stable versions of your apps.
         - `PRESTABLE`: For testing, including the {{ mes-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
-     1. Select the {{ ES }} version. The current supported version is `7.6`.
+     1. Select the {{ ES }} version. The current version is `7.6`.
 
   1. Under **Network settings**, select [network](../../vpc/concepts/network.md).
 
-  1. Under **User**, specify the `admin` user password.
-
-     {% include [mes-superuser](../../_includes/mdb/mes-superuser.md)%}
+  1. Under **User**, specify the settings for the user whose account will be used to connect to {{ ES }}: the username and password.
 
   1. Configure hosts with the _Data node_ role by opening the **Data node** tab:
 
      1. Under **Host class**, select the platform, host type, and host class.
 
-        The host class defines the technical characteristics of virtual machines that {{ ES }} nodes are deployed on. All available options are listed in [{#T}](../concepts/instance-types.md). When you change the host class for the cluster, the characteristics of all existing instances change, too.
+        The host class defines technical characteristics of virtual machines on which {{ ES }} nodes are deployed. All available options are listed in [{#T}](../concepts/instance-types.md). When you change the host class for the cluster, the characteristics of all existing instances change, too.
 
      1. Under **Storage**:
         1. Select the type of storage, either a more flexible network type (**network-hdd** or **network-ssd**) or faster local SSD storage (**local-ssd**).
@@ -45,11 +43,11 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
         1. To add a host, click **Add host**.
         1. To change the added host, hover over the host line and click ![image](../../_assets/pencil.svg).
 
-          When changing the host, you can: {#change-data-node-settings}
+          If you change the host, you can: {#change-data-node-settings}
 
-          1. Select the availability zone and subnet.
+          1. Select the availability zone and the subnet.
 
-          1. Enable public access. If public access is enabled for the {{ ES }} host with the _Data node_ role, you can connect to this {{ ES }} host or Kibana on the host over the internet. To learn more, see [{#T}](cluster-connect.md).
+          1. Enable public access. If public access is enabled for the {{ ES }} host with the _Data node_ role, you can connect to this {{ ES }} host or Kibana located on the host over the internet. To learn more, see [{#T}](cluster-connect.md).
 
              {% include [mes-tip-public-kibana](../../_includes/mdb/mes-tip-connecting-to-public-kibana.md) %}
 
@@ -57,13 +55,13 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
 
      1. Under **Host class**, select the platform, host type, and host class.
 
-     1. Under **Storage**, configure storage the same way as for hosts with the _Data node_ role.
+     1. Under **Storage**, configure storage in the same way as for hosts with the _Data node_ role.
 
      1. Under **Hosts**, click **Add hosts**. Three hosts are added. To change one of the added hosts, hover over the host line and click ![image](../../_assets/pencil.svg).
 
-        When changing the host, you can: {#change-master-node-settings}
+        If you change the host, you can: {#change-master-node-settings}
 
-          1. Select the availability zone and subnet.
+          1. Select the availability zone and the subnet.
 
           1. Enable public access.
 
@@ -81,7 +79,7 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
     - In the `folderId` parameter, the ID of the folder where the cluster should be placed.
     - The cluster name, in the `name` parameter.
     - Cluster configuration, in the `configSpec` parameter, including:
-        - Class of hosts with the _Master node_ role, in the `configSpec.elasticsearchSpec.masterNode.resources` parameter. If you don't want to create dedicated hosts with the _Master node_ role, don't set values for the group of `configSpec.elasticsearchSpec.masterNode` parameters.
+        - Class of hosts with the _Master node_ role, in the `configSpec.elasticsearchSpec.masterNode.resources` parameter. If you don't want to create dedicated hosts with the _Master node_ role, do not set values for the group of `configSpec.elasticsearchSpec.masterNode` parameters.
         - Class of hosts with the _Data node_ role, in the `configSpec.elasticsearchSpec.dataNode.resources` parameter.
     - Configuration of the cluster hosts, in one or more `hostSpecs` parameters.
     - Network ID, in the `networkId` parameter.
