@@ -396,22 +396,25 @@
 
   ```bash
   sudo apt update && sudo apt install -y golang git && \
-  go get github.com/jackc/pgx && go mod init example
+  go mod init example && go get github.com/jackc/pgx/v4
   ```
 
   **Code example for connecting via SSL:**
 
   `connect.go`
 
-  ```
+  ```go
   package main
   
   import (
-    "io/ioutil"
+    "context"
     "crypto/tls"
     "crypto/x509"
     "fmt"
-    "github.com/jackc/pgx"
+    "io/ioutil"
+    "os"
+  
+    "github.com/jackc/pgx/v4"
   )
   
   const (
@@ -435,34 +438,39 @@
       panic("Failed to append PEM.")
     }
   
-    config := pgx.ConnConfig {
-      Host: host,
-      Port: port,
-      User: user,
-      Password: password,
-      Database: dbname,
-      TargetSessionAttrs: "read-write",
-      TLSConfig: &tls.Config {
-        RootCAs: rootCertPool,
-        InsecureSkipVerify: true,
-      },
-    }
+      
+    connstring := fmt.Sprintf(
+      "host=%s port=%d dbname=%s user=%s password=%s sslmode=verify-full target_session_attrs=read-write",
+      host, port, dbname, user, password)
   
-    conn, err := pgx.Connect(config)
+    connConfig, err := pgx.ParseConfig(connstring)
     if err != nil {
-      panic(err)
+      fmt.Fprintf(os.Stderr, "Unable to parse config: %v\n", err)
+      os.Exit(1)
     }
   
-    defer conn.Close()
+    connConfig.TLSConfig = &tls.Config{
+      RootCAs:            rootCertPool,
+      InsecureSkipVerify: true,
+    }
+  
+    conn, err := pgx.ConnectConfig(context.Background(), connConfig)
+    if err != nil {
+      fmt.Fprintf(os.Stderr, "Unable to connect to database: %v\n", err)
+      os.Exit(1)
+    }
+  
+    defer conn.Close(context.Background())
   
     var version string
   
-    err = conn.QueryRow("SELECT version()").Scan(&version)
+    err = conn.QueryRow(context.Background(), "select version()").Scan(&version)
     if err != nil {
-      panic(err)
+      fmt.Fprintf(os.Stderr, "QueryRow failed: %v\n", err)
+      os.Exit(1)
     }
   
-    fmt.Println(version)
+    fmt.Println(version)  
   }
   ```
 
@@ -472,12 +480,15 @@
 
   `connect.go`
 
-  ```
+  ```go
   package main
   
   import (
+    "context"
     "fmt"
-    "github.com/jackc/pgx"
+    "os"
+  
+    "github.com/jackc/pgx/v4"
   )
   
   const (
@@ -490,31 +501,34 @@
   
   func main() {
   
-    config := pgx.ConnConfig {
-      Host: host,
-      Port: port,
-      User: user,
-      Password: password,
-      Database: dbname,
-      TargetSessionAttrs: "read-write",
-    }
+    connstring := fmt.Sprintf(
+      "host=%s port=%d dbname=%s user=%s password=%s target_session_attrs=read-write",
+      host, port, dbname, user, password)
   
-    conn, err := pgx.Connect(config)
+    connConfig, err := pgx.ParseConfig(connstring)
     if err != nil {
-      panic(err)
+      fmt.Fprintf(os.Stderr, "Unable to parse config: %v\n", err)
+      os.Exit(1)
     }
   
-    defer conn.Close()
+    conn, err := pgx.ConnectConfig(context.Background(), connConfig)
+    if err != nil {
+      fmt.Fprintf(os.Stderr, "Unable to connect to database: %v\n", err)
+      os.Exit(1)
+    }
+  
+    defer conn.Close(context.Background())
   
     var version string
   
-    err = conn.QueryRow("SELECT version()").Scan(&version)
+    err = conn.QueryRow(context.Background(), "select version()").Scan(&version)
     if err != nil {
-      panic(err)
+      fmt.Fprintf(os.Stderr, "QueryRow failed: %v\n", err)
+      os.Exit(1)
     }
   
-    fmt.Println(version)
-  }
+    fmt.Println(version)  
+  }  
   ```
 
   **Connecting:**
