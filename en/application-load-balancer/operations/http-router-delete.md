@@ -24,11 +24,23 @@ To delete an HTTP router:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  Run the command, indicating the ID or name of the HTTP router:
+  1. View a description of the CLI command for deleting an HTTP router:
 
-  ```
-  yc alb http-router delete --id <HTTP router ID>
-  ```
+     ```
+     yc alb http-router delete --help
+     ```
+
+  1. Run the command, specifying the name of the HTTP router:
+
+     ```
+     yc alb http-router delete --name <HTTP router name>
+     ```
+
+     To check the deletion, get a list of HTTP routers by running the command:
+
+     ```
+     yc alb http-router list
+     ```
 
 {% list tabs %}
 

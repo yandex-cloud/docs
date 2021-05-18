@@ -26,11 +26,23 @@ To delete a target group:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  Run the command:
+  1. See the description of the CLI's delete target group command:
 
-  ```
-  yc alb target-group delete <target group name or ID>
-  ```
+     ```
+     yc alb target-group delete --help
+     ```
+
+  1. Run the command:
+
+     ```
+     yc alb target-group delete <target group name or ID>
+     ```
+
+     To check the deletion, get a list of target groups by running the command:
+
+     ```
+     yc alb target-group list
+     ```
 
 {% endlist %}
 
