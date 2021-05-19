@@ -26,20 +26,20 @@ To create a target group:
       yc alb target-group create --help
       ```
 
-  1. Run the command:
+  1. Run the command, specifying the subnet name and the resource's internal IP address in the parameters:
 
      ```
-     yc alb target-group create test-tg \
-     --target subnet-name=subnet-1,ip-address=10.0.0.36 \
-     --target subnet-name=subnet-2,ip-address=10.1.0.8 \
-     --target subnet-name=subnet-3,ip-address=10.2.0.12 
+     yc alb target-group create <target group name> \
+     --target subnet-name=<subnet name>,ip-address=<internal IP address of VM 1> \
+     --target subnet-name=<subnet name>,ip-address=<internal IP address of VM 2> \
+     --target subnet-name=<subnet name>,ip-address=<internal IP address of VM 3> \ 
      ```
 
      Command execution result:
 
      ```
      id: a5d751meibht4ev264pp
-     name: test-tg
+     name: test-target-group
      folder_id: aoerb349v3h4bupphtaf
      targets:
      - ip_address: 10.0.0.36

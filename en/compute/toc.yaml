@@ -195,8 +195,6 @@ items:
             href: concepts/vm-platforms.md
           - name: vCPU performance levels
             href: concepts/performance-levels.md
-          - name: Graphics accelerators (GPUs and vGPUs)
-            href: concepts/gpus.md
           - name: Preemptible VMs
             href: concepts/preemptible-vm.md
           - name: Network on a VM
@@ -209,6 +207,8 @@ items:
             href: concepts/vm-statuses.md
           - name: Metadata
             href: concepts/vm-metadata.md
+      - name: Graphics accelerators (GPUs and vGPUs)
+        href: concepts/gpus.md
       - name: Disks
         items:
           - name: Overview

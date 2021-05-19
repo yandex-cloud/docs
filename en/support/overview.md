@@ -2,7 +2,7 @@
 
 {{ yandex-cloud }} provides technical support under different service plans. Choose the plan that suits you best.
 
-## How to contact support {#response-time}
+## Contacting support {#response-time}
 
 Depending on your service plan, you can [contact support]({{ link-console-support }}) in one of the following ways:
 
@@ -52,11 +52,13 @@ The given list of services offered under the <q>Premium</q> plan isn't fixed and
   * Develop software code.
   * Debug your personal software.
 
-## How to change a service plan {#change-service-plan}
+## Changing your service plan {#change-service-plan}
 
 1. In the [management console]({{ link-console-support }}), go to the tab **Pricing plan**.
 1. Select a service plan and click **Switch**.
-1. Fill out the form and click **Submit**.
+1. To change to:
+    * Any service plan except Premium, click **Confirm**.
+    * The Premium plan, complete the form and click **Send**.
 
-The service plan is upgraded immediately when you submit the form. The service plan is downgraded on the first day of the next month.
+Service plan upgrades are activated immediately, while downgrades are applied on the first day of the following month.
 

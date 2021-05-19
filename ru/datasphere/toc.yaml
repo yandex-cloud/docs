@@ -69,10 +69,16 @@ items:
         href: early-access/repeat.md
   - name: Сценарии использования
     items:
+      - name: Все сценарии
+        href: tutorials/index.md
       - name: Знакомство с DataSphere
         href: tutorials/basics.md
       - name: Распознавание голоса
         href: tutorials/speech-recognition.md
+      - name: Оценка качества STT моделей
+        href: tutorials/estimate-quality.md
+      - name: Разметка аудио
+        href: tutorials/markup.md
       - name: Классификация изображений на видеокадрах
         href: tutorials/video-recognition.md
   - name: Управление доступом

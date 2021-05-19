@@ -1,8 +1,28 @@
 # Релизы YC CLI
 
-## Версия 0.75.0 (13.04.21) {#latest-release}
+## Версия 0.76.0 (19.05.21) {#latest-release}
 
-### Изменения в сервисах {{ yandex-cloud }}
+**{{ mpg-name }}**
+
+* Команда `yc managed-postgresql cluster update`.
+
+  Добавлен флаг `--serverless-access` для доступа к хостам кластера Managed Service for PostgreSQL из функции Cloud Functions.
+
+**{{ vpc-name }}**
+
+* Добавлена команда `yc vpc address move` для перемещения адреса между каталогами облака.
+
+**{{ compute-name }}**
+
+* Команда `yc compute instance-group`.
+
+  В вывод групп добавлено отображение статуса группы.
+
+## Предыдущие релизы {#previous-releases}
+
+### Версия 0.75.0 (13.04.21) {#version0.75.0}
+
+#### Изменения в сервисах {{ yandex-cloud }}
 
 #### {{ compute-name }} {#compute}
 
@@ -21,25 +41,25 @@
 **{{ mmy-name }}**
 
 * Команда `yc managed-mysql cluster list-logs`.
-   
+
   Теперь логи по умолчанию выводятся в необработанном формате (AS IS). Чтобы включить старый формат логов, используйте флаг `--format=yaml`.
 
 **{{ mes-name }}**
 
 * Команды `yc managed-elasticsearch cluster create` и `yc managed-elasticsearch cluster update`.
- 
+
   Добавлены флаги управления паролем адинистратора кластера (пользователь `admin`):
 
-     * `--admin-password`, который позволяет вручную задать пароль;
-     * `--generate-admin-password`, который позволяет автоматически сгенерировать пароль;
-     * `--read-admin-password`, который позволяет задать пароль из файла.
+  * `--admin-password`, который позволяет вручную задать пароль;
+  * `--generate-admin-password`, который позволяет автоматически сгенерировать пароль;
+  * `--read-admin-password`, который позволяет задать пароль из файла.
 
 * Удалены команды `yc managed-elasticsearch user`. Управление пользователями теперь доступно нативными средствами Elasticsearch через пользователя `admin`.
 
 * Команда `yc managed-elasticsearch create`.
-  
-  Добавлен флаг `--edition [basic|gold|platinum]`, который позволяет указать редакцию {{ ES }} при создании кластера 
- 
+
+  Добавлен флаг `--edition [basic|gold|platinum]`, который позволяет указать редакцию {{ ES }} при создании кластера
+
 **{{ mkf-name }}**
 
 * Команда `yc managed-kafka cluster create`.
@@ -52,15 +72,13 @@
 
   Добавлен флаг `--host-group-ids`, контролирующий размещение кластера на выделенных серверах.
 
-## Предыдущие релизы {#previous-releases}
-
-### Версия 0.74.0 (29.03.21)
+### Версия 0.74.0 (29.03.21) {#version0.74.0}
 
 * Добавлена поддержка платформ macOS/arm64 (Apple Silicon M1) и linux/arm64.
 
 #### Изменения в сервисах {{ yandex-cloud }}
 
-##### {{ dataproc-name }} {#dataproc}
+#### {{ dataproc-name }} {#dataproc}
 
 * Команды `yc dataproc cluster create` и `yc dataproc cluster update`.
 

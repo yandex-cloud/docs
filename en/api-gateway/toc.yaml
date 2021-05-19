@@ -19,6 +19,10 @@ items:
         href: operations/api-gw-monitoring.md
       - name: Viewing the execution log
         href: operations/api-gw-logs.md
+  - name: Use cases
+    items:
+      - name: Deploying a web application
+        href: solutions/java-servlet-todo-list.md
   - name: Concepts
     items:
       - name: Relationship between service resources

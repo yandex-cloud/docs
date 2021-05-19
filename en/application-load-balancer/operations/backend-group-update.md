@@ -1,10 +1,10 @@
 # Edit a backend group
 
+To change the backend group parameters:
+
 {% list tabs %}
 
 - Management console
-
-  To edit a backend group:
 
   1. In the [management console]({{ link-console-main }}), select the folder that the backend group belongs to.
   1. Select **{{ alb-name }}**.
@@ -16,31 +16,60 @@
 
 - CLI
 
-  To edit a backend group:
-
-  1. View a description of the CLI command to edit an HTTP router:
+  1. View a description of the CLI command for changing the backend group parameters:
 
      ```
      yc alb backend-group update-http-backend --help
      ```
 
-  1. Run the command, indicating the new backend group parameters:
+  1. Run the command:
 
      ```
-     yc alb backend-group update-http-backend <backend group name> \
-     --new-name=<new name of the backend group>
+     yc alb backend-group update-http-backend \
+     --backend-group-name <backend group name> \
+     --name <backend name> \
+     --weight <backend weight>
+     ```
+
+     Command execution result:
+
+     ```
+     done (1s)
+     id: a5d3e9ko2qf0tbk0s27b
+     name: test-backend-group
+     folder_id: aoe197919j8elpeg1lkp
+     http:
+       backends:
+       - name: backend1
+         backend_weight: "2"
+         load_balancing_config:
+           panic_threshold: "90"
+         port: "80"
+         target_groups:
+           target_group_ids:
+           - a5dvd82vl14khpjdv87d
+         healthchecks:
+         - timeout: 10s
+           interval: 2s
+           healthy_threshold: "10"
+           unhealthy_threshold: "15"
+           healthcheck_port: "80"
+           http:
+             host: your-host.com
+             path: /ping
+     created_at: "2021-02-14T13:37:17.846064589Z"
      ```
 
 {% endlist %}
 
 ## Remove a backend from a group {#delete-backend}
 
+To remove a backend from a group:
+
 {% list tabs %}
 
 - Management console
 
-   To remove a backend from a group:
-   
    1. In the [management console]({{ link-console-main }}), select the folder that the backend belongs to.
    1. Select **{{ alb-name }}**.
    1. Open the **Backend groups** section.
@@ -55,13 +84,27 @@
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  Run the command indicating the name or ID of the backend group where you want to remove a backend from and the name of the removed backend:
+  1. View a description of the CLI command for removing a backend from a group:
 
-  ```
-  yc application-load-balancer backend-group \
-  delete-http-backend --backend-group-name=test-backend-group \
-  --name=backend1
-  ```
+     ```
+     yc application-load-balancer delete-http-backend --help
+     ```
+
+  1. Run the command:
+
+     ```
+     yc alb backend-group delete-http-backend --backend-group-name=<backend group name> \
+     --name=<name of the backend to be deleted>
+     ```
+
+     Command execution result:
+
+     ```
+     id: a5dqkr2mk3rr799f1npa
+     name: test-backend-group
+     folder_id: aoe197919j8elpeg1lkp
+     created_at: "2021-02-11T20:46:21.688940670Z"
+     ```
 
 {% endlist %}
 

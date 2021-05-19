@@ -25,6 +25,8 @@ items:
           Visualizing data from a ClickHouse database with geolayers from the
           Marketplace
         href: solutions/data-from-ch-to-geolayers-visualization.md
+      - name: Visualizing data from Yandex Music podcast statistics
+        href: solutions/data-from-podcasts.md
   - name: Step-by-step instructions
     items:
       - name: All instructions
@@ -111,9 +113,9 @@ items:
             href: operations/permission/request.md
   - name: Concepts
     items:
-      - name: Service overview
+      - name: Overview
         href: concepts/index.md
-      - name: Connection
+      - name: Connections
         href: concepts/connection.md
       - name: Data types
         href: concepts/data-types.md
@@ -157,7 +159,7 @@ items:
         href: pricing.md
       - name: Archive
         items:
-          - name: Rules before March 1, 2021
+          - name: Policy before March 1, 2021
             href: pricing-archive/pricing-01032021.md
   - name: Function reference
     items:
