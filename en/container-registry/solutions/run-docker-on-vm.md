@@ -1,6 +1,8 @@
 # Running a Docker image on a VM
 
-This example describes the steps required to run a Docker image on a VM using a registry.
+This example describes the steps required to run a Docker image on a virtual machine using a registry.
+
+This example describes the steps required to run a Docker image on a VM using a registry. If you don't have a VM yet, [create one](../../compute/quickstart/index.md).
 
 1. Create a service account and assign it the role `container-registry.images.puller` for the registry from the [example](../quickstart/index.md):
 
@@ -30,7 +32,7 @@ This example describes the steps required to run a Docker image on a VM using a 
         yc iam service-account create --name service-acc
         ```
 
-        Command execution result:
+        Command results::
 
         ```bash
         id: ajelabcde12f33nol1v5
@@ -42,18 +44,18 @@ This example describes the steps required to run a Docker image on a VM using a 
      1. Assign the role to the service account:
 
         ```bash
-        yc <service name> <resource> add-access-binding <resource name>|<resource ID> \
-          --role <role ID> \
+        yc <service_name> <resource> add-access-binding <resource_name>|<resource_ID> \
+          --role <role_ID> \
           --subject serviceAccount:<service account ID>
         ```
 
         Where:
-        * `<service name>`: Name of a `container` service.
+        * `<service_name>`: Name of a `container` service.
         * `<resource>`: Category of the `registry` resource.
-        * `<resource name>`: Name of the resource that the role is assigned for. You can specify a resource by its name or ID.
-        * `<resource ID>`: ID of the `crpc9qeoft236r8tfalm` registry the role is assigned for.
-        * `<role ID>`: ID of the `container-registry.images.puller` role.
-        * `<service account ID>`: ID of the `ajelabcde12f33nol1v5` service account that is assigned the role.
+        * `<resource_name>`: Name of the resource that the role is assigned for. You can specify a resource by its name or ID.
+        * `<resource_ID>`: ID of the `crpc9qeoft236r8tfalm` registry the role is assigned for.
+        * `<role_ID>`: ID of the `container-registry.images.puller` role.
+        * `<service_account_ID>`: ID of the `ajelabcde12f33nol1v5` service account that is assigned the role.
 
    - API
 
@@ -78,22 +80,17 @@ This example describes the steps required to run a Docker image on a VM using a 
           {% include [name-fqdn](../../_includes/compute/name-fqdn.md) %}
 
         * Select the recently created [service account](../../iam/concepts/users/service-accounts.md).
-
         * Select the [availability zone](../../overview/concepts/geo-scope.md) to host the VM in.
-
      1. Under **Images from {{ marketplace-name }}**, select an [image](../../compute/operations/images-with-pre-installed-software/get-list.md) and Linux-based OS version.
-
      1. (optional) Configure the boot disk under **Disks**:
         * Specify the necessary disk size.
         * Select the [disk type](../../compute/concepts/disk.md#disks_types).
 
         If you want to create an instance from an existing disk, go to **Disks** [add a disk](../../compute/operations/vm-create/create-from-disks.md).
-
      1. Under **Computing resources**:
         * Choose a [platform](../../compute/concepts/vm-platforms.md).
         * Specify the [guaranteed share](../../compute/concepts/performance-levels.md) and number of vCPUs and RAM you need.
         * If necessary, make your VM [preemptible](../../compute/concepts/preemptible-vm.md).
-
      1. Under **Network settings**:
         * Specify the subnet ID or select a [cloud network](../../vpc/concepts/network.md#network) from the list. If you don't have a network, click **Create a new network** to create one:
           * In the window that opens, enter a name for the new network and choose a subnet to connect the virtual machine to. Each network must have at least one [subnet](../../vpc/concepts/network.md#subnet) (if there's no subnet, create one). Then click **Create**.
@@ -102,9 +99,7 @@ This example describes the steps required to run a Docker image on a VM using a 
           * **List**: Select a public IP address from the list of previously reserved static addresses. For more information, see [{#T}](../../vpc/operations/set-static-ip.md).
           * **No address**: Don't assign a public IP address.
         * (optional) Enable [DDoS protection](../../vpc/ddos-protection/).
-
      1. Under **Access**, specify the data required to access the VM:
-
         * Enter the username in the **Login** field.
 
           {% note alert %}
@@ -118,10 +113,6 @@ This example describes the steps required to run a Docker image on a VM using a 
      1. Click **Create VM**.
 
    - CLI
-
-     {% include [cli-install](../../_includes/cli-install.md) %}
-
-     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
      1. View the description of the CLI command for creating a VM:
 
@@ -313,7 +304,7 @@ This example describes the steps required to run a Docker image on a VM using a 
      1. Run the command:
 
         ```bash
-        echo <oauth token> | docker login --username oauth --password-stdin cr.yandex
+        echo <oauth_token> | docker login --username oauth --password-stdin cr.yandex
         ```
 
         Command results:
@@ -409,7 +400,7 @@ This example describes the steps required to run a Docker image on a VM using a 
    hello: digest: sha256:42068479274f1d4c7ea095482430dcba24dcfe8c23ebdf6d32305928e55071cf size: 943
    ```
 
-1. Log in to the VM via SSH and authenticate as the service account associated with this VM:
+1. [Log in to the VM via SSH](../../compute/operations/vm-connect/ssh.md#vm-connect) and authenticate as the service account associated with this VM:
 
    ```bash
    ssh ${PUBLIC_IP} \
