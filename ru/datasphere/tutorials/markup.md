@@ -34,8 +34,8 @@
 
 ## Перед началом работы {#before-you-begin}
 
-1. [Создайте проект](../datasphere/operations/projects/create.md) в **{{ ml-platform-name }}** и откройте его.
-1. [Склонируйте](../datasphere/operations/projects/work-with-git.md#clone) Git-репозиторий, в котором находятся ноутбуки с примерами использования Yandex.Cloud API:
+1. [Создайте проект](../operations/projects/create.md) в **{{ ml-platform-name }}** и откройте его.
+1. [Склонируйте](../operations/projects/work-with-git.md#clone) Git-репозиторий, в котором находятся ноутбуки с примерами использования Yandex.Cloud API:
 
     ```text
     https://github.com/yandex-cloud/examples
@@ -60,7 +60,7 @@
     ```
 1. Запустите выбранную ячейку, выбрав в меню **Run → Run Selected Cells** (также можно использовать сочетание клавиш _Shift+Enter_).
 
-    {% include [safe-state](../_includes/datasphere/safe-state.md) %}
+    {% include [safe-state](../../_includes/datasphere/safe-state.md) %}
 
 1. Дождитесь завершения операции:
 
@@ -77,7 +77,7 @@
     Are you sure you want to continue? [yes/no]
     ```
 
-    Будет выведена информация о количестве файлов, их общем размере и примерной стоимости распознавания. Подробнее см. [{#T}](../datasphere/pricing.md).
+    Будет выведена информация о количестве файлов, их общем размере и примерной стоимости распознавания. Подробнее см. [{#T}](../pricing.md).
 1. Подтвердите отправку записей на разметку.
 
     В поле ввода под вопросом **Are you sure you want to continue? [yes/no]** введите `yes` и нажмите _Enter_.

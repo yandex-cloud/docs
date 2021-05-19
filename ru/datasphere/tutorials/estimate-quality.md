@@ -1,6 +1,6 @@
 # Оценка качества STT-моделей
 
-Результаты распознавания речи (Speech-to-Text, STT) на платформе {{ speechkit-full-name }} зависят от выбора [модели распознавания](../speechkit/stt/models.md). Для оценки качества распознавания используйте общепринятую метрику [WER](https://en.wikipedia.org/wiki/Word_error_rate) (Word Error Rate). Чем меньше значение метрики — тем точнее распознан фрагмент речи. Для вычисления метрики в {{ speechkit-name}} разработана библиотека `stt_metrics`. 
+Результаты распознавания речи (Speech-to-Text, STT) на платформе {{ speechkit-full-name }} зависят от выбора [модели распознавания](../../speechkit/stt/models.md). Для оценки качества распознавания используйте общепринятую метрику [WER](https://en.wikipedia.org/wiki/Word_error_rate) (Word Error Rate). Чем меньше значение метрики — тем точнее распознан фрагмент речи. Для вычисления метрики в {{ speechkit-name}} разработана библиотека `stt_metrics`. 
 
 Чтобы вычислить метрику WER в {{ ml-platform-full-name }} с помощью этой библиотеки:
 
@@ -11,14 +11,14 @@
 
 ## Перед началом работы {#before-you-begin}
 
-1. [Создайте проект](../datasphere/operations/projects/create) в **{{ ml-platform-name }}** и откройте его.
-1. [Склонируйте](../datasphere/operations/projects/work-with-git.md#clone) Git-репозиторий, в котором находится ноутбуки с примерами использования {{ yandex-cloud }} API:
+1. [Создайте проект](../operations/projects/create) в **{{ ml-platform-name }}** и откройте его.
+1. [Склонируйте](../operations/projects/work-with-git.md#clone) Git-репозиторий, в котором находится ноутбуки с примерами использования {{ yandex-cloud }} API:
 
    ```
    https://github.com/yandex-cloud/examples.git
    ```
 
-   Дождитесь окончания клонирования, это может занять некоторое время. После завершения операции в блоке ![folder](../_assets/datasphere/jupyterlab/folder.svg) **File Browser** появится каталог склонированного репозитория.
+   Дождитесь окончания клонирования, это может занять некоторое время. После завершения операции в блоке ![folder](../../_assets/datasphere/jupyterlab/folder.svg) **File Browser** появится каталог склонированного репозитория.
 1. Откройте каталог `examples/speechkitpro/estimate_quality` и ознакомьтесь с содержимым ноутбука `estimate_quality.ipynb`. В начале ноутбука описана задача проверки качества STT-моделей и метрика WER (Word Error Rate).
 
 ## Загрузите библиотеку {#satisfy-dependencies}
@@ -34,7 +34,7 @@
 
 Загрузятся модули для оценки качества STT-моделей.
 
-{% include [safe-state-warn](../_includes/datasphere/safe-state.md) %}
+{% include [safe-state-warn](../../_includes/datasphere/safe-state.md) %}
 
 ## Выполните тестовый пример {#test-example}
 

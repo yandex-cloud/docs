@@ -3,11 +3,7 @@ title: "Yandex SpeechKit Pro"
 href: index.yaml
 stage: tech-preview
 items:
-  - name: Оценка качества STT моделей
-    href: estimate-quality.md
   - name: Обучение языковых моделей для STT
     href: fit-lm.md
-  - name: Разметка аудио
-    href: markup.md
   - name: Распознавание аудио с помощью Cloud STT API
     href: recognize-api.md
