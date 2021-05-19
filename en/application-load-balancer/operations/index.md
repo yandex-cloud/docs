@@ -4,7 +4,7 @@
 
 * [{#T}](target-group-create.md)
 * [{#T}](target-group-update.md)
-* [{#T}](target-group-create.md)
+* [{#T}](target-group-delete.md)
 
 ## Backend groups {#backend-group-operations}
 
@@ -23,3 +23,4 @@
 * [{#T}](application-load-balancer-create.md)
 * [{#T}](application-load-balancer-update.md)
 * [{#T}](application-load-balancer-delete.md)
+

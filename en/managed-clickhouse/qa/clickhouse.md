@@ -20,17 +20,21 @@
 
 #### Is it possible to connect to individual {{ CH }} hosts? {#connect-node}
 
-Yes. You can connect to the hosts of a {{ CH }} cluster via an encrypted connection:
+Yes. You can connect to {{ CH }} cluster hosts:
 
-* Using the [HTTPS interface](https://clickhouse.yandex/docs/en/interfaces/http_interface/), port 8443.
+* Using the [HTTPS interface](https://clickhouse.yandex/docs/en/interfaces/http_interface/):
+    * Via an encrypted SSL connection on port 8443.
+    * Without encryption through port 8123.
 
-* Using the [command-line client](https://clickhouse.yandex/docs/en/interfaces/cli/), port 9440.
+* Using the [command-line client](https://clickhouse.yandex/docs/en/interfaces/cli/):
+    * Via an encrypted SSL connection on port 9440.
+    * Without encryption through port 9000.
 
 SSH connections are not supported.
 
 #### How do I upload data to {{ CH }}? {#load-data}
 
-Use the INSERT query described in the [{{ CH }} documentation](https://clickhouse.yandex/docs/en/query_language/queries.html#insert).
+Use the INSERT query described in the [{{ CH }} documentation](https://clickhouse.tech/docs/en/sql-reference/statements/insert-into/).
 
 #### How do I upload very large data to {{ CH }}? {#loadalot}
 
@@ -42,7 +46,7 @@ Data transfer from physical media is not yet supported.
 
 DB clusters consist of at least two replicas, so the cluster will continue working if one of its nodes is out.
 
-Data may be lost only if a node with a [non-replicated table](https://clickhouse.yandex/docs/en/table_engines/replication/) fails.
+Data may be lost only if a node with a [non-replicated table](https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/replication/) fails.
 
 #### Is it possible to deploy a {{ CH }} database cluster in multiple availability zones? {#multiple-az}
 

@@ -32,7 +32,10 @@
 | Python 3.7 | `python37` |
 | Python 2.7 | `python27` |
 | **Go** |  |
+| Go 1.16 | `golang116` |
 | Go 1.14 | `golang114` |
+| **Java** | |
+| Java 11 | `java11` |
 | **Other** |  |
 | Bash | `bash` |
 

@@ -44,6 +44,8 @@ For example, there will be only one VM in the target group.
 
 - CLI
 
+  {% include [cli-install](../_includes/cli-install.md) %}
+
   Run the command:
 
   ```
@@ -65,11 +67,11 @@ For example, there will be only one VM in the target group.
   1. Click **Create backend group**.
   1. Enter the backend group name: `test-backend-group`.
   1. Under **Backends**, click **Add**. Specify the backend settings:
-  1. Enter the backend name: `backend-1`.
-  1. In the **Target group** list, select `test-target-group`.
-  1. Set the **Port**: `80`.
+     1. Enter the backend name: `backend-1`.
+     1. In the **Target group** list, select `test-target-group`.
+     1. Set the **Port**: `80`.
   1. Expand the **Protocol settings** field and set the parameters:
-  1. Select the type `HTTP`.
+     1. Select the type `HTTP`.
   1. Click **Add health check** and configure the check:
      1. **Timeout**: `1`.
      1. **Interval**: `3`.

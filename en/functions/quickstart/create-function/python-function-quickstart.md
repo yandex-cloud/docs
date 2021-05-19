@@ -54,7 +54,7 @@ Create and execute a [function](../../concepts/function.md) in Python that welco
 1. Save the following code to a file named `hello.py`:
 
     ```python
-    defhandler(event, context):
+    def handler(event, context):
         name = event['queryStringParameters']['name']
     
         return {

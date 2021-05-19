@@ -18,9 +18,9 @@ To create a backend group, add a backend to it and set up a health check:
       1. Set the **Port**: `80`.
   1. Expand the **Load balancing settings** field and set the parameters:
      1. **Threshold for panic mode**: `90`.
-     1. **Locality aware routing **: `90`.
+     1. **Locality aware routing**: `90`.
   1. Expand the **Protocol settings** field and set the parameters:
-        1. Select the type: `HTTP`.
+     1. Select the type: `HTTP`.
   1. Click **Add health check** and configure the check:
      1. **Timeout**: `1`.
      1. **Interval**: `1`.
@@ -45,7 +45,7 @@ To create a backend group, add a backend to it and set up a health check:
   1. Create a backend group by running the command:
 
      ```
-     yc alb backend-group create test-backend-group
+     yc alb backend-group create <backend group name>
      ```
 
      Command execution result:
@@ -54,27 +54,40 @@ To create a backend group, add a backend to it and set up a health check:
      id: a5dg2cv4ngne8575fb1p
      name: test-backend-group
      folder_id: aoerb349v3h4bupphtaf
+     created_at: "2021-02-11T20:46:21.688940670Z"
      ```
 
   1. Add a backend and health check to the group:
 
      ```
-     yc application-load-balancer backend-group add-http-backend \
-     --backend-group-name test-backend-group \
-     --name backend1 \
-     --weight 1 \
-     --port 80 \
-     --target-group-id=a5d751meibht4ev264pp \
+     yc alb backend-group add-http-backend \
+     --backend-group-name <backend group name> \
+     --name <name of the backend to be added> \
+     --weight <backend weight> \
+     --port <backend port> \
+     --target-group-id=<target group ID> \
      --panic-threshold 90
-     --http-health-check port=80,healthy-threshold=10,unhealthy-threshold=15,timeout=10s,interval=2s,host=your-host.com,path=/ping
+     --http-healthcheck port=80,healthy-threshold=10,unhealthy-threshold=15, \
+     timeout=10s,interval=2s,host=your-host.com,path=/ping
      ```
+
+     Command parameters:
+     * `--panic-threshold`: The threshold for panic mode.
+     * `--http-healthcheck`: Parameters for checking the resource status.
+       * `port`: The port.
+       * `healthy-threshold`: The healthy threshold.
+       * `unhealthy-threshold`: The unhealthy threshold.
+       * `timeout`: The timeout.
+       * `interval`: The interval.
+       * `host`: The host address.
+       * `path`: The path.
 
      Command execution result:
 
      ```
-     id: a5dg2cv4ngne8575fb1p
+     id: a5dqkr2mk3rr799f1npa
      name: test-backend-group
-     folder_id: aoerb349v3h4bupphtaf
+     folder_id: aoe197919j8elpeg1lkp
      http:
        backends:
        - name: backend1
@@ -84,7 +97,7 @@ To create a backend group, add a backend to it and set up a health check:
          port: "80"
          target_groups:
            target_group_ids:
-           - a5d751meibht4ev264pp
+           - a5d2iap3nue9s3anblu6
          healthchecks:
          - timeout: 10s
            interval: 2s
@@ -94,6 +107,7 @@ To create a backend group, add a backend to it and set up a health check:
            http:
              host: your-host.com
              path: /ping
+     created_at: "2021-02-11T20:46:21.688940670Z"
      ```
 
 {% endlist %}

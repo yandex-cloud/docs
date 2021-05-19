@@ -36,7 +36,7 @@ To create an HTTP router and add a route to it:
   1. Run the command:
 
      ```
-     yc alb http-router create test-http-router
+     yc alb http-router create <HTTP router name>
      ```
 
      Command execution result:
@@ -45,31 +45,29 @@ To create an HTTP router and add a route to it:
      id: a5dcsselagj4o2v4a6e7
      name: test-http-router
      folder_id: aoerb349v3h4bupphtaf
+     created_at: "2021-02-11T21:04:59.438292069Z"
      ```
 
-  1. Create a virtual host by specifying the ID or name of an HTTP router and the virtual host settings.
+  1. View a description of the CLI command for creating a virtual host:
 
-     Possible parameters:
+     ```
+     yc alb virtual-host create --help
+     ```
+
+  1. Create a virtual host, specifying the name of the HTTP router and the virtual host settings:
+
+     ```
+     yc alb virtual-host create <virtual host name> \
+     --http-router-name <HTTP router name> \
+     --authority your-domain.foo.com \
+     --modify-request-header name=Accept-Language,append=ru-RU
+     ```
+
+     Command parameters:
      * `--authority`: Domains for the `Host` and `authority` headers that will be associated with this virtual host. Wildcards are supported, for example, `*.foo.com` or `*-bar.foo.com`.
      * `--modify-request-header`: Settings for modifying request headers:
        * `name`: Name of the header to be modified.
        * `append`: String to be added to the header value.
-       * `replace`: Value to replace the header value.
-       * `rename`: New name for the header.
-       * `remove`: Removing the header.
-     * `--modify-response-header`: Settings for modifying response headers:
-       * `name`: Name of the header to be modified.
-       * `append`: String to be added to the header value.
-       * `replace`: Value to replace the header value.
-       * `rename`: New name for the header.
-       * `remove`: Removing the header.
-
-     ```
-     yc alb  virtual-host create test-virtual-host \
-     --http-router-name test-http-router \
-     --authority your-domain.foo.com \
-     --modify-request-header name=Accept-Language,append=ru-RU
-     ```
 
      Command execution result:
 
@@ -82,46 +80,45 @@ To create an HTTP router and add a route to it:
        append: ru-RU
      ```
 
-  1. Add a route, indicating the router ID or name and the routing parameters:
-     * `--match-http-method`: HTTP method for the route. Possible values:
-       * `GET`
-       * `HEAD`
-       * `POST`
-       * `PUT`
-       * `DELETE`
-       * `CONNECT`
-       * `OPTIONS`
-       * `TRACE`
-       * `PATCH`
-     * `--exact-path-match`: Exact path for routing the request.
-     * `--prefix-path-match`: Path prefix for routing the request.
-     * `--backend-group-id`: ID of the backend group.
-     * `--backend-group-name`: Name of the backend group.
-     * `--request-timeout`: Maximum time allotted for processing the request.
-     * `--request-idle-timeout`: Maximum time for the balancer to wait for data from the backend.
-     * `--upgrade-types`: Acceptable header values for the `Upgrade` request that can be received by the client.
-     * `--auto-host-rewrite`: Replace the `Host` or `:authority` header values with the IP address of the target resource.
-     * `--host-rewrite` : Host to replace the `Host` or `:authority` header values when sending requests to the backend.
-     * `--path-prefix-rewrite`: Value that will replace the route prefix. The path for the request will precede the value.
-     * `--direct-response-code`: HTTP code of the balancer's direct response for this route.
-     * `--direct-response-body`: Body of the balancer's direct response to requests for this route.
-     * `--direct-response-body-file`: Path to the file with the body of the balancer's direct response.
-     * `--redirect-code`: HTTP code (`302`, `303`) or text representation (`FOUND`, `SEE_OTHER`) of a redirect to the specified route. Default value: `301`, `MOVED_PERMANENTLY`.
-     * `--redirect-scheme`: Redirect scheme for requests over the specified route. If omitted, the `http` scheme is used.
-     * `--redirect-host`: Value that replaces the `Host` or `:authority` headers. If omitted, the header is not changed.
-     * `--redirect-port`: Redirect port on the specified route. If omitted, standard redirects are used (for example, redirect from port `80` to port `443` in the case of an HTTP-to-HTTPS redirect) or ports don't change.
-     * `--redirect-path`: Redirect path on the specified route.
-     * `--redirect-prefix`: URI resource prefix used for a redirect.
-     * `--redirect-strip-query`: Strip the original request parameters from a redirect.
+  1. View a description of the CLI command for adding a host:
 
-  ```
-  yc alb virtual-host append-http-route test-route \
-  --http-router-name test-http-router \
-  --match-http-method GET \
-  --exact-path-match / \--backend-group-name test-backend-group \
-  --request-timeout 2s \
-  --request-idle-timeout 3s
-  ```
+     ```
+     yc alb virtual-host append-http-route --help
+     ```
+
+  1. Add a route, indicating the router ID or name and the routing parameters:
+
+     ```
+     yc alb virtual-host append-http-route <route name> \
+     --virtual-host-name <virtual host name> \
+     --http-router-name <HTTP router name> \
+     --prefix-path-match / \
+     --backend-group-name <backend group name> \
+     --request-timeout <request timeout>s \
+     --request-idle-timeout <request idle timeout>s
+     ```
+
+     Command execution result:
+
+     ```
+     done (1s)
+     name: test-virtual-host
+     authority:
+     - your-domain.foo.com
+     routes:
+     - name: test-route
+       http:
+         match:
+           path:
+             prefix_match: /
+         route:
+           backend_group_id: a5d4db973944t2fh8gor
+           timeout: 2s
+           idle_timeout: 3s
+     modify_request_headers:
+     - name: Accept-Language
+       append: ru-RU
+     ```
 
 {% endlist %}
 

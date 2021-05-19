@@ -26,11 +26,23 @@ To delete a backend group:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  Run the command with the backend group ID or name specified:
+  1. View a description of the CLI command for deleting a backend group:
 
-  ```
-  yc alb backend-group delete --id a5dg2cv4ngne8575fb1p
-  ```
+     ```
+     yc alb backend-group delete --help
+     ```
+
+  1. Run the command, specifying the name of the backend group you want to delete:
+
+     ```
+     yc alb backend-group delete --name <backend group name>
+     ```
+
+     To check the deletion, get a list of backend groups by running the command:
+
+     ```
+     yc alb backend-group list
+     ```
 
 {% list tabs %}
 
