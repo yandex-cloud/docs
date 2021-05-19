@@ -2,8 +2,8 @@
 editable: false
 ---
 
-# Synthesizer
-A set of methods for voice synthesis.
+# Recognizer
+
 
 ## Methods {#methods}
 Method | Description

@@ -19,6 +19,15 @@ items:
         href: stt/formats.md
       - name: Модели распознавания
         href: stt/models.md
+      - name: Справочник API (англ.)
+        items:
+          - name: Authentication
+            href: api-ref/authentication.md
+          - name: gRPC
+            items: null
+            include:
+              repo: docs
+              path: en/_api-ref-grpc/ai/stt/v3/api-ref/toc.yaml
   - name: Синтез речи
     items:
       - name: О технологии
