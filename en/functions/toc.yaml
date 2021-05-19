@@ -271,6 +271,8 @@ items:
     items:
       - name: Creating skills for Alice
         href: solutions/alice-skill.md
+      - name: Deploying a web application
+        href: solutions/java-servlet-todo-list.md
   - name: Pricing policy
     href: pricing.md
   - name: Access management
@@ -280,12 +282,12 @@ items:
       - name: Authentication in the API
         href: api-ref/functions/authentication.md
       - name: gRPC
-        items:
+        items: null
         include:
           repo: docs
           path: en/_api-ref-grpc/functions/toc-functions.yaml
       - name: REST
-        items:
+        items: null
         include:
           repo: docs
           path: en/_api-ref/serverless/functions/toc.yaml
@@ -294,12 +296,12 @@ items:
       - name: Authentication in the API
         href: api-ref/triggers/authentication.md
       - name: gRPC
-        items:
+        items: null
         include:
           repo: docs
           path: en/_api-ref-grpc/functions/toc-triggers.yaml
       - name: REST
-        items:
+        items: null
         include:
           repo: docs
           path: en/_api-ref/serverless/triggers/toc.yaml

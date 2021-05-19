@@ -31,6 +31,10 @@ items:
         href: operations/indexes.md
   - name: Working with the SDK
     href: sdk/index.md
+  - name: Use cases
+    items:
+      - name: Deploying a web application
+        href: solutions/java-servlet-todo-list.md
   - name: Concepts
     items:
       - name: Overview
