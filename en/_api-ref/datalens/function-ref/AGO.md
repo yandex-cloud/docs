@@ -10,7 +10,7 @@ editable: false
 
 
 ```
-AGO( measure, date_dimension [ , unit [ , number ] ] )
+AGO( measure, date_dimension [ , unit [ , number ] ] [ BEFORE FILTER BY ... ] [ IGNORE DIMENSIONS ... ] )
 ```
 
 #### Description {#description}
