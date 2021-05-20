@@ -5,6 +5,9 @@ keywords:
   - website wordpress
   - cms wordpress
   - configure wordpress
+
+author: { "avatar": "https://storage.yandexcloud.net/cloud-www-assets/constructor/content-program/icons/aplana-logo.png", "name": "Аплана Диджитал", "url": "https://aplanadigital.ru" }
+
 ---
 
 # Creating a website in WordPress
