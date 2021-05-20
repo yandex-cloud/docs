@@ -5,6 +5,9 @@ keywords:
   - сайт wordpress
   - cms wordpress
   - настройка wordpress сайта
+
+author: { "avatar": "https://storage.yandexcloud.net/cloud-www-assets/constructor/content-program/icons/aplana-logo.png", "name": "Аплана Диджитал", "url": "https://aplanadigital.ru" }
+
 ---
 
 # Создание сайта на WordPress
