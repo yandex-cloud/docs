@@ -36,6 +36,8 @@ items:
         href: operations/create-new-account.md
       - name: Получать детализацию расходов по каталогам
         href: operations/get-folder-report.md
+      - name: Посмотреть детализацию в {{ datalens-full-name }}
+        href: operations/dashbord.md
       - name: Установить уведомления о потреблении
         href: operations/budgets.md
   - name: Концепции
