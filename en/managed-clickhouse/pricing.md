@@ -60,21 +60,21 @@ The cost is specified for one month of use.  The minimum billing unit is 1 GB pe
 
 For example, you created a cluster:
 
-* with 3 {{ CH }} hosts with the host class `s1.micro` (2 vCPU, 8 GB RAM),
-* with 3 automatically created {{ ZK }} hosts with the class `s1.nano` (1 vCPU, 4 GB RAM),
+* with 3 {{ CH }} hosts with the class `s1.micro` (2 vCPU, 8 GB RAM),
+* with 3 automatically created {{ ZK }} hosts with the class `b2.medium` (2 vCPU × 50%, 4 GB RAM),
 * with 100 GB of standard network storage.
 
 Cost of resource usage:
 
 * 1 hour of {{ CH }} host core usage with 100% vCPU — ₽1.43;
 * 1 hour of usage of 1 GB RAM on the {{ CH }} host — ₽0.33;
-* 1 hour of {{ ZK }} host core usage with 100% vCPU — ₽0.89;
+* 1 hour of {{ ZK }} host core usage with 50% vCPU — ₽0.49;
 * 1 hour of usage of 1 GB RAM on the {{ ZK }} host — ₽0.2;
 * 1 month of usage 1 GB of standard network storage — ₽2.2881.
 
-Cost per hour for all hosts: `3 × (2 × ₽1.43 + 8 × ₽0.33) + 3 × (1 × ₽0.89 + 4 × ₽0,2) = ₽21.57`
+Cost per hour for all hosts: `3 × (2 × ₽1.43 + 8 × ₽0.33) + 3 × (2 × ₽0.49 + 4 × ₽0,2) = ₽21.84`
 
-The total cost of the cluster in the month (hosts and storage): `720 × ₽21.57 + 100 × ₽2.2881 = ₽15,759.21`
+The total cost of the cluster in the month (hosts and storage): `720 × ₽21.84 + 100 × ₽2.2881 = ₽15,953.61`
 
 {% endif %}
 

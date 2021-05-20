@@ -14,8 +14,6 @@ To create a VM:
 
         {% include [name-fqdn](../../_includes/compute/name-fqdn.md) %}
 
-    - (optional) Select or create a [service account](../../iam/concepts/users/service-accounts.md). By using a service account, you can flexibly configure access rights for your resources.
-
     - Select the [availability zone](../../overview/concepts/geo-scope.md) to host the VM in.
 
 1. Under **Images from {{ marketplace-name }}**, select an [image](../operations/images-with-pre-installed-software/get-list.md) and a Linux-based OS version.
@@ -42,6 +40,8 @@ To create a VM:
     - (optional) Enable [DDoS protection](../../vpc/ddos-protection/).
 
 1. Under **Access**, specify the data required to access the VM:
+
+    - (optional) Select or create a [service account](../../iam/concepts/users/service-accounts.md). By using a service account, you can flexibly configure access rights for your resources.
 
     - Enter the username in the **Login** field.
 
