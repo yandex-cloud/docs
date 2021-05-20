@@ -11,7 +11,7 @@
       sudo pip3 install iso8601 ydb yandexcloud
       ```
 
-  1. Создайте авторизованный ключ для вашего сервисного аккаунта, запишите его файл {% if deploy != "arc" %}[с помощью CLI](../../iam/operations/iam-token/create-for-sa#via-cli){% else %}с помощью CLI{% endif %}:
+  1. Создайте авторизованный ключ для вашего сервисного аккаунта, запишите его в файл {% if deploy != "arc" %}[с помощью CLI](../../iam/operations/iam-token/create-for-sa#via-cli){% else %}с помощью CLI{% endif %}:
 
      1. Посмотрите описание команды:
         
@@ -239,22 +239,47 @@
 
 - Java
 
-  1. Соберите тестовое приложение.
+  1. Соберите тестовое приложение. Для этого:
 
-      ```bash
-      git clone https://github.com/yandex-cloud/ydb-java-sdk.git
-      cd ydb-java-sdk/examples/maven-project
-      mvn package
-      ```
+     1. Склонируйте репозиторий [YDB Java SDK](https://github.com/yandex-cloud/ydb-java-sdk):
+        
+        ```bash
+        git clone https://github.com/yandex-cloud/ydb-java-sdk.git
+        ```
 
-  1. Для запуска тестового приложения вне облака получите свой OAUTH-токен [по ссылке](https://oauth.yandex.ru/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb),
-     установите переменную окружения
+     1. Перейдите в директорию с тестовым приложением `ydb-java-sdk/examples/maven_project`:
+        
+        ```bash
+        cd ydb-java-sdk/examples/maven_project
+        ```
 
-      ```bash
-      export OAUTH_TOKEN=<your oauth token>
-      ```
-      для запуска в виртуальной машине - создайте виртуальную машину с созданным ранее сервисным аккаунтом. В этом случае
-      OAUTH_TOKEN не требуется, авторизация будет проходить от имени сервисного аккаунта.
+     1. Соберите его:
+        
+        ```bash
+        mvn package
+        ```
+
+  1. Создайте авторизованный ключ для вашего сервисного аккаунта, запишите его в файл {% if deploy != "arc" %}[с помощью CLI](../../iam/operations/iam-token/create-for-sa#via-cli){% else %}с помощью CLI{% endif %}:
+
+     1. Посмотрите описание команды:
+        
+        ```bash
+        yc iam key create --help
+        ```
+     1. Выполните команду, указав следующие параметры:
+
+        * `folder-id` — идентификатор каталога.
+        * `service-account-name` — имя сервисного аккаунта.
+
+        ```bash
+        yc iam key create --folder-id b1geoelk7fldts6chmjq --service-account-name sa-ydb-user --output ~/.ydb/sa_name.json
+        ```
+
+  1. Установите переменную окружения `SA_KEY_FILE`:
+
+     ```bash
+     export SA_KEY_FILE=~/.ydb/sa_name.json
+     ```
 
   1. Запустите тестовое приложение:
 
@@ -262,6 +287,5 @@
       cd target/release
       java -jar example.jar <эндпойнт базы данных> <база данных YDB>
       ```
-      Для запуска в виртуальной машине скопируйте весь каталог target/release на виртуальную машину.
 
 {% endlist %}
