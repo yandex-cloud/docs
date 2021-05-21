@@ -177,6 +177,8 @@ items:
   items:
 #    - name: Обзор
 #      href: extra-api-requests.md
+    - name: Создать поле задачи
+      href: concepts/issues/create-field.md    
     - name: Получить параметры поля задачи
       href: concepts/issues/get-issue-fields.md
     - name: Изменить название поля задачи
@@ -184,7 +186,7 @@ items:
     - name: Изменить возможные значения поля задачи
       href: concepts/issues/patch-issue-field-value.md
     - name: Создать категорию поля задачи
-      href: concepts/issues/create-issue-field-category.md     
+      href: concepts/issues/create-issue-field-category.md
     - name: Локальные поля
       items:
         - name: Создать локальное поле очереди
