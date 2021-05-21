@@ -207,8 +207,8 @@
   
   Чтобы получить данные о резервной копии кластера {{ CH }}, выполните команду:
   
-  ```
-  $ yc {{ yc-mdb-ch }} backup get <идентификатор резервной копии>
+  ```bash
+  {{ yc-mdb-ch }} backup get <идентификатор резервной копии>
   ```
   
   Идентификатор резервной копии можно получить со [списком резервных копий](#list-backups).
@@ -227,8 +227,8 @@
 
   Чтобы задать время начала резервного копирования, используйте флаг `--backup-window-start`. Время задается в формате ``ЧЧ:ММ:СС``.
 
-  ```
-  $ yc {{ yc-mdb-ch }} cluster create \
+  ```bash
+  {{ yc-mdb-ch }} cluster create \
         --name <имя кластера> \
         --environment <окружение, prestable или production> \
         --network-name <имя сети> \
@@ -237,14 +237,14 @@
         --clickhouse-disk-type <network-hdd | network-ssd | local-ssd> \
         --clickhouse-disk-size <размер хранилища в гигабайтах> \
         --user name=<имя пользователя>,password=<пароль пользователя> \
-        --database name=<имя базы данных>
+        --database name=<имя базы данных> \
         --backup-window-start 10:00:00
   ```
   
   Изменить время начала резервного копирования в существующем кластере можно с помощью команды `update`:
 
-  ```
-  $ yc {{ yc-mdb-ch }} cluster update \
+  ```bash
+  {{ yc-mdb-ch }} cluster update \
      --name <имя кластера> \
      --backup-window-start 11:25:00
   ```

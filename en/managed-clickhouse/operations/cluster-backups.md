@@ -204,8 +204,8 @@ For a new cluster, you should set all the parameters that are required at creati
 
   To get information about a {{ CH }} cluster backup, run the command:
 
-  ```
-  $ yc {{ yc-mdb-ch }} backup get <backup ID>
+  ```bash
+  {{ yc-mdb-ch }} backup get <backup ID>
   ```
 
   The backup ID can be retrieved with the [list of backups](#list-backups) .
@@ -224,8 +224,8 @@ For a new cluster, you should set all the parameters that are required at creati
 
   To set the backup start time, use the `-- backup-window-start` flag. Time is given in ``HH:MM:SS`` format.
 
-  ```
-  $ yc {{ yc-mdb-ch }} cluster create \
+  ```bash
+  {{ yc-mdb-ch }} cluster create \
         --name <cluster name> \
         --environment <prestable or production> \
         --network-name <network name> \
@@ -234,14 +234,14 @@ For a new cluster, you should set all the parameters that are required at creati
         --clickhouse-disk-type <network-hdd | network-ssd | local-ssd> \
         --clickhouse-disk-size <storage size in GB> \
         --user name=<username>,password=<user password> \
-        --database name=<DB name>
+        --database name=<DB name> \
         --backup-window-start 10:00:00
   ```
 
   To change the backup start time in an existing cluster, use the `update` command:
 
-  ```
-  $ yc {{ yc-mdb-ch }} cluster update \
+  ```bash
+  {{ yc-mdb-ch }} cluster update \
      --name <cluster name> \
      --backup-window-start 11:25:00
   ```

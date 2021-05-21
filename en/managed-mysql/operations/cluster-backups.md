@@ -237,8 +237,8 @@ When restoring to the state from the current time point:
 
   To get information about a {{ MG }} cluster backup, run the command:
 
-  ```
-  $ yc {{ yc-mdb-my }} backup get <backup ID>
+  ```bash
+  {{ yc-mdb-my }} backup get <backup ID>
   ```
 
   The backup ID can be retrieved with the [list of backups](#list-backups).
@@ -257,8 +257,8 @@ When restoring to the state from the current time point:
 
   To set the backup start time, use the `-- backup-window-start` flag. Time is given in ``HH:MM:SS`` format.
 
-  ```
-  $ yc {{ yc-mdb-my }} cluster create \
+  ```bash
+  {{ yc-mdb-my }} cluster create \
      --cluster-name=<cluster name> \
      --environment <prestable or production> \
      --network-name <network name> \
@@ -269,8 +269,8 @@ When restoring to the state from the current time point:
 
   To change the backup start time in an existing cluster, use the `update` command:
 
-  ```
-  $ yc {{ yc-mdb-my }} cluster update \
+  ```bash
+  {{ yc-mdb-my }} cluster update \
      --cluster-name=<cluster name> \
      --backup-window-start 11:25:00
   ```
