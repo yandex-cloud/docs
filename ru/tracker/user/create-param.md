@@ -4,7 +4,7 @@
 
 По умолчанию в {{ tracker-name }} доступны наиболее популярные поля (параметры) задач. Список существующих полей можно посмотреть на странице [Настройки {{ tracker-name }}]{% if audience == "external" %}({{ link-admin-fields }}){% else %}({{ link-admin-fields-ya }}){% endif %}.
 
-Если нужного вам параметра среди них нет, вы можете [создать новое поле в вашей очереди](create-param.md#section_local_field). Если нужно добавить поле, которые будет доступно во всех очередях {{ tracker-name }}, {% if audience == "external" %}администратор организации может [создать глобальное поле](create-param.md#section_global_field){% else %}отправьте заявку на создание глобального поля с помощью [формы](create-param.md#section_global_field){% endif %}.
+Если нужного вам параметра среди них нет, вы можете [создать новое поле в вашей очереди](create-param.md#section_local_field). Если нужно добавить поле, которое будет доступно во всех очередях {{ tracker-name }}, {% if audience == "external" %}администратор организации может [создать глобальное поле](create-param.md#section_global_field){% else %}отправьте заявку на создание глобального поля с помощью [формы](create-param.md#section_global_field){% endif %}.
 
 Поле задачи | Описание
 ----- | -----
