@@ -1,50 +1,76 @@
 # Access management
 
-Yandex.Cloud users can only perform operations on resources that are allowed by the roles assigned to them. If a user doesn't have any roles assigned, almost all operations are forbidden. Any user can view reference lists of availability zones, regardless of roles.
+In this section, you'll learn:
+* [What resources you can assign roles to](#resources).
+* [What roles exist in the service](#roles-list).
+* [What roles are required for {{ managed-k8s-name }}](#sa-annotation) cluster service accounts.
+* [What roles are required to work with {{ managed-k8s-name }} via the {{ yandex-cloud }}](#ui-annotation) management console.
 
-To grant access to {{ managed-k8s-name }} resources (Kubernetes clusters and node groups), assign applicable roles to the user from the list below. For now, a role can only be assigned for a parent resource (folder or cloud), and roles are inherited by nested resources.
+{% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-{% note info %}
+## What resources you can assign roles to {#resources}
 
-For more information about role inheritance, see [{#T}](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) in the {{ resmgr-full-name }} documentation.
+{% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-{% endnote %}
+## What roles exist in the service {#roles-list}
 
-## Assigning roles {#grant-roles}
+{% include [roles-intro](../../_includes/roles-intro.md) %}
 
-To assign a role to a user:
+![image](../../_assets/managed-kubernetes/service-roles-hierarchy.svg)
 
-{% include [grant-role-console](../../_includes/grant-role-console.md) %}
+### {{ managed-k8s-name }} roles {#yc-api}
 
-## Roles {#roles}
+The roles described below let you manage {{ managed-k8s-name }} clusters and node groups without public access via the {{ yandex-cloud }} API. To manage cluster resources, these roles should be combined with [roles for the Kubernetes API](#k8s-api). To create a cluster with public access to the {{ k8s }} API or a group of {{ k8s }} nodes with a public IP address, the `k8s.admin`, `k8s.editor`, and `k8s.clusters.agent` roles must be supplemented with the `vpc.publicAdmin` role.
 
-The list below shows all roles that are considered when verifying access rights in the {{ managed-k8s-name }} service.
+Role | Permissions
+--- | ---
+`k8s.admin` | Lets you create, delete, edit, stop, and start clusters and node groups. In the future, it will also let you manage granular access to clusters and groups.
+`k8s.editor` | Lets you create, delete, edit, stop, and start clusters and node groups.
+`k8s.viewer` | Lets you view information about {{ managed-k8s-name }} clusters and node groups.
+`k8s.clusters.agent` | A special role for cluster service accounts. Lets you create groups of nodes, disks, and internal load balancers, as well as use previously created [{{ kms-full-name }} keys](../../kms/concepts/key.md) to encrypt and decrypt secrets and connect previously created security groups.<br>In combination with the `load-balancer.admin` role, it lets you create a network load balancer with a public IP address.<br>Includes such roles as `compute.admin`, `vpc.privateAdmin`, `load-balancer.privateAdmin`, `kms.keys.encrypterDecrypter`, and `iam.serviceAccounts.user`.
 
-{% include [cloud-roles](../../_includes/cloud-roles.md) %}
-
-### Primitive roles {#primitive-roles}
-
-You can assign primitive roles to any resource in any service.
-
-{{ k8s }} has its own [role model](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#default-roles-and-role-bindings). During authentication, the user is assigned a group and `username` that access rights can be granted for.
-
-{% note info %}
-
-**Username** is the user ID in the {{ iam-short-name }} service. For information on how to find out the user ID, see [Getting user ID or email](../../iam/operations/users/get.md).
-
-{% endnote %}
-
-The table below shows how roles in Yandex.Cloud correspond to groups and roles in {{ k8s }}. This is configured **by default** during authentication in {{ k8s }}.
+### Roles required to access the {{ k8s }} API {#k8s-api}
 
 {% note warning %}
 
-If necessary, the user can change the roles that {{ k8s }} group members will be assigned in a {{ k8s }} cluster.
+The `k8s.cluster-api.cluster-admin`, `k8s.cluster-api.editor` and `k8s.cluster-api.viewer` roles are available in {{ k8s }} starting from version 1.17.
 
 {% endnote %}
 
-| Role in Yandex.Cloud | Group in {{ k8s }} | Role in {{ k8s }} | Description of role in Yandex.Cloud |
-| ---- | ---- | ---- | ---- |
-| `{{ roles-viewer }}` | `yc:viewer` | `view` | The user can view information about resources, such as the list of nodes, or get information about a {{ k8s }} cluster. |
-| `{{ roles-editor }}` | `yc:editor` | `cluster-admin` | The user can manage any resources, including creating a {{ k8s }} cluster and adding or removing nodes in a {{ k8s }} cluster.<br/> Includes all permissions of the `{{ roles-viewer }}` role. |
-| `{{ roles-admin }}` | `yc:admin` | `cluster-admin` | The user can manage resource access rights to allow other users to create {{ k8s }} clusters or view information about them.<br/> Includes all permissions of the `{{ roles-editor }}` role. |
+The following roles give the right to manage cluster resources via the {{ k8s }} API. To manage clusters, these roles should be combined with [roles for the {{ yandex-cloud }} API](#yc-api).
 
+Role | Permissions
+--- | ---
+`k8s.cluster-api.cluster-admin` | Users with this {{ iam-short-name }} role get the `yc:cluster-admin` group and the `cluster-admin` role to access the {{ k8s }} API.
+`k8s.cluster-api.editor` | Users with this {{ iam-short-name }} role get the `yc:edit` group and the `edit` role to access the {{ k8s }} API.
+`k8s.cluster-api.viewer` | Users with this {{ iam-short-name }} role get the `yc:view` group and the `view` role to access the {{ k8s }} API.
+
+To learn more about the roles required to access the {{ k8s }} API, see the [reference](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#user-facing-roles).
+
+To view a role's rights to {{ k8s }} cluster resources, run the command:
+
+```bash
+kubectl describe clusterrole <role required to access the {{ k8s }} API>
+```
+
+### Primitive roles {#primitive}
+
+Primitive {{ iam-short-name }} roles contain the above roles in the following combinations:
+
+Primitive role | Combination of {{ managed-k8s-name }} roles
+--- | ---
+`admin` | `k8s.cluster-api.cluster-admin`, `k8s.admin`, and `vpc.publicAdmin`.
+`editor` | `k8s.cluster-api.cluster-editor`, `k8s.editor`, and `vpc.publicAdmin`.
+`viewer` | `k8s.cluster-api.viewer` and `k8s.viewer`.
+
+## {{ managed-k8s-name }} cluster service accounts {#sa-annotation}
+
+When creating a cluster in {{ managed-k8s-name }}, you should specify two service accounts:
+* **A cluster service account**: On behalf of this service account, a {{ managed-k8s-name }} cluster manages cluster nodes, subnets for pods and services, disks, and load balancers, as well as encrypts and decrypts secrets. The minimum recommended role for this account is `k8s.clusters.agent`.
+* **A node group service account**: On behalf of this service account, a cluster node is authenticated in [{{ container-registry-full-name }}](../../container-registry/concepts/index.md). To use image registries, you need to assign this account a [service role](../../container-registry/security/index.md#service-roles) in {{ container-registry-short-name }}. If you use a different registry, you can skip assigning roles to this service account.
+
+## Access to the {{ managed-k8s-name }} management console {#ui-annotation}
+
+To access {{ managed-k8s-name }} via the {{ yandex-cloud }} [management console]({{ link-console-main }}), the minimum required role is `k8s.viewer.`
+
+To get detailed information about clusters and node groups, you'll need an additional role: `k8s.cluster-api.viewer`. Since the `k8s.cluster-api.viewer` role does not grant access rights to all {{ k8s }} API objects, to use all the features of the management console, the `k8s.cluster-api.editor` or `k8s.cluster-api.cluster-admin` role is required.
