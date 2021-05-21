@@ -71,7 +71,7 @@
            anytime: {}
       ip_allocation_policy:
        cluster_ipv4_cidr_block: 10.112.0.0/16
-       node_ipv4_cidr_mask_size: "24
+       node_ipv4_cidr_mask_size: "24"
        service_ipv4_cidr_block: 10.96.0.0/16
       service_account_id: ajedclfluactb5868n99
       node_service_account_id: ajeo8f063dmnicot7t7j
