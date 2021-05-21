@@ -491,6 +491,8 @@ items:
                 href: concepts/issues/get-worklog.md
       - name: Поля задачи
         items:
+          - name: Создать поле задачи
+            href: concepts/issues/create-field.md
           - name: Получить параметры поля задачи
             href: concepts/issues/get-issue-fields.md
           - name: Изменить название поля задачи

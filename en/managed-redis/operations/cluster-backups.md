@@ -63,7 +63,7 @@ When you restore a cluster from a backup, you create a new cluster with data fro
            --environment=PRODUCTION \
            --network-name default \
            --host zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch63 \
-           --password P@ssWord
+           --password P@ssWord \
            --disk-size 20
       ```
 
@@ -166,8 +166,8 @@ When you restore a cluster from a backup, you create a new cluster with data fro
 
   To get information about a {{ RD }} cluster backup, run the command:
 
-  ```
-  $ yc {{ yc-mdb-rd }} backup get <backup ID>
+  ```bash
+  {{ yc-mdb-rd }} backup get <backup ID>
   ```
 
   The backup ID can be retrieved with the [list of backups](#list-backups).
@@ -186,8 +186,8 @@ When you restore a cluster from a backup, you create a new cluster with data fro
 
   To set the backup start time, use the `-- backup-window-start` flag. Time is given in ``HH:MM:SS`` format.
 
-  ```
-  $ yc {{ yc-mdb-rd }} cluster create \
+  ```bash
+  {{ yc-mdb-rd }} cluster create \
      --cluster-name <cluster name>
      --environment <prestable or production> \
      --network-name <network name> \
@@ -197,9 +197,9 @@ When you restore a cluster from a backup, you create a new cluster with data fro
 
   To change the backup start time in an existing cluster, use the `update` command:
 
-  ```
-  $ yc {{ yc-mdb-rd }} cluster update \
-     --cluster-name <cluster name>
+  ```bash
+  {{ yc-mdb-rd }} cluster update \
+     --cluster-name <cluster name> \
      --backup-window-start 11:25:00
   ```
 

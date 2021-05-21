@@ -47,6 +47,8 @@ items:
             href: operations/lifecycle-policy/lifecycle-policy-dry-run.md
           - name: Deleting a lifecycle policy
             href: operations/lifecycle-policy/lifecycle-policy-delete.md
+      - name: Scanning for vulnerabilities
+        href: operations/scanning-docker-image.md
       - name: Working with roles
         items:
           - name: Assign a role
@@ -75,6 +77,8 @@ items:
         href: concepts/repository.md
       - name: Policies for automatically deleting Docker images
         href: concepts/lifecycle-policy.md
+      - name: Vulnerability scanner
+        href: concepts/vulnerability-scanner.md
       - name: Backups
         href: concepts/backup.md
       - name: Quotas and limits

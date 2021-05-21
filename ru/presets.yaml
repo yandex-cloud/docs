@@ -10165,15 +10165,25 @@ default:
   sku|RUB|ymq:
     queue:
       fifo:
-        requests|number: 38,2200
-        requests|string: "38,2200\_₽"
-        requests|int|number: '38'
-        requests|int|string: "38\_₽"
+        requests|number: 0,0000
+        requests|string: Не тарифицируется
+        requests|int|number: '0'
+        requests|int|string: Не тарифицируется
+        requests|pricingRate:
+          - 1|number: 38,2200
+            1|string: "38,2200\_₽"
+            1|int|number: '38'
+            1|int|string: "38\_₽"
       other:
-        requests|number: 30,4800
-        requests|string: "30,4800\_₽"
-        requests|int|number: '30'
-        requests|int|string: "30\_₽"
+        requests|number: 0,0000
+        requests|string: Не тарифицируется
+        requests|int|number: '0'
+        requests|int|string: Не тарифицируется
+        requests|pricingRate:
+          - 1|number: 30,4800
+            1|string: "30,4800\_₽"
+            1|int|number: '30'
+            1|int|string: "30\_₽"
       std:
         requests|number: 0,0000
         requests|string: Не тарифицируется
@@ -10745,6 +10755,14 @@ default:
       kop|string: "1,0000\_₽"
       kop|int|number: '1'
       kop|int|string: "1\_₽"
+  sku|RUB|cdn:
+    api:
+      network:
+        inet:
+          egress|number: 0,0000
+          egress|string: Не тарифицируется
+          egress|int|number: '0'
+          egress|int|string: Не тарифицируется
   sku|RUB|b2b:
     tracker:
       activity:
@@ -20612,15 +20630,25 @@ default:
   sku|USD|ymq:
     queue:
       fifo:
-        requests|number: 0,490000
-        requests|string: "0,490000\_$"
+        requests|number: 0,000000
+        requests|string: Не тарифицируется
         requests|int|number: '0'
-        requests|int|string: "0\_$"
+        requests|int|string: Не тарифицируется
+        requests|pricingRate:
+          - 1|number: 0,490000
+            1|string: "0,490000\_$"
+            1|int|number: '0'
+            1|int|string: "0\_$"
       other:
-        requests|number: 0,390769
-        requests|string: "0,390769\_$"
+        requests|number: 0,000000
+        requests|string: Не тарифицируется
         requests|int|number: '0'
-        requests|int|string: "0\_$"
+        requests|int|string: Не тарифицируется
+        requests|pricingRate:
+          - 1|number: 0,390769
+            1|string: "0,390769\_$"
+            1|int|number: '0'
+            1|int|string: "0\_$"
       std:
         requests|number: 0,000000
         requests|string: Не тарифицируется
@@ -21192,6 +21220,14 @@ default:
       kop|string: "0,012821\_$"
       kop|int|number: '0'
       kop|int|string: "0\_$"
+  sku|USD|cdn:
+    api:
+      network:
+        inet:
+          egress|number: 0,000000
+          egress|string: Не тарифицируется
+          egress|int|number: '0'
+          egress|int|string: Не тарифицируется
   sku|USD|b2b:
     tracker:
       activity:
@@ -31059,15 +31095,25 @@ default:
   sku|KZT|ymq:
     queue:
       fifo:
-        requests|number: 229,3200
-        requests|string: "229,3200\_₸"
-        requests|int|number: '229'
-        requests|int|string: "229\_₸"
+        requests|number: 0,0000
+        requests|string: Не тарифицируется
+        requests|int|number: '0'
+        requests|int|string: Не тарифицируется
+        requests|pricingRate:
+          - 1|number: 229,3200
+            1|string: "229,3200\_₸"
+            1|int|number: '229'
+            1|int|string: "229\_₸"
       other:
-        requests|number: 182,8800
-        requests|string: "182,8800\_₸"
-        requests|int|number: '183'
-        requests|int|string: "183\_₸"
+        requests|number: 0,0000
+        requests|string: Не тарифицируется
+        requests|int|number: '0'
+        requests|int|string: Не тарифицируется
+        requests|pricingRate:
+          - 1|number: 182,8800
+            1|string: "182,8800\_₸"
+            1|int|number: '183'
+            1|int|string: "183\_₸"
       std:
         requests|number: 0,0000
         requests|string: Не тарифицируется
@@ -31639,6 +31685,14 @@ default:
       kop|string: "6,0000\_₸"
       kop|int|number: '6'
       kop|int|string: "6\_₸"
+  sku|KZT|cdn:
+    api:
+      network:
+        inet:
+          egress|number: 0,0000
+          egress|string: Не тарифицируется
+          egress|int|number: '0'
+          egress|int|string: Не тарифицируется
   sku|KZT|b2b:
     tracker:
       activity:

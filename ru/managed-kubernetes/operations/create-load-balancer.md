@@ -2,9 +2,12 @@
 
 Для предоставления доступа к приложению, запущенному в кластере {{ k8s }}, вы можете использовать публичные и внутренние [сервисы различных типов](../concepts/service.md).
 
-Чтобы предоставить публичный доступ к приложению, воспользуйтесь сервисом типа `LoadBalancer` с публичным IP-адресом.
+Чтобы опубликовать приложение, воспользуйтесь сервисом типа `LoadBalancer`. Возможны следующие варианты:
+* Публичный доступ по IP-адресу с [сетевым балансировщиком нагрузки](../../network-load-balancer/concepts/index.md).
+* Доступ из внутренних сетей по IP-адресу с [внутренним сетевым балансировщиком нагрузки](../../network-load-balancer/concepts/internal-load-balancer.md).
+  Приложение будет доступно: из [подсетей](../../vpc/concepts/network.md#subnet) {{ vpc-full-name }}; внутренних подсетей организации, подключенных к {{ yandex-cloud }} с помощью сервиса [{{ interconnect-full-name }}](../../vpc/interconnect/index.md) или через VPN.
 
-Доступ к приложению может быть предоставлен из внутренних сетей, но не из кластера {{ k8s }}: из [подсетей](../../vpc/concepts/network.md#subnet) {{ vpc-full-name }} или внутренних подсетей организации, подключенных к {{ yandex-cloud }} с помощью сервиса [{{ interconnect-full-name }}](../../vpc/interconnect/index.md) или через VPN. Для этого используйте сервис типа `LoadBalancer` на основе [внутреннего сетевого балансировщика нагрузки](../../network-load-balancer/concepts/internal-load-balancer.md).
+Чтобы использовать защиту от DDoS, [зарезервируйте](../../vpc/operations/enable-ddos-protection.md) публичный IP-адрес и [укажите](#advanced) его с помощью опции `loadBalancerIP`.
 
 {% note info %}
 
@@ -17,7 +20,7 @@
 * [Создайте простое приложение](#simple-app)
 * [Создайте сервис типа LoadBalancer с публичным IP-адресом](#lb-create)
 * [Создайте сервис типа LoadBalancer с внутренним IP-адресом](#lb-int-create)
-* [Дополнительные настройки для сервиса типа LoadBalancer](#advanced)
+* [Параметры loadBalancerIP и externalTrafficPolicy](#advanced)
 
 ## Создайте простое приложение {#simple-app}
 
@@ -203,7 +206,6 @@
        ----    ------                ----   ----                -------
        Normal  EnsuringLoadBalancer  2m43s  service-controller  Ensuring load balancer
        Normal  EnsuredLoadBalancer   2m17s  service-controller  Ensured load balancer
-
      ```
 
    {% endlist %}
@@ -232,7 +234,7 @@
 
 ## Создайте сервис типа LoadBalancer с внутренним IP-адресом {#lb-int-create}
 
-Чтобы создать сетевой балансировщик нагрузки с внутренним IP-адресом, укажите в YAML-спецификации сервиса в секции `annotations` парамеры `yandex.cloud/load-balancer-type` и `yandex.cloud/subnet-id`:
+Чтобы создать сетевой балансировщик нагрузки с внутренним IP-адресом, укажите в YAML-спецификации сервиса в секции `annotations` параметры `yandex.cloud/load-balancer-type` и `yandex.cloud/subnet-id`:
 
 ```yaml
 apiVersion: v1
@@ -258,14 +260,14 @@ spec:
 * `targetPort` — порт контейнера, на котором доступно приложение.
 * `selector` — метки селектора, использованные в шаблоне подов при создании объекта `Deployment`.
 
-## Дополнительные настройки для сервиса типа LoadBalancer {#advanced}
+## Параметры loadBalancerIP и externalTrafficPolicy {#advanced}
 
 В {{ managed-k8s-short-name }} для сервиса типа `LoadBalancer` доступны следующие дополнительные настройки:
-
 * Назначение [заранее зарезервированного публичного IP-адреса](../../vpc/operations/get-static-ip.md) с помощью параметра `loadBalancerIP`.
+  Во время резервирования статического IP-адреса можно активировать [защиту от DDoS-атак](../../vpc/ddos-protection/index.md).
 * Управление трафиком с помощью параметра [externalTrafficPolicy](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.15/#service-v1-core):
   * `Cluster` — трафик попадает на любой из узлов кластера {{ k8s }}. При этом:
-    * В случае отсутствия нужных подов на узле, трафик перенаправляется с помощью [kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/) на другой узел.
+    * В случае отсутствия нужных подов на узле, трафик перенаправляется с помощью [kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy) на другой узел.
   * `Local` — трафик напрямую попадает на узлы, где запущены контейнеры приложений. При этом:
     * Сохраняется IP-адрес запроса пользователя.
     * Используется меньше горизонтального трафика между виртуальными машинами.

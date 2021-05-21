@@ -229,8 +229,8 @@
   
   Изменить время начала резервного копирования в существующем кластере можно с помощью команды `update`:
 
-  ```
-  $ yc {{ yc-mdb-pg }} cluster update \
+  ```bash
+  {{ yc-mdb-pg }} cluster update \
      --cluster-name <имя кластера> \
      --backup-window-start 11:25:00
   ```

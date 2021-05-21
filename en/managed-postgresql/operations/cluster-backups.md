@@ -241,8 +241,8 @@ When restoring to the state from the current time point:
 
   To change the backup start time in an existing cluster, use the `update` command:
 
-  ```
-  $ yc {{ yc-mdb-pg }} cluster update \
+  ```bash
+  {{ yc-mdb-pg }} cluster update \
      --cluster-name <cluster name> \
      --backup-window-start 11:25:00
   ```

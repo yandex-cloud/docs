@@ -10,7 +10,7 @@ editable: false
 
 
 ```
-AT_DATE( measure, date_dimension, date_expr )
+AT_DATE( measure, date_dimension, date_expr [ BEFORE FILTER BY ... ] [ IGNORE DIMENSIONS ... ] )
 ```
 
 #### Description {#description}

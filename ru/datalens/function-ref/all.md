@@ -139,7 +139,7 @@ END`<br/>или<br/>`IF(
 
 ## [AGO](AGO.md)
 
-**Синтаксис:**`AGO( measure, date_dimension [ , unit [ , number ] ] )`
+**Синтаксис:**`AGO( measure, date_dimension [ , unit [ , number ] ] [ BEFORE FILTER BY ... ] [ IGNORE DIMENSIONS ... ] )`
 
 Вычисляет `measure` для даты/времени с указанным смещением.
 Аргумент `date_dimension` задает измерение, вдоль которого делается смещение.
@@ -216,7 +216,7 @@ END`<br/>или<br/>`IF(
 
 ## [AT_DATE](AT_DATE.md)
 
-**Синтаксис:**`AT_DATE( measure, date_dimension, date_expr )`
+**Синтаксис:**`AT_DATE( measure, date_dimension, date_expr [ BEFORE FILTER BY ... ] [ IGNORE DIMENSIONS ... ] )`
 
 Вычисляет `measure` для даты/времени, заданных выражением `date_expr`.
 Аргумент `date_dimension` задает измерение, вдоль которого делается смещение.

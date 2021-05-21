@@ -1,0 +1,1 @@
+При удалении кластера {{ managed-k8s-name }} диски {{ compute-name }}, связанные с `PersistentVolumes`, не удаляются автоматически.

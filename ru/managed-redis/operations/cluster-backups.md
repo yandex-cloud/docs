@@ -63,7 +63,7 @@
            --environment=PRODUCTION \
            --network-name default \
            --host zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch63 \
-           --password P@ssWord
+           --password P@ssWord \
            --disk-size 20
       ```
 
@@ -168,8 +168,8 @@
 
   Чтобы получить данные о резервной копии кластера {{ RD }}, выполните команду:
 
-  ```
-  $ yc {{ yc-mdb-rd }} backup get <идентификатор резервной копии>
+  ```bash
+  {{ yc-mdb-rd }} backup get <идентификатор резервной копии>
   ```
 
   Идентификатор резервной копии можно получить со [списком резервных копий](#list-backups).
@@ -188,8 +188,8 @@
 
   Чтобы задать время начала резервного копирования, используйте флаг `--backup-window-start`. Время задается в формате ``ЧЧ:ММ:СС``.
 
-  ```
-  $ yc {{ yc-mdb-rd }} cluster create \
+  ```bash
+  {{ yc-mdb-rd }} cluster create \
      --cluster-name <имя кластера> \
      --environment <окружение, prestable или production> \
      --network-name <имя сети> \
@@ -199,8 +199,8 @@
 
   Изменить время начала резервного копирования в существующем кластере можно с помощью команды `update`:
 
-  ```
-  $ yc {{ yc-mdb-rd }} cluster update \
+  ```bash
+  {{ yc-mdb-rd }} cluster update \
      --cluster-name <имя кластера> \
      --backup-window-start 11:25:00
   ```

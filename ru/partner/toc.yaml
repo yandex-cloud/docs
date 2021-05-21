@@ -4,7 +4,7 @@ items:
   - name: Пошаговые инструкции
     expanded: true
     items:
-      - name: Закрепить клиента в партнерском портале
+      - name: Добавить клиента
         href: operations/pin-client.md
       - name: Проверить наличие доступов к облакам клиента
         href: operations/access/check.md
