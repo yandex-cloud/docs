@@ -205,8 +205,8 @@ For a new cluster, you should set all the parameters that are required at creati
 
   To get information about a {{ MG }} cluster backup, run the command:
 
-  ```
-  $ yc {{ yc-mdb-mg }} backup get <backup ID>
+  ```bash
+  {{ yc-mdb-mg }} backup get <backup ID>
   ```
 
   The backup ID can be retrieved with the [list of backups](#list-backups) .

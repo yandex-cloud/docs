@@ -137,7 +137,7 @@ Returns the arccosine of `number` in radians.
 
 ## [AGO](AGO.md)
 
-**Syntax:**`AGO( measure, date_dimension [ , unit [ , number ] ] )`
+**Syntax:**`AGO( measure, date_dimension [ , unit [ , number ] ] [ BEFORE FILTER BY ... ] [ IGNORE DIMENSIONS ... ] )`
 
 Re-evaluate `measure` for a date/time with a given offset.
 The `date_dimension` argument is the dimension along which the offset is made.
@@ -214,7 +214,7 @@ Returns the arcsine of `number` in radians.
 
 ## [AT_DATE](AT_DATE.md)
 
-**Syntax:**`AT_DATE( measure, date_dimension, date_expr )`
+**Syntax:**`AT_DATE( measure, date_dimension, date_expr [ BEFORE FILTER BY ... ] [ IGNORE DIMENSIONS ... ] )`
 
 Re-evaluate `measure` for a date/time specified by `date_expr`.
 The `date_dimension` argument is the dimension along which the offset is made.

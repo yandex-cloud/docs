@@ -47,8 +47,6 @@ items:
         href: operations/crud.md
       - name: Работа со вторичными индексами
         href: operations/indexes.md
-      - name: Использование Docker-контейнера YDB
-        href: getting_started/ydb_docker.md
       - name: Работа с AWS CLI
         items:
           - name: Начало работы с AWS CLI
@@ -93,6 +91,8 @@ items:
     items:
       - name: Развертывание веб-приложения
         href: solutions/java-servlet-todo-list.md
+      - name: Использование Docker-контейнера YDB
+        href: solutions/ydb_docker.md
   - name: Концепции
     items:
       - name: Обзор
