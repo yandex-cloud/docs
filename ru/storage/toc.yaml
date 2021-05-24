@@ -87,6 +87,8 @@ items:
         href: concepts/backup.md
       - name: Протокол TLS
         href: concepts/tls.md
+      - name: Язык запросов S3 Select
+        href: concepts/s3-select-language.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Инструменты
