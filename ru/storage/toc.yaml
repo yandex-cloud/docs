@@ -53,6 +53,14 @@ items:
             href: operations/hosting/multiple-domains.md
           - name: Настройка HTTPS
             href: operations/hosting/certificate.md
+  - name: Сценарии использования
+    items:
+      - name: Получение статистики запросов к объекту с использованием S3 Select
+        href: solutions/server-logs.md
+      - name: Получение cтатистики посещения сайта с использованием S3 Select
+        href: solutions/user-agent-statistics.md
+      - name: Формирование отчета по ресурсной детализации расходов с использованием S3 Select
+        href: solutions/billing-resource-detailing.md
   - name: Концепции
     items:
       - name: Обзор
