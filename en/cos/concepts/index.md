@@ -166,6 +166,6 @@ Specification keys are described in the following table:
 | `volumes` | Description of the volumes used in the Docker container. |
 | `x-yc-disks` | The section that describes the [disks](../../compute/concepts/disk.md) to attach. It's an [extension of the Docker Compose specification](https://docs.docker.com/compose/compose-file/#extension-fields). Used when preparing to run Docker containers, before running the Docker Compose file. Docker Compose skips this section. |
 | `device_name` | Name of the device. |
-| `fs_type` | File system type. The only supported file system is ext4. |
+| `fs_type` | File system type. Only ext4 and xfs file systems are supported. |
 | `host_path` | The directory that the disk is mounted to. |
 | `partition` | The used disk partition. |

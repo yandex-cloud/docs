@@ -2,7 +2,7 @@
 
 {% include [yc-cluster-list](../../../_includes/managed-kubernetes/cluster-list.md) %}
 
-## Изменение кластера {{ k8s }}
+## Изменение кластера {{ k8s }} {#edit}
 
 Вы можете изменить следующие параметры кластера {{ k8s }}:
 * Имя.

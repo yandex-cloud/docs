@@ -11,7 +11,7 @@
 | Azure Database for PostgreSQL | [{{ mpg-full-name }}](../../managed-postgresql/) |
 | Azure Database Migration Service | [{{ data-transfer-full-name }}](../../data-transfer/) |
 | Azure DDoS Protection | [Yandex DDoS Protection](../../vpc/ddos-protection/) |
-| Azure DNS | {{ dns-full-name }} |
+| Azure DNS | [{{ dns-full-name }}](../../dns/) |
 | Azure Functions | [{{ sf-full-name }}](../../functions/) |
 | Azure IoT Hub | [{{ iot-full-name }}](../../iot-core/) |
 | Azure Key Vault | [{{ certificate-manager-full-name }}](../../certificate-manager/) |
