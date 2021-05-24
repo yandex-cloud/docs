@@ -44,6 +44,7 @@
 [delete](object/delete.md) | Удаляет объект.
 [deleteMultipleObjects](object/deletemultipleobjects.md) | Удаляет объекты по списку.
 [options](object/options.md) | Проверяет возможность CORS запроса к объекту.
+[selectObjectContent](object/select.md) | Фильтрует и возвращает содержимое объекта на основе SQL-запроса.
 
 ### Сервис Multipart upload {#multipart-upload-service}
 

@@ -187,6 +187,8 @@ items:
                 href: s3/api-ref/object/deletemultipleobjects.md
               - name: options
                 href: s3/api-ref/object/options.md
+              - name: selectObjectContent
+                href: s3/api-ref/object/select.md
           - name: Multipart upload
             items:
               - name: Общий порядок составной загрузки
