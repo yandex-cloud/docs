@@ -53,6 +53,16 @@ items:
             href: operations/hosting/multiple-domains.md
           - name: Настройка HTTPS
             href: operations/hosting/certificate.md
+  - name: Сценарии использования
+    items:
+      - name: Получение статистики запросов к объекту с использованием S3 Select
+        href: solutions/server-logs.md
+      - name: Получение cтатистики посещения сайта с использованием S3 Select
+        href: solutions/user-agent-statistics.md
+      - name: >-
+          Формирование отчета по ресурсной детализации расходов с использованием
+          S3 Select
+        href: solutions/billing-resource-detailing.md
   - name: Концепции
     items:
       - name: Обзор
@@ -87,6 +97,8 @@ items:
         href: concepts/backup.md
       - name: Протокол TLS
         href: concepts/tls.md
+      - name: Язык запросов S3 Select
+        href: concepts/s3-select-language.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Инструменты
@@ -177,6 +189,8 @@ items:
                 href: s3/api-ref/object/deletemultipleobjects.md
               - name: options
                 href: s3/api-ref/object/options.md
+              - name: selectObjectContent
+                href: s3/api-ref/object/select.md
           - name: Multipart upload
             items:
               - name: Общий порядок составной загрузки
