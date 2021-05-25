@@ -1,4 +1,15 @@
-# How to use the API
+---
+title: How to use the S3 API. Object Storage
+keywords:
+  - s3
+  - s3 storage
+  - s3 api
+  - api
+  - s3 api object storage
+  - object storage
+---
+
+# How to use the S3 API
 
 ## Before you start {#before-you-start}
 

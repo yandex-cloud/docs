@@ -1,3 +1,17 @@
+---
+title: Установка и развертывание Active Directory (AD) в облаке
+description: Пошаговая инструкция процесса установки и развертывания Active Directory (AD) в облаке Yandex.Cloud. Чтобы развернуть инфраструктуру Active Directory (AD) необходимо подготовить облако, создать сеть и подсети, создать ВМ для Active Directory.
+keywords:
+  - установка Active Directory
+  - развертывание Active Directory
+  - установка AD
+  - active directory
+  - active directory как запустить
+  - планирование active directory
+  - настройка ad
+  - настройка active directory
+---
+
 # Развертывание Active Directory
 
 В сценарии приводится пример развертывания Active Directory в {{ yandex-cloud }}.

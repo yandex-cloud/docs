@@ -1,3 +1,11 @@
+---
+title: Apache Spark and PySpark. Launching and managing applications
+keywords:
+  - apache spark
+  - spark
+  - PySpark
+---
+
 # Launching and managing applications for Spark and PySpark
 
 To run Spark applications in {{ dataproc-name }} clusters, [prepare data](#prepare-data) to process and then select the desired launch option:
