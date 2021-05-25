@@ -1,3 +1,11 @@
+---
+title: OpenVPN. Creating a VPN connection
+keywords:
+  - openvpn
+  - open vpn
+  - vpn connection
+---
+
 # Creating a VPN connection using OpenVPN
 
 This scenario describes how to configure an OpenVPN instance to access Yandex.Cloud VMs over an encrypted connection. It considers the option to configure an OpenVPN gateway with username and password-based access.

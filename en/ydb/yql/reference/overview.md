@@ -1,3 +1,12 @@
+---
+title: What is YQL? Overview - Yandex Query Language
+description: YQL (Yandex Query Language) is a universal declarative query language for data storage and processing systems, a dialect of SQL. You can get started with YQL in the management console after you create a database.
+keywords:
+  - yql
+  - what is yql
+  - Yandex Query Language
+---
+
 # Overview
 
 *YQL* (Yandex Query Language) is a universal declarative query language for data storage and processing systems, a dialect of SQL.

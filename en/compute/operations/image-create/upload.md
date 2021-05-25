@@ -1,3 +1,14 @@
+---
+title: Uploading a disk image to the cloud
+description: This guide describes how to upload a disk image file to Object Storage with Linux OS, and create an image and a virtual machine from it in the Compute Cloud service.
+keywords:
+  - image download
+  - loading a disk image
+  - upload to the cloud
+  - disk image
+  - Linux OS image
+---
+
 # Uploading a disk image to {{ yandex-cloud }}
 
 The following instructions describe how to prepare a disk image, upload the image file to {{ objstorage-full-name }}, and use it to create an [image](../../concepts/image.md) in {{ compute-name }}.

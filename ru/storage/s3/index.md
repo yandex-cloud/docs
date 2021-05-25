@@ -1,4 +1,17 @@
-# Как пользоваться API
+---
+title: Как пользоваться S3 API. Object Storage
+keywords:
+  - s3
+  - s3 storage
+  - s3 api
+  - api
+  - s3 api object storage
+  - object storage
+  - апи s3
+  - объектное хранилище
+---
+
+# Как пользоваться S3 API
 
 ## Подготовка к работе {#before-you-start}
 

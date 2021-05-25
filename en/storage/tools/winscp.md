@@ -1,3 +1,12 @@
+---
+title: What is WinSCP?
+description: WinSCP is a Windows graphical client for network storage. WinSCP treats WinSCP like a hierarchical file system.
+keywords:
+  - winscp
+  - win scp
+  - what is winscp
+---
+
 # WinSCP
 
 WinSCP is a Windows graphical client for network storage.

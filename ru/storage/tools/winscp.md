@@ -1,3 +1,12 @@
+---
+title: Что такое WinSCP?
+description: WinSCP — это графический клиент к сетевым хранилищам для Windows. WinSCP работает с Object Storage как с иерархической файловой системой.
+keywords:
+  - winscp
+  - win scp
+  - что такое winscp
+---
+
 # WinSCP
 
 WinSCP — это графический клиент к сетевым хранилищам для Windows.
@@ -27,6 +36,6 @@ WinSCP — это графический клиент к сетевым хран
 
 {% note info %}
 
-WinSCP работает с {{ objstorage-name }} как с иерархической файловой системой. Это значит, что ключи объектов, загруженных через WinSCP,  будут иметь вид пути к файлу. Например, `prefix/subprefix/picture.jpg`.
+WinSCP работает с {{ objstorage-name }} как с иерархической файловой системой. Это значит, что ключи объектов, загруженных через WinSCP, будут иметь вид пути к файлу. Например, `prefix/subprefix/picture.jpg`.
 
 {% endnote %}

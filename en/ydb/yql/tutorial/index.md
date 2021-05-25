@@ -1,3 +1,12 @@
+---
+title: YQL tutorial. Basic operations
+description: From this tutorial, you will learn how to perform basic operations with data and get familiar with the YQL syntax.
+keywords:
+  - yql
+  - tutorial yql
+  - basic operations yql
+---
+
 # Overview
 
 From this tutorial, you will learn how to perform basic operations with data in {{ ydb-short-name }} and get familiar with the YQL syntax. [Create a database](../../operations/create_manage_database#create-db) and follow all the steps in the [management console](https://console.cloud.yandex.ru/), copying the YQL instructions to the **Query** field.

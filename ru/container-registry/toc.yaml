@@ -47,8 +47,6 @@ items:
             href: operations/lifecycle-policy/lifecycle-policy-dry-run.md
           - name: Удалить политику удаления
             href: operations/lifecycle-policy/lifecycle-policy-delete.md
-      - name: Сканирование на наличие уязвимостей
-        href: operations/scanning-docker-image.md
       - name: Работа с ролями
         items:
           - name: Назначить роль
@@ -81,8 +79,6 @@ items:
         href: concepts/lifecycle-policy.md
       - name: Триггер Yandex Cloud Functions
         href: concepts/trigger.md
-      - name: Сканер уязвимостей
-        href: concepts/vulnerability-scanner.md
       - name: Резервное копирование
         href: concepts/backup.md
       - name: Квоты и лимиты
