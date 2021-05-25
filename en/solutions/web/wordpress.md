@@ -1,5 +1,6 @@
 ---
-description: A step-by-step instruction with which you will learn how to quickly create a WordPress website in the cloud. 3 easy steps to deploy a Wordpress site – create a virtual machine, configure Wordpress CMS settings and configure DNS.
+title: "Creating WordPress website - Instruction"
+description: "A step-by-step instruction with which you will learn how to quickly create a WordPress website in the cloud. 3 easy steps to deploy a Wordpress site: create a virtual machine, configure Wordpress CMS settings and configure DNS."
 keywords:
   - creating wordpress website
   - website wordpress

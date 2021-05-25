@@ -1,3 +1,11 @@
+---
+title: Apache Spark и PySpark. Запуск и управление приложениями
+keywords:
+  - apache spark
+  - spark
+  - PySpark
+---
+
 # Запуск и управление приложениями для Spark и PySpark
 
 Чтобы запускать Spark-приложения в кластере {{ dataproc-name }}, [подготовьте данные](#prepare-data) для обработки, а затем выберите нужный вариант запуска:

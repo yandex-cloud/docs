@@ -1,3 +1,12 @@
+---
+title: "Creating skills for Alice"
+description: 'An example of creating Alice's skill in two programming languages: Python and Node.js. As an example, Alice's skill "Parrot" will be created which repeats everything that the user has written or said to him.'
+keywords:
+  - сreating skills for Alice
+  - skills for Alice
+  - Alice skiils
+---
+
 # Creating skills for Alice
 
 As an example, we'll create a skill called <q>Parrot</q>, which repeats everything a user writes or says. We implement our example in two programming languages: Python and Node.js.
