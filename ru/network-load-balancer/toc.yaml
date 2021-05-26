@@ -63,7 +63,7 @@ items:
         items: null
         include:
           repo: docs
-          path: en/_api-ref-grpc/load-balancer/api-ref/toc.yaml
+          path: en/_api-ref-grpc/network-load-balancer/api-ref/toc.yaml
       - name: REST
         items: null
         include:

@@ -4,24 +4,24 @@ info:
   description: This API reference is organized by resource. Actions are performed
     by sending HTTP requests to resource URLs or making RPC calls. For more information
     about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
-  version: v1alpha
+  version: v1
   x-y-docUri: api-ref
   x-y-baseUrl: https://load-balancer.api.cloud.yandex.net
 paths:
-  /load-balancer/v1alpha/networkLoadBalancers/{networkLoadBalancerId}:
+  /load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}:
     get:
       tags:
       - NetworkLoadBalancer
       summary: Returns the specified NetworkLoadBalancer resource.
       description: Get the list of available NetworkLoadBalancer resources by making
-        a [list](/docs/load-balancer/api-ref/NetworkLoadBalancer/list) request.
+        a [list](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list) request.
       operationId: NetworkLoadBalancerGet
       parameters:
       - name: networkLoadBalancerId
         in: path
         description: |-
           ID of the NetworkLoadBalancer resource to return.
-          To get the network load balancer ID, use a [list](/docs/load-balancer/api-ref/NetworkLoadBalancer/list) request.
+          To get the network load balancer ID, use a [list](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list) request.
 
           The maximum string length in characters is 50.
         required: true
@@ -46,7 +46,7 @@ paths:
         description: |-
           Required.
           ID of the network load balancer to delete.
-          To get the network load balancer ID, use a [list](/docs/load-balancer/api-ref/NetworkLoadBalancer/list) request.
+          To get the network load balancer ID, use a [list](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list) request.
 
           The maximum string length in characters is 50.
         required: true
@@ -74,7 +74,7 @@ paths:
         description: |-
           Required.
           ID of the network load balancer to update.
-          To get the network load balancer ID, use a [list](/docs/load-balancer/api-ref/NetworkLoadBalancer/list) request.
+          To get the network load balancer ID, use a [list](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list) request.
 
           The maximum string length in characters is 50.
         required: true
@@ -96,8 +96,8 @@ paths:
       x-y-navtitle: update
       x-y-operation-metadata:
         $ref: '#/components/schemas/UpdateNetworkLoadBalancerMetadata'
-      x-y-operation-response: '[NetworkLoadBalancer](/docs/load-balancer/api-ref/NetworkLoadBalancer#representation)'
-  /load-balancer/v1alpha/networkLoadBalancers:
+      x-y-operation-response: '[NetworkLoadBalancer](/docs/network-load-balancer/api-ref/NetworkLoadBalancer#representation)'
+  /load-balancer/v1/networkLoadBalancers:
     get:
       tags:
       - NetworkLoadBalancer
@@ -110,7 +110,7 @@ paths:
         description: |-
           Required.
           ID of the folder that the network load balancer belongs to.
-          To get the folder ID, use a [list](/docs/load-balancer/api-ref/NetworkLoadBalancer/list) request.
+          To get the folder ID, use a [list](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list) request.
 
           The maximum string length in characters is 50.
         schema:
@@ -119,7 +119,7 @@ paths:
         in: query
         description: |-
           The maximum number of results per page to return. If the number of available
-          results is larger than [pageSize](/docs/load-balancer/api-ref/NetworkLoadBalancer/list#query_params),
+          results is larger than [pageSize](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list#query_params),
           the service returns a [<ResponseMessage>.next_page_token]
           that can be used to get the next page of results in subsequent list requests.
           Default value: 100.
@@ -131,8 +131,8 @@ paths:
       - name: pageToken
         in: query
         description: |-
-          Page token. To get the next page of results, set [pageToken](/docs/load-balancer/api-ref/NetworkLoadBalancer/list#query_params) to the
-          [nextPageToken](/docs/load-balancer/api-ref/NetworkLoadBalancer/list#responses) returned by a previous list request.
+          Page token. To get the next page of results, set [pageToken](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list#query_params) to the
+          [nextPageToken](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list#responses) returned by a previous list request.
 
           The maximum string length in characters is 100.
         schema:
@@ -142,7 +142,7 @@ paths:
         description: |-
           A filter expression that filters resources listed in the response.
           The expression must specify:
-          1. The field name. Currently you can only filter by the [NetworkLoadBalancer.name](/docs/load-balancer/api-ref/NetworkLoadBalancer#representation) field.
+          1. The field name. Currently you can only filter by the [NetworkLoadBalancer.name](/docs/network-load-balancer/api-ref/NetworkLoadBalancer#representation) field.
           2. An operator. Can be either `=` or `!=` for single values, or `IN` or `NOT IN` for lists of values.
           3. The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.
 
@@ -179,8 +179,8 @@ paths:
       x-y-navtitle: create
       x-y-operation-metadata:
         $ref: '#/components/schemas/CreateNetworkLoadBalancerMetadata'
-      x-y-operation-response: '[NetworkLoadBalancer](/docs/load-balancer/api-ref/NetworkLoadBalancer#representation)'
-  /load-balancer/v1alpha/networkLoadBalancers/{networkLoadBalancerId}:start:
+      x-y-operation-response: '[NetworkLoadBalancer](/docs/network-load-balancer/api-ref/NetworkLoadBalancer#representation)'
+  /load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}:start:
     post:
       tags:
       - NetworkLoadBalancer
@@ -194,7 +194,7 @@ paths:
         description: |-
           Required.
           ID of the network load balancer to start.
-          To get the network load balancer ID, use a [list](/docs/load-balancer/api-ref/NetworkLoadBalancer/list) request.
+          To get the network load balancer ID, use a [list](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list) request.
 
           The maximum string length in characters is 50.
         required: true
@@ -211,7 +211,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/StartNetworkLoadBalancerMetadata'
       x-y-operation-response: Empty
-  /load-balancer/v1alpha/networkLoadBalancers/{networkLoadBalancerId}:stop:
+  /load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}:stop:
     post:
       tags:
       - NetworkLoadBalancer
@@ -225,7 +225,7 @@ paths:
         description: |-
           Required.
           ID of the network load balancer to stop.
-          To get the network load balancer ID, use a [list](/docs/load-balancer/api-ref/NetworkLoadBalancer/list) request.
+          To get the network load balancer ID, use a [list](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list) request.
 
           The maximum string length in characters is 50.
         required: true
@@ -242,7 +242,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/StopNetworkLoadBalancerMetadata'
       x-y-operation-response: Empty
-  /load-balancer/v1alpha/networkLoadBalancers/{networkLoadBalancerId}:attachTargetGroup:
+  /load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}:attachTargetGroup:
     post:
       tags:
       - NetworkLoadBalancer
@@ -254,7 +254,7 @@ paths:
         description: |-
           Required.
           ID of the network load balancer to attach the target group to.
-          To get the network load balancer ID, use a [list](/docs/load-balancer/api-ref/NetworkLoadBalancer/list) request.
+          To get the network load balancer ID, use a [list](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list) request.
 
           The maximum string length in characters is 50.
         required: true
@@ -276,8 +276,8 @@ paths:
       x-y-navtitle: attachTargetGroup
       x-y-operation-metadata:
         $ref: '#/components/schemas/AttachNetworkLoadBalancerTargetGroupMetadata'
-      x-y-operation-response: '[NetworkLoadBalancer](/docs/load-balancer/api-ref/NetworkLoadBalancer#representation)'
-  /load-balancer/v1alpha/networkLoadBalancers/{networkLoadBalancerId}:detachTargetGroup:
+      x-y-operation-response: '[NetworkLoadBalancer](/docs/network-load-balancer/api-ref/NetworkLoadBalancer#representation)'
+  /load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}:detachTargetGroup:
     post:
       tags:
       - NetworkLoadBalancer
@@ -289,7 +289,7 @@ paths:
         description: |-
           Required.
           ID of the network load balancer to detach the target group from.
-          To get the network load balancer ID, use a [list](/docs/load-balancer/api-ref/NetworkLoadBalancer/list) request.
+          To get the network load balancer ID, use a [list](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list) request.
 
           The maximum string length in characters is 50.
         required: true
@@ -311,8 +311,8 @@ paths:
       x-y-navtitle: detachTargetGroup
       x-y-operation-metadata:
         $ref: '#/components/schemas/DetachNetworkLoadBalancerTargetGroupMetadata'
-      x-y-operation-response: '[NetworkLoadBalancer](/docs/load-balancer/api-ref/NetworkLoadBalancer#representation)'
-  /load-balancer/v1alpha/networkLoadBalancers/{networkLoadBalancerId}:getTargetStates:
+      x-y-operation-response: '[NetworkLoadBalancer](/docs/network-load-balancer/api-ref/NetworkLoadBalancer#representation)'
+  /load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}:getTargetStates:
     get:
       tags:
       - NetworkLoadBalancer
@@ -344,7 +344,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/GetTargetStatesResponse'
       x-y-navtitle: getTargetStates
-  /load-balancer/v1alpha/networkLoadBalancers/{networkLoadBalancerId}:addListener:
+  /load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}:addListener:
     post:
       tags:
       - NetworkLoadBalancer
@@ -356,7 +356,7 @@ paths:
         description: |-
           Required.
           ID of the network load balancer to add a listener to.
-          To get the network load balancer ID, use a [list](/docs/load-balancer/api-ref/NetworkLoadBalancer/list) request.
+          To get the network load balancer ID, use a [list](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list) request.
 
           The maximum string length in characters is 50.
         required: true
@@ -378,8 +378,8 @@ paths:
       x-y-navtitle: addListener
       x-y-operation-metadata:
         $ref: '#/components/schemas/AddNetworkLoadBalancerListenerMetadata'
-      x-y-operation-response: '[NetworkLoadBalancer](/docs/load-balancer/api-ref/NetworkLoadBalancer#representation)'
-  /load-balancer/v1alpha/networkLoadBalancers/{networkLoadBalancerId}:removeListener:
+      x-y-operation-response: '[NetworkLoadBalancer](/docs/network-load-balancer/api-ref/NetworkLoadBalancer#representation)'
+  /load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}:removeListener:
     post:
       tags:
       - NetworkLoadBalancer
@@ -391,7 +391,7 @@ paths:
         description: |-
           Required.
           ID of the network load balancer to remove the listener from.
-          To get the network load balancer ID, use a [list](/docs/load-balancer/api-ref/NetworkLoadBalancer/list) request.
+          To get the network load balancer ID, use a [list](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list) request.
 
           The maximum string length in characters is 50.
         required: true
@@ -413,8 +413,8 @@ paths:
       x-y-navtitle: removeListener
       x-y-operation-metadata:
         $ref: '#/components/schemas/RemoveNetworkLoadBalancerListenerMetadata'
-      x-y-operation-response: '[NetworkLoadBalancer](/docs/load-balancer/api-ref/NetworkLoadBalancer#representation)'
-  /load-balancer/v1alpha/networkLoadBalancers/{networkLoadBalancerId}/operations:
+      x-y-operation-response: '[NetworkLoadBalancer](/docs/network-load-balancer/api-ref/NetworkLoadBalancer#representation)'
+  /load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}/operations:
     get:
       tags:
       - NetworkLoadBalancer
@@ -435,7 +435,7 @@ paths:
         in: query
         description: |-
           The maximum number of results per page that should be returned. If the number of available
-          results is larger than [pageSize](/docs/load-balancer/api-ref/NetworkLoadBalancer/listOperations#query_params), the service returns a [nextPageToken](/docs/load-balancer/api-ref/NetworkLoadBalancer/listOperations#responses)
+          results is larger than [pageSize](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/listOperations#query_params), the service returns a [nextPageToken](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/listOperations#responses)
           that can be used to get the next page of results in subsequent list requests.
           Default value: 100.
 
@@ -446,8 +446,8 @@ paths:
       - name: pageToken
         in: query
         description: |-
-          Page token. To get the next page of results, set [pageToken](/docs/load-balancer/api-ref/NetworkLoadBalancer/listOperations#query_params) to the
-          [nextPageToken](/docs/load-balancer/api-ref/NetworkLoadBalancer/listOperations#responses) returned by a previous list request.
+          Page token. To get the next page of results, set [pageToken](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/listOperations#query_params) to the
+          [nextPageToken](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/listOperations#responses) returned by a previous list request.
 
           The maximum string length in characters is 100.
         schema:
@@ -460,7 +460,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ListNetworkLoadBalancerOperationsResponse'
       x-y-navtitle: listOperations
-  /load-balancer/v1alpha/targetGroups/{targetGroupId}:
+  /load-balancer/v1/targetGroups/{targetGroupId}:
     get:
       tags:
       - TargetGroup
@@ -472,7 +472,7 @@ paths:
         description: |-
           Required.
           ID of the TargetGroup resource to return.
-          To get the target group ID, use a [list](/docs/load-balancer/api-ref/TargetGroup/list) request.
+          To get the target group ID, use a [list](/docs/network-load-balancer/api-ref/TargetGroup/list) request.
 
           The maximum string length in characters is 50.
         required: true
@@ -497,7 +497,7 @@ paths:
         description: |-
           Required.
           ID of the target group to delete.
-          To get the target group ID, use a [list](/docs/load-balancer/api-ref/TargetGroup/list) request.
+          To get the target group ID, use a [list](/docs/network-load-balancer/api-ref/TargetGroup/list) request.
 
           The maximum string length in characters is 50.
         required: true
@@ -525,7 +525,7 @@ paths:
         description: |-
           Required.
           ID of the TargetGroup resource to update.
-          To get the target group ID, use a [list](/docs/load-balancer/api-ref/TargetGroup/list) request.
+          To get the target group ID, use a [list](/docs/network-load-balancer/api-ref/TargetGroup/list) request.
 
           The maximum string length in characters is 50.
         required: true
@@ -547,8 +547,8 @@ paths:
       x-y-navtitle: update
       x-y-operation-metadata:
         $ref: '#/components/schemas/UpdateTargetGroupMetadata'
-      x-y-operation-response: '[TargetGroup](/docs/load-balancer/api-ref/TargetGroup#representation)'
-  /load-balancer/v1alpha/targetGroups:
+      x-y-operation-response: '[TargetGroup](/docs/network-load-balancer/api-ref/TargetGroup#representation)'
+  /load-balancer/v1/targetGroups:
     get:
       tags:
       - TargetGroup
@@ -558,7 +558,7 @@ paths:
       - name: folderId
         in: query
         description: "Required.\nID of the folder to list target groups in. \nTo get
-          the folder ID, use a [list](/docs/load-balancer/api-ref/TargetGroup/list)
+          the folder ID, use a [list](/docs/network-load-balancer/api-ref/TargetGroup/list)
           request.\n\nThe maximum string length in characters is 50."
         schema:
           type: string
@@ -566,8 +566,8 @@ paths:
         in: query
         description: |-
           The maximum number of results per page to return. If the number of available
-          results is larger than [pageSize](/docs/load-balancer/api-ref/TargetGroup/list#query_params),
-          the service returns a [nextPageToken](/docs/load-balancer/api-ref/TargetGroup/list#responses)
+          results is larger than [pageSize](/docs/network-load-balancer/api-ref/TargetGroup/list#query_params),
+          the service returns a [nextPageToken](/docs/network-load-balancer/api-ref/TargetGroup/list#responses)
           that can be used to get the next page of results in subsequent list requests.
           Default value: 100.
 
@@ -577,8 +577,8 @@ paths:
           format: int64
       - name: pageToken
         in: query
-        description: "Page token. To get the next page of results, set [pageToken](/docs/load-balancer/api-ref/TargetGroup/list#query_params)
-          to the \n[nextPageToken](/docs/load-balancer/api-ref/TargetGroup/list#responses)
+        description: "Page token. To get the next page of results, set [pageToken](/docs/network-load-balancer/api-ref/TargetGroup/list#query_params)
+          to the \n[nextPageToken](/docs/network-load-balancer/api-ref/TargetGroup/list#responses)
           returned by a previous list request.\n\nThe maximum string length in characters
           is 100."
         schema:
@@ -587,7 +587,7 @@ paths:
         in: query
         description: "A filter expression that filters resources listed in the response.\nThe
           expression must specify: \n1. The field name. Currently you can only filter
-          by the [TargetGroup.name](/docs/load-balancer/api-ref/TargetGroup#representation)
+          by the [TargetGroup.name](/docs/network-load-balancer/api-ref/TargetGroup#representation)
           field.\n2. An operator. Can be either `=` or `!=` for single values, or
           `IN` or `NOT IN` for lists of values.\n3. The value. Must be 3-63 characters
           long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.\n\nThe
@@ -624,8 +624,8 @@ paths:
       x-y-navtitle: create
       x-y-operation-metadata:
         $ref: '#/components/schemas/CreateTargetGroupMetadata'
-      x-y-operation-response: '[TargetGroup](/docs/load-balancer/api-ref/TargetGroup#representation)'
-  /load-balancer/v1alpha/targetGroups/{targetGroupId}:addTargets:
+      x-y-operation-response: '[TargetGroup](/docs/network-load-balancer/api-ref/TargetGroup#representation)'
+  /load-balancer/v1/targetGroups/{targetGroupId}:addTargets:
     post:
       tags:
       - TargetGroup
@@ -637,7 +637,7 @@ paths:
         description: |-
           Required.
           ID of the TargetGroup resource to add targets to.
-          To get the target group ID, use a [list](/docs/load-balancer/api-ref/TargetGroup/list) request.
+          To get the target group ID, use a [list](/docs/network-load-balancer/api-ref/TargetGroup/list) request.
 
           The maximum string length in characters is 50.
         required: true
@@ -659,8 +659,8 @@ paths:
       x-y-navtitle: addTargets
       x-y-operation-metadata:
         $ref: '#/components/schemas/AddTargetsMetadata'
-      x-y-operation-response: '[TargetGroup](/docs/load-balancer/api-ref/TargetGroup#representation)'
-  /load-balancer/v1alpha/targetGroups/{targetGroupId}:removeTargets:
+      x-y-operation-response: '[TargetGroup](/docs/network-load-balancer/api-ref/TargetGroup#representation)'
+  /load-balancer/v1/targetGroups/{targetGroupId}:removeTargets:
     post:
       tags:
       - TargetGroup
@@ -672,7 +672,7 @@ paths:
         description: |-
           Required.
           ID of the target group to remove targets from.
-          To get the target group ID, use a [list](/docs/load-balancer/api-ref/TargetGroup/list) request.
+          To get the target group ID, use a [list](/docs/network-load-balancer/api-ref/TargetGroup/list) request.
 
           The maximum string length in characters is 50.
         required: true
@@ -694,8 +694,8 @@ paths:
       x-y-navtitle: removeTargets
       x-y-operation-metadata:
         $ref: '#/components/schemas/RemoveTargetsMetadata'
-      x-y-operation-response: '[TargetGroup](/docs/load-balancer/api-ref/TargetGroup#representation)'
-  /load-balancer/v1alpha/targetGroups/{targetGroupId}/operations:
+      x-y-operation-response: '[TargetGroup](/docs/network-load-balancer/api-ref/TargetGroup#representation)'
+  /load-balancer/v1/targetGroups/{targetGroupId}/operations:
     get:
       tags:
       - TargetGroup
@@ -707,7 +707,7 @@ paths:
         description: |-
           Required.
           ID of the TargetGroup resource to update.
-          To get the target group ID, use a [list](/docs/load-balancer/api-ref/TargetGroup/list) request.
+          To get the target group ID, use a [list](/docs/network-load-balancer/api-ref/TargetGroup/list) request.
 
           The maximum string length in characters is 50.
         required: true
@@ -717,7 +717,7 @@ paths:
         in: query
         description: |-
           The maximum number of results per page that should be returned. If the number of available
-          results is larger than [pageSize](/docs/load-balancer/api-ref/TargetGroup/listOperations#query_params), the service returns a [nextPageToken](/docs/load-balancer/api-ref/TargetGroup/listOperations#responses)
+          results is larger than [pageSize](/docs/network-load-balancer/api-ref/TargetGroup/listOperations#query_params), the service returns a [nextPageToken](/docs/network-load-balancer/api-ref/TargetGroup/listOperations#responses)
           that can be used to get the next page of results in subsequent list requests.
           Default value: 100.
 
@@ -727,8 +727,8 @@ paths:
           format: int64
       - name: pageToken
         in: query
-        description: "Page token. To get the next page of results, set [pageToken](/docs/load-balancer/api-ref/TargetGroup/listOperations#query_params)
-          to the \n[nextPageToken](/docs/load-balancer/api-ref/TargetGroup/listOperations#responses)
+        description: "Page token. To get the next page of results, set [pageToken](/docs/network-load-balancer/api-ref/TargetGroup/listOperations#query_params)
+          to the \n[nextPageToken](/docs/network-load-balancer/api-ref/TargetGroup/listOperations#responses)
           returned by a previous list request.\n\nThe maximum string length in characters
           is 100."
         schema:
@@ -789,8 +789,8 @@ components:
         attachedTargetGroup:
           $ref: '#/components/schemas/AttachedTargetGroup_in_AttachNetworkLoadBalancerTargetGroupRequest_attachedTargetGroup'
     AttachedTargetGroup:
-      description: An AttachedTargetGroup resource. For more information, see [Attached
-        Target Groups](/load-balancer/concepts)
+      description: An AttachedTargetGroup resource. For more information, see [Targets
+        and groups](/docs/network-load-balancer/concepts/target-resources).
       type: object
       properties:
         targetGroupId:
@@ -823,7 +823,7 @@ components:
           description: |-
             Required.
             ID of the folder to create a network load balancer in.
-            To get the folder ID, use a [list](/docs/load-balancer/api-ref/NetworkLoadBalancer/list) request.
+            To get the folder ID, use a [list](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list) request.
 
             The maximum string length in characters is 50.
           type: string
@@ -854,7 +854,6 @@ components:
             type: string
         regionId:
           description: |-
-            Required.
             ID of the region where the network load balancer resides.
 
             The maximum string length in characters is 50.
@@ -865,15 +864,15 @@ components:
           description: |-
             List of listeners and their specs for the network load balancer.
 
-            The maximum number of elements is 10.
+            The maximum number of elements is 1000.
           type: array
           items:
             $ref: '#/components/schemas/ListenerSpec'
         attachedTargetGroups:
           description: |-
-            List of attached target groups for the network load balancer. For now, we accept only one target_group per NetworkLoadBalancer resource.
+            List of attached target groups for the network load balancer.
 
-            The maximum number of elements is 1.
+            The maximum number of elements is 5.
           type: array
           items:
             $ref: '#/components/schemas/AttachedTargetGroup'
@@ -888,7 +887,7 @@ components:
       properties:
         folderId:
           description: "Required.\nID of the folder to list target groups in. \nTo
-            get the folder ID, use a [list](/docs/load-balancer/api-ref/TargetGroup/list)
+            get the folder ID, use a [list](/docs/network-load-balancer/api-ref/TargetGroup/list)
             request.\n\nThe maximum string length in characters is 50."
           type: string
         name:
@@ -916,7 +915,6 @@ components:
             type: string
         regionId:
           description: |-
-            Required.
             ID of the availability zone where the target group resides.
 
             The maximum string length in characters is 50.
@@ -968,9 +966,9 @@ components:
       properties:
         address:
           description: |-
-            Dynamic IP address for a listener.
-            Must be empty when creating a new network load balancer.
-            Must be provided when updating an existing load balancer.
+            Public IP address for a listener.
+            If you provide a static public IP address for the [update](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/update)
+            method, it will replace the existing listener address.
           type: string
         ipVersion:
           $ref: '#/components/schemas/IpVersion_in_ExternalAddressSpec_ipVersion'
@@ -995,7 +993,7 @@ components:
           items:
             $ref: '#/components/schemas/TargetState'
     HealthCheck:
-      description: A HealthCheck resource. For more information, see [Health check](/docs/load-balancer/concepts/health-check).
+      description: A HealthCheck resource. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check).
       type: object
       allOf:
       - type: object
@@ -1051,7 +1049,8 @@ components:
           format: int64
         path:
           description: "URL path to set for health checking requests for every target
-            in the target group. \nFor example `` /ping ``."
+            in the target group. \nFor example `` /ping ``. The default path is ``
+            / ``."
           type: string
     HealthCheckTcpOptions:
       description: Configuration option for a TCP health check.
@@ -1064,6 +1063,18 @@ components:
             Acceptable values are 1 to 65535, inclusive.
           type: string
           format: int64
+    InternalAddressSpec:
+      description: Internal address specification that is used by `ListenerSpec`.
+      type: object
+      properties:
+        address:
+          description: Internal IP address for a listener.
+          type: string
+        subnetId:
+          description: ID of the subnet.
+          type: string
+        ipVersion:
+          $ref: '#/components/schemas/IpVersion_in_InternalAddressSpec_ipVersion'
     IpVersion:
       description: |-
         IP version of the addresses that the load balancer works with.
@@ -1086,9 +1097,9 @@ components:
         nextPageToken:
           description: |-
             This token allows you to get the next page of results for list requests. If the number of results
-            is larger than [pageSize](/docs/load-balancer/api-ref/NetworkLoadBalancer/listOperations#query_params), use the [nextPageToken](/docs/load-balancer/api-ref/NetworkLoadBalancer/listOperations#responses) as the value
-            for the [pageToken](/docs/load-balancer/api-ref/NetworkLoadBalancer/listOperations#query_params) query parameter in the next list request.
-            Each subsequent list request will have its own [nextPageToken](/docs/load-balancer/api-ref/NetworkLoadBalancer/listOperations#responses) to continue paging through the results.
+            is larger than [pageSize](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/listOperations#query_params), use the [nextPageToken](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/listOperations#responses) as the value
+            for the [pageToken](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/listOperations#query_params) query parameter in the next list request.
+            Each subsequent list request will have its own [nextPageToken](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/listOperations#responses) to continue paging through the results.
           type: string
     ListNetworkLoadBalancersResponse:
       type: object
@@ -1101,11 +1112,11 @@ components:
         nextPageToken:
           description: |-
             This token allows you to get the next page of results for list requests. If the number of results
-            is larger than [pageSize](/docs/load-balancer/api-ref/NetworkLoadBalancer/list#query_params), use
-            the [nextPageToken](/docs/load-balancer/api-ref/NetworkLoadBalancer/list#responses) as the value
-            for the [pageToken](/docs/load-balancer/api-ref/NetworkLoadBalancer/list#query_params) query parameter
+            is larger than [pageSize](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list#query_params), use
+            the [nextPageToken](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list#responses) as the value
+            for the [pageToken](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list#query_params) query parameter
             in the next list request. Each subsequent list request will have its own
-            [nextPageToken](/docs/load-balancer/api-ref/NetworkLoadBalancer/list#responses) to continue paging through the results.
+            [nextPageToken](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list#responses) to continue paging through the results.
           type: string
     ListTargetGroupOperationsResponse:
       type: object
@@ -1118,9 +1129,9 @@ components:
         nextPageToken:
           description: |-
             This token allows you to get the next page of results for list requests. If the number of results
-            is larger than [pageSize](/docs/load-balancer/api-ref/TargetGroup/listOperations#query_params), use the [nextPageToken](/docs/load-balancer/api-ref/TargetGroup/listOperations#responses) as the value
-            for the [pageToken](/docs/load-balancer/api-ref/TargetGroup/listOperations#query_params) query parameter in the next list request.
-            Each subsequent list request will have its own [nextPageToken](/docs/load-balancer/api-ref/TargetGroup/listOperations#responses) to continue paging through the results.
+            is larger than [pageSize](/docs/network-load-balancer/api-ref/TargetGroup/listOperations#query_params), use the [nextPageToken](/docs/network-load-balancer/api-ref/TargetGroup/listOperations#responses) as the value
+            for the [pageToken](/docs/network-load-balancer/api-ref/TargetGroup/listOperations#query_params) query parameter in the next list request.
+            Each subsequent list request will have its own [nextPageToken](/docs/network-load-balancer/api-ref/TargetGroup/listOperations#responses) to continue paging through the results.
           type: string
     ListTargetGroupsResponse:
       type: object
@@ -1133,16 +1144,20 @@ components:
         nextPageToken:
           description: |-
             This token allows you to get the next page of results for list requests. If the number of results
-            is larger than [pageSize](/docs/load-balancer/api-ref/TargetGroup/list#query_params), use
-            the [nextPageToken](/docs/load-balancer/api-ref/TargetGroup/list#responses) as the value
-            for the [pageToken](/docs/load-balancer/api-ref/TargetGroup/list#query_params) query parameter
+            is larger than [pageSize](/docs/network-load-balancer/api-ref/TargetGroup/list#query_params), use
+            the [nextPageToken](/docs/network-load-balancer/api-ref/TargetGroup/list#responses) as the value
+            for the [pageToken](/docs/network-load-balancer/api-ref/TargetGroup/list#query_params) query parameter
             in the next list request. Each subsequent list request will have its own
-            [nextPageToken](/docs/load-balancer/api-ref/TargetGroup/list#responses) to continue paging through the results.
+            [nextPageToken](/docs/network-load-balancer/api-ref/TargetGroup/list#responses) to continue paging through the results.
           type: string
     Listener:
-      description: A Listener resource. For more information, see [Listener](/docs/load-balancer/concepts/listener)
+      description: A Listener resource. For more information, see [Listener](/docs/network-load-balancer/concepts/listener)
       type: object
       properties:
+        name:
+          description: Name of the listener. The name must be unique for each listener
+            on a single load balancer. 3-63 characters long.
+          type: string
         address:
           description: IP address for the listener.
           type: string
@@ -1152,17 +1167,34 @@ components:
           format: int64
         protocol:
           $ref: '#/components/schemas/ListenerProtocol_in_Listener_protocol'
+        targetPort:
+          description: Port of a target.
+          type: string
+          format: int64
+        subnetId:
+          description: ID of the subnet.
+          type: string
+        ipVersion:
+          $ref: '#/components/schemas/IpVersion_in_Listener_ipVersion'
     ListenerProtocol:
       description: Network protocol to use.
       type: string
       enum:
       - TCP
+      - UDP
     ListenerSpec:
       description: Listener specification that will be used by a network load balancer.
       type: object
       allOf:
       - type: object
         properties:
+          name:
+            description: |-
+              Required.
+              Name of the listener. The name must be unique for each listener on a single load balancer. 3-63 characters long.
+
+              Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+            type: string
           port:
             description: |-
               Port for incoming traffic.
@@ -1175,6 +1207,12 @@ components:
             description: |-
               Required.
               Protocol for incoming traffic.
+          targetPort:
+            description: |-
+              Port of a target.
+              Acceptable values are 1 to 65535, inclusive.
+            type: string
+            format: int64
       - title: address
         type: object
         maxProperties: 1
@@ -1182,9 +1220,12 @@ components:
           externalAddressSpec:
             $ref: '#/components/schemas/ExternalAddressSpec'
             description: External IP address specification.
+          internalAddressSpec:
+            $ref: '#/components/schemas/InternalAddressSpec'
+            description: Internal IP address specification.
     NetworkLoadBalancer:
       description: A NetworkLoadBalancer resource. For more information, see [Network
-        Load Balancer](/docs/load-balancer/concepts).
+        Load Balancer](/docs/network-load-balancer/concepts).
       type: object
       properties:
         id:
@@ -1236,7 +1277,7 @@ components:
     NetworkLoadBalancerSessionAffinity:
       description: |-
         Type of session affinity. Only 5-tuple affinity is currently available.
-        For more information, see [Load Balancer concepts](/load-balancer/concepts/).
+        For more information, see [Load Balancer concepts](/docs/network-load-balancer/concepts/).
 
          - CLIENT_IP_PORT_PROTO: 5-tuple affinity.
       type: string
@@ -1267,9 +1308,11 @@ components:
         Type of the load balancer. Only external load balancers are currently available.
 
          - EXTERNAL: External network load balancer.
+         - INTERNAL: Internal network load balancer.
       type: string
       enum:
       - EXTERNAL
+      - INTERNAL
     Operation:
       description: An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
       type: object
@@ -1337,22 +1380,13 @@ components:
     RemoveNetworkLoadBalancerListenerRequest:
       type: object
       properties:
-        address:
+        listenerName:
           description: |-
             Required.
-            IP address of the listener.
+            Name of the listener to delete.
 
-            The maximum string length in characters is 50.
+            Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
           type: string
-        protocol:
-          $ref: '#/components/schemas/ListenerProtocol_in_RemoveNetworkLoadBalancerListenerRequest_protocol'
-        port:
-          description: |-
-            Port.
-
-            Acceptable values are 1 to 65535, inclusive.
-          type: string
-          format: int64
     RemoveTargetsMetadata:
       type: object
       properties:
@@ -1385,7 +1419,7 @@ components:
           type: string
     Target:
       description: A Target resource. For more information, see [Target groups and
-        resources](/docs/load-balancer/target-resources).
+        resources](/docs/network-load-balancer/concepts/target-resources).
       type: object
       properties:
         subnetId:
@@ -1398,7 +1432,7 @@ components:
           type: string
     TargetGroup:
       description: A TargetGroup resource. For more information, see [Target groups
-        and resources](/docs/load-balancer/target-resources).
+        and resources](/docs/network-load-balancer/target-resources).
       type: object
       properties:
         id:
@@ -1505,15 +1539,15 @@ components:
           description: |-
             A list of listeners and their specs for the network load balancer.
 
-            The maximum number of elements is 10.
+            The maximum number of elements is 1000.
           type: array
           items:
             $ref: '#/components/schemas/ListenerSpec'
         attachedTargetGroups:
           description: |-
-            A list of attached target groups for the network load balancer. For now, we accept only one target_group per NetworkLoadBalancer resource.
+            A list of attached target groups for the network load balancer.
 
-            The maximum number of elements is 1.
+            The maximum number of elements is 5.
           type: array
           items:
             $ref: '#/components/schemas/AttachedTargetGroup'
@@ -1584,6 +1618,13 @@ components:
       allOf:
       - type: object
         properties:
+          name:
+            description: |-
+              Required.
+              Name of the listener. The name must be unique for each listener on a single load balancer. 3-63 characters long.
+
+              Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+            type: string
           port:
             description: |-
               Port for incoming traffic.
@@ -1596,6 +1637,12 @@ components:
             description: |-
               Required.
               Protocol for incoming traffic.
+          targetPort:
+            description: |-
+              Port of a target.
+              Acceptable values are 1 to 65535, inclusive.
+            type: string
+            format: int64
       - title: address
         type: object
         maxProperties: 1
@@ -1603,13 +1650,16 @@ components:
           externalAddressSpec:
             $ref: '#/components/schemas/ExternalAddressSpec'
             description: External IP address specification.
+          internalAddressSpec:
+            $ref: '#/components/schemas/InternalAddressSpec'
+            description: Internal IP address specification.
     AttachedTargetGroup_in_AttachNetworkLoadBalancerTargetGroupRequest_attachedTargetGroup:
       description: |-
         Required.
         ID of the attached target group to attach to the network load balancer.
-        To get the network load balancer ID, use a [list](/docs/load-balancer/api-ref/NetworkLoadBalancer/list) request.
+        To get the network load balancer ID, use a [list](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list) request.
 
-        An AttachedTargetGroup resource. For more information, see [Attached Target Groups](/load-balancer/concepts)
+        An AttachedTargetGroup resource. For more information, see [Targets and groups](/docs/network-load-balancer/concepts/target-resources).
       type: object
       properties:
         targetGroupId:
@@ -1637,10 +1687,25 @@ components:
         Type of the load balancer. Only external load balancers are currently available.
 
          - EXTERNAL: External network load balancer.
+         - INTERNAL: Internal network load balancer.
       type: string
       enum:
       - EXTERNAL
+      - INTERNAL
     IpVersion_in_ExternalAddressSpec_ipVersion:
+      description: |-
+        IP version.
+
+        IP version of the addresses that the load balancer works with.
+        Only IPv4 is currently available.
+
+         - IPV4: IPv4
+         - IPV6: IPv6
+      type: string
+      enum:
+      - IPV4
+      - IPV6
+    IpVersion_in_InternalAddressSpec_ipVersion:
       description: |-
         IP version.
 
@@ -1661,6 +1726,20 @@ components:
       type: string
       enum:
       - TCP
+      - UDP
+    IpVersion_in_Listener_ipVersion:
+      description: |-
+        IP version of the external address.
+
+        IP version of the addresses that the load balancer works with.
+        Only IPv4 is currently available.
+
+         - IPV4: IPv4
+         - IPV6: IPv6
+      type: string
+      enum:
+      - IPV4
+      - IPV6
     NetworkLoadBalancerStatus_in_NetworkLoadBalancer_status:
       description: |-
         Status of the network load balancer.
@@ -1690,29 +1769,22 @@ components:
         Type of the load balancer. Only external load balancers are currently available.
 
          - EXTERNAL: External network load balancer.
+         - INTERNAL: Internal network load balancer.
       type: string
       enum:
       - EXTERNAL
+      - INTERNAL
     NetworkLoadBalancerSessionAffinity_in_NetworkLoadBalancer_sessionAffinity:
       description: |-
         Type of the session affinity. Only 5-tuple affinity is available now.
 
         Type of session affinity. Only 5-tuple affinity is currently available.
-        For more information, see [Load Balancer concepts](/load-balancer/concepts/).
+        For more information, see [Load Balancer concepts](/docs/network-load-balancer/concepts/).
 
          - CLIENT_IP_PORT_PROTO: 5-tuple affinity.
       type: string
       enum:
       - CLIENT_IP_PORT_PROTO
-    ListenerProtocol_in_RemoveNetworkLoadBalancerListenerRequest_protocol:
-      description: |-
-        Required.
-        Network protocol for incoming traffic.
-
-        Network protocol to use.
-      type: string
-      enum:
-      - TCP
     TargetStateStatus_in_TargetState_status:
       description: |-
         Status of the target.
