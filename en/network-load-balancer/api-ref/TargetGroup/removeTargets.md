@@ -9,7 +9,7 @@ Removes targets from the target group.
  
 ## HTTP request {#https-request}
 ```
-POST https://load-balancer.api.cloud.yandex.net/load-balancer/v1alpha/targetGroups/{targetGroupId}:removeTargets
+POST https://load-balancer.api.cloud.yandex.net/load-balancer/v1/targetGroups/{targetGroupId}:removeTargets
 ```
  
 ## Path parameters {#path_params}
@@ -34,7 +34,7 @@ targetGroupId | Required. ID of the target group to remove targets from. To get 
  
 Field | Description
 --- | ---
-targets[] | **object**<br><p>A Target resource. For more information, see <a href="/docs/network-load-balancer/target-resources">Target groups and resources</a>.</p> 
+targets[] | **object**<br><p>A Target resource. For more information, see <a href="/docs/network-load-balancer/concepts/target-resources">Target groups and resources</a>.</p> 
 targets[].<br>subnetId | **string**<br><p>ID of the subnet that targets are connected to. All targets in the target group must be connected to the same subnet within a single availability zone.</p> <p>The maximum string length in characters is 50.</p> 
 targets[].<br>address | **string**<br><p>IP address of the target.</p> 
  

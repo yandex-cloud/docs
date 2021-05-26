@@ -9,7 +9,7 @@ Deletes the specified network load balancer.
  
 ## HTTP request {#https-request}
 ```
-DELETE https://load-balancer.api.cloud.yandex.net/load-balancer/v1alpha/networkLoadBalancers/{networkLoadBalancerId}
+DELETE https://load-balancer.api.cloud.yandex.net/load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}
 ```
  
 ## Path parameters {#path_params}
