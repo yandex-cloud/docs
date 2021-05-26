@@ -9,7 +9,7 @@ Updates the specified network load balancer.
  
 ## HTTP request {#https-request}
 ```
-PATCH https://load-balancer.api.cloud.yandex.net/load-balancer/v1alpha/networkLoadBalancers/{networkLoadBalancerId}
+PATCH https://load-balancer.api.cloud.yandex.net/load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}
 ```
  
 ## Path parameters {#path_params}
@@ -28,12 +28,23 @@ networkLoadBalancerId | Required. ID of the network load balancer to update. To 
   "labels": "object",
   "listenerSpecs": [
     {
+      "name": "string",
       "port": "string",
       "protocol": "string",
+      "targetPort": "string",
+
+      // `listenerSpecs[]` includes only one of the fields `externalAddressSpec`, `internalAddressSpec`
       "externalAddressSpec": {
         "address": "string",
         "ipVersion": "string"
-      }
+      },
+      "internalAddressSpec": {
+        "address": "string",
+        "subnetId": "string",
+        "ipVersion": "string"
+      },
+      // end of the list of possible fields`listenerSpecs[]`
+
     }
   ],
   "attachedTargetGroups": [
@@ -72,12 +83,18 @@ name | **string**<br><p>Name of the network load balancer. The name must be uniq
 description | **string**<br><p>Description of the network load balancer.</p> <p>The maximum string length in characters is 256.</p> 
 labels | **object**<br><p>Resource labels as `` key:value `` pairs.</p> <p>The existing set of `` labels `` is completely replaced with the provided set.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression `` [a-z][-_0-9a-z]* ``. The maximum string length in characters for each value is 63. Each value must match the regular expression `` [-_0-9a-z]* ``.</p> 
 listenerSpecs[] | **object**<br><p>Listener specification that will be used by a network load balancer.</p> 
+listenerSpecs[].<br>name | **string**<br><p>Required. Name of the listener. The name must be unique for each listener on a single load balancer. 3-63 characters long.</p> <p>Value must match the regular expression `` \|[a-z][-a-z0-9]{1,61}[a-z0-9] ``.</p> 
 listenerSpecs[].<br>port | **string** (int64)<br><p>Port for incoming traffic.</p> <p>Acceptable values are 1 to 65535, inclusive.</p> 
 listenerSpecs[].<br>protocol | **string**<br>Required. Protocol for incoming traffic.<br><p>Network protocol to use.</p> 
-listenerSpecs[].<br>externalAddressSpec | **object**<br>External IP address specification.<br><p>External address specification that is used by `ListenerSpec`.</p> 
-listenerSpecs[].<br>externalAddressSpec.<br>address | **string**<br><p>Dynamic IP address for a listener. Must be empty when creating a new network load balancer. Must be provided when updating an existing load balancer.</p> 
+listenerSpecs[].<br>targetPort | **string** (int64)<br><p>Port of a target. Acceptable values are 1 to 65535, inclusive.</p> 
+listenerSpecs[].<br>externalAddressSpec | **object**<br>External IP address specification. <br>`listenerSpecs[]` includes only one of the fields `externalAddressSpec`, `internalAddressSpec`<br><br><p>External address specification that is used by `ListenerSpec`.</p> 
+listenerSpecs[].<br>externalAddressSpec.<br>address | **string**<br><p>Public IP address for a listener. If you provide a static public IP address for the <a href="/docs/network-load-balancer/api-ref/NetworkLoadBalancer/update">update</a> method, it will replace the existing listener address.</p> 
 listenerSpecs[].<br>externalAddressSpec.<br>ipVersion | **string**<br><p>IP version.</p> <p>IP version of the addresses that the load balancer works with. Only IPv4 is currently available.</p> <ul> <li>IPV4: IPv4</li> <li>IPV6: IPv6</li> </ul> 
-attachedTargetGroups[] | **object**<br><p>An AttachedTargetGroup resource. For more information, see <a href="/docs/network-load-balancer/concepts">Attached Target Groups</a></p> 
+listenerSpecs[].<br>internalAddressSpec | **object**<br>Internal IP address specification. <br>`listenerSpecs[]` includes only one of the fields `externalAddressSpec`, `internalAddressSpec`<br><br><p>Internal address specification that is used by `ListenerSpec`.</p> 
+listenerSpecs[].<br>internalAddressSpec.<br>address | **string**<br><p>Internal IP address for a listener.</p> 
+listenerSpecs[].<br>internalAddressSpec.<br>subnetId | **string**<br><p>ID of the subnet.</p> 
+listenerSpecs[].<br>internalAddressSpec.<br>ipVersion | **string**<br><p>IP version.</p> <p>IP version of the addresses that the load balancer works with. Only IPv4 is currently available.</p> <ul> <li>IPV4: IPv4</li> <li>IPV6: IPv6</li> </ul> 
+attachedTargetGroups[] | **object**<br><p>An AttachedTargetGroup resource. For more information, see <a href="/docs/network-load-balancer/concepts/target-resources">Targets and groups</a>.</p> 
 attachedTargetGroups[].<br>targetGroupId | **string**<br><p>Required. ID of the target group.</p> <p>The maximum string length in characters is 50.</p> 
 attachedTargetGroups[].<br>healthChecks[] | **object**<br><p>A HealthCheck resource. For more information, see <a href="/docs/network-load-balancer/concepts/health-check">Health check</a>.</p> 
 attachedTargetGroups[].<br>healthChecks[].<br>name | **string**<br><p>Required. Name of the health check. The name must be unique for each target group that attached to a single load balancer. 3-63 characters long.</p> <p>Value must match the regular expression `` \|[a-z][-a-z0-9]{1,61}[a-z0-9] ``.</p> 
@@ -89,7 +106,7 @@ attachedTargetGroups[].<br>healthChecks[].<br>tcpOptions | **object**<br>Options
 attachedTargetGroups[].<br>healthChecks[].<br>tcpOptions.<br>port | **string** (int64)<br><p>Port to use for TCP health checks.</p> <p>Acceptable values are 1 to 65535, inclusive.</p> 
 attachedTargetGroups[].<br>healthChecks[].<br>httpOptions | **object**<br>Options for HTTP health check. <br>`attachedTargetGroups[].healthChecks[]` includes only one of the fields `tcpOptions`, `httpOptions`<br><br><p>Configuration option for an HTTP health check.</p> 
 attachedTargetGroups[].<br>healthChecks[].<br>httpOptions.<br>port | **string** (int64)<br><p>Port to use for HTTP health checks.</p> <p>Acceptable values are 1 to 65535, inclusive.</p> 
-attachedTargetGroups[].<br>healthChecks[].<br>httpOptions.<br>path | **string**<br><p>URL path to set for health checking requests for every target in the target group. For example `` /ping ``.</p> 
+attachedTargetGroups[].<br>healthChecks[].<br>httpOptions.<br>path | **string**<br><p>URL path to set for health checking requests for every target in the target group. For example `` /ping ``. The default path is `` / ``.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

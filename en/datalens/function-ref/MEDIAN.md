@@ -17,7 +17,7 @@ MEDIAN( value )
 Returns the median value.
 
 **Argument types:**
-- `value` — `Any`
+- `value` — `Date | Datetime | Fractional number | Integer`
 
 
 **Return type**: Same type as (`value`)
