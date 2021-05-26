@@ -16,11 +16,15 @@ items:
       - name: Остановка и запуск кластера
         href: operations/cluster-stop.md
       - name: Изменение настроек кластера
-        href: operations/update.md
+        href: operations/cluster-update.md
+      - name: Настройка доступа к Object Storage
+        href: operations/s3-access.md
       - name: Управление хостами Elasticsearch
         href: operations/cluster-hosts.md
       - name: Управление пользователями Elasticsearch
         href: operations/cluster-users.md
+      - name: Управление резервными копиями
+        href: operations/cluster-backups.md
       - name: Удаление кластера
         href: operations/cluster-delete.md
   - name: Концепции
