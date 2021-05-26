@@ -17,7 +17,7 @@ QUANTILE_APPROX( value, quant )
 Returns the approximate `quant`-level quantile (`quant` should be in range from 0 to 1).
 
 **Argument types:**
-- `value` — `Fractional number | Integer`
+- `value` — `Date | Datetime | Fractional number | Integer`
 - `quant` — `Fractional number | Integer`
 
 
