@@ -52,7 +52,7 @@ expiration_time = valueof(ttl_column) + expire_after_seconds
 
 Управление настройками TTL в настоящий момент возможно с использованием:
 * [YQL](../yql/reference/overview.md).
-* [Консольного клиента {{ ydb-short-name }}](../quickstart/examples-ydb-cli.md).
+* [Консольного клиента {{ ydb-short-name }}](../quickstart/yql-api/ydb-cli.md).
 * [{{ ydb-short-name }} Python SDK](https://github.com/yandex-cloud/ydb-python-sdk).
 
 ### Включение TTL для существующей таблицы {#enable-on-existent-table}

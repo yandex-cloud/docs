@@ -91,6 +91,12 @@ items:
         href: infrastructure-management/hystax-disaster-recovery.md
       - name: Настройка отказоустойчивой архитектуры в Yandex.Cloud
         href: infrastructure-management/fault-tolerance.md
+  - name: Построение Data Platform
+    items:
+      - name: Все сценарии
+        href: dataplatform/index.md
+      - name: Синхронизация данных из MySQL с помощью Yandex DataTransfer
+        href: dataplatform/sync-postgresql.md
   - name: Windows в Yandex.Cloud
     items:
       - name: Все сценарии

@@ -19,7 +19,7 @@
 
 - YDB CLI
 
-  1. Если у вас еще нет интерфейса командной строки YDB CLI, [установите его и подготовьте к работе](../quickstart/examples-ydb-cli.md#requirements).
+  1. Если у вас еще нет интерфейса командной строки YDB CLI, [установите его и подготовьте к работе](../quickstart/yql-api/ydb-cli.md#how-to-install).
   2. Для получения плана запроса используйте команду `explain`. Посмотрите как использовать команду, выполнив:
      ```bash
      ydb table query explain --help

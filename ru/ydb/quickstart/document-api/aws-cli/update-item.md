@@ -21,7 +21,7 @@
 
     Результат выполнения:
 
-    ```bash
+    ```text
     {
         "Attributes": {
             "series_id": {
