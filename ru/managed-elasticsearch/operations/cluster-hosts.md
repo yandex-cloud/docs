@@ -17,6 +17,20 @@
   1. Перейдите на страницу каталога и выберите сервис **{{ mes-name }}**.
   1. Нажмите на имя нужного кластера, затем выберите вкладку **Хосты**.
 
+- CLI
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы получить список хостов в кластере, выполните команду:
+
+    ```bash
+    {{ yc-mdb-es }} host list --cluster-name <имя кластера>
+    ```
+
+    Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
 - API
 
   Воспользуйтесь методом API `listHosts`: передайте значение идентификатора требуемого кластера в параметре `clusterId` запроса.
@@ -24,7 +38,6 @@
   Чтобы узнать идентификатор кластера, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
 
 {% endlist %}
-
 
 ## Добавить хосты в кластер {#add-hosts}
 
@@ -40,6 +53,22 @@
         - Зону доступности.
         - Подсеть (если нужной подсети в списке нет, [создайте ее](../../vpc/operations/subnet-create.md)).
         - Выберите опцию **Публичный доступ**, если хост должен быть доступен извне {{ yandex-cloud }}.
+
+- CLI
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы добавить хосты в кластер, выполните команду:
+
+    ```bash
+    {{ yc-mdb-es }} host add \
+       --cluster-name <имя кластера> \
+       --host zone-id=<зона доступности>,subnet-name=<имя подсети>,assign-public-ip=<true или false>,type=<роль хоста: datanode или masternode>
+    ```
+
+    Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 - API
 
@@ -71,6 +100,20 @@
     1. Перейдите на страницу каталога и выберите сервис **{{ mes-name }}**.
     1. Нажмите на имя нужного кластера, затем выберите вкладку **Хосты**.
     1. Нажмите на значок ![image](../../_assets/vertical-ellipsis.svg) в строке нужного хоста и выберите пункт **Удалить**.
+
+- CLI
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы удалить хост из кластера, выполните команду:
+
+    ```bash
+    {{ yc-mdb-es }} host delete <имя хоста> --cluster-name <имя кластера>
+    ```
+
+    Имя хоста можно запросить со [списком хостов в кластере](#list-hosts), имя кластера — со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 - API
 

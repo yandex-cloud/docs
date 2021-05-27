@@ -2,9 +2,8 @@
 
 После создания кластера вы можете:
 
-* [Изменить класс хостов](#change-resource-preset).
-
-* [Увеличить размер хранилища](#change-disk-size) (доступно только для стандартного `network-hdd` и быстрого сетевого `network-ssd` хранилищ).
+* [{#T}](#change-resource-preset).
+* [{#T}](#change-disk-size) (доступно только для стандартного `network-hdd` и быстрого сетевого `network-ssd` хранилищ).
 
 * [{#T}](#update-additional-settings).
 
@@ -23,6 +22,30 @@
      1. Выберите вкладку **Master node**.
      1. В блоке **Класс хоста** выберите нужный класс для хоста.
   1. Нажмите кнопку **Сохранить**.
+
+- CLI
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы изменить [класс хостов](../concepts/instance-types.md) для кластера:
+
+    1. Посмотрите описание команды CLI для изменения кластера:
+
+        ```bash
+        {{ yc-mdb-es }} cluster update --help
+        ```
+
+    1. Укажите нужный класс для хостов с ролью _Data node_ и _Master node_ в команде изменения кластера:
+
+        ```bash
+        {{ yc-mdb-es }} cluster update <имя или идентификатор кластера> \
+           --datanode-resource-preset <класс хостов с ролью Data node> \
+           --masternode-resource-preset <класс хостов с ролью Master node>
+        ```
+
+    Имя и идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 - API
 
@@ -52,6 +75,30 @@
      1. Выберите вкладку **Master node**.
      1. В блоке **Хранилище** укажите необходимый размер диска.
   1. Нажмите кнопку **Сохранить**.
+
+- CLI
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы увеличить размер хранилища для кластера:
+
+    1. Посмотрите описание команды CLI для изменения конфигурации:
+
+        ```bash
+        {{ yc-mdb-es }} cluster update --help
+        ```
+
+    1. Укажите новые [параметры хранилища](../concepts/storage.md) для хостов с ролью _Data node_ и _Master node_ в команде изменения кластера:
+
+        ```bash
+        {{ yc-mdb-es }} cluster update <имя или идентификатор кластера> \
+           --datanode-disk-size <размер хранилища в гигабайтах для хостов с ролью Data node> \
+           --masternode-disk-size <размер хранилища в гигабайтах для хостов с ролью Master node>
+        ```
+
+    Имя и идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 {% if api != "noshow" %}
 

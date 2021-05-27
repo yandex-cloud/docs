@@ -8,7 +8,7 @@
 * При использовании сетевого хранилища:
     * Если выбрано **стандартное** или **быстрое сетевое хранилище**, вы можете добавить любое количество хостов в пределах [текущей квоты](../concepts/limits.md).
     * Если выбрано **нереплицируемое сетевое хранилище**, вы можете создать кластер из трех или более хостов (минимум три хоста необходимо, чтобы обеспечить отказоустойчивость).
-      
+
 После создания кластера в него можно добавить дополнительные хосты, если для этого достаточно [ресурсов каталога](../concepts/limits.md).
 
 ## Создать кластер {#create-cluster}
@@ -81,6 +81,49 @@
 
   1. Нажмите кнопку **Создать**.
 
+- CLI
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы создать кластер:
+
+    1. Проверьте, есть ли в каталоге подсети для хостов кластера:
+
+        ```bash
+        yc vpc subnet list
+        ```
+
+        Если ни одной подсети в каталоге нет, [создайте нужные подсети](../../vpc/operations/subnet-create.md) в сервисе {{ vpc-short-name }}.
+
+    1. Посмотрите описание команды CLI для создания кластера:
+
+        ```bash
+        {{ yc-mdb-es }} cluster create --help
+        ```
+
+    1. Укажите параметры кластера в команде создания (в примере приведены не все параметры):
+
+        ```bash
+        {{ yc-mdb-es }} cluster create \
+           --name <имя кластера> \
+           --environment <окружение: prestable или production> \
+           --network-name <имя сети> \
+           --host zone-id=<зона доступности>,subnet-id=<идентификатор подсети>,assign-public-ip=<публичный доступ>,type=<тип хоста: datanode или masternode> \
+           --datanode-resource-preset <класс хостов c ролью DataNode> \
+           --datanode-disk-size <размер хранилища в гигабайтах для хостов с ролью DataNode> \
+           --datanode-disk-type <тип хранилища для хостов с ролью DataNode> \
+           --masternode-resource-preset <класс хостов с ролью MasterNode> \
+           --masternode-disk-size <размер хранилища в гигабайтах для хостов с ролью MasterNode> \
+           --masternode-disk-type <тип хранилища для хостов с ролью MasterNode> \
+           --security-group-ids <список идентификаторов групп безопасности> \
+           --version <версия {{ ES }}> \
+           --admin-password <пароль пользователя admin>
+        ```
+
+        Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной зоне доступности создано 2 и больше подсетей.
+
 - API
 
   Чтобы создать кластер, воспользуйтесь методом API `create` и передайте в запросе:
@@ -100,3 +143,42 @@
 Если вы указали идентификаторы групп безопасности при создании кластера, то для подключения к нему может потребоваться дополнительная [настройка групп безопасности](cluster-connect.md#configuring-security-groups).
 
 {% endnote %}
+
+## Примеры {#examples}
+
+### Создание кластера с одним хостом {#creating-a-single-host-cluster}
+
+{% list tabs %}
+
+- CLI
+
+    Чтобы создать кластер с одним хостом, передайте один параметр `--host`.
+
+    Допустим, нужно создать {{ ES }}-кластер со следующими характеристиками:
+
+    - С именем `my-es-clstr`.
+    - Версии `7.10`.
+    - В окружении `PRODUCTION`.
+    - В сети `default`.
+    - В группе безопасности с идентификатором `enpp2s8l3irhk5eromd7`.
+    - С одним публично доступным хостом с ролью _Data node_ класса `{{ host-class }}` в подсети `{{ subnet-id }}`, в зоне доступности `{{ zone-id }}`.
+    - С быстрым сетевым хранилищем (`{{ disk-type-example }}`) объемом 20 ГБ.
+    - С паролем `esadminpwd` для пользователя `admin`.
+
+    Запустите следующую команду:
+
+    ```bash
+    {{ yc-mdb-es }} cluster create \
+       --name my-es-clstr \
+       --environment production \
+       --network-name default \
+       --host zone-id={{ zone-id }},assign-public-ip=true,type=datanode \
+       --datanode-resource-preset {{ host-class }} \
+       --datanode-disk-type={{ disk-type-example }} \
+       --datanode-disk-size=20 \
+       --admin-password=esadminpwd \
+       --security-group-ids enpp2s8l3irhk5eromd7 \
+       --version 7.10
+    ```
+
+{% endlist %}
