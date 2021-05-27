@@ -13,7 +13,7 @@ _Статические ключи доступа_ — секретный клю
 
 {% if audience == "external" %}
       
-* [{{ ydb-name }}](../../../ydb/quickstart/aws-instrument/setup.md)
+* [{{ ydb-name }}](../../../ydb/quickstart/document-api/aws-setup.md)
       
 {% endif %}
 

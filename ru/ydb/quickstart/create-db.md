@@ -19,7 +19,7 @@
     {% if deploy != "arc" %}
 
     {% include [iam](../../_includes/iam/owner-warning.md) %}
-    
+
     {% endif %}
 
 1. Нажмите кнопку **Create database**.
@@ -41,6 +41,14 @@
     ![New database entrance](../_assets/db_ui_entrance_home_database.png)
 
 {% else if audience == "external" %}
+
+Вы можете создать базу данных в бессерверной (Serverless) конфигурации или с выделенными серверами (Dedicated). Подробнее о различиях в конфигурациях читайте в разделе [{#T}](../concepts/serverless_and_dedicated.md).
+
+{% note info %}
+
+Для работы в режиме совместимости с Amazon DynamoDB используйте бессерверную (Serverless) конфигурацию БД.
+
+{% endnote %}
 
 {% include [create-db-via-console](../_includes/create-db-via-console.md) %}
 

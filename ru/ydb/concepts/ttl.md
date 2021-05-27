@@ -58,7 +58,7 @@ expiration_time = valueof(ttl_column) + expire_after_seconds
 * [{{ ydb-short-name }} Python SDK](../getting_started/start_python.md).
 {% else %}
 * [YQL](../yql/reference/overview.md).
-* [Консольного клиента {{ ydb-short-name }}](../quickstart/examples-ydb-cli.md).
+* [Консольного клиента {{ ydb-short-name }}](../quickstart/yql-api/ydb-cli.md).
 * [{{ ydb-short-name }} Python SDK](https://github.com/yandex-cloud/ydb-python-sdk).
 {% endif %}
 
