@@ -71,6 +71,8 @@ items:
         href: solutions/ingress-cert-manager.md
       - name: Backup to Object Storage
         href: solutions/backup.md
+      - name: Integration with a corporate DNS zone
+        href: solutions/custom-dns.md
   - name: Concepts
     items:
       - name: Relationship between service resources
