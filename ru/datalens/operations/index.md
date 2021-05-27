@@ -34,6 +34,7 @@
 - [{#T}](chart/create-map-chart.md)
 - [{#T}](chart/create-table.md)
 - [{#T}](chart/create-pivot-table.md)
+- [{#T}](chart/create-indicator-chart.md)
 {% if audience != "internal" %} - [{#T}](chart/publish.md) {% endif %}
 - [{#T}](chart/manage-access.md) 
 
