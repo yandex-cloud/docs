@@ -12,7 +12,7 @@ _Статические ключи доступа_ — секретный клю
 * [{{ message-queue-name }}](/docs/message-queue/)
 
       
-* [{{ ydb-name }}](../../../ydb/quickstart/aws-instrument/setup.md)
+* [{{ ydb-name }}](../../../ydb/quickstart/document-api/aws-setup.md)
 
 #### См. также {#see-also}
 

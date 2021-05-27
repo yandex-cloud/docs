@@ -23,6 +23,9 @@ links:
       Развертывайте инфраструктуру удобными средствами управления облачными
       ресурсами
     href: infrastructure-management/
+  - title: Data Platform
+    description: Создавайте Data Platform с помощью Yandex.Cloud
+    href: dataplatform/
   - title: Сетевая маршрутизация
     description: Настройте статические маршруты и VPN для доступа к облачным ресурсам
     href: routing/

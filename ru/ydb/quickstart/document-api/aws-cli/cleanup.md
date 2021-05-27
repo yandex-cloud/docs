@@ -17,7 +17,7 @@
 
    Результат выполнения:
 
-   ```bash
+   ```text
    {
       "TableDescription": {
          "AttributeDefinitions": [

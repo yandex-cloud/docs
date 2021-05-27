@@ -13,4 +13,12 @@
 ## Создайте базу данных {#control-plane}
 
 
+Вы можете создать базу данных в бессерверной (Serverless) конфигурации или с выделенными серверами (Dedicated). Подробнее о различиях в конфигурациях читайте в разделе [{#T}](../concepts/serverless_and_dedicated.md).
+
+{% note info %}
+
+Для работы в режиме совместимости с Amazon DynamoDB используйте бессерверную (Serverless) конфигурацию БД.
+
+{% endnote %}
+
 {% include [create-db-via-console](../_includes/create-db-via-console.md) %}

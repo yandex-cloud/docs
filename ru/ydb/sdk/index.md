@@ -10,7 +10,7 @@
 * Для [NodeJS](https://github.com/yandex-cloud/ydb-nodejs-sdk/tree/master/examples/basic-example-v1)
 
 
-Чтобы запустить приложение, необходимо подключиться к базе данных. Подробнее читайте в разделе [{#T}](../quickstart/launch-test-app.md).
+Чтобы запустить приложение, необходимо подключиться к базе данных. Подробнее читайте в разделе [{#T}](../quickstart/yql-api/ydb-sdk.md#connect-to-db).
 
 
 После запуска и выполнения приложения в консоли отобразится следующий результат:

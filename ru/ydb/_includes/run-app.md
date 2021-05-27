@@ -1,4 +1,4 @@
-Чтобы подключиться к базе и запустить тестовое приложение:
+Чтобы установить и запустить тестовое приложение:
 
 {% list tabs %}
 
@@ -11,37 +11,37 @@
       sudo pip3 install iso8601 ydb yandexcloud
       ```
 
-  1. Создайте авторизованный ключ для вашего сервисного аккаунта, запишите его в файл [с помощью CLI](../../iam/operations/iam-token/create-for-sa#via-cli):
+  1. Создайте авторизованный ключ для вашего сервисного аккаунта и сохраните его в файл [с помощью CLI](../../iam/operations/iam-token/create-for-sa#via-cli):
+      1. Посмотрите описание команды:
 
-     1. Посмотрите описание команды:
-        
-        ```bash
-        yc iam key create --help
-        ```
-     1. Выполните команду, указав следующие параметры:
+          ```bash
+          yc iam key create --help
+          ```
 
-        * `folder-id` — идентификатор каталога.
-        * `service-account-name` — имя сервисного аккаунта.
+      1. Выполните команду:
 
-        ```bash
-        yc iam key create --folder-id b1geoelk7fldts6chmjq --service-account-name sa-ydb-user --output ~/.ydb/sa_name.json
-        ```
+          ```bash
+          yc iam key create \
+            --folder-id <идентификатор каталога> \
+            --service-account-name <имя сервисного аккаунта> \
+            --output ~/.ydb/sa_name.json
+          ```
 
   1. Установите переменную окружения `SA_KEY_FILE`:
 
-     ```bash
-     export SA_KEY_FILE=~/.ydb/sa_name.json
-     ```
+      ```bash
+      export SA_KEY_FILE=~/.ydb/sa_name.json
+      ```
 
-     {% note info %}
+      {% note info %}
 
-     Для подключения к YDB Dedicated базе установите переменную окружения с сертификатом:
+      Для подключения к {{ ydb-short-name }} Dedicated базе установите переменную окружения с сертификатом:
 
       ```bash
       export YDB_SSL_ROOT_CERTIFICATES_FILE=~/.ydb/CA.pem
       ```
 
-     {% endnote %}
+      {% endnote %}
 
   1. Запустите тестовое приложение `basic_example_v1` из репозитория `ydb-python-sdk`, указав в качестве параметров запуска значения:
 
@@ -91,13 +91,14 @@
       ```
 
   1. Получите IAM-токен для необходимого сервисного аккаунта [с помощью CLI](../../iam/operations/iam-token/create-for-sa#via-cli):
-     
+
      1. Посмотрите описание команды:
-        
+
         ```bash
         yc iam key create --help
         ```
-     1. Выполните команду: 
+
+     1. Выполните команду:
 
         ```bash
         yc iam key create --service-account-name sa_name -o  ~/.ydb/sa_name.json
@@ -152,10 +153,11 @@
   1. Получите IAM-токен для необходимого сервисного аккаунта [с помощью CLI](../../iam/operations/iam-token/create-for-sa#via-cli):
 
      1. Посмотрите описание команды:
-        
+
         ```bash
         yc iam key create --help
         ```
+
      1. Выполните команду:
 
         ```bash
@@ -164,14 +166,14 @@
 
      {% note info %}
 
-     Для подключения к YDB Dedicated базе установите переменную окружения с сертификатом:
+     Для подключения к БД, работающей в режиме Dedicated, установите переменную окружения с сертификатом:
 
       ```bash
       export YDB_SSL_ROOT_CERTIFICATES_FILE=~/.ydb/CA.pem
       ```
 
      {% endnote %}
-     
+
   1. Установите переменные окружения, необходимые для аутентификации приложения:
 
       ```bash
@@ -181,6 +183,7 @@
       export DB=<база данных>
       export YDB_SDK_LOGLEVEL=debug
       ```
+
       Где:
 
       * `SA_JSON_FILE` — локальный путь к файлу с IAM токеном.
@@ -242,19 +245,19 @@
   1. Соберите тестовое приложение. Для этого:
 
      1. Склонируйте репозиторий [YDB Java SDK](https://github.com/yandex-cloud/ydb-java-sdk):
-        
+
         ```bash
         git clone https://github.com/yandex-cloud/ydb-java-sdk.git
         ```
 
      1. Перейдите в директорию с тестовым приложением `ydb-java-sdk/examples/maven_project`:
-        
+
         ```bash
         cd ydb-java-sdk/examples/maven_project
         ```
 
      1. Соберите его:
-        
+
         ```bash
         mvn package
         ```
@@ -262,10 +265,11 @@
   1. Создайте авторизованный ключ для вашего сервисного аккаунта, запишите его в файл [с помощью CLI](../../iam/operations/iam-token/create-for-sa#via-cli):
 
      1. Посмотрите описание команды:
-        
+
         ```bash
         yc iam key create --help
         ```
+
      1. Выполните команду, указав следующие параметры:
 
         * `folder-id` — идентификатор каталога.
