@@ -12,7 +12,7 @@ To install a package:
     %pip install seaborn
     ```
 
-    You can use various options that the [pip install](https://pip.pypa.io/en/stable/reference/pip_install/) command supports. See a [usage examples](https://pip.pypa.io/en/stable/reference/pip_install/#pip-install-examples) of the command.
+    You can use various options that the [pip install](https://pip.pypa.io/en/stable/cli/pip_install/) command supports. See a [usage examples](https://pip.pypa.io/en/stable/cli/pip_install/#pip-install-examples) of the command.
 
 1. Run the cell. To do this, click ![Run](../../_assets/datasphere/jupyterlab/run.svg).
 
