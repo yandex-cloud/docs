@@ -238,7 +238,7 @@ items:
     when: audience == "internal"
     items:
       - name: Быстрый старт
-        href: editor/editor-index.md
+        href: editor/index.md
       - name: Архитектура
         items:
           - name: Обзор
