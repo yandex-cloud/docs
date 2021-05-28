@@ -2,13 +2,13 @@
 
 {{ ml-platform-full-name }} is a machine learning (ML) development environment that combines the familiar Jupyter® Notebook interface, serverless computing technology, and seamless use of different computing resource configurations. {{ ml-platform-full-name }} helps significantly reduce the cost of machine learning compared to computing on your own hardware or other cloud platforms.
 
-If you never used Jupyter Notebook, try it: notebooks are convenient as they help you execute code sequentially and immediately visualize the results. Notebooks are also helpful for drafting analytical reports and papers: you can add explanations between code cells in [Markdown](https://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/Working%20With%20Markdown%20Cells.html).
+If you never used Jupyter Notebook, try it: notebooks are convenient as they help you execute code sequentially and immediately visualize the results. Notebooks are also convenient for drafting analytical reports and papers: you can add explanations between code cells in [Markdown](https://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/Working%20With%20Markdown%20Cells.html).
 
 ## Advantages of the service {#advantages}
 
 ### Ready-to-use development environment {#ready-to-use}
 
-You don't need to spend time creating and maintaining VMs: when you create a new [project](project.md), computing resources are automatically allocated for implementing it.
+You don't need to spend time creating and maintaining VMs: when you create a new [project](project.md), computing resources are automatically allocated for it.
 
 The VM comes ready with the JupyterLab development environment and pre-installed packages for data analysis and ML (such as TensorFlow, Keras, and NumPy), which you can start using immediately. The full list of [pre-installed packages](preinstalled-packages.md).
 
@@ -16,7 +16,7 @@ If you're missing a package, you can [install it](../operations/projects/install
 
 ### Automatic maintenance of computing resources {#auto-service}
 
-The service automatically manages resource allocation. If you don't perform any computations, no resources are allocated. If you use [early access](../early-access/index.md) features, the amount of vCPU and memory usage is shown directly in the notebook interface.
+The service automatically manages resource allocation. If you don't perform any computations, no resources are allocated. If you use [early access](../early-access/index.md) features, your vCPU and memory usage are shown directly in the notebook interface.
 
 ### Saving states at shutdown {#save-state}
 
@@ -43,6 +43,10 @@ For more information about service limits, see [{#T}](limits.md).
 ## Early access mode {#early-access}
 
 Try out new {{ ml-platform-name }} features before they are released in [early access mode](../early-access/index.md) and tell us what you think about them.
+
+## Contacting support from the service {#support}
+
+{% include [include](../../_includes/datasphere/notebook-support.md) %}
 
 #### See also {#see-also}
 

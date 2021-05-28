@@ -43,7 +43,7 @@
 
 {% include [include](../_includes/datasphere/notebook-support.md) %}
 
-## Что дальше {what-is-next}
+## Что дальше {#what-is-next}
 
 - [Узнайте об особенностях сервиса](concepts/index.md).
 - [Поделитесь ссылкой на ноутбук со всеми результатами](operations/projects/publication.md).
