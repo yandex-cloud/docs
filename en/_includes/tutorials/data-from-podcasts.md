@@ -5,15 +5,15 @@ Podcast analytics lets you get and analyze podcast listening statistics and data
 
 To visualize and analyze the data, follow these steps:
 
-1. [Set up a connection](#step-1).
+1. [Set up a connection](#сonfigure-connection).
     1. [Before you start](#before-you-begin).
     1. [Create a connection](#create-connection).
     1. [Analyze podcast statistics in DataLens](#podcasts-in-datalens).
-1. [Edit a chart and dashboard, and create new ones](#step-2).
+1. [Edit a chart and dashboard, and create new ones](#edit-dashboard-chart).
     1. [Edit the dashboard](#changing-dashboard).
     1. [Edit the chart](#changing-chart).
     1. [Create a new chart and add it to the dashboard](#creating-chart).
-1. [Share podcast analytics with other users](#step-3).
+1. [Share podcast analytics with other users](#share-analytics).
     1. [Grant access to DataLens](#open-access).
     1. [Share analytics on a particular podcast or episode](#share-analytics-on-podcast-or-episode).
         1. [Restrict shared access ](#restrict-access).
@@ -21,12 +21,12 @@ To visualize and analyze the data, follow these steps:
         1. [Grant access to your DataLens instance](#access-to-datalens-instance).
         1. [Grant an individual user limited access to data](#provide-access-to-podcast-episode).
     1. [Revoke a user's permissions](#revoke-access).
-1. [Make a dashboard or chart public](#step4).
-1. [Add a chart or dashboard to your website](#step5).
+1. [Make a dashboard or chart public](#publish-dashboard-chart).
+1. [Add a chart or dashboard to your website](#add-dashboard-chart).
 
 We recommend that you read the [Questions and answers](#qa) section to see the answers to common questions from users of Yandex Music podcast statistics.
 
-## Step 1. Set up a connection {#step-1}
+## 1. Set up a connection {#сonfigure-connection}
 
 ### 1.1 Before you start {#before-you-begin}
 
@@ -42,25 +42,31 @@ To open DataLens, prepare the cloud:
 - New user
 
    If you want to use Yandex DataLens for podcast analysis only:
+
    1. Open the [service home page](https://datalens.yandex.com).
-   1. Click **Activate {{ datalens-full-name }}**. Select a cloud to create an instance of {{ datalens-full-name }}.
+
+   1. In the upper-right corner, check that you are logged in to the correct account.
+
+   1. Select the **default** folder to create an instance of {{ datalens-full-name }}. Click **Activate {{ datalens-short-name }}**.
+
+        ![image](../../_assets/datalens/solution-10/32-choose-catalog.png)
+
    1. The {{ datalens-full-name }} home page opens.
 
 - I'm already using {{ datalens-full-name }}
 
    If you're already using {{ datalens-full-name }} for various purposes:
    1. Open the [service home page](https://datalens.yandex.com).
+   1. In the upper-right corner, check that you are logged in to the correct account.
    1. The {{ datalens-full-name }} home page opens.
 
 {% endlist %}
-
-Proceed to creating a [connection and a standard dashboard](#create-dashboard).
 
 ### 1.2. Create a connection {#create-connection}
 
 {% note warning %}
 
-Creating a connection and working with podcast analytics is available to users who have permission to a podcast in Yandex Music. If you don't have access to any podcast, no data will be displayed on the dashboard.
+Creating a connection and working with podcast analytics is available to users who have permissions to a podcast in Yandex Music. If you don't have access to any podcast, no data will be displayed on the dashboard.
 
 You'll get access if you upload a podcast to Yandex Music. The podcast is linked to the Yandex email address specified when uploading it.
 
@@ -68,29 +74,35 @@ You'll get access if you upload a podcast to Yandex Music. The podcast is linked
 
 1. Follow the link you received in the email and fill out the form for your connection.
 
-1. Enter a name for the connection like **My Podcast** (or any other).
+1. Enter a name for the connection like **My Podcast** (it can be anything).
 
-1. Click **Get key**. If this is your first connection to a Yandex Music  podcast, grant the necessary permissions to the service.
+1. Click **Get key**. If this is your first connection to a Yandex Music podcast, grant the necessary permissions to the service.
 
     ![image](../../_assets/datalens/solution-10/30-get-key-oauth.png)
 
-1. Check that the settings are correct by clicking **Check connection**. If the verification fails, make sure that your current account has access to podcasts.
+1. Check that the settings are correct by clicking **Check connection**. If verification fails, make sure that your current account has access to podcasts.
 
 1. After successfully checking the connection, click **Create**.
 
 ### 1.3. Analyze podcast statistics in {{ datalens-short-name }} {#podcasts-in-datalens}
 
 1. When the connection is created, a folder containing a set of standard objects that your statistics are based on opens:
-    * ![image](../../_assets/datalens/solution-10/04-music-connection.png =20x20) Connection is a set of parameters for accessing podcast data. This is the key that the user needs to open the statistics.
+
+    ![image](../../_assets/datalens/solution-10/02-dashboard.png =20x20) **Yandex Music podcast analytics** dashboard is the main page with a set of widgets (charts, tables, and filters) where you can view the statistics. To quickly access the dashboard, save the page link to a convenient location.
+
+    {% cut "Other objects" %}
+    * ![image](../../_assets/datalens/solution-10/04-music-connection.png =20x20) A connection is a set of parameters for accessing podcast data. This is the key that the user needs to open the statistics.
     * ![image](../../_assets/datalens/solution-10/03-datasets.png =20x20) Datasets are sets of dimensions and measures that are used for creating charts.
         * Dataset **D01. Podcast listens**: A dataset with listening statistics.
         * Dataset **D02. Podcast subscribers**: A dataset with data on subscribers.
     * ![image](../../_assets/datalens/solution-10/01-charts.png =20x20) Charts are sets of individual visualizations in the form of diagrams and tables used on the dashboard.
-    * ![image](../../_assets/datalens/solution-10/02-dashboard.png =20x20) **Yandex Music podcast analytics** dashboard is the main page with a set of widgets (charts, tables, and filters) where you can view the statistics.
+    * ![image](../../_assets/datalens/solution-10/02-dashboard.png =20x20) The **Metrica Live Demo Dashboard** and **Sales Dashboard** are demo dashboards that may open in your connection. You can delete them if you wish.
+
+    {% endcut %}
 
 1. Open the **Yandex Music podcast analytics** dashboard.
    1. The dashboard contains four tabs:
-    * Listens: General listening statistics, listening dynamics, statistics on the number of times individual episodes were listened to and distribution of listening by day of week and time of day.
+    * Listens: General listening statistics, listening dynamics, statistics on the number of times individual episodes were listened to, and distribution of listening by day of week and time of day.
     * Audience: Podcast audience statistics, including socio-demographic data on listeners.
     * Subscribers: Audience statistics, subscribe/unsubscribe dynamics, and socio-demographic data on subscribers.
     * Reference: A reference on estimated measures and terms used in data and dashboards.
@@ -99,19 +111,23 @@ You'll get access if you upload a podcast to Yandex Music. The podcast is linked
    1. Each tab contains:
     * Test widgets: Headers, comments, and hints.
     * Selectors: Filters by different dimensions that can be used to filter the contents of dashboards.
-    * Charts: Graphs, tables, and other means of visualization.
+    * Charts: Graphs, tables, and other visualizations.
 
     ![image](../../_assets/datalens/solution-10/06-dashboard-elements.png)
 
 You can edit it and add standard objects as you wish. For example, delete an unnecessary chart from the dashboard or add a new one, change an existing chart, or add a selector to the dashboard.
 
-## Step 2. Edit a dashboard and chart, and create new ones {#step-2}
+## 2. Edit a dashboard and chart, and create new ones {#edit-dashboard-chart}
 
 ### 2.1. Edit a dashboard {#changing-dashboard}
 
-You can change the order of charts and selectors, increase or decrease them, discard some data and, vice versa, put together the most necessary information.
+You can change the order of charts and selectors, increase or decrease them, discard some data and, vice versa, put together the most necessary information. Try to edit the dashboard after making a copy of it:
 
-1. Open the **Yandex Music podcast analytics** dashboard and go to the **Audience** tab.
+1. In the menu on the left, go to the **Dashboards** section.
+
+1. Next to the **Yandex Music podcast analytics** dashboard, click ![image](../../_assets/datalens/horizontal-ellipsis-black.svg) and select **Copy**.
+
+1. Open the dashboard copy and go to the **Audience** tab.
 
 1. Click **Edit** in the upper-right corner.
 
@@ -147,7 +163,7 @@ You can change the order of charts and selectors, increase or decrease them, dis
 
 ### 2.2. Edit a chart {#changing-chart}
 
-You can edit and configure any charts. Let's say we want to see on the chart the relative activity of listeners of different genders during the day. 
+You can edit and configure any charts. Let's say we want to see on the chart the relative activity of listeners of different genders during the day.
 
 1. Open the **Yandex Music podcast analytics** dashboard and go to the **Listens** tab.
 
@@ -159,7 +175,7 @@ You can edit and configure any charts. Let's say we want to see on the chart the
 
 1. The chart configuration area (wizard) consists of three main parts:
    * A selection panel with a list of available dimensions and measures for creating a chart.
-   * A visualization setup panel with various sections that you can use to configure your chart.
+   * A visualization settings panel with various sections that you can use to configure your chart.
    * Chart preview.
 
    ![image](../../_assets/datalens/solution-10/13-chart-elements.png)
@@ -182,9 +198,9 @@ Refresh the dashboard page to apply the chart changes.
 
 ### 2.3. Create a new chart and add it to the dashboard {#creating-chart}
 
-Let's say we want to build a chart with the total number of stream listening times over the entire period.
+Let's say we want to build a chart with the total number of times streams were listened to over the entire period.
 
-1. Open the [service home page](https://datalens.yandex.ru).
+1. Open the [service home page](https://datalens.yandex.com).
 
 1. Click **Create chart**.
 
@@ -242,7 +258,7 @@ Let's say we want to build a chart with the total number of stream listening tim
 
    ![image](../../_assets/datalens/solution-10/22-add-chart.png)
 
-## Step 3. Share podcast analytics {#step-3}
+## 3. Share podcast analytics {#share-analytics}
 
 ### 3.1. Grant access to {{ datalens-short-name }} {#open-access}
 
@@ -331,17 +347,16 @@ Choose which data you want to restrict access to:
 
         ![image](../../_assets/datalens/solution-10/27-podcast-access-dataset.png)
 
-    1. In the **Configuring access rights for a field** window, set a filter like:
-`* : my-login@yandex.ru`
+    1. In the **Configuring access rights for a field** window, set a filter like:`* : my-login@yandex.com`
 where:
         * `*`: Access to all podcasts.
-        * `my-login@yandex.ru`: Your username.
+        * `my-login@yandex.com`: Your username.
 
          ![image](../../_assets/datalens/solution-10/26-podcast-access-for-field.png)
 
-    1. Click **Save**. Once you save the dataset, its data will only be available to one user: `my-login@yandex.ru`.
+    1. Click **Save**. Once you save the dataset, its data will only be available to one user: `my-login@yandex.com`.
 
-    1. If necessary, specify the comma-separated usernames of the other users who need permission to all podcasts and episodes. For example, `* : my-login@yandex.ru, friend-login@yandex.ru`.
+    1. If necessary, specify the comma-separated usernames of the other users who need permission to all podcasts and episodes. For example, `* : my-login@yandex.com, friend-login@yandex.com`.
 
 - Episodes
 
@@ -351,17 +366,16 @@ where:
 
         ![image](../../_assets/datalens/solution-10/26-podcast-access-dataset.png)
 
-    1. In the **Configuring access rights for a field** window, set a filter like:
-`* : my-login@yandex.ru`
+    1. In the **Configuring access rights for a field** window, set a filter like:`* : my-login@yandex.com`
 where:
         * `*`: Access to all episodes.
-        * `my-login@yandex.ru`: Your username.
+        * `my-login@yandex.com`: Your username.
 
         ![image](../../_assets/datalens/solution-10/28-podcast-access-for-field.png)
 
-    1. Click **Save**. Once you save the dataset, its data will only be available to one user: `my-login@yandex.ru`.
+    1. Click **Save**. Once you save the dataset, its data will only be available to one user: `my-login@yandex.com`.
 
-    1. If necessary, specify the comma-separated usernames of the other users who need permission to all podcasts and episodes. For example, `* : my-login@yandex.ru, friend-login@yandex.ru`.
+    1. If necessary, specify the comma-separated usernames of the other users who need permission to all podcasts and episodes. For example, `* : my-login@yandex.com, friend-login@yandex.com`.
 
 {% endlist %}
 
@@ -395,11 +409,10 @@ To grant a user access to your {{ datalens-short-name }} instance:
 
             ![image](../../_assets/datalens/solution-10/26-podcast-access-dataset.png)
 
-        1. In the **Configuring permissions for a field** window, set a filter like:
-`'The most interesting podcast': partner-login@yandex.ru`
+        1. In the **Configuring permissions for a field** window, set a filter like:`'The most interesting podcast': partner-login@yandex.com`
 where:
             * `The most interesting podcast`: The name of the podcast.
-            * `partner-login@yandex.ru`: A partner's username.
+            * `partner-login@yandex.com`: A partner's username.
 
             ![image](../../_assets/datalens/solution-10/29-podcast-rls.png)
 
@@ -411,11 +424,10 @@ where:
 
             ![image](../../_assets/datalens/solution-10/27-podcast-access-dataset.png)
 
-        1. In the **Configuring permissions for a field** window, set a filter like:
-`'Episode No. 5': partner-login@yandex.ru`
+        1. In the **Configuring permissions for a field** window, set a filter like:`'Episode No. 5': partner-login@yandex.com`
 where:
             * `Episode No. 5`: The name of the episode.
-            * `partner-login@yandex.ru`: A partner's username.
+            * `partner-login@yandex.com`: A partner's username.
 
             ![image](../../_assets/datalens/solution-10/29-episode-rls.png)
 
@@ -443,10 +455,10 @@ If necessary, you can revoke a user's permissions:
 1. Select the user to revoke permissions from.
 1. In the window that opens, click **Revoke permissions**.
 1. To completely disable the user's access to your dashboard with podscaster statistics:
-    1. Go to **Access control**.
+    1. Open the page [Access control]({{ link-console-access-management }}).
     1. Find the user, click the icon next to the new user, and select **Delete**.
 
-## Step 4. Make a dashboard or chart public {#step4}
+## 4. Make a dashboard or chart public {#publish-dashboard-chart}
 
 Data in {{ datalens-short-name }} is only available to users of a specific instance. If you want to provide unlimited public access to podcast analytics, publish a dashboard or a particular chart in [DataLens Public](../../datalens/concepts/datalens-public.md).
 
@@ -469,7 +481,7 @@ Data in {{ datalens-short-name }} is only available to users of a specific insta
 
 {% endlist %}
 
-## Step 5. Add a chart or dashboard to your website {#step5}
+## 5. Add a chart or dashboard to your website {#add-dashboard-chart}
 
 You can embed the published charts into a website or app using the `iframe` element. To do this:
 
@@ -492,7 +504,7 @@ You can only embed individual charts. Embedding the entire dashboard is not supp
 
 {% endcut %}
 
-{% cut "Some people I know definitely listed to a podcast, but the data in statistics doesn't reflect this. Why?" %}    
+{% cut "Some people I know definitely listed to a podcast, but the data in statistics doesn't reflect this. Why?" %}   
 
   Data is updated daily at 13:00. If someone listens to a podcast after this time, the data will only appear in the statistics the next day. Playbacks of less than 1 second are not included in the statistics.
 
@@ -506,13 +518,13 @@ You can only embed individual charts. Embedding the entire dashboard is not supp
 
 {% cut "Why don't some episodes of my podcast appear in the statistics?" %}
 
-   The statistics only show releases that are already listened to. If you don't see a certain release at the moment, it will appear on charts later as soon as it is listened to for the first time.
+   The statistics only show episodes that were already listened to. If you don't see a certain episode at the moment, it will appear on charts later as soon as it is listened to for the first time.
 
 {% endcut %}
 
 {% cut "Can I see editorial promos in statistics?" %}
 
-   Promotion periods and promo titles aren't displayed in the statistics separately, but a sharp increase in listening may indicate that the podcast got a promo.
+   Promo periods and titles aren't displayed in the statistics separately, but a sharp increase in listens may indicate that the podcast was promoted.
 
 {% endcut %}
 
@@ -530,7 +542,7 @@ You can only embed individual charts. Embedding the entire dashboard is not supp
 
 {% cut "Why are chart settings so complicated?" %}
 
-   {{ datalens-short-name }} is a full-fledged data analysis and visualization tool. Use its rich set of settings to create different types of visualization that meet a variety of user requirements.
+   {{ datalens-short-name }} is a full-fledged data analysis and visualization tool. Use its rich set of settings to create different types of visualizations that meet all kinds of user requirements.
 
 {% endcut %}
 

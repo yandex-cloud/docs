@@ -4,12 +4,11 @@
 
 To create an AppMetrica connection:
 
-
 1. Go to the [connections page](https://datalens.yandex.com/connections).
 
 1. Click **Create** and select **Connection**.
 
-1. Select the **AppMetrica** connection.
+1. Select **AppMetrica** as the connection type.
 
 1. In the field next to the folder name, enter the connection name. You can set any name.
 
@@ -17,7 +16,7 @@ To create an AppMetrica connection:
 
     - **OAuth token**. Click **Get token** or enter the [OAuth token](#get-oauth-token) manually to access the AppMetrica data.
 
-    - **App**. Specify the app to connect to.
+    - **App**. Specify one or more applications to connect to. You can select them from the list or enter them manually separated by commas.
 
     - **Accuracy**. Set the data accuracy (sampling rate). You can change accuracy after you create the connection.
 

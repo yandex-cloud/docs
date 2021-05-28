@@ -24,13 +24,17 @@ In this section, you'll learn how to:
 
 {% include [include](../_includes/datasphere/install-dependencies-steps.md) %}
 
-## Increase a cell's computing resources {#control-compute-resources}
+## Increase computing resources for your cell {#control-compute-resources}
 
 {% include [include](../_includes/datasphere/control-compute-resources-intro.md) %}
 
 {% include [include](../_includes/datasphere/control-compute-resources-steps.md) %}
 
-## What's next {what-is-next}
+## Contact support in the service {#support}
+
+{% include [include](../_includes/datasphere/notebook-support.md) %}
+
+## What's next {#what-is-next}
 
 - [Learn about service features](concepts/index.md).
 - [Share a link to the notebook with all the results](operations/projects/publication.md).
