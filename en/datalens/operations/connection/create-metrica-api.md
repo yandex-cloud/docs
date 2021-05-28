@@ -2,21 +2,13 @@
 
 ## Connecting to Yandex.Metrica {#metrica-connection}
 
-To create a Metrica connection:
-
-{% if audience == "internal" %}
-
-1. Go to the [connections page](https://datalens.yandex-team.ru/connections).
-
-{% else %}
+To create a Yandex.Metrica connection:
 
 1. Go to the [connections page](https://datalens.yandex.com/connections).
 
-{% endif %}
-
 1. Click **Create connection**.
 
-1. Select the **Metrica** connection.
+1. Select **Metrica** as the connection type.
 
 1. Specify the connection parameters:
 
@@ -24,7 +16,7 @@ To create a Metrica connection:
 
     - **OAuth token**. Click **Get token** or enter the [OAuth token](#get-oauth-token) manually to access the Yandex.Metrica data.
 
-    - **Tag**. Specify the tag to connect to.
+    - **Tag**. Specify one or more tracking tags to connect to. You can select them from the list or enter them manually separated by commas.
 
     - **Connection**. Choose **Direct access** as the connection type.
 
