@@ -59,9 +59,9 @@ items:
       - name: gRPC
         items:
           - name: Overview
-            href: grpc/index.md
+            href: api-ref/grpc/index.md
           - name: VisionService
-            href: grpc/vision_service.md
+            href: api-ref/grpc/vision_service.md
       - name: REST
         items:
           - name: Handling errors

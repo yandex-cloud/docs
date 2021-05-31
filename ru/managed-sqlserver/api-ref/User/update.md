@@ -9,7 +9,7 @@ Modifies the specified SQL Server user.
  
 ## HTTP request {#https-request}
 ```
-PATCH https://mdb.api.cloud.yandex.net/mdb/sqlserver/v1alpha/clusters/{clusterId}/users/{userName}
+PATCH https://mdb.api.cloud.yandex.net/mdb/sqlserver/v1/clusters/{clusterId}/users/{userName}
 ```
  
 ## Path parameters {#path_params}

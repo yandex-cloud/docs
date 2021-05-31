@@ -9,7 +9,7 @@ Retrieves the list of available backups for the specified MySQL cluster.
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.api.cloud.yandex.net/managed-mysql/v1alpha/clusters/{clusterId}/backups
+GET https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters/{clusterId}/backups
 ```
  
 ## Path parameters {#path_params}

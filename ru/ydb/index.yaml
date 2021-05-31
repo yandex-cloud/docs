@@ -72,4 +72,4 @@ links:
     href: docapi/api-ref/index
   - title: Правила тарификации
     description: Цены и правила расчета стоимости услуг сервиса
-    href: pricing/serverless
+    href: pricing

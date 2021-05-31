@@ -9,7 +9,7 @@ Deletes the specified SQL Server database.
  
 ## HTTP request {#https-request}
 ```
-DELETE https://mdb.api.cloud.yandex.net/mdb/sqlserver/v1alpha/clusters/{clusterId}/databases/{databaseName}
+DELETE https://mdb.api.cloud.yandex.net/mdb/sqlserver/v1/clusters/{clusterId}/databases/{databaseName}
 ```
  
 ## Path parameters {#path_params}

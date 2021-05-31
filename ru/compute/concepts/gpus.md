@@ -21,6 +21,8 @@ keywords:
 
 {% endnote %}
 
+По умолчанию в облаке установлена нулевая [квота](../concepts/limits.md#quotas) на создание виртуальных машин с GPU и vGPU. Чтобы изменить квоту, обратитесь в [техническую поддержку]({{ link-console-support }}).
+
 ## Графические ускорители (GPU)
 
 Графическая карта NVIDIA® Tesla® V100 содержит 5120 ядер CUDA®, позволяющих выполнять [высокопроизводительные вычисления](https://www.nvidia.com/ru-ru/high-performance-computing/) (High Performance Computing, HPC), а также 640 ядер Tensor, позволяющих решать задачи глубокого обучения (Deep Learning, DL).

@@ -30,6 +30,9 @@ A set of methods for managing serverless functions.
 | [ListAccessBindings](#ListAccessBindings) | Lists existing access bindings for the specified function. |
 | [SetAccessBindings](#SetAccessBindings) | Sets access bindings for the function. |
 | [UpdateAccessBindings](#UpdateAccessBindings) | Updates access bindings for the specified function. |
+| [ListScalingPolicies](#ListScalingPolicies) | Lists existing scaling policies for specified function |
+| [SetScalingPolicy](#SetScalingPolicy) | Set scaling policy for specified function and tag |
+| [RemoveScalingPolicy](#RemoveScalingPolicy) | Remove scaling policy for specified function and tag |
 
 ## Calls FunctionService {#calls}
 
@@ -71,7 +74,7 @@ Retrieves the list of functions in the specified folder.
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder to list functions in. <br>To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. 
+folder_id | **string**<br>Required. ID of the folder to list functions in. <br>To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. 
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `pageSize`, the service returns a [ListFunctionsResponse.next_page_token](#ListFunctionsResponse) that can be used to get the next page of results in subsequent list requests. <br>Default value: 100. 
 page_token | **string**<br>Page token. To get the next page of results, set `pageToken` to the [ListFunctionsResponse.next_page_token](#ListFunctionsResponse) returned by a previous list request. 
 filter | **string**<br><ol><li>The field name. Currently filtering can only be applied to the [Function.name](#Function1) field. </li><li>A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`. </li></ol> 
@@ -114,7 +117,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder to create a function in. <br>To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. 
+folder_id | **string**<br>Required. ID of the folder to create a function in. <br>To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. 
 name | **string**<br>Name of the function. The name must be unique within the folder. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br>Description of the function. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
@@ -470,7 +473,7 @@ Retrieves the list of versions for the specified function, or of all function ve
 Field | Description
 --- | ---
 id | **oneof:** `folder_id` or `function_id`<br>
-&nbsp;&nbsp;folder_id | **string**<br>ID of the folder to list function versions for. To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. 
+&nbsp;&nbsp;folder_id | **string**<br>ID of the folder to list function versions for. To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. 
 &nbsp;&nbsp;function_id | **string**<br>ID of the function to list versions for. To get a function ID use a [FunctionService.List](#List) request. 
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `pageSize`, the service returns a [ListFunctionsVersionsResponse.next_page_token](#ListFunctionsVersionsResponse) that can be used to get the next page of results in subsequent list requests. <br>Default value: 100. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token. To get the next page of results, set `pageToken` to the [ListFunctionsVersionsResponse.next_page_token](#ListFunctionsVersionsResponse) returned by a previous list request. The maximum string length in characters is 100.
@@ -533,7 +536,7 @@ Deprecated. Use [ListVersions](#ListVersions).
 Field | Description
 --- | ---
 id | **oneof:** `folder_id` or `function_id`<br>
-&nbsp;&nbsp;folder_id | **string**<br>ID of the folder to list function versions for. To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. 
+&nbsp;&nbsp;folder_id | **string**<br>ID of the folder to list function versions for. To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. 
 &nbsp;&nbsp;function_id | **string**<br>ID of the function to list versions for. To get a function ID use a [FunctionService.List](#List) request. 
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `pageSize`, the service returns a [ListFunctionsVersionsResponse.next_page_token](#ListFunctionsVersionsResponse) that can be used to get the next page of results in subsequent list requests. <br>Default value: 100. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token. To get the next page of results, set `pageToken` to the [ListFunctionsVersionsResponse.next_page_token](#ListFunctionsVersionsResponse) returned by a previous list request. The maximum string length in characters is 100.
@@ -1110,7 +1113,7 @@ Lists existing access bindings for the specified function.
 
 Field | Description
 --- | ---
-resource_id | **string**<br>Required. ID of the resource to list access bindings for. <br>To get the resource ID, use a corresponding List request. For example, use the [yandex.cloud.resourcemanager.v1.CloudService.List](/docs/resource-manager/grpc/cloud_service#List) request to get the Cloud resource ID. The maximum string length in characters is 50.
+resource_id | **string**<br>Required. ID of the resource to list access bindings for. <br>To get the resource ID, use a corresponding List request. For example, use the [yandex.cloud.resourcemanager.v1.CloudService.List](/docs/resource-manager/api-ref/grpc/cloud_service#List) request to get the Cloud resource ID. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page that should be returned. If the number of available results is larger than `page_size`, the service returns a [ListAccessBindingsResponse.next_page_token](#ListAccessBindingsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
 page_token | **string**<br>Page token. Set `page_token` to the [ListAccessBindingsResponse.next_page_token](#ListAccessBindingsResponse) returned by a previous list request to get the next page of results. The maximum string length in characters is 100.
 
@@ -1259,5 +1262,136 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 Field | Description
 --- | ---
 resource_id | **string**<br>ID of the resource for which access bindings are being updated. 
+
+
+## ListScalingPolicies {#ListScalingPolicies}
+
+Lists existing scaling policies for specified function
+
+**rpc ListScalingPolicies ([ListScalingPoliciesRequest](#ListScalingPoliciesRequest)) returns ([ListScalingPoliciesResponse](#ListScalingPoliciesResponse))**
+
+### ListScalingPoliciesRequest {#ListScalingPoliciesRequest}
+
+Field | Description
+--- | ---
+function_id | **string**<br>Required. ID of the function to retrieve scaling policies for. <br>To get a function ID, make a [FunctionService.List](#List) request. 
+page_size | **int64**<br>The maximum number of results per page that should be returned. If the number of available results is larger than `pageSize`, the service returns a [ListScalingPoliciesResponse.next_page_token](#ListScalingPoliciesResponse) that can be used to get the next page of results in subsequent list requests. <br>Default value: 100. Acceptable values are 0 to 1000, inclusive.
+page_token | **string**<br>Page token. To get the next page of results, set `pageToken` to the [ListScalingPoliciesResponse.next_page_token](#ListScalingPoliciesResponse) returned by a previous list request. The maximum string length in characters is 100.
+
+
+### ListScalingPoliciesResponse {#ListScalingPoliciesResponse}
+
+Field | Description
+--- | ---
+scaling_policies[] | **[ScalingPolicy](#ScalingPolicy)**<br>Set of relevant scaling policies. 
+next_page_token | **string**<br>Token for getting the next page of the list. If the number of results is greater than the specified [ListScalingPoliciesRequest.page_size](#ListScalingPoliciesRequest), use `nextPageToken` as the value for the [ListScalingPoliciesRequest.page_token](#ListScalingPoliciesRequest) parameter in the next list request. <br>Each subsequent page will have its own `nextPageToken` to continue paging through the results. 
+
+
+### ScalingPolicy {#ScalingPolicy}
+
+Field | Description
+--- | ---
+function_id | **string**<br>ID of the function that the scaling policy belongs to. 
+tag | **string**<br>Tag of the version that the scaling policy belongs to. For details, see [Version tag](/docs/functions/concepts/function#tag). 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp for the scaling policy 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Modification timestamp for the scaling policy 
+zone_instances_limit | **int64**<br>Upper limit for instance count in each zone. 0 means no limit. 
+zone_requests_limit | **int64**<br>Upper limit of requests count in each zone. 0 means no limit. 
+
+
+## SetScalingPolicy {#SetScalingPolicy}
+
+Set scaling policy for specified function and tag
+
+**rpc SetScalingPolicy ([SetScalingPolicyRequest](#SetScalingPolicyRequest)) returns ([operation.Operation](#Operation10))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[SetScalingPolicyMetadata](#SetScalingPolicyMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[ScalingPolicy](#ScalingPolicy1)<br>
+
+### SetScalingPolicyRequest {#SetScalingPolicyRequest}
+
+Field | Description
+--- | ---
+function_id | **string**<br>Required. ID of the function to retrieve scaling policies for. <br>To get a function ID, make a [FunctionService.List](#List) request. 
+tag | **string**<br>Required. Version tag. <br>To get the history of version tags make a [FunctionService.ListTagHistory](#ListTagHistory) request. Value must match the regular expression ` [a-z][-_0-9a-z]*|[$]latest `.
+zone_instances_limit | **int64**<br>Upper limit for instance count in each zone. 0 means no limit. Acceptable values are 0 to 1000, inclusive.
+zone_requests_limit | **int64**<br>Upper limit of requests count in each zone. 0 means no limit. Acceptable values are 0 to 1000, inclusive.
+
+
+### Operation {#Operation10}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[SetScalingPolicyMetadata](#SetScalingPolicyMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[ScalingPolicy](#ScalingPolicy1)>**<br>if operation finished successfully. 
+
+
+### SetScalingPolicyMetadata {#SetScalingPolicyMetadata}
+
+Field | Description
+--- | ---
+function_id | **string**<br>ID of the function for which scaling policy was set. 
+
+
+### ScalingPolicy {#ScalingPolicy1}
+
+Field | Description
+--- | ---
+function_id | **string**<br>ID of the function that the scaling policy belongs to. 
+tag | **string**<br>Tag of the version that the scaling policy belongs to. For details, see [Version tag](/docs/functions/concepts/function#tag). 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp for the scaling policy 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Modification timestamp for the scaling policy 
+zone_instances_limit | **int64**<br>Upper limit for instance count in each zone. 0 means no limit. 
+zone_requests_limit | **int64**<br>Upper limit of requests count in each zone. 0 means no limit. 
+
+
+## RemoveScalingPolicy {#RemoveScalingPolicy}
+
+Remove scaling policy for specified function and tag
+
+**rpc RemoveScalingPolicy ([RemoveScalingPolicyRequest](#RemoveScalingPolicyRequest)) returns ([operation.Operation](#Operation11))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[RemoveScalingPolicyMetadata](#RemoveScalingPolicyMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
+
+### RemoveScalingPolicyRequest {#RemoveScalingPolicyRequest}
+
+Field | Description
+--- | ---
+function_id | **string**<br>Required. ID of the function to remove scaling policies for. <br>To get a function ID, make a [FunctionService.List](#List) request. 
+tag | **string**<br>Required. Version tag. <br>To get the history of version tags make a [FunctionService.ListTagHistory](#ListTagHistory) request. Value must match the regular expression ` [a-z][-_0-9a-z]*|[$]latest `.
+
+
+### Operation {#Operation11}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[RemoveScalingPolicyMetadata](#RemoveScalingPolicyMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>if operation finished successfully. 
+
+
+### RemoveScalingPolicyMetadata {#RemoveScalingPolicyMetadata}
+
+Field | Description
+--- | ---
+function_id | **string**<br>ID of the function for which scaling policy was removed. 
 
 

@@ -280,31 +280,31 @@ items:
       - name: gRPC
         items:
           - name: Overview
-            href: grpc/index.md
+            href: api-ref/grpc/index.md
           - name: DiskPlacementGroupService
-            href: grpc/disk_placement_group_service.md
+            href: api-ref/grpc/disk_placement_group_service.md
           - name: DiskService
-            href: grpc/disk_service.md
+            href: api-ref/grpc/disk_service.md
           - name: DiskTypeService
-            href: grpc/disk_type_service.md
+            href: api-ref/grpc/disk_type_service.md
           - name: HostGroupService
-            href: grpc/host_group_service.md
+            href: api-ref/grpc/host_group_service.md
           - name: HostTypeService
-            href: grpc/host_type_service.md
+            href: api-ref/grpc/host_type_service.md
           - name: ImageService
-            href: grpc/image_service.md
+            href: api-ref/grpc/image_service.md
           - name: InstanceService
-            href: grpc/instance_service.md
+            href: api-ref/grpc/instance_service.md
           - name: PlacementGroupService
-            href: grpc/placement_group_service.md
+            href: api-ref/grpc/placement_group_service.md
           - name: SnapshotService
-            href: grpc/snapshot_service.md
+            href: api-ref/grpc/snapshot_service.md
           - name: ZoneService
-            href: grpc/zone_service.md
+            href: api-ref/grpc/zone_service.md
           - name: InstanceGroupService
-            href: grpc/instance_group_service.md
+            href: api-ref/grpc/instance_group_service.md
           - name: OperationService
-            href: grpc/operation_service.md
+            href: api-ref/grpc/operation_service.md
       - name: REST
         items:
           - name: Overview
@@ -485,36 +485,36 @@ items:
             items:
               - name: Overview
                 href: api-ref/InstanceGroup/index.md
-              - name: createFromYaml
-                href: api-ref/InstanceGroup/createFromYaml.md
-              - name: update
-                href: api-ref/InstanceGroup/update.md
               - name: list
                 href: api-ref/InstanceGroup/list.md
               - name: get
                 href: api-ref/InstanceGroup/get.md
-              - name: delete
-                href: api-ref/InstanceGroup/delete.md
-              - name: start
-                href: api-ref/InstanceGroup/start.md
+              - name: listLogRecords
+                href: api-ref/InstanceGroup/listLogRecords.md
+              - name: updateFromYaml
+                href: api-ref/InstanceGroup/updateFromYaml.md
+              - name: updateAccessBindings
+                href: api-ref/InstanceGroup/updateAccessBindings.md
               - name: stop
                 href: api-ref/InstanceGroup/stop.md
+              - name: start
+                href: api-ref/InstanceGroup/start.md
+              - name: delete
+                href: api-ref/InstanceGroup/delete.md
+              - name: listInstances
+                href: api-ref/InstanceGroup/listInstances.md
+              - name: createFromYaml
+                href: api-ref/InstanceGroup/createFromYaml.md
+              - name: update
+                href: api-ref/InstanceGroup/update.md
+              - name: setAccessBindings
+                href: api-ref/InstanceGroup/setAccessBindings.md
+              - name: listOperations
+                href: api-ref/InstanceGroup/listOperations.md
               - name: create
                 href: api-ref/InstanceGroup/create.md
               - name: listAccessBindings
                 href: api-ref/InstanceGroup/listAccessBindings.md
-              - name: setAccessBindings
-                href: api-ref/InstanceGroup/setAccessBindings.md
-              - name: updateFromYaml
-                href: api-ref/InstanceGroup/updateFromYaml.md
-              - name: listLogRecords
-                href: api-ref/InstanceGroup/listLogRecords.md
-              - name: listInstances
-                href: api-ref/InstanceGroup/listInstances.md
-              - name: updateAccessBindings
-                href: api-ref/InstanceGroup/updateAccessBindings.md
-              - name: listOperations
-                href: api-ref/InstanceGroup/listOperations.md
   - name: Questions and answers
     items:
       - name: General questions

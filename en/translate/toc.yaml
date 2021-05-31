@@ -34,9 +34,9 @@ items:
       - name: gRPC
         items:
           - name: Overview
-            href: grpc/index.md
+            href: api-ref/grpc/index.md
           - name: TranslationService
-            href: grpc/translation_service.md
+            href: api-ref/grpc/translation_service.md
       - name: REST
         items:
           - name: v2

@@ -9,7 +9,7 @@ Deletes the specified MySQL cluster.
  
 ## HTTP request {#https-request}
 ```
-DELETE https://mdb.api.cloud.yandex.net/managed-mysql/v1alpha/clusters/{clusterId}
+DELETE https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters/{clusterId}
 ```
  
 ## Path parameters {#path_params}

@@ -9,7 +9,7 @@ To get the list of available MySQL backups, make a [list](/docs/managed-mysql/ap
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.api.cloud.yandex.net/managed-mysql/v1alpha/backups/{backupId}
+GET https://mdb.api.cloud.yandex.net/managed-mysql/v1/backups/{backupId}
 ```
  
 ## Path parameters {#path_params}

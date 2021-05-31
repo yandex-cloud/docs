@@ -9,7 +9,7 @@ Stops the specified MySQL cluster.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.api.cloud.yandex.net/managed-mysql/v1alpha/clusters/{clusterId}:stop
+POST https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters/{clusterId}:stop
 ```
  
 ## Path parameters {#path_params}

@@ -9,7 +9,7 @@ Retrieves the list of MySQL backups available for the specified folder.
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.api.cloud.yandex.net/managed-mysql/v1alpha/backups
+GET https://mdb.api.cloud.yandex.net/managed-mysql/v1/backups
 ```
  
 ## Query parameters {#query_params}

@@ -116,29 +116,29 @@ items:
       - name: gRPC
         items:
           - name: Overview
-            href: grpc/index.md
+            href: api-ref/grpc/index.md
           - name: ApiKeyService
-            href: grpc/api_key_service.md
+            href: api-ref/grpc/api_key_service.md
           - name: IamTokenService
-            href: grpc/iam_token_service.md
+            href: api-ref/grpc/iam_token_service.md
           - name: KeyService
-            href: grpc/key_service.md
+            href: api-ref/grpc/key_service.md
           - name: RoleService
-            href: grpc/role_service.md
+            href: api-ref/grpc/role_service.md
           - name: ServiceAccountService
-            href: grpc/service_account_service.md
+            href: api-ref/grpc/service_account_service.md
           - name: UserAccountService
-            href: grpc/user_account_service.md
+            href: api-ref/grpc/user_account_service.md
           - name: YandexPassportUserAccountService
-            href: grpc/yandex_passport_user_account_service.md
+            href: api-ref/grpc/yandex_passport_user_account_service.md
           - name: AccessKeyService
-            href: grpc/access_key_service.md
+            href: api-ref/grpc/access_key_service.md
           - name: CertificateService
-            href: grpc/certificate_service.md
+            href: api-ref/grpc/certificate_service.md
           - name: FederationService
-            href: grpc/federation_service.md
+            href: api-ref/grpc/federation_service.md
           - name: OperationService
-            href: grpc/operation_service.md
+            href: api-ref/grpc/operation_service.md
       - name: REST
         items:
           - name: Overview
@@ -231,58 +231,58 @@ items:
                 href: api-ref/Operation/index.md
               - name: get
                 href: api-ref/Operation/get.md
-          - name: Federation
-            items:
-              - name: Overview
-                href: api-ref/Federation/index.md
-              - name: update
-                href: api-ref/Federation/update.md
-              - name: list
-                href: api-ref/Federation/list.md
-              - name: listUserAccounts
-                href: api-ref/Federation/listUserAccounts.md
-              - name: get
-                href: api-ref/Federation/get.md
-              - name: delete
-                href: api-ref/Federation/delete.md
-              - name: addUserAccounts
-                href: api-ref/Federation/addUserAccounts.md
-              - name: create
-                href: api-ref/Federation/create.md
-              - name: listOperations
-                href: api-ref/Federation/listOperations.md
-          - name: Certificate
-            items:
-              - name: Overview
-                href: api-ref/Certificate/index.md
-              - name: update
-                href: api-ref/Certificate/update.md
-              - name: list
-                href: api-ref/Certificate/list.md
-              - name: get
-                href: api-ref/Certificate/get.md
-              - name: delete
-                href: api-ref/Certificate/delete.md
-              - name: create
-                href: api-ref/Certificate/create.md
-              - name: listOperations
-                href: api-ref/Certificate/listOperations.md
           - name: AccessKey
             items:
               - name: Overview
                 href: api-ref/AccessKey/index.md
-              - name: update
-                href: api-ref/AccessKey/update.md
               - name: list
                 href: api-ref/AccessKey/list.md
               - name: get
                 href: api-ref/AccessKey/get.md
               - name: delete
                 href: api-ref/AccessKey/delete.md
-              - name: create
-                href: api-ref/AccessKey/create.md
+              - name: update
+                href: api-ref/AccessKey/update.md
               - name: listOperations
                 href: api-ref/AccessKey/listOperations.md
+              - name: create
+                href: api-ref/AccessKey/create.md
+          - name: Federation
+            items:
+              - name: Overview
+                href: api-ref/Federation/index.md
+              - name: list
+                href: api-ref/Federation/list.md
+              - name: get
+                href: api-ref/Federation/get.md
+              - name: listUserAccounts
+                href: api-ref/Federation/listUserAccounts.md
+              - name: delete
+                href: api-ref/Federation/delete.md
+              - name: addUserAccounts
+                href: api-ref/Federation/addUserAccounts.md
+              - name: update
+                href: api-ref/Federation/update.md
+              - name: listOperations
+                href: api-ref/Federation/listOperations.md
+              - name: create
+                href: api-ref/Federation/create.md
+          - name: Certificate
+            items:
+              - name: Overview
+                href: api-ref/Certificate/index.md
+              - name: list
+                href: api-ref/Certificate/list.md
+              - name: get
+                href: api-ref/Certificate/get.md
+              - name: delete
+                href: api-ref/Certificate/delete.md
+              - name: update
+                href: api-ref/Certificate/update.md
+              - name: listOperations
+                href: api-ref/Certificate/listOperations.md
+              - name: create
+                href: api-ref/Certificate/create.md
   - name: Вопросы и ответы
     items:
       - name: Общие вопросы

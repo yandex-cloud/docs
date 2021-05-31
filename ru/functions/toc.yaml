@@ -319,14 +319,20 @@ items:
                 href: functions/api-ref/Function/listOperations.md
               - name: listRuntimes
                 href: functions/api-ref/Function/listRuntimes.md
+              - name: listScalingPolicies
+                href: functions/api-ref/Function/listScalingPolicies.md
               - name: listTagHistory
                 href: functions/api-ref/Function/listTagHistory.md
               - name: listVersions
                 href: functions/api-ref/Function/listVersions.md
+              - name: removeScalingPolicy
+                href: functions/api-ref/Function/removeScalingPolicy.md
               - name: removeTag
                 href: functions/api-ref/Function/removeTag.md
               - name: setAccessBindings
                 href: functions/api-ref/Function/setAccessBindings.md
+              - name: setScalingPolicy
+                href: functions/api-ref/Function/setScalingPolicy.md
               - name: setTag
                 href: functions/api-ref/Function/setTag.md
               - name: update

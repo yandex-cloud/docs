@@ -9,7 +9,7 @@ Retrieves the list of SQL Server backups available for the specified folder.
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.api.cloud.yandex.net/mdb/sqlserver/v1alpha/backups
+GET https://mdb.api.cloud.yandex.net/mdb/sqlserver/v1/backups
 ```
  
 ## Query parameters {#query_params}

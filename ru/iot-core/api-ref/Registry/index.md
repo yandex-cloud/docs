@@ -39,6 +39,7 @@ Method | Description
 [deleteCertificate](deleteCertificate.md) | Deletes the specified registry certificate.
 [deletePassword](deletePassword.md) | Deletes the specified password.
 [get](get.md) | Returns the specified registry.
+[getByName](getByName.md) | 
 [list](list.md) | Retrieves the list of registries in the specified folder.
 [listCertificates](listCertificates.md) | Retrieves the list of registry certificates for the specified registry.
 [listDeviceTopicAliases](listDeviceTopicAliases.md) | Retrieves the list of device topic aliases for the specified registry.

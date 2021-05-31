@@ -52,11 +52,11 @@ items:
       - name: gRPC
         items:
           - name: Overview
-            href: grpc/index.md
+            href: apigateway/api-ref/grpc/index.md
           - name: ApiGatewayService
-            href: grpc/apigateway_service.md
+            href: apigateway/api-ref/grpc/apigateway_service.md
           - name: OperationService
-            href: grpc/operation_service.md
+            href: apigateway/api-ref/grpc/operation_service.md
       - name: REST
         items:
           - name: Overview

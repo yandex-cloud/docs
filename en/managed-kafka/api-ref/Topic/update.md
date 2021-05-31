@@ -17,7 +17,7 @@ PATCH https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters/{clusterId}/top
 Parameter | Description
 --- | ---
 clusterId | Required. ID of the Apache Kafka® cluster to update a topic in.  To get the cluster ID, make a [list](/docs/managed-kafka/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
-topicName | Required. Name of the topic to update.  To get the name of the topic, make a [list](/docs/managed-kafka/api-ref/Topic/list) request.  The string length in characters must be 1-63. Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
+topicName | Required. Name of the topic to update.  To get the name of the topic, make a [list](/docs/managed-kafka/api-ref/Topic/list) request.  The string length in characters must be 1-256. Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
  
 ## Body parameters {#body_params}
  

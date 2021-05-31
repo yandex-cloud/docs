@@ -9,7 +9,7 @@ To get the list of available resource presets, make a [list](/docs/managed-mysql
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.api.cloud.yandex.net/managed-mysql/v1alpha/resourcePresets/{resourcePresetId}
+GET https://mdb.api.cloud.yandex.net/managed-mysql/v1/resourcePresets/{resourcePresetId}
 ```
  
 ## Path parameters {#path_params}

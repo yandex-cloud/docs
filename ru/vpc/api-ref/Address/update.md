@@ -16,7 +16,7 @@ PATCH https://vpc.api.cloud.yandex.net/vpc/v1/addresses/{addressId}
  
 Parameter | Description
 --- | ---
-addressId | Required. ID of the address to update.   To get the address ID make a [list](/docs/vpc/api-ref/Address/list) request.  The maximum string length in characters is 50.
+addressId | Required. ID of the address to update.  To get the address ID make a [list](/docs/vpc/api-ref/Address/list) request.  The maximum string length in characters is 50.
  
 ## Body parameters {#body_params}
  

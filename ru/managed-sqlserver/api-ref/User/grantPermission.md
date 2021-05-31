@@ -9,7 +9,7 @@ Grants a permission to the specified SQL Server user.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.api.cloud.yandex.net/mdb/sqlserver/v1alpha/clusters/{clusterId}/users/{userName}:grantPermission
+POST https://mdb.api.cloud.yandex.net/mdb/sqlserver/v1/clusters/{clusterId}/users/{userName}:grantPermission
 ```
  
 ## Path parameters {#path_params}

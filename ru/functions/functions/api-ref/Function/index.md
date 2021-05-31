@@ -44,10 +44,13 @@ Method | Description
 [listAccessBindings](listAccessBindings.md) | Lists existing access bindings for the specified function.
 [listOperations](listOperations.md) | Lists operations for the specified function.
 [listRuntimes](listRuntimes.md) | Lists available runtime environments for the specified function.
+[listScalingPolicies](listScalingPolicies.md) | Lists existing scaling policies for specified function
 [listTagHistory](listTagHistory.md) | Returns the log of tags assigned to versions of the specified function.
 [listVersions](listVersions.md) | Retrieves the list of versions for the specified function, or of all function versions in the specified folder.
+[removeScalingPolicy](removeScalingPolicy.md) | Remove scaling policy for specified function and tag
 [removeTag](removeTag.md) | Remove a tag from the specified version of a function.
 [setAccessBindings](setAccessBindings.md) | Sets access bindings for the function.
+[setScalingPolicy](setScalingPolicy.md) | Set scaling policy for specified function and tag
 [setTag](setTag.md) | Set a tag for the specified version of a function.
 [update](update.md) | Updates the specified function.
 [updateAccessBindings](updateAccessBindings.md) | Updates access bindings for the specified function.
