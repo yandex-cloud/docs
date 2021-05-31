@@ -1,0 +1,7 @@
+items:
+  - name: Обзор
+    href: api-ref/grpc/index.md
+  - name: DnsZoneService
+    href: api-ref/grpc/dns_zone_service.md
+  - name: OperationService
+    href: api-ref/grpc/operation_service.md

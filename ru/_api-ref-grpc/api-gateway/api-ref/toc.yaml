@@ -1,7 +1,0 @@
-items:
-  - name: Обзор
-    href: grpc/index.md
-  - name: ApiGatewayService
-    href: grpc/apigateway_service.md
-  - name: OperationService
-    href: grpc/operation_service.md

@@ -19,6 +19,8 @@ items:
         href: api-ref/Device/deletePassword.md
       - name: get
         href: api-ref/Device/get.md
+      - name: getByName
+        href: api-ref/Device/getByName.md
       - name: list
         href: api-ref/Device/list.md
       - name: listCertificates
@@ -53,6 +55,8 @@ items:
         href: api-ref/Registry/deletePassword.md
       - name: get
         href: api-ref/Registry/get.md
+      - name: getByName
+        href: api-ref/Registry/getByName.md
       - name: list
         href: api-ref/Registry/list.md
       - name: listCertificates

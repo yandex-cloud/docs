@@ -1,41 +1,32 @@
-openapi: '3.0'
+openapi: "3.0"
 info:
   title: Yandex Load Balancer API
-  description: >-
-    Методы справочника API сгруппированы по ресурсам. Чтобы выполнить операцию
-    над ресурсом, отправьте HTTP-запрос к соответствующему URL или выполните
-    RPC-вызов. Подробнее об архитектуре API Яндекс.Облака, см. [Концепции API
-    Яндекс.Облака](/docs/api-design-guide/).
+  description: Методы справочника API сгруппированы по ресурсам. Чтобы выполнить операцию
+    над ресурсом, отправьте HTTP-запрос к соответствующему URL или выполните RPC-вызов.
+    Подробнее об архитектуре API Яндекс.Облака, см. [Концепции API Яндекс.Облака](/docs/api-design-guide/).
   version: v1
   x-y-docUri: api-ref
   x-y-baseUrl: https://load-balancer.api.cloud.yandex.net
 paths:
-  /network-load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}:
+  /load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}:
     get:
       tags:
-        - NetworkLoadBalancer
+      - NetworkLoadBalancer
       summary: Возвращает указанный ресурс NetworkLoadBalancer.
-      description: >-
-        Чтобы получить список доступных ресурсов NetworkLoadBalancer,
-        используйте запрос
-        [list](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list).
+      description: Чтобы получить список доступных ресурсов NetworkLoadBalancer, используйте
+        запрос [list](/docs/load-balancer/api-ref/NetworkLoadBalancer/list).
       operationId: NetworkLoadBalancerGet
       parameters:
-        - name: networkLoadBalancerId
-          in: path
-          description: >-
-            Идентификатор возвращаемого ресурса NetworkLoadBalancer. 
-
-            Чтобы получить идентификатор балансировщика, используйте запрос
-            [list](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+      - name: networkLoadBalancerId
+        in: path
+        description: "Идентификатор возвращаемого ресурса NetworkLoadBalancer. \nЧтобы
+          получить идентификатор балансировщика, используйте запрос [list](/docs/load-balancer/api-ref/NetworkLoadBalancer/list).\n\nМаксимальная
+          длина строки в символах — 50."
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -44,27 +35,20 @@ paths:
       x-y-navtitle: get
     delete:
       tags:
-        - NetworkLoadBalancer
+      - NetworkLoadBalancer
       summary: Удаляет указанный балансировщик.
       operationId: NetworkLoadBalancerDelete
       parameters:
-        - name: networkLoadBalancerId
-          in: path
-          description: >-
-            Обязательное поле.
-
-            Идентификатор удаляемого балансировщика. 
-
-            Чтобы получить идентификатор балансировщика, используйте запрос
-            [list](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+      - name: networkLoadBalancerId
+        in: path
+        description: "Обязательное поле.\nИдентификатор удаляемого балансировщика.
+          \nЧтобы получить идентификатор балансировщика, используйте запрос [list](/docs/load-balancer/api-ref/NetworkLoadBalancer/list).\n\nМаксимальная
+          длина строки в символах — 50."
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -76,25 +60,18 @@ paths:
       x-y-operation-response: Empty
     patch:
       tags:
-        - NetworkLoadBalancer
+      - NetworkLoadBalancer
       summary: Обновляет указанный балансировщик.
       operationId: NetworkLoadBalancerUpdate
       parameters:
-        - name: networkLoadBalancerId
-          in: path
-          description: >-
-            Обязательное поле.
-
-            Идентификатор обновляемого балансировщика. 
-
-            Чтобы получить идентификатор балансировщика, используйте запрос
-            [list](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+      - name: networkLoadBalancerId
+        in: path
+        description: "Обязательное поле.\nИдентификатор обновляемого балансировщика.
+          \nЧтобы получить идентификатор балансировщика, используйте запрос [list](/docs/load-balancer/api-ref/NetworkLoadBalancer/list).\n\nМаксимальная
+          длина строки в символах — 50."
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -102,7 +79,7 @@ paths:
               $ref: '#/components/schemas/UpdateNetworkLoadBalancerRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -111,93 +88,58 @@ paths:
       x-y-navtitle: update
       x-y-operation-metadata:
         $ref: '#/components/schemas/UpdateNetworkLoadBalancerMetadata'
-      x-y-operation-response: >-
-        [NetworkLoadBalancer](/docs/network-load-balancer/api-ref/NetworkLoadBalancer#representation)
-  /network-load-balancer/v1/networkLoadBalancers:
+      x-y-operation-response: '[NetworkLoadBalancer](/docs/load-balancer/api-ref/NetworkLoadBalancer#representation)'
+  /load-balancer/v1/networkLoadBalancers:
     get:
       tags:
-        - NetworkLoadBalancer
-      summary: >-
-        Возвращает список доступных ресурсов NetworkLoadBalancer в указанном
+      - NetworkLoadBalancer
+      summary: Возвращает список доступных ресурсов NetworkLoadBalancer в указанном
         каталоге.
       operationId: NetworkLoadBalancerList
       parameters:
-        - name: folderId
-          in: query
-          description: >-
-            Обязательное поле.
+      - name: folderId
+        in: query
+        description: |-
+          Обязательное поле.
+          Идентификатор каталога, которому принадлежит балансировщик.
+          Чтобы получить идентификатор каталога, используйте запрос [list](/docs/load-balancer/api-ref/NetworkLoadBalancer/list).
 
-            Идентификатор каталога, которому принадлежит балансировщик.
+          Максимальная длина строки в символах — 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: "Максимальное количество результатов на странице ответа на\nзапрос.
+          Если количество результатов больше чем [pageSize](/docs/load-balancer/api-ref/NetworkLoadBalancer/list#query_params),
+          сервис\nвернет значение [nextPageToken](/docs/load-balancer/api-ref/NetworkLoadBalancer/list#responses),
+          которое можно\nиспользовать для получения следующей страницы. \nЗначение
+          по умолчанию: 100.\n\nМаксимальное значение — 1000."
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение [pageToken](/docs/load-balancer/api-ref/NetworkLoadBalancer/list#query_params) равным значению
+          поля [nextPageToken](/docs/load-balancer/api-ref/NetworkLoadBalancer/list#responses) прошлого запроса, чтобы
+          получить следующую страницу результатов.
 
-            Чтобы получить идентификатор каталога, используйте запрос
-            [list](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list).
-
-
-            Максимальная длина строки в символах — 50.
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            Максимальное количество результатов на странице ответа на
-
-            запрос. Если количество результатов больше чем
-            [pageSize](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list#query_params),
-            сервис
-
-            вернет значение
-            [nextPageToken](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list#responses),
-            которое можно
-
-            использовать для получения следующей страницы. 
-
-            Значение по умолчанию: 100.
-
-
-            Максимальное значение — 1000.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Токен страницы. Установите значение
-            [pageToken](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list#query_params)
-            равным значению
-
-            поля
-            [nextPageToken](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list#responses)
-            прошлого запроса, чтобы
-
-            получить следующую страницу результатов.
-
-
-            Максимальная длина строки в символах — 100.
-          schema:
-            type: string
-        - name: filter
-          in: query
-          description: >-
-            Параметры фильтрации ресурсов в ответе. 
-
-            В параметрах фильтрации указываются:
-
-            1. Имя поля. В настоящее время фильтрация осуществляется только по
-            полю
-            [NetworkLoadBalancer.name](/docs/network-load-balancer/api-ref/NetworkLoadBalancer#representation).
-
-            2. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN`
-            для списков значений.
-
-            3. Значение длиной от 3 до 63 символов, совпадающее с регулярным
-            выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9].`.
-
-
-            Максимальная длина строки в символах — 1000.
-          schema:
-            type: string
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: "Параметры фильтрации ресурсов в ответе. \nВ параметрах фильтрации
+          указываются:\n1. Имя поля. В настоящее время фильтрация осуществляется только
+          по полю [NetworkLoadBalancer.name](/docs/load-balancer/api-ref/NetworkLoadBalancer#representation).\n2.
+          Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков
+          значений.\n3. Значение длиной от 3 до 63 символов, совпадающее с регулярным
+          выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9].`.\n\nМаксимальная длина строки
+          в символах — 1000."
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -206,9 +148,8 @@ paths:
       x-y-navtitle: list
     post:
       tags:
-        - NetworkLoadBalancer
-      summary: >-
-        Создает балансировщик в указанном каталоге, используя данные, указанные
+      - NetworkLoadBalancer
+      summary: Создает балансировщик в указанном каталоге, используя данные, указанные
         в запросе.
       operationId: NetworkLoadBalancerCreate
       requestBody:
@@ -218,7 +159,7 @@ paths:
               $ref: '#/components/schemas/CreateNetworkLoadBalancerRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -227,35 +168,28 @@ paths:
       x-y-navtitle: create
       x-y-operation-metadata:
         $ref: '#/components/schemas/CreateNetworkLoadBalancerMetadata'
-      x-y-operation-response: >-
-        [NetworkLoadBalancer](/docs/network-load-balancer/api-ref/NetworkLoadBalancer#representation)
-  /network-load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}:start:
+      x-y-operation-response: '[NetworkLoadBalancer](/docs/load-balancer/api-ref/NetworkLoadBalancer#representation)'
+  /load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}:start:
     post:
       tags:
-        - NetworkLoadBalancer
+      - NetworkLoadBalancer
       summary: |-
         Запускает балансировку нагрузки и проверки состояния с
         заданными параметрами с помощью указанного балансировщика.
         Изменяет состояние балансировщика на `` ACTIVE ``.
       operationId: NetworkLoadBalancerStart
       parameters:
-        - name: networkLoadBalancerId
-          in: path
-          description: >-
-            Обязательное поле.
-
-            Идентификатор балансировщика, который будет запущен. 
-
-            Чтобы получить идентификатор балансировщика, используйте запрос
-            [list](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+      - name: networkLoadBalancerId
+        in: path
+        description: "Обязательное поле.\nИдентификатор балансировщика, который будет
+          запущен. \nЧтобы получить идентификатор балансировщика, используйте запрос
+          [list](/docs/load-balancer/api-ref/NetworkLoadBalancer/list).\n\nМаксимальная
+          длина строки в символах — 50."
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -265,34 +199,28 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/StartNetworkLoadBalancerMetadata'
       x-y-operation-response: Empty
-  /network-load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}:stop:
+  /load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}:stop:
     post:
       tags:
-        - NetworkLoadBalancer
-      summary: >-
+      - NetworkLoadBalancer
+      summary: |-
         Указанный балансировщик останавливает балансировку нагрузки
-
-        и проверки состояния. Изменяет состояние балансировщика на `` STOPPED
-        ``.
+        и проверки состояния. Изменяет состояние балансировщика на `` STOPPED ``.
       operationId: NetworkLoadBalancerStop
       parameters:
-        - name: networkLoadBalancerId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: networkLoadBalancerId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор балансировщика, который будет остановлен. Чтобы
+          получить идентификатор балансировщика, используйте запрос [list](/docs/load-balancer/api-ref/NetworkLoadBalancer/list).
 
-            Идентификатор балансировщика, который будет остановлен. Чтобы
-
-            получить идентификатор балансировщика, используйте запрос
-            [list](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -302,29 +230,22 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/StopNetworkLoadBalancerMetadata'
       x-y-operation-response: Empty
-  /network-load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}:attachTargetGroup:
+  /load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}:attachTargetGroup:
     post:
       tags:
-        - NetworkLoadBalancer
+      - NetworkLoadBalancer
       summary: Подключает целевую группу к указанному балансировщику.
       operationId: NetworkLoadBalancerAttachTargetGroup
       parameters:
-        - name: networkLoadBalancerId
-          in: path
-          description: >-
-            Обязательное поле.
-
-            Идентификатор балансировщика, к которому будет подключена целевая
-            группа. 
-
-            Чтобы получить идентификатор балансировщика, используйте запрос
-            [list](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+      - name: networkLoadBalancerId
+        in: path
+        description: "Обязательное поле.\nИдентификатор балансировщика, к которому
+          будет подключена целевая группа. \nЧтобы получить идентификатор балансировщика,
+          используйте запрос [list](/docs/load-balancer/api-ref/NetworkLoadBalancer/list).\n\nМаксимальная
+          длина строки в символах — 50."
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -332,7 +253,7 @@ paths:
               $ref: '#/components/schemas/AttachNetworkLoadBalancerTargetGroupRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -341,31 +262,23 @@ paths:
       x-y-navtitle: attachTargetGroup
       x-y-operation-metadata:
         $ref: '#/components/schemas/AttachNetworkLoadBalancerTargetGroupMetadata'
-      x-y-operation-response: >-
-        [NetworkLoadBalancer](/docs/network-load-balancer/api-ref/NetworkLoadBalancer#representation)
-  /network-load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}:detachTargetGroup:
+      x-y-operation-response: '[NetworkLoadBalancer](/docs/load-balancer/api-ref/NetworkLoadBalancer#representation)'
+  /load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}:detachTargetGroup:
     post:
       tags:
-        - NetworkLoadBalancer
+      - NetworkLoadBalancer
       summary: Отключает целевую группу от указанного балансировщика.
       operationId: NetworkLoadBalancerDetachTargetGroup
       parameters:
-        - name: networkLoadBalancerId
-          in: path
-          description: >-
-            Обязательное поле.
-
-            Идентификатор балансировщика, от которого будет отключена целевая
-            группа. 
-
-            Чтобы получить идентификатор балансировщика, используйте запрос
-            [list](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+      - name: networkLoadBalancerId
+        in: path
+        description: "Обязательное поле.\nИдентификатор балансировщика, от которого
+          будет отключена целевая группа. \nЧтобы получить идентификатор балансировщика,
+          используйте запрос [list](/docs/load-balancer/api-ref/NetworkLoadBalancer/list).\n\nМаксимальная
+          длина строки в символах — 50."
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -373,7 +286,7 @@ paths:
               $ref: '#/components/schemas/DetachNetworkLoadBalancerTargetGroupRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -382,64 +295,55 @@ paths:
       x-y-navtitle: detachTargetGroup
       x-y-operation-metadata:
         $ref: '#/components/schemas/DetachNetworkLoadBalancerTargetGroupMetadata'
-      x-y-operation-response: >-
-        [NetworkLoadBalancer](/docs/network-load-balancer/api-ref/NetworkLoadBalancer#representation)
-  /network-load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}:getTargetStates:
+      x-y-operation-response: '[NetworkLoadBalancer](/docs/load-balancer/api-ref/NetworkLoadBalancer#representation)'
+  /load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}:getTargetStates:
     get:
       tags:
-        - NetworkLoadBalancer
+      - NetworkLoadBalancer
       summary: Возвращает состояния целевых ресурсов в подключенной целевой группе.
       operationId: NetworkLoadBalancerGetTargetStates
       parameters:
-        - name: networkLoadBalancerId
-          in: path
-          description: >-
-            Идентификатор ресурса NetworkLoadBalancer с присоединенной целевой
-            группой.
+      - name: networkLoadBalancerId
+        in: path
+        description: |-
+          Идентификатор ресурса NetworkLoadBalancer с присоединенной целевой группой.
 
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: targetGroupId
+        in: query
+        description: |-
+          Идентификатор целевой группы для получения состояний ресурсов.
 
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
-        - name: targetGroupId
-          in: query
-          description: |-
-            Идентификатор целевой группы для получения состояний ресурсов.
-
-            Максимальная длина строки в символах — 50.
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/GetTargetStatesResponse'
       x-y-navtitle: getTargetStates
-  /network-load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}:addListener:
+  /load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}:addListener:
     post:
       tags:
-        - NetworkLoadBalancer
+      - NetworkLoadBalancer
       summary: Добавляет обработчик в указанный балансировщик.
       operationId: NetworkLoadBalancerAddListener
       parameters:
-        - name: networkLoadBalancerId
-          in: path
-          description: >-
-            Обязательное поле.
-
-            Идентификатор балансировщика, к которому будет добавлен обработчик. 
-
-            Чтобы получить идентификатор балансировщика, используйте запрос
-            [list](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+      - name: networkLoadBalancerId
+        in: path
+        description: "Обязательное поле.\nИдентификатор балансировщика, к которому
+          будет добавлен обработчик. \nЧтобы получить идентификатор балансировщика,
+          используйте запрос [list](/docs/load-balancer/api-ref/NetworkLoadBalancer/list).\n\nМаксимальная
+          длина строки в символах — 50."
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -447,7 +351,7 @@ paths:
               $ref: '#/components/schemas/AddNetworkLoadBalancerListenerRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -456,30 +360,23 @@ paths:
       x-y-navtitle: addListener
       x-y-operation-metadata:
         $ref: '#/components/schemas/AddNetworkLoadBalancerListenerMetadata'
-      x-y-operation-response: >-
-        [NetworkLoadBalancer](/docs/network-load-balancer/api-ref/NetworkLoadBalancer#representation)
-  /network-load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}:removeListener:
+      x-y-operation-response: '[NetworkLoadBalancer](/docs/load-balancer/api-ref/NetworkLoadBalancer#representation)'
+  /load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}:removeListener:
     post:
       tags:
-        - NetworkLoadBalancer
+      - NetworkLoadBalancer
       summary: Удаляет обработчик из указанного балансировщика сетевой нагрузки.
       operationId: NetworkLoadBalancerRemoveListener
       parameters:
-        - name: networkLoadBalancerId
-          in: path
-          description: >-
-            Обязательное поле.
-
-            Идентификатор балансировщика, у которого будет удален обработчик. 
-
-            Чтобы получить идентификатор балансировщика, используйте запрос
-            [list](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+      - name: networkLoadBalancerId
+        in: path
+        description: "Обязательное поле.\nИдентификатор балансировщика, у которого
+          будет удален обработчик. \nЧтобы получить идентификатор балансировщика,
+          используйте запрос [list](/docs/load-balancer/api-ref/NetworkLoadBalancer/list).\n\nМаксимальная
+          длина строки в символах — 50."
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -487,7 +384,7 @@ paths:
               $ref: '#/components/schemas/RemoveNetworkLoadBalancerListenerRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -496,94 +393,68 @@ paths:
       x-y-navtitle: removeListener
       x-y-operation-metadata:
         $ref: '#/components/schemas/RemoveNetworkLoadBalancerListenerMetadata'
-      x-y-operation-response: >-
-        [NetworkLoadBalancer](/docs/network-load-balancer/api-ref/NetworkLoadBalancer#representation)
-  /network-load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}/operations:
+      x-y-operation-response: '[NetworkLoadBalancer](/docs/load-balancer/api-ref/NetworkLoadBalancer#representation)'
+  /load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}/operations:
     get:
       tags:
-        - NetworkLoadBalancer
+      - NetworkLoadBalancer
       summary: Возвращает список операций для указанного балансировщика.
       operationId: NetworkLoadBalancerListOperations
       parameters:
-        - name: networkLoadBalancerId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: networkLoadBalancerId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор ресурса NetworkLoadBalancer, для которого запрашивается список операций.
 
-            Идентификатор ресурса NetworkLoadBalancer, для которого
-            запрашивается список операций.
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: "Максимальное количество результатов на странице ответа на запрос.
+          Если количество результатов\nбольше чем [pageSize](/docs/load-balancer/api-ref/NetworkLoadBalancer/listOperations#query_params),
+          сервис в ответе вернет значение [nextPageToken](/docs/load-balancer/api-ref/NetworkLoadBalancer/listOperations#responses),
+          \nкоторое можно использовать для получения остальных результатов.\nЗначение
+          по умолчанию: 100.\n\nМаксимальное значение — 1000."
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение [pageToken](/docs/load-balancer/api-ref/NetworkLoadBalancer/listOperations#query_params) равным значению поля [nextPageToken](/docs/load-balancer/api-ref/NetworkLoadBalancer/listOperations#responses),
+          прошлого запроса, чтобы получить следующую страницу результатов.
 
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            Максимальное количество результатов на странице ответа на запрос.
-            Если количество результатов
-
-            больше чем
-            [pageSize](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/listOperations#query_params),
-            сервис в ответе вернет значение
-            [nextPageToken](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/listOperations#responses), 
-
-            которое можно использовать для получения остальных результатов.
-
-            Значение по умолчанию: 100.
-
-
-            Максимальное значение — 1000.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Токен страницы. Установите значение
-            [pageToken](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/listOperations#query_params)
-            равным значению поля
-            [nextPageToken](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/listOperations#responses),
-
-            прошлого запроса, чтобы получить следующую страницу результатов.
-
-
-            Максимальная длина строки в символах — 100.
-          schema:
-            type: string
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ListNetworkLoadBalancerOperationsResponse'
       x-y-navtitle: listOperations
-  /network-load-balancer/v1/targetGroups/{targetGroupId}:
+  /load-balancer/v1/targetGroups/{targetGroupId}:
     get:
       tags:
-        - TargetGroup
+      - TargetGroup
       summary: Возвращает указанный ресурс TargetGroup.
       operationId: TargetGroupGet
       parameters:
-        - name: targetGroupId
-          in: path
-          description: >-
-            Обязательное поле.
-
-            Идентификатор возвращаемого ресурса TargetGroup. 
-
-            Чтобы узнать идентификатор целевой группы, используйте запрос
-            [list](/docs/network-load-balancer/api-ref/TargetGroup/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+      - name: targetGroupId
+        in: path
+        description: "Обязательное поле.\nИдентификатор возвращаемого ресурса TargetGroup.
+          \nЧтобы узнать идентификатор целевой группы, используйте запрос [list](/docs/load-balancer/api-ref/TargetGroup/list).\n\nМаксимальная
+          длина строки в символах — 50."
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -592,27 +463,20 @@ paths:
       x-y-navtitle: get
     delete:
       tags:
-        - TargetGroup
+      - TargetGroup
       summary: Удаляет указанную целевую группу.
       operationId: TargetGroupDelete
       parameters:
-        - name: targetGroupId
-          in: path
-          description: >-
-            Обязательное поле.
-
-            Идентификатор удаляемой целевой группы. 
-
-            Чтобы узнать идентификатор целевой группы, используйте запрос
-            [list](/docs/network-load-balancer/api-ref/TargetGroup/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+      - name: targetGroupId
+        in: path
+        description: "Обязательное поле.\nИдентификатор удаляемой целевой группы.
+          \nЧтобы узнать идентификатор целевой группы, используйте запрос [list](/docs/load-balancer/api-ref/TargetGroup/list).\n\nМаксимальная
+          длина строки в символах — 50."
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -624,25 +488,18 @@ paths:
       x-y-operation-response: Empty
     patch:
       tags:
-        - TargetGroup
+      - TargetGroup
       summary: Обновляет указанную целевую группу.
       operationId: TargetGroupUpdate
       parameters:
-        - name: targetGroupId
-          in: path
-          description: >-
-            Обязательное поле.
-
-            Идентификатор изменяемого ресурса TargetGroup. 
-
-            Чтобы узнать идентификатор целевой группы, используйте запрос
-            [list](/docs/network-load-balancer/api-ref/TargetGroup/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+      - name: targetGroupId
+        in: path
+        description: "Обязательное поле.\nИдентификатор изменяемого ресурса TargetGroup.
+          \nЧтобы узнать идентификатор целевой группы, используйте запрос [list](/docs/load-balancer/api-ref/TargetGroup/list).\n\nМаксимальная
+          длина строки в символах — 50."
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -650,7 +507,7 @@ paths:
               $ref: '#/components/schemas/UpdateTargetGroupRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -659,85 +516,55 @@ paths:
       x-y-navtitle: update
       x-y-operation-metadata:
         $ref: '#/components/schemas/UpdateTargetGroupMetadata'
-      x-y-operation-response: '[TargetGroup](/docs/network-load-balancer/api-ref/TargetGroup#representation)'
-  /network-load-balancer/v1/targetGroups:
+      x-y-operation-response: '[TargetGroup](/docs/load-balancer/api-ref/TargetGroup#representation)'
+  /load-balancer/v1/targetGroups:
     get:
       tags:
-        - TargetGroup
+      - TargetGroup
       summary: Возвращает список TargetGroup ресурсов в указанном каталоге..
       operationId: TargetGroupList
       parameters:
-        - name: folderId
-          in: query
-          description: >-
-            Обязательное поле.
+      - name: folderId
+        in: query
+        description: "Обязательное поле.\nИдентификатор каталога для вывода списка
+          целевых групп. \nЧтобы получить идентификатор каталога, используйте запрос
+          [list](/docs/load-balancer/api-ref/TargetGroup/list).\n\nМаксимальная длина
+          строки в символах — 50."
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: "Максимальное количество результатов на странице ответа на запрос.
+          Если количество результатов\nбольше чем [pageSize](/docs/load-balancer/api-ref/TargetGroup/list#query_params),
+          сервис вернет значение [nextPageToken](/docs/load-balancer/api-ref/TargetGroup/list#responses),
+          \nкоторое можно использовать для получения следующей страницы.\nЗначение
+          по умолчанию: 100.\n\nМаксимальное значение — 1000."
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение [pageToken](/docs/load-balancer/api-ref/TargetGroup/list#query_params) равным значению поля [nextPageToken](/docs/load-balancer/api-ref/TargetGroup/list#responses),
+          прошлого запроса, чтобы получить следующую страницу результатов.
 
-            Идентификатор каталога для вывода списка целевых групп. 
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          Параметры фильтрации ресурсов в ответе.
+          В параметрах фильтрации указываются:
+          1. Имя поля. В настоящее время фильтрация осуществляется только по полю [TargetGroup.name](/docs/load-balancer/api-ref/TargetGroup#representation).
+          2. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений.
+          3. Значение длиной от 3 до 63 символов, совпадающее с регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]`.
 
-            Чтобы получить идентификатор каталога, используйте запрос
-            [list](/docs/network-load-balancer/api-ref/TargetGroup/list).
-
-
-            Максимальная длина строки в символах — 50.
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            Максимальное количество результатов на странице ответа на запрос.
-            Если количество результатов
-
-            больше чем
-            [pageSize](/docs/network-load-balancer/api-ref/TargetGroup/list#query_params),
-            сервис вернет значение
-            [nextPageToken](/docs/network-load-balancer/api-ref/TargetGroup/list#responses), 
-
-            которое можно использовать для получения следующей страницы.
-
-            Значение по умолчанию: 100.
-
-
-            Максимальное значение — 1000.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Токен страницы. Установите значение
-            [pageToken](/docs/network-load-balancer/api-ref/TargetGroup/list#query_params)
-            равным значению поля
-            [nextPageToken](/docs/network-load-balancer/api-ref/TargetGroup/list#responses),
-
-            прошлого запроса, чтобы получить следующую страницу результатов.
-
-
-            Максимальная длина строки в символах — 100.
-          schema:
-            type: string
-        - name: filter
-          in: query
-          description: >-
-            Параметры фильтрации ресурсов в ответе.
-
-            В параметрах фильтрации указываются:
-
-            1. Имя поля. В настоящее время фильтрация осуществляется только по
-            полю
-            [TargetGroup.name](/docs/network-load-balancer/api-ref/TargetGroup#representation).
-
-            2. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN`
-            для списков значений.
-
-            3. Значение длиной от 3 до 63 символов, совпадающее с регулярным
-            выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]`.
-
-
-            Максимальная длина строки в символах — 1000.
-          schema:
-            type: string
+          Максимальная длина строки в символах — 1000.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -746,9 +573,8 @@ paths:
       x-y-navtitle: list
     post:
       tags:
-        - TargetGroup
-      summary: >-
-        Создает целевую группу в указанном каталоге и добавляет в нее указанные
+      - TargetGroup
+      summary: Создает целевую группу в указанном каталоге и добавляет в нее указанные
         целевые ресурсы.
       operationId: TargetGroupCreate
       requestBody:
@@ -758,7 +584,7 @@ paths:
               $ref: '#/components/schemas/CreateTargetGroupRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -767,29 +593,25 @@ paths:
       x-y-navtitle: create
       x-y-operation-metadata:
         $ref: '#/components/schemas/CreateTargetGroupMetadata'
-      x-y-operation-response: '[TargetGroup](/docs/network-load-balancer/api-ref/TargetGroup#representation)'
-  /network-load-balancer/v1/targetGroups/{targetGroupId}:addTargets:
+      x-y-operation-response: '[TargetGroup](/docs/load-balancer/api-ref/TargetGroup#representation)'
+  /load-balancer/v1/targetGroups/{targetGroupId}:addTargets:
     post:
       tags:
-        - TargetGroup
+      - TargetGroup
       summary: Добавляет ресурсы в целевую группу.
       operationId: TargetGroupAddTargets
       parameters:
-        - name: targetGroupId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: targetGroupId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор ресурса TargetGroup для добавления целевого ресурса.
+          Чтобы узнать идентификатор целевой группы, используйте запрос [list](/docs/load-balancer/api-ref/TargetGroup/list).
 
-            Идентификатор ресурса TargetGroup для добавления целевого ресурса.
-
-            Чтобы узнать идентификатор целевой группы, используйте запрос
-            [list](/docs/network-load-balancer/api-ref/TargetGroup/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -797,7 +619,7 @@ paths:
               $ref: '#/components/schemas/AddTargetsRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -806,30 +628,23 @@ paths:
       x-y-navtitle: addTargets
       x-y-operation-metadata:
         $ref: '#/components/schemas/AddTargetsMetadata'
-      x-y-operation-response: '[TargetGroup](/docs/network-load-balancer/api-ref/TargetGroup#representation)'
-  /network-load-balancer/v1/targetGroups/{targetGroupId}:removeTargets:
+      x-y-operation-response: '[TargetGroup](/docs/load-balancer/api-ref/TargetGroup#representation)'
+  /load-balancer/v1/targetGroups/{targetGroupId}:removeTargets:
     post:
       tags:
-        - TargetGroup
+      - TargetGroup
       summary: Удаляет ресурсы из целевой группы.
       operationId: TargetGroupRemoveTargets
       parameters:
-        - name: targetGroupId
-          in: path
-          description: >-
-            Обязательное поле.
-
-            Идентификатор целевой группы из которой будут удалены целевые
-            ресурсы. 
-
-            Чтобы узнать идентификатор целевой группы, используйте запрос
-            [list](/docs/network-load-balancer/api-ref/TargetGroup/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+      - name: targetGroupId
+        in: path
+        description: "Обязательное поле.\nИдентификатор целевой группы из которой
+          будут удалены целевые ресурсы. \nЧтобы узнать идентификатор целевой группы,
+          используйте запрос [list](/docs/load-balancer/api-ref/TargetGroup/list).\n\nМаксимальная
+          длина строки в символах — 50."
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -837,7 +652,7 @@ paths:
               $ref: '#/components/schemas/RemoveTargetsRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -846,65 +661,43 @@ paths:
       x-y-navtitle: removeTargets
       x-y-operation-metadata:
         $ref: '#/components/schemas/RemoveTargetsMetadata'
-      x-y-operation-response: '[TargetGroup](/docs/network-load-balancer/api-ref/TargetGroup#representation)'
-  /network-load-balancer/v1/targetGroups/{targetGroupId}/operations:
+      x-y-operation-response: '[TargetGroup](/docs/load-balancer/api-ref/TargetGroup#representation)'
+  /load-balancer/v1/targetGroups/{targetGroupId}/operations:
     get:
       tags:
-        - TargetGroup
+      - TargetGroup
       summary: Возвращает список операций для указанной целевой группы.
       operationId: TargetGroupListOperations
       parameters:
-        - name: targetGroupId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: targetGroupId
+        in: path
+        description: "Обязательное поле.\nИдентификатор изменяемого ресурса TargetGroup.
+          \nЧтобы узнать идентификатор целевой группы, используйте запрос [list](/docs/load-balancer/api-ref/TargetGroup/list).\n\nМаксимальная
+          длина строки в символах — 50."
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: "Максимальное количество результатов на странице ответа на запрос.
+          Если количество результатов\nбольше чем [pageSize](/docs/load-balancer/api-ref/TargetGroup/listOperations#query_params),
+          сервис вернет значение [nextPageToken](/docs/load-balancer/api-ref/TargetGroup/listOperations#responses),
+          \nкоторое можно использовать для получения следующей страницы.\nЗначение
+          по умолчанию: 100.\n\nМаксимальное значение — 1000."
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение [pageToken](/docs/load-balancer/api-ref/TargetGroup/listOperations#query_params) равным значению поля [nextPageToken](/docs/load-balancer/api-ref/TargetGroup/listOperations#responses),
+          прошлого запроса, чтобы получить следующую страницу результатов.
 
-            Идентификатор изменяемого ресурса TargetGroup. 
-
-            Чтобы узнать идентификатор целевой группы, используйте запрос
-            [list](/docs/network-load-balancer/api-ref/TargetGroup/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            Максимальное количество результатов на странице ответа на запрос.
-            Если количество результатов
-
-            больше чем
-            [pageSize](/docs/network-load-balancer/api-ref/TargetGroup/listOperations#query_params),
-            сервис вернет значение
-            [nextPageToken](/docs/network-load-balancer/api-ref/TargetGroup/listOperations#responses), 
-
-            которое можно использовать для получения следующей страницы.
-
-            Значение по умолчанию: 100.
-
-
-            Максимальное значение — 1000.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Токен страницы. Установите значение
-            [pageToken](/docs/network-load-balancer/api-ref/TargetGroup/listOperations#query_params)
-            равным значению поля
-            [nextPageToken](/docs/network-load-balancer/api-ref/TargetGroup/listOperations#responses),
-
-            прошлого запроса, чтобы получить следующую страницу результатов.
-
-
-            Максимальная длина строки в символах — 100.
-          schema:
-            type: string
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -923,13 +716,13 @@ components:
       type: object
       properties:
         listenerSpec:
-          $ref: >-
-            #/components/schemas/ListenerSpec_in_AddNetworkLoadBalancerListenerRequest_listenerSpec
+          $ref: '#/components/schemas/ListenerSpec_in_AddNetworkLoadBalancerListenerRequest_listenerSpec'
     AddTargetsMetadata:
       type: object
       properties:
         targetGroupId:
-          description: Идентификатор целевой группы, в которую добавляются целевые ресурсы.
+          description: Идентификатор целевой группы, в которую добавляются целевые
+            ресурсы.
           type: string
     AddTargetsRequest:
       type: object
@@ -947,8 +740,7 @@ components:
       type: object
       properties:
         networkLoadBalancerId:
-          description: >-
-            Идентификатор балансировщика, к которому подключается целевая
+          description: Идентификатор балансировщика, к которому подключается целевая
             группа.
           type: string
         targetGroupId:
@@ -958,13 +750,10 @@ components:
       type: object
       properties:
         attachedTargetGroup:
-          $ref: >-
-            #/components/schemas/AttachedTargetGroup_in_AttachNetworkLoadBalancerTargetGroupRequest_attachedTargetGroup
+          $ref: '#/components/schemas/AttachedTargetGroup_in_AttachNetworkLoadBalancerTargetGroupRequest_attachedTargetGroup'
     AttachedTargetGroup:
-      description: >-
-        Ресурс AttachedTargetGroup. Дополнительные сведения см. в разделе
-        [Целевые группы и
-        ресурсы](/docs/network-load-balancer/concepts/target-resources)
+      description: Ресурс AttachedTargetGroup. Дополнительные сведения см. в разделе
+        [Целевые группы и ресурсы](/docs/load-balancer/concepts/target-resources)
       type: object
       properties:
         targetGroupId:
@@ -994,26 +783,19 @@ components:
       type: object
       properties:
         folderId:
-          description: >-
+          description: |-
             Обязательное поле.
-
             Идентификатор каталога, в котором создается балансировщик.
-
-            Чтобы получить идентификатор каталога, используйте запрос
-            [list](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list).
-
+            Чтобы получить идентификатор каталога, используйте запрос [list](/docs/load-balancer/api-ref/NetworkLoadBalancer/list).
 
             Максимальная длина строки в символах — 50.
           type: string
         name:
-          description: >-
+          description: |-
             Обязательное поле.
-
             Имя балансировщика. Имя должно быть уникальным в каталоге.
 
-
-            Значение должно соответствовать регулярному выражению ``
-            |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+            Значение должно соответствовать регулярному выражению `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
           type: string
         description:
           description: |-
@@ -1022,21 +804,14 @@ components:
             Максимальная длина строки в символах — 256.
           type: string
         labels:
-          description: >-
+          description: |-
             Метки ресурса в формате `` ключ:значение ``.
 
-
             Не более 64 на ресурс.
-
             Длина строки в символах для каждого ключа должна быть от 1 до 63.
-
-            Каждый ключ должен соответствовать регулярному выражению ``
-            [a-z][-_0-9a-z]* ``.
-
+            Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
             Максимальная длина строки в символах для каждого значения — 63.
-
-            Каждое значение должно соответствовать регулярному выражению ``
-            [-_0-9a-z]* ``.
+            Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.
           type: object
           additionalProperties:
             type: string
@@ -1048,8 +823,7 @@ components:
             Максимальная длина строки в символах — 50.
           type: string
         type:
-          $ref: >-
-            #/components/schemas/NetworkLoadBalancerType_in_CreateNetworkLoadBalancerRequest_type
+          $ref: '#/components/schemas/NetworkLoadBalancerType_in_CreateNetworkLoadBalancerRequest_type'
         listenerSpecs:
           description: |-
             Список обработчиков и их спецификации для балансировщика.
@@ -1059,11 +833,9 @@ components:
           items:
             $ref: '#/components/schemas/ListenerSpec'
         attachedTargetGroups:
-          description: |-
-            Список подключенных к балансировщику целевых групп. 
-            Сейчас к балансировщику можно подключить только одну целевую группу.
-
-            Максимальное количество элементов — 1.
+          description: "Список подключенных к балансировщику целевых групп. \nСейчас
+            к балансировщику можно подключить только одну целевую группу.\n\nМаксимальное
+            количество элементов — 1."
           type: array
           items:
             $ref: '#/components/schemas/AttachedTargetGroup'
@@ -1077,26 +849,17 @@ components:
       type: object
       properties:
         folderId:
-          description: >-
-            Обязательное поле.
-
-            Идентификатор каталога для вывода списка целевых групп. 
-
-            Чтобы получить идентификатор каталога, используйте запрос
-            [list](/docs/network-load-balancer/api-ref/TargetGroup/list).
-
-
-            Максимальная длина строки в символах — 50.
+          description: "Обязательное поле.\nИдентификатор каталога для вывода списка
+            целевых групп. \nЧтобы получить идентификатор каталога, используйте запрос
+            [list](/docs/load-balancer/api-ref/TargetGroup/list).\n\nМаксимальная
+            длина строки в символах — 50."
           type: string
         name:
-          description: >-
+          description: |-
             Обязательное поле.
-
             Имя целевой группы. Имя должно быть уникальным в каталоге.
 
-
-            Значение должно соответствовать регулярному выражению ``
-            |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+            Значение должно соответствовать регулярному выражению `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
           type: string
         description:
           description: |-
@@ -1105,21 +868,14 @@ components:
             Максимальная длина строки в символах — 256.
           type: string
         labels:
-          description: >-
+          description: |-
             Метки ресурса в формате `` key:value ``.
 
-
             Не более 64 на ресурс.
-
             Длина строки в символах для каждого ключа должна быть от 1 до 63.
-
-            Каждый ключ должен соответствовать регулярному выражению ``
-            [a-z][-_0-9a-z]* ``.
-
+            Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
             Максимальная длина строки в символах для каждого значения — 63.
-
-            Каждое значение должно соответствовать регулярному выражению ``
-            [-_0-9a-z]* ``.
+            Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.
           type: object
           additionalProperties:
             type: string
@@ -1151,8 +907,7 @@ components:
       type: object
       properties:
         networkLoadBalancerId:
-          description: >-
-            Идентификатор балансировщика, от которого отключается целевая
+          description: Идентификатор балансировщика, от которого отключается целевая
             группа.
           type: string
         targetGroupId:
@@ -1177,108 +932,76 @@ components:
       type: object
       properties:
         address:
-          description: >-
-            Публичный IP-адрес для обработчика. 
-
-            Если адрес передается в методе
-            [update](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/update),
-
-            он заменит существующий адрес обработчика.
+          description: "Публичный IP-адрес для обработчика. \nЕсли адрес передается
+            в методе [update](/docs/load-balancer/api-ref/NetworkLoadBalancer/update),\nон
+            заменит существующий адрес обработчика."
           type: string
         ipVersion:
           $ref: '#/components/schemas/IpVersion_in_ExternalAddressSpec_ipVersion'
     FieldMask:
-      description: >-
+      description: |-
         Имена всех обновляемых полей, разделенные запятыми.
+        Только значения указанных полей будут изменены. Остальные останутся нетронутыми.
+        Если поле указано в параметре `` updateMask `` и в запросе не было отправлено значение для этого поля,
+        значение поля будет сброшено на значение по умолчанию. Значение по умолчанию для большинства полей — null или 0.
 
-        Только значения указанных полей будут изменены. Остальные останутся
-        нетронутыми.
-
-        Если поле указано в параметре `` updateMask `` и в запросе не было
-        отправлено значение для этого поля,
-
-        значение поля будет сброшено на значение по умолчанию. Значение по
-        умолчанию для большинства полей — null или 0.
-
-
-        Если в запросе не передается `` updateMask ``, значения всех полей будут
-        обновлены.
-
+        Если в запросе не передается `` updateMask ``, значения всех полей будут обновлены.
         Для полей, указанных в запросе, будут использованы переданные значения.
-
         Значения остальных полей будут сброшены на значения по умолчанию.
       type: string
     GetTargetStatesResponse:
       type: object
       properties:
         targetStates:
-          description: >-
-            Список состояний ресурсов в целевой группе, указанных в сообщении
+          description: Список состояний ресурсов в целевой группе, указанных в сообщении
             `GetTargetStatesRequest` .
           type: array
           items:
             $ref: '#/components/schemas/TargetState'
     HealthCheck:
-      description: >-
-        Ресурс HealthCheck. Подробнее см. в разделе [Проверка
-        состояния](/docs/network-load-balancer/concepts/health-check).
+      description: Ресурс HealthCheck. Подробнее см. в разделе [Проверка состояния](/docs/load-balancer/concepts/health-check).
       type: object
       allOf:
-        - type: object
-          properties:
-            name:
-              description: >-
-                Обязательное поле.
-
-                Название проверки состояния. Имя должно быть уникальным в
-                каталоге. 
-
-                Длина имени должна быть от 3 до 63 символов.
-
-
-                Значение должно соответствовать регулярному выражению ``
-                |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
-              type: string
-            interval:
-              description: |-
-                Интервал между проверками работоспособности.
-                Формат значения: `` Ns ``, где N — количество секунд. 
-                Значение по умолчанию — 2 секунды.
-              type: string
-            timeout:
-              description: |-
-                Время, за которое целевой ресурс должен ответить на проверку.
-                Формат значения: `` Ns ``, где N — количество секунд
-                Значение по умолчанию — 1 секунда.
-              type: string
-            unhealthyThreshold:
-              description: |-
-                Количество неудачных проверок работоспособности перед
-                изменением состояния целевого ресурса на `` UNHEALTHY ``. 
-                Значение по умолчанию — 2.
-
-                Допустимые значения — от 2 до 10 включительно.
-              type: string
-              format: int64
-            healthyThreshold:
-              description: |-
-                Количество успешных проверок состояния, необходимых для
-                установки целевому ресурсу статуса `` HEALTHY ``. 
-                Значение по умолчанию — 2.
-
-                Допустимые значения — от 2 до 10 включительно.
-              type: string
-              format: int64
-        - title: options
-          type: object
-          maxProperties: 1
-          properties:
-            tcpOptions:
-              $ref: '#/components/schemas/HealthCheckTcpOptions'
-              description: Протокол TCP.
-            httpOptions:
-              $ref: '#/components/schemas/HealthCheckHttpOptions'
-              description: Протокол HTTP.
+      - type: object
+        properties:
+          name:
+            description: "Обязательное поле.\nНазвание проверки состояния. Имя должно
+              быть уникальным в каталоге. \nДлина имени должна быть от 3 до 63 символов.\n\nЗначение
+              должно соответствовать регулярному выражению `` |[a-z][-a-z0-9]{1,61}[a-z0-9]
+              ``."
+            type: string
+          interval:
+            description: "Интервал между проверками работоспособности.\nФормат значения:
+              `` Ns ``, где N — количество секунд. \nЗначение по умолчанию — 2 секунды."
+            type: string
+          timeout:
+            description: |-
+              Время, за которое целевой ресурс должен ответить на проверку.
+              Формат значения: `` Ns ``, где N — количество секунд
+              Значение по умолчанию — 1 секунда.
+            type: string
+          unhealthyThreshold:
+            description: "Количество неудачных проверок работоспособности перед\nизменением
+              состояния целевого ресурса на `` UNHEALTHY ``. \nЗначение по умолчанию
+              — 2.\n\nДопустимые значения — от 2 до 10 включительно."
+            type: string
+            format: int64
+          healthyThreshold:
+            description: "Количество успешных проверок состояния, необходимых для\nустановки
+              целевому ресурсу статуса `` HEALTHY ``. \nЗначение по умолчанию — 2.\n\nДопустимые
+              значения — от 2 до 10 включительно."
+            type: string
+            format: int64
+      - title: options
+        type: object
+        maxProperties: 1
+        properties:
+          tcpOptions:
+            $ref: '#/components/schemas/HealthCheckTcpOptions'
+            description: Протокол TCP.
+          httpOptions:
+            $ref: '#/components/schemas/HealthCheckHttpOptions'
+            description: Протокол HTTP.
     HealthCheckHttpOptions:
       description: Конфигурация проверки состояния по протоколу HTTP.
       type: object
@@ -1291,10 +1014,9 @@ components:
           type: string
           format: int64
         path:
-          description: |-
-            URL для отправки запросов проверки состояния, 
-            который будет установлен всем ресурсам целевой группы.
-            Например `` /ping ``. Путь по умолчанию — `` / ``.
+          description: "URL для отправки запросов проверки состояния, \nкоторый будет
+            установлен всем ресурсам целевой группы.\nНапример `` /ping ``. Путь по
+            умолчанию — `` / ``."
           type: string
     HealthCheckTcpOptions:
       description: Конфигурация проверки состояния по протоколу TCP.
@@ -1308,16 +1030,13 @@ components:
           type: string
           format: int64
     IpVersion:
-      description: |-
-        Версия IP-адресов, с которыми работает балансировщик нагрузки. 
-        В настоящее время доступны только адреса IPv4.
-
-         - IPV4: Протокол IPv4.
-         - IPV6: Протокол IPv6.
+      description: "Версия IP-адресов, с которыми работает балансировщик нагрузки.
+        \nВ настоящее время доступны только адреса IPv4.\n\n - IPV4: Протокол IPv4.\n
+        - IPV6: Протокол IPv6."
       type: string
       enum:
-        - IPV4
-        - IPV6
+      - IPV4
+      - IPV6
     ListNetworkLoadBalancerOperationsResponse:
       type: object
       properties:
@@ -1327,23 +1046,13 @@ components:
           items:
             $ref: '#/components/schemas/Operation'
         nextPageToken:
-          description: >-
-            Токен для получения следующей страницы результатов в ответе. Если
-            количество результатов
-
-            больше чем
-            [pageSize](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/listOperations#query_params),
-            используйте
-            [nextPageToken](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/listOperations#responses)
-            в качестве значения
-
-            параметра
-            [pageToken](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/listOperations#query_params)
-            в следующем запросе списка ресурсов. Все последующие 
-
-            запросы будут получать свои значения
-            [nextPageToken](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/listOperations#responses),
-            для перебора страниц результатов.
+          description: "Токен для получения следующей страницы результатов в ответе.
+            Если количество результатов\nбольше чем [pageSize](/docs/load-balancer/api-ref/NetworkLoadBalancer/listOperations#query_params),
+            используйте [nextPageToken](/docs/load-balancer/api-ref/NetworkLoadBalancer/listOperations#responses)
+            в качестве значения\nпараметра [pageToken](/docs/load-balancer/api-ref/NetworkLoadBalancer/listOperations#query_params)
+            в следующем запросе списка ресурсов. Все последующие \nзапросы будут получать
+            свои значения [nextPageToken](/docs/load-balancer/api-ref/NetworkLoadBalancer/listOperations#responses),
+            для перебора страниц результатов."
           type: string
     ListNetworkLoadBalancersResponse:
       type: object
@@ -1354,23 +1063,13 @@ components:
           items:
             $ref: '#/components/schemas/NetworkLoadBalancer'
         nextPageToken:
-          description: >-
-            Токен для получения следующей страницы результатов в ответе. Если
-            количество результатов
-
-            больше чем
-            [pageSize](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list#query_params),
-            используйте
-            [nextPageToken](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list#responses)
-            в качестве значения
-
-            параметра
-            [pageToken](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list#query_params)
-            в следующем запросе списка ресурсов. Все последующие 
-
-            запросы будут получать свои значения
-            [nextPageToken](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list#responses),
-            для перебора страниц результатов.
+          description: "Токен для получения следующей страницы результатов в ответе.
+            Если количество результатов\nбольше чем [pageSize](/docs/load-balancer/api-ref/NetworkLoadBalancer/list#query_params),
+            используйте [nextPageToken](/docs/load-balancer/api-ref/NetworkLoadBalancer/list#responses)
+            в качестве значения\nпараметра [pageToken](/docs/load-balancer/api-ref/NetworkLoadBalancer/list#query_params)
+            в следующем запросе списка ресурсов. Все последующие \nзапросы будут получать
+            свои значения [nextPageToken](/docs/load-balancer/api-ref/NetworkLoadBalancer/list#responses),
+            для перебора страниц результатов."
           type: string
     ListTargetGroupOperationsResponse:
       type: object
@@ -1381,23 +1080,13 @@ components:
           items:
             $ref: '#/components/schemas/Operation'
         nextPageToken:
-          description: >-
-            Токен для получения следующей страницы результатов в ответе. Если
-            количество результатов
-
-            больше чем
-            [pageSize](/docs/network-load-balancer/api-ref/TargetGroup/listOperations#query_params),
-            используйте
-            [nextPageToken](/docs/network-load-balancer/api-ref/TargetGroup/listOperations#responses)
-            в качестве значения
-
-            параметра
-            [pageToken](/docs/network-load-balancer/api-ref/TargetGroup/listOperations#query_params)
-            в следующем запросе списка ресурсов. Все последующие 
-
-            запросы будут получать свои значения
-            [nextPageToken](/docs/network-load-balancer/api-ref/TargetGroup/listOperations#responses),
-            для перебора страниц результатов.
+          description: "Токен для получения следующей страницы результатов в ответе.
+            Если количество результатов\nбольше чем [pageSize](/docs/load-balancer/api-ref/TargetGroup/listOperations#query_params),
+            используйте [nextPageToken](/docs/load-balancer/api-ref/TargetGroup/listOperations#responses)
+            в качестве значения\nпараметра [pageToken](/docs/load-balancer/api-ref/TargetGroup/listOperations#query_params)
+            в следующем запросе списка ресурсов. Все последующие \nзапросы будут получать
+            свои значения [nextPageToken](/docs/load-balancer/api-ref/TargetGroup/listOperations#responses),
+            для перебора страниц результатов."
           type: string
     ListTargetGroupsResponse:
       type: object
@@ -1408,34 +1097,21 @@ components:
           items:
             $ref: '#/components/schemas/TargetGroup'
         nextPageToken:
-          description: >-
-            Токен для получения следующей страницы результатов в ответе. Если
-            количество результатов
-
-            больше чем
-            [pageSize](/docs/network-load-balancer/api-ref/TargetGroup/list#query_params),
-            используйте
-            [nextPageToken](/docs/network-load-balancer/api-ref/TargetGroup/list#responses)
-            в качестве значения
-
-            параметра
-            [pageToken](/docs/network-load-balancer/api-ref/TargetGroup/list#query_params)
-            в следующем запросе списка ресурсов. Все последующие 
-
-            запросы будут получать свои значения
-            [nextPageToken](/docs/network-load-balancer/api-ref/TargetGroup/list#responses),
-            для перебора страниц результатов.
+          description: "Токен для получения следующей страницы результатов в ответе.
+            Если количество результатов\nбольше чем [pageSize](/docs/load-balancer/api-ref/TargetGroup/list#query_params),
+            используйте [nextPageToken](/docs/load-balancer/api-ref/TargetGroup/list#responses)
+            в качестве значения\nпараметра [pageToken](/docs/load-balancer/api-ref/TargetGroup/list#query_params)
+            в следующем запросе списка ресурсов. Все последующие \nзапросы будут получать
+            свои значения [nextPageToken](/docs/load-balancer/api-ref/TargetGroup/list#responses),
+            для перебора страниц результатов."
           type: string
     Listener:
-      description: >-
-        Ресурс Listener. Дополнительные сведения см. в разделе
-        [Обработчик](/docs/network-load-balancer/concepts/listener)
+      description: Ресурс Listener. Дополнительные сведения см. в разделе [Обработчик](/docs/load-balancer/concepts/listener)
       type: object
       properties:
         name:
-          description: >-
-            Имя обработчика. У обработчиков одного балансировщика должны быть
-            уникальные имена. Длина 3-63 символов.
+          description: Имя обработчика. У обработчиков одного балансировщика должны
+            быть уникальные имена. Длина 3-63 символов.
           type: string
         address:
           description: IP-адрес для обработчика.
@@ -1453,53 +1129,48 @@ components:
          - TCP: Протокол TCP.
       type: string
       enum:
-        - TCP
+      - TCP
     ListenerSpec:
       description: Спецификация обработчика, которая будет использоваться балансировщиком.
       type: object
       allOf:
-        - type: object
-          properties:
-            name:
-              description: >-
-                Обязательное поле.
+      - type: object
+        properties:
+          name:
+            description: |-
+              Обязательное поле.
+              Имя обработчика. У обработчиков одного балансировщика должны быть уникальные имена. Длина 3-63 символов.
 
-                Имя обработчика. У обработчиков одного балансировщика должны
-                быть уникальные имена. Длина 3-63 символов.
+              Значение должно соответствовать регулярному выражению `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+            type: string
+          port:
+            description: |-
+              Порт для входящего трафика.
 
-
-                Значение должно соответствовать регулярному выражению ``
-                |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
-              type: string
-            port:
-              description: |-
-                Порт для входящего трафика.
-
-                Допустимые значения — от 1 до 32767 включительно.
-              type: string
-              format: int64
-            protocol:
-              $ref: '#/components/schemas/ListenerProtocol'
-              description: |-
-                Обязательное поле.
-                Сетевой протокол для входящего трафика.
-            targetPort:
-              description: |-
-                Порты целевых ресурсов для входящего трафика.
-                Допустимые значения — от 1 до 32767 включительно.
-              type: string
-              format: int64
-        - title: address
-          type: object
-          maxProperties: 1
-          properties:
-            externalAddressSpec:
-              $ref: '#/components/schemas/ExternalAddressSpec'
-              description: Спецификация внешнего IP-адреса.
+              Допустимые значения — от 1 до 32767 включительно.
+            type: string
+            format: int64
+          protocol:
+            $ref: '#/components/schemas/ListenerProtocol'
+            description: |-
+              Обязательное поле.
+              Сетевой протокол для входящего трафика.
+          targetPort:
+            description: |-
+              Порты целевых ресурсов для входящего трафика.
+              Допустимые значения — от 1 до 32767 включительно.
+            type: string
+            format: int64
+      - title: address
+        type: object
+        maxProperties: 1
+        properties:
+          externalAddressSpec:
+            $ref: '#/components/schemas/ExternalAddressSpec'
+            description: Спецификация внешнего IP-адреса.
     NetworkLoadBalancer:
-      description: >-
-        Ресурс NetworkLoadBalancer. Подробнее см. в разделе [Сетевой
-        балансировщик нагрузки](/docs/network-load-balancer/concepts).
+      description: Ресурс NetworkLoadBalancer. Подробнее см. в разделе [Сетевой балансировщик
+        нагрузки](/docs/load-balancer/concepts).
       type: object
       properties:
         id:
@@ -1509,10 +1180,8 @@ components:
           description: Идентификатор каталога, которому принадлежит балансировщик.
           type: string
         createdAt:
-          description: >-
-            Время создания ресурса в формате
-            [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
-
+          description: |-
+            Время создания ресурса в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
 
             Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
           type: string
@@ -1526,9 +1195,8 @@ components:
           description: Описание балансировщика. Длина 0-256 символов.
           type: string
         labels:
-          description: >-
-            Метки ресурса в формате `` key:value ``. Максимум 64 метки на
-            ресурс.
+          description: Метки ресурса в формате `` key:value ``. Максимум 64 метки
+            на ресурс.
           type: object
           additionalProperties:
             type: string
@@ -1536,14 +1204,11 @@ components:
           description: Идентификатор каталога, которому принадлежит балансировщик.
           type: string
         status:
-          $ref: >-
-            #/components/schemas/NetworkLoadBalancerStatus_in_NetworkLoadBalancer_status
+          $ref: '#/components/schemas/NetworkLoadBalancerStatus_in_NetworkLoadBalancer_status'
         type:
-          $ref: >-
-            #/components/schemas/NetworkLoadBalancerType_in_NetworkLoadBalancer_type
+          $ref: '#/components/schemas/NetworkLoadBalancerType_in_NetworkLoadBalancer_type'
         sessionAffinity:
-          $ref: >-
-            #/components/schemas/NetworkLoadBalancerSessionAffinity_in_NetworkLoadBalancer_sessionAffinity
+          $ref: '#/components/schemas/NetworkLoadBalancerSessionAffinity_in_NetworkLoadBalancer_sessionAffinity'
         listeners:
           description: Список обработчиков балансировщика.
           type: array
@@ -1555,16 +1220,14 @@ components:
           items:
             $ref: '#/components/schemas/AttachedTargetGroup'
     NetworkLoadBalancerSessionAffinity:
-      description: >-
+      description: |-
         Тип адресации. В настоящее время доступна только адресация по
-
-        принципу 5-tuple. Подробнее см. в разделе [Основные
-        понятия](/docs/network-load-balancer/concepts/).
+        принципу 5-tuple. Подробнее см. в разделе [Основные понятия](/docs/load-balancer/concepts/).
 
          - CLIENT_IP_PORT_PROTO: Адресация 5-tuple.
       type: string
       enum:
-        - CLIENT_IP_PORT_PROTO
+      - CLIENT_IP_PORT_PROTO
     NetworkLoadBalancerStatus:
       description: |2-
          - CREATING: Балансировщик создается.
@@ -1579,104 +1242,87 @@ components:
         этом состоянии.
       type: string
       enum:
-        - CREATING
-        - STARTING
-        - ACTIVE
-        - STOPPING
-        - STOPPED
-        - DELETING
-        - INACTIVE
+      - CREATING
+      - STARTING
+      - ACTIVE
+      - STOPPING
+      - STOPPED
+      - DELETING
+      - INACTIVE
     NetworkLoadBalancerType:
-      description: |-
-        Тип балансировщика нагрузки. 
-        В настоящее время доступны только внешние балансировщики.
-
-         - EXTERNAL: Внешний балансировщик.
+      description: "Тип балансировщика нагрузки. \nВ настоящее время доступны только
+        внешние балансировщики.\n\n - EXTERNAL: Внешний балансировщик."
       type: string
       enum:
-        - EXTERNAL
+      - EXTERNAL
     Operation:
       description: |-
         Ресурс Operation. Дополнительные сведения см. в разделе
         [Объект Operation](/docs/api-design-guide/concepts/operation).
       type: object
       allOf:
-        - type: object
-          properties:
-            id:
-              description: Идентификатор операции.
-              type: string
-            description:
-              description: |-
-                Описание операции. Длина описания должна быть от 0 до 256
-                символов.
-              type: string
-            createdAt:
-              description: >-
-                Время создания ресурса в формате в
+      - type: object
+        properties:
+          id:
+            description: Идентификатор операции.
+            type: string
+          description:
+            description: |-
+              Описание операции. Длина описания должна быть от 0 до 256
+              символов.
+            type: string
+          createdAt:
+            description: |-
+              Время создания ресурса в формате в
+              [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
 
-                [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+              Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+            type: string
+            format: date-time
+          createdBy:
+            description: |-
+              Идентификатор пользователя или сервисного
+              аккаунта, инициировавшего операцию.
+            type: string
+          modifiedAt:
+            description: |-
+              Время, когда ресурс Operation последний раз
+              обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
 
-
-                Строка в формате
-                [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
-              type: string
-              format: date-time
-            createdBy:
-              description: |-
-                Идентификатор пользователя или сервисного
-                аккаунта, инициировавшего операцию.
-              type: string
-            modifiedAt:
-              description: >-
-                Время, когда ресурс Operation последний раз
-
-                обновлялся. Значение в формате
-                [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
-
-
-                Строка в формате
-                [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
-              type: string
-              format: date-time
-            done:
-              description: |-
-                Если значение равно `false` — операция еще
-                выполняется. Если `true` — операция завершена, и задано значение
-                одного из полей `error` или `response`.
-              type: boolean
-              format: boolean
-            metadata:
-              description: |-
-                Метаданные операции. Обычно в поле содержится
-                идентификатор ресурса, над которым выполняется операция. Если
-                метод возвращает ресурс Operation, в описании метода приведена
-                структура соответствующего ему поля `metadata`.
-              type: object
-        - title: result
-          type: object
-          maxProperties: 1
-          properties:
-            error:
-              $ref: '#/components/schemas/rpcStatus'
-              description: Описание ошибки в случае сбоя или отмены операции.
-            response:
-              description: >-
-                Результат операции в случае успешного завершения. Если
-
-                исходный метод не возвращает никаких данных при успешном
-
-                завершении, например метод Delete, поле содержит объект
-
-                [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty).
-                Если исходный метод — это стандартный метод Create
-
-                / Update, поле содержит целевой ресурс операции. Если метод
-
-                возвращает ресурс Operation, в описании метода приведена
-
-                структура соответствующего ему поля `response`.
-              type: object
+              Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+            type: string
+            format: date-time
+          done:
+            description: |-
+              Если значение равно `false` — операция еще
+              выполняется. Если `true` — операция завершена, и задано значение
+              одного из полей `error` или `response`.
+            type: boolean
+            format: boolean
+          metadata:
+            description: |-
+              Метаданные операции. Обычно в поле содержится
+              идентификатор ресурса, над которым выполняется операция. Если
+              метод возвращает ресурс Operation, в описании метода приведена
+              структура соответствующего ему поля `metadata`.
+            type: object
+      - title: result
+        type: object
+        maxProperties: 1
+        properties:
+          error:
+            $ref: '#/components/schemas/rpcStatus'
+            description: Описание ошибки в случае сбоя или отмены операции.
+          response:
+            description: |-
+              Результат операции в случае успешного завершения. Если
+              исходный метод не возвращает никаких данных при успешном
+              завершении, например метод Delete, поле содержит объект
+              [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty). Если исходный метод — это стандартный метод Create
+              / Update, поле содержит целевой ресурс операции. Если метод
+              возвращает ресурс Operation, в описании метода приведена
+              структура соответствующего ему поля `response`.
+            type: object
     RemoveNetworkLoadBalancerListenerMetadata:
       type: object
       properties:
@@ -1687,14 +1333,11 @@ components:
       type: object
       properties:
         listenerName:
-          description: >-
+          description: |-
             Обязательное поле.
-
             Имя удаляемого обработчика.
 
-
-            Значение должно соответствовать регулярному выражению ``
-            |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+            Значение должно соответствовать регулярному выражению `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
           type: string
     RemoveTargetsMetadata:
       type: object
@@ -1727,26 +1370,20 @@ components:
           description: Идентификатор останавливаемого ресурса NetworkLoadBalancer.
           type: string
     Target:
-      description: >-
-        Ресурс Target. Подробнее см. в разделе [Целевые группы и
-        ресурсы](/docs/network-load-balancer/target-resources).
+      description: Ресурс Target. Подробнее см. в разделе [Целевые группы и ресурсы](/docs/load-balancer/target-resources).
       type: object
       properties:
         subnetId:
-          description: |-
-            Идентификатор подсети, к которой подключены целевые ресурсы. 
-            В пределах одной зоны доступности все ресурсы целевой группы
-            должны быть подключены к одной подсети.
-
-            Максимальная длина строки в символах — 50.
+          description: "Идентификатор подсети, к которой подключены целевые ресурсы.
+            \nВ пределах одной зоны доступности все ресурсы целевой группы\nдолжны
+            быть подключены к одной подсети.\n\nМаксимальная длина строки в символах
+            — 50."
           type: string
         address:
           description: IP-адрес целевого ресурса.
           type: string
     TargetGroup:
-      description: >-
-        Ресурс TargetGroup. Подробнее см. в разделе [Целевые группы и
-        ресурсы](/docs/network-load-balancer/concepts/target-resources).
+      description: Ресурс TargetGroup. Подробнее см. в разделе [Целевые группы и ресурсы](/docs/load-balancer/concepts/target-resources).
       type: object
       properties:
         id:
@@ -1756,10 +1393,8 @@ components:
           description: Идентификатор каталога, которому принадлежит целевая группа.
           type: string
         createdAt:
-          description: >-
-            Только для вывода. Время создания ресурса в формате
-            [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) .
-
+          description: |-
+            Только для вывода. Время создания ресурса в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) .
 
             Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
           type: string
@@ -1773,9 +1408,8 @@ components:
           description: Описание целевой группы. Длина 0-256 символов.
           type: string
         labels:
-          description: >-
-            Метки ресурса в формате `` key:value ``. Максимум 64 метки на
-            ресурс.
+          description: Метки ресурса в формате `` key:value ``. Максимум 64 метки
+            на ресурс.
           type: object
           additionalProperties:
             type: string
@@ -1812,11 +1446,11 @@ components:
         или ресурс подключен к балансировщику без обработчика.
       type: string
       enum:
-        - INITIAL
-        - HEALTHY
-        - UNHEALTHY
-        - DRAINING
-        - INACTIVE
+      - INITIAL
+      - HEALTHY
+      - UNHEALTHY
+      - DRAINING
+      - INACTIVE
     UpdateNetworkLoadBalancerMetadata:
       type: object
       properties:
@@ -1827,15 +1461,12 @@ components:
       type: object
       properties:
         updateMask:
-          $ref: >-
-            #/components/schemas/FieldMask_in_UpdateNetworkLoadBalancerRequest_updateMask
+          $ref: '#/components/schemas/FieldMask_in_UpdateNetworkLoadBalancerRequest_updateMask'
         name:
-          description: >-
+          description: |-
             Имя балансировщика. Имя должно быть уникальным в каталоге.
 
-
-            Значение должно соответствовать регулярному выражению ``
-            [a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+            Значение должно соответствовать регулярному выражению `` [a-z][-a-z0-9]{1,61}[a-z0-9] ``.
           type: string
         description:
           description: |-
@@ -1844,25 +1475,16 @@ components:
             Максимальная длина строки в символах — 256.
           type: string
         labels:
-          description: >-
+          description: |-
             Метки ресурса в формате `` ключ:значение ``.
 
-
-            Имеющийся набор меток полностью перезаписывается набором, переданным
-            в запросе.
-
+            Имеющийся набор меток полностью перезаписывается набором, переданным в запросе.
 
             Не более 64 на ресурс.
-
             Длина строки в символах для каждого ключа должна быть от 1 до 63.
-
-            Каждый ключ должен соответствовать регулярному выражению ``
-            [a-z][-_0-9a-z]* ``.
-
+            Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
             Максимальная длина строки в символах для каждого значения — 63.
-
-            Каждое значение должно соответствовать регулярному выражению ``
-            [-_0-9a-z]* ``.
+            Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.
           type: object
           additionalProperties:
             type: string
@@ -1875,11 +1497,9 @@ components:
           items:
             $ref: '#/components/schemas/ListenerSpec'
         attachedTargetGroups:
-          description: |-
-            Список подключенных к балансировщику целевых групп. 
-            Сейчас к балансировщику можно подключить только одну целевую группу.
-
-            Максимальное количество элементов — 1.
+          description: "Список подключенных к балансировщику целевых групп. \nСейчас
+            к балансировщику можно подключить только одну целевую группу.\n\nМаксимальное
+            количество элементов — 1."
           type: array
           items:
             $ref: '#/components/schemas/AttachedTargetGroup'
@@ -1893,15 +1513,12 @@ components:
       type: object
       properties:
         updateMask:
-          $ref: >-
-            #/components/schemas/FieldMask_in_UpdateTargetGroupRequest_updateMask
+          $ref: '#/components/schemas/FieldMask_in_UpdateTargetGroupRequest_updateMask'
         name:
-          description: >-
+          description: |-
             Имя целевой группы. Имя должно быть уникальным в каталоге.
 
-
-            Значение должно соответствовать регулярному выражению ``
-            |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+            Значение должно соответствовать регулярному выражению `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
           type: string
         description:
           description: |-
@@ -1910,25 +1527,16 @@ components:
             Максимальная длина строки в символах — 256.
           type: string
         labels:
-          description: >-
+          description: |-
             Метки ресурса в формате `` ключ:значение ``.
 
-
-            Имеющийся набор меток полностью перезаписывается набором, переданным
-            в запросе.
-
+            Имеющийся набор меток полностью перезаписывается набором, переданным в запросе.
 
             Не более 64 на ресурс.
-
             Длина строки в символах для каждого ключа должна быть от 1 до 63.
-
-            Каждый ключ должен соответствовать регулярному выражению ``
-            [a-z][-_0-9a-z]* ``.
-
+            Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
             Максимальная длина строки в символах для каждого значения — 63.
-
-            Каждое значение должно соответствовать регулярному выражению ``
-            [-_0-9a-z]* ``.
+            Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.
           type: object
           additionalProperties:
             type: string
@@ -1942,9 +1550,7 @@ components:
       type: object
       properties:
         code:
-          description: >-
-            Код ошибки. Значение из списка
-            [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
+          description: Код ошибки. Значение из списка [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
           type: integer
           format: int32
         message:
@@ -1963,57 +1569,46 @@ components:
         Спецификация обработчика, которая будет использоваться балансировщиком.
       type: object
       allOf:
-        - type: object
-          properties:
-            name:
-              description: >-
-                Обязательное поле.
+      - type: object
+        properties:
+          name:
+            description: |-
+              Обязательное поле.
+              Имя обработчика. У обработчиков одного балансировщика должны быть уникальные имена. Длина 3-63 символов.
 
-                Имя обработчика. У обработчиков одного балансировщика должны
-                быть уникальные имена. Длина 3-63 символов.
+              Значение должно соответствовать регулярному выражению `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+            type: string
+          port:
+            description: |-
+              Порт для входящего трафика.
 
-
-                Значение должно соответствовать регулярному выражению ``
-                |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
-              type: string
-            port:
-              description: |-
-                Порт для входящего трафика.
-
-                Допустимые значения — от 1 до 32767 включительно.
-              type: string
-              format: int64
-            protocol:
-              $ref: '#/components/schemas/ListenerProtocol'
-              description: |-
-                Обязательное поле.
-                Сетевой протокол для входящего трафика.
-            targetPort:
-              description: |-
-                Порты целевых ресурсов для входящего трафика.
-                Допустимые значения — от 1 до 32767 включительно.
-              type: string
-              format: int64
-        - title: address
-          type: object
-          maxProperties: 1
-          properties:
-            externalAddressSpec:
-              $ref: '#/components/schemas/ExternalAddressSpec'
-              description: Спецификация внешнего IP-адреса.
+              Допустимые значения — от 1 до 32767 включительно.
+            type: string
+            format: int64
+          protocol:
+            $ref: '#/components/schemas/ListenerProtocol'
+            description: |-
+              Обязательное поле.
+              Сетевой протокол для входящего трафика.
+          targetPort:
+            description: |-
+              Порты целевых ресурсов для входящего трафика.
+              Допустимые значения — от 1 до 32767 включительно.
+            type: string
+            format: int64
+      - title: address
+        type: object
+        maxProperties: 1
+        properties:
+          externalAddressSpec:
+            $ref: '#/components/schemas/ExternalAddressSpec'
+            description: Спецификация внешнего IP-адреса.
     AttachedTargetGroup_in_AttachNetworkLoadBalancerTargetGroupRequest_attachedTargetGroup:
-      description: >-
-        Обязательное поле.
-
-        Идентификатор целевой группы для подключения к балансировщику. 
-
-        Чтобы получить идентификатор балансировщика, используйте запрос
-        [list](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list).
-
-
-        Ресурс AttachedTargetGroup. Дополнительные сведения см. в разделе
-        [Целевые группы и
-        ресурсы](/docs/network-load-balancer/concepts/target-resources)
+      description: "Обязательное поле.\nИдентификатор целевой группы для подключения
+        к балансировщику. \nЧтобы получить идентификатор балансировщика, используйте
+        запрос [list](/docs/load-balancer/api-ref/NetworkLoadBalancer/list).\n\nРесурс
+        AttachedTargetGroup. Дополнительные сведения см. в разделе [Целевые группы
+        и ресурсы](/docs/load-balancer/concepts/target-resources)"
       type: object
       properties:
         targetGroupId:
@@ -2034,34 +1629,20 @@ components:
           items:
             $ref: '#/components/schemas/HealthCheck'
     NetworkLoadBalancerType_in_CreateNetworkLoadBalancerRequest_type:
-      description: >-
-        Обязательное поле.
-
-        Тип балансировщика. В настоящее время доступны только внешние
-        балансировщики.
-
-
-        Тип балансировщика нагрузки. 
-
-        В настоящее время доступны только внешние балансировщики.
-
-         - EXTERNAL: Внешний балансировщик.
+      description: "Обязательное поле.\nТип балансировщика. В настоящее время доступны
+        только внешние балансировщики.\n\nТип балансировщика нагрузки. \nВ настоящее
+        время доступны только внешние балансировщики.\n\n - EXTERNAL: Внешний балансировщик."
       type: string
       enum:
-        - EXTERNAL
+      - EXTERNAL
     IpVersion_in_ExternalAddressSpec_ipVersion:
-      description: |-
-        Версия IP-адреса.
-
-        Версия IP-адресов, с которыми работает балансировщик нагрузки. 
-        В настоящее время доступны только адреса IPv4.
-
-         - IPV4: Протокол IPv4.
-         - IPV6: Протокол IPv6.
+      description: "Версия IP-адреса.\n\nВерсия IP-адресов, с которыми работает балансировщик
+        нагрузки. \nВ настоящее время доступны только адреса IPv4.\n\n - IPV4: Протокол
+        IPv4.\n - IPV6: Протокол IPv6."
       type: string
       enum:
-        - IPV4
-        - IPV6
+      - IPV4
+      - IPV6
     ListenerProtocol_in_Listener_protocol:
       description: |-
         Сетевой протокол для входящего трафика.
@@ -2071,7 +1652,7 @@ components:
          - TCP: Протокол TCP.
       type: string
       enum:
-        - TCP
+      - TCP
     NetworkLoadBalancerStatus_in_NetworkLoadBalancer_status:
       description: |-
         Состояние балансировщика.
@@ -2088,43 +1669,32 @@ components:
         этом состоянии.
       type: string
       enum:
-        - CREATING
-        - STARTING
-        - ACTIVE
-        - STOPPING
-        - STOPPED
-        - DELETING
-        - INACTIVE
+      - CREATING
+      - STARTING
+      - ACTIVE
+      - STOPPING
+      - STOPPED
+      - DELETING
+      - INACTIVE
     NetworkLoadBalancerType_in_NetworkLoadBalancer_type:
-      description: >-
-        Тип балансировщика. В настоящее время доступны только внешние
-        балансировщики.
-
-
-        Тип балансировщика нагрузки. 
-
-        В настоящее время доступны только внешние балансировщики.
-
-         - EXTERNAL: Внешний балансировщик.
+      description: "Тип балансировщика. В настоящее время доступны только внешние
+        балансировщики.\n\nТип балансировщика нагрузки. \nВ настоящее время доступны
+        только внешние балансировщики.\n\n - EXTERNAL: Внешний балансировщик."
       type: string
       enum:
-        - EXTERNAL
+      - EXTERNAL
     NetworkLoadBalancerSessionAffinity_in_NetworkLoadBalancer_sessionAffinity:
-      description: >-
+      description: |-
         Тип адресации. В настоящее время доступна только адресация по
-
         принципу 5-tuple.
 
-
         Тип адресации. В настоящее время доступна только адресация по
-
-        принципу 5-tuple. Подробнее см. в разделе [Основные
-        понятия](/docs/network-load-balancer/concepts/).
+        принципу 5-tuple. Подробнее см. в разделе [Основные понятия](/docs/load-balancer/concepts/).
 
          - CLIENT_IP_PORT_PROTO: Адресация 5-tuple.
       type: string
       enum:
-        - CLIENT_IP_PORT_PROTO
+      - CLIENT_IP_PORT_PROTO
     TargetStateStatus_in_TargetState_status:
       description: |-
         Состояние целевого ресурса.
@@ -2140,62 +1710,39 @@ components:
         или ресурс подключен к балансировщику без обработчика.
       type: string
       enum:
-        - INITIAL
-        - HEALTHY
-        - UNHEALTHY
-        - DRAINING
-        - INACTIVE
+      - INITIAL
+      - HEALTHY
+      - UNHEALTHY
+      - DRAINING
+      - INACTIVE
     FieldMask_in_UpdateNetworkLoadBalancerRequest_updateMask:
-      description: >-
-        Маска, определяющая, какие поля ресурса NetworkLoadBalancer будут
-        обновлены.
-
+      description: |-
+        Маска, определяющая, какие поля ресурса NetworkLoadBalancer будут обновлены.
 
         Имена всех обновляемых полей, разделенные запятыми.
+        Только значения указанных полей будут изменены. Остальные останутся нетронутыми.
+        Если поле указано в параметре `` updateMask `` и в запросе не было отправлено значение для этого поля,
+        значение поля будет сброшено на значение по умолчанию. Значение по умолчанию для большинства полей — null или 0.
 
-        Только значения указанных полей будут изменены. Остальные останутся
-        нетронутыми.
-
-        Если поле указано в параметре `` updateMask `` и в запросе не было
-        отправлено значение для этого поля,
-
-        значение поля будет сброшено на значение по умолчанию. Значение по
-        умолчанию для большинства полей — null или 0.
-
-
-        Если в запросе не передается `` updateMask ``, значения всех полей будут
-        обновлены.
-
+        Если в запросе не передается `` updateMask ``, значения всех полей будут обновлены.
         Для полей, указанных в запросе, будут использованы переданные значения.
-
         Значения остальных полей будут сброшены на значения по умолчанию.
       type: string
     FieldMask_in_UpdateTargetGroupRequest_updateMask:
-      description: >-
+      description: |-
         Маска, определяющая, какие поля ресурса TargetGroup будут обновлены.
 
-
         Имена всех обновляемых полей, разделенные запятыми.
+        Только значения указанных полей будут изменены. Остальные останутся нетронутыми.
+        Если поле указано в параметре `` updateMask `` и в запросе не было отправлено значение для этого поля,
+        значение поля будет сброшено на значение по умолчанию. Значение по умолчанию для большинства полей — null или 0.
 
-        Только значения указанных полей будут изменены. Остальные останутся
-        нетронутыми.
-
-        Если поле указано в параметре `` updateMask `` и в запросе не было
-        отправлено значение для этого поля,
-
-        значение поля будет сброшено на значение по умолчанию. Значение по
-        умолчанию для большинства полей — null или 0.
-
-
-        Если в запросе не передается `` updateMask ``, значения всех полей будут
-        обновлены.
-
+        Если в запросе не передается `` updateMask ``, значения всех полей будут обновлены.
         Для полей, указанных в запросе, будут использованы переданные значения.
-
         Значения остальных полей будут сброшены на значения по умолчанию.
       type: string
 tags:
-  - name: NetworkLoadBalancer
-    description: Набор методов для управления ресурсами NetworkLoadBalancer.
-  - name: TargetGroup
-    description: Набор методов для управления ресурсами TargetGroup.
+- name: NetworkLoadBalancer
+  description: Набор методов для управления ресурсами NetworkLoadBalancer.
+- name: TargetGroup
+  description: Набор методов для управления ресурсами TargetGroup.

@@ -7,7 +7,7 @@ items:
     items:
       - name: All instructions
         href: operations/index.md
-      - name: Network load balancers  
+      - name: Network load balancers
         items:
           - name: Create a network load balancer
             href: operations/load-balancer-create.md
@@ -63,7 +63,7 @@ items:
         items: null
         include:
           repo: docs
-          path: en/_api-ref-grpc/network-load-balancer/api-ref/toc.yaml
+          path: en/_api-ref-grpc/network-load-balancer/toc.yaml
       - name: REST
         items: null
         include:

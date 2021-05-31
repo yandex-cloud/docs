@@ -3153,7 +3153,24 @@ components:
       type: object
       properties:
         fqdn:
+          description: |-
+            Name of the A/AAAA record as specified when creating the instance.
+            Note that if `fqdn' has no trailing '.', it is specified relative to the zone (@see dns_zone_id).
           type: string
+        dnsZoneId:
+          description: DNS zone id for the record (optional, if not set, some private
+            zone is used).
+          type: string
+        ttl:
+          description: DNS record ttl (optional, if not set, a reasonable default
+            is used.)
+          type: string
+          format: int64
+        ptr:
+          description: When true, indicates there is a corresponding auto-created
+            PTR DNS record.
+          type: boolean
+          format: boolean
     DnsRecordSpec:
       type: object
       properties:

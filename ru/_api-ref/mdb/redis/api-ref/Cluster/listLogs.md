@@ -9,7 +9,7 @@ editable: false
  
 ## HTTP-запрос {#https-request}
 ```
-GET https://mdb.api.cloud.yandex.net/managed-redis/v1alpha/clusters/{clusterId}:logs
+GET https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/{clusterId}:logs
 ```
  
 ## Path-параметры {#path_params}

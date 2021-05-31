@@ -1,11 +1,9 @@
-openapi: '3.0'
+openapi: "3.0"
 info:
   title: Yandex Data Proc API
-  description: >-
-    Методы справочника API сгруппированы по ресурсам. Чтобы выполнить операцию
-    над ресурсом, отправьте HTTP-запрос к соответствующему URL. Подробнее об
-    архитектуре API Яндекс.Облака, см. [Концепции API
-    Яндекс.Облака](/docs/api-design-guide/).
+  description: Методы справочника API сгруппированы по ресурсам. Чтобы выполнить операцию
+    над ресурсом, отправьте HTTP-запрос к соответствующему URL. Подробнее об архитектуре
+    API Яндекс.Облака, см. [Концепции API Яндекс.Облака](/docs/api-design-guide/).
   version: v1
   x-y-docUri: api-ref
   x-y-baseUrl: https://dataproc.api.cloud.yandex.net
@@ -13,31 +11,26 @@ paths:
   /dataproc/v1/clusters/{clusterId}:
     get:
       tags:
-        - Cluster
+      - Cluster
       summary: Возвращает указанный кластер Data Proc.
-      description: >-
-        Чтобы получить список доступных кластеров Data Proc, выполните запрос
-        [list](/docs/data-proc/api-ref/Cluster/list).
+      description: Чтобы получить список доступных кластеров Data Proc, выполните
+        запрос [list](/docs/data-proc/api-ref/Cluster/list).
       operationId: ClusterGet
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера Data Proc.
 
-            Идентификатор кластера Data Proc.
+          Чтобы получить идентификатор кластера, выполните запрос [list](/docs/data-proc/api-ref/Cluster/list).
 
-
-            Чтобы получить идентификатор кластера, выполните запрос
-            [list](/docs/data-proc/api-ref/Cluster/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -46,28 +39,24 @@ paths:
       x-y-navtitle: get
     delete:
       tags:
-        - Cluster
+      - Cluster
       summary: Удаляет указанный кластер.
       operationId: ClusterDelete
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор удаляемого кластера.
 
-            Идентификатор удаляемого кластера.
+          Чтобы получить идентификатор кластера, выполните запрос [list](/docs/data-proc/api-ref/Cluster/list).
 
-
-            Чтобы получить идентификатор кластера, выполните запрос
-            [list](/docs/data-proc/api-ref/Cluster/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -79,24 +68,21 @@ paths:
       x-y-operation-response: Empty
     patch:
       tags:
-        - Cluster
+      - Cluster
       summary: Обновляет конфигурацию указанного кластера.
       operationId: ClusterUpdate
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Идентификатор кластера, который следует изменить.
+      - name: clusterId
+        in: path
+        description: |-
+          Идентификатор кластера, который следует изменить.
 
+          Чтобы получить идентификатор кластера, выполните запрос [list](/docs/data-proc/api-ref/Cluster/list).
 
-            Чтобы получить идентификатор кластера, выполните запрос
-            [list](/docs/data-proc/api-ref/Cluster/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -104,7 +90,7 @@ paths:
               $ref: '#/components/schemas/UpdateClusterRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -117,83 +103,57 @@ paths:
   /dataproc/v1/clusters:
     get:
       tags:
-        - Cluster
+      - Cluster
       summary: Возвращает список кластеров в указанном каталоге.
       operationId: ClusterList
       parameters:
-        - name: folderId
-          in: query
-          description: >-
-            Обязательное поле.
+      - name: folderId
+        in: query
+        description: |-
+          Обязательное поле.
+          Идентификатор каталога, для которого нужно получить список кластеров.
 
-            Идентификатор каталога, для которого нужно получить список
-            кластеров.
+          Чтобы получить идентификатор каталога, используйте запрос [list](/docs/resource-manager/api-ref/Folder/list).
 
+          Максимальная длина строки в символах — 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на запрос. Если количество
+          результатов больше чем `page_size`, сервис вернет значение [nextPageToken](/docs/data-proc/api-ref/Cluster/list#responses), которое
+          можно использовать для получения следующей страницы. Значение по умолчанию: 100.
 
-            Чтобы получить идентификатор каталога, используйте запрос
-            [list](/docs/resource-manager/api-ref/Folder/list).
+          Максимальное значение — 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение `page_token` равным значению поля
+          [nextPageToken](/docs/data-proc/api-ref/Cluster/list#responses) предыдущего запроса, чтобы получить следующую страницу
+          результатов.
 
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          Параметры фильтрации кластеров в ответе.
 
-            Максимальная длина строки в символах — 50.
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            Максимальное количество результатов на странице ответа на запрос.
-            Если количество
+          В параметрах фильтрации указываются:
+          1. Имя поля. В настоящее время фильтрация осуществляется только по полю [Cluster.name](/docs/data-proc/api-ref/Cluster#representation).
+          2. Оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений.
+          3. Значение. Значение длиной от 3 до 63 символов, совпадающее с регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]`. Пример фильтра: `name=my-cluster`.
 
-            результатов больше чем `page_size`, сервис вернет значение
-            [nextPageToken](/docs/data-proc/api-ref/Cluster/list#responses),
-            которое
-
-            можно использовать для получения следующей страницы. Значение по
-            умолчанию: 100.
-
-
-            Максимальное значение — 1000.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Токен страницы. Установите значение `page_token` равным значению
-            поля
-
-            [nextPageToken](/docs/data-proc/api-ref/Cluster/list#responses)
-            предыдущего запроса, чтобы получить следующую страницу
-
-            результатов.
-
-
-            Максимальная длина строки в символах — 100.
-          schema:
-            type: string
-        - name: filter
-          in: query
-          description: >-
-            Параметры фильтрации кластеров в ответе.
-
-
-            В параметрах фильтрации указываются:
-
-            1. Имя поля. В настоящее время фильтрация осуществляется только по
-            полю [Cluster.name](/docs/data-proc/api-ref/Cluster#representation).
-
-            2. Оператор. Операторы `=` или `!=` для одиночных значений, `IN` или
-            `NOT IN` для списков значений.
-
-            3. Значение. Значение длиной от 3 до 63 символов, совпадающее с
-            регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]`. Пример
-            фильтра: `name=my-cluster`.
-
-
-            Максимальная длина строки в символах — 1000.
-          schema:
-            type: string
+          Максимальная длина строки в символах — 1000.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -202,7 +162,7 @@ paths:
       x-y-navtitle: list
     post:
       tags:
-        - Cluster
+      - Cluster
       summary: Создает кластер в указанном каталоге.
       operationId: ClusterCreate
       requestBody:
@@ -212,7 +172,7 @@ paths:
               $ref: '#/components/schemas/CreateClusterRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -225,28 +185,24 @@ paths:
   /dataproc/v1/clusters/{clusterId}:start:
     post:
       tags:
-        - Cluster
+      - Cluster
       summary: Запускает указанный кластер.
       operationId: ClusterStart
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера, который следует запустить.
 
-            Идентификатор кластера, который следует запустить.
+          Чтобы получить идентификатор кластера, выполните запрос [list](/docs/data-proc/api-ref/Cluster/list).
 
-
-            Чтобы получить идентификатор кластера, выполните запрос
-            [list](/docs/data-proc/api-ref/Cluster/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -259,28 +215,24 @@ paths:
   /dataproc/v1/clusters/{clusterId}:stop:
     post:
       tags:
-        - Cluster
+      - Cluster
       summary: Останавливает указанный кластер.
       operationId: ClusterStop
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера, который следует остановить.
 
-            Идентификатор кластера, который следует остановить.
+          Чтобы получить идентификатор кластера, выполните запрос [list](/docs/data-proc/api-ref/Cluster/list).
 
-
-            Чтобы получить идентификатор кластера, выполните запрос
-            [list](/docs/data-proc/api-ref/Cluster/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -293,56 +245,44 @@ paths:
   /dataproc/v1/clusters/{clusterId}/operations:
     get:
       tags:
-        - Cluster
+      - Cluster
       summary: Список операций для указанного кластера.
       operationId: ClusterListOperations
       parameters:
-        - name: clusterId
-          in: path
-          description: |-
-            Обязательное поле.
-            Идентификатор кластера, для которого запрашивается список операций.
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера, для которого запрашивается список операций.
 
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            Максимальное количество результатов на странице ответа на запрос.
-            Если количество
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на запрос. Если количество
+          результатов больше чем `page_size`, сервис вернет значение [nextPageToken](/docs/data-proc/api-ref/Cluster/listOperations#responses),
+          которое можно использовать для получения следующей страницы. Значение по умолчанию:
+          100.
 
-            результатов больше чем `page_size`, сервис вернет значение
-            [nextPageToken](/docs/data-proc/api-ref/Cluster/listOperations#responses),
+          Максимальное значение — 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение `page_token` равным значению поля
+          [nextPageToken](/docs/data-proc/api-ref/Cluster/listOperations#responses) предыдущего запроса, чтобы получить следующую страницу
+          результатов.
 
-            которое можно использовать для получения следующей страницы.
-            Значение по умолчанию:
-
-            100.
-
-
-            Максимальное значение — 1000.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Токен страницы. Установите значение `page_token` равным значению
-            поля
-
-            [nextPageToken](/docs/data-proc/api-ref/Cluster/listOperations#responses)
-            предыдущего запроса, чтобы получить следующую страницу
-
-            результатов.
-
-
-            Максимальная длина строки в символах — 100.
-          schema:
-            type: string
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -352,82 +292,58 @@ paths:
   /dataproc/v1/clusters/{clusterId}/hosts:
     get:
       tags:
-        - Cluster
+      - Cluster
       summary: Получает список хостов для указанного кластера.
       operationId: ClusterListHosts
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Идентификатор кластера, для которого запрашивается список хостов.
+      - name: clusterId
+        in: path
+        description: |-
+          Идентификатор кластера, для которого запрашивается список хостов.
 
+          Чтобы получить идентификатор кластера, выполните запрос [list](/docs/data-proc/api-ref/Cluster/list).
 
-            Чтобы получить идентификатор кластера, выполните запрос
-            [list](/docs/data-proc/api-ref/Cluster/list).
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на запрос. Если количество
+          результатов больше чем `page_size`, сервис вернет значение [nextPageToken](/docs/data-proc/api-ref/Cluster/listHosts#responses),
+          которое можно использовать для получения следующей страницы. Значение по умолчанию:
+          100.
 
+          Максимальное значение — 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение `page_token` равным значению поля
+          [nextPageToken](/docs/data-proc/api-ref/Cluster/listHosts#responses) предыдущего запроса, чтобы получить следующую страницу
+          результатов.
 
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            Максимальное количество результатов на странице ответа на запрос.
-            Если количество
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          Параметры фильтрации хостов в ответе.
 
-            результатов больше чем `page_size`, сервис вернет значение
-            [nextPageToken](/docs/data-proc/api-ref/Cluster/listHosts#responses),
+          В параметрах фильтрации указываются:
+          1. Имя поля. В настоящее время фильтрация осуществляется только по полю [Cluster.name](/docs/data-proc/api-ref/Cluster#representation).
+          2. Оператор. Может быть `=` или `!=` для отдельных значений, `IN` или `NOT IN` для списков значений.
+          3. Значение. Значение длиной от 3 до 63 символов, совпадающее с регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]`. Пример фильтра: `name=my-host`.
 
-            которое можно использовать для получения следующей страницы.
-            Значение по умолчанию:
-
-            100.
-
-
-            Максимальное значение — 1000.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Токен страницы. Установите значение `page_token` равным значению
-            поля
-
-            [nextPageToken](/docs/data-proc/api-ref/Cluster/listHosts#responses)
-            предыдущего запроса, чтобы получить следующую страницу
-
-            результатов.
-
-
-            Максимальная длина строки в символах — 100.
-          schema:
-            type: string
-        - name: filter
-          in: query
-          description: >-
-            Параметры фильтрации хостов в ответе.
-
-
-            В параметрах фильтрации указываются:
-
-            1. Имя поля. В настоящее время фильтрация осуществляется только по
-            полю [Cluster.name](/docs/data-proc/api-ref/Cluster#representation).
-
-            2. Оператор. Может быть `=` или `!=` для отдельных значений, `IN`
-            или `NOT IN` для списков значений.
-
-            3. Значение. Значение длиной от 3 до 63 символов, совпадающее с
-            регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]`. Пример
-            фильтра: `name=my-host`.
-
-
-            Максимальная длина строки в символах — 1000.
-          schema:
-            type: string
+          Максимальная длина строки в символах — 1000.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -437,73 +353,55 @@ paths:
   /dataproc/v1/clusters/{clusterId}/jobs:
     get:
       tags:
-        - Job
+      - Job
       summary: Получает список задач для указанного кластера.
       operationId: JobList
       parameters:
-        - name: clusterId
-          in: path
-          description: |-
-            Обязательное поле.
-            Идентификатор кластера, для которого запрашивается список задач.
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера, для которого запрашивается список задач.
 
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            Максимальное количество результатов на странице ответа на запрос.
-            Если количество
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на запрос. Если количество
+          результатов больше чем `page_size` , сервис вернет значение [nextPageToken](/docs/data-proc/api-ref/Job/list#responses), которое
+          можно использовать для получения следующей страницы. Значение по умолчанию: 100.
 
-            результатов больше чем `page_size` , сервис вернет значение
-            [nextPageToken](/docs/data-proc/api-ref/Job/list#responses), которое
+          Максимальное значение — 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение `page_token` равным значению поля [nextPageToken](/docs/data-proc/api-ref/Job/list#responses)
+          предыдущего запроса, чтобы получить следующую страницу результатов.
 
-            можно использовать для получения следующей страницы. Значение по
-            умолчанию: 100.
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          Параметры фильтрации задач в ответе.
 
+          В параметрах фильтрации указываются:
+          1. Имя поля. В настоящее время фильтрация осуществляется только по полю [Job.name](/docs/data-proc/api-ref/Job#representation).
+          2. Оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений.
+          3. Значение. Значение длиной от 3 до 63 символов, совпадающее с регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]`. Пример фильтра: `name=my-job`.
 
-            Максимальное значение — 1000.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Токен страницы. Установите значение `page_token` равным значению
-            поля [nextPageToken](/docs/data-proc/api-ref/Job/list#responses)
-
-            предыдущего запроса, чтобы получить следующую страницу результатов.
-
-
-            Максимальная длина строки в символах — 100.
-          schema:
-            type: string
-        - name: filter
-          in: query
-          description: >-
-            Параметры фильтрации задач в ответе.
-
-
-            В параметрах фильтрации указываются:
-
-            1. Имя поля. В настоящее время фильтрация осуществляется только по
-            полю [Job.name](/docs/data-proc/api-ref/Job#representation).
-
-            2. Оператор. Операторы `=` или `!=` для одиночных значений, `IN` или
-            `NOT IN` для списков значений.
-
-            3. Значение. Значение длиной от 3 до 63 символов, совпадающее с
-            регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]`. Пример
-            фильтра: `name=my-job`.
-
-
-            Максимальная длина строки в символах — 1000.
-          schema:
-            type: string
+          Максимальная длина строки в символах — 1000.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -512,20 +410,20 @@ paths:
       x-y-navtitle: list
     post:
       tags:
-        - Job
+      - Job
       summary: Создает задачу для кластера.
       operationId: JobCreate
       parameters:
-        - name: clusterId
-          in: path
-          description: |-
-            Обязательное поле.
-            Идентификатор кластера, для которого следует создать задачу.
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера, для которого следует создать задачу.
 
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -533,7 +431,7 @@ paths:
               $ref: '#/components/schemas/CreateJobRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -546,38 +444,34 @@ paths:
   /dataproc/v1/clusters/{clusterId}/jobs/{jobId}:
     get:
       tags:
-        - Job
+      - Job
       summary: Возвращает указанную задачу.
       operationId: JobGet
       parameters:
-        - name: clusterId
-          in: path
-          description: |-
-            Обязательное поле.
-            Идентификатор кластера, для которого запрашивается задача.
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера, для которого запрашивается задача.
 
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
-        - name: jobId
-          in: path
-          description: >-
-            Обязательное поле.
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: jobId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор возвращаемой задачи.
 
-            Идентификатор возвращаемой задачи.
+          Чтобы получить идентификатор задачи, выполните запрос [list](/docs/data-proc/api-ref/Job/list).
 
-
-            Чтобы получить идентификатор задачи, выполните запрос
-            [list](/docs/data-proc/api-ref/Job/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -587,28 +481,23 @@ paths:
   /dataproc/v1/resourcePresets/{resourcePresetId}:
     get:
       tags:
-        - ResourcePreset
+      - ResourcePreset
       summary: Возвращает указанный ресурс ResourcePreset.
-      description: >-
-        Чтобы получить список доступных ресурсов ResourcePreset, используйте
+      description: Чтобы получить список доступных ресурсов ResourcePreset, используйте
         запрос [list](/docs/data-proc/api-ref/ResourcePreset/list).
       operationId: ResourcePresetGet
       parameters:
-        - name: resourcePresetId
-          in: path
-          description: >-
-            Обязательное поле.
-
-            Идентификатор набора ресурсов, данные о котором запрашиваются. Чтобы
-            получить
-
-            идентификатор набора ресурсов, используйте запрос
-            [list](/docs/data-proc/api-ref/ResourcePreset/list).
-          required: true
-          schema:
-            type: string
+      - name: resourcePresetId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор набора ресурсов, данные о котором запрашиваются. Чтобы получить
+          идентификатор набора ресурсов, используйте запрос [list](/docs/data-proc/api-ref/ResourcePreset/list).
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -618,46 +507,33 @@ paths:
   /dataproc/v1/resourcePresets:
     get:
       tags:
-        - ResourcePreset
+      - ResourcePreset
       summary: Получает список доступных ресурсов ResourcePreset.
       operationId: ResourcePresetList
       parameters:
-        - name: pageSize
-          in: query
-          description: >-
-            Максимальное количество результатов на странице ответа на запрос.
-            Если количество
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на запрос. Если количество
+          результатов больше чем [pageSize](/docs/data-proc/api-ref/ResourcePreset/list#query_params), сервис вернет значение [nextPageToken](/docs/data-proc/api-ref/ResourcePreset/list#responses),
+          которое можно использовать для получения следующей страницы.
 
-            результатов больше чем
-            [pageSize](/docs/data-proc/api-ref/ResourcePreset/list#query_params),
-            сервис вернет значение
-            [nextPageToken](/docs/data-proc/api-ref/ResourcePreset/list#responses),
+          Максимальное значение — 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение [pageToken](/docs/data-proc/api-ref/ResourcePreset/list#query_params) равным значению поля
+          [nextPageToken](/docs/data-proc/api-ref/ResourcePreset/list#responses) предыдущего запроса, чтобы получить следующую страницу
+          результатов.
 
-            которое можно использовать для получения следующей страницы.
-
-
-            Максимальное значение — 1000.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Токен страницы. Установите значение
-            [pageToken](/docs/data-proc/api-ref/ResourcePreset/list#query_params)
-            равным значению поля
-
-            [nextPageToken](/docs/data-proc/api-ref/ResourcePreset/list#responses)
-            предыдущего запроса, чтобы получить следующую страницу
-
-            результатов.
-
-
-            Максимальная длина строки в символах — 100.
-          schema:
-            type: string
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -667,41 +543,36 @@ paths:
   /dataproc/v1/clusters/{clusterId}/subclusters/{subclusterId}:
     get:
       tags:
-        - Subcluster
+      - Subcluster
       summary: Возвращает указанный подкластер.
-      description: >-
-        Чтобы получить список доступных подкластеров Data Proc, выполните запрос
-        [list](/docs/data-proc/api-ref/Subcluster/list).
+      description: Чтобы получить список доступных подкластеров Data Proc, выполните
+        запрос [list](/docs/data-proc/api-ref/Subcluster/list).
       operationId: SubclusterGet
       parameters:
-        - name: clusterId
-          in: path
-          description: |-
-            Обязательное поле.
-            Идентификатор кластера Data Proc, которому принадлежит подкластер.
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера Data Proc, которому принадлежит подкластер.
 
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
-        - name: subclusterId
-          in: path
-          description: >-
-            Обязательное поле.
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: subclusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор возвращаемого подкластера.
 
-            Идентификатор возвращаемого подкластера.
+          Чтобы получить идентификатор подкластера, используйте запрос [list](/docs/data-proc/api-ref/Subcluster/list).
 
-
-            Чтобы получить идентификатор подкластера, используйте запрос
-            [list](/docs/data-proc/api-ref/Subcluster/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -710,38 +581,34 @@ paths:
       x-y-navtitle: get
     delete:
       tags:
-        - Subcluster
+      - Subcluster
       summary: Удаляет указанный подкластер.
       operationId: SubclusterDelete
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера, из которого следует удалить подкластер.
 
-            Идентификатор кластера, из которого следует удалить подкластер.
+          Чтобы получить идентификатор кластера, выполните запрос [list](/docs/data-proc/api-ref/Cluster/list).
 
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: subclusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор подкластера, который следует удалить.
 
-            Чтобы получить идентификатор кластера, выполните запрос
-            [list](/docs/data-proc/api-ref/Cluster/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
-        - name: subclusterId
-          in: path
-          description: |-
-            Обязательное поле.
-            Идентификатор подкластера, который следует удалить.
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -753,42 +620,34 @@ paths:
       x-y-operation-response: Empty
     patch:
       tags:
-        - Subcluster
+      - Subcluster
       summary: Изменяет указанный подкластер.
       operationId: SubclusterUpdate
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера, в котором следует изменить подкластер.
 
-            Идентификатор кластера, в котором следует изменить подкластер.
+          Чтобы получить идентификатор кластера, выполните запрос [list](/docs/data-proc/api-ref/Cluster/list).
 
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: subclusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор подкластера, который следует изменить.
 
-            Чтобы получить идентификатор кластера, выполните запрос
-            [list](/docs/data-proc/api-ref/Cluster/list).
+          Чтобы получить идентификатор подкластера, используйте запрос [list](/docs/data-proc/api-ref/Subcluster/list).
 
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
-        - name: subclusterId
-          in: path
-          description: >-
-            Обязательное поле.
-
-            Идентификатор подкластера, который следует изменить.
-
-
-            Чтобы получить идентификатор подкластера, используйте запрос
-            [list](/docs/data-proc/api-ref/Subcluster/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -796,7 +655,7 @@ paths:
               $ref: '#/components/schemas/UpdateSubclusterRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -809,82 +668,57 @@ paths:
   /dataproc/v1/clusters/{clusterId}/subclusters:
     get:
       tags:
-        - Subcluster
+      - Subcluster
       summary: Получает список подкластеров для указанного кластера.
       operationId: SubclusterList
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера, для которого нужно получить список подкластеров.
 
-            Идентификатор кластера, для которого нужно получить список
-            подкластеров.
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на запрос. Если количество
+          результатов больше чем `page_size`, сервис вернет значение [nextPageToken](/docs/data-proc/api-ref/Subcluster/list#responses),
+          которое можно использовать для получения следующей страницы. Значение по умолчанию:
+          100.
 
+          Максимальное значение — 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение `page_token` равным значению поля
+          [nextPageToken](/docs/data-proc/api-ref/Subcluster/list#responses) предыдущего запроса, чтобы получить следующую страницу
+          результатов.
 
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            Максимальное количество результатов на странице ответа на запрос.
-            Если количество
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          Параметры фильтрации подкластеров в ответе.
 
-            результатов больше чем `page_size`, сервис вернет значение
-            [nextPageToken](/docs/data-proc/api-ref/Subcluster/list#responses),
+          В параметрах фильтрации указываются:
+          1. Имя поля. В настоящее время фильтрация осуществляется только по полю [Subcluster.name](/docs/data-proc/api-ref/Subcluster#representation).
+          2. Оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений.
+          3. Значение. Значение длиной от 3 до 63 символов, совпадающее с регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]`. Пример фильтра: `name=dataproc123_subcluster456`.
 
-            которое можно использовать для получения следующей страницы.
-            Значение по умолчанию:
-
-            100.
-
-
-            Максимальное значение — 1000.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Токен страницы. Установите значение `page_token` равным значению
-            поля
-
-            [nextPageToken](/docs/data-proc/api-ref/Subcluster/list#responses)
-            предыдущего запроса, чтобы получить следующую страницу
-
-            результатов.
-
-
-            Максимальная длина строки в символах — 100.
-          schema:
-            type: string
-        - name: filter
-          in: query
-          description: >-
-            Параметры фильтрации подкластеров в ответе.
-
-
-            В параметрах фильтрации указываются:
-
-            1. Имя поля. В настоящее время фильтрация осуществляется только по
-            полю
-            [Subcluster.name](/docs/data-proc/api-ref/Subcluster#representation).
-
-            2. Оператор. Операторы `=` или `!=` для одиночных значений, `IN` или
-            `NOT IN` для списков значений.
-
-            3. Значение. Значение длиной от 3 до 63 символов, совпадающее с
-            регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]`. Пример
-            фильтра: `name=dataproc123_subcluster456`.
-
-
-            Максимальная длина строки в символах — 1000.
-          schema:
-            type: string
+          Максимальная длина строки в символах — 1000.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -893,27 +727,22 @@ paths:
       x-y-navtitle: list
     post:
       tags:
-        - Subcluster
+      - Subcluster
       summary: Создает новый подкластер в указанном кластере.
       operationId: SubclusterCreate
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера Data Proc, в котором следует создать подкластер.
 
-            Идентификатор кластера Data Proc, в котором следует создать
-            подкластер.
+          Чтобы получить идентификатор кластера, выполните запрос [list](/docs/data-proc/api-ref/Cluster/list).
 
-
-            Чтобы получить идентификатор кластера, выполните запрос
-            [list](/docs/data-proc/api-ref/Cluster/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -921,7 +750,7 @@ paths:
               $ref: '#/components/schemas/CreateSubclusterRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -934,9 +763,7 @@ paths:
 components:
   schemas:
     Cluster:
-      description: >-
-        Кластер Data Proc. Дополнительные сведения о концепции см. в
-        [документации](/docs/data-proc/concepts/).
+      description: Кластер Data Proc. Дополнительные сведения о концепции см. в [документации](/docs/data-proc/concepts/).
       type: object
       properties:
         id:
@@ -987,25 +814,21 @@ components:
           description: Идентификатор зоны доступности, в которой находится кластер.
           type: string
         serviceAccountId:
-          description: >-
-            Идентификатор сервисного аккаунта, которым пользуется агент Data
-            Proc для управления
-
+          description: |-
+            Идентификатор сервисного аккаунта, которым пользуется агент Data Proc для управления
             задачами.
           type: string
         bucket:
-          description: Имя бакета Object Storage, который используется для задач Data Proc.
+          description: Имя бакета Object Storage, который используется для задач Data
+            Proc.
           type: string
     ClusterConfig:
       type: object
       properties:
         versionId:
-          description: >-
-            Версия образа, которая используется при подготовке кластера. Все
-            доступные версии
-
-            перечислены в
-            [документации](/docs/managed-hadoop/concepts/image-versions).
+          description: |-
+            Версия образа, которая используется при подготовке кластера. Все доступные версии
+            перечислены в [документации](/docs/managed-hadoop/concepts/image-versions).
           type: string
         hadoop:
           $ref: '#/components/schemas/HadoopConfig_in_ClusterConfig_hadoop'
@@ -1020,24 +843,22 @@ components:
          - STARTING: Кластер запускается.
       type: string
       enum:
-        - STATUS_UNKNOWN
-        - CREATING
-        - RUNNING
-        - ERROR
-        - STOPPING
-        - STOPPED
-        - STARTING
+      - STATUS_UNKNOWN
+      - CREATING
+      - RUNNING
+      - ERROR
+      - STOPPING
+      - STOPPED
+      - STARTING
       default: STATUS_UNKNOWN
     CreateClusterConfigSpec:
       type: object
       properties:
         versionId:
-          description: >-
+          description: |-
             Версия образа, которая используется при подготовке кластера.
 
-
-            Все доступные версии перечислены в
-            [документации](/docs/data-proc/concepts/image-versions).
+            Все доступные версии перечислены в [документации](/docs/data-proc/concepts/image-versions).
           type: string
         hadoop:
           $ref: '#/components/schemas/HadoopConfig_in_CreateClusterConfigSpec_hadoop'
@@ -1056,28 +877,20 @@ components:
       type: object
       properties:
         folderId:
-          description: >-
+          description: |-
             Обязательное поле.
-
             Идентификатор каталога, в котором нужно создать кластер.
 
-
-            Чтобы получить идентификатор каталога, используйте запрос
-            [list](/docs/resource-manager/api-ref/Folder/list).
-
+            Чтобы получить идентификатор каталога, используйте запрос [list](/docs/resource-manager/api-ref/Folder/list).
 
             Максимальная длина строки в символах — 50.
           type: string
         name:
-          description: >-
-            Имя кластера. Имя должно быть уникальным в рамках каталога. Имя не
-            может быть
-
+          description: |-
+            Имя кластера. Имя должно быть уникальным в рамках каталога. Имя не может быть
             изменено после того, как кластер Data Proc был создан.
 
-
-            Значение должно соответствовать регулярному выражению ``
-            |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+            Значение должно соответствовать регулярному выражению `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
           type: string
         description:
           description: |-
@@ -1086,54 +899,37 @@ components:
             Максимальная длина строки в символах — 256.
           type: string
         labels:
-          description: >-
+          description: |-
             Метки кластера как пары `ключ: значение`.
 
-
             Не более 64 на ресурс.
-
             Длина строки в символах для каждого ключа должна быть от 1 до 63.
-
-            Каждый ключ должен соответствовать регулярному выражению ``
-            [a-z][-_0-9a-z]* ``.
-
+            Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
             Максимальная длина строки в символах для каждого значения — 63.
-
-            Каждое значение должно соответствовать регулярному выражению ``
-            [-_0-9a-z]* ``.
+            Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.
           type: object
           additionalProperties:
             type: string
         configSpec:
-          $ref: >-
-            #/components/schemas/CreateClusterConfigSpec_in_CreateClusterRequest_configSpec
+          $ref: '#/components/schemas/CreateClusterConfigSpec_in_CreateClusterRequest_configSpec'
         zoneId:
-          description: >-
+          description: |-
             Обязательное поле.
+            Идентификатор зоны доступности, в которой должен быть размещен кластер.
 
-            Идентификатор зоны доступности, в которой должен быть размещен
-            кластер.
-
-
-            Чтобы получить список доступных зон, отправьте запрос
-            [list](/docs/compute/api-ref/Zone/list).
-
+            Чтобы получить список доступных зон, отправьте запрос [list](/docs/compute/api-ref/Zone/list).
 
             Максимальная длина строки в символах — 50.
           type: string
         serviceAccountId:
-          description: >-
+          description: |-
             Обязательное поле.
-
-            Идентификатор сервисного аккаунта, которым должен пользоваться агент
-            Data Proc для
-
+            Идентификатор сервисного аккаунта, которым должен пользоваться агент Data Proc для
             управления задачами.
           type: string
         bucket:
-          description: >-
-            Имя бакета Object Storage, который следует использовать для задач
-            Data Proc.
+          description: Имя бакета Object Storage, который следует использовать для
+            задач Data Proc.
           type: string
     CreateJobMetadata:
       type: object
@@ -1154,48 +950,43 @@ components:
     CreateJobRequest:
       type: object
       allOf:
-        - type: object
-          properties:
-            name:
-              description: >-
-                Имя задачи.
+      - type: object
+        properties:
+          name:
+            description: |-
+              Имя задачи.
 
-
-                Значение должно соответствовать регулярному выражению ``
-                |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
-              type: string
-        - title: job_spec
-          type: object
-          maxProperties: 1
-          properties:
-            mapreduceJob:
-              $ref: '#/components/schemas/MapreduceJob'
-              description: Спецификация задачи для MapReduce.
-            sparkJob:
-              $ref: '#/components/schemas/SparkJob'
-              description: Спецификация задачи для Spark.
-            pysparkJob:
-              $ref: '#/components/schemas/PysparkJob'
-              description: Спецификация задачи для PySpark.
-            hiveJob:
-              $ref: '#/components/schemas/HiveJob'
-              description: Спецификация задачи для Hive.
+              Значение должно соответствовать регулярному выражению `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+            type: string
+      - title: job_spec
+        type: object
+        maxProperties: 1
+        properties:
+          mapreduceJob:
+            $ref: '#/components/schemas/MapreduceJob'
+            description: Спецификация задачи для MapReduce.
+          sparkJob:
+            $ref: '#/components/schemas/SparkJob'
+            description: Спецификация задачи для Spark.
+          pysparkJob:
+            $ref: '#/components/schemas/PysparkJob'
+            description: Спецификация задачи для PySpark.
+          hiveJob:
+            $ref: '#/components/schemas/HiveJob'
+            description: Спецификация задачи для Hive.
     CreateSubclusterConfigSpec:
       type: object
       properties:
         name:
-          description: >-
+          description: |-
             Имя подкластера.
 
-
-            Значение должно соответствовать регулярному выражению ``
-            |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+            Значение должно соответствовать регулярному выражению `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
           type: string
         role:
           $ref: '#/components/schemas/Role_in_CreateSubclusterConfigSpec_role'
         resources:
-          $ref: >-
-            #/components/schemas/Resources_in_CreateSubclusterConfigSpec_resources
+          $ref: '#/components/schemas/Resources_in_CreateSubclusterConfigSpec_resources'
         subnetId:
           description: |-
             Обязательное поле.
@@ -1230,15 +1021,11 @@ components:
       type: object
       properties:
         name:
-          description: >-
-            Имя подкластера. Имя должно быть уникальным в пределах кластера. Имя
-            не может быть
-
+          description: |-
+            Имя подкластера. Имя должно быть уникальным в пределах кластера. Имя не может быть
             изменено после того, как подкластер был создан.
 
-
-            Значение должно соответствовать регулярному выражению ``
-            |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+            Значение должно соответствовать регулярному выражению `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
           type: string
         role:
           $ref: '#/components/schemas/Role_in_CreateSubclusterRequest_role'
@@ -1285,54 +1072,35 @@ components:
       type: object
       maxProperties: 0
     FieldMask:
-      description: >-
+      description: |-
         Имена всех обновляемых полей, разделенные запятыми.
+        Только значения указанных полей будут изменены. Остальные останутся нетронутыми.
+        Если поле указано в параметре `` updateMask `` и в запросе не было отправлено значение для этого поля,
+        значение поля будет сброшено на значение по умолчанию. Значение по умолчанию для большинства полей — null или 0.
 
-        Только значения указанных полей будут изменены. Остальные останутся
-        нетронутыми.
-
-        Если поле указано в параметре `` updateMask `` и в запросе не было
-        отправлено значение для этого поля,
-
-        значение поля будет сброшено на значение по умолчанию. Значение по
-        умолчанию для большинства полей — null или 0.
-
-
-        Если в запросе не передается `` updateMask ``, значения всех полей будут
-        обновлены.
-
+        Если в запросе не передается `` updateMask ``, значения всех полей будут обновлены.
         Для полей, указанных в запросе, будут использованы переданные значения.
-
         Значения остальных полей будут сброшены на значения по умолчанию.
       type: string
     HadoopConfig:
-      description: >-
-        Конфигурация Hadoop, описывающая компоненты, установленные в кластере,
-        их свойства и
-
+      description: |-
+        Конфигурация Hadoop, описывающая компоненты, установленные в кластере, их свойства и
         параметры.
       type: object
       properties:
         services:
-          description: >-
-            Набор компонентов, используемых в кластере (если список пуст,
-            используется набор по
-
+          description: |-
+            Набор компонентов, используемых в кластере (если список пуст, используется набор по
             умолчанию).
           type: array
           items:
             $ref: '#/components/schemas/HadoopConfigService'
         properties:
-          description: >-
-            Свойства, установленные для всех хостов в конфигурациях
-            `*-site.xml`. В ключе должны быть
-
+          description: |-
+            Свойства, установленные для всех хостов в конфигурациях `*-site.xml`. В ключе должны быть
             указаны компонент и свойство.
 
-
-            Например, используйте ключ 'hdfs:dfs.replication', чтобы установить
-            свойство `dfs.replication` в файле
-
+            Например, используйте ключ 'hdfs:dfs.replication', чтобы установить свойство `dfs.replication` в файле
             `/etc/hadoop/conf/hdfs-site.xml`.
           type: object
           additionalProperties:
@@ -1345,18 +1113,18 @@ components:
     HadoopConfigService:
       type: string
       enum:
-        - HDFS
-        - YARN
-        - MAPREDUCE
-        - HIVE
-        - TEZ
-        - ZOOKEEPER
-        - HBASE
-        - SQOOP
-        - FLUME
-        - SPARK
-        - ZEPPELIN
-        - OOZIE
+      - HDFS
+      - YARN
+      - MAPREDUCE
+      - HIVE
+      - TEZ
+      - ZOOKEEPER
+      - HBASE
+      - SQOOP
+      - FLUME
+      - SPARK
+      - ZEPPELIN
+      - OOZIE
     Health:
       description: |2-
          - HEALTH_UNKNOWN: Состояние кластера неизвестно (`health` для каждого хоста в кластере — UNKNOWN).
@@ -1366,71 +1134,59 @@ components:
         ALIVE).
       type: string
       enum:
-        - HEALTH_UNKNOWN
-        - ALIVE
-        - DEAD
-        - DEGRADED
+      - HEALTH_UNKNOWN
+      - ALIVE
+      - DEAD
+      - DEGRADED
       default: HEALTH_UNKNOWN
     HiveJob:
       type: object
       allOf:
-        - type: object
+      - type: object
+        properties:
           properties:
-            properties:
-              description: >-
-                Имена и значения свойств, которые используются для настройки
-                Data Proc и Hive.
-              type: object
-              additionalProperties:
-                type: string
-            continueOnFailure:
-              description: >-
-                Флаг, указывающий на то, что задачу следует продолжать даже если
-                запрос выполнить не
-
-                удалось.
-              type: boolean
-              format: boolean
-            scriptVariables:
-              description: Переменные запросов и их значения.
-              type: object
-              additionalProperties:
-                type: string
-            jarFileUris:
-              description: >-
-                URI JAR-файлов, которые добавляются в CLASSPATH драйвера Hive и
-                каждого задания в рамках
-
-                задачи.
-              type: array
-              items:
-                type: string
-        - title: query_type
-          type: object
-          maxProperties: 1
-          properties:
-            queryFileUri:
-              description: URI скрипта со всеми необходимыми Hive-запросами.
+            description: Имена и значения свойств, которые используются для настройки
+              Data Proc и Hive.
+            type: object
+            additionalProperties:
               type: string
-            queryList:
-              $ref: '#/components/schemas/QueryList'
-              description: Список запросов Hive, которые используются в задаче.
+          continueOnFailure:
+            description: |-
+              Флаг, указывающий на то, что задачу следует продолжать даже если запрос выполнить не
+              удалось.
+            type: boolean
+            format: boolean
+          scriptVariables:
+            description: Переменные запросов и их значения.
+            type: object
+            additionalProperties:
+              type: string
+          jarFileUris:
+            description: |-
+              URI JAR-файлов, которые добавляются в CLASSPATH драйвера Hive и каждого задания в рамках
+              задачи.
+            type: array
+            items:
+              type: string
+      - title: query_type
+        type: object
+        maxProperties: 1
+        properties:
+          queryFileUri:
+            description: URI скрипта со всеми необходимыми Hive-запросами.
+            type: string
+          queryList:
+            $ref: '#/components/schemas/QueryList'
+            description: Список запросов Hive, которые используются в задаче.
     Host:
-      description: >-
-        Хост Data Proc. Дополнительные сведения о концепции см. в
-        [документации](/docs/data-proc/concepts/).
+      description: Хост Data Proc. Дополнительные сведения о концепции см. в [документации](/docs/data-proc/concepts/).
       type: object
       properties:
         name:
-          description: >-
-            Имя хоста Data Proc. Data Proc генерирует имя хоста при его
-            создании, после этого имя
-
-            невозможно изменить. Имя уникально для всех существующих хостов Data
-            Proc в
-
-            Яндекс.Облаке, так как оно определяет полное доменное имя (FQDN)
-            хоста.
+          description: |-
+            Имя хоста Data Proc. Data Proc генерирует имя хоста при его создании, после этого имя
+            невозможно изменить. Имя уникально для всех существующих хостов Data Proc в
+            Яндекс.Облаке, так как оно определяет полное доменное имя (FQDN) хоста.
           type: string
         subclusterId:
           description: Идентификатор подкластера Data Proc, которому принадлежит хост.
@@ -1438,80 +1194,69 @@ components:
         health:
           $ref: '#/components/schemas/Health_in_Host_health'
         computeInstanceId:
-          description: >-
-            Идентификатор виртуальной машины Cloud Compute, используемой в
-            качестве хоста Data Proc.
+          description: Идентификатор виртуальной машины Cloud Compute, используемой
+            в качестве хоста Data Proc.
           type: string
         role:
           $ref: '#/components/schemas/Role_in_Host_role'
     Job:
-      description: >-
-        Задача Data Proc. Дополнительные сведения о концепции см. в
-        [документации](/docs/dataproc/concepts/jobs).
+      description: Задача Data Proc. Дополнительные сведения о концепции см. в [документации](/docs/dataproc/concepts/jobs).
       type: object
       allOf:
-        - type: object
-          properties:
-            id:
-              description: Идентификатор задачи. Генерируется во время создания.
-              type: string
-            clusterId:
-              description: Идентификатор кластера Data Proc, которому принадлежит задача.
-              type: string
-            createdAt:
-              description: >-
-                Время создания.
+      - type: object
+        properties:
+          id:
+            description: Идентификатор задачи. Генерируется во время создания.
+            type: string
+          clusterId:
+            description: Идентификатор кластера Data Proc, которому принадлежит задача.
+            type: string
+          createdAt:
+            description: |-
+              Время создания.
 
+              Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+            type: string
+            format: date-time
+          startedAt:
+            description: |-
+              Время запуска задачи.
 
-                Строка в формате
-                [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
-              type: string
-              format: date-time
-            startedAt:
-              description: >-
-                Время запуска задачи.
+              Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+            type: string
+            format: date-time
+          finishedAt:
+            description: |-
+              Время завершения задачи.
 
-
-                Строка в формате
-                [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
-              type: string
-              format: date-time
-            finishedAt:
-              description: >-
-                Время завершения задачи.
-
-
-                Строка в формате
-                [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
-              type: string
-              format: date-time
-            name:
-              description: >-
-                Имя задачи, указанное в запросе
-                [create](/docs/data-proc/api-ref/Job/create).
-              type: string
-            createdBy:
-              description: Идентификатор пользователя, создавшего задачу.
-              type: string
-            status:
-              $ref: '#/components/schemas/JobStatus'
-              description: Статус задачи.
-        - title: job_spec
-          type: object
-          maxProperties: 1
-          properties:
-            mapreduceJob:
-              $ref: '#/components/schemas/MapreduceJob'
-              description: Спецификация задачи для MapReduce.
-            sparkJob:
-              $ref: '#/components/schemas/SparkJob'
-              description: Спецификация задачи для Spark.
-            pysparkJob:
-              $ref: '#/components/schemas/PysparkJob'
-              description: Спецификация задачи для PySpark.
-            hiveJob:
-              $ref: '#/components/schemas/HiveJob'
-              description: Спецификация задачи для Hive.
+              Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+            type: string
+            format: date-time
+          name:
+            description: Имя задачи, указанное в запросе [create](/docs/data-proc/api-ref/Job/create).
+            type: string
+          createdBy:
+            description: Идентификатор пользователя, создавшего задачу.
+            type: string
+          status:
+            $ref: '#/components/schemas/JobStatus'
+            description: Статус задачи.
+      - title: job_spec
+        type: object
+        maxProperties: 1
+        properties:
+          mapreduceJob:
+            $ref: '#/components/schemas/MapreduceJob'
+            description: Спецификация задачи для MapReduce.
+          sparkJob:
+            $ref: '#/components/schemas/SparkJob'
+            description: Спецификация задачи для Spark.
+          pysparkJob:
+            $ref: '#/components/schemas/PysparkJob'
+            description: Спецификация задачи для PySpark.
+          hiveJob:
+            $ref: '#/components/schemas/HiveJob'
+            description: Спецификация задачи для Hive.
     JobStatus:
       description: |2-
          - PROVISIONING: Задача зарегистрирована в базе данных и ожидает, пока агент запустит ее.
@@ -1521,11 +1266,11 @@ components:
          - DONE: Задача выполнена.
       type: string
       enum:
-        - PROVISIONING
-        - PENDING
-        - RUNNING
-        - ERROR
-        - DONE
+      - PROVISIONING
+      - PENDING
+      - RUNNING
+      - ERROR
+      - DONE
     ListClusterHostsResponse:
       type: object
       properties:
@@ -1535,21 +1280,12 @@ components:
           items:
             $ref: '#/components/schemas/Host'
         nextPageToken:
-          description: >-
-            Токен для получения следующей страницы списка. Если количество
-            результатов больше
+          description: |-
+            Токен для получения следующей страницы списка. Если количество результатов больше
+            чем [pageSize](/docs/data-proc/api-ref/Cluster/listHosts#query_params), используйте `next_page_token` в качестве значения параметра
+            [pageToken](/docs/data-proc/api-ref/Cluster/listHosts#query_params) в следующем запросе списка ресурсов.
 
-            чем
-            [pageSize](/docs/data-proc/api-ref/Cluster/listHosts#query_params),
-            используйте `next_page_token` в качестве значения параметра
-
-            [pageToken](/docs/data-proc/api-ref/Cluster/listHosts#query_params)
-            в следующем запросе списка ресурсов.
-
-
-            Все последующие запросы будут получать свои значения
-            `next_page_token` для перебора страниц
-
+            Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц
             результатов.
           type: string
     ListClusterOperationsResponse:
@@ -1561,21 +1297,12 @@ components:
           items:
             $ref: '#/components/schemas/Operation'
         nextPageToken:
-          description: >-
-            Токен для получения следующей страницы списка. Если количество
-            результатов больше
+          description: |-
+            Токен для получения следующей страницы списка. Если количество результатов больше
+            чем [pageSize](/docs/data-proc/api-ref/Cluster/listOperations#query_params), используйте `next_page_token` в качестве значения параметра
+            [pageToken](/docs/data-proc/api-ref/Cluster/listOperations#query_params) в следующем запросе списка ресурсов.
 
-            чем
-            [pageSize](/docs/data-proc/api-ref/Cluster/listOperations#query_params),
-            используйте `next_page_token` в качестве значения параметра
-
-            [pageToken](/docs/data-proc/api-ref/Cluster/listOperations#query_params)
-            в следующем запросе списка ресурсов.
-
-
-            У каждой последующей страницы будет собственный `next_page_token`,
-            чтобы можно было
-
+            У каждой последующей страницы будет собственный `next_page_token`, чтобы можно было
             продолжать просматривать результаты.
           type: string
     ListClustersResponse:
@@ -1587,20 +1314,12 @@ components:
           items:
             $ref: '#/components/schemas/Cluster'
         nextPageToken:
-          description: >-
-            Токен для получения следующей страницы списка. Если количество
-            результатов больше
-
-            чем [pageSize](/docs/data-proc/api-ref/Cluster/list#query_params),
-            используйте `next_page_token` в качестве значения параметра
-            [pageToken](/docs/data-proc/api-ref/Cluster/list#query_params)
-
+          description: |-
+            Токен для получения следующей страницы списка. Если количество результатов больше
+            чем [pageSize](/docs/data-proc/api-ref/Cluster/list#query_params), используйте `next_page_token` в качестве значения параметра [pageToken](/docs/data-proc/api-ref/Cluster/list#query_params)
             в следующем запросе списка ресурсов.
 
-
-            У каждой последующей страницы будет собственный `next_page_token`,
-            чтобы можно было
-
+            У каждой последующей страницы будет собственный `next_page_token`, чтобы можно было
             продолжать просматривать результаты.
           type: string
     ListJobsResponse:
@@ -1612,20 +1331,12 @@ components:
           items:
             $ref: '#/components/schemas/Job'
         nextPageToken:
-          description: >-
-            Токен для получения следующей страницы списка. Если количество
-            результатов больше
-
-            чем [pageSize](/docs/data-proc/api-ref/Job/list#query_params),
-            используйте `next_page_token` в качестве значения параметра
-            [pageToken](/docs/data-proc/api-ref/Job/list#query_params) в
-
+          description: |-
+            Токен для получения следующей страницы списка. Если количество результатов больше
+            чем [pageSize](/docs/data-proc/api-ref/Job/list#query_params), используйте `next_page_token` в качестве значения параметра [pageToken](/docs/data-proc/api-ref/Job/list#query_params) в
             следующем запросе списка ресурсов.
 
-
-            У каждой последующей страницы будет собственный `next_page_token`,
-            чтобы можно было
-
+            У каждой последующей страницы будет собственный `next_page_token`, чтобы можно было
             продолжать просматривать результаты.
           type: string
     ListResourcePresetsResponse:
@@ -1637,26 +1348,12 @@ components:
           items:
             $ref: '#/components/schemas/ResourcePreset'
         nextPageToken:
-          description: >-
-            Токен для получения следующей страницы результатов в ответе. Если
-            количество
-
-            результатов больше чем
-            [pageSize](/docs/data-proc/api-ref/ResourcePreset/list#query_params),
-            используйте
-            [nextPageToken](/docs/data-proc/api-ref/ResourcePreset/list#responses)
-            в качестве
-
-            значения параметра
-            [pageToken](/docs/data-proc/api-ref/ResourcePreset/list#query_params)
-            в следующем запросе списка ресурсов. Все
-
-            последующие запросы будут получать свои значения
-            [nextPageToken](/docs/data-proc/api-ref/ResourcePreset/list#responses)
-            для перебора страниц
-
+          description: |-
+            Токен для получения следующей страницы результатов в ответе. Если количество
+            результатов больше чем [pageSize](/docs/data-proc/api-ref/ResourcePreset/list#query_params), используйте [nextPageToken](/docs/data-proc/api-ref/ResourcePreset/list#responses) в качестве
+            значения параметра [pageToken](/docs/data-proc/api-ref/ResourcePreset/list#query_params) в следующем запросе списка ресурсов. Все
+            последующие запросы будут получать свои значения [nextPageToken](/docs/data-proc/api-ref/ResourcePreset/list#responses) для перебора страниц
             результатов.
-
 
             Максимальная длина строки в символах — 100.
           type: string
@@ -1669,77 +1366,61 @@ components:
           items:
             $ref: '#/components/schemas/Subcluster'
         nextPageToken:
-          description: >-
-            Токен для получения следующей страницы списка. Если количество
-            результатов больше
+          description: |-
+            Токен для получения следующей страницы списка. Если количество результатов больше
+            чем [pageSize](/docs/data-proc/api-ref/Subcluster/list#query_params), используйте `next_page_token` в качестве значения параметра
+            [pageToken](/docs/data-proc/api-ref/Subcluster/list#query_params) в следующем запросе списка ресурсов.
 
-            чем
-            [pageSize](/docs/data-proc/api-ref/Subcluster/list#query_params),
-            используйте `next_page_token` в качестве значения параметра
-
-            [pageToken](/docs/data-proc/api-ref/Subcluster/list#query_params) в
-            следующем запросе списка ресурсов.
-
-
-            У каждой последующей страницы будет собственный `next_page_token`,
-            чтобы можно было
-
+            У каждой последующей страницы будет собственный `next_page_token`, чтобы можно было
             продолжать просматривать результаты.
           type: string
     MapreduceJob:
       type: object
       allOf:
-        - type: object
-          properties:
-            args:
-              description: Необязательные аргументы, которые передаются драйверу.
-              type: array
-              items:
-                type: string
-            jarFileUris:
-              description: >-
-                URI JAR-файлов, которые добавляются в CLASSPATH драйвера Data
-                Proc и каждого задания в рамках
-
-                задачи.
-              type: array
-              items:
-                type: string
-            fileUris:
-              description: >-
-                URI ресурсных файлов, которые копируются в рабочий каталог
-                драйверов Data Proc и
-
-                распределенных заданий Hadoop.
-              type: array
-              items:
-                type: string
-            archiveUris:
-              description: >-
-                URI архивов, содержимое которых извлекается в рабочий каталог
-                драйверов и каждого
-
-                задания в рамках задачи.
-              type: array
-              items:
-                type: string
-            properties:
-              description: >-
-                Имена и значения свойств, которые используются для настройки
-                Data Proc и MapReduce.
-              type: object
-              additionalProperties:
-                type: string
-        - title: driver
-          type: object
-          maxProperties: 1
-          properties:
-            mainJarFileUri:
-              description: HCFS URI JAR-файла, который содержит класс драйвера.
+      - type: object
+        properties:
+          args:
+            description: Необязательные аргументы, которые передаются драйверу.
+            type: array
+            items:
               type: string
-            mainClass:
-              description: Имя класса драйвера.
+          jarFileUris:
+            description: |-
+              URI JAR-файлов, которые добавляются в CLASSPATH драйвера Data Proc и каждого задания в рамках
+              задачи.
+            type: array
+            items:
               type: string
+          fileUris:
+            description: |-
+              URI ресурсных файлов, которые копируются в рабочий каталог драйверов Data Proc и
+              распределенных заданий Hadoop.
+            type: array
+            items:
+              type: string
+          archiveUris:
+            description: |-
+              URI архивов, содержимое которых извлекается в рабочий каталог драйверов и каждого
+              задания в рамках задачи.
+            type: array
+            items:
+              type: string
+          properties:
+            description: Имена и значения свойств, которые используются для настройки
+              Data Proc и MapReduce.
+            type: object
+            additionalProperties:
+              type: string
+      - title: driver
+        type: object
+        maxProperties: 1
+        properties:
+          mainJarFileUri:
+            description: HCFS URI JAR-файла, который содержит класс драйвера.
+            type: string
+          mainClass:
+            description: Имя класса драйвера.
+            type: string
     Monitoring:
       description: Метаданные системы мониторинга для кластера Data Proc.
       type: object
@@ -1759,82 +1440,68 @@ components:
         [Объект Operation](/docs/api-design-guide/concepts/operation).
       type: object
       allOf:
-        - type: object
-          properties:
-            id:
-              description: Идентификатор операции.
-              type: string
-            description:
-              description: |-
-                Описание операции. Длина описания должна быть от 0 до 256
-                символов.
-              type: string
-            createdAt:
-              description: >-
-                Время создания ресурса в формате в
+      - type: object
+        properties:
+          id:
+            description: Идентификатор операции.
+            type: string
+          description:
+            description: |-
+              Описание операции. Длина описания должна быть от 0 до 256
+              символов.
+            type: string
+          createdAt:
+            description: |-
+              Время создания ресурса в формате в
+              [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
 
-                [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+              Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+            type: string
+            format: date-time
+          createdBy:
+            description: |-
+              Идентификатор пользователя или сервисного
+              аккаунта, инициировавшего операцию.
+            type: string
+          modifiedAt:
+            description: |-
+              Время, когда ресурс Operation последний раз
+              обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
 
-
-                Строка в формате
-                [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
-              type: string
-              format: date-time
-            createdBy:
-              description: |-
-                Идентификатор пользователя или сервисного
-                аккаунта, инициировавшего операцию.
-              type: string
-            modifiedAt:
-              description: >-
-                Время, когда ресурс Operation последний раз
-
-                обновлялся. Значение в формате
-                [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
-
-
-                Строка в формате
-                [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
-              type: string
-              format: date-time
-            done:
-              description: |-
-                Если значение равно `false` — операция еще
-                выполняется. Если `true` — операция завершена, и задано значение
-                одного из полей `error` или `response`.
-              type: boolean
-              format: boolean
-            metadata:
-              description: |-
-                Метаданные операции. Обычно в поле содержится
-                идентификатор ресурса, над которым выполняется операция. Если
-                метод возвращает ресурс Operation, в описании метода приведена
-                структура соответствующего ему поля `metadata`.
-              type: object
-        - title: result
-          type: object
-          maxProperties: 1
-          properties:
-            error:
-              $ref: '#/components/schemas/rpcStatus'
-              description: Описание ошибки в случае сбоя или отмены операции.
-            response:
-              description: >-
-                Результат операции в случае успешного завершения. Если
-
-                исходный метод не возвращает никаких данных при успешном
-
-                завершении, например метод Delete, поле содержит объект
-
-                [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty).
-                Если исходный метод — это стандартный метод Create
-
-                / Update, поле содержит целевой ресурс операции. Если метод
-
-                возвращает ресурс Operation, в описании метода приведена
-
-                структура соответствующего ему поля `response`.
-              type: object
+              Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+            type: string
+            format: date-time
+          done:
+            description: |-
+              Если значение равно `false` — операция еще
+              выполняется. Если `true` — операция завершена, и задано значение
+              одного из полей `error` или `response`.
+            type: boolean
+            format: boolean
+          metadata:
+            description: |-
+              Метаданные операции. Обычно в поле содержится
+              идентификатор ресурса, над которым выполняется операция. Если
+              метод возвращает ресурс Operation, в описании метода приведена
+              структура соответствующего ему поля `metadata`.
+            type: object
+      - title: result
+        type: object
+        maxProperties: 1
+        properties:
+          error:
+            $ref: '#/components/schemas/rpcStatus'
+            description: Описание ошибки в случае сбоя или отмены операции.
+          response:
+            description: |-
+              Результат операции в случае успешного завершения. Если
+              исходный метод не возвращает никаких данных при успешном
+              завершении, например метод Delete, поле содержит объект
+              [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty). Если исходный метод — это стандартный метод Create
+              / Update, поле содержит целевой ресурс операции. Если метод
+              возвращает ресурс Operation, в описании метода приведена
+              структура соответствующего ему поля `response`.
+            type: object
     PysparkJob:
       type: object
       properties:
@@ -1844,36 +1511,29 @@ components:
           items:
             type: string
         jarFileUris:
-          description: >-
-            URI JAR-файлов, которые добавляются в CLASSPATH драйвера Data Proc и
-            каждого задания в рамках
-
+          description: |-
+            URI JAR-файлов, которые добавляются в CLASSPATH драйвера Data Proc и каждого задания в рамках
             задачи.
           type: array
           items:
             type: string
         fileUris:
-          description: >-
-            URI ресурсных файлов, которые копируются в рабочий каталог драйверов
-            Data Proc и
-
+          description: |-
+            URI ресурсных файлов, которые копируются в рабочий каталог драйверов Data Proc и
             распределенных заданий Hadoop.
           type: array
           items:
             type: string
         archiveUris:
-          description: >-
-            URI архивов, содержимое которых извлекается в рабочий каталог
-            драйверов и каждого
-
+          description: |-
+            URI архивов, содержимое которых извлекается в рабочий каталог драйверов и каждого
             задания в рамках задачи.
           type: array
           items:
             type: string
         properties:
-          description: >-
-            Имена и значения свойств, которые используются для настройки Data
-            Proc и PySpark.
+          description: Имена и значения свойств, которые используются для настройки
+            Data Proc и PySpark.
           type: object
           additionalProperties:
             type: string
@@ -1901,23 +1561,19 @@ components:
           description: Идентификатор конфигурации ресурсов.
           type: string
         zoneIds:
-          description: >-
-            Идентификаторы зон доступности, в которых доступен данный набор
+          description: Идентификаторы зон доступности, в которых доступен данный набор
             ресурсов.
           type: array
           items:
             type: string
         cores:
-          description: >-
-            Количество ядер CPU для хоста Data Proc, созданного с данным набором
-            ресурсов.
+          description: Количество ядер CPU для хоста Data Proc, созданного с данным
+            набором ресурсов.
           type: string
           format: int64
         memory:
-          description: >-
-            Объем оперативной памяти для хоста Data Proc, созданного с данным
-            набором ресурсов, в
-
+          description: |-
+            Объем оперативной памяти для хоста Data Proc, созданного с данным набором ресурсов, в
             байтах.
           type: string
           format: int64
@@ -1925,12 +1581,9 @@ components:
       type: object
       properties:
         resourcePresetId:
-          description: >-
-            Идентификатор набора вычислительных ресурсов, доступных хосту
-            (процессор, память и т. д.).
-
-            Все доступные наборы ресурсов перечислены в
-            [документации](/docs/data-proc/concepts/instance-types).
+          description: |-
+            Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.).
+            Все доступные наборы ресурсов перечислены в [документации](/docs/data-proc/concepts/instance-types).
           type: string
         diskTypeId:
           description: |-
@@ -1943,50 +1596,34 @@ components:
           type: string
           format: int64
     Role:
-      description: >2-
+      description: |2-
          - MASTERNODE: Подкластер выполняет роль мастера.
 
-        Мастер может запускать следующие сервисы, в зависимости от запрошенных
-        компонентов:
-
+        Мастер может запускать следующие сервисы, в зависимости от запрошенных компонентов:
         * HDFS: Namenode, Secondary Namenode
-
         * YARN: ResourceManager, Timeline Server
-
         * HBase Master
-
         * Hive: Server, Metastore, HCatalog
-
         * Spark History Server
-
         * Zeppelin
-
         * ZooKeeper
          - DATANODE: Подкластер выполняет роль DATANODE в кластере Data Proc.
 
-        DATANODE может запускать следующие сервисы, в зависимости от запрошенных
-        компонентов:
-
+        DATANODE может запускать следующие сервисы, в зависимости от запрошенных компонентов:
         * HDFS DataNode
-
         * YARN NodeManager
-
         * HBase RegionServer
-
         * библиотеки Spark
          - COMPUTENODE: Подкластер выполняет роль COMPUTENODE в кластере Data Proc.
 
-        COMPUTENODE может запускать следующие сервисы, в зависимости от
-        запрошенных компонентов:
-
+        COMPUTENODE может запускать следующие сервисы, в зависимости от запрошенных компонентов:
         * YARN NodeManager
-
         * библиотеки Spark
       type: string
       enum:
-        - MASTERNODE
-        - DATANODE
-        - COMPUTENODE
+      - MASTERNODE
+      - DATANODE
+      - COMPUTENODE
     SparkJob:
       type: object
       properties:
@@ -1996,36 +1633,29 @@ components:
           items:
             type: string
         jarFileUris:
-          description: >-
-            URI JAR-файлов, которые добавляются в CLASSPATH драйвера Data Proc и
-            каждого задания в рамках
-
+          description: |-
+            URI JAR-файлов, которые добавляются в CLASSPATH драйвера Data Proc и каждого задания в рамках
             задачи.
           type: array
           items:
             type: string
         fileUris:
-          description: >-
-            URI ресурсных файлов, которые копируются в рабочий каталог драйверов
-            Data Proc и
-
+          description: |-
+            URI ресурсных файлов, которые копируются в рабочий каталог драйверов Data Proc и
             распределенных заданий Hadoop.
           type: array
           items:
             type: string
         archiveUris:
-          description: >-
-            URI архивов, содержимое которых извлекается в рабочий каталог
-            драйверов и каждого
-
+          description: |-
+            URI архивов, содержимое которых извлекается в рабочий каталог драйверов и каждого
             задания в рамках задачи.
           type: array
           items:
             type: string
         properties:
-          description: >-
-            Имена и значения свойств, которые используются для настройки Data
-            Proc и Spark.
+          description: Имена и значения свойств, которые используются для настройки
+            Data Proc и Spark.
           type: object
           additionalProperties:
             type: string
@@ -2048,8 +1678,7 @@ components:
           description: Идентификатор останавливаемого кластера Data Proc.
           type: string
     Subcluster:
-      description: >-
-        Подкластер Data Proc. Дополнительные сведения о концепции см. в
+      description: Подкластер Data Proc. Дополнительные сведения о концепции см. в
         [документации](/docs/data-proc/concepts/).
       type: object
       properties:
@@ -2109,70 +1738,51 @@ components:
             Максимальная длина строки в символах — 256.
           type: string
         labels:
-          description: >-
+          description: |-
             Новый набор меток кластера в виде пар `ключ: значение`.
 
-
             Не более 64 на ресурс.
-
             Длина строки в символах для каждого ключа должна быть от 1 до 63.
-
-            Каждый ключ должен соответствовать регулярному выражению ``
-            [a-z][-_0-9a-z]* ``.
-
+            Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
             Максимальная длина строки в символах для каждого значения — 63.
-
-            Каждое значение должно соответствовать регулярному выражению ``
-            [-_0-9a-z]* ``.
+            Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.
           type: object
           additionalProperties:
             type: string
         configSpec:
-          $ref: >-
-            #/components/schemas/UpdateClusterConfigSpec_in_UpdateClusterRequest_configSpec
+          $ref: '#/components/schemas/UpdateClusterConfigSpec_in_UpdateClusterRequest_configSpec'
         name:
-          description: >-
-            Новое имя кластера Data Proc. Имя должно быть уникальным в рамках
-            каталога.
+          description: |-
+            Новое имя кластера Data Proc. Имя должно быть уникальным в рамках каталога.
 
-
-            Значение должно соответствовать регулярному выражению ``
-            |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+            Значение должно соответствовать регулярному выражению `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
           type: string
         serviceAccountId:
-          description: >-
-            Идентификатор сервисного аккаунта, которым должен пользоваться агент
-            Data Proc для
-
+          description: |-
+            Идентификатор сервисного аккаунта, которым должен пользоваться агент Data Proc для
             управления задачами.
           type: string
         bucket:
-          description: >-
-            Имя нового бакета Object Storage, который следует использовать для
-            задач Data Proc.
+          description: Имя нового бакета Object Storage, который следует использовать
+            для задач Data Proc.
           type: string
     UpdateSubclusterConfigSpec:
       type: object
       properties:
         id:
-          description: >-
+          description: |-
             Идентификатор подкластера, который следует изменить.
 
-
-            Чтобы получить идентификатор подкластера, используйте запрос
-            [list](/docs/data-proc/api-ref/Subcluster/list).
+            Чтобы получить идентификатор подкластера, используйте запрос [list](/docs/data-proc/api-ref/Subcluster/list).
           type: string
         name:
-          description: >-
+          description: |-
             Имя подкластера.
 
-
-            Значение должно соответствовать регулярному выражению ``
-            |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+            Значение должно соответствовать регулярному выражению `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
           type: string
         resources:
-          $ref: >-
-            #/components/schemas/Resources_in_UpdateSubclusterConfigSpec_resources
+          $ref: '#/components/schemas/Resources_in_UpdateSubclusterConfigSpec_resources'
         hostsCount:
           description: |-
             Количество хостов в подкластере.
@@ -2203,13 +1813,10 @@ components:
         resources:
           $ref: '#/components/schemas/Resources_in_UpdateSubclusterRequest_resources'
         name:
-          description: >-
-            Новое имя подкластера. Имя должно быть уникальным в пределах
-            кластера.
+          description: |-
+            Новое имя подкластера. Имя должно быть уникальным в пределах кластера.
 
-
-            Значение должно соответствовать регулярному выражению ``
-            |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+            Значение должно соответствовать регулярному выражению `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
           type: string
         hostsCount:
           description: |-
@@ -2224,9 +1831,7 @@ components:
       type: object
       properties:
         code:
-          description: >-
-            Код ошибки. Значение из списка
-            [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
+          description: Код ошибки. Значение из списка [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
           type: integer
           format: int32
         message:
@@ -2242,12 +1847,9 @@ components:
       type: object
       properties:
         versionId:
-          description: >-
-            Версия образа, которая используется при подготовке кластера. Все
-            доступные версии
-
-            перечислены в
-            [документации](/docs/managed-hadoop/concepts/image-versions).
+          description: |-
+            Версия образа, которая используется при подготовке кластера. Все доступные версии
+            перечислены в [документации](/docs/managed-hadoop/concepts/image-versions).
           type: string
         hadoop:
           $ref: '#/components/schemas/HadoopConfig_in_ClusterConfig_hadoop'
@@ -2262,10 +1864,10 @@ components:
         ALIVE).
       type: string
       enum:
-        - HEALTH_UNKNOWN
-        - ALIVE
-        - DEAD
-        - DEGRADED
+      - HEALTH_UNKNOWN
+      - ALIVE
+      - DEAD
+      - DEGRADED
       default: HEALTH_UNKNOWN
     ClusterStatus_in_Cluster_status:
       description: |-
@@ -2280,45 +1882,35 @@ components:
          - STARTING: Кластер запускается.
       type: string
       enum:
-        - STATUS_UNKNOWN
-        - CREATING
-        - RUNNING
-        - ERROR
-        - STOPPING
-        - STOPPED
-        - STARTING
+      - STATUS_UNKNOWN
+      - CREATING
+      - RUNNING
+      - ERROR
+      - STOPPING
+      - STOPPED
+      - STARTING
       default: STATUS_UNKNOWN
     HadoopConfig_in_ClusterConfig_hadoop:
-      description: >-
+      description: |-
         Настройки конфигурации, специфические для Data Proc.
 
-
-        Конфигурация Hadoop, описывающая компоненты, установленные в кластере,
-        их свойства и
-
+        Конфигурация Hadoop, описывающая компоненты, установленные в кластере, их свойства и
         параметры.
       type: object
       properties:
         services:
-          description: >-
-            Набор компонентов, используемых в кластере (если список пуст,
-            используется набор по
-
+          description: |-
+            Набор компонентов, используемых в кластере (если список пуст, используется набор по
             умолчанию).
           type: array
           items:
             $ref: '#/components/schemas/HadoopConfigService'
         properties:
-          description: >-
-            Свойства, установленные для всех хостов в конфигурациях
-            `*-site.xml`. В ключе должны быть
-
+          description: |-
+            Свойства, установленные для всех хостов в конфигурациях `*-site.xml`. В ключе должны быть
             указаны компонент и свойство.
 
-
-            Например, используйте ключ 'hdfs:dfs.replication', чтобы установить
-            свойство `dfs.replication` в файле
-
+            Например, используйте ключ 'hdfs:dfs.replication', чтобы установить свойство `dfs.replication` в файле
             `/etc/hadoop/conf/hdfs-site.xml`.
           type: object
           additionalProperties:
@@ -2329,36 +1921,26 @@ components:
           items:
             type: string
     HadoopConfig_in_CreateClusterConfigSpec_hadoop:
-      description: >-
+      description: |-
         Настройки, специфические для Data Proc.
 
-
-        Конфигурация Hadoop, описывающая компоненты, установленные в кластере,
-        их свойства и
-
+        Конфигурация Hadoop, описывающая компоненты, установленные в кластере, их свойства и
         параметры.
       type: object
       properties:
         services:
-          description: >-
-            Набор компонентов, используемых в кластере (если список пуст,
-            используется набор по
-
+          description: |-
+            Набор компонентов, используемых в кластере (если список пуст, используется набор по
             умолчанию).
           type: array
           items:
             $ref: '#/components/schemas/HadoopConfigService'
         properties:
-          description: >-
-            Свойства, установленные для всех хостов в конфигурациях
-            `*-site.xml`. В ключе должны быть
-
+          description: |-
+            Свойства, установленные для всех хостов в конфигурациях `*-site.xml`. В ключе должны быть
             указаны компонент и свойство.
 
-
-            Например, используйте ключ 'hdfs:dfs.replication', чтобы установить
-            свойство `dfs.replication` в файле
-
+            Например, используйте ключ 'hdfs:dfs.replication', чтобы установить свойство `dfs.replication` в файле
             `/etc/hadoop/conf/hdfs-site.xml`.
           type: object
           additionalProperties:
@@ -2369,20 +1951,16 @@ components:
           items:
             type: string
     CreateClusterConfigSpec_in_CreateClusterRequest_configSpec:
-      description: >-
+      description: |-
         Обязательное поле.
-
-        Конфигурация и ресурсы хостов, которые должны быть созданы для кластера
-        Data Proc.
+        Конфигурация и ресурсы хостов, которые должны быть созданы для кластера Data Proc.
       type: object
       properties:
         versionId:
-          description: >-
+          description: |-
             Версия образа, которая используется при подготовке кластера.
 
-
-            Все доступные версии перечислены в
-            [документации](/docs/data-proc/concepts/image-versions).
+            Все доступные версии перечислены в [документации](/docs/data-proc/concepts/image-versions).
           type: string
         hadoop:
           $ref: '#/components/schemas/HadoopConfig_in_CreateClusterConfigSpec_hadoop'
@@ -2392,54 +1970,37 @@ components:
           items:
             $ref: '#/components/schemas/CreateSubclusterConfigSpec'
     Role_in_CreateSubclusterConfigSpec_role:
-      description: >-
+      description: |-
         Обязательное поле.
-
         Роль подкластера в кластере Data Proc.
 
          - MASTERNODE: Подкластер выполняет роль мастера.
 
-        Мастер может запускать следующие сервисы, в зависимости от запрошенных
-        компонентов:
-
+        Мастер может запускать следующие сервисы, в зависимости от запрошенных компонентов:
         * HDFS: Namenode, Secondary Namenode
-
         * YARN: ResourceManager, Timeline Server
-
         * HBase Master
-
         * Hive: Server, Metastore, HCatalog
-
         * Spark History Server
-
         * Zeppelin
-
         * ZooKeeper
          - DATANODE: Подкластер выполняет роль DATANODE в кластере Data Proc.
 
-        DATANODE может запускать следующие сервисы, в зависимости от запрошенных
-        компонентов:
-
+        DATANODE может запускать следующие сервисы, в зависимости от запрошенных компонентов:
         * HDFS DataNode
-
         * YARN NodeManager
-
         * HBase RegionServer
-
         * библиотеки Spark
          - COMPUTENODE: Подкластер выполняет роль COMPUTENODE в кластере Data Proc.
 
-        COMPUTENODE может запускать следующие сервисы, в зависимости от
-        запрошенных компонентов:
-
+        COMPUTENODE может запускать следующие сервисы, в зависимости от запрошенных компонентов:
         * YARN NodeManager
-
         * библиотеки Spark
       type: string
       enum:
-        - MASTERNODE
-        - DATANODE
-        - COMPUTENODE
+      - MASTERNODE
+      - DATANODE
+      - COMPUTENODE
     Resources_in_CreateSubclusterConfigSpec_resources:
       description: |-
         Обязательное поле.
@@ -2447,12 +2008,9 @@ components:
       type: object
       properties:
         resourcePresetId:
-          description: >-
-            Идентификатор набора вычислительных ресурсов, доступных хосту
-            (процессор, память и т. д.).
-
-            Все доступные наборы ресурсов перечислены в
-            [документации](/docs/data-proc/concepts/instance-types).
+          description: |-
+            Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.).
+            Все доступные наборы ресурсов перечислены в [документации](/docs/data-proc/concepts/instance-types).
           type: string
         diskTypeId:
           description: |-
@@ -2465,54 +2023,37 @@ components:
           type: string
           format: int64
     Role_in_CreateSubclusterRequest_role:
-      description: >-
+      description: |-
         Обязательное поле.
-
         Роль, которую выполняют хосты подкластера.
 
          - MASTERNODE: Подкластер выполняет роль мастера.
 
-        Мастер может запускать следующие сервисы, в зависимости от запрошенных
-        компонентов:
-
+        Мастер может запускать следующие сервисы, в зависимости от запрошенных компонентов:
         * HDFS: Namenode, Secondary Namenode
-
         * YARN: ResourceManager, Timeline Server
-
         * HBase Master
-
         * Hive: Server, Metastore, HCatalog
-
         * Spark History Server
-
         * Zeppelin
-
         * ZooKeeper
          - DATANODE: Подкластер выполняет роль DATANODE в кластере Data Proc.
 
-        DATANODE может запускать следующие сервисы, в зависимости от запрошенных
-        компонентов:
-
+        DATANODE может запускать следующие сервисы, в зависимости от запрошенных компонентов:
         * HDFS DataNode
-
         * YARN NodeManager
-
         * HBase RegionServer
-
         * библиотеки Spark
          - COMPUTENODE: Подкластер выполняет роль COMPUTENODE в кластере Data Proc.
 
-        COMPUTENODE может запускать следующие сервисы, в зависимости от
-        запрошенных компонентов:
-
+        COMPUTENODE может запускать следующие сервисы, в зависимости от запрошенных компонентов:
         * YARN NodeManager
-
         * библиотеки Spark
       type: string
       enum:
-        - MASTERNODE
-        - DATANODE
-        - COMPUTENODE
+      - MASTERNODE
+      - DATANODE
+      - COMPUTENODE
     Resources_in_CreateSubclusterRequest_resources:
       description: |-
         Обязательное поле.
@@ -2520,12 +2061,9 @@ components:
       type: object
       properties:
         resourcePresetId:
-          description: >-
-            Идентификатор набора вычислительных ресурсов, доступных хосту
-            (процессор, память и т. д.).
-
-            Все доступные наборы ресурсов перечислены в
-            [документации](/docs/data-proc/concepts/instance-types).
+          description: |-
+            Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.).
+            Все доступные наборы ресурсов перечислены в [документации](/docs/data-proc/concepts/instance-types).
           type: string
         diskTypeId:
           description: |-
@@ -2548,116 +2086,81 @@ components:
         ALIVE).
       type: string
       enum:
-        - HEALTH_UNKNOWN
-        - ALIVE
-        - DEAD
-        - DEGRADED
+      - HEALTH_UNKNOWN
+      - ALIVE
+      - DEAD
+      - DEGRADED
       default: HEALTH_UNKNOWN
     Role_in_Host_role:
-      description: >-
+      description: |-
         Роль хоста в кластере.
 
          - MASTERNODE: Подкластер выполняет роль мастера.
 
-        Мастер может запускать следующие сервисы, в зависимости от запрошенных
-        компонентов:
-
+        Мастер может запускать следующие сервисы, в зависимости от запрошенных компонентов:
         * HDFS: Namenode, Secondary Namenode
-
         * YARN: ResourceManager, Timeline Server
-
         * HBase Master
-
         * Hive: Server, Metastore, HCatalog
-
         * Spark History Server
-
         * Zeppelin
-
         * ZooKeeper
          - DATANODE: Подкластер выполняет роль DATANODE в кластере Data Proc.
 
-        DATANODE может запускать следующие сервисы, в зависимости от запрошенных
-        компонентов:
-
+        DATANODE может запускать следующие сервисы, в зависимости от запрошенных компонентов:
         * HDFS DataNode
-
         * YARN NodeManager
-
         * HBase RegionServer
-
         * библиотеки Spark
          - COMPUTENODE: Подкластер выполняет роль COMPUTENODE в кластере Data Proc.
 
-        COMPUTENODE может запускать следующие сервисы, в зависимости от
-        запрошенных компонентов:
-
+        COMPUTENODE может запускать следующие сервисы, в зависимости от запрошенных компонентов:
         * YARN NodeManager
-
         * библиотеки Spark
       type: string
       enum:
-        - MASTERNODE
-        - DATANODE
-        - COMPUTENODE
+      - MASTERNODE
+      - DATANODE
+      - COMPUTENODE
     Role_in_Subcluster_role:
-      description: >-
+      description: |-
         Роль, которую выполняют хосты подкластера.
 
          - MASTERNODE: Подкластер выполняет роль мастера.
 
-        Мастер может запускать следующие сервисы, в зависимости от запрошенных
-        компонентов:
-
+        Мастер может запускать следующие сервисы, в зависимости от запрошенных компонентов:
         * HDFS: Namenode, Secondary Namenode
-
         * YARN: ResourceManager, Timeline Server
-
         * HBase Master
-
         * Hive: Server, Metastore, HCatalog
-
         * Spark History Server
-
         * Zeppelin
-
         * ZooKeeper
          - DATANODE: Подкластер выполняет роль DATANODE в кластере Data Proc.
 
-        DATANODE может запускать следующие сервисы, в зависимости от запрошенных
-        компонентов:
-
+        DATANODE может запускать следующие сервисы, в зависимости от запрошенных компонентов:
         * HDFS DataNode
-
         * YARN NodeManager
-
         * HBase RegionServer
-
         * библиотеки Spark
          - COMPUTENODE: Подкластер выполняет роль COMPUTENODE в кластере Data Proc.
 
-        COMPUTENODE может запускать следующие сервисы, в зависимости от
-        запрошенных компонентов:
-
+        COMPUTENODE может запускать следующие сервисы, в зависимости от запрошенных компонентов:
         * YARN NodeManager
-
         * библиотеки Spark
       type: string
       enum:
-        - MASTERNODE
-        - DATANODE
-        - COMPUTENODE
+      - MASTERNODE
+      - DATANODE
+      - COMPUTENODE
     Resources_in_Subcluster_resources:
       description: Ресурсы, выделенные для каждого хоста в подкластере.
       type: object
       properties:
         resourcePresetId:
-          description: >-
-            Идентификатор набора вычислительных ресурсов, доступных хосту
-            (процессор, память и т. д.).
-
-            Все доступные наборы ресурсов перечислены в
-            [документации](/docs/data-proc/concepts/instance-types).
+          description: |-
+            Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.).
+            Все доступные наборы ресурсов перечислены в [документации](/docs/data-proc/concepts/instance-types).
           type: string
         diskTypeId:
           description: |-
@@ -2670,34 +2173,21 @@ components:
           type: string
           format: int64
     FieldMask_in_UpdateClusterRequest_updateMask:
-      description: >-
-        Маска поля, которая указывает, какие атрибуты кластера должны быть
-        изменены.
-
+      description: |-
+        Маска поля, которая указывает, какие атрибуты кластера должны быть изменены.
 
         Имена всех обновляемых полей, разделенные запятыми.
+        Только значения указанных полей будут изменены. Остальные останутся нетронутыми.
+        Если поле указано в параметре `` updateMask `` и в запросе не было отправлено значение для этого поля,
+        значение поля будет сброшено на значение по умолчанию. Значение по умолчанию для большинства полей — null или 0.
 
-        Только значения указанных полей будут изменены. Остальные останутся
-        нетронутыми.
-
-        Если поле указано в параметре `` updateMask `` и в запросе не было
-        отправлено значение для этого поля,
-
-        значение поля будет сброшено на значение по умолчанию. Значение по
-        умолчанию для большинства полей — null или 0.
-
-
-        Если в запросе не передается `` updateMask ``, значения всех полей будут
-        обновлены.
-
+        Если в запросе не передается `` updateMask ``, значения всех полей будут обновлены.
         Для полей, указанных в запросе, будут использованы переданные значения.
-
         Значения остальных полей будут сброшены на значения по умолчанию.
       type: string
     UpdateClusterConfigSpec_in_UpdateClusterRequest_configSpec:
-      description: >-
-        Конфигурация и ресурсы хостов, которые должны быть созданы для кластера
-        Data Proc.
+      description: Конфигурация и ресурсы хостов, которые должны быть созданы для
+        кластера Data Proc.
       type: object
       properties:
         subclustersSpec:
@@ -2710,12 +2200,9 @@ components:
       type: object
       properties:
         resourcePresetId:
-          description: >-
-            Идентификатор набора вычислительных ресурсов, доступных хосту
-            (процессор, память и т. д.).
-
-            Все доступные наборы ресурсов перечислены в
-            [документации](/docs/data-proc/concepts/instance-types).
+          description: |-
+            Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.).
+            Все доступные наборы ресурсов перечислены в [документации](/docs/data-proc/concepts/instance-types).
           type: string
         diskTypeId:
           description: |-
@@ -2728,45 +2215,28 @@ components:
           type: string
           format: int64
     FieldMask_in_UpdateSubclusterRequest_updateMask:
-      description: >-
-        Маска, которая указывает, какие атрибуты подкластера должны быть
-        изменены.
-
+      description: |-
+        Маска, которая указывает, какие атрибуты подкластера должны быть изменены.
 
         Имена всех обновляемых полей, разделенные запятыми.
+        Только значения указанных полей будут изменены. Остальные останутся нетронутыми.
+        Если поле указано в параметре `` updateMask `` и в запросе не было отправлено значение для этого поля,
+        значение поля будет сброшено на значение по умолчанию. Значение по умолчанию для большинства полей — null или 0.
 
-        Только значения указанных полей будут изменены. Остальные останутся
-        нетронутыми.
-
-        Если поле указано в параметре `` updateMask `` и в запросе не было
-        отправлено значение для этого поля,
-
-        значение поля будет сброшено на значение по умолчанию. Значение по
-        умолчанию для большинства полей — null или 0.
-
-
-        Если в запросе не передается `` updateMask ``, значения всех полей будут
-        обновлены.
-
+        Если в запросе не передается `` updateMask ``, значения всех полей будут обновлены.
         Для полей, указанных в запросе, будут использованы переданные значения.
-
         Значения остальных полей будут сброшены на значения по умолчанию.
       type: string
     Resources_in_UpdateSubclusterRequest_resources:
-      description: >-
-        Новая конфигурация ресурсов, которые должны быть выделены для каждого
-        хоста в
-
+      description: |-
+        Новая конфигурация ресурсов, которые должны быть выделены для каждого хоста в
         подкластере.
       type: object
       properties:
         resourcePresetId:
-          description: >-
-            Идентификатор набора вычислительных ресурсов, доступных хосту
-            (процессор, память и т. д.).
-
-            Все доступные наборы ресурсов перечислены в
-            [документации](/docs/data-proc/concepts/instance-types).
+          description: |-
+            Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.).
+            Все доступные наборы ресурсов перечислены в [документации](/docs/data-proc/concepts/instance-types).
           type: string
         diskTypeId:
           description: |-
@@ -2779,11 +2249,11 @@ components:
           type: string
           format: int64
 tags:
-  - name: Cluster
-    description: Набор методов для управления кластерами Data Proc.
-  - name: Job
-    description: Набор методов для управления задачами Data Proc.
-  - name: ResourcePreset
-    description: Набор методов для управления ресурсами ResourcePreset.
-  - name: Subcluster
-    description: Набор методов для управления подкластерами Data Proc.
+- name: Cluster
+  description: Набор методов для управления кластерами Data Proc.
+- name: Job
+  description: Набор методов для управления задачами Data Proc.
+- name: ResourcePreset
+  description: Набор методов для управления ресурсами ResourcePreset.
+- name: Subcluster
+  description: Набор методов для управления подкластерами Data Proc.

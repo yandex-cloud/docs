@@ -1,0 +1,13 @@
+items:
+  - name: Overview
+    href: api-ref/grpc/index.md
+  - name: DeviceDataService
+    href: api-ref/grpc/device_data_service.md
+  - name: DeviceService
+    href: api-ref/grpc/device_service.md
+  - name: RegistryDataService
+    href: api-ref/grpc/registry_data_service.md
+  - name: RegistryService
+    href: api-ref/grpc/registry_service.md
+  - name: OperationService
+    href: api-ref/grpc/operation_service.md

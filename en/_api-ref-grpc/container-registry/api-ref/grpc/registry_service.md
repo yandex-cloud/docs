@@ -16,6 +16,9 @@ A set of methods for managing Registry resources.
 | [ListAccessBindings](#ListAccessBindings) | access Lists access bindings for the specified registry. |
 | [SetAccessBindings](#SetAccessBindings) | Sets access bindings for the specified registry. |
 | [UpdateAccessBindings](#UpdateAccessBindings) | Updates access bindings for the specified registry. |
+| [ListIpPermission](#ListIpPermission) | ip permissions List ip permissions for the specified registry. |
+| [SetIpPermission](#SetIpPermission) | Set ip permissions for the specified registry. |
+| [UpdateIpPermission](#UpdateIpPermission) | Update ip permissions for the specified registry. |
 
 ## Calls RegistryService {#calls}
 
@@ -41,7 +44,7 @@ folder_id | **string**<br>ID of the folder that the registry belongs to.
 name | **string**<br>Name of the registry. 
 status | enum **Status**<br>Output only. Status of the registry. <ul><li>`CREATING`: Registry is being created.</li><li>`ACTIVE`: Registry is ready to use.</li><li>`DELETING`: Registry is being deleted.</li><ul/>
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Output only. Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
-labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Мaximum of 64 per resource. 
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
 
 
 ## List {#List}
@@ -54,7 +57,7 @@ Retrieves the list of Registry resources in the specified folder.
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder to list registries in. <br>To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. The maximum string length in characters is 50.
+folder_id | **string**<br>Required. ID of the folder to list registries in. <br>To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListRegistriesResponse.next_page_token](#ListRegistriesResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListRegistriesResponse.next_page_token](#ListRegistriesResponse) returned by a previous list request. The maximum string length in characters is 100.
 filter | **string**<br><ol><li>The field name. Currently you can use filtering only on [Registry.name](#Registry1) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>Value or a list of values to compare against the values of the field.</li></ol> The maximum string length in characters is 1000.
@@ -77,7 +80,7 @@ folder_id | **string**<br>ID of the folder that the registry belongs to.
 name | **string**<br>Name of the registry. 
 status | enum **Status**<br>Output only. Status of the registry. <ul><li>`CREATING`: Registry is being created.</li><li>`ACTIVE`: Registry is ready to use.</li><li>`DELETING`: Registry is being deleted.</li><ul/>
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Output only. Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
-labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Мaximum of 64 per resource. 
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
 
 
 ## Create {#Create}
@@ -94,7 +97,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder to create a registry in. <br>To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. The maximum string length in characters is 50.
+folder_id | **string**<br>Required. ID of the folder to create a registry in. <br>To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. The maximum string length in characters is 50.
 name | **string**<br>Name of the registry. <br>There may be only one registry per folder. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 
@@ -131,7 +134,7 @@ folder_id | **string**<br>ID of the folder that the registry belongs to.
 name | **string**<br>Name of the registry. 
 status | enum **Status**<br>Output only. Status of the registry. <ul><li>`CREATING`: Registry is being created.</li><li>`ACTIVE`: Registry is ready to use.</li><li>`DELETING`: Registry is being deleted.</li><ul/>
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Output only. Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
-labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Мaximum of 64 per resource. 
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
 
 
 ## Update {#Update}
@@ -186,7 +189,7 @@ folder_id | **string**<br>ID of the folder that the registry belongs to.
 name | **string**<br>Name of the registry. 
 status | enum **Status**<br>Output only. Status of the registry. <ul><li>`CREATING`: Registry is being created.</li><li>`ACTIVE`: Registry is ready to use.</li><li>`DELETING`: Registry is being deleted.</li><ul/>
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Output only. Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
-labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Мaximum of 64 per resource. 
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
 
 
 ## Delete {#Delete}
@@ -239,7 +242,7 @@ access Lists access bindings for the specified registry.
 
 Field | Description
 --- | ---
-resource_id | **string**<br>Required. ID of the resource to list access bindings for. <br>To get the resource ID, use a corresponding List request. For example, use the [yandex.cloud.resourcemanager.v1.CloudService.List](/docs/resource-manager/grpc/cloud_service#List) request to get the Cloud resource ID. The maximum string length in characters is 50.
+resource_id | **string**<br>Required. ID of the resource to list access bindings for. <br>To get the resource ID, use a corresponding List request. For example, use the [yandex.cloud.resourcemanager.v1.CloudService.List](/docs/resource-manager/api-ref/grpc/cloud_service#List) request to get the Cloud resource ID. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page that should be returned. If the number of available results is larger than `page_size`, the service returns a [ListAccessBindingsResponse.next_page_token](#ListAccessBindingsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
 page_token | **string**<br>Page token. Set `page_token` to the [ListAccessBindingsResponse.next_page_token](#ListAccessBindingsResponse) returned by a previous list request to get the next page of results. The maximum string length in characters is 100.
 
@@ -388,5 +391,139 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 Field | Description
 --- | ---
 resource_id | **string**<br>ID of the resource for which access bindings are being updated. 
+
+
+## ListIpPermission {#ListIpPermission}
+
+ip permissions List ip permissions for the specified registry.
+
+**rpc ListIpPermission ([ListIpPermissionRequest](#ListIpPermissionRequest)) returns ([ListIpPermissionsResponse](#ListIpPermissionsResponse))**
+
+### ListIpPermissionRequest {#ListIpPermissionRequest}
+
+Field | Description
+--- | ---
+registry_id | **string**<br>Required. ID of the Registry to return ip permission list. The maximum string length in characters is 50.
+
+
+### ListIpPermissionsResponse {#ListIpPermissionsResponse}
+
+Field | Description
+--- | ---
+permissions[] | **[IpPermission](#IpPermission)**<br>List of ip permissions for registry 
+
+
+### IpPermission {#IpPermission}
+
+Field | Description
+--- | ---
+action | enum **Action**<br> <ul><ul/>
+ip | **string**<br> 
+
+
+## SetIpPermission {#SetIpPermission}
+
+Set ip permissions for the specified registry.
+
+**rpc SetIpPermission ([SetIpPermissionRequest](#SetIpPermissionRequest)) returns ([operation.Operation](#Operation5))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[SetIpPermissionMetadata](#SetIpPermissionMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
+
+### SetIpPermissionRequest {#SetIpPermissionRequest}
+
+Field | Description
+--- | ---
+registry_id | **string**<br>Required. ID of the registry for which ip permissions are being set. The maximum string length in characters is 50.
+ip_permission[] | **[IpPermission](#IpPermission1)**<br>IP permission to be set. 
+
+
+### IpPermission {#IpPermission1}
+
+Field | Description
+--- | ---
+action | enum **Action**<br> <ul><ul/>
+ip | **string**<br> 
+
+
+### Operation {#Operation5}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[SetIpPermissionMetadata](#SetIpPermissionMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>if operation finished successfully. 
+
+
+### SetIpPermissionMetadata {#SetIpPermissionMetadata}
+
+Field | Description
+--- | ---
+registry_id | **string**<br>ID of the registry that ip permission is being set. 
+
+
+## UpdateIpPermission {#UpdateIpPermission}
+
+Update ip permissions for the specified registry.
+
+**rpc UpdateIpPermission ([UpdateIpPermissionRequest](#UpdateIpPermissionRequest)) returns ([operation.Operation](#Operation6))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateIpPermissionMetadata](#UpdateIpPermissionMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
+
+### UpdateIpPermissionRequest {#UpdateIpPermissionRequest}
+
+Field | Description
+--- | ---
+registry_id | **string**<br>Required. ID of the registry for which ip permissions are being updated. The maximum string length in characters is 50.
+ip_permission_deltas[] | **[IpPermissionDelta](#IpPermissionDelta)**<br>Updates to IP permissions. 
+
+
+### IpPermissionDelta {#IpPermissionDelta}
+
+Field | Description
+--- | ---
+action | enum **IpPermissionAction**<br>Required. The action that is being performed on an ip permission. <ul><li>`ADD`: Addition of an ip permission.</li><li>`REMOVE`: Removal of an ip permission.</li><ul/>
+ip_permission | **[IpPermission](#IpPermission2)**<br>Required. Ip permission. 
+
+
+### IpPermission {#IpPermission2}
+
+Field | Description
+--- | ---
+action | enum **Action**<br> <ul><ul/>
+ip | **string**<br> 
+
+
+### Operation {#Operation6}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateIpPermissionMetadata](#UpdateIpPermissionMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>if operation finished successfully. 
+
+
+### UpdateIpPermissionMetadata {#UpdateIpPermissionMetadata}
+
+Field | Description
+--- | ---
+registry_id | **string**<br>ID of the registry that ip permission is being updated. 
 
 

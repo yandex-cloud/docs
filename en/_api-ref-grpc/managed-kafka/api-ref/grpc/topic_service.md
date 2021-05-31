@@ -27,7 +27,7 @@ Returns the specified Kafka topic. <br>To get the list of available Kafka topics
 Field | Description
 --- | ---
 cluster_id | **string**<br>Required. ID of the Apache Kafka® cluster that the topic belongs to. <br>To get the cluster ID, make a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
-topic_name | **string**<br>Required. Name of the Kafka topic resource to return. <br>To get the name of the topic, make a [TopicService.List](#List) request. The string length in characters must be 1-63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+topic_name | **string**<br>Required. Name of the Kafka topic resource to return. <br>To get the name of the topic, make a [TopicService.List](#List) request. The string length in characters must be 1-256. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
 ### Topic {#Topic}
@@ -244,7 +244,7 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 Field | Description
 --- | ---
 cluster_id | **string**<br>ID of the Apache Kafka® cluster where a topic is being created. 
-topic_name | **string**<br>Required. Name of the Kafka topic that is being created. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+topic_name | **string**<br>Required. Name of the Kafka topic that is being created. The maximum string length in characters is 256. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
 ### Topic {#Topic2}
@@ -313,7 +313,7 @@ Metadata and response of Operation:<br>
 Field | Description
 --- | ---
 cluster_id | **string**<br>Required. ID of the Apache Kafka® cluster to update a topic in. <br>To get the cluster ID, make a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
-topic_name | **string**<br>Required. Name of the topic to update. <br>To get the name of the topic, make a [TopicService.List](#List) request. The string length in characters must be 1-63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+topic_name | **string**<br>Required. Name of the topic to update. <br>To get the name of the topic, make a [TopicService.List](#List) request. The string length in characters must be 1-256. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br> 
 topic_spec | **[TopicSpec](#TopicSpec1)**<br>New configuration of the topic. <br>Use `update_mask` to prevent reverting all topic settings that are not listed in `topic_spec` to their default values. 
 
@@ -458,7 +458,7 @@ Metadata and response of Operation:<br>
 Field | Description
 --- | ---
 cluster_id | **string**<br>Required. ID of the Apache Kafka® cluster to delete a topic in. <br>To get the cluster ID, make a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
-topic_name | **string**<br>Required. Name of the topic to delete. <br>To get the name of the topic, make a [TopicService.List](#List) request. The string length in characters must be 1-63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+topic_name | **string**<br>Required. Name of the topic to delete. <br>To get the name of the topic, make a [TopicService.List](#List) request. The string length in characters must be 1-256. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
 ### Operation {#Operation2}

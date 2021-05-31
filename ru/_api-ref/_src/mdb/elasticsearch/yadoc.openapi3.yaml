@@ -1,11 +1,9 @@
-openapi: '3.0'
+openapi: "3.0"
 info:
   title: Yandex Managed Service for Elasticsearch API
-  description: >-
-    Методы справочника API сгруппированы по ресурсам. Чтобы выполнить операцию
-    над ресурсом, отправьте HTTP-запрос к соответствующему URL выполните
-    RPC-вызов. Подробнее об архитектуре API Яндекс.Облака, см. [Концепции API
-    Яндекс.Облака](/docs/api-design-guide/).
+  description: Методы справочника API сгруппированы по ресурсам. Чтобы выполнить операцию
+    над ресурсом, отправьте HTTP-запрос к соответствующему URL выполните RPC-вызов.
+    Подробнее об архитектуре API Яндекс.Облака, см. [Концепции API Яндекс.Облака](/docs/api-design-guide/).
   version: v1
   x-y-docUri: api-ref
   x-y-baseUrl: https://mdb.api.cloud.yandex.net
@@ -13,31 +11,26 @@ paths:
   /managed-elasticsearch/v1/clusters/{clusterId}:
     get:
       tags:
-        - Cluster
+      - Cluster
       summary: Возвращает указанный кластер Elasticsearch.
-      description: >-
-        Чтобы получить список доступных кластеров Elasticsearch, выполните
+      description: Чтобы получить список доступных кластеров Elasticsearch, выполните
         запрос [list](/docs/managed-elasticsearch/api-ref/Cluster/list).
       operationId: ClusterGet
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера Elasticsearch.
 
-            Идентификатор кластера Elasticsearch.
+          Чтобы получить идентификатор кластера, выполните запрос [list](/docs/managed-elasticsearch/api-ref/Cluster/list).
 
-
-            Чтобы получить идентификатор кластера, выполните запрос
-            [list](/docs/managed-elasticsearch/api-ref/Cluster/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -46,28 +39,24 @@ paths:
       x-y-navtitle: get
     delete:
       tags:
-        - Cluster
+      - Cluster
       summary: Удаляет указанный кластер Elasticsearch.
       operationId: ClusterDelete
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор удаляемого кластера Elasticsearch.
 
-            Идентификатор удаляемого кластера Elasticsearch.
+          Чтобы получить идентификатор кластера Elasticsearch, выполните запрос [list](/docs/managed-elasticsearch/api-ref/Cluster/list).
 
-
-            Чтобы получить идентификатор кластера Elasticsearch, выполните
-            запрос [list](/docs/managed-elasticsearch/api-ref/Cluster/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -79,26 +68,22 @@ paths:
       x-y-operation-response: Empty
     patch:
       tags:
-        - Cluster
+      - Cluster
       summary: Изменяет указанный кластер Elasticsearch.
       operationId: ClusterUpdate
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера Elasticsearch, который нужно изменить.
 
-            Идентификатор кластера Elasticsearch, который нужно изменить.
+          Чтобы получить идентификатор кластера Elasticsearch, выполните запрос [list](/docs/managed-elasticsearch/api-ref/Cluster/list).
 
-
-            Чтобы получить идентификатор кластера Elasticsearch, выполните
-            запрос [list](/docs/managed-elasticsearch/api-ref/Cluster/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -106,7 +91,7 @@ paths:
               $ref: '#/components/schemas/UpdateClusterRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -119,85 +104,57 @@ paths:
   /managed-elasticsearch/v1/clusters:
     get:
       tags:
-        - Cluster
-      summary: >-
-        Получает список кластеров Elasticsearch, принадлежащих указанному
-        каталогу.
+      - Cluster
+      summary: Получает список кластеров Elasticsearch, принадлежащих указанному каталогу.
       operationId: ClusterList
       parameters:
-        - name: folderId
-          in: query
-          description: >-
-            Обязательное поле.
+      - name: folderId
+        in: query
+        description: |-
+          Обязательное поле.
+          Идентификатор каталога, для которого нужно получить список кластеров Elasticsearch.
 
-            Идентификатор каталога, для которого нужно получить список кластеров
-            Elasticsearch.
+          Чтобы получить идентификатор каталога, выполните запрос [list](/docs/resource-manager/api-ref/Folder/list).
 
+          Максимальная длина строки в символах — 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на одной странице в ответе. Если количество результатов больше чем `page_size`, сервис вернет значение
+          [nextPageToken](/docs/managed-elasticsearch/api-ref/Cluster/list#responses), которое можно использовать для получения следующей страницы.
 
-            Чтобы получить идентификатор каталога, выполните запрос
-            [list](/docs/resource-manager/api-ref/Folder/list).
+          Максимальное значение — 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение `page_token` равным значению поля [nextPageToken](/docs/managed-elasticsearch/api-ref/Cluster/list#responses) предыдущего запроса, чтобы получить
+          следующую страницу результатов.
 
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          Выражение, позволяющее отфильтровать информацию о ресурсах в ответе, оставив только нужную.
 
-            Максимальная длина строки в символах — 50.
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            Максимальное количество результатов на одной странице в ответе. Если
-            количество результатов больше чем `page_size`, сервис вернет
-            значение
+          В этом выражении должны быть указаны:
+          1. Имя поля, по которому нужно выполнить фильтрацию. В настоящее время фильтрацию можно использовать только по полю [Cluster.name](/docs/managed-elasticsearch/api-ref/Cluster#representation).
+          2. Условный оператор. Поддерживаются операторы `=` и `!=` для одиночных значений, `IN` и `NOT IN` для списков значений.
+          3. Значение. Должно содержать от 1 до 63 символов и соответствовать регулярному выражению `^[a-zA-Z0-9_-]+$`.
 
-            [nextPageToken](/docs/managed-elasticsearch/api-ref/Cluster/list#responses),
-            которое можно использовать для получения следующей страницы.
+          Пример фильтра: `name NOT IN 'test,beta'`.
 
-
-            Максимальное значение — 1000.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Токен страницы. Установите значение `page_token` равным значению
-            поля
-            [nextPageToken](/docs/managed-elasticsearch/api-ref/Cluster/list#responses)
-            предыдущего запроса, чтобы получить
-
-            следующую страницу результатов.
-
-
-            Максимальная длина строки в символах — 100.
-          schema:
-            type: string
-        - name: filter
-          in: query
-          description: >-
-            Выражение, позволяющее отфильтровать информацию о ресурсах в ответе,
-            оставив только нужную.
-
-
-            В этом выражении должны быть указаны:
-
-            1. Имя поля, по которому нужно выполнить фильтрацию. В настоящее
-            время фильтрацию можно использовать только по полю
-            [Cluster.name](/docs/managed-elasticsearch/api-ref/Cluster#representation).
-
-            2. Условный оператор. Поддерживаются операторы `=` и `!=` для
-            одиночных значений, `IN` и `NOT IN` для списков значений.
-
-            3. Значение. Должно содержать от 1 до 63 символов и соответствовать
-            регулярному выражению `^[a-zA-Z0-9_-]+$`.
-
-
-            Пример фильтра: `name NOT IN 'test,beta'`.
-
-
-            Максимальная длина строки в символах — 1000.
-          schema:
-            type: string
+          Максимальная длина строки в символах — 1000.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -206,7 +163,7 @@ paths:
       x-y-navtitle: list
     post:
       tags:
-        - Cluster
+      - Cluster
       summary: Создает новый кластер Elasticsearch в указанном каталоге.
       operationId: ClusterCreate
       requestBody:
@@ -216,7 +173,7 @@ paths:
               $ref: '#/components/schemas/CreateClusterRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -229,26 +186,22 @@ paths:
   /managed-elasticsearch/v1/clusters/{clusterId}:move:
     post:
       tags:
-        - Cluster
+      - Cluster
       summary: Перемещает кластер Elasticsearch в указанный каталог.
       operationId: ClusterMove
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера Elasticsearch, который нужно переместить.
 
-            Идентификатор кластера Elasticsearch, который нужно переместить.
+          Чтобы получить идентификатор кластера Elasticsearch, выполните запрос [list](/docs/managed-elasticsearch/api-ref/Cluster/list).
 
-
-            Чтобы получить идентификатор кластера Elasticsearch, выполните
-            запрос [list](/docs/managed-elasticsearch/api-ref/Cluster/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -256,7 +209,7 @@ paths:
               $ref: '#/components/schemas/MoveClusterRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -269,28 +222,24 @@ paths:
   /managed-elasticsearch/v1/clusters/{clusterId}:start:
     post:
       tags:
-        - Cluster
+      - Cluster
       summary: Запускает указанный кластер Elasticsearch.
       operationId: ClusterStart
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера Elasticsearch, который нужно запустить.
 
-            Идентификатор кластера Elasticsearch, который нужно запустить.
+          Чтобы получить идентификатор кластера Elasticsearch, выполните запрос [list](/docs/managed-elasticsearch/api-ref/Cluster/list).
 
-
-            Чтобы получить идентификатор кластера Elasticsearch, выполните
-            запрос [list](/docs/managed-elasticsearch/api-ref/Cluster/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -303,28 +252,24 @@ paths:
   /managed-elasticsearch/v1/clusters/{clusterId}:stop:
     post:
       tags:
-        - Cluster
+      - Cluster
       summary: Останавливает указанный кластер Elasticsearch.
       operationId: ClusterStop
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера Elasticsearch, который нужно остановить.
 
-            Идентификатор кластера Elasticsearch, который нужно остановить.
+          Чтобы получить идентификатор кластера Elasticsearch, выполните запрос [list](/docs/managed-elasticsearch/api-ref/Cluster/list).
 
-
-            Чтобы получить идентификатор кластера Elasticsearch, выполните
-            запрос [list](/docs/managed-elasticsearch/api-ref/Cluster/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -337,133 +282,100 @@ paths:
   /managed-elasticsearch/v1/clusters/{clusterId}:logs:
     get:
       tags:
-        - Cluster
+      - Cluster
       summary: Получает логи для указанного кластера Elasticsearch.
-      description: >-
-        Дополнительные сведения о логах см. в разделе документации
-        [Logs](/docs/managed-elasticsearch/operations/cluster-logs).
+      description: Дополнительные сведения о логах см. в разделе документации [Logs](/docs/managed-elasticsearch/operations/cluster-logs).
       operationId: ClusterListLogs
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера Elasticsearch, для которого нужно получить логи.
 
-            Идентификатор кластера Elasticsearch, для которого нужно получить
-            логи.
+          Чтобы получить идентификатор кластера Elasticsearch, выполните запрос [list](/docs/managed-elasticsearch/api-ref/Cluster/list).
 
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: columnFilter
+        in: query
+        description: |-
+          Столбцы, которые нужно запросить из лога.
 
-            Чтобы получить идентификатор кластера Elasticsearch, выполните
-            запрос [list](/docs/managed-elasticsearch/api-ref/Cluster/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
+          Если столбцы не указаны, записи логов возвращаются целиком.
+        schema:
+          type: array
+          items:
             type: string
-        - name: columnFilter
-          in: query
-          description: |-
-            Столбцы, которые нужно запросить из лога.
+      - name: fromTime
+        in: query
+        description: |-
+          Временная метка, начиная с которой следует запросить логи.
 
-            Если столбцы не указаны, записи логов возвращаются целиком.
-          schema:
-            type: array
-            items:
-              type: string
-        - name: fromTime
-          in: query
-          description: |-
-            Временная метка, начиная с которой следует запросить логи.
+          Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+        schema:
+          type: string
+          format: date-time
+      - name: toTime
+        in: query
+        description: |-
+          Временная метка, до которой следует запросить логи.
 
-            Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
-          schema:
-            type: string
-            format: date-time
-        - name: toTime
-          in: query
-          description: |-
-            Временная метка, до которой следует запросить логи.
+          Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+        schema:
+          type: string
+          format: date-time
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на одной странице в ответе.
 
-            Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
-          schema:
-            type: string
-            format: date-time
-        - name: pageSize
-          in: query
-          description: >-
-            Максимальное количество результатов на одной странице в ответе.
+          Если количество результатов больше чем `page_size`, сервис вернет значение [nextPageToken](/docs/managed-elasticsearch/api-ref/Cluster/listLogs#responses), которое можно использовать для
+          получения следующей страницы.
 
+          Максимальное значение — 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы.
 
-            Если количество результатов больше чем `page_size`, сервис вернет
-            значение
-            [nextPageToken](/docs/managed-elasticsearch/api-ref/Cluster/listLogs#responses),
-            которое можно использовать для
+          Установите значение `page_token` равным значению поля [nextPageToken](/docs/managed-elasticsearch/api-ref/Cluster/listLogs#responses) предыдущего запроса, чтобы получить следующую страницу
+          результатов.
 
-            получения следующей страницы.
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      - name: alwaysNextPageToken
+        in: query
+        description: |-
+          Флаг, определяющий поведение при предоставлении маркера следующей страницы.
 
+          Если этот флаг установлен в `true`, этот метод API всегда будет возвращать [nextPageToken](/docs/managed-elasticsearch/api-ref/Cluster/listLogs#responses), даже если текущая страница пуста.
+        schema:
+          type: boolean
+          format: boolean
+      - name: filter
+        in: query
+        description: |-
+          Выражение, позволяющее отфильтровать информацию о ресурсах в ответе, оставив только нужную.
 
-            Максимальное значение — 1000.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Токен страницы.
+          В этом выражении должны быть указаны:
+          1. Имя поля, по которому нужно выполнить фильтрацию. В настоящее время фильтрацию можно использовать только по полю `hostname`.
+          2. Условный оператор. Поддерживаются операторы `=` и `!=` для одиночных значений, `IN` и `NOT IN` для списков значений.
+          3. Значение. Должно содержать от 1 до 63 символов и соответствовать регулярному выражению `^[a-z0-9.-]{1,61}$`.
 
+          Пример фильтра: `hostname='node1.db.cloud.yandex.net'`
 
-            Установите значение `page_token` равным значению поля
-            [nextPageToken](/docs/managed-elasticsearch/api-ref/Cluster/listLogs#responses)
-            предыдущего запроса, чтобы получить следующую страницу
-
-            результатов.
-
-
-            Максимальная длина строки в символах — 100.
-          schema:
-            type: string
-        - name: alwaysNextPageToken
-          in: query
-          description: >-
-            Флаг, определяющий поведение при предоставлении маркера следующей
-            страницы.
-
-
-            Если этот флаг установлен в `true`, этот метод API всегда будет
-            возвращать
-            [nextPageToken](/docs/managed-elasticsearch/api-ref/Cluster/listLogs#responses),
-            даже если текущая страница пуста.
-          schema:
-            type: boolean
-            format: boolean
-        - name: filter
-          in: query
-          description: >-
-            Выражение, позволяющее отфильтровать информацию о ресурсах в ответе,
-            оставив только нужную.
-
-
-            В этом выражении должны быть указаны:
-
-            1. Имя поля, по которому нужно выполнить фильтрацию. В настоящее
-            время фильтрацию можно использовать только по полю `hostname`.
-
-            2. Условный оператор. Поддерживаются операторы `=` и `!=` для
-            одиночных значений, `IN` и `NOT IN` для списков значений.
-
-            3. Значение. Должно содержать от 1 до 63 символов и соответствовать
-            регулярному выражению `^[a-z0-9.-]{1,61}$`.
-
-
-            Пример фильтра: `hostname='node1.db.cloud.yandex.net'`
-
-
-            Максимальная длина строки в символах — 1000.
-          schema:
-            type: string
+          Максимальная длина строки в символах — 1000.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -473,112 +385,83 @@ paths:
   /managed-elasticsearch/v1/clusters/{clusterId}:stream_logs:
     get:
       tags:
-        - Cluster
-      summary: >-
-        То же самое, что
-        [listLogs](/docs/managed-elasticsearch/api-ref/Cluster/listLogs), с той
-        разницей, что со стороны сервера передается поток логов. Допускается
-        использовать семантику `tail -f` при работе с
-
+      - Cluster
+      summary: |-
+        То же самое, что [listLogs](/docs/managed-elasticsearch/api-ref/Cluster/listLogs), с той разницей, что со стороны сервера передается поток логов. Допускается использовать семантику `tail -f` при работе с
         потоком логов.
       operationId: ClusterStreamLogs
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера Elasticsearch.
 
-            Идентификатор кластера Elasticsearch.
+          Чтобы получить идентификатор кластера Elasticsearch, выполните запрос [list](/docs/managed-elasticsearch/api-ref/Cluster/list).
 
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: columnFilter
+        in: query
+        description: |-
+          Столбцы, которые нужно запросить из лога.
 
-            Чтобы получить идентификатор кластера Elasticsearch, выполните
-            запрос [list](/docs/managed-elasticsearch/api-ref/Cluster/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
+          Если столбцы не указаны, записи логов возвращаются целиком.
+        schema:
+          type: array
+          items:
             type: string
-        - name: columnFilter
-          in: query
-          description: |-
-            Столбцы, которые нужно запросить из лога.
+      - name: fromTime
+        in: query
+        description: |-
+          Временная метка, начиная с которой следует запросить логи.
 
-            Если столбцы не указаны, записи логов возвращаются целиком.
-          schema:
-            type: array
-            items:
-              type: string
-        - name: fromTime
-          in: query
-          description: |-
-            Временная метка, начиная с которой следует запросить логи.
+          Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+        schema:
+          type: string
+          format: date-time
+      - name: toTime
+        in: query
+        description: |-
+          Временная метка, до которой следует запросить логи.
 
-            Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
-          schema:
-            type: string
-            format: date-time
-        - name: toTime
-          in: query
-          description: >-
-            Временная метка, до которой следует запросить логи.
+          Если значение этого поля не задано, то будут отправлены все существующие записи в логе, а затем и новые по мере их появления. В сущности, это эквивалентно
+          семантике `tail -f`.
 
+          Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+        schema:
+          type: string
+          format: date-time
+      - name: recordToken
+        in: query
+        description: |-
+          Токен записи.
 
-            Если значение этого поля не задано, то будут отправлены все
-            существующие записи в логе, а затем и новые по мере их появления. В
-            сущности, это эквивалентно
+          Задайте значение `record_token` равным значению `nextRecordToken`, возвращенному предыдущим запросом [streamLogs](/docs/managed-elasticsearch/api-ref/Cluster/streamLogs) чтобы
+          продолжить стриминг со следующей записи в логе.
 
-            семантике `tail -f`.
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          Выражение, позволяющее отфильтровать информацию о ресурсах в ответе, оставив только нужную.
 
+          В этом выражении должны быть указаны:
+          1. Имя поля, по которому нужно выполнить фильтрацию. В настоящее время фильтрацию можно использовать только по полю `hostname`.
+          2. Условный оператор. Поддерживаются операторы `=` и `!=` для одиночных значений, `IN` и `NOT IN` для списков значений.
+          3. Значение. Должно содержать от 3 до 63 символов и соответствовать регулярному выражению `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.
 
-            Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
-          schema:
-            type: string
-            format: date-time
-        - name: recordToken
-          in: query
-          description: >-
-            Токен записи.
+          Пример фильтра: `hostname='node1.db.cloud.yandex.net'`
 
-
-            Задайте значение `record_token` равным значению `nextRecordToken`,
-            возвращенному предыдущим запросом
-            [streamLogs](/docs/managed-elasticsearch/api-ref/Cluster/streamLogs)
-            чтобы
-
-            продолжить стриминг со следующей записи в логе.
-
-
-            Максимальная длина строки в символах — 100.
-          schema:
-            type: string
-        - name: filter
-          in: query
-          description: >-
-            Выражение, позволяющее отфильтровать информацию о ресурсах в ответе,
-            оставив только нужную.
-
-
-            В этом выражении должны быть указаны:
-
-            1. Имя поля, по которому нужно выполнить фильтрацию. В настоящее
-            время фильтрацию можно использовать только по полю `hostname`.
-
-            2. Условный оператор. Поддерживаются операторы `=` и `!=` для
-            одиночных значений, `IN` и `NOT IN` для списков значений.
-
-            3. Значение. Должно содержать от 3 до 63 символов и соответствовать
-            регулярному выражению `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.
-
-
-            Пример фильтра: `hostname='node1.db.cloud.yandex.net'`
-
-
-            Максимальная длина строки в символах — 1000.
-          schema:
-            type: string
+          Максимальная длина строки в символах — 1000.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -588,63 +471,47 @@ paths:
   /managed-elasticsearch/v1/clusters/{clusterId}/operations:
     get:
       tags:
-        - Cluster
+      - Cluster
       summary: Получает список операций для указанного кластера Elasticsearch.
       operationId: ClusterListOperations
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера Elasticsearch, для которого нужно получить список операций.
 
-            Идентификатор кластера Elasticsearch, для которого нужно получить
-            список операций.
+          Чтобы получить идентификатор кластера Elasticsearch, выполните запрос [list](/docs/managed-elasticsearch/api-ref/Cluster/list).
 
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на одной странице в ответе.
 
-            Чтобы получить идентификатор кластера Elasticsearch, выполните
-            запрос [list](/docs/managed-elasticsearch/api-ref/Cluster/list).
+          Если количество результатов больше чем `page_size`, сервис вернет значение [nextPageToken](/docs/managed-elasticsearch/api-ref/Cluster/listOperations#responses), которое можно использовать для
+          получения следующей страницы.
 
+          Максимальное значение — 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы.
 
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            Максимальное количество результатов на одной странице в ответе.
+          Установите значение `page_token` равным значению поля [nextPageToken](/docs/managed-elasticsearch/api-ref/Cluster/listOperations#responses) предыдущего запроса, чтобы получить следующую
+          страницу результатов.
 
-
-            Если количество результатов больше чем `page_size`, сервис вернет
-            значение
-            [nextPageToken](/docs/managed-elasticsearch/api-ref/Cluster/listOperations#responses),
-            которое можно использовать для
-
-            получения следующей страницы.
-
-
-            Максимальное значение — 1000.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Токен страницы.
-
-
-            Установите значение `page_token` равным значению поля
-            [nextPageToken](/docs/managed-elasticsearch/api-ref/Cluster/listOperations#responses)
-            предыдущего запроса, чтобы получить следующую
-
-            страницу результатов.
-
-
-            Максимальная длина строки в символах — 100.
-          schema:
-            type: string
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -654,62 +521,47 @@ paths:
   /managed-elasticsearch/v1/clusters/{clusterId}/hosts:
     get:
       tags:
-        - Cluster
+      - Cluster
       summary: Получает список хостов для указанного кластера Elasticsearch.
       operationId: ClusterListHosts
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера Elasticsearch.
 
-            Идентификатор кластера Elasticsearch.
+          Чтобы получить идентификатор кластера Elasticsearch, выполните запрос [list](/docs/managed-elasticsearch/api-ref/Cluster/list).
 
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на одной странице в ответе.
 
-            Чтобы получить идентификатор кластера Elasticsearch, выполните
-            запрос [list](/docs/managed-elasticsearch/api-ref/Cluster/list).
+          Если количество результатов больше чем `page_size`, сервис вернет значение [nextPageToken](/docs/managed-elasticsearch/api-ref/Cluster/listHosts#responses), которое можно использовать для
+          получения следующей страницы.
 
+          Максимальное значение — 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы.
 
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            Максимальное количество результатов на одной странице в ответе.
+          Установите значение `page_token` равным значению поля [nextPageToken](/docs/managed-elasticsearch/api-ref/Cluster/listHosts#responses) предыдущего запроса, чтобы получить следующую страницу
+          результатов.
 
-
-            Если количество результатов больше чем `page_size`, сервис вернет
-            значение
-            [nextPageToken](/docs/managed-elasticsearch/api-ref/Cluster/listHosts#responses),
-            которое можно использовать для
-
-            получения следующей страницы.
-
-
-            Максимальное значение — 1000.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Токен страницы.
-
-
-            Установите значение `page_token` равным значению поля
-            [nextPageToken](/docs/managed-elasticsearch/api-ref/Cluster/listHosts#responses)
-            предыдущего запроса, чтобы получить следующую страницу
-
-            результатов.
-
-
-            Максимальная длина строки в символах — 100.
-          schema:
-            type: string
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -719,26 +571,22 @@ paths:
   /managed-elasticsearch/v1/clusters/{clusterId}/hosts:batchCreate:
     post:
       tags:
-        - Cluster
+      - Cluster
       summary: Добавляет новые хосты в указанный кластер Elasticsearch.
       operationId: ClusterAddHosts
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера Elasticsearch.
 
-            Идентификатор кластера Elasticsearch.
+          Чтобы получить идентификатор кластера Elasticsearch, выполните запрос [list](/docs/managed-elasticsearch/api-ref/Cluster/list).
 
-
-            Чтобы получить идентификатор кластера Elasticsearch, выполните
-            запрос [list](/docs/managed-elasticsearch/api-ref/Cluster/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -746,7 +594,7 @@ paths:
               $ref: '#/components/schemas/AddClusterHostsRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -759,26 +607,22 @@ paths:
   /managed-elasticsearch/v1/clusters/{clusterId}/hosts:batchDelete:
     post:
       tags:
-        - Cluster
+      - Cluster
       summary: Удаляет хосты из указанного кластера Elasticsearch.
       operationId: ClusterDeleteHosts
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера Elasticsearch.
 
-            Идентификатор кластера Elasticsearch.
+          Чтобы получить идентификатор кластера Elasticsearch, выполните запрос [list](/docs/managed-elasticsearch/api-ref/Cluster/list).
 
-
-            Чтобы получить идентификатор кластера Elasticsearch, выполните
-            запрос [list](/docs/managed-elasticsearch/api-ref/Cluster/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -786,7 +630,7 @@ paths:
               $ref: '#/components/schemas/DeleteClusterHostsRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -799,22 +643,22 @@ paths:
   /managed-elasticsearch/v1/operations/{operationId}:
     get:
       tags:
-        - Operation
+      - Operation
       summary: Возвращает информацию об указанной операции.
       operationId: OperationGet
       parameters:
-        - name: operationId
-          in: path
-          description: |-
-            Обязательное поле.
-            Идентификатор возвращаемой операции.
+      - name: operationId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор возвращаемой операции.
 
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -824,28 +668,24 @@ paths:
   /managed-elasticsearch/v1/resourcePresets/{resourcePresetId}:
     get:
       tags:
-        - ResourcePreset
+      - ResourcePreset
       summary: Возвращает указанный шаблон ресурса.
-      description: >-
-        Чтобы получить список доступных шаблонов ресурсов, выполните запрос
+      description: Чтобы получить список доступных шаблонов ресурсов, выполните запрос
         [list](/docs/managed-elasticsearch/api-ref/ResourcePreset/list).
       operationId: ResourcePresetGet
       parameters:
-        - name: resourcePresetId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: resourcePresetId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор шаблона ресурса, данные о котором запрашиваются.
 
-            Идентификатор шаблона ресурса, данные о котором запрашиваются.
-
-
-            Чтобы получить идентификатор шаблона ресурса, выполните запрос
-            [list](/docs/managed-elasticsearch/api-ref/ResourcePreset/list).
-          required: true
-          schema:
-            type: string
+          Чтобы получить идентификатор шаблона ресурса, выполните запрос [list](/docs/managed-elasticsearch/api-ref/ResourcePreset/list).
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -855,46 +695,35 @@ paths:
   /managed-elasticsearch/v1/resourcePresets:
     get:
       tags:
-        - ResourcePreset
+      - ResourcePreset
       summary: Возвращает список доступных шаблонов ресурсов.
       operationId: ResourcePresetList
       parameters:
-        - name: pageSize
-          in: query
-          description: >-
-            Максимальное количество результатов на одной странице в ответе.
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на одной странице в ответе.
 
+          Если количество результатов больше чем `page_size`, сервис вернет значение [nextPageToken](/docs/managed-elasticsearch/api-ref/ResourcePreset/list#responses), которое можно использовать для
+          получения следующей страницы.
 
-            Если количество результатов больше чем `page_size`, сервис вернет
-            значение
-            [nextPageToken](/docs/managed-elasticsearch/api-ref/ResourcePreset/list#responses),
-            которое можно использовать для
+          Максимальное значение — 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы.
 
-            получения следующей страницы.
+          Установите значение `page_token` равным значению поля [nextPageToken](/docs/managed-elasticsearch/api-ref/ResourcePreset/list#responses) предыдущего запроса, чтобы получить следующую страницу
+          результатов.
 
-
-            Максимальное значение — 1000.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Токен страницы.
-
-
-            Установите значение `page_token` равным значению поля
-            [nextPageToken](/docs/managed-elasticsearch/api-ref/ResourcePreset/list#responses)
-            предыдущего запроса, чтобы получить следующую страницу
-
-            результатов.
-
-
-            Максимальная длина строки в символах — 100.
-          schema:
-            type: string
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -904,51 +733,39 @@ paths:
   /managed-elasticsearch/v1/clusters/{clusterId}/users/{userName}:
     get:
       tags:
-        - User
+      - User
       summary: Возвращает информацию об указанном пользователе Elasticsearch.
-      description: >-
-        Чтобы получить список доступных пользователей Elasticsearch, выполните
+      description: Чтобы получить список доступных пользователей Elasticsearch, выполните
         запрос [list](/docs/managed-elasticsearch/api-ref/User/list).
       operationId: UserGet
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера Elasticsearch, к которому принадлежит пользователь.
 
-            Идентификатор кластера Elasticsearch, к которому принадлежит
-            пользователь.
+          Чтобы получить идентификатор кластера, выполните запрос [list](/docs/managed-elasticsearch/api-ref/Cluster/list).
 
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: userName
+        in: path
+        description: |-
+          Обязательное поле.
+          Имя запрашиваемого пользователя Elasticsearch.
 
-            Чтобы получить идентификатор кластера, выполните запрос
-            [list](/docs/managed-elasticsearch/api-ref/Cluster/list).
+          Чтобы получить имя пользователя, выполните запрос [list](/docs/managed-elasticsearch/api-ref/User/list).
 
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
-        - name: userName
-          in: path
-          description: >-
-            Обязательное поле.
-
-            Имя запрашиваемого пользователя Elasticsearch.
-
-
-            Чтобы получить имя пользователя, выполните запрос
-            [list](/docs/managed-elasticsearch/api-ref/User/list).
-
-
-            Максимальная длина строки в символах — 63.
-
-            Значение должно соответствовать регулярному выражению ``
-            [a-zA-Z0-9_]* ``.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 63.
+          Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_]* ``.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -958,63 +775,47 @@ paths:
   /managed-elasticsearch/v1/clusters/{clusterId}/users:
     get:
       tags:
-        - User
+      - User
       summary: Получает список пользователей Elasticsearch в указанном кластере.
       operationId: UserList
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера Elasticsearch, для которого нужно получить список пользователей.
 
-            Идентификатор кластера Elasticsearch, для которого нужно получить
-            список пользователей.
+          Чтобы получить идентификатор кластера, используйте запрос [list](/docs/managed-elasticsearch/api-ref/Cluster/list).
 
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на одной странице в ответе.
 
-            Чтобы получить идентификатор кластера, используйте запрос
-            [list](/docs/managed-elasticsearch/api-ref/Cluster/list).
+          Если количество результатов больше чем `page_size`, сервис вернет значение [nextPageToken](/docs/managed-elasticsearch/api-ref/User/list#responses), которое можно использовать для получения
+          следующей страницы.
 
+          Максимальное значение — 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы.
 
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            Максимальное количество результатов на одной странице в ответе.
+          Установите значение `page_token` равным значению поля [nextPageToken](/docs/managed-elasticsearch/api-ref/User/list#responses) предыдущего запроса, чтобы получить следующую страницу
+          результатов.
 
-
-            Если количество результатов больше чем `page_size`, сервис вернет
-            значение
-            [nextPageToken](/docs/managed-elasticsearch/api-ref/User/list#responses),
-            которое можно использовать для получения
-
-            следующей страницы.
-
-
-            Максимальное значение — 1000.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Токен страницы.
-
-
-            Установите значение `page_token` равным значению поля
-            [nextPageToken](/docs/managed-elasticsearch/api-ref/User/list#responses)
-            предыдущего запроса, чтобы получить следующую страницу
-
-            результатов.
-
-
-            Максимальная длина строки в символах — 100.
-          schema:
-            type: string
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1038,27 +839,22 @@ components:
       type: object
       properties:
         hostSpecs:
-          description: >-
+          description: |-
             Обязательное поле.
-
-            Одна или несколько конфигураций хостов, добавляемых в кластер
-            Elasticsearch.
-
+            Одна или несколько конфигураций хостов, добавляемых в кластер Elasticsearch.
 
             Должен содержать хотя бы один элемент.
           type: array
           items:
             $ref: '#/components/schemas/HostSpec'
     Cluster:
-      description: >-
-        Кластер Elasticsearch. Подробнее читайте в разделе
-        [Концепции](/docs/managed-elasticsearch/concepts) документации.
+      description: Кластер Elasticsearch. Подробнее читайте в разделе [Концепции](/docs/managed-elasticsearch/concepts)
+        документации.
       type: object
       properties:
         id:
-          description: >-
-            Идентификатор кластера Elasticsearch. Этот идентификатор
-            генерируется при создании кластера.
+          description: Идентификатор кластера Elasticsearch. Этот идентификатор генерируется
+            при создании кластера.
           type: string
         folderId:
           description: Идентификатор каталога, которому принадлежит кластер Elasticsearch.
@@ -1071,18 +867,15 @@ components:
           type: string
           format: date-time
         name:
-          description: >-
-            Имя кластера Elasticsearch. Имя должно быть уникальным в рамках
+          description: Имя кластера Elasticsearch. Имя должно быть уникальным в рамках
             каталога. Длина 1-63 символов.
           type: string
         description:
-          description: >-
-            Описание кластера Elasticsearch. Длина описания должна быть от 0 до
-            256 символов.
+          description: Описание кластера Elasticsearch. Длина описания должна быть
+            от 0 до 256 символов.
           type: string
         labels:
-          description: >-
-            Пользовательские метки для кластера Elasticsearch в виде пар
+          description: Пользовательские метки для кластера Elasticsearch в виде пар
             `key:value`. Максимум 64 на ресурс.
           type: object
           additionalProperties:
@@ -1117,8 +910,8 @@ components:
          - PRESTABLE: среда с более агрессивной политикой обновления — новые версии развертываются независимо от обратной совместимости.
       type: string
       enum:
-        - PRODUCTION
-        - PRESTABLE
+      - PRODUCTION
+      - PRESTABLE
     ClusterHealth:
       description: |2-
          - HEALTH_UNKNOWN: состояние кластера неизвестно (`health` всех хостов в кластере — `UNKNOWN`).
@@ -1127,10 +920,10 @@ components:
          - DEGRADED: кластер находится в состоянии деградации (`health` по крайней мере одного из хостов в кластере — не `ALIVE`).
       type: string
       enum:
-        - HEALTH_UNKNOWN
-        - ALIVE
-        - DEAD
-        - DEGRADED
+      - HEALTH_UNKNOWN
+      - ALIVE
+      - DEAD
+      - DEGRADED
       default: HEALTH_UNKNOWN
     ClusterStatus:
       description: |2-
@@ -1144,14 +937,14 @@ components:
          - STARTING: кластер запускается.
       type: string
       enum:
-        - STATUS_UNKNOWN
-        - CREATING
-        - RUNNING
-        - ERROR
-        - UPDATING
-        - STOPPING
-        - STOPPED
-        - STARTING
+      - STATUS_UNKNOWN
+      - CREATING
+      - RUNNING
+      - ERROR
+      - UPDATING
+      - STOPPING
+      - STOPPED
+      - STARTING
       default: STATUS_UNKNOWN
     ConfigSpec:
       type: object
@@ -1160,8 +953,7 @@ components:
           description: Версия Elasticsearch.
           type: string
         elasticsearchSpec:
-          $ref: >-
-            #/components/schemas/ElasticsearchSpec_in_ConfigSpec_elasticsearchSpec
+          $ref: '#/components/schemas/ElasticsearchSpec_in_ConfigSpec_elasticsearchSpec'
     CreateClusterMetadata:
       type: object
       properties:
@@ -1172,27 +964,19 @@ components:
       type: object
       properties:
         folderId:
-          description: >-
+          description: |-
             Обязательное поле.
-
-            Идентификатор каталога, в котором будет создан кластер
-            Elasticsearch.
-
+            Идентификатор каталога, в котором будет создан кластер Elasticsearch.
 
             Максимальная длина строки в символах — 50.
           type: string
         name:
-          description: >-
+          description: |-
             Обязательное поле.
-
-            Имя кластера Elasticsearch. Имя должно быть уникальным в рамках
-            каталога.
-
+            Имя кластера Elasticsearch. Имя должно быть уникальным в рамках каталога.
 
             Максимальная длина строки в символах — 63.
-
-            Значение должно соответствовать регулярному выражению ``
-            [a-zA-Z0-9_-]* ``.
+            Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_-]* ``.
           type: string
         description:
           description: |-
@@ -1201,52 +985,36 @@ components:
             Максимальная длина строки в символах — 256.
           type: string
         labels:
-          description: >-
-            Пользовательские метки для кластера Elasticsearch в виде пар
-            `key:value`.
-
+          description: |-
+            Пользовательские метки для кластера Elasticsearch в виде пар `key:value`.
 
             Например, "project": "mvp" или "source": "dictionary".
 
-
             Не более 64 на ресурс.
-
             Длина строки в символах для каждого ключа должна быть от 1 до 63.
-
-            Каждый ключ должен соответствовать регулярному выражению ``
-            [a-z][-_0-9a-z]* ``.
-
+            Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
             Максимальная длина строки в символах для каждого значения — 63.
-
-            Каждое значение должно соответствовать регулярному выражению ``
-            [-_0-9a-z]* ``.
+            Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.
           type: object
           additionalProperties:
             type: string
         environment:
-          $ref: >-
-            #/components/schemas/ClusterEnvironment_in_CreateClusterRequest_environment
+          $ref: '#/components/schemas/ClusterEnvironment_in_CreateClusterRequest_environment'
         configSpec:
           $ref: '#/components/schemas/ConfigSpec_in_CreateClusterRequest_configSpec'
         userSpecs:
-          description: >-
+          description: |-
             Обязательное поле.
-
-            Одно или несколько описаний пользователей, которых нужно создать в
-            кластере Elasticsearch.
-
+            Одно или несколько описаний пользователей, которых нужно создать в кластере Elasticsearch.
 
             Должен содержать хотя бы один элемент.
           type: array
           items:
             $ref: '#/components/schemas/UserSpec'
         hostSpecs:
-          description: >-
+          description: |-
             Обязательное поле.
-
-            Одна или несколько конфигураций хостов, создаваемых в кластере
-            Elasticsearch.
-
+            Одна или несколько конфигураций хостов, создаваемых в кластере Elasticsearch.
 
             Должен содержать хотя бы один элемент.
           type: array
@@ -1295,63 +1063,38 @@ components:
         dataNode:
           $ref: '#/components/schemas/ElasticsearchDataNode_in_Elasticsearch_dataNode'
         masterNode:
-          $ref: >-
-            #/components/schemas/ElasticsearchMasterNode_in_Elasticsearch_masterNode
+          $ref: '#/components/schemas/ElasticsearchMasterNode_in_Elasticsearch_masterNode'
     ElasticsearchConfig7_6:
-      description: >-
-        Здесь перечислены поддерживаемые параметры конфигурации Elasticsearch
-        7.6.
+      description: |-
+        Здесь перечислены поддерживаемые параметры конфигурации Elasticsearch 7.6.
 
-
-        Подробное описание всех параметров доступно в [документации
-        Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html).
-
+        Подробное описание всех параметров доступно в [документации Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html).
 
         Любые параметры, не перечисленные здесь, не поддерживаются.
       type: object
       properties:
         fielddataCacheSize:
-          description: >-
-            Максимальный процент от общего объема кучи (heap), который может
-            выделяться под кэш данных в полях.
+          description: |-
+            Максимальный процент от общего объема кучи (heap), который может выделяться под кэш данных в полях.
 
-
-            Все значения полей, помещенные в этот кэш, загружаются в память для
-            обеспечения быстрого доступа к этим значениям при работе с
-            документами. Построение кэша
-
-            данных для поля — затратная операция, поэтому рекомендуется иметь
-            достаточный объем памяти для этого кэша и поддерживать его в
-            заполненном состоянии.
-
+            Все значения полей, помещенные в этот кэш, загружаются в память для обеспечения быстрого доступа к этим значениям при работе с документами. Построение кэша
+            данных для поля — затратная операция, поэтому рекомендуется иметь достаточный объем памяти для этого кэша и поддерживать его в заполненном состоянии.
 
             Значение по умолчанию: не ограничено.
 
-
-            См. подробное описание в [документации
-            Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-fielddata.html).
+            См. подробное описание в [документации Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-fielddata.html).
           type: integer
           format: int64
         maxClauseCount:
-          description: >-
-            Максимальное число выражений, которое может содержаться в булевом
-            запросе (bool query).
+          description: |-
+            Максимальное число выражений, которое может содержаться в булевом запросе (bool query).
 
-
-            Эта настройка позволяет не допустить разрастания поисковых запросов
-            до больших размеров, чтобы запросы не потребляли много памяти и
-            ресурсов процессора.
-
-            Настройка влияет не только на запросы типа `bool`, но и на многие
-            другие запросы, которые неявно преобразуются Elasticsearch в запросы
-            типа `bool`.
-
+            Эта настройка позволяет не допустить разрастания поисковых запросов до больших размеров, чтобы запросы не потребляли много памяти и ресурсов процессора.
+            Настройка влияет не только на запросы типа `bool`, но и на многие другие запросы, которые неявно преобразуются Elasticsearch в запросы типа `bool`.
 
             Значение по умолчанию: `1024`.
 
-
-            См. подробное описание в [документации
-            Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-settings.html).
+            См. подробное описание в [документации Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-settings.html).
           type: integer
           format: int64
     ElasticsearchConfigSet7_6:
@@ -1359,29 +1102,26 @@ components:
       type: object
       properties:
         effectiveConfig:
-          $ref: >-
-            #/components/schemas/ElasticsearchConfig7_6_in_ElasticsearchConfigSet7_6_effectiveConfig
+          $ref: '#/components/schemas/ElasticsearchConfig7_6_in_ElasticsearchConfigSet7_6_effectiveConfig'
         userConfig:
-          $ref: >-
-            #/components/schemas/ElasticsearchConfig7_6_in_ElasticsearchConfigSet7_6_userConfig
+          $ref: '#/components/schemas/ElasticsearchConfig7_6_in_ElasticsearchConfigSet7_6_userConfig'
         defaultConfig:
-          $ref: >-
-            #/components/schemas/ElasticsearchConfig7_6_in_ElasticsearchConfigSet7_6_defaultConfig
+          $ref: '#/components/schemas/ElasticsearchConfig7_6_in_ElasticsearchConfigSet7_6_defaultConfig'
     ElasticsearchDataNode:
       type: object
       allOf:
-        - type: object
-          properties:
-            resources:
-              $ref: '#/components/schemas/Resources'
-              description: Ресурсы, выделенные узлам Elasticsearch с ролью Data node.
-        - title: config
-          type: object
-          maxProperties: 1
-          properties:
-            elasticsearchConfigSet_7_6:
-              $ref: '#/components/schemas/ElasticsearchConfigSet7_6'
-              description: Конфигурация Elasticsearch 7.6 для узла с ролью Data node.
+      - type: object
+        properties:
+          resources:
+            $ref: '#/components/schemas/Resources'
+            description: Ресурсы, выделенные узлам Elasticsearch с ролью Data node.
+      - title: config
+        type: object
+        maxProperties: 1
+        properties:
+          elasticsearchConfigSet_7_6:
+            $ref: '#/components/schemas/ElasticsearchConfigSet7_6'
+            description: Конфигурация Elasticsearch 7.6 для узла с ролью Data node.
     ElasticsearchMasterNode:
       type: object
       properties:
@@ -1391,54 +1131,41 @@ components:
       type: object
       properties:
         dataNode:
-          $ref: >-
-            #/components/schemas/ElasticsearchSpecDataNode_in_ElasticsearchSpec_dataNode
+          $ref: '#/components/schemas/ElasticsearchSpecDataNode_in_ElasticsearchSpec_dataNode'
         masterNode:
-          $ref: >-
-            #/components/schemas/ElasticsearchSpecMasterNode_in_ElasticsearchSpec_masterNode
+          $ref: '#/components/schemas/ElasticsearchSpecMasterNode_in_ElasticsearchSpec_masterNode'
     ElasticsearchSpecDataNode:
       type: object
       allOf:
-        - type: object
-          properties:
-            resources:
-              $ref: '#/components/schemas/Resources'
-              description: Ресурсы, выделенные узлам Elasticsearch с ролью Data node.
-        - title: config
-          type: object
-          maxProperties: 1
-          properties:
-            elasticsearchConfig_7_6:
-              $ref: '#/components/schemas/ElasticsearchConfig7_6'
+      - type: object
+        properties:
+          resources:
+            $ref: '#/components/schemas/Resources'
+            description: Ресурсы, выделенные узлам Elasticsearch с ролью Data node.
+      - title: config
+        type: object
+        maxProperties: 1
+        properties:
+          elasticsearchConfig_7_6:
+            $ref: '#/components/schemas/ElasticsearchConfig7_6'
     ElasticsearchSpecMasterNode:
       type: object
       properties:
         resources:
-          $ref: >-
-            #/components/schemas/Resources_in_ElasticsearchSpecMasterNode_resources
+          $ref: '#/components/schemas/Resources_in_ElasticsearchSpecMasterNode_resources'
     Empty:
       description: Пустой JSON объект `` {} ``.
       type: object
       maxProperties: 0
     FieldMask:
-      description: >-
+      description: |-
         Имена всех обновляемых полей, разделенные запятыми.
+        Только значения указанных полей будут изменены. Остальные останутся нетронутыми.
+        Если поле указано в параметре `` updateMask `` и в запросе не было отправлено значение для этого поля,
+        значение поля будет сброшено на значение по умолчанию. Значение по умолчанию для большинства полей — null или 0.
 
-        Только значения указанных полей будут изменены. Остальные останутся
-        нетронутыми.
-
-        Если поле указано в параметре `` updateMask `` и в запросе не было
-        отправлено значение для этого поля,
-
-        значение поля будет сброшено на значение по умолчанию. Значение по
-        умолчанию для большинства полей — null или 0.
-
-
-        Если в запросе не передается `` updateMask ``, значения всех полей будут
-        обновлены.
-
+        Если в запросе не передается `` updateMask ``, значения всех полей будут обновлены.
         Для полей, указанных в запросе, будут использованы переданные значения.
-
         Значения остальных полей будут сброшены на значения по умолчанию.
       type: string
     Host:
@@ -1469,12 +1196,10 @@ components:
           description: Идентификатор подсети, в которой находится хост.
           type: string
         assignPublicIp:
-          description: >-
+          description: |-
             Флаг, определяющий, назначен ли хосту публичный IP-адрес.
 
-
-            Если значение равно `true`, то этот хост доступен в Интернете через
-            его публичный IP-адрес.
+            Если значение равно `true`, то этот хост доступен в Интернете через его публичный IP-адрес.
           type: boolean
           format: boolean
     HostHealth:
@@ -1485,10 +1210,10 @@ components:
          - DEGRADED: хост находится в состоянии деградации и может выполнять только некоторые свои функции.
       type: string
       enum:
-        - UNKNOWN
-        - ALIVE
-        - DEAD
-        - DEGRADED
+      - UNKNOWN
+      - ALIVE
+      - DEAD
+      - DEGRADED
       default: UNKNOWN
     HostSpec:
       type: object
@@ -1506,25 +1231,20 @@ components:
             Максимальная длина строки в символах — 50.
           type: string
         assignPublicIp:
-          description: >-
+          description: |-
             Флаг, определяющий, назначен ли хосту публичный IP-адрес.
 
-
-            Если значение равно `true`, то этот хост доступен в Интернете через
-            его публичный IP-адрес.
+            Если значение равно `true`, то этот хост доступен в Интернете через его публичный IP-адрес.
           type: boolean
           format: boolean
         type:
           $ref: '#/components/schemas/HostType_in_HostSpec_type'
         shardName:
-          description: >-
+          description: |-
             Имя шарда, который нужно создать на хосте.
 
-
             Максимальная длина строки в символах — 63.
-
-            Значение должно соответствовать регулярному выражению ``
-            [a-zA-Z0-9_-]* ``.
+            Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_-]* ``.
           type: string
     HostType:
       description: |2-
@@ -1532,8 +1252,8 @@ components:
          - MASTER_NODE: этот хост является узлом Elasticsearch с ролью Master node.
       type: string
       enum:
-        - DATA_NODE
-        - MASTER_NODE
+      - DATA_NODE
+      - MASTER_NODE
     ListClusterHostsResponse:
       type: object
       properties:
@@ -1543,18 +1263,11 @@ components:
           items:
             $ref: '#/components/schemas/Host'
         nextPageToken:
-          description: >-
+          description: |-
             Токен для получения следующей страницы результатов в ответе.
 
-
-            Если количество результатов больше чем
-            [pageSize](/docs/managed-elasticsearch/api-ref/Cluster/listHosts#query_params),
-            используйте `next_page_token` в качестве значения параметра
-
-            [pageToken](/docs/managed-elasticsearch/api-ref/Cluster/listHosts#query_params)
-            в следующем запросе списка ресурсов. Все последующие запросы будут
-            получать свои значения `next_page_token` для
-
+            Если количество результатов больше чем [pageSize](/docs/managed-elasticsearch/api-ref/Cluster/listHosts#query_params), используйте `next_page_token` в качестве значения параметра
+            [pageToken](/docs/managed-elasticsearch/api-ref/Cluster/listHosts#query_params) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token` для
             перебора страниц результатов.
           type: string
     ListClusterLogsResponse:
@@ -1566,23 +1279,14 @@ components:
           items:
             $ref: '#/components/schemas/LogRecord'
         nextPageToken:
-          description: >-
+          description: |-
             Токен для получения следующей страницы результатов в ответе.
 
-
-            Если количество результатов больше чем
-            [pageSize](/docs/managed-elasticsearch/api-ref/Cluster/listLogs#query_params),
-            используйте `next_page_token` в качестве значения параметра
-
-            [pageToken](/docs/managed-elasticsearch/api-ref/Cluster/listLogs#query_params)
-            в следующем запросе списка ресурсов. Все последующие запросы будут
-            получать свои значения `next_page_token` для
-
+            Если количество результатов больше чем [pageSize](/docs/managed-elasticsearch/api-ref/Cluster/listLogs#query_params), используйте `next_page_token` в качестве значения параметра
+            [pageToken](/docs/managed-elasticsearch/api-ref/Cluster/listLogs#query_params) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token` для
             перебора страниц результатов.
 
-
-            Это значение взаимозаменяемо с `nextRecordToken` из метода
-            StreamLogs.
+            Это значение взаимозаменяемо с `nextRecordToken` из метода StreamLogs.
           type: string
     ListClusterOperationsResponse:
       type: object
@@ -1593,18 +1297,11 @@ components:
           items:
             $ref: '#/components/schemas/Operation'
         nextPageToken:
-          description: >-
+          description: |-
             Токен для получения следующей страницы результатов в ответе.
 
-
-            Если количество результатов больше чем
-            [pageSize](/docs/managed-elasticsearch/api-ref/Cluster/listOperations#query_params),
-            используйте `next_page_token` в качестве значения параметра
-
-            [pageToken](/docs/managed-elasticsearch/api-ref/Cluster/listOperations#query_params)
-            в следующем запросе списка ресурсов. Все последующие запросы будут
-            получать свои значения `next_page_token` для
-
+            Если количество результатов больше чем [pageSize](/docs/managed-elasticsearch/api-ref/Cluster/listOperations#query_params), используйте `next_page_token` в качестве значения параметра
+            [pageToken](/docs/managed-elasticsearch/api-ref/Cluster/listOperations#query_params) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token` для
             перебора страниц результатов.
           type: string
     ListClustersResponse:
@@ -1616,18 +1313,11 @@ components:
           items:
             $ref: '#/components/schemas/Cluster'
         nextPageToken:
-          description: >-
+          description: |-
             Токен для получения следующей страницы результатов в ответе.
 
-
-            Если количество результатов больше чем
-            [pageSize](/docs/managed-elasticsearch/api-ref/Cluster/list#query_params),
-            используйте `next_page_token` в качестве значения параметра
-
-            [pageToken](/docs/managed-elasticsearch/api-ref/Cluster/list#query_params)
-            в следующем запросе. Все последующие запросы будут получать свои
-            значения `next_page_token` для перебора страниц
-
+            Если количество результатов больше чем [pageSize](/docs/managed-elasticsearch/api-ref/Cluster/list#query_params), используйте `next_page_token` в качестве значения параметра
+            [pageToken](/docs/managed-elasticsearch/api-ref/Cluster/list#query_params) в следующем запросе. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц
             результатов.
           type: string
     ListResourcePresetsResponse:
@@ -1639,20 +1329,12 @@ components:
           items:
             $ref: '#/components/schemas/ResourcePreset'
         nextPageToken:
-          description: >-
+          description: |-
             Токен для получения следующей страницы результатов в ответе.
 
-
-            Если количество результатов больше чем
-            [pageSize](/docs/managed-elasticsearch/api-ref/ResourcePreset/list#query_params),
-            используйте `next_page_token` в качестве значения параметра
-
-            [pageToken](/docs/managed-elasticsearch/api-ref/ResourcePreset/list#query_params)
-            в следующем запросе. Все последующие запросы будут получать свои
-            значения `next_page_token` для перебора страниц
-
+            Если количество результатов больше чем [pageSize](/docs/managed-elasticsearch/api-ref/ResourcePreset/list#query_params), используйте `next_page_token` в качестве значения параметра
+            [pageToken](/docs/managed-elasticsearch/api-ref/ResourcePreset/list#query_params) в следующем запросе. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц
             результатов.
-
 
             Максимальная длина строки в символах — 100.
           type: string
@@ -1665,17 +1347,11 @@ components:
           items:
             $ref: '#/components/schemas/User'
         nextPageToken:
-          description: >-
+          description: |-
             Токен для получения следующей страницы результатов в ответе.
 
-
-            Если количество результатов больше чем
-            [pageSize](/docs/managed-elasticsearch/api-ref/User/list#query_params),
-            используйте `next_page_token` в качестве значения параметра
-
-            [pageToken](/docs/managed-elasticsearch/api-ref/User/list#query_params)
-            в следующем запросе. Все последующие запросы будут получать свои
-            значения `next_page_token` для перебора страниц результатов.
+            Если количество результатов больше чем [pageSize](/docs/managed-elasticsearch/api-ref/User/list#query_params), используйте `next_page_token` в качестве значения параметра
+            [pageToken](/docs/managed-elasticsearch/api-ref/User/list#query_params) в следующем запросе. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов.
           type: string
     LogRecord:
       description: Записи в журнале.
@@ -1734,82 +1410,68 @@ components:
         [Объект Operation](/docs/api-design-guide/concepts/operation).
       type: object
       allOf:
-        - type: object
-          properties:
-            id:
-              description: Идентификатор операции.
-              type: string
-            description:
-              description: |-
-                Описание операции. Длина описания должна быть от 0 до 256
-                символов.
-              type: string
-            createdAt:
-              description: >-
-                Время создания ресурса в формате в
+      - type: object
+        properties:
+          id:
+            description: Идентификатор операции.
+            type: string
+          description:
+            description: |-
+              Описание операции. Длина описания должна быть от 0 до 256
+              символов.
+            type: string
+          createdAt:
+            description: |-
+              Время создания ресурса в формате в
+              [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
 
-                [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+              Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+            type: string
+            format: date-time
+          createdBy:
+            description: |-
+              Идентификатор пользователя или сервисного
+              аккаунта, инициировавшего операцию.
+            type: string
+          modifiedAt:
+            description: |-
+              Время, когда ресурс Operation последний раз
+              обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
 
-
-                Строка в формате
-                [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
-              type: string
-              format: date-time
-            createdBy:
-              description: |-
-                Идентификатор пользователя или сервисного
-                аккаунта, инициировавшего операцию.
-              type: string
-            modifiedAt:
-              description: >-
-                Время, когда ресурс Operation последний раз
-
-                обновлялся. Значение в формате
-                [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
-
-
-                Строка в формате
-                [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
-              type: string
-              format: date-time
-            done:
-              description: |-
-                Если значение равно `false` — операция еще
-                выполняется. Если `true` — операция завершена, и задано значение
-                одного из полей `error` или `response`.
-              type: boolean
-              format: boolean
-            metadata:
-              description: |-
-                Метаданные операции. Обычно в поле содержится
-                идентификатор ресурса, над которым выполняется операция. Если
-                метод возвращает ресурс Operation, в описании метода приведена
-                структура соответствующего ему поля `metadata`.
-              type: object
-        - title: result
-          type: object
-          maxProperties: 1
-          properties:
-            error:
-              $ref: '#/components/schemas/rpcStatus'
-              description: Описание ошибки в случае сбоя или отмены операции.
-            response:
-              description: >-
-                Результат операции в случае успешного завершения. Если
-
-                исходный метод не возвращает никаких данных при успешном
-
-                завершении, например метод Delete, поле содержит объект
-
-                [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty).
-                Если исходный метод — это стандартный метод Create
-
-                / Update, поле содержит целевой ресурс операции. Если метод
-
-                возвращает ресурс Operation, в описании метода приведена
-
-                структура соответствующего ему поля `response`.
-              type: object
+              Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+            type: string
+            format: date-time
+          done:
+            description: |-
+              Если значение равно `false` — операция еще
+              выполняется. Если `true` — операция завершена, и задано значение
+              одного из полей `error` или `response`.
+            type: boolean
+            format: boolean
+          metadata:
+            description: |-
+              Метаданные операции. Обычно в поле содержится
+              идентификатор ресурса, над которым выполняется операция. Если
+              метод возвращает ресурс Operation, в описании метода приведена
+              структура соответствующего ему поля `metadata`.
+            type: object
+      - title: result
+        type: object
+        maxProperties: 1
+        properties:
+          error:
+            $ref: '#/components/schemas/rpcStatus'
+            description: Описание ошибки в случае сбоя или отмены операции.
+          response:
+            description: |-
+              Результат операции в случае успешного завершения. Если
+              исходный метод не возвращает никаких данных при успешном
+              завершении, например метод Delete, поле содержит объект
+              [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty). Если исходный метод — это стандартный метод Create
+              / Update, поле содержит целевой ресурс операции. Если метод
+              возвращает ресурс Operation, в описании метода приведена
+              структура соответствующего ему поля `response`.
+            type: object
     ResourcePreset:
       description: Описание набора вычислительных ресурсов.
       type: object
@@ -1818,33 +1480,27 @@ components:
           description: Идентификатор набора ресурсов.
           type: string
         zoneIds:
-          description: >-
-            Идентификаторы зон доступности, в которых доступен этот набор
+          description: Идентификаторы зон доступности, в которых доступен этот набор
             вычислительных ресурсов.
           type: array
           items:
             type: string
         cores:
-          description: >-
-            Количество процессорных ядер для узла Elasticsearch, созданного с
-            помощью набора вычислительных ресурсов.
+          description: Количество процессорных ядер для узла Elasticsearch, созданного
+            с помощью набора вычислительных ресурсов.
           type: string
           format: int64
         memory:
-          description: >-
-            Объем оперативной памяти для узла Elasticsearch, созданного с
-            помощью набора вычислительных ресурсов, в байтах.
+          description: Объем оперативной памяти для узла Elasticsearch, созданного
+            с помощью набора вычислительных ресурсов, в байтах.
           type: string
           format: int64
     Resources:
       type: object
       properties:
         resourcePresetId:
-          description: >-
-            Идентификатор набора вычислительных ресурсов, доступных хосту
-            (процессор, память и т.д.). Все доступные наборы ресурсов
-            перечислены в
-
+          description: |-
+            Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т.д.). Все доступные наборы ресурсов перечислены в
             [документации](/docs/managed-elasticsearch/concepts/instance-types).
           type: string
         diskSize:
@@ -1852,9 +1508,7 @@ components:
           type: string
           format: int64
         diskTypeId:
-          description: >-
-            Тип хранилища для хоста. Все доступные типы перечислены в
-            [документации](/docs/managed-elasticsearch/concepts/storage).
+          description: Тип хранилища для хоста. Все доступные типы перечислены в [документации](/docs/managed-elasticsearch/concepts/storage).
           type: string
     Service:
       description: Метаданные сервисов кластера.
@@ -1871,15 +1525,15 @@ components:
          - DEAD: сервис не работает или не отвечает.
       type: string
       enum:
-        - UNKNOWN
-        - ALIVE
-        - DEAD
+      - UNKNOWN
+      - ALIVE
+      - DEAD
       default: UNKNOWN
     ServiceType:
       description: ' - ELASTICSEARCH: сервис Elasticsearch.'
       type: string
       enum:
-        - ELASTICSEARCH
+      - ELASTICSEARCH
     StartClusterMetadata:
       type: object
       properties:
@@ -1898,22 +1552,13 @@ components:
         record:
           $ref: '#/components/schemas/LogRecord_in_StreamLogRecord_record'
         nextRecordToken:
-          description: >-
-            Этот токен позволяет продолжить работу с потоком логов, начиная с
-            этой записи.
+          description: |-
+            Этот токен позволяет продолжить работу с потоком логов, начиная с этой записи.
 
-
-            Чтобы продолжить работу с потоком, укажите значение
-            `next_record_token` в качестве значения параметра
-            [recordToken](/docs/managed-elasticsearch/api-ref/Cluster/streamLogs#query_params)
-            в следующем
-
+            Чтобы продолжить работу с потоком, укажите значение `next_record_token` в качестве значения параметра [recordToken](/docs/managed-elasticsearch/api-ref/Cluster/streamLogs#query_params) в следующем
             запросе StreamLogs.
 
-
-            Это значение взаимозаменяемо с
-            [nextPageToken](/docs/managed-elasticsearch/api-ref/Cluster/listLogs#responses)
-            из метода ListLogs.
+            Это значение взаимозаменяемо с [nextPageToken](/docs/managed-elasticsearch/api-ref/Cluster/listLogs#responses) из метода ListLogs.
           type: string
     UpdateClusterMetadata:
       type: object
@@ -1933,48 +1578,30 @@ components:
             Максимальная длина строки в символах — 256.
           type: string
         labels:
-          description: >-
-            Пользовательские метки для кластера Elasticsearch в виде пар
-            `key:value`.
-
+          description: |-
+            Пользовательские метки для кластера Elasticsearch в виде пар `key:value`.
 
             Например, "project": "mvp" или "source": "dictionary".
 
-
-            Новый набор меток полностью заменит старый. Чтобы добавить метку,
-            запросите текущий набор меток с помощью метода
-            [get](/docs/managed-elasticsearch/api-ref/Cluster/get), затем
-            отправьте
-
-            запрос [update](/docs/managed-elasticsearch/api-ref/Cluster/update),
-            добавив новую метку в этот набор.
-
+            Новый набор меток полностью заменит старый. Чтобы добавить метку, запросите текущий набор меток с помощью метода [get](/docs/managed-elasticsearch/api-ref/Cluster/get), затем отправьте
+            запрос [update](/docs/managed-elasticsearch/api-ref/Cluster/update), добавив новую метку в этот набор.
 
             Не более 64 на ресурс.
-
             Длина строки в символах для каждого ключа должна быть от 1 до 63.
-
-            Каждый ключ должен соответствовать регулярному выражению ``
-            [a-z][-_0-9a-z]* ``.
-
+            Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
             Максимальная длина строки в символах для каждого значения — 63.
-
-            Каждое значение должно соответствовать регулярному выражению ``
-            [-_0-9a-z]* ``.
+            Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.
           type: object
           additionalProperties:
             type: string
         configSpec:
           $ref: '#/components/schemas/ConfigSpec_in_UpdateClusterRequest_configSpec'
         name:
-          description: >-
+          description: |-
             Новое имя кластера Elasticsearch.
 
-
             Максимальная длина строки в символах — 63.
-
-            Значение должно соответствовать регулярному выражению ``
-            [a-zA-Z0-9_-]* ``.
+            Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_-]* ``.
           type: string
     User:
       description: Пользователь Elasticsearch.
@@ -1984,24 +1611,19 @@ components:
           description: Имя пользователя Elasticsearch.
           type: string
         clusterId:
-          description: >-
-            Идентификатор кластера Elasticsearch, к которому принадлежит
+          description: Идентификатор кластера Elasticsearch, к которому принадлежит
             пользователь.
           type: string
     UserSpec:
       type: object
       properties:
         name:
-          description: >-
+          description: |-
             Обязательное поле.
-
             Имя пользователя Elasticsearch.
 
-
             Максимальная длина строки в символах — 63.
-
-            Значение должно соответствовать регулярному выражению ``
-            [a-zA-Z0-9_]* ``.
+            Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_]* ``.
           type: string
         password:
           description: |-
@@ -2015,9 +1637,7 @@ components:
       type: object
       properties:
         code:
-          description: >-
-            Код ошибки. Значение из списка
-            [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
+          description: Код ошибки. Значение из списка [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
           type: integer
           format: int32
         message:
@@ -2036,8 +1656,8 @@ components:
          - PRESTABLE: среда с более агрессивной политикой обновления — новые версии развертываются независимо от обратной совместимости.
       type: string
       enum:
-        - PRODUCTION
-        - PRESTABLE
+      - PRODUCTION
+      - PRESTABLE
     ClusterConfig_in_Cluster_config:
       description: Конфигурация кластера Elasticsearch.
       type: object
@@ -2057,10 +1677,10 @@ components:
          - DEGRADED: кластер находится в состоянии деградации (`health` по крайней мере одного из хостов в кластере — не `ALIVE`).
       type: string
       enum:
-        - HEALTH_UNKNOWN
-        - ALIVE
-        - DEAD
-        - DEGRADED
+      - HEALTH_UNKNOWN
+      - ALIVE
+      - DEAD
+      - DEGRADED
       default: HEALTH_UNKNOWN
     ClusterStatus_in_Cluster_status:
       description: |-
@@ -2076,14 +1696,14 @@ components:
          - STARTING: кластер запускается.
       type: string
       enum:
-        - STATUS_UNKNOWN
-        - CREATING
-        - RUNNING
-        - ERROR
-        - UPDATING
-        - STOPPING
-        - STOPPED
-        - STARTING
+      - STATUS_UNKNOWN
+      - CREATING
+      - RUNNING
+      - ERROR
+      - UPDATING
+      - STOPPING
+      - STOPPED
+      - STARTING
       default: STATUS_UNKNOWN
     Elasticsearch_in_ClusterConfig_elasticsearch:
       description: Конфигурация и распределение ресурсов для узлов Elasticsearch.
@@ -2092,18 +1712,15 @@ components:
         dataNode:
           $ref: '#/components/schemas/ElasticsearchDataNode_in_Elasticsearch_dataNode'
         masterNode:
-          $ref: >-
-            #/components/schemas/ElasticsearchMasterNode_in_Elasticsearch_masterNode
+          $ref: '#/components/schemas/ElasticsearchMasterNode_in_Elasticsearch_masterNode'
     ElasticsearchSpec_in_ConfigSpec_elasticsearchSpec:
       description: Конфигурация и распределение ресурсов для узлов Elasticsearch.
       type: object
       properties:
         dataNode:
-          $ref: >-
-            #/components/schemas/ElasticsearchSpecDataNode_in_ElasticsearchSpec_dataNode
+          $ref: '#/components/schemas/ElasticsearchSpecDataNode_in_ElasticsearchSpec_dataNode'
         masterNode:
-          $ref: >-
-            #/components/schemas/ElasticsearchSpecMasterNode_in_ElasticsearchSpec_masterNode
+          $ref: '#/components/schemas/ElasticsearchSpecMasterNode_in_ElasticsearchSpec_masterNode'
     ClusterEnvironment_in_CreateClusterRequest_environment:
       description: |-
         Среда развертывания кластера Elasticsearch.
@@ -2112,8 +1729,8 @@ components:
          - PRESTABLE: среда с более агрессивной политикой обновления — новые версии развертываются независимо от обратной совместимости.
       type: string
       enum:
-        - PRODUCTION
-        - PRESTABLE
+      - PRODUCTION
+      - PRESTABLE
     ConfigSpec_in_CreateClusterRequest_configSpec:
       description: |-
         Обязательное поле.
@@ -2124,215 +1741,135 @@ components:
           description: Версия Elasticsearch.
           type: string
         elasticsearchSpec:
-          $ref: >-
-            #/components/schemas/ElasticsearchSpec_in_ConfigSpec_elasticsearchSpec
+          $ref: '#/components/schemas/ElasticsearchSpec_in_ConfigSpec_elasticsearchSpec'
     ElasticsearchDataNode_in_Elasticsearch_dataNode:
-      description: >-
-        Конфигурация и распределение ресурсов для узлов Elasticsearch с ролью
-        Data node.
+      description: Конфигурация и распределение ресурсов для узлов Elasticsearch с
+        ролью Data node.
       type: object
       allOf:
-        - type: object
-          properties:
-            resources:
-              $ref: '#/components/schemas/Resources'
-              description: Ресурсы, выделенные узлам Elasticsearch с ролью Data node.
-        - title: config
-          type: object
-          maxProperties: 1
-          properties:
-            elasticsearchConfigSet_7_6:
-              $ref: '#/components/schemas/ElasticsearchConfigSet7_6'
-              description: Конфигурация Elasticsearch 7.6 для узла с ролью Data node.
+      - type: object
+        properties:
+          resources:
+            $ref: '#/components/schemas/Resources'
+            description: Ресурсы, выделенные узлам Elasticsearch с ролью Data node.
+      - title: config
+        type: object
+        maxProperties: 1
+        properties:
+          elasticsearchConfigSet_7_6:
+            $ref: '#/components/schemas/ElasticsearchConfigSet7_6'
+            description: Конфигурация Elasticsearch 7.6 для узла с ролью Data node.
     ElasticsearchMasterNode_in_Elasticsearch_masterNode:
-      description: >-
-        Конфигурация и распределение ресурсов для узлов Elasticsearch с ролью
-        Master node.
+      description: Конфигурация и распределение ресурсов для узлов Elasticsearch с
+        ролью Master node.
       type: object
       properties:
         resources:
           $ref: '#/components/schemas/Resources_in_ElasticsearchMasterNode_resources'
     ElasticsearchConfig7_6_in_ElasticsearchConfigSet7_6_effectiveConfig:
-      description: >-
+      description: |-
         Обязательное поле.
+        Действующие настройки для кластера Elasticsearch (сочетание параметров, определенных в `userConfig` и `defaultConfig`).
 
-        Действующие настройки для кластера Elasticsearch (сочетание параметров,
-        определенных в `userConfig` и `defaultConfig`).
+        Здесь перечислены поддерживаемые параметры конфигурации Elasticsearch 7.6.
 
-
-        Здесь перечислены поддерживаемые параметры конфигурации Elasticsearch
-        7.6.
-
-
-        Подробное описание всех параметров доступно в [документации
-        Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html).
-
+        Подробное описание всех параметров доступно в [документации Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html).
 
         Любые параметры, не перечисленные здесь, не поддерживаются.
       type: object
       properties:
         fielddataCacheSize:
-          description: >-
-            Максимальный процент от общего объема кучи (heap), который может
-            выделяться под кэш данных в полях.
+          description: |-
+            Максимальный процент от общего объема кучи (heap), который может выделяться под кэш данных в полях.
 
-
-            Все значения полей, помещенные в этот кэш, загружаются в память для
-            обеспечения быстрого доступа к этим значениям при работе с
-            документами. Построение кэша
-
-            данных для поля — затратная операция, поэтому рекомендуется иметь
-            достаточный объем памяти для этого кэша и поддерживать его в
-            заполненном состоянии.
-
+            Все значения полей, помещенные в этот кэш, загружаются в память для обеспечения быстрого доступа к этим значениям при работе с документами. Построение кэша
+            данных для поля — затратная операция, поэтому рекомендуется иметь достаточный объем памяти для этого кэша и поддерживать его в заполненном состоянии.
 
             Значение по умолчанию: не ограничено.
 
-
-            См. подробное описание в [документации
-            Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-fielddata.html).
+            См. подробное описание в [документации Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-fielddata.html).
           type: integer
           format: int64
         maxClauseCount:
-          description: >-
-            Максимальное число выражений, которое может содержаться в булевом
-            запросе (bool query).
+          description: |-
+            Максимальное число выражений, которое может содержаться в булевом запросе (bool query).
 
-
-            Эта настройка позволяет не допустить разрастания поисковых запросов
-            до больших размеров, чтобы запросы не потребляли много памяти и
-            ресурсов процессора.
-
-            Настройка влияет не только на запросы типа `bool`, но и на многие
-            другие запросы, которые неявно преобразуются Elasticsearch в запросы
-            типа `bool`.
-
+            Эта настройка позволяет не допустить разрастания поисковых запросов до больших размеров, чтобы запросы не потребляли много памяти и ресурсов процессора.
+            Настройка влияет не только на запросы типа `bool`, но и на многие другие запросы, которые неявно преобразуются Elasticsearch в запросы типа `bool`.
 
             Значение по умолчанию: `1024`.
 
-
-            См. подробное описание в [документации
-            Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-settings.html).
+            См. подробное описание в [документации Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-settings.html).
           type: integer
           format: int64
     ElasticsearchConfig7_6_in_ElasticsearchConfigSet7_6_userConfig:
-      description: >-
+      description: |-
         Пользовательские настройки для кластера Elasticsearch.
 
+        Здесь перечислены поддерживаемые параметры конфигурации Elasticsearch 7.6.
 
-        Здесь перечислены поддерживаемые параметры конфигурации Elasticsearch
-        7.6.
-
-
-        Подробное описание всех параметров доступно в [документации
-        Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html).
-
+        Подробное описание всех параметров доступно в [документации Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html).
 
         Любые параметры, не перечисленные здесь, не поддерживаются.
       type: object
       properties:
         fielddataCacheSize:
-          description: >-
-            Максимальный процент от общего объема кучи (heap), который может
-            выделяться под кэш данных в полях.
+          description: |-
+            Максимальный процент от общего объема кучи (heap), который может выделяться под кэш данных в полях.
 
-
-            Все значения полей, помещенные в этот кэш, загружаются в память для
-            обеспечения быстрого доступа к этим значениям при работе с
-            документами. Построение кэша
-
-            данных для поля — затратная операция, поэтому рекомендуется иметь
-            достаточный объем памяти для этого кэша и поддерживать его в
-            заполненном состоянии.
-
+            Все значения полей, помещенные в этот кэш, загружаются в память для обеспечения быстрого доступа к этим значениям при работе с документами. Построение кэша
+            данных для поля — затратная операция, поэтому рекомендуется иметь достаточный объем памяти для этого кэша и поддерживать его в заполненном состоянии.
 
             Значение по умолчанию: не ограничено.
 
-
-            См. подробное описание в [документации
-            Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-fielddata.html).
+            См. подробное описание в [документации Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-fielddata.html).
           type: integer
           format: int64
         maxClauseCount:
-          description: >-
-            Максимальное число выражений, которое может содержаться в булевом
-            запросе (bool query).
+          description: |-
+            Максимальное число выражений, которое может содержаться в булевом запросе (bool query).
 
-
-            Эта настройка позволяет не допустить разрастания поисковых запросов
-            до больших размеров, чтобы запросы не потребляли много памяти и
-            ресурсов процессора.
-
-            Настройка влияет не только на запросы типа `bool`, но и на многие
-            другие запросы, которые неявно преобразуются Elasticsearch в запросы
-            типа `bool`.
-
+            Эта настройка позволяет не допустить разрастания поисковых запросов до больших размеров, чтобы запросы не потребляли много памяти и ресурсов процессора.
+            Настройка влияет не только на запросы типа `bool`, но и на многие другие запросы, которые неявно преобразуются Elasticsearch в запросы типа `bool`.
 
             Значение по умолчанию: `1024`.
 
-
-            См. подробное описание в [документации
-            Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-settings.html).
+            См. подробное описание в [документации Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-settings.html).
           type: integer
           format: int64
     ElasticsearchConfig7_6_in_ElasticsearchConfigSet7_6_defaultConfig:
-      description: >-
+      description: |-
         Настройки по умолчанию для кластера Elasticsearch.
 
+        Здесь перечислены поддерживаемые параметры конфигурации Elasticsearch 7.6.
 
-        Здесь перечислены поддерживаемые параметры конфигурации Elasticsearch
-        7.6.
-
-
-        Подробное описание всех параметров доступно в [документации
-        Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html).
-
+        Подробное описание всех параметров доступно в [документации Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html).
 
         Любые параметры, не перечисленные здесь, не поддерживаются.
       type: object
       properties:
         fielddataCacheSize:
-          description: >-
-            Максимальный процент от общего объема кучи (heap), который может
-            выделяться под кэш данных в полях.
+          description: |-
+            Максимальный процент от общего объема кучи (heap), который может выделяться под кэш данных в полях.
 
-
-            Все значения полей, помещенные в этот кэш, загружаются в память для
-            обеспечения быстрого доступа к этим значениям при работе с
-            документами. Построение кэша
-
-            данных для поля — затратная операция, поэтому рекомендуется иметь
-            достаточный объем памяти для этого кэша и поддерживать его в
-            заполненном состоянии.
-
+            Все значения полей, помещенные в этот кэш, загружаются в память для обеспечения быстрого доступа к этим значениям при работе с документами. Построение кэша
+            данных для поля — затратная операция, поэтому рекомендуется иметь достаточный объем памяти для этого кэша и поддерживать его в заполненном состоянии.
 
             Значение по умолчанию: не ограничено.
 
-
-            См. подробное описание в [документации
-            Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-fielddata.html).
+            См. подробное описание в [документации Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-fielddata.html).
           type: integer
           format: int64
         maxClauseCount:
-          description: >-
-            Максимальное число выражений, которое может содержаться в булевом
-            запросе (bool query).
+          description: |-
+            Максимальное число выражений, которое может содержаться в булевом запросе (bool query).
 
-
-            Эта настройка позволяет не допустить разрастания поисковых запросов
-            до больших размеров, чтобы запросы не потребляли много памяти и
-            ресурсов процессора.
-
-            Настройка влияет не только на запросы типа `bool`, но и на многие
-            другие запросы, которые неявно преобразуются Elasticsearch в запросы
-            типа `bool`.
-
+            Эта настройка позволяет не допустить разрастания поисковых запросов до больших размеров, чтобы запросы не потребляли много памяти и ресурсов процессора.
+            Настройка влияет не только на запросы типа `bool`, но и на многие другие запросы, которые неявно преобразуются Elasticsearch в запросы типа `bool`.
 
             Значение по умолчанию: `1024`.
 
-
-            См. подробное описание в [документации
-            Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-settings.html).
+            См. подробное описание в [документации Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-settings.html).
           type: integer
           format: int64
     Resources_in_ElasticsearchMasterNode_resources:
@@ -2340,11 +1877,8 @@ components:
       type: object
       properties:
         resourcePresetId:
-          description: >-
-            Идентификатор набора вычислительных ресурсов, доступных хосту
-            (процессор, память и т.д.). Все доступные наборы ресурсов
-            перечислены в
-
+          description: |-
+            Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т.д.). Все доступные наборы ресурсов перечислены в
             [документации](/docs/managed-elasticsearch/concepts/instance-types).
           type: string
         diskSize:
@@ -2352,46 +1886,38 @@ components:
           type: string
           format: int64
         diskTypeId:
-          description: >-
-            Тип хранилища для хоста. Все доступные типы перечислены в
-            [документации](/docs/managed-elasticsearch/concepts/storage).
+          description: Тип хранилища для хоста. Все доступные типы перечислены в [документации](/docs/managed-elasticsearch/concepts/storage).
           type: string
     ElasticsearchSpecDataNode_in_ElasticsearchSpec_dataNode:
-      description: >-
-        Конфигурация и распределение ресурсов для узлов Elasticsearch с ролью
-        Data node.
+      description: Конфигурация и распределение ресурсов для узлов Elasticsearch с
+        ролью Data node.
       type: object
       allOf:
-        - type: object
-          properties:
-            resources:
-              $ref: '#/components/schemas/Resources'
-              description: Ресурсы, выделенные узлам Elasticsearch с ролью Data node.
-        - title: config
-          type: object
-          maxProperties: 1
-          properties:
-            elasticsearchConfig_7_6:
-              $ref: '#/components/schemas/ElasticsearchConfig7_6'
+      - type: object
+        properties:
+          resources:
+            $ref: '#/components/schemas/Resources'
+            description: Ресурсы, выделенные узлам Elasticsearch с ролью Data node.
+      - title: config
+        type: object
+        maxProperties: 1
+        properties:
+          elasticsearchConfig_7_6:
+            $ref: '#/components/schemas/ElasticsearchConfig7_6'
     ElasticsearchSpecMasterNode_in_ElasticsearchSpec_masterNode:
-      description: >-
-        Конфигурация и распределение ресурсов для узлов Elasticsearch с ролью
-        Master node.
+      description: Конфигурация и распределение ресурсов для узлов Elasticsearch с
+        ролью Master node.
       type: object
       properties:
         resources:
-          $ref: >-
-            #/components/schemas/Resources_in_ElasticsearchSpecMasterNode_resources
+          $ref: '#/components/schemas/Resources_in_ElasticsearchSpecMasterNode_resources'
     Resources_in_ElasticsearchSpecMasterNode_resources:
       description: Ресурсы, выделенные узлам Elasticsearch с ролью Master node.
       type: object
       properties:
         resourcePresetId:
-          description: >-
-            Идентификатор набора вычислительных ресурсов, доступных хосту
-            (процессор, память и т.д.). Все доступные наборы ресурсов
-            перечислены в
-
+          description: |-
+            Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т.д.). Все доступные наборы ресурсов перечислены в
             [документации](/docs/managed-elasticsearch/concepts/instance-types).
           type: string
         diskSize:
@@ -2399,9 +1925,7 @@ components:
           type: string
           format: int64
         diskTypeId:
-          description: >-
-            Тип хранилища для хоста. Все доступные типы перечислены в
-            [документации](/docs/managed-elasticsearch/concepts/storage).
+          description: Тип хранилища для хоста. Все доступные типы перечислены в [документации](/docs/managed-elasticsearch/concepts/storage).
           type: string
     HostType_in_Host_type:
       description: |-
@@ -2411,17 +1935,14 @@ components:
          - MASTER_NODE: этот хост является узлом Elasticsearch с ролью Master node.
       type: string
       enum:
-        - DATA_NODE
-        - MASTER_NODE
+      - DATA_NODE
+      - MASTER_NODE
     Resources_in_Host_resources:
       type: object
       properties:
         resourcePresetId:
-          description: >-
-            Идентификатор набора вычислительных ресурсов, доступных хосту
-            (процессор, память и т.д.). Все доступные наборы ресурсов
-            перечислены в
-
+          description: |-
+            Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т.д.). Все доступные наборы ресурсов перечислены в
             [документации](/docs/managed-elasticsearch/concepts/instance-types).
           type: string
         diskSize:
@@ -2429,9 +1950,7 @@ components:
           type: string
           format: int64
         diskTypeId:
-          description: >-
-            Тип хранилища для хоста. Все доступные типы перечислены в
-            [документации](/docs/managed-elasticsearch/concepts/storage).
+          description: Тип хранилища для хоста. Все доступные типы перечислены в [документации](/docs/managed-elasticsearch/concepts/storage).
           type: string
     HostHealth_in_Host_health:
       description: |-
@@ -2443,10 +1962,10 @@ components:
          - DEGRADED: хост находится в состоянии деградации и может выполнять только некоторые свои функции.
       type: string
       enum:
-        - UNKNOWN
-        - ALIVE
-        - DEAD
-        - DEGRADED
+      - UNKNOWN
+      - ALIVE
+      - DEAD
+      - DEGRADED
       default: UNKNOWN
     HostType_in_HostSpec_type:
       description: |-
@@ -2457,8 +1976,8 @@ components:
          - MASTER_NODE: этот хост является узлом Elasticsearch с ролью Master node.
       type: string
       enum:
-        - DATA_NODE
-        - MASTER_NODE
+      - DATA_NODE
+      - MASTER_NODE
     ServiceType_in_Service_type:
       description: |-
         Тип сервиса, предоставляемого хостом.
@@ -2466,7 +1985,7 @@ components:
          - ELASTICSEARCH: сервис Elasticsearch.
       type: string
       enum:
-        - ELASTICSEARCH
+      - ELASTICSEARCH
     ServiceHealth_in_Service_health:
       description: |-
         Данные о работоспособности сервиса.
@@ -2476,9 +1995,9 @@ components:
          - DEAD: сервис не работает или не отвечает.
       type: string
       enum:
-        - UNKNOWN
-        - ALIVE
-        - DEAD
+      - UNKNOWN
+      - ALIVE
+      - DEAD
       default: UNKNOWN
     LogRecord_in_StreamLogRecord_record:
       description: |-
@@ -2500,49 +2019,34 @@ components:
           additionalProperties:
             type: string
     FieldMask_in_UpdateClusterRequest_updateMask:
-      description: >-
+      description: |-
         Имена всех обновляемых полей, разделенные запятыми.
+        Только значения указанных полей будут изменены. Остальные останутся нетронутыми.
+        Если поле указано в параметре `` updateMask `` и в запросе не было отправлено значение для этого поля,
+        значение поля будет сброшено на значение по умолчанию. Значение по умолчанию для большинства полей — null или 0.
 
-        Только значения указанных полей будут изменены. Остальные останутся
-        нетронутыми.
-
-        Если поле указано в параметре `` updateMask `` и в запросе не было
-        отправлено значение для этого поля,
-
-        значение поля будет сброшено на значение по умолчанию. Значение по
-        умолчанию для большинства полей — null или 0.
-
-
-        Если в запросе не передается `` updateMask ``, значения всех полей будут
-        обновлены.
-
+        Если в запросе не передается `` updateMask ``, значения всех полей будут обновлены.
         Для полей, указанных в запросе, будут использованы переданные значения.
-
         Значения остальных полей будут сброшены на значения по умолчанию.
       type: string
     ConfigSpec_in_UpdateClusterRequest_configSpec:
-      description: >-
+      description: |-
         Новая конфигурация и ресурсы для хостов кластера Elasticsearch.
 
-
-        Используйте параметр
-        [updateMask](/docs/managed-elasticsearch/api-ref/Cluster/update#body_params)
-        чтобы предотвратить сброс настроек кластера, не перечисленных в
-        `config_spec`, на значения по умолчанию.
+        Используйте параметр [updateMask](/docs/managed-elasticsearch/api-ref/Cluster/update#body_params) чтобы предотвратить сброс настроек кластера, не перечисленных в `config_spec`, на значения по умолчанию.
       type: object
       properties:
         version:
           description: Версия Elasticsearch.
           type: string
         elasticsearchSpec:
-          $ref: >-
-            #/components/schemas/ElasticsearchSpec_in_ConfigSpec_elasticsearchSpec
+          $ref: '#/components/schemas/ElasticsearchSpec_in_ConfigSpec_elasticsearchSpec'
 tags:
-  - name: Cluster
-    description: Набор методов для управления кластерами Elasticsearch.
-  - name: Operation
-    description: Набор методов для управления операциями в асинхронных запросах API.
-  - name: ResourcePreset
-    description: Методы для работы с шаблонами ресурсов Elasticsearch.
-  - name: User
-    description: Набор методов для управления пользователями Elasticsearch.
+- name: Cluster
+  description: Набор методов для управления кластерами Elasticsearch.
+- name: Operation
+  description: Набор методов для управления операциями в асинхронных запросах API.
+- name: ResourcePreset
+  description: Методы для работы с шаблонами ресурсов Elasticsearch.
+- name: User
+  description: Набор методов для управления пользователями Elasticsearch.

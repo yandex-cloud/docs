@@ -59,6 +59,7 @@ location_id | **string**<br>
 labels | **map<string,string>**<br> 
 backup_config | **[BackupConfig](#BackupConfig)**<br> 
 document_api_endpoint | **string**<br> 
+kinesis_api_endpoint | **string**<br> 
 
 
 ### StorageConfig {#StorageConfig}
@@ -252,6 +253,7 @@ location_id | **string**<br>
 labels | **map<string,string>**<br> 
 backup_config | **[BackupConfig](#BackupConfig1)**<br> 
 document_api_endpoint | **string**<br> 
+kinesis_api_endpoint | **string**<br> 
 
 
 ### StorageConfig {#StorageConfig2}
@@ -621,6 +623,7 @@ location_id | **string**<br>
 labels | **map<string,string>**<br> 
 backup_config | **[BackupConfig](#BackupConfig3)**<br> 
 document_api_endpoint | **string**<br> 
+kinesis_api_endpoint | **string**<br> 
 
 
 ### StorageConfig {#StorageConfig6}
@@ -992,6 +995,7 @@ location_id | **string**<br>
 labels | **map<string,string>**<br> 
 backup_config | **[BackupConfig](#BackupConfig5)**<br> 
 document_api_endpoint | **string**<br> 
+kinesis_api_endpoint | **string**<br> 
 
 
 ### StorageConfig {#StorageConfig10}
@@ -1203,6 +1207,7 @@ location_id | **string**<br>
 labels | **map<string,string>**<br> 
 backup_config | **[BackupConfig](#BackupConfig6)**<br> 
 document_api_endpoint | **string**<br> 
+kinesis_api_endpoint | **string**<br> 
 
 
 ### StorageConfig {#StorageConfig12}
@@ -1414,6 +1419,7 @@ location_id | **string**<br>
 labels | **map<string,string>**<br> 
 backup_config | **[BackupConfig](#BackupConfig7)**<br> 
 document_api_endpoint | **string**<br> 
+kinesis_api_endpoint | **string**<br> 
 
 
 ### StorageConfig {#StorageConfig14}
@@ -1669,6 +1675,7 @@ location_id | **string**<br>
 labels | **map<string,string>**<br> 
 backup_config | **[BackupConfig](#BackupConfig8)**<br> 
 document_api_endpoint | **string**<br> 
+kinesis_api_endpoint | **string**<br> 
 
 
 ### StorageConfig {#StorageConfig16}
@@ -1926,6 +1933,7 @@ location_id | **string**<br>
 labels | **map<string,string>**<br> 
 backup_config | **[BackupConfig](#BackupConfig9)**<br> 
 document_api_endpoint | **string**<br> 
+kinesis_api_endpoint | **string**<br> 
 
 
 ### StorageConfig {#StorageConfig18}

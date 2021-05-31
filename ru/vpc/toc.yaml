@@ -109,6 +109,6 @@ items:
         items: null
         include:
           repo: docs
-          path: en/_api-ref-grpc/vpc/api-ref/toc.yaml
+          path: en/_api-ref-grpc/vpc/toc.yaml
   - name: Вопросы и ответы
     href: qa/index.md

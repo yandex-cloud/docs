@@ -297,7 +297,7 @@ items:
         items: null
         include:
           repo: docs
-          path: en/_api-ref-grpc/compute/api-ref/toc.yaml
+          path: en/_api-ref-grpc/compute/toc.yaml
       - name: REST
         items: null
         include:

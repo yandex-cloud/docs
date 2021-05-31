@@ -1020,7 +1020,14 @@ components:
       enum:
       - PULL
       - PUSH
-    IpPermissionAction:
+    IpPermissionDelta:
+      type: object
+      properties:
+        action:
+          $ref: '#/components/schemas/IpPermissionDeltaAction_in_IpPermissionDelta_action'
+        ipPermission:
+          $ref: '#/components/schemas/IpPermission_in_IpPermissionDelta_ipPermission'
+    IpPermissionDeltaAction:
       description: |2-
          - ADD: Addition of an ip permission.
          - REMOVE: Removal of an ip permission.
@@ -1028,13 +1035,6 @@ components:
       enum:
       - ADD
       - REMOVE
-    IpPermissionDelta:
-      type: object
-      properties:
-        action:
-          $ref: '#/components/schemas/IpPermissionAction_in_IpPermissionDelta_action'
-        ipPermission:
-          $ref: '#/components/schemas/IpPermission_in_IpPermissionDelta_ipPermission'
     LifecyclePolicy:
       type: object
       properties:
@@ -1703,14 +1703,11 @@ components:
           items:
             type: string
     IpPermissionAction_in_IpPermission_action:
-      description: |2-
-         - ADD: Addition of an ip permission.
-         - REMOVE: Removal of an ip permission.
       type: string
       enum:
-      - ADD
-      - REMOVE
-    IpPermissionAction_in_IpPermissionDelta_action:
+      - PULL
+      - PUSH
+    IpPermissionDeltaAction_in_IpPermissionDelta_action:
       description: |-
         Required.
         The action that is being performed on an ip permission.

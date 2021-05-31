@@ -1,11 +1,9 @@
-openapi: '3.0'
+openapi: "3.0"
 info:
   title: Yandex IoT Core Service
-  description: >-
-    Методы справочника API сгруппированы по ресурсам. Чтобы выполнить операцию
-    над ресурсом, отправьте HTTP-запрос к соответствующему URL. Подробнее об
-    архитектуре API Яндекс.Облака, см. [Концепции API
-    Яндекс.Облака](/docs/api-design-guide/).
+  description: Методы справочника API сгруппированы по ресурсам. Чтобы выполнить операцию
+    над ресурсом, отправьте HTTP-запрос к соответствующему URL. Подробнее об архитектуре
+    API Яндекс.Облака, см. [Концепции API Яндекс.Облака](/docs/api-design-guide/).
   version: v1
   x-y-docUri: api-ref
   x-y-baseUrl: https://iot-devices.api.cloud.yandex.net
@@ -13,31 +11,25 @@ paths:
   /iot-devices/v1/devices/{deviceId}:
     get:
       tags:
-        - Device
+      - Device
       summary: Возвращает указанное устройство.
-      description: >-
-        Чтобы получить список доступных устройств, используйте запрос
-        [list](/docs/iot-core/api-ref/Device/list).
+      description: Чтобы получить список доступных устройств, используйте запрос [list](/docs/iot-core/api-ref/Device/list).
       operationId: DeviceGet
       parameters:
-        - name: deviceId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: deviceId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор возвращаемого устройства.
 
-            Идентификатор возвращаемого устройства.
+          Для получения идентификатора устройства используйте запрос [list](/docs/iot-core/api-ref/Device/list).
 
-
-            Для получения идентификатора устройства используйте запрос
-            [list](/docs/iot-core/api-ref/Device/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -46,28 +38,24 @@ paths:
       x-y-navtitle: get
     delete:
       tags:
-        - Device
+      - Device
       summary: Удаляет указанное устройство.
       operationId: DeviceDelete
       parameters:
-        - name: deviceId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: deviceId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор устройства для удаления.
 
-            Идентификатор устройства для удаления.
+          Для получения идентификатора устройства используйте запрос [list](/docs/iot-core/api-ref/Device/list).
 
-
-            Для получения идентификатора устройства используйте запрос
-            [list](/docs/iot-core/api-ref/Device/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -79,26 +67,22 @@ paths:
       x-y-operation-response: Empty
     patch:
       tags:
-        - Device
+      - Device
       summary: Обновляет указанное устройство.
       operationId: DeviceUpdate
       parameters:
-        - name: deviceId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: deviceId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор устройства для обновления.
 
-            Идентификатор устройства для обновления.
+          Для получения идентификатора устройства используйте запрос [list](/docs/iot-core/api-ref/Device/list).
 
-
-            Для получения идентификатора устройства используйте запрос
-            [list](/docs/iot-core/api-ref/Device/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -106,7 +90,7 @@ paths:
               $ref: '#/components/schemas/UpdateDeviceRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -119,67 +103,55 @@ paths:
   /iot-devices/v1/devices:
     get:
       tags:
-        - Device
+      - Device
       summary: Возвращает список устройств в указанном реестре.
       operationId: DeviceList
       parameters:
-        - name: registryId
-          in: query
-          description: |-
-            Идентификатор реестра для получения списка устройств.
+      - name: registryId
+        in: query
+        description: |-
+          Идентификатор реестра для получения списка устройств.
 
-            Чтобы получить идентификатор реестра, используйте запрос
-            [list](/docs/iot-core/api-ref/Registry/list).
+          Чтобы получить идентификатор реестра, используйте запрос
+          [list](/docs/iot-core/api-ref/Registry/list).
 
-            Максимальная длина строки в символах — 50.
-          schema:
-            type: string
-        - name: folderId
-          in: query
-          description: |-
-            Идентификатор каталога для получения списка устройств.
+          Максимальная длина строки в символах — 50.
+        schema:
+          type: string
+      - name: folderId
+        in: query
+        description: |-
+          Идентификатор каталога для получения списка устройств.
 
-            Чтобы получить идентификатор каталога, используйте запрос
-            [list](/docs/resource-manager/api-ref/Folder/list).
+          Чтобы получить идентификатор каталога, используйте запрос
+          [list](/docs/resource-manager/api-ref/Folder/list).
 
-            Максимальная длина строки в символах — 50.
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            Максимальное количество результатов на странице ответа на запрос.
-            Если количество
+          Максимальная длина строки в символах — 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на запрос. Если количество
+          результатов больше чем `page_size` , сервис вернет значение [nextPageToken](/docs/iot-core/api-ref/Device/list#responses), которое
+          можно использовать для получения следующей страницы. Значение по умолчанию: 100.
 
-            результатов больше чем `page_size` , сервис вернет значение
-            [nextPageToken](/docs/iot-core/api-ref/Device/list#responses),
-            которое
+          Допустимые значения — от 0 до 1000 включительно.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение `page_token` равным значению поля
+          [nextPageToken](/docs/iot-core/api-ref/Device/list#responses) предыдущего запроса, чтобы получить следующую страницу
+          результатов.
 
-            можно использовать для получения следующей страницы. Значение по
-            умолчанию: 100.
-
-
-            Допустимые значения — от 0 до 1000 включительно.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Токен страницы. Установите значение `page_token` равным значению
-            поля
-
-            [nextPageToken](/docs/iot-core/api-ref/Device/list#responses)
-            предыдущего запроса, чтобы получить следующую страницу
-
-            результатов.
-
-
-            Максимальная длина строки в символах — 100.
-          schema:
-            type: string
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -188,7 +160,7 @@ paths:
       x-y-navtitle: list
     post:
       tags:
-        - Device
+      - Device
       summary: Создает устройство в указанном реестре.
       operationId: DeviceCreate
       requestBody:
@@ -198,7 +170,7 @@ paths:
               $ref: '#/components/schemas/CreateDeviceRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -211,22 +183,22 @@ paths:
   /iot-devices/v1/devices/{deviceId}/certificates:
     get:
       tags:
-        - Device
+      - Device
       summary: Возвращает список сертификатов для указанного устройства.
       operationId: DeviceListCertificates
       parameters:
-        - name: deviceId
-          in: path
-          description: |-
-            Обязательное поле.
-            Идентификатор устройства для получения списка сертификатов.
+      - name: deviceId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор устройства для получения списка сертификатов.
 
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -235,26 +207,22 @@ paths:
       x-y-navtitle: listCertificates
     post:
       tags:
-        - Device
+      - Device
       summary: Добавляет сертификат.
       operationId: DeviceAddCertificate
       parameters:
-        - name: deviceId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: deviceId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор устройства, для которого добавляется сертификат.
 
-            Идентификатор устройства, для которого добавляется сертификат.
+          Для получения идентификатора устройства используйте запрос [list](/docs/iot-core/api-ref/Device/list).
 
-
-            Для получения идентификатора устройства используйте запрос
-            [list](/docs/iot-core/api-ref/Device/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -262,7 +230,7 @@ paths:
               $ref: '#/components/schemas/AddDeviceCertificateRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -275,38 +243,34 @@ paths:
   /iot-devices/v1/devices/{deviceId}/certificates/{fingerprint}:
     delete:
       tags:
-        - Device
+      - Device
       summary: Удаляет указанное устройство.
       operationId: DeviceDeleteCertificate
       parameters:
-        - name: deviceId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: deviceId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор устройства для удаления сертификата.
 
-            Идентификатор устройства для удаления сертификата.
+          Для получения идентификатора устройства используйте запрос [list](/docs/iot-core/api-ref/Device/list).
 
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: fingerprint
+        in: path
+        description: |-
+          Обязательное поле.
+          Цифровой отпечаток сертификата для удаления.
 
-            Для получения идентификатора устройства используйте запрос
-            [list](/docs/iot-core/api-ref/Device/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
-        - name: fingerprint
-          in: path
-          description: |-
-            Обязательное поле.
-            Цифровой отпечаток сертификата для удаления.
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -319,28 +283,24 @@ paths:
   /iot-devices/v1/devices/{deviceId}/passwords:
     get:
       tags:
-        - Device
+      - Device
       summary: Возвращает список паролей для указанного устройства.
       operationId: DeviceListPasswords
       parameters:
-        - name: deviceId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: deviceId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор реестра для получения списка паролей.
 
-            Идентификатор реестра для получения списка паролей.
+          Чтобы получить идентификатор реестра, используйте запрос [list](/docs/iot-core/api-ref/Registry/list).
 
-
-            Чтобы получить идентификатор реестра, используйте запрос
-            [list](/docs/iot-core/api-ref/Registry/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -349,26 +309,22 @@ paths:
       x-y-navtitle: listPasswords
     post:
       tags:
-        - Device
+      - Device
       summary: Добавляет пароль для указанного устройства.
       operationId: DeviceAddPassword
       parameters:
-        - name: deviceId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: deviceId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор устройства для добавления пароля.
 
-            Идентификатор устройства для добавления пароля.
+          Для получения идентификатора устройства используйте запрос [list](/docs/iot-core/api-ref/Device/list).
 
-
-            Для получения идентификатора устройства используйте запрос
-            [list](/docs/iot-core/api-ref/Device/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -376,7 +332,7 @@ paths:
               $ref: '#/components/schemas/AddDevicePasswordRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -389,44 +345,36 @@ paths:
   /iot-devices/v1/devices/{deviceId}/passwords/{passwordId}:
     delete:
       tags:
-        - Device
+      - Device
       summary: Удаляет указанный пароль.
       operationId: DeviceDeletePassword
       parameters:
-        - name: deviceId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: deviceId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор устройства для удаления пароля.
 
-            Идентификатор устройства для удаления пароля.
+          Для получения идентификатора устройства используйте запрос [list](/docs/iot-core/api-ref/Device/list).
 
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: passwordId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор пароля для удаления.
 
-            Для получения идентификатора устройства используйте запрос
-            [list](/docs/iot-core/api-ref/Device/list).
+          Для получения идентификатора пароля используйте запрос [listPasswords](/docs/iot-core/api-ref/Device/listPasswords).
 
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
-        - name: passwordId
-          in: path
-          description: >-
-            Обязательное поле.
-
-            Идентификатор пароля для удаления.
-
-
-            Для получения идентификатора пароля используйте запрос
-            [listPasswords](/docs/iot-core/api-ref/Device/listPasswords).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -439,71 +387,53 @@ paths:
   /iot-devices/v1/devices/{deviceId}/operations:
     get:
       tags:
-        - Device
+      - Device
       summary: Возвращает список операций для указанного устройства.
       operationId: DeviceListOperations
       parameters:
-        - name: deviceId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: deviceId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор устройства для получения списка операций.
 
-            Идентификатор устройства для получения списка операций.
+          Для получения идентификатора устройства используйте запрос [list](/docs/iot-core/api-ref/Device/list).
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное число возвращаемых результатов на странице. Если количество
+          результатов больше чем `page_size` , сервис вернет значение [nextPageToken](/docs/iot-core/api-ref/Device/listOperations#responses),
+          которое можно использовать для получения следующей страницы. Значение по умолчанию:
+          100.
 
+          Допустимые значения — от 0 до 1000 включительно.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение `page_token` равным значению поля
+          [nextPageToken](/docs/iot-core/api-ref/Device/listOperations#responses) предыдущего запроса, чтобы получить следующую страницу
+          результатов.
 
-            Для получения идентификатора устройства используйте запрос
-            [list](/docs/iot-core/api-ref/Device/list).
-          required: true
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            Максимальное число возвращаемых результатов на странице. Если
-            количество
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          Параметры фильтрации ресурсов в ответе. В настоящее время фильтрация
+          осуществляется только по полю [Device.name](/docs/iot-core/api-ref/Device#representation).
 
-            результатов больше чем `page_size` , сервис вернет значение
-            [nextPageToken](/docs/iot-core/api-ref/Device/listOperations#responses),
-
-            которое можно использовать для получения следующей страницы.
-            Значение по умолчанию:
-
-            100.
-
-
-            Допустимые значения — от 0 до 1000 включительно.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Токен страницы. Установите значение `page_token` равным значению
-            поля
-
-            [nextPageToken](/docs/iot-core/api-ref/Device/listOperations#responses)
-            предыдущего запроса, чтобы получить следующую страницу
-
-            результатов.
-
-
-            Максимальная длина строки в символах — 100.
-          schema:
-            type: string
-        - name: filter
-          in: query
-          description: >-
-            Параметры фильтрации ресурсов в ответе. В настоящее время фильтрация
-
-            осуществляется только по полю
-            [Device.name](/docs/iot-core/api-ref/Device#representation).
-
-
-            Максимальная длина строки в символах — 1000.
-          schema:
-            type: string
+          Максимальная длина строки в символах — 1000.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -513,31 +443,25 @@ paths:
   /iot-devices/v1/registries/{registryId}:
     get:
       tags:
-        - Registry
+      - Registry
       summary: Возвращает указанный реестр.
-      description: >-
-        Чтобы получить список доступных реестров, используйте запрос
-        [list](/docs/iot-core/api-ref/Registry/list).
+      description: Чтобы получить список доступных реестров, используйте запрос [list](/docs/iot-core/api-ref/Registry/list).
       operationId: RegistryGet
       parameters:
-        - name: registryId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: registryId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор возвращаемого реестра.
 
-            Идентификатор возвращаемого реестра.
+          Чтобы получить идентификатор реестра, используйте запрос [list](/docs/iot-core/api-ref/Registry/list).
 
-
-            Чтобы получить идентификатор реестра, используйте запрос
-            [list](/docs/iot-core/api-ref/Registry/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -546,28 +470,24 @@ paths:
       x-y-navtitle: get
     delete:
       tags:
-        - Registry
+      - Registry
       summary: Удаляет указанный реестр.
       operationId: RegistryDelete
       parameters:
-        - name: registryId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: registryId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор удаляемого реестра.
 
-            Идентификатор удаляемого реестра.
+          Чтобы получить идентификатор реестра, используйте запрос [list](/docs/iot-core/api-ref/Registry/list).
 
-
-            Чтобы получить идентификатор реестра, используйте запрос
-            [list](/docs/iot-core/api-ref/Registry/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -579,26 +499,22 @@ paths:
       x-y-operation-response: Empty
     patch:
       tags:
-        - Registry
+      - Registry
       summary: Обновляет указанный реестр.
       operationId: RegistryUpdate
       parameters:
-        - name: registryId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: registryId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор реестра для обновления.
 
-            Идентификатор реестра для обновления.
+          Чтобы получить идентификатор реестра, используйте запрос [list](/docs/iot-core/api-ref/Registry/list).
 
-
-            Чтобы получить идентификатор реестра, используйте запрос
-            [list](/docs/iot-core/api-ref/Registry/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -606,7 +522,7 @@ paths:
               $ref: '#/components/schemas/UpdateRegistryRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -619,58 +535,46 @@ paths:
   /iot-devices/v1/registries:
     get:
       tags:
-        - Registry
+      - Registry
       summary: Возвращает список реестров в указанном каталоге.
       operationId: RegistryList
       parameters:
-        - name: folderId
-          in: query
-          description: |-
-            Обязательное поле.
-            Идентификатор каталога для получения списка реестров.
+      - name: folderId
+        in: query
+        description: |-
+          Обязательное поле.
+          Идентификатор каталога для получения списка реестров.
 
-            Чтобы получить идентификатор каталога, используйте запрос
-            [list](/docs/resource-manager/api-ref/Folder/list).
+          Чтобы получить идентификатор каталога, используйте запрос
+          [list](/docs/resource-manager/api-ref/Folder/list).
 
-            Максимальная длина строки в символах — 50.
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            Максимальное число возвращаемых результатов на странице. Если
-            количество
+          Максимальная длина строки в символах — 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное число возвращаемых результатов на странице. Если количество
+          результатов больше чем `page_size` , сервис вернет значение [nextPageToken](/docs/iot-core/api-ref/Registry/list#responses),
+          которое можно использовать для получения следующей страницы. Значение по умолчанию:
+          100.
 
-            результатов больше чем `page_size` , сервис вернет значение
-            [nextPageToken](/docs/iot-core/api-ref/Registry/list#responses),
+          Допустимые значения — от 0 до 1000 включительно.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение `page_token` равным значению поля
+          [nextPageToken](/docs/iot-core/api-ref/Registry/list#responses) предыдущего запроса, чтобы получить следующую страницу
+          результатов.
 
-            которое можно использовать для получения следующей страницы.
-            Значение по умолчанию:
-
-            100.
-
-
-            Допустимые значения — от 0 до 1000 включительно.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Токен страницы. Установите значение `page_token` равным значению
-            поля
-
-            [nextPageToken](/docs/iot-core/api-ref/Registry/list#responses)
-            предыдущего запроса, чтобы получить следующую страницу
-
-            результатов.
-
-
-            Максимальная длина строки в символах — 100.
-          schema:
-            type: string
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -679,7 +583,7 @@ paths:
       x-y-navtitle: list
     post:
       tags:
-        - Registry
+      - Registry
       summary: Создает реестр в указанном каталоге.
       operationId: RegistryCreate
       requestBody:
@@ -689,7 +593,7 @@ paths:
               $ref: '#/components/schemas/CreateRegistryRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -702,22 +606,22 @@ paths:
   /iot-devices/v1/registries/{registryId}/certificates:
     get:
       tags:
-        - Registry
+      - Registry
       summary: Возвращает список сертификатов реестра для указанного реестра.
       operationId: RegistryListCertificates
       parameters:
-        - name: registryId
-          in: path
-          description: |-
-            Обязательное поле.
-            Идентификатор реестра для получения списка сертификатов.
+      - name: registryId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор реестра для получения списка сертификатов.
 
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -726,26 +630,22 @@ paths:
       x-y-navtitle: listCertificates
     post:
       tags:
-        - Registry
+      - Registry
       summary: Добавляет сертификат.
       operationId: RegistryAddCertificate
       parameters:
-        - name: registryId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: registryId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор реестра, для которого добавляется сертификат.
 
-            Идентификатор реестра, для которого добавляется сертификат.
+          Чтобы получить идентификатор реестра, используйте запрос [list](/docs/iot-core/api-ref/Registry/list).
 
-
-            Чтобы получить идентификатор реестра, используйте запрос
-            [list](/docs/iot-core/api-ref/Registry/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -753,7 +653,7 @@ paths:
               $ref: '#/components/schemas/AddRegistryCertificateRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -766,38 +666,34 @@ paths:
   /iot-devices/v1/registries/{registryId}/certificates/{fingerprint}:
     delete:
       tags:
-        - Registry
+      - Registry
       summary: Удаляет указанный сертификат реестра.
       operationId: RegistryDeleteCertificate
       parameters:
-        - name: registryId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: registryId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор реестра для удаления сертификата.
 
-            Идентификатор реестра для удаления сертификата.
+          Чтобы получить идентификатор реестра, используйте запрос [list](/docs/iot-core/api-ref/Registry/list).
 
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: fingerprint
+        in: path
+        description: |-
+          Обязательное поле.
+          Цифровой отпечаток удаляемого сертификата.
 
-            Чтобы получить идентификатор реестра, используйте запрос
-            [list](/docs/iot-core/api-ref/Registry/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
-        - name: fingerprint
-          in: path
-          description: |-
-            Обязательное поле.
-            Цифровой отпечаток удаляемого сертификата.
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -810,28 +706,24 @@ paths:
   /iot-devices/v1/registries/{registryId}/passwords:
     get:
       tags:
-        - Registry
+      - Registry
       summary: Возращает список паролей для указанного реестра.
       operationId: RegistryListPasswords
       parameters:
-        - name: registryId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: registryId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор реестра для получения списка паролей.
 
-            Идентификатор реестра для получения списка паролей.
+          Чтобы получить идентификатор реестра, используйте запрос [list](/docs/iot-core/api-ref/Registry/list).
 
-
-            Чтобы получить идентификатор реестра, используйте запрос
-            [list](/docs/iot-core/api-ref/Registry/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -840,26 +732,22 @@ paths:
       x-y-navtitle: listPasswords
     post:
       tags:
-        - Registry
+      - Registry
       summary: Добавляет пароль для указанного реестра.
       operationId: RegistryAddPassword
       parameters:
-        - name: registryId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: registryId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор реестра для добавления пароля.
 
-            Идентификатор реестра для добавления пароля.
+          Чтобы получить идентификатор реестра, используйте запрос [list](/docs/iot-core/api-ref/Registry/list).
 
-
-            Чтобы получить идентификатор реестра, используйте запрос
-            [list](/docs/iot-core/api-ref/Registry/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -867,7 +755,7 @@ paths:
               $ref: '#/components/schemas/AddRegistryPasswordRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -880,44 +768,36 @@ paths:
   /iot-devices/v1/registries/{registryId}/passwords/{passwordId}:
     delete:
       tags:
-        - Registry
+      - Registry
       summary: Удаляет указанный пароль.
       operationId: RegistryDeletePassword
       parameters:
-        - name: registryId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: registryId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор реестра для удаления пароля.
 
-            Идентификатор реестра для удаления пароля.
+          Чтобы получить идентификатор реестра, используйте запрос [list](/docs/iot-core/api-ref/Device/list).
 
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: passwordId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор пароля для удаления.
 
-            Чтобы получить идентификатор реестра, используйте запрос
-            [list](/docs/iot-core/api-ref/Device/list).
+          Для получения идентификатора пароля используйте запрос [listPasswords](/docs/iot-core/api-ref/Registry/listPasswords).
 
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
-        - name: passwordId
-          in: path
-          description: >-
-            Обязательное поле.
-
-            Идентификатор пароля для удаления.
-
-
-            Для получения идентификатора пароля используйте запрос
-            [listPasswords](/docs/iot-core/api-ref/Registry/listPasswords).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -930,63 +810,46 @@ paths:
   /iot-devices/v1/registries/{registryId}:listDeviceTopicAliases:
     get:
       tags:
-        - Registry
+      - Registry
       summary: Возвращает список алиасов устройств для указанного реестра.
       operationId: RegistryListDeviceTopicAliases
       parameters:
-        - name: registryId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: registryId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор реестра для получения списка алиасов для топика устройства.
 
-            Идентификатор реестра для получения списка алиасов для топика
-            устройства.
+          Чтобы получить идентификатор реестра, используйте запрос [list](/docs/iot-core/api-ref/Registry/list).
 
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное число возвращаемых результатов на странице. Если количество
+          результатов больше чем `page_size` , сервис вернет значение [nextPageToken](/docs/iot-core/api-ref/Registry/listDeviceTopicAliases#responses),
+          которое можно использовать для получения следующей страницы. Значение по умолчанию:
+          100.
 
-            Чтобы получить идентификатор реестра, используйте запрос
-            [list](/docs/iot-core/api-ref/Registry/list).
+          Допустимые значения — от 0 до 1000 включительно.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение `page_token` равным значению поля
+          [nextPageToken](/docs/iot-core/api-ref/Registry/listDeviceTopicAliases#responses) предыдущего запроса, чтобы получить следующую страницу
+          результатов.
 
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            Максимальное число возвращаемых результатов на странице. Если
-            количество
-
-            результатов больше чем `page_size` , сервис вернет значение
-            [nextPageToken](/docs/iot-core/api-ref/Registry/listDeviceTopicAliases#responses),
-
-            которое можно использовать для получения следующей страницы.
-            Значение по умолчанию:
-
-            100.
-
-
-            Допустимые значения — от 0 до 1000 включительно.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Токен страницы. Установите значение `page_token` равным значению
-            поля
-
-            [nextPageToken](/docs/iot-core/api-ref/Registry/listDeviceTopicAliases#responses)
-            предыдущего запроса, чтобы получить следующую страницу
-
-            результатов.
-
-
-            Максимальная длина строки в символах — 100.
-          schema:
-            type: string
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -996,66 +859,51 @@ paths:
   /iot-devices/v1/registries/{registryId}/operations:
     get:
       tags:
-        - Registry
+      - Registry
       summary: Возвращает список операций для указанного реестра.
       operationId: RegistryListOperations
       parameters:
-        - name: registryId
-          in: path
-          description: |-
-            Обязательное поле.
-            Идентификатор реестра для получения списка операций.
-          required: true
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            Максимальное число возвращаемых результатов на странице. Если
-            количество
+      - name: registryId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор реестра для получения списка операций.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное число возвращаемых результатов на странице. Если количество
+          результатов больше чем `page_size` , сервис вернет значение [nextPageToken](/docs/iot-core/api-ref/Registry/listOperations#responses),
+          которое можно использовать для получения следующей страницы. Значение по умолчанию:
+          100.
 
-            результатов больше чем `page_size` , сервис вернет значение
-            [nextPageToken](/docs/iot-core/api-ref/Registry/listOperations#responses),
+          Допустимые значения — от 0 до 1000 включительно.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение `page_token` равным значению поля
+          [nextPageToken](/docs/iot-core/api-ref/Registry/listOperations#responses) предыдущего запроса, чтобы получить следующую страницу
+          результатов.
 
-            которое можно использовать для получения следующей страницы.
-            Значение по умолчанию:
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          Параметры фильтрации ресурсов в ответе. В настоящее время фильтрация
+          осуществляется только по полю [Registry.name](/docs/iot-core/api-ref/Registry#representation).
 
-            100.
-
-
-            Допустимые значения — от 0 до 1000 включительно.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Токен страницы. Установите значение `page_token` равным значению
-            поля
-
-            [nextPageToken](/docs/iot-core/api-ref/Registry/listOperations#responses)
-            предыдущего запроса, чтобы получить следующую страницу
-
-            результатов.
-
-
-            Максимальная длина строки в символах — 100.
-          schema:
-            type: string
-        - name: filter
-          in: query
-          description: >-
-            Параметры фильтрации ресурсов в ответе. В настоящее время фильтрация
-
-            осуществляется только по полю
-            [Registry.name](/docs/iot-core/api-ref/Registry#representation).
-
-
-            Максимальная длина строки в символах — 1000.
-          schema:
-            type: string
+          Максимальная длина строки в символах — 1000.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1092,15 +940,11 @@ components:
       type: object
       properties:
         password:
-          description: >-
+          description: |-
             Пароли для устройства.
 
-
-            Пароль должен содержать не менее трех категорий символов: строчные
-            латинские буквы,
-
+            Пароль должен содержать не менее трех категорий символов: строчные латинские буквы,
             прописные латинские буквы, цифры, специальные символы.
-
 
             Минимальная длина строки в символах — 14.
           type: string
@@ -1132,15 +976,11 @@ components:
       type: object
       properties:
         password:
-          description: >-
+          description: |-
             Пароли для реестра.
 
-
-            Пароль должен содержать не менее трех категорий символов: строчные
-            латинские буквы,
-
+            Пароль должен содержать не менее трех категорий символов: строчные латинские буквы,
             прописные латинские буквы, цифры, специальные символы.
-
 
             Минимальная длина строки в символах — 14.
           type: string
@@ -1164,16 +1004,12 @@ components:
             Максимальная длина строки в символах — 50.
           type: string
         name:
-          description: >-
+          description: |-
             Обязательное поле.
-
             Имя устройства. Имя должно быть уникальным в рамках реестра.
 
-
             Максимальная длина строки в символах — 50.
-
-            Значение должно соответствовать регулярному выражению ``
-            [a-zA-Z0-9_-]* ``.
+            Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_-]* ``.
           type: string
         description:
           description: |-
@@ -1187,26 +1023,19 @@ components:
           items:
             $ref: '#/components/schemas/CreateDeviceRequestCertificate'
         topicAliases:
-          description: >-
+          description: |-
             Алиас топика устройства.
 
-
-            Алиас — это альтернативное имя топика устройства, назначенное
-            пользователем. Алиас
-
-            сопоставляется со стандартным топиком, например `my/custom/alias`
-            эквивалентен `$device/{id}/events`.
+            Алиас — это альтернативное имя топика устройства, назначенное пользователем. Алиас
+            сопоставляется со стандартным топиком, например `my/custom/alias` эквивалентен `$device/{id}/events`.
           type: object
           additionalProperties:
             type: string
         password:
-          description: >-
+          description: |-
             Пароль устройства.
 
-
-            Пароль должен содержать не менее трех категорий символов: строчные
-            латинские буквы,
-
+            Пароль должен содержать не менее трех категорий символов: строчные латинские буквы,
             прописные латинские буквы, цифры, специальные символы.
           type: string
     CreateDeviceRequestCertificate:
@@ -1236,16 +1065,12 @@ components:
             Максимальная длина строки в символах — 50.
           type: string
         name:
-          description: >-
+          description: |-
             Обязательное поле.
-
             Название реестра. Имя должно быть уникальным в рамках каталога.
 
-
             Максимальная длина строки в символах — 50.
-
-            Значение должно соответствовать регулярному выражению ``
-            [a-zA-Z0-9_-]* ``.
+            Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_-]* ``.
           type: string
         description:
           description: |-
@@ -1254,21 +1079,14 @@ components:
             Максимальная длина строки в символах — 256.
           type: string
         labels:
-          description: >-
+          description: |-
             Метки группы размещения в формате `key:value`.
 
-
             Не более 64 на ресурс.
-
             Длина строки в символах для каждого ключа должна быть от 1 до 63.
-
-            Каждый ключ должен соответствовать регулярному выражению ``
-            [a-z][-_0-9a-z]* ``.
-
+            Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
             Максимальная длина строки в символах для каждого значения — 63.
-
-            Каждое значение должно соответствовать регулярному выражению ``
-            [-_0-9a-z]* ``.
+            Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.
           type: object
           additionalProperties:
             type: string
@@ -1278,13 +1096,10 @@ components:
           items:
             $ref: '#/components/schemas/CreateRegistryRequestCertificate'
         password:
-          description: >-
+          description: |-
             Пароль реестра.
 
-
-            Пароль должен содержать не менее трех категорий символов: строчные
-            латинские буквы,
-
+            Пароль должен содержать не менее трех категорий символов: строчные латинские буквы,
             прописные латинские буквы, цифры, специальные символы.
           type: string
     CreateRegistryRequestCertificate:
@@ -1368,22 +1183,16 @@ components:
             Максимальная длина строки в символах — 50.
           type: string
         passwordId:
-          description: >-
+          description: |-
             Обязательное поле.
-
             Идентификатор пароля для удаления.
 
-
-            Для получения идентификатора пароля используйте запрос
-            [listPasswords](/docs/iot-core/api-ref/Registry/listPasswords).
-
+            Для получения идентификатора пароля используйте запрос [listPasswords](/docs/iot-core/api-ref/Registry/listPasswords).
 
             Максимальная длина строки в символах — 50.
           type: string
     Device:
-      description: >-
-        Устройство. Дополнительные сведения см. в разделе
-        [Устройство](/docs/iot-core/concepts/index#device).
+      description: Устройство. Дополнительные сведения см. в разделе [Устройство](/docs/iot-core/concepts/index#device).
       type: object
       properties:
         id:
@@ -1403,57 +1212,41 @@ components:
           description: Имя устройства. Имя является уникальным в рамках реестра.
           type: string
         description:
-          description: >-
-            Описание устройства. Длина описания должна быть от 0 до 256
+          description: Описание устройства. Длина описания должна быть от 0 до 256
             символов.
           type: string
         topicAliases:
-          description: >-
+          description: |-
             Алиас топика устройства.
 
-
-            Алиас — это альтернативное имя топика устройства, назначенное
-            пользователем. Алиас
-
-            сопоставляется со стандартным топиком, например `my/custom/alias`
-            эквивалентен
-
+            Алиас — это альтернативное имя топика устройства, назначенное пользователем. Алиас
+            сопоставляется со стандартным топиком, например `my/custom/alias` эквивалентен
             `$device/abcdef/events`.
           type: object
           additionalProperties:
             type: string
     DeviceAlias:
-      description: >-
+      description: |-
         Алиас топика устройства.
 
-
-        Алиас — это альтернативное имя топика устройства, назначенное
-        пользователем. Алиас
-
-        сопоставляется со стандартным топиком, например `my/custom/alias`
-        эквивалентен `$device/abcdef/events`.
-
-        Дополнительные сведения см. в разделе [Использование алиасов для
-        топиков](/docs/iot-core/concepts/topic#aliases).
+        Алиас — это альтернативное имя топика устройства, назначенное пользователем. Алиас
+        сопоставляется со стандартным топиком, например `my/custom/alias` эквивалентен `$device/abcdef/events`.
+        Дополнительные сведения см. в разделе [Использование алиасов для топиков](/docs/iot-core/concepts/topic#aliases).
       type: object
       properties:
         deviceId:
           description: Идентификатор устройства, которому принадлежит алиас.
           type: string
         topicPrefix:
-          description: >-
-            Префикс алиаса стандартного топика устройства, например
-            `$devices/abcdef`.
+          description: Префикс алиаса стандартного топика устройства, например `$devices/abcdef`.
           type: string
         alias:
           description: Алиас топика устройства.
           type: string
     DeviceCertificate:
-      description: >-
+      description: |-
         Сертификат устройства. Дополнительные сведения см.
-
-        в разделе [Управление сертификатами
-        устройства](/docs/iot-core/operations/certificates/device-certificates).
+        в разделе [Управление сертификатами устройства](/docs/iot-core/operations/certificates/device-certificates).
       type: object
       properties:
         deviceId:
@@ -1494,24 +1287,14 @@ components:
       type: object
       maxProperties: 0
     FieldMask:
-      description: >-
+      description: |-
         Имена всех обновляемых полей, разделенные запятыми.
+        Только значения указанных полей будут изменены. Остальные останутся нетронутыми.
+        Если поле указано в параметре `` updateMask `` и в запросе не было отправлено значение для этого поля,
+        значение поля будет сброшено на значение по умолчанию. Значение по умолчанию для большинства полей — null или 0.
 
-        Только значения указанных полей будут изменены. Остальные останутся
-        нетронутыми.
-
-        Если поле указано в параметре `` updateMask `` и в запросе не было
-        отправлено значение для этого поля,
-
-        значение поля будет сброшено на значение по умолчанию. Значение по
-        умолчанию для большинства полей — null или 0.
-
-
-        Если в запросе не передается `` updateMask ``, значения всех полей будут
-        обновлены.
-
+        Если в запросе не передается `` updateMask ``, значения всех полей будут обновлены.
         Для полей, указанных в запросе, будут использованы переданные значения.
-
         Значения остальных полей будут сброшены на значения по умолчанию.
       type: string
     ListDeviceCertificatesResponse:
@@ -1531,21 +1314,12 @@ components:
           items:
             $ref: '#/components/schemas/Operation'
         nextPageToken:
-          description: >-
-            Токен для получения следующей страницы списка. Если количество
-            результатов больше
+          description: |-
+            Токен для получения следующей страницы списка. Если количество результатов больше
+            чем [pageSize](/docs/iot-core/api-ref/Device/listOperations#query_params), используйте `next_page_token` в качестве значения параметра
+            [pageToken](/docs/iot-core/api-ref/Device/listOperations#query_params) в следующем запросе списка ресурсов.
 
-            чем
-            [pageSize](/docs/iot-core/api-ref/Device/listOperations#query_params),
-            используйте `next_page_token` в качестве значения параметра
-
-            [pageToken](/docs/iot-core/api-ref/Device/listOperations#query_params)
-            в следующем запросе списка ресурсов.
-
-
-            Все последующие запросы будут получать свои значения
-            `next_page_token` для перебора страниц
-
+            Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц
             результатов.
           type: string
     ListDevicePasswordsResponse:
@@ -1565,21 +1339,12 @@ components:
           items:
             $ref: '#/components/schemas/DeviceAlias'
         nextPageToken:
-          description: >-
-            Токен для получения следующей страницы списка. Если количество
-            результатов больше
+          description: |-
+            Токен для получения следующей страницы списка. Если количество результатов больше
+            чем [pageSize](/docs/iot-core/api-ref/Registry/listDeviceTopicAliases#query_params), используйте `next_page_token` в качестве значения параметра
+            [pageToken](/docs/iot-core/api-ref/Registry/listDeviceTopicAliases#query_params) в следующем запросе списка ресурсов.
 
-            чем
-            [pageSize](/docs/iot-core/api-ref/Registry/listDeviceTopicAliases#query_params),
-            используйте `next_page_token` в качестве значения параметра
-
-            [pageToken](/docs/iot-core/api-ref/Registry/listDeviceTopicAliases#query_params)
-            в следующем запросе списка ресурсов.
-
-
-            Все последующие запросы будут получать свои значения
-            `next_page_token` для перебора страниц
-
+            Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц
             результатов.
           type: string
     ListDevicesResponse:
@@ -1591,20 +1356,12 @@ components:
           items:
             $ref: '#/components/schemas/Device'
         nextPageToken:
-          description: >-
-            Токен для получения следующей страницы списка. Если количество
-            результатов больше
+          description: |-
+            Токен для получения следующей страницы списка. Если количество результатов больше
+            чем [pageSize](/docs/iot-core/api-ref/Device/list#query_params), используйте `next_page_token` в качестве значения параметра
+            [pageToken](/docs/iot-core/api-ref/Device/list#query_params) в следующем запросе списка ресурсов.
 
-            чем [pageSize](/docs/iot-core/api-ref/Device/list#query_params),
-            используйте `next_page_token` в качестве значения параметра
-
-            [pageToken](/docs/iot-core/api-ref/Device/list#query_params) в
-            следующем запросе списка ресурсов.
-
-
-            Все последующие запросы будут получать свои значения
-            `next_page_token` для перебора страниц
-
+            Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц
             результатов.
           type: string
     ListRegistriesResponse:
@@ -1616,20 +1373,12 @@ components:
           items:
             $ref: '#/components/schemas/Registry'
         nextPageToken:
-          description: >-
-            Токен для получения следующей страницы списка. Если количество
-            результатов больше
+          description: |-
+            Токен для получения следующей страницы списка. Если количество результатов больше
+            чем [pageSize](/docs/iot-core/api-ref/Registry/list#query_params), используйте `next_page_token` в качестве значения параметра
+            [pageToken](/docs/iot-core/api-ref/Registry/list#query_params) в следующем запросе списка ресурсов.
 
-            чем [pageSize](/docs/iot-core/api-ref/Registry/list#query_params),
-            используйте `next_page_token` в качестве значения параметра
-
-            [pageToken](/docs/iot-core/api-ref/Registry/list#query_params) в
-            следующем запросе списка ресурсов.
-
-
-            Все последующие запросы будут получать свои значения
-            `next_page_token` для перебора страниц
-
+            Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц
             результатов.
           type: string
     ListRegistryCertificatesResponse:
@@ -1649,21 +1398,12 @@ components:
           items:
             $ref: '#/components/schemas/Operation'
         nextPageToken:
-          description: >-
-            Токен для получения следующей страницы списка. Если количество
-            результатов больше
+          description: |-
+            Токен для получения следующей страницы списка. Если количество результатов больше
+            чем [pageSize](/docs/iot-core/api-ref/Registry/listOperations#query_params), используйте `next_page_token` в качестве значения параметра
+            [pageToken](/docs/iot-core/api-ref/Registry/listOperations#query_params) в следующем запросе списка ресурсов.
 
-            чем
-            [pageSize](/docs/iot-core/api-ref/Registry/listOperations#query_params),
-            используйте `next_page_token` в качестве значения параметра
-
-            [pageToken](/docs/iot-core/api-ref/Registry/listOperations#query_params)
-            в следующем запросе списка ресурсов.
-
-
-            Все последующие запросы будут получать свои значения
-            `next_page_token` для перебора страниц
-
+            Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц
             результатов.
           type: string
     ListRegistryPasswordsResponse:
@@ -1680,86 +1420,70 @@ components:
         [Объект Operation](/docs/api-design-guide/concepts/operation).
       type: object
       allOf:
-        - type: object
-          properties:
-            id:
-              description: Идентификатор операции.
-              type: string
-            description:
-              description: |-
-                Описание операции. Длина описания должна быть от 0 до 256
-                символов.
-              type: string
-            createdAt:
-              description: >-
-                Время создания ресурса в формате в
+      - type: object
+        properties:
+          id:
+            description: Идентификатор операции.
+            type: string
+          description:
+            description: |-
+              Описание операции. Длина описания должна быть от 0 до 256
+              символов.
+            type: string
+          createdAt:
+            description: |-
+              Время создания ресурса в формате в
+              [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
 
-                [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+              Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+            type: string
+            format: date-time
+          createdBy:
+            description: |-
+              Идентификатор пользователя или сервисного
+              аккаунта, инициировавшего операцию.
+            type: string
+          modifiedAt:
+            description: |-
+              Время, когда ресурс Operation последний раз
+              обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
 
-
-                Строка в формате
-                [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
-              type: string
-              format: date-time
-            createdBy:
-              description: |-
-                Идентификатор пользователя или сервисного
-                аккаунта, инициировавшего операцию.
-              type: string
-            modifiedAt:
-              description: >-
-                Время, когда ресурс Operation последний раз
-
-                обновлялся. Значение в формате
-                [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
-
-
-                Строка в формате
-                [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
-              type: string
-              format: date-time
-            done:
-              description: |-
-                Если значение равно `false` — операция еще
-                выполняется. Если `true` — операция завершена, и задано значение
-                одного из полей `error` или `response`.
-              type: boolean
-              format: boolean
-            metadata:
-              description: |-
-                Метаданные операции. Обычно в поле содержится
-                идентификатор ресурса, над которым выполняется операция. Если
-                метод возвращает ресурс Operation, в описании метода приведена
-                структура соответствующего ему поля `metadata`.
-              type: object
-        - title: result
-          type: object
-          maxProperties: 1
-          properties:
-            error:
-              $ref: '#/components/schemas/rpcStatus'
-              description: Описание ошибки в случае сбоя или отмены операции.
-            response:
-              description: >-
-                Результат операции в случае успешного завершения. Если
-
-                исходный метод не возвращает никаких данных при успешном
-
-                завершении, например метод Delete, поле содержит объект
-
-                [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty).
-                Если исходный метод — это стандартный метод Create
-
-                / Update, поле содержит целевой ресурс операции. Если метод
-
-                возвращает ресурс Operation, в описании метода приведена
-
-                структура соответствующего ему поля `response`.
-              type: object
+              Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+            type: string
+            format: date-time
+          done:
+            description: |-
+              Если значение равно `false` — операция еще
+              выполняется. Если `true` — операция завершена, и задано значение
+              одного из полей `error` или `response`.
+            type: boolean
+            format: boolean
+          metadata:
+            description: |-
+              Метаданные операции. Обычно в поле содержится
+              идентификатор ресурса, над которым выполняется операция. Если
+              метод возвращает ресурс Operation, в описании метода приведена
+              структура соответствующего ему поля `metadata`.
+            type: object
+      - title: result
+        type: object
+        maxProperties: 1
+        properties:
+          error:
+            $ref: '#/components/schemas/rpcStatus'
+            description: Описание ошибки в случае сбоя или отмены операции.
+          response:
+            description: |-
+              Результат операции в случае успешного завершения. Если
+              исходный метод не возвращает никаких данных при успешном
+              завершении, например метод Delete, поле содержит объект
+              [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty). Если исходный метод — это стандартный метод Create
+              / Update, поле содержит целевой ресурс операции. Если метод
+              возвращает ресурс Operation, в описании метода приведена
+              структура соответствующего ему поля `response`.
+            type: object
     Registry:
-      description: >-
-        Реестр. Дополнительные сведения см. в разделе
-        [Реестр](/docs/iot-core/concepts/index#registry).
+      description: Реестр. Дополнительные сведения см. в разделе [Реестр](/docs/iot-core/concepts/index#registry).
       type: object
       properties:
         id:
@@ -1782,9 +1506,8 @@ components:
           description: Описание реестра. Длина описания должна быть от 0 до 256 символов.
           type: string
         labels:
-          description: >-
-            Метки группы размещения в формате `key:value`. Максимум 64 метки на
-            ресурс.
+          description: Метки группы размещения в формате `key:value`. Максимум 64
+            метки на ресурс.
           type: object
           additionalProperties:
             type: string
@@ -1794,11 +1517,9 @@ components:
           description: Идентификатор группы журналов для указанного реестра.
           type: string
     RegistryCertificate:
-      description: >-
+      description: |-
         Сертификат реестра. Дополнительные сведения см. в
-
-        разделе [Управление сертификатами
-        реестра](/docs/iot-core/operations/certificates/registry-certificates).
+        разделе [Управление сертификатами реестра](/docs/iot-core/operations/certificates/registry-certificates).
       type: object
       properties:
         registryId:
@@ -1841,9 +1562,9 @@ components:
          - DELETING: Реестр удаляется.
       type: string
       enum:
-        - CREATING
-        - ACTIVE
-        - DELETING
+      - CREATING
+      - ACTIVE
+      - DELETING
     UpdateDeviceMetadata:
       type: object
       properties:
@@ -1856,14 +1577,11 @@ components:
         updateMask:
           $ref: '#/components/schemas/FieldMask_in_UpdateDeviceRequest_updateMask'
         name:
-          description: >-
+          description: |-
             Имя устройства. Имя должно быть уникальным в рамках реестра.
 
-
             Максимальная длина строки в символах — 50.
-
-            Значение должно соответствовать регулярному выражению ``
-            [a-zA-Z0-9_-]* ``.
+            Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_-]* ``.
           type: string
         description:
           description: |-
@@ -1872,15 +1590,11 @@ components:
             Максимальная длина строки в символах — 256.
           type: string
         topicAliases:
-          description: >-
+          description: |-
             Алиас топика устройства.
 
-
-            Алиас — это альтернативное имя топика устройства, назначенное
-            пользователем. Алиас
-
-            сопоставляется со стандартным топиком, например `my/custom/alias`
-            эквивалентен `$device/{id}/events`.
+            Алиас — это альтернативное имя топика устройства, назначенное пользователем. Алиас
+            сопоставляется со стандартным топиком, например `my/custom/alias` эквивалентен `$device/{id}/events`.
           type: object
           additionalProperties:
             type: string
@@ -1896,14 +1610,11 @@ components:
         updateMask:
           $ref: '#/components/schemas/FieldMask_in_UpdateRegistryRequest_updateMask'
         name:
-          description: >-
+          description: |-
             Название реестра. Имя должно быть уникальным в рамках каталога.
 
-
             Максимальная длина строки в символах — 50.
-
-            Значение должно соответствовать регулярному выражению ``
-            [a-zA-Z0-9_-]* ``.
+            Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_-]* ``.
           type: string
         description:
           description: |-
@@ -1912,25 +1623,16 @@ components:
             Максимальная длина строки в символах — 256.
           type: string
         labels:
-          description: >-
+          description: |-
             Метки группы размещения в формате `key:value`.
 
-
-            Существующий набор `labels` полностью перезаписывается набором,
-            переданным в запросе.
-
+            Существующий набор `labels` полностью перезаписывается набором, переданным в запросе.
 
             Не более 64 на ресурс.
-
             Длина строки в символах для каждого ключа должна быть от 1 до 63.
-
-            Каждый ключ должен соответствовать регулярному выражению ``
-            [a-z][-_0-9a-z]* ``.
-
+            Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
             Максимальная длина строки в символах для каждого значения — 63.
-
-            Каждое значение должно соответствовать регулярному выражению ``
-            [-_0-9a-z]* ``.
+            Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.
           type: object
           additionalProperties:
             type: string
@@ -1939,9 +1641,7 @@ components:
       type: object
       properties:
         code:
-          description: >-
-            Код ошибки. Значение из списка
-            [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
+          description: Код ошибки. Значение из списка [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
           type: integer
           format: int32
         message:
@@ -1961,59 +1661,37 @@ components:
          - DELETING: Реестр удаляется.
       type: string
       enum:
-        - CREATING
-        - ACTIVE
-        - DELETING
+      - CREATING
+      - ACTIVE
+      - DELETING
     FieldMask_in_UpdateDeviceRequest_updateMask:
-      description: >-
+      description: |-
         Маска, определяющая, какие поля устройства будут обновлены.
 
-
         Имена всех обновляемых полей, разделенные запятыми.
+        Только значения указанных полей будут изменены. Остальные останутся нетронутыми.
+        Если поле указано в параметре `` updateMask `` и в запросе не было отправлено значение для этого поля,
+        значение поля будет сброшено на значение по умолчанию. Значение по умолчанию для большинства полей — null или 0.
 
-        Только значения указанных полей будут изменены. Остальные останутся
-        нетронутыми.
-
-        Если поле указано в параметре `` updateMask `` и в запросе не было
-        отправлено значение для этого поля,
-
-        значение поля будет сброшено на значение по умолчанию. Значение по
-        умолчанию для большинства полей — null или 0.
-
-
-        Если в запросе не передается `` updateMask ``, значения всех полей будут
-        обновлены.
-
+        Если в запросе не передается `` updateMask ``, значения всех полей будут обновлены.
         Для полей, указанных в запросе, будут использованы переданные значения.
-
         Значения остальных полей будут сброшены на значения по умолчанию.
       type: string
     FieldMask_in_UpdateRegistryRequest_updateMask:
-      description: >-
+      description: |-
         Маска, определяющая, какие поля реестра будут обновлены.
 
-
         Имена всех обновляемых полей, разделенные запятыми.
+        Только значения указанных полей будут изменены. Остальные останутся нетронутыми.
+        Если поле указано в параметре `` updateMask `` и в запросе не было отправлено значение для этого поля,
+        значение поля будет сброшено на значение по умолчанию. Значение по умолчанию для большинства полей — null или 0.
 
-        Только значения указанных полей будут изменены. Остальные останутся
-        нетронутыми.
-
-        Если поле указано в параметре `` updateMask `` и в запросе не было
-        отправлено значение для этого поля,
-
-        значение поля будет сброшено на значение по умолчанию. Значение по
-        умолчанию для большинства полей — null или 0.
-
-
-        Если в запросе не передается `` updateMask ``, значения всех полей будут
-        обновлены.
-
+        Если в запросе не передается `` updateMask ``, значения всех полей будут обновлены.
         Для полей, указанных в запросе, будут использованы переданные значения.
-
         Значения остальных полей будут сброшены на значения по умолчанию.
       type: string
 tags:
-  - name: Device
-    description: Набор методов для управления устройствами.
-  - name: Registry
-    description: Набор методов для управления реестрами.
+- name: Device
+  description: Набор методов для управления устройствами.
+- name: Registry
+  description: Набор методов для управления реестрами.

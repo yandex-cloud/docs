@@ -9,7 +9,7 @@ To get the list of available SQL Server users, make a [list](/docs/managed-sqlse
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.api.cloud.yandex.net/mdb/sqlserver/v1alpha/clusters/{clusterId}/users/{userName}
+GET https://mdb.api.cloud.yandex.net/mdb/sqlserver/v1/clusters/{clusterId}/users/{userName}
 ```
  
 ## Path parameters {#path_params}

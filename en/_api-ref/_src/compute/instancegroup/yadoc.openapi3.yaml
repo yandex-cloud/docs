@@ -921,6 +921,30 @@ components:
       enum:
       - PROACTIVE
       - OPPORTUNISTIC
+    DnsRecord:
+      type: object
+      properties:
+        fqdn:
+          description: |-
+            Required.
+            Name of the A/AAAA record as specified when creating the instance.
+            Note that if `fqdn' has no trailing '.', it is specified relative to the zone (@see dns_zone_id).
+          type: string
+        dnsZoneId:
+          description: DNS zone id (optional, if not set, some private zone is used).
+          type: string
+        ttl:
+          description: |-
+            DNS record ttl (optional, if 0, a reasonable default is used).
+
+            Acceptable values are 0 to 86400, inclusive.
+          type: string
+          format: int64
+        ptr:
+          description: When true, indicates there is a corresponding auto-created
+            PTR DNS record.
+          type: boolean
+          format: boolean
     DnsRecordSpec:
       type: object
       properties:
@@ -1534,6 +1558,11 @@ components:
           type: string
         ipVersion:
           $ref: '#/components/schemas/IpVersion_in_OneToOneNat_ipVersion'
+        dnsRecords:
+          description: External DNS configuration.
+          type: array
+          items:
+            $ref: '#/components/schemas/DnsRecord'
     OneToOneNatSpec:
       type: object
       properties:
@@ -1625,6 +1654,11 @@ components:
           type: string
         oneToOneNat:
           $ref: '#/components/schemas/OneToOneNat_in_PrimaryAddress_oneToOneNat'
+        dnsRecords:
+          description: Internal DNS configuration.
+          type: array
+          items:
+            $ref: '#/components/schemas/DnsRecord'
     PrimaryAddressSpec:
       type: object
       properties:
@@ -2958,6 +2992,11 @@ components:
           type: string
         oneToOneNat:
           $ref: '#/components/schemas/OneToOneNat_in_PrimaryAddress_oneToOneNat'
+        dnsRecords:
+          description: Internal DNS configuration.
+          type: array
+          items:
+            $ref: '#/components/schemas/DnsRecord'
     PrimaryAddress_in_NetworkInterface_primaryV6Address:
       description: Primary IPv6 address that is assigned to the instance for this
         network interface. IPv6 is not available yet.
@@ -2970,6 +3009,11 @@ components:
           type: string
         oneToOneNat:
           $ref: '#/components/schemas/OneToOneNat_in_PrimaryAddress_oneToOneNat'
+        dnsRecords:
+          description: Internal DNS configuration.
+          type: array
+          items:
+            $ref: '#/components/schemas/DnsRecord'
     PrimaryAddressSpec_in_NetworkInterfaceSpec_primaryV4AddressSpec:
       description: Primary IPv4 address that is assigned to the instance for this
         network interface.
@@ -3038,6 +3082,11 @@ components:
           type: string
         ipVersion:
           $ref: '#/components/schemas/IpVersion_in_OneToOneNat_ipVersion'
+        dnsRecords:
+          description: External DNS configuration.
+          type: array
+          items:
+            $ref: '#/components/schemas/DnsRecord'
     OneToOneNatSpec_in_PrimaryAddressSpec_oneToOneNatSpec:
       description: |-
         An external IP address configuration.

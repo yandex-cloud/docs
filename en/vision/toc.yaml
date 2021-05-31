@@ -60,7 +60,7 @@ items:
         items: null
         include:
           repo: docs
-          path: en/_api-ref-grpc/vision/api-ref/toc.yaml
+          path: en/_api-ref-grpc/vision/toc.yaml
       - name: REST
         items:
           - name: Handling errors

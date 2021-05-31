@@ -29,16 +29,24 @@ items:
         href: api-ref/Registry/list.md
       - name: listAccessBindings
         href: api-ref/Registry/listAccessBindings.md
+      - name: listIpPermission
+        href: api-ref/Registry/listIpPermission.md
       - name: setAccessBindings
         href: api-ref/Registry/setAccessBindings.md
+      - name: setIpPermission
+        href: api-ref/Registry/setIpPermission.md
       - name: update
         href: api-ref/Registry/update.md
       - name: updateAccessBindings
         href: api-ref/Registry/updateAccessBindings.md
+      - name: updateIpPermission
+        href: api-ref/Registry/updateIpPermission.md
   - name: Repository
     items:
       - name: Overview
         href: api-ref/Repository/index.md
+      - name: delete
+        href: api-ref/Repository/delete.md
       - name: get
         href: api-ref/Repository/get.md
       - name: list
@@ -49,6 +57,8 @@ items:
         href: api-ref/Repository/setAccessBindings.md
       - name: updateAccessBindings
         href: api-ref/Repository/updateAccessBindings.md
+      - name: upsert
+        href: api-ref/Repository/upsert.md
   - name: Scanner
     items:
       - name: Overview

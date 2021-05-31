@@ -67,6 +67,14 @@ v4_address_spec | **[NodeAddressSpec](#NodeAddressSpec)**<br>Specification for t
 scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy)**<br>Scheduling policy configuration. 
 network_interface_specs[] | **[NetworkInterfaceSpec](#NetworkInterfaceSpec)**<br>New api, to specify network interfaces for the node group compute instances. Can not be used together with 'v4_address_spec' 
 placement_policy | **[PlacementPolicy](#PlacementPolicy)**<br> 
+network_settings | **[NetworkSettings](#NetworkSettings)**<br>this parameter allows to specify type of network acceleration used on nodes (instances) 
+
+
+### NetworkSettings {#NetworkSettings}
+
+Field | Description
+--- | ---
+type | enum **Type**<br>Required.  <ul><ul/>
 
 
 ### ResourcesSpec {#ResourcesSpec}
@@ -263,7 +271,7 @@ Retrieves the list of node group in the specified Kubernetes cluster.
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder to list node groups in. To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. 
+folder_id | **string**<br>Required. ID of the folder to list node groups in. To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. 
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListNodeGroupsResponse.next_page_token](#ListNodeGroupsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListNodeGroupsResponse.next_page_token](#ListNodeGroupsResponse) returned by a previous list request. The maximum string length in characters is 100.
 filter | **string**<br><ol><li>The field name. Currently you can use filtering only on [NodeGroup.name](#NodeGroup1) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 1-61 characters long and match the regular expression `|[a-z][-a-z0-9]{1,61}[a-z0-9]`.</li></ol> The maximum string length in characters is 1000.
@@ -313,6 +321,14 @@ v4_address_spec | **[NodeAddressSpec](#NodeAddressSpec2)**<br>Specification for 
 scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy1)**<br>Scheduling policy configuration. 
 network_interface_specs[] | **[NetworkInterfaceSpec](#NetworkInterfaceSpec1)**<br>New api, to specify network interfaces for the node group compute instances. Can not be used together with 'v4_address_spec' 
 placement_policy | **[PlacementPolicy](#PlacementPolicy1)**<br> 
+network_settings | **[NetworkSettings](#NetworkSettings1)**<br>this parameter allows to specify type of network acceleration used on nodes (instances) 
+
+
+### NetworkSettings {#NetworkSettings1}
+
+Field | Description
+--- | ---
+type | enum **Type**<br>Required.  <ul><ul/>
 
 
 ### ResourcesSpec {#ResourcesSpec1}
@@ -540,6 +556,14 @@ v4_address_spec | **[NodeAddressSpec](#NodeAddressSpec4)**<br>Specification for 
 scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy2)**<br>Scheduling policy configuration. 
 network_interface_specs[] | **[NetworkInterfaceSpec](#NetworkInterfaceSpec2)**<br>New api, to specify network interfaces for the node group compute instances. Can not be used together with 'v4_address_spec' 
 placement_policy | **[PlacementPolicy](#PlacementPolicy2)**<br> 
+network_settings | **[NetworkSettings](#NetworkSettings2)**<br>this parameter allows to specify type of network acceleration used on nodes (instances) 
+
+
+### NetworkSettings {#NetworkSettings2}
+
+Field | Description
+--- | ---
+type | enum **Type**<br>Required.  <ul><ul/>
 
 
 ### ResourcesSpec {#ResourcesSpec2}
@@ -775,6 +799,14 @@ v4_address_spec | **[NodeAddressSpec](#NodeAddressSpec6)**<br>Specification for 
 scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy3)**<br>Scheduling policy configuration. 
 network_interface_specs[] | **[NetworkInterfaceSpec](#NetworkInterfaceSpec3)**<br>New api, to specify network interfaces for the node group compute instances. Can not be used together with 'v4_address_spec' 
 placement_policy | **[PlacementPolicy](#PlacementPolicy3)**<br> 
+network_settings | **[NetworkSettings](#NetworkSettings3)**<br>this parameter allows to specify type of network acceleration used on nodes (instances) 
+
+
+### NetworkSettings {#NetworkSettings3}
+
+Field | Description
+--- | ---
+type | enum **Type**<br>Required.  <ul><ul/>
 
 
 ### ResourcesSpec {#ResourcesSpec3}
@@ -1003,6 +1035,14 @@ v4_address_spec | **[NodeAddressSpec](#NodeAddressSpec8)**<br>Specification for 
 scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy4)**<br>Scheduling policy configuration. 
 network_interface_specs[] | **[NetworkInterfaceSpec](#NetworkInterfaceSpec4)**<br>New api, to specify network interfaces for the node group compute instances. Can not be used together with 'v4_address_spec' 
 placement_policy | **[PlacementPolicy](#PlacementPolicy4)**<br> 
+network_settings | **[NetworkSettings](#NetworkSettings4)**<br>this parameter allows to specify type of network acceleration used on nodes (instances) 
+
+
+### NetworkSettings {#NetworkSettings4}
+
+Field | Description
+--- | ---
+type | enum **Type**<br>Required.  <ul><ul/>
 
 
 ### ResourcesSpec {#ResourcesSpec4}
@@ -1247,6 +1287,14 @@ v4_address_spec | **[NodeAddressSpec](#NodeAddressSpec10)**<br>Specification for
 scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy5)**<br>Scheduling policy configuration. 
 network_interface_specs[] | **[NetworkInterfaceSpec](#NetworkInterfaceSpec5)**<br>New api, to specify network interfaces for the node group compute instances. Can not be used together with 'v4_address_spec' 
 placement_policy | **[PlacementPolicy](#PlacementPolicy5)**<br> 
+network_settings | **[NetworkSettings](#NetworkSettings5)**<br>this parameter allows to specify type of network acceleration used on nodes (instances) 
+
+
+### NetworkSettings {#NetworkSettings5}
+
+Field | Description
+--- | ---
+type | enum **Type**<br>Required.  <ul><ul/>
 
 
 ### ResourcesSpec {#ResourcesSpec5}

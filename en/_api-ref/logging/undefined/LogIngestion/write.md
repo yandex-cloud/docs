@@ -17,8 +17,12 @@ POST undefined/logging/v1/write
 ```json 
 {
   "destination": {
+
+    // `destination` includes only one of the fields `logGroupId`, `folderId`
     "logGroupId": "string",
-    "folderId": "string"
+    "folderId": "string",
+    // end of the list of possible fields`destination`
+
   },
   "entries": [
     {
@@ -35,12 +39,12 @@ POST undefined/logging/v1/write
 Field | Description
 --- | ---
 destination | **object**<br><p>Required.</p> 
-destination.<br>logGroupId | **string**<br>
-destination.<br>folderId | **string**<br>
+destination.<br>logGroupId | **string** <br>`destination` includes only one of the fields `logGroupId`, `folderId`<br><br><p>The maximum string length in characters is 64.</p> 
+destination.<br>folderId | **string** <br>`destination` includes only one of the fields `logGroupId`, `folderId`<br><br><p>The maximum string length in characters is 64.</p> 
 entries[] | **object**<br><p>The maximum number of elements is 100.</p> 
 entries[].<br>timestamp | **string** (date-time)<br><p>Required. String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 entries[].<br>level | **string**<br>
-entries[].<br>message | **string**<br><p>The maximum string length in characters is 262144.</p> 
+entries[].<br>message | **string**<br><p>The maximum string length in characters is 65536.</p> 
 entries[].<br>jsonPayload | **object**<br>
  
 ## Response {#responses}

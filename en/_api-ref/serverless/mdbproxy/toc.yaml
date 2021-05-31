@@ -1,0 +1,25 @@
+items:
+  - name: Overview
+    href: mdbproxy/api-ref/index.md
+  - name: Proxy
+    items:
+      - name: Overview
+        href: mdbproxy/api-ref/Proxy/index.md
+      - name: create
+        href: mdbproxy/api-ref/Proxy/create.md
+      - name: delete
+        href: mdbproxy/api-ref/Proxy/delete.md
+      - name: get
+        href: mdbproxy/api-ref/Proxy/get.md
+      - name: list
+        href: mdbproxy/api-ref/Proxy/list.md
+      - name: listAccessBindings
+        href: mdbproxy/api-ref/Proxy/listAccessBindings.md
+      - name: listOperations
+        href: mdbproxy/api-ref/Proxy/listOperations.md
+      - name: setAccessBindings
+        href: mdbproxy/api-ref/Proxy/setAccessBindings.md
+      - name: update
+        href: mdbproxy/api-ref/Proxy/update.md
+      - name: updateAccessBindings
+        href: mdbproxy/api-ref/Proxy/updateAccessBindings.md

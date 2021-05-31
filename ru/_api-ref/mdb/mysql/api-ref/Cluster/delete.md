@@ -9,7 +9,7 @@ editable: false
  
 ## HTTP-запрос {#https-request}
 ```
-DELETE https://mdb.api.cloud.yandex.net/managed-mysql/v1alpha/clusters/{clusterId}
+DELETE https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters/{clusterId}
 ```
  
 ## Path-параметры {#path_params}

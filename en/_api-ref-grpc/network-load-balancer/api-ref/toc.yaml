@@ -1,9 +1,0 @@
-items:
-  - name: Overview
-    href: grpc/index.md
-  - name: NetworkLoadBalancerService
-    href: grpc/network_load_balancer_service.md
-  - name: TargetGroupService
-    href: grpc/target_group_service.md
-  - name: OperationService
-    href: grpc/operation_service.md

@@ -16,7 +16,7 @@ GET undefined/logging/v1/logGroups/{logGroupId}/stats
  
 Parameter | Description
 --- | ---
-logGroupId | Required.
+logGroupId | Required. The maximum string length in characters is 64.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

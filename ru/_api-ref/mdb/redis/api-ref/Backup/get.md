@@ -9,7 +9,7 @@ editable: false
  
 ## HTTP-запрос {#https-request}
 ```
-GET https://mdb.api.cloud.yandex.net/managed-redis/v1alpha/backups/{backupId}
+GET https://mdb.api.cloud.yandex.net/managed-redis/v1/backups/{backupId}
 ```
  
 ## Path-параметры {#path_params}
@@ -27,7 +27,10 @@ backupId | Обязательное поле. Идентификатор рез�
   "folderId": "string",
   "createdAt": "string",
   "sourceClusterId": "string",
-  "startedAt": "string"
+  "startedAt": "string",
+  "sourceShardNames": [
+    "string"
+  ]
 }
 ```
 Описание резервной копии Redis. Подробнее смотрите в [документации](/docs/managed-redis/concepts/backup) Managed
@@ -40,3 +43,4 @@ folderId | **string**<br><p>Идентификатор каталога, кот�
 createdAt | **string** (date-time)<br><p>Время создания в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> (т. е. когда операция резервного копирования была завершена).</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
 sourceClusterId | **string**<br><p>Идентификатор кластера Redis, для которого была создана резервная копия.</p> 
 startedAt | **string** (date-time)<br><p>Время запуска операции резервного копирования в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
+sourceShardNames[] | **string**<br><p>Имена шардов, которые использовались при создании резервной копии.</p> 

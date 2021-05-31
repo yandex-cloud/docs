@@ -1,0 +1,25 @@
+items:
+  - name: Overview
+    href: api-ref/grpc/index.md
+  - name: ApiKeyService
+    href: api-ref/grpc/api_key_service.md
+  - name: IamTokenService
+    href: api-ref/grpc/iam_token_service.md
+  - name: KeyService
+    href: api-ref/grpc/key_service.md
+  - name: RoleService
+    href: api-ref/grpc/role_service.md
+  - name: ServiceAccountService
+    href: api-ref/grpc/service_account_service.md
+  - name: UserAccountService
+    href: api-ref/grpc/user_account_service.md
+  - name: YandexPassportUserAccountService
+    href: api-ref/grpc/yandex_passport_user_account_service.md
+  - name: AccessKeyService
+    href: api-ref/grpc/access_key_service.md
+  - name: CertificateService
+    href: api-ref/grpc/certificate_service.md
+  - name: FederationService
+    href: api-ref/grpc/federation_service.md
+  - name: OperationService
+    href: api-ref/grpc/operation_service.md

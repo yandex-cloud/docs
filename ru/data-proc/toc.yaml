@@ -60,7 +60,7 @@ items:
         items: null
         include:
           repo: docs
-          path: en/_api-ref-grpc/data-proc/api-ref/toc.yaml
+          path: en/_api-ref-grpc/data-proc/toc.yaml
       - name: REST
         items: null
         include:

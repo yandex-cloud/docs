@@ -9,7 +9,7 @@ editable: false
  
 ## HTTP-запрос {#https-request}
 ```
-POST https://mdb.api.cloud.yandex.net/managed-mysql/v1alpha/clusters/{clusterId}/hosts:batchCreate
+POST https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters/{clusterId}/hosts:batchCreate
 ```
  
 ## Path-параметры {#path_params}

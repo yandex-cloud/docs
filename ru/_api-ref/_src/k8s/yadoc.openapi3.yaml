@@ -1,11 +1,9 @@
-openapi: '3.0'
+openapi: "3.0"
 info:
   title: Yandex Managed Service for Kubernetes
-  description: >-
-    Методы справочника API сгруппированы по ресурсам. Чтобы выполнить операцию
-    над ресурсом, отправьте HTTP-запрос к соответствующему URL или выполните
-    RPC-вызов. Подробнее об архитектуре API Яндекс.Облака, см. [Концепции API
-    Яндекс.Облака](/docs/api-design-guide/).
+  description: Методы справочника API сгруппированы по ресурсам. Чтобы выполнить операцию
+    над ресурсом, отправьте HTTP-запрос к соответствующему URL или выполните RPC-вызов.
+    Подробнее об архитектуре API Яндекс.Облака, см. [Концепции API Яндекс.Облака](/docs/api-design-guide/).
   version: v1
   x-y-docUri: api-ref
   x-y-baseUrl: https://mks.api.cloud.yandex.net
@@ -13,23 +11,22 @@ paths:
   /managed-kubernetes/v1/clusters/{clusterId}:
     get:
       tags:
-        - Cluster
+      - Cluster
       summary: Возвращает указанный кластер Kubernetes.
-      description: >-
-        Чтобы получить список доступных кластеров Kubernetes, сделайте запрос
-        [list](/docs/managed-kubernetes/api-ref/Cluster/list).
+      description: Чтобы получить список доступных кластеров Kubernetes, сделайте
+        запрос [list](/docs/managed-kubernetes/api-ref/Cluster/list).
       operationId: ClusterGet
       parameters:
-        - name: clusterId
-          in: path
-          description: |-
-            Обязательное поле.
-            Идентификатор возвращаемого кластера Kubernetes.
-          required: true
-          schema:
-            type: string
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор возвращаемого кластера Kubernetes.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -38,23 +35,20 @@ paths:
       x-y-navtitle: get
     delete:
       tags:
-        - Cluster
+      - Cluster
       summary: Удаляет указанный кластер Kubernetes.
       operationId: ClusterDelete
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Обязательное поле.
-
-            Идентификатор удаляемого кластера Kubernetes. Чтобы получить
-            идентификатор кластера Kubernetes, используйте запрос
-            [list](/docs/managed-kubernetes/api-ref/Cluster/list).
-          required: true
-          schema:
-            type: string
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор удаляемого кластера Kubernetes. Чтобы получить идентификатор кластера Kubernetes, используйте запрос [list](/docs/managed-kubernetes/api-ref/Cluster/list).
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -66,21 +60,18 @@ paths:
       x-y-operation-response: Empty
     patch:
       tags:
-        - Cluster
+      - Cluster
       summary: Обновляет указанный кластер Kubernetes.
       operationId: ClusterUpdate
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Обязательное поле.
-
-            Идентификатор обновляемого кластера Kubernetes. Чтобы получить
-            идентификатор кластера Kubernetes, используйте
-            [list](/docs/managed-kubernetes/api-ref/Cluster/list) запрос.
-          required: true
-          schema:
-            type: string
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор обновляемого кластера Kubernetes. Чтобы получить идентификатор кластера Kubernetes, используйте [list](/docs/managed-kubernetes/api-ref/Cluster/list) запрос.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -88,7 +79,7 @@ paths:
               $ref: '#/components/schemas/UpdateClusterRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -101,74 +92,50 @@ paths:
   /managed-kubernetes/v1/clusters:
     get:
       tags:
-        - Cluster
+      - Cluster
       summary: Возвращает список кластеров Kubernetes в указанном каталоге.
       operationId: ClusterList
       parameters:
-        - name: folderId
-          in: query
-          description: >-
-            Обязательное поле.
+      - name: folderId
+        in: query
+        description: |-
+          Обязательное поле.
+          Идентификатор каталога для получения списка кластеров Kubernetes. Чтобы получить идентификатор каталога, используйте запрос
+          [list](/docs/resource-manager/api-ref/Folder/list).
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем [pageSize](/docs/managed-kubernetes/api-ref/Cluster/list#query_params) , сервис вернет значение
+          [nextPageToken](/docs/managed-kubernetes/api-ref/Cluster/list#responses), которое можно использовать для получения следующей страницы. Значение по умолчанию: 100.
 
-            Идентификатор каталога для получения списка кластеров Kubernetes.
-            Чтобы получить идентификатор каталога, используйте запрос
+          Допустимые значения — от 0 до 1000 включительно.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение `page_token` равным значению поля [nextPageToken](/docs/managed-kubernetes/api-ref/Cluster/list#responses) предыдущего запроса, чтобы получить следующую
+          страницу результатов.
 
-            [list](/docs/resource-manager/api-ref/Folder/list).
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            Максимальное количество результатов на странице ответа на запрос.
-            Если количество результатов больше чем
-            [pageSize](/docs/managed-kubernetes/api-ref/Cluster/list#query_params)
-            , сервис вернет значение
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          Параметры фильтрации ресурсов в ответе. В параметрах фильтрации указываются:
+          1. Имя поля. В настоящее время фильтрация осуществляется только по полю [Cluster.name](/docs/managed-kubernetes/api-ref/Cluster#representation).
+          2. Оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений.
+          3. Значение. Значение длиной от 1 до 61 символов, совпадающее с регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.
 
-            [nextPageToken](/docs/managed-kubernetes/api-ref/Cluster/list#responses),
-            которое можно использовать для получения следующей страницы.
-            Значение по умолчанию: 100.
-
-
-            Допустимые значения — от 0 до 1000 включительно.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Токен страницы. Установите значение `page_token` равным значению
-            поля
-            [nextPageToken](/docs/managed-kubernetes/api-ref/Cluster/list#responses)
-            предыдущего запроса, чтобы получить следующую
-
-            страницу результатов.
-
-
-            Максимальная длина строки в символах — 100.
-          schema:
-            type: string
-        - name: filter
-          in: query
-          description: >-
-            Параметры фильтрации ресурсов в ответе. В параметрах фильтрации
-            указываются:
-
-            1. Имя поля. В настоящее время фильтрация осуществляется только по
-            полю
-            [Cluster.name](/docs/managed-kubernetes/api-ref/Cluster#representation).
-
-            2. Оператор. Операторы `=` или `!=` для одиночных значений, `IN` или
-            `NOT IN` для списков значений.
-
-            3. Значение. Значение длиной от 1 до 61 символов, совпадающее с
-            регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.
-
-
-            Максимальная длина строки в символах — 1000.
-          schema:
-            type: string
+          Максимальная длина строки в символах — 1000.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -177,7 +144,7 @@ paths:
       x-y-navtitle: list
     post:
       tags:
-        - Cluster
+      - Cluster
       summary: Создает кластер Kubernetes в указанном каталоге.
       operationId: ClusterCreate
       requestBody:
@@ -187,7 +154,7 @@ paths:
               $ref: '#/components/schemas/CreateClusterRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -200,67 +167,48 @@ paths:
   /managed-kubernetes/v1/clusters/{clusterId}/nodeGroups:
     get:
       tags:
-        - Cluster
+      - Cluster
       summary: Список групп узлов для указанного кластера Kubernetes.
       operationId: ClusterListNodeGroups
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера Kubernetes, для которого запрашивается список групп узлов. Чтобы получить идентификатор кластера Kubernetes,
+          используйте[list](/docs/managed-kubernetes/api-ref/Cluster/list) запрос.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем [pageSize](/docs/managed-kubernetes/api-ref/Cluster/listNodeGroups#query_params) , сервис вернет значение
+          [nextPageToken](/docs/managed-kubernetes/api-ref/Cluster/listNodeGroups#responses), которое можно использовать для получения следующей страницы. Значение по умолчанию: 100.
 
-            Идентификатор кластера Kubernetes, для которого запрашивается список
-            групп узлов. Чтобы получить идентификатор кластера Kubernetes,
+          Допустимые значения — от 0 до 1000 включительно.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение `page_token` равным значению поля [nextPageToken](/docs/managed-kubernetes/api-ref/Cluster/listNodeGroups#responses) предыдущего запроса, чтобы получить
+          следующую страницу результатов.
 
-            используйте[list](/docs/managed-kubernetes/api-ref/Cluster/list)
-            запрос.
-          required: true
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            Максимальное количество результатов на странице ответа на запрос.
-            Если количество результатов больше чем
-            [pageSize](/docs/managed-kubernetes/api-ref/Cluster/listNodeGroups#query_params)
-            , сервис вернет значение
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          Параметры фильтрации ресурсов в ответе. В настоящее время фильтрация осуществляется только по полю [Cluster.name](/docs/managed-kubernetes/api-ref/Cluster#representation).
 
-            [nextPageToken](/docs/managed-kubernetes/api-ref/Cluster/listNodeGroups#responses),
-            которое можно использовать для получения следующей страницы.
-            Значение по умолчанию: 100.
-
-
-            Допустимые значения — от 0 до 1000 включительно.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Токен страницы. Установите значение `page_token` равным значению
-            поля
-            [nextPageToken](/docs/managed-kubernetes/api-ref/Cluster/listNodeGroups#responses)
-            предыдущего запроса, чтобы получить
-
-            следующую страницу результатов.
-
-
-            Максимальная длина строки в символах — 100.
-          schema:
-            type: string
-        - name: filter
-          in: query
-          description: >-
-            Параметры фильтрации ресурсов в ответе. В настоящее время фильтрация
-            осуществляется только по полю
-            [Cluster.name](/docs/managed-kubernetes/api-ref/Cluster#representation).
-
-
-            Максимальная длина строки в символах — 1000.
-          schema:
-            type: string
+          Максимальная длина строки в символах — 1000.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -270,64 +218,47 @@ paths:
   /managed-kubernetes/v1/clusters/{clusterId}/operations:
     get:
       tags:
-        - Cluster
+      - Cluster
       summary: Список операций для указанного кластера Kubernetes.
       operationId: ClusterListOperations
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера Kubernetes, для которого запрашивается список операций.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное число возвращаемых результатов на странице. Если количество результатов больше чем [pageSize](/docs/managed-kubernetes/api-ref/Cluster/listOperations#query_params) , сервис вернет значение
+          [nextPageToken](/docs/managed-kubernetes/api-ref/Cluster/listOperations#responses), которое можно использовать для получения следующей страницы. Значение по умолчанию: 100.
 
-            Идентификатор кластера Kubernetes, для которого запрашивается список
-            операций.
-          required: true
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            Максимальное число возвращаемых результатов на странице. Если
-            количество результатов больше чем
-            [pageSize](/docs/managed-kubernetes/api-ref/Cluster/listOperations#query_params)
-            , сервис вернет значение
+          Допустимые значения — от 0 до 1000 включительно.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение `page_token` равным значению поля [nextPageToken](/docs/managed-kubernetes/api-ref/Cluster/listOperations#responses) предыдущего запроса, чтобы получить
+          следующую страницу результатов.
 
-            [nextPageToken](/docs/managed-kubernetes/api-ref/Cluster/listOperations#responses),
-            которое можно использовать для получения следующей страницы.
-            Значение по умолчанию: 100.
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          Параметры фильтрации ресурсов в ответе. В настоящее время фильтрация осуществляется только по полю [Cluster.name](/docs/managed-kubernetes/api-ref/Cluster#representation).
 
-
-            Допустимые значения — от 0 до 1000 включительно.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Токен страницы. Установите значение `page_token` равным значению
-            поля
-            [nextPageToken](/docs/managed-kubernetes/api-ref/Cluster/listOperations#responses)
-            предыдущего запроса, чтобы получить
-
-            следующую страницу результатов.
-
-
-            Максимальная длина строки в символах — 100.
-          schema:
-            type: string
-        - name: filter
-          in: query
-          description: >-
-            Параметры фильтрации ресурсов в ответе. В настоящее время фильтрация
-            осуществляется только по полю
-            [Cluster.name](/docs/managed-kubernetes/api-ref/Cluster#representation).
-
-
-            Максимальная длина строки в символах — 1000.
-          schema:
-            type: string
+          Максимальная длина строки в символах — 1000.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -337,26 +268,21 @@ paths:
   /managed-kubernetes/v1/nodeGroups/{nodeGroupId}:
     get:
       tags:
-        - NodeGroup
+      - NodeGroup
       summary: Возвращает указанную группу узлов.
-      description: >-
-        Чтобы получить список доступных групп узлов, выполните запрос
-        [list](/docs/managed-kubernetes/api-ref/NodeGroup/list).
+      description: Чтобы получить список доступных групп узлов, выполните запрос [list](/docs/managed-kubernetes/api-ref/NodeGroup/list).
       operationId: NodeGroupGet
       parameters:
-        - name: nodeGroupId
-          in: path
-          description: >-
-            Обязательное поле.
-
-            Идентификатор возвращаемой группы узлов. Чтобы получить
-            идентификатор группы узлов, используйте запрос
-            [list](/docs/managed-kubernetes/api-ref/NodeGroup/list).
-          required: true
-          schema:
-            type: string
+      - name: nodeGroupId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор возвращаемой группы узлов. Чтобы получить идентификатор группы узлов, используйте запрос [list](/docs/managed-kubernetes/api-ref/NodeGroup/list).
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -365,23 +291,20 @@ paths:
       x-y-navtitle: get
     delete:
       tags:
-        - NodeGroup
+      - NodeGroup
       summary: Удаляет указанную группу узлов.
       operationId: NodeGroupDelete
       parameters:
-        - name: nodeGroupId
-          in: path
-          description: >-
-            Обязательное поле.
-
-            Идентификатор удаляемой группы узлов. Чтобы получить идентификатор
-            группы узлов, используйте запрос
-            [list](/docs/managed-kubernetes/api-ref/NodeGroup/list).
-          required: true
-          schema:
-            type: string
+      - name: nodeGroupId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор удаляемой группы узлов. Чтобы получить идентификатор группы узлов, используйте запрос [list](/docs/managed-kubernetes/api-ref/NodeGroup/list).
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -393,21 +316,18 @@ paths:
       x-y-operation-response: Empty
     patch:
       tags:
-        - NodeGroup
+      - NodeGroup
       summary: Изменяет указанную группу узлов.
       operationId: NodeGroupUpdate
       parameters:
-        - name: nodeGroupId
-          in: path
-          description: >-
-            Обязательное поле.
-
-            Идентификатор изменяемой группы узлов. Чтобы получить идентификатор
-            группы узлов, используйте запрос
-            [list](/docs/managed-kubernetes/api-ref/NodeGroup/list).
-          required: true
-          schema:
-            type: string
+      - name: nodeGroupId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор изменяемой группы узлов. Чтобы получить идентификатор группы узлов, используйте запрос [list](/docs/managed-kubernetes/api-ref/NodeGroup/list).
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -415,7 +335,7 @@ paths:
               $ref: '#/components/schemas/UpdateNodeGroupRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -428,74 +348,50 @@ paths:
   /managed-kubernetes/v1/nodeGroups:
     get:
       tags:
-        - NodeGroup
+      - NodeGroup
       summary: Возвращает список групп узлов в указанном кластере Kubernetes.
       operationId: NodeGroupList
       parameters:
-        - name: folderId
-          in: query
-          description: >-
-            Обязательное поле.
+      - name: folderId
+        in: query
+        description: |-
+          Обязательное поле.
+          Идентификатор каталога для получения списка групп узлов. Чтобы получить идентификатор каталога, используйте запрос
+          [list](/docs/resource-manager/api-ref/Folder/list).
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем [pageSize](/docs/managed-kubernetes/api-ref/NodeGroup/list#query_params) , сервис вернет значение
+          [nextPageToken](/docs/managed-kubernetes/api-ref/NodeGroup/list#responses), которое можно использовать для получения следующей страницы. Значение по умолчанию: 100.
 
-            Идентификатор каталога для получения списка групп узлов. Чтобы
-            получить идентификатор каталога, используйте запрос
+          Допустимые значения — от 0 до 1000 включительно.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение `page_token` равным значению поля [nextPageToken](/docs/managed-kubernetes/api-ref/NodeGroup/list#responses) предыдущего запроса, чтобы получить
+          следующую страницу результатов.
 
-            [list](/docs/resource-manager/api-ref/Folder/list).
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            Максимальное количество результатов на странице ответа на запрос.
-            Если количество результатов больше чем
-            [pageSize](/docs/managed-kubernetes/api-ref/NodeGroup/list#query_params)
-            , сервис вернет значение
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          Параметры фильтрации ресурсов в ответе. В параметрах фильтрации указываются:
+          1. Имя поля. В настоящее время фильтрация осуществляется только по полю [NodeGroup.name](/docs/managed-kubernetes/api-ref/NodeGroup#representation).
+          2. Оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений.
+          3. Значение. Значение длиной от 1 до 61 символов, совпадающее с регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.
 
-            [nextPageToken](/docs/managed-kubernetes/api-ref/NodeGroup/list#responses),
-            которое можно использовать для получения следующей страницы.
-            Значение по умолчанию: 100.
-
-
-            Допустимые значения — от 0 до 1000 включительно.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Токен страницы. Установите значение `page_token` равным значению
-            поля
-            [nextPageToken](/docs/managed-kubernetes/api-ref/NodeGroup/list#responses)
-            предыдущего запроса, чтобы получить
-
-            следующую страницу результатов.
-
-
-            Максимальная длина строки в символах — 100.
-          schema:
-            type: string
-        - name: filter
-          in: query
-          description: >-
-            Параметры фильтрации ресурсов в ответе. В параметрах фильтрации
-            указываются:
-
-            1. Имя поля. В настоящее время фильтрация осуществляется только по
-            полю
-            [NodeGroup.name](/docs/managed-kubernetes/api-ref/NodeGroup#representation).
-
-            2. Оператор. Операторы `=` или `!=` для одиночных значений, `IN` или
-            `NOT IN` для списков значений.
-
-            3. Значение. Значение длиной от 1 до 61 символов, совпадающее с
-            регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.
-
-
-            Максимальная длина строки в символах — 1000.
-          schema:
-            type: string
+          Максимальная длина строки в символах — 1000.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -504,7 +400,7 @@ paths:
       x-y-navtitle: list
     post:
       tags:
-        - NodeGroup
+      - NodeGroup
       summary: Создает группу узлов в указанном кластере Kubernetes.
       operationId: NodeGroupCreate
       requestBody:
@@ -514,7 +410,7 @@ paths:
               $ref: '#/components/schemas/CreateNodeGroupRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -527,64 +423,47 @@ paths:
   /managed-kubernetes/v1/nodeGroups/{nodeGroupId}/operations:
     get:
       tags:
-        - NodeGroup
+      - NodeGroup
       summary: Возвращает список операций для указанной группы узлов.
       operationId: NodeGroupListOperations
       parameters:
-        - name: nodeGroupId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: nodeGroupId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор группы узлов, для которой запрашивается список операций.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное число возвращаемых результатов на странице. Если количество результатов больше чем [pageSize](/docs/managed-kubernetes/api-ref/NodeGroup/listOperations#query_params), сервис вернет значение
+          [nextPageToken](/docs/managed-kubernetes/api-ref/NodeGroup/listOperations#responses), которое можно использовать для получения следующей страницы. Значение по умолчанию: 100.
 
-            Идентификатор группы узлов, для которой запрашивается список
-            операций.
-          required: true
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            Максимальное число возвращаемых результатов на странице. Если
-            количество результатов больше чем
-            [pageSize](/docs/managed-kubernetes/api-ref/NodeGroup/listOperations#query_params),
-            сервис вернет значение
+          Допустимые значения — от 0 до 1000 включительно.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение `page_token` равным значению поля [nextPageToken](/docs/managed-kubernetes/api-ref/NodeGroup/listOperations#responses) предыдущего запроса, чтобы получить
+          следующую страницу результатов.
 
-            [nextPageToken](/docs/managed-kubernetes/api-ref/NodeGroup/listOperations#responses),
-            которое можно использовать для получения следующей страницы.
-            Значение по умолчанию: 100.
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          Параметры фильтрации ресурсов в ответе. В настоящее время фильтрация осуществляется только по полю [NodeGroup.name](/docs/managed-kubernetes/api-ref/NodeGroup#representation).
 
-
-            Допустимые значения — от 0 до 1000 включительно.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Токен страницы. Установите значение `page_token` равным значению
-            поля
-            [nextPageToken](/docs/managed-kubernetes/api-ref/NodeGroup/listOperations#responses)
-            предыдущего запроса, чтобы получить
-
-            следующую страницу результатов.
-
-
-            Максимальная длина строки в символах — 100.
-          schema:
-            type: string
-        - name: filter
-          in: query
-          description: >-
-            Параметры фильтрации ресурсов в ответе. В настоящее время фильтрация
-            осуществляется только по полю
-            [NodeGroup.name](/docs/managed-kubernetes/api-ref/NodeGroup#representation).
-
-
-            Максимальная длина строки в символах — 1000.
-          schema:
-            type: string
+          Максимальная длина строки в символах — 1000.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -594,11 +473,11 @@ paths:
   /managed-kubernetes/v1/versions:
     get:
       tags:
-        - Version
+      - Version
       summary: Возвращает список версий в указанном релизном канале.
       operationId: VersionList
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -614,8 +493,7 @@ components:
       type: object
       properties:
         releaseChannel:
-          $ref: >-
-            #/components/schemas/ReleaseChannel_in_AvailableVersions_releaseChannel
+          $ref: '#/components/schemas/ReleaseChannel_in_AvailableVersions_releaseChannel'
         versions:
           description: Версия компонентов Kubernetes.
           type: array
@@ -625,103 +503,86 @@ components:
       description: Кластер Kubernetes.
       type: object
       allOf:
-        - type: object
-          properties:
-            id:
-              description: Идентификатор кластера Kubernetes.
-              type: string
-            folderId:
-              description: Идентификатор каталога, которому принадлежит кластер Kubernetes.
-              type: string
-            createdAt:
-              description: >-
-                Время создания.
+      - type: object
+        properties:
+          id:
+            description: Идентификатор кластера Kubernetes.
+            type: string
+          folderId:
+            description: Идентификатор каталога, которому принадлежит кластер Kubernetes.
+            type: string
+          createdAt:
+            description: |-
+              Время создания.
 
+              Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+            type: string
+            format: date-time
+          name:
+            description: Имя кластера Kubernetes.
+            type: string
+          description:
+            description: Описание кластера Kubernetes. Длина описания должна быть
+              от 0 до 256 символов.
+            type: string
+          labels:
+            description: Метки ресурса в формате `key:value`. Максимум 64 метки на
+              ресурс.
+            type: object
+            additionalProperties:
+              type: string
+          status:
+            $ref: '#/components/schemas/ClusterStatus'
+            description: Статус кластера Kubernetes.
+          health:
+            $ref: '#/components/schemas/ClusterHealth'
+            description: Состояние кластера Kubernetes.
+          networkId:
+            description: Идентификатор облачной сети, к которой принадлежит кластер
+              Kubernetes.
+            type: string
+          master:
+            $ref: '#/components/schemas/Master'
+            description: Свойства мастера для кластера Kubernetes.
+          ipAllocationPolicy:
+            $ref: '#/components/schemas/IPAllocationPolicy'
+            description: Политика распределения IP-адресов для служб и модулей внутри
+              кластера Kubernetes в разных зонах доступности.
+          serviceAccountId:
+            description: Сервисный аккаунт, используемый для выделения Compute Cloud
+              и VPC ресурсов для кластера Kubernetes.
+            type: string
+          nodeServiceAccountId:
+            description: Сервисный аккаунт, используемый узлами кластера Kubernetes
+              для доступа к Container Registry или для загрузки логов и метрик узла.
+            type: string
+          releaseChannel:
+            $ref: '#/components/schemas/ReleaseChannel'
+            description: |-
+              При создании кластера Kubernetes вы должны указать один из трех релизных каналов. Релизный канал содержит несколько версий Kubernetes. Каналы отличаются
+              набором доступных версий, управлением автоматическими обновлениями и получаемыми обновлениями. Изменить канал после создания кластера Kubernetes нельзя,
+              возможно только пересоздать кластер Kubernetes и указать новый релизный канал. Дополнительные сведения см. в
+              [documentation](https://cloud.yandex.com/docs/managed-kubernetes/concepts/release-channels-and-updates).
+          networkPolicy:
+            $ref: '#/components/schemas/NetworkPolicy'
+      - title: internet_gateway
+        type: object
+        maxProperties: 1
+        properties:
+          gatewayIpv4Address:
+            description: |-
+              Адрес шлюза IPv4.
 
-                Строка в формате
-                [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
-              type: string
-              format: date-time
-            name:
-              description: Имя кластера Kubernetes.
-              type: string
-            description:
-              description: >-
-                Описание кластера Kubernetes. Длина описания должна быть от 0 до
-                256 символов.
-              type: string
-            labels:
-              description: >-
-                Метки ресурса в формате `key:value`. Максимум 64 метки на
-                ресурс.
-              type: object
-              additionalProperties:
-                type: string
-            status:
-              $ref: '#/components/schemas/ClusterStatus'
-              description: Статус кластера Kubernetes.
-            health:
-              $ref: '#/components/schemas/ClusterHealth'
-              description: Состояние кластера Kubernetes.
-            networkId:
-              description: >-
-                Идентификатор облачной сети, к которой принадлежит кластер
-                Kubernetes.
-              type: string
-            master:
-              $ref: '#/components/schemas/Master'
-              description: Свойства мастера для кластера Kubernetes.
-            ipAllocationPolicy:
-              $ref: '#/components/schemas/IPAllocationPolicy'
-              description: >-
-                Политика распределения IP-адресов для служб и модулей внутри
-                кластера Kubernetes в разных зонах доступности.
-            serviceAccountId:
-              description: >-
-                Сервисный аккаунт, используемый для выделения Compute Cloud и
-                VPC ресурсов для кластера Kubernetes.
-              type: string
-            nodeServiceAccountId:
-              description: >-
-                Сервисный аккаунт, используемый узлами кластера Kubernetes для
-                доступа к Container Registry или для загрузки логов и метрик
-                узла.
-              type: string
-            releaseChannel:
-              $ref: '#/components/schemas/ReleaseChannel'
-              description: >-
-                При создании кластера Kubernetes вы должны указать один из трех
-                релизных каналов. Релизный канал содержит несколько версий
-                Kubernetes. Каналы отличаются
-
-                набором доступных версий, управлением автоматическими
-                обновлениями и получаемыми обновлениями. Изменить канал после
-                создания кластера Kubernetes нельзя,
-
-                возможно только пересоздать кластер Kubernetes и указать новый
-                релизный канал. Дополнительные сведения см. в
-
-                [documentation](https://cloud.yandex.com/docs/managed-kubernetes/concepts/release-channels-and-updates).
-            networkPolicy:
-              $ref: '#/components/schemas/NetworkPolicy'
-        - title: internet_gateway
-          type: object
-          maxProperties: 1
-          properties:
-            gatewayIpv4Address:
-              description: |-
-                Адрес шлюза IPv4.
-
-                Максимальная длина строки в символах — 15.
-              type: string
+              Максимальная длина строки в символах — 15.
+            type: string
     ClusterHealth:
       description: |2-
          - HEALTHY: Кластер Kubernetes работает нормально.
          - UNHEALTHY: Кластер Kubernetes не работает и не может выполнять свои основные функции.
       type: string
       enum:
-        - HEALTHY
-        - UNHEALTHY
+      - HEALTHY
+      - UNHEALTHY
     ClusterStatus:
       description: |2-
          - PROVISIONING: Кластер Kubernetes ожидает выделения ресурсов.
@@ -733,13 +594,13 @@ components:
          - STARTING: Кластер Kubernetes запускается.
       type: string
       enum:
-        - PROVISIONING
-        - RUNNING
-        - RECONCILING
-        - STOPPING
-        - STOPPED
-        - DELETING
-        - STARTING
+      - PROVISIONING
+      - RUNNING
+      - RECONCILING
+      - STOPPING
+      - STOPPED
+      - DELETING
+      - STARTING
     CreateClusterMetadata:
       type: object
       properties:
@@ -749,96 +610,74 @@ components:
     CreateClusterRequest:
       type: object
       allOf:
-        - type: object
-          properties:
-            folderId:
-              description: >-
-                Обязательное поле.
+      - type: object
+        properties:
+          folderId:
+            description: |-
+              Обязательное поле.
+              Идентификатор каталога, в котором нужно создать кластер Kubernetes. Чтобы получить идентификатор каталога, используйте запрос
+              [list](/docs/resource-manager/api-ref/Folder/list).
+            type: string
+          name:
+            description: |-
+              Имя кластера Kubernetes. Имя должно быть уникальным в каталоге.
 
-                Идентификатор каталога, в котором нужно создать кластер
-                Kubernetes. Чтобы получить идентификатор каталога, используйте
-                запрос
+              Значение должно соответствовать регулярному выражению `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+            type: string
+          description:
+            description: |-
+              Описание кластера Kubernetes.
 
-                [list](/docs/resource-manager/api-ref/Folder/list).
+              Максимальная длина строки в символах — 256.
+            type: string
+          labels:
+            description: |-
+              Метки ресурса в формате `key:value`.
+
+              Не более 64 на ресурс.
+              Длина строки в символах для каждого ключа должна быть от 1 до 63.
+              Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
+              Максимальная длина строки в символах для каждого значения — 63.
+              Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.
+            type: object
+            additionalProperties:
               type: string
-            name:
-              description: >-
-                Имя кластера Kubernetes. Имя должно быть уникальным в каталоге.
-
-
-                Значение должно соответствовать регулярному выражению ``
-                |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
-              type: string
-            description:
-              description: |-
-                Описание кластера Kubernetes.
-
-                Максимальная длина строки в символах — 256.
-              type: string
-            labels:
-              description: >-
-                Метки ресурса в формате `key:value`.
-
-
-                Не более 64 на ресурс.
-
-                Длина строки в символах для каждого ключа должна быть от 1 до
-                63.
-
-                Каждый ключ должен соответствовать регулярному выражению ``
-                [a-z][-_0-9a-z]* ``.
-
-                Максимальная длина строки в символах для каждого значения — 63.
-
-                Каждое значение должно соответствовать регулярному выражению ``
-                [-_0-9a-z]* ``.
-              type: object
-              additionalProperties:
-                type: string
-            networkId:
-              description: |-
-                Обязательное поле.
-                Идентификатор облачной сети.
-              type: string
-            masterSpec:
-              $ref: '#/components/schemas/MasterSpec'
-              description: |-
-                Обязательное поле.
-                Политика распределения кластера Kubernetes.
-            ipAllocationPolicy:
-              $ref: '#/components/schemas/IPAllocationPolicy'
-              description: Политика распределения кластера Kubernetes.
-            serviceAccountId:
-              description: >-
-                Обязательное поле.
-
-                Сервисный аккаунт, используемый для выделения Compute Cloud и
-                VPC ресурсов для кластера Kubernetes. Выбранный сервисный
-                аккаунт должна иметь `edit` роль в
-
-                каталоге, в котором будет расположен кластер Kubernetes, и в
-                каталоге, в котором находится выбранная сеть.
-              type: string
-            nodeServiceAccountId:
-              description: >-
-                Обязательное поле.
-
-                Сервисный аккаунт, используемый узлами кластера Kubernetes для
-                доступа к Container Registry или для загрузки логов и метрик
-                узла.
-              type: string
-            releaseChannel:
-              $ref: '#/components/schemas/ReleaseChannel'
-              description: Релизный канал для мастера.
-            networkPolicy:
-              $ref: '#/components/schemas/NetworkPolicy'
-        - title: internet_gateway
-          type: object
-          maxProperties: 1
-          properties:
-            gatewayIpv4Address:
-              description: Адрес шлюза IPv4.
-              type: string
+          networkId:
+            description: |-
+              Обязательное поле.
+              Идентификатор облачной сети.
+            type: string
+          masterSpec:
+            $ref: '#/components/schemas/MasterSpec'
+            description: |-
+              Обязательное поле.
+              Политика распределения кластера Kubernetes.
+          ipAllocationPolicy:
+            $ref: '#/components/schemas/IPAllocationPolicy'
+            description: Политика распределения кластера Kubernetes.
+          serviceAccountId:
+            description: |-
+              Обязательное поле.
+              Сервисный аккаунт, используемый для выделения Compute Cloud и VPC ресурсов для кластера Kubernetes. Выбранный сервисный аккаунт должна иметь `edit` роль в
+              каталоге, в котором будет расположен кластер Kubernetes, и в каталоге, в котором находится выбранная сеть.
+            type: string
+          nodeServiceAccountId:
+            description: |-
+              Обязательное поле.
+              Сервисный аккаунт, используемый узлами кластера Kubernetes для доступа к Container Registry или для загрузки логов и метрик узла.
+            type: string
+          releaseChannel:
+            $ref: '#/components/schemas/ReleaseChannel'
+            description: Релизный канал для мастера.
+          networkPolicy:
+            $ref: '#/components/schemas/NetworkPolicy'
+      - title: internet_gateway
+        type: object
+        maxProperties: 1
+        properties:
+          gatewayIpv4Address:
+            description: Адрес шлюза IPv4.
+            type: string
     CreateNodeGroupMetadata:
       type: object
       properties:
@@ -849,21 +688,16 @@ components:
       type: object
       properties:
         clusterId:
-          description: >-
+          description: |-
             Обязательное поле.
-
-            Идентификатор кластера Kubernetes, в котором следует создать группу
-            узлов. Чтобы получить идентификатор кластера Kubernetes, используйте
-
+            Идентификатор кластера Kubernetes, в котором следует создать группу узлов. Чтобы получить идентификатор кластера Kubernetes, используйте
             [list](/docs/managed-kubernetes/api-ref/Cluster/list) запрос.
           type: string
         name:
-          description: >-
+          description: |-
             Новое имя группы узлов. Имя должно быть уникальным в каталоге.
 
-
-            Значение должно соответствовать регулярному выражению ``
-            |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+            Значение должно соответствовать регулярному выражению `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
           type: string
         description:
           description: |-
@@ -872,43 +706,31 @@ components:
             Максимальная длина строки в символах — 256.
           type: string
         labels:
-          description: >-
+          description: |-
             Метки ресурса в формате `key:value`.
 
-
             Не более 64 на ресурс.
-
             Длина строки в символах для каждого ключа должна быть от 1 до 63.
-
-            Каждый ключ должен соответствовать регулярному выражению ``
-            [a-z][-_0-9a-z]* ``.
-
+            Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
             Максимальная длина строки в символах для каждого значения — 63.
-
-            Каждое значение должно соответствовать регулярному выражению ``
-            [-_0-9a-z]* ``.
+            Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.
           type: object
           additionalProperties:
             type: string
         nodeTemplate:
-          $ref: >-
-            #/components/schemas/NodeTemplate_in_CreateNodeGroupRequest_nodeTemplate
+          $ref: '#/components/schemas/NodeTemplate_in_CreateNodeGroupRequest_nodeTemplate'
         scalePolicy:
-          $ref: >-
-            #/components/schemas/ScalePolicy_in_CreateNodeGroupRequest_scalePolicy
+          $ref: '#/components/schemas/ScalePolicy_in_CreateNodeGroupRequest_scalePolicy'
         allocationPolicy:
-          $ref: >-
-            #/components/schemas/NodeGroupAllocationPolicy_in_CreateNodeGroupRequest_allocationPolicy
+          $ref: '#/components/schemas/NodeGroupAllocationPolicy_in_CreateNodeGroupRequest_allocationPolicy'
         version:
           description: Версия компонентов Kubernetes, которая запущена на узлах.
           type: string
         maintenancePolicy:
-          $ref: >-
-            #/components/schemas/NodeGroupMaintenancePolicy_in_CreateNodeGroupRequest_maintenancePolicy
+          $ref: '#/components/schemas/NodeGroupMaintenancePolicy_in_CreateNodeGroupRequest_maintenancePolicy'
         allowedUnsafeSysctls:
-          description: >-
-            Поддержка параметров unsafe sysctl. Дополнительные сведения см. в
-            [документации](https://kubernetes.io/docs/tasks/administer-cluster/sysctl-cluster/).
+          description: Поддержка параметров unsafe sysctl. Дополнительные сведения
+            см. в [документации](https://kubernetes.io/docs/tasks/administer-cluster/sysctl-cluster/).
           type: array
           items:
             type: string
@@ -937,13 +759,13 @@ components:
          - SUNDAY: The day-of-week of Sunday.
       type: string
       enum:
-        - MONDAY
-        - TUESDAY
-        - WEDNESDAY
-        - THURSDAY
-        - FRIDAY
-        - SATURDAY
-        - SUNDAY
+      - MONDAY
+      - TUESDAY
+      - WEDNESDAY
+      - THURSDAY
+      - FRIDAY
+      - SATURDAY
+      - SUNDAY
     DaysOfWeekMaintenanceWindow:
       type: object
       properties:
@@ -957,8 +779,7 @@ components:
           items:
             $ref: '#/components/schemas/DayOfWeek'
         startTime:
-          $ref: >-
-            #/components/schemas/TimeOfDay_in_DaysOfWeekMaintenanceWindow_startTime
+          $ref: '#/components/schemas/TimeOfDay_in_DaysOfWeekMaintenanceWindow_startTime'
         duration:
           description: |-
             Длительность окна обновлений.
@@ -981,12 +802,10 @@ components:
       type: object
       properties:
         diskTypeId:
-          description: >-
+          description: |-
             Идентификатор типа диска.
 
-
-            Значение должно соответствовать регулярному выражению ``
-            |network-ssd|network-hdd ``.
+            Значение должно соответствовать регулярному выражению `` |network-ssd|network-hdd ``.
           type: string
         diskSize:
           description: |-
@@ -1003,56 +822,38 @@ components:
       type: object
       properties: {}
     FieldMask:
-      description: >-
+      description: |-
         Имена всех обновляемых полей, разделенные запятыми.
+        Только значения указанных полей будут изменены. Остальные останутся нетронутыми.
+        Если поле указано в параметре `` updateMask `` и в запросе не было отправлено значение для этого поля,
+        значение поля будет сброшено на значение по умолчанию. Значение по умолчанию для большинства полей — null или 0.
 
-        Только значения указанных полей будут изменены. Остальные останутся
-        нетронутыми.
-
-        Если поле указано в параметре `` updateMask `` и в запросе не было
-        отправлено значение для этого поля,
-
-        значение поля будет сброшено на значение по умолчанию. Значение по
-        умолчанию для большинства полей — null или 0.
-
-
-        Если в запросе не передается `` updateMask ``, значения всех полей будут
-        обновлены.
-
+        Если в запросе не передается `` updateMask ``, значения всех полей будут обновлены.
         Для полей, указанных в запросе, будут использованы переданные значения.
-
         Значения остальных полей будут сброшены на значения по умолчанию.
       type: string
     IPAllocationPolicy:
       type: object
       properties:
         clusterIpv4CidrBlock:
-          description: >-
+          description: |-
             CIDR. Диапазон IP-адресов для подов.
 
-
-            Диапазон не должен пересекаться ни с одной подсетью в облачной сети,
-            в которой находится кластер Kubernetes. Статические маршруты будут
-            настроены для этих
-
+            Диапазон не должен пересекаться ни с одной подсетью в облачной сети, в которой находится кластер Kubernetes. Статические маршруты будут настроены для этих
             блоков CIDR в подсетях узлов.
           type: string
         serviceIpv4CidrBlock:
-          description: >-
+          description: |-
             CIDR. Диапазон IP-адресов для сервисов.
 
-
-            Диапазон не должен пересекаться ни с одной подсетью в облачной сети,
-            в которой находится кластер Kubernetes.
+            Диапазон не должен пересекаться ни с одной подсетью в облачной сети, в которой находится кластер Kubernetes.
           type: string
     InternalAddressSpec:
       type: object
       properties:
         subnetId:
-          description: >-
-            Идентификатор подсети. Если идентификатор не указан, а в указанной
-            зоне имеется только одна подсеть, адрес будет выделен в этой
-            подсети.
+          description: Идентификатор подсети. Если идентификатор не указан, а в указанной
+            зоне имеется только одна подсеть, адрес будет выделен в этой подсети.
           type: string
     IpVersion:
       description: |2-
@@ -1060,8 +861,8 @@ components:
          - IPV6: IPv6-адрес, на данный момент не доступен.
       type: string
       enum:
-        - IPV4
-        - IPV6
+      - IPV4
+      - IPV6
     ListClusterNodeGroupsResponse:
       type: object
       properties:
@@ -1071,18 +872,10 @@ components:
           items:
             $ref: '#/components/schemas/NodeGroup'
         nextPageToken:
-          description: >-
-            Токен для получения следующей страницы результатов в ответе. Если
-            количество результатов больше чем
-            [pageSize](/docs/managed-kubernetes/api-ref/Cluster/listNodeGroups#query_params),
-            используйте
-
-            `next_page_token` в качестве значения параметра
-            [pageToken](/docs/managed-kubernetes/api-ref/Cluster/listNodeGroups#query_params)
-            в следующем запросе списка ресурсов. Все последующие запросы
-
-            будут получать свои значения `next_page_token` для перебора страниц
-            результатов.
+          description: |-
+            Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [pageSize](/docs/managed-kubernetes/api-ref/Cluster/listNodeGroups#query_params), используйте
+            `next_page_token` в качестве значения параметра [pageToken](/docs/managed-kubernetes/api-ref/Cluster/listNodeGroups#query_params) в следующем запросе списка ресурсов. Все последующие запросы
+            будут получать свои значения `next_page_token` для перебора страниц результатов.
           type: string
     ListClusterOperationsResponse:
       type: object
@@ -1093,18 +886,10 @@ components:
           items:
             $ref: '#/components/schemas/Operation'
         nextPageToken:
-          description: >-
-            Токен для получения следующей страницы результатов в ответе. Если
-            количество результатов больше чем
-            [pageSize](/docs/managed-kubernetes/api-ref/Cluster/listOperations#query_params),
-            используйте
-
-            `next_page_token` в качестве значения параметра
-            [pageToken](/docs/managed-kubernetes/api-ref/Cluster/listOperations#query_params)
-            в следующем запросе списка ресурсов. Все последующие запросы
-
-            будут получать свои значения `next_page_token` для перебора страниц
-            результатов.
+          description: |-
+            Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [pageSize](/docs/managed-kubernetes/api-ref/Cluster/listOperations#query_params), используйте
+            `next_page_token` в качестве значения параметра [pageToken](/docs/managed-kubernetes/api-ref/Cluster/listOperations#query_params) в следующем запросе списка ресурсов. Все последующие запросы
+            будут получать свои значения `next_page_token` для перебора страниц результатов.
           type: string
     ListClustersResponse:
       type: object
@@ -1115,18 +900,10 @@ components:
           items:
             $ref: '#/components/schemas/Cluster'
         nextPageToken:
-          description: >-
-            Токен для получения следующей страницы результатов в ответе. Если
-            количество результатов больше чем
-            [pageSize](/docs/managed-kubernetes/api-ref/Cluster/list#query_params),
-            используйте
-
-            `next_page_token` в качестве значения параметра
-            [pageToken](/docs/managed-kubernetes/api-ref/Cluster/list#query_params)
-            в следующем запросе списка ресурсов. Все последующие запросы будут
-
-            получать свои значения `next_page_token` для перебора страниц
-            результатов.
+          description: |-
+            Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [pageSize](/docs/managed-kubernetes/api-ref/Cluster/list#query_params), используйте
+            `next_page_token` в качестве значения параметра [pageToken](/docs/managed-kubernetes/api-ref/Cluster/list#query_params) в следующем запросе списка ресурсов. Все последующие запросы будут
+            получать свои значения `next_page_token` для перебора страниц результатов.
           type: string
     ListNodeGroupOperationsResponse:
       type: object
@@ -1137,18 +914,10 @@ components:
           items:
             $ref: '#/components/schemas/Operation'
         nextPageToken:
-          description: >-
-            Токен для получения следующей страницы результатов в ответе. Если
-            количество результатов больше чем
-            [pageSize](/docs/managed-kubernetes/api-ref/NodeGroup/listOperations#query_params),
-            используйте
-
-            `next_page_token` в качестве значения параметра
-            [pageToken](/docs/managed-kubernetes/api-ref/NodeGroup/listOperations#query_params)
-            в следующем запросе списка ресурсов. Все последующие запросы
-
-            будут получать свои значения `next_page_token` для перебора страниц
-            результатов.
+          description: |-
+            Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [pageSize](/docs/managed-kubernetes/api-ref/NodeGroup/listOperations#query_params), используйте
+            `next_page_token` в качестве значения параметра [pageToken](/docs/managed-kubernetes/api-ref/NodeGroup/listOperations#query_params) в следующем запросе списка ресурсов. Все последующие запросы
+            будут получать свои значения `next_page_token` для перебора страниц результатов.
           type: string
     ListNodeGroupsResponse:
       type: object
@@ -1159,18 +928,10 @@ components:
           items:
             $ref: '#/components/schemas/NodeGroup'
         nextPageToken:
-          description: >-
-            Токен для получения следующей страницы результатов в ответе. Если
-            количество результатов больше чем
-            [pageSize](/docs/managed-kubernetes/api-ref/NodeGroup/list#query_params),
-            используйте
-
-            `next_page_token` в качестве значения параметра
-            [pageToken](/docs/managed-kubernetes/api-ref/NodeGroup/list#query_params)
-            в следующем запросе списка ресурсов. Все последующие запросы будут
-
-            получать свои значения `next_page_token` для перебора страниц
-            результатов.
+          description: |-
+            Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [pageSize](/docs/managed-kubernetes/api-ref/NodeGroup/list#query_params), используйте
+            `next_page_token` в качестве значения параметра [pageToken](/docs/managed-kubernetes/api-ref/NodeGroup/list#query_params) в следующем запросе списка ресурсов. Все последующие запросы будут
+            получать свои значения `next_page_token` для перебора страниц результатов.
           type: string
     ListVersionsResponse:
       type: object
@@ -1183,80 +944,71 @@ components:
     MaintenanceWindow:
       type: object
       allOf:
-        - title: policy
-          type: object
-          maxProperties: 1
-          properties:
-            anytime:
-              $ref: '#/components/schemas/AnytimeMaintenanceWindow'
-              description: Обновление мастера в любое время.
-            dailyMaintenanceWindow:
-              $ref: '#/components/schemas/DailyMaintenanceWindow'
-              description: >-
-                Обновление мастера в любой день в течение указанного временного
-                окна.
-            weeklyMaintenanceWindow:
-              $ref: '#/components/schemas/WeeklyMaintenanceWindow'
-              description: >-
-                Обновление мастера в выбранные дни в течение указанного
-                временного окна.
+      - title: policy
+        type: object
+        maxProperties: 1
+        properties:
+          anytime:
+            $ref: '#/components/schemas/AnytimeMaintenanceWindow'
+            description: Обновление мастера в любое время.
+          dailyMaintenanceWindow:
+            $ref: '#/components/schemas/DailyMaintenanceWindow'
+            description: Обновление мастера в любой день в течение указанного временного
+              окна.
+          weeklyMaintenanceWindow:
+            $ref: '#/components/schemas/WeeklyMaintenanceWindow'
+            description: Обновление мастера в выбранные дни в течение указанного временного
+              окна.
     Master:
       type: object
       allOf:
-        - type: object
-          properties:
-            version:
-              description: Версия компонентов Kubernetes, которая запущена на мастере.
-              type: string
-            endpoints:
-              $ref: '#/components/schemas/MasterEndpoints'
-              description: >-
-                Эндпойнт мастера. Эндпойнты состоят из схемы и порта (т. е.
-                `https://ip-address:port`) и могут использоваться клиентами для
-                связи с API Kubernetes кластера
-
-                Kubernetes.
-            masterAuth:
-              $ref: '#/components/schemas/MasterAuth'
-              description: Параметры, используемые для аутентификации мастера.
-            versionInfo:
-              $ref: '#/components/schemas/VersionInfo'
-              description: >-
-                Подробная информация о версии Kubernetes, которая запущена на
-                мастере.
-            maintenancePolicy:
-              $ref: '#/components/schemas/MasterMaintenancePolicy'
-              description: Политика обновления мастера.
-        - title: master_type
-          type: object
-          maxProperties: 1
-          properties:
-            zonalMaster:
-              $ref: '#/components/schemas/ZonalMaster'
-              description: Параметры зоны доступности мастера.
-            regionalMaster:
-              $ref: '#/components/schemas/RegionalMaster'
-              description: Параметры региона для мастера.
+      - type: object
+        properties:
+          version:
+            description: Версия компонентов Kubernetes, которая запущена на мастере.
+            type: string
+          endpoints:
+            $ref: '#/components/schemas/MasterEndpoints'
+            description: |-
+              Эндпойнт мастера. Эндпойнты состоят из схемы и порта (т. е. `https://ip-address:port`) и могут использоваться клиентами для связи с API Kubernetes кластера
+              Kubernetes.
+          masterAuth:
+            $ref: '#/components/schemas/MasterAuth'
+            description: Параметры, используемые для аутентификации мастера.
+          versionInfo:
+            $ref: '#/components/schemas/VersionInfo'
+            description: Подробная информация о версии Kubernetes, которая запущена
+              на мастере.
+          maintenancePolicy:
+            $ref: '#/components/schemas/MasterMaintenancePolicy'
+            description: Политика обновления мастера.
+      - title: master_type
+        type: object
+        maxProperties: 1
+        properties:
+          zonalMaster:
+            $ref: '#/components/schemas/ZonalMaster'
+            description: Параметры зоны доступности мастера.
+          regionalMaster:
+            $ref: '#/components/schemas/RegionalMaster'
+            description: Параметры региона для мастера.
     MasterAuth:
       type: object
       properties:
         clusterCaCertificate:
-          description: >-
-            Публичный PEM-закодированный сертификат, подтверждающий подлинность
+          description: Публичный PEM-закодированный сертификат, подтверждающий подлинность
             кластера Kubernetes.
           type: string
     MasterEndpoints:
       type: object
       properties:
         internalV4Endpoint:
-          description: >-
-            Внутренний эндпойнт, который может использоваться для подключения к
-            мастеру из облачных сетей.
+          description: Внутренний эндпойнт, который может использоваться для подключения
+            к мастеру из облачных сетей.
           type: string
         externalV4Endpoint:
-          description: >-
-            Внешний эндпойнт, который может использоваться для доступа к API
-            кластера Kubernetes из интернета (вне Облака).
+          description: Внешний эндпойнт, который может использоваться для доступа
+            к API кластера Kubernetes из интернета (вне Облака).
           type: string
     MasterLocation:
       type: object
@@ -1267,52 +1019,46 @@ components:
             Идентификатор зоны доступности.
           type: string
         internalV4AddressSpec:
-          $ref: >-
-            #/components/schemas/InternalAddressSpec_in_MasterLocation_internalV4AddressSpec
+          $ref: '#/components/schemas/InternalAddressSpec_in_MasterLocation_internalV4AddressSpec'
     MasterMaintenancePolicy:
       type: object
       properties:
         autoUpgrade:
-          description: >-
-            Если установлено значение `true`, автоматическое обновление
-            устанавливается без участия пользователя в заданный промежуток
-            времени. Если установлено значение
-
+          description: |-
+            Если установлено значение `true`, автоматическое обновление устанавливается без участия пользователя в заданный промежуток времени. Если установлено значение
             `false`, автоматическое обновление отключено.
           type: boolean
           format: boolean
         maintenanceWindow:
-          $ref: >-
-            #/components/schemas/MaintenanceWindow_in_MasterMaintenancePolicy_maintenanceWindow
+          $ref: '#/components/schemas/MaintenanceWindow_in_MasterMaintenancePolicy_maintenanceWindow'
     MasterSpec:
       type: object
       allOf:
-        - type: object
-          properties:
-            version:
-              description: Версия компонентов Kubernetes, которая запущена на мастере.
-              type: string
-            maintenancePolicy:
-              $ref: '#/components/schemas/MasterMaintenancePolicy'
-              description: Политика обновления мастера.
-        - title: master_type
-          type: object
-          maxProperties: 1
-          properties:
-            zonalMasterSpec:
-              $ref: '#/components/schemas/ZonalMasterSpec'
-              description: Спецификация зонального мастера.
-            regionalMasterSpec:
-              $ref: '#/components/schemas/RegionalMasterSpec'
-              description: Спецификация регионального мастера.
+      - type: object
+        properties:
+          version:
+            description: Версия компонентов Kubernetes, которая запущена на мастере.
+            type: string
+          maintenancePolicy:
+            $ref: '#/components/schemas/MasterMaintenancePolicy'
+            description: Политика обновления мастера.
+      - title: master_type
+        type: object
+        maxProperties: 1
+        properties:
+          zonalMasterSpec:
+            $ref: '#/components/schemas/ZonalMasterSpec'
+            description: Спецификация зонального мастера.
+          regionalMasterSpec:
+            $ref: '#/components/schemas/RegionalMasterSpec'
+            description: Спецификация регионального мастера.
     MasterUpdateSpec:
       type: object
       properties:
         version:
           $ref: '#/components/schemas/UpdateVersionSpec_in_MasterUpdateSpec_version'
         maintenancePolicy:
-          $ref: >-
-            #/components/schemas/MasterMaintenancePolicy_in_MasterUpdateSpec_maintenancePolicy
+          $ref: '#/components/schemas/MasterMaintenancePolicy_in_MasterUpdateSpec_maintenancePolicy'
     NetworkPolicy:
       type: object
       properties:
@@ -1321,13 +1067,12 @@ components:
     NetworkPolicyProvider:
       type: string
       enum:
-        - CALICO
+      - CALICO
     NodeAddressSpec:
       type: object
       properties:
         oneToOneNatSpec:
-          $ref: >-
-            #/components/schemas/OneToOneNatSpec_in_NodeAddressSpec_oneToOneNatSpec
+          $ref: '#/components/schemas/OneToOneNatSpec_in_NodeAddressSpec_oneToOneNatSpec'
     NodeGroup:
       type: object
       properties:
@@ -1348,9 +1093,8 @@ components:
           description: Новое имя группы узлов. Имя уникально в рамках каталога.
           type: string
         description:
-          description: >-
-            Новое описание группы узлов. Длина описания должна быть от 0 до 256
-            символов.
+          description: Новое описание группы узлов. Длина описания должна быть от
+            0 до 256 символов.
           type: string
         labels:
           description: Метки ресурса в формате `key:value`. Максимум 64 метки на ресурс.
@@ -1364,27 +1108,22 @@ components:
         scalePolicy:
           $ref: '#/components/schemas/ScalePolicy_in_NodeGroup_scalePolicy'
         allocationPolicy:
-          $ref: >-
-            #/components/schemas/NodeGroupAllocationPolicy_in_NodeGroup_allocationPolicy
+          $ref: '#/components/schemas/NodeGroupAllocationPolicy_in_NodeGroup_allocationPolicy'
         instanceGroupId:
-          description: >-
-            Идентификатор группы виртуальных машин, связанной с этой группой
+          description: Идентификатор группы виртуальных машин, связанной с этой группой
             узлов.
           type: string
         nodeVersion:
-          description: >-
-            Версия компонентов Kubernetes, которая запущена на узлах. Устарел.
+          description: Версия компонентов Kubernetes, которая запущена на узлах. Устарел.
             Используйте version_info.current_version.
           type: string
         versionInfo:
           $ref: '#/components/schemas/VersionInfo_in_NodeGroup_versionInfo'
         maintenancePolicy:
-          $ref: >-
-            #/components/schemas/NodeGroupMaintenancePolicy_in_NodeGroup_maintenancePolicy
+          $ref: '#/components/schemas/NodeGroupMaintenancePolicy_in_NodeGroup_maintenancePolicy'
         allowedUnsafeSysctls:
-          description: >-
-            Поддержка параметров unsafe sysctl. Дополнительные сведения см. в
-            [documentation](https://kubernetes.io/docs/tasks/administer-cluster/sysctl-cluster/).
+          description: Поддержка параметров unsafe sysctl. Дополнительные сведения
+            см. в [documentation](https://kubernetes.io/docs/tasks/administer-cluster/sysctl-cluster/).
           type: array
           items:
             type: string
@@ -1392,9 +1131,8 @@ components:
       type: object
       properties:
         locations:
-          description: >-
-            Список местоположений (зон доступности и подсетей), в которых будут
-            выделены ресурсы для группы узлов.
+          description: Список местоположений (зон доступности и подсетей), в которых
+            будут выделены ресурсы для группы узлов.
           type: array
           items:
             $ref: '#/components/schemas/NodeGroupLocation'
@@ -1407,32 +1145,26 @@ components:
             Идентификатор зоны доступности, в которой могут находиться узлы.
           type: string
         subnetId:
-          description: >-
-            Идентификатор подсети. Если сеть, выбранная для кластера Kubernetes,
-            имеет только одну подсеть в указанной зоне, идентификатор подсети
-            может быть опущен.
+          description: Идентификатор подсети. Если сеть, выбранная для кластера Kubernetes,
+            имеет только одну подсеть в указанной зоне, идентификатор подсети может
+            быть опущен.
           type: string
     NodeGroupMaintenancePolicy:
       type: object
       properties:
         autoUpgrade:
-          description: >-
-            Если установлено значение `true`, автоматическое обновление
-            устанавливается без участия пользователя в заданный промежуток
-            времени. Если установлено значение
-
+          description: |-
+            Если установлено значение `true`, автоматическое обновление устанавливается без участия пользователя в заданный промежуток времени. Если установлено значение
             `false`, автоматическое обновление отключено.
           type: boolean
           format: boolean
         autoRepair:
-          description: >-
-            Если установлено значение `true`, автоматическое восстановление
-            включено. Значение по умолчанию: `false`.
+          description: 'Если установлено значение `true`, автоматическое восстановление
+            включено. Значение по умолчанию: `false`.'
           type: boolean
           format: boolean
         maintenanceWindow:
-          $ref: >-
-            #/components/schemas/MaintenanceWindow_in_NodeGroupMaintenancePolicy_maintenanceWindow
+          $ref: '#/components/schemas/MaintenanceWindow_in_NodeGroupMaintenancePolicy_maintenanceWindow'
     NodeGroupStatus:
       description: |2-
          - PROVISIONING: Группа узлов ожидает выделения ресурсов.
@@ -1444,13 +1176,13 @@ components:
          - STARTING: Группа узлов запускается.
       type: string
       enum:
-        - PROVISIONING
-        - RUNNING
-        - RECONCILING
-        - STOPPING
-        - STOPPED
-        - DELETING
-        - STARTING
+      - PROVISIONING
+      - RUNNING
+      - RECONCILING
+      - STOPPING
+      - STOPPED
+      - DELETING
+      - STARTING
     NodeTemplate:
       type: object
       properties:
@@ -1462,26 +1194,15 @@ components:
         bootDiskSpec:
           $ref: '#/components/schemas/DiskSpec_in_NodeTemplate_bootDiskSpec'
         metadata:
-          description: >-
-            Метаданные, назначаемые этому шаблону виртуальной машины, в формате
-            ``key:value``. Сюда входят пользовательские метаданные и
-            предопределенные ключи.
+          description: |-
+            Метаданные, назначаемые этому шаблону виртуальной машины, в формате ``key:value``. Сюда входят пользовательские метаданные и предопределенные ключи.
 
-
-            Например, вы можете использовать метаданные для предоставления
-            вашего открытого SSH-ключа узлу. Дополнительные сведения см. в
-            разделе
-
+            Например, вы можете использовать метаданные для предоставления вашего открытого SSH-ключа узлу. Дополнительные сведения см. в разделе
             [Metadata](/docs/compute/concepts/vm-metadata).
 
-
             Не более 128 на ресурс.
-
             Длина строки в символах для каждого ключа должна быть от 1 до 63.
-
-            Каждый ключ должен соответствовать регулярному выражению ``
-            [a-z][-_0-9a-z]* ``.
-
+            Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
             Максимальная длина строки в символах для каждого значения — 262144.
           type: object
           additionalProperties:
@@ -1489,8 +1210,7 @@ components:
         v4AddressSpec:
           $ref: '#/components/schemas/NodeAddressSpec_in_NodeTemplate_v4AddressSpec'
         schedulingPolicy:
-          $ref: >-
-            #/components/schemas/SchedulingPolicy_in_NodeTemplate_schedulingPolicy
+          $ref: '#/components/schemas/SchedulingPolicy_in_NodeTemplate_schedulingPolicy'
     OneToOneNatSpec:
       type: object
       properties:
@@ -1502,82 +1222,68 @@ components:
         [Объект Operation](/docs/api-design-guide/concepts/operation).
       type: object
       allOf:
-        - type: object
-          properties:
-            id:
-              description: Идентификатор операции.
-              type: string
-            description:
-              description: |-
-                Описание операции. Длина описания должна быть от 0 до 256
-                символов.
-              type: string
-            createdAt:
-              description: >-
-                Время создания ресурса в формате в
+      - type: object
+        properties:
+          id:
+            description: Идентификатор операции.
+            type: string
+          description:
+            description: |-
+              Описание операции. Длина описания должна быть от 0 до 256
+              символов.
+            type: string
+          createdAt:
+            description: |-
+              Время создания ресурса в формате в
+              [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
 
-                [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+              Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+            type: string
+            format: date-time
+          createdBy:
+            description: |-
+              Идентификатор пользователя или сервисного
+              аккаунта, инициировавшего операцию.
+            type: string
+          modifiedAt:
+            description: |-
+              Время, когда ресурс Operation последний раз
+              обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
 
-
-                Строка в формате
-                [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
-              type: string
-              format: date-time
-            createdBy:
-              description: |-
-                Идентификатор пользователя или сервисного
-                аккаунта, инициировавшего операцию.
-              type: string
-            modifiedAt:
-              description: >-
-                Время, когда ресурс Operation последний раз
-
-                обновлялся. Значение в формате
-                [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
-
-
-                Строка в формате
-                [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
-              type: string
-              format: date-time
-            done:
-              description: |-
-                Если значение равно `false` — операция еще
-                выполняется. Если `true` — операция завершена, и задано значение
-                одного из полей `error` или `response`.
-              type: boolean
-              format: boolean
-            metadata:
-              description: |-
-                Метаданные операции. Обычно в поле содержится
-                идентификатор ресурса, над которым выполняется операция. Если
-                метод возвращает ресурс Operation, в описании метода приведена
-                структура соответствующего ему поля `metadata`.
-              type: object
-        - title: result
-          type: object
-          maxProperties: 1
-          properties:
-            error:
-              $ref: '#/components/schemas/rpcStatus'
-              description: Описание ошибки в случае сбоя или отмены операции.
-            response:
-              description: >-
-                Результат операции в случае успешного завершения. Если
-
-                исходный метод не возвращает никаких данных при успешном
-
-                завершении, например метод Delete, поле содержит объект
-
-                [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty).
-                Если исходный метод — это стандартный метод Create
-
-                / Update, поле содержит целевой ресурс операции. Если метод
-
-                возвращает ресурс Operation, в описании метода приведена
-
-                структура соответствующего ему поля `response`.
-              type: object
+              Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+            type: string
+            format: date-time
+          done:
+            description: |-
+              Если значение равно `false` — операция еще
+              выполняется. Если `true` — операция завершена, и задано значение
+              одного из полей `error` или `response`.
+            type: boolean
+            format: boolean
+          metadata:
+            description: |-
+              Метаданные операции. Обычно в поле содержится
+              идентификатор ресурса, над которым выполняется операция. Если
+              метод возвращает ресурс Operation, в описании метода приведена
+              структура соответствующего ему поля `metadata`.
+            type: object
+      - title: result
+        type: object
+        maxProperties: 1
+        properties:
+          error:
+            $ref: '#/components/schemas/rpcStatus'
+            description: Описание ошибки в случае сбоя или отмены операции.
+          response:
+            description: |-
+              Результат операции в случае успешного завершения. Если
+              исходный метод не возвращает никаких данных при успешном
+              завершении, например метод Delete, поле содержит объект
+              [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty). Если исходный метод — это стандартный метод Create
+              / Update, поле содержит целевой ресурс операции. Если метод
+              возвращает ресурс Operation, в описании метода приведена
+              структура соответствующего ему поля `response`.
+            type: object
     RegionalMaster:
       type: object
       properties:
@@ -1599,27 +1305,24 @@ components:
             Идентификатор зоны доступности, в которой находится мастер.
           type: string
         locations:
-          description: >-
-            Список местоположений (зон доступности и подсетей), в которых будут
-            выделены ресурсы для мастера.
+          description: Список местоположений (зон доступности и подсетей), в которых
+            будут выделены ресурсы для мастера.
           type: array
           items:
             $ref: '#/components/schemas/MasterLocation'
         externalV4AddressSpec:
-          $ref: >-
-            #/components/schemas/ExternalAddressSpec_in_RegionalMasterSpec_externalV4AddressSpec
+          $ref: '#/components/schemas/ExternalAddressSpec_in_RegionalMasterSpec_externalV4AddressSpec'
     ReleaseChannel:
-      description: >2-
+      description: |2-
          - RAPID: На канале часто появляются минорные обновления, содержащие новую функциональность и улучшения. Вы не можете отключить автоматическое обновление на этом
-        канале, но вы можете указать период времени для автоматического
-        обновления.
+        канале, но вы можете указать период времени для автоматического обновления.
          - REGULAR: Новая функциональность и улучшения порциями попадают на канал через некоторое время после того, как были предоставлены на канале `RAPID`.
          - STABLE: На канале происходят только обновления, касающиеся исправление ошибок или улучшения безопасности.
       type: string
       enum:
-        - RAPID
-        - REGULAR
-        - STABLE
+      - RAPID
+      - REGULAR
+      - STABLE
     ResourcesSpec:
       type: object
       properties:
@@ -1631,22 +1334,16 @@ components:
           type: string
           format: int64
         cores:
-          description: >-
+          description: |-
             Количество ядер, доступное узлу.
 
-
-            Значение должно быть равно 0, 1, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20,
-            22, 24, 26, 28, 30 или 32.
+            Значение должно быть равно 0, 1, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30 или 32.
           type: string
           format: int64
         coreFraction:
-          description: >-
-            Базовый уровень производительности CPU с возможностью повышения
-            производительности выше этого уровня. Это поле устанавливает базовую
-            производительность для
-
+          description: |-
+            Базовый уровень производительности CPU с возможностью повышения производительности выше этого уровня. Это поле устанавливает базовую производительность для
             каждого ядра.
-
 
             Значение должно быть равно 0, 5, 20, 50 или 100.
           type: string
@@ -1654,16 +1351,16 @@ components:
     ScalePolicy:
       type: object
       allOf:
-        - title: scale_type
-          type: object
-          maxProperties: 1
-          properties:
-            fixedScale:
-              $ref: '#/components/schemas/ScalePolicyFixedScale'
-              description: Политика масштабирования группы узлов.
-            autoScale:
-              $ref: '#/components/schemas/ScalePolicyAutoScale'
-              description: Политика масштабирования группы узлов.
+      - title: scale_type
+        type: object
+        maxProperties: 1
+        properties:
+          fixedScale:
+            $ref: '#/components/schemas/ScalePolicyFixedScale'
+            description: Политика масштабирования группы узлов.
+          autoScale:
+            $ref: '#/components/schemas/ScalePolicyAutoScale'
+            description: Политика масштабирования группы узлов.
     ScalePolicyAutoScale:
       type: object
       properties:
@@ -1702,17 +1399,10 @@ components:
       type: object
       properties:
         preemptible:
-          description: >-
-            Если значение равно `true` — будет создана прерываемая виртуальная
-            машина. Значение по умолчанию: `false`. Прерываемые виртуальные
-            машины будут принудительно
-
-            остановлены в срок, не превышающий 24 часа с момента их создания.
-            Остановленные виртуальные машины можно запустить повторно, без
-            потери данных.
-
-            Дополнительные сведения см. в разделе [Preemptible Virtual
-            Machines](/docs/compute/concepts/preemptible-vm).
+          description: |-
+            Если значение равно `true` — будет создана прерываемая виртуальная машина. Значение по умолчанию: `false`. Прерываемые виртуальные машины будут принудительно
+            остановлены в срок, не превышающий 24 часа с момента их создания. Остановленные виртуальные машины можно запустить повторно, без потери данных.
+            Дополнительные сведения см. в разделе [Preemptible Virtual Machines](/docs/compute/concepts/preemptible-vm).
           type: boolean
           format: boolean
     StartClusterMetadata:
@@ -1728,31 +1418,21 @@ components:
           description: Идентификатор кластера Kubernetes, который останавливается.
           type: string
     TimeOfDay:
-      description: >-
+      description: |-
         Время суток.
-
         Дата и часовой пояс либо не учитываются, либо задаются в других местах.
-
 
         API может разрешить использование високосной секунды.
 
-
-        Связанные типы:
-        [google.type.Date](https://github.com/googleapis/googleapis/blob/master/google/type/date.proto)
-        и
-        [google.protobuf.Timestamp](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto).
+        Связанные типы: [google.type.Date](https://github.com/googleapis/googleapis/blob/master/google/type/date.proto) и [google.protobuf.Timestamp](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto).
       type: object
       properties:
         hours:
-          description: >-
+          description: |-
             Часы.
-
             Допустимые значения: от 0 до 23.
 
-
-            API может разрешить использовать значение в формате "24:00:00" в
-            требующих этого сценариях (например, для указания времени закрытия
-            учреждения).
+            API может разрешить использовать значение в формате "24:00:00" в требующих этого сценариях (например, для указания времени закрытия учреждения).
           type: integer
           format: int32
         minutes:
@@ -1762,14 +1442,11 @@ components:
           type: integer
           format: int32
         seconds:
-          description: >-
+          description: |-
             Секунды.
-
             Стандартные допустимые значения: от 0 до 59.
 
-
-            API может разрешить использовать значение 60, если также разрешено
-            использование високосной секунды.
+            API может разрешить использовать значение 60, если также разрешено использование високосной секунды.
           type: integer
           format: int32
         nanos:
@@ -1787,78 +1464,60 @@ components:
     UpdateClusterRequest:
       type: object
       allOf:
-        - type: object
-          properties:
-            updateMask:
-              $ref: '#/components/schemas/FieldMask'
-            name:
-              description: >-
-                Имя кластера Kubernetes. Имя должно быть уникальным в каталоге.
+      - type: object
+        properties:
+          updateMask:
+            $ref: '#/components/schemas/FieldMask'
+          name:
+            description: |-
+              Имя кластера Kubernetes. Имя должно быть уникальным в каталоге.
 
+              Значение должно соответствовать регулярному выражению `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+            type: string
+          description:
+            description: |-
+              Описание кластера Kubernetes.
 
-                Значение должно соответствовать регулярному выражению ``
-                |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+              Максимальная длина строки в символах — 256.
+            type: string
+          labels:
+            description: |-
+              Метки ресурса в формате `key:value`.
+
+              Существующий набор `labels` полностью перезаписывается набором, переданным в запросе.
+
+              Не более 64 на ресурс.
+              Длина строки в символах для каждого ключа должна быть от 1 до 63.
+              Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
+              Максимальная длина строки в символах для каждого значения — 63.
+              Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.
+            type: object
+            additionalProperties:
               type: string
-            description:
-              description: |-
-                Описание кластера Kubernetes.
+          masterSpec:
+            $ref: '#/components/schemas/MasterUpdateSpec'
+            description: Спецификация обновления мастера.
+          serviceAccountId:
+            description: |-
+              Сервисный аккаунт, используемый для выделения Compute Cloud и VPC ресурсов для кластера Kubernetes. Выбранный сервисный аккаунт должна иметь `edit` роль в
+              каталоге, в котором будет расположен кластер Kubernetes, и в каталоге, в котором находится выбранная сеть.
+            type: string
+          nodeServiceAccountId:
+            description: Сервисный аккаунт, используемый узлами кластера Kubernetes
+              для доступа к Container Registry или для загрузки логов и метрик узла.
+            type: string
+          networkPolicy:
+            $ref: '#/components/schemas/NetworkPolicy'
+      - title: internet_gateway
+        type: object
+        maxProperties: 1
+        properties:
+          gatewayIpv4Address:
+            description: |-
+              Адрес шлюза IPv4.
 
-                Максимальная длина строки в символах — 256.
-              type: string
-            labels:
-              description: >-
-                Метки ресурса в формате `key:value`.
-
-
-                Существующий набор `labels` полностью перезаписывается набором,
-                переданным в запросе.
-
-
-                Не более 64 на ресурс.
-
-                Длина строки в символах для каждого ключа должна быть от 1 до
-                63.
-
-                Каждый ключ должен соответствовать регулярному выражению ``
-                [a-z][-_0-9a-z]* ``.
-
-                Максимальная длина строки в символах для каждого значения — 63.
-
-                Каждое значение должно соответствовать регулярному выражению ``
-                [-_0-9a-z]* ``.
-              type: object
-              additionalProperties:
-                type: string
-            masterSpec:
-              $ref: '#/components/schemas/MasterUpdateSpec'
-              description: Спецификация обновления мастера.
-            serviceAccountId:
-              description: >-
-                Сервисный аккаунт, используемый для выделения Compute Cloud и
-                VPC ресурсов для кластера Kubernetes. Выбранный сервисный
-                аккаунт должна иметь `edit` роль в
-
-                каталоге, в котором будет расположен кластер Kubernetes, и в
-                каталоге, в котором находится выбранная сеть.
-              type: string
-            nodeServiceAccountId:
-              description: >-
-                Сервисный аккаунт, используемый узлами кластера Kubernetes для
-                доступа к Container Registry или для загрузки логов и метрик
-                узла.
-              type: string
-            networkPolicy:
-              $ref: '#/components/schemas/NetworkPolicy'
-        - title: internet_gateway
-          type: object
-          maxProperties: 1
-          properties:
-            gatewayIpv4Address:
-              description: |-
-                Адрес шлюза IPv4.
-
-                Максимальная длина строки в символах — 15.
-              type: string
+              Максимальная длина строки в символах — 15.
+            type: string
     UpdateNodeGroupMetadata:
       type: object
       properties:
@@ -1873,12 +1532,10 @@ components:
         updateMask:
           $ref: '#/components/schemas/FieldMask_in_UpdateNodeGroupRequest_updateMask'
         name:
-          description: >-
+          description: |-
             Новое имя группы узлов. Имя должно быть уникальным в каталоге.
 
-
-            Значение должно соответствовать регулярному выражению ``
-            |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+            Значение должно соответствовать регулярному выражению `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
           type: string
         description:
           description: |-
@@ -1887,106 +1544,81 @@ components:
             Максимальная длина строки в символах — 256.
           type: string
         labels:
-          description: >-
+          description: |-
             Метки ресурса в формате `key:value`.
 
-
-            Существующий набор `labels` полностью перезаписывается набором,
-            переданным в запросе.
-
+            Существующий набор `labels` полностью перезаписывается набором, переданным в запросе.
 
             Не более 64 на ресурс.
-
             Длина строки в символах для каждого ключа должна быть от 1 до 63.
-
-            Каждый ключ должен соответствовать регулярному выражению ``
-            [a-z][-_0-9a-z]* ``.
-
+            Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
             Максимальная длина строки в символах для каждого значения — 63.
-
-            Каждое значение должно соответствовать регулярному выражению ``
-            [-_0-9a-z]* ``.
+            Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.
           type: object
           additionalProperties:
             type: string
         nodeTemplate:
-          $ref: >-
-            #/components/schemas/NodeTemplate_in_UpdateNodeGroupRequest_nodeTemplate
+          $ref: '#/components/schemas/NodeTemplate_in_UpdateNodeGroupRequest_nodeTemplate'
         scalePolicy:
-          $ref: >-
-            #/components/schemas/ScalePolicy_in_UpdateNodeGroupRequest_scalePolicy
+          $ref: '#/components/schemas/ScalePolicy_in_UpdateNodeGroupRequest_scalePolicy'
         allocationPolicy:
-          $ref: >-
-            #/components/schemas/NodeGroupAllocationPolicy_in_UpdateNodeGroupRequest_allocationPolicy
+          $ref: '#/components/schemas/NodeGroupAllocationPolicy_in_UpdateNodeGroupRequest_allocationPolicy'
         version:
-          $ref: >-
-            #/components/schemas/UpdateVersionSpec_in_UpdateNodeGroupRequest_version
+          $ref: '#/components/schemas/UpdateVersionSpec_in_UpdateNodeGroupRequest_version'
         maintenancePolicy:
-          $ref: >-
-            #/components/schemas/NodeGroupMaintenancePolicy_in_UpdateNodeGroupRequest_maintenancePolicy
+          $ref: '#/components/schemas/NodeGroupMaintenancePolicy_in_UpdateNodeGroupRequest_maintenancePolicy'
         allowedUnsafeSysctls:
-          description: >-
-            Поддержка параметров unsafe sysctl. Дополнительные сведения см. в
-            [документации](https://kubernetes.io/docs/tasks/administer-cluster/sysctl-cluster/).
+          description: Поддержка параметров unsafe sysctl. Дополнительные сведения
+            см. в [документации](https://kubernetes.io/docs/tasks/administer-cluster/sysctl-cluster/).
           type: array
           items:
             type: string
     UpdateVersionSpec:
       type: object
       allOf:
-        - title: specifier
-          type: object
-          maxProperties: 1
-          properties:
-            version:
-              description: >-
-                Запрос обновления до более новой версии Kubernetes (1.x - >
-                1.y).
-              type: string
-            latestRevision:
-              description: >-
-                Запрос минорного обновления, содержащего новую функциональность
-                и улучшения, для текущей версии Kubernetes.
-              type: boolean
-              format: boolean
+      - title: specifier
+        type: object
+        maxProperties: 1
+        properties:
+          version:
+            description: Запрос обновления до более новой версии Kubernetes (1.x -
+              > 1.y).
+            type: string
+          latestRevision:
+            description: Запрос минорного обновления, содержащего новую функциональность
+              и улучшения, для текущей версии Kubernetes.
+            type: boolean
+            format: boolean
     VersionInfo:
       type: object
       properties:
         currentVersion:
-          description: 'Текущая версия Kubernetes, формат: major.minor (например, 1.15).'
+          description: 'Текущая версия Kubernetes, формат: major.minor (например,
+            1.15).'
           type: string
         newRevisionAvailable:
-          description: >-
-            Новые версии могут включать патчи Kubernetes (например, 1.15.1 ->
-            1.15.2), а также некоторые обновления внутренних компонентов — новые
-            функции или
-
-            исправления ошибок в конкретных компонентах Яндекса на мастере или
-            на узлах.
+          description: |-
+            Новые версии могут включать патчи Kubernetes (например, 1.15.1 -> 1.15.2), а также некоторые обновления внутренних компонентов — новые функции или
+            исправления ошибок в конкретных компонентах Яндекса на мастере или на узлах.
           type: boolean
           format: boolean
         newRevisionSummary:
-          description: >-
-            Описание изменений, которые будут применены при обновлении до
-            последней версии. Пусто, если поле `new_revision_available` имеет
-            значение `false`.
+          description: Описание изменений, которые будут применены при обновлении
+            до последней версии. Пусто, если поле `new_revision_available` имеет значение
+            `false`.
           type: string
         versionDeprecated:
-          description: >-
-            Текущая версия устарела, компонент кластера Kubernetes (мастер или
-            группа узлов) должен быть обновлен.
+          description: Текущая версия устарела, компонент кластера Kubernetes (мастер
+            или группа узлов) должен быть обновлен.
           type: boolean
           format: boolean
     WeeklyMaintenanceWindow:
       type: object
       properties:
         daysOfWeek:
-          description: >-
+          description: |-
             Обязательное поле.
-
-            Дни недели и окно обновлений для этих дней, когда разрешены
-            автоматические обновления.
-
+            Дни недели и окно обновлений для этих дней, когда разрешены автоматические обновления.
 
             Количество элементов должно находиться в диапазоне от 1 до 7.
           type: array
@@ -2013,19 +1645,15 @@ components:
             Идентификатор зоны доступности.
           type: string
         internalV4AddressSpec:
-          $ref: >-
-            #/components/schemas/InternalAddressSpec_in_ZonalMasterSpec_internalV4AddressSpec
+          $ref: '#/components/schemas/InternalAddressSpec_in_ZonalMasterSpec_internalV4AddressSpec'
         externalV4AddressSpec:
-          $ref: >-
-            #/components/schemas/ExternalAddressSpec_in_ZonalMasterSpec_externalV4AddressSpec
+          $ref: '#/components/schemas/ExternalAddressSpec_in_ZonalMasterSpec_externalV4AddressSpec'
     rpcStatus:
       description: Описание ошибки в случае сбоя или отмены операции.
       type: object
       properties:
         code:
-          description: >-
-            Код ошибки. Значение из списка
-            [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
+          description: Код ошибки. Значение из списка [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
           type: integer
           format: int32
         message:
@@ -2037,22 +1665,19 @@ components:
           items:
             type: object
     ReleaseChannel_in_AvailableVersions_releaseChannel:
-      description: >-
-        Релизный канал: `RAPID`, `REGULAR` или `STABLE`. Дополнительные сведения
-        см. в
-
+      description: |-
+        Релизный канал: `RAPID`, `REGULAR` или `STABLE`. Дополнительные сведения см. в
         [документации](https://cloud.yandex.ru/docs/managed-kubernetes/concepts/release-channels-and-updates).
 
          - RAPID: На канале часто появляются минорные обновления, содержащие новую функциональность и улучшения. Вы не можете отключить автоматическое обновление на этом
-        канале, но вы можете указать период времени для автоматического
-        обновления.
+        канале, но вы можете указать период времени для автоматического обновления.
          - REGULAR: Новая функциональность и улучшения порциями попадают на канал через некоторое время после того, как были предоставлены на канале `RAPID`.
          - STABLE: На канале происходят только обновления, касающиеся исправление ошибок или улучшения безопасности.
       type: string
       enum:
-        - RAPID
-        - REGULAR
-        - STABLE
+      - RAPID
+      - REGULAR
+      - STABLE
     NodeTemplate_in_CreateNodeGroupRequest_nodeTemplate:
       description: |-
         Обязательное поле.
@@ -2067,26 +1692,15 @@ components:
         bootDiskSpec:
           $ref: '#/components/schemas/DiskSpec_in_NodeTemplate_bootDiskSpec'
         metadata:
-          description: >-
-            Метаданные, назначаемые этому шаблону виртуальной машины, в формате
-            ``key:value``. Сюда входят пользовательские метаданные и
-            предопределенные ключи.
+          description: |-
+            Метаданные, назначаемые этому шаблону виртуальной машины, в формате ``key:value``. Сюда входят пользовательские метаданные и предопределенные ключи.
 
-
-            Например, вы можете использовать метаданные для предоставления
-            вашего открытого SSH-ключа узлу. Дополнительные сведения см. в
-            разделе
-
+            Например, вы можете использовать метаданные для предоставления вашего открытого SSH-ключа узлу. Дополнительные сведения см. в разделе
             [Metadata](/docs/compute/concepts/vm-metadata).
 
-
             Не более 128 на ресурс.
-
             Длина строки в символах для каждого ключа должна быть от 1 до 63.
-
-            Каждый ключ должен соответствовать регулярному выражению ``
-            [a-z][-_0-9a-z]* ``.
-
+            Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
             Максимальная длина строки в символах для каждого значения — 262144.
           type: object
           additionalProperties:
@@ -2094,32 +1708,30 @@ components:
         v4AddressSpec:
           $ref: '#/components/schemas/NodeAddressSpec_in_NodeTemplate_v4AddressSpec'
         schedulingPolicy:
-          $ref: >-
-            #/components/schemas/SchedulingPolicy_in_NodeTemplate_schedulingPolicy
+          $ref: '#/components/schemas/SchedulingPolicy_in_NodeTemplate_schedulingPolicy'
     ScalePolicy_in_CreateNodeGroupRequest_scalePolicy:
       description: |-
         Обязательное поле.
         Политика масштабирования группы узлов.
       type: object
       allOf:
-        - title: scale_type
-          type: object
-          maxProperties: 1
-          properties:
-            fixedScale:
-              $ref: '#/components/schemas/ScalePolicyFixedScale'
-              description: Политика масштабирования группы узлов.
-            autoScale:
-              $ref: '#/components/schemas/ScalePolicyAutoScale'
-              description: Политика масштабирования группы узлов.
+      - title: scale_type
+        type: object
+        maxProperties: 1
+        properties:
+          fixedScale:
+            $ref: '#/components/schemas/ScalePolicyFixedScale'
+            description: Политика масштабирования группы узлов.
+          autoScale:
+            $ref: '#/components/schemas/ScalePolicyAutoScale'
+            description: Политика масштабирования группы узлов.
     NodeGroupAllocationPolicy_in_CreateNodeGroupRequest_allocationPolicy:
       description: Политика распределения группы узлов по зонам и регионам.
       type: object
       properties:
         locations:
-          description: >-
-            Список местоположений (зон доступности и подсетей), в которых будут
-            выделены ресурсы для группы узлов.
+          description: Список местоположений (зон доступности и подсетей), в которых
+            будут выделены ресурсы для группы узлов.
           type: array
           items:
             $ref: '#/components/schemas/NodeGroupLocation'
@@ -2128,54 +1740,37 @@ components:
       type: object
       properties:
         autoUpgrade:
-          description: >-
-            Если установлено значение `true`, автоматическое обновление
-            устанавливается без участия пользователя в заданный промежуток
-            времени. Если установлено значение
-
+          description: |-
+            Если установлено значение `true`, автоматическое обновление устанавливается без участия пользователя в заданный промежуток времени. Если установлено значение
             `false`, автоматическое обновление отключено.
           type: boolean
           format: boolean
         autoRepair:
-          description: >-
-            Если установлено значение `true`, автоматическое восстановление
-            включено. Значение по умолчанию: `false`.
+          description: 'Если установлено значение `true`, автоматическое восстановление
+            включено. Значение по умолчанию: `false`.'
           type: boolean
           format: boolean
         maintenanceWindow:
-          $ref: >-
-            #/components/schemas/MaintenanceWindow_in_NodeGroupMaintenancePolicy_maintenanceWindow
+          $ref: '#/components/schemas/MaintenanceWindow_in_NodeGroupMaintenancePolicy_maintenanceWindow'
     TimeOfDay_in_DailyMaintenanceWindow_startTime:
-      description: >-
+      description: |-
         Обязательное поле.
-
         Время начала окна обновлений, указывается в часовом поясе UTC.
 
-
         Время суток.
-
         Дата и часовой пояс либо не учитываются, либо задаются в других местах.
-
 
         API может разрешить использование високосной секунды.
 
-
-        Связанные типы:
-        [google.type.Date](https://github.com/googleapis/googleapis/blob/master/google/type/date.proto)
-        и
-        [google.protobuf.Timestamp](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto).
+        Связанные типы: [google.type.Date](https://github.com/googleapis/googleapis/blob/master/google/type/date.proto) и [google.protobuf.Timestamp](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto).
       type: object
       properties:
         hours:
-          description: >-
+          description: |-
             Часы.
-
             Допустимые значения: от 0 до 23.
 
-
-            API может разрешить использовать значение в формате "24:00:00" в
-            требующих этого сценариях (например, для указания времени закрытия
-            учреждения).
+            API может разрешить использовать значение в формате "24:00:00" в требующих этого сценариях (например, для указания времени закрытия учреждения).
           type: integer
           format: int32
         minutes:
@@ -2185,14 +1780,11 @@ components:
           type: integer
           format: int32
         seconds:
-          description: >-
+          description: |-
             Секунды.
-
             Стандартные допустимые значения: от 0 до 59.
 
-
-            API может разрешить использовать значение 60, если также разрешено
-            использование високосной секунды.
+            API может разрешить использовать значение 60, если также разрешено использование високосной секунды.
           type: integer
           format: int32
         nanos:
@@ -2202,36 +1794,24 @@ components:
           type: integer
           format: int32
     TimeOfDay_in_DaysOfWeekMaintenanceWindow_startTime:
-      description: >-
+      description: |-
         Обязательное поле.
-
         Время начала окна обновлений, указывается в часовом поясе UTC.
 
-
         Время суток.
-
         Дата и часовой пояс либо не учитываются, либо задаются в других местах.
-
 
         API может разрешить использование високосной секунды.
 
-
-        Связанные типы:
-        [google.type.Date](https://github.com/googleapis/googleapis/blob/master/google/type/date.proto)
-        и
-        [google.protobuf.Timestamp](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto).
+        Связанные типы: [google.type.Date](https://github.com/googleapis/googleapis/blob/master/google/type/date.proto) и [google.protobuf.Timestamp](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto).
       type: object
       properties:
         hours:
-          description: >-
+          description: |-
             Часы.
-
             Допустимые значения: от 0 до 23.
 
-
-            API может разрешить использовать значение в формате "24:00:00" в
-            требующих этого сценариях (например, для указания времени закрытия
-            учреждения).
+            API может разрешить использовать значение в формате "24:00:00" в требующих этого сценариях (например, для указания времени закрытия учреждения).
           type: integer
           format: int32
         minutes:
@@ -2241,14 +1821,11 @@ components:
           type: integer
           format: int32
         seconds:
-          description: >-
+          description: |-
             Секунды.
-
             Стандартные допустимые значения: от 0 до 59.
 
-
-            API может разрешить использовать значение 60, если также разрешено
-            использование високосной секунды.
+            API может разрешить использовать значение 60, если также разрешено использование високосной секунды.
           type: integer
           format: int32
         nanos:
@@ -2258,86 +1835,70 @@ components:
           type: integer
           format: int32
     InternalAddressSpec_in_MasterLocation_internalV4AddressSpec:
-      description: >-
-        Если параметр не указан и в указанной зоне доступности только одна
+      description: Если параметр не указан и в указанной зоне доступности только одна
         подсеть, то адрес будет выделен в этой подсети.
       type: object
       properties:
         subnetId:
-          description: >-
-            Идентификатор подсети. Если идентификатор не указан, а в указанной
-            зоне имеется только одна подсеть, адрес будет выделен в этой
-            подсети.
+          description: Идентификатор подсети. Если идентификатор не указан, а в указанной
+            зоне имеется только одна подсеть, адрес будет выделен в этой подсети.
           type: string
     MaintenanceWindow_in_MasterMaintenancePolicy_maintenanceWindow:
-      description: >-
-        Настройки окна обновления. Обновление начнется в указанное время и
-        продлится не более указанного времени. Время устанавливается в формате
-        UTC.
+      description: Настройки окна обновления. Обновление начнется в указанное время
+        и продлится не более указанного времени. Время устанавливается в формате UTC.
       type: object
       allOf:
-        - title: policy
-          type: object
-          maxProperties: 1
-          properties:
-            anytime:
-              $ref: '#/components/schemas/AnytimeMaintenanceWindow'
-              description: Обновление мастера в любое время.
-            dailyMaintenanceWindow:
-              $ref: '#/components/schemas/DailyMaintenanceWindow'
-              description: >-
-                Обновление мастера в любой день в течение указанного временного
-                окна.
-            weeklyMaintenanceWindow:
-              $ref: '#/components/schemas/WeeklyMaintenanceWindow'
-              description: >-
-                Обновление мастера в выбранные дни в течение указанного
-                временного окна.
+      - title: policy
+        type: object
+        maxProperties: 1
+        properties:
+          anytime:
+            $ref: '#/components/schemas/AnytimeMaintenanceWindow'
+            description: Обновление мастера в любое время.
+          dailyMaintenanceWindow:
+            $ref: '#/components/schemas/DailyMaintenanceWindow'
+            description: Обновление мастера в любой день в течение указанного временного
+              окна.
+          weeklyMaintenanceWindow:
+            $ref: '#/components/schemas/WeeklyMaintenanceWindow'
+            description: Обновление мастера в выбранные дни в течение указанного временного
+              окна.
     UpdateVersionSpec_in_MasterUpdateSpec_version:
       description: Спецификация обновления мастера.
       type: object
       allOf:
-        - title: specifier
-          type: object
-          maxProperties: 1
-          properties:
-            version:
-              description: >-
-                Запрос обновления до более новой версии Kubernetes (1.x - >
-                1.y).
-              type: string
-            latestRevision:
-              description: >-
-                Запрос минорного обновления, содержащего новую функциональность
-                и улучшения, для текущей версии Kubernetes.
-              type: boolean
-              format: boolean
+      - title: specifier
+        type: object
+        maxProperties: 1
+        properties:
+          version:
+            description: Запрос обновления до более новой версии Kubernetes (1.x -
+              > 1.y).
+            type: string
+          latestRevision:
+            description: Запрос минорного обновления, содержащего новую функциональность
+              и улучшения, для текущей версии Kubernetes.
+            type: boolean
+            format: boolean
     MasterMaintenancePolicy_in_MasterUpdateSpec_maintenancePolicy:
       description: Политика обновления мастера.
       type: object
       properties:
         autoUpgrade:
-          description: >-
-            Если установлено значение `true`, автоматическое обновление
-            устанавливается без участия пользователя в заданный промежуток
-            времени. Если установлено значение
-
+          description: |-
+            Если установлено значение `true`, автоматическое обновление устанавливается без участия пользователя в заданный промежуток времени. Если установлено значение
             `false`, автоматическое обновление отключено.
           type: boolean
           format: boolean
         maintenanceWindow:
-          $ref: >-
-            #/components/schemas/MaintenanceWindow_in_MasterMaintenancePolicy_maintenanceWindow
+          $ref: '#/components/schemas/MaintenanceWindow_in_MasterMaintenancePolicy_maintenanceWindow'
     NetworkPolicyProvider_in_NetworkPolicy_provider:
       type: string
       enum:
-        - CALICO
+      - CALICO
     OneToOneNatSpec_in_NodeAddressSpec_oneToOneNatSpec:
-      description: >-
-        Конфигурация one-to-one NAT. Настройка one-to-one NAT гарантирует, что
-        узлам будут назначены публичные IP-адреса. Поэтому интернет будет
-        доступен на всех
-
+      description: |-
+        Конфигурация one-to-one NAT. Настройка one-to-one NAT гарантирует, что узлам будут назначены публичные IP-адреса. Поэтому интернет будет доступен на всех
         узлах группы узлов. Если поле не задано, NAT не будет настроен.
       type: object
       properties:
@@ -2356,17 +1917,16 @@ components:
          - STARTING: Группа узлов запускается.
       type: string
       enum:
-        - PROVISIONING
-        - RUNNING
-        - RECONCILING
-        - STOPPING
-        - STOPPED
-        - DELETING
-        - STARTING
+      - PROVISIONING
+      - RUNNING
+      - RECONCILING
+      - STOPPING
+      - STOPPED
+      - DELETING
+      - STARTING
     NodeTemplate_in_NodeGroup_nodeTemplate:
-      description: >-
-        Шаблон узла, задающий параметры вычислительных экземпляров для группы
-        узлов.
+      description: Шаблон узла, задающий параметры вычислительных экземпляров для
+        группы узлов.
       type: object
       properties:
         platformId:
@@ -2377,26 +1937,15 @@ components:
         bootDiskSpec:
           $ref: '#/components/schemas/DiskSpec_in_NodeTemplate_bootDiskSpec'
         metadata:
-          description: >-
-            Метаданные, назначаемые этому шаблону виртуальной машины, в формате
-            ``key:value``. Сюда входят пользовательские метаданные и
-            предопределенные ключи.
+          description: |-
+            Метаданные, назначаемые этому шаблону виртуальной машины, в формате ``key:value``. Сюда входят пользовательские метаданные и предопределенные ключи.
 
-
-            Например, вы можете использовать метаданные для предоставления
-            вашего открытого SSH-ключа узлу. Дополнительные сведения см. в
-            разделе
-
+            Например, вы можете использовать метаданные для предоставления вашего открытого SSH-ключа узлу. Дополнительные сведения см. в разделе
             [Metadata](/docs/compute/concepts/vm-metadata).
 
-
             Не более 128 на ресурс.
-
             Длина строки в символах для каждого ключа должна быть от 1 до 63.
-
-            Каждый ключ должен соответствовать регулярному выражению ``
-            [a-z][-_0-9a-z]* ``.
-
+            Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
             Максимальная длина строки в символах для каждого значения — 262144.
           type: object
           additionalProperties:
@@ -2404,36 +1953,31 @@ components:
         v4AddressSpec:
           $ref: '#/components/schemas/NodeAddressSpec_in_NodeTemplate_v4AddressSpec'
         schedulingPolicy:
-          $ref: >-
-            #/components/schemas/SchedulingPolicy_in_NodeTemplate_schedulingPolicy
+          $ref: '#/components/schemas/SchedulingPolicy_in_NodeTemplate_schedulingPolicy'
     ScalePolicy_in_NodeGroup_scalePolicy:
-      description: >-
-        Политика масштабирования группы узлов. Дополнительные сведения см. в
-        разделе [Scaling
-
+      description: |-
+        Политика масштабирования группы узлов. Дополнительные сведения см. в разделе [Scaling
         policy](/docs/compute/concepts/instance-groups/policies#scale-policy).
       type: object
       allOf:
-        - title: scale_type
-          type: object
-          maxProperties: 1
-          properties:
-            fixedScale:
-              $ref: '#/components/schemas/ScalePolicyFixedScale'
-              description: Политика масштабирования группы узлов.
-            autoScale:
-              $ref: '#/components/schemas/ScalePolicyAutoScale'
-              description: Политика масштабирования группы узлов.
+      - title: scale_type
+        type: object
+        maxProperties: 1
+        properties:
+          fixedScale:
+            $ref: '#/components/schemas/ScalePolicyFixedScale'
+            description: Политика масштабирования группы узлов.
+          autoScale:
+            $ref: '#/components/schemas/ScalePolicyAutoScale'
+            description: Политика масштабирования группы узлов.
     NodeGroupAllocationPolicy_in_NodeGroup_allocationPolicy:
-      description: >-
-        Политика распределения, с помощью которой ресурсы для групп узлов
+      description: Политика распределения, с помощью которой ресурсы для групп узлов
         распределяются по зонам и регионам.
       type: object
       properties:
         locations:
-          description: >-
-            Список местоположений (зон доступности и подсетей), в которых будут
-            выделены ресурсы для группы узлов.
+          description: Список местоположений (зон доступности и подсетей), в которых
+            будут выделены ресурсы для группы узлов.
           type: array
           items:
             $ref: '#/components/schemas/NodeGroupLocation'
@@ -2442,28 +1986,23 @@ components:
       type: object
       properties:
         currentVersion:
-          description: 'Текущая версия Kubernetes, формат: major.minor (например, 1.15).'
+          description: 'Текущая версия Kubernetes, формат: major.minor (например,
+            1.15).'
           type: string
         newRevisionAvailable:
-          description: >-
-            Новые версии могут включать патчи Kubernetes (например, 1.15.1 ->
-            1.15.2), а также некоторые обновления внутренних компонентов — новые
-            функции или
-
-            исправления ошибок в конкретных компонентах Яндекса на мастере или
-            на узлах.
+          description: |-
+            Новые версии могут включать патчи Kubernetes (например, 1.15.1 -> 1.15.2), а также некоторые обновления внутренних компонентов — новые функции или
+            исправления ошибок в конкретных компонентах Яндекса на мастере или на узлах.
           type: boolean
           format: boolean
         newRevisionSummary:
-          description: >-
-            Описание изменений, которые будут применены при обновлении до
-            последней версии. Пусто, если поле `new_revision_available` имеет
-            значение `false`.
+          description: Описание изменений, которые будут применены при обновлении
+            до последней версии. Пусто, если поле `new_revision_available` имеет значение
+            `false`.
           type: string
         versionDeprecated:
-          description: >-
-            Текущая версия устарела, компонент кластера Kubernetes (мастер или
-            группа узлов) должен быть обновлен.
+          description: Текущая версия устарела, компонент кластера Kubernetes (мастер
+            или группа узлов) должен быть обновлен.
           type: boolean
           format: boolean
     NodeGroupMaintenancePolicy_in_NodeGroup_maintenancePolicy:
@@ -2471,49 +2010,41 @@ components:
       type: object
       properties:
         autoUpgrade:
-          description: >-
-            Если установлено значение `true`, автоматическое обновление
-            устанавливается без участия пользователя в заданный промежуток
-            времени. Если установлено значение
-
+          description: |-
+            Если установлено значение `true`, автоматическое обновление устанавливается без участия пользователя в заданный промежуток времени. Если установлено значение
             `false`, автоматическое обновление отключено.
           type: boolean
           format: boolean
         autoRepair:
-          description: >-
-            Если установлено значение `true`, автоматическое восстановление
-            включено. Значение по умолчанию: `false`.
+          description: 'Если установлено значение `true`, автоматическое восстановление
+            включено. Значение по умолчанию: `false`.'
           type: boolean
           format: boolean
         maintenanceWindow:
-          $ref: >-
-            #/components/schemas/MaintenanceWindow_in_NodeGroupMaintenancePolicy_maintenanceWindow
+          $ref: '#/components/schemas/MaintenanceWindow_in_NodeGroupMaintenancePolicy_maintenanceWindow'
     MaintenanceWindow_in_NodeGroupMaintenancePolicy_maintenanceWindow:
-      description: >-
-        Настройки окна обновления. Обновление начнется в указанное время и
-        продлится не более указанного времени. Время устанавливается в формате
-        UTC.
+      description: Настройки окна обновления. Обновление начнется в указанное время
+        и продлится не более указанного времени. Время устанавливается в формате UTC.
       type: object
       allOf:
-        - title: policy
-          type: object
-          maxProperties: 1
-          properties:
-            anytime:
-              $ref: '#/components/schemas/AnytimeMaintenanceWindow'
-              description: Обновление мастера в любое время.
-            dailyMaintenanceWindow:
-              $ref: '#/components/schemas/DailyMaintenanceWindow'
-              description: >-
-                Обновление мастера в любой день в течение указанного временного
-                окна.
-            weeklyMaintenanceWindow:
-              $ref: '#/components/schemas/WeeklyMaintenanceWindow'
-              description: >-
-                Обновление мастера в выбранные дни в течение указанного
-                временного окна.
+      - title: policy
+        type: object
+        maxProperties: 1
+        properties:
+          anytime:
+            $ref: '#/components/schemas/AnytimeMaintenanceWindow'
+            description: Обновление мастера в любое время.
+          dailyMaintenanceWindow:
+            $ref: '#/components/schemas/DailyMaintenanceWindow'
+            description: Обновление мастера в любой день в течение указанного временного
+              окна.
+          weeklyMaintenanceWindow:
+            $ref: '#/components/schemas/WeeklyMaintenanceWindow'
+            description: Обновление мастера в выбранные дни в течение указанного временного
+              окна.
     ResourcesSpec_in_NodeTemplate_resourcesSpec:
-      description: Вычислительные ресурсы узла, такие как объем памяти и количество ядер.
+      description: Вычислительные ресурсы узла, такие как объем памяти и количество
+        ядер.
       type: object
       properties:
         memory:
@@ -2524,22 +2055,16 @@ components:
           type: string
           format: int64
         cores:
-          description: >-
+          description: |-
             Количество ядер, доступное узлу.
 
-
-            Значение должно быть равно 0, 1, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20,
-            22, 24, 26, 28, 30 или 32.
+            Значение должно быть равно 0, 1, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30 или 32.
           type: string
           format: int64
         coreFraction:
-          description: >-
-            Базовый уровень производительности CPU с возможностью повышения
-            производительности выше этого уровня. Это поле устанавливает базовую
-            производительность для
-
+          description: |-
+            Базовый уровень производительности CPU с возможностью повышения производительности выше этого уровня. Это поле устанавливает базовую производительность для
             каждого ядра.
-
 
             Значение должно быть равно 0, 5, 20, 50 или 100.
           type: string
@@ -2549,12 +2074,10 @@ components:
       type: object
       properties:
         diskTypeId:
-          description: >-
+          description: |-
             Идентификатор типа диска.
 
-
-            Значение должно соответствовать регулярному выражению ``
-            |network-ssd|network-hdd ``.
+            Значение должно соответствовать регулярному выражению `` |network-ssd|network-hdd ``.
           type: string
         diskSize:
           description: |-
@@ -2564,30 +2087,21 @@ components:
           type: string
           format: int64
     NodeAddressSpec_in_NodeTemplate_v4AddressSpec:
-      description: >-
-        Спецификация для создания сетевых интерфейсов для вычислительных
+      description: Спецификация для создания сетевых интерфейсов для вычислительных
         экземпляров группы узлов.
       type: object
       properties:
         oneToOneNatSpec:
-          $ref: >-
-            #/components/schemas/OneToOneNatSpec_in_NodeAddressSpec_oneToOneNatSpec
+          $ref: '#/components/schemas/OneToOneNatSpec_in_NodeAddressSpec_oneToOneNatSpec'
     SchedulingPolicy_in_NodeTemplate_schedulingPolicy:
       description: Политика планирования.
       type: object
       properties:
         preemptible:
-          description: >-
-            Если значение равно `true` — будет создана прерываемая виртуальная
-            машина. Значение по умолчанию: `false`. Прерываемые виртуальные
-            машины будут принудительно
-
-            остановлены в срок, не превышающий 24 часа с момента их создания.
-            Остановленные виртуальные машины можно запустить повторно, без
-            потери данных.
-
-            Дополнительные сведения см. в разделе [Preemptible Virtual
-            Machines](/docs/compute/concepts/preemptible-vm).
+          description: |-
+            Если значение равно `true` — будет создана прерываемая виртуальная машина. Значение по умолчанию: `false`. Прерываемые виртуальные машины будут принудительно
+            остановлены в срок, не превышающий 24 часа с момента их создания. Остановленные виртуальные машины можно запустить повторно, без потери данных.
+            Дополнительные сведения см. в разделе [Preemptible Virtual Machines](/docs/compute/concepts/preemptible-vm).
           type: boolean
           format: boolean
     IpVersion_in_OneToOneNatSpec_ipVersion:
@@ -2598,39 +2112,28 @@ components:
          - IPV6: IPv6-адрес, на данный момент не доступен.
       type: string
       enum:
-        - IPV4
-        - IPV6
+      - IPV4
+      - IPV6
     ExternalAddressSpec_in_RegionalMasterSpec_externalV4AddressSpec:
-      description: Указывается для выделения статического публичного IP-адреса для мастера.
+      description: Указывается для выделения статического публичного IP-адреса для
+        мастера.
       type: object
       properties: {}
     FieldMask_in_UpdateNodeGroupRequest_updateMask:
-      description: >-
+      description: |-
         Маска, определяющая, какие поля группы узлов будут изменены.
 
-
         Имена всех обновляемых полей, разделенные запятыми.
+        Только значения указанных полей будут изменены. Остальные останутся нетронутыми.
+        Если поле указано в параметре `` updateMask `` и в запросе не было отправлено значение для этого поля,
+        значение поля будет сброшено на значение по умолчанию. Значение по умолчанию для большинства полей — null или 0.
 
-        Только значения указанных полей будут изменены. Остальные останутся
-        нетронутыми.
-
-        Если поле указано в параметре `` updateMask `` и в запросе не было
-        отправлено значение для этого поля,
-
-        значение поля будет сброшено на значение по умолчанию. Значение по
-        умолчанию для большинства полей — null или 0.
-
-
-        Если в запросе не передается `` updateMask ``, значения всех полей будут
-        обновлены.
-
+        Если в запросе не передается `` updateMask ``, значения всех полей будут обновлены.
         Для полей, указанных в запросе, будут использованы переданные значения.
-
         Значения остальных полей будут сброшены на значения по умолчанию.
       type: string
     NodeTemplate_in_UpdateNodeGroupRequest_nodeTemplate:
-      description: >-
-        Шаблон узла для создания группы узлов. Изменение может вызвать
+      description: Шаблон узла для создания группы узлов. Изменение может вызвать
         перезагрузку или повторное создание узлов.
       type: object
       properties:
@@ -2642,26 +2145,15 @@ components:
         bootDiskSpec:
           $ref: '#/components/schemas/DiskSpec_in_NodeTemplate_bootDiskSpec'
         metadata:
-          description: >-
-            Метаданные, назначаемые этому шаблону виртуальной машины, в формате
-            ``key:value``. Сюда входят пользовательские метаданные и
-            предопределенные ключи.
+          description: |-
+            Метаданные, назначаемые этому шаблону виртуальной машины, в формате ``key:value``. Сюда входят пользовательские метаданные и предопределенные ключи.
 
-
-            Например, вы можете использовать метаданные для предоставления
-            вашего открытого SSH-ключа узлу. Дополнительные сведения см. в
-            разделе
-
+            Например, вы можете использовать метаданные для предоставления вашего открытого SSH-ключа узлу. Дополнительные сведения см. в разделе
             [Metadata](/docs/compute/concepts/vm-metadata).
 
-
             Не более 128 на ресурс.
-
             Длина строки в символах для каждого ключа должна быть от 1 до 63.
-
-            Каждый ключ должен соответствовать регулярному выражению ``
-            [a-z][-_0-9a-z]* ``.
-
+            Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
             Максимальная длина строки в символах для каждого значения — 262144.
           type: object
           additionalProperties:
@@ -2669,30 +2161,28 @@ components:
         v4AddressSpec:
           $ref: '#/components/schemas/NodeAddressSpec_in_NodeTemplate_v4AddressSpec'
         schedulingPolicy:
-          $ref: >-
-            #/components/schemas/SchedulingPolicy_in_NodeTemplate_schedulingPolicy
+          $ref: '#/components/schemas/SchedulingPolicy_in_NodeTemplate_schedulingPolicy'
     ScalePolicy_in_UpdateNodeGroupRequest_scalePolicy:
       description: Политика масштабирования группы узлов.
       type: object
       allOf:
-        - title: scale_type
-          type: object
-          maxProperties: 1
-          properties:
-            fixedScale:
-              $ref: '#/components/schemas/ScalePolicyFixedScale'
-              description: Политика масштабирования группы узлов.
-            autoScale:
-              $ref: '#/components/schemas/ScalePolicyAutoScale'
-              description: Политика масштабирования группы узлов.
+      - title: scale_type
+        type: object
+        maxProperties: 1
+        properties:
+          fixedScale:
+            $ref: '#/components/schemas/ScalePolicyFixedScale'
+            description: Политика масштабирования группы узлов.
+          autoScale:
+            $ref: '#/components/schemas/ScalePolicyAutoScale'
+            description: Политика масштабирования группы узлов.
     NodeGroupAllocationPolicy_in_UpdateNodeGroupRequest_allocationPolicy:
       description: Политика распределения группы узлов по зонам и регионам.
       type: object
       properties:
         locations:
-          description: >-
-            Список местоположений (зон доступности и подсетей), в которых будут
-            выделены ресурсы для группы узлов.
+          description: Список местоположений (зон доступности и подсетей), в которых
+            будут выделены ресурсы для группы узлов.
           type: array
           items:
             $ref: '#/components/schemas/NodeGroupLocation'
@@ -2700,61 +2190,52 @@ components:
       description: Версия компонентов Kubernetes, которая запущена на узлах.
       type: object
       allOf:
-        - title: specifier
-          type: object
-          maxProperties: 1
-          properties:
-            version:
-              description: >-
-                Запрос обновления до более новой версии Kubernetes (1.x - >
-                1.y).
-              type: string
-            latestRevision:
-              description: >-
-                Запрос минорного обновления, содержащего новую функциональность
-                и улучшения, для текущей версии Kubernetes.
-              type: boolean
-              format: boolean
+      - title: specifier
+        type: object
+        maxProperties: 1
+        properties:
+          version:
+            description: Запрос обновления до более новой версии Kubernetes (1.x -
+              > 1.y).
+            type: string
+          latestRevision:
+            description: Запрос минорного обновления, содержащего новую функциональность
+              и улучшения, для текущей версии Kubernetes.
+            type: boolean
+            format: boolean
     NodeGroupMaintenancePolicy_in_UpdateNodeGroupRequest_maintenancePolicy:
       description: Политика обновления группы узлов.
       type: object
       properties:
         autoUpgrade:
-          description: >-
-            Если установлено значение `true`, автоматическое обновление
-            устанавливается без участия пользователя в заданный промежуток
-            времени. Если установлено значение
-
+          description: |-
+            Если установлено значение `true`, автоматическое обновление устанавливается без участия пользователя в заданный промежуток времени. Если установлено значение
             `false`, автоматическое обновление отключено.
           type: boolean
           format: boolean
         autoRepair:
-          description: >-
-            Если установлено значение `true`, автоматическое восстановление
-            включено. Значение по умолчанию: `false`.
+          description: 'Если установлено значение `true`, автоматическое восстановление
+            включено. Значение по умолчанию: `false`.'
           type: boolean
           format: boolean
         maintenanceWindow:
-          $ref: >-
-            #/components/schemas/MaintenanceWindow_in_NodeGroupMaintenancePolicy_maintenanceWindow
+          $ref: '#/components/schemas/MaintenanceWindow_in_NodeGroupMaintenancePolicy_maintenanceWindow'
     InternalAddressSpec_in_ZonalMasterSpec_internalV4AddressSpec:
       description: Спецификация параметров для внутренней IPv4 сети.
       type: object
       properties:
         subnetId:
-          description: >-
-            Идентификатор подсети. Если идентификатор не указан, а в указанной
-            зоне имеется только одна подсеть, адрес будет выделен в этой
-            подсети.
+          description: Идентификатор подсети. Если идентификатор не указан, а в указанной
+            зоне имеется только одна подсеть, адрес будет выделен в этой подсети.
           type: string
     ExternalAddressSpec_in_ZonalMasterSpec_externalV4AddressSpec:
       description: Спецификация параметров для внешней IPv4 сети.
       type: object
       properties: {}
 tags:
-  - name: Cluster
-    description: Набор методов для управления кластером Kubernetes.
-  - name: NodeGroup
-    description: Набор методов для управления группами узлов.
-  - name: Version
-    description: Набор методов для управления версиями Kubernetes.
+- name: Cluster
+  description: Набор методов для управления кластером Kubernetes.
+- name: NodeGroup
+  description: Набор методов для управления группами узлов.
+- name: Version
+  description: Набор методов для управления версиями Kubernetes.

@@ -35,7 +35,7 @@ items:
         items: null
         include:
           repo: docs
-          path: ru/_api-ref-grpc/translate/api-ref/toc.yaml
+          path: ru/_api-ref-grpc/translate/toc.yaml
       - name: REST
         items:
           - name: v2

@@ -9,14 +9,14 @@ editable: false
  
 ## HTTP-запрос {#https-request}
 ```
-DELETE https://load-balancer.api.cloud.yandex.net/network-load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}
+DELETE https://load-balancer.api.cloud.yandex.net/load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}
 ```
  
 ## Path-параметры {#path_params}
  
 Параметр | Описание
 --- | ---
-networkLoadBalancerId | Обязательное поле. Идентификатор удаляемого балансировщика.  Чтобы получить идентификатор балансировщика, используйте запрос [list](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list).  Максимальная длина строки в символах — 50.
+networkLoadBalancerId | Обязательное поле. Идентификатор удаляемого балансировщика.  Чтобы получить идентификатор балансировщика, используйте запрос [list](/docs/load-balancer/api-ref/NetworkLoadBalancer/list).  Максимальная длина строки в символах — 50.
  
 ## Ответ {#responses}
 **HTTP Code: 200 - OK**

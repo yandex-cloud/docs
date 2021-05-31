@@ -1,11 +1,9 @@
-openapi: '3.0'
+openapi: "3.0"
 info:
   title: Yandex Cloud Functions Service
-  description: >-
-    Методы справочника API сгруппированы по ресурсам. Чтобы выполнить операцию
-    над ресурсом, отправьте HTTP-запрос к соответствующему URL. Подробнее об
-    архитектуре API Яндекс.Облака, см. [Концепции API
-    Яндекс.Облака](/docs/api-design-guide/).
+  description: Методы справочника API сгруппированы по ресурсам. Чтобы выполнить операцию
+    над ресурсом, отправьте HTTP-запрос к соответствующему URL. Подробнее об архитектуре
+    API Яндекс.Облака, см. [Концепции API Яндекс.Облака](/docs/api-design-guide/).
   version: v1
   x-y-docUri: functions/api-ref
   x-y-baseUrl: https://serverless-functions.api.cloud.yandex.net
@@ -13,28 +11,24 @@ paths:
   /functions/v1/functions/{functionId}:
     get:
       tags:
-        - Function
+      - Function
       summary: Возвращает указанную функцию.
-      description: >-
-        Чтобы получить список доступных функций, используйте запрос
-        [list](/docs/functions/functions/api-ref/Function/list) .
+      description: Чтобы получить список доступных функций, используйте запрос [list](/docs/functions/functions/api-ref/Function/list)
+        .
       operationId: FunctionGet
       parameters:
-        - name: functionId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: functionId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор возвращаемой функции.
 
-            Идентификатор возвращаемой функции.
-
-
-            Чтобы получить идентификатор функции, используйте запрос
-            [list](/docs/functions/functions/api-ref/Function/list) .
-          required: true
-          schema:
-            type: string
+          Чтобы получить идентификатор функции, используйте запрос [list](/docs/functions/functions/api-ref/Function/list) .
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -43,24 +37,21 @@ paths:
       x-y-navtitle: get
     delete:
       tags:
-        - Function
+      - Function
       summary: Удаляет указанную функцию.
       operationId: FunctionDelete
       parameters:
-        - name: functionId
-          in: path
-          description: >-
-            Обязательное поле.
-
-            Идентификатор удаляемой функции. Чтобы получить идентификатор
-            функции, используйте
-
-            запрос [list](/docs/functions/functions/api-ref/Function/list) .
-          required: true
-          schema:
-            type: string
+      - name: functionId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор удаляемой функции. Чтобы получить идентификатор функции, используйте
+          запрос [list](/docs/functions/functions/api-ref/Function/list) .
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -72,23 +63,20 @@ paths:
       x-y-operation-response: Empty
     patch:
       tags:
-        - Function
+      - Function
       summary: Обновляет указанную функцию.
       operationId: FunctionUpdate
       parameters:
-        - name: functionId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: functionId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор функции для обновления.
 
-            Идентификатор функции для обновления.
-
-
-            Чтобы получить идентификатор функции, используйте запрос
-            [list](/docs/functions/functions/api-ref/Function/list) .
-          required: true
-          schema:
-            type: string
+          Чтобы получить идентификатор функции, используйте запрос [list](/docs/functions/functions/api-ref/Function/list) .
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -96,7 +84,7 @@ paths:
               $ref: '#/components/schemas/UpdateFunctionRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -109,70 +97,52 @@ paths:
   /functions/v1/functions:
     get:
       tags:
-        - Function
+      - Function
       summary: Возвращает список функций в указанном каталоге.
       operationId: FunctionList
       parameters:
-        - name: folderId
-          in: query
-          description: |-
-            Обязательное поле.
-            Идентификатор каталога для получения списка функций.
+      - name: folderId
+        in: query
+        description: |-
+          Обязательное поле.
+          Идентификатор каталога для получения списка функций.
 
-            Чтобы получить идентификатор каталога, используйте запрос
-            [list](/docs/resource-manager/api-ref/Folder/list).
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            Максимальное количество результатов на странице ответа на запрос.
-            Если количество
+          Чтобы получить идентификатор каталога, используйте запрос
+          [list](/docs/resource-manager/api-ref/Folder/list).
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на запрос. Если количество
+          результатов больше чем `pageSize` , сервис вернет значение [nextPageToken](/docs/functions/functions/api-ref/Function/list#responses), которое
+          можно использовать для получения следующей страницы.
 
-            результатов больше чем `pageSize` , сервис вернет значение
-            [nextPageToken](/docs/functions/functions/api-ref/Function/list#responses),
-            которое
+          Значение по умолчанию: 100.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение `pageToken` равным значению поля
+          [nextPageToken](/docs/functions/functions/api-ref/Function/list#responses) предыдущего запроса, чтобы получить следующую страницу
+          результатов.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          Выражение фильтра, для фильтрации списка функций в ответе.
 
-            можно использовать для получения следующей страницы.
-
-
-            Значение по умолчанию: 100.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Токен страницы. Установите значение `pageToken` равным значению поля
-
-            [nextPageToken](/docs/functions/functions/api-ref/Function/list#responses)
-            предыдущего запроса, чтобы получить следующую страницу
-
-            результатов.
-          schema:
-            type: string
-        - name: filter
-          in: query
-          description: >-
-            Выражение фильтра, для фильтрации списка функций в ответе.
-
-
-            В параметрах фильтрации указываются:
-
-            1. Имя поля. В настоящее время фильтрация осуществляется только по
-            полю
-            [Function.name](/docs/functions/functions/api-ref/Function#representation).
-
-            2. Условный оператор. Операторы `=` или `!=` для одиночных значений,
-            `IN` или `NOT IN` для списков значений.
-
-            3. Значение. Значение длиной от 3 до 63 символов, совпадающее с
-            регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`. Пример
-            фильтра: `name=my-function`.
-          schema:
-            type: string
+          В параметрах фильтрации указываются:
+          1. Имя поля. В настоящее время фильтрация осуществляется только по полю [Function.name](/docs/functions/functions/api-ref/Function#representation).
+          2. Условный оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений.
+          3. Значение. Значение длиной от 3 до 63 символов, совпадающее с регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`. Пример фильтра: `name=my-function`.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -181,7 +151,7 @@ paths:
       x-y-navtitle: list
     post:
       tags:
-        - Function
+      - Function
       summary: Создает функцию в указанном каталоге.
       operationId: FunctionCreate
       requestBody:
@@ -191,7 +161,7 @@ paths:
               $ref: '#/components/schemas/CreateFunctionRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -204,30 +174,24 @@ paths:
   /functions/v1/versions/{functionVersionId}:
     get:
       tags:
-        - Function
+      - Function
       summary: Возвращает указанную версию функции.
-      description: >-
-        Чтобы получить список доступных версий, используйте запрос
-        [listVersions](/docs/functions/functions/api-ref/Function/listVersions)
+      description: Чтобы получить список доступных версий, используйте запрос [listVersions](/docs/functions/functions/api-ref/Function/listVersions)
         .
       operationId: FunctionGetVersion
       parameters:
-        - name: functionVersionId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: functionVersionId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор возвращаемой версии.
 
-            Идентификатор возвращаемой версии.
-
-
-            Чтобы получить идентификатор версии, используйте запрос
-            [listVersions](/docs/functions/functions/api-ref/Function/listVersions)
-            .
-          required: true
-          schema:
-            type: string
+          Чтобы получить идентификатор версии, используйте запрос [listVersions](/docs/functions/functions/api-ref/Function/listVersions) .
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -237,43 +201,33 @@ paths:
   /functions/v1/versions:byTag:
     get:
       tags:
-        - Function
+      - Function
       summary: Возвращает все версии с указанным тегом.
-      description: >-
-        Чтобы получить список доступных версий, используйте запрос
-        [listVersions](/docs/functions/functions/api-ref/Function/listVersions)
+      description: Чтобы получить список доступных версий, используйте запрос [listVersions](/docs/functions/functions/api-ref/Function/listVersions)
         .
       operationId: FunctionGetVersionByTag
       parameters:
-        - name: functionId
-          in: query
-          description: >-
-            Обязательное поле.
+      - name: functionId
+        in: query
+        description: |-
+          Обязательное поле.
+          Идентификатор функции, для которой нужно вернуть список версий.
 
-            Идентификатор функции, для которой нужно вернуть список версий.
+          Чтобы получить идентификатор функции, используйте запрос [list](/docs/functions/functions/api-ref/Function/list) .
+        schema:
+          type: string
+      - name: tag
+        in: query
+        description: |-
+          Тег версии.
 
+          Чтобы получить историю тегов версий, используйте запрос [listTagHistory](/docs/functions/functions/api-ref/Function/listTagHistory) .
 
-            Чтобы получить идентификатор функции, используйте запрос
-            [list](/docs/functions/functions/api-ref/Function/list) .
-          schema:
-            type: string
-        - name: tag
-          in: query
-          description: >-
-            Тег версии.
-
-
-            Чтобы получить историю тегов версий, используйте запрос
-            [listTagHistory](/docs/functions/functions/api-ref/Function/listTagHistory)
-            .
-
-
-            Значение должно соответствовать регулярному выражению ``
-            [a-z][-_0-9a-z]*|[$]latest ``.
-          schema:
-            type: string
+          Значение должно соответствовать регулярному выражению `` [a-z][-_0-9a-z]*|[$]latest ``.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -283,92 +237,64 @@ paths:
   /functions/v1/versions:
     get:
       tags:
-        - Function
-      summary: >-
-        Извлекает список версий для указанной функции или всех версий функции в
-        указанном
-
+      - Function
+      summary: |-
+        Извлекает список версий для указанной функции или всех версий функции в указанном
         каталоге
       operationId: FunctionListVersions
       parameters:
-        - name: folderId
-          in: query
-          description: >-
-            Идентификатор каталога, для которого нужно вернуть список версий
-            функции. Чтобы
+      - name: folderId
+        in: query
+        description: |-
+          Идентификатор каталога, для которого нужно вернуть список версий функции. Чтобы
+          получить идентификатор каталога, используйте запрос [list](/docs/resource-manager/api-ref/Folder/list).
+        schema:
+          type: string
+      - name: functionId
+        in: query
+        description: |-
+          Идентификатор функции, для которой нужно вернуть список версий. Чтобы получить
+          идентификатор функции, используйте запрос [list](/docs/functions/functions/api-ref/Function/list) .
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на запрос. Если количество
+          результатов больше чем `pageSize` , сервис вернет значение [nextPageToken](/docs/functions/functions/api-ref/Function/listVersions#responses),
+          которое можно использовать для получения следующей страницы.
 
-            получить идентификатор каталога, используйте запрос
-            [list](/docs/resource-manager/api-ref/Folder/list).
-          schema:
-            type: string
-        - name: functionId
-          in: query
-          description: >-
-            Идентификатор функции, для которой нужно вернуть список версий.
-            Чтобы получить
+          Значение по умолчанию: 100.
 
-            идентификатор функции, используйте запрос
-            [list](/docs/functions/functions/api-ref/Function/list) .
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            Максимальное количество результатов на странице ответа на запрос.
-            Если количество
+          Допустимые значения — от 0 до 1000 включительно.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение `pageToken` равным значению поля
+          [nextPageToken](/docs/functions/functions/api-ref/Function/listVersions#responses) предыдущего запроса, чтобы получить следующую страницу
+          результатов.
 
-            результатов больше чем `pageSize` , сервис вернет значение
-            [nextPageToken](/docs/functions/functions/api-ref/Function/listVersions#responses),
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          Параметры фильтрации ресурсов в ответе.
 
-            которое можно использовать для получения следующей страницы.
+          В параметрах фильтрации указываются:
+          1. Имя поля. В настоящее время фильтрация осуществляется только по полю [Function.name](/docs/functions/functions/api-ref/Function#representation).
+          2. Условный оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений.
+          3. Значение. Значение длиной от 3 до 63 символов, совпадающее с регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`. Пример фильтра: `name=my-function`.
 
-
-            Значение по умолчанию: 100.
-
-
-            Допустимые значения — от 0 до 1000 включительно.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Токен страницы. Установите значение `pageToken` равным значению поля
-
-            [nextPageToken](/docs/functions/functions/api-ref/Function/listVersions#responses)
-            предыдущего запроса, чтобы получить следующую страницу
-
-            результатов.
-
-
-            Максимальная длина строки в символах — 100.
-          schema:
-            type: string
-        - name: filter
-          in: query
-          description: >-
-            Параметры фильтрации ресурсов в ответе.
-
-
-            В параметрах фильтрации указываются:
-
-            1. Имя поля. В настоящее время фильтрация осуществляется только по
-            полю
-            [Function.name](/docs/functions/functions/api-ref/Function#representation).
-
-            2. Условный оператор. Операторы `=` или `!=` для одиночных значений,
-            `IN` или `NOT IN` для списков значений.
-
-            3. Значение. Значение длиной от 3 до 63 символов, совпадающее с
-            регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`. Пример
-            фильтра: `name=my-function`.
-
-
-            Максимальная длина строки в символах — 1000.
-          schema:
-            type: string
+          Максимальная длина строки в символах — 1000.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -377,7 +303,7 @@ paths:
       x-y-navtitle: listVersions
     post:
       tags:
-        - Function
+      - Function
       summary: Создает версию для указанной функции.
       operationId: FunctionCreateVersion
       requestBody:
@@ -387,7 +313,7 @@ paths:
               $ref: '#/components/schemas/CreateFunctionVersionRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -400,24 +326,20 @@ paths:
   /functions/v1/versions/{functionVersionId}:setTag:
     post:
       tags:
-        - Function
+      - Function
       summary: Устанавливает тег для указанной версии функции.
       operationId: FunctionSetTag
       parameters:
-        - name: functionVersionId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: functionVersionId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор версии для установки тега.
 
-            Идентификатор версии для установки тега.
-
-
-            Чтобы получить идентификатор версии, используйте запрос
-            [listVersions](/docs/functions/functions/api-ref/Function/listVersions)
-            .
-          required: true
-          schema:
-            type: string
+          Чтобы получить идентификатор версии, используйте запрос [listVersions](/docs/functions/functions/api-ref/Function/listVersions) .
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -425,7 +347,7 @@ paths:
               $ref: '#/components/schemas/SetFunctionTagRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -438,24 +360,20 @@ paths:
   /functions/v1/versions/{functionVersionId}:removeTag:
     post:
       tags:
-        - Function
+      - Function
       summary: Удаляет тег из указанной версии функции.
       operationId: FunctionRemoveTag
       parameters:
-        - name: functionVersionId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: functionVersionId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор версии, из которой нужно удалить тег.
 
-            Идентификатор версии, из которой нужно удалить тег.
-
-
-            Чтобы получить идентификатор версии, используйте запрос
-            [listVersions](/docs/functions/functions/api-ref/Function/listVersions)
-            .
-          required: true
-          schema:
-            type: string
+          Чтобы получить идентификатор версии, используйте запрос [listVersions](/docs/functions/functions/api-ref/Function/listVersions) .
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -463,7 +381,7 @@ paths:
               $ref: '#/components/schemas/RemoveFunctionTagRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -476,91 +394,65 @@ paths:
   /functions/v1/functions/{functionId}:tagHistory:
     get:
       tags:
-        - Function
+      - Function
       summary: Возвращает журнал тегов, назначенных версиям указанной функции.
       operationId: FunctionListTagHistory
       parameters:
-        - name: functionId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: functionId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор функции для получения истории тегов.
 
-            Идентификатор функции для получения истории тегов.
+          Чтобы получить идентификатор функции, используйте запрос [list](/docs/functions/functions/api-ref/Function/list) .
+        required: true
+        schema:
+          type: string
+      - name: tag
+        in: query
+        description: |-
+          Конкретный тег, которым должна быть ограничена история.
 
+          Значение должно соответствовать регулярному выражению `` [a-z][-_0-9a-z]*|[$]latest ``.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное число возвращаемых результатов на странице. Если количество
+          результатов больше чем `pageSize` , сервис вернет значение [nextPageToken](/docs/functions/functions/api-ref/Function/listOperations#responses),
+          которое можно использовать для получения следующей страницы. Значение по умолчанию:
+          100.
 
-            Чтобы получить идентификатор функции, используйте запрос
-            [list](/docs/functions/functions/api-ref/Function/list) .
-          required: true
-          schema:
-            type: string
-        - name: tag
-          in: query
-          description: >-
-            Конкретный тег, которым должна быть ограничена история.
+          Допустимые значения — от 0 до 1000 включительно.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение `pageToken` равным значению поля
+          [nextPageToken](/docs/functions/functions/api-ref/Function/listOperations#responses) предыдущего запроса, чтобы получить следующую страницу
+          результатов.
 
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          Параметры фильтрации ресурсов в ответе.
 
-            Значение должно соответствовать регулярному выражению ``
-            [a-z][-_0-9a-z]*|[$]latest ``.
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            Максимальное число возвращаемых результатов на странице. Если
-            количество
+          В параметрах фильтрации указываются:
+          1. Имя поля. В настоящее время фильтрация осуществляется только по полю [Function.name](/docs/functions/functions/api-ref/Function#representation).
+          2. Условный оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений.
+          3. Значение. Значение длиной от 3 до 63 символов, совпадающее с регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`. Например, `name=my-function`.
 
-            результатов больше чем `pageSize` , сервис вернет значение
-            [nextPageToken](/docs/functions/functions/api-ref/Function/listOperations#responses),
-
-            которое можно использовать для получения следующей страницы.
-            Значение по умолчанию:
-
-            100.
-
-
-            Допустимые значения — от 0 до 1000 включительно.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Токен страницы. Установите значение `pageToken` равным значению поля
-
-            [nextPageToken](/docs/functions/functions/api-ref/Function/listOperations#responses)
-            предыдущего запроса, чтобы получить следующую страницу
-
-            результатов.
-
-
-            Максимальная длина строки в символах — 100.
-          schema:
-            type: string
-        - name: filter
-          in: query
-          description: >-
-            Параметры фильтрации ресурсов в ответе.
-
-
-            В параметрах фильтрации указываются:
-
-            1. Имя поля. В настоящее время фильтрация осуществляется только по
-            полю
-            [Function.name](/docs/functions/functions/api-ref/Function#representation).
-
-            2. Условный оператор. Операторы `=` или `!=` для одиночных значений,
-            `IN` или `NOT IN` для списков значений.
-
-            3. Значение. Значение длиной от 3 до 63 символов, совпадающее с
-            регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`. Например,
-            `name=my-function`.
-
-
-            Максимальная длина строки в символах — 1000.
-          schema:
-            type: string
+          Максимальная длина строки в символах — 1000.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -570,11 +462,11 @@ paths:
   /functions/v1/runtimes:
     get:
       tags:
-        - Function
+      - Function
       summary: Список доступных сред выполнения для указанной функции.
       operationId: FunctionListRuntimes
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -584,76 +476,56 @@ paths:
   /functions/v1/functions/{functionId}/operations:
     get:
       tags:
-        - Function
+      - Function
       summary: Возвращает список операций для указанной функции.
       operationId: FunctionListOperations
       parameters:
-        - name: functionId
-          in: path
-          description: |-
-            Обязательное поле.
-            Идентификатор функции, для которой нужно вернуть список версий.
-          required: true
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            Максимальное число возвращаемых результатов на странице. Если
-            количество
+      - name: functionId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор функции, для которой нужно вернуть список версий.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное число возвращаемых результатов на странице. Если количество
+          результатов больше чем `pageSize` , сервис вернет значение [nextPageToken](/docs/functions/functions/api-ref/Function/listOperations#responses),
+          которое можно использовать для получения следующей страницы.
 
-            результатов больше чем `pageSize` , сервис вернет значение
-            [nextPageToken](/docs/functions/functions/api-ref/Function/listOperations#responses),
+          Значение по умолчанию: 100.
 
-            которое можно использовать для получения следующей страницы.
+          Допустимые значения — от 0 до 1000 включительно.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение `pageToken` равным значению поля
+          [nextPageToken](/docs/functions/functions/api-ref/Function/listOperations#responses) предыдущего запроса, чтобы получить следующую страницу
+          результатов.
 
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          Параметры фильтрации ресурсов в ответе.
 
-            Значение по умолчанию: 100.
+          В параметрах фильтрации указываются:
+          1. Имя поля. В настоящее время фильтрация осуществляется только по полю [Function.name](/docs/functions/functions/api-ref/Function#representation).
+          2. Условный оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений.
+          3. Значение. Значение длиной от 3 до 63 символов, совпадающее с регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`. Пример фильтра: `name=my-function`.
 
-
-            Допустимые значения — от 0 до 1000 включительно.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Токен страницы. Установите значение `pageToken` равным значению поля
-
-            [nextPageToken](/docs/functions/functions/api-ref/Function/listOperations#responses)
-            предыдущего запроса, чтобы получить следующую страницу
-
-            результатов.
-
-
-            Максимальная длина строки в символах — 100.
-          schema:
-            type: string
-        - name: filter
-          in: query
-          description: >-
-            Параметры фильтрации ресурсов в ответе.
-
-
-            В параметрах фильтрации указываются:
-
-            1. Имя поля. В настоящее время фильтрация осуществляется только по
-            полю
-            [Function.name](/docs/functions/functions/api-ref/Function#representation).
-
-            2. Условный оператор. Операторы `=` или `!=` для одиночных значений,
-            `IN` или `NOT IN` для списков значений.
-
-            3. Значение. Значение длиной от 3 до 63 символов, совпадающее с
-            регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`. Пример
-            фильтра: `name=my-function`.
-
-
-            Максимальная длина строки в символах — 1000.
-          schema:
-            type: string
+          Максимальная длина строки в символах — 1000.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -663,63 +535,48 @@ paths:
   /functions/v1/functions/{resourceId}:listAccessBindings:
     get:
       tags:
-        - Function
+      - Function
       summary: Возвращает список привязок прав доступа для указанной функции.
       operationId: FunctionListAccessBindings
       parameters:
-        - name: resourceId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: resourceId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор ресурса, для которого запрашивается список привязок прав доступа.
 
-            Идентификатор ресурса, для которого запрашивается список привязок
-            прав доступа.
+          Чтобы получить идентификатор ресурса, используйте соответствующий запрос List.
+          Например, используйте запрос [list](/docs/resource-manager/api-ref/Cloud/list) для получения
+          идентификатора ресурса Cloud.
 
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное число возвращаемых результатов на странице. Если количество
+          результатов больше чем pageSize , сервис вернет значение nextPageToken,
+          которое можно использовать для получения следующей страницы. Значение по умолчанию:
+          100.
 
-            Чтобы получить идентификатор ресурса, используйте соответствующий
-            запрос List.
+          Максимальное значение — 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение pageToken равным значению поля
+          nextPageToken прошлого запроса, чтобы получить следующую страницу
+          результатов.
 
-            Например, используйте запрос
-            [list](/docs/resource-manager/api-ref/Cloud/list) для получения
-
-            идентификатора ресурса Cloud.
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            Максимальное число возвращаемых результатов на странице. Если
-            количество
-
-            результатов больше чем pageSize , сервис вернет значение
-            nextPageToken,
-
-            которое можно использовать для получения следующей страницы.
-            Значение по умолчанию:
-
-            100.
-
-
-            Максимальное значение — 1000.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: |-
-            Токен страницы. Установите значение pageToken равным значению поля
-            nextPageToken прошлого запроса, чтобы получить следующую страницу
-            результатов.
-
-            Максимальная длина строки в символах — 100.
-          schema:
-            type: string
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -729,27 +586,22 @@ paths:
   /functions/v1/functions/{resourceId}:setAccessBindings:
     post:
       tags:
-        - Function
+      - Function
       summary: Устанавливает привязки прав доступа для указанной функции.
       operationId: FunctionSetAccessBindings
       parameters:
-        - name: resourceId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: resourceId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор ресурса, для которого задается список привязок прав доступа.
 
-            Идентификатор ресурса, для которого задается список привязок прав
-            доступа.
+          Чтобы получить идентификатор ресурса, используйте соответствующий запрос List.
 
-
-            Чтобы получить идентификатор ресурса, используйте соответствующий
-            запрос List.
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -757,7 +609,7 @@ paths:
               $ref: '#/components/schemas/SetAccessBindingsRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -770,23 +622,20 @@ paths:
   /functions/v1/functions/{resourceId}:updateAccessBindings:
     post:
       tags:
-        - Function
+      - Function
       summary: Обновляет привязки прав доступа для указанной функции.
       operationId: FunctionUpdateAccessBindings
       parameters:
-        - name: resourceId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: resourceId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор ресурса, для которого обновляется список привязок прав доступа.
 
-            Идентификатор ресурса, для которого обновляется список привязок прав
-            доступа.
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -794,7 +643,7 @@ paths:
               $ref: '#/components/schemas/UpdateAccessBindingsRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -810,14 +659,10 @@ components:
       type: object
       properties:
         roleId:
-          description: >-
+          description: |-
             Обязательное поле.
-
-            Идентификатор ресурса [Role](/docs/iam/api-ref/Role#representation)
-            который назначен для субъекта, указанного в
-
+            Идентификатор ресурса [Role](/docs/iam/api-ref/Role#representation) который назначен для субъекта, указанного в
             параметре `subject`.
-
 
             Максимальная длина строки в символах — 50.
           type: string
@@ -829,17 +674,15 @@ components:
          - REMOVE: Удаление привязки прав доступа.
       type: string
       enum:
-        - ADD
-        - REMOVE
+      - ADD
+      - REMOVE
     AccessBindingDelta:
       type: object
       properties:
         action:
-          $ref: >-
-            #/components/schemas/AccessBindingAction_in_AccessBindingDelta_action
+          $ref: '#/components/schemas/AccessBindingAction_in_AccessBindingDelta_action'
         accessBinding:
-          $ref: >-
-            #/components/schemas/AccessBinding_in_AccessBindingDelta_accessBinding
+          $ref: '#/components/schemas/AccessBinding_in_AccessBindingDelta_accessBinding'
     CreateFunctionMetadata:
       type: object
       properties:
@@ -858,12 +701,10 @@ components:
             [list](/docs/resource-manager/api-ref/Folder/list).
           type: string
         name:
-          description: >-
+          description: |-
             Имя функции. Имя должно быть уникальным в рамках каталога.
 
-
-            Значение должно соответствовать регулярному выражению ``
-            |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+            Значение должно соответствовать регулярному выражению `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
           type: string
         description:
           description: |-
@@ -872,21 +713,14 @@ components:
             Максимальная длина строки в символах — 256.
           type: string
         labels:
-          description: >-
+          description: |-
             Метки ресурса в формате `key:value`.
 
-
             Не более 64 на ресурс.
-
             Длина строки в символах для каждого ключа должна быть от 1 до 63.
-
-            Каждый ключ должен соответствовать регулярному выражению ``
-            [a-z][-_0-9a-z]* ``.
-
+            Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
             Максимальная длина строки в символах для каждого значения — 63.
-
-            Каждое значение должно соответствовать регулярному выражению ``
-            [-_0-9a-z]* ``.
+            Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.
           type: object
           additionalProperties:
             type: string
@@ -899,81 +733,70 @@ components:
     CreateFunctionVersionRequest:
       type: object
       allOf:
-        - type: object
-          properties:
-            functionId:
-              description: >-
-                Обязательное поле.
+      - type: object
+        properties:
+          functionId:
+            description: |-
+              Обязательное поле.
+              Идентификатор функции для создания версии.
 
-                Идентификатор функции для создания версии.
+              Чтобы получить идентификатор функции, используйте запрос [list](/docs/functions/functions/api-ref/Function/list) .
+            type: string
+          runtime:
+            description: |-
+              Обязательное поле.
+              Среда выполнения для версии.
+            type: string
+          description:
+            description: |-
+              Описание версии.
 
+              Длина строки в символах должна быть от 0 до 256.
+            type: string
+          entrypoint:
+            description: |-
+              Обязательное поле.
+              Точка входа для версии.
+            type: string
+          resources:
+            $ref: '#/components/schemas/Resources'
+            description: |-
+              Обязательное поле.
+              Ресурсы, выделенные для версии.
+          executionTimeout:
+            description: |-
+              Обязательное поле.
+              Таймаут для выполнения версии.
 
-                Чтобы получить идентификатор функции, используйте запрос
-                [list](/docs/functions/functions/api-ref/Function/list) .
+              Если время ожидания будет превышено, Cloud Functions возвращает 504 HTTP-код.
+            type: string
+          serviceAccountId:
+            description: Идентификатор сервисного аккаунта, который нужно связать
+              с версией.
+            type: string
+          environment:
+            description: |-
+              Параметры среды выполнения для версии.
+
+              Каждый ключ должен соответствовать регулярному выражению `` [a-zA-Z][a-zA-Z0-9_]* ``.
+              Максимальная длина строки в символах для каждого значения — 4096.
+            type: object
+            additionalProperties:
               type: string
-            runtime:
-              description: |-
-                Обязательное поле.
-                Среда выполнения для версии.
-              type: string
-            description:
-              description: |-
-                Описание версии.
+      - title: package_source
+        type: object
+        maxProperties: 1
+        properties:
+          package:
+            $ref: '#/components/schemas/Package'
+            description: Пакет развертывания функций.
+          content:
+            description: |-
+              Содержимое пакета развертывания.
 
-                Длина строки в символах должна быть от 0 до 256.
-              type: string
-            entrypoint:
-              description: |-
-                Обязательное поле.
-                Точка входа для версии.
-              type: string
-            resources:
-              $ref: '#/components/schemas/Resources'
-              description: |-
-                Обязательное поле.
-                Ресурсы, выделенные для версии.
-            executionTimeout:
-              description: >-
-                Обязательное поле.
-
-                Таймаут для выполнения версии.
-
-
-                Если время ожидания будет превышено, Cloud Functions возвращает
-                504 HTTP-код.
-              type: string
-            serviceAccountId:
-              description: >-
-                Идентификатор сервисного аккаунта, который нужно связать с
-                версией.
-              type: string
-            environment:
-              description: >-
-                Параметры среды выполнения для версии.
-
-
-                Каждый ключ должен соответствовать регулярному выражению ``
-                [a-zA-Z][a-zA-Z0-9_]* ``.
-
-                Максимальная длина строки в символах для каждого значения —
-                4096.
-              type: object
-              additionalProperties:
-                type: string
-        - title: package_source
-          type: object
-          maxProperties: 1
-          properties:
-            package:
-              $ref: '#/components/schemas/Package'
-              description: Пакет развертывания функций.
-            content:
-              description: |-
-                Содержимое пакета развертывания.
-
-                Максимальная длина строки в символах — 52428800.
-              type: string
-              format: byte
+              Максимальная длина строки в символах — 52428800.
+            type: string
+            format: byte
     DeleteFunctionMetadata:
       type: object
       properties:
@@ -985,24 +808,14 @@ components:
       type: object
       maxProperties: 0
     FieldMask:
-      description: >-
+      description: |-
         Имена всех обновляемых полей, разделенные запятыми.
+        Только значения указанных полей будут изменены. Остальные останутся нетронутыми.
+        Если поле указано в параметре `` updateMask `` и в запросе не было отправлено значение для этого поля,
+        значение поля будет сброшено на значение по умолчанию. Значение по умолчанию для большинства полей — null или 0.
 
-        Только значения указанных полей будут изменены. Остальные останутся
-        нетронутыми.
-
-        Если поле указано в параметре `` updateMask `` и в запросе не было
-        отправлено значение для этого поля,
-
-        значение поля будет сброшено на значение по умолчанию. Значение по
-        умолчанию для большинства полей — null или 0.
-
-
-        Если в запросе не передается `` updateMask ``, значения всех полей будут
-        обновлены.
-
+        Если в запросе не передается `` updateMask ``, значения всех полей будут обновлены.
         Для полей, указанных в запросе, будут использованы переданные значения.
-
         Значения остальных полей будут сброшены на значения по умолчанию.
       type: string
     Function:
@@ -1060,10 +873,10 @@ components:
          - ERROR: Сбой функции.
       type: string
       enum:
-        - CREATING
-        - ACTIVE
-        - DELETING
-        - ERROR
+      - CREATING
+      - ACTIVE
+      - DELETING
+      - ERROR
     ListAccessBindingsResponse:
       type: object
       properties:
@@ -1073,19 +886,11 @@ components:
           items:
             $ref: '#/components/schemas/AccessBinding'
         nextPageToken:
-          description: >-
-            Токен для получения следующей страницы результатов в ответе. Если
-            количество
-
-            результатов больше чем pageSize, используйте nextPageToken в
-            качестве
-
-            значения параметра pageToken в следующем запросе списка ресурсов.
-            Все
-
-            последующие запросы будут получать свои значения nextPageToken для
-            перебора страниц
-
+          description: |-
+            Токен для получения следующей страницы результатов в ответе. Если количество
+            результатов больше чем pageSize, используйте nextPageToken в качестве
+            значения параметра pageToken в следующем запросе списка ресурсов. Все
+            последующие запросы будут получать свои значения nextPageToken для перебора страниц
             результатов.
           type: string
     ListFunctionOperationsResponse:
@@ -1097,21 +902,12 @@ components:
           items:
             $ref: '#/components/schemas/Operation'
         nextPageToken:
-          description: >-
-            Токен для получения следующей страницы списка. Если количество
-            результатов больше
+          description: |-
+            Токен для получения следующей страницы списка. Если количество результатов больше
+            чем [pageSize](/docs/functions/functions/api-ref/Function/listOperations#query_params), используйте `nextPageToken` в качестве значения параметра
+            [pageToken](/docs/functions/functions/api-ref/Function/listOperations#query_params) в следующем запросе списка ресурсов.
 
-            чем
-            [pageSize](/docs/functions/functions/api-ref/Function/listOperations#query_params),
-            используйте `nextPageToken` в качестве значения параметра
-
-            [pageToken](/docs/functions/functions/api-ref/Function/listOperations#query_params)
-            в следующем запросе списка ресурсов.
-
-
-            Все последующие запросы будут получать свои значения `nextPageToken`
-            для перебора страниц
-
+            Все последующие запросы будут получать свои значения `nextPageToken` для перебора страниц
             результатов.
           type: string
     ListFunctionTagHistoryResponse:
@@ -1121,24 +917,14 @@ components:
           description: Набор соответствующих записей истории тегов.
           type: array
           items:
-            $ref: >-
-              #/components/schemas/ListFunctionTagHistoryResponseFunctionTagHistoryRecord
+            $ref: '#/components/schemas/ListFunctionTagHistoryResponseFunctionTagHistoryRecord'
         nextPageToken:
-          description: >-
-            Токен для получения следующей страницы списка. Если количество
-            результатов больше
+          description: |-
+            Токен для получения следующей страницы списка. Если количество результатов больше
+            чем [pageSize](/docs/functions/functions/api-ref/Function/listTagHistory#query_params), используйте `nextPageToken` в качестве значения параметра
+            [pageToken](/docs/functions/functions/api-ref/Function/listTagHistory#query_params) в следующем запросе списка ресурсов.
 
-            чем
-            [pageSize](/docs/functions/functions/api-ref/Function/listTagHistory#query_params),
-            используйте `nextPageToken` в качестве значения параметра
-
-            [pageToken](/docs/functions/functions/api-ref/Function/listTagHistory#query_params)
-            в следующем запросе списка ресурсов.
-
-
-            Все последующие запросы будут получать свои значения `nextPageToken`
-            для перебора страниц
-
+            Все последующие запросы будут получать свои значения `nextPageToken` для перебора страниц
             результатов.
           type: string
     ListFunctionTagHistoryResponseFunctionTagHistoryRecord:
@@ -1177,21 +963,12 @@ components:
           items:
             $ref: '#/components/schemas/Function'
         nextPageToken:
-          description: >-
-            Токен для получения следующей страницы списка. Если количество
-            результатов больше
+          description: |-
+            Токен для получения следующей страницы списка. Если количество результатов больше
+            чем [pageSize](/docs/functions/functions/api-ref/Function/list#query_params), используйте `nextPageToken` в качестве значения параметра
+            [pageToken](/docs/functions/functions/api-ref/Function/list#query_params) в следующем запросе списка ресурсов.
 
-            чем
-            [pageSize](/docs/functions/functions/api-ref/Function/list#query_params),
-            используйте `nextPageToken` в качестве значения параметра
-
-            [pageToken](/docs/functions/functions/api-ref/Function/list#query_params)
-            в следующем запросе списка ресурсов.
-
-
-            Все последующие запросы будут получать свои значения `nextPageToken`
-            для перебора страниц
-
+            Все последующие запросы будут получать свои значения `nextPageToken` для перебора страниц
             результатов.
           type: string
     ListFunctionsVersionsResponse:
@@ -1203,21 +980,12 @@ components:
           items:
             $ref: '#/components/schemas/Version'
         nextPageToken:
-          description: >-
-            Токен для получения следующей страницы списка. Если количество
-            результатов больше
+          description: |-
+            Токен для получения следующей страницы списка. Если количество результатов больше
+            чем [pageSize](/docs/functions/functions/api-ref/Function/listVersions#query_params), используйте `nextPageToken` в качестве значения параметра
+            [pageToken](/docs/functions/functions/api-ref/Function/listVersions#query_params) в следующем запросе списка ресурсов.
 
-            чем
-            [pageSize](/docs/functions/functions/api-ref/Function/listVersions#query_params),
-            используйте `nextPageToken` в качестве значения параметра
-
-            [pageToken](/docs/functions/functions/api-ref/Function/listVersions#query_params)
-            в следующем запросе списка ресурсов.
-
-
-            Все последующие запросы будут получать свои значения `nextPageToken`
-            для перебора страниц
-
+            Все последующие запросы будут получать свои значения `nextPageToken` для перебора страниц
             результатов.
           type: string
     ListRuntimesResponse:
@@ -1234,82 +1002,68 @@ components:
         [Объект Operation](/docs/api-design-guide/concepts/operation).
       type: object
       allOf:
-        - type: object
-          properties:
-            id:
-              description: Идентификатор операции.
-              type: string
-            description:
-              description: |-
-                Описание операции. Длина описания должна быть от 0 до 256
-                символов.
-              type: string
-            createdAt:
-              description: >-
-                Время создания ресурса в формате в
+      - type: object
+        properties:
+          id:
+            description: Идентификатор операции.
+            type: string
+          description:
+            description: |-
+              Описание операции. Длина описания должна быть от 0 до 256
+              символов.
+            type: string
+          createdAt:
+            description: |-
+              Время создания ресурса в формате в
+              [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
 
-                [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+              Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+            type: string
+            format: date-time
+          createdBy:
+            description: |-
+              Идентификатор пользователя или сервисного
+              аккаунта, инициировавшего операцию.
+            type: string
+          modifiedAt:
+            description: |-
+              Время, когда ресурс Operation последний раз
+              обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
 
-
-                Строка в формате
-                [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
-              type: string
-              format: date-time
-            createdBy:
-              description: |-
-                Идентификатор пользователя или сервисного
-                аккаунта, инициировавшего операцию.
-              type: string
-            modifiedAt:
-              description: >-
-                Время, когда ресурс Operation последний раз
-
-                обновлялся. Значение в формате
-                [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
-
-
-                Строка в формате
-                [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
-              type: string
-              format: date-time
-            done:
-              description: |-
-                Если значение равно `false` — операция еще
-                выполняется. Если `true` — операция завершена, и задано значение
-                одного из полей `error` или `response`.
-              type: boolean
-              format: boolean
-            metadata:
-              description: |-
-                Метаданные операции. Обычно в поле содержится
-                идентификатор ресурса, над которым выполняется операция. Если
-                метод возвращает ресурс Operation, в описании метода приведена
-                структура соответствующего ему поля `metadata`.
-              type: object
-        - title: result
-          type: object
-          maxProperties: 1
-          properties:
-            error:
-              $ref: '#/components/schemas/rpcStatus'
-              description: Описание ошибки в случае сбоя или отмены операции.
-            response:
-              description: >-
-                Результат операции в случае успешного завершения. Если
-
-                исходный метод не возвращает никаких данных при успешном
-
-                завершении, например метод Delete, поле содержит объект
-
-                [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty).
-                Если исходный метод — это стандартный метод Create
-
-                / Update, поле содержит целевой ресурс операции. Если метод
-
-                возвращает ресурс Operation, в описании метода приведена
-
-                структура соответствующего ему поля `response`.
-              type: object
+              Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+            type: string
+            format: date-time
+          done:
+            description: |-
+              Если значение равно `false` — операция еще
+              выполняется. Если `true` — операция завершена, и задано значение
+              одного из полей `error` или `response`.
+            type: boolean
+            format: boolean
+          metadata:
+            description: |-
+              Метаданные операции. Обычно в поле содержится
+              идентификатор ресурса, над которым выполняется операция. Если
+              метод возвращает ресурс Operation, в описании метода приведена
+              структура соответствующего ему поля `metadata`.
+            type: object
+      - title: result
+        type: object
+        maxProperties: 1
+        properties:
+          error:
+            $ref: '#/components/schemas/rpcStatus'
+            description: Описание ошибки в случае сбоя или отмены операции.
+          response:
+            description: |-
+              Результат операции в случае успешного завершения. Если
+              исходный метод не возвращает никаких данных при успешном
+              завершении, например метод Delete, поле содержит объект
+              [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty). Если исходный метод — это стандартный метод Create
+              / Update, поле содержит целевой ресурс операции. Если метод
+              возвращает ресурс Operation, в описании метода приведена
+              структура соответствующего ему поля `response`.
+            type: object
     Package:
       description: Пакет развертывания версий.
       type: object
@@ -1337,12 +1091,10 @@ components:
       type: object
       properties:
         tag:
-          description: >-
+          description: |-
             Тег, который нужно удалить из указанной версии.
 
-
-            Значение должно соответствовать регулярному выражению ``
-            [a-z][-_0-9a-z]* ``.
+            Значение должно соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
           type: string
     Resources:
       description: Ресурсы, выделенные для версии.
@@ -1359,22 +1111,17 @@ components:
       type: object
       properties:
         resourceId:
-          description: >-
-            Идентификатор ресурса, для которого задается список привязок прав
-            доступа.
+          description: Идентификатор ресурса, для которого задается список привязок
+            прав доступа.
           type: string
     SetAccessBindingsRequest:
       type: object
       properties:
         accessBindings:
-          description: >-
+          description: |-
             Обязательное поле.
-
-            Привязки прав доступа, которые будут установлены. Дополнительные
-            сведения см. в
-
-            разделе [Привязка прав
-            доступа](/docs/iam/concepts/access-control/#access-bindings).
+            Привязки прав доступа, которые будут установлены. Дополнительные сведения см. в
+            разделе [Привязка прав доступа](/docs/iam/concepts/access-control/#access-bindings).
           type: array
           items:
             $ref: '#/components/schemas/AccessBinding'
@@ -1388,66 +1135,38 @@ components:
       type: object
       properties:
         tag:
-          description: >-
+          description: |-
             Тег для установки версии.
 
-
-            Значение должно соответствовать регулярному выражению ``
-            [a-z][-_0-9a-z]* ``.
+            Значение должно соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
           type: string
     Subject:
       type: object
       properties:
         id:
-          description: >-
+          description: |-
             Обязательное поле.
-
             Идентификатор субъекта.
 
-
             Может иметь одно из значений:
-
-            * `allAuthenticatedUsers`: Специальный системный идентификатор,
-            представляющий любого пользователя, прошедшего аутентификацию. Его
-            можно использовать только если в параметре `type` указано `system`.
-
-            * `allUsers`: Специальный системный идентификатор, представляющий
-            любого пользователя. Аутентификация не требуется. Например, при
-            запросе через API не надо будет указывать IAM-токен.
-
-            * `<идентификатор пользователя в облаке>`: Идентификатор,
-            представляющий учетную запись пользователя. Его можно использовать
-            только если в параметре `type` передано одно из следующих значений:
-            `userAccount`, `federatedUser` или `serviceAccount`.
-
+            * `allAuthenticatedUsers`: Специальный системный идентификатор, представляющий любого пользователя, прошедшего аутентификацию. Его можно использовать только если в параметре `type` указано `system`.
+            * `allUsers`: Специальный системный идентификатор, представляющий любого пользователя. Аутентификация не требуется. Например, при запросе через API не надо будет указывать IAM-токен.
+            * `<идентификатор пользователя в облаке>`: Идентификатор, представляющий учетную запись пользователя. Его можно использовать только если в параметре `type` передано одно из следующих значений: `userAccount`, `federatedUser` или `serviceAccount`.
 
             Максимальная длина строки в символах — 50.
           type: string
         type:
-          description: >-
+          description: |-
             Обязательное поле.
-
             Тип субъекта.
 
-
             Может иметь одно из значений:
+            * `userAccount` — аккаунт на Яндексе или Яндекс.Коннекте, добавленный в Яндекс.Облако.
+            * `serviceAccount` — сервисный аккаунт. Этот тип представляет ресурс [ServiceAccount](/docs/iam/api-ref/ServiceAccount#representation).
+            * `federatedUser` — федеративный аккаунт. Этот тип представляет пользователя из федерации удостоверений, например Active Directory.
+            * `system` — системная группа. Представляет набор аккаунтов, который описывается общим системным идентификатором.
 
-            * `userAccount` — аккаунт на Яндексе или Яндекс.Коннекте,
-            добавленный в Яндекс.Облако.
-
-            * `serviceAccount` — сервисный аккаунт. Этот тип представляет ресурс
-            [ServiceAccount](/docs/iam/api-ref/ServiceAccount#representation).
-
-            * `federatedUser` — федеративный аккаунт. Этот тип представляет
-            пользователя из федерации удостоверений, например Active Directory.
-
-            * `system` — системная группа. Представляет набор аккаунтов, который
-            описывается общим системным идентификатором.
-
-
-            Дополнительные сведения см. в разделе [Субъект, которому назначается
-            роль](/docs/iam/concepts/access-control/#subject).
-
+            Дополнительные сведения см. в разделе [Субъект, которому назначается роль](/docs/iam/concepts/access-control/#subject).
 
             Максимальная длина строки в символах — 100.
           type: string
@@ -1455,9 +1174,8 @@ components:
       type: object
       properties:
         resourceId:
-          description: >-
-            Идентификатор ресурса, для которого обновляется список привязок прав
-            доступа.
+          description: Идентификатор ресурса, для которого обновляется список привязок
+            прав доступа.
           type: string
     UpdateAccessBindingsRequest:
       type: object
@@ -1483,12 +1201,10 @@ components:
         updateMask:
           $ref: '#/components/schemas/FieldMask_in_UpdateFunctionRequest_updateMask'
         name:
-          description: >-
+          description: |-
             Новое имя функции. Имя должно быть уникальным в рамках каталога.
 
-
-            Значение должно соответствовать регулярному выражению ``
-            |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+            Значение должно соответствовать регулярному выражению `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
           type: string
         description:
           description: |-
@@ -1497,31 +1213,18 @@ components:
             Максимальная длина строки в символах — 256.
           type: string
         labels:
-          description: >-
+          description: |-
             Метки функций в виде пар `key:value` .
 
-
-            Существующий набор меток полностью заменяется предоставленным
-            набором, поэтому,
-
-            если вы просто хотите добавить или удалить метку, запросите текущий
-            набор меток,
-
-            используя запрос
-            [get](/docs/functions/functions/api-ref/Function/get) .
-
+            Существующий набор меток полностью заменяется предоставленным набором, поэтому,
+            если вы просто хотите добавить или удалить метку, запросите текущий набор меток,
+            используя запрос [get](/docs/functions/functions/api-ref/Function/get) .
 
             Не более 64 на ресурс.
-
             Длина строки в символах для каждого ключа должна быть от 1 до 63.
-
-            Каждый ключ должен соответствовать регулярному выражению ``
-            [a-z][-_0-9a-z]* ``.
-
+            Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
             Максимальная длина строки в символах для каждого значения — 63.
-
-            Каждое значение должно соответствовать регулярному выражению ``
-            [-_0-9a-z]* ``.
+            Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.
           type: object
           additionalProperties:
             type: string
@@ -1558,23 +1261,18 @@ components:
             [Среда выполнения](/docs/functions/concepts/runtime).
           type: string
         entrypoint:
-          description: >-
-            Точка входа для функции: имя функции, вызываемой в качестве
-            обработчика.
+          description: |-
+            Точка входа для функции: имя функции, вызываемой в качестве обработчика.
 
-
-            Указывается в формате `<function file name>.<handler name>`,
-            например, `index.myFunction`.
+            Указывается в формате `<function file name>.<handler name>`, например, `index.myFunction`.
           type: string
         resources:
           $ref: '#/components/schemas/Resources_in_Version_resources'
         executionTimeout:
-          description: >-
+          description: |-
             Таймаут для выполнения версии.
 
-
-            Если время ожидания будет превышено, Cloud Functions возвращает 504
-            HTTP-код.
+            Если время ожидания будет превышено, Cloud Functions возвращает 504 HTTP-код.
           type: string
         serviceAccountId:
           description: Идентификатор сервисного аккаунта, который связан с версией.
@@ -1586,9 +1284,7 @@ components:
         status:
           $ref: '#/components/schemas/VersionStatus_in_Version_status'
         tags:
-          description: >-
-            Теги версий. Подробнее см. в [Тег
-            версии](/docs/functions/concepts/function#tag).
+          description: Теги версий. Подробнее см. в [Тег версии](/docs/functions/concepts/function#tag).
           type: array
           items:
             type: string
@@ -1606,16 +1302,14 @@ components:
          - ACTIVE: Версия готова к использованию.
       type: string
       enum:
-        - CREATING
-        - ACTIVE
+      - CREATING
+      - ACTIVE
     rpcStatus:
       description: Описание ошибки в случае сбоя или отмены операции.
       type: object
       properties:
         code:
-          description: >-
-            Код ошибки. Значение из списка
-            [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
+          description: Код ошибки. Значение из списка [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
           type: integer
           format: int32
         message:
@@ -1627,67 +1321,37 @@ components:
           items:
             type: object
     Subject_in_AccessBinding_subject:
-      description: >-
+      description: |-
         Обязательное поле.
-
         Субъект, для которого создается привязка прав доступа. Может
-
-        представлять собой аккаунт с уникальным идентификатором в облаке или
-        системную
-
+        представлять собой аккаунт с уникальным идентификатором в облаке или системную
         группу с общим системным идентификатором.
       type: object
       properties:
         id:
-          description: >-
+          description: |-
             Обязательное поле.
-
             Идентификатор субъекта.
 
-
             Может иметь одно из значений:
-
-            * `allAuthenticatedUsers`: Специальный системный идентификатор,
-            представляющий любого пользователя, прошедшего аутентификацию. Его
-            можно использовать только если в параметре `type` указано `system`.
-
-            * `allUsers`: Специальный системный идентификатор, представляющий
-            любого пользователя. Аутентификация не требуется. Например, при
-            запросе через API не надо будет указывать IAM-токен.
-
-            * `<идентификатор пользователя в облаке>`: Идентификатор,
-            представляющий учетную запись пользователя. Его можно использовать
-            только если в параметре `type` передано одно из следующих значений:
-            `userAccount`, `federatedUser` или `serviceAccount`.
-
+            * `allAuthenticatedUsers`: Специальный системный идентификатор, представляющий любого пользователя, прошедшего аутентификацию. Его можно использовать только если в параметре `type` указано `system`.
+            * `allUsers`: Специальный системный идентификатор, представляющий любого пользователя. Аутентификация не требуется. Например, при запросе через API не надо будет указывать IAM-токен.
+            * `<идентификатор пользователя в облаке>`: Идентификатор, представляющий учетную запись пользователя. Его можно использовать только если в параметре `type` передано одно из следующих значений: `userAccount`, `federatedUser` или `serviceAccount`.
 
             Максимальная длина строки в символах — 50.
           type: string
         type:
-          description: >-
+          description: |-
             Обязательное поле.
-
             Тип субъекта.
 
-
             Может иметь одно из значений:
+            * `userAccount` — аккаунт на Яндексе или Яндекс.Коннекте, добавленный в Яндекс.Облако.
+            * `serviceAccount` — сервисный аккаунт. Этот тип представляет ресурс [ServiceAccount](/docs/iam/api-ref/ServiceAccount#representation).
+            * `federatedUser` — федеративный аккаунт. Этот тип представляет пользователя из федерации удостоверений, например Active Directory.
+            * `system` — системная группа. Представляет набор аккаунтов, который описывается общим системным идентификатором.
 
-            * `userAccount` — аккаунт на Яндексе или Яндекс.Коннекте,
-            добавленный в Яндекс.Облако.
-
-            * `serviceAccount` — сервисный аккаунт. Этот тип представляет ресурс
-            [ServiceAccount](/docs/iam/api-ref/ServiceAccount#representation).
-
-            * `federatedUser` — федеративный аккаунт. Этот тип представляет
-            пользователя из федерации удостоверений, например Active Directory.
-
-            * `system` — системная группа. Представляет набор аккаунтов, который
-            описывается общим системным идентификатором.
-
-
-            Дополнительные сведения см. в разделе [Субъект, которому назначается
-            роль](/docs/iam/concepts/access-control/#subject).
-
+            Дополнительные сведения см. в разделе [Субъект, которому назначается роль](/docs/iam/concepts/access-control/#subject).
 
             Максимальная длина строки в символах — 100.
           type: string
@@ -1700,25 +1364,19 @@ components:
          - REMOVE: Удаление привязки прав доступа.
       type: string
       enum:
-        - ADD
-        - REMOVE
+      - ADD
+      - REMOVE
     AccessBinding_in_AccessBindingDelta_accessBinding:
-      description: >-
+      description: |-
         Обязательное поле.
-
-        Привязка прав доступа. Дополнительные сведения см. в разделе [Привязка
-        прав доступа](/docs/iam/concepts/access-control/#access-bindings).
+        Привязка прав доступа. Дополнительные сведения см. в разделе [Привязка прав доступа](/docs/iam/concepts/access-control/#access-bindings).
       type: object
       properties:
         roleId:
-          description: >-
+          description: |-
             Обязательное поле.
-
-            Идентификатор ресурса [Role](/docs/iam/api-ref/Role#representation)
-            который назначен для субъекта, указанного в
-
+            Идентификатор ресурса [Role](/docs/iam/api-ref/Role#representation) который назначен для субъекта, указанного в
             параметре `subject`.
-
 
             Максимальная длина строки в символах — 50.
           type: string
@@ -1734,33 +1392,21 @@ components:
          - ERROR: Сбой функции.
       type: string
       enum:
-        - CREATING
-        - ACTIVE
-        - DELETING
-        - ERROR
+      - CREATING
+      - ACTIVE
+      - DELETING
+      - ERROR
     FieldMask_in_UpdateFunctionRequest_updateMask:
-      description: >-
-        Маска поля, которая указывает, какие атрибуты функции должны быть
-        обновлены.
-
+      description: |-
+        Маска поля, которая указывает, какие атрибуты функции должны быть обновлены.
 
         Имена всех обновляемых полей, разделенные запятыми.
+        Только значения указанных полей будут изменены. Остальные останутся нетронутыми.
+        Если поле указано в параметре `` updateMask `` и в запросе не было отправлено значение для этого поля,
+        значение поля будет сброшено на значение по умолчанию. Значение по умолчанию для большинства полей — null или 0.
 
-        Только значения указанных полей будут изменены. Остальные останутся
-        нетронутыми.
-
-        Если поле указано в параметре `` updateMask `` и в запросе не было
-        отправлено значение для этого поля,
-
-        значение поля будет сброшено на значение по умолчанию. Значение по
-        умолчанию для большинства полей — null или 0.
-
-
-        Если в запросе не передается `` updateMask ``, значения всех полей будут
-        обновлены.
-
+        Если в запросе не передается `` updateMask ``, значения всех полей будут обновлены.
         Для полей, указанных в запросе, будут использованы переданные значения.
-
         Значения остальных полей будут сброшены на значения по умолчанию.
       type: string
     Resources_in_Version_resources:
@@ -1785,8 +1431,8 @@ components:
          - ACTIVE: Версия готова к использованию.
       type: string
       enum:
-        - CREATING
-        - ACTIVE
+      - CREATING
+      - ACTIVE
 tags:
-  - name: Function
-    description: Набор методов управления бессерверными функциями.
+- name: Function
+  description: Набор методов управления бессерверными функциями.

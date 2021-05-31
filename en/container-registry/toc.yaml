@@ -95,7 +95,7 @@ items:
         items: null
         include:
           repo: docs
-          path: en/_api-ref-grpc/container-registry/api-ref/toc.yaml
+          path: en/_api-ref-grpc/container-registry/toc.yaml
       - name: REST
         items: null
         include:

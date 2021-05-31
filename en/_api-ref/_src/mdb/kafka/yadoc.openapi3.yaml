@@ -647,7 +647,7 @@ paths:
 
           To get the name of the topic, make a [list](/docs/managed-kafka/api-ref/Topic/list) request.
 
-          The string length in characters must be 1-63.
+          The string length in characters must be 1-256.
           Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
         required: true
         schema:
@@ -686,7 +686,7 @@ paths:
 
           To get the name of the topic, make a [list](/docs/managed-kafka/api-ref/Topic/list) request.
 
-          The string length in characters must be 1-63.
+          The string length in characters must be 1-256.
           Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
         required: true
         schema:
@@ -728,7 +728,7 @@ paths:
 
           To get the name of the topic, make a [list](/docs/managed-kafka/api-ref/Topic/list) request.
 
-          The string length in characters must be 1-63.
+          The string length in characters must be 1-256.
           Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
         required: true
         schema:
@@ -1413,7 +1413,7 @@ components:
             Required.
             Name of the Kafka topic that is being created.
 
-            The maximum string length in characters is 63.
+            The maximum string length in characters is 256.
             Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
           type: string
     CreateTopicRequest:
@@ -1625,6 +1625,14 @@ components:
           description: Enable auto creation of topic on the server
           type: boolean
           format: boolean
+        numPartitions:
+          description: Default number of partitions per topic on the whole cluster
+          type: integer
+          format: int64
+        defaultReplicationFactor:
+          description: Default replication factor of the topic on the whole cluster
+          type: integer
+          format: int64
     KafkaConfig2_6:
       description: Kafka version 2.6 broker configuration.
       type: object
@@ -1709,6 +1717,14 @@ components:
           description: Enable auto creation of topic on the server
           type: boolean
           format: boolean
+        numPartitions:
+          description: Default number of partitions per topic on the whole cluster
+          type: integer
+          format: int64
+        defaultReplicationFactor:
+          description: Default replication factor of the topic on the whole cluster
+          type: integer
+          format: int64
     ListClusterHostsResponse:
       type: object
       properties:

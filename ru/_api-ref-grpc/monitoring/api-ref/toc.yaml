@@ -1,7 +1,0 @@
-items:
-  - name: Обзор
-    href: grpc/index.md
-  - name: MetricsDataService
-    href: grpc/metrics_data_service.md
-  - name: MetricsMetaService
-    href: grpc/metrics_meta_service.md

@@ -1,0 +1,27 @@
+items:
+  - name: Overview
+    href: api-ref/grpc/index.md
+  - name: DiskPlacementGroupService
+    href: api-ref/grpc/disk_placement_group_service.md
+  - name: DiskService
+    href: api-ref/grpc/disk_service.md
+  - name: DiskTypeService
+    href: api-ref/grpc/disk_type_service.md
+  - name: HostGroupService
+    href: api-ref/grpc/host_group_service.md
+  - name: HostTypeService
+    href: api-ref/grpc/host_type_service.md
+  - name: ImageService
+    href: api-ref/grpc/image_service.md
+  - name: InstanceService
+    href: api-ref/grpc/instance_service.md
+  - name: PlacementGroupService
+    href: api-ref/grpc/placement_group_service.md
+  - name: SnapshotService
+    href: api-ref/grpc/snapshot_service.md
+  - name: ZoneService
+    href: api-ref/grpc/zone_service.md
+  - name: InstanceGroupService
+    href: api-ref/grpc/instance_group_service.md
+  - name: OperationService
+    href: api-ref/grpc/operation_service.md

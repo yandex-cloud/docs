@@ -1,0 +1,868 @@
+openapi: "3.0"
+info:
+  title: Yandex Organization Management API
+  description: Методы справочника API сгруппированы по ресурсам. Чтобы выполнить операцию
+    над ресурсом, отправьте HTTP-запрос к соответствующему URL или выполните RPC-вызов.
+    Подробнее об архитектуре API Яндекс.Облака, см. [Концепции API Яндекс.Облака](/docs/api-design-guide/).
+  version: v1
+  x-y-docUri: api-ref
+  x-y-baseUrl: https://organization-manager.api.cloud.yandex.net
+paths:
+  /organization-manager/v1/organizations/{organizationId}:
+    get:
+      tags:
+      - Organization
+      summary: Возвращает указанную организацию.
+      description: Чтобы получить список доступных организацией, используйте запрос
+        [list](/docs/organization-manager/api-ref/Organization/list).
+      operationId: OrganizationGet
+      parameters:
+      - name: organizationId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор организации. Чтобы получить идентификатор организации,
+          используйте запрос [list](/docs/organization-manager/api-ref/Organization/list).
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Organization'
+      x-y-navtitle: get
+    patch:
+      tags:
+      - Organization
+      summary: Обновляет указанную органищацию.
+      operationId: OrganizationUpdate
+      parameters:
+      - name: organizationId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор организации для обновления. Чтобы получить идентификатор организации,
+          используйте запрос [list](/docs/organization-manager/api-ref/Organization/list).
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateOrganizationRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateOrganizationMetadata'
+      x-y-operation-response: '[Organization](/docs/organization-manager/api-ref/Organization#representation)'
+  /organization-manager/v1/organizations:
+    get:
+      tags:
+      - Organization
+      summary: Возвращает список доступных организаций.
+      operationId: OrganizationList
+      parameters:
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на запрос. Если количество
+          результатов больше чем [pageSize](/docs/organization-manager/api-ref/Organization/list#query_params) , сервис вернет значение [nextPageToken](/docs/organization-manager/api-ref/Organization/list#responses), которое
+          можно использовать для получения следующей страницы. Значение по умолчанию: 100.
+
+          Допустимые значения — от 0 до 1000 включительно.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение [pageToken](/docs/organization-manager/api-ref/Organization/list#query_params) равным значению поля [nextPageToken](/docs/organization-manager/api-ref/Organization/list#responses)
+          прошлого запроса, чтобы получить следующую страницу результатов.
+
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          Параметры фильтрации ресурсов в ответе. В параметрах фильтрации указываются:
+          1. Имя поля. В настоящее время фильтрация осуществляется только по полю [Organization.name](/docs/organization-manager/api-ref/Organization#representation).
+          2. Оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений.
+          3. Значение. Значение длиной от 3 до 63 символов, совпадающее с регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.
+
+          Максимальная длина строки в символах — 1000.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListOrganizationsResponse'
+      x-y-navtitle: list
+  /organization-manager/v1/organizations/{organizationId}/operations:
+    get:
+      tags:
+      - Organization
+      summary: Возвращает список операций для указанной организации.
+      operationId: OrganizationListOperations
+      parameters:
+      - name: organizationId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор организации для перечисления операций.
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на запрос. Если количество
+          результатов больше чем [pageSize](/docs/organization-manager/api-ref/Organization/listOperations#query_params) , сервис вернет значение
+          [nextPageToken](/docs/organization-manager/api-ref/Organization/listOperations#responses), которое можно использовать для получения
+          следующей страницы. Значение по умолчанию: 100.
+
+          Допустимые значения — от 0 до 1000 включительно.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение [pageToken](/docs/organization-manager/api-ref/Organization/listOperations#query_params) равным значению поля
+          [nextPageToken](/docs/organization-manager/api-ref/Organization/listOperations#responses) предыдущего запроса, чтобы получить следующую страницу
+          результатов.
+
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListOrganizationOperationsResponse'
+      x-y-navtitle: listOperations
+  /organization-manager/v1/organizations/{resourceId}:listAccessBindings:
+    get:
+      tags:
+      - Organization
+      summary: Возвращает список привязок прав доступа для указанной организации.
+      operationId: OrganizationListAccessBindings
+      parameters:
+      - name: resourceId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор ресурса, для которого запрашивается список привязок прав доступа.
+
+          Чтобы получить идентификатор ресурса, используйте соответствующий запрос List.
+          Например, используйте запрос [list](/docs/resource-manager/api-ref/Cloud/list) для получения
+          идентификатора ресурса Cloud.
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное число возвращаемых результатов на странице. Если количество
+          результатов больше чем pageSize , сервис вернет значение nextPageToken,
+          которое можно использовать для получения следующей страницы. Значение по умолчанию:
+          100.
+
+          Максимальное значение — 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение pageToken равным значению поля
+          nextPageToken прошлого запроса, чтобы получить следующую страницу
+          результатов.
+
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListAccessBindingsResponse'
+      x-y-navtitle: listAccessBindings
+  /organization-manager/v1/organizations/{resourceId}:setAccessBindings:
+    post:
+      tags:
+      - Organization
+      summary: Задает список привязок прав доступа для указанной организации.
+      operationId: OrganizationSetAccessBindings
+      parameters:
+      - name: resourceId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор ресурса, для которого задается список привязок прав доступа.
+
+          Чтобы получить идентификатор ресурса, используйте соответствующий запрос List.
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SetAccessBindingsRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: setAccessBindings
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/SetAccessBindingsMetadata'
+      x-y-operation-response: Empty
+  /organization-manager/v1/organizations/{resourceId}:updateAccessBindings:
+    post:
+      tags:
+      - Organization
+      summary: Обновляет список привязок прав доступа для указанной организации.
+      operationId: OrganizationUpdateAccessBindings
+      parameters:
+      - name: resourceId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор ресурса, для которого обновляется список привязок прав доступа.
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateAccessBindingsRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: updateAccessBindings
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateAccessBindingsMetadata'
+      x-y-operation-response: Empty
+components:
+  schemas:
+    AccessBinding:
+      type: object
+      properties:
+        roleId:
+          description: |-
+            Обязательное поле.
+            Идентификатор ресурса [Role](/docs/iam/api-ref/Role#representation) который назначен для субъекта, указанного в
+            параметре `subject`.
+
+            Максимальная длина строки в символах — 50.
+          type: string
+        subject:
+          $ref: '#/components/schemas/Subject_in_AccessBinding_subject'
+    AccessBindingAction:
+      description: |2-
+         - ADD: Добавление новой привязки прав доступа.
+         - REMOVE: Удаление привязки прав доступа.
+      type: string
+      enum:
+      - ADD
+      - REMOVE
+    AccessBindingDelta:
+      type: object
+      properties:
+        action:
+          $ref: '#/components/schemas/AccessBindingAction_in_AccessBindingDelta_action'
+        accessBinding:
+          $ref: '#/components/schemas/AccessBinding_in_AccessBindingDelta_accessBinding'
+    DeleteMembershipMetadata:
+      type: object
+      properties:
+        organizationId:
+          description: |-
+            Обязательное поле.
+            Идентификатор организации в которой будет удаляется членство пользователя.
+
+            Максимальная длина строки в символах — 50.
+          type: string
+        subjectId:
+          description: |-
+            Обязательное поле.
+            Идентификатор субъекта удаляемого из организации.
+
+            Максимальная длина строки в символах — 50.
+          type: string
+    DeleteMembershipResponse:
+      type: object
+      properties:
+        organizationId:
+          description: |-
+            Обязательное поле.
+            Идентификатор организации в которой удалено членство пользователя.
+
+            Максимальная длина строки в символах — 50.
+          type: string
+        subjectId:
+          description: |-
+            Обязательное поле.
+            Идентификатор субъекта удаленного из организации.
+
+            Максимальная длина строки в символах — 50.
+          type: string
+    Empty:
+      description: Пустой JSON объект `` {} ``.
+      type: object
+      maxProperties: 0
+    Federation:
+      description: Minimalistic analog of yandex.cloud.organizationmanager.v1.saml.Federation
+      type: object
+      properties:
+        id:
+          description: |-
+            Обязательное поле.
+            ID of the federation.
+
+            Максимальная длина строки в символах — 50.
+          type: string
+        name:
+          description: Name of the federation. The name is unique within the cloud
+            or organization
+          type: string
+    FieldMask:
+      description: |-
+        Имена всех обновляемых полей, разделенные запятыми.
+        Только значения указанных полей будут изменены. Остальные останутся нетронутыми.
+        Если поле указано в параметре `` updateMask `` и в запросе не было отправлено значение для этого поля,
+        значение поля будет сброшено на значение по умолчанию. Значение по умолчанию для большинства полей — null или 0.
+
+        Если в запросе не передается `` updateMask ``, значения всех полей будут обновлены.
+        Для полей, указанных в запросе, будут использованы переданные значения.
+        Значения остальных полей будут сброшены на значения по умолчанию.
+      type: string
+    ListAccessBindingsResponse:
+      type: object
+      properties:
+        accessBindings:
+          description: Список привязок прав доступа для указанного ресурса.
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessBinding'
+        nextPageToken:
+          description: |-
+            Токен для получения следующей страницы результатов в ответе. Если количество
+            результатов больше чем pageSize, используйте nextPageToken в качестве
+            значения параметра pageToken в следующем запросе списка ресурсов. Все
+            последующие запросы будут получать свои значения nextPageToken для перебора страниц
+            результатов.
+          type: string
+    ListMembersResponse:
+      type: object
+      properties:
+        users:
+          description: Список пользователей запрошенной организации.
+          type: array
+          items:
+            $ref: '#/components/schemas/ListMembersResponseOrganizationUser'
+        nextPageToken:
+          description: |-
+            Токен для получения следующей страницы результатов в ответе. Если количество
+            результатов больше чем [ListMembersRequest.page_size], используйте [nextPageToken](/docs/organization-manager/api-ref/User/listMembers#responses) в качестве значения
+            параметра [ListMembersRequest.page_token] в следующем запросе списка ресурсов. Все последующие
+            запросы будут получать свои значения [nextPageToken](/docs/organization-manager/api-ref/User/listMembers#responses) для перебора страниц результатов.
+          type: string
+    ListMembersResponseOrganizationUser:
+      type: object
+      properties:
+        subjectClaims:
+          $ref: '#/components/schemas/SubjectClaims_in_ListMembersResponseOrganizationUser_subjectClaims'
+    ListOrganizationOperationsResponse:
+      type: object
+      properties:
+        operations:
+          description: Список операций для указанной федерации.
+          type: array
+          items:
+            $ref: '#/components/schemas/Operation'
+        nextPageToken:
+          description: |-
+            Токен для получения следующей страницы результатов в ответе. Если количество
+            результатов больше чем [ListOrganizationOperationsResponse.page_size], используйте [nextPageToken](/docs/organization-manager/api-ref/Organization/listOperations#responses) в качестве
+            значения параметра [pageToken](/docs/organization-manager/api-ref/Organization/listOperations#query_params) в следующем запросе списка ресурсов. Все
+            последующие запросы будут получать свои значения [nextPageToken](/docs/organization-manager/api-ref/Organization/listOperations#responses) для перебора страниц
+            результатов.
+          type: string
+    ListOrganizationsResponse:
+      type: object
+      properties:
+        organizations:
+          description: Список организаций.
+          type: array
+          items:
+            $ref: '#/components/schemas/Organization'
+        nextPageToken:
+          description: |-
+            Токен для получения следующей страницы результатов в ответе. Если количество
+            результатов больше чем [ListOrganizationsResponse.page_size], используйте [nextPageToken](/docs/organization-manager/api-ref/Organization/list#responses) в качестве значения
+            параметра [pageToken](/docs/organization-manager/api-ref/Organization/list#query_params) в следующем запросе списка ресурсов. Все последующие
+            запросы будут получать свои значения [nextPageToken](/docs/organization-manager/api-ref/Organization/list#responses) для перебора страниц результатов.
+          type: string
+    Operation:
+      description: |-
+        Ресурс Operation. Дополнительные сведения см. в разделе
+        [Объект Operation](/docs/api-design-guide/concepts/operation).
+      type: object
+      allOf:
+      - type: object
+        properties:
+          id:
+            description: Идентификатор операции.
+            type: string
+          description:
+            description: |-
+              Описание операции. Длина описания должна быть от 0 до 256
+              символов.
+            type: string
+          createdAt:
+            description: |-
+              Время создания ресурса в формате в
+              [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+
+              Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+            type: string
+            format: date-time
+          createdBy:
+            description: |-
+              Идентификатор пользователя или сервисного
+              аккаунта, инициировавшего операцию.
+            type: string
+          modifiedAt:
+            description: |-
+              Время, когда ресурс Operation последний раз
+              обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+
+              Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+            type: string
+            format: date-time
+          done:
+            description: |-
+              Если значение равно `false` — операция еще
+              выполняется. Если `true` — операция завершена, и задано значение
+              одного из полей `error` или `response`.
+            type: boolean
+            format: boolean
+          metadata:
+            description: |-
+              Метаданные операции. Обычно в поле содержится
+              идентификатор ресурса, над которым выполняется операция. Если
+              метод возвращает ресурс Operation, в описании метода приведена
+              структура соответствующего ему поля `metadata`.
+            type: object
+      - title: result
+        type: object
+        maxProperties: 1
+        properties:
+          error:
+            $ref: '#/components/schemas/Status'
+            description: Описание ошибки в случае сбоя или отмены операции.
+          response:
+            description: |-
+              Результат операции в случае успешного завершения. Если
+              исходный метод не возвращает никаких данных при успешном
+              завершении, например метод Delete, поле содержит объект
+              [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty). Если исходный метод — это стандартный метод Create
+              / Update, поле содержит целевой ресурс операции. Если метод
+              возвращает ресурс Operation, в описании метода приведена
+              структура соответствующего ему поля `response`.
+            type: object
+    Organization:
+      description: Ресурс "Организация". Подробнее см. в разделе [Управление организациями](/docs/organization/enable-org).
+      type: object
+      properties:
+        id:
+          description: Идентификатор организации.
+          type: string
+        createdAt:
+          description: |-
+            Время создания.
+
+            Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+          type: string
+          format: date-time
+        name:
+          description: Имя организации. Длина имени должна быть от 3 до 63 символов.
+          type: string
+        description:
+          description: Описание организации. Длина описания должна быть от 0 до 256
+            символов.
+          type: string
+        title:
+          description: Название организации. Длина описания должна быть от 0 до 256
+            символов.
+          type: string
+    SetAccessBindingsMetadata:
+      type: object
+      properties:
+        resourceId:
+          description: Идентификатор ресурса, для которого задается список привязок
+            прав доступа.
+          type: string
+    SetAccessBindingsRequest:
+      type: object
+      properties:
+        accessBindings:
+          description: |-
+            Обязательное поле.
+            Привязки прав доступа, которые будут установлены. Дополнительные сведения см. в
+            разделе [Привязка прав доступа](/docs/iam/concepts/access-control/#access-bindings).
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessBinding'
+    Status:
+      description: Описание ошибки в случае сбоя или отмены операции.
+      type: object
+      properties:
+        code:
+          description: Код ошибки. Значение из списка [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
+          type: integer
+          format: int32
+        message:
+          description: Текст ошибки.
+          type: string
+        details:
+          description: Список сообщений с подробными сведениями об ошибке.
+          type: array
+          items:
+            type: object
+    Subject:
+      type: object
+      properties:
+        id:
+          description: |-
+            Обязательное поле.
+            Идентификатор субъекта.
+
+            Может иметь одно из значений:
+            * `allAuthenticatedUsers`: Специальный системный идентификатор, представляющий любого пользователя, прошедшего аутентификацию. Его можно использовать только если в параметре `type` указано `system`.
+            * `allUsers`: Специальный системный идентификатор, представляющий любого пользователя. Аутентификация не требуется. Например, при запросе через API не надо будет указывать IAM-токен.
+            * `<идентификатор пользователя в облаке>`: Идентификатор, представляющий учетную запись пользователя. Его можно использовать только если в параметре `type` передано одно из следующих значений: `userAccount`, `federatedUser` или `serviceAccount`.
+
+            Максимальная длина строки в символах — 50.
+          type: string
+        type:
+          description: |-
+            Обязательное поле.
+            Тип субъекта.
+
+            Может иметь одно из значений:
+            * `userAccount` — аккаунт на Яндексе или Яндекс.Коннекте, добавленный в Яндекс.Облако.
+            * `serviceAccount` — сервисный аккаунт. Этот тип представляет ресурс [ServiceAccount](/docs/iam/api-ref/ServiceAccount#representation).
+            * `federatedUser` — федеративный аккаунт. Этот тип представляет пользователя из федерации удостоверений, например Active Directory.
+            * `system` — системная группа. Представляет набор аккаунтов, который описывается общим системным идентификатором.
+
+            Дополнительные сведения см. в разделе [Субъект, которому назначается роль](/docs/iam/concepts/access-control/#subject).
+
+            Максимальная длина строки в символах — 100.
+          type: string
+    SubjectClaims:
+      description: Claims representation, see https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims
+        for details.
+      type: object
+      properties:
+        sub:
+          description: |-
+            Обязательное поле.
+            Subject - Identifier for the End-User at the Issuer.
+
+            Максимальная длина строки в символах — 50.
+          type: string
+        name:
+          description: End-User's full name in displayable form including all name
+            parts, possibly including titles and suffixes, ordered according to the
+            End-User's locale and preferences.
+          type: string
+        givenName:
+          description: Given name(s) or first name(s) of the End-User. Note that in
+            some cultures, people can have multiple given names; all can be present,
+            with the names being separated by space characters.
+          type: string
+        familyName:
+          description: Surname(s) or last name(s) of the End-User. Note that in some
+            cultures, people can have multiple family names or no family name; all
+            can be present, with the names being separated by space characters.
+          type: string
+        preferredUsername:
+          description: |-
+            Shorthand name by which the End-User wishes to be referred to at the RP, such as janedoe or j.doe.
+            This value MAY be any valid JSON string including special characters such as @, /, or whitespace. The RP MUST NOT rely upon this value being unique, as discussed in Section 5.7.
+          type: string
+        picture:
+          description: |-
+            URL of the End-User's profile picture. This URL MUST refer to an image file (for example, a PNG, JPEG, or GIF image file),
+            rather than to a Web page containing an image. Note that this URL SHOULD specifically reference a profile photo of the End-User suitable for displaying when describing the End-User, rather than an arbitrary photo taken by the End-User.
+          type: string
+        email:
+          description: |-
+            End-User's preferred e-mail address. Its value MUST conform to the RFC 5322 [RFC5322] addr-spec syntax.
+            The RP MUST NOT rely upon this value being unique, as discussed in Section 5.7.
+          type: string
+        zoneinfo:
+          description: String from zoneinfo `zoneinfo` time zone database representing
+            the End-User's time zone. For example, Europe/Paris or America/Los_Angeles.
+          type: string
+        locale:
+          description: |-
+            End-User's locale, represented as a BCP47 [RFC5646] language tag. This is typically an ISO 639-1 Alpha-2 [ISO639-1] language code in lowercase and an ISO 3166-1 Alpha-2 [ISO3166-1] country code in uppercase, separated by a dash.
+            For example, en-US or fr-CA. As a compatibility note, some implementations have used an underscore as the separator rather than a dash, for example, en_US; Relying Parties MAY choose to accept this locale syntax as well.
+          type: string
+        phoneNumber:
+          description: |-
+            End-User's preferred telephone number. E.164 [E.164] is RECOMMENDED as the format of this Claim, for example, +1 (425) 555-1212 or +56 (2) 687 2400.
+            If the phone number contains an extension, it is RECOMMENDED that the extension be represented using the RFC 3966 [RFC3966] extension syntax, for example, +1 (604) 555-1234;ext=5678.
+          type: string
+        federation:
+          $ref: '#/components/schemas/Federation_in_SubjectClaims_federation'
+    UpdateAccessBindingsMetadata:
+      type: object
+      properties:
+        resourceId:
+          description: Идентификатор ресурса, для которого обновляется список привязок
+            прав доступа.
+          type: string
+    UpdateAccessBindingsRequest:
+      type: object
+      properties:
+        accessBindingDeltas:
+          description: |-
+            Обязательное поле.
+            Изменения в список привязок прав доступа.
+
+            Должен содержать хотя бы один элемент.
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessBindingDelta'
+    UpdateOrganizationMetadata:
+      type: object
+      properties:
+        organizationId:
+          description: Идентификатор организации, которая обновляется.
+          type: string
+    UpdateOrganizationRequest:
+      type: object
+      properties:
+        updateMask:
+          $ref: '#/components/schemas/FieldMask_in_UpdateOrganizationRequest_updateMask'
+        name:
+          description: |-
+            Имя организации. Длина имени должна быть от 3 до 63 символов.
+
+            Значение должно соответствовать регулярному выражению `` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
+          type: string
+        description:
+          description: |-
+            Описание организации. Длина описания должна быть от 0 до 256 символов.
+
+            Максимальная длина строки в символах — 256.
+          type: string
+        title:
+          description: |-
+            Название организации. Длина описания должна быть от 0 до 256 символов.
+
+            Максимальная длина строки в символах — 256.
+          type: string
+    Subject_in_AccessBinding_subject:
+      description: |-
+        Обязательное поле.
+        Субъект, для которого создается привязка прав доступа. Может
+        представлять собой аккаунт с уникальным идентификатором в облаке или системную
+        группу с общим системным идентификатором.
+      type: object
+      properties:
+        id:
+          description: |-
+            Обязательное поле.
+            Идентификатор субъекта.
+
+            Может иметь одно из значений:
+            * `allAuthenticatedUsers`: Специальный системный идентификатор, представляющий любого пользователя, прошедшего аутентификацию. Его можно использовать только если в параметре `type` указано `system`.
+            * `allUsers`: Специальный системный идентификатор, представляющий любого пользователя. Аутентификация не требуется. Например, при запросе через API не надо будет указывать IAM-токен.
+            * `<идентификатор пользователя в облаке>`: Идентификатор, представляющий учетную запись пользователя. Его можно использовать только если в параметре `type` передано одно из следующих значений: `userAccount`, `federatedUser` или `serviceAccount`.
+
+            Максимальная длина строки в символах — 50.
+          type: string
+        type:
+          description: |-
+            Обязательное поле.
+            Тип субъекта.
+
+            Может иметь одно из значений:
+            * `userAccount` — аккаунт на Яндексе или Яндекс.Коннекте, добавленный в Яндекс.Облако.
+            * `serviceAccount` — сервисный аккаунт. Этот тип представляет ресурс [ServiceAccount](/docs/iam/api-ref/ServiceAccount#representation).
+            * `federatedUser` — федеративный аккаунт. Этот тип представляет пользователя из федерации удостоверений, например Active Directory.
+            * `system` — системная группа. Представляет набор аккаунтов, который описывается общим системным идентификатором.
+
+            Дополнительные сведения см. в разделе [Субъект, которому назначается роль](/docs/iam/concepts/access-control/#subject).
+
+            Максимальная длина строки в символах — 100.
+          type: string
+    AccessBindingAction_in_AccessBindingDelta_action:
+      description: |-
+        Обязательное поле.
+        Действие, которое надо выполнить с привязкой прав доступа.
+
+         - ADD: Добавление новой привязки прав доступа.
+         - REMOVE: Удаление привязки прав доступа.
+      type: string
+      enum:
+      - ADD
+      - REMOVE
+    AccessBinding_in_AccessBindingDelta_accessBinding:
+      description: |-
+        Обязательное поле.
+        Привязка прав доступа. Дополнительные сведения см. в разделе [Привязка прав доступа](/docs/iam/concepts/access-control/#access-bindings).
+      type: object
+      properties:
+        roleId:
+          description: |-
+            Обязательное поле.
+            Идентификатор ресурса [Role](/docs/iam/api-ref/Role#representation) который назначен для субъекта, указанного в
+            параметре `subject`.
+
+            Максимальная длина строки в символах — 50.
+          type: string
+        subject:
+          $ref: '#/components/schemas/Subject_in_AccessBinding_subject'
+    SubjectClaims_in_ListMembersResponseOrganizationUser_subjectClaims:
+      description: |-
+        OpenID standard claims with additional Yandex.Organization claims.
+
+        Claims representation, see https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims for details.
+      type: object
+      properties:
+        sub:
+          description: |-
+            Обязательное поле.
+            Subject - Identifier for the End-User at the Issuer.
+
+            Максимальная длина строки в символах — 50.
+          type: string
+        name:
+          description: End-User's full name in displayable form including all name
+            parts, possibly including titles and suffixes, ordered according to the
+            End-User's locale and preferences.
+          type: string
+        givenName:
+          description: Given name(s) or first name(s) of the End-User. Note that in
+            some cultures, people can have multiple given names; all can be present,
+            with the names being separated by space characters.
+          type: string
+        familyName:
+          description: Surname(s) or last name(s) of the End-User. Note that in some
+            cultures, people can have multiple family names or no family name; all
+            can be present, with the names being separated by space characters.
+          type: string
+        preferredUsername:
+          description: |-
+            Shorthand name by which the End-User wishes to be referred to at the RP, such as janedoe or j.doe.
+            This value MAY be any valid JSON string including special characters such as @, /, or whitespace. The RP MUST NOT rely upon this value being unique, as discussed in Section 5.7.
+          type: string
+        picture:
+          description: |-
+            URL of the End-User's profile picture. This URL MUST refer to an image file (for example, a PNG, JPEG, or GIF image file),
+            rather than to a Web page containing an image. Note that this URL SHOULD specifically reference a profile photo of the End-User suitable for displaying when describing the End-User, rather than an arbitrary photo taken by the End-User.
+          type: string
+        email:
+          description: |-
+            End-User's preferred e-mail address. Its value MUST conform to the RFC 5322 [RFC5322] addr-spec syntax.
+            The RP MUST NOT rely upon this value being unique, as discussed in Section 5.7.
+          type: string
+        zoneinfo:
+          description: String from zoneinfo `zoneinfo` time zone database representing
+            the End-User's time zone. For example, Europe/Paris or America/Los_Angeles.
+          type: string
+        locale:
+          description: |-
+            End-User's locale, represented as a BCP47 [RFC5646] language tag. This is typically an ISO 639-1 Alpha-2 [ISO639-1] language code in lowercase and an ISO 3166-1 Alpha-2 [ISO3166-1] country code in uppercase, separated by a dash.
+            For example, en-US or fr-CA. As a compatibility note, some implementations have used an underscore as the separator rather than a dash, for example, en_US; Relying Parties MAY choose to accept this locale syntax as well.
+          type: string
+        phoneNumber:
+          description: |-
+            End-User's preferred telephone number. E.164 [E.164] is RECOMMENDED as the format of this Claim, for example, +1 (425) 555-1212 or +56 (2) 687 2400.
+            If the phone number contains an extension, it is RECOMMENDED that the extension be represented using the RFC 3966 [RFC3966] extension syntax, for example, +1 (604) 555-1234;ext=5678.
+          type: string
+        federation:
+          $ref: '#/components/schemas/Federation_in_SubjectClaims_federation'
+    Federation_in_SubjectClaims_federation:
+      description: |-
+        User federation, non-empty only for federated users.
+
+        Minimalistic analog of yandex.cloud.organizationmanager.v1.saml.Federation
+      type: object
+      properties:
+        id:
+          description: |-
+            Обязательное поле.
+            ID of the federation.
+
+            Максимальная длина строки в символах — 50.
+          type: string
+        name:
+          description: Name of the federation. The name is unique within the cloud
+            or organization
+          type: string
+    FieldMask_in_UpdateOrganizationRequest_updateMask:
+      description: |-
+        Маска, определяющая, какие поля указанной федерации будут обновлены.
+
+        Имена всех обновляемых полей, разделенные запятыми.
+        Только значения указанных полей будут изменены. Остальные останутся нетронутыми.
+        Если поле указано в параметре `` updateMask `` и в запросе не было отправлено значение для этого поля,
+        значение поля будет сброшено на значение по умолчанию. Значение по умолчанию для большинства полей — null или 0.
+
+        Если в запросе не передается `` updateMask ``, значения всех полей будут обновлены.
+        Для полей, указанных в запросе, будут использованы переданные значения.
+        Значения остальных полей будут сброшены на значения по умолчанию.
+      type: string
+tags:
+- name: Organization
+  description: Набор методов для управления организациями.
+- name: User
+  description: Набор методов для управления пользователями организации.

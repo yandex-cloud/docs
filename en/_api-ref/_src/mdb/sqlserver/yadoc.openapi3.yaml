@@ -1,6 +1,6 @@
 openapi: "3.0"
 info:
-  title: Yandex Managed Service for SQL Server API
+  title: Yandex Managed Service for Microsoft SQL Server API
   description: This API reference is organized by resource. Actions are performed
     by sending HTTP requests to resource URLs or making RPC calls. For more information
     about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
@@ -8,7 +8,7 @@ info:
   x-y-docUri: api-ref
   x-y-baseUrl: https://mdb.api.cloud.yandex.net
 paths:
-  /mdb/sqlserver/v1alpha/backups/{backupId}:
+  /mdb/sqlserver/v1/backups/{backupId}:
     get:
       tags:
       - Backup
@@ -35,7 +35,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Backup'
       x-y-navtitle: get
-  /mdb/sqlserver/v1alpha/backups:
+  /mdb/sqlserver/v1/backups:
     get:
       tags:
       - Backup
@@ -82,7 +82,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ListBackupsResponse'
       x-y-navtitle: list
-  /mdb/sqlserver/v1alpha/clusters/{clusterId}:
+  /mdb/sqlserver/v1/clusters/{clusterId}:
     get:
       tags:
       - Cluster
@@ -175,7 +175,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/UpdateClusterMetadata'
       x-y-operation-response: '[Cluster](/docs/managed-sqlserver/api-ref/Cluster#representation)'
-  /mdb/sqlserver/v1alpha/clusters:
+  /mdb/sqlserver/v1/clusters:
     get:
       tags:
       - Cluster
@@ -258,7 +258,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/CreateClusterMetadata'
       x-y-operation-response: '[Cluster](/docs/managed-sqlserver/api-ref/Cluster#representation)'
-  /mdb/sqlserver/v1alpha/clusters/{clusterId}:start:
+  /mdb/sqlserver/v1/clusters/{clusterId}:start:
     post:
       tags:
       - Cluster
@@ -288,7 +288,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/StartClusterMetadata'
       x-y-operation-response: '[Cluster](/docs/managed-sqlserver/api-ref/Cluster#representation)'
-  /mdb/sqlserver/v1alpha/clusters/{clusterId}:stop:
+  /mdb/sqlserver/v1/clusters/{clusterId}:stop:
     post:
       tags:
       - Cluster
@@ -318,7 +318,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/StopClusterMetadata'
       x-y-operation-response: '[Cluster](/docs/managed-sqlserver/api-ref/Cluster#representation)'
-  /mdb/sqlserver/v1alpha/clusters/{clusterId}:move:
+  /mdb/sqlserver/v1/clusters/{clusterId}:move:
     post:
       tags:
       - Cluster
@@ -354,7 +354,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/MoveClusterMetadata'
       x-y-operation-response: '[Cluster](/docs/managed-sqlserver/api-ref/Cluster#representation)'
-  /mdb/sqlserver/v1alpha/clusters/{clusterId}:backup:
+  /mdb/sqlserver/v1/clusters/{clusterId}:backup:
     post:
       tags:
       - Cluster
@@ -384,7 +384,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/BackupClusterMetadata'
       x-y-operation-response: '[Cluster](/docs/managed-sqlserver/api-ref/Cluster#representation)'
-  /mdb/sqlserver/v1alpha/clusters:restore:
+  /mdb/sqlserver/v1/clusters:restore:
     post:
       tags:
       - Cluster
@@ -407,7 +407,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/RestoreClusterMetadata'
       x-y-operation-response: '[Cluster](/docs/managed-sqlserver/api-ref/Cluster#representation)'
-  /mdb/sqlserver/v1alpha/clusters/{clusterId}:logs:
+  /mdb/sqlserver/v1/clusters/{clusterId}:logs:
     get:
       tags:
       - Cluster
@@ -510,7 +510,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ListClusterLogsResponse'
       x-y-navtitle: listLogs
-  /mdb/sqlserver/v1alpha/clusters/{clusterId}/operations:
+  /mdb/sqlserver/v1/clusters/{clusterId}/operations:
     get:
       tags:
       - Cluster
@@ -557,7 +557,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ListClusterOperationsResponse'
       x-y-navtitle: listOperations
-  /mdb/sqlserver/v1alpha/clusters/{clusterId}/backups:
+  /mdb/sqlserver/v1/clusters/{clusterId}/backups:
     get:
       tags:
       - Cluster
@@ -605,7 +605,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ListClusterBackupsResponse'
       x-y-navtitle: listBackups
-  /mdb/sqlserver/v1alpha/clusters/{clusterId}/hosts:
+  /mdb/sqlserver/v1/clusters/{clusterId}/hosts:
     get:
       tags:
       - Cluster
@@ -652,7 +652,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ListClusterHostsResponse'
       x-y-navtitle: listHosts
-  /mdb/sqlserver/v1alpha/clusters/{clusterId}/databases/{databaseName}:
+  /mdb/sqlserver/v1/clusters/{clusterId}/databases/{databaseName}:
     get:
       tags:
       - Database
@@ -736,7 +736,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/DeleteDatabaseMetadata'
       x-y-operation-response: Empty
-  /mdb/sqlserver/v1alpha/clusters/{clusterId}/databases:
+  /mdb/sqlserver/v1/clusters/{clusterId}/databases:
     get:
       tags:
       - Database
@@ -818,7 +818,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/CreateDatabaseMetadata'
       x-y-operation-response: '[Database](/docs/managed-sqlserver/api-ref/Database#representation)'
-  /mdb/sqlserver/v1alpha/resourcePresets/{resourcePresetId}:
+  /mdb/sqlserver/v1/resourcePresets/{resourcePresetId}:
     get:
       tags:
       - ResourcePreset
@@ -845,7 +845,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ResourcePreset'
       x-y-navtitle: get
-  /mdb/sqlserver/v1alpha/resourcePresets:
+  /mdb/sqlserver/v1/resourcePresets:
     get:
       tags:
       - ResourcePreset
@@ -880,7 +880,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ListResourcePresetsResponse'
       x-y-navtitle: list
-  /mdb/sqlserver/v1alpha/clusters/{clusterId}/users/{userName}:
+  /mdb/sqlserver/v1/clusters/{clusterId}/users/{userName}:
     get:
       tags:
       - User
@@ -1012,7 +1012,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/UpdateUserMetadata'
       x-y-operation-response: '[User](/docs/managed-sqlserver/api-ref/User#representation)'
-  /mdb/sqlserver/v1alpha/clusters/{clusterId}/users:
+  /mdb/sqlserver/v1/clusters/{clusterId}/users:
     get:
       tags:
       - User
@@ -1094,7 +1094,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/CreateUserMetadata'
       x-y-operation-response: '[User](/docs/managed-sqlserver/api-ref/User#representation)'
-  /mdb/sqlserver/v1alpha/clusters/{clusterId}/users/{userName}:grantPermission:
+  /mdb/sqlserver/v1/clusters/{clusterId}/users/{userName}:grantPermission:
     post:
       tags:
       - User
@@ -1142,7 +1142,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/GrantUserPermissionMetadata'
       x-y-operation-response: '[User](/docs/managed-sqlserver/api-ref/User#representation)'
-  /mdb/sqlserver/v1alpha/clusters/{clusterId}/users/{userName}:revokePermission:
+  /mdb/sqlserver/v1/clusters/{clusterId}/users/{userName}:revokePermission:
     post:
       tags:
       - User
@@ -1193,6 +1193,13 @@ paths:
       x-y-operation-response: '[User](/docs/managed-sqlserver/api-ref/User#representation)'
 components:
   schemas:
+    Access:
+      type: object
+      properties:
+        dataLens:
+          description: Allow access for DataLens
+          type: boolean
+          format: boolean
     Backup:
       description: |-
         An SQL Server backup resource.
@@ -1280,6 +1287,11 @@ components:
           $ref: '#/components/schemas/ClusterHealth_in_Cluster_health'
         status:
           $ref: '#/components/schemas/ClusterStatus_in_Cluster_status'
+        securityGroupIds:
+          description: User security groups
+          type: array
+          items:
+            type: string
     ClusterConfig:
       type: object
       allOf:
@@ -1294,13 +1306,21 @@ components:
           backupWindowStart:
             $ref: '#/components/schemas/TimeOfDay'
             description: Start time for the daily backup in UTC timezone
+          access:
+            $ref: '#/components/schemas/Access'
+            description: Access policy to DB
       - title: sqlserver_config
         type: object
         maxProperties: 1
         properties:
-          sqlserverConfig_2016Sp2:
-            $ref: '#/components/schemas/SQLServerConfigSet2016sp2'
-            description: Configuration of the SQL Server 2016sp2 instance.
+          sqlserverConfig_2016Sp2Std:
+            $ref: '#/components/schemas/SQLServerConfigSet2016sp2std'
+            description: Configuration of the SQL Server 2016sp2 standard edition
+              instance.
+          sqlserverConfig_2016Sp2Ent:
+            $ref: '#/components/schemas/SQLServerConfigSet2016sp2ent'
+            description: Configuration of the SQL Server 2016sp2 enterprise edition
+              instance.
     ClusterEnvironment:
       description: |2-
          - PRODUCTION: Stable environment with a conservative update policy:
@@ -1363,13 +1383,21 @@ components:
           backupWindowStart:
             $ref: '#/components/schemas/TimeOfDay'
             description: Start time for the daily backup in UTC timezone
+          access:
+            $ref: '#/components/schemas/Access'
+            description: Access policy to DB
       - title: sqlserver_config
         type: object
         maxProperties: 1
         properties:
-          sqlserverConfig_2016Sp2:
-            $ref: '#/components/schemas/SQLServerConfig2016sp2'
-            description: Configuration for an SQL Server 2016 SP2 cluster.
+          sqlserverConfig_2016Sp2Std:
+            $ref: '#/components/schemas/SQLServerConfig2016sp2std'
+            description: Configuration for an SQL Server 2016 SP2 Standard edition
+              cluster.
+          sqlserverConfig_2016Sp2Ent:
+            $ref: '#/components/schemas/SQLServerConfig2016sp2ent'
+            description: Configuration for an SQL Server 2016 SP2 Enterprise edition
+              cluster.
     CreateClusterMetadata:
       type: object
       properties:
@@ -1443,6 +1471,11 @@ components:
 
             The maximum string length in characters is 50.
           type: string
+        securityGroupIds:
+          description: User security groups
+          type: array
+          items:
+            type: string
     CreateDatabaseMetadata:
       type: object
       properties:
@@ -2055,6 +2088,11 @@ components:
 
             The maximum string length in characters is 50.
           type: string
+        securityGroupIds:
+          description: User security groups
+          type: array
+          items:
+            type: string
     RevokeUserPermissionMetadata:
       type: object
       properties:
@@ -2069,9 +2107,9 @@ components:
       properties:
         permission:
           $ref: '#/components/schemas/Permission_in_RevokeUserPermissionRequest_permission'
-    SQLServerConfig2016sp2:
+    SQLServerConfig2016sp2ent:
       description: |-
-        SQL Server 2016 SP2 supported configuration options are listed here.
+        SQL Server 2016 SP2 Enterprise edition supported configuration options are listed here.
 
         Detailed description for each set of options is available in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/server-configuration-options-sql-server?view=sql-server-2016).
 
@@ -2098,12 +2136,6 @@ components:
             Acceptable values are 5 to 32767, inclusive.
           type: integer
           format: int64
-        sqlcollation:
-          description: |-
-            Collation used for databases across the instance. Determines if instance is case sensitive, accent sensitive etc.
-
-            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/relational-databases/collations/set-or-change-the-server-collation?view=sql-server-2016).
-          type: string
         auditLevel:
           description: |-
             Describes how to configure login auditing to monitor SQL Server Database Engine login activity.
@@ -2118,18 +2150,67 @@ components:
             Acceptable values are 0 to 3, inclusive.
           type: integer
           format: int64
-        filestreamAccessLevel:
+        fillFactorPercent:
           description: |-
-            Determines the `FILESTREAM` access level for the SQL Server instance.
-            `FILESTREAM` technology enables SQL Server-based applications to store BLOB data, such as documents and images, on the file system outside of a database.
+            Manages the fill factor server configuration option.
+            When an index is created or rebuilt the fill factor determines the percentage of space on each index leaf-level page to be filled with data, reserving the rest as free space for future growth.
+
+            Values 0 and 100 mean full page usage (no space reserved).
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-fill-factor-server-configuration-option?view=sql-server-2016).
+
+            Acceptable values are 0 to 100, inclusive.
+          type: integer
+          format: int64
+        optimizeForAdHocWorkloads:
+          description: |-
+            Determines whether plans should be cached only after second execution.
+            Allows to avoid SQL cache bloat because of single-use plans.
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/optimize-for-ad-hoc-workloads-server-configuration-option?view=sql-server-2016).
+          type: boolean
+          format: boolean
+    SQLServerConfig2016sp2std:
+      description: |-
+        SQL Server 2016 SP2 Standard edition supported configuration options are listed here.
+
+        Detailed description for each set of options is available in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/server-configuration-options-sql-server?view=sql-server-2016).
+
+        Any options that are not listed here are not supported.
+      type: object
+      properties:
+        maxDegreeOfParallelism:
+          description: |-
+            Limits the number of processors to use in parallel plan execution per task.
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option?view=sql-server-2016).
+
+            Acceptable values are 1 to 99, inclusive.
+          type: integer
+          format: int64
+        costThresholdForParallelism:
+          description: |-
+            Specifies the threshold at which SQL Server creates and runs parallel plans for queries.
+
+            SQL Server creates and runs a parallel plan for a query only when the estimated cost to run a serial plan for the same query is higher than the value of the option.
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-cost-threshold-for-parallelism-server-configuration-option?view=sql-server-2016).
+
+            Acceptable values are 5 to 32767, inclusive.
+          type: integer
+          format: int64
+        auditLevel:
+          description: |-
+            Describes how to configure login auditing to monitor SQL Server Database Engine login activity.
             Possible values:
-            * 0 - disables `FILESTREAM`,
-            * 1 - enables `FILESTREAM` for Transact-SQL access,
-            * 2 - enables `FILESTREAM` for Transact-SQL and Win32 streaming access.
+            * 0 - do not log login attempts,
+            * 1 - log only failed login attempts,
+            * 2 - log only successful login attempts (not recommended),
+            * 3 - log all login attempts (not recommended).
 
-            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/filestream-access-level-server-configuration-option?view=sql-server-2016).
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/ssms/configure-login-auditing-sql-server-management-studio?view=sql-server-2016).
 
-            Acceptable values are 0 to 2, inclusive.
+            Acceptable values are 0 to 3, inclusive.
           type: integer
           format: int64
         fillFactorPercent:
@@ -2144,19 +2225,6 @@ components:
             Acceptable values are 0 to 100, inclusive.
           type: integer
           format: int64
-        inDoubtXactResolution:
-          description: |-
-            Determines the default outcome of distributed transactions that the Microsoft Distributed Transaction Coordinator (MS DTC) is unable to resolve (in-doubt distributed transactions).
-            Possible values:
-            * 0 - no automatic resolution, recovery fails if MS DTC cannot resolve any in-doubt transactions,
-            * 1 - assume in-doubt transactions committed,
-            * 2 - assume in-doubt transactions uncommitted and roll them back.
-
-            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/in-doubt-xact-resolution-server-configuration-option?view=sql-server-2016).
-
-            Acceptable values are 0 to 2, inclusive.
-          type: integer
-          format: int64
         optimizeForAdHocWorkloads:
           description: |-
             Determines whether plans should be cached only after second execution.
@@ -2165,23 +2233,24 @@ components:
             See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/optimize-for-ad-hoc-workloads-server-configuration-option?view=sql-server-2016).
           type: boolean
           format: boolean
-        crossDbOwnershipChaining:
-          description: |-
-            Enables cross-database ownership chaining.
-            Example: having explicit access to stored procedure in one database that refers to an object in another database that you don't have explicit access, you'll be able to execute the procedure without permission related error.
-
-            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/cross-db-ownership-chaining-server-configuration-option?view=sql-server-2016).
-          type: boolean
-          format: boolean
-    SQLServerConfigSet2016sp2:
+    SQLServerConfigSet2016sp2ent:
       type: object
       properties:
         effectiveConfig:
-          $ref: '#/components/schemas/SQLServerConfig2016sp2_in_SQLServerConfigSet2016sp2_effectiveConfig'
+          $ref: '#/components/schemas/SQLServerConfig2016sp2ent_in_SQLServerConfigSet2016sp2ent_effectiveConfig'
         userConfig:
-          $ref: '#/components/schemas/SQLServerConfig2016sp2_in_SQLServerConfigSet2016sp2_userConfig'
+          $ref: '#/components/schemas/SQLServerConfig2016sp2ent_in_SQLServerConfigSet2016sp2ent_userConfig'
         defaultConfig:
-          $ref: '#/components/schemas/SQLServerConfig2016sp2_in_SQLServerConfigSet2016sp2_defaultConfig'
+          $ref: '#/components/schemas/SQLServerConfig2016sp2ent_in_SQLServerConfigSet2016sp2ent_defaultConfig'
+    SQLServerConfigSet2016sp2std:
+      type: object
+      properties:
+        effectiveConfig:
+          $ref: '#/components/schemas/SQLServerConfig2016sp2std_in_SQLServerConfigSet2016sp2std_effectiveConfig'
+        userConfig:
+          $ref: '#/components/schemas/SQLServerConfig2016sp2std_in_SQLServerConfigSet2016sp2std_userConfig'
+        defaultConfig:
+          $ref: '#/components/schemas/SQLServerConfig2016sp2std_in_SQLServerConfigSet2016sp2std_defaultConfig'
     Service:
       type: object
       properties:
@@ -2287,6 +2356,11 @@ components:
             The maximum string length in characters is 63.
             Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
           type: string
+        securityGroupIds:
+          description: User security groups
+          type: array
+          items:
+            type: string
     UpdateUserMetadata:
       type: object
       properties:
@@ -2393,13 +2467,21 @@ components:
           backupWindowStart:
             $ref: '#/components/schemas/TimeOfDay'
             description: Start time for the daily backup in UTC timezone
+          access:
+            $ref: '#/components/schemas/Access'
+            description: Access policy to DB
       - title: sqlserver_config
         type: object
         maxProperties: 1
         properties:
-          sqlserverConfig_2016Sp2:
-            $ref: '#/components/schemas/SQLServerConfigSet2016sp2'
-            description: Configuration of the SQL Server 2016sp2 instance.
+          sqlserverConfig_2016Sp2Std:
+            $ref: '#/components/schemas/SQLServerConfigSet2016sp2std'
+            description: Configuration of the SQL Server 2016sp2 standard edition
+              instance.
+          sqlserverConfig_2016Sp2Ent:
+            $ref: '#/components/schemas/SQLServerConfigSet2016sp2ent'
+            description: Configuration of the SQL Server 2016sp2 enterprise edition
+              instance.
     ClusterHealth_in_Cluster_health:
       description: |-
         Aggregated cluster health.
@@ -2469,13 +2551,21 @@ components:
           backupWindowStart:
             $ref: '#/components/schemas/TimeOfDay'
             description: Start time for the daily backup in UTC timezone
+          access:
+            $ref: '#/components/schemas/Access'
+            description: Access policy to DB
       - title: sqlserver_config
         type: object
         maxProperties: 1
         properties:
-          sqlserverConfig_2016Sp2:
-            $ref: '#/components/schemas/SQLServerConfig2016sp2'
-            description: Configuration for an SQL Server 2016 SP2 cluster.
+          sqlserverConfig_2016Sp2Std:
+            $ref: '#/components/schemas/SQLServerConfig2016sp2std'
+            description: Configuration for an SQL Server 2016 SP2 Standard edition
+              cluster.
+          sqlserverConfig_2016Sp2Ent:
+            $ref: '#/components/schemas/SQLServerConfig2016sp2ent'
+            description: Configuration for an SQL Server 2016 SP2 Enterprise edition
+              cluster.
     DatabaseSpec_in_CreateDatabaseRequest_databaseSpec:
       description: |-
         Required.
@@ -2616,13 +2706,21 @@ components:
           backupWindowStart:
             $ref: '#/components/schemas/TimeOfDay'
             description: Start time for the daily backup in UTC timezone
+          access:
+            $ref: '#/components/schemas/Access'
+            description: Access policy to DB
       - title: sqlserver_config
         type: object
         maxProperties: 1
         properties:
-          sqlserverConfig_2016Sp2:
-            $ref: '#/components/schemas/SQLServerConfig2016sp2'
-            description: Configuration for an SQL Server 2016 SP2 cluster.
+          sqlserverConfig_2016Sp2Std:
+            $ref: '#/components/schemas/SQLServerConfig2016sp2std'
+            description: Configuration for an SQL Server 2016 SP2 Standard edition
+              cluster.
+          sqlserverConfig_2016Sp2Ent:
+            $ref: '#/components/schemas/SQLServerConfig2016sp2ent'
+            description: Configuration for an SQL Server 2016 SP2 Enterprise edition
+              cluster.
     Permission_in_RevokeUserPermissionRequest_permission:
       description: |-
         Required.
@@ -2641,11 +2739,11 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/PermissionRole'
-    SQLServerConfig2016sp2_in_SQLServerConfigSet2016sp2_effectiveConfig:
+    SQLServerConfig2016sp2ent_in_SQLServerConfigSet2016sp2ent_effectiveConfig:
       description: |-
         Effective settings for an SQL Server 2016 SP2 cluster (a combination of settings defined in `userConfig` and `defaultConfig`).
 
-        SQL Server 2016 SP2 supported configuration options are listed here.
+        SQL Server 2016 SP2 Enterprise edition supported configuration options are listed here.
 
         Detailed description for each set of options is available in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/server-configuration-options-sql-server?view=sql-server-2016).
 
@@ -2672,12 +2770,6 @@ components:
             Acceptable values are 5 to 32767, inclusive.
           type: integer
           format: int64
-        sqlcollation:
-          description: |-
-            Collation used for databases across the instance. Determines if instance is case sensitive, accent sensitive etc.
-
-            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/relational-databases/collations/set-or-change-the-server-collation?view=sql-server-2016).
-          type: string
         auditLevel:
           description: |-
             Describes how to configure login auditing to monitor SQL Server Database Engine login activity.
@@ -2692,20 +2784,6 @@ components:
             Acceptable values are 0 to 3, inclusive.
           type: integer
           format: int64
-        filestreamAccessLevel:
-          description: |-
-            Determines the `FILESTREAM` access level for the SQL Server instance.
-            `FILESTREAM` technology enables SQL Server-based applications to store BLOB data, such as documents and images, on the file system outside of a database.
-            Possible values:
-            * 0 - disables `FILESTREAM`,
-            * 1 - enables `FILESTREAM` for Transact-SQL access,
-            * 2 - enables `FILESTREAM` for Transact-SQL and Win32 streaming access.
-
-            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/filestream-access-level-server-configuration-option?view=sql-server-2016).
-
-            Acceptable values are 0 to 2, inclusive.
-          type: integer
-          format: int64
         fillFactorPercent:
           description: |-
             Manages the fill factor server configuration option.
@@ -2718,19 +2796,6 @@ components:
             Acceptable values are 0 to 100, inclusive.
           type: integer
           format: int64
-        inDoubtXactResolution:
-          description: |-
-            Determines the default outcome of distributed transactions that the Microsoft Distributed Transaction Coordinator (MS DTC) is unable to resolve (in-doubt distributed transactions).
-            Possible values:
-            * 0 - no automatic resolution, recovery fails if MS DTC cannot resolve any in-doubt transactions,
-            * 1 - assume in-doubt transactions committed,
-            * 2 - assume in-doubt transactions uncommitted and roll them back.
-
-            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/in-doubt-xact-resolution-server-configuration-option?view=sql-server-2016).
-
-            Acceptable values are 0 to 2, inclusive.
-          type: integer
-          format: int64
         optimizeForAdHocWorkloads:
           description: |-
             Determines whether plans should be cached only after second execution.
@@ -2739,19 +2804,11 @@ components:
             See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/optimize-for-ad-hoc-workloads-server-configuration-option?view=sql-server-2016).
           type: boolean
           format: boolean
-        crossDbOwnershipChaining:
-          description: |-
-            Enables cross-database ownership chaining.
-            Example: having explicit access to stored procedure in one database that refers to an object in another database that you don't have explicit access, you'll be able to execute the procedure without permission related error.
-
-            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/cross-db-ownership-chaining-server-configuration-option?view=sql-server-2016).
-          type: boolean
-          format: boolean
-    SQLServerConfig2016sp2_in_SQLServerConfigSet2016sp2_userConfig:
+    SQLServerConfig2016sp2ent_in_SQLServerConfigSet2016sp2ent_userConfig:
       description: |-
         User-defined settings for an SQL Server 2016 SP2 cluster.
 
-        SQL Server 2016 SP2 supported configuration options are listed here.
+        SQL Server 2016 SP2 Enterprise edition supported configuration options are listed here.
 
         Detailed description for each set of options is available in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/server-configuration-options-sql-server?view=sql-server-2016).
 
@@ -2778,12 +2835,6 @@ components:
             Acceptable values are 5 to 32767, inclusive.
           type: integer
           format: int64
-        sqlcollation:
-          description: |-
-            Collation used for databases across the instance. Determines if instance is case sensitive, accent sensitive etc.
-
-            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/relational-databases/collations/set-or-change-the-server-collation?view=sql-server-2016).
-          type: string
         auditLevel:
           description: |-
             Describes how to configure login auditing to monitor SQL Server Database Engine login activity.
@@ -2798,20 +2849,6 @@ components:
             Acceptable values are 0 to 3, inclusive.
           type: integer
           format: int64
-        filestreamAccessLevel:
-          description: |-
-            Determines the `FILESTREAM` access level for the SQL Server instance.
-            `FILESTREAM` technology enables SQL Server-based applications to store BLOB data, such as documents and images, on the file system outside of a database.
-            Possible values:
-            * 0 - disables `FILESTREAM`,
-            * 1 - enables `FILESTREAM` for Transact-SQL access,
-            * 2 - enables `FILESTREAM` for Transact-SQL and Win32 streaming access.
-
-            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/filestream-access-level-server-configuration-option?view=sql-server-2016).
-
-            Acceptable values are 0 to 2, inclusive.
-          type: integer
-          format: int64
         fillFactorPercent:
           description: |-
             Manages the fill factor server configuration option.
@@ -2824,19 +2861,6 @@ components:
             Acceptable values are 0 to 100, inclusive.
           type: integer
           format: int64
-        inDoubtXactResolution:
-          description: |-
-            Determines the default outcome of distributed transactions that the Microsoft Distributed Transaction Coordinator (MS DTC) is unable to resolve (in-doubt distributed transactions).
-            Possible values:
-            * 0 - no automatic resolution, recovery fails if MS DTC cannot resolve any in-doubt transactions,
-            * 1 - assume in-doubt transactions committed,
-            * 2 - assume in-doubt transactions uncommitted and roll them back.
-
-            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/in-doubt-xact-resolution-server-configuration-option?view=sql-server-2016).
-
-            Acceptable values are 0 to 2, inclusive.
-          type: integer
-          format: int64
         optimizeForAdHocWorkloads:
           description: |-
             Determines whether plans should be cached only after second execution.
@@ -2845,19 +2869,11 @@ components:
             See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/optimize-for-ad-hoc-workloads-server-configuration-option?view=sql-server-2016).
           type: boolean
           format: boolean
-        crossDbOwnershipChaining:
-          description: |-
-            Enables cross-database ownership chaining.
-            Example: having explicit access to stored procedure in one database that refers to an object in another database that you don't have explicit access, you'll be able to execute the procedure without permission related error.
-
-            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/cross-db-ownership-chaining-server-configuration-option?view=sql-server-2016).
-          type: boolean
-          format: boolean
-    SQLServerConfig2016sp2_in_SQLServerConfigSet2016sp2_defaultConfig:
+    SQLServerConfig2016sp2ent_in_SQLServerConfigSet2016sp2ent_defaultConfig:
       description: |-
         Default configuration for an SQL Server 2016 SP2 cluster.
 
-        SQL Server 2016 SP2 supported configuration options are listed here.
+        SQL Server 2016 SP2 Enterprise edition supported configuration options are listed here.
 
         Detailed description for each set of options is available in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/server-configuration-options-sql-server?view=sql-server-2016).
 
@@ -2884,12 +2900,6 @@ components:
             Acceptable values are 5 to 32767, inclusive.
           type: integer
           format: int64
-        sqlcollation:
-          description: |-
-            Collation used for databases across the instance. Determines if instance is case sensitive, accent sensitive etc.
-
-            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/relational-databases/collations/set-or-change-the-server-collation?view=sql-server-2016).
-          type: string
         auditLevel:
           description: |-
             Describes how to configure login auditing to monitor SQL Server Database Engine login activity.
@@ -2904,18 +2914,69 @@ components:
             Acceptable values are 0 to 3, inclusive.
           type: integer
           format: int64
-        filestreamAccessLevel:
+        fillFactorPercent:
           description: |-
-            Determines the `FILESTREAM` access level for the SQL Server instance.
-            `FILESTREAM` technology enables SQL Server-based applications to store BLOB data, such as documents and images, on the file system outside of a database.
+            Manages the fill factor server configuration option.
+            When an index is created or rebuilt the fill factor determines the percentage of space on each index leaf-level page to be filled with data, reserving the rest as free space for future growth.
+
+            Values 0 and 100 mean full page usage (no space reserved).
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-fill-factor-server-configuration-option?view=sql-server-2016).
+
+            Acceptable values are 0 to 100, inclusive.
+          type: integer
+          format: int64
+        optimizeForAdHocWorkloads:
+          description: |-
+            Determines whether plans should be cached only after second execution.
+            Allows to avoid SQL cache bloat because of single-use plans.
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/optimize-for-ad-hoc-workloads-server-configuration-option?view=sql-server-2016).
+          type: boolean
+          format: boolean
+    SQLServerConfig2016sp2std_in_SQLServerConfigSet2016sp2std_effectiveConfig:
+      description: |-
+        Effective settings for an SQL Server 2016 SP2 cluster (a combination of settings defined in `userConfig` and `defaultConfig`).
+
+        SQL Server 2016 SP2 Standard edition supported configuration options are listed here.
+
+        Detailed description for each set of options is available in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/server-configuration-options-sql-server?view=sql-server-2016).
+
+        Any options that are not listed here are not supported.
+      type: object
+      properties:
+        maxDegreeOfParallelism:
+          description: |-
+            Limits the number of processors to use in parallel plan execution per task.
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option?view=sql-server-2016).
+
+            Acceptable values are 1 to 99, inclusive.
+          type: integer
+          format: int64
+        costThresholdForParallelism:
+          description: |-
+            Specifies the threshold at which SQL Server creates and runs parallel plans for queries.
+
+            SQL Server creates and runs a parallel plan for a query only when the estimated cost to run a serial plan for the same query is higher than the value of the option.
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-cost-threshold-for-parallelism-server-configuration-option?view=sql-server-2016).
+
+            Acceptable values are 5 to 32767, inclusive.
+          type: integer
+          format: int64
+        auditLevel:
+          description: |-
+            Describes how to configure login auditing to monitor SQL Server Database Engine login activity.
             Possible values:
-            * 0 - disables `FILESTREAM`,
-            * 1 - enables `FILESTREAM` for Transact-SQL access,
-            * 2 - enables `FILESTREAM` for Transact-SQL and Win32 streaming access.
+            * 0 - do not log login attempts,
+            * 1 - log only failed login attempts,
+            * 2 - log only successful login attempts (not recommended),
+            * 3 - log all login attempts (not recommended).
 
-            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/filestream-access-level-server-configuration-option?view=sql-server-2016).
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/ssms/configure-login-auditing-sql-server-management-studio?view=sql-server-2016).
 
-            Acceptable values are 0 to 2, inclusive.
+            Acceptable values are 0 to 3, inclusive.
           type: integer
           format: int64
         fillFactorPercent:
@@ -2930,17 +2991,69 @@ components:
             Acceptable values are 0 to 100, inclusive.
           type: integer
           format: int64
-        inDoubtXactResolution:
+        optimizeForAdHocWorkloads:
           description: |-
-            Determines the default outcome of distributed transactions that the Microsoft Distributed Transaction Coordinator (MS DTC) is unable to resolve (in-doubt distributed transactions).
+            Determines whether plans should be cached only after second execution.
+            Allows to avoid SQL cache bloat because of single-use plans.
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/optimize-for-ad-hoc-workloads-server-configuration-option?view=sql-server-2016).
+          type: boolean
+          format: boolean
+    SQLServerConfig2016sp2std_in_SQLServerConfigSet2016sp2std_userConfig:
+      description: |-
+        User-defined settings for an SQL Server 2016 SP2 cluster.
+
+        SQL Server 2016 SP2 Standard edition supported configuration options are listed here.
+
+        Detailed description for each set of options is available in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/server-configuration-options-sql-server?view=sql-server-2016).
+
+        Any options that are not listed here are not supported.
+      type: object
+      properties:
+        maxDegreeOfParallelism:
+          description: |-
+            Limits the number of processors to use in parallel plan execution per task.
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option?view=sql-server-2016).
+
+            Acceptable values are 1 to 99, inclusive.
+          type: integer
+          format: int64
+        costThresholdForParallelism:
+          description: |-
+            Specifies the threshold at which SQL Server creates and runs parallel plans for queries.
+
+            SQL Server creates and runs a parallel plan for a query only when the estimated cost to run a serial plan for the same query is higher than the value of the option.
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-cost-threshold-for-parallelism-server-configuration-option?view=sql-server-2016).
+
+            Acceptable values are 5 to 32767, inclusive.
+          type: integer
+          format: int64
+        auditLevel:
+          description: |-
+            Describes how to configure login auditing to monitor SQL Server Database Engine login activity.
             Possible values:
-            * 0 - no automatic resolution, recovery fails if MS DTC cannot resolve any in-doubt transactions,
-            * 1 - assume in-doubt transactions committed,
-            * 2 - assume in-doubt transactions uncommitted and roll them back.
+            * 0 - do not log login attempts,
+            * 1 - log only failed login attempts,
+            * 2 - log only successful login attempts (not recommended),
+            * 3 - log all login attempts (not recommended).
 
-            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/in-doubt-xact-resolution-server-configuration-option?view=sql-server-2016).
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/ssms/configure-login-auditing-sql-server-management-studio?view=sql-server-2016).
 
-            Acceptable values are 0 to 2, inclusive.
+            Acceptable values are 0 to 3, inclusive.
+          type: integer
+          format: int64
+        fillFactorPercent:
+          description: |-
+            Manages the fill factor server configuration option.
+            When an index is created or rebuilt the fill factor determines the percentage of space on each index leaf-level page to be filled with data, reserving the rest as free space for future growth.
+
+            Values 0 and 100 mean full page usage (no space reserved).
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-fill-factor-server-configuration-option?view=sql-server-2016).
+
+            Acceptable values are 0 to 100, inclusive.
           type: integer
           format: int64
         optimizeForAdHocWorkloads:
@@ -2951,12 +3064,69 @@ components:
             See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/optimize-for-ad-hoc-workloads-server-configuration-option?view=sql-server-2016).
           type: boolean
           format: boolean
-        crossDbOwnershipChaining:
-          description: |-
-            Enables cross-database ownership chaining.
-            Example: having explicit access to stored procedure in one database that refers to an object in another database that you don't have explicit access, you'll be able to execute the procedure without permission related error.
+    SQLServerConfig2016sp2std_in_SQLServerConfigSet2016sp2std_defaultConfig:
+      description: |-
+        Default configuration for an SQL Server 2016 SP2 cluster.
 
-            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/cross-db-ownership-chaining-server-configuration-option?view=sql-server-2016).
+        SQL Server 2016 SP2 Standard edition supported configuration options are listed here.
+
+        Detailed description for each set of options is available in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/server-configuration-options-sql-server?view=sql-server-2016).
+
+        Any options that are not listed here are not supported.
+      type: object
+      properties:
+        maxDegreeOfParallelism:
+          description: |-
+            Limits the number of processors to use in parallel plan execution per task.
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option?view=sql-server-2016).
+
+            Acceptable values are 1 to 99, inclusive.
+          type: integer
+          format: int64
+        costThresholdForParallelism:
+          description: |-
+            Specifies the threshold at which SQL Server creates and runs parallel plans for queries.
+
+            SQL Server creates and runs a parallel plan for a query only when the estimated cost to run a serial plan for the same query is higher than the value of the option.
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-cost-threshold-for-parallelism-server-configuration-option?view=sql-server-2016).
+
+            Acceptable values are 5 to 32767, inclusive.
+          type: integer
+          format: int64
+        auditLevel:
+          description: |-
+            Describes how to configure login auditing to monitor SQL Server Database Engine login activity.
+            Possible values:
+            * 0 - do not log login attempts,
+            * 1 - log only failed login attempts,
+            * 2 - log only successful login attempts (not recommended),
+            * 3 - log all login attempts (not recommended).
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/ssms/configure-login-auditing-sql-server-management-studio?view=sql-server-2016).
+
+            Acceptable values are 0 to 3, inclusive.
+          type: integer
+          format: int64
+        fillFactorPercent:
+          description: |-
+            Manages the fill factor server configuration option.
+            When an index is created or rebuilt the fill factor determines the percentage of space on each index leaf-level page to be filled with data, reserving the rest as free space for future growth.
+
+            Values 0 and 100 mean full page usage (no space reserved).
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-fill-factor-server-configuration-option?view=sql-server-2016).
+
+            Acceptable values are 0 to 100, inclusive.
+          type: integer
+          format: int64
+        optimizeForAdHocWorkloads:
+          description: |-
+            Determines whether plans should be cached only after second execution.
+            Allows to avoid SQL cache bloat because of single-use plans.
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/optimize-for-ad-hoc-workloads-server-configuration-option?view=sql-server-2016).
           type: boolean
           format: boolean
     ServiceType_in_Service_type:
@@ -3012,13 +3182,21 @@ components:
           backupWindowStart:
             $ref: '#/components/schemas/TimeOfDay'
             description: Start time for the daily backup in UTC timezone
+          access:
+            $ref: '#/components/schemas/Access'
+            description: Access policy to DB
       - title: sqlserver_config
         type: object
         maxProperties: 1
         properties:
-          sqlserverConfig_2016Sp2:
-            $ref: '#/components/schemas/SQLServerConfig2016sp2'
-            description: Configuration for an SQL Server 2016 SP2 cluster.
+          sqlserverConfig_2016Sp2Std:
+            $ref: '#/components/schemas/SQLServerConfig2016sp2std'
+            description: Configuration for an SQL Server 2016 SP2 Standard edition
+              cluster.
+          sqlserverConfig_2016Sp2Ent:
+            $ref: '#/components/schemas/SQLServerConfig2016sp2ent'
+            description: Configuration for an SQL Server 2016 SP2 Enterprise edition
+              cluster.
     FieldMask_in_UpdateUserRequest_updateMask:
       description: |-
         Field mask that specifies which fields of the SQL Server user should be updated.

@@ -9,7 +9,7 @@ editable: false
  
 ## HTTP-запрос {#https-request}
 ```
-GET https://mdb.api.cloud.yandex.net/managed-redis/v1alpha/resourcePresets/{resourcePresetId}
+GET https://mdb.api.cloud.yandex.net/managed-redis/v1/resourcePresets/{resourcePresetId}
 ```
  
 ## Path-параметры {#path_params}
@@ -27,7 +27,6 @@ resourcePresetId | Обязательное поле. Идентификатор
   "zoneIds": [
     "string"
   ],
-  "cores": "string",
   "memory": "string"
 }
 ```
@@ -37,5 +36,4 @@ resourcePresetId | Обязательное поле. Идентификатор
 --- | ---
 id | **string**<br><p>Идентификатор набора ресурсов.</p> 
 zoneIds[] | **string**<br><p>Идентификаторы зон доступности, в которых доступен данный набор ресурсов.</p> 
-cores | **string** (int64)<br><p>Количество vCPU для хоста Redis, созданного с данным набором ресурсов.</p> 
 memory | **string** (int64)<br><p>Объем оперативной памяти для хоста Redis, созданного с данным набором ресурсов, в байтах.</p> 

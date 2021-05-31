@@ -139,6 +139,50 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/UpdateDeviceMetadata'
       x-y-operation-response: '[Device](/docs/iot-core/api-ref/Device#representation)'
+  /iot-devices/v1/devices:getByName:
+    get:
+      tags:
+      - Device
+      operationId: DeviceGetByName
+      parameters:
+      - name: registryId
+        in: query
+        description: |-
+          Required.
+          ID of the registry to get device.
+
+          To get a registry ID make a [list](/docs/iot-core/api-ref/Registry/list) request.
+
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      - name: deviceName
+        in: query
+        description: |-
+          Required.
+          Name of the device to return.
+
+          To get a device name make a [list](/docs/iot-core/api-ref/Device/list) request.
+
+          The maximum string length in characters is 50.
+          Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
+        schema:
+          type: string
+      - name: deviceView
+        in: query
+        description: |-
+          Specifies which parts of the device resource should be returned
+          in the response.
+        schema:
+          $ref: '#/components/schemas/DeviceView'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Device'
+      x-y-navtitle: getByName
   /iot-devices/v1/devices:
     get:
       tags:
@@ -607,6 +651,43 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/UpdateRegistryMetadata'
       x-y-operation-response: '[Registry](/docs/iot-core/api-ref/Registry#representation)'
+  /iot-devices/v1/registries:getByName:
+    get:
+      tags:
+      - Registry
+      operationId: RegistryGetByName
+      parameters:
+      - name: folderId
+        in: query
+        description: |-
+          Required.
+          ID of the folder to list registries in.
+
+          To get a folder ID make a [list](/docs/resource-manager/api-ref/Folder/list) request.
+
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      - name: registryName
+        in: query
+        description: |-
+          Required.
+          Name of the registry to return.
+
+          To get a registry Name make a [list](/docs/iot-core/api-ref/Registry/list) request.
+
+          The maximum string length in characters is 50.
+          Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Registry'
+      x-y-navtitle: getByName
   /iot-devices/v1/registries:
     get:
       tags:

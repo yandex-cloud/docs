@@ -1,9 +1,0 @@
-items:
-  - name: Обзор
-    href: grpc/index.md
-  - name: CertificateContentService
-    href: grpc/certificate_content_service.md
-  - name: CertificateService
-    href: grpc/certificate_service.md
-  - name: OperationService
-    href: grpc/operation_service.md

@@ -358,6 +358,7 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 Field | Description
 --- | ---
 security_group_id | **string**<br> 
+added_rule_ids[] | **string**<br> 
 
 
 ### SecurityGroup {#SecurityGroup3}
@@ -482,6 +483,7 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 Field | Description
 --- | ---
 security_group_id | **string**<br> 
+added_rule_ids[] | **string**<br> 
 
 
 ### SecurityGroup {#SecurityGroup4}

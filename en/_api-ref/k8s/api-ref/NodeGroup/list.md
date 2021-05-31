@@ -78,6 +78,9 @@ filter | A filter expression that filters resources listed in the response. The 
         ],
         "placementPolicy": {
           "placementGroupId": "string"
+        },
+        "networkSettings": {
+          "type": "string"
         }
       },
       "scalePolicy": {
@@ -205,6 +208,8 @@ nodeGroups[].<br>nodeTemplate.<br>networkInterfaceSpecs[].<br>primaryV6AddressSp
 nodeGroups[].<br>nodeTemplate.<br>networkInterfaceSpecs[].<br>securityGroupIds[] | **string**<br><p>IDs of security groups.</p> 
 nodeGroups[].<br>nodeTemplate.<br>placementPolicy | **object**<br>
 nodeGroups[].<br>nodeTemplate.<br>placementPolicy.<br>placementGroupId | **string**<br><p>Identifier of placement group</p> 
+nodeGroups[].<br>nodeTemplate.<br>networkSettings | **object**<br><p>this parameter allows to specify type of network acceleration used on nodes (instances)</p> 
+nodeGroups[].<br>nodeTemplate.<br>networkSettings.<br>type | **string**<br><p>Required.</p> 
 nodeGroups[].<br>scalePolicy | **object**<br><p>Scale policy of the node group.  For more information, see <a href="/docs/compute/concepts/instance-groups/policies#scale-policy">Scaling policy</a>.</p> 
 nodeGroups[].<br>scalePolicy.<br>fixedScale | **object**<br>Fixed scale policy of the node group. <br>`nodeGroups[].scalePolicy` includes only one of the fields `fixedScale`, `autoScale`<br><br>
 nodeGroups[].<br>scalePolicy.<br>fixedScale.<br>size | **string** (int64)<br><p>Number of nodes in the node group.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 

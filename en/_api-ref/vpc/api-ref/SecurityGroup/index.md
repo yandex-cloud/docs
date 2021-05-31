@@ -77,3 +77,12 @@ defaultForNetwork | **boolean** (boolean)<br>
 ## Methods {#methods}
 Method | Description
 --- | ---
+[create](create.md) | 
+[delete](delete.md) | 
+[get](get.md) | 
+[list](list.md) | 
+[listOperations](listOperations.md) | 
+[move](move.md) | 
+[update](update.md) | 
+[updateRule](updateRule.md) | update rule description or labels
+[updateRules](updateRules.md) | 

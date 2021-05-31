@@ -15,6 +15,8 @@ items:
         href: api-ref/Cluster/index.md
       - name: addHosts
         href: api-ref/Cluster/addHosts.md
+      - name: addShard
+        href: api-ref/Cluster/addShard.md
       - name: backup
         href: api-ref/Cluster/backup.md
       - name: create
@@ -23,8 +25,12 @@ items:
         href: api-ref/Cluster/delete.md
       - name: deleteHosts
         href: api-ref/Cluster/deleteHosts.md
+      - name: deleteShard
+        href: api-ref/Cluster/deleteShard.md
       - name: get
         href: api-ref/Cluster/get.md
+      - name: getShard
+        href: api-ref/Cluster/getShard.md
       - name: list
         href: api-ref/Cluster/list.md
       - name: listBackups
@@ -35,6 +41,12 @@ items:
         href: api-ref/Cluster/listLogs.md
       - name: listOperations
         href: api-ref/Cluster/listOperations.md
+      - name: listShards
+        href: api-ref/Cluster/listShards.md
+      - name: move
+        href: api-ref/Cluster/move.md
+      - name: rebalance
+        href: api-ref/Cluster/rebalance.md
       - name: restore
         href: api-ref/Cluster/restore.md
       - name: start

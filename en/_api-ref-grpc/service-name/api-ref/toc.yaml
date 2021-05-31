@@ -1,7 +1,0 @@
-items:
-  - name: Overview
-    href: grpc/index.md
-  - name: ResourceNameService
-    href: grpc/resource_name_service.md
-  - name: OperationService
-    href: grpc/operation_service.md

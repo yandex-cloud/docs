@@ -1,0 +1,19 @@
+items:
+  - name: Обзор
+    href: api-ref/grpc/index.md
+  - name: BackupService
+    href: api-ref/grpc/backup_service.md
+  - name: ClusterService
+    href: api-ref/grpc/cluster_service.md
+  - name: DatabaseService
+    href: api-ref/grpc/database_service.md
+  - name: MlModelService
+    href: api-ref/grpc/ml_model_service.md
+  - name: ResourcePresetService
+    href: api-ref/grpc/resource_preset_service.md
+  - name: UserService
+    href: api-ref/grpc/user_service.md
+  - name: VersionsService
+    href: api-ref/grpc/versions_service.md
+  - name: OperationService
+    href: api-ref/grpc/operation_service.md

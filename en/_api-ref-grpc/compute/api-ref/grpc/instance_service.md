@@ -61,7 +61,7 @@ secondary_disks[] | **[AttachedDisk](#AttachedDisk)**<br>Array of secondary disk
 network_interfaces[] | **[NetworkInterface](#NetworkInterface)**<br>Array of network interfaces that are attached to the instance. 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
 scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy)**<br>Scheduling policy configuration. 
-service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/grpc/service_account_service#List) request. 
+service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
 network_settings | **[NetworkSettings](#NetworkSettings)**<br>Network Settings 
 placement_policy | **[PlacementPolicy](#PlacementPolicy)**<br>Placement policy configuration. 
 
@@ -120,14 +120,20 @@ dns_records[] | **[DnsRecord](#DnsRecord)**<br>External DNS configuration
 
 Field | Description
 --- | ---
-fqdn | **string**<br> 
+fqdn | **string**<br>Name of the A/AAAA record as specified when creating the instance. Note that if `fqdn' has no trailing '.', it is specified relative to the zone (@see dns_zone_id). 
+dns_zone_id | **string**<br>DNS zone id for the record (optional, if not set, some private zone is used). 
+ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is used.) 
+ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
 
 
 ### DnsRecord {#DnsRecord1}
 
 Field | Description
 --- | ---
-fqdn | **string**<br> 
+fqdn | **string**<br>Name of the A/AAAA record as specified when creating the instance. Note that if `fqdn' has no trailing '.', it is specified relative to the zone (@see dns_zone_id). 
+dns_zone_id | **string**<br>DNS zone id for the record (optional, if not set, some private zone is used). 
+ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is used.) 
+ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
 
 
 ### SchedulingPolicy {#SchedulingPolicy}
@@ -171,7 +177,7 @@ Retrieves the list of Instance resources in the specified folder.
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the Folder to list instances in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. The maximum string length in characters is 50.
+folder_id | **string**<br>Required. ID of the Folder to list instances in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListInstancesResponse.next_page_token](#ListInstancesResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListInstancesResponse.next_page_token](#ListInstancesResponse) returned by a previous list request. The maximum string length in characters is 100.
 filter | **string**<br><ol><li>The field name. Currently you can use filtering only on the [Instance.name](#Instance1) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z]([-a-z0-9]{,61}[a-z0-9])?$`.</li></ol> The maximum string length in characters is 1000.
@@ -205,7 +211,7 @@ secondary_disks[] | **[AttachedDisk](#AttachedDisk1)**<br>Array of secondary dis
 network_interfaces[] | **[NetworkInterface](#NetworkInterface1)**<br>Array of network interfaces that are attached to the instance. 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
 scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy1)**<br>Scheduling policy configuration. 
-service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/grpc/service_account_service#List) request. 
+service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
 network_settings | **[NetworkSettings](#NetworkSettings1)**<br>Network Settings 
 placement_policy | **[PlacementPolicy](#PlacementPolicy1)**<br>Placement policy configuration. 
 
@@ -264,14 +270,20 @@ dns_records[] | **[DnsRecord](#DnsRecord2)**<br>External DNS configuration
 
 Field | Description
 --- | ---
-fqdn | **string**<br> 
+fqdn | **string**<br>Name of the A/AAAA record as specified when creating the instance. Note that if `fqdn' has no trailing '.', it is specified relative to the zone (@see dns_zone_id). 
+dns_zone_id | **string**<br>DNS zone id for the record (optional, if not set, some private zone is used). 
+ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is used.) 
+ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
 
 
 ### DnsRecord {#DnsRecord3}
 
 Field | Description
 --- | ---
-fqdn | **string**<br> 
+fqdn | **string**<br>Name of the A/AAAA record as specified when creating the instance. Note that if `fqdn' has no trailing '.', it is specified relative to the zone (@see dns_zone_id). 
+dns_zone_id | **string**<br>DNS zone id for the record (optional, if not set, some private zone is used). 
+ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is used.) 
+ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
 
 
 ### SchedulingPolicy {#SchedulingPolicy1}
@@ -319,11 +331,11 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder to create an instance in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. The maximum string length in characters is 50.
+folder_id | **string**<br>Required. ID of the folder to create an instance in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. The maximum string length in characters is 50.
 name | **string**<br>Name of the instance. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>Description of the instance. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
-zone_id | **string**<br>Required. ID of the availability zone where the instance resides. To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/grpc/zone_service#List) request The maximum string length in characters is 50.
+zone_id | **string**<br>Required. ID of the availability zone where the instance resides. To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/grpc/zone_service#List) request The maximum string length in characters is 50.
 platform_id | **string**<br>Required. ID of the hardware platform configuration for the instance. This field affects the available values in `resources_spec` field. <br>Platforms allows you to create various types of instances: with a large amount of memory, with a large number of cores, with a burstable performance. For more information, see [Platforms](/docs/compute/concepts/vm-platforms). 
 resources_spec | **[ResourcesSpec](#ResourcesSpec)**<br>Required. Computing resources of the instance, such as the amount of memory and number of cores. To get a list of available values, see [Levels of core performance](/docs/compute/concepts/performance-levels). 
 metadata | **map<string,string>**<br>The metadata `key:value` pairs that will be assigned to this instance. This includes custom metadata and predefined keys. The total size of all keys and values must be less than 512 KB. <br>Values are free-form strings, and only have meaning as interpreted by the programs which configure the instance. The values must be 256 KB or less. <br>For example, you may use the metadata in order to provide your public SSH key to the instance. For more information, see [Metadata](/docs/compute/concepts/vm-metadata). 
@@ -332,7 +344,7 @@ secondary_disk_specs[] | **[AttachedDiskSpec](#AttachedDiskSpec)**<br>Array of s
 network_interface_specs[] | **[NetworkInterfaceSpec](#NetworkInterfaceSpec)**<br>Network configuration for the instance. Specifies how the network interface is configured to interact with other services on the internal network and on the internet. Currently only one network interface is supported per instance. The number of elemets must be exactly 1.
 hostname | **string**<br>Host name for the instance. This field is used to generate the [yandex.cloud.compute.v1.Instance.fqdn](#Instance) value. The host name must be unique within the network and region. If not specified, the host name will be equal to [yandex.cloud.compute.v1.Instance.id](#Instance) of the instance and FQDN will be `<id>.auto.internal`. Otherwise FQDN will be `<hostname>.<region_id>.internal`. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy2)**<br>Scheduling policy configuration. 
-service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/grpc/service_account_service#List) request. 
+service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
 network_settings | **[NetworkSettings](#NetworkSettings2)**<br>Network settings. 
 placement_policy | **[PlacementPolicy](#PlacementPolicy2)**<br>Placement policy configuration. 
 
@@ -365,7 +377,7 @@ Field | Description
 --- | ---
 name | **string**<br>Name of the disk. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>Description of the disk. The maximum string length in characters is 256.
-type_id | **string**<br>ID of the disk type. To get a list of available disk types, use the [yandex.cloud.compute.v1.DiskTypeService.List](/docs/compute/grpc/disk_type_service#List) request. The maximum string length in characters is 50.
+type_id | **string**<br>ID of the disk type. To get a list of available disk types, use the [yandex.cloud.compute.v1.DiskTypeService.List](/docs/compute/api-ref/grpc/disk_type_service#List) request. The maximum string length in characters is 50.
 size | **int64**<br>Required. Size of the disk, specified in bytes. Acceptable values are 4194304 to 4398046511104, inclusive.
 block_size | **int64**<br>Block size of the disk, specified in bytes. The default is 4096. 
 disk_placement_policy | **[DiskPlacementPolicy](#DiskPlacementPolicy)**<br>Placement policy configuration. 
@@ -496,7 +508,7 @@ secondary_disks[] | **[AttachedDisk](#AttachedDisk2)**<br>Array of secondary dis
 network_interfaces[] | **[NetworkInterface](#NetworkInterface2)**<br>Array of network interfaces that are attached to the instance. 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
 scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy3)**<br>Scheduling policy configuration. 
-service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/grpc/service_account_service#List) request. 
+service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
 network_settings | **[NetworkSettings](#NetworkSettings3)**<br>Network Settings 
 placement_policy | **[PlacementPolicy](#PlacementPolicy3)**<br>Placement policy configuration. 
 
@@ -555,14 +567,20 @@ dns_records[] | **[DnsRecord](#DnsRecord4)**<br>External DNS configuration
 
 Field | Description
 --- | ---
-fqdn | **string**<br> 
+fqdn | **string**<br>Name of the A/AAAA record as specified when creating the instance. Note that if `fqdn' has no trailing '.', it is specified relative to the zone (@see dns_zone_id). 
+dns_zone_id | **string**<br>DNS zone id for the record (optional, if not set, some private zone is used). 
+ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is used.) 
+ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
 
 
 ### DnsRecord {#DnsRecord5}
 
 Field | Description
 --- | ---
-fqdn | **string**<br> 
+fqdn | **string**<br>Name of the A/AAAA record as specified when creating the instance. Note that if `fqdn' has no trailing '.', it is specified relative to the zone (@see dns_zone_id). 
+dns_zone_id | **string**<br>DNS zone id for the record (optional, if not set, some private zone is used). 
+ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is used.) 
+ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
 
 
 ### SchedulingPolicy {#SchedulingPolicy3}
@@ -618,7 +636,7 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs. <br>Exi
 platform_id | **string**<br>ID of the hardware platform configuration for the instance. This field affects the available values in `resources_spec` field. <br>Platforms allows you to create various types of instances: with a large amount of memory, with a large number of cores, with a burstable performance. For more information, see [Platforms](/docs/compute/concepts/vm-platforms). 
 resources_spec | **[ResourcesSpec](#ResourcesSpec)**<br>Computing resources of the instance, such as the amount of memory and number of cores. To get a list of available values, see [Levels of core performance](/docs/compute/concepts/performance-levels). 
 metadata | **map<string,string>**<br>The metadata `key:value` pairs that will be assigned to this instance. This includes custom metadata and predefined keys. The total size of all keys and values must be less than 512 KB. <br>Existing set of `metadata` is completely replaced by the provided set. <br>Values are free-form strings, and only have meaning as interpreted by the programs which configure the instance. The values must be 256 KB or less. <br>For example, you may use the metadata in order to provide your public SSH key to the instance. For more information, see [Metadata](/docs/compute/concepts/vm-metadata). 
-service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/grpc/service_account_service#List) request. 
+service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
 network_settings | **[NetworkSettings](#NetworkSettings4)**<br>Network settings. 
 placement_policy | **[PlacementPolicy](#PlacementPolicy4)**<br>Placement policy configuration. 
 
@@ -700,7 +718,7 @@ secondary_disks[] | **[AttachedDisk](#AttachedDisk3)**<br>Array of secondary dis
 network_interfaces[] | **[NetworkInterface](#NetworkInterface3)**<br>Array of network interfaces that are attached to the instance. 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
 scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy4)**<br>Scheduling policy configuration. 
-service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/grpc/service_account_service#List) request. 
+service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
 network_settings | **[NetworkSettings](#NetworkSettings5)**<br>Network Settings 
 placement_policy | **[PlacementPolicy](#PlacementPolicy5)**<br>Placement policy configuration. 
 
@@ -759,14 +777,20 @@ dns_records[] | **[DnsRecord](#DnsRecord6)**<br>External DNS configuration
 
 Field | Description
 --- | ---
-fqdn | **string**<br> 
+fqdn | **string**<br>Name of the A/AAAA record as specified when creating the instance. Note that if `fqdn' has no trailing '.', it is specified relative to the zone (@see dns_zone_id). 
+dns_zone_id | **string**<br>DNS zone id for the record (optional, if not set, some private zone is used). 
+ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is used.) 
+ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
 
 
 ### DnsRecord {#DnsRecord7}
 
 Field | Description
 --- | ---
-fqdn | **string**<br> 
+fqdn | **string**<br>Name of the A/AAAA record as specified when creating the instance. Note that if `fqdn' has no trailing '.', it is specified relative to the zone (@see dns_zone_id). 
+dns_zone_id | **string**<br>DNS zone id for the record (optional, if not set, some private zone is used). 
+ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is used.) 
+ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
 
 
 ### SchedulingPolicy {#SchedulingPolicy4}
@@ -902,7 +926,7 @@ secondary_disks[] | **[AttachedDisk](#AttachedDisk4)**<br>Array of secondary dis
 network_interfaces[] | **[NetworkInterface](#NetworkInterface4)**<br>Array of network interfaces that are attached to the instance. 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
 scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy5)**<br>Scheduling policy configuration. 
-service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/grpc/service_account_service#List) request. 
+service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
 network_settings | **[NetworkSettings](#NetworkSettings6)**<br>Network Settings 
 placement_policy | **[PlacementPolicy](#PlacementPolicy6)**<br>Placement policy configuration. 
 
@@ -961,14 +985,20 @@ dns_records[] | **[DnsRecord](#DnsRecord8)**<br>External DNS configuration
 
 Field | Description
 --- | ---
-fqdn | **string**<br> 
+fqdn | **string**<br>Name of the A/AAAA record as specified when creating the instance. Note that if `fqdn' has no trailing '.', it is specified relative to the zone (@see dns_zone_id). 
+dns_zone_id | **string**<br>DNS zone id for the record (optional, if not set, some private zone is used). 
+ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is used.) 
+ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
 
 
 ### DnsRecord {#DnsRecord9}
 
 Field | Description
 --- | ---
-fqdn | **string**<br> 
+fqdn | **string**<br>Name of the A/AAAA record as specified when creating the instance. Note that if `fqdn' has no trailing '.', it is specified relative to the zone (@see dns_zone_id). 
+dns_zone_id | **string**<br>DNS zone id for the record (optional, if not set, some private zone is used). 
+ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is used.) 
+ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
 
 
 ### SchedulingPolicy {#SchedulingPolicy5}
@@ -1123,7 +1153,7 @@ secondary_disks[] | **[AttachedDisk](#AttachedDisk5)**<br>Array of secondary dis
 network_interfaces[] | **[NetworkInterface](#NetworkInterface5)**<br>Array of network interfaces that are attached to the instance. 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
 scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy6)**<br>Scheduling policy configuration. 
-service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/grpc/service_account_service#List) request. 
+service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
 network_settings | **[NetworkSettings](#NetworkSettings7)**<br>Network Settings 
 placement_policy | **[PlacementPolicy](#PlacementPolicy7)**<br>Placement policy configuration. 
 
@@ -1182,14 +1212,20 @@ dns_records[] | **[DnsRecord](#DnsRecord10)**<br>External DNS configuration
 
 Field | Description
 --- | ---
-fqdn | **string**<br> 
+fqdn | **string**<br>Name of the A/AAAA record as specified when creating the instance. Note that if `fqdn' has no trailing '.', it is specified relative to the zone (@see dns_zone_id). 
+dns_zone_id | **string**<br>DNS zone id for the record (optional, if not set, some private zone is used). 
+ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is used.) 
+ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
 
 
 ### DnsRecord {#DnsRecord11}
 
 Field | Description
 --- | ---
-fqdn | **string**<br> 
+fqdn | **string**<br>Name of the A/AAAA record as specified when creating the instance. Note that if `fqdn' has no trailing '.', it is specified relative to the zone (@see dns_zone_id). 
+dns_zone_id | **string**<br>DNS zone id for the record (optional, if not set, some private zone is used). 
+ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is used.) 
+ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
 
 
 ### SchedulingPolicy {#SchedulingPolicy6}
@@ -1299,7 +1335,7 @@ Field | Description
 --- | ---
 name | **string**<br>Name of the disk. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>Description of the disk. The maximum string length in characters is 256.
-type_id | **string**<br>ID of the disk type. To get a list of available disk types, use the [yandex.cloud.compute.v1.DiskTypeService.List](/docs/compute/grpc/disk_type_service#List) request. The maximum string length in characters is 50.
+type_id | **string**<br>ID of the disk type. To get a list of available disk types, use the [yandex.cloud.compute.v1.DiskTypeService.List](/docs/compute/api-ref/grpc/disk_type_service#List) request. The maximum string length in characters is 50.
 size | **int64**<br>Required. Size of the disk, specified in bytes. Acceptable values are 4194304 to 4398046511104, inclusive.
 block_size | **int64**<br>Block size of the disk, specified in bytes. The default is 4096. 
 disk_placement_policy | **[DiskPlacementPolicy](#DiskPlacementPolicy)**<br>Placement policy configuration. 
@@ -1352,7 +1388,7 @@ secondary_disks[] | **[AttachedDisk](#AttachedDisk6)**<br>Array of secondary dis
 network_interfaces[] | **[NetworkInterface](#NetworkInterface6)**<br>Array of network interfaces that are attached to the instance. 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
 scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy7)**<br>Scheduling policy configuration. 
-service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/grpc/service_account_service#List) request. 
+service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
 network_settings | **[NetworkSettings](#NetworkSettings8)**<br>Network Settings 
 placement_policy | **[PlacementPolicy](#PlacementPolicy8)**<br>Placement policy configuration. 
 
@@ -1411,14 +1447,20 @@ dns_records[] | **[DnsRecord](#DnsRecord12)**<br>External DNS configuration
 
 Field | Description
 --- | ---
-fqdn | **string**<br> 
+fqdn | **string**<br>Name of the A/AAAA record as specified when creating the instance. Note that if `fqdn' has no trailing '.', it is specified relative to the zone (@see dns_zone_id). 
+dns_zone_id | **string**<br>DNS zone id for the record (optional, if not set, some private zone is used). 
+ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is used.) 
+ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
 
 
 ### DnsRecord {#DnsRecord13}
 
 Field | Description
 --- | ---
-fqdn | **string**<br> 
+fqdn | **string**<br>Name of the A/AAAA record as specified when creating the instance. Note that if `fqdn' has no trailing '.', it is specified relative to the zone (@see dns_zone_id). 
+dns_zone_id | **string**<br>DNS zone id for the record (optional, if not set, some private zone is used). 
+ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is used.) 
+ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
 
 
 ### SchedulingPolicy {#SchedulingPolicy7}
@@ -1516,7 +1558,7 @@ secondary_disks[] | **[AttachedDisk](#AttachedDisk7)**<br>Array of secondary dis
 network_interfaces[] | **[NetworkInterface](#NetworkInterface7)**<br>Array of network interfaces that are attached to the instance. 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
 scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy8)**<br>Scheduling policy configuration. 
-service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/grpc/service_account_service#List) request. 
+service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
 network_settings | **[NetworkSettings](#NetworkSettings9)**<br>Network Settings 
 placement_policy | **[PlacementPolicy](#PlacementPolicy9)**<br>Placement policy configuration. 
 
@@ -1575,14 +1617,20 @@ dns_records[] | **[DnsRecord](#DnsRecord14)**<br>External DNS configuration
 
 Field | Description
 --- | ---
-fqdn | **string**<br> 
+fqdn | **string**<br>Name of the A/AAAA record as specified when creating the instance. Note that if `fqdn' has no trailing '.', it is specified relative to the zone (@see dns_zone_id). 
+dns_zone_id | **string**<br>DNS zone id for the record (optional, if not set, some private zone is used). 
+ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is used.) 
+ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
 
 
 ### DnsRecord {#DnsRecord15}
 
 Field | Description
 --- | ---
-fqdn | **string**<br> 
+fqdn | **string**<br>Name of the A/AAAA record as specified when creating the instance. Note that if `fqdn' has no trailing '.', it is specified relative to the zone (@see dns_zone_id). 
+dns_zone_id | **string**<br>DNS zone id for the record (optional, if not set, some private zone is used). 
+ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is used.) 
+ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
 
 
 ### SchedulingPolicy {#SchedulingPolicy8}
@@ -1698,7 +1746,7 @@ secondary_disks[] | **[AttachedDisk](#AttachedDisk8)**<br>Array of secondary dis
 network_interfaces[] | **[NetworkInterface](#NetworkInterface8)**<br>Array of network interfaces that are attached to the instance. 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
 scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy9)**<br>Scheduling policy configuration. 
-service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/grpc/service_account_service#List) request. 
+service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
 network_settings | **[NetworkSettings](#NetworkSettings10)**<br>Network Settings 
 placement_policy | **[PlacementPolicy](#PlacementPolicy10)**<br>Placement policy configuration. 
 
@@ -1757,14 +1805,20 @@ dns_records[] | **[DnsRecord](#DnsRecord16)**<br>External DNS configuration
 
 Field | Description
 --- | ---
-fqdn | **string**<br> 
+fqdn | **string**<br>Name of the A/AAAA record as specified when creating the instance. Note that if `fqdn' has no trailing '.', it is specified relative to the zone (@see dns_zone_id). 
+dns_zone_id | **string**<br>DNS zone id for the record (optional, if not set, some private zone is used). 
+ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is used.) 
+ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
 
 
 ### DnsRecord {#DnsRecord17}
 
 Field | Description
 --- | ---
-fqdn | **string**<br> 
+fqdn | **string**<br>Name of the A/AAAA record as specified when creating the instance. Note that if `fqdn' has no trailing '.', it is specified relative to the zone (@see dns_zone_id). 
+dns_zone_id | **string**<br>DNS zone id for the record (optional, if not set, some private zone is used). 
+ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is used.) 
+ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
 
 
 ### SchedulingPolicy {#SchedulingPolicy9}
@@ -1860,7 +1914,7 @@ secondary_disks[] | **[AttachedDisk](#AttachedDisk9)**<br>Array of secondary dis
 network_interfaces[] | **[NetworkInterface](#NetworkInterface9)**<br>Array of network interfaces that are attached to the instance. 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
 scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy10)**<br>Scheduling policy configuration. 
-service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/grpc/service_account_service#List) request. 
+service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
 network_settings | **[NetworkSettings](#NetworkSettings11)**<br>Network Settings 
 placement_policy | **[PlacementPolicy](#PlacementPolicy11)**<br>Placement policy configuration. 
 
@@ -1919,14 +1973,20 @@ dns_records[] | **[DnsRecord](#DnsRecord18)**<br>External DNS configuration
 
 Field | Description
 --- | ---
-fqdn | **string**<br> 
+fqdn | **string**<br>Name of the A/AAAA record as specified when creating the instance. Note that if `fqdn' has no trailing '.', it is specified relative to the zone (@see dns_zone_id). 
+dns_zone_id | **string**<br>DNS zone id for the record (optional, if not set, some private zone is used). 
+ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is used.) 
+ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
 
 
 ### DnsRecord {#DnsRecord19}
 
 Field | Description
 --- | ---
-fqdn | **string**<br> 
+fqdn | **string**<br>Name of the A/AAAA record as specified when creating the instance. Note that if `fqdn' has no trailing '.', it is specified relative to the zone (@see dns_zone_id). 
+dns_zone_id | **string**<br>DNS zone id for the record (optional, if not set, some private zone is used). 
+ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is used.) 
+ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
 
 
 ### SchedulingPolicy {#SchedulingPolicy10}
@@ -2065,7 +2125,7 @@ secondary_disks[] | **[AttachedDisk](#AttachedDisk10)**<br>Array of secondary di
 network_interfaces[] | **[NetworkInterface](#NetworkInterface10)**<br>Array of network interfaces that are attached to the instance. 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
 scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy11)**<br>Scheduling policy configuration. 
-service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/grpc/service_account_service#List) request. 
+service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
 network_settings | **[NetworkSettings](#NetworkSettings12)**<br>Network Settings 
 placement_policy | **[PlacementPolicy](#PlacementPolicy12)**<br>Placement policy configuration. 
 
@@ -2124,14 +2184,20 @@ dns_records[] | **[DnsRecord](#DnsRecord20)**<br>External DNS configuration
 
 Field | Description
 --- | ---
-fqdn | **string**<br> 
+fqdn | **string**<br>Name of the A/AAAA record as specified when creating the instance. Note that if `fqdn' has no trailing '.', it is specified relative to the zone (@see dns_zone_id). 
+dns_zone_id | **string**<br>DNS zone id for the record (optional, if not set, some private zone is used). 
+ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is used.) 
+ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
 
 
 ### DnsRecord {#DnsRecord21}
 
 Field | Description
 --- | ---
-fqdn | **string**<br> 
+fqdn | **string**<br>Name of the A/AAAA record as specified when creating the instance. Note that if `fqdn' has no trailing '.', it is specified relative to the zone (@see dns_zone_id). 
+dns_zone_id | **string**<br>DNS zone id for the record (optional, if not set, some private zone is used). 
+ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is used.) 
+ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
 
 
 ### SchedulingPolicy {#SchedulingPolicy11}

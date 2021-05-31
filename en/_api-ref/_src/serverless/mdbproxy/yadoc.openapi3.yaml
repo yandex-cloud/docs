@@ -1,0 +1,881 @@
+openapi: "3.0"
+info:
+  title: Yandex Cloud MDB Proxy Service
+  description: This API reference is organized by resource. Actions are performed
+    by sending HTTP requests to resource URLs or making RPC calls. For more information
+    about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
+  version: v1
+  x-y-docUri: mdbproxy/api-ref
+  x-y-baseUrl: https://serverless-mdbproxy.api.cloud.yandex.net
+paths:
+  /mdbproxy/v1/proxies/{proxyId}:
+    get:
+      tags:
+      - Proxy
+      summary: Returns the specified proxy.
+      description: To get the list of all available proxies, make a [list](/docs/functions/mdbproxy/api-ref/Proxy/list)
+        request.
+      operationId: ProxyGet
+      parameters:
+      - name: proxyId
+        in: path
+        description: |-
+          Required.
+          ID of the proxy to return.
+
+          To get a proxy ID make a [list](/docs/functions/mdbproxy/api-ref/Proxy/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Proxy'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - Proxy
+      summary: Deletes the specified proxy.
+      operationId: ProxyDelete
+      parameters:
+      - name: proxyId
+        in: path
+        description: |-
+          Required.
+          ID of the proxy.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteProxyMetadata'
+      x-y-operation-response: Empty
+    patch:
+      tags:
+      - Proxy
+      summary: Updates the specified proxy.
+      operationId: ProxyUpdate
+      parameters:
+      - name: proxyId
+        in: path
+        description: |-
+          Required.
+          ID of the proxy to update.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateProxyRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateProxyMetadata'
+      x-y-operation-response: '[Proxy](/docs/functions/mdbproxy/api-ref/Proxy#representation)'
+  /mdbproxy/v1/proxies:
+    get:
+      tags:
+      - Proxy
+      summary: Retrieves the list of proxies in the specified folder.
+      operationId: ProxyList
+      parameters:
+      - name: folderId
+        in: query
+        description: |-
+          Required.
+          ID of the folder to list proxies in.
+
+          To get a folder ID make a [list](/docs/resource-manager/api-ref/Folder/list) request.
+
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than `pageSize`, the service returns a [nextPageToken](/docs/functions/mdbproxy/api-ref/Proxy/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
+
+          Default value: 100.
+
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set `pageToken` to the
+          [nextPageToken](/docs/functions/mdbproxy/api-ref/Proxy/list#responses) returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListProxyResponse'
+      x-y-navtitle: list
+    post:
+      tags:
+      - Proxy
+      summary: Creates a proxy in the specified folder.
+      operationId: ProxyCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateProxyRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateProxyMetadata'
+      x-y-operation-response: '[Proxy](/docs/functions/mdbproxy/api-ref/Proxy#representation)'
+  /mdbproxy/v1/proxies/{proxyId}/operations:
+    get:
+      tags:
+      - Proxy
+      summary: Lists operations for the specified proxy.
+      operationId: ProxyListOperations
+      parameters:
+      - name: proxyId
+        in: path
+        description: |-
+          Required.
+          ID of the proxy to list operations for.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page that should be returned. If the number of available
+          results is larger than `pageSize`, the service returns a [nextPageToken](/docs/functions/mdbproxy/api-ref/Proxy/listOperations#responses)
+          that can be used to get the next page of results in subsequent list requests.
+
+          Default value: 100.
+
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set `pageToken` to the
+          [nextPageToken](/docs/functions/mdbproxy/api-ref/Proxy/listOperations#responses) returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          A filter expression that filters resources listed in the response.
+
+          The expression must specify:
+          1. The field name. Currently filtering can be applied to the [Operation.done](/docs/operation/api-ref/Operation#representation), [Operation.createdBy](/docs/operation/api-ref/Operation#representation) field.
+          2. A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN`
+          for lists of values.
+          3. The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.
+          Examples of a filter: `done=false`, `created_by='John.Doe'`.
+
+          The maximum string length in characters is 1000.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListProxyOperationsResponse'
+      x-y-navtitle: listOperations
+  /mdbproxy/v1/proxies/{resourceId}:listAccessBindings:
+    get:
+      tags:
+      - Proxy
+      summary: Lists existing access bindings for the specified proxy.
+      operationId: ProxyListAccessBindings
+      parameters:
+      - name: resourceId
+        in: path
+        description: |-
+          Required.
+          ID of the resource to list access bindings for.
+
+          To get the resource ID, use a corresponding List request.
+          For example, use the [list](/docs/resource-manager/api-ref/Cloud/list) request to get the Cloud resource ID.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page that should be returned. If the number of available
+          results is larger than pageSize,
+          the service returns a nextPageToken
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
+
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. Set pageToken
+          to the nextPageToken
+          returned by a previous list request to get the next page of results.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListAccessBindingsResponse'
+      x-y-navtitle: listAccessBindings
+  /mdbproxy/v1/proxies/{resourceId}:setAccessBindings:
+    post:
+      tags:
+      - Proxy
+      summary: Sets access bindings for the proxy.
+      operationId: ProxySetAccessBindings
+      parameters:
+      - name: resourceId
+        in: path
+        description: |-
+          Required.
+          ID of the resource for which access bindings are being set.
+
+          To get the resource ID, use a corresponding List request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SetAccessBindingsRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: setAccessBindings
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/SetAccessBindingsMetadata'
+      x-y-operation-response: Empty
+  /mdbproxy/v1/proxies/{resourceId}:updateAccessBindings:
+    patch:
+      tags:
+      - Proxy
+      summary: Updates access bindings for the specified proxy.
+      operationId: ProxyUpdateAccessBindings
+      parameters:
+      - name: resourceId
+        in: path
+        description: |-
+          Required.
+          ID of the resource for which access bindings are being updated.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateAccessBindingsRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: updateAccessBindings
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateAccessBindingsMetadata'
+      x-y-operation-response: Empty
+components:
+  schemas:
+    AccessBinding:
+      type: object
+      properties:
+        roleId:
+          description: |-
+            Required.
+            ID of the [Role](/docs/iam/api-ref/Role#representation) that is assigned to the `subject`.
+
+            The maximum string length in characters is 50.
+          type: string
+        subject:
+          $ref: '#/components/schemas/Subject_in_AccessBinding_subject'
+    AccessBindingAction:
+      description: |2-
+         - ADD: Addition of an access binding.
+         - REMOVE: Removal of an access binding.
+      type: string
+      enum:
+      - ADD
+      - REMOVE
+    AccessBindingDelta:
+      type: object
+      properties:
+        action:
+          $ref: '#/components/schemas/AccessBindingAction_in_AccessBindingDelta_action'
+        accessBinding:
+          $ref: '#/components/schemas/AccessBinding_in_AccessBindingDelta_accessBinding'
+    CreateProxyMetadata:
+      type: object
+      properties:
+        proxyId:
+          description: |-
+            ID of the proxy.
+
+            The maximum string length in characters is 50.
+          type: string
+    CreateProxyRequest:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            Required.
+            ID of the folder to create a proxy in.
+
+            To get a folder ID make a [list](/docs/resource-manager/api-ref/Folder/list) request.
+          type: string
+        name:
+          description: |-
+            Name of the proxy.
+            The name must be unique within the folder.
+
+            Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+          type: string
+        description:
+          description: |-
+            Description of the proxy.
+
+            The maximum string length in characters is 256.
+          type: string
+        labels:
+          description: |-
+            Resource labels as `key:value` pairs.
+
+            No more than 64 per resource.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `` [a-z][-_./\@0-9a-z]* ``.
+            The maximum string length in characters for each value is 63.
+            Each value must match the regular expression `` [-_./\@0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+        target:
+          $ref: '#/components/schemas/Target_in_CreateProxyRequest_target'
+    DeleteProxyMetadata:
+      type: object
+      properties:
+        proxyId:
+          description: |-
+            Required.
+            ID of the proxy.
+
+            The maximum string length in characters is 50.
+          type: string
+    Empty:
+      description: Empty JSON object `` {} ``.
+      type: object
+      maxProperties: 0
+    FieldMask:
+      description: |-
+        A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
+
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
+        Fields specified in the request will be updated to provided values.
+        The rest of the fields will be reset to the default.
+      type: string
+    ListAccessBindingsResponse:
+      type: object
+      properties:
+        accessBindings:
+          description: List of access bindings for the specified resource.
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessBinding'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than pageSize, use
+            the nextPageToken as the value
+            for the pageToken query parameter
+            in the next list request. Each subsequent list request will have its own
+            nextPageToken to continue paging through the results.
+          type: string
+    ListProxyOperationsResponse:
+      type: object
+      properties:
+        operations:
+          description: List of operations for the specified proxy.
+          type: array
+          items:
+            $ref: '#/components/schemas/Operation'
+        nextPageToken:
+          description: |-
+            Token for getting the next page of the list. If the number of results is greater than
+            the specified [pageSize](/docs/functions/mdbproxy/api-ref/Proxy/listOperations#query_params), use `nextPageToken` as the value
+            for the [pageToken](/docs/functions/mdbproxy/api-ref/Proxy/listOperations#query_params) parameter in the next list request.
+
+            Each subsequent page will have its own `nextPageToken` to continue paging through the results.
+          type: string
+    ListProxyResponse:
+      type: object
+      properties:
+        proxies:
+          description: List of proxies in the specified folder.
+          type: array
+          items:
+            $ref: '#/components/schemas/Proxy'
+        nextPageToken:
+          description: |-
+            Token for getting the next page of the list. If the number of results is greater than
+            the specified [pageSize](/docs/functions/mdbproxy/api-ref/Proxy/list#query_params), use `nextPageToken` as the value
+            for the [pageToken](/docs/functions/mdbproxy/api-ref/Proxy/list#query_params) parameter in the next list request.
+
+            Each subsequent page will have its own `nextPageToken` to continue paging through the results.
+
+            The maximum string length in characters is 100.
+          type: string
+    Operation:
+      description: An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
+      type: object
+      allOf:
+      - type: object
+        properties:
+          id:
+            description: ID of the operation.
+            type: string
+          description:
+            description: Description of the operation. 0-256 characters long.
+            type: string
+          createdAt:
+            description: |-
+              Creation timestamp.
+
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          createdBy:
+            description: ID of the user or service account who initiated the operation.
+            type: string
+          modifiedAt:
+            description: |-
+              The time when the Operation resource was last modified.
+
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          done:
+            description: |-
+              If the value is `false`, it means the operation is still in progress.
+              If `true`, the operation is completed, and either `error` or `response` is available.
+            type: boolean
+            format: boolean
+          metadata:
+            description: |-
+              Service-specific metadata associated with the operation.
+              It typically contains the ID of the target resource that the operation is performed on.
+              Any method that returns a long-running operation should document the metadata type, if any.
+            type: object
+      - title: result
+        type: object
+        maxProperties: 1
+        properties:
+          error:
+            $ref: '#/components/schemas/Status'
+            description: The error result of the operation in case of failure or cancellation.
+          response:
+            description: |-
+              The normal response of the operation in case of success.
+              If the original method returns no data on success, such as Delete,
+              the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty).
+              If the original method is the standard Create/Update,
+              the response should be the target resource of the operation.
+              Any method that returns a long-running operation should document the response type, if any.
+            type: object
+    Proxy:
+      type: object
+      properties:
+        id:
+          description: ID of the proxy.
+          type: string
+        folderId:
+          description: |-
+            Required.
+            ID of the folder that the proxy belongs to.
+
+            The maximum string length in characters is 50.
+          type: string
+        createdAt:
+          description: |-
+            Creation timestamp for the proxy.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        name:
+          description: |-
+            Required.
+            Name of the proxy.
+
+            Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+          type: string
+        description:
+          description: Description of the proxy.
+          type: string
+        labels:
+          description: |-
+            Resource labels as `key:value` pairs.
+
+            No more than 64 per resource.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `` [a-z][-_./\@0-9a-z]* ``.
+            The maximum string length in characters for each value is 63.
+            Each value must match the regular expression `` [-_./\@0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+        target:
+          $ref: '#/components/schemas/Target_in_Proxy_target'
+    SetAccessBindingsMetadata:
+      type: object
+      properties:
+        resourceId:
+          description: ID of the resource for which access bindings are being set.
+          type: string
+    SetAccessBindingsRequest:
+      type: object
+      properties:
+        accessBindings:
+          description: |-
+            Required.
+            Access bindings to be set. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings).
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessBinding'
+    Status:
+      description: The error result of the operation in case of failure or cancellation.
+      type: object
+      properties:
+        code:
+          description: Error code. An enum value of [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
+          type: integer
+          format: int32
+        message:
+          description: An error message.
+          type: string
+        details:
+          description: A list of messages that carry the error details.
+          type: array
+          items:
+            type: object
+    Subject:
+      type: object
+      properties:
+        id:
+          description: |-
+            Required.
+            ID of the subject.
+
+            It can contain one of the following values:
+            * `allAuthenticatedUsers`: A special system identifier that represents anyone
+               who is authenticated. It can be used only if the `type` is `system`.
+            * `allUsers`: A special system identifier that represents anyone. No authentication is required.
+               For example, you don't need to specify the IAM token in an API query.
+            * `<cloud generated id>`: An identifier that represents a user account.
+               It can be used only if the `type` is `userAccount`, `federatedUser` or `serviceAccount`.
+
+            The maximum string length in characters is 50.
+          type: string
+        type:
+          description: |-
+            Required.
+            Type of the subject.
+
+            It can contain one of the following values:
+            * `userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud.
+            * `serviceAccount`: A service account. This type represents the [ServiceAccount](/docs/iam/api-ref/ServiceAccount#representation) resource.
+            * `federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory.
+            * `system`: System group. This type represents several accounts with a common system identifier.
+
+            For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject).
+
+            The maximum string length in characters is 100.
+          type: string
+    Target:
+      type: object
+      allOf:
+      - title: mdb
+        type: object
+        maxProperties: 1
+        properties:
+          postgresql:
+            $ref: '#/components/schemas/TargetPostgreSQL'
+            description: PostgreSQL settings for proxy.
+    TargetPostgreSQL:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            Required.
+            Cluster identifier for postgresql.
+
+            The maximum string length in characters is 50.
+          type: string
+        user:
+          description: |-
+            Required.
+            PostgreSQL user.
+
+            The maximum string length in characters is 63.
+            Value must match the regular expression `` [a-zA-Z0-9_]* ``.
+          type: string
+        password:
+          description: PostgreSQL password, input only field.
+          type: string
+        db:
+          description: |-
+            Required.
+            PostgreSQL database name.
+
+            The maximum string length in characters is 63.
+            Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
+          type: string
+        endpoint:
+          description: PostgreSQL proxy-host for connection, output only field.
+          type: string
+    UpdateAccessBindingsMetadata:
+      type: object
+      properties:
+        resourceId:
+          description: ID of the resource for which access bindings are being updated.
+          type: string
+    UpdateAccessBindingsRequest:
+      type: object
+      properties:
+        accessBindingDeltas:
+          description: |-
+            Required.
+            Updates to access bindings.
+
+            Must contain at least one element.
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessBindingDelta'
+    UpdateProxyMetadata:
+      type: object
+      properties:
+        proxyId:
+          description: |-
+            Required.
+            ID of the proxy.
+
+            The maximum string length in characters is 50.
+          type: string
+    UpdateProxyRequest:
+      type: object
+      properties:
+        updateMask:
+          $ref: '#/components/schemas/FieldMask_in_UpdateProxyRequest_updateMask'
+        name:
+          description: |-
+            New name for the proxy.
+            The name must be unique within the folder.
+
+            Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+          type: string
+        description:
+          description: |-
+            New description for the proxy.
+
+            The maximum string length in characters is 256.
+          type: string
+        labels:
+          description: |-
+            Proxy labels as `key:value` pairs.
+
+            No more than 64 per resource.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `` [a-z][-_./\@0-9a-z]* ``.
+            The maximum string length in characters for each value is 63.
+            Each value must match the regular expression `` [-_./\@0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+        target:
+          $ref: '#/components/schemas/Target_in_UpdateProxyRequest_target'
+    Subject_in_AccessBinding_subject:
+      description: |-
+        Required.
+        Identity for which access binding is being created.
+        It can represent an account with a unique ID or several accounts with a system identifier.
+      type: object
+      properties:
+        id:
+          description: |-
+            Required.
+            ID of the subject.
+
+            It can contain one of the following values:
+            * `allAuthenticatedUsers`: A special system identifier that represents anyone
+               who is authenticated. It can be used only if the `type` is `system`.
+            * `allUsers`: A special system identifier that represents anyone. No authentication is required.
+               For example, you don't need to specify the IAM token in an API query.
+            * `<cloud generated id>`: An identifier that represents a user account.
+               It can be used only if the `type` is `userAccount`, `federatedUser` or `serviceAccount`.
+
+            The maximum string length in characters is 50.
+          type: string
+        type:
+          description: |-
+            Required.
+            Type of the subject.
+
+            It can contain one of the following values:
+            * `userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud.
+            * `serviceAccount`: A service account. This type represents the [ServiceAccount](/docs/iam/api-ref/ServiceAccount#representation) resource.
+            * `federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory.
+            * `system`: System group. This type represents several accounts with a common system identifier.
+
+            For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject).
+
+            The maximum string length in characters is 100.
+          type: string
+    AccessBindingAction_in_AccessBindingDelta_action:
+      description: |-
+        Required.
+        The action that is being performed on an access binding.
+
+         - ADD: Addition of an access binding.
+         - REMOVE: Removal of an access binding.
+      type: string
+      enum:
+      - ADD
+      - REMOVE
+    AccessBinding_in_AccessBindingDelta_accessBinding:
+      description: |-
+        Required.
+        Access binding. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings).
+      type: object
+      properties:
+        roleId:
+          description: |-
+            Required.
+            ID of the [Role](/docs/iam/api-ref/Role#representation) that is assigned to the `subject`.
+
+            The maximum string length in characters is 50.
+          type: string
+        subject:
+          $ref: '#/components/schemas/Subject_in_AccessBinding_subject'
+    Target_in_CreateProxyRequest_target:
+      description: |-
+        Required.
+        Proxy target.
+      type: object
+      allOf:
+      - title: mdb
+        type: object
+        maxProperties: 1
+        properties:
+          postgresql:
+            $ref: '#/components/schemas/TargetPostgreSQL'
+            description: PostgreSQL settings for proxy.
+    Target_in_Proxy_target:
+      description: MDB specific settings.
+      type: object
+      allOf:
+      - title: mdb
+        type: object
+        maxProperties: 1
+        properties:
+          postgresql:
+            $ref: '#/components/schemas/TargetPostgreSQL'
+            description: PostgreSQL settings for proxy.
+    FieldMask_in_UpdateProxyRequest_updateMask:
+      description: |-
+        Field mask that specifies which attributes of the proxy should be updated.
+
+        A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
+
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
+        Fields specified in the request will be updated to provided values.
+        The rest of the fields will be reset to the default.
+      type: string
+    Target_in_UpdateProxyRequest_target:
+      description: Proxy target.
+      type: object
+      allOf:
+      - title: mdb
+        type: object
+        maxProperties: 1
+        properties:
+          postgresql:
+            $ref: '#/components/schemas/TargetPostgreSQL'
+            description: PostgreSQL settings for proxy.
+tags:
+- name: Proxy
+  description: A set of methods for managing serverless MDB proxy.

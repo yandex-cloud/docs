@@ -1,11 +1,9 @@
-openapi: '3.0'
+openapi: "3.0"
 info:
   title: Yandex KMS API
-  description: >-
-    Методы справочника API сгруппированы по ресурсам. Чтобы выполнить операцию
-    над ресурсом, отправьте HTTP-запрос к соответствующему URL. Подробнее об
-    архитектуре API Яндекс.Облака, см. [Концепции API
-    Яндекс.Облака](/docs/api-design-guide/).
+  description: Методы справочника API сгруппированы по ресурсам. Чтобы выполнить операцию
+    над ресурсом, отправьте HTTP-запрос к соответствующему URL. Подробнее об архитектуре
+    API Яндекс.Облака, см. [Концепции API Яндекс.Облака](/docs/api-design-guide/).
   version: v1
   x-y-docUri: api-ref
   x-y-baseUrl: https://kms.api.cloud.yandex.net
@@ -13,23 +11,20 @@ paths:
   /kms/v1/keys/{keyId}:encrypt:
     post:
       tags:
-        - SymmetricCrypto
+      - SymmetricCrypto
       summary: Шифрует заданный текст с помощью указанного ключа.
       operationId: SymmetricCryptoEncrypt
       parameters:
-        - name: keyId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: keyId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор симметричного ключа KMS, который следует использовать для шифрования.
 
-            Идентификатор симметричного ключа KMS, который следует использовать
-            для шифрования.
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -37,7 +32,7 @@ paths:
               $ref: '#/components/schemas/SymmetricEncryptRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -47,25 +42,21 @@ paths:
   /kms/v1/keys/{keyId}:decrypt:
     post:
       tags:
-        - SymmetricCrypto
+      - SymmetricCrypto
       summary: Расшифровывает указанный шифртекст с помощью указанного ключа.
       operationId: SymmetricCryptoDecrypt
       parameters:
-        - name: keyId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: keyId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор симметричного ключа KMS, который следует использовать для
+          дешифрования.
 
-            Идентификатор симметричного ключа KMS, который следует использовать
-            для
-
-            дешифрования.
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -73,7 +64,7 @@ paths:
               $ref: '#/components/schemas/SymmetricDecryptRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -83,23 +74,20 @@ paths:
   /kms/v1/keys/{keyId}:reEncrypt:
     post:
       tags:
-        - SymmetricCrypto
+      - SymmetricCrypto
       summary: Заново шифрует заданный зашифрованный текст с указанным ключом KMS.
       operationId: SymmetricCryptoReEncrypt
       parameters:
-        - name: keyId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: keyId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор нового ключа, который следует использовать для шифрования.
 
-            Идентификатор нового ключа, который следует использовать для
-            шифрования.
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -107,7 +95,7 @@ paths:
               $ref: '#/components/schemas/SymmetricReEncryptRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -117,32 +105,24 @@ paths:
   /kms/v1/keys/{keyId}:generateDataKey:
     post:
       tags:
-        - SymmetricCrypto
-      summary: >-
-        Создает новый симметричный ключ шифрования данных (не ключ KMS) и
-        возвращает
-
-        сгенерированный ключ в виде открытого текста и текста, зашифрованного
-        указанным
-
+      - SymmetricCrypto
+      summary: |-
+        Создает новый симметричный ключ шифрования данных (не ключ KMS) и возвращает
+        сгенерированный ключ в виде открытого текста и текста, зашифрованного указанным
         симметричным ключом KMS.
       operationId: SymmetricCryptoGenerateDataKey
       parameters:
-        - name: keyId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: keyId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор симметричного ключа KMS, с помощью которого должен быть зашифрован
+          сгенерированный ключ шифрования данных.
 
-            Идентификатор симметричного ключа KMS, с помощью которого должен
-            быть зашифрован
-
-            сгенерированный ключ шифрования данных.
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -150,7 +130,7 @@ paths:
               $ref: '#/components/schemas/GenerateDataKeyRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -160,58 +140,43 @@ paths:
   /kms/v1/keys:
     get:
       tags:
-        - SymmetricKey
+      - SymmetricKey
       summary: Возвращает список симметричных ключей KMS в указанном каталоге.
       operationId: SymmetricKeyList
       parameters:
-        - name: folderId
-          in: query
-          description: |-
-            Обязательное поле.
-            Идентификатор каталога для получения списка симметричных ключей KMS.
+      - name: folderId
+        in: query
+        description: |-
+          Обязательное поле.
+          Идентификатор каталога для получения списка симметричных ключей KMS.
 
-            Максимальная длина строки в символах — 50.
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            Максимальное количество результатов на странице ответа на запрос.
-            Если количество
+          Максимальная длина строки в символах — 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на запрос. Если количество
+          результатов больше чем [pageSize](/docs/kms/api-ref/SymmetricKey/list#query_params) , сервис вернет значение [nextPageToken](/docs/kms/api-ref/SymmetricKey/list#responses),
+          которое можно использовать для получения следующей страницы. Значение по умолчанию:
+          100.
 
-            результатов больше чем
-            [pageSize](/docs/kms/api-ref/SymmetricKey/list#query_params) ,
-            сервис вернет значение
-            [nextPageToken](/docs/kms/api-ref/SymmetricKey/list#responses),
+          Максимальное значение — 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение [pageToken](/docs/kms/api-ref/SymmetricKey/list#query_params) равным значению поля
+          [nextPageToken](/docs/kms/api-ref/SymmetricKey/list#responses) предыдущего запроса, чтобы получить следующую страницу
+          результатов.
 
-            которое можно использовать для получения следующей страницы.
-            Значение по умолчанию:
-
-            100.
-
-
-            Максимальное значение — 1000.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Токен страницы. Установите значение
-            [pageToken](/docs/kms/api-ref/SymmetricKey/list#query_params) равным
-            значению поля
-
-            [nextPageToken](/docs/kms/api-ref/SymmetricKey/list#responses)
-            предыдущего запроса, чтобы получить следующую страницу
-
-            результатов.
-
-
-            Максимальная длина строки в символах — 100.
-          schema:
-            type: string
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -220,7 +185,7 @@ paths:
       x-y-navtitle: list
     post:
       tags:
-        - SymmetricKey
+      - SymmetricKey
       summary: Создает симметричный ключ KMS в указанном каталоге.
       operationId: SymmetricKeyCreate
       requestBody:
@@ -230,7 +195,7 @@ paths:
               $ref: '#/components/schemas/CreateSymmetricKeyRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -243,33 +208,26 @@ paths:
   /kms/v1/keys/{keyId}:
     get:
       tags:
-        - SymmetricKey
+      - SymmetricKey
       summary: Возвращает указанный симметричный ключ KMS.
-      description: >-
-        Чтобы получить список доступных симметричных ключей KMS, используйте
-        запрос
-
+      description: |-
+        Чтобы получить список доступных симметричных ключей KMS, используйте запрос
         [list](/docs/kms/api-ref/SymmetricKey/list).
       operationId: SymmetricKeyGet
       parameters:
-        - name: keyId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: keyId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор возвращаемого симметричного ключа KMS. Чтобы получить идентификатор
+          симметричного ключа используйте запрос [list](/docs/kms/api-ref/SymmetricKey/list).
 
-            Идентификатор возвращаемого симметричного ключа KMS. Чтобы получить
-            идентификатор
-
-            симметричного ключа используйте запрос
-            [list](/docs/kms/api-ref/SymmetricKey/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -278,32 +236,27 @@ paths:
       x-y-navtitle: get
     delete:
       tags:
-        - SymmetricKey
-      summary: >-
-        Удаляет указанный симметричный ключ KMS. Это действие также
-        автоматически планирует
-
+      - SymmetricKey
+      summary: |-
+        Удаляет указанный симметричный ключ KMS. Это действие также автоматически планирует
         уничтожение всех версий ключа через 72 часа.
-      description: >-
-        Ключ и его версии отсутствуют в ответах на запросы
-        [get](/docs/kms/api-ref/SymmetricKey/get) и
-        [list](/docs/kms/api-ref/SymmetricKey/list), но
-
+      description: |-
+        Ключ и его версии отсутствуют в ответах на запросы [get](/docs/kms/api-ref/SymmetricKey/get) и [list](/docs/kms/api-ref/SymmetricKey/list), но
         могут быть восстановлены в течение 72 часов запросом в техподдержку.
       operationId: SymmetricKeyDelete
       parameters:
-        - name: keyId
-          in: path
-          description: |-
-            Обязательное поле.
-            Идентификатор ключа, который следует удалить.
+      - name: keyId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор ключа, который следует удалить.
 
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -315,26 +268,21 @@ paths:
       x-y-operation-response: '[SymmetricKey](/docs/kms/api-ref/SymmetricKey#representation)'
     patch:
       tags:
-        - SymmetricKey
+      - SymmetricKey
       summary: Изменяет указанный симметричный ключ KMS.
       operationId: SymmetricKeyUpdate
       parameters:
-        - name: keyId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: keyId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор симметричного ключа KMS, который следует изменить. Чтобы получить
+          идентификатор симметричного ключа используйте запрос [list](/docs/kms/api-ref/SymmetricKey/list).
 
-            Идентификатор симметричного ключа KMS, который следует изменить.
-            Чтобы получить
-
-            идентификатор симметричного ключа используйте запрос
-            [list](/docs/kms/api-ref/SymmetricKey/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -342,7 +290,7 @@ paths:
               $ref: '#/components/schemas/UpdateSymmetricKeyRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -355,62 +303,44 @@ paths:
   /kms/v1/keys/{keyId}/versions:
     get:
       tags:
-        - SymmetricKey
+      - SymmetricKey
       summary: Возвращает список версий указанного симметричного ключа KMS.
       operationId: SymmetricKeyListVersions
       parameters:
-        - name: keyId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: keyId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор симметричного ключа KMS, для которого нужно вернуть список версий.
 
-            Идентификатор симметричного ключа KMS, для которого нужно вернуть
-            список версий.
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на запрос. Если количество
+          результатов больше чем [pageSize](/docs/kms/api-ref/SymmetricKey/listVersions#query_params) , сервис вернет значение [nextPageToken](/docs/kms/api-ref/SymmetricKey/listVersions#responses),
+          которое можно использовать для получения следующей страницы. Значение по умолчанию:
+          100.
 
+          Максимальное значение — 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение [pageToken](/docs/kms/api-ref/SymmetricKey/listVersions#query_params) равным значению поля
+          [nextPageToken](/docs/kms/api-ref/SymmetricKey/listVersions#responses) предыдущего запроса, чтобы получить следующую страницу
+          результатов.
 
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            Максимальное количество результатов на странице ответа на запрос.
-            Если количество
-
-            результатов больше чем
-            [pageSize](/docs/kms/api-ref/SymmetricKey/listVersions#query_params)
-            , сервис вернет значение
-            [nextPageToken](/docs/kms/api-ref/SymmetricKey/listVersions#responses),
-
-            которое можно использовать для получения следующей страницы.
-            Значение по умолчанию:
-
-            100.
-
-
-            Максимальное значение — 1000.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Токен страницы. Установите значение
-            [pageToken](/docs/kms/api-ref/SymmetricKey/listVersions#query_params)
-            равным значению поля
-
-            [nextPageToken](/docs/kms/api-ref/SymmetricKey/listVersions#responses)
-            предыдущего запроса, чтобы получить следующую страницу
-
-            результатов.
-
-
-            Максимальная длина строки в символах — 100.
-          schema:
-            type: string
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -420,27 +350,23 @@ paths:
   /kms/v1/keys/{keyId}:setPrimaryVersion:
     post:
       tags:
-        - SymmetricKey
-      summary: >-
-        Задает основную версию для указанного ключа. Основная версия
-        используется по
-
-        умолчанию для всех операций шифрования / дешифрования, в которых не
-        указан
-
+      - SymmetricKey
+      summary: |-
+        Задает основную версию для указанного ключа. Основная версия используется по
+        умолчанию для всех операций шифрования / дешифрования, в которых не указан
         идентификатор версии.
       operationId: SymmetricKeySetPrimaryVersion
       parameters:
-        - name: keyId
-          in: path
-          description: |-
-            Обязательное поле.
-            Идентификатор ключа, для которого нужно установить основную версию.
+      - name: keyId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор ключа, для которого нужно установить основную версию.
 
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -448,7 +374,7 @@ paths:
               $ref: '#/components/schemas/SetPrimarySymmetricKeyVersionRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -461,36 +387,31 @@ paths:
   /kms/v1/keys/{keyId}:scheduleVersionDestruction:
     post:
       tags:
-        - SymmetricKey
+      - SymmetricKey
       summary: Планирует уничтожение указанной версии ключа.
-      description: >-
+      description: |-
         Запланированное уничтожение может быть отменено с помощью метода
-
         [cancelVersionDestruction](/docs/kms/api-ref/SymmetricKey/cancelVersionDestruction).
       operationId: SymmetricKeyScheduleVersionDestruction
       parameters:
-        - name: keyId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: keyId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор ключа, для которого следует запланировать уничтожение версии.
 
-            Идентификатор ключа, для которого следует запланировать уничтожение
-            версии.
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
             schema:
-              $ref: >-
-                #/components/schemas/ScheduleSymmetricKeyVersionDestructionRequest
+              $ref: '#/components/schemas/ScheduleSymmetricKeyVersionDestructionRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -503,27 +424,22 @@ paths:
   /kms/v1/keys/{keyId}:cancelVersionDestruction:
     post:
       tags:
-        - SymmetricKey
-      summary: >-
-        Отменяет ранее запланированное уничтожение версии, если версия еще не
-        была
-
+      - SymmetricKey
+      summary: |-
+        Отменяет ранее запланированное уничтожение версии, если версия еще не была
         уничтожена.
       operationId: SymmetricKeyCancelVersionDestruction
       parameters:
-        - name: keyId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: keyId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор ключа, для которого следует отменить уничтожение версии.
 
-            Идентификатор ключа, для которого следует отменить уничтожение
-            версии.
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -531,7 +447,7 @@ paths:
               $ref: '#/components/schemas/CancelSymmetricKeyVersionDestructionRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -544,27 +460,24 @@ paths:
   /kms/v1/keys/{keyId}:rotate:
     post:
       tags:
-        - SymmetricKey
-      summary: >-
-        Ротирует указанный ключ: создает новую версию ключа и делает ее
-        основной. Старая
-
-        версия остается доступной для расшифровки зашифрованных с ее помощью
-        данных.
+      - SymmetricKey
+      summary: |-
+        Ротирует указанный ключ: создает новую версию ключа и делает ее основной. Старая
+        версия остается доступной для расшифровки зашифрованных с ее помощью данных.
       operationId: SymmetricKeyRotate
       parameters:
-        - name: keyId
-          in: path
-          description: |-
-            Обязательное поле.
-            Идентификатор ключа, который следует ротировать.
+      - name: keyId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор ключа, который следует ротировать.
 
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -577,66 +490,46 @@ paths:
   /kms/v1/keys/{keyId}/operations:
     get:
       tags:
-        - SymmetricKey
+      - SymmetricKey
       summary: Возвращет список операций для указанного симметричного ключа KMS.
       operationId: SymmetricKeyListOperations
       parameters:
-        - name: keyId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: keyId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор симметричного ключа KMS, для которого нужно вернуть список операций.
 
-            Идентификатор симметричного ключа KMS, для которого нужно вернуть
-            список операций.
+          Чтобы получить идентификатор ключа, используйте запрос [list](/docs/kms/api-ref/SymmetricKey/list).
 
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное число возвращаемых результатов на странице. Если количество
+          результатов больше чем [pageSize](/docs/kms/api-ref/SymmetricKey/listOperations#query_params) , сервис вернет значение [nextPageToken](/docs/kms/api-ref/SymmetricKey/listOperations#responses),
+          которое можно использовать для получения следующей страницы. Значение по умолчанию:
+          100.
 
-            Чтобы получить идентификатор ключа, используйте запрос
-            [list](/docs/kms/api-ref/SymmetricKey/list).
+          Максимальное значение — 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение [pageToken](/docs/kms/api-ref/SymmetricKey/listOperations#query_params) равным значению поля
+          [nextPageToken](/docs/kms/api-ref/SymmetricKey/listOperations#responses) предыдущего запроса, чтобы получить следующую страницу
+          результатов.
 
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            Максимальное число возвращаемых результатов на странице. Если
-            количество
-
-            результатов больше чем
-            [pageSize](/docs/kms/api-ref/SymmetricKey/listOperations#query_params)
-            , сервис вернет значение
-            [nextPageToken](/docs/kms/api-ref/SymmetricKey/listOperations#responses),
-
-            которое можно использовать для получения следующей страницы.
-            Значение по умолчанию:
-
-            100.
-
-
-            Максимальное значение — 1000.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Токен страницы. Установите значение
-            [pageToken](/docs/kms/api-ref/SymmetricKey/listOperations#query_params)
-            равным значению поля
-
-            [nextPageToken](/docs/kms/api-ref/SymmetricKey/listOperations#responses)
-            предыдущего запроса, чтобы получить следующую страницу
-
-            результатов.
-
-
-            Максимальная длина строки в символах — 100.
-          schema:
-            type: string
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -646,65 +539,49 @@ paths:
   /kms/v1/keys/{resourceId}:listAccessBindings:
     get:
       tags:
-        - SymmetricKey
-      summary: >-
-        Возвращает список привязок прав доступа для указанного симметричного
+      - SymmetricKey
+      summary: Возвращает список привязок прав доступа для указанного симметричного
         ключа KMS.
       operationId: SymmetricKeyListAccessBindings
       parameters:
-        - name: resourceId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: resourceId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор ресурса, для которого запрашивается список привязок прав доступа.
 
-            Идентификатор ресурса, для которого запрашивается список привязок
-            прав доступа.
+          Чтобы получить идентификатор ресурса, используйте соответствующий запрос List.
+          Например, используйте запрос [list](/docs/resource-manager/api-ref/Cloud/list) для получения
+          идентификатора ресурса Cloud.
 
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное число возвращаемых результатов на странице. Если количество
+          результатов больше чем pageSize , сервис вернет значение nextPageToken,
+          которое можно использовать для получения следующей страницы. Значение по умолчанию:
+          100.
 
-            Чтобы получить идентификатор ресурса, используйте соответствующий
-            запрос List.
+          Максимальное значение — 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение pageToken равным значению поля
+          nextPageToken прошлого запроса, чтобы получить следующую страницу
+          результатов.
 
-            Например, используйте запрос
-            [list](/docs/resource-manager/api-ref/Cloud/list) для получения
-
-            идентификатора ресурса Cloud.
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            Максимальное число возвращаемых результатов на странице. Если
-            количество
-
-            результатов больше чем pageSize , сервис вернет значение
-            nextPageToken,
-
-            которое можно использовать для получения следующей страницы.
-            Значение по умолчанию:
-
-            100.
-
-
-            Максимальное значение — 1000.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: |-
-            Токен страницы. Установите значение pageToken равным значению поля
-            nextPageToken прошлого запроса, чтобы получить следующую страницу
-            результатов.
-
-            Максимальная длина строки в символах — 100.
-          schema:
-            type: string
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -714,29 +591,23 @@ paths:
   /kms/v1/keys/{resourceId}:setAccessBindings:
     post:
       tags:
-        - SymmetricKey
-      summary: >-
-        Устанавливает привязки прав доступа для указанного симметричного ключа
+      - SymmetricKey
+      summary: Устанавливает привязки прав доступа для указанного симметричного ключа
         KMS.
       operationId: SymmetricKeySetAccessBindings
       parameters:
-        - name: resourceId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: resourceId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор ресурса, для которого задается список привязок прав доступа.
 
-            Идентификатор ресурса, для которого задается список привязок прав
-            доступа.
+          Чтобы получить идентификатор ресурса, используйте соответствующий запрос List.
 
-
-            Чтобы получить идентификатор ресурса, используйте соответствующий
-            запрос List.
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -744,7 +615,7 @@ paths:
               $ref: '#/components/schemas/SetAccessBindingsRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -757,23 +628,21 @@ paths:
   /kms/v1/keys/{resourceId}:updateAccessBindings:
     post:
       tags:
-        - SymmetricKey
-      summary: Обновляет привязки прав доступа для указанного симметричного ключа KMS.
+      - SymmetricKey
+      summary: Обновляет привязки прав доступа для указанного симметричного ключа
+        KMS.
       operationId: SymmetricKeyUpdateAccessBindings
       parameters:
-        - name: resourceId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: resourceId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор ресурса, для которого обновляется список привязок прав доступа.
 
-            Идентификатор ресурса, для которого обновляется список привязок прав
-            доступа.
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -781,7 +650,7 @@ paths:
               $ref: '#/components/schemas/UpdateAccessBindingsRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -797,14 +666,10 @@ components:
       type: object
       properties:
         roleId:
-          description: >-
+          description: |-
             Обязательное поле.
-
-            Идентификатор ресурса [Role](/docs/iam/api-ref/Role#representation)
-            который назначен для субъекта, указанного в
-
+            Идентификатор ресурса [Role](/docs/iam/api-ref/Role#representation) который назначен для субъекта, указанного в
             параметре `subject`.
-
 
             Максимальная длина строки в символах — 50.
           type: string
@@ -816,17 +681,15 @@ components:
          - REMOVE: Удаление привязки прав доступа.
       type: string
       enum:
-        - ADD
-        - REMOVE
+      - ADD
+      - REMOVE
     AccessBindingDelta:
       type: object
       properties:
         action:
-          $ref: >-
-            #/components/schemas/AccessBindingAction_in_AccessBindingDelta_action
+          $ref: '#/components/schemas/AccessBindingAction_in_AccessBindingDelta_action'
         accessBinding:
-          $ref: >-
-            #/components/schemas/AccessBinding_in_AccessBindingDelta_accessBinding
+          $ref: '#/components/schemas/AccessBinding_in_AccessBindingDelta_accessBinding'
     CancelSymmetricKeyVersionDestructionMetadata:
       type: object
       properties:
@@ -834,20 +697,15 @@ components:
           description: Идентификатор ключа, уничтожение версии которого отменяется.
           type: string
         versionId:
-          description: >-
-            Идентификатор версии, запланированное уничтожение которой
-            отменяется.
+          description: Идентификатор версии, запланированное уничтожение которой отменяется.
           type: string
     CancelSymmetricKeyVersionDestructionRequest:
       type: object
       properties:
         versionId:
-          description: >-
+          description: |-
             Обязательное поле.
-
-            Идентификатор версии, запланированное уничтожение которой должно
-            быть отменено.
-
+            Идентификатор версии, запланированное уничтожение которой должно быть отменено.
 
             Максимальная длина строки в символах — 50.
           type: string
@@ -883,35 +741,23 @@ components:
             Максимальная длина строки в символах — 1024.
           type: string
         labels:
-          description: >-
-            Пользовательские метки для ключа в виде пар `key:value`. Максимум 64
-            на ключ. Например, @b ""
-
+          description: |-
+            Пользовательские метки для ключа в виде пар `key:value`. Максимум 64 на ключ. Например, @b ""
             project": "mvp"` или @b "" source": "dictionary"`.
 
-
             Не более 64 на ресурс.
-
             Максимальная длина строки в символах для каждого ключа — 63.
-
-            Каждый ключ должен соответствовать регулярному выражению ``
-            [a-z][-_0-9a-z]* ``.
-
+            Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
             Максимальная длина строки в символах для каждого значения — 63.
-
-            Каждое значение должно соответствовать регулярному выражению ``
-            [-_0-9a-z]* ``.
+            Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.
           type: object
           additionalProperties:
             type: string
         defaultAlgorithm:
-          $ref: >-
-            #/components/schemas/SymmetricAlgorithm_in_CreateSymmetricKeyRequest_defaultAlgorithm
+          $ref: '#/components/schemas/SymmetricAlgorithm_in_CreateSymmetricKeyRequest_defaultAlgorithm'
         rotationPeriod:
-          description: >-
-            Интервал между автоматическими ротациями. Чтобы отключить
-            автоматическую ротацию,
-
+          description: |-
+            Интервал между автоматическими ротациями. Чтобы отключить автоматическую ротацию,
             не включайте это поле в запрос на создание.
           type: string
         deletionProtection:
@@ -929,64 +775,41 @@ components:
       type: object
       maxProperties: 0
     FieldMask:
-      description: >-
+      description: |-
         Имена всех обновляемых полей, разделенные запятыми.
+        Только значения указанных полей будут изменены. Остальные останутся нетронутыми.
+        Если поле указано в параметре `` updateMask `` и в запросе не было отправлено значение для этого поля,
+        значение поля будет сброшено на значение по умолчанию. Значение по умолчанию для большинства полей — null или 0.
 
-        Только значения указанных полей будут изменены. Остальные останутся
-        нетронутыми.
-
-        Если поле указано в параметре `` updateMask `` и в запросе не было
-        отправлено значение для этого поля,
-
-        значение поля будет сброшено на значение по умолчанию. Значение по
-        умолчанию для большинства полей — null или 0.
-
-
-        Если в запросе не передается `` updateMask ``, значения всех полей будут
-        обновлены.
-
+        Если в запросе не передается `` updateMask ``, значения всех полей будут обновлены.
         Для полей, указанных в запросе, будут использованы переданные значения.
-
         Значения остальных полей будут сброшены на значения по умолчанию.
       type: string
     GenerateDataKeyRequest:
       type: object
       properties:
         versionId:
-          description: >-
-            Идентификатор версии ключа, с которой следует зашифровать
-            сгенерированный ключ
-
-            шифрования данных. По умолчанию используется основная версия, если
-            версия не
-
+          description: |-
+            Идентификатор версии ключа, с которой следует зашифровать сгенерированный ключ
+            шифрования данных. По умолчанию используется основная версия, если версия не
             указана явно.
-
 
             Максимальная длина строки в символах — 50.
           type: string
         aadContext:
-          description: >-
-            Дополнительные аутентифицированные данные (контекст AAD),
-            необязательное поле. Если
-
-            данные указаны, то их потребуется передать для расшифровки с помощью
-            `SymmetricDecryptRequest`.
-
+          description: |-
+            Дополнительные аутентифицированные данные (контекст AAD), необязательное поле. Если
+            данные указаны, то их потребуется передать для расшифровки с помощью `SymmetricDecryptRequest`.
             Необходимо закодировать в формате base64.
-
 
             Максимальная длина строки в символах — 8192.
           type: string
           format: byte
         dataKeySpec:
-          $ref: >-
-            #/components/schemas/SymmetricAlgorithm_in_GenerateDataKeyRequest_dataKeySpec
+          $ref: '#/components/schemas/SymmetricAlgorithm_in_GenerateDataKeyRequest_dataKeySpec'
         skipPlaintext:
-          description: >-
-            Если `true`, метод не возвращает ключ щифрования данных в виде
-            открытого текста.
-
+          description: |-
+            Если `true`, метод не возвращает ключ щифрования данных в виде открытого текста.
             Значение по умолчанию `false`.
           type: boolean
           format: boolean
@@ -994,23 +817,17 @@ components:
       type: object
       properties:
         keyId:
-          description: >-
-            Идентификатор симметричного ключа KMS, с помощью которого был
-            зашифрован
-
+          description: |-
+            Идентификатор симметричного ключа KMS, с помощью которого был зашифрован
             сгенерированный ключ шифрования данных.
           type: string
         versionId:
           description: Идентификатор версии ключа, которая использовалась для шифрования.
           type: string
         dataKeyPlaintext:
-          description: >-
-            Сгенерированный ключ шифрования данных в виде открытого текста. Это
-            поле пусто, если
-
-            параметр
-            [skipPlaintext](/docs/kms/api-ref/SymmetricCrypto/generateDataKey#body_params)
-            был установлен в `true`.
+          description: |-
+            Сгенерированный ключ шифрования данных в виде открытого текста. Это поле пусто, если
+            параметр [skipPlaintext](/docs/kms/api-ref/SymmetricCrypto/generateDataKey#body_params) был установлен в `true`.
           type: string
           format: byte
         dataKeyCiphertext:
@@ -1026,19 +843,11 @@ components:
           items:
             $ref: '#/components/schemas/AccessBinding'
         nextPageToken:
-          description: >-
-            Токен для получения следующей страницы результатов в ответе. Если
-            количество
-
-            результатов больше чем pageSize, используйте nextPageToken в
-            качестве
-
-            значения параметра pageToken в следующем запросе списка ресурсов.
-            Все
-
-            последующие запросы будут получать свои значения nextPageToken для
-            перебора страниц
-
+          description: |-
+            Токен для получения следующей страницы результатов в ответе. Если количество
+            результатов больше чем pageSize, используйте nextPageToken в качестве
+            значения параметра pageToken в следующем запросе списка ресурсов. Все
+            последующие запросы будут получать свои значения nextPageToken для перебора страниц
             результатов.
           type: string
     ListSymmetricKeyOperationsResponse:
@@ -1050,24 +859,11 @@ components:
           items:
             $ref: '#/components/schemas/Operation'
         nextPageToken:
-          description: >-
-            Токен для получения следующей страницы результатов в ответе. Если
-            количество
-
-            результатов больше чем
-            [pageSize](/docs/kms/api-ref/SymmetricKey/listOperations#query_params),
-            используйте
-            [nextPageToken](/docs/kms/api-ref/SymmetricKey/listOperations#responses)
-            в качестве
-
-            значения параметра
-            [pageToken](/docs/kms/api-ref/SymmetricKey/listOperations#query_params)
-            в следующем запросе списка ресурсов.
-
-            Все последующие запросы будут получать свои значения
-            [nextPageToken](/docs/kms/api-ref/SymmetricKey/listOperations#responses)
-            для перебора страниц
-
+          description: |-
+            Токен для получения следующей страницы результатов в ответе. Если количество
+            результатов больше чем [pageSize](/docs/kms/api-ref/SymmetricKey/listOperations#query_params), используйте [nextPageToken](/docs/kms/api-ref/SymmetricKey/listOperations#responses) в качестве
+            значения параметра [pageToken](/docs/kms/api-ref/SymmetricKey/listOperations#query_params) в следующем запросе списка ресурсов.
+            Все последующие запросы будут получать свои значения [nextPageToken](/docs/kms/api-ref/SymmetricKey/listOperations#responses) для перебора страниц
             результатов.
           type: string
     ListSymmetricKeyVersionsResponse:
@@ -1079,24 +875,11 @@ components:
           items:
             $ref: '#/components/schemas/SymmetricKeyVersion'
         nextPageToken:
-          description: >-
-            Токен для получения следующей страницы результатов в ответе. Если
-            количество
-
-            результатов больше чем
-            [pageSize](/docs/kms/api-ref/SymmetricKey/listVersions#query_params),
-            используйте
-            [nextPageToken](/docs/kms/api-ref/SymmetricKey/listVersions#responses)
-            в качестве
-
-            значения параметра
-            [pageToken](/docs/kms/api-ref/SymmetricKey/listVersions#query_params)
-            в следующем запросе списка ресурсов. Все
-
-            последующие запросы будут получать свои значения
-            [nextPageToken](/docs/kms/api-ref/SymmetricKey/listVersions#responses)
-            для перебора страниц
-
+          description: |-
+            Токен для получения следующей страницы результатов в ответе. Если количество
+            результатов больше чем [pageSize](/docs/kms/api-ref/SymmetricKey/listVersions#query_params), используйте [nextPageToken](/docs/kms/api-ref/SymmetricKey/listVersions#responses) в качестве
+            значения параметра [pageToken](/docs/kms/api-ref/SymmetricKey/listVersions#query_params) в следующем запросе списка ресурсов. Все
+            последующие запросы будут получать свои значения [nextPageToken](/docs/kms/api-ref/SymmetricKey/listVersions#responses) для перебора страниц
             результатов.
           type: string
     ListSymmetricKeysResponse:
@@ -1108,24 +891,11 @@ components:
           items:
             $ref: '#/components/schemas/SymmetricKey'
         nextPageToken:
-          description: >-
-            Токен для получения следующей страницы результатов в ответе. Если
-            количество
-
-            результатов больше чем
-            [pageSize](/docs/kms/api-ref/SymmetricKey/list#query_params),
-            используйте
-            [nextPageToken](/docs/kms/api-ref/SymmetricKey/list#responses) в
-            качестве
-
-            значения параметра
-            [pageToken](/docs/kms/api-ref/SymmetricKey/list#query_params) в
-            следующем запросе списка ресурсов. Все
-
-            последующие запросы будут получать свои значения
-            [nextPageToken](/docs/kms/api-ref/SymmetricKey/list#responses) для
-            перебора страниц
-
+          description: |-
+            Токен для получения следующей страницы результатов в ответе. Если количество
+            результатов больше чем [pageSize](/docs/kms/api-ref/SymmetricKey/list#query_params), используйте [nextPageToken](/docs/kms/api-ref/SymmetricKey/list#responses) в качестве
+            значения параметра [pageToken](/docs/kms/api-ref/SymmetricKey/list#query_params) в следующем запросе списка ресурсов. Все
+            последующие запросы будут получать свои значения [nextPageToken](/docs/kms/api-ref/SymmetricKey/list#responses) для перебора страниц
             результатов.
           type: string
     Operation:
@@ -1134,82 +904,68 @@ components:
         [Объект Operation](/docs/api-design-guide/concepts/operation).
       type: object
       allOf:
-        - type: object
-          properties:
-            id:
-              description: Идентификатор операции.
-              type: string
-            description:
-              description: |-
-                Описание операции. Длина описания должна быть от 0 до 256
-                символов.
-              type: string
-            createdAt:
-              description: >-
-                Время создания ресурса в формате в
+      - type: object
+        properties:
+          id:
+            description: Идентификатор операции.
+            type: string
+          description:
+            description: |-
+              Описание операции. Длина описания должна быть от 0 до 256
+              символов.
+            type: string
+          createdAt:
+            description: |-
+              Время создания ресурса в формате в
+              [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
 
-                [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+              Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+            type: string
+            format: date-time
+          createdBy:
+            description: |-
+              Идентификатор пользователя или сервисного
+              аккаунта, инициировавшего операцию.
+            type: string
+          modifiedAt:
+            description: |-
+              Время, когда ресурс Operation последний раз
+              обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
 
-
-                Строка в формате
-                [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
-              type: string
-              format: date-time
-            createdBy:
-              description: |-
-                Идентификатор пользователя или сервисного
-                аккаунта, инициировавшего операцию.
-              type: string
-            modifiedAt:
-              description: >-
-                Время, когда ресурс Operation последний раз
-
-                обновлялся. Значение в формате
-                [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
-
-
-                Строка в формате
-                [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
-              type: string
-              format: date-time
-            done:
-              description: |-
-                Если значение равно `false` — операция еще
-                выполняется. Если `true` — операция завершена, и задано значение
-                одного из полей `error` или `response`.
-              type: boolean
-              format: boolean
-            metadata:
-              description: |-
-                Метаданные операции. Обычно в поле содержится
-                идентификатор ресурса, над которым выполняется операция. Если
-                метод возвращает ресурс Operation, в описании метода приведена
-                структура соответствующего ему поля `metadata`.
-              type: object
-        - title: result
-          type: object
-          maxProperties: 1
-          properties:
-            error:
-              $ref: '#/components/schemas/rpcStatus'
-              description: Описание ошибки в случае сбоя или отмены операции.
-            response:
-              description: >-
-                Результат операции в случае успешного завершения. Если
-
-                исходный метод не возвращает никаких данных при успешном
-
-                завершении, например метод Delete, поле содержит объект
-
-                [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty).
-                Если исходный метод — это стандартный метод Create
-
-                / Update, поле содержит целевой ресурс операции. Если метод
-
-                возвращает ресурс Operation, в описании метода приведена
-
-                структура соответствующего ему поля `response`.
-              type: object
+              Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+            type: string
+            format: date-time
+          done:
+            description: |-
+              Если значение равно `false` — операция еще
+              выполняется. Если `true` — операция завершена, и задано значение
+              одного из полей `error` или `response`.
+            type: boolean
+            format: boolean
+          metadata:
+            description: |-
+              Метаданные операции. Обычно в поле содержится
+              идентификатор ресурса, над которым выполняется операция. Если
+              метод возвращает ресурс Operation, в описании метода приведена
+              структура соответствующего ему поля `metadata`.
+            type: object
+      - title: result
+        type: object
+        maxProperties: 1
+        properties:
+          error:
+            $ref: '#/components/schemas/rpcStatus'
+            description: Описание ошибки в случае сбоя или отмены операции.
+          response:
+            description: |-
+              Результат операции в случае успешного завершения. Если
+              исходный метод не возвращает никаких данных при успешном
+              завершении, например метод Delete, поле содержит объект
+              [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty). Если исходный метод — это стандартный метод Create
+              / Update, поле содержит целевой ресурс операции. Если метод
+              возвращает ресурс Operation, в описании метода приведена
+              структура соответствующего ему поля `response`.
+            type: object
     RotateSymmetricKeyMetadata:
       type: object
       properties:
@@ -1217,7 +973,8 @@ components:
           description: Идентификатор ротируемого ключа.
           type: string
         newPrimaryVersionId:
-          description: Идентификатор версии, сгенерированной в результате ротации ключа.
+          description: Идентификатор версии, сгенерированной в результате ротации
+            ключа.
           type: string
     ScheduleSymmetricKeyVersionDestructionMetadata:
       type: object
@@ -1246,32 +1003,25 @@ components:
             Максимальная длина строки в символах — 50.
           type: string
         pendingPeriod:
-          description: >-
-            Интервал времени между запросом на уничтожение версии и ее
-            фактическим
-
+          description: |-
+            Интервал времени между запросом на уничтожение версии и ее фактическим
             уничтожением. Значение по умолчанию: 7 дней.
           type: string
     SetAccessBindingsMetadata:
       type: object
       properties:
         resourceId:
-          description: >-
-            Идентификатор ресурса, для которого задается список привязок прав
-            доступа.
+          description: Идентификатор ресурса, для которого задается список привязок
+            прав доступа.
           type: string
     SetAccessBindingsRequest:
       type: object
       properties:
         accessBindings:
-          description: >-
+          description: |-
             Обязательное поле.
-
-            Привязки прав доступа, которые будут установлены. Дополнительные
-            сведения см. в
-
-            разделе [Привязка прав
-            доступа](/docs/iam/concepts/access-control/#access-bindings).
+            Привязки прав доступа, которые будут установлены. Дополнительные сведения см. в
+            разделе [Привязка прав доступа](/docs/iam/concepts/access-control/#access-bindings).
           type: array
           items:
             $ref: '#/components/schemas/AccessBinding'
@@ -1288,12 +1038,9 @@ components:
       type: object
       properties:
         versionId:
-          description: >-
+          description: |-
             Обязательное поле.
-
-            Идентификатор версии, которая должна стать основной для указанного
-            ключа.
-
+            Идентификатор версии, которая должна стать основной для указанного ключа.
 
             Максимальная длина строки в символах — 50.
           type: string
@@ -1301,55 +1048,29 @@ components:
       type: object
       properties:
         id:
-          description: >-
+          description: |-
             Обязательное поле.
-
             Идентификатор субъекта.
 
-
             Может иметь одно из значений:
-
-            * `allAuthenticatedUsers`: Специальный системный идентификатор,
-            представляющий любого пользователя, прошедшего аутентификацию. Его
-            можно использовать только если в параметре `type` указано `system`.
-
-            * `allUsers`: Специальный системный идентификатор, представляющий
-            любого пользователя. Аутентификация не требуется. Например, при
-            запросе через API не надо будет указывать IAM-токен.
-
-            * `<идентификатор пользователя в облаке>`: Идентификатор,
-            представляющий учетную запись пользователя. Его можно использовать
-            только если в параметре `type` передано одно из следующих значений:
-            `userAccount`, `federatedUser` или `serviceAccount`.
-
+            * `allAuthenticatedUsers`: Специальный системный идентификатор, представляющий любого пользователя, прошедшего аутентификацию. Его можно использовать только если в параметре `type` указано `system`.
+            * `allUsers`: Специальный системный идентификатор, представляющий любого пользователя. Аутентификация не требуется. Например, при запросе через API не надо будет указывать IAM-токен.
+            * `<идентификатор пользователя в облаке>`: Идентификатор, представляющий учетную запись пользователя. Его можно использовать только если в параметре `type` передано одно из следующих значений: `userAccount`, `federatedUser` или `serviceAccount`.
 
             Максимальная длина строки в символах — 50.
           type: string
         type:
-          description: >-
+          description: |-
             Обязательное поле.
-
             Тип субъекта.
 
-
             Может иметь одно из значений:
+            * `userAccount` — аккаунт на Яндексе или Яндекс.Коннекте, добавленный в Яндекс.Облако.
+            * `serviceAccount` — сервисный аккаунт. Этот тип представляет ресурс [ServiceAccount](/docs/iam/api-ref/ServiceAccount#representation).
+            * `federatedUser` — федеративный аккаунт. Этот тип представляет пользователя из федерации удостоверений, например Active Directory.
+            * `system` — системная группа. Представляет набор аккаунтов, который описывается общим системным идентификатором.
 
-            * `userAccount` — аккаунт на Яндексе или Яндекс.Коннекте,
-            добавленный в Яндекс.Облако.
-
-            * `serviceAccount` — сервисный аккаунт. Этот тип представляет ресурс
-            [ServiceAccount](/docs/iam/api-ref/ServiceAccount#representation).
-
-            * `federatedUser` — федеративный аккаунт. Этот тип представляет
-            пользователя из федерации удостоверений, например Active Directory.
-
-            * `system` — системная группа. Представляет набор аккаунтов, который
-            описывается общим системным идентификатором.
-
-
-            Дополнительные сведения см. в разделе [Субъект, которому назначается
-            роль](/docs/iam/concepts/access-control/#subject).
-
+            Дополнительные сведения см. в разделе [Субъект, которому назначается роль](/docs/iam/concepts/access-control/#subject).
 
             Максимальная длина строки в символах — 100.
           type: string
@@ -1362,22 +1083,17 @@ components:
          - AES_256: Алгоритм AES с 256-битными ключами.
       type: string
       enum:
-        - AES_128
-        - AES_192
-        - AES_256
+      - AES_128
+      - AES_192
+      - AES_256
     SymmetricDecryptRequest:
       type: object
       properties:
         aadContext:
-          description: >-
-            Дополнительные аутентификационные данные (AAD-контекст), должны быть
-            такими же, как
-
-            они были переданы в соответствующем запросе
-            `SymmetricEncryptRequest`. Должен быть в кодировке
-
+          description: |-
+            Дополнительные аутентификационные данные (AAD-контекст), должны быть такими же, как
+            они были переданы в соответствующем запросе `SymmetricEncryptRequest`. Должен быть в кодировке
             base64.
-
 
             Максимальная длина строки в символах — 8192.
           type: string
@@ -1392,9 +1108,8 @@ components:
       type: object
       properties:
         keyId:
-          description: >-
-            Идентификатор симметричного ключа KMS, который использовался для
-            дешифрования.
+          description: Идентификатор симметричного ключа KMS, который использовался
+            для дешифрования.
           type: string
         versionId:
           description: Идентификатор версии ключа, которая использовалась для дешифрования.
@@ -1407,36 +1122,25 @@ components:
       type: object
       properties:
         versionId:
-          description: >-
-            Идентификатор версии ключа, которую следует использовать для
-            шифрования текста. По
-
+          description: |-
+            Идентификатор версии ключа, которую следует использовать для шифрования текста. По
             умолчанию используется основная версия, если версия не указана явно.
-
 
             Максимальная длина строки в символах — 50.
           type: string
         aadContext:
-          description: >-
-            Дополнительные аутентифицированные данные (контекст AAD),
-            необязательное поле. Если
-
-            данные указаны, то их потребуется передать для расшифровки с помощью
-            `SymmetricDecryptRequest`.
-
+          description: |-
+            Дополнительные аутентифицированные данные (контекст AAD), необязательное поле. Если
+            данные указаны, то их потребуется передать для расшифровки с помощью `SymmetricDecryptRequest`.
             Необходимо закодировать в формате base64.
-
 
             Максимальная длина строки в символах — 8192.
           type: string
           format: byte
         plaintext:
-          description: >-
+          description: |-
             Обязательное поле.
-
-            Открытый текст, который следует зашифровать. Должен быть в кодировке
-            base64.
-
+            Открытый текст, который следует зашифровать. Должен быть в кодировке base64.
 
             Максимальная длина строки в символах — 32768.
           type: string
@@ -1445,12 +1149,9 @@ components:
       type: object
       properties:
         keyId:
-          description: >-
+          description: |-
             Обязательное поле.
-
-            Идентификатор симметричного ключа KMS, который использовался для
-            шифрования.
-
+            Идентификатор симметричного ключа KMS, который использовался для шифрования.
 
             Максимальная длина строки в символах — 50.
           type: string
@@ -1465,10 +1166,8 @@ components:
           type: string
           format: byte
     SymmetricKey:
-      description: >-
-        Симметричный ключ KMS, который может содержать несколько версий
-        криптографического
-
+      description: |-
+        Симметричный ключ KMS, который может содержать несколько версий криптографического
         материала.
       type: object
       properties:
@@ -1492,27 +1191,21 @@ components:
           description: Описание симметричного ключа.
           type: string
         labels:
-          description: >-
-            Пользовательские метки для ключа в виде пар `key:value`. Максимум 64
-            на ключ.
+          description: Пользовательские метки для ключа в виде пар `key:value`. Максимум
+            64 на ключ.
           type: object
           additionalProperties:
             type: string
         status:
           $ref: '#/components/schemas/SymmetricKeyStatus_in_SymmetricKey_status'
         primaryVersion:
-          $ref: >-
-            #/components/schemas/SymmetricKeyVersion_in_SymmetricKey_primaryVersion
+          $ref: '#/components/schemas/SymmetricKeyVersion_in_SymmetricKey_primaryVersion'
         defaultAlgorithm:
-          $ref: >-
-            #/components/schemas/SymmetricAlgorithm_in_SymmetricKey_defaultAlgorithm
+          $ref: '#/components/schemas/SymmetricAlgorithm_in_SymmetricKey_defaultAlgorithm'
         rotatedAt:
-          description: >-
-            Время последней ротации ключа (время, когда была создана последняя
-            версия). Пустое,
-
+          description: |-
+            Время последней ротации ключа (время, когда была создана последняя версия). Пустое,
             если у ключа еще нет версий.
-
 
             Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
           type: string
@@ -1525,34 +1218,33 @@ components:
           type: boolean
           format: boolean
     SymmetricKeyStatus:
-      description: >2-
+      description: |2-
          - CREATING: Ключ создается.
          - ACTIVE: Ключ активен и может использоваться для шифрования и дешифрования. Можно
-        установить в INACTIVE с помощью метода
-        [update](/docs/kms/api-ref/SymmetricKey/update).
+        установить в INACTIVE с помощью метода [update](/docs/kms/api-ref/SymmetricKey/update).
          - INACTIVE: Ключ неактивен и не может быть использован. Можно установить в ACTIVE с помощью метода
         [update](/docs/kms/api-ref/SymmetricKey/update).
       type: string
       enum:
-        - CREATING
-        - ACTIVE
-        - INACTIVE
+      - CREATING
+      - ACTIVE
+      - INACTIVE
     SymmetricKeyVersion:
-      description: 'Версия симметричного ключа KMS: метаданные криптографического материала.'
+      description: 'Версия симметричного ключа KMS: метаданные криптографического
+        материала.'
       type: object
       properties:
         id:
           description: Идентификатор версии ключа.
           type: string
         keyId:
-          description: Идентификатор симметричного ключа KMS, которому принадлежит версия.
+          description: Идентификатор симметричного ключа KMS, которому принадлежит
+            версия.
           type: string
         status:
-          $ref: >-
-            #/components/schemas/SymmetricKeyVersionStatus_in_SymmetricKeyVersion_status
+          $ref: '#/components/schemas/SymmetricKeyVersionStatus_in_SymmetricKeyVersion_status'
         algorithm:
-          $ref: >-
-            #/components/schemas/SymmetricAlgorithm_in_SymmetricKeyVersion_algorithm
+          $ref: '#/components/schemas/SymmetricAlgorithm_in_SymmetricKeyVersion_algorithm'
         createdAt:
           description: |-
             Время создания версии ключа.
@@ -1561,19 +1253,14 @@ components:
           type: string
           format: date-time
         primary:
-          description: >-
-            Признак основной версии, которая должна использоваться по умолчанию
-            для всех
-
-            криптографических операций, для которых явно не указана версия
-            ключа.
+          description: |-
+            Признак основной версии, которая должна использоваться по умолчанию для всех
+            криптографических операций, для которых явно не указана версия ключа.
           type: boolean
           format: boolean
         destroyAt:
-          description: >-
-            Время, когда версия ключа будет уничтожена. Пустой, если статус не
-            `SCHEDULED_FOR_DESTRUCTION`.
-
+          description: |-
+            Время, когда версия ключа будет уничтожена. Пустой, если статус не `SCHEDULED_FOR_DESTRUCTION`.
 
             Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
           type: string
@@ -1588,63 +1275,47 @@ components:
          - DESTROYED: Версия уничтожена и не может быть восстановлена.
       type: string
       enum:
-        - ACTIVE
-        - SCHEDULED_FOR_DESTRUCTION
-        - DESTROYED
+      - ACTIVE
+      - SCHEDULED_FOR_DESTRUCTION
+      - DESTROYED
     SymmetricReEncryptRequest:
       type: object
       properties:
         versionId:
-          description: >-
-            Идентификатор версии нового ключа, которую следует использовать для
-            шифрования. По
-
+          description: |-
+            Идентификатор версии нового ключа, которую следует использовать для шифрования. По
             умолчанию используется основная версия, если версия не указана явно.
-
 
             Максимальная длина строки в символах — 50.
           type: string
         aadContext:
-          description: >-
-            Дополнительные аутентифицированные данные (AAD-контекст), которые
-            потребуются для
-
+          description: |-
+            Дополнительные аутентифицированные данные (AAD-контекст), которые потребуются для
             расшифровки. Должен быть в кодировке base64.
-
 
             Максимальная длина строки в символах — 8192.
           type: string
           format: byte
         sourceKeyId:
-          description: >-
+          description: |-
             Обязательное поле.
-
-            Идентификатор ключа, которым на текущий момент зашифрован текст.
-            Может быть таким
-
+            Идентификатор ключа, которым на текущий момент зашифрован текст. Может быть таким
             же, как и новый ключ.
-
 
             Максимальная длина строки в символах — 50.
           type: string
         sourceAadContext:
-          description: >-
-            Дополнительные аутентификационные данные, переданные с
-            первоначальным запросом
-
+          description: |-
+            Дополнительные аутентификационные данные, переданные с первоначальным запросом
             шифрования. Должен быть в кодировке base64.
-
 
             Максимальная длина строки в символах — 8192.
           type: string
           format: byte
         ciphertext:
-          description: >-
+          description: |-
             Обязательное поле.
-
-            Шифртекст, который следует расшифровать и зашифровать повторно.
-            Должен быть в
-
+            Шифртекст, который следует расшифровать и зашифровать повторно. Должен быть в
             кодировке base64.
           type: string
           format: byte
@@ -1658,15 +1329,12 @@ components:
           description: Идентификатор версии ключа, которая использовалась для шифрования.
           type: string
         sourceKeyId:
-          description: >-
-            Идентификатор ключа, с помощью которого шифртекст был зашифрован
+          description: Идентификатор ключа, с помощью которого шифртекст был зашифрован
             ранее.
           type: string
         sourceVersionId:
-          description: >-
-            Идентификатор версии ключа, которая использовалась для расшифровки
-            перешифруемых
-
+          description: |-
+            Идентификатор версии ключа, которая использовалась для расшифровки перешифруемых
             данных.
           type: string
         ciphertext:
@@ -1677,9 +1345,8 @@ components:
       type: object
       properties:
         resourceId:
-          description: >-
-            Идентификатор ресурса, для которого обновляется список привязок прав
-            доступа.
+          description: Идентификатор ресурса, для которого обновляется список привязок
+            прав доступа.
           type: string
     UpdateAccessBindingsRequest:
       type: object
@@ -1703,8 +1370,7 @@ components:
       type: object
       properties:
         updateMask:
-          $ref: >-
-            #/components/schemas/FieldMask_in_UpdateSymmetricKeyRequest_updateMask
+          $ref: '#/components/schemas/FieldMask_in_UpdateSymmetricKeyRequest_updateMask'
         name:
           description: |-
             Новое имя симметричного ключа KMS.
@@ -1718,35 +1384,24 @@ components:
             Максимальная длина строки в символах — 1024.
           type: string
         status:
-          $ref: >-
-            #/components/schemas/SymmetricKeyStatus_in_UpdateSymmetricKeyRequest_status
+          $ref: '#/components/schemas/SymmetricKeyStatus_in_UpdateSymmetricKeyRequest_status'
         labels:
-          description: >-
-            Пользовательские метки для ключа в виде пар `key:value`. Максимум 64
-            на ключ.
-
+          description: |-
+            Пользовательские метки для ключа в виде пар `key:value`. Максимум 64 на ключ.
 
             Не более 64 на ресурс.
-
             Максимальная длина строки в символах для каждого ключа — 63.
-
-            Каждый ключ должен соответствовать регулярному выражению ``
-            [a-z][-_0-9a-z]* ``.
-
+            Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
             Максимальная длина строки в символах для каждого значения — 63.
-
-            Каждое значение должно соответствовать регулярному выражению ``
-            [-_0-9a-z]* ``.
+            Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.
           type: object
           additionalProperties:
             type: string
         defaultAlgorithm:
-          $ref: >-
-            #/components/schemas/SymmetricAlgorithm_in_UpdateSymmetricKeyRequest_defaultAlgorithm
+          $ref: '#/components/schemas/SymmetricAlgorithm_in_UpdateSymmetricKeyRequest_defaultAlgorithm'
         rotationPeriod:
-          description: >-
-            Период времени между автоматическими ротациями симметричного ключа
-            KMS.
+          description: Период времени между автоматическими ротациями симметричного
+            ключа KMS.
           type: string
         deletionProtection:
           description: Флаг, запрещающий удаление симметричного ключа KMS
@@ -1757,9 +1412,7 @@ components:
       type: object
       properties:
         code:
-          description: >-
-            Код ошибки. Значение из списка
-            [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
+          description: Код ошибки. Значение из списка [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
           type: integer
           format: int32
         message:
@@ -1771,67 +1424,37 @@ components:
           items:
             type: object
     Subject_in_AccessBinding_subject:
-      description: >-
+      description: |-
         Обязательное поле.
-
         Субъект, для которого создается привязка прав доступа. Может
-
-        представлять собой аккаунт с уникальным идентификатором в облаке или
-        системную
-
+        представлять собой аккаунт с уникальным идентификатором в облаке или системную
         группу с общим системным идентификатором.
       type: object
       properties:
         id:
-          description: >-
+          description: |-
             Обязательное поле.
-
             Идентификатор субъекта.
 
-
             Может иметь одно из значений:
-
-            * `allAuthenticatedUsers`: Специальный системный идентификатор,
-            представляющий любого пользователя, прошедшего аутентификацию. Его
-            можно использовать только если в параметре `type` указано `system`.
-
-            * `allUsers`: Специальный системный идентификатор, представляющий
-            любого пользователя. Аутентификация не требуется. Например, при
-            запросе через API не надо будет указывать IAM-токен.
-
-            * `<идентификатор пользователя в облаке>`: Идентификатор,
-            представляющий учетную запись пользователя. Его можно использовать
-            только если в параметре `type` передано одно из следующих значений:
-            `userAccount`, `federatedUser` или `serviceAccount`.
-
+            * `allAuthenticatedUsers`: Специальный системный идентификатор, представляющий любого пользователя, прошедшего аутентификацию. Его можно использовать только если в параметре `type` указано `system`.
+            * `allUsers`: Специальный системный идентификатор, представляющий любого пользователя. Аутентификация не требуется. Например, при запросе через API не надо будет указывать IAM-токен.
+            * `<идентификатор пользователя в облаке>`: Идентификатор, представляющий учетную запись пользователя. Его можно использовать только если в параметре `type` передано одно из следующих значений: `userAccount`, `federatedUser` или `serviceAccount`.
 
             Максимальная длина строки в символах — 50.
           type: string
         type:
-          description: >-
+          description: |-
             Обязательное поле.
-
             Тип субъекта.
 
-
             Может иметь одно из значений:
+            * `userAccount` — аккаунт на Яндексе или Яндекс.Коннекте, добавленный в Яндекс.Облако.
+            * `serviceAccount` — сервисный аккаунт. Этот тип представляет ресурс [ServiceAccount](/docs/iam/api-ref/ServiceAccount#representation).
+            * `federatedUser` — федеративный аккаунт. Этот тип представляет пользователя из федерации удостоверений, например Active Directory.
+            * `system` — системная группа. Представляет набор аккаунтов, который описывается общим системным идентификатором.
 
-            * `userAccount` — аккаунт на Яндексе или Яндекс.Коннекте,
-            добавленный в Яндекс.Облако.
-
-            * `serviceAccount` — сервисный аккаунт. Этот тип представляет ресурс
-            [ServiceAccount](/docs/iam/api-ref/ServiceAccount#representation).
-
-            * `federatedUser` — федеративный аккаунт. Этот тип представляет
-            пользователя из федерации удостоверений, например Active Directory.
-
-            * `system` — системная группа. Представляет набор аккаунтов, который
-            описывается общим системным идентификатором.
-
-
-            Дополнительные сведения см. в разделе [Субъект, которому назначается
-            роль](/docs/iam/concepts/access-control/#subject).
-
+            Дополнительные сведения см. в разделе [Субъект, которому назначается роль](/docs/iam/concepts/access-control/#subject).
 
             Максимальная длина строки в символах — 100.
           type: string
@@ -1844,38 +1467,29 @@ components:
          - REMOVE: Удаление привязки прав доступа.
       type: string
       enum:
-        - ADD
-        - REMOVE
+      - ADD
+      - REMOVE
     AccessBinding_in_AccessBindingDelta_accessBinding:
-      description: >-
+      description: |-
         Обязательное поле.
-
-        Привязка прав доступа. Дополнительные сведения см. в разделе [Привязка
-        прав доступа](/docs/iam/concepts/access-control/#access-bindings).
+        Привязка прав доступа. Дополнительные сведения см. в разделе [Привязка прав доступа](/docs/iam/concepts/access-control/#access-bindings).
       type: object
       properties:
         roleId:
-          description: >-
+          description: |-
             Обязательное поле.
-
-            Идентификатор ресурса [Role](/docs/iam/api-ref/Role#representation)
-            который назначен для субъекта, указанного в
-
+            Идентификатор ресурса [Role](/docs/iam/api-ref/Role#representation) который назначен для субъекта, указанного в
             параметре `subject`.
-
 
             Максимальная длина строки в символах — 50.
           type: string
         subject:
           $ref: '#/components/schemas/Subject_in_AccessBinding_subject'
     SymmetricAlgorithm_in_CreateSymmetricKeyRequest_defaultAlgorithm:
-      description: >-
-        Алгоритм шифрования, который будет использоваться с версией ключа,
-        которая будет
-
+      description: |-
+        Алгоритм шифрования, который будет использоваться с версией ключа, которая будет
         сгенерирована при следующей ротации.
 
-
         Поддерживаемые алгоритмы симметричного шифрования.
 
          - AES_128: Алгоритм AES со 128-битными ключами.
@@ -1883,14 +1497,12 @@ components:
          - AES_256: Алгоритм AES с 256-битными ключами.
       type: string
       enum:
-        - AES_128
-        - AES_192
-        - AES_256
+      - AES_128
+      - AES_192
+      - AES_256
     SymmetricAlgorithm_in_GenerateDataKeyRequest_dataKeySpec:
-      description: >-
-        Алгоритм шифрования и длина для сгенерированного ключа шифрования
-        данных.
-
+      description: |-
+        Алгоритм шифрования и длина для сгенерированного ключа шифрования данных.
 
         Поддерживаемые алгоритмы симметричного шифрования.
 
@@ -1899,31 +1511,27 @@ components:
          - AES_256: Алгоритм AES с 256-битными ключами.
       type: string
       enum:
-        - AES_128
-        - AES_192
-        - AES_256
+      - AES_128
+      - AES_192
+      - AES_256
     SymmetricKeyStatus_in_SymmetricKey_status:
-      description: >-
+      description: |-
         Текущий статус ключа.
 
          - CREATING: Ключ создается.
          - ACTIVE: Ключ активен и может использоваться для шифрования и дешифрования. Можно
-        установить в INACTIVE с помощью метода
-        [update](/docs/kms/api-ref/SymmetricKey/update).
+        установить в INACTIVE с помощью метода [update](/docs/kms/api-ref/SymmetricKey/update).
          - INACTIVE: Ключ неактивен и не может быть использован. Можно установить в ACTIVE с помощью метода
         [update](/docs/kms/api-ref/SymmetricKey/update).
       type: string
       enum:
-        - CREATING
-        - ACTIVE
-        - INACTIVE
+      - CREATING
+      - ACTIVE
+      - INACTIVE
     SymmetricKeyVersion_in_SymmetricKey_primaryVersion:
-      description: >-
-        Основная версия ключа, используемая по умолчанию для всех операций
-        шифрования,
-
+      description: |-
+        Основная версия ключа, используемая по умолчанию для всех операций шифрования,
         когда идентификатор версии не указан явно.
-
 
         Версия симметричного ключа KMS: метаданные криптографического материала.
       type: object
@@ -1932,14 +1540,13 @@ components:
           description: Идентификатор версии ключа.
           type: string
         keyId:
-          description: Идентификатор симметричного ключа KMS, которому принадлежит версия.
+          description: Идентификатор симметричного ключа KMS, которому принадлежит
+            версия.
           type: string
         status:
-          $ref: >-
-            #/components/schemas/SymmetricKeyVersionStatus_in_SymmetricKeyVersion_status
+          $ref: '#/components/schemas/SymmetricKeyVersionStatus_in_SymmetricKeyVersion_status'
         algorithm:
-          $ref: >-
-            #/components/schemas/SymmetricAlgorithm_in_SymmetricKeyVersion_algorithm
+          $ref: '#/components/schemas/SymmetricAlgorithm_in_SymmetricKeyVersion_algorithm'
         createdAt:
           description: |-
             Время создания версии ключа.
@@ -1948,30 +1555,22 @@ components:
           type: string
           format: date-time
         primary:
-          description: >-
-            Признак основной версии, которая должна использоваться по умолчанию
-            для всех
-
-            криптографических операций, для которых явно не указана версия
-            ключа.
+          description: |-
+            Признак основной версии, которая должна использоваться по умолчанию для всех
+            криптографических операций, для которых явно не указана версия ключа.
           type: boolean
           format: boolean
         destroyAt:
-          description: >-
-            Время, когда версия ключа будет уничтожена. Пустой, если статус не
-            `SCHEDULED_FOR_DESTRUCTION`.
-
+          description: |-
+            Время, когда версия ключа будет уничтожена. Пустой, если статус не `SCHEDULED_FOR_DESTRUCTION`.
 
             Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
           type: string
           format: date-time
     SymmetricAlgorithm_in_SymmetricKey_defaultAlgorithm:
-      description: >-
-        Алгоритм шифрования по умолчанию, который следует использовать с новыми
-        версиями
-
+      description: |-
+        Алгоритм шифрования по умолчанию, который следует использовать с новыми версиями
         ключа.
-
 
         Поддерживаемые алгоритмы симметричного шифрования.
 
@@ -1980,9 +1579,9 @@ components:
          - AES_256: Алгоритм AES с 256-битными ключами.
       type: string
       enum:
-        - AES_128
-        - AES_192
-        - AES_256
+      - AES_128
+      - AES_192
+      - AES_256
     SymmetricKeyVersionStatus_in_SymmetricKeyVersion_status:
       description: |-
         Состояние версии ключа.
@@ -1995,16 +1594,13 @@ components:
          - DESTROYED: Версия уничтожена и не может быть восстановлена.
       type: string
       enum:
-        - ACTIVE
-        - SCHEDULED_FOR_DESTRUCTION
-        - DESTROYED
+      - ACTIVE
+      - SCHEDULED_FOR_DESTRUCTION
+      - DESTROYED
     SymmetricAlgorithm_in_SymmetricKeyVersion_algorithm:
-      description: >-
-        Алгоритм шифрования, который следует использовать при использовании этой
-        версии
-
+      description: |-
+        Алгоритм шифрования, который следует использовать при использовании этой версии
         ключа для шифрования.
-
 
         Поддерживаемые алгоритмы симметричного шифрования.
 
@@ -2013,63 +1609,43 @@ components:
          - AES_256: Алгоритм AES с 256-битными ключами.
       type: string
       enum:
-        - AES_128
-        - AES_192
-        - AES_256
+      - AES_128
+      - AES_192
+      - AES_256
     FieldMask_in_UpdateSymmetricKeyRequest_updateMask:
-      description: >-
+      description: |-
         Обязательное поле.
-
-        Маска, определяющая, какие атрибуты указанного симметричного ключа KMS
-        будут
-
+        Маска, определяющая, какие атрибуты указанного симметричного ключа KMS будут
         обновлены.
-
 
         Имена всех обновляемых полей, разделенные запятыми.
+        Только значения указанных полей будут изменены. Остальные останутся нетронутыми.
+        Если поле указано в параметре `` updateMask `` и в запросе не было отправлено значение для этого поля,
+        значение поля будет сброшено на значение по умолчанию. Значение по умолчанию для большинства полей — null или 0.
 
-        Только значения указанных полей будут изменены. Остальные останутся
-        нетронутыми.
-
-        Если поле указано в параметре `` updateMask `` и в запросе не было
-        отправлено значение для этого поля,
-
-        значение поля будет сброшено на значение по умолчанию. Значение по
-        умолчанию для большинства полей — null или 0.
-
-
-        Если в запросе не передается `` updateMask ``, значения всех полей будут
-        обновлены.
-
+        Если в запросе не передается `` updateMask ``, значения всех полей будут обновлены.
         Для полей, указанных в запросе, будут использованы переданные значения.
-
         Значения остальных полей будут сброшены на значения по умолчанию.
       type: string
     SymmetricKeyStatus_in_UpdateSymmetricKeyRequest_status:
-      description: >-
-        Новый статус для симметричного ключа KMS. С помощью метода
-        [update](/docs/kms/api-ref/SymmetricKey/update) вы можете
-
+      description: |-
+        Новый статус для симметричного ключа KMS. С помощью метода [update](/docs/kms/api-ref/SymmetricKey/update) вы можете
         установить только статус ACTIVE или INACTIVE.
 
          - CREATING: Ключ создается.
          - ACTIVE: Ключ активен и может использоваться для шифрования и дешифрования. Можно
-        установить в INACTIVE с помощью метода
-        [update](/docs/kms/api-ref/SymmetricKey/update).
+        установить в INACTIVE с помощью метода [update](/docs/kms/api-ref/SymmetricKey/update).
          - INACTIVE: Ключ неактивен и не может быть использован. Можно установить в ACTIVE с помощью метода
         [update](/docs/kms/api-ref/SymmetricKey/update).
       type: string
       enum:
-        - CREATING
-        - ACTIVE
-        - INACTIVE
+      - CREATING
+      - ACTIVE
+      - INACTIVE
     SymmetricAlgorithm_in_UpdateSymmetricKeyRequest_defaultAlgorithm:
-      description: >-
-        Алгоритм шифрования по умолчанию, который следует использовать с новыми
-        версиями
-
+      description: |-
+        Алгоритм шифрования по умолчанию, который следует использовать с новыми версиями
         симметричного ключа KMS.
-
 
         Поддерживаемые алгоритмы симметричного шифрования.
 
@@ -2078,11 +1654,11 @@ components:
          - AES_256: Алгоритм AES с 256-битными ключами.
       type: string
       enum:
-        - AES_128
-        - AES_192
-        - AES_256
+      - AES_128
+      - AES_192
+      - AES_256
 tags:
-  - name: SymmetricCrypto
-    description: Набор методов, выполняющих симметричное шифрование и дешифрование.
-  - name: SymmetricKey
-    description: Набор методов для управления симметричными ключами KMS.
+- name: SymmetricCrypto
+  description: Набор методов, выполняющих симметричное шифрование и дешифрование.
+- name: SymmetricKey
+  description: Набор методов для управления симметричными ключами KMS.

@@ -1,11 +1,9 @@
-openapi: '3.0'
+openapi: "3.0"
 info:
   title: Yandex Instance Groups API
-  description: >-
-    Методы справочника API сгруппированы по ресурсам. Чтобы выполнить операцию
-    над ресурсом, отправьте HTTP-запрос к соответствующему URL. Подробнее об
-    архитектуре API Яндекс.Облака, см. [Концепции API
-    Яндекс.Облака](/docs/api-design-guide/).
+  description: Методы справочника API сгруппированы по ресурсам. Чтобы выполнить операцию
+    над ресурсом, отправьте HTTP-запрос к соответствующему URL. Подробнее об архитектуре
+    API Яндекс.Облака, см. [Концепции API Яндекс.Облака](/docs/api-design-guide/).
   version: v1
   x-y-docUri: api-ref
   x-y-baseUrl: https://compute.api.cloud.yandex.net
@@ -13,38 +11,31 @@ paths:
   /compute/v1/instanceGroups/{instanceGroupId}:
     get:
       tags:
-        - InstanceGroup
+      - InstanceGroup
       summary: Возвращает указанный ресурс InstanceGroup.
-      description: >-
-        Чтобы получить список доступных ресурсов InstanceGroup, используйте
+      description: Чтобы получить список доступных ресурсов InstanceGroup, используйте
         запрос [list](/docs/compute/api-ref/InstanceGroup/list).
       operationId: InstanceGroupGet
       parameters:
-        - name: instanceGroupId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: instanceGroupId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор возвращаемого ресурса InstanceGroup. Чтобы получить идентификатор группы
+          виртуальных машин, используйте запрос [list](/docs/compute/api-ref/InstanceGroup/list).
 
-            Идентификатор возвращаемого ресурса InstanceGroup. Чтобы получить
-            идентификатор группы
-
-            виртуальных машин, используйте запрос
-            [list](/docs/compute/api-ref/InstanceGroup/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
-        - name: view
-          in: query
-          description: >-
-            Определяет, какая информация о ресурсе Instance должна быть
-            возвращена в ответе.
-          schema:
-            $ref: '#/components/schemas/InstanceGroupView'
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: view
+        in: query
+        description: Определяет, какая информация о ресурсе Instance должна быть возвращена
+          в ответе.
+        schema:
+          $ref: '#/components/schemas/InstanceGroupView'
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -53,28 +44,23 @@ paths:
       x-y-navtitle: get
     delete:
       tags:
-        - InstanceGroup
+      - InstanceGroup
       summary: Удаляет указанную группу виртуальных машин.
       operationId: InstanceGroupDelete
       parameters:
-        - name: instanceGroupId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: instanceGroupId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор удаляемой группы виртуальных машин. Чтобы получить идентификатор
+          группы виртуальных машин, используйте запрос [list](/docs/compute/api-ref/InstanceGroup/list).
 
-            Идентификатор удаляемой группы виртуальных машин. Чтобы получить
-            идентификатор
-
-            группы виртуальных машин, используйте запрос
-            [list](/docs/compute/api-ref/InstanceGroup/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -86,30 +72,23 @@ paths:
       x-y-operation-response: Empty
     patch:
       tags:
-        - InstanceGroup
-      summary: >-
-        Изменяет указанную группу виртуальных машин. Этот метод запускает
-        операцию, которая
-
+      - InstanceGroup
+      summary: |-
+        Изменяет указанную группу виртуальных машин. Этот метод запускает операцию, которая
         может быть отменена другой операцией.
       operationId: InstanceGroupUpdate
       parameters:
-        - name: instanceGroupId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: instanceGroupId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор обновляемой группы виртуальных машин. Чтобы получить идентификатор
+          группы виртуальных машин, используйте запрос [list](/docs/compute/api-ref/InstanceGroup/list).
 
-            Идентификатор обновляемой группы виртуальных машин. Чтобы получить
-            идентификатор
-
-            группы виртуальных машин, используйте запрос
-            [list](/docs/compute/api-ref/InstanceGroup/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -117,7 +96,7 @@ paths:
               $ref: '#/components/schemas/UpdateInstanceGroupRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -130,77 +109,56 @@ paths:
   /compute/v1/instanceGroups:
     get:
       tags:
-        - InstanceGroup
+      - InstanceGroup
       summary: Возвращает список доступных ресурсов InstanceGroup в указанном каталоге.
       operationId: InstanceGroupList
       parameters:
-        - name: folderId
-          in: query
-          description: >-
-            Обязательное поле.
+      - name: folderId
+        in: query
+        description: |-
+          Обязательное поле.
+          Идентификатор каталога для получения списка групп виртуальных машин. Чтобы
+          получить идентификатор каталога, используйте запрос [list](/docs/resource-manager/api-ref/Folder/list).
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на запрос. Если количество
+          результатов больше чем [pageSize](/docs/compute/api-ref/InstanceGroup/list#query_params), сервис вернет значение [nextPageToken](/docs/compute/api-ref/InstanceGroup/list#responses),
+          которое можно использовать для получения следующей страницы.
 
-            Идентификатор каталога для получения списка групп виртуальных машин.
-            Чтобы
+          Максимальное значение — 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение [pageToken](/docs/compute/api-ref/InstanceGroup/list#query_params) равным значению поля
+          [nextPageToken](/docs/compute/api-ref/InstanceGroup/list#responses) предыдущего запроса, чтобы получить следующую страницу
+          результатов.
 
-            получить идентификатор каталога, используйте запрос
-            [list](/docs/resource-manager/api-ref/Folder/list).
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            Максимальное количество результатов на странице ответа на запрос.
-            Если количество
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          Параметры фильтрации ресурсов в ответе. В настоящее время фильтрация
+          осуществляется только по полю [InstanceGroup.name](/docs/compute/api-ref/InstanceGroup#representation).
 
-            результатов больше чем
-            [pageSize](/docs/compute/api-ref/InstanceGroup/list#query_params),
-            сервис вернет значение
-            [nextPageToken](/docs/compute/api-ref/InstanceGroup/list#responses),
-
-            которое можно использовать для получения следующей страницы.
-
-
-            Максимальное значение — 1000.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Токен страницы. Установите значение
-            [pageToken](/docs/compute/api-ref/InstanceGroup/list#query_params)
-            равным значению поля
-
-            [nextPageToken](/docs/compute/api-ref/InstanceGroup/list#responses)
-            предыдущего запроса, чтобы получить следующую страницу
-
-            результатов.
-
-
-            Максимальная длина строки в символах — 100.
-          schema:
-            type: string
-        - name: filter
-          in: query
-          description: >-
-            Параметры фильтрации ресурсов в ответе. В настоящее время фильтрация
-
-            осуществляется только по полю
-            [InstanceGroup.name](/docs/compute/api-ref/InstanceGroup#representation).
-
-
-            Максимальная длина строки в символах — 1000.
-          schema:
-            type: string
-        - name: view
-          in: query
-          description: >-
-            Определяет, какая информация о ресурсе Instance должна быть
-            возвращена в ответе.
-          schema:
-            $ref: '#/components/schemas/InstanceGroupView'
+          Максимальная длина строки в символах — 1000.
+        schema:
+          type: string
+      - name: view
+        in: query
+        description: Определяет, какая информация о ресурсе Instance должна быть возвращена
+          в ответе.
+        schema:
+          $ref: '#/components/schemas/InstanceGroupView'
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -209,11 +167,9 @@ paths:
       x-y-navtitle: list
     post:
       tags:
-        - InstanceGroup
-      summary: >-
-        Создает группу виртуальных машин в указанном каталоге. Этот метод
-        запускает
-
+      - InstanceGroup
+      summary: |-
+        Создает группу виртуальных машин в указанном каталоге. Этот метод запускает
         операцию, которая может быть отменена другой операцией.
       operationId: InstanceGroupCreate
       requestBody:
@@ -223,7 +179,7 @@ paths:
               $ref: '#/components/schemas/CreateInstanceGroupRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -236,11 +192,9 @@ paths:
   /compute/v1/instanceGroups:yaml:
     post:
       tags:
-        - InstanceGroup
-      summary: >-
-        Создает группу виртуальных машин в указанном каталоге из YAML-файла.
-        Этот метод
-
+      - InstanceGroup
+      summary: |-
+        Создает группу виртуальных машин в указанном каталоге из YAML-файла. Этот метод
         запускает операцию, которая может быть отменена другой операцией.
       operationId: InstanceGroupCreateFromYaml
       requestBody:
@@ -250,7 +204,7 @@ paths:
               $ref: '#/components/schemas/CreateInstanceGroupFromYamlRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -263,30 +217,23 @@ paths:
   /compute/v1/instanceGroups/{instanceGroupId}:yaml:
     patch:
       tags:
-        - InstanceGroup
-      summary: >-
-        Обновляет указанную группу виртуальных машин из YAML-файла. Этот метод
-        запускает
-
+      - InstanceGroup
+      summary: |-
+        Обновляет указанную группу виртуальных машин из YAML-файла. Этот метод запускает
         операцию, которая может быть отменена другой операцией.
       operationId: InstanceGroupUpdateFromYaml
       parameters:
-        - name: instanceGroupId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: instanceGroupId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор обновляемой группы виртуальных машин. Чтобы получить идентификатор
+          группы виртуальных машин, используйте запрос [list](/docs/compute/api-ref/InstanceGroup/list).
 
-            Идентификатор обновляемой группы виртуальных машин. Чтобы получить
-            идентификатор
-
-            группы виртуальных машин, используйте запрос
-            [list](/docs/compute/api-ref/InstanceGroup/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -294,7 +241,7 @@ paths:
               $ref: '#/components/schemas/UpdateInstanceGroupFromYamlRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -307,28 +254,23 @@ paths:
   /compute/v1/instanceGroups/{instanceGroupId}:stop:
     post:
       tags:
-        - InstanceGroup
+      - InstanceGroup
       summary: Останавливает указанную группу виртуальных машин.
       operationId: InstanceGroupStop
       parameters:
-        - name: instanceGroupId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: instanceGroupId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор останавливаемой группы виртуальных машин. Чтобы получить
+          идентификатор группы виртуальных машин, используйте запрос [list](/docs/compute/api-ref/InstanceGroup/list).
 
-            Идентификатор останавливаемой группы виртуальных машин. Чтобы
-            получить
-
-            идентификатор группы виртуальных машин, используйте запрос
-            [list](/docs/compute/api-ref/InstanceGroup/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -341,28 +283,23 @@ paths:
   /compute/v1/instanceGroups/{instanceGroupId}:start:
     post:
       tags:
-        - InstanceGroup
+      - InstanceGroup
       summary: Запускает указанную группу виртуальных машин.
       operationId: InstanceGroupStart
       parameters:
-        - name: instanceGroupId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: instanceGroupId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор запускаемой группы виртуальных машин. Чтобы получить идентификатор
+          группы виртуальных машин, используйте запрос [list](/docs/compute/api-ref/InstanceGroup/list).
 
-            Идентификатор запускаемой группы виртуальных машин. Чтобы получить
-            идентификатор
-
-            группы виртуальных машин, используйте запрос
-            [list](/docs/compute/api-ref/InstanceGroup/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -375,75 +312,54 @@ paths:
   /compute/v1/instanceGroups/{instanceGroupId}/instances:
     get:
       tags:
-        - InstanceGroup
+      - InstanceGroup
       summary: Возвращает список виртуальных машин для указанной группы ВМ.
       operationId: InstanceGroupListInstances
       parameters:
-        - name: instanceGroupId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: instanceGroupId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор ресурса InstanceGroup для получения списка виртуальных машин. Чтобы
+          получить идентификатор группы виртуальных машин, используйте запрос
+          [list](/docs/compute/api-ref/InstanceGroup/list).
 
-            Идентификатор ресурса InstanceGroup для получения списка виртуальных
-            машин. Чтобы
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на запрос. Если количество
+          результатов больше чем [pageSize](/docs/compute/api-ref/InstanceGroup/listInstances#query_params), сервис вернет значение [nextPageToken](/docs/compute/api-ref/InstanceGroup/listInstances#responses),
+          которое можно использовать для получения следующей страницы.
 
-            получить идентификатор группы виртуальных машин, используйте запрос
+          Максимальное значение — 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение [pageToken](/docs/compute/api-ref/InstanceGroup/listInstances#query_params) равным значению поля
+          [nextPageToken](/docs/compute/api-ref/InstanceGroup/listInstances#responses) предыдущего запроса, чтобы получить следующую страницу
+          результатов.
 
-            [list](/docs/compute/api-ref/InstanceGroup/list).
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          Параметры фильтрации ресурсов в ответе. В настоящее время фильтрация
+          осуществляется только по полю [InstanceGroup.name](/docs/compute/api-ref/InstanceGroup#representation).
 
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            Максимальное количество результатов на странице ответа на запрос.
-            Если количество
-
-            результатов больше чем
-            [pageSize](/docs/compute/api-ref/InstanceGroup/listInstances#query_params),
-            сервис вернет значение
-            [nextPageToken](/docs/compute/api-ref/InstanceGroup/listInstances#responses),
-
-            которое можно использовать для получения следующей страницы.
-
-
-            Максимальное значение — 1000.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Токен страницы. Установите значение
-            [pageToken](/docs/compute/api-ref/InstanceGroup/listInstances#query_params)
-            равным значению поля
-
-            [nextPageToken](/docs/compute/api-ref/InstanceGroup/listInstances#responses)
-            предыдущего запроса, чтобы получить следующую страницу
-
-            результатов.
-
-
-            Максимальная длина строки в символах — 100.
-          schema:
-            type: string
-        - name: filter
-          in: query
-          description: >-
-            Параметры фильтрации ресурсов в ответе. В настоящее время фильтрация
-
-            осуществляется только по полю
-            [InstanceGroup.name](/docs/compute/api-ref/InstanceGroup#representation).
-
-
-            Максимальная длина строки в символах — 1000.
-          schema:
-            type: string
+          Максимальная длина строки в символах — 1000.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -453,75 +369,54 @@ paths:
   /compute/v1/instanceGroups/{instanceGroupId}/operations:
     get:
       tags:
-        - InstanceGroup
+      - InstanceGroup
       summary: Возвращает список операций для указанной группы виртуальных машин.
       operationId: InstanceGroupListOperations
       parameters:
-        - name: instanceGroupId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: instanceGroupId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор ресурса InstanceGroup, для которого запрашивается список операций. Чтобы
+          получить идентификатор группы виртуальных машин, используйте запрос
+          [list](/docs/compute/api-ref/InstanceGroup/list).
 
-            Идентификатор ресурса InstanceGroup, для которого запрашивается
-            список операций. Чтобы
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на запрос. Если количество
+          результатов больше чем [pageSize](/docs/compute/api-ref/InstanceGroup/listOperations#query_params), сервис вернет значение [nextPageToken](/docs/compute/api-ref/InstanceGroup/listOperations#responses),
+          которое можно использовать для получения следующей страницы.
 
-            получить идентификатор группы виртуальных машин, используйте запрос
+          Допустимые значения — от 0 до 1000 включительно.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение [pageToken](/docs/compute/api-ref/InstanceGroup/listOperations#query_params) равным значению поля
+          [nextPageToken](/docs/compute/api-ref/InstanceGroup/listOperations#responses) предыдущего запроса, чтобы получить следующую
+          страницу результатов.
 
-            [list](/docs/compute/api-ref/InstanceGroup/list).
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          Параметры фильтрации ресурсов в ответе. В настоящее время фильтрация
+          осуществляется только по полю [InstanceGroup.name](/docs/compute/api-ref/InstanceGroup#representation).
 
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            Максимальное количество результатов на странице ответа на запрос.
-            Если количество
-
-            результатов больше чем
-            [pageSize](/docs/compute/api-ref/InstanceGroup/listOperations#query_params),
-            сервис вернет значение
-            [nextPageToken](/docs/compute/api-ref/InstanceGroup/listOperations#responses),
-
-            которое можно использовать для получения следующей страницы.
-
-
-            Допустимые значения — от 0 до 1000 включительно.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Токен страницы. Установите значение
-            [pageToken](/docs/compute/api-ref/InstanceGroup/listOperations#query_params)
-            равным значению поля
-
-            [nextPageToken](/docs/compute/api-ref/InstanceGroup/listOperations#responses)
-            предыдущего запроса, чтобы получить следующую
-
-            страницу результатов.
-
-
-            Максимальная длина строки в символах — 100.
-          schema:
-            type: string
-        - name: filter
-          in: query
-          description: >-
-            Параметры фильтрации ресурсов в ответе. В настоящее время фильтрация
-
-            осуществляется только по полю
-            [InstanceGroup.name](/docs/compute/api-ref/InstanceGroup#representation).
-
-
-            Максимальная длина строки в символах — 1000.
-          schema:
-            type: string
+          Максимальная длина строки в символах — 1000.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -531,71 +426,51 @@ paths:
   /compute/v1/instanceGroups/{instanceGroupId}:logs:
     get:
       tags:
-        - InstanceGroup
+      - InstanceGroup
       summary: Возвращает список логов для указанной группы виртуальных машин.
       operationId: InstanceGroupListLogRecords
       parameters:
-        - name: instanceGroupId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: instanceGroupId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор ресурса InstanceGroup для получения списка логов. Чтобы получить
+          идентификатор группы виртуальных машин, используйте запрос [list](/docs/compute/api-ref/InstanceGroup/list).
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на запрос. Если количество
+          результатов больше чем [pageSize](/docs/compute/api-ref/InstanceGroup/listLogRecords#query_params), сервис вернет значение [nextPageToken](/docs/compute/api-ref/InstanceGroup/listLogRecords#responses),
+          которое можно использовать для получения следующей страницы.
 
-            Идентификатор ресурса InstanceGroup для получения списка логов.
-            Чтобы получить
+          Допустимые значения — от 0 до 1000 включительно.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение [pageToken](/docs/compute/api-ref/InstanceGroup/listLogRecords#query_params) равным значению поля
+          [nextPageToken](/docs/compute/api-ref/InstanceGroup/listLogRecords#responses) предыдущего запроса, чтобы получить следующую
+          страницу результатов.
 
-            идентификатор группы виртуальных машин, используйте запрос
-            [list](/docs/compute/api-ref/InstanceGroup/list).
-          required: true
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            Максимальное количество результатов на странице ответа на запрос.
-            Если количество
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          Параметры фильтрации ресурсов в ответе. В настоящее время фильтрация
+          осуществляется только по полю [InstanceGroup.name](/docs/compute/api-ref/InstanceGroup#representation).
 
-            результатов больше чем
-            [pageSize](/docs/compute/api-ref/InstanceGroup/listLogRecords#query_params),
-            сервис вернет значение
-            [nextPageToken](/docs/compute/api-ref/InstanceGroup/listLogRecords#responses),
-
-            которое можно использовать для получения следующей страницы.
-
-
-            Допустимые значения — от 0 до 1000 включительно.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Токен страницы. Установите значение
-            [pageToken](/docs/compute/api-ref/InstanceGroup/listLogRecords#query_params)
-            равным значению поля
-
-            [nextPageToken](/docs/compute/api-ref/InstanceGroup/listLogRecords#responses)
-            предыдущего запроса, чтобы получить следующую
-
-            страницу результатов.
-
-
-            Максимальная длина строки в символах — 100.
-          schema:
-            type: string
-        - name: filter
-          in: query
-          description: >-
-            Параметры фильтрации ресурсов в ответе. В настоящее время фильтрация
-
-            осуществляется только по полю
-            [InstanceGroup.name](/docs/compute/api-ref/InstanceGroup#representation).
-
-
-            Максимальная длина строки в символах — 1000.
-          schema:
-            type: string
+          Максимальная длина строки в символах — 1000.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -630,92 +505,77 @@ components:
         mode:
           $ref: '#/components/schemas/AttachedDiskSpecMode_in_AttachedDiskSpec_mode'
         deviceName:
-          description: >-
-            Cерийный номер, который на виртуальной машине с операционной
-            системой Linux
-
+          description: |-
+            Cерийный номер, который на виртуальной машине с операционной системой Linux
             отображается в директории /dev/disk/by-id/.
 
-
-            Это значение может использоваться для ссылки на устройство внутри
-            виртуальной
-
+            Это значение может использоваться для ссылки на устройство внутри виртуальной
             машины при монтировании, изменении размера и т. д.
 
-
-            Значение должно соответствовать регулярному выражению ``
-            |[a-z][-_0-9a-z]{0,19} ``.
+            Значение должно соответствовать регулярному выражению `` |[a-z][-_0-9a-z]{0,19} ``.
           type: string
         diskSpec:
-          $ref: >-
-            #/components/schemas/AttachedDiskSpecDiskSpec_in_AttachedDiskSpec_diskSpec
+          $ref: '#/components/schemas/AttachedDiskSpecDiskSpec_in_AttachedDiskSpec_diskSpec'
     AttachedDiskSpecDiskSpec:
       type: object
       allOf:
-        - type: object
-          properties:
-            description:
-              description: |-
-                Описание диска.
+      - type: object
+        properties:
+          description:
+            description: |-
+              Описание диска.
 
-                Максимальная длина строки в символах — 256.
-              type: string
-            typeId:
-              description: |-
-                Обязательное поле.
-                Идентификатор типа диска.
-              type: string
-            size:
-              description: |-
-                Размер диска в байтах.
+              Максимальная длина строки в символах — 256.
+            type: string
+          typeId:
+            description: |-
+              Обязательное поле.
+              Идентификатор типа диска.
+            type: string
+          size:
+            description: |-
+              Размер диска в байтах.
 
-                Допустимые значения — от 4194304 до 4398046511104 включительно.
-              type: string
-              format: int64
-        - title: source_oneof
-          type: object
-          maxProperties: 1
-          properties:
-            imageId:
-              description: |-
-                Идентификатор образа, из которого будет создан диск.
+              Допустимые значения — от 4194304 до 4398046511104 включительно.
+            type: string
+            format: int64
+      - title: source_oneof
+        type: object
+        maxProperties: 1
+        properties:
+          imageId:
+            description: |-
+              Идентификатор образа, из которого будет создан диск.
 
-                Максимальная длина строки в символах — 50.
-              type: string
-            snapshotId:
-              description: |-
-                Идентификатор снимка, из которого будет создан диск.
+              Максимальная длина строки в символах — 50.
+            type: string
+          snapshotId:
+            description: |-
+              Идентификатор снимка, из которого будет создан диск.
 
-                Максимальная длина строки в символах — 50.
-              type: string
+              Максимальная длина строки в символах — 50.
+            type: string
     AttachedDiskSpecMode:
       description: |2-
          - READ_ONLY: Доступ на чтение.
          - READ_WRITE: Доступ на чтение и запись.
       type: string
       enum:
-        - READ_ONLY
-        - READ_WRITE
+      - READ_ONLY
+      - READ_WRITE
     CreateInstanceGroupFromYamlRequest:
       type: object
       properties:
         folderId:
-          description: >-
+          description: |-
             Обязательное поле.
-
-            Идентификатор каталога для создания группы виртуальных машин. Чтобы
-            получить
-
-            идентификатор каталога, используйте запрос
-            [list](/docs/resource-manager/api-ref/Folder/list).
+            Идентификатор каталога для создания группы виртуальных машин. Чтобы получить
+            идентификатор каталога, используйте запрос [list](/docs/resource-manager/api-ref/Folder/list).
           type: string
         instanceGroupYaml:
-          description: >-
+          description: |-
             Обязательное поле.
-
-            [create](/docs/compute/api-ref/InstanceGroup/create) request in YAML
-            format.
-
+            [create](/docs/compute/api-ref/InstanceGroup/create) request in YAML format.
 
             Максимальная длина строки в символах — 1048576.
           type: string
@@ -732,22 +592,16 @@ components:
       type: object
       properties:
         folderId:
-          description: >-
+          description: |-
             Обязательное поле.
-
-            Идентификатор каталога для создания группы виртуальных машин. Чтобы
-            получить
-
-            идентификатор каталога, используйте запрос
-            [list](/docs/resource-manager/api-ref/Folder/list).
+            Идентификатор каталога для создания группы виртуальных машин. Чтобы получить
+            идентификатор каталога, используйте запрос [list](/docs/resource-manager/api-ref/Folder/list).
           type: string
         name:
-          description: >-
+          description: |-
             Имя группы виртуальных машин.
 
-
-            Значение должно соответствовать регулярному выражению ``
-            |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+            Значение должно соответствовать регулярному выражению `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
           type: string
         description:
           description: |-
@@ -756,138 +610,91 @@ components:
             Максимальная длина строки в символах — 256.
           type: string
         labels:
-          description: >-
+          description: |-
             Метки ресурса в формате `ключ:значение`.
 
-
             Не более 64 на ресурс.
-
             Длина строки в символах для каждого ключа должна быть от 1 до 63.
-
-            Каждый ключ должен соответствовать регулярному выражению ``
-            [a-z][-_0-9a-z]* ``.
-
+            Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
             Максимальная длина строки в символах для каждого значения — 63.
-
-            Каждое значение должно соответствовать регулярному выражению ``
-            [-_0-9a-z]* ``.
+            Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.
           type: object
           additionalProperties:
             type: string
         instanceTemplate:
-          $ref: >-
-            #/components/schemas/InstanceTemplate_in_CreateInstanceGroupRequest_instanceTemplate
+          $ref: '#/components/schemas/InstanceTemplate_in_CreateInstanceGroupRequest_instanceTemplate'
         scalePolicy:
-          $ref: >-
-            #/components/schemas/ScalePolicy_in_CreateInstanceGroupRequest_scalePolicy
+          $ref: '#/components/schemas/ScalePolicy_in_CreateInstanceGroupRequest_scalePolicy'
         deployPolicy:
-          $ref: >-
-            #/components/schemas/DeployPolicy_in_CreateInstanceGroupRequest_deployPolicy
+          $ref: '#/components/schemas/DeployPolicy_in_CreateInstanceGroupRequest_deployPolicy'
         allocationPolicy:
-          $ref: >-
-            #/components/schemas/AllocationPolicy_in_CreateInstanceGroupRequest_allocationPolicy
+          $ref: '#/components/schemas/AllocationPolicy_in_CreateInstanceGroupRequest_allocationPolicy'
         loadBalancerSpec:
-          $ref: >-
-            #/components/schemas/LoadBalancerSpec_in_CreateInstanceGroupRequest_loadBalancerSpec
+          $ref: '#/components/schemas/LoadBalancerSpec_in_CreateInstanceGroupRequest_loadBalancerSpec'
         healthChecksSpec:
-          $ref: >-
-            #/components/schemas/HealthChecksSpec_in_CreateInstanceGroupRequest_healthChecksSpec
+          $ref: '#/components/schemas/HealthChecksSpec_in_CreateInstanceGroupRequest_healthChecksSpec'
         serviceAccountId:
-          description: >-
-            Идентификатор сервисного аккаунта. Сервисный аккаунт будет
-            использоваться для всех
-
-            вызовов API, выполняемых компонентом Instance Groups от имени
-            пользователя (например,
-
-            создание экземпляров, добавление их в целевую группу балансировщика
-            нагрузки и т.п.).
-
-            Дополнительные сведения см. в разделе [Сервисные
-            аккаунты](/docs/iam/concepts/users/service-accounts).
-
+          description: |-
+            Идентификатор сервисного аккаунта. Сервисный аккаунт будет использоваться для всех
+            вызовов API, выполняемых компонентом Instance Groups от имени пользователя (например,
+            создание экземпляров, добавление их в целевую группу балансировщика нагрузки и т.п.).
+            Дополнительные сведения см. в разделе [Сервисные аккаунты](/docs/iam/concepts/users/service-accounts).
             Чтобы получить идентификатор сервисного аккаунта, используйте запрос
-
             [list](/docs/iam/api-ref/ServiceAccount/list).
           type: string
     DeleteInstanceGroupMetadata:
       type: object
       properties:
         instanceGroupId:
-          description: >-
-            Идентификатор удаляемой группы виртуальных машин. Чтобы получить
-            идентификатор
-
-            группы виртуальных машин, используйте запрос
-            [list](/docs/compute/api-ref/InstanceGroup/list).
+          description: |-
+            Идентификатор удаляемой группы виртуальных машин. Чтобы получить идентификатор
+            группы виртуальных машин, используйте запрос [list](/docs/compute/api-ref/InstanceGroup/list).
           type: string
     DeployPolicy:
       type: object
       properties:
         maxUnavailable:
-          description: >-
-            Максимальное количество запущенных виртуальных машин, которое можно
-            одновременно
-
-            отключить (остановить или удалить) в процессе обновления группы.
-            Если `maxExpansion` не
-
+          description: |-
+            Максимальное количество запущенных виртуальных машин, которое можно одновременно
+            отключить (остановить или удалить) в процессе обновления группы. Если `maxExpansion` не
             указано или равно нулю, `maxUnavailable` должно быть ненулевым.
-
 
             Допустимые значения — от 0 до 100 включительно.
           type: string
           format: int64
         maxDeleting:
-          description: >-
+          description: |-
             Максимальное количество удаляемых одновременно виртуальных машин.
 
-
-            Значение 0 — любое количество виртуальных машин в рамках допустимых
-            значений.
-
+            Значение 0 — любое количество виртуальных машин в рамках допустимых значений.
 
             Допустимые значения — от 0 до 100 включительно.
           type: string
           format: int64
         maxCreating:
-          description: >-
+          description: |-
             Максимальное количество создаваемых одновременно виртуальных машин.
 
-
-            Значение 0 — любое количество виртуальных машин в рамках допустимых
-            значений.
-
+            Значение 0 — любое количество виртуальных машин в рамках допустимых значений.
 
             Допустимые значения — от 0 до 100 включительно.
           type: string
           format: int64
         maxExpansion:
-          description: >-
-            Максимальное количество виртуальных машин, на которое можно
-            превысить целевой
-
-            размер группы в процессе ее обновления. Если `maxUnavailable` не
-            указан или равен нулю,
-
+          description: |-
+            Максимальное количество виртуальных машин, на которое можно превысить целевой
+            размер группы в процессе ее обновления. Если `maxUnavailable` не указан или равен нулю,
             `maxExpansion` должно быть ненулевым.
-
 
             Допустимые значения — от 0 до 100 включительно.
           type: string
           format: int64
         startupDuration:
-          description: >-
-            Продолжительность запуска виртуальной машины. Виртуальная машина
-            будет запущена и
-
-            начнет получать трафик только после того, как истечет
-            startup_duration и будут пройдены все
-
+          description: |-
+            Продолжительность запуска виртуальной машины. Виртуальная машина будет запущена и
+            начнет получать трафик только после того, как истечет startup_duration и будут пройдены все
             проверки работоспособности. Подробное описание см. в
-
             `ManagedInstanceStatus`.
-
 
             Допустимые значения — от 0 seconds до 3600 seconds включительно.
           type: string
@@ -896,75 +703,59 @@ components:
       type: object
       maxProperties: 0
     FieldMask:
-      description: >-
+      description: |-
         Имена всех обновляемых полей, разделенные запятыми.
+        Только значения указанных полей будут изменены. Остальные останутся нетронутыми.
+        Если поле указано в параметре `` updateMask `` и в запросе не было отправлено значение для этого поля,
+        значение поля будет сброшено на значение по умолчанию. Значение по умолчанию для большинства полей — null или 0.
 
-        Только значения указанных полей будут изменены. Остальные останутся
-        нетронутыми.
-
-        Если поле указано в параметре `` updateMask `` и в запросе не было
-        отправлено значение для этого поля,
-
-        значение поля будет сброшено на значение по умолчанию. Значение по
-        умолчанию для большинства полей — null или 0.
-
-
-        Если в запросе не передается `` updateMask ``, значения всех полей будут
-        обновлены.
-
+        Если в запросе не передается `` updateMask ``, значения всех полей будут обновлены.
         Для полей, указанных в запросе, будут использованы переданные значения.
-
         Значения остальных полей будут сброшены на значения по умолчанию.
       type: string
     HealthCheckSpec:
       type: object
       allOf:
-        - type: object
-          properties:
-            interval:
-              description: |-
-                Интервал проверок. Значение по умолчанию — 2 секунды.
+      - type: object
+        properties:
+          interval:
+            description: |-
+              Интервал проверок. Значение по умолчанию — 2 секунды.
 
-                Допустимые значения — от 1 seconds до 300 seconds включительно.
-              type: string
-            timeout:
-              description: |-
-                Время ожидания ответа. Значение по умолчанию — 1 секунда.
+              Допустимые значения — от 1 seconds до 300 seconds включительно.
+            type: string
+          timeout:
+            description: |-
+              Время ожидания ответа. Значение по умолчанию — 1 секунда.
 
-                Допустимые значения — от 1 seconds до 60 seconds включительно.
-              type: string
-            unhealthyThreshold:
-              description: >-
-                Количество неудачных проверок, после которого виртуальная машина
-                будет считаться
+              Допустимые значения — от 1 seconds до 60 seconds включительно.
+            type: string
+          unhealthyThreshold:
+            description: |-
+              Количество неудачных проверок, после которого виртуальная машина будет считаться
+              неработающей. Значение по умолчанию — 2.
 
-                неработающей. Значение по умолчанию — 2.
+              Значение должно быть равно 0, 2, 3, 4, 5, 6, 7, 8, 9 или 10.
+            type: string
+            format: int64
+          healthyThreshold:
+            description: |-
+              Количество успешных проверок, после которого виртуальная машина будет считаться
+              работающей нормально. Значение по умолчанию — 2.
 
-
-                Значение должно быть равно 0, 2, 3, 4, 5, 6, 7, 8, 9 или 10.
-              type: string
-              format: int64
-            healthyThreshold:
-              description: >-
-                Количество успешных проверок, после которого виртуальная машина
-                будет считаться
-
-                работающей нормально. Значение по умолчанию — 2.
-
-
-                Значение должно быть равно 0, 2, 3, 4, 5, 6, 7, 8, 9 или 10.
-              type: string
-              format: int64
-        - title: health_check_options
-          type: object
-          maxProperties: 1
-          properties:
-            tcpOptions:
-              $ref: '#/components/schemas/HealthCheckSpecTcpOptions'
-              description: Параметры для проверки состояний по протоколу TCP.
-            httpOptions:
-              $ref: '#/components/schemas/HealthCheckSpecHttpOptions'
-              description: Параметры для проверки состояний по протоколу HTTP.
+              Значение должно быть равно 0, 2, 3, 4, 5, 6, 7, 8, 9 или 10.
+            type: string
+            format: int64
+      - title: health_check_options
+        type: object
+        maxProperties: 1
+        properties:
+          tcpOptions:
+            $ref: '#/components/schemas/HealthCheckSpecTcpOptions'
+            description: Параметры для проверки состояний по протоколу TCP.
+          httpOptions:
+            $ref: '#/components/schemas/HealthCheckSpecHttpOptions'
+            description: Параметры для проверки состояний по протоколу HTTP.
     HealthCheckSpecHttpOptions:
       type: object
       properties:
@@ -992,13 +783,9 @@ components:
       type: object
       properties:
         healthCheckSpecs:
-          description: >-
+          description: |-
             Обязательное поле.
-
-            Спецификация проверки работоспособности. Дополнительные сведения см.
-            в разделе [Проверка состояния
-            ресурсов](/docs/network-load-balancer/concepts/health-check).
-
+            Спецификация проверки работоспособности. Дополнительные сведения см. в разделе [Проверка состояния ресурсов](/docs/load-balancer/concepts/health-check).
 
             Минимальное количество элементов — 1.
           type: array
@@ -1011,15 +798,12 @@ components:
           description: Идентификатор группы виртуальных машин.
           type: string
         folderId:
-          description: >-
-            Идентификатор каталога, которому принадлежит группа виртуальных
+          description: Идентификатор каталога, которому принадлежит группа виртуальных
             машин.
           type: string
         createdAt:
-          description: >-
-            Время создания ресурса в формате
-            [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) .
-
+          description: |-
+            Время создания ресурса в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) .
 
             Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
           type: string
@@ -1036,84 +820,61 @@ components:
           additionalProperties:
             type: string
         instanceTemplate:
-          $ref: >-
-            #/components/schemas/InstanceTemplate_in_InstanceGroup_instanceTemplate
+          $ref: '#/components/schemas/InstanceTemplate_in_InstanceGroup_instanceTemplate'
         scalePolicy:
           $ref: '#/components/schemas/ScalePolicy_in_InstanceGroup_scalePolicy'
         deployPolicy:
           $ref: '#/components/schemas/DeployPolicy_in_InstanceGroup_deployPolicy'
         allocationPolicy:
-          $ref: >-
-            #/components/schemas/AllocationPolicy_in_InstanceGroup_allocationPolicy
+          $ref: '#/components/schemas/AllocationPolicy_in_InstanceGroup_allocationPolicy'
         loadBalancerState:
-          $ref: >-
-            #/components/schemas/LoadBalancerState_in_InstanceGroup_loadBalancerState
+          $ref: '#/components/schemas/LoadBalancerState_in_InstanceGroup_loadBalancerState'
         managedInstancesState:
-          $ref: >-
-            #/components/schemas/ManagedInstancesState_in_InstanceGroup_managedInstancesState
+          $ref: '#/components/schemas/ManagedInstancesState_in_InstanceGroup_managedInstancesState'
         loadBalancerSpec:
-          $ref: >-
-            #/components/schemas/LoadBalancerSpec_in_InstanceGroup_loadBalancerSpec
+          $ref: '#/components/schemas/LoadBalancerSpec_in_InstanceGroup_loadBalancerSpec'
         healthChecksSpec:
-          $ref: >-
-            #/components/schemas/HealthChecksSpec_in_InstanceGroup_healthChecksSpec
+          $ref: '#/components/schemas/HealthChecksSpec_in_InstanceGroup_healthChecksSpec'
         serviceAccountId:
-          description: >-
-            Идентификатор сервисного аккаунта. Сервисный аккаунт будет
-            использоваться для всех
-
-            вызовов API, выполняемых компонентом Instance Groups от имени
-            пользователя (например,
-
-            создание экземпляров, добавление их в целевую группу балансировщика
-            нагрузки и т.
-
-            п.). Дополнительные сведения см. в разделе [Сервисные
-            аккаунты](/docs/iam/concepts/users/service-accounts). Чтобы
-
+          description: |-
+            Идентификатор сервисного аккаунта. Сервисный аккаунт будет использоваться для всех
+            вызовов API, выполняемых компонентом Instance Groups от имени пользователя (например,
+            создание экземпляров, добавление их в целевую группу балансировщика нагрузки и т.
+            п.). Дополнительные сведения см. в разделе [Сервисные аккаунты](/docs/iam/concepts/users/service-accounts). Чтобы
             получить идентификатор сервисного аккаунта, используйте запрос
-
             [list](/docs/iam/api-ref/ServiceAccount/list).
           type: string
         status:
           $ref: '#/components/schemas/InstanceGroupStatus_in_InstanceGroup_status'
     InstanceGroupStatus:
-      description: >2-
+      description: |2-
          - STARTING: Группа виртуальных машин запускается и скоро станет активной.
          - ACTIVE: Группа виртуальных машин активна. В этом состоянии группа управляет виртуальными
-        машинами и контролирует их работоспособность, создавая, обновляя,
-        удаляя,
-
+        машинами и контролирует их работоспособность, создавая, обновляя, удаляя,
         останавливая и запуская их по мере необходимости. Чтобы
-
         остановить группу виртуальных машин, используйте запрос
-
         [stop](/docs/compute/api-ref/InstanceGroup/stop).
          - STOPPING: Группа виртуальных машин останавливается. Виртуальные машины группы прекращают
-        получать трафик от балансировщика (если таковой имеется), после чего
-        останавливаются.
+        получать трафик от балансировщика (если таковой имеется), после чего останавливаются.
          - STOPPED: Группа виртуальных машин остановлена. В этом состоянии группа не может быть
-        обновлена и не реагирует на любые изменения ее виртуальных машин. Чтобы
-        запустить
-
-        группу виртуальных машин, используйте запрос
-        [start](/docs/compute/api-ref/InstanceGroup/start).
+        обновлена и не реагирует на любые изменения ее виртуальных машин. Чтобы запустить
+        группу виртуальных машин, используйте запрос [start](/docs/compute/api-ref/InstanceGroup/start).
          - DELETING: Группа виртуальных машин удаляется.
       type: string
       enum:
-        - STARTING
-        - ACTIVE
-        - STOPPING
-        - STOPPED
-        - DELETING
+      - STARTING
+      - ACTIVE
+      - STOPPING
+      - STOPPED
+      - DELETING
     InstanceGroupView:
       description: |2-
          - BASIC: Не включает метаданные шаблона виртуальной машины в ответ сервера.
          - FULL: Возвращает метаданные шаблона виртуальной машины в ответе сервера.
       type: string
       enum:
-        - BASIC
-        - FULL
+      - BASIC
+      - FULL
       default: BASIC
     InstanceTemplate:
       type: object
@@ -1125,97 +886,66 @@ components:
             Максимальная длина строки в символах — 256.
           type: string
         labels:
-          description: >-
+          description: |-
             Метки ресурса в формате `ключ:значение`.
 
-
             Не более 64 на ресурс.
-
             Длина строки в символах для каждого ключа должна быть от 1 до 63.
-
-            Каждый ключ должен соответствовать регулярному выражению ``
-            [a-z][-_0-9a-z]* ``.
-
+            Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
             Максимальная длина строки в символах для каждого значения — 63.
-
-            Каждое значение должно соответствовать регулярному выражению ``
-            [-_0-9a-z]* ``.
+            Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.
           type: object
           additionalProperties:
             type: string
         platformId:
-          description: >-
+          description: |-
             Обязательное поле.
-
-            Идентификатор аппаратной платформы виртуальной машины. Платформы
-            позволяют
-
-            создавать виртуальные машины разных типов: с большим объемом памяти,
-            с большим
-
-            количеством ядер или с высокой производительностью. Дополнительные
-            сведения см. в
-
+            Идентификатор аппаратной платформы виртуальной машины. Платформы позволяют
+            создавать виртуальные машины разных типов: с большим объемом памяти, с большим
+            количеством ядер или с высокой производительностью. Дополнительные сведения см. в
             разделе [Платформы](/docs/compute/concepts/vm-platforms).
           type: string
         resourcesSpec:
           $ref: '#/components/schemas/ResourcesSpec_in_InstanceTemplate_resourcesSpec'
         metadata:
-          description: >-
-            Метаданные, назначаемые этому шаблону виртуальной машины, в формате
-            `ключ:значение`. Сюда
-
+          description: |-
+            Метаданные, назначаемые этому шаблону виртуальной машины, в формате `ключ:значение`. Сюда
             входят пользовательские метаданные и предопределенные ключи.
 
-
-            Например, можно использовать метаданные для доставки открытого ключа
-            SSH на
-
-            виртуальную машину. Дополнительные сведения см. в разделе
-            [Метаданные виртуальной машины](/docs/compute/concepts/vm-metadata).
-
+            Например, можно использовать метаданные для доставки открытого ключа SSH на
+            виртуальную машину. Дополнительные сведения см. в разделе [Метаданные виртуальной машины](/docs/compute/concepts/vm-metadata).
 
             Не более 128 на ресурс.
-
             Длина строки в символах для каждого ключа должна быть от 1 до 63.
-
-            Каждый ключ должен соответствовать регулярному выражению ``
-            [a-z][-_0-9a-z]* ``.
-
+            Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
             Максимальная длина строки в символах для каждого значения — 262144.
           type: object
           additionalProperties:
             type: string
         bootDiskSpec:
-          $ref: >-
-            #/components/schemas/AttachedDiskSpec_in_InstanceTemplate_bootDiskSpec
+          $ref: '#/components/schemas/AttachedDiskSpec_in_InstanceTemplate_bootDiskSpec'
         secondaryDiskSpecs:
-          description: >-
-            Массив дополнительных дисков, которые будут подключенны к
-            виртуальной машине.
-
+          description: |-
+            Массив дополнительных дисков, которые будут подключенны к виртуальной машине.
 
             Максимальное количество элементов — 3.
           type: array
           items:
             $ref: '#/components/schemas/AttachedDiskSpec'
         networkInterfaceSpecs:
-          description: >-
+          description: |-
             Обязательное поле.
-
-            Массив сетевых интерфейсов, которые будут присоединены к виртуальной
-            машине.
-
+            Массив сетевых интерфейсов, которые будут присоединены к виртуальной машине.
 
             Должен содержать ровно 1 элемент.
           type: array
           items:
             $ref: '#/components/schemas/NetworkInterfaceSpec'
         schedulingPolicy:
-          $ref: >-
-            #/components/schemas/SchedulingPolicy_in_InstanceTemplate_schedulingPolicy
+          $ref: '#/components/schemas/SchedulingPolicy_in_InstanceTemplate_schedulingPolicy'
         serviceAccountId:
-          description: Идентификатор сервисного аккаунта для привязки к виртуальной машине.
+          description: Идентификатор сервисного аккаунта для привязки к виртуальной
+            машине.
           type: string
     IpVersion:
       description: |2-
@@ -1223,8 +953,8 @@ components:
          - IPV6: IPv6-адрес, на данный момент не доступен.
       type: string
       enum:
-        - IPV4
-        - IPV6
+      - IPV4
+      - IPV6
     ListInstanceGroupInstancesResponse:
       type: object
       properties:
@@ -1234,24 +964,11 @@ components:
           items:
             $ref: '#/components/schemas/ManagedInstance'
         nextPageToken:
-          description: >-
-            Токен для получения следующей страницы результатов в ответе. Если
-            количество
-
-            результатов больше чем
-            [pageSize](/docs/compute/api-ref/InstanceGroup/listInstances#query_params),
-            используйте
-            [nextPageToken](/docs/compute/api-ref/InstanceGroup/listInstances#responses)
-            в качестве
-
-            значения параметра
-            [pageToken](/docs/compute/api-ref/InstanceGroup/listInstances#query_params)
-            в следующем запросе списка ресурсов.
-
-            Все последующие запросы будут получать свои значения
-            [nextPageToken](/docs/compute/api-ref/InstanceGroup/listInstances#responses)
-            для перебора страниц
-
+          description: |-
+            Токен для получения следующей страницы результатов в ответе. Если количество
+            результатов больше чем [pageSize](/docs/compute/api-ref/InstanceGroup/listInstances#query_params), используйте [nextPageToken](/docs/compute/api-ref/InstanceGroup/listInstances#responses) в качестве
+            значения параметра [pageToken](/docs/compute/api-ref/InstanceGroup/listInstances#query_params) в следующем запросе списка ресурсов.
+            Все последующие запросы будут получать свои значения [nextPageToken](/docs/compute/api-ref/InstanceGroup/listInstances#responses) для перебора страниц
             результатов.
           type: string
     ListInstanceGroupLogRecordsResponse:
@@ -1263,53 +980,28 @@ components:
           items:
             $ref: '#/components/schemas/LogRecord'
         nextPageToken:
-          description: >-
-            Токен для получения следующей страницы результатов в ответе. Если
-            количество
-
-            результатов больше чем
-            [pageSize](/docs/compute/api-ref/InstanceGroup/listLogRecords#query_params),
-            используйте
-            [nextPageToken](/docs/compute/api-ref/InstanceGroup/listLogRecords#responses)
-            в качестве
-
-            значения параметра
-            [pageToken](/docs/compute/api-ref/InstanceGroup/listLogRecords#query_params)
-            в следующем запросе списка ресурсов.
-
-            Все последующие запросы будут получать свои значения
-            [nextPageToken](/docs/compute/api-ref/InstanceGroup/listLogRecords#responses)
-            для перебора страниц
-
+          description: |-
+            Токен для получения следующей страницы результатов в ответе. Если количество
+            результатов больше чем [pageSize](/docs/compute/api-ref/InstanceGroup/listLogRecords#query_params), используйте [nextPageToken](/docs/compute/api-ref/InstanceGroup/listLogRecords#responses) в качестве
+            значения параметра [pageToken](/docs/compute/api-ref/InstanceGroup/listLogRecords#query_params) в следующем запросе списка ресурсов.
+            Все последующие запросы будут получать свои значения [nextPageToken](/docs/compute/api-ref/InstanceGroup/listLogRecords#responses) для перебора страниц
             результатов.
           type: string
     ListInstanceGroupOperationsResponse:
       type: object
       properties:
         operations:
-          description: Возвращает список операций для указанной группы виртуальных машин.
+          description: Возвращает список операций для указанной группы виртуальных
+            машин.
           type: array
           items:
             $ref: '#/components/schemas/Operation'
         nextPageToken:
-          description: >-
-            Токен для получения следующей страницы результатов в ответе. Если
-            количество
-
-            результатов больше чем
-            [pageSize](/docs/compute/api-ref/InstanceGroup/listOperations#query_params),
-            используйте
-            [nextPageToken](/docs/compute/api-ref/InstanceGroup/listOperations#responses)
-            в качестве
-
-            значения параметра
-            [pageToken](/docs/compute/api-ref/InstanceGroup/listOperations#query_params)
-            в следующем запросе списка ресурсов.
-
-            Все последующие запросы будут получать свои значения
-            [nextPageToken](/docs/compute/api-ref/InstanceGroup/listOperations#responses)
-            для перебора страниц
-
+          description: |-
+            Токен для получения следующей страницы результатов в ответе. Если количество
+            результатов больше чем [pageSize](/docs/compute/api-ref/InstanceGroup/listOperations#query_params), используйте [nextPageToken](/docs/compute/api-ref/InstanceGroup/listOperations#responses) в качестве
+            значения параметра [pageToken](/docs/compute/api-ref/InstanceGroup/listOperations#query_params) в следующем запросе списка ресурсов.
+            Все последующие запросы будут получать свои значения [nextPageToken](/docs/compute/api-ref/InstanceGroup/listOperations#responses) для перебора страниц
             результатов.
           type: string
     ListInstanceGroupsResponse:
@@ -1321,32 +1013,18 @@ components:
           items:
             $ref: '#/components/schemas/InstanceGroup'
         nextPageToken:
-          description: >-
-            Токен для получения следующей страницы результатов в ответе. Если
-            количество
-
-            результатов больше чем
-            [pageSize](/docs/compute/api-ref/InstanceGroup/list#query_params),
-            используйте
-            [nextPageToken](/docs/compute/api-ref/InstanceGroup/list#responses)
-            в качестве
-
-            значения параметра
-            [pageToken](/docs/compute/api-ref/InstanceGroup/list#query_params) в
-            следующем запросе списка ресурсов. Все
-
-            последующие запросы будут получать свои значения
-            [nextPageToken](/docs/compute/api-ref/InstanceGroup/list#responses)
-            для перебора страниц
-
+          description: |-
+            Токен для получения следующей страницы результатов в ответе. Если количество
+            результатов больше чем [pageSize](/docs/compute/api-ref/InstanceGroup/list#query_params), используйте [nextPageToken](/docs/compute/api-ref/InstanceGroup/list#responses) в качестве
+            значения параметра [pageToken](/docs/compute/api-ref/InstanceGroup/list#query_params) в следующем запросе списка ресурсов. Все
+            последующие запросы будут получать свои значения [nextPageToken](/docs/compute/api-ref/InstanceGroup/list#responses) для перебора страниц
             результатов.
           type: string
     LoadBalancerSpec:
       type: object
       properties:
         targetGroupSpec:
-          $ref: >-
-            #/components/schemas/TargetGroupSpec_in_LoadBalancerSpec_targetGroupSpec
+          $ref: '#/components/schemas/TargetGroupSpec_in_LoadBalancerSpec_targetGroupSpec'
     LoadBalancerState:
       type: object
       properties:
@@ -1360,10 +1038,8 @@ components:
       type: object
       properties:
         timestamp:
-          description: >-
-            Время записи лога в формате
-            [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
-
+          description: |-
+            Время записи лога в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
 
             Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
           type: string
@@ -1372,8 +1048,7 @@ components:
           description: Сообщение.
           type: string
     ManagedInstance:
-      description: >-
-        Ресурс ManagedInstance. Дополнительные сведения см. в разделе [Концепции
+      description: Ресурс ManagedInstance. Дополнительные сведения см. в разделе [Концепции
         Instance Groups](/docs/compute/concepts/instance-groups/).
       type: object
       properties:
@@ -1411,7 +1086,7 @@ components:
           type: string
           format: date-time
     ManagedInstanceStatus:
-      description: >2-
+      description: |2-
          - CREATING_INSTANCE: Виртуальная машина создается.
          - UPDATING_INSTANCE: Виртуальная машина обновляется.
          - DELETING_INSTANCE: Виртуальная машина удаляется.
@@ -1428,26 +1103,25 @@ components:
          - RUNNING_ACTUAL: Виртуальная машина работает нормально, и ее конфигурация соответствует текущему
         InstanceTemplate.
          - RUNNING_OUTDATED: Виртуальная машина работает нормально, но ее конфигурация не соответствует
-        текущему InstanceTemplate. Будет обновлена, воссоздана или удалена в
-        ближайшее время.
+        текущему InstanceTemplate. Будет обновлена, воссоздана или удалена в ближайшее время.
          - STOPPED: Виртуальная машина остановлена.
          - DELETED: Виртуальная машина удалена.
       type: string
       enum:
-        - CREATING_INSTANCE
-        - UPDATING_INSTANCE
-        - DELETING_INSTANCE
-        - STARTING_INSTANCE
-        - STOPPING_INSTANCE
-        - AWAITING_STARTUP_DURATION
-        - CHECKING_HEALTH
-        - OPENING_TRAFFIC
-        - AWAITING_WARMUP_DURATION
-        - CLOSING_TRAFFIC
-        - RUNNING_ACTUAL
-        - RUNNING_OUTDATED
-        - STOPPED
-        - DELETED
+      - CREATING_INSTANCE
+      - UPDATING_INSTANCE
+      - DELETING_INSTANCE
+      - STARTING_INSTANCE
+      - STOPPING_INSTANCE
+      - AWAITING_STARTUP_DURATION
+      - CHECKING_HEALTH
+      - OPENING_TRAFFIC
+      - AWAITING_WARMUP_DURATION
+      - CLOSING_TRAFFIC
+      - RUNNING_ACTUAL
+      - RUNNING_OUTDATED
+      - STOPPED
+      - DELETED
     ManagedInstancesState:
       type: object
       properties:
@@ -1456,26 +1130,20 @@ components:
           type: string
           format: int64
         runningActualCount:
-          description: >-
-            Число запущенных виртуальных машин, соответствующих текущему
-            шаблону.
-
+          description: |-
+            Число запущенных виртуальных машин, соответствующих текущему шаблону.
             Дополнительные сведения см. в разделе `RUNNING_ACTUAL`.
           type: string
           format: int64
         runningOutdatedCount:
-          description: >-
-            Число запущенных виртуальных машин, не соответствующих текущему
-            шаблону.
-
+          description: |-
+            Число запущенных виртуальных машин, не соответствующих текущему шаблону.
             Дополнительные сведения см. в разделе `RUNNING_OUTDATED`.
           type: string
           format: int64
         processingCount:
-          description: >-
-            Количество виртуальных машин, находящихся в процессе обновления,
-            запуска, удаления.
-
+          description: |-
+            Количество виртуальных машин, находящихся в процессе обновления, запуска, удаления.
             Дополнительные сведения см. в разделе `ManagedInstanceStatus`.
           type: string
           format: int64
@@ -1483,12 +1151,9 @@ components:
       type: object
       properties:
         index:
-          description: >-
-            Индекс сетевого интерфейса, генерируемого сервером, 0,1,2... В
-            настоящее время для
-
-            каждой виртуальной машины поддерживается только один сетевой
-            интерфейс.
+          description: |-
+            Индекс сетевого интерфейса, генерируемого сервером, 0,1,2... В настоящее время для
+            каждой виртуальной машины поддерживается только один сетевой интерфейс.
           type: string
         macAddress:
           description: MAC-адрес, назначенный сетевому интерфейсу.
@@ -1497,11 +1162,9 @@ components:
           description: Идентификатор подсети.
           type: string
         primaryV4Address:
-          $ref: >-
-            #/components/schemas/PrimaryAddress_in_NetworkInterface_primaryV4Address
+          $ref: '#/components/schemas/PrimaryAddress_in_NetworkInterface_primaryV4Address'
         primaryV6Address:
-          $ref: >-
-            #/components/schemas/PrimaryAddress_in_NetworkInterface_primaryV6Address
+          $ref: '#/components/schemas/PrimaryAddress_in_NetworkInterface_primaryV6Address'
     NetworkInterfaceSpec:
       type: object
       properties:
@@ -1514,17 +1177,14 @@ components:
           items:
             type: string
         primaryV4AddressSpec:
-          $ref: >-
-            #/components/schemas/PrimaryAddressSpec_in_NetworkInterfaceSpec_primaryV4AddressSpec
+          $ref: '#/components/schemas/PrimaryAddressSpec_in_NetworkInterfaceSpec_primaryV4AddressSpec'
         primaryV6AddressSpec:
-          $ref: >-
-            #/components/schemas/PrimaryAddressSpec_in_NetworkInterfaceSpec_primaryV6AddressSpec
+          $ref: '#/components/schemas/PrimaryAddressSpec_in_NetworkInterfaceSpec_primaryV6AddressSpec'
     OneToOneNat:
       type: object
       properties:
         address:
-          description: >-
-            Внутренний IPv4-адрес, назначенный виртуальной машине для данного
+          description: Внутренний IPv4-адрес, назначенный виртуальной машине для данного
             сетевого интерфейса.
           type: string
         ipVersion:
@@ -1540,92 +1200,75 @@ components:
         [Объект Operation](/docs/api-design-guide/concepts/operation).
       type: object
       allOf:
-        - type: object
-          properties:
-            id:
-              description: Идентификатор операции.
-              type: string
-            description:
-              description: |-
-                Описание операции. Длина описания должна быть от 0 до 256
-                символов.
-              type: string
-            createdAt:
-              description: >-
-                Время создания ресурса в формате в
+      - type: object
+        properties:
+          id:
+            description: Идентификатор операции.
+            type: string
+          description:
+            description: |-
+              Описание операции. Длина описания должна быть от 0 до 256
+              символов.
+            type: string
+          createdAt:
+            description: |-
+              Время создания ресурса в формате в
+              [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
 
-                [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+              Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+            type: string
+            format: date-time
+          createdBy:
+            description: |-
+              Идентификатор пользователя или сервисного
+              аккаунта, инициировавшего операцию.
+            type: string
+          modifiedAt:
+            description: |-
+              Время, когда ресурс Operation последний раз
+              обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
 
-
-                Строка в формате
-                [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
-              type: string
-              format: date-time
-            createdBy:
-              description: |-
-                Идентификатор пользователя или сервисного
-                аккаунта, инициировавшего операцию.
-              type: string
-            modifiedAt:
-              description: >-
-                Время, когда ресурс Operation последний раз
-
-                обновлялся. Значение в формате
-                [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
-
-
-                Строка в формате
-                [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
-              type: string
-              format: date-time
-            done:
-              description: |-
-                Если значение равно `false` — операция еще
-                выполняется. Если `true` — операция завершена, и задано значение
-                одного из полей `error` или `response`.
-              type: boolean
-              format: boolean
-            metadata:
-              description: |-
-                Метаданные операции. Обычно в поле содержится
-                идентификатор ресурса, над которым выполняется операция. Если
-                метод возвращает ресурс Operation, в описании метода приведена
-                структура соответствующего ему поля `metadata`.
-              type: object
-        - title: result
-          type: object
-          maxProperties: 1
-          properties:
-            error:
-              $ref: '#/components/schemas/rpcStatus'
-              description: Описание ошибки в случае сбоя или отмены операции.
-            response:
-              description: >-
-                Результат операции в случае успешного завершения. Если
-
-                исходный метод не возвращает никаких данных при успешном
-
-                завершении, например метод Delete, поле содержит объект
-
-                [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty).
-                Если исходный метод — это стандартный метод Create
-
-                / Update, поле содержит целевой ресурс операции. Если метод
-
-                возвращает ресурс Operation, в описании метода приведена
-
-                структура соответствующего ему поля `response`.
-              type: object
+              Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+            type: string
+            format: date-time
+          done:
+            description: |-
+              Если значение равно `false` — операция еще
+              выполняется. Если `true` — операция завершена, и задано значение
+              одного из полей `error` или `response`.
+            type: boolean
+            format: boolean
+          metadata:
+            description: |-
+              Метаданные операции. Обычно в поле содержится
+              идентификатор ресурса, над которым выполняется операция. Если
+              метод возвращает ресурс Operation, в описании метода приведена
+              структура соответствующего ему поля `metadata`.
+            type: object
+      - title: result
+        type: object
+        maxProperties: 1
+        properties:
+          error:
+            $ref: '#/components/schemas/rpcStatus'
+            description: Описание ошибки в случае сбоя или отмены операции.
+          response:
+            description: |-
+              Результат операции в случае успешного завершения. Если
+              исходный метод не возвращает никаких данных при успешном
+              завершении, например метод Delete, поле содержит объект
+              [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty). Если исходный метод — это стандартный метод Create
+              / Update, поле содержит целевой ресурс операции. Если метод
+              возвращает ресурс Operation, в описании метода приведена
+              структура соответствующего ему поля `response`.
+            type: object
     PrimaryAddress:
       type: object
       properties:
         address:
-          description: >-
-            Внутренний IPv4-адрес, назначенный виртуальной машине для данного
-            сетевого интерфейса.
-
-            Если не указано, системой будет назначен неиспользуемый внутренний
-            IP-адрес.
+          description: |-
+            Внутренний IPv4-адрес, назначенный виртуальной машине для данного сетевого интерфейса.
+            Если не указано, системой будет назначен неиспользуемый внутренний IP-адрес.
           type: string
         oneToOneNat:
           $ref: '#/components/schemas/OneToOneNat_in_PrimaryAddress_oneToOneNat'
@@ -1633,8 +1276,7 @@ components:
       type: object
       properties:
         oneToOneNatSpec:
-          $ref: >-
-            #/components/schemas/OneToOneNatSpec_in_PrimaryAddressSpec_oneToOneNatSpec
+          $ref: '#/components/schemas/OneToOneNatSpec_in_PrimaryAddressSpec_oneToOneNatSpec'
     ResourcesSpec:
       type: object
       properties:
@@ -1646,24 +1288,17 @@ components:
           type: string
           format: int64
         cores:
-          description: >-
+          description: |-
             Количество ядер, доступное виртуальной машине.
 
-
-            Значение должно быть равно 1, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20,
-            22, 24, 26, 28, 30, 32, 34, 36, 40, 44, 48, 52, 56, 60 или 64.
+            Значение должно быть равно 1, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 40, 44, 48, 52, 56, 60 или 64.
           type: string
           format: int64
         coreFraction:
-          description: >-
-            Базовый уровень производительности CPU с возможностью повышения
-            производительности
-
-            выше этого уровня. Это поле устанавливает базовую производительность
-            для каждого
-
+          description: |-
+            Базовый уровень производительности CPU с возможностью повышения производительности
+            выше этого уровня. Это поле устанавливает базовую производительность для каждого
             ядра.
-
 
             Значение должно быть равно 0, 5, 20, 50 или 100.
           type: string
@@ -1678,22 +1313,18 @@ components:
     ScalePolicy:
       type: object
       allOf:
-        - title: scale_type
-          type: object
-          maxProperties: 1
-          properties:
-            fixedScale:
-              $ref: '#/components/schemas/ScalePolicyFixedScale'
-              description: >-
-                [Политика
-                масштабирования](/docs/compute/concepts/instance-groups/policies/scale-policy#fixed-scale-policy)
-                группы виртуальных машин.
-            autoScale:
-              $ref: '#/components/schemas/ScalePolicyAutoScale'
-              description: >-
-                [Политика автоматического
-                масштабирования](/docs/compute/concepts/instance-groups/policies/scale-policy#auto-scale-policy)
-                группы виртуальных машин.
+      - title: scale_type
+        type: object
+        maxProperties: 1
+        properties:
+          fixedScale:
+            $ref: '#/components/schemas/ScalePolicyFixedScale'
+            description: '[Политика масштабирования](/docs/compute/concepts/instance-groups/policies/scale-policy#fixed-scale-policy)
+              группы виртуальных машин.'
+          autoScale:
+            $ref: '#/components/schemas/ScalePolicyAutoScale'
+            description: '[Политика автоматического масштабирования](/docs/compute/concepts/instance-groups/policies/scale-policy#auto-scale-policy)
+              группы виртуальных машин.'
     ScalePolicyAutoScale:
       type: object
       properties:
@@ -1705,12 +1336,9 @@ components:
           type: string
           format: int64
         maxSize:
-          description: >-
-            Максимальное общее количество виртуальных машин (по всем зонам). 0
-            означает
-
+          description: |-
+            Максимальное общее количество виртуальных машин (по всем зонам). 0 означает
             максимальное значение — 100.
-
 
             Допустимые значения — от 0 до 100 включительно.
           type: string
@@ -1723,29 +1351,18 @@ components:
             Допустимые значения — от 60 seconds до 600 seconds включительно.
           type: string
         warmupDuration:
-          description: >-
-            Время прогрева виртуальной машины в секундах. В течение этого
-            времени трафик
-
-            подается на виртуальную машину, но метрики с этой машины не
-            учитываются.
-
+          description: |-
+            Время прогрева виртуальной машины в секундах. В течение этого времени трафик
+            подается на виртуальную машину, но метрики с этой машины не учитываются.
 
             Максимальное значение — 600 seconds.
           type: string
         stabilizationDuration:
-          description: >-
-            Минимальный временной интервал в секундах для мониторинга, перед тем
-            как Instance Groups
-
-            сможет уменьшить количество виртуальных машин в группе. В течение
-            этого времени
-
-            размер группы не уменьшается, даже если новые значения метрики
-            указывают, что он
-
+          description: |-
+            Минимальный временной интервал в секундах для мониторинга, перед тем как Instance Groups
+            сможет уменьшить количество виртуальных машин в группе. В течение этого времени
+            размер группы не уменьшается, даже если новые значения метрики указывают, что он
             должен уменьшаться.
-
 
             Допустимые значения — от 60 seconds до 1800 seconds включительно.
           type: string
@@ -1757,15 +1374,11 @@ components:
           type: string
           format: int64
         cpuUtilizationRule:
-          $ref: >-
-            #/components/schemas/ScalePolicyCpuUtilizationRule_in_ScalePolicyAutoScale_cpuUtilizationRule
+          $ref: '#/components/schemas/ScalePolicyCpuUtilizationRule_in_ScalePolicyAutoScale_cpuUtilizationRule'
         customRules:
-          description: >-
-            Определяет правило автомасштабирования на основе [пользовательской
-            метрики](/docs/monitoring/operations/metric/add) из
-
+          description: |-
+            Определяет правило автомасштабирования на основе [пользовательской метрики](/docs/monitoring/operations/metric/add) из
             Yandex Monitoring.
-
 
             Максимальное количество элементов — 1.
           type: array
@@ -1775,12 +1388,9 @@ components:
       type: object
       properties:
         utilizationTarget:
-          description: >-
-            Целевой уровень нагрузки CPU. Instance Groups будет поддерживать
-            этот уровень для каждой
-
+          description: |-
+            Целевой уровень нагрузки CPU. Instance Groups будет поддерживать этот уровень для каждой
             зоны доступности.
-
 
             Допустимые значения — от 10 до 100 включительно.
           type: number
@@ -1789,76 +1399,54 @@ components:
       type: object
       properties:
         ruleType:
-          $ref: >-
-            #/components/schemas/ScalePolicyCustomRuleRuleType_in_ScalePolicyCustomRule_ruleType
+          $ref: '#/components/schemas/ScalePolicyCustomRuleRuleType_in_ScalePolicyCustomRule_ruleType'
         metricType:
-          $ref: >-
-            #/components/schemas/ScalePolicyCustomRuleMetricType_in_ScalePolicyCustomRule_metricType
+          $ref: '#/components/schemas/ScalePolicyCustomRuleMetricType_in_ScalePolicyCustomRule_metricType'
         metricName:
-          description: >-
+          description: |-
             Обязательное поле.
-
-            Название пользовательской метрики в Yandex Monitoring, которая
-            должна использоваться для
-
+            Название пользовательской метрики в Yandex Monitoring, которая должна использоваться для
             масштабирования.
 
-
-            Значение должно соответствовать регулярному выражению ``
-            [a-zA-Z0-9./@_][ 0-9a-zA-Z./@_,:;()\[\]<>-]{0,198} ``.
+            Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9./@_][ 0-9a-zA-Z./@_,:;()\[\]<>-]{0,198} ``.
           type: string
         target:
-          description: >-
-            Целевое значение для пользовательской метрики. Instance Groups будет
-            поддерживать этот
-
+          description: |-
+            Целевое значение для пользовательской метрики. Instance Groups будет поддерживать этот
             уровень для каждой зоны доступности.
-
 
             Значение должно быть больше 0.
           type: number
           format: double
     ScalePolicyCustomRuleMetricType:
-      description: >2-
+      description: |2-
          - GAUGE: Этот тип используется для метрик, отображающих значение метрики в определенный
-        момент времени, например количество запросов в секунду к серверу на
-        виртуальной
-
+        момент времени, например количество запросов в секунду к серверу на виртуальной
         машине.
 
-
-        Instance Groups вычисляет среднее значение метрики за период, указанный
-        в поле
-
+        Instance Groups вычисляет среднее значение метрики за период, указанный в поле
         `measurementDuration`.
          - COUNTER: Этот тип используется для метрик, которые монотонно растут со временем, например
         для общего количества запросов к серверу на виртуальной машине.
 
-
-        Instance Groups вычисляет средний прирост метрики за период, указанный в
-        поле
-
+        Instance Groups вычисляет средний прирост метрики за период, указанный в поле
         `measurementDuration`.
       type: string
       enum:
-        - GAUGE
-        - COUNTER
+      - GAUGE
+      - COUNTER
     ScalePolicyCustomRuleRuleType:
-      description: >2-
+      description: |2-
          - UTILIZATION: Этот тип означает, что метрика применяется к одной виртуальной машине. Сначала
-        Instance Groups вычисляет среднее значение метрики для каждой
-        виртуальной машины, а
-
-        затем усредняет значения для машин в одной зоне доступности. Этот тип
-        метрики
-
+        Instance Groups вычисляет среднее значение метрики для каждой виртуальной машины, а
+        затем усредняет значения для машин в одной зоне доступности. Этот тип метрики
         должен иметь метку `instance_id`.
          - WORKLOAD: Этот тип означает, что метрика применяется к виртуальным машинам из одной зоны
         доступности. Этот тип метрики должен иметь метку `zone_id`.
       type: string
       enum:
-        - UTILIZATION
-        - WORKLOAD
+      - UTILIZATION
+      - WORKLOAD
     ScalePolicyFixedScale:
       type: object
       properties:
@@ -1873,16 +1461,10 @@ components:
       type: object
       properties:
         preemptible:
-          description: >-
-            Прерываемые виртуальные машины будут принудительно остановлены в
-            срок, не
-
-            превышающий 24 часа с момента их создания. Остановленные виртуальные
-            машины можно
-
-            запустить повторно, без потери данных. Дополнительные сведения см. в
-            разделе [Прерываемые виртуальные
-            машины](/docs/compute/concepts/preemptible-vm).
+          description: |-
+            Прерываемые виртуальные машины будут принудительно остановлены в срок, не
+            превышающий 24 часа с момента их создания. Остановленные виртуальные машины можно
+            запустить повторно, без потери данных. Дополнительные сведения см. в разделе [Прерываемые виртуальные машины](/docs/compute/concepts/preemptible-vm).
           type: boolean
           format: boolean
     StartInstanceGroupMetadata:
@@ -1901,12 +1483,10 @@ components:
       type: object
       properties:
         name:
-          description: >-
+          description: |-
             Имя целевой группы.
 
-
-            Значение должно соответствовать регулярному выражению ``
-            |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+            Значение должно соответствовать регулярному выражению `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
           type: string
         description:
           description: |-
@@ -1915,21 +1495,14 @@ components:
             Максимальная длина строки в символах — 256.
           type: string
         labels:
-          description: >-
+          description: |-
             Метки ресурса в формате `ключ:значение`.
 
-
             Не более 64 на ресурс.
-
             Длина строки в символах для каждого ключа должна быть от 1 до 63.
-
-            Каждый ключ должен соответствовать регулярному выражению ``
-            [a-z][-_0-9a-z]* ``.
-
+            Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
             Максимальная длина строки в символах для каждого значения — 63.
-
-            Каждое значение должно соответствовать регулярному выражению ``
-            [-_0-9a-z]* ``.
+            Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.
           type: object
           additionalProperties:
             type: string
@@ -1937,12 +1510,9 @@ components:
       type: object
       properties:
         instanceGroupYaml:
-          description: >-
+          description: |-
             Обязательное поле.
-
-            [update](/docs/compute/api-ref/InstanceGroup/update) request in YAML
-            format.
-
+            [update](/docs/compute/api-ref/InstanceGroup/update) request in YAML format.
 
             Максимальная длина строки в символах — 1048576.
           type: string
@@ -1950,26 +1520,20 @@ components:
       type: object
       properties:
         instanceGroupId:
-          description: >-
-            Идентификатор изменяемого ресурса InstanceGroup. Чтобы получить
-            идентификатор группы
-
-            виртуальных машин, используйте запрос
-            [list](/docs/compute/api-ref/InstanceGroup/list).
+          description: |-
+            Идентификатор изменяемого ресурса InstanceGroup. Чтобы получить идентификатор группы
+            виртуальных машин, используйте запрос [list](/docs/compute/api-ref/InstanceGroup/list).
           type: string
     UpdateInstanceGroupRequest:
       type: object
       properties:
         updateMask:
-          $ref: >-
-            #/components/schemas/FieldMask_in_UpdateInstanceGroupRequest_updateMask
+          $ref: '#/components/schemas/FieldMask_in_UpdateInstanceGroupRequest_updateMask'
         name:
-          description: >-
+          description: |-
             Имя группы виртуальных машин.
 
-
-            Значение должно соответствовать регулярному выражению ``
-            |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+            Значение должно соответствовать регулярному выражению `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
           type: string
         description:
           description: |-
@@ -1978,72 +1542,46 @@ components:
             Максимальная длина строки в символах — 256.
           type: string
         labels:
-          description: >-
+          description: |-
             Метки ресурса в формате `ключ:значение`.
 
-
-            Существующий набор `labels` полностью перезаписывается набором,
-            переданным в запросе.
-
+            Существующий набор `labels` полностью перезаписывается набором, переданным в запросе.
 
             Не более 64 на ресурс.
-
             Длина строки в символах для каждого ключа должна быть от 1 до 63.
-
-            Каждый ключ должен соответствовать регулярному выражению ``
-            [a-z][-_0-9a-z]* ``.
-
+            Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
             Максимальная длина строки в символах для каждого значения — 63.
-
-            Каждое значение должно соответствовать регулярному выражению ``
-            [-_0-9a-z]* ``.
+            Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.
           type: object
           additionalProperties:
             type: string
         instanceTemplate:
-          $ref: >-
-            #/components/schemas/InstanceTemplate_in_UpdateInstanceGroupRequest_instanceTemplate
+          $ref: '#/components/schemas/InstanceTemplate_in_UpdateInstanceGroupRequest_instanceTemplate'
         scalePolicy:
-          $ref: >-
-            #/components/schemas/ScalePolicy_in_UpdateInstanceGroupRequest_scalePolicy
+          $ref: '#/components/schemas/ScalePolicy_in_UpdateInstanceGroupRequest_scalePolicy'
         deployPolicy:
-          $ref: >-
-            #/components/schemas/DeployPolicy_in_UpdateInstanceGroupRequest_deployPolicy
+          $ref: '#/components/schemas/DeployPolicy_in_UpdateInstanceGroupRequest_deployPolicy'
         allocationPolicy:
-          $ref: >-
-            #/components/schemas/AllocationPolicy_in_UpdateInstanceGroupRequest_allocationPolicy
+          $ref: '#/components/schemas/AllocationPolicy_in_UpdateInstanceGroupRequest_allocationPolicy'
         healthChecksSpec:
-          $ref: >-
-            #/components/schemas/HealthChecksSpec_in_UpdateInstanceGroupRequest_healthChecksSpec
+          $ref: '#/components/schemas/HealthChecksSpec_in_UpdateInstanceGroupRequest_healthChecksSpec'
         serviceAccountId:
-          description: >-
-            Идентификатор сервисного аккаунта. Сервисный аккаунт будет
-            использоваться для всех
-
-            вызовов API, выполняемых компонентом Instance Groups от имени
-            пользователя (например,
-
-            создание экземпляров, добавление их в целевую группу балансировщика
-            нагрузки и т.п.).
-
-            Дополнительные сведения см. в разделе [Сервисные
-            аккаунты](/docs/iam/concepts/users/service-accounts). Чтобы
-
+          description: |-
+            Идентификатор сервисного аккаунта. Сервисный аккаунт будет использоваться для всех
+            вызовов API, выполняемых компонентом Instance Groups от имени пользователя (например,
+            создание экземпляров, добавление их в целевую группу балансировщика нагрузки и т.п.).
+            Дополнительные сведения см. в разделе [Сервисные аккаунты](/docs/iam/concepts/users/service-accounts). Чтобы
             получить идентификатор сервисного аккаунта, используйте запрос
-
             [list](/docs/iam/api-ref/ServiceAccount/list).
           type: string
         loadBalancerSpec:
-          $ref: >-
-            #/components/schemas/LoadBalancerSpec_in_UpdateInstanceGroupRequest_loadBalancerSpec
+          $ref: '#/components/schemas/LoadBalancerSpec_in_UpdateInstanceGroupRequest_loadBalancerSpec'
     rpcStatus:
       description: Описание ошибки в случае сбоя или отмены операции.
       type: object
       properties:
         code:
-          description: >-
-            Код ошибки. Значение из списка
-            [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
+          description: Код ошибки. Значение из списка [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
           type: integer
           format: int32
         message:
@@ -2063,54 +1601,51 @@ components:
          - READ_WRITE: Доступ на чтение и запись.
       type: string
       enum:
-        - READ_ONLY
-        - READ_WRITE
+      - READ_ONLY
+      - READ_WRITE
     AttachedDiskSpecDiskSpec_in_AttachedDiskSpec_diskSpec:
-      description: >-
+      description: |-
         Обязательное поле.
-
         Спецификация загрузочного диска, для подключения к виртуальной машине.
-
-        Дополнительные сведения см. в разделе
-        [Диски](/docs/compute/concepts/disk).
+        Дополнительные сведения см. в разделе [Диски](/docs/compute/concepts/disk).
       type: object
       allOf:
-        - type: object
-          properties:
-            description:
-              description: |-
-                Описание диска.
+      - type: object
+        properties:
+          description:
+            description: |-
+              Описание диска.
 
-                Максимальная длина строки в символах — 256.
-              type: string
-            typeId:
-              description: |-
-                Обязательное поле.
-                Идентификатор типа диска.
-              type: string
-            size:
-              description: |-
-                Размер диска в байтах.
+              Максимальная длина строки в символах — 256.
+            type: string
+          typeId:
+            description: |-
+              Обязательное поле.
+              Идентификатор типа диска.
+            type: string
+          size:
+            description: |-
+              Размер диска в байтах.
 
-                Допустимые значения — от 4194304 до 4398046511104 включительно.
-              type: string
-              format: int64
-        - title: source_oneof
-          type: object
-          maxProperties: 1
-          properties:
-            imageId:
-              description: |-
-                Идентификатор образа, из которого будет создан диск.
+              Допустимые значения — от 4194304 до 4398046511104 включительно.
+            type: string
+            format: int64
+      - title: source_oneof
+        type: object
+        maxProperties: 1
+        properties:
+          imageId:
+            description: |-
+              Идентификатор образа, из которого будет создан диск.
 
-                Максимальная длина строки в символах — 50.
-              type: string
-            snapshotId:
-              description: |-
-                Идентификатор снимка, из которого будет создан диск.
+              Максимальная длина строки в символах — 50.
+            type: string
+          snapshotId:
+            description: |-
+              Идентификатор снимка, из которого будет создан диск.
 
-                Максимальная длина строки в символах — 50.
-              type: string
+              Максимальная длина строки в символах — 50.
+            type: string
     InstanceTemplate_in_CreateInstanceGroupRequest_instanceTemplate:
       description: |-
         Обязательное поле.
@@ -2124,122 +1659,85 @@ components:
             Максимальная длина строки в символах — 256.
           type: string
         labels:
-          description: >-
+          description: |-
             Метки ресурса в формате `ключ:значение`.
 
-
             Не более 64 на ресурс.
-
             Длина строки в символах для каждого ключа должна быть от 1 до 63.
-
-            Каждый ключ должен соответствовать регулярному выражению ``
-            [a-z][-_0-9a-z]* ``.
-
+            Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
             Максимальная длина строки в символах для каждого значения — 63.
-
-            Каждое значение должно соответствовать регулярному выражению ``
-            [-_0-9a-z]* ``.
+            Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.
           type: object
           additionalProperties:
             type: string
         platformId:
-          description: >-
+          description: |-
             Обязательное поле.
-
-            Идентификатор аппаратной платформы виртуальной машины. Платформы
-            позволяют
-
-            создавать виртуальные машины разных типов: с большим объемом памяти,
-            с большим
-
-            количеством ядер или с высокой производительностью. Дополнительные
-            сведения см. в
-
+            Идентификатор аппаратной платформы виртуальной машины. Платформы позволяют
+            создавать виртуальные машины разных типов: с большим объемом памяти, с большим
+            количеством ядер или с высокой производительностью. Дополнительные сведения см. в
             разделе [Платформы](/docs/compute/concepts/vm-platforms).
           type: string
         resourcesSpec:
           $ref: '#/components/schemas/ResourcesSpec_in_InstanceTemplate_resourcesSpec'
         metadata:
-          description: >-
-            Метаданные, назначаемые этому шаблону виртуальной машины, в формате
-            `ключ:значение`. Сюда
-
+          description: |-
+            Метаданные, назначаемые этому шаблону виртуальной машины, в формате `ключ:значение`. Сюда
             входят пользовательские метаданные и предопределенные ключи.
 
-
-            Например, можно использовать метаданные для доставки открытого ключа
-            SSH на
-
-            виртуальную машину. Дополнительные сведения см. в разделе
-            [Метаданные виртуальной машины](/docs/compute/concepts/vm-metadata).
-
+            Например, можно использовать метаданные для доставки открытого ключа SSH на
+            виртуальную машину. Дополнительные сведения см. в разделе [Метаданные виртуальной машины](/docs/compute/concepts/vm-metadata).
 
             Не более 128 на ресурс.
-
             Длина строки в символах для каждого ключа должна быть от 1 до 63.
-
-            Каждый ключ должен соответствовать регулярному выражению ``
-            [a-z][-_0-9a-z]* ``.
-
+            Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
             Максимальная длина строки в символах для каждого значения — 262144.
           type: object
           additionalProperties:
             type: string
         bootDiskSpec:
-          $ref: >-
-            #/components/schemas/AttachedDiskSpec_in_InstanceTemplate_bootDiskSpec
+          $ref: '#/components/schemas/AttachedDiskSpec_in_InstanceTemplate_bootDiskSpec'
         secondaryDiskSpecs:
-          description: >-
-            Массив дополнительных дисков, которые будут подключенны к
-            виртуальной машине.
-
+          description: |-
+            Массив дополнительных дисков, которые будут подключенны к виртуальной машине.
 
             Максимальное количество элементов — 3.
           type: array
           items:
             $ref: '#/components/schemas/AttachedDiskSpec'
         networkInterfaceSpecs:
-          description: >-
+          description: |-
             Обязательное поле.
-
-            Массив сетевых интерфейсов, которые будут присоединены к виртуальной
-            машине.
-
+            Массив сетевых интерфейсов, которые будут присоединены к виртуальной машине.
 
             Должен содержать ровно 1 элемент.
           type: array
           items:
             $ref: '#/components/schemas/NetworkInterfaceSpec'
         schedulingPolicy:
-          $ref: >-
-            #/components/schemas/SchedulingPolicy_in_InstanceTemplate_schedulingPolicy
+          $ref: '#/components/schemas/SchedulingPolicy_in_InstanceTemplate_schedulingPolicy'
         serviceAccountId:
-          description: Идентификатор сервисного аккаунта для привязки к виртуальной машине.
+          description: Идентификатор сервисного аккаунта для привязки к виртуальной
+            машине.
           type: string
     ScalePolicy_in_CreateInstanceGroupRequest_scalePolicy:
-      description: >-
+      description: |-
         Обязательное поле.
-
-        [Политика масштабирования](/docs/compute/concepts/instance-groups/scale)
-        группы виртуальных машин.
+        [Политика масштабирования](/docs/compute/concepts/instance-groups/scale) группы виртуальных машин.
       type: object
       allOf:
-        - title: scale_type
-          type: object
-          maxProperties: 1
-          properties:
-            fixedScale:
-              $ref: '#/components/schemas/ScalePolicyFixedScale'
-              description: >-
-                [Политика
-                масштабирования](/docs/compute/concepts/instance-groups/policies/scale-policy#fixed-scale-policy)
-                группы виртуальных машин.
-            autoScale:
-              $ref: '#/components/schemas/ScalePolicyAutoScale'
-              description: >-
-                [Политика автоматического
-                масштабирования](/docs/compute/concepts/instance-groups/policies/scale-policy#auto-scale-policy)
-                группы виртуальных машин.
+      - title: scale_type
+        type: object
+        maxProperties: 1
+        properties:
+          fixedScale:
+            $ref: '#/components/schemas/ScalePolicyFixedScale'
+            description: '[Политика масштабирования](/docs/compute/concepts/instance-groups/policies/scale-policy#fixed-scale-policy)
+              группы виртуальных машин.'
+          autoScale:
+            $ref: '#/components/schemas/ScalePolicyAutoScale'
+            description: '[Политика автоматического масштабирования](/docs/compute/concepts/instance-groups/policies/scale-policy#auto-scale-policy)
+              группы виртуальных машин.'
     DeployPolicy_in_CreateInstanceGroupRequest_deployPolicy:
       description: |-
         Обязательное поле.
@@ -2247,69 +1745,47 @@ components:
       type: object
       properties:
         maxUnavailable:
-          description: >-
-            Максимальное количество запущенных виртуальных машин, которое можно
-            одновременно
-
-            отключить (остановить или удалить) в процессе обновления группы.
-            Если `maxExpansion` не
-
+          description: |-
+            Максимальное количество запущенных виртуальных машин, которое можно одновременно
+            отключить (остановить или удалить) в процессе обновления группы. Если `maxExpansion` не
             указано или равно нулю, `maxUnavailable` должно быть ненулевым.
-
 
             Допустимые значения — от 0 до 100 включительно.
           type: string
           format: int64
         maxDeleting:
-          description: >-
+          description: |-
             Максимальное количество удаляемых одновременно виртуальных машин.
 
-
-            Значение 0 — любое количество виртуальных машин в рамках допустимых
-            значений.
-
+            Значение 0 — любое количество виртуальных машин в рамках допустимых значений.
 
             Допустимые значения — от 0 до 100 включительно.
           type: string
           format: int64
         maxCreating:
-          description: >-
+          description: |-
             Максимальное количество создаваемых одновременно виртуальных машин.
 
-
-            Значение 0 — любое количество виртуальных машин в рамках допустимых
-            значений.
-
+            Значение 0 — любое количество виртуальных машин в рамках допустимых значений.
 
             Допустимые значения — от 0 до 100 включительно.
           type: string
           format: int64
         maxExpansion:
-          description: >-
-            Максимальное количество виртуальных машин, на которое можно
-            превысить целевой
-
-            размер группы в процессе ее обновления. Если `maxUnavailable` не
-            указан или равен нулю,
-
+          description: |-
+            Максимальное количество виртуальных машин, на которое можно превысить целевой
+            размер группы в процессе ее обновления. Если `maxUnavailable` не указан или равен нулю,
             `maxExpansion` должно быть ненулевым.
-
 
             Допустимые значения — от 0 до 100 включительно.
           type: string
           format: int64
         startupDuration:
-          description: >-
-            Продолжительность запуска виртуальной машины. Виртуальная машина
-            будет запущена и
-
-            начнет получать трафик только после того, как истечет
-            startup_duration и будут пройдены все
-
+          description: |-
+            Продолжительность запуска виртуальной машины. Виртуальная машина будет запущена и
+            начнет получать трафик только после того, как истечет startup_duration и будут пройдены все
             проверки работоспособности. Подробное описание см. в
-
             `ManagedInstanceStatus`.
-
 
             Допустимые значения — от 0 seconds до 3600 seconds включительно.
           type: string
@@ -2333,35 +1809,25 @@ components:
       type: object
       properties:
         targetGroupSpec:
-          $ref: >-
-            #/components/schemas/TargetGroupSpec_in_LoadBalancerSpec_targetGroupSpec
+          $ref: '#/components/schemas/TargetGroupSpec_in_LoadBalancerSpec_targetGroupSpec'
     HealthChecksSpec_in_CreateInstanceGroupRequest_healthChecksSpec:
-      description: >-
-        Спецификация проверки работоспособности. Дополнительные сведения см. в
-        разделе [Проверка состояния
-        ресурсов](/docs/network-load-balancer/concepts/health-check).
+      description: Спецификация проверки работоспособности. Дополнительные сведения
+        см. в разделе [Проверка состояния ресурсов](/docs/load-balancer/concepts/health-check).
       type: object
       properties:
         healthCheckSpecs:
-          description: >-
+          description: |-
             Обязательное поле.
-
-            Спецификация проверки работоспособности. Дополнительные сведения см.
-            в разделе [Проверка состояния
-            ресурсов](/docs/network-load-balancer/concepts/health-check).
-
+            Спецификация проверки работоспособности. Дополнительные сведения см. в разделе [Проверка состояния ресурсов](/docs/load-balancer/concepts/health-check).
 
             Минимальное количество элементов — 1.
           type: array
           items:
             $ref: '#/components/schemas/HealthCheckSpec'
     InstanceTemplate_in_InstanceGroup_instanceTemplate:
-      description: >-
-        Шаблон виртуальной машины для создания группы ВМ. Дополнительные
-        сведения см. в
-
-        разделе [Шаблон виртуальной
-        машины](/docs/compute/concepts/instance-groups/instance-template).
+      description: |-
+        Шаблон виртуальной машины для создания группы ВМ. Дополнительные сведения см. в
+        разделе [Шаблон виртуальной машины](/docs/compute/concepts/instance-groups/instance-template).
       type: object
       properties:
         description:
@@ -2371,186 +1837,129 @@ components:
             Максимальная длина строки в символах — 256.
           type: string
         labels:
-          description: >-
+          description: |-
             Метки ресурса в формате `ключ:значение`.
 
-
             Не более 64 на ресурс.
-
             Длина строки в символах для каждого ключа должна быть от 1 до 63.
-
-            Каждый ключ должен соответствовать регулярному выражению ``
-            [a-z][-_0-9a-z]* ``.
-
+            Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
             Максимальная длина строки в символах для каждого значения — 63.
-
-            Каждое значение должно соответствовать регулярному выражению ``
-            [-_0-9a-z]* ``.
+            Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.
           type: object
           additionalProperties:
             type: string
         platformId:
-          description: >-
+          description: |-
             Обязательное поле.
-
-            Идентификатор аппаратной платформы виртуальной машины. Платформы
-            позволяют
-
-            создавать виртуальные машины разных типов: с большим объемом памяти,
-            с большим
-
-            количеством ядер или с высокой производительностью. Дополнительные
-            сведения см. в
-
+            Идентификатор аппаратной платформы виртуальной машины. Платформы позволяют
+            создавать виртуальные машины разных типов: с большим объемом памяти, с большим
+            количеством ядер или с высокой производительностью. Дополнительные сведения см. в
             разделе [Платформы](/docs/compute/concepts/vm-platforms).
           type: string
         resourcesSpec:
           $ref: '#/components/schemas/ResourcesSpec_in_InstanceTemplate_resourcesSpec'
         metadata:
-          description: >-
-            Метаданные, назначаемые этому шаблону виртуальной машины, в формате
-            `ключ:значение`. Сюда
-
+          description: |-
+            Метаданные, назначаемые этому шаблону виртуальной машины, в формате `ключ:значение`. Сюда
             входят пользовательские метаданные и предопределенные ключи.
 
-
-            Например, можно использовать метаданные для доставки открытого ключа
-            SSH на
-
-            виртуальную машину. Дополнительные сведения см. в разделе
-            [Метаданные виртуальной машины](/docs/compute/concepts/vm-metadata).
-
+            Например, можно использовать метаданные для доставки открытого ключа SSH на
+            виртуальную машину. Дополнительные сведения см. в разделе [Метаданные виртуальной машины](/docs/compute/concepts/vm-metadata).
 
             Не более 128 на ресурс.
-
             Длина строки в символах для каждого ключа должна быть от 1 до 63.
-
-            Каждый ключ должен соответствовать регулярному выражению ``
-            [a-z][-_0-9a-z]* ``.
-
+            Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
             Максимальная длина строки в символах для каждого значения — 262144.
           type: object
           additionalProperties:
             type: string
         bootDiskSpec:
-          $ref: >-
-            #/components/schemas/AttachedDiskSpec_in_InstanceTemplate_bootDiskSpec
+          $ref: '#/components/schemas/AttachedDiskSpec_in_InstanceTemplate_bootDiskSpec'
         secondaryDiskSpecs:
-          description: >-
-            Массив дополнительных дисков, которые будут подключенны к
-            виртуальной машине.
-
+          description: |-
+            Массив дополнительных дисков, которые будут подключенны к виртуальной машине.
 
             Максимальное количество элементов — 3.
           type: array
           items:
             $ref: '#/components/schemas/AttachedDiskSpec'
         networkInterfaceSpecs:
-          description: >-
+          description: |-
             Обязательное поле.
-
-            Массив сетевых интерфейсов, которые будут присоединены к виртуальной
-            машине.
-
+            Массив сетевых интерфейсов, которые будут присоединены к виртуальной машине.
 
             Должен содержать ровно 1 элемент.
           type: array
           items:
             $ref: '#/components/schemas/NetworkInterfaceSpec'
         schedulingPolicy:
-          $ref: >-
-            #/components/schemas/SchedulingPolicy_in_InstanceTemplate_schedulingPolicy
+          $ref: '#/components/schemas/SchedulingPolicy_in_InstanceTemplate_schedulingPolicy'
         serviceAccountId:
-          description: Идентификатор сервисного аккаунта для привязки к виртуальной машине.
+          description: Идентификатор сервисного аккаунта для привязки к виртуальной
+            машине.
           type: string
     ScalePolicy_in_InstanceGroup_scalePolicy:
       description: Политика масштабирования группы виртуальных машин.
       type: object
       allOf:
-        - title: scale_type
-          type: object
-          maxProperties: 1
-          properties:
-            fixedScale:
-              $ref: '#/components/schemas/ScalePolicyFixedScale'
-              description: >-
-                [Политика
-                масштабирования](/docs/compute/concepts/instance-groups/policies/scale-policy#fixed-scale-policy)
-                группы виртуальных машин.
-            autoScale:
-              $ref: '#/components/schemas/ScalePolicyAutoScale'
-              description: >-
-                [Политика автоматического
-                масштабирования](/docs/compute/concepts/instance-groups/policies/scale-policy#auto-scale-policy)
-                группы виртуальных машин.
+      - title: scale_type
+        type: object
+        maxProperties: 1
+        properties:
+          fixedScale:
+            $ref: '#/components/schemas/ScalePolicyFixedScale'
+            description: '[Политика масштабирования](/docs/compute/concepts/instance-groups/policies/scale-policy#fixed-scale-policy)
+              группы виртуальных машин.'
+          autoScale:
+            $ref: '#/components/schemas/ScalePolicyAutoScale'
+            description: '[Политика автоматического масштабирования](/docs/compute/concepts/instance-groups/policies/scale-policy#auto-scale-policy)
+              группы виртуальных машин.'
     DeployPolicy_in_InstanceGroup_deployPolicy:
       description: Политика развертывания группы виртуальных машин.
       type: object
       properties:
         maxUnavailable:
-          description: >-
-            Максимальное количество запущенных виртуальных машин, которое можно
-            одновременно
-
-            отключить (остановить или удалить) в процессе обновления группы.
-            Если `maxExpansion` не
-
+          description: |-
+            Максимальное количество запущенных виртуальных машин, которое можно одновременно
+            отключить (остановить или удалить) в процессе обновления группы. Если `maxExpansion` не
             указано или равно нулю, `maxUnavailable` должно быть ненулевым.
-
 
             Допустимые значения — от 0 до 100 включительно.
           type: string
           format: int64
         maxDeleting:
-          description: >-
+          description: |-
             Максимальное количество удаляемых одновременно виртуальных машин.
 
-
-            Значение 0 — любое количество виртуальных машин в рамках допустимых
-            значений.
-
+            Значение 0 — любое количество виртуальных машин в рамках допустимых значений.
 
             Допустимые значения — от 0 до 100 включительно.
           type: string
           format: int64
         maxCreating:
-          description: >-
+          description: |-
             Максимальное количество создаваемых одновременно виртуальных машин.
 
-
-            Значение 0 — любое количество виртуальных машин в рамках допустимых
-            значений.
-
+            Значение 0 — любое количество виртуальных машин в рамках допустимых значений.
 
             Допустимые значения — от 0 до 100 включительно.
           type: string
           format: int64
         maxExpansion:
-          description: >-
-            Максимальное количество виртуальных машин, на которое можно
-            превысить целевой
-
-            размер группы в процессе ее обновления. Если `maxUnavailable` не
-            указан или равен нулю,
-
+          description: |-
+            Максимальное количество виртуальных машин, на которое можно превысить целевой
+            размер группы в процессе ее обновления. Если `maxUnavailable` не указан или равен нулю,
             `maxExpansion` должно быть ненулевым.
-
 
             Допустимые значения — от 0 до 100 включительно.
           type: string
           format: int64
         startupDuration:
-          description: >-
-            Продолжительность запуска виртуальной машины. Виртуальная машина
-            будет запущена и
-
-            начнет получать трафик только после того, как истечет
-            startup_duration и будут пройдены все
-
+          description: |-
+            Продолжительность запуска виртуальной машины. Виртуальная машина будет запущена и
+            начнет получать трафик только после того, как истечет startup_duration и будут пройдены все
             проверки работоспособности. Подробное описание см. в
-
             `ManagedInstanceStatus`.
-
 
             Допустимые значения — от 0 seconds до 3600 seconds включительно.
           type: string
@@ -2586,26 +1995,20 @@ components:
           type: string
           format: int64
         runningActualCount:
-          description: >-
-            Число запущенных виртуальных машин, соответствующих текущему
-            шаблону.
-
+          description: |-
+            Число запущенных виртуальных машин, соответствующих текущему шаблону.
             Дополнительные сведения см. в разделе `RUNNING_ACTUAL`.
           type: string
           format: int64
         runningOutdatedCount:
-          description: >-
-            Число запущенных виртуальных машин, не соответствующих текущему
-            шаблону.
-
+          description: |-
+            Число запущенных виртуальных машин, не соответствующих текущему шаблону.
             Дополнительные сведения см. в разделе `RUNNING_OUTDATED`.
           type: string
           format: int64
         processingCount:
-          description: >-
-            Количество виртуальных машин, находящихся в процессе обновления,
-            запуска, удаления.
-
+          description: |-
+            Количество виртуальных машин, находящихся в процессе обновления, запуска, удаления.
             Дополнительные сведения см. в разделе `ManagedInstanceStatus`.
           type: string
           format: int64
@@ -2614,66 +2017,48 @@ components:
       type: object
       properties:
         targetGroupSpec:
-          $ref: >-
-            #/components/schemas/TargetGroupSpec_in_LoadBalancerSpec_targetGroupSpec
+          $ref: '#/components/schemas/TargetGroupSpec_in_LoadBalancerSpec_targetGroupSpec'
     HealthChecksSpec_in_InstanceGroup_healthChecksSpec:
-      description: >-
-        Спецификация проверки работоспособности. Дополнительные сведения см. в
-        разделе [Проверка состояния
-        ресурсов](/docs/network-load-balancer/concepts/health-check).
+      description: Спецификация проверки работоспособности. Дополнительные сведения
+        см. в разделе [Проверка состояния ресурсов](/docs/load-balancer/concepts/health-check).
       type: object
       properties:
         healthCheckSpecs:
-          description: >-
+          description: |-
             Обязательное поле.
-
-            Спецификация проверки работоспособности. Дополнительные сведения см.
-            в разделе [Проверка состояния
-            ресурсов](/docs/network-load-balancer/concepts/health-check).
-
+            Спецификация проверки работоспособности. Дополнительные сведения см. в разделе [Проверка состояния ресурсов](/docs/load-balancer/concepts/health-check).
 
             Минимальное количество элементов — 1.
           type: array
           items:
             $ref: '#/components/schemas/HealthCheckSpec'
     InstanceGroupStatus_in_InstanceGroup_status:
-      description: >-
+      description: |-
         Статус группы виртуальных машин.
 
          - STARTING: Группа виртуальных машин запускается и скоро станет активной.
          - ACTIVE: Группа виртуальных машин активна. В этом состоянии группа управляет виртуальными
-        машинами и контролирует их работоспособность, создавая, обновляя,
-        удаляя,
-
+        машинами и контролирует их работоспособность, создавая, обновляя, удаляя,
         останавливая и запуская их по мере необходимости. Чтобы
-
         остановить группу виртуальных машин, используйте запрос
-
         [stop](/docs/compute/api-ref/InstanceGroup/stop).
          - STOPPING: Группа виртуальных машин останавливается. Виртуальные машины группы прекращают
-        получать трафик от балансировщика (если таковой имеется), после чего
-        останавливаются.
+        получать трафик от балансировщика (если таковой имеется), после чего останавливаются.
          - STOPPED: Группа виртуальных машин остановлена. В этом состоянии группа не может быть
-        обновлена и не реагирует на любые изменения ее виртуальных машин. Чтобы
-        запустить
-
-        группу виртуальных машин, используйте запрос
-        [start](/docs/compute/api-ref/InstanceGroup/start).
+        обновлена и не реагирует на любые изменения ее виртуальных машин. Чтобы запустить
+        группу виртуальных машин, используйте запрос [start](/docs/compute/api-ref/InstanceGroup/start).
          - DELETING: Группа виртуальных машин удаляется.
       type: string
       enum:
-        - STARTING
-        - ACTIVE
-        - STOPPING
-        - STOPPED
-        - DELETING
+      - STARTING
+      - ACTIVE
+      - STOPPING
+      - STOPPED
+      - DELETING
     ResourcesSpec_in_InstanceTemplate_resourcesSpec:
-      description: >-
+      description: |-
         Обязательное поле.
-
-        Вычислительные ресурсы виртуальной машины, такие как объем памяти и
-        количество
-
+        Вычислительные ресурсы виртуальной машины, такие как объем памяти и количество
         ядер.
       type: object
       properties:
@@ -2685,24 +2070,17 @@ components:
           type: string
           format: int64
         cores:
-          description: >-
+          description: |-
             Количество ядер, доступное виртуальной машине.
 
-
-            Значение должно быть равно 1, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20,
-            22, 24, 26, 28, 30, 32, 34, 36, 40, 44, 48, 52, 56, 60 или 64.
+            Значение должно быть равно 1, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 40, 44, 48, 52, 56, 60 или 64.
           type: string
           format: int64
         coreFraction:
-          description: >-
-            Базовый уровень производительности CPU с возможностью повышения
-            производительности
-
-            выше этого уровня. Это поле устанавливает базовую производительность
-            для каждого
-
+          description: |-
+            Базовый уровень производительности CPU с возможностью повышения производительности
+            выше этого уровня. Это поле устанавливает базовую производительность для каждого
             ядра.
-
 
             Значение должно быть равно 0, 5, 20, 50 или 100.
           type: string
@@ -2715,68 +2093,47 @@ components:
           type: string
           format: int64
     AttachedDiskSpec_in_InstanceTemplate_bootDiskSpec:
-      description: >-
+      description: |-
         Обязательное поле.
-
-        Спецификация загрузочного диска, который будет подключен к виртуальной
-        машине.
+        Спецификация загрузочного диска, который будет подключен к виртуальной машине.
       type: object
       properties:
         mode:
           $ref: '#/components/schemas/AttachedDiskSpecMode_in_AttachedDiskSpec_mode'
         deviceName:
-          description: >-
-            Cерийный номер, который на виртуальной машине с операционной
-            системой Linux
-
+          description: |-
+            Cерийный номер, который на виртуальной машине с операционной системой Linux
             отображается в директории /dev/disk/by-id/.
 
-
-            Это значение может использоваться для ссылки на устройство внутри
-            виртуальной
-
+            Это значение может использоваться для ссылки на устройство внутри виртуальной
             машины при монтировании, изменении размера и т. д.
 
-
-            Значение должно соответствовать регулярному выражению ``
-            |[a-z][-_0-9a-z]{0,19} ``.
+            Значение должно соответствовать регулярному выражению `` |[a-z][-_0-9a-z]{0,19} ``.
           type: string
         diskSpec:
-          $ref: >-
-            #/components/schemas/AttachedDiskSpecDiskSpec_in_AttachedDiskSpec_diskSpec
+          $ref: '#/components/schemas/AttachedDiskSpecDiskSpec_in_AttachedDiskSpec_diskSpec'
     SchedulingPolicy_in_InstanceTemplate_schedulingPolicy:
       description: Политика планирования.
       type: object
       properties:
         preemptible:
-          description: >-
-            Прерываемые виртуальные машины будут принудительно остановлены в
-            срок, не
-
-            превышающий 24 часа с момента их создания. Остановленные виртуальные
-            машины можно
-
-            запустить повторно, без потери данных. Дополнительные сведения см. в
-            разделе [Прерываемые виртуальные
-            машины](/docs/compute/concepts/preemptible-vm).
+          description: |-
+            Прерываемые виртуальные машины будут принудительно остановлены в срок, не
+            превышающий 24 часа с момента их создания. Остановленные виртуальные машины можно
+            запустить повторно, без потери данных. Дополнительные сведения см. в разделе [Прерываемые виртуальные машины](/docs/compute/concepts/preemptible-vm).
           type: boolean
           format: boolean
     TargetGroupSpec_in_LoadBalancerSpec_targetGroupSpec:
-      description: >-
-        Спецификация целевой группы, к которой будет добавлена группа
-        виртуальных машин.
-
-        Дополнительные сведения см. в разделе [Целевые ресурсы и
-        группы](/docs/network-load-balancer/concepts/target-resources).
+      description: |-
+        Спецификация целевой группы, к которой будет добавлена группа виртуальных машин.
+        Дополнительные сведения см. в разделе [Целевые ресурсы и группы](/docs/load-balancer/concepts/target-resources).
       type: object
       properties:
         name:
-          description: >-
+          description: |-
             Имя целевой группы.
 
-
-            Значение должно соответствовать регулярному выражению ``
-            |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+            Значение должно соответствовать регулярному выражению `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
           type: string
         description:
           description: |-
@@ -2785,26 +2142,19 @@ components:
             Максимальная длина строки в символах — 256.
           type: string
         labels:
-          description: >-
+          description: |-
             Метки ресурса в формате `ключ:значение`.
 
-
             Не более 64 на ресурс.
-
             Длина строки в символах для каждого ключа должна быть от 1 до 63.
-
-            Каждый ключ должен соответствовать регулярному выражению ``
-            [a-z][-_0-9a-z]* ``.
-
+            Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
             Максимальная длина строки в символах для каждого значения — 63.
-
-            Каждое значение должно соответствовать регулярному выражению ``
-            [-_0-9a-z]* ``.
+            Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.
           type: object
           additionalProperties:
             type: string
     ManagedInstanceStatus_in_ManagedInstance_status:
-      description: >-
+      description: |-
         Статус виртуальной машины.
 
          - CREATING_INSTANCE: Виртуальная машина создается.
@@ -2823,84 +2173,67 @@ components:
          - RUNNING_ACTUAL: Виртуальная машина работает нормально, и ее конфигурация соответствует текущему
         InstanceTemplate.
          - RUNNING_OUTDATED: Виртуальная машина работает нормально, но ее конфигурация не соответствует
-        текущему InstanceTemplate. Будет обновлена, воссоздана или удалена в
-        ближайшее время.
+        текущему InstanceTemplate. Будет обновлена, воссоздана или удалена в ближайшее время.
          - STOPPED: Виртуальная машина остановлена.
          - DELETED: Виртуальная машина удалена.
       type: string
       enum:
-        - CREATING_INSTANCE
-        - UPDATING_INSTANCE
-        - DELETING_INSTANCE
-        - STARTING_INSTANCE
-        - STOPPING_INSTANCE
-        - AWAITING_STARTUP_DURATION
-        - CHECKING_HEALTH
-        - OPENING_TRAFFIC
-        - AWAITING_WARMUP_DURATION
-        - CLOSING_TRAFFIC
-        - RUNNING_ACTUAL
-        - RUNNING_OUTDATED
-        - STOPPED
-        - DELETED
+      - CREATING_INSTANCE
+      - UPDATING_INSTANCE
+      - DELETING_INSTANCE
+      - STARTING_INSTANCE
+      - STOPPING_INSTANCE
+      - AWAITING_STARTUP_DURATION
+      - CHECKING_HEALTH
+      - OPENING_TRAFFIC
+      - AWAITING_WARMUP_DURATION
+      - CLOSING_TRAFFIC
+      - RUNNING_ACTUAL
+      - RUNNING_OUTDATED
+      - STOPPED
+      - DELETED
     PrimaryAddress_in_NetworkInterface_primaryV4Address:
-      description: >-
-        Основной IPv4-адрес, который назначен виртуальной машине для данного
-        сетевого
-
+      description: |-
+        Основной IPv4-адрес, который назначен виртуальной машине для данного сетевого
         интерфейса.
       type: object
       properties:
         address:
-          description: >-
-            Внутренний IPv4-адрес, назначенный виртуальной машине для данного
-            сетевого интерфейса.
-
-            Если не указано, системой будет назначен неиспользуемый внутренний
-            IP-адрес.
+          description: |-
+            Внутренний IPv4-адрес, назначенный виртуальной машине для данного сетевого интерфейса.
+            Если не указано, системой будет назначен неиспользуемый внутренний IP-адрес.
           type: string
         oneToOneNat:
           $ref: '#/components/schemas/OneToOneNat_in_PrimaryAddress_oneToOneNat'
     PrimaryAddress_in_NetworkInterface_primaryV6Address:
-      description: >-
-        Основной IPv6-адрес, который назначен виртуальной машине для данного
-        сетевого
-
+      description: |-
+        Основной IPv6-адрес, который назначен виртуальной машине для данного сетевого
         интерфейса. IPv6 еще не доступен.
       type: object
       properties:
         address:
-          description: >-
-            Внутренний IPv4-адрес, назначенный виртуальной машине для данного
-            сетевого интерфейса.
-
-            Если не указано, системой будет назначен неиспользуемый внутренний
-            IP-адрес.
+          description: |-
+            Внутренний IPv4-адрес, назначенный виртуальной машине для данного сетевого интерфейса.
+            Если не указано, системой будет назначен неиспользуемый внутренний IP-адрес.
           type: string
         oneToOneNat:
           $ref: '#/components/schemas/OneToOneNat_in_PrimaryAddress_oneToOneNat'
     PrimaryAddressSpec_in_NetworkInterfaceSpec_primaryV4AddressSpec:
-      description: >-
-        Основной IPv4-адрес, который назначен виртуальной машине для данного
-        сетевого
-
+      description: |-
+        Основной IPv4-адрес, который назначен виртуальной машине для данного сетевого
         интерфейса.
       type: object
       properties:
         oneToOneNatSpec:
-          $ref: >-
-            #/components/schemas/OneToOneNatSpec_in_PrimaryAddressSpec_oneToOneNatSpec
+          $ref: '#/components/schemas/OneToOneNatSpec_in_PrimaryAddressSpec_oneToOneNatSpec'
     PrimaryAddressSpec_in_NetworkInterfaceSpec_primaryV6AddressSpec:
-      description: >-
-        Основной IPv6-адрес, который назначен виртуальной машине для данного
-        сетевого
-
+      description: |-
+        Основной IPv6-адрес, который назначен виртуальной машине для данного сетевого
         интерфейса. IPv6 еще не доступен.
       type: object
       properties:
         oneToOneNatSpec:
-          $ref: >-
-            #/components/schemas/OneToOneNatSpec_in_PrimaryAddressSpec_oneToOneNatSpec
+          $ref: '#/components/schemas/OneToOneNatSpec_in_PrimaryAddressSpec_oneToOneNatSpec'
     IpVersion_in_OneToOneNat_ipVersion:
       description: |-
         Версия публичного IP-адреса.
@@ -2909,8 +2242,8 @@ components:
          - IPV6: IPv6-адрес, на данный момент не доступен.
       type: string
       enum:
-        - IPV4
-        - IPV6
+      - IPV4
+      - IPV6
     IpVersion_in_OneToOneNatSpec_ipVersion:
       description: |-
         Версия IP для публичного IP-адреса.
@@ -2919,126 +2252,88 @@ components:
          - IPV6: IPv6-адрес, на данный момент не доступен.
       type: string
       enum:
-        - IPV4
-        - IPV6
+      - IPV4
+      - IPV6
     OneToOneNat_in_PrimaryAddress_oneToOneNat:
       description: Конфигурация one-to-one NAT. Если отсутствует, NAT не был настроен.
       type: object
       properties:
         address:
-          description: >-
-            Внутренний IPv4-адрес, назначенный виртуальной машине для данного
+          description: Внутренний IPv4-адрес, назначенный виртуальной машине для данного
             сетевого интерфейса.
           type: string
         ipVersion:
           $ref: '#/components/schemas/IpVersion_in_OneToOneNat_ipVersion'
     OneToOneNatSpec_in_PrimaryAddressSpec_oneToOneNatSpec:
-      description: >-
-        Конфигурация внешнего IP-адреса. Если не указана, то у виртуальной
-        машины не будет
-
+      description: |-
+        Конфигурация внешнего IP-адреса. Если не указана, то у виртуальной машины не будет
         доступа в интернет.
       type: object
       properties:
         ipVersion:
           $ref: '#/components/schemas/IpVersion_in_OneToOneNatSpec_ipVersion'
     ScalePolicyCpuUtilizationRule_in_ScalePolicyAutoScale_cpuUtilizationRule:
-      description: >-
-        Определяет правило автомасштабирования на основе средней нагрузки CPU
-        для группы
-
+      description: |-
+        Определяет правило автомасштабирования на основе средней нагрузки CPU для группы
         виртуальных машин.
       type: object
       properties:
         utilizationTarget:
-          description: >-
-            Целевой уровень нагрузки CPU. Instance Groups будет поддерживать
-            этот уровень для каждой
-
+          description: |-
+            Целевой уровень нагрузки CPU. Instance Groups будет поддерживать этот уровень для каждой
             зоны доступности.
-
 
             Допустимые значения — от 10 до 100 включительно.
           type: number
           format: double
     ScalePolicyCustomRuleRuleType_in_ScalePolicyCustomRule_ruleType:
-      description: >-
+      description: |-
         Обязательное поле.
-
-        Тип правил применения пользовательской метрики. Это поле влияет на то,
-        какая метка
-
-        из пользовательской метрики должна использоваться: `zone_id` или
-        `instance_id`.
+        Тип правил применения пользовательской метрики. Это поле влияет на то, какая метка
+        из пользовательской метрики должна использоваться: `zone_id` или `instance_id`.
 
          - UTILIZATION: Этот тип означает, что метрика применяется к одной виртуальной машине. Сначала
-        Instance Groups вычисляет среднее значение метрики для каждой
-        виртуальной машины, а
-
-        затем усредняет значения для машин в одной зоне доступности. Этот тип
-        метрики
-
+        Instance Groups вычисляет среднее значение метрики для каждой виртуальной машины, а
+        затем усредняет значения для машин в одной зоне доступности. Этот тип метрики
         должен иметь метку `instance_id`.
          - WORKLOAD: Этот тип означает, что метрика применяется к виртуальным машинам из одной зоны
         доступности. Этот тип метрики должен иметь метку `zone_id`.
       type: string
       enum:
-        - UTILIZATION
-        - WORKLOAD
+      - UTILIZATION
+      - WORKLOAD
     ScalePolicyCustomRuleMetricType_in_ScalePolicyCustomRule_metricType:
-      description: >-
+      description: |-
         Обязательное поле.
-
-        Тип подсчета пользовательской метрики. Это поле влияет на то, как
-        Instance Groups
-
+        Тип подсчета пользовательской метрики. Это поле влияет на то, как Instance Groups
         вычисляет среднее значение метрики.
 
          - GAUGE: Этот тип используется для метрик, отображающих значение метрики в определенный
-        момент времени, например количество запросов в секунду к серверу на
-        виртуальной
-
+        момент времени, например количество запросов в секунду к серверу на виртуальной
         машине.
 
-
-        Instance Groups вычисляет среднее значение метрики за период, указанный
-        в поле
-
+        Instance Groups вычисляет среднее значение метрики за период, указанный в поле
         `measurementDuration`.
          - COUNTER: Этот тип используется для метрик, которые монотонно растут со временем, например
         для общего количества запросов к серверу на виртуальной машине.
 
-
-        Instance Groups вычисляет средний прирост метрики за период, указанный в
-        поле
-
+        Instance Groups вычисляет средний прирост метрики за период, указанный в поле
         `measurementDuration`.
       type: string
       enum:
-        - GAUGE
-        - COUNTER
+      - GAUGE
+      - COUNTER
     FieldMask_in_UpdateInstanceGroupRequest_updateMask:
-      description: >-
+      description: |-
         Маска, определяющая, какие поля ресурса InstanceGroup будут обновлены.
 
-
         Имена всех обновляемых полей, разделенные запятыми.
+        Только значения указанных полей будут изменены. Остальные останутся нетронутыми.
+        Если поле указано в параметре `` updateMask `` и в запросе не было отправлено значение для этого поля,
+        значение поля будет сброшено на значение по умолчанию. Значение по умолчанию для большинства полей — null или 0.
 
-        Только значения указанных полей будут изменены. Остальные останутся
-        нетронутыми.
-
-        Если поле указано в параметре `` updateMask `` и в запросе не было
-        отправлено значение для этого поля,
-
-        значение поля будет сброшено на значение по умолчанию. Значение по
-        умолчанию для большинства полей — null или 0.
-
-
-        Если в запросе не передается `` updateMask ``, значения всех полей будут
-        обновлены.
-
+        Если в запросе не передается `` updateMask ``, значения всех полей будут обновлены.
         Для полей, указанных в запросе, будут использованы переданные значения.
-
         Значения остальных полей будут сброшены на значения по умолчанию.
       type: string
     InstanceTemplate_in_UpdateInstanceGroupRequest_instanceTemplate:
@@ -3054,122 +2349,85 @@ components:
             Максимальная длина строки в символах — 256.
           type: string
         labels:
-          description: >-
+          description: |-
             Метки ресурса в формате `ключ:значение`.
 
-
             Не более 64 на ресурс.
-
             Длина строки в символах для каждого ключа должна быть от 1 до 63.
-
-            Каждый ключ должен соответствовать регулярному выражению ``
-            [a-z][-_0-9a-z]* ``.
-
+            Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
             Максимальная длина строки в символах для каждого значения — 63.
-
-            Каждое значение должно соответствовать регулярному выражению ``
-            [-_0-9a-z]* ``.
+            Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.
           type: object
           additionalProperties:
             type: string
         platformId:
-          description: >-
+          description: |-
             Обязательное поле.
-
-            Идентификатор аппаратной платформы виртуальной машины. Платформы
-            позволяют
-
-            создавать виртуальные машины разных типов: с большим объемом памяти,
-            с большим
-
-            количеством ядер или с высокой производительностью. Дополнительные
-            сведения см. в
-
+            Идентификатор аппаратной платформы виртуальной машины. Платформы позволяют
+            создавать виртуальные машины разных типов: с большим объемом памяти, с большим
+            количеством ядер или с высокой производительностью. Дополнительные сведения см. в
             разделе [Платформы](/docs/compute/concepts/vm-platforms).
           type: string
         resourcesSpec:
           $ref: '#/components/schemas/ResourcesSpec_in_InstanceTemplate_resourcesSpec'
         metadata:
-          description: >-
-            Метаданные, назначаемые этому шаблону виртуальной машины, в формате
-            `ключ:значение`. Сюда
-
+          description: |-
+            Метаданные, назначаемые этому шаблону виртуальной машины, в формате `ключ:значение`. Сюда
             входят пользовательские метаданные и предопределенные ключи.
 
-
-            Например, можно использовать метаданные для доставки открытого ключа
-            SSH на
-
-            виртуальную машину. Дополнительные сведения см. в разделе
-            [Метаданные виртуальной машины](/docs/compute/concepts/vm-metadata).
-
+            Например, можно использовать метаданные для доставки открытого ключа SSH на
+            виртуальную машину. Дополнительные сведения см. в разделе [Метаданные виртуальной машины](/docs/compute/concepts/vm-metadata).
 
             Не более 128 на ресурс.
-
             Длина строки в символах для каждого ключа должна быть от 1 до 63.
-
-            Каждый ключ должен соответствовать регулярному выражению ``
-            [a-z][-_0-9a-z]* ``.
-
+            Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
             Максимальная длина строки в символах для каждого значения — 262144.
           type: object
           additionalProperties:
             type: string
         bootDiskSpec:
-          $ref: >-
-            #/components/schemas/AttachedDiskSpec_in_InstanceTemplate_bootDiskSpec
+          $ref: '#/components/schemas/AttachedDiskSpec_in_InstanceTemplate_bootDiskSpec'
         secondaryDiskSpecs:
-          description: >-
-            Массив дополнительных дисков, которые будут подключенны к
-            виртуальной машине.
-
+          description: |-
+            Массив дополнительных дисков, которые будут подключенны к виртуальной машине.
 
             Максимальное количество элементов — 3.
           type: array
           items:
             $ref: '#/components/schemas/AttachedDiskSpec'
         networkInterfaceSpecs:
-          description: >-
+          description: |-
             Обязательное поле.
-
-            Массив сетевых интерфейсов, которые будут присоединены к виртуальной
-            машине.
-
+            Массив сетевых интерфейсов, которые будут присоединены к виртуальной машине.
 
             Должен содержать ровно 1 элемент.
           type: array
           items:
             $ref: '#/components/schemas/NetworkInterfaceSpec'
         schedulingPolicy:
-          $ref: >-
-            #/components/schemas/SchedulingPolicy_in_InstanceTemplate_schedulingPolicy
+          $ref: '#/components/schemas/SchedulingPolicy_in_InstanceTemplate_schedulingPolicy'
         serviceAccountId:
-          description: Идентификатор сервисного аккаунта для привязки к виртуальной машине.
+          description: Идентификатор сервисного аккаунта для привязки к виртуальной
+            машине.
           type: string
     ScalePolicy_in_UpdateInstanceGroupRequest_scalePolicy:
-      description: >-
+      description: |-
         Обязательное поле.
-
-        [Политика масштабирования](/docs/compute/concepts/instance-groups/scale)
-        группы виртуальных машин.
+        [Политика масштабирования](/docs/compute/concepts/instance-groups/scale) группы виртуальных машин.
       type: object
       allOf:
-        - title: scale_type
-          type: object
-          maxProperties: 1
-          properties:
-            fixedScale:
-              $ref: '#/components/schemas/ScalePolicyFixedScale'
-              description: >-
-                [Политика
-                масштабирования](/docs/compute/concepts/instance-groups/policies/scale-policy#fixed-scale-policy)
-                группы виртуальных машин.
-            autoScale:
-              $ref: '#/components/schemas/ScalePolicyAutoScale'
-              description: >-
-                [Политика автоматического
-                масштабирования](/docs/compute/concepts/instance-groups/policies/scale-policy#auto-scale-policy)
-                группы виртуальных машин.
+      - title: scale_type
+        type: object
+        maxProperties: 1
+        properties:
+          fixedScale:
+            $ref: '#/components/schemas/ScalePolicyFixedScale'
+            description: '[Политика масштабирования](/docs/compute/concepts/instance-groups/policies/scale-policy#fixed-scale-policy)
+              группы виртуальных машин.'
+          autoScale:
+            $ref: '#/components/schemas/ScalePolicyAutoScale'
+            description: '[Политика автоматического масштабирования](/docs/compute/concepts/instance-groups/policies/scale-policy#auto-scale-policy)
+              группы виртуальных машин.'
     DeployPolicy_in_UpdateInstanceGroupRequest_deployPolicy:
       description: |-
         Обязательное поле.
@@ -3177,69 +2435,47 @@ components:
       type: object
       properties:
         maxUnavailable:
-          description: >-
-            Максимальное количество запущенных виртуальных машин, которое можно
-            одновременно
-
-            отключить (остановить или удалить) в процессе обновления группы.
-            Если `maxExpansion` не
-
+          description: |-
+            Максимальное количество запущенных виртуальных машин, которое можно одновременно
+            отключить (остановить или удалить) в процессе обновления группы. Если `maxExpansion` не
             указано или равно нулю, `maxUnavailable` должно быть ненулевым.
-
 
             Допустимые значения — от 0 до 100 включительно.
           type: string
           format: int64
         maxDeleting:
-          description: >-
+          description: |-
             Максимальное количество удаляемых одновременно виртуальных машин.
 
-
-            Значение 0 — любое количество виртуальных машин в рамках допустимых
-            значений.
-
+            Значение 0 — любое количество виртуальных машин в рамках допустимых значений.
 
             Допустимые значения — от 0 до 100 включительно.
           type: string
           format: int64
         maxCreating:
-          description: >-
+          description: |-
             Максимальное количество создаваемых одновременно виртуальных машин.
 
-
-            Значение 0 — любое количество виртуальных машин в рамках допустимых
-            значений.
-
+            Значение 0 — любое количество виртуальных машин в рамках допустимых значений.
 
             Допустимые значения — от 0 до 100 включительно.
           type: string
           format: int64
         maxExpansion:
-          description: >-
-            Максимальное количество виртуальных машин, на которое можно
-            превысить целевой
-
-            размер группы в процессе ее обновления. Если `maxUnavailable` не
-            указан или равен нулю,
-
+          description: |-
+            Максимальное количество виртуальных машин, на которое можно превысить целевой
+            размер группы в процессе ее обновления. Если `maxUnavailable` не указан или равен нулю,
             `maxExpansion` должно быть ненулевым.
-
 
             Допустимые значения — от 0 до 100 включительно.
           type: string
           format: int64
         startupDuration:
-          description: >-
-            Продолжительность запуска виртуальной машины. Виртуальная машина
-            будет запущена и
-
-            начнет получать трафик только после того, как истечет
-            startup_duration и будут пройдены все
-
+          description: |-
+            Продолжительность запуска виртуальной машины. Виртуальная машина будет запущена и
+            начнет получать трафик только после того, как истечет startup_duration и будут пройдены все
             проверки работоспособности. Подробное описание см. в
-
             `ManagedInstanceStatus`.
-
 
             Допустимые значения — от 0 seconds до 3600 seconds включительно.
           type: string
@@ -3259,34 +2495,26 @@ components:
           items:
             $ref: '#/components/schemas/AllocationPolicyZone'
     HealthChecksSpec_in_UpdateInstanceGroupRequest_healthChecksSpec:
-      description: >-
-        Спецификация проверки работоспособности. Дополнительные сведения см. в
-        разделе [Проверка состояния
-        ресурсов](/docs/network-load-balancer/concepts/health-check).
+      description: Спецификация проверки работоспособности. Дополнительные сведения
+        см. в разделе [Проверка состояния ресурсов](/docs/load-balancer/concepts/health-check).
       type: object
       properties:
         healthCheckSpecs:
-          description: >-
+          description: |-
             Обязательное поле.
-
-            Спецификация проверки работоспособности. Дополнительные сведения см.
-            в разделе [Проверка состояния
-            ресурсов](/docs/network-load-balancer/concepts/health-check).
-
+            Спецификация проверки работоспособности. Дополнительные сведения см. в разделе [Проверка состояния ресурсов](/docs/load-balancer/concepts/health-check).
 
             Минимальное количество элементов — 1.
           type: array
           items:
             $ref: '#/components/schemas/HealthCheckSpec'
     LoadBalancerSpec_in_UpdateInstanceGroupRequest_loadBalancerSpec:
-      description: >-
-        Спецификация балансировщика нагрузки для управления распределением
+      description: Спецификация балансировщика нагрузки для управления распределением
         нагрузки.
       type: object
       properties:
         targetGroupSpec:
-          $ref: >-
-            #/components/schemas/TargetGroupSpec_in_LoadBalancerSpec_targetGroupSpec
+          $ref: '#/components/schemas/TargetGroupSpec_in_LoadBalancerSpec_targetGroupSpec'
 tags:
-  - name: InstanceGroup
-    description: Набор методов для управления ресурсами InstanceGroup.
+- name: InstanceGroup
+  description: Набор методов для управления ресурсами InstanceGroup.

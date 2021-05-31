@@ -59,8 +59,8 @@ topic_aliases | **map<string,string>**<br>Алиас топика устройс
 Поле | Описание
 --- | ---
 id | **oneof:** `registry_id` или `folder_id`<br>
-&nbsp;&nbsp;registry_id | **string**<br>Идентификатор реестра для получения списка устройств. <br>Чтобы получить идентификатор реестра, используйте запрос [yandex.cloud.iot.devices.v1.RegistryService.List](/docs/iot-core/grpc/registry_service#List). Максимальная длина строки в символах — 50.
-&nbsp;&nbsp;folder_id | **string**<br>Идентификатор каталога для получения списка устройств. <br>Чтобы получить идентификатор каталога, используйте запрос [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List). Максимальная длина строки в символах — 50.
+&nbsp;&nbsp;registry_id | **string**<br>Идентификатор реестра для получения списка устройств. <br>Чтобы получить идентификатор реестра, используйте запрос [yandex.cloud.iot.devices.v1.RegistryService.List](/docs/iot-core/api-ref/grpc/registry_service#List). Максимальная длина строки в символах — 50.
+&nbsp;&nbsp;folder_id | **string**<br>Идентификатор каталога для получения списка устройств. <br>Чтобы получить идентификатор каталога, используйте запрос [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List). Максимальная длина строки в символах — 50.
 page_size | **int64**<br>Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем `page_size`, сервис вернет значение [ListDevicesResponse.next_page_token](#ListDevicesResponse), которое можно использовать для получения следующей страницы. Значение по умолчанию: 100. Допустимые значения — от 0 до 1000 включительно.
 page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListDevicesResponse.next_page_token](#ListDevicesResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
 
@@ -99,7 +99,7 @@ topic_aliases | **map<string,string>**<br>Алиас топика устройс
 
 Поле | Описание
 --- | ---
-registry_id | **string**<br>Обязательное поле. Идентификатор реестра, в котором создается устройство. <br>Чтобы получить идентификатор реестра, используйте запрос [yandex.cloud.iot.devices.v1.RegistryService.List](/docs/iot-core/grpc/registry_service#List). Максимальная длина строки в символах — 50.
+registry_id | **string**<br>Обязательное поле. Идентификатор реестра, в котором создается устройство. <br>Чтобы получить идентификатор реестра, используйте запрос [yandex.cloud.iot.devices.v1.RegistryService.List](/docs/iot-core/api-ref/grpc/registry_service#List). Максимальная длина строки в символах — 50.
 name | **string**<br>Обязательное поле. Имя устройства. Имя должно быть уникальным в рамках реестра. Максимальная длина строки в символах — 50. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_-]* `.
 description | **string**<br>Описание устройства. Максимальная длина строки в символах — 256.
 certificates[] | **[Certificate](#Certificate)**<br>Сертификат устройства. 
@@ -134,7 +134,7 @@ result | **oneof:** `error` или `response`<br>Результат операц
 
 Поле | Описание
 --- | ---
-device_id | **string**<br>Идентификатор создаваемого устройства. 
+device_id | **string**<br>Идентификатор создаваемого диска. 
 
 
 ### Device {#Device2}
@@ -242,7 +242,7 @@ result | **oneof:** `error` или `response`<br>Результат операц
 
 Поле | Описание
 --- | ---
-device_id | **string**<br>Идентификатор удаляемого устройства. 
+device_id | **string**<br>Идентификатор удаляемого диска. 
 
 
 ## ListCertificates {#ListCertificates}

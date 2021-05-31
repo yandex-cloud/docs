@@ -1,0 +1,15 @@
+items:
+  - name: Overview
+    href: api-ref/grpc/index.md
+  - name: BackupService
+    href: api-ref/grpc/backup_service.md
+  - name: DatabaseService
+    href: api-ref/grpc/database_service.md
+  - name: LocationService
+    href: api-ref/grpc/location_service.md
+  - name: ResourcePresetService
+    href: api-ref/grpc/resource_preset_service.md
+  - name: StorageTypeService
+    href: api-ref/grpc/storage_type_service.md
+  - name: OperationService
+    href: api-ref/grpc/operation_service.md

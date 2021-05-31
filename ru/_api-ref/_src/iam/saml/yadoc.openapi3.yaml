@@ -1,11 +1,9 @@
-openapi: '3.0'
+openapi: "3.0"
 info:
   title: Yandex IAM SAML API
-  description: >-
-    Методы справочника API сгруппированы по ресурсам. Чтобы выполнить операцию
-    над ресурсом, отправьте HTTP-запрос к соответствующему URL или выполните
-    RPC-вызов. Подробнее об архитектуре API Яндекс.Облака, см. [Концепции API
-    Яндекс.Облака](/docs/api-design-guide/).
+  description: Методы справочника API сгруппированы по ресурсам. Чтобы выполнить операцию
+    над ресурсом, отправьте HTTP-запрос к соответствующему URL или выполните RPC-вызов.
+    Подробнее об архитектуре API Яндекс.Облака, см. [Концепции API Яндекс.Облака](/docs/api-design-guide/).
   version: v1
   x-y-docUri: api-ref
   x-y-baseUrl: https://iam.api.cloud.yandex.net
@@ -13,29 +11,24 @@ paths:
   /iam/v1/saml/certificates/{certificateId}:
     get:
       tags:
-        - Certificate
+      - Certificate
       summary: Возвращает указанный сертификат.
-      description: >-
-        Чтобы получить список доступных сертификатов, используйте запрос
+      description: Чтобы получить список доступных сертификатов, используйте запрос
         [list](/docs/iam/api-ref/Certificate/list).
       operationId: CertificateGet
       parameters:
-        - name: certificateId
-          in: path
-          description: >-
-            Идентификатор возвращаемого сертификата. Чтобы получить
-            идентификатор
+      - name: certificateId
+        in: path
+        description: |-
+          Идентификатор возвращаемого сертификата. Чтобы получить идентификатор
+          сертификата, используйте запрос [list](/docs/iam/api-ref/Certificate/list).
 
-            сертификата, используйте запрос
-            [list](/docs/iam/api-ref/Certificate/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -44,25 +37,22 @@ paths:
       x-y-navtitle: get
     delete:
       tags:
-        - Certificate
+      - Certificate
       summary: Удаляет указанный сертификат.
       operationId: CertificateDelete
       parameters:
-        - name: certificateId
-          in: path
-          description: >-
-            Идентификатор сертификата, который следует удалить. Чтобы получить
-            идентификатор сертификата,
+      - name: certificateId
+        in: path
+        description: |-
+          Идентификатор сертификата, который следует удалить. Чтобы получить идентификатор сертификата,
+          используйте запрос [list](/docs/iam/api-ref/Certificate/list).
 
-            используйте запрос [list](/docs/iam/api-ref/Certificate/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -74,24 +64,20 @@ paths:
       x-y-operation-response: Empty
     patch:
       tags:
-        - Certificate
+      - Certificate
       summary: Обновляет указанный сертификат.
       operationId: CertificateUpdate
       parameters:
-        - name: certificateId
-          in: path
-          description: >-
-            Идентификатор сертификата для обновления. Чтобы получить
-            идентификатор
+      - name: certificateId
+        in: path
+        description: |-
+          Идентификатор сертификата для обновления. Чтобы получить идентификатор
+          сертификата, используйте запрос [list](/docs/iam/api-ref/Certificate/list).
 
-            сертификата, используйте запрос
-            [list](/docs/iam/api-ref/Certificate/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -99,7 +85,7 @@ paths:
               $ref: '#/components/schemas/UpdateCertificateRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -112,82 +98,54 @@ paths:
   /iam/v1/saml/certificates:
     get:
       tags:
-        - Certificate
+      - Certificate
       summary: Возвращает список сертификатов для указанной федерации.
       operationId: CertificateList
       parameters:
-        - name: federationId
-          in: query
-          description: >-
-            Обязательное поле.
+      - name: federationId
+        in: query
+        description: |-
+          Обязательное поле.
+          Идентификатор федерации для получения списка сертификатов. Чтобы получить
+          идентификатор федерации, используйте запрос [list](/docs/iam/api-ref/Federation/list).
 
-            Идентификатор федерации для получения списка сертификатов. Чтобы
-            получить
+          Максимальная длина строки в символах — 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на запрос. Если количество
+          результатов больше чем [pageSize](/docs/iam/api-ref/Certificate/list#query_params) , сервис вернет значение [nextPageToken](/docs/iam/api-ref/Certificate/list#responses),
+          которое можно использовать для получения следующей страницы. Значение по умолчанию: 100.
 
-            идентификатор федерации, используйте запрос
-            [yandex.cloud.iam.v1.FederationService.List].
+          Допустимые значения — от 0 до 1000 включительно.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение [pageToken](/docs/iam/api-ref/Certificate/list#query_params) равным значению поля
+          [nextPageToken](/docs/iam/api-ref/Certificate/list#responses) предыдущего запроса, чтобы получить следующую страницу
+          результатов.
 
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          Параметры фильтрации ресурсов в ответе. В параметрах фильтрации указываются:
+          1. Имя поля. В настоящее время фильтрация осуществляется только по полю [Certificate.name](/docs/iam/api-ref/Certificate#representation).
+          2. Оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений.
+          3. Значение. Значение длиной от 3 до 63 символов, совпадающее с регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.
 
-            Максимальная длина строки в символах — 50.
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            Максимальное количество результатов на странице ответа на запрос.
-            Если количество
-
-            результатов больше чем
-            [pageSize](/docs/iam/api-ref/Certificate/list#query_params) , сервис
-            вернет значение
-            [nextPageToken](/docs/iam/api-ref/Certificate/list#responses),
-
-            которое можно использовать для получения следующей страницы.
-            Значение по умолчанию: 100.
-
-
-            Допустимые значения — от 0 до 1000 включительно.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Токен страницы. Установите значение
-            [pageToken](/docs/iam/api-ref/Certificate/list#query_params) равным
-            значению поля
-
-            [nextPageToken](/docs/iam/api-ref/Certificate/list#responses)
-            предыдущего запроса, чтобы получить следующую страницу
-
-            результатов.
-
-
-            Максимальная длина строки в символах — 100.
-          schema:
-            type: string
-        - name: filter
-          in: query
-          description: >-
-            Параметры фильтрации ресурсов в ответе. В параметрах фильтрации
-            указываются:
-
-            1. Имя поля. В настоящее время фильтрация осуществляется только по
-            полю
-            [Certificate.name](/docs/iam/api-ref/Certificate#representation).
-
-            2. Оператор. Операторы `=` или `!=` для одиночных значений, `IN` или
-            `NOT IN` для списков значений.
-
-            3. Значение. Значение длиной от 3 до 63 символов, совпадающее с
-            регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.
-
-
-            Максимальная длина строки в символах — 1000.
-          schema:
-            type: string
+          Максимальная длина строки в символах — 1000.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -196,7 +154,7 @@ paths:
       x-y-navtitle: list
     post:
       tags:
-        - Certificate
+      - Certificate
       summary: Добавляет сертификат для указанной федерации.
       operationId: CertificateCreate
       requestBody:
@@ -206,7 +164,7 @@ paths:
               $ref: '#/components/schemas/CreateCertificateRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -219,58 +177,42 @@ paths:
   /iam/v1/saml/certificates/{certificateId}/operations:
     get:
       tags:
-        - Certificate
+      - Certificate
       summary: Перечисляет операции для указанного сертификата.
       operationId: CertificateListOperations
       parameters:
-        - name: certificateId
-          in: path
-          description: >-
-            Идентификатор сертификата, для которого запрашивается список
-            операций.
+      - name: certificateId
+        in: path
+        description: |-
+          Идентификатор сертификата, для которого запрашивается список операций.
 
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на запрос. Если количество
+          результатов больше чем [pageSize](/docs/iam/api-ref/Certificate/listOperations#query_params) , сервис вернет значение [nextPageToken](/docs/iam/api-ref/Certificate/listOperations#responses),
+          которое можно использовать для получения следующей страницы. Значение по умолчанию: 100.
 
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            Максимальное количество результатов на странице ответа на запрос.
-            Если количество
+          Допустимые значения — от 0 до 1000 включительно.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение [pageToken](/docs/iam/api-ref/Certificate/listOperations#query_params) равным значению поля
+          [nextPageToken](/docs/iam/api-ref/Certificate/listOperations#responses) предыдущего запроса, чтобы получить следующую
+          страницу результатов.
 
-            результатов больше чем
-            [pageSize](/docs/iam/api-ref/Certificate/listOperations#query_params)
-            , сервис вернет значение
-            [nextPageToken](/docs/iam/api-ref/Certificate/listOperations#responses),
-
-            которое можно использовать для получения следующей страницы.
-            Значение по умолчанию: 100.
-
-
-            Допустимые значения — от 0 до 1000 включительно.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Токен страницы. Установите значение
-            [pageToken](/docs/iam/api-ref/Certificate/listOperations#query_params)
-            равным значению поля
-
-            [nextPageToken](/docs/iam/api-ref/Certificate/listOperations#responses)
-            предыдущего запроса, чтобы получить следующую
-
-            страницу результатов.
-
-
-            Максимальная длина строки в символах — 100.
-          schema:
-            type: string
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -280,28 +222,23 @@ paths:
   /iam/v1/saml/federations/{federationId}:
     get:
       tags:
-        - Federation
+      - Federation
       summary: Возвращает указанную федерацию.
-      description: >-
-        Чтобы получить список доступных федераций, используйте запрос
-        [list](/docs/iam/api-ref/Federation/list).
+      description: Чтобы получить список доступных федераций, используйте запрос [list](/docs/iam/api-ref/Federation/list).
       operationId: FederationGet
       parameters:
-        - name: federationId
-          in: path
-          description: >-
-            Идентификатор возвращаемой федерации. Чтобы получить идентификатор
-            федерации,
+      - name: federationId
+        in: path
+        description: |-
+          Идентификатор возвращаемой федерации. Чтобы получить идентификатор федерации,
+          используйте запрос [list](/docs/iam/api-ref/Federation/list).
 
-            используйте запрос [list](/docs/iam/api-ref/Federation/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -310,25 +247,22 @@ paths:
       x-y-navtitle: get
     delete:
       tags:
-        - Federation
+      - Federation
       summary: Удаляет указанную федерацию.
       operationId: FederationDelete
       parameters:
-        - name: federationId
-          in: path
-          description: >-
-            Идентификатор федерации, которую следует удалить. Чтобы получить
-            идентификатор федерации,
+      - name: federationId
+        in: path
+        description: |-
+          Идентификатор федерации, которую следует удалить. Чтобы получить идентификатор федерации,
+          используйте запрос [list](/docs/iam/api-ref/Federation/list).
 
-            используйте запрос [list](/docs/iam/api-ref/Federation/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -340,23 +274,20 @@ paths:
       x-y-operation-response: Empty
     patch:
       tags:
-        - Federation
+      - Federation
       summary: Изменяет указанную федерацию.
       operationId: FederationUpdate
       parameters:
-        - name: federationId
-          in: path
-          description: >-
-            Идентификатор федерации для обновления. Чтобы получить идентификатор
-            федерации,
+      - name: federationId
+        in: path
+        description: |-
+          Идентификатор федерации для обновления. Чтобы получить идентификатор федерации,
+          используйте запрос [list](/docs/iam/api-ref/Federation/list).
 
-            используйте запрос [list](/docs/iam/api-ref/Federation/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -364,7 +295,7 @@ paths:
               $ref: '#/components/schemas/UpdateFederationRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -377,92 +308,62 @@ paths:
   /iam/v1/saml/federations:
     get:
       tags:
-        - Federation
+      - Federation
       summary: Возвращает список федераций в указанном каталоге.
       operationId: FederationList
       parameters:
-        - name: cloudId
-          in: query
-          description: >-
-            Идентификатор облака, для которого запрашивается список федераций.
-            Чтобы получить
+      - name: cloudId
+        in: query
+        description: |-
+          Идентификатор облака, для которого запрашивается список федераций. Чтобы получить
+          идентификатор облака, используйте запрос [list](/docs/resource-manager/api-ref/Cloud/list).
 
-            идентификатор облака, используйте запрос
-            [list](/docs/resource-manager/api-ref/Cloud/list).
+          Максимальная длина строки в символах — 50.
+        schema:
+          type: string
+      - name: folderId
+        in: query
+        description: |-
+          Идентификатор каталога для получения списка федераций. Чтобы получить
+          идентификатор каталога, используйте запрос [list](/docs/resource-manager/api-ref/Folder/list).
 
+          Максимальная длина строки в символах — 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на запрос. Если количество
+          результатов больше чем [pageSize](/docs/iam/api-ref/Federation/list#query_params), сервис вернет значение [nextPageToken](/docs/iam/api-ref/Federation/list#responses),
+          которое можно использовать для получения следующей страницы. Значение по умолчанию: 100.
 
-            Максимальная длина строки в символах — 50.
-          schema:
-            type: string
-        - name: folderId
-          in: query
-          description: >-
-            Идентификатор каталога для получения списка федераций. Чтобы
-            получить
+          Допустимые значения — от 0 до 1000 включительно.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение [pageToken](/docs/iam/api-ref/Federation/list#query_params) равным значению поля
+          [nextPageToken](/docs/iam/api-ref/Federation/list#responses) предыдущего запроса, чтобы получить следующую страницу
+          результатов.
 
-            идентификатор каталога, используйте запрос
-            [list](/docs/resource-manager/api-ref/Folder/list).
+          Максимальная длина строки в символах — 50.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          Параметры фильтрации ресурсов в ответе. В параметрах фильтрации указываются:
+          1. Имя поля. В настоящее время фильтрация осуществляется только по полю [Federation.name](/docs/iam/api-ref/Federation#representation).
+          2. Оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений.
+          3. Значение. Значение длиной от 3 до 63 символов, совпадающее с регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.
 
-
-            Максимальная длина строки в символах — 50.
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            Максимальное количество результатов на странице ответа на запрос.
-            Если количество
-
-            результатов больше чем
-            [pageSize](/docs/iam/api-ref/Federation/list#query_params), сервис
-            вернет значение
-            [nextPageToken](/docs/iam/api-ref/Federation/list#responses),
-
-            которое можно использовать для получения следующей страницы.
-            Значение по умолчанию: 100.
-
-
-            Допустимые значения — от 0 до 1000 включительно.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Токен страницы. Установите значение
-            [pageToken](/docs/iam/api-ref/Federation/list#query_params) равным
-            значению поля
-
-            [nextPageToken](/docs/iam/api-ref/Federation/list#responses)
-            предыдущего запроса, чтобы получить следующую страницу
-
-            результатов.
-
-
-            Максимальная длина строки в символах — 50.
-          schema:
-            type: string
-        - name: filter
-          in: query
-          description: >-
-            Параметры фильтрации ресурсов в ответе. В параметрах фильтрации
-            указываются:
-
-            1. Имя поля. В настоящее время фильтрация осуществляется только по
-            полю [Federation.name](/docs/iam/api-ref/Federation#representation).
-
-            2. Оператор. Операторы `=` или `!=` для одиночных значений, `IN` или
-            `NOT IN` для списков значений.
-
-            3. Значение. Значение длиной от 3 до 63 символов, совпадающее с
-            регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.
-
-
-            Максимальная длина строки в символах — 1000.
-          schema:
-            type: string
+          Максимальная длина строки в символах — 1000.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -471,7 +372,7 @@ paths:
       x-y-navtitle: list
     post:
       tags:
-        - Federation
+      - Federation
       summary: Создает федерацию в указанном каталоге.
       operationId: FederationCreate
       requestBody:
@@ -481,7 +382,7 @@ paths:
               $ref: '#/components/schemas/CreateFederationRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -494,19 +395,19 @@ paths:
   /iam/v1/saml/federations/{federationId}:addUserAccounts:
     post:
       tags:
-        - Federation
+      - Federation
       summary: Добавляет пользователей в указанную федерацию.
       operationId: FederationAddUserAccounts
       parameters:
-        - name: federationId
-          in: path
-          description: |-
-            Идентификатор федерации для добавления пользователей.
+      - name: federationId
+        in: path
+        description: |-
+          Идентификатор федерации для добавления пользователей.
 
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -514,7 +415,7 @@ paths:
               $ref: '#/components/schemas/AddFederatedUserAccountsRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -527,58 +428,44 @@ paths:
   /iam/v1/saml/federations/{federationId}:listUserAccounts:
     get:
       tags:
-        - Federation
+      - Federation
       summary: Возвращает список пользователей для указанной федерации.
       operationId: FederationListUserAccounts
       parameters:
-        - name: federationId
-          in: path
-          description: |-
-            Обязательное поле.
-            Идентификатор федерации для перечисления пользователей.
+      - name: federationId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор федерации для перечисления пользователей.
 
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            Максимальное количество результатов на странице ответа на запрос.
-            Если количество
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на запрос. Если количество
+          результатов больше чем [pageSize](/docs/iam/api-ref/Federation/listUserAccounts#query_params) , сервис вернет значение
+          [nextPageToken](/docs/iam/api-ref/Federation/listUserAccounts#responses), которое можно использовать для получения
+          следующей страницы. Значение по умолчанию: 100.
 
-            результатов больше чем
-            [pageSize](/docs/iam/api-ref/Federation/listUserAccounts#query_params)
-            , сервис вернет значение
+          Допустимые значения — от 0 до 1000 включительно.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение [pageToken](/docs/iam/api-ref/Federation/listUserAccounts#query_params) равным значению поля
+          [nextPageToken](/docs/iam/api-ref/Federation/listUserAccounts#responses) предыдущего запроса, чтобы получить следующую страницу
+          результатов.
 
-            [nextPageToken](/docs/iam/api-ref/Federation/listUserAccounts#responses),
-            которое можно использовать для получения
-
-            следующей страницы. Значение по умолчанию: 100.
-
-
-            Допустимые значения — от 0 до 1000 включительно.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Токен страницы. Установите значение
-            [pageToken](/docs/iam/api-ref/Federation/listUserAccounts#query_params)
-            равным значению поля
-
-            [nextPageToken](/docs/iam/api-ref/Federation/listUserAccounts#responses)
-            предыдущего запроса, чтобы получить следующую страницу
-
-            результатов.
-
-
-            Максимальная длина строки в символах — 100.
-          schema:
-            type: string
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -588,57 +475,43 @@ paths:
   /iam/v1/saml/federations/{federationId}/operations:
     get:
       tags:
-        - Federation
+      - Federation
       summary: Возвращает список операций для указанной федерации.
       operationId: FederationListOperations
       parameters:
-        - name: federationId
-          in: path
-          description: |-
-            Идентификатор федерации для перечисления операций.
+      - name: federationId
+        in: path
+        description: |-
+          Идентификатор федерации для перечисления операций.
 
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            Максимальное количество результатов на странице ответа на запрос.
-            Если количество
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на запрос. Если количество
+          результатов больше чем [pageSize](/docs/iam/api-ref/Federation/listOperations#query_params) , сервис вернет значение
+          [ListFederationOperationsOperationsResponse.next_page_token], которое можно использовать для получения
+          следующей страницы. Значение по умолчанию: 100.
 
-            результатов больше чем
-            [pageSize](/docs/iam/api-ref/Federation/listOperations#query_params)
-            , сервис вернет значение
+          Допустимые значения — от 0 до 1000 включительно.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение [pageToken](/docs/iam/api-ref/Federation/listOperations#query_params) равным значению поля
+          [nextPageToken](/docs/iam/api-ref/Federation/listOperations#responses) предыдущего запроса, чтобы получить следующую страницу
+          результатов.
 
-            [ListFederationOperationsOperationsResponse.next_page_token],
-            которое можно использовать для получения
-
-            следующей страницы. Значение по умолчанию: 100.
-
-
-            Допустимые значения — от 0 до 1000 включительно.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Токен страницы. Установите значение
-            [pageToken](/docs/iam/api-ref/Federation/listOperations#query_params)
-            равным значению поля
-
-            [nextPageToken](/docs/iam/api-ref/Federation/listOperations#responses)
-            предыдущего запроса, чтобы получить следующую страницу
-
-            результатов.
-
-
-            Максимальная длина строки в символах — 100.
-          schema:
-            type: string
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -657,12 +530,9 @@ components:
       type: object
       properties:
         nameIds:
-          description: >-
-            Name ID пользователей, которые возвращает поставщик удостоверений
-            (IdP) после успешной
-
+          description: |-
+            Name ID пользователей, которые возвращает поставщик удостоверений (IdP) после успешной
             аутентификации. Это могут быть UPN или email пользователей.
-
 
             Максимальная длина строки в символах для каждого значения — 1000.
           type: array
@@ -672,9 +542,7 @@ components:
       type: object
       properties:
         userAccounts:
-          description: >-
-            Список пользователей, созданных с помощью запроса
-            [FederationService.AddUsers].
+          description: Список пользователей, созданных с помощью запроса [FederationService.AddUsers].
           type: array
           items:
             $ref: '#/components/schemas/UserAccount'
@@ -685,9 +553,9 @@ components:
          - ARTIFACT: Привязка артефактом HTTP.
       type: string
       enum:
-        - POST
-        - REDIRECT
-        - ARTIFACT
+      - POST
+      - REDIRECT
+      - ARTIFACT
     Certificate:
       description: Сертификат.
       type: object
@@ -707,18 +575,14 @@ components:
             Максимальная длина строки в символах — 50.
           type: string
         name:
-          description: >-
+          description: |-
             Имя сертификата.
 
-
-            Значение должно соответствовать регулярному выражению ``
-            |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+            Значение должно соответствовать регулярному выражению `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
           type: string
         description:
-          description: >-
-            Описание сертификата. Длина описания должна быть от 0 до 256
-            символов.
-
+          description: |-
+            Описание сертификата. Длина описания должна быть от 0 до 256 символов.
 
             Максимальная длина строки в символах — 256.
           type: string
@@ -746,23 +610,17 @@ components:
       type: object
       properties:
         federationId:
-          description: >-
-            Идентификатор федерации для добавления нового сертификата. Чтобы
-            получить
-
-            идентификатор федерации, используйте запрос
-            [yandex.cloud.iam.v1.FederationService.List].
-
+          description: |-
+            Идентификатор федерации для добавления нового сертификата. Чтобы получить
+            идентификатор федерации, используйте запрос [list](/docs/iam/api-ref/Federation/list).
 
             Максимальная длина строки в символах — 50.
           type: string
         name:
-          description: >-
+          description: |-
             Имя сертификата. Имя должно быть уникальным в пределах федерации.
 
-
-            Значение должно соответствовать регулярному выражению ``
-            [a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
+            Значение должно соответствовать регулярному выражению `` [a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
           type: string
         description:
           description: |-
@@ -786,23 +644,17 @@ components:
       type: object
       properties:
         folderId:
-          description: >-
-            Идентификатор каталога, в котором создается федерация. Чтобы
-            получить
-
-            идентификатор каталога, используйте запрос
-            [list](/docs/resource-manager/api-ref/Folder/list).
-
+          description: |-
+            Идентификатор каталога, в котором создается федерация. Чтобы получить
+            идентификатор каталога, используйте запрос [list](/docs/resource-manager/api-ref/Folder/list).
 
             Максимальная длина строки в символах — 50.
           type: string
         name:
-          description: >-
+          description: |-
             Название федерации. Имя должно быть уникальным в облаке.
 
-
-            Значение должно соответствовать регулярному выражению ``
-            [a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
+            Значение должно соответствовать регулярному выражению `` [a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
           type: string
         description:
           description: |-
@@ -811,66 +663,43 @@ components:
             Максимальная длина строки в символах — 256.
           type: string
         cookieMaxAge:
-          description: >-
-            Время жизни файлов cookie в браузере в секундах. Если время жизни
-            cookie не истекло, то
-
-            консоль управления сразу аутентифицирует пользователя и отправляет
-            на главную
-
+          description: |-
+            Время жизни файлов cookie в браузере в секундах. Если время жизни cookie не истекло, то
+            консоль управления сразу аутентифицирует пользователя и отправляет на главную
             страницу. Значение по умолчанию — `8h`.
-
 
             Допустимые значения — от 600 seconds до 43200 seconds включительно.
           type: string
         autoCreateAccountOnLogin:
-          description: >-
-            Добавлять новых пользователей автоматически при успешной
-            аутентификации.
-
-            Пользователям будет назначена роль `resource-manager.clouds.member`
-            автоматически, но остальные
-
+          description: |-
+            Добавлять новых пользователей автоматически при успешной аутентификации.
+            Пользователям будет назначена роль `resource-manager.clouds.member` автоматически, но остальные
             роли надо будет назначить самостоятельно.
 
-
-            Если значение `false` , то пользователь, которого не добавили в
-            облако, не сможет войти,
-
+            Если значение `false` , то пользователь, которого не добавили в облако, не сможет войти,
             даже если пройдет аутентификацию на вашем сервере.
           type: boolean
           format: boolean
         issuer:
-          description: >-
+          description: |-
             Обязательное поле.
-
-            Идентификатор IdP-сервера, который будет использоваться для
-            аутентификации. Этот же
-
-            идентификатор сервер IdP указывает в ответе после того, как
-            пользователь проходит
-
+            Идентификатор IdP-сервера, который будет использоваться для аутентификации. Этот же
+            идентификатор сервер IdP указывает в ответе после того, как пользователь проходит
             аутентификацию.
-
 
             Максимальная длина строки в символах — 8000.
           type: string
         ssoBinding:
-          $ref: >-
-            #/components/schemas/BindingType_in_CreateFederationRequest_ssoBinding
+          $ref: '#/components/schemas/BindingType_in_CreateFederationRequest_ssoBinding'
         ssoUrl:
-          description: >-
+          description: |-
             Обязательное поле.
-
-            URL для Single sign-on. Укажите здесь ссылку на страницу для входа в
-            IdP.
-
+            URL для Single sign-on. Укажите здесь ссылку на страницу для входа в IdP.
 
             Максимальная длина строки в символах — 8000.
           type: string
         securitySettings:
-          $ref: >-
-            #/components/schemas/FederationSecuritySettings_in_CreateFederationRequest_securitySettings
+          $ref: '#/components/schemas/FederationSecuritySettings_in_CreateFederationRequest_securitySettings'
         caseInsensitiveNameIds:
           description: Использовать нечувствительные к регистру Name ID пользователей.
           type: boolean
@@ -892,8 +721,7 @@ components:
       type: object
       maxProperties: 0
     Federation:
-      description: >-
-        Федерация. Дополнительные сведения см. в разделе [SAML-совместимые
+      description: Федерация. Дополнительные сведения см. в разделе [SAML-совместимые
         федерации удостоверений](/docs/iam/concepts/users/identity-federations).
       type: object
       properties:
@@ -912,14 +740,11 @@ components:
             Максимальная длина строки в символах — 50.
           type: string
         name:
-          description: >-
+          description: |-
             Обязательное поле.
-
             Имя федерации.
 
-
-            Значение должно соответствовать регулярному выражению ``
-            |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+            Значение должно соответствовать регулярному выражению `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
           type: string
         description:
           description: |-
@@ -935,65 +760,43 @@ components:
           type: string
           format: date-time
         cookieMaxAge:
-          description: >-
-            Время жизни файлов cookie в браузере в секундах. Если время жизни
-            cookie не истекло, то
-
-            консоль управления сразу аутентифицирует пользователя и отправляет
-            на главную
-
+          description: |-
+            Время жизни файлов cookie в браузере в секундах. Если время жизни cookie не истекло, то
+            консоль управления сразу аутентифицирует пользователя и отправляет на главную
             страницу.
-
 
             Допустимые значения — от 600 seconds до 43200 seconds включительно.
           type: string
         autoCreateAccountOnLogin:
-          description: >-
-            Добавлять новых пользователей автоматически при успешной
-            аутентификации.
-
-            Пользователям будет назначена роль `resource-manager.clouds.member`
-            автоматически, но остальные
-
+          description: |-
+            Добавлять новых пользователей автоматически при успешной аутентификации.
+            Пользователям будет назначена роль `resource-manager.clouds.member` автоматически, но остальные
             роли надо будет назначить самостоятельно.
 
-
-            Если значение `false` , то пользователь, которого не добавили в
-            облако, не сможет войти,
-
+            Если значение `false` , то пользователь, которого не добавили в облако, не сможет войти,
             даже если пройдет аутентификацию на вашем сервере.
           type: boolean
           format: boolean
         issuer:
-          description: >-
+          description: |-
             Обязательное поле.
-
-            Идентификатор IdP-сервера, который будет использоваться для
-            аутентификации. Этот же
-
-            идентификатор сервер IdP указывает в ответе после того, как
-            пользователь проходит
-
+            Идентификатор IdP-сервера, который будет использоваться для аутентификации. Этот же
+            идентификатор сервер IdP указывает в ответе после того, как пользователь проходит
             аутентификацию.
-
 
             Максимальная длина строки в символах — 8000.
           type: string
         ssoBinding:
           $ref: '#/components/schemas/BindingType_in_Federation_ssoBinding'
         ssoUrl:
-          description: >-
+          description: |-
             Обязательное поле.
-
-            URL для Single sign-on. Укажите здесь ссылку на страницу для входа в
-            IdP.
-
+            URL для Single sign-on. Укажите здесь ссылку на страницу для входа в IdP.
 
             Максимальная длина строки в символах — 8000.
           type: string
         securitySettings:
-          $ref: >-
-            #/components/schemas/FederationSecuritySettings_in_Federation_securitySettings
+          $ref: '#/components/schemas/FederationSecuritySettings_in_Federation_securitySettings'
         caseInsensitiveNameIds:
           description: Использовать нечувствительные к регистру Name ID пользователей.
           type: boolean
@@ -1007,24 +810,14 @@ components:
           type: boolean
           format: boolean
     FieldMask:
-      description: >-
+      description: |-
         Имена всех обновляемых полей, разделенные запятыми.
+        Только значения указанных полей будут изменены. Остальные останутся нетронутыми.
+        Если поле указано в параметре `` updateMask `` и в запросе не было отправлено значение для этого поля,
+        значение поля будет сброшено на значение по умолчанию. Значение по умолчанию для большинства полей — null или 0.
 
-        Только значения указанных полей будут изменены. Остальные останутся
-        нетронутыми.
-
-        Если поле указано в параметре `` updateMask `` и в запросе не было
-        отправлено значение для этого поля,
-
-        значение поля будет сброшено на значение по умолчанию. Значение по
-        умолчанию для большинства полей — null или 0.
-
-
-        Если в запросе не передается `` updateMask ``, значения всех полей будут
-        обновлены.
-
+        Если в запросе не передается `` updateMask ``, значения всех полей будут обновлены.
         Для полей, указанных в запросе, будут использованы переданные значения.
-
         Значения остальных полей будут сброшены на значения по умолчанию.
       type: string
     ListCertificateOperationsResponse:
@@ -1036,23 +829,11 @@ components:
           items:
             $ref: '#/components/schemas/Operation'
         nextPageToken:
-          description: >-
-            Токен для получения следующей страницы результатов в ответе. Если
-            количество
-
-            результатов больше чем
-            [pageSize](/docs/iam/api-ref/Certificate/listOperations#query_params),
-            используйте
-            [nextPageToken](/docs/iam/api-ref/Certificate/listOperations#responses)
-            в качестве
-
-            значения параметра
-            [pageToken](/docs/iam/api-ref/Certificate/listOperations#query_params)
-            в следующем запросе списка ресурсов.
-
-            Все последующие запросы будут получать свои значения
-            [nextPageToken](/docs/iam/api-ref/Certificate/listOperations#responses)
-            для перебора страниц результатов.
+          description: |-
+            Токен для получения следующей страницы результатов в ответе. Если количество
+            результатов больше чем [pageSize](/docs/iam/api-ref/Certificate/listOperations#query_params), используйте [nextPageToken](/docs/iam/api-ref/Certificate/listOperations#responses) в качестве
+            значения параметра [pageToken](/docs/iam/api-ref/Certificate/listOperations#query_params) в следующем запросе списка ресурсов.
+            Все последующие запросы будут получать свои значения [nextPageToken](/docs/iam/api-ref/Certificate/listOperations#responses) для перебора страниц результатов.
           type: string
     ListCertificatesResponse:
       type: object
@@ -1063,24 +844,11 @@ components:
           items:
             $ref: '#/components/schemas/Certificate'
         nextPageToken:
-          description: >-
-            Токен для получения следующей страницы результатов в ответе. Если
-            количество
-
-            результатов больше чем
-            [pageSize](/docs/iam/api-ref/Certificate/list#query_params),
-            используйте
-            [nextPageToken](/docs/iam/api-ref/Certificate/list#responses) в
-            качестве
-
-            значения параметра
-            [pageToken](/docs/iam/api-ref/Certificate/list#query_params) в
-            следующем запросе списка ресурсов. Все
-
-            последующие запросы будут получать свои значения
-            [nextPageToken](/docs/iam/api-ref/Certificate/list#responses) для
-            перебора страниц
-
+          description: |-
+            Токен для получения следующей страницы результатов в ответе. Если количество
+            результатов больше чем [pageSize](/docs/iam/api-ref/Certificate/list#query_params), используйте [nextPageToken](/docs/iam/api-ref/Certificate/list#responses) в качестве
+            значения параметра [pageToken](/docs/iam/api-ref/Certificate/list#query_params) в следующем запросе списка ресурсов. Все
+            последующие запросы будут получать свои значения [nextPageToken](/docs/iam/api-ref/Certificate/list#responses) для перебора страниц
             результатов.
           type: string
     ListFederatedUserAccountsResponse:
@@ -1092,24 +860,11 @@ components:
           items:
             $ref: '#/components/schemas/UserAccount'
         nextPageToken:
-          description: >-
-            Токен для получения следующей страницы результатов в ответе. Если
-            количество
-
-            результатов больше чем
-            [pageSize](/docs/iam/api-ref/Federation/listUserAccounts#query_params),
-            используйте
-            [nextPageToken](/docs/iam/api-ref/Federation/listUserAccounts#responses)
-            в качестве
-
-            значения параметра
-            [pageToken](/docs/iam/api-ref/Federation/listUserAccounts#query_params)
-            в следующем запросе списка ресурсов. Все
-
-            последующие запросы будут получать свои значения
-            [nextPageToken](/docs/iam/api-ref/Federation/listUserAccounts#responses)
-            для перебора страниц
-
+          description: |-
+            Токен для получения следующей страницы результатов в ответе. Если количество
+            результатов больше чем [pageSize](/docs/iam/api-ref/Federation/listUserAccounts#query_params), используйте [nextPageToken](/docs/iam/api-ref/Federation/listUserAccounts#responses) в качестве
+            значения параметра [pageToken](/docs/iam/api-ref/Federation/listUserAccounts#query_params) в следующем запросе списка ресурсов. Все
+            последующие запросы будут получать свои значения [nextPageToken](/docs/iam/api-ref/Federation/listUserAccounts#responses) для перебора страниц
             результатов.
           type: string
     ListFederationOperationsResponse:
@@ -1121,24 +876,11 @@ components:
           items:
             $ref: '#/components/schemas/Operation'
         nextPageToken:
-          description: >-
-            Токен для получения следующей страницы результатов в ответе. Если
-            количество
-
-            результатов больше чем
-            [pageSize](/docs/iam/api-ref/Federation/listOperations#query_params),
-            используйте
-            [nextPageToken](/docs/iam/api-ref/Federation/listOperations#responses)
-            в качестве
-
-            значения параметра
-            [pageToken](/docs/iam/api-ref/Federation/listOperations#query_params)
-            в следующем запросе списка ресурсов. Все
-
-            последующие запросы будут получать свои значения
-            [nextPageToken](/docs/iam/api-ref/Federation/listOperations#responses)
-            для перебора страниц
-
+          description: |-
+            Токен для получения следующей страницы результатов в ответе. Если количество
+            результатов больше чем [pageSize](/docs/iam/api-ref/Federation/listOperations#query_params), используйте [nextPageToken](/docs/iam/api-ref/Federation/listOperations#responses) в качестве
+            значения параметра [pageToken](/docs/iam/api-ref/Federation/listOperations#query_params) в следующем запросе списка ресурсов. Все
+            последующие запросы будут получать свои значения [nextPageToken](/docs/iam/api-ref/Federation/listOperations#responses) для перебора страниц
             результатов.
           type: string
     ListFederationsResponse:
@@ -1150,24 +892,11 @@ components:
           items:
             $ref: '#/components/schemas/Federation'
         nextPageToken:
-          description: >-
-            Токен для получения следующей страницы результатов в ответе. Если
-            количество
-
-            результатов больше чем
-            [pageSize](/docs/iam/api-ref/Federation/list#query_params),
-            используйте
-            [nextPageToken](/docs/iam/api-ref/Federation/list#responses) в
-            качестве
-
-            значения параметра
-            [pageToken](/docs/iam/api-ref/Federation/list#query_params) в
-            следующем запросе списка ресурсов. Все
-
-            последующие запросы будут получать свои значения
-            [nextPageToken](/docs/iam/api-ref/Federation/list#responses) для
-            перебора страниц
-
+          description: |-
+            Токен для получения следующей страницы результатов в ответе. Если количество
+            результатов больше чем [pageSize](/docs/iam/api-ref/Federation/list#query_params), используйте [nextPageToken](/docs/iam/api-ref/Federation/list#responses) в качестве
+            значения параметра [pageToken](/docs/iam/api-ref/Federation/list#query_params) в следующем запросе списка ресурсов. Все
+            последующие запросы будут получать свои значения [nextPageToken](/docs/iam/api-ref/Federation/list#responses) для перебора страниц
             результатов.
           type: string
     Operation:
@@ -1176,88 +905,72 @@ components:
         [Объект Operation](/docs/api-design-guide/concepts/operation).
       type: object
       allOf:
-        - type: object
-          properties:
-            id:
-              description: Идентификатор операции.
-              type: string
-            description:
-              description: |-
-                Описание операции. Длина описания должна быть от 0 до 256
-                символов.
-              type: string
-            createdAt:
-              description: >-
-                Время создания ресурса в формате в
+      - type: object
+        properties:
+          id:
+            description: Идентификатор операции.
+            type: string
+          description:
+            description: |-
+              Описание операции. Длина описания должна быть от 0 до 256
+              символов.
+            type: string
+          createdAt:
+            description: |-
+              Время создания ресурса в формате в
+              [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
 
-                [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+              Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+            type: string
+            format: date-time
+          createdBy:
+            description: |-
+              Идентификатор пользователя или сервисного
+              аккаунта, инициировавшего операцию.
+            type: string
+          modifiedAt:
+            description: |-
+              Время, когда ресурс Operation последний раз
+              обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
 
-
-                Строка в формате
-                [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
-              type: string
-              format: date-time
-            createdBy:
-              description: |-
-                Идентификатор пользователя или сервисного
-                аккаунта, инициировавшего операцию.
-              type: string
-            modifiedAt:
-              description: >-
-                Время, когда ресурс Operation последний раз
-
-                обновлялся. Значение в формате
-                [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
-
-
-                Строка в формате
-                [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
-              type: string
-              format: date-time
-            done:
-              description: |-
-                Если значение равно `false` — операция еще
-                выполняется. Если `true` — операция завершена, и задано значение
-                одного из полей `error` или `response`.
-              type: boolean
-              format: boolean
-            metadata:
-              description: |-
-                Метаданные операции. Обычно в поле содержится
-                идентификатор ресурса, над которым выполняется операция. Если
-                метод возвращает ресурс Operation, в описании метода приведена
-                структура соответствующего ему поля `metadata`.
-              type: object
-        - title: result
-          type: object
-          maxProperties: 1
-          properties:
-            error:
-              $ref: '#/components/schemas/Status'
-              description: Описание ошибки в случае сбоя или отмены операции.
-            response:
-              description: >-
-                Результат операции в случае успешного завершения. Если
-
-                исходный метод не возвращает никаких данных при успешном
-
-                завершении, например метод Delete, поле содержит объект
-
-                [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty).
-                Если исходный метод — это стандартный метод Create
-
-                / Update, поле содержит целевой ресурс операции. Если метод
-
-                возвращает ресурс Operation, в описании метода приведена
-
-                структура соответствующего ему поля `response`.
-              type: object
+              Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+            type: string
+            format: date-time
+          done:
+            description: |-
+              Если значение равно `false` — операция еще
+              выполняется. Если `true` — операция завершена, и задано значение
+              одного из полей `error` или `response`.
+            type: boolean
+            format: boolean
+          metadata:
+            description: |-
+              Метаданные операции. Обычно в поле содержится
+              идентификатор ресурса, над которым выполняется операция. Если
+              метод возвращает ресурс Operation, в описании метода приведена
+              структура соответствующего ему поля `metadata`.
+            type: object
+      - title: result
+        type: object
+        maxProperties: 1
+        properties:
+          error:
+            $ref: '#/components/schemas/Status'
+            description: Описание ошибки в случае сбоя или отмены операции.
+          response:
+            description: |-
+              Результат операции в случае успешного завершения. Если
+              исходный метод не возвращает никаких данных при успешном
+              завершении, например метод Delete, поле содержит объект
+              [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty). Если исходный метод — это стандартный метод Create
+              / Update, поле содержит целевой ресурс операции. Если метод
+              возвращает ресурс Operation, в описании метода приведена
+              структура соответствующего ему поля `response`.
+            type: object
     SamlUserAccount:
-      description: >-
+      description: |-
         Пользователь федерации.
-
-        Подробнее см. в разделе [SAML-совместимые
-        федерации](/docs/iam/concepts/users/saml-federations).
+        Подробнее см. в разделе [SAML-совместимые федерации](/docs/iam/concepts/users/saml-federations).
       type: object
       properties:
         federationId:
@@ -1268,14 +981,10 @@ components:
             Максимальная длина строки в символах — 50.
           type: string
         nameId:
-          description: >-
+          description: |-
             Обязательное поле.
-
             Идентификатор имени пользоваетля федерации.
-
-            Идентификатор имени должен быть уникальным в федерации. Длина 1-256
-            символов.
-
+            Идентификатор имени должен быть уникальным в федерации. Длина 1-256 символов.
 
             Длина строки в символах должна быть от 1 до 256.
           type: string
@@ -1296,9 +1005,7 @@ components:
       type: object
       properties:
         code:
-          description: >-
-            Код ошибки. Значение из списка
-            [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
+          description: Код ошибки. Значение из списка [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
           type: integer
           format: int32
         message:
@@ -1319,15 +1026,12 @@ components:
       type: object
       properties:
         updateMask:
-          $ref: >-
-            #/components/schemas/FieldMask_in_UpdateCertificateRequest_updateMask
+          $ref: '#/components/schemas/FieldMask_in_UpdateCertificateRequest_updateMask'
         name:
-          description: >-
+          description: |-
             Имя сертификата. Имя должно быть уникальным в пределах федерации.
 
-
-            Значение должно соответствовать регулярному выражению ``
-            |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
+            Значение должно соответствовать регулярному выражению `` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
           type: string
         description:
           description: |-
@@ -1353,12 +1057,10 @@ components:
         updateMask:
           $ref: '#/components/schemas/FieldMask_in_UpdateFederationRequest_updateMask'
         name:
-          description: >-
+          description: |-
             Название федерации. Имя должно быть уникальным в облаке.
 
-
-            Значение должно соответствовать регулярному выражению ``
-            |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
+            Значение должно соответствовать регулярному выражению `` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
           type: string
         description:
           description: |-
@@ -1367,116 +1069,84 @@ components:
             Максимальная длина строки в символах — 256.
           type: string
         cookieMaxAge:
-          description: >-
-            Время жизни файлов cookie в браузере в секундах. Если время жизни
-            cookie не истекло, то
-
-            консоль управления сразу аутентифицирует пользователя и отправляет
-            на главную
-
+          description: |-
+            Время жизни файлов cookie в браузере в секундах. Если время жизни cookie не истекло, то
+            консоль управления сразу аутентифицирует пользователя и отправляет на главную
             страницу. Значение по умолчанию — `8h`.
-
 
             Допустимые значения — от 600 seconds до 43200 seconds включительно.
           type: string
         autoCreateAccountOnLogin:
-          description: >-
-            Добавлять новых пользователей автоматически при успешной
-            аутентификации.
-
-            Пользователям будет назначена роль `resource-manager.clouds.member`
-            автоматически, но остальные
-
+          description: |-
+            Добавлять новых пользователей автоматически при успешной аутентификации.
+            Пользователям будет назначена роль `resource-manager.clouds.member` автоматически, но остальные
             роли надо будет назначить самостоятельно.
 
-
-            Если значение `false` , то пользователь, которого не добавили в
-            облако, не сможет войти,
-
+            Если значение `false` , то пользователь, которого не добавили в облако, не сможет войти,
             даже если пройдет аутентификацию на вашем сервере.
           type: boolean
           format: boolean
         issuer:
-          description: >-
+          description: |-
             Обязательное поле.
-
-            Идентификатор IdP-сервера, который будет использоваться для
-            аутентификации. Этот же
-
-            идентификатор сервер IdP указывает в ответе после того, как
-            пользователь проходит
-
+            Идентификатор IdP-сервера, который будет использоваться для аутентификации. Этот же
+            идентификатор сервер IdP указывает в ответе после того, как пользователь проходит
             аутентификацию.
-
 
             Максимальная длина строки в символах — 8000.
           type: string
         ssoBinding:
-          $ref: >-
-            #/components/schemas/BindingType_in_UpdateFederationRequest_ssoBinding
+          $ref: '#/components/schemas/BindingType_in_UpdateFederationRequest_ssoBinding'
         ssoUrl:
-          description: >-
+          description: |-
             Обязательное поле.
-
-            URL для Single sign-on. Укажите здесь ссылку на страницу для входа в
-            IdP.
-
+            URL для Single sign-on. Укажите здесь ссылку на страницу для входа в IdP.
 
             Максимальная длина строки в символах — 8000.
           type: string
         securitySettings:
-          $ref: >-
-            #/components/schemas/FederationSecuritySettings_in_UpdateFederationRequest_securitySettings
+          $ref: '#/components/schemas/FederationSecuritySettings_in_UpdateFederationRequest_securitySettings'
         caseInsensitiveNameIds:
           description: Использовать нечувствительные к регистру Name ID пользователей.
           type: boolean
           format: boolean
     UserAccount:
-      description: >-
-        В настоящее время представляет только [аккаунт
-        Яндекс.Паспорта](/docs/iam/concepts/#passport).
+      description: В настоящее время представляет только [аккаунт Яндекс.Паспорта](/docs/iam/concepts/#passport).
       type: object
       allOf:
-        - type: object
-          properties:
-            id:
-              description: Идентификатор аккаунта пользователя
-              type: string
-        - title: user_account
-          type: object
-          maxProperties: 1
-          properties:
-            yandexPassportUserAccount:
-              $ref: '#/components/schemas/YandexPassportUserAccount'
-              description: Ресурс YandexPassportUserAccount.
-            samlUserAccount:
-              $ref: '#/components/schemas/SamlUserAccount'
-              description: Пользователь федерации.
+      - type: object
+        properties:
+          id:
+            description: Идентификатор аккаунта пользователя
+            type: string
+      - title: user_account
+        type: object
+        maxProperties: 1
+        properties:
+          yandexPassportUserAccount:
+            $ref: '#/components/schemas/YandexPassportUserAccount'
+            description: Ресурс YandexPassportUserAccount.
+          samlUserAccount:
+            $ref: '#/components/schemas/SamlUserAccount'
+            description: Пользователь федерации.
     YandexPassportUserAccount:
-      description: >-
+      description: |-
         Ресурс YandexPassportUserAccount.
-
-        Подробнее см. в разделе [Аккаунт
-        Яндекс.Паспорта](/docs/iam/concepts/#passport).
+        Подробнее см. в разделе [Аккаунт Яндекс.Паспорта](/docs/iam/concepts/#passport).
       type: object
       properties:
         login:
           description: Логин аккаунта Яндекс.Паспорта.
           type: string
         defaultEmail:
-          description: >-
-            Email используемый по умолчанию для пользователя с аккаунтом
+          description: Email используемый по умолчанию для пользователя с аккаунтом
             Яндекс.Паспорта.
           type: string
     BindingType_in_CreateFederationRequest_ssoBinding:
-      description: >-
-        Тип привязки для Single Sign-on. Большинство поставщиков поддерживают
-        тип привязки `POST`.
+      description: |-
+        Тип привязки для Single Sign-on. Большинство поставщиков поддерживают тип привязки `POST`.
 
-
-        Привязка — это отображение сообщения протокола SAML на стандартные
-        форматы сообщений
-
+        Привязка — это отображение сообщения протокола SAML на стандартные форматы сообщений
         и / или протоколы связи.
 
          - POST: Привязка HTTP POST.
@@ -1484,9 +1154,9 @@ components:
          - ARTIFACT: Привязка артефактом HTTP.
       type: string
       enum:
-        - POST
-        - REDIRECT
-        - ARTIFACT
+      - POST
+      - REDIRECT
+      - ARTIFACT
     FederationSecuritySettings_in_CreateFederationRequest_securitySettings:
       description: |-
         Настройки безопасности федерации.
@@ -1499,14 +1169,10 @@ components:
           type: boolean
           format: boolean
     BindingType_in_Federation_ssoBinding:
-      description: >-
-        Тип привязки для Single Sign-on. Большинство поставщиков поддерживают
-        тип привязки `POST`.
+      description: |-
+        Тип привязки для Single Sign-on. Большинство поставщиков поддерживают тип привязки `POST`.
 
-
-        Привязка — это отображение сообщения протокола SAML на стандартные
-        форматы сообщений
-
+        Привязка — это отображение сообщения протокола SAML на стандартные форматы сообщений
         и / или протоколы связи.
 
          - POST: Привязка HTTP POST.
@@ -1514,9 +1180,9 @@ components:
          - ARTIFACT: Привязка артефактом HTTP.
       type: string
       enum:
-        - POST
-        - REDIRECT
-        - ARTIFACT
+      - POST
+      - REDIRECT
+      - ARTIFACT
     FederationSecuritySettings_in_Federation_securitySettings:
       description: |-
         Настройки безопасности федерации.
@@ -1529,62 +1195,36 @@ components:
           type: boolean
           format: boolean
     FieldMask_in_UpdateCertificateRequest_updateMask:
-      description: >-
+      description: |-
         Маска, определяющая, какие поля указанного сертификата будут обновлены.
 
-
         Имена всех обновляемых полей, разделенные запятыми.
+        Только значения указанных полей будут изменены. Остальные останутся нетронутыми.
+        Если поле указано в параметре `` updateMask `` и в запросе не было отправлено значение для этого поля,
+        значение поля будет сброшено на значение по умолчанию. Значение по умолчанию для большинства полей — null или 0.
 
-        Только значения указанных полей будут изменены. Остальные останутся
-        нетронутыми.
-
-        Если поле указано в параметре `` updateMask `` и в запросе не было
-        отправлено значение для этого поля,
-
-        значение поля будет сброшено на значение по умолчанию. Значение по
-        умолчанию для большинства полей — null или 0.
-
-
-        Если в запросе не передается `` updateMask ``, значения всех полей будут
-        обновлены.
-
+        Если в запросе не передается `` updateMask ``, значения всех полей будут обновлены.
         Для полей, указанных в запросе, будут использованы переданные значения.
-
         Значения остальных полей будут сброшены на значения по умолчанию.
       type: string
     FieldMask_in_UpdateFederationRequest_updateMask:
-      description: >-
+      description: |-
         Маска, определяющая, какие поля указанной федерации будут обновлены.
 
-
         Имена всех обновляемых полей, разделенные запятыми.
+        Только значения указанных полей будут изменены. Остальные останутся нетронутыми.
+        Если поле указано в параметре `` updateMask `` и в запросе не было отправлено значение для этого поля,
+        значение поля будет сброшено на значение по умолчанию. Значение по умолчанию для большинства полей — null или 0.
 
-        Только значения указанных полей будут изменены. Остальные останутся
-        нетронутыми.
-
-        Если поле указано в параметре `` updateMask `` и в запросе не было
-        отправлено значение для этого поля,
-
-        значение поля будет сброшено на значение по умолчанию. Значение по
-        умолчанию для большинства полей — null или 0.
-
-
-        Если в запросе не передается `` updateMask ``, значения всех полей будут
-        обновлены.
-
+        Если в запросе не передается `` updateMask ``, значения всех полей будут обновлены.
         Для полей, указанных в запросе, будут использованы переданные значения.
-
         Значения остальных полей будут сброшены на значения по умолчанию.
       type: string
     BindingType_in_UpdateFederationRequest_ssoBinding:
-      description: >-
-        Тип привязки для Single Sign-on. Большинство поставщиков поддерживают
-        тип привязки `POST`.
+      description: |-
+        Тип привязки для Single Sign-on. Большинство поставщиков поддерживают тип привязки `POST`.
 
-
-        Привязка — это отображение сообщения протокола SAML на стандартные
-        форматы сообщений
-
+        Привязка — это отображение сообщения протокола SAML на стандартные форматы сообщений
         и / или протоколы связи.
 
          - POST: Привязка HTTP POST.
@@ -1592,9 +1232,9 @@ components:
          - ARTIFACT: Привязка артефактом HTTP.
       type: string
       enum:
-        - POST
-        - REDIRECT
-        - ARTIFACT
+      - POST
+      - REDIRECT
+      - ARTIFACT
     FederationSecuritySettings_in_UpdateFederationRequest_securitySettings:
       description: |-
         Настройки безопасности федерации.
@@ -1607,7 +1247,7 @@ components:
           type: boolean
           format: boolean
 tags:
-  - name: Certificate
-    description: Набор методов для управления сертификатами.
-  - name: Federation
-    description: Набор методов для управления федерациями.
+- name: Certificate
+  description: Набор методов для управления сертификатами.
+- name: Federation
+  description: Набор методов для управления федерациями.

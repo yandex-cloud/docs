@@ -1,0 +1,39 @@
+items:
+  - name: Обзор
+    href: api-ref/index.md
+  - name: Certificate
+    items:
+      - name: Обзор
+        href: api-ref/Certificate/index.md
+      - name: create
+        href: api-ref/Certificate/create.md
+      - name: delete
+        href: api-ref/Certificate/delete.md
+      - name: get
+        href: api-ref/Certificate/get.md
+      - name: list
+        href: api-ref/Certificate/list.md
+      - name: listOperations
+        href: api-ref/Certificate/listOperations.md
+      - name: update
+        href: api-ref/Certificate/update.md
+  - name: Federation
+    items:
+      - name: Обзор
+        href: api-ref/Federation/index.md
+      - name: addUserAccounts
+        href: api-ref/Federation/addUserAccounts.md
+      - name: create
+        href: api-ref/Federation/create.md
+      - name: delete
+        href: api-ref/Federation/delete.md
+      - name: get
+        href: api-ref/Federation/get.md
+      - name: list
+        href: api-ref/Federation/list.md
+      - name: listOperations
+        href: api-ref/Federation/listOperations.md
+      - name: listUserAccounts
+        href: api-ref/Federation/listUserAccounts.md
+      - name: update
+        href: api-ref/Federation/update.md

@@ -1,0 +1,15 @@
+items:
+  - name: Overview
+    href: api-ref/grpc/index.md
+  - name: ImageService
+    href: api-ref/grpc/image_service.md
+  - name: LifecyclePolicyService
+    href: api-ref/grpc/lifecycle_policy_service.md
+  - name: RegistryService
+    href: api-ref/grpc/registry_service.md
+  - name: RepositoryService
+    href: api-ref/grpc/repository_service.md
+  - name: ScannerService
+    href: api-ref/grpc/scanner_service.md
+  - name: OperationService
+    href: api-ref/grpc/operation_service.md

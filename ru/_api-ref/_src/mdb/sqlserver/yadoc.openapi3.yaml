@@ -1,135 +1,109 @@
-openapi: '3.0'
+openapi: "3.0"
 info:
   title: Yandex Managed Service for SQL Server API
-  description: >-
-    Методы справочника API сгруппированы по ресурсам. Чтобы выполнить операцию
-    над ресурсом, отправьте HTTP-запрос к соответствующему URL. Подробнее об
-    архитектуре API Яндекс.Облака, см. [Концепции API
-    Яндекс.Облака](/docs/api-design-guide/).
+  description: Методы справочника API сгруппированы по ресурсам. Чтобы выполнить операцию
+    над ресурсом, отправьте HTTP-запрос к соответствующему URL. Подробнее об архитектуре
+    API Яндекс.Облака, см. [Концепции API Яндекс.Облака](/docs/api-design-guide/).
   version: v1
   x-y-docUri: api-ref
   x-y-baseUrl: https://mdb.api.cloud.yandex.net
 paths:
-  /mdb/sqlserver/v1alpha/backups/{backupId}:
+  /mdb/sqlserver/v1/backups/{backupId}:
     get:
       tags:
-        - Backup
+      - Backup
       summary: Возвращает указанную резервную копию SQL Server.
-      description: >-
-        Чтобы получить список доступных резервных копий SQL Server, выполните
+      description: Чтобы получить список доступных резервных копий SQL Server, выполните
         запрос [list](/docs/managed-sqlserver/api-ref/Backup/list).
       operationId: BackupGet
       parameters:
-        - name: backupId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: backupId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор резервной копии, сведения о которой запрашиваются.
 
-            Идентификатор резервной копии, сведения о которой запрашиваются.
-
-
-            Чтобы получить идентификатор резервной копии, используйте запрос
-            [listBackups](/docs/managed-sqlserver/api-ref/Cluster/listBackups).
-          required: true
-          schema:
-            type: string
+          Чтобы получить идентификатор резервной копии, используйте запрос [listBackups](/docs/managed-sqlserver/api-ref/Cluster/listBackups).
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Backup'
       x-y-navtitle: get
-  /mdb/sqlserver/v1alpha/backups:
+  /mdb/sqlserver/v1/backups:
     get:
       tags:
-        - Backup
-      summary: >-
-        Возвращает список резервных копий SQL Server, доступных в указанном
+      - Backup
+      summary: Возвращает список резервных копий SQL Server, доступных в указанном
         каталоге.
       operationId: BackupList
       parameters:
-        - name: folderId
-          in: query
-          description: >-
-            Обязательное поле.
+      - name: folderId
+        in: query
+        description: |-
+          Обязательное поле.
+          Идентификатор каталога для вывода списка резервных копий.
 
-            Идентификатор каталога для вывода списка резервных копий.
+          Чтобы получить идентификатор каталога, используйте запрос [list](/docs/resource-manager/api-ref/Folder/list).
 
+          Максимальная длина строки в символах — 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на одной странице в ответе. Если количество результатов больше чем `page_size`, сервис вернет значение
+          [nextPageToken](/docs/managed-sqlserver/api-ref/Backup/list#responses), которое можно использовать для получения следующей страницы.
 
-            Чтобы получить идентификатор каталога, используйте запрос
-            [list](/docs/resource-manager/api-ref/Folder/list).
+          Максимальное значение — 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение `page_token` равным значению поля [nextPageToken](/docs/managed-sqlserver/api-ref/Backup/list#responses) предыдущего запроса, чтобы получить следующую
+          страницу результатов.
 
-
-            Максимальная длина строки в символах — 50.
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            Максимальное количество результатов на одной странице в ответе. Если
-            количество результатов больше чем `page_size`, сервис вернет
-            значение
-
-            [nextPageToken](/docs/managed-sqlserver/api-ref/Backup/list#responses),
-            которое можно использовать для получения следующей страницы.
-
-
-            Максимальное значение — 1000.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Токен страницы. Установите значение `page_token` равным значению
-            поля
-            [nextPageToken](/docs/managed-sqlserver/api-ref/Backup/list#responses)
-            предыдущего запроса, чтобы получить следующую
-
-            страницу результатов.
-
-
-            Максимальная длина строки в символах — 100.
-          schema:
-            type: string
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ListBackupsResponse'
       x-y-navtitle: list
-  /mdb/sqlserver/v1alpha/clusters/{clusterId}:
+  /mdb/sqlserver/v1/clusters/{clusterId}:
     get:
       tags:
-        - Cluster
+      - Cluster
       summary: Возвращает указанный кластер SQL Server.
-      description: >-
-        Чтобы получить список доступных кластеров SQL Server, выполните запрос
-        [list](/docs/managed-sqlserver/api-ref/Cluster/list).
+      description: Чтобы получить список доступных кластеров SQL Server, выполните
+        запрос [list](/docs/managed-sqlserver/api-ref/Cluster/list).
       operationId: ClusterGet
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера SQL Server.
 
-            Идентификатор кластера SQL Server.
+          Чтобы получить идентификатор кластера, используйте запрос [list](/docs/managed-sqlserver/api-ref/Cluster/list).
 
-
-            Чтобы получить идентификатор кластера, используйте запрос
-            [list](/docs/managed-sqlserver/api-ref/Cluster/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -138,28 +112,24 @@ paths:
       x-y-navtitle: get
     delete:
       tags:
-        - Cluster
+      - Cluster
       summary: Удаляет указанный кластер SQL Server.
       operationId: ClusterDelete
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера SQL Server, который следует удалить.
 
-            Идентификатор кластера SQL Server, который следует удалить.
+          Чтобы получить идентификатор кластера SQL Server, используйте запрос [list](/docs/managed-sqlserver/api-ref/Cluster/list).
 
-
-            Чтобы получить идентификатор кластера SQL Server, используйте запрос
-            [list](/docs/managed-sqlserver/api-ref/Cluster/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -171,26 +141,22 @@ paths:
       x-y-operation-response: Empty
     patch:
       tags:
-        - Cluster
+      - Cluster
       summary: Изменяет указанный кластер SQL Server.
       operationId: ClusterUpdate
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера SQL Server, который следует изменить.
 
-            Идентификатор кластера SQL Server, который следует изменить.
+          Чтобы получить идентификатор кластера SQL Server, используйте запрос [list](/docs/managed-sqlserver/api-ref/Cluster/list).
 
-
-            Чтобы получить идентификатор кластера SQL Server, используйте запрос
-            [list](/docs/managed-sqlserver/api-ref/Cluster/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -198,7 +164,7 @@ paths:
               $ref: '#/components/schemas/UpdateClusterRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -208,83 +174,58 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/UpdateClusterMetadata'
       x-y-operation-response: '[Cluster](/docs/managed-sqlserver/api-ref/Cluster#representation)'
-  /mdb/sqlserver/v1alpha/clusters:
+  /mdb/sqlserver/v1/clusters:
     get:
       tags:
-        - Cluster
+      - Cluster
       summary: Получает список кластеров SQL Server, принадлежащих указанному каталогу.
       operationId: ClusterList
       parameters:
-        - name: folderId
-          in: query
-          description: >-
-            Обязательное поле.
+      - name: folderId
+        in: query
+        description: |-
+          Обязательное поле.
+          Идентификатор каталога, для которого нужно получить список кластеров SQL Server.
 
-            Идентификатор каталога, для которого нужно получить список кластеров
-            SQL Server.
+          Чтобы получить идентификатор каталога, используйте запрос [list](/docs/resource-manager/api-ref/Folder/list).
 
+          Максимальная длина строки в символах — 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на одной странице в ответе. Если количество результатов больше чем `page_size`, сервис вернет значение
+          [nextPageToken](/docs/managed-sqlserver/api-ref/Cluster/list#responses), которое можно использовать для получения следующей страницы.
 
-            Чтобы получить идентификатор каталога, используйте запрос
-            [list](/docs/resource-manager/api-ref/Folder/list).
+          Допустимые значения — от 0 до 1000 включительно.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение `page_token` равным значению поля [nextPageToken](/docs/managed-sqlserver/api-ref/Cluster/list#responses) предыдущего запроса, чтобы получить следующую
+          страницу результатов.
 
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          Выражение, позволяющее отфильтровать информацию о ресурсах в ответе, оставив только нужную. В этом выражении должны быть указаны:
+          1. Имя поля, по которому нужно выполнить фильтрацию. В настоящее время фильтрацию можно использовать только по полю [Cluster.name](/docs/managed-sqlserver/api-ref/Cluster#representation).
+          2. Условный оператор. Поддерживаются операторы `=` и `!=` для одиночных значений, `IN` и `NOT IN` для списков значений.
+          3. Значение. Должно содержать от 1 до 63 символов и соответствовать регулярному выражению `^[a-zA-Z0-9_-]+$`.
 
-            Максимальная длина строки в символах — 50.
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            Максимальное количество результатов на одной странице в ответе. Если
-            количество результатов больше чем `page_size`, сервис вернет
-            значение
+          Пример фильтра: `name NOT IN 'test,beta'`.
 
-            [nextPageToken](/docs/managed-sqlserver/api-ref/Cluster/list#responses),
-            которое можно использовать для получения следующей страницы.
-
-
-            Допустимые значения — от 0 до 1000 включительно.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Токен страницы. Установите значение `page_token` равным значению
-            поля
-            [nextPageToken](/docs/managed-sqlserver/api-ref/Cluster/list#responses)
-            предыдущего запроса, чтобы получить следующую
-
-            страницу результатов.
-
-
-            Максимальная длина строки в символах — 100.
-          schema:
-            type: string
-        - name: filter
-          in: query
-          description: >-
-            Выражение, позволяющее отфильтровать информацию о ресурсах в ответе,
-            оставив только нужную. В этом выражении должны быть указаны:
-
-            1. Имя поля, по которому нужно выполнить фильтрацию. В настоящее
-            время фильтрацию можно использовать только по полю
-            [Cluster.name](/docs/managed-sqlserver/api-ref/Cluster#representation).
-
-            2. Условный оператор. Поддерживаются операторы `=` и `!=` для
-            одиночных значений, `IN` и `NOT IN` для списков значений.
-
-            3. Значение. Должно содержать от 1 до 63 символов и соответствовать
-            регулярному выражению `^[a-zA-Z0-9_-]+$`.
-
-
-            Пример фильтра: `name NOT IN 'test,beta'`.
-
-
-            Максимальная длина строки в символах — 1000.
-          schema:
-            type: string
+          Максимальная длина строки в символах — 1000.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -293,7 +234,7 @@ paths:
       x-y-navtitle: list
     post:
       tags:
-        - Cluster
+      - Cluster
       summary: Создает кластер SQL Server в указанном каталоге.
       operationId: ClusterCreate
       requestBody:
@@ -303,7 +244,7 @@ paths:
               $ref: '#/components/schemas/CreateClusterRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -313,31 +254,27 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/CreateClusterMetadata'
       x-y-operation-response: '[Cluster](/docs/managed-sqlserver/api-ref/Cluster#representation)'
-  /mdb/sqlserver/v1alpha/clusters/{clusterId}:start:
+  /mdb/sqlserver/v1/clusters/{clusterId}:start:
     post:
       tags:
-        - Cluster
+      - Cluster
       summary: Запускает указанный кластер SQL Server.
       operationId: ClusterStart
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера SQL Server, который следует запустить.
 
-            Идентификатор кластера SQL Server, который следует запустить.
+          Чтобы получить идентификатор кластера, используйте запрос [list](/docs/managed-sqlserver/api-ref/Cluster/list).
 
-
-            Чтобы получить идентификатор кластера, используйте запрос
-            [list](/docs/managed-sqlserver/api-ref/Cluster/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -347,31 +284,27 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/StartClusterMetadata'
       x-y-operation-response: '[Cluster](/docs/managed-sqlserver/api-ref/Cluster#representation)'
-  /mdb/sqlserver/v1alpha/clusters/{clusterId}:stop:
+  /mdb/sqlserver/v1/clusters/{clusterId}:stop:
     post:
       tags:
-        - Cluster
+      - Cluster
       summary: Останавливает указанный кластер SQL Server.
       operationId: ClusterStop
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера SQL Server, который следует остановить.
 
-            Идентификатор кластера SQL Server, который следует остановить.
+          Чтобы получить идентификатор кластера, используйте запрос [list](/docs/managed-sqlserver/api-ref/Cluster/list).
 
-
-            Чтобы получить идентификатор кластера, используйте запрос
-            [list](/docs/managed-sqlserver/api-ref/Cluster/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -381,29 +314,25 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/StopClusterMetadata'
       x-y-operation-response: '[Cluster](/docs/managed-sqlserver/api-ref/Cluster#representation)'
-  /mdb/sqlserver/v1alpha/clusters/{clusterId}:move:
+  /mdb/sqlserver/v1/clusters/{clusterId}:move:
     post:
       tags:
-        - Cluster
+      - Cluster
       summary: Перемещает кластер SQL Server в указанный каталог.
       operationId: ClusterMove
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера SQL Server, который следует переместить.
 
-            Идентификатор кластера SQL Server, который следует переместить.
+          Чтобы получить идентификатор кластера, используйте запрос [list](/docs/managed-sqlserver/api-ref/Cluster/list).
 
-
-            Чтобы получить идентификатор кластера, используйте запрос
-            [list](/docs/managed-sqlserver/api-ref/Cluster/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -411,7 +340,7 @@ paths:
               $ref: '#/components/schemas/MoveClusterRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -421,32 +350,27 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/MoveClusterMetadata'
       x-y-operation-response: '[Cluster](/docs/managed-sqlserver/api-ref/Cluster#representation)'
-  /mdb/sqlserver/v1alpha/clusters/{clusterId}:backup:
+  /mdb/sqlserver/v1/clusters/{clusterId}:backup:
     post:
       tags:
-        - Cluster
+      - Cluster
       summary: Создает резервную копию для указанного кластера SQL Server.
       operationId: ClusterBackup
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера SQL Server, для которого следует создать резервную копию.
 
-            Идентификатор кластера SQL Server, для которого следует создать
-            резервную копию.
+          Чтобы получить идентификатор кластера SQL Server, используйте запрос [list](/docs/managed-sqlserver/api-ref/Cluster/list).
 
-
-            Чтобы получить идентификатор кластера SQL Server, используйте запрос
-            [list](/docs/managed-sqlserver/api-ref/Cluster/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -456,12 +380,11 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/BackupClusterMetadata'
       x-y-operation-response: '[Cluster](/docs/managed-sqlserver/api-ref/Cluster#representation)'
-  /mdb/sqlserver/v1alpha/clusters:restore:
+  /mdb/sqlserver/v1/clusters:restore:
     post:
       tags:
-        - Cluster
-      summary: >-
-        Создает новый кластер SQL Server с использованием указанной резервной
+      - Cluster
+      summary: Создает новый кластер SQL Server с использованием указанной резервной
         копии.
       operationId: ClusterRestore
       requestBody:
@@ -471,7 +394,7 @@ paths:
               $ref: '#/components/schemas/RestoreClusterRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -481,367 +404,284 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/RestoreClusterMetadata'
       x-y-operation-response: '[Cluster](/docs/managed-sqlserver/api-ref/Cluster#representation)'
-  /mdb/sqlserver/v1alpha/clusters/{clusterId}:logs:
+  /mdb/sqlserver/v1/clusters/{clusterId}:logs:
     get:
       tags:
-        - Cluster
+      - Cluster
       summary: Возвращает логи для указанного кластера SQL Server.
-      description: >-
-        Для получения дополнительной информации о логах см. раздел [Просмотр
-        логов кластера](/docs/managed-sqlserver/operations/cluster-logs)" в
-        документации.
+      description: Для получения дополнительной информации о логах см. раздел [Просмотр
+        логов кластера](/docs/managed-sqlserver/operations/cluster-logs)" в документации.
       operationId: ClusterListLogs
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера SQL Server, для которого нужно получить логи.
 
-            Идентификатор кластера SQL Server, для которого нужно получить логи.
+          Чтобы получить идентификатор кластера SQL Server, используйте запрос [list](/docs/managed-sqlserver/api-ref/Cluster/list).
 
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: columnFilter
+        in: query
+        description: |-
+          Столбцы, которые нужно запросить из лога.
 
-            Чтобы получить идентификатор кластера SQL Server, используйте запрос
-            [list](/docs/managed-sqlserver/api-ref/Cluster/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
+          Если столбцы не указаны, записи логов возвращаются целиком.
+        schema:
+          type: array
+          items:
             type: string
-        - name: columnFilter
-          in: query
-          description: |-
-            Столбцы, которые нужно запросить из лога.
+      - name: serviceType
+        in: query
+        description: Тип сервиса, для которого следует запросить логи.
+        schema:
+          $ref: '#/components/schemas/ListClusterLogsRequestServiceType'
+      - name: fromTime
+        in: query
+        description: |-
+          Временная метка, начиная с которой следует запросить логи.
 
-            Если столбцы не указаны, записи логов возвращаются целиком.
-          schema:
-            type: array
-            items:
-              type: string
-        - name: serviceType
-          in: query
-          description: Тип сервиса, для которого следует запросить логи.
-          schema:
-            $ref: '#/components/schemas/ListClusterLogsRequestServiceType'
-        - name: fromTime
-          in: query
-          description: |-
-            Временная метка, начиная с которой следует запросить логи.
+          Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+        schema:
+          type: string
+          format: date-time
+      - name: toTime
+        in: query
+        description: |-
+          Временная метка, до которой следует запросить логи.
 
-            Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
-          schema:
-            type: string
-            format: date-time
-        - name: toTime
-          in: query
-          description: |-
-            Временная метка, до которой следует запросить логи.
+          Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+        schema:
+          type: string
+          format: date-time
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на одной странице в ответе. Если количество результатов больше чем `page_size`, сервис вернет значение
+          [nextPageToken](/docs/managed-sqlserver/api-ref/Cluster/listLogs#responses), которое можно использовать для получения следующей страницы.
 
-            Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
-          schema:
-            type: string
-            format: date-time
-        - name: pageSize
-          in: query
-          description: >-
-            Максимальное количество результатов на одной странице в ответе. Если
-            количество результатов больше чем `page_size`, сервис вернет
-            значение
+          Допустимые значения — от 0 до 1000 включительно.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение `page_token` равным значению поля [nextPageToken](/docs/managed-sqlserver/api-ref/Cluster/listLogs#responses) предыдущего запроса, чтобы получить
+          следующую страницу результатов.
 
-            [nextPageToken](/docs/managed-sqlserver/api-ref/Cluster/listLogs#responses),
-            которое можно использовать для получения следующей страницы.
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      - name: alwaysNextPageToken
+        in: query
+        description: Всегда возвращать `next_page_token`, даже если текущая страница
+          пуста.
+        schema:
+          type: boolean
+          format: boolean
+      - name: filter
+        in: query
+        description: |-
+          Выражение, позволяющее отфильтровать информацию о ресурсах в ответе, оставив только нужную.
 
+          В этом выражении должны быть указаны:
+          1. Имя поля, по которому нужно выполнить фильтрацию. В настоящее время фильтрацию можно использовать только по полю [LogRecord.logs.message.hostname].
+          2. Условный оператор. Поддерживаются операторы `=` и `!=` для одиночных значений, `IN` и `NOT IN` для списков значений.
+          3. Значение. Должно содержать от 1 до 63 символов и соответствовать регулярному выражению `^[a-z0-9.-]{1,61}$`.
 
-            Допустимые значения — от 0 до 1000 включительно.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Токен страницы. Установите значение `page_token` равным значению
-            поля
-            [nextPageToken](/docs/managed-sqlserver/api-ref/Cluster/listLogs#responses)
-            предыдущего запроса, чтобы получить
+          Примеры фильтров: `message.hostname='node1.db.cloud.yandex.net'`
 
-            следующую страницу результатов.
-
-
-            Максимальная длина строки в символах — 100.
-          schema:
-            type: string
-        - name: alwaysNextPageToken
-          in: query
-          description: >-
-            Всегда возвращать `next_page_token`, даже если текущая страница
-            пуста.
-          schema:
-            type: boolean
-            format: boolean
-        - name: filter
-          in: query
-          description: >-
-            Выражение, позволяющее отфильтровать информацию о ресурсах в ответе,
-            оставив только нужную.
-
-
-            В этом выражении должны быть указаны:
-
-            1. Имя поля, по которому нужно выполнить фильтрацию. В настоящее
-            время фильтрацию можно использовать только по полю
-            [LogRecord.logs.message.hostname].
-
-            2. Условный оператор. Поддерживаются операторы `=` и `!=` для
-            одиночных значений, `IN` и `NOT IN` для списков значений.
-
-            3. Значение. Должно содержать от 1 до 63 символов и соответствовать
-            регулярному выражению `^[a-z0-9.-]{1,61}$`.
-
-
-            Примеры фильтров: `message.hostname='node1.db.cloud.yandex.net'`
-
-
-            Максимальная длина строки в символах — 1000.
-          schema:
-            type: string
+          Максимальная длина строки в символах — 1000.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ListClusterLogsResponse'
       x-y-navtitle: listLogs
-  /mdb/sqlserver/v1alpha/clusters/{clusterId}/operations:
+  /mdb/sqlserver/v1/clusters/{clusterId}/operations:
     get:
       tags:
-        - Cluster
+      - Cluster
       summary: Возвращает список операций для указанного кластера SQL Server.
       operationId: ClusterListOperations
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера SQL Server, для которого нужно получить список операций.
 
-            Идентификатор кластера SQL Server, для которого нужно получить
-            список операций.
+          Чтобы получить идентификатор кластера, используйте запрос [list](/docs/managed-sqlserver/api-ref/Cluster/list).
 
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на одной странице в ответе. Если количество результатов больше чем `page_size`, сервис вернет значение
+          [nextPageToken](/docs/managed-sqlserver/api-ref/Cluster/listOperations#responses), которое можно использовать для получения следующей страницы.
 
-            Чтобы получить идентификатор кластера, используйте запрос
-            [list](/docs/managed-sqlserver/api-ref/Cluster/list).
+          Допустимые значения — от 0 до 1000 включительно.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение `page_token` равным значению поля [nextPageToken](/docs/managed-sqlserver/api-ref/Cluster/listOperations#responses) предыдущего запроса, чтобы получить
+          следующую страницу результатов.
 
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            Максимальное количество результатов на одной странице в ответе. Если
-            количество результатов больше чем `page_size`, сервис вернет
-            значение
-
-            [nextPageToken](/docs/managed-sqlserver/api-ref/Cluster/listOperations#responses),
-            которое можно использовать для получения следующей страницы.
-
-
-            Допустимые значения — от 0 до 1000 включительно.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Токен страницы. Установите значение `page_token` равным значению
-            поля
-            [nextPageToken](/docs/managed-sqlserver/api-ref/Cluster/listOperations#responses)
-            предыдущего запроса, чтобы получить
-
-            следующую страницу результатов.
-
-
-            Максимальная длина строки в символах — 100.
-          schema:
-            type: string
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ListClusterOperationsResponse'
       x-y-navtitle: listOperations
-  /mdb/sqlserver/v1alpha/clusters/{clusterId}/backups:
+  /mdb/sqlserver/v1/clusters/{clusterId}/backups:
     get:
       tags:
-        - Cluster
-      summary: >-
-        Возвращает список доступных резервных копий для указанного кластера SQL
-        Server.
+      - Cluster
+      summary: Возвращает список доступных резервных копий для указанного кластера
+        SQL Server.
       operationId: ClusterListBackups
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера SQL Server.
 
-            Идентификатор кластера SQL Server.
+          Чтобы получить идентификатор кластера SQL Server, используйте запрос [list](/docs/managed-sqlserver/api-ref/Cluster/list).
 
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на одной странице в ответе. Если количество результатов больше чем `page_size`, сервис вернет значение
+          [nextPageToken](/docs/managed-sqlserver/api-ref/Cluster/listBackups#responses), которое можно использовать для получения следующей страницы.
 
-            Чтобы получить идентификатор кластера SQL Server, используйте запрос
-            [list](/docs/managed-sqlserver/api-ref/Cluster/list).
+          Максимальное значение — 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение `page_token` равным значению поля [nextPageToken](/docs/managed-sqlserver/api-ref/Cluster/listBackups#responses) предыдущего запроса, чтобы получить
+          следующую страницу результатов.
 
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            Максимальное количество результатов на одной странице в ответе. Если
-            количество результатов больше чем `page_size`, сервис вернет
-            значение
-
-            [nextPageToken](/docs/managed-sqlserver/api-ref/Cluster/listBackups#responses),
-            которое можно использовать для получения следующей страницы.
-
-
-            Максимальное значение — 1000.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Токен страницы. Установите значение `page_token` равным значению
-            поля
-            [nextPageToken](/docs/managed-sqlserver/api-ref/Cluster/listBackups#responses)
-            предыдущего запроса, чтобы получить
-
-            следующую страницу результатов.
-
-
-            Максимальная длина строки в символах — 100.
-          schema:
-            type: string
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ListClusterBackupsResponse'
       x-y-navtitle: listBackups
-  /mdb/sqlserver/v1alpha/clusters/{clusterId}/hosts:
+  /mdb/sqlserver/v1/clusters/{clusterId}/hosts:
     get:
       tags:
-        - Cluster
+      - Cluster
       summary: Возвращает список хостов для указанного кластера SQL Server.
       operationId: ClusterListHosts
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера SQL Server.
 
-            Идентификатор кластера SQL Server.
+          Чтобы получить идентификатор кластера SQL Server, используйте запрос [list](/docs/managed-sqlserver/api-ref/Cluster/list).
 
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на одной странице в ответе. Если количество результатов больше чем `page_size`, сервис вернет значение
+          [nextPageToken](/docs/managed-sqlserver/api-ref/Cluster/listHosts#responses), которое можно использовать для получения следующей страницы.
 
-            Чтобы получить идентификатор кластера SQL Server, используйте запрос
-            [list](/docs/managed-sqlserver/api-ref/Cluster/list).
+          Допустимые значения — от 0 до 1000 включительно.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение `page_token` равным значению поля [nextPageToken](/docs/managed-sqlserver/api-ref/Cluster/listHosts#responses) предыдущего запроса, чтобы получить
+          следующую страницу результатов.
 
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            Максимальное количество результатов на одной странице в ответе. Если
-            количество результатов больше чем `page_size`, сервис вернет
-            значение
-
-            [nextPageToken](/docs/managed-sqlserver/api-ref/Cluster/listHosts#responses),
-            которое можно использовать для получения следующей страницы.
-
-
-            Допустимые значения — от 0 до 1000 включительно.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Токен страницы. Установите значение `page_token` равным значению
-            поля
-            [nextPageToken](/docs/managed-sqlserver/api-ref/Cluster/listHosts#responses)
-            предыдущего запроса, чтобы получить
-
-            следующую страницу результатов.
-
-
-            Максимальная длина строки в символах — 100.
-          schema:
-            type: string
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ListClusterHostsResponse'
       x-y-navtitle: listHosts
-  /mdb/sqlserver/v1alpha/clusters/{clusterId}/databases/{databaseName}:
+  /mdb/sqlserver/v1/clusters/{clusterId}/databases/{databaseName}:
     get:
       tags:
-        - Database
+      - Database
       summary: Возвращает указанную базу данных SQL Server.
-      description: >-
-        Чтобы получить список доступных баз данных SQL Server, выполните запрос
-        [list](/docs/managed-sqlserver/api-ref/Database/list).
+      description: Чтобы получить список доступных баз данных SQL Server, выполните
+        запрос [list](/docs/managed-sqlserver/api-ref/Database/list).
       operationId: DatabaseGet
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера SQL Server, которому принадлежит база данных.
 
-            Идентификатор кластера SQL Server, которому принадлежит база данных.
+          Чтобы получить идентификатор кластера, используйте запрос [list](/docs/managed-sqlserver/api-ref/Cluster/list).
 
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: databaseName
+        in: path
+        description: |-
+          Обязательное поле.
+          Имя запрашиваемой базы данных SQL Server.
 
-            Чтобы получить идентификатор кластера, используйте запрос
-            [list](/docs/managed-sqlserver/api-ref/Cluster/list).
+          Чтобы получить имя базы данных, используйте запрос [list](/docs/managed-sqlserver/api-ref/Database/list).
 
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
-        - name: databaseName
-          in: path
-          description: >-
-            Обязательное поле.
-
-            Имя запрашиваемой базы данных SQL Server.
-
-
-            Чтобы получить имя базы данных, используйте запрос
-            [list](/docs/managed-sqlserver/api-ref/Database/list).
-
-
-            Максимальная длина строки в символах — 63.
-
-            Значение должно соответствовать регулярному выражению ``
-            [a-zA-Z0-9_-]* ``.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 63.
+          Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_-]* ``.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -850,48 +690,37 @@ paths:
       x-y-navtitle: get
     delete:
       tags:
-        - Database
+      - Database
       summary: Удаляет указанную базу данных SQL Server.
       operationId: DatabaseDelete
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера SQL Server, в котором следует удалить базу данных.
 
-            Идентификатор кластера SQL Server, в котором следует удалить базу
-            данных.
+          Чтобы получить идентификатор кластера, используйте запрос [list](/docs/managed-sqlserver/api-ref/Cluster/list).
 
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: databaseName
+        in: path
+        description: |-
+          Обязательное поле.
+          Имя удаляемой базы данных.
 
-            Чтобы получить идентификатор кластера, используйте запрос
-            [list](/docs/managed-sqlserver/api-ref/Cluster/list).
+          Чтобы получить имя базы данных, используйте запрос [list](/docs/managed-sqlserver/api-ref/Database/list).
 
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
-        - name: databaseName
-          in: path
-          description: >-
-            Обязательное поле.
-
-            Имя удаляемой базы данных.
-
-
-            Чтобы получить имя базы данных, используйте запрос
-            [list](/docs/managed-sqlserver/api-ref/Database/list).
-
-
-            Максимальная длина строки в символах — 63.
-
-            Значение должно соответствовать регулярному выражению ``
-            [a-zA-Z0-9_-]* ``.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 63.
+          Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_-]* ``.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -901,61 +730,46 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/DeleteDatabaseMetadata'
       x-y-operation-response: Empty
-  /mdb/sqlserver/v1alpha/clusters/{clusterId}/databases:
+  /mdb/sqlserver/v1/clusters/{clusterId}/databases:
     get:
       tags:
-        - Database
+      - Database
       summary: Возвращает список баз данных SQL Server в указанном кластере.
       operationId: DatabaseList
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера SQL Server, для которого нужно вывести список баз данных.
 
-            Идентификатор кластера SQL Server, для которого нужно вывести список
-            баз данных.
+          Чтобы получить идентификатор кластера, используйте запрос [list](/docs/managed-sqlserver/api-ref/Cluster/list).
 
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на одной странице в ответе. Если количество результатов больше чем `page_size`, сервис вернет значение
+          [nextPageToken](/docs/managed-sqlserver/api-ref/Database/list#responses), которое можно использовать для получения следующей страницы.
 
-            Чтобы получить идентификатор кластера, используйте запрос
-            [list](/docs/managed-sqlserver/api-ref/Cluster/list).
+          Допустимые значения — от 0 до 1000 включительно.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение `page_token` равным значению поля [nextPageToken](/docs/managed-sqlserver/api-ref/Database/list#responses) предыдущего запроса, чтобы получить следующую
+          страницу результатов.
 
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            Максимальное количество результатов на одной странице в ответе. Если
-            количество результатов больше чем `page_size`, сервис вернет
-            значение
-
-            [nextPageToken](/docs/managed-sqlserver/api-ref/Database/list#responses),
-            которое можно использовать для получения следующей страницы.
-
-
-            Допустимые значения — от 0 до 1000 включительно.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Токен страницы. Установите значение `page_token` равным значению
-            поля
-            [nextPageToken](/docs/managed-sqlserver/api-ref/Database/list#responses)
-            предыдущего запроса, чтобы получить следующую
-
-            страницу результатов.
-
-
-            Максимальная длина строки в символах — 100.
-          schema:
-            type: string
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -964,27 +778,22 @@ paths:
       x-y-navtitle: list
     post:
       tags:
-        - Database
+      - Database
       summary: Создает новую базу данных SQL Server в указанном кластере.
       operationId: DatabaseCreate
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера SQL Server, в котором следует создать базу данных.
 
-            Идентификатор кластера SQL Server, в котором следует создать базу
-            данных.
+          Чтобы получить идентификатор кластера, используйте запрос [list](/docs/managed-sqlserver/api-ref/Cluster/list).
 
-
-            Чтобы получить идентификатор кластера, используйте запрос
-            [list](/docs/managed-sqlserver/api-ref/Cluster/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -992,7 +801,7 @@ paths:
               $ref: '#/components/schemas/CreateDatabaseRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1002,157 +811,128 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/CreateDatabaseMetadata'
       x-y-operation-response: '[Database](/docs/managed-sqlserver/api-ref/Database#representation)'
-  /mdb/sqlserver/v1alpha/operations/{operationId}:
+  /mdb/sqlserver/v1/operations/{operationId}:
     get:
       tags:
-        - Operation
+      - Operation
       summary: Возвращает информацию об указанной операции.
       operationId: OperationGet
       parameters:
-        - name: operationId
-          in: path
-          description: |-
-            Обязательное поле.
-            Идентификатор возвращаемой операции.
+      - name: operationId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор возвращаемой операции.
 
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Operation'
       x-y-navtitle: get
-  /mdb/sqlserver/v1alpha/resourcePresets/{resourcePresetId}:
+  /mdb/sqlserver/v1/resourcePresets/{resourcePresetId}:
     get:
       tags:
-        - ResourcePreset
+      - ResourcePreset
       summary: Возвращает указанный набор вычислительных ресурсов.
-      description: >-
-        Чтобы получить список доступных наборов вычислительных ресурсов,
-        выполните запрос
-        [list](/docs/managed-sqlserver/api-ref/ResourcePreset/list).
+      description: Чтобы получить список доступных наборов вычислительных ресурсов,
+        выполните запрос [list](/docs/managed-sqlserver/api-ref/ResourcePreset/list).
       operationId: ResourcePresetGet
       parameters:
-        - name: resourcePresetId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: resourcePresetId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор наборов вычислительных ресурсов, данные о котором запрашиваются.
 
-            Идентификатор наборов вычислительных ресурсов, данные о котором
-            запрашиваются.
-
-
-            Чтобы получить идентификатор наборов вычислительных ресурсов,
-            выполните запрос
-            [list](/docs/managed-sqlserver/api-ref/ResourcePreset/list).
-          required: true
-          schema:
-            type: string
+          Чтобы получить идентификатор наборов вычислительных ресурсов, выполните запрос [list](/docs/managed-sqlserver/api-ref/ResourcePreset/list).
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ResourcePreset'
       x-y-navtitle: get
-  /mdb/sqlserver/v1alpha/resourcePresets:
+  /mdb/sqlserver/v1/resourcePresets:
     get:
       tags:
-        - ResourcePreset
+      - ResourcePreset
       summary: Возвращает список доступных наборов вычислительных ресурсов.
       operationId: ResourcePresetList
       parameters:
-        - name: pageSize
-          in: query
-          description: >-
-            Максимальное количество результатов на одной странице в ответе. Если
-            количество результатов больше чем `page_size`, сервис вернет
-            значение
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на одной странице в ответе. Если количество результатов больше чем `page_size`, сервис вернет значение
+          [nextPageToken](/docs/managed-sqlserver/api-ref/ResourcePreset/list#responses), которое можно использовать для получения следующей страницы.
 
-            [nextPageToken](/docs/managed-sqlserver/api-ref/ResourcePreset/list#responses),
-            которое можно использовать для получения следующей страницы.
+          Допустимые значения — от 0 до 1000 включительно.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение `page_token` равным значению поля [nextPageToken](/docs/managed-sqlserver/api-ref/ResourcePreset/list#responses) предыдущего запроса, чтобы получить
+          следующую страницу результатов.
 
-
-            Допустимые значения — от 0 до 1000 включительно.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Токен страницы. Установите значение `page_token` равным значению
-            поля
-            [nextPageToken](/docs/managed-sqlserver/api-ref/ResourcePreset/list#responses)
-            предыдущего запроса, чтобы получить
-
-            следующую страницу результатов.
-
-
-            Максимальная длина строки в символах — 100.
-          schema:
-            type: string
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ListResourcePresetsResponse'
       x-y-navtitle: list
-  /mdb/sqlserver/v1alpha/clusters/{clusterId}/users/{userName}:
+  /mdb/sqlserver/v1/clusters/{clusterId}/users/{userName}:
     get:
       tags:
-        - User
+      - User
       summary: Возвращает указанного пользователя SQL Server.
-      description: >-
-        Чтобы получить список доступных пользователей SQL Server, выполните
+      description: Чтобы получить список доступных пользователей SQL Server, выполните
         запрос [list](/docs/managed-sqlserver/api-ref/User/list).
       operationId: UserGet
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера SQL Server, которому принадлежит пользователь.
 
-            Идентификатор кластера SQL Server, которому принадлежит
-            пользователь.
+          Чтобы получить идентификатор кластера, используйте запрос [list](/docs/managed-sqlserver/api-ref/Cluster/list).
 
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: userName
+        in: path
+        description: |-
+          Обязательное поле.
+          Имя запрашиваемого пользователя SQL Server.
 
-            Чтобы получить идентификатор кластера, используйте запрос
-            [list](/docs/managed-sqlserver/api-ref/Cluster/list).
+          Чтобы получить имя пользователя, используйте запрос [list](/docs/managed-sqlserver/api-ref/Database/list).
 
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
-        - name: userName
-          in: path
-          description: >-
-            Обязательное поле.
-
-            Имя запрашиваемого пользователя SQL Server.
-
-
-            Чтобы получить имя пользователя, используйте запрос
-            [list](/docs/managed-sqlserver/api-ref/Database/list).
-
-
-            Максимальная длина строки в символах — 63.
-
-            Значение должно соответствовать регулярному выражению ``
-            [a-zA-Z0-9_]* ``.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 63.
+          Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_]* ``.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1161,48 +941,37 @@ paths:
       x-y-navtitle: get
     delete:
       tags:
-        - User
+      - User
       summary: Удаляет указанного пользователя SQL Server.
       operationId: UserDelete
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера SQL Server, которому принадлежит пользователь.
 
-            Идентификатор кластера SQL Server, которому принадлежит
-            пользователь.
+          Чтобы получить идентификатор кластера, используйте запрос [list](/docs/managed-sqlserver/api-ref/Cluster/list).
 
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: userName
+        in: path
+        description: |-
+          Обязательное поле.
+          Имя пользователя, которого нужно удалить.
 
-            Чтобы получить идентификатор кластера, используйте запрос
-            [list](/docs/managed-sqlserver/api-ref/Cluster/list).
+          Чтобы получить имя пользователя, используйте запрос [list](/docs/managed-sqlserver/api-ref/User/list).
 
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
-        - name: userName
-          in: path
-          description: >-
-            Обязательное поле.
-
-            Имя пользователя, которого нужно удалить.
-
-
-            Чтобы получить имя пользователя, используйте запрос
-            [list](/docs/managed-sqlserver/api-ref/User/list).
-
-
-            Максимальная длина строки в символах — 63.
-
-            Значение должно соответствовать регулярному выражению ``
-            [a-zA-Z0-9_]* ``.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 63.
+          Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_]* ``.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1214,46 +983,35 @@ paths:
       x-y-operation-response: Empty
     patch:
       tags:
-        - User
+      - User
       summary: Изменяет указанного пользователя SQL Server.
       operationId: UserUpdate
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера SQL Server, которому принадлежит пользователь.
 
-            Идентификатор кластера SQL Server, которому принадлежит
-            пользователь.
+          Чтобы получить идентификатор кластера, используйте запрос [list](/docs/managed-sqlserver/api-ref/Cluster/list).
 
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: userName
+        in: path
+        description: |-
+          Обязательное поле.
+          Имя пользователя, которого следует изменить.
 
-            Чтобы получить идентификатор кластера, используйте запрос
-            [list](/docs/managed-sqlserver/api-ref/Cluster/list).
+          Чтобы получить имя пользователя, используйте запрос [list](/docs/managed-sqlserver/api-ref/User/list).
 
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
-        - name: userName
-          in: path
-          description: >-
-            Обязательное поле.
-
-            Имя пользователя, которого следует изменить.
-
-
-            Чтобы получить имя пользователя, используйте запрос
-            [list](/docs/managed-sqlserver/api-ref/User/list).
-
-
-            Максимальная длина строки в символах — 63.
-
-            Значение должно соответствовать регулярному выражению ``
-            [a-zA-Z0-9_]* ``.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 63.
+          Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_]* ``.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -1261,7 +1019,7 @@ paths:
               $ref: '#/components/schemas/UpdateUserRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1271,61 +1029,46 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/UpdateUserMetadata'
       x-y-operation-response: '[User](/docs/managed-sqlserver/api-ref/User#representation)'
-  /mdb/sqlserver/v1alpha/clusters/{clusterId}/users:
+  /mdb/sqlserver/v1/clusters/{clusterId}/users:
     get:
       tags:
-        - User
+      - User
       summary: Возвращает список пользователей SQL Server в указанном кластере.
       operationId: UserList
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера SQL Server, список пользователей которого нужно получить.
 
-            Идентификатор кластера SQL Server, список пользователей которого
-            нужно получить.
+          Чтобы получить идентификатор кластера, используйте запрос [list](/docs/managed-sqlserver/api-ref/Cluster/list).
 
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на одной странице в ответе. Если количество результатов больше чем `page_size`, сервис вернет значение
+          [nextPageToken](/docs/managed-sqlserver/api-ref/User/list#responses), которое можно использовать для получения следующей страницы.
 
-            Чтобы получить идентификатор кластера, используйте запрос
-            [list](/docs/managed-sqlserver/api-ref/Cluster/list).
+          Допустимые значения — от 0 до 1000 включительно.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение `page_token` равным значению поля [nextPageToken](/docs/managed-sqlserver/api-ref/User/list#responses) предыдущего запроса, чтобы получить следующую
+          страницу результатов.
 
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            Максимальное количество результатов на одной странице в ответе. Если
-            количество результатов больше чем `page_size`, сервис вернет
-            значение
-
-            [nextPageToken](/docs/managed-sqlserver/api-ref/User/list#responses),
-            которое можно использовать для получения следующей страницы.
-
-
-            Допустимые значения — от 0 до 1000 включительно.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Токен страницы. Установите значение `page_token` равным значению
-            поля
-            [nextPageToken](/docs/managed-sqlserver/api-ref/User/list#responses)
-            предыдущего запроса, чтобы получить следующую
-
-            страницу результатов.
-
-
-            Максимальная длина строки в символах — 100.
-          schema:
-            type: string
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1334,27 +1077,22 @@ paths:
       x-y-navtitle: list
     post:
       tags:
-        - User
+      - User
       summary: Создает пользователя SQL Server в указанном кластере.
       operationId: UserCreate
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера SQL Server, в котором следует создать пользователя.
 
-            Идентификатор кластера SQL Server, в котором следует создать
-            пользователя.
+          Чтобы получить идентификатор кластера, используйте запрос [list](/docs/managed-sqlserver/api-ref/Cluster/list).
 
-
-            Чтобы получить идентификатор кластера, используйте запрос
-            [list](/docs/managed-sqlserver/api-ref/Cluster/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -1362,7 +1100,7 @@ paths:
               $ref: '#/components/schemas/CreateUserRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1372,48 +1110,37 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/CreateUserMetadata'
       x-y-operation-response: '[User](/docs/managed-sqlserver/api-ref/User#representation)'
-  /mdb/sqlserver/v1alpha/clusters/{clusterId}/users/{userName}:grantPermission:
+  /mdb/sqlserver/v1/clusters/{clusterId}/users/{userName}:grantPermission:
     post:
       tags:
-        - User
+      - User
       summary: Предоставляет разрешение указанному пользователю SQL Server.
       operationId: UserGrantPermission
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера SQL Server, которому принадлежит пользователь.
 
-            Идентификатор кластера SQL Server, которому принадлежит
-            пользователь.
+          Чтобы получить идентификатор кластера, используйте запрос [list](/docs/managed-sqlserver/api-ref/Cluster/list).
 
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: userName
+        in: path
+        description: |-
+          Обязательное поле.
+          Имя пользователя, которому следует предоставить разрешение.
+          Чтобы получить имя пользователя, используйте запрос [list](/docs/managed-sqlserver/api-ref/User/list).
 
-            Чтобы получить идентификатор кластера, используйте запрос
-            [list](/docs/managed-sqlserver/api-ref/Cluster/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
-        - name: userName
-          in: path
-          description: >-
-            Обязательное поле.
-
-            Имя пользователя, которому следует предоставить разрешение.
-
-            Чтобы получить имя пользователя, используйте запрос
-            [list](/docs/managed-sqlserver/api-ref/User/list).
-
-
-            Максимальная длина строки в символах — 63.
-
-            Значение должно соответствовать регулярному выражению ``
-            [a-zA-Z0-9_]* ``.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 63.
+          Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_]* ``.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -1421,7 +1148,7 @@ paths:
               $ref: '#/components/schemas/GrantUserPermissionRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1431,49 +1158,38 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/GrantUserPermissionMetadata'
       x-y-operation-response: '[User](/docs/managed-sqlserver/api-ref/User#representation)'
-  /mdb/sqlserver/v1alpha/clusters/{clusterId}/users/{userName}:revokePermission:
+  /mdb/sqlserver/v1/clusters/{clusterId}/users/{userName}:revokePermission:
     post:
       tags:
-        - User
+      - User
       summary: Отзывает разрешение у указанного пользователя SQL Server.
       operationId: UserRevokePermission
       parameters:
-        - name: clusterId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера SQL Server, которому принадлежит пользователь.
 
-            Идентификатор кластера SQL Server, которому принадлежит
-            пользователь.
+          Чтобы получить идентификатор кластера, используйте запрос [list](/docs/managed-sqlserver/api-ref/Cluster/list).
 
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: userName
+        in: path
+        description: |-
+          Обязательное поле.
+          Имя пользователя, у которого следует отозвать разрешение.
 
-            Чтобы получить идентификатор кластера, используйте запрос
-            [list](/docs/managed-sqlserver/api-ref/Cluster/list).
+          Чтобы получить имя пользователя, используйте запрос [list](/docs/managed-sqlserver/api-ref/User/list).
 
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
-        - name: userName
-          in: path
-          description: >-
-            Обязательное поле.
-
-            Имя пользователя, у которого следует отозвать разрешение.
-
-
-            Чтобы получить имя пользователя, используйте запрос
-            [list](/docs/managed-sqlserver/api-ref/User/list).
-
-
-            Максимальная длина строки в символах — 63.
-
-            Значение должно соответствовать регулярному выражению ``
-            [a-zA-Z0-9_]* ``.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 63.
+          Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_]* ``.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -1481,7 +1197,7 @@ paths:
               $ref: '#/components/schemas/RevokeUserPermissionRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1494,11 +1210,9 @@ paths:
 components:
   schemas:
     Backup:
-      description: >-
+      description: |-
         Ресурс Backup для SQL Server.
-
-        Для получения дополнительной информации см. раздел [Резервные
-        копии](/docs/managed-sqlserver/concepts/backup) в документации.
+        Для получения дополнительной информации см. раздел [Резервные копии](/docs/managed-sqlserver/concepts/backup) в документации.
       type: object
       properties:
         id:
@@ -1508,17 +1222,14 @@ components:
           description: Идентификатор каталога, которому принадлежит резервная копия.
           type: string
         createdAt:
-          description: >-
-            Время создания (т. е. когда операция резервного копирования была
-            завершена).
-
+          description: |-
+            Время создания (т. е. когда операция резервного копирования была завершена).
 
             Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
           type: string
           format: date-time
         sourceClusterId:
-          description: >-
-            Идентификатор кластера SQL Server, для которого была создана
+          description: Идентификатор кластера SQL Server, для которого была создана
             резервная копия.
           type: string
         startedAt:
@@ -1532,24 +1243,19 @@ components:
       type: object
       properties:
         clusterId:
-          description: >-
-            Идентификатор кластера SQL Server, для которого выполняется
+          description: Идентификатор кластера SQL Server, для которого выполняется
             резервное копирование.
           type: string
     Cluster:
-      description: >-
+      description: |-
         Кластер SQL Server.
-
-        Для получения дополнительной информации см. раздел документации
-        [Взаимосвязь ресурсов сервиса](/docs/managed-sqlserver/concepts).
+        Для получения дополнительной информации см. раздел документации [Взаимосвязь ресурсов сервиса](/docs/managed-sqlserver/concepts).
       type: object
       properties:
         id:
-          description: >-
+          description: |-
             Идентификатор кластера SQL Server.
-
-            Этот идентификатор Managed Service for SQL Server генерирует при
-            создании.
+            Этот идентификатор Managed Service for SQL Server генерирует при создании.
           type: string
         folderId:
           description: Идентификатор каталога, которому принадлежит кластер SQL Server.
@@ -1559,23 +1265,18 @@ components:
           type: string
           format: date-time
         name:
-          description: >-
+          description: |-
             Имя кластера SQL Server.
 
-
-            Имя должно быть уникальным в каталоге, соответствовать RFC 1035 и
-            иметь длину 1-63 символа.
+            Имя должно быть уникальным в каталоге, соответствовать RFC 1035 и иметь длину 1-63 символа.
           type: string
         description:
-          description: >-
-            Описание кластера SQL Server. Длина описания должна быть от 0 до 256
-            символов.
+          description: Описание кластера SQL Server. Длина описания должна быть от
+            0 до 256 символов.
           type: string
         labels:
-          description: >-
-            Пользовательские метки для кластера SQL Server в виде пар
-            `key:value`.
-
+          description: |-
+            Пользовательские метки для кластера SQL Server в виде пар `key:value`.
             Максимум 64 на ресурс.
           type: object
           additionalProperties:
@@ -1599,34 +1300,33 @@ components:
     ClusterConfig:
       type: object
       allOf:
-        - type: object
-          properties:
-            version:
-              description: Версия SQL Server.
-              type: string
-            resources:
-              $ref: '#/components/schemas/Resources'
-              description: Ресурсы, выделенные хостам SQL Server.
-            backupWindowStart:
-              $ref: '#/components/schemas/TimeOfDay'
-              description: >-
-                Время запуска ежедневного резервного копирования, в часовом
-                поясе UTC.
-        - title: sqlserver_config
-          type: object
-          maxProperties: 1
-          properties:
-            sqlserverConfig_2016Sp2:
-              $ref: '#/components/schemas/SQLServerConfigSet2016sp2'
-              description: Конфигурация экземпляра SQL Server 2016sp2.
+      - type: object
+        properties:
+          version:
+            description: Версия SQL Server.
+            type: string
+          resources:
+            $ref: '#/components/schemas/Resources'
+            description: Ресурсы, выделенные хостам SQL Server.
+          backupWindowStart:
+            $ref: '#/components/schemas/TimeOfDay'
+            description: Время запуска ежедневного резервного копирования, в часовом
+              поясе UTC.
+      - title: sqlserver_config
+        type: object
+        maxProperties: 1
+        properties:
+          sqlserverConfig_2016Sp2:
+            $ref: '#/components/schemas/SQLServerConfigSet2016sp2'
+            description: Конфигурация экземпляра SQL Server 2016sp2.
     ClusterEnvironment:
       description: |2-
          - PRODUCTION: Стабильная среда с осторожной политикой обновления: во время регулярного обслуживания применяются только срочные исправления.
          - PRESTABLE: Среда с более агрессивной политикой обновления: новые версии развертываются независимо от обратной совместимости.
       type: string
       enum:
-        - PRODUCTION
-        - PRESTABLE
+      - PRODUCTION
+      - PRESTABLE
     ClusterHealth:
       description: |2-
          - HEALTH_UNKNOWN: Состояние кластера неизвестно (`health` всех хостов в кластере — `UNKNOWN`).
@@ -1635,10 +1335,10 @@ components:
          - DEGRADED: Кластер находится в состоянии деградации (`health` по крайней мере одного из хостов в кластере — не `ALIVE`).
       type: string
       enum:
-        - HEALTH_UNKNOWN
-        - ALIVE
-        - DEAD
-        - DEGRADED
+      - HEALTH_UNKNOWN
+      - ALIVE
+      - DEAD
+      - DEGRADED
       default: HEALTH_UNKNOWN
     ClusterStatus:
       description: |2-
@@ -1652,42 +1352,41 @@ components:
          - STARTING: Кластер запускается.
       type: string
       enum:
-        - STATUS_UNKNOWN
-        - CREATING
-        - RUNNING
-        - ERROR
-        - UPDATING
-        - STOPPING
-        - STOPPED
-        - STARTING
+      - STATUS_UNKNOWN
+      - CREATING
+      - RUNNING
+      - ERROR
+      - UPDATING
+      - STOPPING
+      - STOPPED
+      - STARTING
       default: STATUS_UNKNOWN
     ConfigSpec:
       type: object
       allOf:
-        - type: object
-          properties:
-            version:
-              description: |-
-                Версия SQL Server, используемая в кластере.
+      - type: object
+        properties:
+          version:
+            description: |-
+              Версия SQL Server, используемая в кластере.
 
-                Возможные значения:
-                * 2016sp2
-              type: string
-            resources:
-              $ref: '#/components/schemas/Resources'
-              description: Ресурсы, выделенные хостам SQL Server.
-            backupWindowStart:
-              $ref: '#/components/schemas/TimeOfDay'
-              description: >-
-                Время запуска ежедневного резервного копирования, в часовом
-                поясе UTC.
-        - title: sqlserver_config
-          type: object
-          maxProperties: 1
-          properties:
-            sqlserverConfig_2016Sp2:
-              $ref: '#/components/schemas/SQLServerConfig2016sp2'
-              description: Конфигурация кластера SQL Server 2016 SP2.
+              Возможные значения:
+              * 2016sp2
+            type: string
+          resources:
+            $ref: '#/components/schemas/Resources'
+            description: Ресурсы, выделенные хостам SQL Server.
+          backupWindowStart:
+            $ref: '#/components/schemas/TimeOfDay'
+            description: Время запуска ежедневного резервного копирования, в часовом
+              поясе UTC.
+      - title: sqlserver_config
+        type: object
+        maxProperties: 1
+        properties:
+          sqlserverConfig_2016Sp2:
+            $ref: '#/components/schemas/SQLServerConfig2016sp2'
+            description: Конфигурация кластера SQL Server 2016 SP2.
     CreateClusterMetadata:
       type: object
       properties:
@@ -1698,30 +1397,21 @@ components:
       type: object
       properties:
         folderId:
-          description: >-
+          description: |-
             Обязательное поле.
-
             Идентификатор каталога, в котором будет создан кластер SQL Server.
 
-
-            Чтобы получить идентификатор каталога, используйте запрос
-            [list](/docs/resource-manager/api-ref/Folder/list).
-
+            Чтобы получить идентификатор каталога, используйте запрос [list](/docs/resource-manager/api-ref/Folder/list).
 
             Максимальная длина строки в символах — 50.
           type: string
         name:
-          description: >-
+          description: |-
             Обязательное поле.
-
-            Имя кластера SQL Server. Имя должно быть уникальным в рамках
-            каталога.
-
+            Имя кластера SQL Server. Имя должно быть уникальным в рамках каталога.
 
             Максимальная длина строки в символах — 63.
-
-            Значение должно соответствовать регулярному выражению ``
-            [a-zA-Z0-9_-]* ``.
+            Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_-]* ``.
           type: string
         description:
           description: |-
@@ -1730,50 +1420,37 @@ components:
             Максимальная длина строки в символах — 256.
           type: string
         labels:
-          description: >-
-            Пользовательские метки для кластера SQL Server в виде пар
-            `key:value`.
-
+          description: |-
+            Пользовательские метки для кластера SQL Server в виде пар `key:value`.
             Например, "project": "mvp" или "source": "dictionary".
 
-
             Не более 64 на ресурс.
-
             Длина строки в символах для каждого ключа должна быть от 1 до 63.
-
-            Каждый ключ должен соответствовать регулярному выражению ``
-            [a-z][-_0-9a-z]* ``.
-
+            Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
             Максимальная длина строки в символах для каждого значения — 63.
-
-            Каждое значение должно соответствовать регулярному выражению ``
-            [-_0-9a-z]* ``.
+            Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.
           type: object
           additionalProperties:
             type: string
         environment:
-          $ref: >-
-            #/components/schemas/ClusterEnvironment_in_CreateClusterRequest_environment
+          $ref: '#/components/schemas/ClusterEnvironment_in_CreateClusterRequest_environment'
         configSpec:
           $ref: '#/components/schemas/ConfigSpec_in_CreateClusterRequest_configSpec'
         databaseSpecs:
-          description: >-
-            Одна или несколько конфигураций баз данных, создаваемых в кластере
+          description: Одна или несколько конфигураций баз данных, создаваемых в кластере
             SQL Server.
           type: array
           items:
             $ref: '#/components/schemas/DatabaseSpec'
         userSpecs:
-          description: >-
-            Одна или несколько конфигураций пользователей баз данных,
-            создаваемых в кластере SQL Server.
+          description: Одна или несколько конфигураций пользователей баз данных, создаваемых
+            в кластере SQL Server.
           type: array
           items:
             $ref: '#/components/schemas/UserSpec'
         hostSpecs:
-          description: >-
-            Одна или несколько конфигураций хостов, создаваемых в кластере SQL
-            Server.
+          description: Одна или несколько конфигураций хостов, создаваемых в кластере
+            SQL Server.
           type: array
           items:
             $ref: '#/components/schemas/HostSpec'
@@ -1787,7 +1464,8 @@ components:
       type: object
       properties:
         clusterId:
-          description: Идентификатор кластера SQL Server, в котором создается база данных.
+          description: Идентификатор кластера SQL Server, в котором создается база
+            данных.
           type: string
         databaseName:
           description: Имя создаваемой базы данных SQL Server.
@@ -1796,8 +1474,7 @@ components:
       type: object
       properties:
         databaseSpec:
-          $ref: >-
-            #/components/schemas/DatabaseSpec_in_CreateDatabaseRequest_databaseSpec
+          $ref: '#/components/schemas/DatabaseSpec_in_CreateDatabaseRequest_databaseSpec'
     CreateUserMetadata:
       type: object
       properties:
@@ -1813,33 +1490,28 @@ components:
         userSpec:
           $ref: '#/components/schemas/UserSpec_in_CreateUserRequest_userSpec'
     Database:
-      description: >-
+      description: |-
         База данных SQL Server.
-
-        Для получения дополнительной информации см. раздел документации
-        [Взаимосвязь ресурсов сервиса](/docs/managed-sqlserver/concepts).
+        Для получения дополнительной информации см. раздел документации [Взаимосвязь ресурсов сервиса](/docs/managed-sqlserver/concepts).
       type: object
       properties:
         name:
           description: Имя базы данных.
           type: string
         clusterId:
-          description: Идентификатор кластера SQL Server, которому принадлежит база данных.
+          description: Идентификатор кластера SQL Server, которому принадлежит база
+            данных.
           type: string
     DatabaseSpec:
       type: object
       properties:
         name:
-          description: >-
+          description: |-
             Обязательное поле.
-
             Имя базы данных.
 
-
             Максимальная длина строки в символах — 63.
-
-            Значение должно соответствовать регулярному выражению ``
-            [a-zA-Z0-9_-]* ``.
+            Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_-]* ``.
           type: string
     DeleteClusterMetadata:
       type: object
@@ -1851,7 +1523,8 @@ components:
       type: object
       properties:
         clusterId:
-          description: Идентификатор кластера SQL Server, в котором удаляется база данных.
+          description: Идентификатор кластера SQL Server, в котором удаляется база
+            данных.
           type: string
         databaseName:
           description: Имя удаляемой базы данных SQL Server.
@@ -1860,9 +1533,7 @@ components:
       type: object
       properties:
         clusterId:
-          description: >-
-            Идентификатор кластера SQL Server, которому принадлежит
-            пользователь.
+          description: Идентификатор кластера SQL Server, которому принадлежит пользователь.
           type: string
         userName:
           description: Имя удаляемого пользователя.
@@ -1872,37 +1543,24 @@ components:
       type: object
       maxProperties: 0
     FieldMask:
-      description: >-
+      description: |-
         Имена всех обновляемых полей, разделенные запятыми.
+        Только значения указанных полей будут изменены. Остальные останутся нетронутыми.
+        Если поле указано в параметре `` updateMask `` и в запросе не было отправлено значение для этого поля,
+        значение поля будет сброшено на значение по умолчанию. Значение по умолчанию для большинства полей — null или 0.
 
-        Только значения указанных полей будут изменены. Остальные останутся
-        нетронутыми.
-
-        Если поле указано в параметре `` updateMask `` и в запросе не было
-        отправлено значение для этого поля,
-
-        значение поля будет сброшено на значение по умолчанию. Значение по
-        умолчанию для большинства полей — null или 0.
-
-
-        Если в запросе не передается `` updateMask ``, значения всех полей будут
-        обновлены.
-
+        Если в запросе не передается `` updateMask ``, значения всех полей будут обновлены.
         Для полей, указанных в запросе, будут использованы переданные значения.
-
         Значения остальных полей будут сброшены на значения по умолчанию.
       type: string
     GrantUserPermissionMetadata:
       type: object
       properties:
         clusterId:
-          description: >-
-            Идентификатор кластера SQL Server, которому принадлежит
-            пользователь.
+          description: |-
+            Идентификатор кластера SQL Server, которому принадлежит пользователь.
 
-
-            Чтобы получить идентификатор кластера, используйте запрос
-            [list](/docs/managed-sqlserver/api-ref/Cluster/list).
+            Чтобы получить идентификатор кластера, используйте запрос [list](/docs/managed-sqlserver/api-ref/Cluster/list).
           type: string
         userName:
           description: Имя пользователя, которому предоставляется разрешение.
@@ -1911,29 +1569,23 @@ components:
       type: object
       properties:
         permission:
-          $ref: >-
-            #/components/schemas/Permission_in_GrantUserPermissionRequest_permission
+          $ref: '#/components/schemas/Permission_in_GrantUserPermissionRequest_permission'
     Host:
       type: object
       properties:
         name:
-          description: >-
-            Имя хоста SQL Server. Имя хоста Managed Service for SQL Server
-            назначает во время создания, его нельзя изменить. Длина 1-63
-            символов.
+          description: |-
+            Имя хоста SQL Server. Имя хоста Managed Service for SQL Server назначает во время создания, его нельзя изменить. Длина 1-63 символов.
 
-
-            Имя уникально для всех существующих хостов баз данных в
-            Яндекс.Облаке, так как оно определяет полное доменное имя (FQDN)
-            хоста.
+            Имя уникально для всех существующих хостов баз данных в Яндекс.Облаке, так как оно определяет полное доменное имя (FQDN) хоста.
           type: string
         clusterId:
-          description: >-
-            Идентификатор хоста SQL Server. Этот идентификатор Managed Service
-            for SQL Server генерирует при создании.
+          description: Идентификатор хоста SQL Server. Этот идентификатор Managed
+            Service for SQL Server генерирует при создании.
           type: string
         zoneId:
-          description: Идентификатор зоны доступности, в которой находится хост SQL Server.
+          description: Идентификатор зоны доступности, в которой находится хост SQL
+            Server.
           type: string
         resources:
           $ref: '#/components/schemas/Resources_in_Host_resources'
@@ -1961,10 +1613,10 @@ components:
          - DEGRADED: Хост деградировал, и может выполнять только некоторые из своих основных функций.
       type: string
       enum:
-        - HEALTH_UNKNOWN
-        - ALIVE
-        - DEAD
-        - DEGRADED
+      - HEALTH_UNKNOWN
+      - ALIVE
+      - DEAD
+      - DEGRADED
       default: HEALTH_UNKNOWN
     HostRole:
       description: |2-
@@ -1973,52 +1625,38 @@ components:
          - REPLICA: Хост является репликой в кластере SQL Server.
       type: string
       enum:
-        - ROLE_UNKNOWN
-        - MASTER
-        - REPLICA
+      - ROLE_UNKNOWN
+      - MASTER
+      - REPLICA
       default: ROLE_UNKNOWN
     HostSpec:
       type: object
       properties:
         zoneId:
-          description: >-
+          description: |-
             Идентификатор зоны доступности, в которой находится хост.
 
-
-            Чтобы получить список доступных зон, используйте запрос
-            [list](/docs/compute/api-ref/Zone/list).
-
+            Чтобы получить список доступных зон, используйте запрос [list](/docs/compute/api-ref/Zone/list).
 
             Максимальная длина строки в символах — 50.
           type: string
         subnetId:
-          description: >-
+          description: |-
             Идентификатор подсети, к которой должен принадлежать хост.
-
             Эта подсеть должна быть частью сети, к которой принадлежит кластер.
-
-            Идентификатор сети задан в поле
-            [Cluster.networkId](/docs/managed-sqlserver/api-ref/Cluster#representation).
-
+            Идентификатор сети задан в поле [Cluster.networkId](/docs/managed-sqlserver/api-ref/Cluster#representation).
 
             Максимальная длина строки в символах — 50.
           type: string
         assignPublicIp:
-          description: >-
+          description: |-
             Должен ли хост получить публичный IP-адрес при создании.
 
-
-            После создания узла этот параметр изменить нельзя. Чтобы удалить
-            назначенный публичный IP-адрес или назначить публичный IP уже
-            созданному хосту,
-
+            После создания узла этот параметр изменить нельзя. Чтобы удалить назначенный публичный IP-адрес или назначить публичный IP уже созданному хосту,
             пересоздайте хост с нужным значением поля `assignPublicIp`.
 
-
             Возможные значения:
-
             * false — не назначать хосту публичный IP-адрес.
-
             * true — назначить хосту публичный IP-адрес.
           type: boolean
           format: boolean
@@ -2031,19 +1669,10 @@ components:
           items:
             $ref: '#/components/schemas/Backup'
         nextPageToken:
-          description: >-
-            Токен для получения следующей страницы результатов в ответе. Если
-            количество результатов больше чем
-            [pageSize](/docs/managed-sqlserver/api-ref/Backup/list#query_params),
-            используйте
-
-            `next_page_token` в качестве значения параметра
-            [pageToken](/docs/managed-sqlserver/api-ref/Backup/list#query_params)
-            в следующем запросе. Все последующие запросы будут получать свои
-            значения
-
+          description: |-
+            Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [pageSize](/docs/managed-sqlserver/api-ref/Backup/list#query_params), используйте
+            `next_page_token` в качестве значения параметра [pageToken](/docs/managed-sqlserver/api-ref/Backup/list#query_params) в следующем запросе. Все последующие запросы будут получать свои значения
             `next_page_token` для перебора страниц результатов.
-
 
             Максимальная длина строки в символах — 100.
           type: string
@@ -2056,18 +1685,10 @@ components:
           items:
             $ref: '#/components/schemas/Backup'
         nextPageToken:
-          description: >-
-            Токен для получения следующей страницы результатов в ответе. Если
-            количество результатов больше чем
-            [pageSize](/docs/managed-sqlserver/api-ref/Cluster/listBackups#query_params),
-            используйте
-
-            `next_page_token` в качестве значения параметра
-            [pageToken](/docs/managed-sqlserver/api-ref/Cluster/listBackups#query_params)
-            в следующем запросе списка ресурсов. Все последующие запросы будут
-
-            получать свои значения `next_page_token` для перебора страниц
-            результатов.
+          description: |-
+            Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [pageSize](/docs/managed-sqlserver/api-ref/Cluster/listBackups#query_params), используйте
+            `next_page_token` в качестве значения параметра [pageToken](/docs/managed-sqlserver/api-ref/Cluster/listBackups#query_params) в следующем запросе списка ресурсов. Все последующие запросы будут
+            получать свои значения `next_page_token` для перебора страниц результатов.
           type: string
     ListClusterHostsResponse:
       type: object
@@ -2078,18 +1699,10 @@ components:
           items:
             $ref: '#/components/schemas/Host'
         nextPageToken:
-          description: >-
-            Токен для получения следующей страницы результатов в ответе. Если
-            количество результатов больше чем
-            [pageSize](/docs/managed-sqlserver/api-ref/Cluster/listHosts#query_params),
-            используйте
-
-            `next_page_token` в качестве значения параметра
-            [pageToken](/docs/managed-sqlserver/api-ref/Cluster/listHosts#query_params)
-            в следующем запросе списка ресурсов. Все последующие запросы будут
-
-            получать свои значения `next_page_token` для перебора страниц
-            результатов.
+          description: |-
+            Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [pageSize](/docs/managed-sqlserver/api-ref/Cluster/listHosts#query_params), используйте
+            `next_page_token` в качестве значения параметра [pageToken](/docs/managed-sqlserver/api-ref/Cluster/listHosts#query_params) в следующем запросе списка ресурсов. Все последующие запросы будут
+            получать свои значения `next_page_token` для перебора страниц результатов.
           type: string
     ListClusterLogsRequestServiceType:
       description: |2-
@@ -2097,8 +1710,8 @@ components:
          - SQLSERVER_APPLICATION: Лог приложений SQL Server.
       type: string
       enum:
-        - SQLSERVER_ERROR
-        - SQLSERVER_APPLICATION
+      - SQLSERVER_ERROR
+      - SQLSERVER_APPLICATION
     ListClusterLogsResponse:
       type: object
       properties:
@@ -2108,18 +1721,10 @@ components:
           items:
             $ref: '#/components/schemas/LogRecord'
         nextPageToken:
-          description: >-
-            Токен для получения следующей страницы результатов в ответе. Если
-            количество результатов больше чем
-            [pageSize](/docs/managed-sqlserver/api-ref/Cluster/listLogs#query_params),
-            используйте
-
-            `next_page_token` в качестве значения параметра
-            [pageToken](/docs/managed-sqlserver/api-ref/Cluster/listLogs#query_params)
-            в следующем запросе списка ресурсов. Все последующие запросы будут
-
-            получать свои значения `next_page_token` для перебора страниц
-            результатов.
+          description: |-
+            Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [pageSize](/docs/managed-sqlserver/api-ref/Cluster/listLogs#query_params), используйте
+            `next_page_token` в качестве значения параметра [pageToken](/docs/managed-sqlserver/api-ref/Cluster/listLogs#query_params) в следующем запросе списка ресурсов. Все последующие запросы будут
+            получать свои значения `next_page_token` для перебора страниц результатов.
           type: string
     ListClusterOperationsResponse:
       type: object
@@ -2130,18 +1735,10 @@ components:
           items:
             $ref: '#/components/schemas/Operation'
         nextPageToken:
-          description: >-
-            Токен для получения следующей страницы результатов в ответе. Если
-            количество результатов больше чем
-            [pageSize](/docs/managed-sqlserver/api-ref/Cluster/listOperations#query_params),
-            используйте
-
-            `next_page_token` в качестве значения параметра
-            [pageToken](/docs/managed-sqlserver/api-ref/Cluster/listOperations#query_params)
-            в следующем запросе списка ресурсов. Все последующие запросы
-
-            будут получать свои значения `next_page_token` для перебора страниц
-            результатов.
+          description: |-
+            Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [pageSize](/docs/managed-sqlserver/api-ref/Cluster/listOperations#query_params), используйте
+            `next_page_token` в качестве значения параметра [pageToken](/docs/managed-sqlserver/api-ref/Cluster/listOperations#query_params) в следующем запросе списка ресурсов. Все последующие запросы
+            будут получать свои значения `next_page_token` для перебора страниц результатов.
           type: string
     ListClustersResponse:
       type: object
@@ -2152,17 +1749,9 @@ components:
           items:
             $ref: '#/components/schemas/Cluster'
         nextPageToken:
-          description: >-
-            Токен для получения следующей страницы результатов в ответе. Если
-            количество результатов больше чем
-            [pageSize](/docs/managed-sqlserver/api-ref/Cluster/list#query_params),
-            используйте
-
-            `next_page_token` в качестве значения параметра
-            [pageToken](/docs/managed-sqlserver/api-ref/Cluster/list#query_params)
-            в следующем запросе. Все последующие запросы будут получать свои
-            значения
-
+          description: |-
+            Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [pageSize](/docs/managed-sqlserver/api-ref/Cluster/list#query_params), используйте
+            `next_page_token` в качестве значения параметра [pageToken](/docs/managed-sqlserver/api-ref/Cluster/list#query_params) в следующем запросе. Все последующие запросы будут получать свои значения
             `next_page_token` для перебора страниц результатов.
           type: string
     ListDatabasesResponse:
@@ -2174,17 +1763,9 @@ components:
           items:
             $ref: '#/components/schemas/Database'
         nextPageToken:
-          description: >-
-            Токен для получения следующей страницы результатов в ответе. Если
-            количество результатов больше чем
-            [pageSize](/docs/managed-sqlserver/api-ref/Database/list#query_params),
-            используйте
-
-            `next_page_token` в качестве значения параметра
-            [pageToken](/docs/managed-sqlserver/api-ref/Database/list#query_params)
-            в следующем запросе. Все последующие запросы будут получать свои
-            значения
-
+          description: |-
+            Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [pageSize](/docs/managed-sqlserver/api-ref/Database/list#query_params), используйте
+            `next_page_token` в качестве значения параметра [pageToken](/docs/managed-sqlserver/api-ref/Database/list#query_params) в следующем запросе. Все последующие запросы будут получать свои значения
             `next_page_token` для перебора страниц результатов.
           type: string
     ListResourcePresetsResponse:
@@ -2196,18 +1777,10 @@ components:
           items:
             $ref: '#/components/schemas/ResourcePreset'
         nextPageToken:
-          description: >-
-            Токен для получения следующей страницы результатов в ответе. Если
-            количество результатов больше чем
-            [pageSize](/docs/managed-sqlserver/api-ref/ResourcePreset/list#query_params),
-            используйте
-
-            `next_page_token` в качестве значения параметра
-            [pageToken](/docs/managed-sqlserver/api-ref/ResourcePreset/list#query_params)
-            в следующем запросе. Все последующие запросы будут получать свои
-
+          description: |-
+            Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [pageSize](/docs/managed-sqlserver/api-ref/ResourcePreset/list#query_params), используйте
+            `next_page_token` в качестве значения параметра [pageToken](/docs/managed-sqlserver/api-ref/ResourcePreset/list#query_params) в следующем запросе. Все последующие запросы будут получать свои
             значения `next_page_token` для перебора страниц результатов.
-
 
             Максимальная длина строки в символах — 100.
           type: string
@@ -2220,17 +1793,9 @@ components:
           items:
             $ref: '#/components/schemas/User'
         nextPageToken:
-          description: >-
-            Токен для получения следующей страницы результатов в ответе. Если
-            количество результатов больше чем
-            [pageSize](/docs/managed-sqlserver/api-ref/User/list#query_params),
-            используйте
-
-            `next_page_token` в качестве значения параметра
-            [pageToken](/docs/managed-sqlserver/api-ref/User/list#query_params)
-            в следующем запросе. Все последующие запросы будут получать свои
-            значения
-
+          description: |-
+            Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [pageSize](/docs/managed-sqlserver/api-ref/User/list#query_params), используйте
+            `next_page_token` в качестве значения параметра [pageToken](/docs/managed-sqlserver/api-ref/User/list#query_params) в следующем запросе. Все последующие запросы будут получать свои значения
             `next_page_token` для перебора страниц результатов.
           type: string
     LogRecord:
@@ -2276,15 +1841,11 @@ components:
       type: object
       properties:
         destinationFolderId:
-          description: >-
+          description: |-
             Обязательное поле.
-
             Идентификатор каталога, в который следует переместить кластер.
 
-
-            Чтобы получить идентификатор каталога, используйте запрос
-            [list](/docs/resource-manager/api-ref/Folder/list).
-
+            Чтобы получить идентификатор каталога, используйте запрос [list](/docs/resource-manager/api-ref/Folder/list).
 
             Максимальная длина строки в символах — 50.
           type: string
@@ -2294,82 +1855,68 @@ components:
         [Объект Operation](/docs/api-design-guide/concepts/operation).
       type: object
       allOf:
-        - type: object
-          properties:
-            id:
-              description: Идентификатор операции.
-              type: string
-            description:
-              description: |-
-                Описание операции. Длина описания должна быть от 0 до 256
-                символов.
-              type: string
-            createdAt:
-              description: >-
-                Время создания ресурса в формате в
+      - type: object
+        properties:
+          id:
+            description: Идентификатор операции.
+            type: string
+          description:
+            description: |-
+              Описание операции. Длина описания должна быть от 0 до 256
+              символов.
+            type: string
+          createdAt:
+            description: |-
+              Время создания ресурса в формате в
+              [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
 
-                [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+              Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+            type: string
+            format: date-time
+          createdBy:
+            description: |-
+              Идентификатор пользователя или сервисного
+              аккаунта, инициировавшего операцию.
+            type: string
+          modifiedAt:
+            description: |-
+              Время, когда ресурс Operation последний раз
+              обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
 
-
-                Строка в формате
-                [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
-              type: string
-              format: date-time
-            createdBy:
-              description: |-
-                Идентификатор пользователя или сервисного
-                аккаунта, инициировавшего операцию.
-              type: string
-            modifiedAt:
-              description: >-
-                Время, когда ресурс Operation последний раз
-
-                обновлялся. Значение в формате
-                [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
-
-
-                Строка в формате
-                [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
-              type: string
-              format: date-time
-            done:
-              description: |-
-                Если значение равно `false` — операция еще
-                выполняется. Если `true` — операция завершена, и задано значение
-                одного из полей `error` или `response`.
-              type: boolean
-              format: boolean
-            metadata:
-              description: |-
-                Метаданные операции. Обычно в поле содержится
-                идентификатор ресурса, над которым выполняется операция. Если
-                метод возвращает ресурс Operation, в описании метода приведена
-                структура соответствующего ему поля `metadata`.
-              type: object
-        - title: result
-          type: object
-          maxProperties: 1
-          properties:
-            error:
-              $ref: '#/components/schemas/rpcStatus'
-              description: Описание ошибки в случае сбоя или отмены операции.
-            response:
-              description: >-
-                Результат операции в случае успешного завершения. Если
-
-                исходный метод не возвращает никаких данных при успешном
-
-                завершении, например метод Delete, поле содержит объект
-
-                [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty).
-                Если исходный метод — это стандартный метод Create
-
-                / Update, поле содержит целевой ресурс операции. Если метод
-
-                возвращает ресурс Operation, в описании метода приведена
-
-                структура соответствующего ему поля `response`.
-              type: object
+              Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+            type: string
+            format: date-time
+          done:
+            description: |-
+              Если значение равно `false` — операция еще
+              выполняется. Если `true` — операция завершена, и задано значение
+              одного из полей `error` или `response`.
+            type: boolean
+            format: boolean
+          metadata:
+            description: |-
+              Метаданные операции. Обычно в поле содержится
+              идентификатор ресурса, над которым выполняется операция. Если
+              метод возвращает ресурс Operation, в описании метода приведена
+              структура соответствующего ему поля `metadata`.
+            type: object
+      - title: result
+        type: object
+        maxProperties: 1
+        properties:
+          error:
+            $ref: '#/components/schemas/rpcStatus'
+            description: Описание ошибки в случае сбоя или отмены операции.
+          response:
+            description: |-
+              Результат операции в случае успешного завершения. Если
+              исходный метод не возвращает никаких данных при успешном
+              завершении, например метод Delete, поле содержит объект
+              [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty). Если исходный метод — это стандартный метод Create
+              / Update, поле содержит целевой ресурс операции. Если метод
+              возвращает ресурс Operation, в описании метода приведена
+              структура соответствующего ему поля `response`.
+            type: object
     Permission:
       type: object
       properties:
@@ -2386,7 +1933,7 @@ components:
           items:
             $ref: '#/components/schemas/PermissionRole'
     PermissionRole:
-      description: >2-
+      description: |2-
          - DB_OWNER: Члены этой роли могут выполнять все действия по настройке и обслуживанию базы данных, а также удалять базу данных SQL Server.
          - DB_SECURITYADMIN: Члены этой роли могут управлять разрешениями и членством в пользовательских ролях. Они потенциально могут повысить свои привилегии, поэтому их действия
         должны контролироваться.
@@ -2396,28 +1943,22 @@ components:
          - DB_DATAWRITER: Члены этой роли могут добавлять, удалять или изменять данные во всех пользовательских таблицах.
          - DB_DATAREADER: Члены этой роли могут читать все данные из всех пользовательских таблиц.
          - DB_DENYDATAWRITER: Члены этой роли не могут добавлять, изменять или удалять никакие данные в пользовательских таблицах базы данных. Подобное ограничение привилегий имеет
-        более высокий приоритет, чем предоставление, поэтому вы можете
-        использовать эту роль для быстрого ограничения привилегий без явного
-        отзыва разрешений или
-
+        более высокий приоритет, чем предоставление, поэтому вы можете использовать эту роль для быстрого ограничения привилегий без явного отзыва разрешений или
         ролей.
          - DB_DENYDATAREADER: Члены этой фиксированной роли базы данных не могут читать никакие данные из пользовательских таблиц в базе данных. Подобное ограничение привилегий имеет
-        более высокий приоритет, чем предоставление, поэтому вы можете
-        использовать эту роль для быстрого ограничения привилегий без явного
-        отзыва разрешений или
-
+        более высокий приоритет, чем предоставление, поэтому вы можете использовать эту роль для быстрого ограничения привилегий без явного отзыва разрешений или
         ролей.
       type: string
       enum:
-        - DB_OWNER
-        - DB_SECURITYADMIN
-        - DB_ACCESSADMIN
-        - DB_BACKUPOPERATOR
-        - DB_DDLADMIN
-        - DB_DATAWRITER
-        - DB_DATAREADER
-        - DB_DENYDATAWRITER
-        - DB_DENYDATAREADER
+      - DB_OWNER
+      - DB_SECURITYADMIN
+      - DB_ACCESSADMIN
+      - DB_BACKUPOPERATOR
+      - DB_DDLADMIN
+      - DB_DATAWRITER
+      - DB_DATAREADER
+      - DB_DENYDATAWRITER
+      - DB_DENYDATAREADER
     ResourcePreset:
       description: Набор вычислительных ресурсов для хостов SQL Server.
       type: object
@@ -2426,34 +1967,28 @@ components:
           description: Идентификатор набора вычислительных ресурсов.
           type: string
         zoneIds:
-          description: >-
-            Идентификаторы зон доступности, в которых доступен этот набор
+          description: Идентификаторы зон доступности, в которых доступен этот набор
             вычислительных ресурсов.
           type: array
           items:
             type: string
         cores:
-          description: >-
-            Количество процессорных ядер для хоста SQL, созданного с данным
+          description: Количество процессорных ядер для хоста SQL, созданного с данным
             набором вычислительных ресурсов.
           type: string
           format: int64
         memory:
-          description: >-
-            Объем оперативной памяти для хоста SQL Server, созданного с данным
-            набором вычислительных ресурсов, в байтах.
+          description: Объем оперативной памяти для хоста SQL Server, созданного с
+            данным набором вычислительных ресурсов, в байтах.
           type: string
           format: int64
     Resources:
       type: object
       properties:
         resourcePresetId:
-          description: >-
-            Идентификатор набора вычислительных ресурсов, доступных хосту
-            (процессор, память и т. д.).
-
-            Все доступные наборы ресурсов перечислены в
-            [документации](/docs/managed-sqlserver/concepts/instance-types).
+          description: |-
+            Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.).
+            Все доступные наборы ресурсов перечислены в [документации](/docs/managed-sqlserver/concepts/instance-types).
           type: string
         diskSize:
           description: Объем хранилища, доступного хосту.
@@ -2472,7 +2007,8 @@ components:
       type: object
       properties:
         clusterId:
-          description: Идентификатор кластера SQL Server, создаваемого из резервной копии.
+          description: Идентификатор кластера SQL Server, создаваемого из резервной
+            копии.
           type: string
         backupId:
           description: Идентификатор резервной копии, используемой для создания кластера.
@@ -2481,78 +2017,53 @@ components:
       type: object
       properties:
         backupId:
-          description: >-
+          description: |-
             Обязательное поле.
+            Идентификатор резервной копии, из которой следует создать новый кластер.
 
-            Идентификатор резервной копии, из которой следует создать новый
-            кластер.
-
-
-            Чтобы получить идентификатор резервной копии, используйте запрос
-            [listBackups](/docs/managed-sqlserver/api-ref/Cluster/listBackups).
+            Чтобы получить идентификатор резервной копии, используйте запрос [listBackups](/docs/managed-sqlserver/api-ref/Cluster/listBackups).
           type: string
         time:
-          description: >-
+          description: |-
             Обязательное поле.
-
-            Момент времени, на который должен быть восстановлен кластер SQL
-            Server.
-
+            Момент времени, на который должен быть восстановлен кластер SQL Server.
 
             Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
           type: string
           format: date-time
         name:
-          description: >-
+          description: |-
             Обязательное поле.
+            Имя нового кластера SQL Server, который будет создан из резервной копии. Имя должно быть уникальным в рамках каталога.
 
-            Имя нового кластера SQL Server, который будет создан из резервной
-            копии. Имя должно быть уникальным в рамках каталога.
-
-
-            Значение должно соответствовать регулярному выражению ``
-            [a-zA-Z0-9_-]* ``.
+            Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_-]* ``.
           type: string
         description:
-          description: >-
-            Описание нового кластера SQL Server, который будет создан из
-            резервной копии.
-
+          description: |-
+            Описание нового кластера SQL Server, который будет создан из резервной копии.
 
             Максимальная длина строки в символах — 256.
           type: string
         labels:
-          description: >-
-            Пользовательские метки для нового кластера SQL Server, который будет
-            создан из резервной копии, в виде пар `key:value`. Максимум 64 на
-            ресурс.
-
+          description: |-
+            Пользовательские метки для нового кластера SQL Server, который будет создан из резервной копии, в виде пар `key:value`. Максимум 64 на ресурс.
             Например, "project": "mvp" или "source": "dictionary".
 
-
             Не более 64 на ресурс.
-
             Длина строки в символах для каждого ключа должна быть от 1 до 63.
-
-            Каждый ключ должен соответствовать регулярному выражению ``
-            [a-z][-_0-9a-z]* ``.
-
+            Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
             Максимальная длина строки в символах для каждого значения — 63.
-
-            Каждое значение должно соответствовать регулярному выражению ``
-            [-_0-9a-z]* ``.
+            Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.
           type: object
           additionalProperties:
             type: string
         environment:
-          $ref: >-
-            #/components/schemas/ClusterEnvironment_in_RestoreClusterRequest_environment
+          $ref: '#/components/schemas/ClusterEnvironment_in_RestoreClusterRequest_environment'
         configSpec:
           $ref: '#/components/schemas/ConfigSpec_in_RestoreClusterRequest_configSpec'
         hostSpecs:
-          description: >-
-            Конфигурации хостов SQL Server, которые должны быть добавлены к
-            кластеру, создаваемому из резервной копии.
+          description: Конфигурации хостов SQL Server, которые должны быть добавлены
+            к кластеру, создаваемому из резервной копии.
           type: array
           items:
             $ref: '#/components/schemas/HostSpec'
@@ -2563,13 +2074,10 @@ components:
             Максимальная длина строки в символах — 50.
           type: string
         folderId:
-          description: >-
+          description: |-
             Идентификатор каталога, в котором будет создан кластер SQL Server.
 
-
-            Чтобы получить идентификатор каталога, используйте запрос
-            [list](/docs/resource-manager/api-ref/Folder/list).
-
+            Чтобы получить идентификатор каталога, используйте запрос [list](/docs/resource-manager/api-ref/Folder/list).
 
             Максимальная длина строки в символах — 50.
           type: string
@@ -2577,9 +2085,7 @@ components:
       type: object
       properties:
         clusterId:
-          description: >-
-            Идентификатор кластера SQL Server, которому принадлежит
-            пользователь.
+          description: Идентификатор кластера SQL Server, которому принадлежит пользователь.
           type: string
         userName:
           description: Имя пользователя, для которого отзывается разрешение.
@@ -2588,205 +2094,81 @@ components:
       type: object
       properties:
         permission:
-          $ref: >-
-            #/components/schemas/Permission_in_RevokeUserPermissionRequest_permission
+          $ref: '#/components/schemas/Permission_in_RevokeUserPermissionRequest_permission'
     SQLServerConfig2016sp2:
-      description: >-
-        Здесь перечислены поддерживаемые параметры конфигурации SQL Server 2016
-        SP2.
+      description: |-
+        Здесь перечислены поддерживаемые параметры конфигурации SQL Server 2016 SP2.
 
-
-        Подробное описание всех параметров доступно в [документации SQL
-        Server](https://docs.microsoft.com/ru-ru/sql/database-engine/configure-windows/server-configuration-options-sql-server?view=sql-server-2016).
-
+        Подробное описание всех параметров доступно в [документации SQL Server](https://docs.microsoft.com/ru-ru/sql/database-engine/configure-windows/server-configuration-options-sql-server?view=sql-server-2016).
 
         Любые параметры, не перечисленные здесь, не поддерживаются.
       type: object
       properties:
         maxDegreeOfParallelism:
-          description: >-
-            Ограничивает число процессоров, задействованных для параллельного
-            выполнения плана для каждой задачи.
+          description: |-
+            Ограничивает число процессоров, задействованных для параллельного выполнения плана для каждой задачи.
 
-
-            См. подробное описание в [документации SQL
-            Server](https://docs.microsoft.com/ru-ru/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option?view=sql-server-2016).
-
+            См. подробное описание в [документации SQL Server](https://docs.microsoft.com/ru-ru/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option?view=sql-server-2016).
 
             Допустимые значения — от 1 до 99 включительно.
           type: integer
           format: int64
         costThresholdForParallelism:
-          description: >-
-            Задает пороговое значение, при котором SQL Server создает и
-            выполняет параллельные планы для запросов.
+          description: |-
+            Задает пороговое значение, при котором SQL Server создает и выполняет параллельные планы для запросов.
 
-
-            SQL Server создает и выполняет параллельный план для запроса только
-            в том случае, если расчетная стоимость выполнения последовательного
-            плана для того же
-
+            SQL Server создает и выполняет параллельный план для запроса только в том случае, если расчетная стоимость выполнения последовательного плана для того же
             запроса превышает значение этого параметра.
 
-
-            См. подробное описание в [документации SQL
-            Server](https://docs.microsoft.com/ru-ru/sql/database-engine/configure-windows/configure-the-cost-threshold-for-parallelism-server-configuration-option?view=sql-server-2016).
-
+            См. подробное описание в [документации SQL Server](https://docs.microsoft.com/ru-ru/sql/database-engine/configure-windows/configure-the-cost-threshold-for-parallelism-server-configuration-option?view=sql-server-2016).
 
             Допустимые значения — от 5 до 32767 включительно.
           type: integer
           format: int64
-        sqlcollation:
-          description: >-
-            Набор правил сортировки, используемых базами данных экземпляра.
-            Определяет, являются ли базы данных экземпляра чувствительными к
-            регистру, акценту и т. д.
-
-
-            См. подробное описание в [документации SQL
-            Server](https://docs.microsoft.com/ru-ru/sql/relational-databases/collations/set-or-change-the-server-collation?view=sql-server-2016).
-          type: string
         auditLevel:
-          description: >-
-            Настройки аудита входа, необходимого для мониторинга активности
-            подключения к компоненту SQL Server Database Engine.
-
+          description: |-
+            Настройки аудита входа, необходимого для мониторинга активности подключения к компоненту SQL Server Database Engine.
 
             Возможные значения:
-
             * 0 — не регистрировать попытки входа в систему,
-
             * 1 — регистрировать только неудачные попытки входа в систему,
-
-            * 2 — регистрировать только успешные попытки входа в систему (не
-            рекомендуется),
-
+            * 2 — регистрировать только успешные попытки входа в систему (не рекомендуется),
             * 3 — регистрировать все попытки входа в систему (не рекомендуется).
 
-
-            См. подробное описание в [документации SQL
-            Server](https://docs.microsoft.com/ru-ru/sql/ssms/configure-login-auditing-sql-server-management-studio?view=sql-server-2016).
-
+            См. подробное описание в [документации SQL Server](https://docs.microsoft.com/ru-ru/sql/ssms/configure-login-auditing-sql-server-management-studio?view=sql-server-2016).
 
             Допустимые значения — от 0 до 3 включительно.
           type: integer
           format: int64
-        filestreamAccessLevel:
-          description: >-
-            Определяет уровень доступа `FILESTREAM` для экземпляра SQL Server.
-
-            Технология `FILESTREAM` позволяет приложениям на базе SQL Server
-            хранить BLOB-объекты, такие как документы и изображения, в файловой
-            системе за пределами базы данных.
-
-
-            Возможные значения:
-
-            * 0 — выключает `FILESTREAM`,
-
-            * 1 — включает `FILESTREAM` для доступа с помощью Transact-SQL,
-
-            * 2 — включает `FILESTREAM` для доступа с помощью Transact-SQL и
-            потокового доступа Win32.
-
-
-            См. подробное описание в [документации SQL
-            Server](https://docs.microsoft.com/ru-ru/sql/database-engine/configure-windows/filestream-access-level-server-configuration-option?view=sql-server-2016).
-
-
-            Допустимые значения — от 0 до 2 включительно.
-          type: integer
-          format: int64
         fillFactorPercent:
-          description: >-
+          description: |-
             Задает коэффициент заполнения.
+            Когда индекс создается или перестраивается, коэффициент заполнения отображает процент заполнения пространства каждой страницы конечного уровня, что позволяет зарезервировать оставшееся пространство как свободное — для будущего расширения.
 
-            Когда индекс создается или перестраивается, коэффициент заполнения
-            отображает процент заполнения пространства каждой страницы конечного
-            уровня, что позволяет зарезервировать оставшееся пространство как
-            свободное — для будущего расширения.
+            Значения 0 и 100 означают полное заполнение страницы (свободное место не резервируется).
 
-
-            Значения 0 и 100 означают полное заполнение страницы (свободное
-            место не резервируется).
-
-
-            См. подробное описание в [документации SQL
-            Server](https://docs.microsoft.com/ru-ru/sql/database-engine/configure-windows/configure-the-fill-factor-server-configuration-option?view=sql-server-2016).
-
+            См. подробное описание в [документации SQL Server](https://docs.microsoft.com/ru-ru/sql/database-engine/configure-windows/configure-the-fill-factor-server-configuration-option?view=sql-server-2016).
 
             Допустимые значения — от 0 до 100 включительно.
           type: integer
           format: int64
-        inDoubtXactResolution:
-          description: >-
-            Определяет результат по умолчанию для распределенных транзакций,
-            которые не удалось разрешить координатору распределенных транзакций
-            Microsoft (MS DTC).
-
-            Такие транзакции называются сомнительными распределенными
-            транзакциями.
-
-
-            Возможные значения:
-
-            * 0 — нет автоматического разрешения. Восстановление завершится
-            неуспешно, если MS DTC не сможет разрешить какую-либо сомнительную
-            транзакцию.
-
-            * 1 — сомнительные транзакции считаются подтвержденными,
-
-            * 2 — сомнительные транзакции считаются неподтвержденными и будут
-            откачены.
-
-
-            См. подробное описание в [документации SQL
-            Server](https://docs.microsoft.com/ru-ru/sql/database-engine/configure-windows/in-doubt-xact-resolution-server-configuration-option?view=sql-server-2016).
-
-
-            Допустимые значения — от 0 до 2 включительно.
-          type: integer
-          format: int64
         optimizeForAdHocWorkloads:
-          description: >-
-            Определяет, следует ли кэшировать планы запросов только после
-            второго выполнения.
-
+          description: |-
+            Определяет, следует ли кэшировать планы запросов только после второго выполнения.
             Позволяет избежать раздувания кэша SQL из-за одноразовых планов.
 
-
-            См. подробное описание в [документации SQL
-            Server](https://docs.microsoft.com/ru-ru/sql/database-engine/configure-windows/optimize-for-ad-hoc-workloads-server-configuration-option?view=sql-server-2016).
-          type: boolean
-          format: boolean
-        crossDbOwnershipChaining:
-          description: >-
-            Включает цепочку владения между базами данных.
-
-
-            Пример: имея явный доступ к хранимой процедуре в одной базе данных,
-            которая ссылается на объект в другой
-
-            базе данных, к которой у вас нет явного доступа, вы сможете
-            выполнить процедуру без ошибки, связанной с разрешением.
-
-
-            См. подробное описание в [документации SQL
-            Server](https://docs.microsoft.com/ru-ru/sql/database-engine/configure-windows/cross-db-ownership-chaining-server-configuration-option?view=sql-server-2016).
+            См. подробное описание в [документации SQL Server](https://docs.microsoft.com/ru-ru/sql/database-engine/configure-windows/optimize-for-ad-hoc-workloads-server-configuration-option?view=sql-server-2016).
           type: boolean
           format: boolean
     SQLServerConfigSet2016sp2:
       type: object
       properties:
         effectiveConfig:
-          $ref: >-
-            #/components/schemas/SQLServerConfig2016sp2_in_SQLServerConfigSet2016sp2_effectiveConfig
+          $ref: '#/components/schemas/SQLServerConfig2016sp2_in_SQLServerConfigSet2016sp2_effectiveConfig'
         userConfig:
-          $ref: >-
-            #/components/schemas/SQLServerConfig2016sp2_in_SQLServerConfigSet2016sp2_userConfig
+          $ref: '#/components/schemas/SQLServerConfig2016sp2_in_SQLServerConfigSet2016sp2_userConfig'
         defaultConfig:
-          $ref: >-
-            #/components/schemas/SQLServerConfig2016sp2_in_SQLServerConfigSet2016sp2_defaultConfig
+          $ref: '#/components/schemas/SQLServerConfig2016sp2_in_SQLServerConfigSet2016sp2_defaultConfig'
     Service:
       type: object
       properties:
@@ -2801,15 +2183,15 @@ components:
          - DEAD: Сервер отключен или не отвечает.
       type: string
       enum:
-        - HEALTH_UNKNOWN
-        - ALIVE
-        - DEAD
+      - HEALTH_UNKNOWN
+      - ALIVE
+      - DEAD
       default: HEALTH_UNKNOWN
     ServiceType:
       description: ' - SQLSERVER: Служба SQL Server'
       type: string
       enum:
-        - SQLSERVER
+      - SQLSERVER
     StartClusterMetadata:
       type: object
       properties:
@@ -2823,31 +2205,21 @@ components:
           description: Идентификатор останавливаемого кластера SQL Server.
           type: string
     TimeOfDay:
-      description: >-
+      description: |-
         Время суток.
-
         Дата и часовой пояс либо не учитываются, либо задаются в других местах.
-
 
         API может разрешить использование високосной секунды.
 
-
-        Связанные типы:
-        [google.type.Date](https://github.com/googleapis/googleapis/blob/master/google/type/date.proto)
-        и
-        [google.protobuf.Timestamp](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto).
+        Связанные типы: [google.type.Date](https://github.com/googleapis/googleapis/blob/master/google/type/date.proto) и [google.protobuf.Timestamp](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto).
       type: object
       properties:
         hours:
-          description: >-
+          description: |-
             Часы.
-
             Допустимые значения: от 0 до 23.
 
-
-            API может разрешить использовать значение в формате "24:00:00" в
-            требующих этого сценариях (например, для указания времени закрытия
-            учреждения).
+            API может разрешить использовать значение в формате "24:00:00" в требующих этого сценариях (например, для указания времени закрытия учреждения).
           type: integer
           format: int32
         minutes:
@@ -2857,14 +2229,11 @@ components:
           type: integer
           format: int32
         seconds:
-          description: >-
+          description: |-
             Секунды.
-
             Стандартные допустимые значения: от 0 до 59.
 
-
-            API может разрешить использовать значение 60, если также разрешено
-            использование високосной секунды.
+            API может разрешить использовать значение 60, если также разрешено использование високосной секунды.
           type: integer
           format: int32
         nanos:
@@ -2891,55 +2260,36 @@ components:
             Максимальная длина строки в символах — 256.
           type: string
         labels:
-          description: >-
-            Пользовательские метки для кластера SQL Server в виде пар
-            `key:value`. Максимум 64 на ресурс.
-
+          description: |-
+            Пользовательские метки для кластера SQL Server в виде пар `key:value`. Максимум 64 на ресурс.
 
             Например, "project": "mvp" или "source": "dictionary".
 
-
             Новый набор меток полностью заменит старый.
-
-            Чтобы добавить метку, запросите текущий набор меток с помощью метода
-            [get](/docs/managed-sqlserver/api-ref/Cluster/get), затем отправьте
-            запрос [update](/docs/managed-sqlserver/api-ref/Cluster/update),
-            добавив новую метку в этот набор.
-
+            Чтобы добавить метку, запросите текущий набор меток с помощью метода [get](/docs/managed-sqlserver/api-ref/Cluster/get), затем отправьте запрос [update](/docs/managed-sqlserver/api-ref/Cluster/update), добавив новую метку в этот набор.
 
             Не более 64 на ресурс.
-
             Длина строки в символах для каждого ключа должна быть от 1 до 63.
-
-            Каждый ключ должен соответствовать регулярному выражению ``
-            [a-z][-_0-9a-z]* ``.
-
+            Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
             Максимальная длина строки в символах для каждого значения — 63.
-
-            Каждое значение должно соответствовать регулярному выражению ``
-            [-_0-9a-z]* ``.
+            Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.
           type: object
           additionalProperties:
             type: string
         configSpec:
           $ref: '#/components/schemas/ConfigSpec_in_UpdateClusterRequest_configSpec'
         name:
-          description: >-
+          description: |-
             Новое имя кластера SQL Server.
 
-
             Максимальная длина строки в символах — 63.
-
-            Значение должно соответствовать регулярному выражению ``
-            [a-zA-Z0-9_-]* ``.
+            Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_-]* ``.
           type: string
     UpdateUserMetadata:
       type: object
       properties:
         clusterId:
-          description: >-
-            Идентификатор кластера SQL Server, которому принадлежит
-            пользователь.
+          description: Идентификатор кластера SQL Server, которому принадлежит пользователь.
           type: string
         userName:
           description: Имя изменяемого пользователя.
@@ -2968,9 +2318,7 @@ components:
           description: Имя пользователя SQL Server.
           type: string
         clusterId:
-          description: >-
-            Идентификатор кластера SQL Server, которому принадлежит
-            пользователь.
+          description: Идентификатор кластера SQL Server, которому принадлежит пользователь.
           type: string
         permissions:
           description: Набор разрешений, предоставленных пользователю.
@@ -2981,16 +2329,12 @@ components:
       type: object
       properties:
         name:
-          description: >-
+          description: |-
             Обязательное поле.
-
             Имя пользователя SQL Server.
 
-
             Максимальная длина строки в символах — 32.
-
-            Значение должно соответствовать регулярному выражению ``
-            [a-zA-Z0-9_]* ``.
+            Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_]* ``.
           type: string
         password:
           description: |-
@@ -3009,9 +2353,7 @@ components:
       type: object
       properties:
         code:
-          description: >-
-            Код ошибки. Значение из списка
-            [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
+          description: Код ошибки. Значение из списка [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
           type: integer
           format: int32
         message:
@@ -3030,32 +2372,31 @@ components:
          - PRESTABLE: Среда с более агрессивной политикой обновления: новые версии развертываются независимо от обратной совместимости.
       type: string
       enum:
-        - PRODUCTION
-        - PRESTABLE
+      - PRODUCTION
+      - PRESTABLE
     ClusterConfig_in_Cluster_config:
       description: Конфигурация кластера SQL Server.
       type: object
       allOf:
-        - type: object
-          properties:
-            version:
-              description: Версия SQL Server.
-              type: string
-            resources:
-              $ref: '#/components/schemas/Resources'
-              description: Ресурсы, выделенные хостам SQL Server.
-            backupWindowStart:
-              $ref: '#/components/schemas/TimeOfDay'
-              description: >-
-                Время запуска ежедневного резервного копирования, в часовом
-                поясе UTC.
-        - title: sqlserver_config
-          type: object
-          maxProperties: 1
-          properties:
-            sqlserverConfig_2016Sp2:
-              $ref: '#/components/schemas/SQLServerConfigSet2016sp2'
-              description: Конфигурация экземпляра SQL Server 2016sp2.
+      - type: object
+        properties:
+          version:
+            description: Версия SQL Server.
+            type: string
+          resources:
+            $ref: '#/components/schemas/Resources'
+            description: Ресурсы, выделенные хостам SQL Server.
+          backupWindowStart:
+            $ref: '#/components/schemas/TimeOfDay'
+            description: Время запуска ежедневного резервного копирования, в часовом
+              поясе UTC.
+      - title: sqlserver_config
+        type: object
+        maxProperties: 1
+        properties:
+          sqlserverConfig_2016Sp2:
+            $ref: '#/components/schemas/SQLServerConfigSet2016sp2'
+            description: Конфигурация экземпляра SQL Server 2016sp2.
     ClusterHealth_in_Cluster_health:
       description: |-
         Здоровье кластера.
@@ -3066,10 +2407,10 @@ components:
          - DEGRADED: Кластер находится в состоянии деградации (`health` по крайней мере одного из хостов в кластере — не `ALIVE`).
       type: string
       enum:
-        - HEALTH_UNKNOWN
-        - ALIVE
-        - DEAD
-        - DEGRADED
+      - HEALTH_UNKNOWN
+      - ALIVE
+      - DEAD
+      - DEGRADED
       default: HEALTH_UNKNOWN
     ClusterStatus_in_Cluster_status:
       description: |-
@@ -3085,14 +2426,14 @@ components:
          - STARTING: Кластер запускается.
       type: string
       enum:
-        - STATUS_UNKNOWN
-        - CREATING
-        - RUNNING
-        - ERROR
-        - UPDATING
-        - STOPPING
-        - STOPPED
-        - STARTING
+      - STATUS_UNKNOWN
+      - CREATING
+      - RUNNING
+      - ERROR
+      - UPDATING
+      - STOPPING
+      - STOPPED
+      - STARTING
       default: STATUS_UNKNOWN
     ClusterEnvironment_in_CreateClusterRequest_environment:
       description: |-
@@ -3102,36 +2443,35 @@ components:
          - PRESTABLE: Среда с более агрессивной политикой обновления: новые версии развертываются независимо от обратной совместимости.
       type: string
       enum:
-        - PRODUCTION
-        - PRESTABLE
+      - PRODUCTION
+      - PRESTABLE
     ConfigSpec_in_CreateClusterRequest_configSpec:
       description: Конфигурация SQL Server и хостов для кластера.
       type: object
       allOf:
-        - type: object
-          properties:
-            version:
-              description: |-
-                Версия SQL Server, используемая в кластере.
+      - type: object
+        properties:
+          version:
+            description: |-
+              Версия SQL Server, используемая в кластере.
 
-                Возможные значения:
-                * 2016sp2
-              type: string
-            resources:
-              $ref: '#/components/schemas/Resources'
-              description: Ресурсы, выделенные хостам SQL Server.
-            backupWindowStart:
-              $ref: '#/components/schemas/TimeOfDay'
-              description: >-
-                Время запуска ежедневного резервного копирования, в часовом
-                поясе UTC.
-        - title: sqlserver_config
-          type: object
-          maxProperties: 1
-          properties:
-            sqlserverConfig_2016Sp2:
-              $ref: '#/components/schemas/SQLServerConfig2016sp2'
-              description: Конфигурация кластера SQL Server 2016 SP2.
+              Возможные значения:
+              * 2016sp2
+            type: string
+          resources:
+            $ref: '#/components/schemas/Resources'
+            description: Ресурсы, выделенные хостам SQL Server.
+          backupWindowStart:
+            $ref: '#/components/schemas/TimeOfDay'
+            description: Время запуска ежедневного резервного копирования, в часовом
+              поясе UTC.
+      - title: sqlserver_config
+        type: object
+        maxProperties: 1
+        properties:
+          sqlserverConfig_2016Sp2:
+            $ref: '#/components/schemas/SQLServerConfig2016sp2'
+            description: Конфигурация кластера SQL Server 2016 SP2.
     DatabaseSpec_in_CreateDatabaseRequest_databaseSpec:
       description: |-
         Обязательное поле.
@@ -3139,16 +2479,12 @@ components:
       type: object
       properties:
         name:
-          description: >-
+          description: |-
             Обязательное поле.
-
             Имя базы данных.
 
-
             Максимальная длина строки в символах — 63.
-
-            Значение должно соответствовать регулярному выражению ``
-            [a-zA-Z0-9_-]* ``.
+            Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_-]* ``.
           type: string
     UserSpec_in_CreateUserRequest_userSpec:
       description: |-
@@ -3157,16 +2493,12 @@ components:
       type: object
       properties:
         name:
-          description: >-
+          description: |-
             Обязательное поле.
-
             Имя пользователя SQL Server.
 
-
             Максимальная длина строки в символах — 32.
-
-            Значение должно соответствовать регулярному выражению ``
-            [a-zA-Z0-9_]* ``.
+            Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_]* ``.
           type: string
         password:
           description: |-
@@ -3203,12 +2535,9 @@ components:
       type: object
       properties:
         resourcePresetId:
-          description: >-
-            Идентификатор набора вычислительных ресурсов, доступных хосту
-            (процессор, память и т. д.).
-
-            Все доступные наборы ресурсов перечислены в
-            [документации](/docs/managed-sqlserver/concepts/instance-types).
+          description: |-
+            Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.).
+            Все доступные наборы ресурсов перечислены в [документации](/docs/managed-sqlserver/concepts/instance-types).
           type: string
         diskSize:
           description: Объем хранилища, доступного хосту.
@@ -3232,9 +2561,9 @@ components:
          - REPLICA: Хост является репликой в кластере SQL Server.
       type: string
       enum:
-        - ROLE_UNKNOWN
-        - MASTER
-        - REPLICA
+      - ROLE_UNKNOWN
+      - MASTER
+      - REPLICA
       default: ROLE_UNKNOWN
     HostHealth_in_Host_health:
       description: |-
@@ -3246,52 +2575,49 @@ components:
          - DEGRADED: Хост деградировал, и может выполнять только некоторые из своих основных функций.
       type: string
       enum:
-        - HEALTH_UNKNOWN
-        - ALIVE
-        - DEAD
-        - DEGRADED
+      - HEALTH_UNKNOWN
+      - ALIVE
+      - DEAD
+      - DEGRADED
       default: HEALTH_UNKNOWN
     ClusterEnvironment_in_RestoreClusterRequest_environment:
-      description: >-
-        Среда развертывания нового кластера SQL Server, который будет создан из
-        резервной копии.
+      description: |-
+        Среда развертывания нового кластера SQL Server, который будет создан из резервной копии.
 
          - PRODUCTION: Стабильная среда с осторожной политикой обновления: во время регулярного обслуживания применяются только срочные исправления.
          - PRESTABLE: Среда с более агрессивной политикой обновления: новые версии развертываются независимо от обратной совместимости.
       type: string
       enum:
-        - PRODUCTION
-        - PRESTABLE
+      - PRODUCTION
+      - PRESTABLE
     ConfigSpec_in_RestoreClusterRequest_configSpec:
-      description: >-
-        Конфигурация нового кластера SQL Server, который будет создан из
+      description: Конфигурация нового кластера SQL Server, который будет создан из
         резервной копии.
       type: object
       allOf:
-        - type: object
-          properties:
-            version:
-              description: |-
-                Версия SQL Server, используемая в кластере.
+      - type: object
+        properties:
+          version:
+            description: |-
+              Версия SQL Server, используемая в кластере.
 
-                Возможные значения:
-                * 2016sp2
-              type: string
-            resources:
-              $ref: '#/components/schemas/Resources'
-              description: Ресурсы, выделенные хостам SQL Server.
-            backupWindowStart:
-              $ref: '#/components/schemas/TimeOfDay'
-              description: >-
-                Время запуска ежедневного резервного копирования, в часовом
-                поясе UTC.
-        - title: sqlserver_config
-          type: object
-          maxProperties: 1
-          properties:
-            sqlserverConfig_2016Sp2:
-              $ref: '#/components/schemas/SQLServerConfig2016sp2'
-              description: Конфигурация кластера SQL Server 2016 SP2.
+              Возможные значения:
+              * 2016sp2
+            type: string
+          resources:
+            $ref: '#/components/schemas/Resources'
+            description: Ресурсы, выделенные хостам SQL Server.
+          backupWindowStart:
+            $ref: '#/components/schemas/TimeOfDay'
+            description: Время запуска ежедневного резервного копирования, в часовом
+              поясе UTC.
+      - title: sqlserver_config
+        type: object
+        maxProperties: 1
+        properties:
+          sqlserverConfig_2016Sp2:
+            $ref: '#/components/schemas/SQLServerConfig2016sp2'
+            description: Конфигурация кластера SQL Server 2016 SP2.
     Permission_in_RevokeUserPermissionRequest_permission:
       description: |-
         Обязательное поле.
@@ -3311,568 +2637,204 @@ components:
           items:
             $ref: '#/components/schemas/PermissionRole'
     SQLServerConfig2016sp2_in_SQLServerConfigSet2016sp2_effectiveConfig:
-      description: >-
-        Действующие настройки для кластера SQL Server 2016 SP2 (сочетание
-        параметров, определенных в `userConfig` и `defaultConfig`).
+      description: |-
+        Действующие настройки для кластера SQL Server 2016 SP2 (сочетание параметров, определенных в `userConfig` и `defaultConfig`).
 
+        Здесь перечислены поддерживаемые параметры конфигурации SQL Server 2016 SP2.
 
-        Здесь перечислены поддерживаемые параметры конфигурации SQL Server 2016
-        SP2.
-
-
-        Подробное описание всех параметров доступно в [документации SQL
-        Server](https://docs.microsoft.com/ru-ru/sql/database-engine/configure-windows/server-configuration-options-sql-server?view=sql-server-2016).
-
+        Подробное описание всех параметров доступно в [документации SQL Server](https://docs.microsoft.com/ru-ru/sql/database-engine/configure-windows/server-configuration-options-sql-server?view=sql-server-2016).
 
         Любые параметры, не перечисленные здесь, не поддерживаются.
       type: object
       properties:
         maxDegreeOfParallelism:
-          description: >-
-            Ограничивает число процессоров, задействованных для параллельного
-            выполнения плана для каждой задачи.
+          description: |-
+            Ограничивает число процессоров, задействованных для параллельного выполнения плана для каждой задачи.
 
-
-            См. подробное описание в [документации SQL
-            Server](https://docs.microsoft.com/ru-ru/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option?view=sql-server-2016).
-
+            См. подробное описание в [документации SQL Server](https://docs.microsoft.com/ru-ru/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option?view=sql-server-2016).
 
             Допустимые значения — от 1 до 99 включительно.
           type: integer
           format: int64
         costThresholdForParallelism:
-          description: >-
-            Задает пороговое значение, при котором SQL Server создает и
-            выполняет параллельные планы для запросов.
+          description: |-
+            Задает пороговое значение, при котором SQL Server создает и выполняет параллельные планы для запросов.
 
-
-            SQL Server создает и выполняет параллельный план для запроса только
-            в том случае, если расчетная стоимость выполнения последовательного
-            плана для того же
-
+            SQL Server создает и выполняет параллельный план для запроса только в том случае, если расчетная стоимость выполнения последовательного плана для того же
             запроса превышает значение этого параметра.
 
-
-            См. подробное описание в [документации SQL
-            Server](https://docs.microsoft.com/ru-ru/sql/database-engine/configure-windows/configure-the-cost-threshold-for-parallelism-server-configuration-option?view=sql-server-2016).
-
+            См. подробное описание в [документации SQL Server](https://docs.microsoft.com/ru-ru/sql/database-engine/configure-windows/configure-the-cost-threshold-for-parallelism-server-configuration-option?view=sql-server-2016).
 
             Допустимые значения — от 5 до 32767 включительно.
           type: integer
           format: int64
-        sqlcollation:
-          description: >-
-            Набор правил сортировки, используемых базами данных экземпляра.
-            Определяет, являются ли базы данных экземпляра чувствительными к
-            регистру, акценту и т. д.
-
-
-            См. подробное описание в [документации SQL
-            Server](https://docs.microsoft.com/ru-ru/sql/relational-databases/collations/set-or-change-the-server-collation?view=sql-server-2016).
-          type: string
         auditLevel:
-          description: >-
-            Настройки аудита входа, необходимого для мониторинга активности
-            подключения к компоненту SQL Server Database Engine.
-
+          description: |-
+            Настройки аудита входа, необходимого для мониторинга активности подключения к компоненту SQL Server Database Engine.
 
             Возможные значения:
-
             * 0 — не регистрировать попытки входа в систему,
-
             * 1 — регистрировать только неудачные попытки входа в систему,
-
-            * 2 — регистрировать только успешные попытки входа в систему (не
-            рекомендуется),
-
+            * 2 — регистрировать только успешные попытки входа в систему (не рекомендуется),
             * 3 — регистрировать все попытки входа в систему (не рекомендуется).
 
-
-            См. подробное описание в [документации SQL
-            Server](https://docs.microsoft.com/ru-ru/sql/ssms/configure-login-auditing-sql-server-management-studio?view=sql-server-2016).
-
+            См. подробное описание в [документации SQL Server](https://docs.microsoft.com/ru-ru/sql/ssms/configure-login-auditing-sql-server-management-studio?view=sql-server-2016).
 
             Допустимые значения — от 0 до 3 включительно.
           type: integer
           format: int64
-        filestreamAccessLevel:
-          description: >-
-            Определяет уровень доступа `FILESTREAM` для экземпляра SQL Server.
-
-            Технология `FILESTREAM` позволяет приложениям на базе SQL Server
-            хранить BLOB-объекты, такие как документы и изображения, в файловой
-            системе за пределами базы данных.
-
-
-            Возможные значения:
-
-            * 0 — выключает `FILESTREAM`,
-
-            * 1 — включает `FILESTREAM` для доступа с помощью Transact-SQL,
-
-            * 2 — включает `FILESTREAM` для доступа с помощью Transact-SQL и
-            потокового доступа Win32.
-
-
-            См. подробное описание в [документации SQL
-            Server](https://docs.microsoft.com/ru-ru/sql/database-engine/configure-windows/filestream-access-level-server-configuration-option?view=sql-server-2016).
-
-
-            Допустимые значения — от 0 до 2 включительно.
-          type: integer
-          format: int64
         fillFactorPercent:
-          description: >-
+          description: |-
             Задает коэффициент заполнения.
+            Когда индекс создается или перестраивается, коэффициент заполнения отображает процент заполнения пространства каждой страницы конечного уровня, что позволяет зарезервировать оставшееся пространство как свободное — для будущего расширения.
 
-            Когда индекс создается или перестраивается, коэффициент заполнения
-            отображает процент заполнения пространства каждой страницы конечного
-            уровня, что позволяет зарезервировать оставшееся пространство как
-            свободное — для будущего расширения.
+            Значения 0 и 100 означают полное заполнение страницы (свободное место не резервируется).
 
-
-            Значения 0 и 100 означают полное заполнение страницы (свободное
-            место не резервируется).
-
-
-            См. подробное описание в [документации SQL
-            Server](https://docs.microsoft.com/ru-ru/sql/database-engine/configure-windows/configure-the-fill-factor-server-configuration-option?view=sql-server-2016).
-
+            См. подробное описание в [документации SQL Server](https://docs.microsoft.com/ru-ru/sql/database-engine/configure-windows/configure-the-fill-factor-server-configuration-option?view=sql-server-2016).
 
             Допустимые значения — от 0 до 100 включительно.
           type: integer
           format: int64
-        inDoubtXactResolution:
-          description: >-
-            Определяет результат по умолчанию для распределенных транзакций,
-            которые не удалось разрешить координатору распределенных транзакций
-            Microsoft (MS DTC).
-
-            Такие транзакции называются сомнительными распределенными
-            транзакциями.
-
-
-            Возможные значения:
-
-            * 0 — нет автоматического разрешения. Восстановление завершится
-            неуспешно, если MS DTC не сможет разрешить какую-либо сомнительную
-            транзакцию.
-
-            * 1 — сомнительные транзакции считаются подтвержденными,
-
-            * 2 — сомнительные транзакции считаются неподтвержденными и будут
-            откачены.
-
-
-            См. подробное описание в [документации SQL
-            Server](https://docs.microsoft.com/ru-ru/sql/database-engine/configure-windows/in-doubt-xact-resolution-server-configuration-option?view=sql-server-2016).
-
-
-            Допустимые значения — от 0 до 2 включительно.
-          type: integer
-          format: int64
         optimizeForAdHocWorkloads:
-          description: >-
-            Определяет, следует ли кэшировать планы запросов только после
-            второго выполнения.
-
+          description: |-
+            Определяет, следует ли кэшировать планы запросов только после второго выполнения.
             Позволяет избежать раздувания кэша SQL из-за одноразовых планов.
 
-
-            См. подробное описание в [документации SQL
-            Server](https://docs.microsoft.com/ru-ru/sql/database-engine/configure-windows/optimize-for-ad-hoc-workloads-server-configuration-option?view=sql-server-2016).
-          type: boolean
-          format: boolean
-        crossDbOwnershipChaining:
-          description: >-
-            Включает цепочку владения между базами данных.
-
-
-            Пример: имея явный доступ к хранимой процедуре в одной базе данных,
-            которая ссылается на объект в другой
-
-            базе данных, к которой у вас нет явного доступа, вы сможете
-            выполнить процедуру без ошибки, связанной с разрешением.
-
-
-            См. подробное описание в [документации SQL
-            Server](https://docs.microsoft.com/ru-ru/sql/database-engine/configure-windows/cross-db-ownership-chaining-server-configuration-option?view=sql-server-2016).
+            См. подробное описание в [документации SQL Server](https://docs.microsoft.com/ru-ru/sql/database-engine/configure-windows/optimize-for-ad-hoc-workloads-server-configuration-option?view=sql-server-2016).
           type: boolean
           format: boolean
     SQLServerConfig2016sp2_in_SQLServerConfigSet2016sp2_userConfig:
-      description: >-
+      description: |-
         Пользовательские параметры для кластера SQL Server 2016 SP2.
 
+        Здесь перечислены поддерживаемые параметры конфигурации SQL Server 2016 SP2.
 
-        Здесь перечислены поддерживаемые параметры конфигурации SQL Server 2016
-        SP2.
-
-
-        Подробное описание всех параметров доступно в [документации SQL
-        Server](https://docs.microsoft.com/ru-ru/sql/database-engine/configure-windows/server-configuration-options-sql-server?view=sql-server-2016).
-
+        Подробное описание всех параметров доступно в [документации SQL Server](https://docs.microsoft.com/ru-ru/sql/database-engine/configure-windows/server-configuration-options-sql-server?view=sql-server-2016).
 
         Любые параметры, не перечисленные здесь, не поддерживаются.
       type: object
       properties:
         maxDegreeOfParallelism:
-          description: >-
-            Ограничивает число процессоров, задействованных для параллельного
-            выполнения плана для каждой задачи.
+          description: |-
+            Ограничивает число процессоров, задействованных для параллельного выполнения плана для каждой задачи.
 
-
-            См. подробное описание в [документации SQL
-            Server](https://docs.microsoft.com/ru-ru/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option?view=sql-server-2016).
-
+            См. подробное описание в [документации SQL Server](https://docs.microsoft.com/ru-ru/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option?view=sql-server-2016).
 
             Допустимые значения — от 1 до 99 включительно.
           type: integer
           format: int64
         costThresholdForParallelism:
-          description: >-
-            Задает пороговое значение, при котором SQL Server создает и
-            выполняет параллельные планы для запросов.
+          description: |-
+            Задает пороговое значение, при котором SQL Server создает и выполняет параллельные планы для запросов.
 
-
-            SQL Server создает и выполняет параллельный план для запроса только
-            в том случае, если расчетная стоимость выполнения последовательного
-            плана для того же
-
+            SQL Server создает и выполняет параллельный план для запроса только в том случае, если расчетная стоимость выполнения последовательного плана для того же
             запроса превышает значение этого параметра.
 
-
-            См. подробное описание в [документации SQL
-            Server](https://docs.microsoft.com/ru-ru/sql/database-engine/configure-windows/configure-the-cost-threshold-for-parallelism-server-configuration-option?view=sql-server-2016).
-
+            См. подробное описание в [документации SQL Server](https://docs.microsoft.com/ru-ru/sql/database-engine/configure-windows/configure-the-cost-threshold-for-parallelism-server-configuration-option?view=sql-server-2016).
 
             Допустимые значения — от 5 до 32767 включительно.
           type: integer
           format: int64
-        sqlcollation:
-          description: >-
-            Набор правил сортировки, используемых базами данных экземпляра.
-            Определяет, являются ли базы данных экземпляра чувствительными к
-            регистру, акценту и т. д.
-
-
-            См. подробное описание в [документации SQL
-            Server](https://docs.microsoft.com/ru-ru/sql/relational-databases/collations/set-or-change-the-server-collation?view=sql-server-2016).
-          type: string
         auditLevel:
-          description: >-
-            Настройки аудита входа, необходимого для мониторинга активности
-            подключения к компоненту SQL Server Database Engine.
-
+          description: |-
+            Настройки аудита входа, необходимого для мониторинга активности подключения к компоненту SQL Server Database Engine.
 
             Возможные значения:
-
             * 0 — не регистрировать попытки входа в систему,
-
             * 1 — регистрировать только неудачные попытки входа в систему,
-
-            * 2 — регистрировать только успешные попытки входа в систему (не
-            рекомендуется),
-
+            * 2 — регистрировать только успешные попытки входа в систему (не рекомендуется),
             * 3 — регистрировать все попытки входа в систему (не рекомендуется).
 
-
-            См. подробное описание в [документации SQL
-            Server](https://docs.microsoft.com/ru-ru/sql/ssms/configure-login-auditing-sql-server-management-studio?view=sql-server-2016).
-
+            См. подробное описание в [документации SQL Server](https://docs.microsoft.com/ru-ru/sql/ssms/configure-login-auditing-sql-server-management-studio?view=sql-server-2016).
 
             Допустимые значения — от 0 до 3 включительно.
           type: integer
           format: int64
-        filestreamAccessLevel:
-          description: >-
-            Определяет уровень доступа `FILESTREAM` для экземпляра SQL Server.
-
-            Технология `FILESTREAM` позволяет приложениям на базе SQL Server
-            хранить BLOB-объекты, такие как документы и изображения, в файловой
-            системе за пределами базы данных.
-
-
-            Возможные значения:
-
-            * 0 — выключает `FILESTREAM`,
-
-            * 1 — включает `FILESTREAM` для доступа с помощью Transact-SQL,
-
-            * 2 — включает `FILESTREAM` для доступа с помощью Transact-SQL и
-            потокового доступа Win32.
-
-
-            См. подробное описание в [документации SQL
-            Server](https://docs.microsoft.com/ru-ru/sql/database-engine/configure-windows/filestream-access-level-server-configuration-option?view=sql-server-2016).
-
-
-            Допустимые значения — от 0 до 2 включительно.
-          type: integer
-          format: int64
         fillFactorPercent:
-          description: >-
+          description: |-
             Задает коэффициент заполнения.
+            Когда индекс создается или перестраивается, коэффициент заполнения отображает процент заполнения пространства каждой страницы конечного уровня, что позволяет зарезервировать оставшееся пространство как свободное — для будущего расширения.
 
-            Когда индекс создается или перестраивается, коэффициент заполнения
-            отображает процент заполнения пространства каждой страницы конечного
-            уровня, что позволяет зарезервировать оставшееся пространство как
-            свободное — для будущего расширения.
+            Значения 0 и 100 означают полное заполнение страницы (свободное место не резервируется).
 
-
-            Значения 0 и 100 означают полное заполнение страницы (свободное
-            место не резервируется).
-
-
-            См. подробное описание в [документации SQL
-            Server](https://docs.microsoft.com/ru-ru/sql/database-engine/configure-windows/configure-the-fill-factor-server-configuration-option?view=sql-server-2016).
-
+            См. подробное описание в [документации SQL Server](https://docs.microsoft.com/ru-ru/sql/database-engine/configure-windows/configure-the-fill-factor-server-configuration-option?view=sql-server-2016).
 
             Допустимые значения — от 0 до 100 включительно.
           type: integer
           format: int64
-        inDoubtXactResolution:
-          description: >-
-            Определяет результат по умолчанию для распределенных транзакций,
-            которые не удалось разрешить координатору распределенных транзакций
-            Microsoft (MS DTC).
-
-            Такие транзакции называются сомнительными распределенными
-            транзакциями.
-
-
-            Возможные значения:
-
-            * 0 — нет автоматического разрешения. Восстановление завершится
-            неуспешно, если MS DTC не сможет разрешить какую-либо сомнительную
-            транзакцию.
-
-            * 1 — сомнительные транзакции считаются подтвержденными,
-
-            * 2 — сомнительные транзакции считаются неподтвержденными и будут
-            откачены.
-
-
-            См. подробное описание в [документации SQL
-            Server](https://docs.microsoft.com/ru-ru/sql/database-engine/configure-windows/in-doubt-xact-resolution-server-configuration-option?view=sql-server-2016).
-
-
-            Допустимые значения — от 0 до 2 включительно.
-          type: integer
-          format: int64
         optimizeForAdHocWorkloads:
-          description: >-
-            Определяет, следует ли кэшировать планы запросов только после
-            второго выполнения.
-
+          description: |-
+            Определяет, следует ли кэшировать планы запросов только после второго выполнения.
             Позволяет избежать раздувания кэша SQL из-за одноразовых планов.
 
-
-            См. подробное описание в [документации SQL
-            Server](https://docs.microsoft.com/ru-ru/sql/database-engine/configure-windows/optimize-for-ad-hoc-workloads-server-configuration-option?view=sql-server-2016).
-          type: boolean
-          format: boolean
-        crossDbOwnershipChaining:
-          description: >-
-            Включает цепочку владения между базами данных.
-
-
-            Пример: имея явный доступ к хранимой процедуре в одной базе данных,
-            которая ссылается на объект в другой
-
-            базе данных, к которой у вас нет явного доступа, вы сможете
-            выполнить процедуру без ошибки, связанной с разрешением.
-
-
-            См. подробное описание в [документации SQL
-            Server](https://docs.microsoft.com/ru-ru/sql/database-engine/configure-windows/cross-db-ownership-chaining-server-configuration-option?view=sql-server-2016).
+            См. подробное описание в [документации SQL Server](https://docs.microsoft.com/ru-ru/sql/database-engine/configure-windows/optimize-for-ad-hoc-workloads-server-configuration-option?view=sql-server-2016).
           type: boolean
           format: boolean
     SQLServerConfig2016sp2_in_SQLServerConfigSet2016sp2_defaultConfig:
-      description: >-
+      description: |-
         Конфигурация кластера SQL Server 2016 SP2 по умолчанию.
 
+        Здесь перечислены поддерживаемые параметры конфигурации SQL Server 2016 SP2.
 
-        Здесь перечислены поддерживаемые параметры конфигурации SQL Server 2016
-        SP2.
-
-
-        Подробное описание всех параметров доступно в [документации SQL
-        Server](https://docs.microsoft.com/ru-ru/sql/database-engine/configure-windows/server-configuration-options-sql-server?view=sql-server-2016).
-
+        Подробное описание всех параметров доступно в [документации SQL Server](https://docs.microsoft.com/ru-ru/sql/database-engine/configure-windows/server-configuration-options-sql-server?view=sql-server-2016).
 
         Любые параметры, не перечисленные здесь, не поддерживаются.
       type: object
       properties:
         maxDegreeOfParallelism:
-          description: >-
-            Ограничивает число процессоров, задействованных для параллельного
-            выполнения плана для каждой задачи.
+          description: |-
+            Ограничивает число процессоров, задействованных для параллельного выполнения плана для каждой задачи.
 
-
-            См. подробное описание в [документации SQL
-            Server](https://docs.microsoft.com/ru-ru/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option?view=sql-server-2016).
-
+            См. подробное описание в [документации SQL Server](https://docs.microsoft.com/ru-ru/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option?view=sql-server-2016).
 
             Допустимые значения — от 1 до 99 включительно.
           type: integer
           format: int64
         costThresholdForParallelism:
-          description: >-
-            Задает пороговое значение, при котором SQL Server создает и
-            выполняет параллельные планы для запросов.
+          description: |-
+            Задает пороговое значение, при котором SQL Server создает и выполняет параллельные планы для запросов.
 
-
-            SQL Server создает и выполняет параллельный план для запроса только
-            в том случае, если расчетная стоимость выполнения последовательного
-            плана для того же
-
+            SQL Server создает и выполняет параллельный план для запроса только в том случае, если расчетная стоимость выполнения последовательного плана для того же
             запроса превышает значение этого параметра.
 
-
-            См. подробное описание в [документации SQL
-            Server](https://docs.microsoft.com/ru-ru/sql/database-engine/configure-windows/configure-the-cost-threshold-for-parallelism-server-configuration-option?view=sql-server-2016).
-
+            См. подробное описание в [документации SQL Server](https://docs.microsoft.com/ru-ru/sql/database-engine/configure-windows/configure-the-cost-threshold-for-parallelism-server-configuration-option?view=sql-server-2016).
 
             Допустимые значения — от 5 до 32767 включительно.
           type: integer
           format: int64
-        sqlcollation:
-          description: >-
-            Набор правил сортировки, используемых базами данных экземпляра.
-            Определяет, являются ли базы данных экземпляра чувствительными к
-            регистру, акценту и т. д.
-
-
-            См. подробное описание в [документации SQL
-            Server](https://docs.microsoft.com/ru-ru/sql/relational-databases/collations/set-or-change-the-server-collation?view=sql-server-2016).
-          type: string
         auditLevel:
-          description: >-
-            Настройки аудита входа, необходимого для мониторинга активности
-            подключения к компоненту SQL Server Database Engine.
-
+          description: |-
+            Настройки аудита входа, необходимого для мониторинга активности подключения к компоненту SQL Server Database Engine.
 
             Возможные значения:
-
             * 0 — не регистрировать попытки входа в систему,
-
             * 1 — регистрировать только неудачные попытки входа в систему,
-
-            * 2 — регистрировать только успешные попытки входа в систему (не
-            рекомендуется),
-
+            * 2 — регистрировать только успешные попытки входа в систему (не рекомендуется),
             * 3 — регистрировать все попытки входа в систему (не рекомендуется).
 
-
-            См. подробное описание в [документации SQL
-            Server](https://docs.microsoft.com/ru-ru/sql/ssms/configure-login-auditing-sql-server-management-studio?view=sql-server-2016).
-
+            См. подробное описание в [документации SQL Server](https://docs.microsoft.com/ru-ru/sql/ssms/configure-login-auditing-sql-server-management-studio?view=sql-server-2016).
 
             Допустимые значения — от 0 до 3 включительно.
           type: integer
           format: int64
-        filestreamAccessLevel:
-          description: >-
-            Определяет уровень доступа `FILESTREAM` для экземпляра SQL Server.
-
-            Технология `FILESTREAM` позволяет приложениям на базе SQL Server
-            хранить BLOB-объекты, такие как документы и изображения, в файловой
-            системе за пределами базы данных.
-
-
-            Возможные значения:
-
-            * 0 — выключает `FILESTREAM`,
-
-            * 1 — включает `FILESTREAM` для доступа с помощью Transact-SQL,
-
-            * 2 — включает `FILESTREAM` для доступа с помощью Transact-SQL и
-            потокового доступа Win32.
-
-
-            См. подробное описание в [документации SQL
-            Server](https://docs.microsoft.com/ru-ru/sql/database-engine/configure-windows/filestream-access-level-server-configuration-option?view=sql-server-2016).
-
-
-            Допустимые значения — от 0 до 2 включительно.
-          type: integer
-          format: int64
         fillFactorPercent:
-          description: >-
+          description: |-
             Задает коэффициент заполнения.
+            Когда индекс создается или перестраивается, коэффициент заполнения отображает процент заполнения пространства каждой страницы конечного уровня, что позволяет зарезервировать оставшееся пространство как свободное — для будущего расширения.
 
-            Когда индекс создается или перестраивается, коэффициент заполнения
-            отображает процент заполнения пространства каждой страницы конечного
-            уровня, что позволяет зарезервировать оставшееся пространство как
-            свободное — для будущего расширения.
+            Значения 0 и 100 означают полное заполнение страницы (свободное место не резервируется).
 
-
-            Значения 0 и 100 означают полное заполнение страницы (свободное
-            место не резервируется).
-
-
-            См. подробное описание в [документации SQL
-            Server](https://docs.microsoft.com/ru-ru/sql/database-engine/configure-windows/configure-the-fill-factor-server-configuration-option?view=sql-server-2016).
-
+            См. подробное описание в [документации SQL Server](https://docs.microsoft.com/ru-ru/sql/database-engine/configure-windows/configure-the-fill-factor-server-configuration-option?view=sql-server-2016).
 
             Допустимые значения — от 0 до 100 включительно.
           type: integer
           format: int64
-        inDoubtXactResolution:
-          description: >-
-            Определяет результат по умолчанию для распределенных транзакций,
-            которые не удалось разрешить координатору распределенных транзакций
-            Microsoft (MS DTC).
-
-            Такие транзакции называются сомнительными распределенными
-            транзакциями.
-
-
-            Возможные значения:
-
-            * 0 — нет автоматического разрешения. Восстановление завершится
-            неуспешно, если MS DTC не сможет разрешить какую-либо сомнительную
-            транзакцию.
-
-            * 1 — сомнительные транзакции считаются подтвержденными,
-
-            * 2 — сомнительные транзакции считаются неподтвержденными и будут
-            откачены.
-
-
-            См. подробное описание в [документации SQL
-            Server](https://docs.microsoft.com/ru-ru/sql/database-engine/configure-windows/in-doubt-xact-resolution-server-configuration-option?view=sql-server-2016).
-
-
-            Допустимые значения — от 0 до 2 включительно.
-          type: integer
-          format: int64
         optimizeForAdHocWorkloads:
-          description: >-
-            Определяет, следует ли кэшировать планы запросов только после
-            второго выполнения.
-
+          description: |-
+            Определяет, следует ли кэшировать планы запросов только после второго выполнения.
             Позволяет избежать раздувания кэша SQL из-за одноразовых планов.
 
-
-            См. подробное описание в [документации SQL
-            Server](https://docs.microsoft.com/ru-ru/sql/database-engine/configure-windows/optimize-for-ad-hoc-workloads-server-configuration-option?view=sql-server-2016).
-          type: boolean
-          format: boolean
-        crossDbOwnershipChaining:
-          description: >-
-            Включает цепочку владения между базами данных.
-
-
-            Пример: имея явный доступ к хранимой процедуре в одной базе данных,
-            которая ссылается на объект в другой
-
-            базе данных, к которой у вас нет явного доступа, вы сможете
-            выполнить процедуру без ошибки, связанной с разрешением.
-
-
-            См. подробное описание в [документации SQL
-            Server](https://docs.microsoft.com/ru-ru/sql/database-engine/configure-windows/cross-db-ownership-chaining-server-configuration-option?view=sql-server-2016).
+            См. подробное описание в [документации SQL Server](https://docs.microsoft.com/ru-ru/sql/database-engine/configure-windows/optimize-for-ad-hoc-workloads-server-configuration-option?view=sql-server-2016).
           type: boolean
           format: boolean
     ServiceType_in_Service_type:
@@ -3882,7 +2844,7 @@ components:
          - SQLSERVER: Служба SQL Server
       type: string
       enum:
-        - SQLSERVER
+      - SQLSERVER
     ServiceHealth_in_Service_health:
       description: |-
         Код состояния доступности сервера.
@@ -3892,98 +2854,73 @@ components:
          - DEAD: Сервер отключен или не отвечает.
       type: string
       enum:
-        - HEALTH_UNKNOWN
-        - ALIVE
-        - DEAD
+      - HEALTH_UNKNOWN
+      - ALIVE
+      - DEAD
       default: HEALTH_UNKNOWN
     FieldMask_in_UpdateClusterRequest_updateMask:
-      description: >-
-        Маска, которая указывает, какие атрибуты кластера SQL Server должны быть
-        изменены.
-
+      description: |-
+        Маска, которая указывает, какие атрибуты кластера SQL Server должны быть изменены.
 
         Имена всех обновляемых полей, разделенные запятыми.
+        Только значения указанных полей будут изменены. Остальные останутся нетронутыми.
+        Если поле указано в параметре `` updateMask `` и в запросе не было отправлено значение для этого поля,
+        значение поля будет сброшено на значение по умолчанию. Значение по умолчанию для большинства полей — null или 0.
 
-        Только значения указанных полей будут изменены. Остальные останутся
-        нетронутыми.
-
-        Если поле указано в параметре `` updateMask `` и в запросе не было
-        отправлено значение для этого поля,
-
-        значение поля будет сброшено на значение по умолчанию. Значение по
-        умолчанию для большинства полей — null или 0.
-
-
-        Если в запросе не передается `` updateMask ``, значения всех полей будут
-        обновлены.
-
+        Если в запросе не передается `` updateMask ``, значения всех полей будут обновлены.
         Для полей, указанных в запросе, будут использованы переданные значения.
-
         Значения остальных полей будут сброшены на значения по умолчанию.
       type: string
     ConfigSpec_in_UpdateClusterRequest_configSpec:
       description: Новая конфигурация и ресурсы для хостов кластера SQL Server.
       type: object
       allOf:
-        - type: object
-          properties:
-            version:
-              description: |-
-                Версия SQL Server, используемая в кластере.
+      - type: object
+        properties:
+          version:
+            description: |-
+              Версия SQL Server, используемая в кластере.
 
-                Возможные значения:
-                * 2016sp2
-              type: string
-            resources:
-              $ref: '#/components/schemas/Resources'
-              description: Ресурсы, выделенные хостам SQL Server.
-            backupWindowStart:
-              $ref: '#/components/schemas/TimeOfDay'
-              description: >-
-                Время запуска ежедневного резервного копирования, в часовом
-                поясе UTC.
-        - title: sqlserver_config
-          type: object
-          maxProperties: 1
-          properties:
-            sqlserverConfig_2016Sp2:
-              $ref: '#/components/schemas/SQLServerConfig2016sp2'
-              description: Конфигурация кластера SQL Server 2016 SP2.
+              Возможные значения:
+              * 2016sp2
+            type: string
+          resources:
+            $ref: '#/components/schemas/Resources'
+            description: Ресурсы, выделенные хостам SQL Server.
+          backupWindowStart:
+            $ref: '#/components/schemas/TimeOfDay'
+            description: Время запуска ежедневного резервного копирования, в часовом
+              поясе UTC.
+      - title: sqlserver_config
+        type: object
+        maxProperties: 1
+        properties:
+          sqlserverConfig_2016Sp2:
+            $ref: '#/components/schemas/SQLServerConfig2016sp2'
+            description: Конфигурация кластера SQL Server 2016 SP2.
     FieldMask_in_UpdateUserRequest_updateMask:
-      description: >-
-        Маска, которая указывает, какие атрибуты пользователя SQL Server должны
-        быть изменены.
-
+      description: |-
+        Маска, которая указывает, какие атрибуты пользователя SQL Server должны быть изменены.
 
         Имена всех обновляемых полей, разделенные запятыми.
+        Только значения указанных полей будут изменены. Остальные останутся нетронутыми.
+        Если поле указано в параметре `` updateMask `` и в запросе не было отправлено значение для этого поля,
+        значение поля будет сброшено на значение по умолчанию. Значение по умолчанию для большинства полей — null или 0.
 
-        Только значения указанных полей будут изменены. Остальные останутся
-        нетронутыми.
-
-        Если поле указано в параметре `` updateMask `` и в запросе не было
-        отправлено значение для этого поля,
-
-        значение поля будет сброшено на значение по умолчанию. Значение по
-        умолчанию для большинства полей — null или 0.
-
-
-        Если в запросе не передается `` updateMask ``, значения всех полей будут
-        обновлены.
-
+        Если в запросе не передается `` updateMask ``, значения всех полей будут обновлены.
         Для полей, указанных в запросе, будут использованы переданные значения.
-
         Значения остальных полей будут сброшены на значения по умолчанию.
       type: string
 tags:
-  - name: Backup
-    description: Набор методов для управления резервными копиями SQL Server.
-  - name: Cluster
-    description: Набор методов для управления кластерами SQL Server.
-  - name: Database
-    description: Набор методов для управления базами данных SQL Server.
-  - name: Operation
-    description: Набор методов для управления операциями в асинхронных запросах API.
-  - name: ResourcePreset
-    description: Методы для работы с наборами вычислительных ресурсов.
-  - name: User
-    description: Набор методов для управления пользователями SQL Server.
+- name: Backup
+  description: Набор методов для управления резервными копиями SQL Server.
+- name: Cluster
+  description: Набор методов для управления кластерами SQL Server.
+- name: Database
+  description: Набор методов для управления базами данных SQL Server.
+- name: Operation
+  description: Набор методов для управления операциями в асинхронных запросах API.
+- name: ResourcePreset
+  description: Методы для работы с наборами вычислительных ресурсов.
+- name: User
+  description: Набор методов для управления пользователями SQL Server.

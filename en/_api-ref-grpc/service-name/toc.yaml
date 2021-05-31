@@ -1,0 +1,7 @@
+items:
+  - name: Overview
+    href: api-ref/grpc/index.md
+  - name: ResourceNameService
+    href: api-ref/grpc/resource_name_service.md
+  - name: OperationService
+    href: api-ref/grpc/operation_service.md

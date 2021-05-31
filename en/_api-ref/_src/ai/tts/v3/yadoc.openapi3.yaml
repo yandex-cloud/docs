@@ -1,12 +1,12 @@
 openapi: "3.0"
 info:
-  title: Yandex Text To Speech Service API
+  title: Yandex Speech To Text Service API
   description: This API reference is organized by resource. Actions are performed
     by sending HTTP requests to resource URLs or making RPC calls. For more information
     about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
   version: v3
   x-y-docUri: api-ref
-  x-y-baseUrl: https://tts.api.cloud.yandex.net
+  x-y-baseUrl: https://stt.api.cloud.yandex.net
 paths: {}
 components:
   schemas:
@@ -15,7 +15,7 @@ components:
       properties:
         data:
           description: Sequence of bytes of the synthesized audio in format specified
-            in output_audio_spec
+            in output_audio_spec.
           type: string
           format: byte
     AudioContent:
@@ -31,6 +31,7 @@ components:
         maxProperties: 1
         properties:
           content:
+            description: Bytes with audio data.
             type: string
             format: byte
     AudioFormatOptions:
@@ -45,7 +46,7 @@ components:
             description: The audio format specified in request parameters.
           containerAudio:
             $ref: '#/components/schemas/ContainerAudio'
-            description: The audio format specified inside the file header.
+            description: The audio format specified inside the container metadata.
     AudioTemplate:
       type: object
       properties:
@@ -54,6 +55,7 @@ components:
         textTemplate:
           $ref: '#/components/schemas/TextTemplate_in_AudioTemplate_textTemplate'
         variables:
+          description: Describing variables in audio.
           type: array
           items:
             $ref: '#/components/schemas/AudioVariable'
@@ -61,11 +63,14 @@ components:
       type: object
       properties:
         variableName:
+          description: The name of the variable.
           type: string
         variableStartMs:
+          description: Start time of the variable in milliseconds.
           type: string
           format: int64
         variableLengthMs:
+          description: Lenght of the variable in milliseconds.
           type: string
           format: int64
     ContainerAudio:
@@ -86,9 +91,11 @@ components:
         maxProperties: 1
         properties:
           voice:
+            description: Name of speaker to use.
             type: string
           audioTemplate:
             $ref: '#/components/schemas/AudioTemplate'
+            description: Template for synthesizing.
     RawAudio:
       type: object
       properties:
@@ -99,7 +106,7 @@ components:
           type: string
           format: int64
     RawAudioAudioEncoding:
-      description: ' - LINEAR16_PCM: 16-bit signed little-endian (Linear PCM)'
+      description: ' - LINEAR16_PCM: 16-bit signed little-endian (Linear PCM).'
       type: string
       enum:
       - LINEAR16_PCM
@@ -107,10 +114,16 @@ components:
       type: object
       properties:
         textTemplate:
-          description: hello, {user}
+          description: |-
+            Template text.
+
+            Sample:`The {animal} goes to the {place}.`
           type: string
         variables:
-          description: '{user: Adam}'
+          description: |-
+            Defining variables in template text.
+
+            Sample: `{animal: cat, place: forest}`
           type: array
           items:
             $ref: '#/components/schemas/TextVariable'
@@ -118,9 +131,10 @@ components:
       type: object
       properties:
         variableName:
+          description: The name of the variable.
           type: string
         variableValue:
-          description: The text of the variable to be synthesized instead of the template.
+          description: The text of the variable.
           type: string
     UtteranceSynthesisResponse:
       type: object
@@ -128,6 +142,7 @@ components:
         audioChunk:
           $ref: '#/components/schemas/AudioChunk_in_UtteranceSynthesisResponse_audioChunk'
     AudioContent_in_AudioTemplate_audio:
+      description: Audio file.
       type: object
       allOf:
       - type: object
@@ -140,16 +155,24 @@ components:
         maxProperties: 1
         properties:
           content:
+            description: Bytes with audio data.
             type: string
             format: byte
     TextTemplate_in_AudioTemplate_textTemplate:
+      description: Template and description of its variables.
       type: object
       properties:
         textTemplate:
-          description: hello, {user}
+          description: |-
+            Template text.
+
+            Sample:`The {animal} goes to the {place}.`
           type: string
         variables:
-          description: '{user: Adam}'
+          description: |-
+            Defining variables in template text.
+
+            Sample: `{animal: cat, place: forest}`
           type: array
           items:
             $ref: '#/components/schemas/TextVariable'
@@ -162,7 +185,7 @@ components:
       description: |-
         Encoding type.
 
-         - LINEAR16_PCM: 16-bit signed little-endian (Linear PCM)
+         - LINEAR16_PCM: 16-bit signed little-endian (Linear PCM).
       type: string
       enum:
       - LINEAR16_PCM
@@ -172,9 +195,9 @@ components:
       properties:
         data:
           description: Sequence of bytes of the synthesized audio in format specified
-            in output_audio_spec
+            in output_audio_spec.
           type: string
           format: byte
 tags:
 - name: Synthesizer
-  description: Service for adaptive synthesis from template with variable parts
+  description: A set of methods for voice synthesis.

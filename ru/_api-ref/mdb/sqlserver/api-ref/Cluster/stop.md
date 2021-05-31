@@ -9,7 +9,7 @@ editable: false
  
 ## HTTP-запрос {#https-request}
 ```
-POST https://mdb.api.cloud.yandex.net/mdb/sqlserver/v1alpha/clusters/{clusterId}:stop
+POST https://mdb.api.cloud.yandex.net/mdb/sqlserver/v1/clusters/{clusterId}:stop
 ```
  
 ## Path-параметры {#path_params}

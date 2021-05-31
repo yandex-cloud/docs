@@ -79,7 +79,7 @@ items:
         items: null
         include:
           repo: docs
-          path: en/_api-ref-grpc/certificate-manager/api-ref/toc.yaml
+          path: en/_api-ref-grpc/certificate-manager/toc.yaml
       - name: REST
         items: null
         include:

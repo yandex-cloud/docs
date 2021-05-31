@@ -1,0 +1,15 @@
+items:
+  - name: Overview
+    href: api-ref/grpc/index.md
+  - name: BackendGroupService
+    href: api-ref/grpc/backend_group_service.md
+  - name: HttpRouterService
+    href: api-ref/grpc/http_router_service.md
+  - name: LoadBalancerService
+    href: api-ref/grpc/load_balancer_service.md
+  - name: TargetGroupService
+    href: api-ref/grpc/target_group_service.md
+  - name: VirtualHostService
+    href: api-ref/grpc/virtual_host_service.md
+  - name: OperationService
+    href: api-ref/grpc/operation_service.md

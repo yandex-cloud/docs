@@ -120,7 +120,7 @@ items:
         items: null
         include:
           repo: docs
-          path: en/_api-ref-grpc/managed-clickhouse/api-ref/toc.yaml
+          path: en/_api-ref-grpc/managed-clickhouse/toc.yaml
       - name: REST
         items: null
         include:
@@ -134,4 +134,3 @@ items:
         href: qa/clickhouse.md
       - name: Все вопросы на одной странице
         href: qa/all.md
-        

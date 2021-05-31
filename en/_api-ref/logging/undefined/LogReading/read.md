@@ -17,13 +17,13 @@ GET undefined/logging/v1/read
 Parameter | Description
 --- | ---
 pageToken | 
-criteria.logGroupId | Required.
-criteria.resourceType | The maximum string length in characters is 63.
-criteria.resourceId | The maximum string length in characters is 63.
+criteria.logGroupId | Required. The maximum string length in characters is 64.
+criteria.resourceTypes | The maximum number of elements is 100. Each value must match the regular expression `` [a-zA-Z][-a-zA-Z0-9_.]{1,62} ``.
+criteria.resourceIds | The maximum number of elements is 100. Each value must match the regular expression `` [a-zA-Z][-a-zA-Z0-9_.]{1,62} ``.
 criteria.since | String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
 criteria.until | String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
-criteria.levels | 
-criteria.filter | 
+criteria.levels | The maximum number of elements is 10.
+criteria.filter | The maximum string length in characters is 1000.
 criteria.pageSize | 
  
 ## Response {#responses}

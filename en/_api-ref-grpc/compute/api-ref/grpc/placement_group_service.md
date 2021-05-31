@@ -59,7 +59,7 @@ Retrieves the list of placement groups in the specified folder.
 
 Field | Description
 --- | ---
-folder_id | **string**<br>ID of the folder to list placement groups in. <br>To get the folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. 
+folder_id | **string**<br>ID of the folder to list placement groups in. <br>To get the folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. 
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListPlacementGroupsResponse.next_page_token](#ListPlacementGroupsResponse) that can be used to get the next page of results in subsequent list requests. 
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListPlacementGroupsResponse.next_page_token](#ListPlacementGroupsResponse) returned by a previous list request. 
 filter | **string**<br>A filter expression that filters resources listed in the response. Currently you can use filtering only on the [PlacementGroup.name](#PlacementGroup1) field. 
@@ -105,7 +105,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-folder_id | **string**<br>ID of the folder to create a placement group in. <br>To get a folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. 
+folder_id | **string**<br>ID of the folder to create a placement group in. <br>To get a folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. 
 name | **string**<br>Name of the placement group. 
 description | **string**<br>Description of the placement group. 
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
@@ -303,7 +303,7 @@ secondary_disks[] | **[AttachedDisk](#AttachedDisk)**<br>Array of secondary disk
 network_interfaces[] | **[NetworkInterface](#NetworkInterface)**<br>Array of network interfaces that are attached to the instance. 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
 scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy)**<br>Scheduling policy configuration. 
-service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/grpc/service_account_service#List) request. 
+service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
 network_settings | **[NetworkSettings](#NetworkSettings)**<br>Network Settings 
 placement_policy | **[PlacementPolicy](#PlacementPolicy)**<br>Placement policy configuration. 
 
@@ -362,14 +362,20 @@ dns_records[] | **[DnsRecord](#DnsRecord)**<br>External DNS configuration
 
 Field | Description
 --- | ---
-fqdn | **string**<br> 
+fqdn | **string**<br>Name of the A/AAAA record as specified when creating the instance. Note that if `fqdn' has no trailing '.', it is specified relative to the zone (@see dns_zone_id). 
+dns_zone_id | **string**<br>DNS zone id for the record (optional, if not set, some private zone is used). 
+ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is used.) 
+ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
 
 
 ### DnsRecord {#DnsRecord1}
 
 Field | Description
 --- | ---
-fqdn | **string**<br> 
+fqdn | **string**<br>Name of the A/AAAA record as specified when creating the instance. Note that if `fqdn' has no trailing '.', it is specified relative to the zone (@see dns_zone_id). 
+dns_zone_id | **string**<br>DNS zone id for the record (optional, if not set, some private zone is used). 
+ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is used.) 
+ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
 
 
 ### SchedulingPolicy {#SchedulingPolicy}

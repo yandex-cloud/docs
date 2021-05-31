@@ -95,7 +95,7 @@ items:
         href: api-ref/gRPC/authentication.md
     include:
       repo: docs
-      path: en/_api-ref-grpc/managed-clickhouse/api-ref/toc.yaml
+      path: en/_api-ref-grpc/managed-clickhouse/toc.yaml
   - name: REST API reference
     items:
       - name: Authentication in the API

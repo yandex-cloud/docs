@@ -1,0 +1,9 @@
+items:
+  - name: Overview
+    href: api-ref/grpc/index.md
+  - name: NodeService
+    href: api-ref/grpc/node_service.md
+  - name: ProjectService
+    href: api-ref/grpc/project_service.md
+  - name: OperationService
+    href: api-ref/grpc/operation_service.md

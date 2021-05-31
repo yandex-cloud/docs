@@ -16,7 +16,7 @@ GET undefined/logging/v1/logGroups/{logGroupId}/operations
  
 Parameter | Description
 --- | ---
-logGroupId | Required.
+logGroupId | Required. The maximum string length in characters is 64.
  
 ## Query parameters {#query_params}
  

@@ -1,0 +1,25 @@
+items:
+  - name: Обзор
+    href: api-ref/index.md
+  - name: Organization
+    items:
+      - name: Обзор
+        href: api-ref/Organization/index.md
+      - name: get
+        href: api-ref/Organization/get.md
+      - name: list
+        href: api-ref/Organization/list.md
+      - name: listAccessBindings
+        href: api-ref/Organization/listAccessBindings.md
+      - name: listOperations
+        href: api-ref/Organization/listOperations.md
+      - name: setAccessBindings
+        href: api-ref/Organization/setAccessBindings.md
+      - name: update
+        href: api-ref/Organization/update.md
+      - name: updateAccessBindings
+        href: api-ref/Organization/updateAccessBindings.md
+  - name: User
+    items:
+      - name: Обзор
+        href: api-ref/User/index.md

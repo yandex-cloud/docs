@@ -9,7 +9,7 @@ editable: false
  
 ## HTTP-запрос {#https-request}
 ```
-POST https://mdb.api.cloud.yandex.net/managed-redis/v1alpha/clusters/{clusterId}/hosts:batchCreate
+POST https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/{clusterId}/hosts:batchCreate
 ```
  
 ## Path-параметры {#path_params}
@@ -25,7 +25,8 @@ clusterId | Обязательное поле. Идентификатор кла
   "hostSpecs": [
     {
       "zoneId": "string",
-      "subnetId": "string"
+      "subnetId": "string",
+      "shardName": "string"
     }
   ]
 }
@@ -37,6 +38,7 @@ clusterId | Обязательное поле. Идентификатор кла
 hostSpecs[] | **object**<br><p>Обязательное поле. Конфигурации для хостов Redis, которые должны быть добавлены в кластер.</p> <p>Должен содержать хотя бы один элемент.</p> 
 hostSpecs[].<br>zoneId | **string**<br><p>Идентификатор зоны доступности, в которой находится хост. Чтобы получить список доступных зон, используйте запрос <a href="/docs/compute/api-ref/Zone/list">list</a>.</p> 
 hostSpecs[].<br>subnetId | **string**<br><p>Идентификатор подсети, к которой должен принадлежать хост. Эта подсеть должна быть частью сети, к которой принадлежит кластер. Идентификатор сети задан в поле <a href="/docs/managed-redis/api-ref/Cluster#representation">Cluster.networkId</a>.</p> 
+hostSpecs[].<br>shardName | **string**<br><p>Идентификатор шарда Redis, которому принадлежит хост. Чтобы получить идентификатор шарда, используйте запрос <a href="/docs/managed-redis/api-ref/Cluster/listShards">listShards</a>.</p> <p>Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_-]* ``.</p> 
  
 ## Ответ {#responses}
 **HTTP Code: 200 - OK**

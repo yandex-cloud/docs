@@ -1,5 +1,0 @@
-items:
-  - name: Overview
-    href: grpc/index.md
-  - name: VisionService
-    href: grpc/vision_service.md

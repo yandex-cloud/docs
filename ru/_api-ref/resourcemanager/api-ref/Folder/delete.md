@@ -18,6 +18,12 @@ DELETE https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders
 --- | ---
 folderId | Обязательное поле. Идентификатор удаляемого каталога. Чтобы получить идентификатор каталога, используйте запрос [list](/docs/resource-manager/api-ref/Folder/list).  Максимальная длина строки в символах — 50.
  
+## Query-параметры {#query_params}
+ 
+Параметр | Описание
+--- | ---
+deleteAfter | Момент после которого необходимо начать процесс удаления каталога. До этого момента каталог переходит в состояние `PENDING_DELETION` и все ресурсы каталога останавливаются. Пока каталог находится в этом состоянии возможна отмена операции удаления без каких-либо потерь. После [deleteAfter](/docs/resource-manager/api-ref/Folder/delete#query_params) момента, каталог переводится в состояние `DELETING` и запускается процесс удаления ресурсов каталога. Если [deleteAfter](/docs/resource-manager/api-ref/Folder/delete#query_params) не задан, то он принимается как 24 часа от текущего момента. Для того что бы процесс удаления стартовал немедленно необходимо задать [deleteAfter](/docs/resource-manager/api-ref/Folder/delete#query_params) <= текущий момент.  Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+ 
 ## Ответ {#responses}
 **HTTP Code: 200 - OK**
 

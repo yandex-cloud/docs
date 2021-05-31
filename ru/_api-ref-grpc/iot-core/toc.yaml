@@ -1,0 +1,9 @@
+items:
+  - name: Обзор
+    href: api-ref/grpc/index.md
+  - name: DeviceService
+    href: api-ref/grpc/device_service.md
+  - name: RegistryService
+    href: api-ref/grpc/registry_service.md
+  - name: OperationService
+    href: api-ref/grpc/operation_service.md

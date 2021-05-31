@@ -1,11 +1,9 @@
-openapi: '3.0'
+openapi: "3.0"
 info:
   title: Yandex API Gateway Service
-  description: >-
-    Методы справочника API сгруппированы по ресурсам. Чтобы выполнить операцию
-    над ресурсом, отправьте HTTP-запрос к соответствующему URL. Подробнее об
-    архитектуре API Яндекс.Облака, см. [Концепции API
-    Яндекс.Облака](/docs/api-design-guide/).
+  description: Методы справочника API сгруппированы по ресурсам. Чтобы выполнить операцию
+    над ресурсом, отправьте HTTP-запрос к соответствующему URL. Подробнее об архитектуре
+    API Яндекс.Облака, см. [Концепции API Яндекс.Облака](/docs/api-design-guide/).
   version: v1
   x-y-docUri: apigateway/api-ref
   x-y-baseUrl: https://serverless-apigateway.api.cloud.yandex.net
@@ -13,35 +11,26 @@ paths:
   /apigateways/v1/apigateways/{apiGatewayId}:
     get:
       tags:
-        - ApiGateway
-      summary: >-
-        Возвращает указанный API-шлюз. Обратите внимание, что возвращаются
-        только базовые параметры API-шлюза. Чтобы получить соответствующую
-        спецификацию OpenAPI,
-
-        сделайте
-        [getOpenapiSpec](/docs/api-gateway/api-ref/ApiGateway/getOpenapiSpec)
+      - ApiGateway
+      summary: |-
+        Возвращает указанный API-шлюз. Обратите внимание, что возвращаются только базовые параметры API-шлюза. Чтобы получить соответствующую спецификацию OpenAPI,
+        сделайте [getOpenapiSpec](/docs/api-gateway/api-ref/ApiGateway/getOpenapiSpec) запрос.
+      description: Чтобы получить список всех доступных API-шлюзов, сделайте [list](/docs/api-gateway/api-ref/ApiGateway/list)
         запрос.
-      description: >-
-        Чтобы получить список всех доступных API-шлюзов, сделайте
-        [list](/docs/api-gateway/api-ref/ApiGateway/list) запрос.
       operationId: ApiGatewayGet
       parameters:
-        - name: apiGatewayId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: apiGatewayId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор возвращаемого API-шлюза.
 
-            Идентификатор возвращаемого API-шлюза.
-
-
-            Чтобы получить идентификатор API-шлюза, сделайте
-            [list](/docs/api-gateway/api-ref/ApiGateway/list) запрос.
-          required: true
-          schema:
-            type: string
+          Чтобы получить идентификатор API-шлюза, сделайте [list](/docs/api-gateway/api-ref/ApiGateway/list) запрос.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -50,25 +39,22 @@ paths:
       x-y-navtitle: get
     delete:
       tags:
-        - ApiGateway
+      - ApiGateway
       summary: Удаляет указанный API-шлюз.
       operationId: ApiGatewayDelete
       parameters:
-        - name: apiGatewayId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: apiGatewayId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор API-шлюза для обновления.
 
-            Идентификатор API-шлюза для обновления.
-
-
-            Чтобы получить идентификатор API-шлюза, сделайте
-            [list](/docs/api-gateway/api-ref/ApiGateway/list) запрос.
-          required: true
-          schema:
-            type: string
+          Чтобы получить идентификатор API-шлюза, сделайте [list](/docs/api-gateway/api-ref/ApiGateway/list) запрос.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -80,23 +66,20 @@ paths:
       x-y-operation-response: Empty
     patch:
       tags:
-        - ApiGateway
+      - ApiGateway
       summary: Изменяет указанный API-шлюз.
       operationId: ApiGatewayUpdate
       parameters:
-        - name: apiGatewayId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: apiGatewayId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор API-шлюза для обновления.
 
-            Идентификатор API-шлюза для обновления.
-
-
-            Чтобы получить идентификатор API-шлюза, сделайте
-            [list](/docs/api-gateway/api-ref/ApiGateway/list) запрос.
-          required: true
-          schema:
-            type: string
+          Чтобы получить идентификатор API-шлюза, сделайте [list](/docs/api-gateway/api-ref/ApiGateway/list) запрос.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -104,7 +87,7 @@ paths:
               $ref: '#/components/schemas/UpdateApiGatewayRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -117,69 +100,49 @@ paths:
   /apigateways/v1/apigateways:
     get:
       tags:
-        - ApiGateway
+      - ApiGateway
       summary: Возвращает список API-шлюзов в указанном каталоге.
       operationId: ApiGatewayList
       parameters:
-        - name: folderId
-          in: query
-          description: >-
-            Обязательное поле.
+      - name: folderId
+        in: query
+        description: |-
+          Обязательное поле.
+          Идентификатор каталога для получения списка API-шлюзов.
 
-            Идентификатор каталога для получения списка API-шлюзов.
+          Чтобы получить идентификатор каталога, используйте запрос [list](/docs/resource-manager/api-ref/Folder/list).
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем `pageSize` , сервис вернет значение
+          [nextPageToken](/docs/api-gateway/api-ref/ApiGateway/list#responses), которое можно использовать для получения следующей страницы.
 
+          Значение по умолчанию: 100.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение `pageToken` равным значению поля [nextPageToken](/docs/api-gateway/api-ref/ApiGateway/list#responses) предыдущего запроса, чтобы получить следующую
+          страницу результатов.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          Выражение фильтра, для фильтрации списка функций в ответе.
 
-            Чтобы получить идентификатор каталога, используйте запрос
-            [list](/docs/resource-manager/api-ref/Folder/list).
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            Максимальное количество результатов на странице ответа на запрос.
-            Если количество результатов больше чем `pageSize` , сервис вернет
-            значение
-
-            [nextPageToken](/docs/api-gateway/api-ref/ApiGateway/list#responses),
-            которое можно использовать для получения следующей страницы.
-
-
-            Значение по умолчанию: 100.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Токен страницы. Установите значение `pageToken` равным значению поля
-            [nextPageToken](/docs/api-gateway/api-ref/ApiGateway/list#responses)
-            предыдущего запроса, чтобы получить следующую
-
-            страницу результатов.
-          schema:
-            type: string
-        - name: filter
-          in: query
-          description: >-
-            Выражение фильтра, для фильтрации списка функций в ответе.
-
-
-            В параметрах фильтрации указываются:
-
-            1. Имя поля. В настоящее время фильтрация осуществляется только по
-            полю
-            [ApiGateway.name](/docs/api-gateway/api-ref/ApiGateway#representation).
-
-            2. Условный оператор. Операторы `=` или `!=` для одиночных значений,
-            `IN` или `NOT IN` для списков значений.
-
-            3. Значение. Значение длиной от 3 до 63 символов, совпадающее с
-            регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`. Пример
-            фильтра: `name=my-apigw`.
-          schema:
-            type: string
+          В параметрах фильтрации указываются:
+          1. Имя поля. В настоящее время фильтрация осуществляется только по полю [ApiGateway.name](/docs/api-gateway/api-ref/ApiGateway#representation).
+          2. Условный оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений.
+          3. Значение. Значение длиной от 3 до 63 символов, совпадающее с регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`. Пример фильтра: `name=my-apigw`.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -188,7 +151,7 @@ paths:
       x-y-navtitle: list
     post:
       tags:
-        - ApiGateway
+      - ApiGateway
       summary: Создает API-шлюз в указанном каталоге.
       operationId: ApiGatewayCreate
       requestBody:
@@ -198,7 +161,7 @@ paths:
               $ref: '#/components/schemas/CreateApiGatewayRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -211,27 +174,26 @@ paths:
   /apigateways/v1/apigateways/{apiGatewayId}:spec:
     get:
       tags:
-        - ApiGateway
+      - ApiGateway
       summary: Возвращает спецификацию OpenAPI указанного API-шлюза.
       operationId: ApiGatewayGetOpenapiSpec
       parameters:
-        - name: apiGatewayId
-          in: path
-          description: |-
-            Обязательное поле.
-            Идентификатор API-шлюза для получения спецификации.
-          required: true
-          schema:
-            type: string
-        - name: format
-          in: query
-          description: >-
-            Формат возвращаемой спецификации. По умолчанию используется исходный
-            формат, используемый в `CreateApiGatewayRequest`.
-          schema:
-            $ref: '#/components/schemas/GetOpenapiSpecRequestFormat'
+      - name: apiGatewayId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор API-шлюза для получения спецификации.
+        required: true
+        schema:
+          type: string
+      - name: format
+        in: query
+        description: Формат возвращаемой спецификации. По умолчанию используется исходный
+          формат, используемый в `CreateApiGatewayRequest`.
+        schema:
+          $ref: '#/components/schemas/GetOpenapiSpecRequestFormat'
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -241,76 +203,54 @@ paths:
   /apigateways/v1/apigateways/{apiGatewayId}/operations:
     get:
       tags:
-        - ApiGateway
+      - ApiGateway
       summary: Возвращает список операции для указанного API-шлюза.
       operationId: ApiGatewayListOperations
       parameters:
-        - name: apiGatewayId
-          in: path
-          description: |-
-            Обязательное поле.
-            Идентификатор API-шлюза для получения списка операций.
-          required: true
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            Максимальное число возвращаемых результатов на странице. Если
-            количество результатов больше чем `pageSize` , сервис вернет
-            значение
+      - name: apiGatewayId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор API-шлюза для получения списка операций.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное число возвращаемых результатов на странице. Если количество результатов больше чем `pageSize` , сервис вернет значение
+          [nextPageToken](/docs/api-gateway/api-ref/ApiGateway/listOperations#responses), которое можно использовать для получения следующей страницы.
 
-            [nextPageToken](/docs/api-gateway/api-ref/ApiGateway/listOperations#responses),
-            которое можно использовать для получения следующей страницы.
+          Значение по умолчанию: 100.
 
+          Допустимые значения — от 0 до 1000 включительно.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение `pageToken` равным значению поля [nextPageToken](/docs/api-gateway/api-ref/ApiGateway/listOperations#responses) предыдущего запроса, чтобы получить следующую
+          страницу результатов.
 
-            Значение по умолчанию: 100.
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          Параметры фильтрации ресурсов в ответе.
 
+          В параметрах фильтрации указываются:
+          1. Имя поля. В настоящее время фильтрация может быть применена к полям [Operation.done](/docs/operation/api-ref/Operation#representation), [Operation.createdBy](/docs/operation/api-ref/Operation#representation) .
+          2. Условный оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений.
+          3. Значение. Значение длиной от 3 до 63 символов, совпадающее с регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`. Примеры фильтра: `done=false`, `created_by='John.Doe'`.
 
-            Допустимые значения — от 0 до 1000 включительно.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Токен страницы. Установите значение `pageToken` равным значению поля
-            [nextPageToken](/docs/api-gateway/api-ref/ApiGateway/listOperations#responses)
-            предыдущего запроса, чтобы получить следующую
-
-            страницу результатов.
-
-
-            Максимальная длина строки в символах — 100.
-          schema:
-            type: string
-        - name: filter
-          in: query
-          description: >-
-            Параметры фильтрации ресурсов в ответе.
-
-
-            В параметрах фильтрации указываются:
-
-            1. Имя поля. В настоящее время фильтрация может быть применена к
-            полям
-            [Operation.done](/docs/operation/api-ref/Operation#representation),
-            [Operation.createdBy](/docs/operation/api-ref/Operation#representation)
-            .
-
-            2. Условный оператор. Операторы `=` или `!=` для одиночных значений,
-            `IN` или `NOT IN` для списков значений.
-
-            3. Значение. Значение длиной от 3 до 63 символов, совпадающее с
-            регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`. Примеры
-            фильтра: `done=false`, `created_by='John.Doe'`.
-
-
-            Максимальная длина строки в символах — 1000.
-          schema:
-            type: string
+          Максимальная длина строки в символах — 1000.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -320,63 +260,48 @@ paths:
   /apigateways/v1/apigateways/{resourceId}:listAccessBindings:
     get:
       tags:
-        - ApiGateway
+      - ApiGateway
       summary: Возвращает список привязок прав доступа для указанного API-шлюза.
       operationId: ApiGatewayListAccessBindings
       parameters:
-        - name: resourceId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: resourceId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор ресурса, для которого запрашивается список привязок прав доступа.
 
-            Идентификатор ресурса, для которого запрашивается список привязок
-            прав доступа.
+          Чтобы получить идентификатор ресурса, используйте соответствующий запрос List.
+          Например, используйте запрос [list](/docs/resource-manager/api-ref/Cloud/list) для получения
+          идентификатора ресурса Cloud.
 
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное число возвращаемых результатов на странице. Если количество
+          результатов больше чем pageSize , сервис вернет значение nextPageToken,
+          которое можно использовать для получения следующей страницы. Значение по умолчанию:
+          100.
 
-            Чтобы получить идентификатор ресурса, используйте соответствующий
-            запрос List.
+          Максимальное значение — 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение pageToken равным значению поля
+          nextPageToken прошлого запроса, чтобы получить следующую страницу
+          результатов.
 
-            Например, используйте запрос
-            [list](/docs/resource-manager/api-ref/Cloud/list) для получения
-
-            идентификатора ресурса Cloud.
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            Максимальное число возвращаемых результатов на странице. Если
-            количество
-
-            результатов больше чем pageSize , сервис вернет значение
-            nextPageToken,
-
-            которое можно использовать для получения следующей страницы.
-            Значение по умолчанию:
-
-            100.
-
-
-            Максимальное значение — 1000.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: |-
-            Токен страницы. Установите значение pageToken равным значению поля
-            nextPageToken прошлого запроса, чтобы получить следующую страницу
-            результатов.
-
-            Максимальная длина строки в символах — 100.
-          schema:
-            type: string
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -386,27 +311,22 @@ paths:
   /apigateways/v1/apigateways/{resourceId}:setAccessBindings:
     post:
       tags:
-        - ApiGateway
+      - ApiGateway
       summary: Задает список привязок прав доступа для указанного API-шлюза.
       operationId: ApiGatewaySetAccessBindings
       parameters:
-        - name: resourceId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: resourceId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор ресурса, для которого задается список привязок прав доступа.
 
-            Идентификатор ресурса, для которого задается список привязок прав
-            доступа.
+          Чтобы получить идентификатор ресурса, используйте соответствующий запрос List.
 
-
-            Чтобы получить идентификатор ресурса, используйте соответствующий
-            запрос List.
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -414,7 +334,7 @@ paths:
               $ref: '#/components/schemas/SetAccessBindingsRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -427,23 +347,20 @@ paths:
   /apigateways/v1/apigateways/{resourceId}:updateAccessBindings:
     patch:
       tags:
-        - ApiGateway
+      - ApiGateway
       summary: Обновляет привязки прав доступа для указанного API-шлюза.
       operationId: ApiGatewayUpdateAccessBindings
       parameters:
-        - name: resourceId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: resourceId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор ресурса, для которого обновляется список привязок прав доступа.
 
-            Идентификатор ресурса, для которого обновляется список привязок прав
-            доступа.
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -451,7 +368,7 @@ paths:
               $ref: '#/components/schemas/UpdateAccessBindingsRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -467,14 +384,10 @@ components:
       type: object
       properties:
         roleId:
-          description: >-
+          description: |-
             Обязательное поле.
-
-            Идентификатор ресурса [Role](/docs/iam/api-ref/Role#representation)
-            который назначен для субъекта, указанного в
-
+            Идентификатор ресурса [Role](/docs/iam/api-ref/Role#representation) который назначен для субъекта, указанного в
             параметре `subject`.
-
 
             Максимальная длина строки в символах — 50.
           type: string
@@ -486,17 +399,15 @@ components:
          - REMOVE: Удаление привязки прав доступа.
       type: string
       enum:
-        - ADD
-        - REMOVE
+      - ADD
+      - REMOVE
     AccessBindingDelta:
       type: object
       properties:
         action:
-          $ref: >-
-            #/components/schemas/AccessBindingAction_in_AccessBindingDelta_action
+          $ref: '#/components/schemas/AccessBindingAction_in_AccessBindingDelta_action'
         accessBinding:
-          $ref: >-
-            #/components/schemas/AccessBinding_in_AccessBindingDelta_accessBinding
+          $ref: '#/components/schemas/AccessBinding_in_AccessBindingDelta_accessBinding'
     ApiGateway:
       type: object
       properties:
@@ -540,10 +451,10 @@ components:
          - ERROR: Сбой API-шлюза. Единственное разрешенное действие c API-шлюзом — удаление.
       type: string
       enum:
-        - CREATING
-        - ACTIVE
-        - DELETING
-        - ERROR
+      - CREATING
+      - ACTIVE
+      - DELETING
+      - ERROR
     CreateApiGatewayMetadata:
       type: object
       properties:
@@ -553,59 +464,46 @@ components:
     CreateApiGatewayRequest:
       type: object
       allOf:
-        - type: object
-          properties:
-            folderId:
-              description: >-
-                Обязательное поле.
+      - type: object
+        properties:
+          folderId:
+            description: |-
+              Обязательное поле.
+              Идентификатор каталога для создания API-шлюза.
 
-                Идентификатор каталога для создания API-шлюза.
+              Чтобы получить идентификатор каталога, используйте запрос [list](/docs/resource-manager/api-ref/Folder/list).
+            type: string
+          name:
+            description: |-
+              Имя API-шлюза. Имя должно быть уникальным в рамках каталога.
 
+              Значение должно соответствовать регулярному выражению `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+            type: string
+          description:
+            description: |-
+              Описание API-шлюза.
 
-                Чтобы получить идентификатор каталога, используйте запрос
-                [list](/docs/resource-manager/api-ref/Folder/list).
+              Максимальная длина строки в символах — 256.
+            type: string
+          labels:
+            description: |-
+              Метки ресурса в формате `key:value`.
+
+              Не более 64 на ресурс.
+              Длина строки в символах для каждого ключа должна быть от 1 до 63.
+              Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
+              Максимальная длина строки в символах для каждого значения — 63.
+              Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.
+            type: object
+            additionalProperties:
               type: string
-            name:
-              description: >-
-                Имя API-шлюза. Имя должно быть уникальным в рамках каталога.
-
-
-                Значение должно соответствовать регулярному выражению ``
-                |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
-              type: string
-            description:
-              description: |-
-                Описание API-шлюза.
-
-                Максимальная длина строки в символах — 256.
-              type: string
-            labels:
-              description: >-
-                Метки ресурса в формате `key:value`.
-
-
-                Не более 64 на ресурс.
-
-                Длина строки в символах для каждого ключа должна быть от 1 до
-                63.
-
-                Каждый ключ должен соответствовать регулярному выражению ``
-                [a-z][-_0-9a-z]* ``.
-
-                Максимальная длина строки в символах для каждого значения — 63.
-
-                Каждое значение должно соответствовать регулярному выражению ``
-                [-_0-9a-z]* ``.
-              type: object
-              additionalProperties:
-                type: string
-        - title: spec
-          type: object
-          maxProperties: 1
-          properties:
-            openapiSpec:
-              description: Текст спецификации, JSON или YAML.
-              type: string
+      - title: spec
+        type: object
+        maxProperties: 1
+        properties:
+          openapiSpec:
+            description: Текст спецификации, JSON или YAML.
+            type: string
     DeleteApiGatewayMetadata:
       type: object
       properties:
@@ -617,31 +515,21 @@ components:
       type: object
       maxProperties: 0
     FieldMask:
-      description: >-
+      description: |-
         Имена всех обновляемых полей, разделенные запятыми.
+        Только значения указанных полей будут изменены. Остальные останутся нетронутыми.
+        Если поле указано в параметре `` updateMask `` и в запросе не было отправлено значение для этого поля,
+        значение поля будет сброшено на значение по умолчанию. Значение по умолчанию для большинства полей — null или 0.
 
-        Только значения указанных полей будут изменены. Остальные останутся
-        нетронутыми.
-
-        Если поле указано в параметре `` updateMask `` и в запросе не было
-        отправлено значение для этого поля,
-
-        значение поля будет сброшено на значение по умолчанию. Значение по
-        умолчанию для большинства полей — null или 0.
-
-
-        Если в запросе не передается `` updateMask ``, значения всех полей будут
-        обновлены.
-
+        Если в запросе не передается `` updateMask ``, значения всех полей будут обновлены.
         Для полей, указанных в запросе, будут использованы переданные значения.
-
         Значения остальных полей будут сброшены на значения по умолчанию.
       type: string
     GetOpenapiSpecRequestFormat:
       type: string
       enum:
-        - JSON
-        - YAML
+      - JSON
+      - YAML
     GetOpenapiSpecResponse:
       type: object
       properties:
@@ -660,19 +548,11 @@ components:
           items:
             $ref: '#/components/schemas/AccessBinding'
         nextPageToken:
-          description: >-
-            Токен для получения следующей страницы результатов в ответе. Если
-            количество
-
-            результатов больше чем pageSize, используйте nextPageToken в
-            качестве
-
-            значения параметра pageToken в следующем запросе списка ресурсов.
-            Все
-
-            последующие запросы будут получать свои значения nextPageToken для
-            перебора страниц
-
+          description: |-
+            Токен для получения следующей страницы результатов в ответе. Если количество
+            результатов больше чем pageSize, используйте nextPageToken в качестве
+            значения параметра pageToken в следующем запросе списка ресурсов. Все
+            последующие запросы будут получать свои значения nextPageToken для перебора страниц
             результатов.
           type: string
     ListApiGatewayResponse:
@@ -684,19 +564,11 @@ components:
           items:
             $ref: '#/components/schemas/ApiGateway'
         nextPageToken:
-          description: >-
-            Токен для получения следующей страницы списка. Если количество
-            результатов больше чем
-            [pageSize](/docs/api-gateway/api-ref/ApiGateway/list#query_params),
-            используйте `nextPageToken` в
+          description: |-
+            Токен для получения следующей страницы списка. Если количество результатов больше чем [pageSize](/docs/api-gateway/api-ref/ApiGateway/list#query_params), используйте `nextPageToken` в
+            качестве значения параметра [pageToken](/docs/api-gateway/api-ref/ApiGateway/list#query_params) в следующем запросе списка ресурсов.
 
-            качестве значения параметра
-            [pageToken](/docs/api-gateway/api-ref/ApiGateway/list#query_params)
-            в следующем запросе списка ресурсов.
-
-
-            Каждая следующая страница будет иметь свой `nextPageToken` для
-            продолжения перебора страниц результатов.
+            Каждая следующая страница будет иметь свой `nextPageToken` для продолжения перебора страниц результатов.
           type: string
     ListOperationsResponse:
       type: object
@@ -707,19 +579,11 @@ components:
           items:
             $ref: '#/components/schemas/Operation'
         nextPageToken:
-          description: >-
-            Токен для получения следующей страницы списка. Если количество
-            результатов больше чем
-            [pageSize](/docs/api-gateway/api-ref/ApiGateway/listOperations#query_params),
-            используйте `nextPageToken` в
+          description: |-
+            Токен для получения следующей страницы списка. Если количество результатов больше чем [pageSize](/docs/api-gateway/api-ref/ApiGateway/listOperations#query_params), используйте `nextPageToken` в
+            качестве значения параметра [pageToken](/docs/api-gateway/api-ref/ApiGateway/listOperations#query_params) в следующем запросе списка ресурсов.
 
-            качестве значения параметра
-            [pageToken](/docs/api-gateway/api-ref/ApiGateway/listOperations#query_params)
-            в следующем запросе списка ресурсов.
-
-
-            Каждая следующая страница будет иметь свой `nextPageToken` для
-            продолжения перебора страниц результатов.
+            Каждая следующая страница будет иметь свой `nextPageToken` для продолжения перебора страниц результатов.
           type: string
     Operation:
       description: |-
@@ -727,102 +591,83 @@ components:
         [Объект Operation](/docs/api-design-guide/concepts/operation).
       type: object
       allOf:
-        - type: object
-          properties:
-            id:
-              description: Идентификатор операции.
-              type: string
-            description:
-              description: |-
-                Описание операции. Длина описания должна быть от 0 до 256
-                символов.
-              type: string
-            createdAt:
-              description: >-
-                Время создания ресурса в формате в
+      - type: object
+        properties:
+          id:
+            description: Идентификатор операции.
+            type: string
+          description:
+            description: |-
+              Описание операции. Длина описания должна быть от 0 до 256
+              символов.
+            type: string
+          createdAt:
+            description: |-
+              Время создания ресурса в формате в
+              [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
 
-                [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+              Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+            type: string
+            format: date-time
+          createdBy:
+            description: |-
+              Идентификатор пользователя или сервисного
+              аккаунта, инициировавшего операцию.
+            type: string
+          modifiedAt:
+            description: |-
+              Время, когда ресурс Operation последний раз
+              обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
 
-
-                Строка в формате
-                [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
-              type: string
-              format: date-time
-            createdBy:
-              description: |-
-                Идентификатор пользователя или сервисного
-                аккаунта, инициировавшего операцию.
-              type: string
-            modifiedAt:
-              description: >-
-                Время, когда ресурс Operation последний раз
-
-                обновлялся. Значение в формате
-                [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
-
-
-                Строка в формате
-                [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
-              type: string
-              format: date-time
-            done:
-              description: |-
-                Если значение равно `false` — операция еще
-                выполняется. Если `true` — операция завершена, и задано значение
-                одного из полей `error` или `response`.
-              type: boolean
-              format: boolean
-            metadata:
-              description: |-
-                Метаданные операции. Обычно в поле содержится
-                идентификатор ресурса, над которым выполняется операция. Если
-                метод возвращает ресурс Operation, в описании метода приведена
-                структура соответствующего ему поля `metadata`.
-              type: object
-        - title: result
-          type: object
-          maxProperties: 1
-          properties:
-            error:
-              $ref: '#/components/schemas/rpcStatus'
-              description: Описание ошибки в случае сбоя или отмены операции.
-            response:
-              description: >-
-                Результат операции в случае успешного завершения. Если
-
-                исходный метод не возвращает никаких данных при успешном
-
-                завершении, например метод Delete, поле содержит объект
-
-                [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty).
-                Если исходный метод — это стандартный метод Create
-
-                / Update, поле содержит целевой ресурс операции. Если метод
-
-                возвращает ресурс Operation, в описании метода приведена
-
-                структура соответствующего ему поля `response`.
-              type: object
+              Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+            type: string
+            format: date-time
+          done:
+            description: |-
+              Если значение равно `false` — операция еще
+              выполняется. Если `true` — операция завершена, и задано значение
+              одного из полей `error` или `response`.
+            type: boolean
+            format: boolean
+          metadata:
+            description: |-
+              Метаданные операции. Обычно в поле содержится
+              идентификатор ресурса, над которым выполняется операция. Если
+              метод возвращает ресурс Operation, в описании метода приведена
+              структура соответствующего ему поля `metadata`.
+            type: object
+      - title: result
+        type: object
+        maxProperties: 1
+        properties:
+          error:
+            $ref: '#/components/schemas/rpcStatus'
+            description: Описание ошибки в случае сбоя или отмены операции.
+          response:
+            description: |-
+              Результат операции в случае успешного завершения. Если
+              исходный метод не возвращает никаких данных при успешном
+              завершении, например метод Delete, поле содержит объект
+              [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty). Если исходный метод — это стандартный метод Create
+              / Update, поле содержит целевой ресурс операции. Если метод
+              возвращает ресурс Operation, в описании метода приведена
+              структура соответствующего ему поля `response`.
+            type: object
     SetAccessBindingsMetadata:
       type: object
       properties:
         resourceId:
-          description: >-
-            Идентификатор ресурса, для которого задается список привязок прав
-            доступа.
+          description: Идентификатор ресурса, для которого задается список привязок
+            прав доступа.
           type: string
     SetAccessBindingsRequest:
       type: object
       properties:
         accessBindings:
-          description: >-
+          description: |-
             Обязательное поле.
-
-            Привязки прав доступа, которые будут установлены. Дополнительные
-            сведения см. в
-
-            разделе [Привязка прав
-            доступа](/docs/iam/concepts/access-control/#access-bindings).
+            Привязки прав доступа, которые будут установлены. Дополнительные сведения см. в
+            разделе [Привязка прав доступа](/docs/iam/concepts/access-control/#access-bindings).
           type: array
           items:
             $ref: '#/components/schemas/AccessBinding'
@@ -830,55 +675,29 @@ components:
       type: object
       properties:
         id:
-          description: >-
+          description: |-
             Обязательное поле.
-
             Идентификатор субъекта.
 
-
             Может иметь одно из значений:
-
-            * `allAuthenticatedUsers`: Специальный системный идентификатор,
-            представляющий любого пользователя, прошедшего аутентификацию. Его
-            можно использовать только если в параметре `type` указано `system`.
-
-            * `allUsers`: Специальный системный идентификатор, представляющий
-            любого пользователя. Аутентификация не требуется. Например, при
-            запросе через API не надо будет указывать IAM-токен.
-
-            * `<идентификатор пользователя в облаке>`: Идентификатор,
-            представляющий учетную запись пользователя. Его можно использовать
-            только если в параметре `type` передано одно из следующих значений:
-            `userAccount`, `federatedUser` или `serviceAccount`.
-
+            * `allAuthenticatedUsers`: Специальный системный идентификатор, представляющий любого пользователя, прошедшего аутентификацию. Его можно использовать только если в параметре `type` указано `system`.
+            * `allUsers`: Специальный системный идентификатор, представляющий любого пользователя. Аутентификация не требуется. Например, при запросе через API не надо будет указывать IAM-токен.
+            * `<идентификатор пользователя в облаке>`: Идентификатор, представляющий учетную запись пользователя. Его можно использовать только если в параметре `type` передано одно из следующих значений: `userAccount`, `federatedUser` или `serviceAccount`.
 
             Максимальная длина строки в символах — 50.
           type: string
         type:
-          description: >-
+          description: |-
             Обязательное поле.
-
             Тип субъекта.
 
-
             Может иметь одно из значений:
+            * `userAccount` — аккаунт на Яндексе или Яндекс.Коннекте, добавленный в Яндекс.Облако.
+            * `serviceAccount` — сервисный аккаунт. Этот тип представляет ресурс [ServiceAccount](/docs/iam/api-ref/ServiceAccount#representation).
+            * `federatedUser` — федеративный аккаунт. Этот тип представляет пользователя из федерации удостоверений, например Active Directory.
+            * `system` — системная группа. Представляет набор аккаунтов, который описывается общим системным идентификатором.
 
-            * `userAccount` — аккаунт на Яндексе или Яндекс.Коннекте,
-            добавленный в Яндекс.Облако.
-
-            * `serviceAccount` — сервисный аккаунт. Этот тип представляет ресурс
-            [ServiceAccount](/docs/iam/api-ref/ServiceAccount#representation).
-
-            * `federatedUser` — федеративный аккаунт. Этот тип представляет
-            пользователя из федерации удостоверений, например Active Directory.
-
-            * `system` — системная группа. Представляет набор аккаунтов, который
-            описывается общим системным идентификатором.
-
-
-            Дополнительные сведения см. в разделе [Субъект, которому назначается
-            роль](/docs/iam/concepts/access-control/#subject).
-
+            Дополнительные сведения см. в разделе [Субъект, которому назначается роль](/docs/iam/concepts/access-control/#subject).
 
             Максимальная длина строки в символах — 100.
           type: string
@@ -886,9 +705,8 @@ components:
       type: object
       properties:
         resourceId:
-          description: >-
-            Идентификатор ресурса, для которого обновляется список привязок прав
-            доступа.
+          description: Идентификатор ресурса, для которого обновляется список привязок
+            прав доступа.
           type: string
     UpdateAccessBindingsRequest:
       type: object
@@ -911,71 +729,52 @@ components:
     UpdateApiGatewayRequest:
       type: object
       allOf:
-        - type: object
-          properties:
-            updateMask:
-              $ref: '#/components/schemas/FieldMask'
-              description: >-
-                Маска поля, указывающая, какие атрибуты API-шлюза должны быть
-                обновлены.
-            name:
-              description: >-
-                Новое имя для API-шлюза. Имя должно быть уникальным в рамках
-                каталога.
+      - type: object
+        properties:
+          updateMask:
+            $ref: '#/components/schemas/FieldMask'
+            description: Маска поля, указывающая, какие атрибуты API-шлюза должны
+              быть обновлены.
+          name:
+            description: |-
+              Новое имя для API-шлюза. Имя должно быть уникальным в рамках каталога.
 
+              Значение должно соответствовать регулярному выражению `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+            type: string
+          description:
+            description: |-
+              Новое описание для API-шлюза.
 
-                Значение должно соответствовать регулярному выражению ``
-                |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+              Максимальная длина строки в символах — 256.
+            type: string
+          labels:
+            description: |-
+              Метки API-шлюза в формате `key:value` .
+
+              Существующий набор меток полностью заменяется предоставленным набором, поэтому, если вы просто хотите добавить или удалить метку, запросите текущий набор
+              меток, используя запрос [get](/docs/api-gateway/api-ref/ApiGateway/get) .
+
+              Не более 64 на ресурс.
+              Длина строки в символах для каждого ключа должна быть от 1 до 63.
+              Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
+              Максимальная длина строки в символах для каждого значения — 63.
+              Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.
+            type: object
+            additionalProperties:
               type: string
-            description:
-              description: |-
-                Новое описание для API-шлюза.
-
-                Максимальная длина строки в символах — 256.
-              type: string
-            labels:
-              description: >-
-                Метки API-шлюза в формате `key:value` .
-
-
-                Существующий набор меток полностью заменяется предоставленным
-                набором, поэтому, если вы просто хотите добавить или удалить
-                метку, запросите текущий набор
-
-                меток, используя запрос
-                [get](/docs/api-gateway/api-ref/ApiGateway/get) .
-
-
-                Не более 64 на ресурс.
-
-                Длина строки в символах для каждого ключа должна быть от 1 до
-                63.
-
-                Каждый ключ должен соответствовать регулярному выражению ``
-                [a-z][-_0-9a-z]* ``.
-
-                Максимальная длина строки в символах для каждого значения — 63.
-
-                Каждое значение должно соответствовать регулярному выражению ``
-                [-_0-9a-z]* ``.
-              type: object
-              additionalProperties:
-                type: string
-        - title: spec
-          type: object
-          maxProperties: 1
-          properties:
-            openapiSpec:
-              description: Текст спецификации, JSON или YAML.
-              type: string
+      - title: spec
+        type: object
+        maxProperties: 1
+        properties:
+          openapiSpec:
+            description: Текст спецификации, JSON или YAML.
+            type: string
     rpcStatus:
       description: Описание ошибки в случае сбоя или отмены операции.
       type: object
       properties:
         code:
-          description: >-
-            Код ошибки. Значение из списка
-            [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
+          description: Код ошибки. Значение из списка [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
           type: integer
           format: int32
         message:
@@ -987,67 +786,37 @@ components:
           items:
             type: object
     Subject_in_AccessBinding_subject:
-      description: >-
+      description: |-
         Обязательное поле.
-
         Субъект, для которого создается привязка прав доступа. Может
-
-        представлять собой аккаунт с уникальным идентификатором в облаке или
-        системную
-
+        представлять собой аккаунт с уникальным идентификатором в облаке или системную
         группу с общим системным идентификатором.
       type: object
       properties:
         id:
-          description: >-
+          description: |-
             Обязательное поле.
-
             Идентификатор субъекта.
 
-
             Может иметь одно из значений:
-
-            * `allAuthenticatedUsers`: Специальный системный идентификатор,
-            представляющий любого пользователя, прошедшего аутентификацию. Его
-            можно использовать только если в параметре `type` указано `system`.
-
-            * `allUsers`: Специальный системный идентификатор, представляющий
-            любого пользователя. Аутентификация не требуется. Например, при
-            запросе через API не надо будет указывать IAM-токен.
-
-            * `<идентификатор пользователя в облаке>`: Идентификатор,
-            представляющий учетную запись пользователя. Его можно использовать
-            только если в параметре `type` передано одно из следующих значений:
-            `userAccount`, `federatedUser` или `serviceAccount`.
-
+            * `allAuthenticatedUsers`: Специальный системный идентификатор, представляющий любого пользователя, прошедшего аутентификацию. Его можно использовать только если в параметре `type` указано `system`.
+            * `allUsers`: Специальный системный идентификатор, представляющий любого пользователя. Аутентификация не требуется. Например, при запросе через API не надо будет указывать IAM-токен.
+            * `<идентификатор пользователя в облаке>`: Идентификатор, представляющий учетную запись пользователя. Его можно использовать только если в параметре `type` передано одно из следующих значений: `userAccount`, `federatedUser` или `serviceAccount`.
 
             Максимальная длина строки в символах — 50.
           type: string
         type:
-          description: >-
+          description: |-
             Обязательное поле.
-
             Тип субъекта.
 
-
             Может иметь одно из значений:
+            * `userAccount` — аккаунт на Яндексе или Яндекс.Коннекте, добавленный в Яндекс.Облако.
+            * `serviceAccount` — сервисный аккаунт. Этот тип представляет ресурс [ServiceAccount](/docs/iam/api-ref/ServiceAccount#representation).
+            * `federatedUser` — федеративный аккаунт. Этот тип представляет пользователя из федерации удостоверений, например Active Directory.
+            * `system` — системная группа. Представляет набор аккаунтов, который описывается общим системным идентификатором.
 
-            * `userAccount` — аккаунт на Яндексе или Яндекс.Коннекте,
-            добавленный в Яндекс.Облако.
-
-            * `serviceAccount` — сервисный аккаунт. Этот тип представляет ресурс
-            [ServiceAccount](/docs/iam/api-ref/ServiceAccount#representation).
-
-            * `federatedUser` — федеративный аккаунт. Этот тип представляет
-            пользователя из федерации удостоверений, например Active Directory.
-
-            * `system` — системная группа. Представляет набор аккаунтов, который
-            описывается общим системным идентификатором.
-
-
-            Дополнительные сведения см. в разделе [Субъект, которому назначается
-            роль](/docs/iam/concepts/access-control/#subject).
-
+            Дополнительные сведения см. в разделе [Субъект, которому назначается роль](/docs/iam/concepts/access-control/#subject).
 
             Максимальная длина строки в символах — 100.
           type: string
@@ -1060,25 +829,19 @@ components:
          - REMOVE: Удаление привязки прав доступа.
       type: string
       enum:
-        - ADD
-        - REMOVE
+      - ADD
+      - REMOVE
     AccessBinding_in_AccessBindingDelta_accessBinding:
-      description: >-
+      description: |-
         Обязательное поле.
-
-        Привязка прав доступа. Дополнительные сведения см. в разделе [Привязка
-        прав доступа](/docs/iam/concepts/access-control/#access-bindings).
+        Привязка прав доступа. Дополнительные сведения см. в разделе [Привязка прав доступа](/docs/iam/concepts/access-control/#access-bindings).
       type: object
       properties:
         roleId:
-          description: >-
+          description: |-
             Обязательное поле.
-
-            Идентификатор ресурса [Role](/docs/iam/api-ref/Role#representation)
-            который назначен для субъекта, указанного в
-
+            Идентификатор ресурса [Role](/docs/iam/api-ref/Role#representation) который назначен для субъекта, указанного в
             параметре `subject`.
-
 
             Максимальная длина строки в символах — 50.
           type: string
@@ -1094,10 +857,10 @@ components:
          - ERROR: Сбой API-шлюза. Единственное разрешенное действие c API-шлюзом — удаление.
       type: string
       enum:
-        - CREATING
-        - ACTIVE
-        - DELETING
-        - ERROR
+      - CREATING
+      - ACTIVE
+      - DELETING
+      - ERROR
 tags:
-  - name: ApiGateway
-    description: Набор методов управления API-шлюзами.
+- name: ApiGateway
+  description: Набор методов управления API-шлюзами.

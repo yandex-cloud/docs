@@ -656,6 +656,121 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/UpdateAccessBindingsMetadata'
       x-y-operation-response: Empty
+  /functions/v1/functions/{functionId}/scalingPolicies:
+    get:
+      tags:
+      - Function
+      summary: Lists existing scaling policies for specified function
+      operationId: FunctionListScalingPolicies
+      parameters:
+      - name: functionId
+        in: path
+        description: |-
+          Required.
+          ID of the function to retrieve scaling policies for.
+
+          To get a function ID, make a [list](/docs/functions/functions/api-ref/Function/list) request.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page that should be returned. If the number of available
+          results is larger than `pageSize`, the service returns a [nextPageToken](/docs/functions/functions/api-ref/Function/listScalingPolicies#responses)
+          that can be used to get the next page of results in subsequent list requests.
+
+          Default value: 100.
+
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set `pageToken` to the
+          [nextPageToken](/docs/functions/functions/api-ref/Function/listScalingPolicies#responses) returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListScalingPoliciesResponse'
+      x-y-navtitle: listScalingPolicies
+  /functions/v1/functions/{functionId}:setScalingPolicy:
+    post:
+      tags:
+      - Function
+      summary: Set scaling policy for specified function and tag
+      operationId: FunctionSetScalingPolicy
+      parameters:
+      - name: functionId
+        in: path
+        description: |-
+          Required.
+          ID of the function to retrieve scaling policies for.
+
+          To get a function ID, make a [list](/docs/functions/functions/api-ref/Function/list) request.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SetScalingPolicyRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: setScalingPolicy
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/SetScalingPolicyMetadata'
+      x-y-operation-response: '`ScalingPolicy`'
+  /functions/v1/functions/{functionId}:removeScalingPolicy:
+    post:
+      tags:
+      - Function
+      summary: Remove scaling policy for specified function and tag
+      operationId: FunctionRemoveScalingPolicy
+      parameters:
+      - name: functionId
+        in: path
+        description: |-
+          Required.
+          ID of the function to remove scaling policies for.
+
+          To get a function ID, make a [list](/docs/functions/functions/api-ref/Function/list) request.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RemoveScalingPolicyRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: removeScalingPolicy
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/RemoveScalingPolicyMetadata'
+      x-y-operation-response: Empty
 components:
   schemas:
     AccessBinding:
@@ -1030,6 +1145,22 @@ components:
           type: array
           items:
             type: string
+    ListScalingPoliciesResponse:
+      type: object
+      properties:
+        scalingPolicies:
+          description: Set of relevant scaling policies.
+          type: array
+          items:
+            $ref: '#/components/schemas/ScalingPolicy'
+        nextPageToken:
+          description: |-
+            Token for getting the next page of the list. If the number of results is greater than
+            the specified [pageSize](/docs/functions/functions/api-ref/Function/listScalingPolicies#query_params), use `nextPageToken` as the value
+            for the [pageToken](/docs/functions/functions/api-ref/Function/listScalingPolicies#query_params) parameter in the next list request.
+
+            Each subsequent page will have its own `nextPageToken` to continue paging through the results.
+          type: string
     Operation:
       description: An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
       type: object
@@ -1119,6 +1250,24 @@ components:
 
             Value must match the regular expression `` [a-z][-_0-9a-z]* ``.
           type: string
+    RemoveScalingPolicyMetadata:
+      type: object
+      properties:
+        functionId:
+          description: ID of the function for which scaling policy was removed.
+          type: string
+    RemoveScalingPolicyRequest:
+      type: object
+      properties:
+        tag:
+          description: |-
+            Required.
+            Version tag.
+
+            To get the history of version tags make a [listTagHistory](/docs/functions/functions/api-ref/Function/listTagHistory) request.
+
+            Value must match the regular expression `` [a-z][-_0-9a-z]*|[$]latest ``.
+          type: string
     Resources:
       description: Resources allocated to a version.
       type: object
@@ -1128,6 +1277,42 @@ components:
             Amount of memory available to the version, specified in bytes.
 
             Acceptable values are 134217728 to 2147483648, inclusive.
+          type: string
+          format: int64
+    ScalingPolicy:
+      type: object
+      properties:
+        functionId:
+          description: ID of the function that the scaling policy belongs to.
+          type: string
+        tag:
+          description: Tag of the version that the scaling policy belongs to. For
+            details, see [Version tag](/docs/functions/concepts/function#tag).
+          type: string
+        createdAt:
+          description: |-
+            Creation timestamp for the scaling policy
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        modifiedAt:
+          description: |-
+            Modification timestamp for the scaling policy
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        zoneInstancesLimit:
+          description: |-
+            Upper limit for instance count in each zone.
+            0 means no limit.
+          type: string
+          format: int64
+        zoneRequestsLimit:
+          description: |-
+            Upper limit of requests count in each zone.
+            0 means no limit.
           type: string
           format: int64
     SetAccessBindingsMetadata:
@@ -1161,6 +1346,40 @@ components:
 
             Value must match the regular expression `` [a-z][-_0-9a-z]* ``.
           type: string
+    SetScalingPolicyMetadata:
+      type: object
+      properties:
+        functionId:
+          description: ID of the function for which scaling policy was set.
+          type: string
+    SetScalingPolicyRequest:
+      type: object
+      properties:
+        tag:
+          description: |-
+            Required.
+            Version tag.
+
+            To get the history of version tags make a [listTagHistory](/docs/functions/functions/api-ref/Function/listTagHistory) request.
+
+            Value must match the regular expression `` [a-z][-_0-9a-z]*|[$]latest ``.
+          type: string
+        zoneInstancesLimit:
+          description: |-
+            Upper limit for instance count in each zone.
+            0 means no limit.
+
+            Acceptable values are 0 to 1000, inclusive.
+          type: string
+          format: int64
+        zoneRequestsLimit:
+          description: |-
+            Upper limit of requests count in each zone.
+            0 means no limit.
+
+            Acceptable values are 0 to 1000, inclusive.
+          type: string
+          format: int64
     Subject:
       type: object
       properties:

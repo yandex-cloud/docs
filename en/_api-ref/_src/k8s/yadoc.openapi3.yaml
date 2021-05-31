@@ -690,6 +690,15 @@ components:
           type: array
           items:
             type: string
+    Cilium:
+      type: object
+      properties:
+        routingMode:
+          $ref: '#/components/schemas/CiliumRoutingMode_in_Cilium_routingMode'
+    CiliumRoutingMode:
+      type: string
+      enum:
+      - TUNNEL
     Cluster:
       description: A Kubernetes cluster.
       type: object
@@ -770,6 +779,12 @@ components:
 
               The maximum string length in characters is 15.
             type: string
+      - title: network_implementation
+        type: object
+        maxProperties: 1
+        properties:
+          cilium:
+            $ref: '#/components/schemas/Cilium'
     ClusterHealth:
       description: |2-
          - HEALTHY: Kubernetes cluster is alive and well.
@@ -904,6 +919,12 @@ components:
           gatewayIpv4Address:
             description: Gateway IPv4 address.
             type: string
+      - title: network_implementation
+        type: object
+        maxProperties: 1
+        properties:
+          cilium:
+            $ref: '#/components/schemas/Cilium'
     CreateNodeGroupMetadata:
       type: object
       properties:
@@ -1678,6 +1699,18 @@ components:
             $ref: '#/components/schemas/NetworkInterfaceSpec'
         placementPolicy:
           $ref: '#/components/schemas/PlacementPolicy_in_NodeTemplate_placementPolicy'
+        networkSettings:
+          $ref: '#/components/schemas/NodeTemplateNetworkSettings_in_NodeTemplate_networkSettings'
+    NodeTemplateNetworkSettings:
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/NodeTemplateNetworkSettingsType_in_NodeTemplateNetworkSettings_type'
+    NodeTemplateNetworkSettingsType:
+      type: string
+      enum:
+      - STANDARD
+      - SOFTWARE_ACCELERATED
     OneToOneNatSpec:
       type: object
       properties:
@@ -2185,6 +2218,10 @@ components:
       - RAPID
       - REGULAR
       - STABLE
+    CiliumRoutingMode_in_Cilium_routingMode:
+      type: string
+      enum:
+      - TUNNEL
     NodeTemplate_in_CreateNodeGroupRequest_nodeTemplate:
       description: |-
         Required.
@@ -2225,6 +2262,8 @@ components:
             $ref: '#/components/schemas/NetworkInterfaceSpec'
         placementPolicy:
           $ref: '#/components/schemas/PlacementPolicy_in_NodeTemplate_placementPolicy'
+        networkSettings:
+          $ref: '#/components/schemas/NodeTemplateNetworkSettings_in_NodeTemplate_networkSettings'
     ScalePolicy_in_CreateNodeGroupRequest_scalePolicy:
       description: |-
         Required.
@@ -2575,6 +2614,8 @@ components:
             $ref: '#/components/schemas/NetworkInterfaceSpec'
         placementPolicy:
           $ref: '#/components/schemas/PlacementPolicy_in_NodeTemplate_placementPolicy'
+        networkSettings:
+          $ref: '#/components/schemas/NodeTemplateNetworkSettings_in_NodeTemplate_networkSettings'
     ScalePolicy_in_NodeGroup_scalePolicy:
       description: Scale policy of the node group.  For more information, see [Scaling
         policy](/docs/compute/concepts/instance-groups/policies#scale-policy).
@@ -2815,6 +2856,19 @@ components:
         placementGroupId:
           description: Identifier of placement group
           type: string
+    NodeTemplateNetworkSettings_in_NodeTemplate_networkSettings:
+      description: this parameter allows to specify type of network acceleration used
+        on nodes (instances)
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/NodeTemplateNetworkSettingsType_in_NodeTemplateNetworkSettings_type'
+    NodeTemplateNetworkSettingsType_in_NodeTemplateNetworkSettings_type:
+      description: Required.
+      type: string
+      enum:
+      - STANDARD
+      - SOFTWARE_ACCELERATED
     IpVersion_in_OneToOneNatSpec_ipVersion:
       description: |-
         IP version for the public IP address.
@@ -2898,6 +2952,8 @@ components:
             $ref: '#/components/schemas/NetworkInterfaceSpec'
         placementPolicy:
           $ref: '#/components/schemas/PlacementPolicy_in_NodeTemplate_placementPolicy'
+        networkSettings:
+          $ref: '#/components/schemas/NodeTemplateNetworkSettings_in_NodeTemplate_networkSettings'
     ScalePolicy_in_UpdateNodeGroupRequest_scalePolicy:
       description: Scale policy of the node group.
       type: object

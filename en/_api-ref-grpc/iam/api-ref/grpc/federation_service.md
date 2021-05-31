@@ -68,8 +68,8 @@ Retrieves the list of federations in the specified folder.
 Field | Description
 --- | ---
 scope | **oneof:** `cloud_id` or `folder_id`<br>
-&nbsp;&nbsp;cloud_id | **string**<br>ID of the cloud to list federations in. To get the cloud ID, make a [yandex.cloud.resourcemanager.v1.CloudService.List](/docs/resource-manager/grpc/cloud_service#List) request. The maximum string length in characters is 50.
-&nbsp;&nbsp;folder_id | **string**<br>ID of the folder to list federations in. To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. The maximum string length in characters is 50.
+&nbsp;&nbsp;cloud_id | **string**<br>ID of the cloud to list federations in. To get the cloud ID, make a [yandex.cloud.resourcemanager.v1.CloudService.List](/docs/resource-manager/api-ref/grpc/cloud_service#List) request. The maximum string length in characters is 50.
+&nbsp;&nbsp;folder_id | **string**<br>ID of the folder to list federations in. To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListFederationsResponse.next_page_token](#ListFederationsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100 Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListFederationsResponse.next_page_token](#ListFederationsResponse) returned by a previous list request. The maximum string length in characters is 50.
 filter | **string**<br><ol><li>The field name. Currently you can use filtering only on the [Federation.name](#Federation1) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.</li></ol> The maximum string length in characters is 1000.
@@ -122,7 +122,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-folder_id | **string**<br>ID of the folder to create a federation in. To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. The maximum string length in characters is 50.
+folder_id | **string**<br>ID of the folder to create a federation in. To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. The maximum string length in characters is 50.
 name | **string**<br>Name of the federation. The name must be unique within the cloud. Value must match the regular expression ` [a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>Description of the federation. The maximum string length in characters is 256.
 cookie_max_age | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Browser cookie lifetime in seconds. If the cookie is still valid, the management console authenticates the user immediately and redirects them to the home page. The default value is `8h`. Acceptable values are 10m to 12h, inclusive.

@@ -1,0 +1,7 @@
+items:
+  - name: Overview
+    href: mdbproxy/api-ref/grpc/index.md
+  - name: ProxyService
+    href: mdbproxy/api-ref/grpc/proxy_service.md
+  - name: OperationService
+    href: mdbproxy/api-ref/grpc/operation_service.md

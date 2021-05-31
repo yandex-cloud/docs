@@ -1,11 +1,9 @@
-openapi: '3.0'
+openapi: "3.0"
 info:
   title: Yandex Certificate Manager API
-  description: >-
-    Методы справочника API сгруппированы по ресурсам. Чтобы выполнить операцию
-    над ресурсом, отправьте HTTP-запрос к соответствующему URL. Подробнее об
-    архитектуре API Яндекс.Облака, см. [Концепции API
-    Яндекс.Облака](/docs/api-design-guide/).
+  description: Методы справочника API сгруппированы по ресурсам. Чтобы выполнить операцию
+    над ресурсом, отправьте HTTP-запрос к соответствующему URL. Подробнее об архитектуре
+    API Яндекс.Облака, см. [Концепции API Яндекс.Облака](/docs/api-design-guide/).
   version: v1
   x-y-docUri: api-ref
   x-y-baseUrl: https://certificate-manager.api.cloud.yandex.net
@@ -13,20 +11,19 @@ paths:
   /certificate-manager/v1/certificates/{certificateId}:getContent:
     get:
       tags:
-        - CertificateContent
-      summary: >-
-        Возвращает цепочку сертификатов доверия и закрытый ключ указанного
+      - CertificateContent
+      summary: Возвращает цепочку сертификатов доверия и закрытый ключ указанного
         сертификата.
       operationId: CertificateContentGet
       parameters:
-        - name: certificateId
-          in: path
-          description: Идентификатор сертификата для загрузки контента.
-          required: true
-          schema:
-            type: string
+      - name: certificateId
+        in: path
+        description: Идентификатор сертификата для загрузки контента.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -36,36 +33,31 @@ paths:
   /certificate-manager/v1/certificates/{certificateId}:
     get:
       tags:
-        - Certificate
+      - Certificate
       summary: Возвращает информацию об указанном сертификате.
-      description: >-
-        Чтобы получить список доступных сертификатов, используйте запрос
+      description: Чтобы получить список доступных сертификатов, используйте запрос
         [list](/docs/certificate-manager/api-ref/Certificate/list).
       operationId: CertificateGet
       parameters:
-        - name: certificateId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: certificateId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор возвращаемого сертификата.
 
-            Идентификатор возвращаемого сертификата.
+          Чтобы получить идентификатор сертификата, используйте запрос [list](/docs/certificate-manager/api-ref/Certificate/list).
 
-
-            Чтобы получить идентификатор сертификата, используйте запрос
-            [list](/docs/certificate-manager/api-ref/Certificate/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
-        - name: view
-          in: query
-          description: Тип вывода сертификата.
-          schema:
-            $ref: '#/components/schemas/CertificateView'
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: view
+        in: query
+        description: Тип вывода сертификата.
+        schema:
+          $ref: '#/components/schemas/CertificateView'
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -74,22 +66,22 @@ paths:
       x-y-navtitle: get
     delete:
       tags:
-        - Certificate
+      - Certificate
       summary: Удаляет указанный сертификат.
       operationId: CertificateDelete
       parameters:
-        - name: certificateId
-          in: path
-          description: |-
-            Обязательное поле.
-            Идентификатор сертификата, который следует удалить.
+      - name: certificateId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор сертификата, который следует удалить.
 
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -98,29 +90,21 @@ paths:
       x-y-navtitle: delete
       x-y-operation-metadata:
         $ref: '#/components/schemas/DeleteCertificateMetadata'
-      x-y-operation-response: >-
-        [Certificate](/docs/certificate-manager/api-ref/Certificate#representation)
+      x-y-operation-response: '[Certificate](/docs/certificate-manager/api-ref/Certificate#representation)'
     patch:
       tags:
-        - Certificate
+      - Certificate
       summary: Обновляет указанный сертификат.
       operationId: CertificateUpdate
       parameters:
-        - name: certificateId
-          in: path
-          description: >-
-            Обязательное поле.
-
-            Идентификатор сертификата для обновления. 
-
-            Чтобы получить идентификатор сертификата, используйте запрос
-            [list](/docs/certificate-manager/api-ref/Certificate/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+      - name: certificateId
+        in: path
+        description: "Обязательное поле.\nИдентификатор сертификата для обновления.
+          \nЧтобы получить идентификатор сертификата, используйте запрос [list](/docs/certificate-manager/api-ref/Certificate/list).\n\nМаксимальная
+          длина строки в символах — 50."
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -128,7 +112,7 @@ paths:
               $ref: '#/components/schemas/UpdateCertificateRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -137,62 +121,51 @@ paths:
       x-y-navtitle: update
       x-y-operation-metadata:
         $ref: '#/components/schemas/UpdateCertificateMetadata'
-      x-y-operation-response: >-
-        [Certificate](/docs/certificate-manager/api-ref/Certificate#representation)
+      x-y-operation-response: '[Certificate](/docs/certificate-manager/api-ref/Certificate#representation)'
   /certificate-manager/v1/certificates:
     get:
       tags:
-        - Certificate
+      - Certificate
       summary: Возвращает список сертификатов в указанном каталоге.
       operationId: CertificateList
       parameters:
-        - name: folderId
-          in: query
-          description: |-
-            Обязательное поле.
-            Идентификатор каталога для получения списка сертификатов.
+      - name: folderId
+        in: query
+        description: |-
+          Обязательное поле.
+          Идентификатор каталога для получения списка сертификатов.
 
-            Максимальная длина строки в символах — 50.
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            Максимальное количество результатов на странице ответа на запрос.
-            Если количество результатов
+          Максимальная длина строки в символах — 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на запрос. Если количество результатов
+          больше чем `page_size`, сервис вернет значение [nextPageToken](/docs/certificate-manager/api-ref/Certificate/list#responses),
+          которое можно использовать для получения следующей страницы.
+          Значение по умолчанию: 100.
 
-            больше чем `page_size`, сервис вернет значение
-            [nextPageToken](/docs/certificate-manager/api-ref/Certificate/list#responses),
+          Максимальное значение — 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение `page_token` равным значению поля [nextPageToken](/docs/certificate-manager/api-ref/Certificate/list#responses)
+          предыдущего запроса, чтобы получить следующую страницу результатов.
 
-            которое можно использовать для получения следующей страницы.
-
-            Значение по умолчанию: 100.
-
-
-            Максимальное значение — 1000.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Токен страницы. Установите значение `page_token` равным значению
-            поля
-            [nextPageToken](/docs/certificate-manager/api-ref/Certificate/list#responses)
-
-            предыдущего запроса, чтобы получить следующую страницу результатов.
-
-
-            Максимальная длина строки в символах — 100.
-          schema:
-            type: string
-        - name: view
-          in: query
-          description: Тип вывода сертификата.
-          schema:
-            $ref: '#/components/schemas/CertificateView'
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      - name: view
+        in: query
+        description: Тип вывода сертификата.
+        schema:
+          $ref: '#/components/schemas/CertificateView'
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -201,7 +174,7 @@ paths:
       x-y-navtitle: list
     post:
       tags:
-        - Certificate
+      - Certificate
       summary: Создает пользовательский сертификат в указанном каталоге.
       operationId: CertificateCreate
       requestBody:
@@ -211,7 +184,7 @@ paths:
               $ref: '#/components/schemas/CreateCertificateRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -220,12 +193,11 @@ paths:
       x-y-navtitle: create
       x-y-operation-metadata:
         $ref: '#/components/schemas/CreateCertificateMetadata'
-      x-y-operation-response: >-
-        [Certificate](/docs/certificate-manager/api-ref/Certificate#representation)
+      x-y-operation-response: '[Certificate](/docs/certificate-manager/api-ref/Certificate#representation)'
   /certificate-manager/v1/certificates/requestNew:
     post:
       tags:
-        - Certificate
+      - Certificate
       summary: Создает сертификат от Let's Encrypt.
       operationId: CertificateRequestNew
       requestBody:
@@ -235,7 +207,7 @@ paths:
               $ref: '#/components/schemas/RequestNewCertificateRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -244,65 +216,46 @@ paths:
       x-y-navtitle: requestNew
       x-y-operation-metadata:
         $ref: '#/components/schemas/RequestNewCertificateMetadata'
-      x-y-operation-response: >-
-        [Certificate](/docs/certificate-manager/api-ref/Certificate#representation)
+      x-y-operation-response: '[Certificate](/docs/certificate-manager/api-ref/Certificate#representation)'
   /certificate-manager/v1/certificates/{certificateId}/operations:
     get:
       tags:
-        - Certificate
+      - Certificate
       summary: Перечисляет операции для указанного сертификата.
       operationId: CertificateListOperations
       parameters:
-        - name: certificateId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: certificateId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор сертификата для перечисления операций.
 
-            Идентификатор сертификата для перечисления операций.
+          Чтобы получить идентификатор сертификата, используйте запрос [list](/docs/certificate-manager/api-ref/Certificate/list).
 
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: "Максимальное число возвращаемых результатов на странице. Если
+          количество результатов\nбольше чем `page_size`, сервис вернет значение [nextPageToken](/docs/certificate-manager/api-ref/Certificate/listOperations#responses),
+          \nкоторое можно использовать для получения следующей страницы. \nЗначение
+          по умолчанию: 100.\n\nМаксимальное значение — 1000."
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение [pageToken](/docs/certificate-manager/api-ref/Certificate/listOperations#query_params) равным значению поля [nextPageToken](/docs/certificate-manager/api-ref/Certificate/listOperations#responses)
+          предыдущего запроса, чтобы получить следующую страницу результатов.
 
-            Чтобы получить идентификатор сертификата, используйте запрос
-            [list](/docs/certificate-manager/api-ref/Certificate/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            Максимальное число возвращаемых результатов на странице. Если
-            количество результатов
-
-            больше чем `page_size`, сервис вернет значение
-            [nextPageToken](/docs/certificate-manager/api-ref/Certificate/listOperations#responses), 
-
-            которое можно использовать для получения следующей страницы. 
-
-            Значение по умолчанию: 100.
-
-
-            Максимальное значение — 1000.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Токен страницы. Установите значение
-            [pageToken](/docs/certificate-manager/api-ref/Certificate/listOperations#query_params)
-            равным значению поля
-            [nextPageToken](/docs/certificate-manager/api-ref/Certificate/listOperations#responses)
-
-            предыдущего запроса, чтобы получить следующую страницу результатов.
-
-
-            Максимальная длина строки в символах — 100.
-          schema:
-            type: string
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -312,63 +265,48 @@ paths:
   /certificate-manager/v1/certificates/{resourceId}:listAccessBindings:
     get:
       tags:
-        - Certificate
+      - Certificate
       summary: Возвращает список привязок прав доступа для указанного сертификата.
       operationId: CertificateListAccessBindings
       parameters:
-        - name: resourceId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: resourceId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор ресурса, для которого запрашивается список привязок прав доступа.
 
-            Идентификатор ресурса, для которого запрашивается список привязок
-            прав доступа.
+          Чтобы получить идентификатор ресурса, используйте соответствующий запрос List.
+          Например, используйте запрос [list](/docs/resource-manager/api-ref/Cloud/list) для получения
+          идентификатора ресурса Cloud.
 
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное число возвращаемых результатов на странице. Если количество
+          результатов больше чем pageSize , сервис вернет значение nextPageToken,
+          которое можно использовать для получения следующей страницы. Значение по умолчанию:
+          100.
 
-            Чтобы получить идентификатор ресурса, используйте соответствующий
-            запрос List.
+          Максимальное значение — 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение pageToken равным значению поля
+          nextPageToken прошлого запроса, чтобы получить следующую страницу
+          результатов.
 
-            Например, используйте запрос
-            [list](/docs/resource-manager/api-ref/Cloud/list) для получения
-
-            идентификатора ресурса Cloud.
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            Максимальное число возвращаемых результатов на странице. Если
-            количество
-
-            результатов больше чем pageSize , сервис вернет значение
-            nextPageToken,
-
-            которое можно использовать для получения следующей страницы.
-            Значение по умолчанию:
-
-            100.
-
-
-            Максимальное значение — 1000.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: |-
-            Токен страницы. Установите значение pageToken равным значению поля
-            nextPageToken прошлого запроса, чтобы получить следующую страницу
-            результатов.
-
-            Максимальная длина строки в символах — 100.
-          schema:
-            type: string
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -378,27 +316,22 @@ paths:
   /certificate-manager/v1/certificates/{resourceId}:setAccessBindings:
     post:
       tags:
-        - Certificate
+      - Certificate
       summary: Устанавливает привязки прав доступа для сертификата.
       operationId: CertificateSetAccessBindings
       parameters:
-        - name: resourceId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: resourceId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор ресурса, для которого задается список привязок прав доступа.
 
-            Идентификатор ресурса, для которого задается список привязок прав
-            доступа.
+          Чтобы получить идентификатор ресурса, используйте соответствующий запрос List.
 
-
-            Чтобы получить идентификатор ресурса, используйте соответствующий
-            запрос List.
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -406,7 +339,7 @@ paths:
               $ref: '#/components/schemas/SetAccessBindingsRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -419,23 +352,20 @@ paths:
   /certificate-manager/v1/certificates/{resourceId}:updateAccessBindings:
     post:
       tags:
-        - Certificate
+      - Certificate
       summary: Обновляет привязки прав доступа для указанного сертификата.
       operationId: CertificateUpdateAccessBindings
       parameters:
-        - name: resourceId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: resourceId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор ресурса, для которого обновляется список привязок прав доступа.
 
-            Идентификатор ресурса, для которого обновляется список привязок прав
-            доступа.
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -443,7 +373,7 @@ paths:
               $ref: '#/components/schemas/UpdateAccessBindingsRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -459,14 +389,10 @@ components:
       type: object
       properties:
         roleId:
-          description: >-
+          description: |-
             Обязательное поле.
-
-            Идентификатор ресурса [Role](/docs/iam/api-ref/Role#representation)
-            который назначен для субъекта, указанного в
-
+            Идентификатор ресурса [Role](/docs/iam/api-ref/Role#representation) который назначен для субъекта, указанного в
             параметре `subject`.
-
 
             Максимальная длина строки в символах — 50.
           type: string
@@ -478,21 +404,17 @@ components:
          - REMOVE: Удаление привязки прав доступа.
       type: string
       enum:
-        - ADD
-        - REMOVE
+      - ADD
+      - REMOVE
     AccessBindingDelta:
       type: object
       properties:
         action:
-          $ref: >-
-            #/components/schemas/AccessBindingAction_in_AccessBindingDelta_action
+          $ref: '#/components/schemas/AccessBindingAction_in_AccessBindingDelta_action'
         accessBinding:
-          $ref: >-
-            #/components/schemas/AccessBinding_in_AccessBindingDelta_accessBinding
+          $ref: '#/components/schemas/AccessBinding_in_AccessBindingDelta_accessBinding'
     Certificate:
-      description: >-
-        Сертификат. Подробнее об этом читайте в
-        [документации](docs/certificate-manager/concepts/).
+      description: Сертификат. Подробнее об этом читайте в [документации](docs/certificate-manager/concepts/).
       type: object
       properties:
         id:
@@ -529,16 +451,12 @@ components:
         status:
           $ref: '#/components/schemas/CertificateStatus_in_Certificate_status'
         issuer:
-          description: >-
-            Уникальное имя [Distinguished
-            Name](https://tools.ietf.org/html/rfc1779) центра сертификации,
-            выпустившего сертификат.
+          description: Уникальное имя [Distinguished Name](https://tools.ietf.org/html/rfc1779)
+            центра сертификации, выпустившего сертификат.
           type: string
         subject:
-          description: >-
-            Уникальное имя [Distinguished
-            Name](https://tools.ietf.org/html/rfc1779) сущности, связанной с
-            открытым ключом, содержащимся в сертификате.
+          description: Уникальное имя [Distinguished Name](https://tools.ietf.org/html/rfc1779)
+            сущности, связанной с открытым ключом, содержащимся в сертификате.
           type: string
         serial:
           description: Серийный номер сертификата.
@@ -565,18 +483,15 @@ components:
           type: string
           format: date-time
         notBefore:
-          description: >-
-            Время, после наступления которого сертификат считается
-            действительным.
-
+          description: |-
+            Время, после наступления которого сертификат считается действительным.
 
             Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
           type: string
           format: date-time
         challenges:
-          description: >-
-            Данные, используемые при прохождении процедуры проверки прав на
-            владение доменами сертификата.
+          description: Данные, используемые при прохождении процедуры проверки прав
+            на владение доменами сертификата.
           type: array
           items:
             $ref: '#/components/schemas/Challenge'
@@ -590,12 +505,12 @@ components:
          - RENEWAL_FAILED: Обновление сертификата не удалось. Используется только для сертификатов от Let's Encrypt®.
       type: string
       enum:
-        - VALIDATING
-        - INVALID
-        - ISSUED
-        - REVOKED
-        - RENEWING
-        - RENEWAL_FAILED
+      - VALIDATING
+      - INVALID
+      - ISSUED
+      - REVOKED
+      - RENEWING
+      - RENEWAL_FAILED
     CertificateType:
       description: |-
         Поддерживаемые типы сертификатов.
@@ -604,66 +519,62 @@ components:
          - MANAGED: Сертификат создан сервисом.
       type: string
       enum:
-        - IMPORTED
-        - MANAGED
+      - IMPORTED
+      - MANAGED
     CertificateView:
       description: |2-
          - BASIC: Вывод основной информации о сертификате.
          - FULL: Вывод полной информации о сертификате, включающей данные для прохождения процедуры проверки прав владения доменом.
       type: string
       enum:
-        - BASIC
-        - FULL
+      - BASIC
+      - FULL
       default: BASIC
     Challenge:
       description: Процедура проверки домена.
       type: object
       allOf:
-        - type: object
-          properties:
-            domain:
-              description: Домен, права на владение которым проверяются.
-              type: string
-            type:
-              $ref: '#/components/schemas/ChallengeType'
-              description: Тип процедуры проверки.
-            createdAt:
-              description: >-
-                Время, когда была начата процедура проверки.
+      - type: object
+        properties:
+          domain:
+            description: Домен, права на владение которым проверяются.
+            type: string
+          type:
+            $ref: '#/components/schemas/ChallengeType'
+            description: Тип процедуры проверки.
+          createdAt:
+            description: |-
+              Время, когда была начата процедура проверки.
 
+              Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+            type: string
+            format: date-time
+          updatedAt:
+            description: |-
+              Время последней проверки.
 
-                Строка в формате
-                [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
-              type: string
-              format: date-time
-            updatedAt:
-              description: >-
-                Время последней проверки.
-
-
-                Строка в формате
-                [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
-              type: string
-              format: date-time
-            status:
-              $ref: '#/components/schemas/ChallengeStatus'
-              description: Статус процедуры проверки.
-            message:
-              description: Описание процедуры проверки.
-              type: string
-            error:
-              description: Ошибка процедуры проверки.
-              type: string
-        - title: challenge
-          type: object
-          maxProperties: 1
-          properties:
-            dnsChallenge:
-              $ref: '#/components/schemas/ChallengeDnsRecord'
-              description: DNS-запись.
-            httpChallenge:
-              $ref: '#/components/schemas/ChallengeHttpFile'
-              description: HTTP-файл.
+              Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+            type: string
+            format: date-time
+          status:
+            $ref: '#/components/schemas/ChallengeStatus'
+            description: Статус процедуры проверки.
+          message:
+            description: Описание процедуры проверки.
+            type: string
+          error:
+            description: Ошибка процедуры проверки.
+            type: string
+      - title: challenge
+        type: object
+        maxProperties: 1
+        properties:
+          dnsChallenge:
+            $ref: '#/components/schemas/ChallengeDnsRecord'
+            description: DNS-запись.
+          httpChallenge:
+            $ref: '#/components/schemas/ChallengeHttpFile'
+            description: HTTP-файл.
     ChallengeDnsRecord:
       type: object
       properties:
@@ -693,10 +604,10 @@ components:
          - INVALID: Проверка прав для определенного домена завершилась неудачно или истек недельный период, выделенный для проверки.
       type: string
       enum:
-        - PENDING
-        - PROCESSING
-        - VALID
-        - INVALID
+      - PENDING
+      - PROCESSING
+      - VALID
+      - INVALID
     ChallengeType:
       description: |-
         Поддерживаемые типы проверки домена.
@@ -705,8 +616,8 @@ components:
          - HTTP: Тип проверки домена, использующий HTTP-файлы.
       type: string
       enum:
-        - DNS
-        - HTTP
+      - DNS
+      - HTTP
     CreateCertificateMetadata:
       type: object
       properties:
@@ -724,12 +635,10 @@ components:
             Максимальная длина строки в символах — 50.
           type: string
         name:
-          description: >-
+          description: |-
             Имя сертификата. Имя должно быть уникальным в каталоге.
 
-
-            Значение должно соответствовать регулярному выражению ``
-            |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
+            Значение должно соответствовать регулярному выражению `` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
           type: string
         description:
           description: |-
@@ -738,37 +647,26 @@ components:
             Максимальная длина строки в символах — 1024.
           type: string
         labels:
-          description: >-
+          description: |-
             Метки сертификата в формате `ключ:значение`.
 
-
             Не более 64 на ресурс.
-
             Максимальная длина строки в символах для каждого ключа — 63.
-
-            Каждый ключ должен соответствовать регулярному выражению ``
-            [a-z][-_0-9a-z]* ``.
-
+            Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
             Максимальная длина строки в символах для каждого значения — 63.
-
-            Каждое значение должно соответствовать регулярному выражению ``
-            [-_0-9a-z]* ``.
+            Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.
           type: object
           additionalProperties:
             type: string
         certificate:
-          description: >-
-            Содержимое сертификата в PEM-encoded формате. Можно пропустить, если
-            сертификат включен в цепочку доверия.
-
+          description: |-
+            Содержимое сертификата в PEM-encoded формате. Можно пропустить, если сертификат включен в цепочку доверия.
 
             Максимальная длина строки в символах — 32768.
           type: string
         chain:
-          description: >-
-            Содержимое цепочки сертификатов доверия сертификата в PEM-encoded
-            формате.
-
+          description: |-
+            Содержимое цепочки сертификатов доверия сертификата в PEM-encoded формате.
 
             Максимальная длина строки в символах — 2097152.
           type: string
@@ -790,24 +688,14 @@ components:
       type: object
       maxProperties: 0
     FieldMask:
-      description: >-
+      description: |-
         Имена всех обновляемых полей, разделенные запятыми.
+        Только значения указанных полей будут изменены. Остальные останутся нетронутыми.
+        Если поле указано в параметре `` updateMask `` и в запросе не было отправлено значение для этого поля,
+        значение поля будет сброшено на значение по умолчанию. Значение по умолчанию для большинства полей — null или 0.
 
-        Только значения указанных полей будут изменены. Остальные останутся
-        нетронутыми.
-
-        Если поле указано в параметре `` updateMask `` и в запросе не было
-        отправлено значение для этого поля,
-
-        значение поля будет сброшено на значение по умолчанию. Значение по
-        умолчанию для большинства полей — null или 0.
-
-
-        Если в запросе не передается `` updateMask ``, значения всех полей будут
-        обновлены.
-
+        Если в запросе не передается `` updateMask ``, значения всех полей будут обновлены.
         Для полей, указанных в запросе, будут использованы переданные значения.
-
         Значения остальных полей будут сброшены на значения по умолчанию.
       type: string
     GetCertificateContentResponse:
@@ -817,8 +705,7 @@ components:
           description: Идентификатор сертификата.
           type: string
         certificateChain:
-          description: >-
-            Содержимое цепочки сертификатов доверия сертификата в PEM-encoded
+          description: Содержимое цепочки сертификатов доверия сертификата в PEM-encoded
             формате.
           type: array
           items:
@@ -835,19 +722,11 @@ components:
           items:
             $ref: '#/components/schemas/AccessBinding'
         nextPageToken:
-          description: >-
-            Токен для получения следующей страницы результатов в ответе. Если
-            количество
-
-            результатов больше чем pageSize, используйте nextPageToken в
-            качестве
-
-            значения параметра pageToken в следующем запросе списка ресурсов.
-            Все
-
-            последующие запросы будут получать свои значения nextPageToken для
-            перебора страниц
-
+          description: |-
+            Токен для получения следующей страницы результатов в ответе. Если количество
+            результатов больше чем pageSize, используйте nextPageToken в качестве
+            значения параметра pageToken в следующем запросе списка ресурсов. Все
+            последующие запросы будут получать свои значения nextPageToken для перебора страниц
             результатов.
           type: string
     ListCertificateOperationsResponse:
@@ -859,21 +738,12 @@ components:
           items:
             $ref: '#/components/schemas/Operation'
         nextPageToken:
-          description: >-
-            Токен для получения следующей страницы результатов в ответе. Если
-            количество результатов
-
-            больше чем
-            [pageSize](/docs/certificate-manager/api-ref/Certificate/listOperations#query_params),
-            используйте `next_page_token` в качестве значения 
-
-            параметра
-            [pageToken](/docs/certificate-manager/api-ref/Certificate/listOperations#query_params)
-            в следующем запросе списка ресурсов. 
-
-            Каждая следующий запрос будет иметь свой
-            [nextPageToken](/docs/certificate-manager/api-ref/Certificate/listOperations#responses)
-            для продолжения перебора страниц результатов.
+          description: "Токен для получения следующей страницы результатов в ответе.
+            Если количество результатов\nбольше чем [pageSize](/docs/certificate-manager/api-ref/Certificate/listOperations#query_params),
+            используйте `next_page_token` в качестве значения \nпараметра [pageToken](/docs/certificate-manager/api-ref/Certificate/listOperations#query_params)
+            в следующем запросе списка ресурсов. \nКаждая следующий запрос будет иметь
+            свой [nextPageToken](/docs/certificate-manager/api-ref/Certificate/listOperations#responses)
+            для продолжения перебора страниц результатов."
           type: string
     ListCertificatesResponse:
       type: object
@@ -884,22 +754,12 @@ components:
           items:
             $ref: '#/components/schemas/Certificate'
         nextPageToken:
-          description: >-
-            Токен для получения следующей страницы результатов в ответе. Если
-            количество результатов 
-
-            больше чем
-            [pageSize](/docs/certificate-manager/api-ref/Certificate/list#query_params),
-            используйте 
-
-            `next_page_token` в качестве значения параметра
-            [pageToken](/docs/certificate-manager/api-ref/Certificate/list#query_params)
-
-            в следующем запросе списка ресурсов. Каждый следующий запрос списка
-            будет иметь свой 
-
-            [nextPageToken](/docs/certificate-manager/api-ref/Certificate/list#responses)
-            для продолжения перебора страниц результатов.
+          description: "Токен для получения следующей страницы результатов в ответе.
+            Если количество результатов \nбольше чем [pageSize](/docs/certificate-manager/api-ref/Certificate/list#query_params),
+            используйте \n`next_page_token` в качестве значения параметра [pageToken](/docs/certificate-manager/api-ref/Certificate/list#query_params)\nв
+            следующем запросе списка ресурсов. Каждый следующий запрос списка будет
+            иметь свой \n[nextPageToken](/docs/certificate-manager/api-ref/Certificate/list#responses)
+            для продолжения перебора страниц результатов."
           type: string
     Operation:
       description: |-
@@ -907,82 +767,68 @@ components:
         [Объект Operation](/docs/api-design-guide/concepts/operation).
       type: object
       allOf:
-        - type: object
-          properties:
-            id:
-              description: Идентификатор операции.
-              type: string
-            description:
-              description: |-
-                Описание операции. Длина описания должна быть от 0 до 256
-                символов.
-              type: string
-            createdAt:
-              description: >-
-                Время создания ресурса в формате в
+      - type: object
+        properties:
+          id:
+            description: Идентификатор операции.
+            type: string
+          description:
+            description: |-
+              Описание операции. Длина описания должна быть от 0 до 256
+              символов.
+            type: string
+          createdAt:
+            description: |-
+              Время создания ресурса в формате в
+              [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
 
-                [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+              Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+            type: string
+            format: date-time
+          createdBy:
+            description: |-
+              Идентификатор пользователя или сервисного
+              аккаунта, инициировавшего операцию.
+            type: string
+          modifiedAt:
+            description: |-
+              Время, когда ресурс Operation последний раз
+              обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
 
-
-                Строка в формате
-                [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
-              type: string
-              format: date-time
-            createdBy:
-              description: |-
-                Идентификатор пользователя или сервисного
-                аккаунта, инициировавшего операцию.
-              type: string
-            modifiedAt:
-              description: >-
-                Время, когда ресурс Operation последний раз
-
-                обновлялся. Значение в формате
-                [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
-
-
-                Строка в формате
-                [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
-              type: string
-              format: date-time
-            done:
-              description: |-
-                Если значение равно `false` — операция еще
-                выполняется. Если `true` — операция завершена, и задано значение
-                одного из полей `error` или `response`.
-              type: boolean
-              format: boolean
-            metadata:
-              description: |-
-                Метаданные операции. Обычно в поле содержится
-                идентификатор ресурса, над которым выполняется операция. Если
-                метод возвращает ресурс Operation, в описании метода приведена
-                структура соответствующего ему поля `metadata`.
-              type: object
-        - title: result
-          type: object
-          maxProperties: 1
-          properties:
-            error:
-              $ref: '#/components/schemas/rpcStatus'
-              description: Описание ошибки в случае сбоя или отмены операции.
-            response:
-              description: >-
-                Результат операции в случае успешного завершения. Если
-
-                исходный метод не возвращает никаких данных при успешном
-
-                завершении, например метод Delete, поле содержит объект
-
-                [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty).
-                Если исходный метод — это стандартный метод Create
-
-                / Update, поле содержит целевой ресурс операции. Если метод
-
-                возвращает ресурс Operation, в описании метода приведена
-
-                структура соответствующего ему поля `response`.
-              type: object
+              Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+            type: string
+            format: date-time
+          done:
+            description: |-
+              Если значение равно `false` — операция еще
+              выполняется. Если `true` — операция завершена, и задано значение
+              одного из полей `error` или `response`.
+            type: boolean
+            format: boolean
+          metadata:
+            description: |-
+              Метаданные операции. Обычно в поле содержится
+              идентификатор ресурса, над которым выполняется операция. Если
+              метод возвращает ресурс Operation, в описании метода приведена
+              структура соответствующего ему поля `metadata`.
+            type: object
+      - title: result
+        type: object
+        maxProperties: 1
+        properties:
+          error:
+            $ref: '#/components/schemas/rpcStatus'
+            description: Описание ошибки в случае сбоя или отмены операции.
+          response:
+            description: |-
+              Результат операции в случае успешного завершения. Если
+              исходный метод не возвращает никаких данных при успешном
+              завершении, например метод Delete, поле содержит объект
+              [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty). Если исходный метод — это стандартный метод Create
+              / Update, поле содержит целевой ресурс операции. Если метод
+              возвращает ресурс Operation, в описании метода приведена
+              структура соответствующего ему поля `response`.
+            type: object
     RequestNewCertificateMetadata:
       type: object
       properties:
@@ -1000,12 +846,10 @@ components:
             Максимальная длина строки в символах — 50.
           type: string
         name:
-          description: >-
+          description: |-
             Имя сертификата.
 
-
-            Значение должно соответствовать регулярному выражению ``
-            |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
+            Значение должно соответствовать регулярному выражению `` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
           type: string
         description:
           description: |-
@@ -1014,21 +858,14 @@ components:
             Максимальная длина строки в символах — 1024.
           type: string
         labels:
-          description: >-
+          description: |-
             Метки сертификата в формате `ключ:значение`.
 
-
             Не более 64 на ресурс.
-
             Максимальная длина строки в символах для каждого ключа — 63.
-
-            Каждый ключ должен соответствовать регулярному выражению ``
-            [a-z][-_0-9a-z]* ``.
-
+            Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
             Максимальная длина строки в символах для каждого значения — 63.
-
-            Каждое значение должно соответствовать регулярному выражению ``
-            [-_0-9a-z]* ``.
+            Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.
           type: object
           additionalProperties:
             type: string
@@ -1038,28 +875,22 @@ components:
           items:
             type: string
         challengeType:
-          $ref: >-
-            #/components/schemas/ChallengeType_in_RequestNewCertificateRequest_challengeType
+          $ref: '#/components/schemas/ChallengeType_in_RequestNewCertificateRequest_challengeType'
     SetAccessBindingsMetadata:
       type: object
       properties:
         resourceId:
-          description: >-
-            Идентификатор ресурса, для которого задается список привязок прав
-            доступа.
+          description: Идентификатор ресурса, для которого задается список привязок
+            прав доступа.
           type: string
     SetAccessBindingsRequest:
       type: object
       properties:
         accessBindings:
-          description: >-
+          description: |-
             Обязательное поле.
-
-            Привязки прав доступа, которые будут установлены. Дополнительные
-            сведения см. в
-
-            разделе [Привязка прав
-            доступа](/docs/iam/concepts/access-control/#access-bindings).
+            Привязки прав доступа, которые будут установлены. Дополнительные сведения см. в
+            разделе [Привязка прав доступа](/docs/iam/concepts/access-control/#access-bindings).
           type: array
           items:
             $ref: '#/components/schemas/AccessBinding'
@@ -1067,55 +898,29 @@ components:
       type: object
       properties:
         id:
-          description: >-
+          description: |-
             Обязательное поле.
-
             Идентификатор субъекта.
 
-
             Может иметь одно из значений:
-
-            * `allAuthenticatedUsers`: Специальный системный идентификатор,
-            представляющий любого пользователя, прошедшего аутентификацию. Его
-            можно использовать только если в параметре `type` указано `system`.
-
-            * `allUsers`: Специальный системный идентификатор, представляющий
-            любого пользователя. Аутентификация не требуется. Например, при
-            запросе через API не надо будет указывать IAM-токен.
-
-            * `<идентификатор пользователя в облаке>`: Идентификатор,
-            представляющий учетную запись пользователя. Его можно использовать
-            только если в параметре `type` передано одно из следующих значений:
-            `userAccount`, `federatedUser` или `serviceAccount`.
-
+            * `allAuthenticatedUsers`: Специальный системный идентификатор, представляющий любого пользователя, прошедшего аутентификацию. Его можно использовать только если в параметре `type` указано `system`.
+            * `allUsers`: Специальный системный идентификатор, представляющий любого пользователя. Аутентификация не требуется. Например, при запросе через API не надо будет указывать IAM-токен.
+            * `<идентификатор пользователя в облаке>`: Идентификатор, представляющий учетную запись пользователя. Его можно использовать только если в параметре `type` передано одно из следующих значений: `userAccount`, `federatedUser` или `serviceAccount`.
 
             Максимальная длина строки в символах — 50.
           type: string
         type:
-          description: >-
+          description: |-
             Обязательное поле.
-
             Тип субъекта.
 
-
             Может иметь одно из значений:
+            * `userAccount` — аккаунт на Яндексе или Яндекс.Коннекте, добавленный в Яндекс.Облако.
+            * `serviceAccount` — сервисный аккаунт. Этот тип представляет ресурс [ServiceAccount](/docs/iam/api-ref/ServiceAccount#representation).
+            * `federatedUser` — федеративный аккаунт. Этот тип представляет пользователя из федерации удостоверений, например Active Directory.
+            * `system` — системная группа. Представляет набор аккаунтов, который описывается общим системным идентификатором.
 
-            * `userAccount` — аккаунт на Яндексе или Яндекс.Коннекте,
-            добавленный в Яндекс.Облако.
-
-            * `serviceAccount` — сервисный аккаунт. Этот тип представляет ресурс
-            [ServiceAccount](/docs/iam/api-ref/ServiceAccount#representation).
-
-            * `federatedUser` — федеративный аккаунт. Этот тип представляет
-            пользователя из федерации удостоверений, например Active Directory.
-
-            * `system` — системная группа. Представляет набор аккаунтов, который
-            описывается общим системным идентификатором.
-
-
-            Дополнительные сведения см. в разделе [Субъект, которому назначается
-            роль](/docs/iam/concepts/access-control/#subject).
-
+            Дополнительные сведения см. в разделе [Субъект, которому назначается роль](/docs/iam/concepts/access-control/#subject).
 
             Максимальная длина строки в символах — 100.
           type: string
@@ -1123,9 +928,8 @@ components:
       type: object
       properties:
         resourceId:
-          description: >-
-            Идентификатор ресурса, для которого обновляется список привязок прав
-            доступа.
+          description: Идентификатор ресурса, для которого обновляется список привязок
+            прав доступа.
           type: string
     UpdateAccessBindingsRequest:
       type: object
@@ -1149,15 +953,12 @@ components:
       type: object
       properties:
         updateMask:
-          $ref: >-
-            #/components/schemas/FieldMask_in_UpdateCertificateRequest_updateMask
+          $ref: '#/components/schemas/FieldMask_in_UpdateCertificateRequest_updateMask'
         name:
-          description: >-
+          description: |-
             Новое имя сертификата.
 
-
-            Значение должно соответствовать регулярному выражению ``
-            |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
+            Значение должно соответствовать регулярному выражению `` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
           type: string
         description:
           description: |-
@@ -1166,46 +967,32 @@ components:
             Максимальная длина строки в символах — 1024.
           type: string
         labels:
-          description: >-
+          description: |-
             Метки сертификата в формате `ключ:значение`.
 
-
             Не более 64 на ресурс.
-
             Максимальная длина строки в символах для каждого ключа — 63.
-
-            Каждый ключ должен соответствовать регулярному выражению ``
-            [a-z][-_0-9a-z]* ``.
-
+            Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
             Максимальная длина строки в символах для каждого значения — 63.
-
-            Каждое значение должно соответствовать регулярному выражению ``
-            [-_0-9a-z]* ``.
+            Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.
           type: object
           additionalProperties:
             type: string
         certificate:
-          description: >-
-            Новое содержимое сертификата в PEM-encoded формате. Используется
-            только для пользовательских сертификатов.
-
+          description: |-
+            Новое содержимое сертификата в PEM-encoded формате. Используется только для пользовательских сертификатов.
 
             Максимальная длина строки в символах — 32768.
           type: string
         chain:
-          description: >-
-            Новое содержимое цепочки сертификатов доверия сертификата в
-            PEM-encoded формате. Используется только для пользовательских
-            сертификатов.
-
+          description: |-
+            Новое содержимое цепочки сертификатов доверия сертификата в PEM-encoded формате. Используется только для пользовательских сертификатов.
 
             Максимальная длина строки в символах — 2097152.
           type: string
         privateKey:
-          description: >-
-            Новое содержимое закрытого ключа сертификата в PEM-encoded формате.
-            Используется только для пользовательских сертификатов.
-
+          description: |-
+            Новое содержимое закрытого ключа сертификата в PEM-encoded формате. Используется только для пользовательских сертификатов.
 
             Максимальная длина строки в символах — 524288.
           type: string
@@ -1214,9 +1001,7 @@ components:
       type: object
       properties:
         code:
-          description: >-
-            Код ошибки. Значение из списка
-            [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
+          description: Код ошибки. Значение из списка [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
           type: integer
           format: int32
         message:
@@ -1228,67 +1013,37 @@ components:
           items:
             type: object
     Subject_in_AccessBinding_subject:
-      description: >-
+      description: |-
         Обязательное поле.
-
         Субъект, для которого создается привязка прав доступа. Может
-
-        представлять собой аккаунт с уникальным идентификатором в облаке или
-        системную
-
+        представлять собой аккаунт с уникальным идентификатором в облаке или системную
         группу с общим системным идентификатором.
       type: object
       properties:
         id:
-          description: >-
+          description: |-
             Обязательное поле.
-
             Идентификатор субъекта.
 
-
             Может иметь одно из значений:
-
-            * `allAuthenticatedUsers`: Специальный системный идентификатор,
-            представляющий любого пользователя, прошедшего аутентификацию. Его
-            можно использовать только если в параметре `type` указано `system`.
-
-            * `allUsers`: Специальный системный идентификатор, представляющий
-            любого пользователя. Аутентификация не требуется. Например, при
-            запросе через API не надо будет указывать IAM-токен.
-
-            * `<идентификатор пользователя в облаке>`: Идентификатор,
-            представляющий учетную запись пользователя. Его можно использовать
-            только если в параметре `type` передано одно из следующих значений:
-            `userAccount`, `federatedUser` или `serviceAccount`.
-
+            * `allAuthenticatedUsers`: Специальный системный идентификатор, представляющий любого пользователя, прошедшего аутентификацию. Его можно использовать только если в параметре `type` указано `system`.
+            * `allUsers`: Специальный системный идентификатор, представляющий любого пользователя. Аутентификация не требуется. Например, при запросе через API не надо будет указывать IAM-токен.
+            * `<идентификатор пользователя в облаке>`: Идентификатор, представляющий учетную запись пользователя. Его можно использовать только если в параметре `type` передано одно из следующих значений: `userAccount`, `federatedUser` или `serviceAccount`.
 
             Максимальная длина строки в символах — 50.
           type: string
         type:
-          description: >-
+          description: |-
             Обязательное поле.
-
             Тип субъекта.
 
-
             Может иметь одно из значений:
+            * `userAccount` — аккаунт на Яндексе или Яндекс.Коннекте, добавленный в Яндекс.Облако.
+            * `serviceAccount` — сервисный аккаунт. Этот тип представляет ресурс [ServiceAccount](/docs/iam/api-ref/ServiceAccount#representation).
+            * `federatedUser` — федеративный аккаунт. Этот тип представляет пользователя из федерации удостоверений, например Active Directory.
+            * `system` — системная группа. Представляет набор аккаунтов, который описывается общим системным идентификатором.
 
-            * `userAccount` — аккаунт на Яндексе или Яндекс.Коннекте,
-            добавленный в Яндекс.Облако.
-
-            * `serviceAccount` — сервисный аккаунт. Этот тип представляет ресурс
-            [ServiceAccount](/docs/iam/api-ref/ServiceAccount#representation).
-
-            * `federatedUser` — федеративный аккаунт. Этот тип представляет
-            пользователя из федерации удостоверений, например Active Directory.
-
-            * `system` — системная группа. Представляет набор аккаунтов, который
-            описывается общим системным идентификатором.
-
-
-            Дополнительные сведения см. в разделе [Субъект, которому назначается
-            роль](/docs/iam/concepts/access-control/#subject).
-
+            Дополнительные сведения см. в разделе [Субъект, которому назначается роль](/docs/iam/concepts/access-control/#subject).
 
             Максимальная длина строки в символах — 100.
           type: string
@@ -1301,25 +1056,19 @@ components:
          - REMOVE: Удаление привязки прав доступа.
       type: string
       enum:
-        - ADD
-        - REMOVE
+      - ADD
+      - REMOVE
     AccessBinding_in_AccessBindingDelta_accessBinding:
-      description: >-
+      description: |-
         Обязательное поле.
-
-        Привязка прав доступа. Дополнительные сведения см. в разделе [Привязка
-        прав доступа](/docs/iam/concepts/access-control/#access-bindings).
+        Привязка прав доступа. Дополнительные сведения см. в разделе [Привязка прав доступа](/docs/iam/concepts/access-control/#access-bindings).
       type: object
       properties:
         roleId:
-          description: >-
+          description: |-
             Обязательное поле.
-
-            Идентификатор ресурса [Role](/docs/iam/api-ref/Role#representation)
-            который назначен для субъекта, указанного в
-
+            Идентификатор ресурса [Role](/docs/iam/api-ref/Role#representation) который назначен для субъекта, указанного в
             параметре `subject`.
-
 
             Максимальная длина строки в символах — 50.
           type: string
@@ -1335,8 +1084,8 @@ components:
          - MANAGED: Сертификат создан сервисом.
       type: string
       enum:
-        - IMPORTED
-        - MANAGED
+      - IMPORTED
+      - MANAGED
     CertificateStatus_in_Certificate_status:
       description: |-
         Статус сертификата.
@@ -1349,12 +1098,12 @@ components:
          - RENEWAL_FAILED: Обновление сертификата не удалось. Используется только для сертификатов от Let's Encrypt®.
       type: string
       enum:
-        - VALIDATING
-        - INVALID
-        - ISSUED
-        - REVOKED
-        - RENEWING
-        - RENEWAL_FAILED
+      - VALIDATING
+      - INVALID
+      - ISSUED
+      - REVOKED
+      - RENEWING
+      - RENEWAL_FAILED
     ChallengeType_in_RequestNewCertificateRequest_challengeType:
       description: |-
         Тип процедуры проверки домена.
@@ -1365,34 +1114,23 @@ components:
          - HTTP: Тип проверки домена, использующий HTTP-файлы.
       type: string
       enum:
-        - DNS
-        - HTTP
+      - DNS
+      - HTTP
     FieldMask_in_UpdateCertificateRequest_updateMask:
-      description: >-
+      description: |-
         Маска, определяющая, какие поля указанного сертификата будут обновлены.
 
-
         Имена всех обновляемых полей, разделенные запятыми.
+        Только значения указанных полей будут изменены. Остальные останутся нетронутыми.
+        Если поле указано в параметре `` updateMask `` и в запросе не было отправлено значение для этого поля,
+        значение поля будет сброшено на значение по умолчанию. Значение по умолчанию для большинства полей — null или 0.
 
-        Только значения указанных полей будут изменены. Остальные останутся
-        нетронутыми.
-
-        Если поле указано в параметре `` updateMask `` и в запросе не было
-        отправлено значение для этого поля,
-
-        значение поля будет сброшено на значение по умолчанию. Значение по
-        умолчанию для большинства полей — null или 0.
-
-
-        Если в запросе не передается `` updateMask ``, значения всех полей будут
-        обновлены.
-
+        Если в запросе не передается `` updateMask ``, значения всех полей будут обновлены.
         Для полей, указанных в запросе, будут использованы переданные значения.
-
         Значения остальных полей будут сброшены на значения по умолчанию.
       type: string
 tags:
-  - name: CertificateContent
-    description: Набор методов для управления содержимым сертификата.
-  - name: Certificate
-    description: Набор методов для управления сертификатами.
+- name: CertificateContent
+  description: Набор методов для управления содержимым сертификата.
+- name: Certificate
+  description: Набор методов для управления сертификатами.

@@ -57,6 +57,9 @@ A set of methods for managing node groups.
     ],
     "placementPolicy": {
       "placementGroupId": "string"
+    },
+    "networkSettings": {
+      "type": "string"
     }
   },
   "scalePolicy": {
@@ -179,6 +182,8 @@ nodeTemplate.<br>networkInterfaceSpecs[].<br>primaryV6AddressSpec.<br>oneToOneNa
 nodeTemplate.<br>networkInterfaceSpecs[].<br>securityGroupIds[] | **string**<br><p>IDs of security groups.</p> 
 nodeTemplate.<br>placementPolicy | **object**<br>
 nodeTemplate.<br>placementPolicy.<br>placementGroupId | **string**<br><p>Identifier of placement group</p> 
+nodeTemplate.<br>networkSettings | **object**<br><p>this parameter allows to specify type of network acceleration used on nodes (instances)</p> 
+nodeTemplate.<br>networkSettings.<br>type | **string**<br><p>Required.</p> 
 scalePolicy | **object**<br><p>Scale policy of the node group.  For more information, see <a href="/docs/compute/concepts/instance-groups/policies#scale-policy">Scaling policy</a>.</p> 
 scalePolicy.<br>fixedScale | **object**<br>Fixed scale policy of the node group. <br>`scalePolicy` includes only one of the fields `fixedScale`, `autoScale`<br><br>
 scalePolicy.<br>fixedScale.<br>size | **string** (int64)<br><p>Number of nodes in the node group.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 

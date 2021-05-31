@@ -89,7 +89,7 @@ items:
         items: null
         include:
           repo: docs
-          path: en/_api-ref-grpc/managed-mongodb/api-ref/toc.yaml
+          path: en/_api-ref-grpc/managed-mongodb/toc.yaml
       - name: REST
         items: null
         include:

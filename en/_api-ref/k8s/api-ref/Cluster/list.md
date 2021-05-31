@@ -122,7 +122,10 @@ filter | A filter expression that filters resources listed in the response. The 
         "keyId": "string"
       },
       "logGroupId": "string",
-      "gatewayIpv4Address": "string"
+      "gatewayIpv4Address": "string",
+      "cilium": {
+        "routingMode": "string"
+      }
     }
   ],
   "nextPageToken": "string"
@@ -198,4 +201,6 @@ clusters[].<br>kmsProvider | **object**<br>KMS provider configuration.<br>
 clusters[].<br>kmsProvider.<br>keyId | **string**<br><p>KMS key ID for secrets encryption. To obtain a KMS key ID use a <a href="/docs/kms/api-ref/SymmetricKey/list">list</a> request.</p> 
 clusters[].<br>logGroupId | **string**<br><p>Log group where cluster stores cluster system logs, like audit, events, or controlplane logs.</p> 
 clusters[].<br>gatewayIpv4Address | **string**<br><p>Gateway IPv4 address.</p> <p>The maximum string length in characters is 15.</p> 
+clusters[].<br>cilium | **object**<br>
+clusters[].<br>cilium.<br>routingMode | **string**<br>
 nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/managed-kubernetes/api-ref/Cluster/list#query_params">pageSize</a>, use the `next_page_token` as the value for the <a href="/docs/managed-kubernetes/api-ref/Cluster/list#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results.</p> 

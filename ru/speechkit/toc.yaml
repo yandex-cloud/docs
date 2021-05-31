@@ -39,7 +39,7 @@ items:
           items: null
           include:
             repo: docs
-            path: en/_api-ref-grpc/ai/stt/v3/api-ref/toc.yaml
+            path: en/_api-ref-grpc/ai/stt/v3/toc.yaml
   - name: Интеграция телефонии
     href: concepts/ivr-integration.md
   - name: Использование API
@@ -63,6 +63,6 @@ items:
           - name: Правила до 1 января 2019 года
             href: pricing-archive/pricing-01012019.md
   - name: Публичные материалы
-    href: public-talks.md          
+    href: public-talks.md
   - name: Вопросы и ответы
     href: qa/index.md

@@ -9,7 +9,7 @@ editable: false
  
 ## HTTP-запрос {#https-request}
 ```
-DELETE https://mdb.api.cloud.yandex.net/managed-mysql/v1alpha/clusters/{clusterId}/databases/{databaseName}
+DELETE https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters/{clusterId}/databases/{databaseName}
 ```
  
 ## Path-параметры {#path_params}
@@ -17,7 +17,7 @@ DELETE https://mdb.api.cloud.yandex.net/managed-mysql/v1alpha/clusters/{clusterI
 Параметр | Описание
 --- | ---
 clusterId | Обязательное поле. Идентификатор кластера MySQL, в котором следует удалить базу данных. Чтобы получить идентификатор кластера, используйте запрос [list](/docs/managed-mysql/api-ref/Cluster/list).  Максимальная длина строки в символах — 50.
-databaseName | Обязательное поле. Имя удаляемой базы данных. Чтобы получить имя базы данных, используйте запрос [List].  Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_-]* ``.
+databaseName | Обязательное поле. Имя удаляемой базы данных. Чтобы получить имя базы данных, используйте запрос [list](/docs/managed-mysql/api-ref/Database/list).  Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_-]* ``.
  
 ## Ответ {#responses}
 **HTTP Code: 200 - OK**

@@ -1925,6 +1925,8 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/UpdateSubclusterConfigSpec'
+        hadoop:
+          $ref: '#/components/schemas/HadoopConfig_in_UpdateClusterConfigSpec_hadoop'
     UpdateClusterMetadata:
       type: object
       properties:
@@ -2567,6 +2569,35 @@ components:
             Acceptable values are 0 to 86400, inclusive.
           type: string
           format: int64
+    HadoopConfig_in_UpdateClusterConfigSpec_hadoop:
+      description: |-
+        Hadoop specific options
+
+        Hadoop configuration that describes services installed in a cluster,
+        their properties and settings.
+      type: object
+      properties:
+        services:
+          description: Set of services used in the cluster (if empty, the default
+            set is used).
+          type: array
+          items:
+            $ref: '#/components/schemas/HadoopConfigService'
+        properties:
+          description: |-
+            Properties set for all hosts in `*-site.xml` configurations. The key should indicate
+            the service and the property.
+
+            For example, use the key 'hdfs:dfs.replication' to set the `dfs.replication` property
+            in the file `/etc/hadoop/conf/hdfs-site.xml`.
+          type: object
+          additionalProperties:
+            type: string
+        sshPublicKeys:
+          description: List of public SSH keys to access to cluster hosts.
+          type: array
+          items:
+            type: string
     FieldMask_in_UpdateClusterRequest_updateMask:
       description: |-
         Field mask that specifies which attributes of the cluster should be updated.
@@ -2590,6 +2621,8 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/UpdateSubclusterConfigSpec'
+        hadoop:
+          $ref: '#/components/schemas/HadoopConfig_in_UpdateClusterConfigSpec_hadoop'
     Resources_in_UpdateSubclusterConfigSpec_resources:
       description: Resource configuration for each host in the subcluster.
       type: object

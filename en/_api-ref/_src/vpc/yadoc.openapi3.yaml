@@ -74,9 +74,13 @@ paths:
       parameters:
       - name: addressId
         in: path
-        description: "Required.\nID of the address to update.\n \nTo get the address
-          ID make a [list](/docs/vpc/api-ref/Address/list) request.\n\nThe maximum
-          string length in characters is 50."
+        description: |-
+          Required.
+          ID of the address to update.
+
+          To get the address ID make a [list](/docs/vpc/api-ref/Address/list) request.
+
+          The maximum string length in characters is 50.
         required: true
         schema:
           type: string
@@ -150,21 +154,23 @@ paths:
           format: int64
       - name: pageToken
         in: query
-        description: "Page token. To get the next page of results, set `page_token`
-          to the \n[nextPageToken](/docs/vpc/api-ref/Address/list#responses) returned
-          by a previous list request.\n\nThe maximum string length in characters is
-          100."
+        description: |-
+          Page token. To get the next page of results, set `page_token` to the
+          [nextPageToken](/docs/vpc/api-ref/Address/list#responses) returned by a previous list request.
+
+          The maximum string length in characters is 100.
         schema:
           type: string
       - name: filter
         in: query
-        description: "A filter expression that filters Address listed in the response.\n\nThe
-          expression must specify: \n1. The field name. Currently you can use filtering
-          only on [Address.name](/docs/vpc/api-ref/Address#representation) field.
-          \n2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT
-          IN` for lists of values.\n3. The value. Must be 3-63 characters long and
-          match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]`.\nExample of
-          a filter: `name=my-address`."
+        description: |-
+          A filter expression that filters Address listed in the response.
+
+          The expression must specify:
+          1. The field name. Currently you can use filtering only on [Address.name](/docs/vpc/api-ref/Address#representation) field.
+          2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
+          3. The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]`.
+          Example of a filter: `name=my-address`.
         schema:
           type: string
       responses:
@@ -230,10 +236,11 @@ paths:
           format: int64
       - name: pageToken
         in: query
-        description: "Page token. To get the next page of results, set [pageToken](/docs/vpc/api-ref/Address/listOperations#query_params)
-          to the \n[nextPageToken](/docs/vpc/api-ref/Address/listOperations#responses)
-          returned by a previous list request.\n\nThe maximum string length in characters
-          is 100."
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/vpc/api-ref/Address/listOperations#query_params) to the
+          [nextPageToken](/docs/vpc/api-ref/Address/listOperations#responses) returned by a previous list request.
+
+          The maximum string length in characters is 100.
         schema:
           type: string
       responses:
@@ -244,6 +251,38 @@ paths:
               schema:
                 $ref: '#/components/schemas/ListAddressOperationsResponse'
       x-y-navtitle: listOperations
+  /vpc/v1/addresses/{addressId}:move:
+    post:
+      tags:
+      - Address
+      summary: Move an address to another folder
+      operationId: AddressMove
+      parameters:
+      - name: addressId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MoveAddressRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: move
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/MoveAddressMetadata'
+      x-y-operation-response: '[Address](/docs/vpc/api-ref/Address#representation)'
   /vpc/v1/networks/{networkId}:
     get:
       tags:
@@ -796,6 +835,252 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/MoveRouteTableMetadata'
       x-y-operation-response: '[RouteTable](/docs/vpc/api-ref/RouteTable#representation)'
+  /vpc/v1/securityGroups/{securityGroupId}:
+    get:
+      tags:
+      - SecurityGroup
+      operationId: SecurityGroupGet
+      parameters:
+      - name: securityGroupId
+        in: path
+        description: Required.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SecurityGroup'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - SecurityGroup
+      operationId: SecurityGroupDelete
+      parameters:
+      - name: securityGroupId
+        in: path
+        description: Required.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteSecurityGroupMetadata'
+      x-y-operation-response: Empty
+    patch:
+      tags:
+      - SecurityGroup
+      operationId: SecurityGroupUpdate
+      parameters:
+      - name: securityGroupId
+        in: path
+        description: Required.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateSecurityGroupRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateSecurityGroupMetadata'
+      x-y-operation-response: '[SecurityGroup](/docs/vpc/api-ref/SecurityGroup#representation)'
+  /vpc/v1/securityGroups:
+    get:
+      tags:
+      - SecurityGroup
+      operationId: SecurityGroupList
+      parameters:
+      - name: folderId
+        in: query
+        description: Required.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        schema:
+          type: string
+      - name: filter
+        in: query
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListSecurityGroupsResponse'
+      x-y-navtitle: list
+    post:
+      tags:
+      - SecurityGroup
+      operationId: SecurityGroupCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateSecurityGroupRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateSecurityGroupMetadata'
+      x-y-operation-response: '[SecurityGroup](/docs/vpc/api-ref/SecurityGroup#representation)'
+  /vpc/v1/securityGroups/{securityGroupId}/rules:
+    patch:
+      tags:
+      - SecurityGroup
+      operationId: SecurityGroupUpdateRules
+      parameters:
+      - name: securityGroupId
+        in: path
+        description: Required.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateSecurityGroupRulesRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: updateRules
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateSecurityGroupMetadata'
+      x-y-operation-response: '[SecurityGroup](/docs/vpc/api-ref/SecurityGroup#representation)'
+  /vpc/v1/securityGroups/{securityGroupId}/rules/{ruleId}:
+    patch:
+      tags:
+      - SecurityGroup
+      summary: update rule description or labels
+      operationId: SecurityGroupUpdateRule
+      parameters:
+      - name: securityGroupId
+        in: path
+        description: Required.
+        required: true
+        schema:
+          type: string
+      - name: ruleId
+        in: path
+        description: Required.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateSecurityGroupRuleRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: updateRule
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateSecurityGroupRuleMetadata'
+      x-y-operation-response: '`SecurityGroupRule`'
+  /vpc/v1/securityGroups/{securityGroupId}:move:
+    post:
+      tags:
+      - SecurityGroup
+      operationId: SecurityGroupMove
+      parameters:
+      - name: securityGroupId
+        in: path
+        description: Required.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MoveSecurityGroupRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: move
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/MoveSecurityGroupMetadata'
+      x-y-operation-response: '[SecurityGroup](/docs/vpc/api-ref/SecurityGroup#representation)'
+  /vpc/v1/securityGroups/{securityGroupId}/operations:
+    get:
+      tags:
+      - SecurityGroup
+      operationId: SecurityGroupListOperations
+      parameters:
+      - name: securityGroupId
+        in: path
+        description: Required.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListSecurityGroupOperationsResponse'
+      x-y-navtitle: listOperations
   /vpc/v1/subnets/{subnetId}:
     get:
       tags:
@@ -1159,9 +1444,11 @@ components:
               The maximum string length in characters is 50.
             type: string
           name:
-            description: "Name of the address. \nThe name must be unique within the
-              folder.\n\nValue must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9]
-              ``."
+            description: |-
+              Name of the address.
+              The name must be unique within the folder.
+
+              Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
             type: string
           description:
             description: |-
@@ -1288,6 +1575,27 @@ components:
       properties:
         securityGroupId:
           type: string
+    CreateSecurityGroupRequest:
+      type: object
+      properties:
+        folderId:
+          description: Required.
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+        networkId:
+          description: Required.
+          type: string
+        ruleSpecs:
+          type: array
+          items:
+            $ref: '#/components/schemas/SecurityGroupRuleSpec'
     CreateSubnetMetadata:
       type: object
       properties:
@@ -1621,6 +1929,14 @@ components:
       properties:
         addressId:
           type: string
+    MoveAddressRequest:
+      type: object
+      properties:
+        destinationFolderId:
+          description: |-
+            Required.
+            The maximum string length in characters is 50.
+          type: string
     MoveNetworkMetadata:
       type: object
       properties:
@@ -1657,6 +1973,12 @@ components:
       type: object
       properties:
         securityGroupId:
+          type: string
+    MoveSecurityGroupRequest:
+      type: object
+      properties:
+        destinationFolderId:
+          description: Required.
           type: string
     MoveSubnetMetadata:
       type: object
@@ -2049,9 +2371,11 @@ components:
         updateMask:
           $ref: '#/components/schemas/FieldMask_in_UpdateAddressRequest_updateMask'
         name:
-          description: "New name for the address. \nThe name must be unique within
-            the folder.\n\nValue must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9]
-            ``."
+          description: |-
+            New name for the address.
+            The name must be unique within the folder.
+
+            Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
           type: string
         description:
           description: |-
@@ -2163,6 +2487,28 @@ components:
       properties:
         securityGroupId:
           type: string
+        addedRuleIds:
+          type: array
+          items:
+            type: string
+    UpdateSecurityGroupRequest:
+      type: object
+      properties:
+        updateMask:
+          $ref: '#/components/schemas/FieldMask_in_UpdateSecurityGroupRequest_updateMask'
+        name:
+          type: string
+        description:
+          type: string
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+        ruleSpecs:
+          description: all existing rules will be replaced with given list
+          type: array
+          items:
+            $ref: '#/components/schemas/SecurityGroupRuleSpec'
     UpdateSecurityGroupRuleMetadata:
       type: object
       properties:
@@ -2170,6 +2516,28 @@ components:
           type: string
         ruleId:
           type: string
+    UpdateSecurityGroupRuleRequest:
+      type: object
+      properties:
+        updateMask:
+          $ref: '#/components/schemas/FieldMask_in_UpdateSecurityGroupRuleRequest_updateMask'
+        description:
+          type: string
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+    UpdateSecurityGroupRulesRequest:
+      type: object
+      properties:
+        deletionRuleIds:
+          type: array
+          items:
+            type: string
+        additionRuleSpecs:
+          type: array
+          items:
+            $ref: '#/components/schemas/SecurityGroupRuleSpec'
     UpdateSubnetMetadata:
       type: object
       properties:
@@ -2349,6 +2717,28 @@ components:
       description: |-
         Field mask that specifies which fields of the RouteTable resource are going to be updated.
 
+        A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
+
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
+        Fields specified in the request will be updated to provided values.
+        The rest of the fields will be reset to the default.
+      type: string
+    FieldMask_in_UpdateSecurityGroupRequest_updateMask:
+      description: |-
+        A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
+
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
+        Fields specified in the request will be updated to provided values.
+        The rest of the fields will be reset to the default.
+      type: string
+    FieldMask_in_UpdateSecurityGroupRuleRequest_updateMask:
+      description: |-
         A comma-separated names off ALL fields to be updated.
         Оnly the specified fields will be changed. The others will be left untouched.
         If the field is specified in `` updateMask `` and no value for that field was sent in the request,

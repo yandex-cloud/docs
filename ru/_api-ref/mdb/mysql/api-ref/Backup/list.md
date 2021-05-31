@@ -9,7 +9,7 @@ editable: false
  
 ## HTTP-запрос {#https-request}
 ```
-GET https://mdb.api.cloud.yandex.net/managed-mysql/v1alpha/backups
+GET https://mdb.api.cloud.yandex.net/managed-mysql/v1/backups
 ```
  
 ## Query-параметры {#query_params}

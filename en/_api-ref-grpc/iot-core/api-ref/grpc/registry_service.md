@@ -9,6 +9,7 @@ A set of methods for managing registry.
 | Call | Description |
 | --- | --- |
 | [Get](#Get) | Returns the specified registry. |
+| [GetByName](#GetByName) |  |
 | [List](#List) | Retrieves the list of registries in the specified folder. |
 | [Create](#Create) | Creates a registry in the specified folder. |
 | [Update](#Update) | Updates the specified registry. |
@@ -51,6 +52,34 @@ status | enum **Status**<br>Status of the registry. <ul><li>`CREATING`: Registry
 log_group_id | **string**<br>ID of the logs group for the specified registry. 
 
 
+## GetByName {#GetByName}
+
+
+
+**rpc GetByName ([GetByNameRegistryRequest](#GetByNameRegistryRequest)) returns ([Registry](#Registry1))**
+
+### GetByNameRegistryRequest {#GetByNameRegistryRequest}
+
+Field | Description
+--- | ---
+folder_id | **string**<br>Required. ID of the folder to list registries in. <br>To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. The maximum string length in characters is 50.
+registry_name | **string**<br>Required. Name of the registry to return. <br>To get a registry Name make a [RegistryService.List](#List) request. The maximum string length in characters is 50. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+
+
+### Registry {#Registry1}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the registry. 
+folder_id | **string**<br>ID of the folder that the registry belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+name | **string**<br>Name of the registry. The name is unique within the folder. 
+description | **string**<br>Description of the registry. 0-256 characters long. 
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
+status | enum **Status**<br>Status of the registry. <ul><li>`CREATING`: Registry is being created.</li><li>`ACTIVE`: Registry is ready to use.</li><li>`DELETING`: Registry is being deleted.</li><ul/>
+log_group_id | **string**<br>ID of the logs group for the specified registry. 
+
+
 ## List {#List}
 
 Retrieves the list of registries in the specified folder.
@@ -61,7 +90,7 @@ Retrieves the list of registries in the specified folder.
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder to list registries in. <br>To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. The maximum string length in characters is 50.
+folder_id | **string**<br>Required. ID of the folder to list registries in. <br>To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page that should be returned. If the number of available results is larger than `page_size`, the service returns a [ListRegistriesResponse.next_page_token](#ListRegistriesResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListRegistriesResponse.next_page_token](#ListRegistriesResponse) returned by a previous list request. The maximum string length in characters is 100.
 
@@ -70,11 +99,11 @@ page_token | **string**<br>Page token. To get the next page of results, set `pag
 
 Field | Description
 --- | ---
-registries[] | **[Registry](#Registry1)**<br>List of registries. 
+registries[] | **[Registry](#Registry2)**<br>List of registries. 
 next_page_token | **string**<br>Token for getting the next page of the list. If the number of results is greater than the specified [ListRegistriesRequest.page_size](#ListRegistriesRequest), use `next_page_token` as the value for the [ListRegistriesRequest.page_token](#ListRegistriesRequest) parameter in the next list request. <br>Each subsequent page will have its own `next_page_token` to continue paging through the results. 
 
 
-### Registry {#Registry1}
+### Registry {#Registry2}
 
 Field | Description
 --- | ---
@@ -96,13 +125,13 @@ Creates a registry in the specified folder.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateRegistryMetadata](#CreateRegistryMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Registry](#Registry2)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Registry](#Registry3)<br>
 
 ### CreateRegistryRequest {#CreateRegistryRequest}
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder to create a registry in. <br>To get a folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. The maximum string length in characters is 50.
+folder_id | **string**<br>Required. ID of the folder to create a registry in. <br>To get a folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. The maximum string length in characters is 50.
 name | **string**<br>Required. Name of the registry. The name must be unique within the folder. The maximum string length in characters is 50. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 description | **string**<br>Description of the registry. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
@@ -130,7 +159,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateRegistryMetadata](#CreateRegistryMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Registry](#Registry2)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Registry](#Registry3)>**<br>if operation finished successfully. 
 
 
 ### CreateRegistryMetadata {#CreateRegistryMetadata}
@@ -140,7 +169,7 @@ Field | Description
 registry_id | **string**<br>ID of the registry that is being created. 
 
 
-### Registry {#Registry2}
+### Registry {#Registry3}
 
 Field | Description
 --- | ---
@@ -162,7 +191,7 @@ Updates the specified registry.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateRegistryMetadata](#UpdateRegistryMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Registry](#Registry3)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Registry](#Registry4)<br>
 
 ### UpdateRegistryRequest {#UpdateRegistryRequest}
 
@@ -188,7 +217,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateRegistryMetadata](#UpdateRegistryMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Registry](#Registry3)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Registry](#Registry4)>**<br>if operation finished successfully. 
 
 
 ### UpdateRegistryMetadata {#UpdateRegistryMetadata}
@@ -198,7 +227,7 @@ Field | Description
 registry_id | **string**<br>ID of the registry that is being updated. 
 
 
-### Registry {#Registry3}
+### Registry {#Registry4}
 
 Field | Description
 --- | ---
@@ -543,7 +572,7 @@ Field | Description
 registry_id | **string**<br>Required. ID of the registry to list operations for. 
 page_size | **int64**<br>The maximum number of results per page that should be returned. If the number of available results is larger than `page_size`, the service returns a [ListRegistryOperationsResponse.next_page_token](#ListRegistryOperationsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListRegistryOperationsResponse.next_page_token](#ListRegistryOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br>A filter expression that filters resources listed in the response. Currently you can use filtering only on [Registry.name](#Registry4) field. The maximum string length in characters is 1000.
+filter | **string**<br>A filter expression that filters resources listed in the response. Currently you can use filtering only on [Registry.name](#Registry5) field. The maximum string length in characters is 1000.
 
 
 ### ListRegistryOperationsResponse {#ListRegistryOperationsResponse}

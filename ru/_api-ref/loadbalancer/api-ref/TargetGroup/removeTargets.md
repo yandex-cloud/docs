@@ -9,14 +9,14 @@ editable: false
  
 ## HTTP-запрос {#https-request}
 ```
-POST https://load-balancer.api.cloud.yandex.net/network-load-balancer/v1/targetGroups/{targetGroupId}:removeTargets
+POST https://load-balancer.api.cloud.yandex.net/load-balancer/v1/targetGroups/{targetGroupId}:removeTargets
 ```
  
 ## Path-параметры {#path_params}
  
 Параметр | Описание
 --- | ---
-targetGroupId | Обязательное поле. Идентификатор целевой группы из которой будут удалены целевые ресурсы.  Чтобы узнать идентификатор целевой группы, используйте запрос [list](/docs/network-load-balancer/api-ref/TargetGroup/list).  Максимальная длина строки в символах — 50.
+targetGroupId | Обязательное поле. Идентификатор целевой группы из которой будут удалены целевые ресурсы.  Чтобы узнать идентификатор целевой группы, используйте запрос [list](/docs/load-balancer/api-ref/TargetGroup/list).  Максимальная длина строки в символах — 50.
  
 ## Параметры в теле запроса {#body_params}
  
@@ -34,7 +34,7 @@ targetGroupId | Обязательное поле. Идентификатор ц
  
 Поле | Описание
 --- | ---
-targets[] | **object**<br><p>Ресурс Target. Подробнее см. в разделе <a href="/docs/network-load-balancer/target-resources">Целевые группы и ресурсы</a>.</p> 
+targets[] | **object**<br><p>Ресурс Target. Подробнее см. в разделе <a href="/docs/load-balancer/target-resources">Целевые группы и ресурсы</a>.</p> 
 targets[].<br>subnetId | **string**<br><p>Идентификатор подсети, к которой подключены целевые ресурсы. В пределах одной зоны доступности все ресурсы целевой группы должны быть подключены к одной подсети.</p> <p>Максимальная длина строки в символах — 50.</p> 
 targets[].<br>address | **string**<br><p>IP-адрес целевого ресурса.</p> 
  

@@ -9,7 +9,7 @@ editable: false
  
 ## HTTP-запрос {#https-request}
 ```
-GET https://mdb.api.cloud.yandex.net/managed-redis/v1alpha/resourcePresets
+GET https://mdb.api.cloud.yandex.net/managed-redis/v1/resourcePresets
 ```
  
 ## Query-параметры {#query_params}
@@ -30,7 +30,6 @@ pageToken | Токен страницы. Установите значение [
       "zoneIds": [
         "string"
       ],
-      "cores": "string",
       "memory": "string"
     }
   ],
@@ -44,6 +43,5 @@ pageToken | Токен страницы. Установите значение [
 resourcePresets[] | **object**<br><p>Набор ресурсов, который описывает конфигурацию хоста.</p> 
 resourcePresets[].<br>id | **string**<br><p>Идентификатор набора ресурсов.</p> 
 resourcePresets[].<br>zoneIds[] | **string**<br><p>Идентификаторы зон доступности, в которых доступен данный набор ресурсов.</p> 
-resourcePresets[].<br>cores | **string** (int64)<br><p>Количество vCPU для хоста Redis, созданного с данным набором ресурсов.</p> 
 resourcePresets[].<br>memory | **string** (int64)<br><p>Объем оперативной памяти для хоста Redis, созданного с данным набором ресурсов, в байтах.</p> 
 nextPageToken | **string**<br><p>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем <a href="/docs/managed-redis/api-ref/ResourcePreset/list#query_params">pageSize</a>, используйте <a href="/docs/managed-redis/api-ref/ResourcePreset/list#responses">nextPageToken</a> в качестве значения параметра <a href="/docs/managed-redis/api-ref/ResourcePreset/list#query_params">pageToken</a> в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения <a href="/docs/managed-redis/api-ref/ResourcePreset/list#responses">nextPageToken</a> для перебора страниц результатов.</p> 

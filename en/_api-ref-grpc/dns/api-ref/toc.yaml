@@ -1,7 +1,0 @@
-items:
-  - name: Overview
-    href: grpc/index.md
-  - name: DnsZoneService
-    href: grpc/dns_zone_service.md
-  - name: OperationService
-    href: grpc/operation_service.md

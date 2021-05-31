@@ -9,14 +9,14 @@ editable: false
  
 ## HTTP-запрос {#https-request}
 ```
-DELETE https://load-balancer.api.cloud.yandex.net/network-load-balancer/v1/targetGroups/{targetGroupId}
+DELETE https://load-balancer.api.cloud.yandex.net/load-balancer/v1/targetGroups/{targetGroupId}
 ```
  
 ## Path-параметры {#path_params}
  
 Параметр | Описание
 --- | ---
-targetGroupId | Обязательное поле. Идентификатор удаляемой целевой группы.  Чтобы узнать идентификатор целевой группы, используйте запрос [list](/docs/network-load-balancer/api-ref/TargetGroup/list).  Максимальная длина строки в символах — 50.
+targetGroupId | Обязательное поле. Идентификатор удаляемой целевой группы.  Чтобы узнать идентификатор целевой группы, используйте запрос [list](/docs/load-balancer/api-ref/TargetGroup/list).  Максимальная длина строки в символах — 50.
  
 ## Ответ {#responses}
 **HTTP Code: 200 - OK**

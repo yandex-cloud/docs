@@ -16,7 +16,7 @@ GET undefined/logging/v1/logGroups/default
  
 Parameter | Description
 --- | ---
-folderId | Required.
+folderId | Required. The maximum string length in characters is 64.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

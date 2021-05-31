@@ -63,7 +63,7 @@ items:
         items: null
         include:
           repo: docs
-          path: en/_api-ref-grpc/managed-elasticsearch/api-ref/toc.yaml
+          path: en/_api-ref-grpc/managed-elasticsearch/toc.yaml
       - name: REST
         items: null
         include:

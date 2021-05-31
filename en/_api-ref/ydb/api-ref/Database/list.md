@@ -102,6 +102,7 @@ pageToken | Page token. Set `page_token` to the `next_page_token` returned by a 
         ]
       },
       "documentApiEndpoint": "string",
+      "kinesisApiEndpoint": "string",
 
       // `databases[]` includes only one of the fields `zonalDatabase`, `regionalDatabase`, `dedicatedDatabase`, `serverlessDatabase`
       "zonalDatabase": {
@@ -189,6 +190,7 @@ databases[].<br>backupConfig.<br>backupSettings[].<br>sourcePaths[] | **string**
 databases[].<br>backupConfig.<br>backupSettings[].<br>sourcePathsToExclude[] | **string**<br><p>provide a list of paths to exclude from backup. Each path is a directory, table, or database. Each directory (or database) will be traversed recursively and all childs of directory will be excluded.</p> <p>The maximum number of elements is 256.</p> 
 databases[].<br>backupConfig.<br>backupSettings[].<br>type | **string**<br>
 databases[].<br>documentApiEndpoint | **string**<br>
+databases[].<br>kinesisApiEndpoint | **string**<br>
 databases[].<br>zonalDatabase | **object**<br>deprecated field <br>`databases[]` includes only one of the fields `zonalDatabase`, `regionalDatabase`, `dedicatedDatabase`, `serverlessDatabase`<br><br>
 databases[].<br>zonalDatabase.<br>zoneId | **string**<br><p>Required.</p> 
 databases[].<br>regionalDatabase | **object**<br>deprecated field <br>`databases[]` includes only one of the fields `zonalDatabase`, `regionalDatabase`, `dedicatedDatabase`, `serverlessDatabase`<br><br>

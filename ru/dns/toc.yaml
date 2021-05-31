@@ -49,7 +49,7 @@ items:
         items: null
         include:
           repo: docs
-          path: en/_api-ref-grpc/dns/api-ref/toc.yaml
+          path: en/_api-ref-grpc/dns/toc.yaml
       - name: REST
         items: null
         include:

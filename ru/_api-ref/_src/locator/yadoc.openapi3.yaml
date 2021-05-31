@@ -1,8 +1,7 @@
-openapi: '3.0'
+openapi: "3.0"
 info:
   title: Yandex Locator API
-  description: >-
-    Сервис не оперирует ресурсами. Все методы сервиса представлены на странице
+  description: Сервис не оперирует ресурсами. Все методы сервиса представлены на странице
     [Locator](Locator/).
   version: v1
   x-y-docUri: api-ref
@@ -11,13 +10,10 @@ paths:
   /locator/v1/getLocation:
     post:
       tags:
-        - Locator
-      summary: >-
-        Возвращает местоположение и радиус точности на основе информации об
-        IP-адресе,
-
-        вышках сотовой связи и точках доступа Wi-Fi, которые доступны мобильному
-        устройству.
+      - Locator
+      summary: |-
+        Возвращает местоположение и радиус точности на основе информации об IP-адресе,
+        вышках сотовой связи и точках доступа Wi-Fi, которые доступны мобильному устройству.
       operationId: LocatorGetLocation
       requestBody:
         content:
@@ -26,7 +22,7 @@ paths:
               $ref: '#/components/schemas/LocationRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -39,65 +35,42 @@ components:
       type: object
       properties:
         mobileCountryCode:
-          description: >-
+          description: |-
             Обязательное поле.
-
-            Mobile Country Code
-            ([MCC](https://en.wikipedia.org/wiki/Mobile_country_code)).
-
+            Mobile Country Code ([MCC](https://en.wikipedia.org/wiki/Mobile_country_code)).
 
             Допустимые значения — от 1 до 999 включительно.
           type: string
           format: int64
         mobileNetworkCode:
-          description: >-
+          description: |-
             Обязательное поле.
-
             Mobile Network Code сотовой вышки:
 
-
-            * Для сетей GSM и WCDMA —
-            [MNC](https://en.wikipedia.org/wiki/Mobile_country_code).
-
+            * Для сетей GSM и WCDMA — [MNC](https://en.wikipedia.org/wiki/Mobile_country_code).
             * Для CDMA — System ID (SID).
-
 
             Значение должно быть больше 0.
           type: string
           format: int64
         cellId:
-          description: >-
+          description: |-
             Обязательное поле.
-
             Уникальный идентификатор соты:
 
-
             * Для GSM — Cell ID ([CID](https://en.wikipedia.org/wiki/Cell_ID)).
-
             * Для CDMA — Base Station ID (BID).
-
-            * Для WCDMA — UTRAN Cell ID, который является объединением [Radio
-            Network
-            Controller](https://en.wikipedia.org/wiki/Radio_Network_Controller)
-            ID и Cell ID. Указание только значения Cell ID в сетях WCDMA может
-            возвращать неточные результаты.
-
+            * Для WCDMA — UTRAN Cell ID, который является объединением [Radio Network Controller](https://en.wikipedia.org/wiki/Radio_Network_Controller) ID и Cell ID. Указание только значения Cell ID в сетях WCDMA может возвращать неточные результаты.
 
             Значение должно быть больше 0.
           type: string
           format: int64
         locationAreaCode:
-          description: >-
+          description: |-
             Обязательное поле.
-
-            * Для GSM и WCDMA — Location Area Code
-            ([LAC](https://en.wikipedia.org/wiki/Mobility_management#Location_area)).
-
+            * Для GSM и WCDMA — Location Area Code ([LAC](https://en.wikipedia.org/wiki/Mobility_management#Location_area)).
             * Для CDMA — Network ID (NID).
-
-            * Для LTE — [Tracking Area
-            Code](https://en.wikipedia.org/wiki/Mobility_management#Tracking_area).
-
+            * Для LTE — [Tracking Area Code](https://en.wikipedia.org/wiki/Mobility_management#Tracking_area).
 
             Значение должно быть больше 0.
           type: string
@@ -122,10 +95,8 @@ components:
           type: number
           format: double
         precision:
-          description: >-
-            Предполагаемая погрешность расположения в метрах. Представляет собой
-            радиус
-
+          description: |-
+            Предполагаемая погрешность расположения в метрах. Представляет собой радиус
             окружности вокруг местоположения.
           type: number
           format: double
@@ -139,16 +110,10 @@ components:
       type: object
       properties:
         folderId:
-          description: >-
-            Идентификатор папки, к которой у вас есть доступ. Требуется для
-            авторизации с
-
-            пользовательским аккаунтом (см. ресурс
-            [UserAccount](/docs/iam/api-ref/UserAccount#representation) ). Не
-            используйте это поле,
-
+          description: |-
+            Идентификатор папки, к которой у вас есть доступ. Требуется для авторизации с
+            пользовательским аккаунтом (см. ресурс [UserAccount](/docs/iam/api-ref/UserAccount#representation) ). Не используйте это поле,
             если вы делаете запрос от имени сервисного аккаунта.
-
 
             Максимальная длина строки в символах — 50.
           type: string
@@ -168,33 +133,27 @@ components:
     LocationResponse:
       type: object
       allOf:
-        - title: response
-          type: object
-          maxProperties: 1
-          properties:
-            location:
-              $ref: '#/components/schemas/Location'
-              description: Примерное местоположение пользователя.
-            locationNotFound:
-              $ref: '#/components/schemas/LocationNotFound'
-              description: Описание ошибки, если местоположение пользователя не определено.
+      - title: response
+        type: object
+        maxProperties: 1
+        properties:
+          location:
+            $ref: '#/components/schemas/Location'
+            description: Примерное местоположение пользователя.
+          locationNotFound:
+            $ref: '#/components/schemas/LocationNotFound'
+            description: Описание ошибки, если местоположение пользователя не определено.
     WifiInfo:
       type: object
       properties:
         bssid:
-          description: >-
+          description: |-
             Обязательное поле.
+            MAC-адрес точки доступа WiFi. Обычно он называется BSS, BSSID или MAC-адресом.
 
-            MAC-адрес точки доступа WiFi. Обычно он называется BSS, BSSID или
-            MAC-адресом.
+            Значение - 12 шестнадцатеричных цифр без разделителей `:` (двоеточие).
 
-
-            Значение - 12 шестнадцатеричных цифр без разделителей `:`
-            (двоеточие).
-
-
-            Значение должно соответствовать регулярному выражению ``
-            [0-9a-fA-F]{12} ``.
+            Значение должно соответствовать регулярному выражению `` [0-9a-fA-F]{12} ``.
           type: string
         signalStrength:
           description: |-
@@ -205,5 +164,5 @@ components:
           type: string
           format: int64
 tags:
-  - name: Locator
-    description: Набор методов для сервиса Yandex Locator.
+- name: Locator
+  description: Набор методов для сервиса Yandex Locator.

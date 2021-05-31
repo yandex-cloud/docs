@@ -16,7 +16,7 @@ PATCH undefined/logging/v1/logGroups/{logGroupId}
  
 Parameter | Description
 --- | ---
-logGroupId | Required.
+logGroupId | Required. The maximum string length in characters is 64.
  
 ## Body parameters {#body_params}
  

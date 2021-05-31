@@ -1,0 +1,13 @@
+items:
+  - name: Обзор
+    href: api-ref/grpc/index.md
+  - name: AddressService
+    href: api-ref/grpc/address_service.md
+  - name: NetworkService
+    href: api-ref/grpc/network_service.md
+  - name: RouteTableService
+    href: api-ref/grpc/route_table_service.md
+  - name: SubnetService
+    href: api-ref/grpc/subnet_service.md
+  - name: OperationService
+    href: api-ref/grpc/operation_service.md

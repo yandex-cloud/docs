@@ -1,11 +1,9 @@
-openapi: '3.0'
+openapi: "3.0"
 info:
   title: Yandex Virtual Private Cloud API
-  description: >-
-    Методы справочника API сгруппированы по ресурсам. Чтобы выполнить операцию
-    над ресурсом, отправьте HTTP-запрос к соответствующему URL или выполните
-    RPC-вызов. Подробнее об архитектуре API Яндекс.Облака, см. [Концепции API
-    Яндекс.Облака](/docs/api-design-guide/).
+  description: Методы справочника API сгруппированы по ресурсам. Чтобы выполнить операцию
+    над ресурсом, отправьте HTTP-запрос к соответствующему URL или выполните RPC-вызов.
+    Подробнее об архитектуре API Яндекс.Облака, см. [Концепции API Яндекс.Облака](/docs/api-design-guide/).
   version: v1
   x-y-docUri: api-ref
   x-y-baseUrl: https://vpc.api.cloud.yandex.net
@@ -13,31 +11,25 @@ paths:
   /vpc/v1/addresses/{addressId}:
     get:
       tags:
-        - Address
+      - Address
       summary: Возвращает информацию об указанном адресе.
-      description: >-
-        Чтобы получить список доступных адресов, используйте запрос
-        [list](/docs/vpc/api-ref/Address/list).
+      description: Чтобы получить список доступных адресов, используйте запрос [list](/docs/vpc/api-ref/Address/list).
       operationId: AddressGet
       parameters:
-        - name: addressId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: addressId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор возвращаемого адреса.
 
-            Идентификатор возвращаемого адреса.
+          Чтобы получить идентификатор адреса, используйте запрос [list](/docs/vpc/api-ref/Address/list).
 
-
-            Чтобы получить идентификатор адреса, используйте запрос
-            [list](/docs/vpc/api-ref/Address/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -46,28 +38,24 @@ paths:
       x-y-navtitle: get
     delete:
       tags:
-        - Address
+      - Address
       summary: Удаляет указанный адрес.
       operationId: AddressDelete
       parameters:
-        - name: addressId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: addressId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор адреса, который следует удалить.
 
-            Идентификатор адреса, который следует удалить.
+          Чтобы получить идентификатор адреса, используйте запрос [list](/docs/vpc/api-ref/Address/list).
 
-
-            Чтобы получить идентификатор адреса, используйте запрос
-            [list](/docs/vpc/api-ref/Address/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -79,26 +67,22 @@ paths:
       x-y-operation-response: Empty
     patch:
       tags:
-        - Address
+      - Address
       summary: Обновляет параметры указанного адреса.
       operationId: AddressUpdate
       parameters:
-        - name: addressId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: addressId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор обновляемого адреса.
 
-            Идентификатор обновляемого адреса.
+          Для получения идентификатора адреса используйте запрос [list](/docs/vpc/api-ref/Address/list).
 
-
-            Для получения идентификатора адреса используйте запрос
-            [list](/docs/vpc/api-ref/Address/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -106,7 +90,7 @@ paths:
               $ref: '#/components/schemas/UpdateAddressRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -119,19 +103,17 @@ paths:
   /vpc/v1/addresses:byValue:
     get:
       tags:
-        - Address
+      - Address
       summary: Возвращает информацию об указанном адресе по его значению.
-      description: >-
-        Чтобы получить список доступных адресов, используйте запрос
-        [list](/docs/vpc/api-ref/Address/list).
+      description: Чтобы получить список доступных адресов, используйте запрос [list](/docs/vpc/api-ref/Address/list).
       operationId: AddressGetByValue
       parameters:
-        - name: externalIpv4Address
-          in: query
-          schema:
-            type: string
+      - name: externalIpv4Address
+        in: query
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -141,77 +123,53 @@ paths:
   /vpc/v1/addresses:
     get:
       tags:
-        - Address
+      - Address
       summary: Возвращает список доступных адресов в указанном каталоге.
       operationId: AddressList
       parameters:
-        - name: folderId
-          in: query
-          description: >-
-            Обязательное поле.
+      - name: folderId
+        in: query
+        description: |-
+          Обязательное поле.
+          Идентификатор каталога, которому принадлежит адрес.
 
-            Идентификатор каталога, которому принадлежит адрес.
+          Чтобы получить идентификатор каталога, используйте запрос [list](/docs/resource-manager/api-ref/Folder/list).
 
+          Максимальная длина строки в символах — 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: "Максимальное количество результатов на странице ответа на запрос.
+          Если количество результатов \nбольше чем `page_size`, сервис вернет значение
+          [nextPageToken](/docs/vpc/api-ref/Address/list#responses),\nкоторое можно
+          использовать для получения следующей страницы.\nЗначение по умолчанию: 100.\n\nМаксимальное
+          значение — 1000."
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение `page_token` равным значению поля [nextPageToken](/docs/vpc/api-ref/Address/list#responses)
+          предыдущего запроса, чтобы получить следующую страницу результатов.
 
-            Чтобы получить идентификатор каталога, используйте запрос
-            [list](/docs/resource-manager/api-ref/Folder/list).
-
-
-            Максимальная длина строки в символах — 50.
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            Максимальное количество результатов на странице ответа на запрос.
-            Если количество результатов 
-
-            больше чем `page_size`, сервис вернет значение
-            [nextPageToken](/docs/vpc/api-ref/Address/list#responses),
-
-            которое можно использовать для получения следующей страницы.
-
-            Значение по умолчанию: 100.
-
-
-            Максимальное значение — 1000.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Токен страницы. Установите значение `page_token` равным значению
-            поля [nextPageToken](/docs/vpc/api-ref/Address/list#responses)
-
-            предыдущего запроса, чтобы получить следующую страницу результатов.
-
-
-            Максимальная длина строки в символах — 100.
-          schema:
-            type: string
-        - name: filter
-          in: query
-          description: >-
-            Параметры фильтрации адресов в ответе.
-
-
-            В параметрах фильтрации указываются: 
-
-            1. Имя поля. В настоящее время фильтрация осуществляется только по
-            полю [Address.name](/docs/vpc/api-ref/Address#representation). 
-
-            2. Оператор. Поддерживаются операторы `=` и `!=` для одиночных
-            значений, `IN` и `NOT IN` для списков значений.
-
-            3. Значение. Значение длиной от 3 до 63 символов, совпадающее с
-            регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]`. 
-
-            Пример фильтра: "name=my-address".
-          schema:
-            type: string
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: "Параметры фильтрации адресов в ответе.\n\nВ параметрах фильтрации
+          указываются: \n1. Имя поля. В настоящее время фильтрация осуществляется
+          только по полю [Address.name](/docs/vpc/api-ref/Address#representation).
+          \n2. Оператор. Поддерживаются операторы `=` и `!=` для одиночных значений,
+          `IN` и `NOT IN` для списков значений.\n3. Значение. Значение длиной от 3
+          до 63 символов, совпадающее с регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]`.
+          \nПример фильтра: \"name=my-address\"."
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -220,7 +178,7 @@ paths:
       x-y-navtitle: list
     post:
       tags:
-        - Address
+      - Address
       summary: Создает адрес в указанном каталоге и сети.
       operationId: AddressCreate
       requestBody:
@@ -230,7 +188,7 @@ paths:
               $ref: '#/components/schemas/CreateAddressRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -243,62 +201,43 @@ paths:
   /vpc/v1/addresses/{addressId}/operations:
     get:
       tags:
-        - Address
+      - Address
       summary: Возвращает список операций указанного адреса.
       operationId: AddressListOperations
       parameters:
-        - name: addressId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: addressId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор адреса для которого запрашивается список операций.
 
-            Идентификатор адреса для которого запрашивается список операций.
+          Чтобы получить идентификатор адреса, используйте запрос [list](/docs/vpc/api-ref/Address/list).
 
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: "Максимальное количество результатов на странице ответа на запрос.
+          Если количество результатов \nбольше чем [pageSize](/docs/vpc/api-ref/Address/listOperations#query_params),
+          сервис вернет значение [nextPageToken](/docs/vpc/api-ref/Address/listOperations#responses),\nкоторое
+          можно использовать для получения следующей страницы.\nЗначение по умолчанию:
+          100.\n\nМаксимальное значение — 1000."
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение [pageToken](/docs/vpc/api-ref/Address/listOperations#query_params) равным значению поля [nextPageToken](/docs/vpc/api-ref/Address/listOperations#responses)
+          предыдущего запроса, чтобы получить следующую страницу результатов.
 
-            Чтобы получить идентификатор адреса, используйте запрос
-            [list](/docs/vpc/api-ref/Address/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            Максимальное количество результатов на странице ответа на запрос.
-            Если количество результатов 
-
-            больше чем
-            [pageSize](/docs/vpc/api-ref/Address/listOperations#query_params),
-            сервис вернет значение
-            [nextPageToken](/docs/vpc/api-ref/Address/listOperations#responses),
-
-            которое можно использовать для получения следующей страницы.
-
-            Значение по умолчанию: 100.
-
-
-            Максимальное значение — 1000.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Токен страницы. Установите значение
-            [pageToken](/docs/vpc/api-ref/Address/listOperations#query_params)
-            равным значению поля
-            [nextPageToken](/docs/vpc/api-ref/Address/listOperations#responses)
-
-            предыдущего запроса, чтобы получить следующую страницу результатов.
-
-
-            Максимальная длина строки в символах — 100.
-          schema:
-            type: string
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -308,30 +247,26 @@ paths:
   /vpc/v1/networks/{networkId}:
     get:
       tags:
-        - Network
+      - Network
       summary: Возвращает указанный ресурс Network.
       description: |-
         Чтобы получить список доступных ресурсов Network, используйте
         запрос [list](/docs/vpc/api-ref/Network/list).
       operationId: NetworkGet
       parameters:
-        - name: networkId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: networkId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор возвращаемого ресурса Network. Чтобы получить
+          идентификатор облачной сети, используйте запрос [list](/docs/vpc/api-ref/Network/list).
 
-            Идентификатор возвращаемого ресурса Network. Чтобы получить
-
-            идентификатор облачной сети, используйте запрос
-            [list](/docs/vpc/api-ref/Network/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -340,27 +275,20 @@ paths:
       x-y-navtitle: get
     delete:
       tags:
-        - Network
+      - Network
       summary: Удаляет указанную облачную сеть.
       operationId: NetworkDelete
       parameters:
-        - name: networkId
-          in: path
-          description: >-
-            Обязательное поле.
-
-            Идентификатор обновляемого ресурса Network. 
-
-            Чтобы получить идентификатор облачной сети, используйте запрос
-            [list](/docs/vpc/api-ref/Network/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+      - name: networkId
+        in: path
+        description: "Обязательное поле.\nИдентификатор обновляемого ресурса Network.
+          \nЧтобы получить идентификатор облачной сети, используйте запрос [list](/docs/vpc/api-ref/Network/list).\n\nМаксимальная
+          длина строки в символах — 50."
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -372,28 +300,21 @@ paths:
       x-y-operation-response: Empty
     patch:
       tags:
-        - Network
+      - Network
       summary: |-
         Обновляет параметры указанной облачной сети. Метод запускает
         асинхронную операцию, которую можно отменить перед тем, как
         она завершится.
       operationId: NetworkUpdate
       parameters:
-        - name: networkId
-          in: path
-          description: >-
-            Обязательное поле.
-
-            Идентификатор обновляемого ресурса Network. 
-
-            Для получения идентификатора облачной сети используйте запрос
-            [list](/docs/vpc/api-ref/Network/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+      - name: networkId
+        in: path
+        description: "Обязательное поле.\nИдентификатор обновляемого ресурса Network.
+          \nДля получения идентификатора облачной сети используйте запрос [list](/docs/vpc/api-ref/Network/list).\n\nМаксимальная
+          длина строки в символах — 50."
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -401,7 +322,7 @@ paths:
               $ref: '#/components/schemas/UpdateNetworkRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -414,80 +335,57 @@ paths:
   /vpc/v1/networks:
     get:
       tags:
-        - Network
+      - Network
       summary: |-
         Возвращает список доступных ресурсов Network в указанном
         каталоге.
       operationId: NetworkList
       parameters:
-        - name: folderId
-          in: query
-          description: |-
-            Обязательное поле.
-            Идентификатор каталога для получения списка облачных сетей.
-            Чтобы получить идентификатор каталога, используйте запрос
-            [list](/docs/resource-manager/api-ref/Folder/list).
+      - name: folderId
+        in: query
+        description: |-
+          Обязательное поле.
+          Идентификатор каталога для получения списка облачных сетей.
+          Чтобы получить идентификатор каталога, используйте запрос
+          [list](/docs/resource-manager/api-ref/Folder/list).
 
-            Максимальная длина строки в символах — 50.
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            Максимальное количество результатов на странице ответа на запрос.
-            Если количество результатов
+          Максимальная длина строки в символах — 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: "Максимальное количество результатов на странице ответа на запрос.
+          Если количество результатов\nбольше чем [pageSize](/docs/vpc/api-ref/Network/list#query_params),
+          сервис вернет значение [nextPageToken](/docs/vpc/api-ref/Network/list#responses),
+          \nкоторое можно использовать для получения следующей страницы. \nЗначение
+          по умолчанию: 100.\n\nМаксимальное значение — 1000."
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение [pageToken](/docs/vpc/api-ref/Network/list#query_params) равным значению
+          поля [nextPageToken](/docs/vpc/api-ref/Network/list#responses) прошлого запроса, чтобы получить
+          следующую страницу результатов.
 
-            больше чем [pageSize](/docs/vpc/api-ref/Network/list#query_params),
-            сервис вернет значение
-            [nextPageToken](/docs/vpc/api-ref/Network/list#responses), 
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          Параметры фильтрации ресурсов в ответе. В параметрах
+          фильтрации указываются:
+          1. Имя поля. В настоящее время фильтрация осуществляется только по полю [Network.name](/docs/vpc/api-ref/Network#representation).
+          2. Оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений.
+          3. Значение. Значение длиной от 3 до 63 символов, совпадающее с регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.
 
-            которое можно использовать для получения следующей страницы. 
-
-            Значение по умолчанию: 100.
-
-
-            Максимальное значение — 1000.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Токен страницы. Установите значение
-            [pageToken](/docs/vpc/api-ref/Network/list#query_params) равным
-            значению
-
-            поля [nextPageToken](/docs/vpc/api-ref/Network/list#responses)
-            прошлого запроса, чтобы получить
-
-            следующую страницу результатов.
-
-
-            Максимальная длина строки в символах — 100.
-          schema:
-            type: string
-        - name: filter
-          in: query
-          description: >-
-            Параметры фильтрации ресурсов в ответе. В параметрах
-
-            фильтрации указываются:
-
-            1. Имя поля. В настоящее время фильтрация осуществляется только по
-            полю [Network.name](/docs/vpc/api-ref/Network#representation).
-
-            2. Оператор. Операторы `=` или `!=` для одиночных значений, `IN` или
-            `NOT IN` для списков значений.
-
-            3. Значение. Значение длиной от 3 до 63 символов, совпадающее с
-            регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.
-
-
-            Максимальная длина строки в символах — 1000.
-          schema:
-            type: string
+          Максимальная длина строки в символах — 1000.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -496,7 +394,7 @@ paths:
       x-y-navtitle: list
     post:
       tags:
-        - Network
+      - Network
       summary: |-
         Создает облачную сеть в указанном каталоге. Метод запускает
         асинхронную операцию, которую можно отменить перед тем, как
@@ -509,7 +407,7 @@ paths:
               $ref: '#/components/schemas/CreateNetworkRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -522,57 +420,40 @@ paths:
   /vpc/v1/networks/{networkId}/subnets:
     get:
       tags:
-        - Network
+      - Network
       summary: Возвращает список доступных подсетей в указанной облачной сети.
       operationId: NetworkListSubnets
       parameters:
-        - name: networkId
-          in: path
-          description: |-
-            Обязательное поле.
-            Идентификатор ресурса Network для получения списка подсетей.
+      - name: networkId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор ресурса Network для получения списка подсетей.
 
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            Максимальное количество результатов на странице ответа на запрос.
-            Если количество результатов
-
-            больше чем
-            [pageSize](/docs/vpc/api-ref/Network/listSubnets#query_params), 
-
-            сервис вернет значение
-            [nextPageToken](/docs/vpc/api-ref/Network/listSubnets#responses), 
-
-            которое можно использовать для получения следующей страницы. 
-
-            Значение по умолчанию: 100.
-
-
-            Максимальное значение — 1000.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Токен страницы. Установите значение
-            [pageToken](/docs/vpc/api-ref/Network/listSubnets#query_params)
-            равным значению поля
-            [nextPageToken](/docs/vpc/api-ref/Network/listSubnets#responses) 
-
-            прошлого запроса, чтобы получить следующую страницу результатов.
-
-
-            Максимальная длина строки в символах — 100.
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: "Максимальное количество результатов на странице ответа на запрос.
+          Если количество результатов\nбольше чем [pageSize](/docs/vpc/api-ref/Network/listSubnets#query_params),
+          \nсервис вернет значение [nextPageToken](/docs/vpc/api-ref/Network/listSubnets#responses),
+          \nкоторое можно использовать для получения следующей страницы. \nЗначение
+          по умолчанию: 100.\n\nМаксимальное значение — 1000."
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: "Токен страницы. Установите значение [pageToken](/docs/vpc/api-ref/Network/listSubnets#query_params)
+          равным значению поля [nextPageToken](/docs/vpc/api-ref/Network/listSubnets#responses)
+          \nпрошлого запроса, чтобы получить следующую страницу результатов.\n\nМаксимальная
+          длина строки в символах — 100."
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -582,59 +463,40 @@ paths:
   /vpc/v1/networks/{networkId}/operations:
     get:
       tags:
-        - Network
+      - Network
       summary: Возвращает список операций для указанной облачной сети.
       operationId: NetworkListOperations
       parameters:
-        - name: networkId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: networkId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор ресурса Network, для которого запрашивается список операций.
 
-            Идентификатор ресурса Network, для которого запрашивается список
-            операций.
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            Максимальное количество результатов на странице ответа на запрос.
-            Если количество результатов 
-
-            больше чем
-            [pageSize](/docs/vpc/api-ref/Network/listOperations#query_params),
-            сервис вернет значение
-            [nextPageToken](/docs/vpc/api-ref/Network/listOperations#responses), 
-
-            которое можно использовать для получения следующей страницы. 
-
-            Значение по умолчанию: 100.
-
-
-            Максимальное значение — 1000.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Токен страницы. Установите значение
-            [pageToken](/docs/vpc/api-ref/Network/listOperations#query_params)
-            равным значению поля
-            [nextPageToken](/docs/vpc/api-ref/Network/listOperations#responses) 
-
-            прошлого запроса, чтобы получить следующую страницу результатов.
-
-
-            Максимальная длина строки в символах — 100.
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: "Максимальное количество результатов на странице ответа на запрос.
+          Если количество результатов \nбольше чем [pageSize](/docs/vpc/api-ref/Network/listOperations#query_params),
+          сервис вернет значение [nextPageToken](/docs/vpc/api-ref/Network/listOperations#responses),
+          \nкоторое можно использовать для получения следующей страницы. \nЗначение
+          по умолчанию: 100.\n\nМаксимальное значение — 1000."
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: "Токен страницы. Установите значение [pageToken](/docs/vpc/api-ref/Network/listOperations#query_params)
+          равным значению поля [nextPageToken](/docs/vpc/api-ref/Network/listOperations#responses)
+          \nпрошлого запроса, чтобы получить следующую страницу результатов.\n\nМаксимальная
+          длина строки в символах — 100."
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -644,31 +506,25 @@ paths:
   /vpc/v1/routeTables/{routeTableId}:
     get:
       tags:
-        - RouteTable
+      - RouteTable
       summary: Возвращает указанную таблицу маршрутизации.
-      description: >-
-        Чтобы получить список доступных таблиц маршрутизации, используйте запрос
-        [list](/docs/vpc/api-ref/RouteTable/list).
+      description: Чтобы получить список доступных таблиц маршрутизации, используйте
+        запрос [list](/docs/vpc/api-ref/RouteTable/list).
       operationId: RouteTableGet
       parameters:
-        - name: routeTableId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: routeTableId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор возвращаемой таблицы маршрутизации. Для получения идентификатора
+          таблицы маршрутизации используйте запрос [list](/docs/vpc/api-ref/RouteTable/list) .
 
-            Идентификатор возвращаемой таблицы маршрутизации. Для получения
-            идентификатора
-
-            таблицы маршрутизации используйте запрос
-            [list](/docs/vpc/api-ref/RouteTable/list) .
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -677,28 +533,23 @@ paths:
       x-y-navtitle: get
     delete:
       tags:
-        - RouteTable
+      - RouteTable
       summary: Удаляет указанную таблицу маршрутизации.
       operationId: RouteTableDelete
       parameters:
-        - name: routeTableId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: routeTableId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор удаляемой таблицы маршрутизации. Для получения идентификатора
+          таблицы маршрутизации используйте запрос [list](/docs/vpc/api-ref/RouteTable/list).
 
-            Идентификатор удаляемой таблицы маршрутизации. Для получения
-            идентификатора
-
-            таблицы маршрутизации используйте запрос
-            [list](/docs/vpc/api-ref/RouteTable/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -710,24 +561,22 @@ paths:
       x-y-operation-response: Empty
     patch:
       tags:
-        - RouteTable
-      summary: >-
-        Обновляет указанную таблицу маршрутизации. Метод запускает асинхронную
-        операцию,
-
+      - RouteTable
+      summary: |-
+        Обновляет указанную таблицу маршрутизации. Метод запускает асинхронную операцию,
         которую можно отменить перед тем, как она завершится.
       operationId: RouteTableUpdate
       parameters:
-        - name: routeTableId
-          in: path
-          description: |-
-            Обязательное поле.
-            Идентификатор обновляемой таблицы маршрутизации.
+      - name: routeTableId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор обновляемой таблицы маршрутизации.
 
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -735,7 +584,7 @@ paths:
               $ref: '#/components/schemas/UpdateRouteTableRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -748,82 +597,53 @@ paths:
   /vpc/v1/routeTables:
     get:
       tags:
-        - RouteTable
+      - RouteTable
       summary: Возвращает список доступных таблиц маршрутизации в указанном каталоге.
       operationId: RouteTableList
       parameters:
-        - name: folderId
-          in: query
-          description: >-
-            Обязательное поле.
+      - name: folderId
+        in: query
+        description: |-
+          Обязательное поле.
+          Идентификатор каталога, к которому принадлежит таблица маршрутизации. Чтобы
+          получить идентификатор каталога, используйте запрос [list](/docs/resource-manager/api-ref/Folder/list).
 
-            Идентификатор каталога, к которому принадлежит таблица
-            маршрутизации. Чтобы
+          Максимальная длина строки в символах — 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: "Максимальное количество результатов на странице ответа на запрос.
+          Если количество\nрезультатов больше чем [pageSize](/docs/vpc/api-ref/RouteTable/list#query_params)
+          , сервис вернет значение [nextPageToken](/docs/vpc/api-ref/RouteTable/list#responses),\nкоторое
+          можно использовать для получения следующей страницы. \nЗначение по умолчанию:
+          100.\n\nМаксимальное значение — 1000."
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение [pageToken](/docs/vpc/api-ref/RouteTable/list#query_params) равным значению поля
+          [nextPageToken](/docs/vpc/api-ref/RouteTable/list#responses) предыдущего запроса, чтобы получить следующую страницу
+          результатов.
 
-            получить идентификатор каталога, используйте запрос
-            [list](/docs/resource-manager/api-ref/Folder/list).
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          Параметры фильтрации ресурсов в ответе. В параметрах фильтрации указываются:
+          1. Имя поля. В настоящее время фильтрация осуществляется только по полю [RouteTable.name](/docs/vpc/api-ref/RouteTable#representation).
+          2. Оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений.
+          3. Значение. Значение длиной от 3 до 63 символов, совпадающее с регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.
 
-
-            Максимальная длина строки в символах — 50.
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            Максимальное количество результатов на странице ответа на запрос.
-            Если количество
-
-            результатов больше чем
-            [pageSize](/docs/vpc/api-ref/RouteTable/list#query_params) , сервис
-            вернет значение
-            [nextPageToken](/docs/vpc/api-ref/RouteTable/list#responses),
-
-            которое можно использовать для получения следующей страницы. 
-
-            Значение по умолчанию: 100.
-
-
-            Максимальное значение — 1000.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Токен страницы. Установите значение
-            [pageToken](/docs/vpc/api-ref/RouteTable/list#query_params) равным
-            значению поля
-
-            [nextPageToken](/docs/vpc/api-ref/RouteTable/list#responses)
-            предыдущего запроса, чтобы получить следующую страницу
-
-            результатов.
-
-
-            Максимальная длина строки в символах — 100.
-          schema:
-            type: string
-        - name: filter
-          in: query
-          description: >-
-            Параметры фильтрации ресурсов в ответе. В параметрах фильтрации
-            указываются:
-
-            1. Имя поля. В настоящее время фильтрация осуществляется только по
-            полю [RouteTable.name](/docs/vpc/api-ref/RouteTable#representation).
-
-            2. Оператор. Операторы `=` или `!=` для одиночных значений, `IN` или
-            `NOT IN` для списков значений.
-
-            3. Значение. Значение длиной от 3 до 63 символов, совпадающее с
-            регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.
-
-
-            Максимальная длина строки в символах — 1000.
-          schema:
-            type: string
+          Максимальная длина строки в символах — 1000.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -832,13 +652,10 @@ paths:
       x-y-navtitle: list
     post:
       tags:
-        - RouteTable
-      summary: >-
-        Создает таблицу маршрутизации в указанных каталоге и сети. Метод
-        запускает
-
-        асинхронную операцию, которую можно отменить перед тем, как она
-        завершится.
+      - RouteTable
+      summary: |-
+        Создает таблицу маршрутизации в указанных каталоге и сети. Метод запускает
+        асинхронную операцию, которую можно отменить перед тем, как она завершится.
       operationId: RouteTableCreate
       requestBody:
         content:
@@ -847,7 +664,7 @@ paths:
               $ref: '#/components/schemas/CreateRouteTableRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -860,61 +677,40 @@ paths:
   /vpc/v1/routeTables/{routeTableId}/operations:
     get:
       tags:
-        - RouteTable
+      - RouteTable
       summary: Возвращает список операций для указанной таблицы маршрутизации.
       operationId: RouteTableListOperations
       parameters:
-        - name: routeTableId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: routeTableId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор таблицы маршрутизации, для которой запрашивается список операций.
 
-            Идентификатор таблицы маршрутизации, для которой запрашивается
-            список операций.
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            Максимальное число возвращаемых результатов на странице. Если
-            количество
-
-            результатов больше чем
-            [pageSize](/docs/vpc/api-ref/RouteTable/listOperations#query_params)
-            , сервис вернет значение
-            [nextPageToken](/docs/vpc/api-ref/RouteTable/listOperations#responses),
-
-            которое можно использовать для получения следующей страницы. 
-
-            Значение по умолчанию: 100.
-
-
-            Максимальное значение — 1000.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Токен страницы. Установите значение
-            [pageToken](/docs/vpc/api-ref/RouteTable/listOperations#query_params)
-            равным значению поля
-
-            [nextPageToken](/docs/vpc/api-ref/RouteTable/listOperations#responses)
-            предыдущего запроса, 
-
-            чтобы получить следующую страницу результатов.
-
-
-            Максимальная длина строки в символах — 100.
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: "Максимальное число возвращаемых результатов на странице. Если
+          количество\nрезультатов больше чем [pageSize](/docs/vpc/api-ref/RouteTable/listOperations#query_params)
+          , сервис вернет значение [nextPageToken](/docs/vpc/api-ref/RouteTable/listOperations#responses),\nкоторое
+          можно использовать для получения следующей страницы. \nЗначение по умолчанию:
+          100.\n\nМаксимальное значение — 1000."
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: "Токен страницы. Установите значение [pageToken](/docs/vpc/api-ref/RouteTable/listOperations#query_params)
+          равным значению поля\n[nextPageToken](/docs/vpc/api-ref/RouteTable/listOperations#responses)
+          предыдущего запроса, \nчтобы получить следующую страницу результатов.\n\nМаксимальная
+          длина строки в символах — 100."
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -924,31 +720,21 @@ paths:
   /vpc/v1/subnets/{subnetId}:
     get:
       tags:
-        - Subnet
+      - Subnet
       summary: Возвращает указанный ресурс Subnet.
-      description: >-
-        Чтобы получить список доступных подсетей, используйте запрос
-        [list](/docs/vpc/api-ref/Subnet/list).
+      description: Чтобы получить список доступных подсетей, используйте запрос [list](/docs/vpc/api-ref/Subnet/list).
       operationId: SubnetGet
       parameters:
-        - name: subnetId
-          in: path
-          description: >-
-            Обязательное поле.
-
-            Идентификатор возвращаемого ресурса Subnet. 
-
-
-            Чтобы получить идентификатор подсети, используйте запрос
-            [list](/docs/vpc/api-ref/Subnet/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+      - name: subnetId
+        in: path
+        description: "Обязательное поле.\nИдентификатор возвращаемого ресурса Subnet.
+          \n\nЧтобы получить идентификатор подсети, используйте запрос [list](/docs/vpc/api-ref/Subnet/list).\n\nМаксимальная
+          длина строки в символах — 50."
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -957,27 +743,20 @@ paths:
       x-y-navtitle: get
     delete:
       tags:
-        - Subnet
+      - Subnet
       summary: Удаляет указанную подсеть.
       operationId: SubnetDelete
       parameters:
-        - name: subnetId
-          in: path
-          description: >-
-            Обязательное поле.
-
-            Идентификатор удаляемой подсети. 
-
-            Чтобы получить идентификатор подсети, используйте запрос
-            [list](/docs/vpc/api-ref/Subnet/list).
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+      - name: subnetId
+        in: path
+        description: "Обязательное поле.\nИдентификатор удаляемой подсети. \nЧтобы
+          получить идентификатор подсети, используйте запрос [list](/docs/vpc/api-ref/Subnet/list).\n\nМаксимальная
+          длина строки в символах — 50."
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -989,24 +768,21 @@ paths:
       x-y-operation-response: Empty
     patch:
       tags:
-        - Subnet
-      summary: >-
-        Обновляет параметры указанной подсети. 
-
-        Метод запускает асинхронную операцию, которую можно отменить перед тем,
-        как она завершится.
+      - Subnet
+      summary: "Обновляет параметры указанной подсети. \nМетод запускает асинхронную
+        операцию, которую можно отменить перед тем, как она завершится."
       operationId: SubnetUpdate
       parameters:
-        - name: subnetId
-          in: path
-          description: |-
-            Обязательное поле.
-            Идентификатор обновляемого ресурса Subnet.
+      - name: subnetId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор обновляемого ресурса Subnet.
 
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -1014,7 +790,7 @@ paths:
               $ref: '#/components/schemas/UpdateSubnetRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1027,79 +803,49 @@ paths:
   /vpc/v1/subnets:
     get:
       tags:
-        - Subnet
+      - Subnet
       summary: Возвращает список доступных подсетей в указанном каталоге.
       operationId: SubnetList
       parameters:
-        - name: folderId
-          in: query
-          description: >-
-            Обязательное поле.
+      - name: folderId
+        in: query
+        description: "Обязательное поле.\nИдентификатор каталога для получения списка
+          подсетей. \nЧтобы получить идентификатор каталога, используйте запрос [list](/docs/resource-manager/api-ref/Folder/list).\n\nМаксимальная
+          длина строки в символах — 50."
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: "Максимальное количество результатов на странице ответа на запрос.
+          Если количество результатов \nбольше чем [pageSize](/docs/vpc/api-ref/Subnet/list#query_params),
+          сервис вернет значение [nextPageToken](/docs/vpc/api-ref/Subnet/list#responses),
+          \nкоторое можно использовать для получения следующей страницы. \nЗначение
+          по умолчанию: 100.\n\nМаксимальное значение — 1000."
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: "Токен страницы. Установите значение [pageToken](/docs/vpc/api-ref/Subnet/list#query_params)
+          равным значению поля [nextPageToken](/docs/vpc/api-ref/Subnet/list#responses)
+          \nпрошлого запроса, чтобы получить следующую страницу результатов.\n\nМаксимальная
+          длина строки в символах — 100."
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          Параметры фильтрации ресурсов в ответе. В параметрах
+          фильтрации указываются:
+          1. Имя поля. В настоящее время фильтрация осуществляется только по полю [Subnet.name](/docs/vpc/api-ref/Subnet#representation).
+          2. Оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений.
+          3. Значение. Значение длиной от 3 до 63 символов, совпадающее с регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.
 
-            Идентификатор каталога для получения списка подсетей. 
-
-            Чтобы получить идентификатор каталога, используйте запрос
-            [list](/docs/resource-manager/api-ref/Folder/list).
-
-
-            Максимальная длина строки в символах — 50.
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            Максимальное количество результатов на странице ответа на запрос.
-            Если количество результатов 
-
-            больше чем [pageSize](/docs/vpc/api-ref/Subnet/list#query_params),
-            сервис вернет значение
-            [nextPageToken](/docs/vpc/api-ref/Subnet/list#responses), 
-
-            которое можно использовать для получения следующей страницы. 
-
-            Значение по умолчанию: 100.
-
-
-            Максимальное значение — 1000.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Токен страницы. Установите значение
-            [pageToken](/docs/vpc/api-ref/Subnet/list#query_params) равным
-            значению поля
-            [nextPageToken](/docs/vpc/api-ref/Subnet/list#responses) 
-
-            прошлого запроса, чтобы получить следующую страницу результатов.
-
-
-            Максимальная длина строки в символах — 100.
-          schema:
-            type: string
-        - name: filter
-          in: query
-          description: >-
-            Параметры фильтрации ресурсов в ответе. В параметрах
-
-            фильтрации указываются:
-
-            1. Имя поля. В настоящее время фильтрация осуществляется только по
-            полю [Subnet.name](/docs/vpc/api-ref/Subnet#representation).
-
-            2. Оператор. Операторы `=` или `!=` для одиночных значений, `IN` или
-            `NOT IN` для списков значений.
-
-            3. Значение. Значение длиной от 3 до 63 символов, совпадающее с
-            регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.
-
-
-            Максимальная длина строки в символах — 1000.
-          schema:
-            type: string
+          Максимальная длина строки в символах — 1000.
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1108,12 +854,9 @@ paths:
       x-y-navtitle: list
     post:
       tags:
-        - Subnet
-      summary: >-
-        Создает подсеть в указанных каталоге и сети. 
-
-        Метод запускает асинхронную операцию, которую можно отменить перед тем,
-        как она завершится.
+      - Subnet
+      summary: "Создает подсеть в указанных каталоге и сети. \nМетод запускает асинхронную
+        операцию, которую можно отменить перед тем, как она завершится."
       operationId: SubnetCreate
       requestBody:
         content:
@@ -1122,7 +865,7 @@ paths:
               $ref: '#/components/schemas/CreateSubnetRequest'
         required: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1135,59 +878,40 @@ paths:
   /vpc/v1/subnets/{subnetId}/operations:
     get:
       tags:
-        - Subnet
+      - Subnet
       summary: Возвращает список операций для указанной подсети.
       operationId: SubnetListOperations
       parameters:
-        - name: subnetId
-          in: path
-          description: >-
-            Обязательное поле.
+      - name: subnetId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор ресурса Subnet, для которого запрашивается список операций.
 
-            Идентификатор ресурса Subnet, для которого запрашивается список
-            операций.
-
-
-            Максимальная длина строки в символах — 50.
-          required: true
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          description: >-
-            Максимальное количество результатов на странице ответа на запрос.
-            Если количество результатов 
-
-            больше чем
-            [pageSize](/docs/vpc/api-ref/Subnet/listOperations#query_params),
-            сервис вернет значение
-            [nextPageToken](/docs/vpc/api-ref/Network/listOperations#responses), 
-
-            которое можно использовать для получения следующей страницы. 
-
-            Значение по умолчанию: 100.
-
-
-            Максимальное значение — 1000.
-          schema:
-            type: string
-            format: int64
-        - name: pageToken
-          in: query
-          description: >-
-            Токен страницы. Установите значение
-            [pageToken](/docs/vpc/api-ref/Subnet/listOperations#query_params)
-            равным значению поля
-            [nextPageToken](/docs/vpc/api-ref/Network/listSubnets#responses) 
-
-            прошлого запроса, чтобы получить следующую страницу результатов.
-
-
-            Максимальная длина строки в символах — 100.
-          schema:
-            type: string
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: "Максимальное количество результатов на странице ответа на запрос.
+          Если количество результатов \nбольше чем [pageSize](/docs/vpc/api-ref/Subnet/listOperations#query_params),
+          сервис вернет значение [nextPageToken](/docs/vpc/api-ref/Network/listOperations#responses),
+          \nкоторое можно использовать для получения следующей страницы. \nЗначение
+          по умолчанию: 100.\n\nМаксимальное значение — 1000."
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: "Токен страницы. Установите значение [pageToken](/docs/vpc/api-ref/Subnet/listOperations#query_params)
+          равным значению поля [nextPageToken](/docs/vpc/api-ref/Network/listSubnets#responses)
+          \nпрошлого запроса, чтобы получить следующую страницу результатов.\n\nМаксимальная
+          длина строки в символах — 100."
+        schema:
+          type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1200,50 +924,48 @@ components:
       description: Ресурс Адрес. Подробнее см. [документацию](/docs/vpc/concepts/address).
       type: object
       allOf:
-        - type: object
-          properties:
-            id:
-              description: Идентификатор адреса. Генерируется при создании.
-              type: string
-            folderId:
-              description: Идентификатор каталога, которому принадлежит адрес.
-              type: string
-            createdAt:
-              description: >-
-                Время создания ресурса.
+      - type: object
+        properties:
+          id:
+            description: Идентификатор адреса. Генерируется при создании.
+            type: string
+          folderId:
+            description: Идентификатор каталога, которому принадлежит адрес.
+            type: string
+          createdAt:
+            description: |-
+              Время создания ресурса.
 
-
-                Строка в формате
-                [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+              Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+            type: string
+            format: date-time
+          name:
+            description: |-
+              Имя адреса.
+              Имя должно быть уникальным в каталоге.
+            type: string
+          description:
+            description: Описание адреса.
+            type: string
+          labels:
+            description: Метки адреса в формате `ключ:значение`.
+            type: object
+            additionalProperties:
               type: string
-              format: date-time
-            name:
-              description: |-
-                Имя адреса.
-                Имя должно быть уникальным в каталоге.
-              type: string
-            description:
-              description: Описание адреса.
-              type: string
-            labels:
-              description: Метки адреса в формате `ключ:значение`.
-              type: object
-              additionalProperties:
-                type: string
-            reserved:
-              description: Определяет, зарезервирован ли адрес (статический ли он).
-              type: boolean
-              format: boolean
-            used:
-              description: Определяет, используется ли адрес.
-              type: boolean
-              format: boolean
-        - title: address
-          type: object
-          maxProperties: 1
-          properties:
-            externalIpv4Address:
-              $ref: '#/components/schemas/ExternalIpv4Address'
+          reserved:
+            description: Определяет, зарезервирован ли адрес (статический ли он).
+            type: boolean
+            format: boolean
+          used:
+            description: Определяет, используется ли адрес.
+            type: boolean
+            format: boolean
+      - title: address
+        type: object
+        maxProperties: 1
+        properties:
+          externalIpv4Address:
+            $ref: '#/components/schemas/ExternalIpv4Address'
     AddressRequirements:
       type: object
       properties:
@@ -1262,63 +984,46 @@ components:
     CreateAddressRequest:
       type: object
       allOf:
-        - type: object
-          properties:
-            folderId:
-              description: >-
-                Обязательное поле.
+      - type: object
+        properties:
+          folderId:
+            description: |-
+              Обязательное поле.
+              Идентификатор каталога, в котором создается адрес.
 
-                Идентификатор каталога, в котором создается адрес.
+              Чтобы получить идентификатор каталога, используйте запрос [list](/docs/resource-manager/api-ref/Folder/list).
 
+              Максимальная длина строки в символах — 50.
+            type: string
+          name:
+            description: "Имя адреса. \nИмя должно быть уникальным в каталоге.\n\nЗначение
+              должно соответствовать регулярному выражению `` |[a-z][-a-z0-9]{1,61}[a-z0-9]
+              ``."
+            type: string
+          description:
+            description: |-
+              Описание адреса.
 
-                Чтобы получить идентификатор каталога, используйте запрос
-                [list](/docs/resource-manager/api-ref/Folder/list).
+              Максимальная длина строки в символах — 256.
+            type: string
+          labels:
+            description: |-
+              Метки адресов в формате `ключ:значение`.
 
-
-                Максимальная длина строки в символах — 50.
+              Не более 64 на ресурс.
+              Длина строки в символах для каждого ключа должна быть от 1 до 63.
+              Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
+              Максимальная длина строки в символах для каждого значения — 63.
+              Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.
+            type: object
+            additionalProperties:
               type: string
-            name:
-              description: >-
-                Имя адреса. 
-
-                Имя должно быть уникальным в каталоге.
-
-
-                Значение должно соответствовать регулярному выражению ``
-                |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
-              type: string
-            description:
-              description: |-
-                Описание адреса.
-
-                Максимальная длина строки в символах — 256.
-              type: string
-            labels:
-              description: >-
-                Метки адресов в формате `ключ:значение`.
-
-
-                Не более 64 на ресурс.
-
-                Длина строки в символах для каждого ключа должна быть от 1 до
-                63.
-
-                Каждый ключ должен соответствовать регулярному выражению ``
-                [a-z][-_0-9a-z]* ``.
-
-                Максимальная длина строки в символах для каждого значения — 63.
-
-                Каждое значение должно соответствовать регулярному выражению ``
-                [-_0-9a-z]* ``.
-              type: object
-              additionalProperties:
-                type: string
-        - title: address_spec
-          type: object
-          maxProperties: 1
-          properties:
-            externalIpv4AddressSpec:
-              $ref: '#/components/schemas/ExternalIpv4AddressSpec'
+      - title: address_spec
+        type: object
+        maxProperties: 1
+        properties:
+          externalIpv4AddressSpec:
+            $ref: '#/components/schemas/ExternalIpv4AddressSpec'
     CreateNetworkMetadata:
       type: object
       properties:
@@ -1329,24 +1034,18 @@ components:
       type: object
       properties:
         folderId:
-          description: >-
+          description: |-
             Обязательное поле.
-
             Идентификатор каталога, в котором создается облачная сеть.
-
-            Чтобы получить идентификатор каталога, используйте запрос
-            [list](/docs/resource-manager/api-ref/Folder/list).
-
+            Чтобы получить идентификатор каталога, используйте запрос [list](/docs/resource-manager/api-ref/Folder/list).
 
             Максимальная длина строки в символах — 50.
           type: string
         name:
-          description: >-
+          description: |-
             Имя облачной сети. Имя должно быть уникальным в каталоге.
 
-
-            Значение должно соответствовать регулярному выражению ``
-            |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+            Значение должно соответствовать регулярному выражению `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
           type: string
         description:
           description: |-
@@ -1355,21 +1054,14 @@ components:
             Максимальная длина строки в символах — 256.
           type: string
         labels:
-          description: >-
+          description: |-
             Метки ресурса в формате `` ключ:значение ``.
 
-
             Не более 64 на ресурс.
-
             Длина строки в символах для каждого ключа должна быть от 1 до 63.
-
-            Каждый ключ должен соответствовать регулярному выражению ``
-            [a-z][-_0-9a-z]* ``.
-
+            Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
             Максимальная длина строки в символах для каждого значения — 63.
-
-            Каждое значение должно соответствовать регулярному выражению ``
-            [-_0-9a-z]* ``.
+            Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.
           type: object
           additionalProperties:
             type: string
@@ -1383,25 +1075,18 @@ components:
       type: object
       properties:
         folderId:
-          description: >-
+          description: |-
             Обязательное поле.
-
-            Идентификатор каталога, к которому принадлежит таблица
-            маршрутизации. Чтобы
-
-            получить идентификатор каталога, используйте запрос
-            [list](/docs/resource-manager/api-ref/Folder/list) .
-
+            Идентификатор каталога, к которому принадлежит таблица маршрутизации. Чтобы
+            получить идентификатор каталога, используйте запрос [list](/docs/resource-manager/api-ref/Folder/list) .
 
             Максимальная длина строки в символах — 50.
           type: string
         name:
-          description: >-
+          description: |-
             Имя таблицы маршрутизации. Имя должно быть уникальным в каталоге.
 
-
-            Значение должно соответствовать регулярному выражению ``
-            |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+            Значение должно соответствовать регулярному выражению `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
           type: string
         description:
           description: |-
@@ -1410,31 +1095,21 @@ components:
             Максимальная длина строки в символах — 256.
           type: string
         labels:
-          description: >-
+          description: |-
             Метки ресурса в формате `` ключ:значение ``.
 
-
             Не более 64 на ресурс.
-
             Длина строки в символах для каждого ключа должна быть от 1 до 63.
-
-            Каждый ключ должен соответствовать регулярному выражению ``
-            [a-z][-_0-9a-z]* ``.
-
+            Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
             Максимальная длина строки в символах для каждого значения — 63.
-
-            Каждое значение должно соответствовать регулярному выражению ``
-            [-_0-9a-z]* ``.
+            Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.
           type: object
           additionalProperties:
             type: string
         networkId:
-          description: >-
+          description: |-
             Обязательное поле.
-
-            Идентификатор облачной сети, к которой принадлежит таблица
-            маршрутизации.
-
+            Идентификатор облачной сети, к которой принадлежит таблица маршрутизации.
 
             Максимальная длина строки в символах — 50.
           type: string
@@ -1453,24 +1128,15 @@ components:
       type: object
       properties:
         folderId:
-          description: >-
-            Обязательное поле.
-
-            Идентификатор каталога, в котором создается подсеть. 
-
-            Чтобы получить идентификатор каталога, используйте запрос
-            [list](/docs/resource-manager/api-ref/Folder/list).
-
-
-            Максимальная длина строки в символах — 50.
+          description: "Обязательное поле.\nИдентификатор каталога, в котором создается
+            подсеть. \nЧтобы получить идентификатор каталога, используйте запрос [list](/docs/resource-manager/api-ref/Folder/list).\n\nМаксимальная
+            длина строки в символах — 50."
           type: string
         name:
-          description: >-
+          description: |-
             Имя подсети. Имя должно быть уникальным в каталоге.
 
-
-            Значение должно соответствовать регулярному выражению ``
-            |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+            Значение должно соответствовать регулярному выражению `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
           type: string
         description:
           description: |-
@@ -1479,21 +1145,14 @@ components:
             Максимальная длина строки в символах — 256.
           type: string
         labels:
-          description: >-
+          description: |-
             Метки ресурса в формате `` ключ:значение ``.
 
-
             Не более 64 на ресурс.
-
             Длина строки в символах для каждого ключа должна быть от 1 до 63.
-
-            Каждый ключ должен соответствовать регулярному выражению ``
-            [a-z][-_0-9a-z]* ``.
-
+            Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
             Максимальная длина строки в символах для каждого значения — 63.
-
-            Каждое значение должно соответствовать регулярному выражению ``
-            [-_0-9a-z]* ``.
+            Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.
           type: object
           additionalProperties:
             type: string
@@ -1513,15 +1172,10 @@ components:
             Максимальная длина строки в символах — 50.
           type: string
         v4CidrBlocks:
-          description: >-
-            CIDR. Диапазон внутренних адресов, определенных для этой подсети. 
-
-            Это поле может быть задано только во время создания
-
-            ресурса Subnet и не может быть изменено. Например, 10.0.0.0/22 или
-            192.168.0.0/24. 
-
-            Минимальный размер подсети /28, максимальный размер подсети /16.
+          description: "CIDR. Диапазон внутренних адресов, определенных для этой подсети.
+            \nЭто поле может быть задано только во время создания\nресурса Subnet
+            и не может быть изменено. Например, 10.0.0.0/22 или 192.168.0.0/24. \nМинимальный
+            размер подсети /28, максимальный размер подсети /16."
           type: array
           items:
             type: string
@@ -1574,8 +1228,7 @@ components:
           description: Зона доступности, из которой будет выделен адрес.
           type: string
         requirements:
-          $ref: >-
-            #/components/schemas/AddressRequirements_in_ExternalIpv4Address_requirements
+          $ref: '#/components/schemas/AddressRequirements_in_ExternalIpv4Address_requirements'
     ExternalIpv4AddressSpec:
       type: object
       properties:
@@ -1586,27 +1239,16 @@ components:
           description: Зона доступности, из которой будет выделен адрес.
           type: string
         requirements:
-          $ref: >-
-            #/components/schemas/AddressRequirements_in_ExternalIpv4AddressSpec_requirements
+          $ref: '#/components/schemas/AddressRequirements_in_ExternalIpv4AddressSpec_requirements'
     FieldMask:
-      description: >-
+      description: |-
         Имена всех обновляемых полей, разделенные запятыми.
+        Только значения указанных полей будут изменены. Остальные останутся нетронутыми.
+        Если поле указано в параметре `` updateMask `` и в запросе не было отправлено значение для этого поля,
+        значение поля будет сброшено на значение по умолчанию. Значение по умолчанию для большинства полей — null или 0.
 
-        Только значения указанных полей будут изменены. Остальные останутся
-        нетронутыми.
-
-        Если поле указано в параметре `` updateMask `` и в запросе не было
-        отправлено значение для этого поля,
-
-        значение поля будет сброшено на значение по умолчанию. Значение по
-        умолчанию для большинства полей — null или 0.
-
-
-        Если в запросе не передается `` updateMask ``, значения всех полей будут
-        обновлены.
-
+        Если в запросе не передается `` updateMask ``, значения всех полей будут обновлены.
         Для полей, указанных в запросе, будут использованы переданные значения.
-
         Значения остальных полей будут сброшены на значения по умолчанию.
       type: string
     ListAddressOperationsResponse:
@@ -1618,21 +1260,12 @@ components:
           items:
             $ref: '#/components/schemas/Operation'
         nextPageToken:
-          description: >-
-            Токен для получения следующей страницы результатов в ответе. Если
-            количество результатов
+          description: |-
+            Токен для получения следующей страницы результатов в ответе. Если количество результатов
+            больше чем [pageSize](/docs/vpc/api-ref/Address/listOperations#query_params), используйте `next_page_token` в качестве значения
+            параметра [pageToken](/docs/vpc/api-ref/Address/listOperations#query_params) в следующем запросе списка ресурсов.
 
-            больше чем
-            [pageSize](/docs/vpc/api-ref/Address/listOperations#query_params),
-            используйте `next_page_token` в качестве значения
-
-            параметра
-            [pageToken](/docs/vpc/api-ref/Address/listOperations#query_params) в
-            следующем запросе списка ресурсов.
-
-
-            Каждая следующая страница будет иметь свой `next_page_token` для
-            продолжения перебора страниц результатов.
+            Каждая следующая страница будет иметь свой `next_page_token` для продолжения перебора страниц результатов.
           type: string
     ListAddressesResponse:
       type: object
@@ -1643,19 +1276,11 @@ components:
           items:
             $ref: '#/components/schemas/Address'
         nextPageToken:
-          description: >-
-            Токен для получения следующей страницы результатов в ответе. Если
-            количество результатов 
-
-            больше чем [pageSize](/docs/vpc/api-ref/Address/list#query_params),
-            используйте `next_page_token` в качестве значения
-
-            параметра [pageToken](/docs/vpc/api-ref/Address/list#query_params) в
-            следующем запросе списка ресурсов.
-
-
-            Каждая следующая страница будет иметь свой `next_page_token` для
-            продолжения перебора страниц результатов.
+          description: "Токен для получения следующей страницы результатов в ответе.
+            Если количество результатов \nбольше чем [pageSize](/docs/vpc/api-ref/Address/list#query_params),
+            используйте `next_page_token` в качестве значения\nпараметра [pageToken](/docs/vpc/api-ref/Address/list#query_params)
+            в следующем запросе списка ресурсов.\n\nКаждая следующая страница будет
+            иметь свой `next_page_token` для продолжения перебора страниц результатов."
           type: string
     ListNetworkOperationsResponse:
       type: object
@@ -1666,23 +1291,13 @@ components:
           items:
             $ref: '#/components/schemas/Operation'
         nextPageToken:
-          description: >-
-            Токен для получения следующей страницы результатов в ответе. Если
-            количество результатов 
-
-            больше чем
-            [pageSize](/docs/vpc/api-ref/Network/listOperations#query_params),
-            используйте
-            [nextPageToken](/docs/vpc/api-ref/Network/listOperations#responses)
-            в качестве значения 
-
-            параметра
-            [pageToken](/docs/vpc/api-ref/Network/listOperations#query_params) в
-            следующем запросе списка ресурсов. Все последующие 
-
-            запросы будут получать свои значения
-            [nextPageToken](/docs/vpc/api-ref/Network/listOperations#responses)
-            для перебора страниц результатов.
+          description: "Токен для получения следующей страницы результатов в ответе.
+            Если количество результатов \nбольше чем [pageSize](/docs/vpc/api-ref/Network/listOperations#query_params),
+            используйте [nextPageToken](/docs/vpc/api-ref/Network/listOperations#responses)
+            в качестве значения \nпараметра [pageToken](/docs/vpc/api-ref/Network/listOperations#query_params)
+            в следующем запросе списка ресурсов. Все последующие \nзапросы будут получать
+            свои значения [nextPageToken](/docs/vpc/api-ref/Network/listOperations#responses)
+            для перебора страниц результатов."
           type: string
     ListNetworkSubnetsResponse:
       type: object
@@ -1693,23 +1308,13 @@ components:
           items:
             $ref: '#/components/schemas/Subnet'
         nextPageToken:
-          description: >-
-            Токен для получения следующей страницы результатов в ответе. Если
-            количество результатов 
-
-            больше чем
-            [pageSize](/docs/vpc/api-ref/Network/listSubnets#query_params),
-            используйте
-            [nextPageToken](/docs/vpc/api-ref/Network/listSubnets#responses) в
-            качестве значения 
-
-            параметра
-            [pageToken](/docs/vpc/api-ref/Network/listSubnets#query_params) в
-            следующем запросе списка ресурсов. Все последующие 
-
-            запросы будут получать свои значения
-            [nextPageToken](/docs/vpc/api-ref/Network/listSubnets#responses),
-            для перебора страниц результатов.
+          description: "Токен для получения следующей страницы результатов в ответе.
+            Если количество результатов \nбольше чем [pageSize](/docs/vpc/api-ref/Network/listSubnets#query_params),
+            используйте [nextPageToken](/docs/vpc/api-ref/Network/listSubnets#responses)
+            в качестве значения \nпараметра [pageToken](/docs/vpc/api-ref/Network/listSubnets#query_params)
+            в следующем запросе списка ресурсов. Все последующие \nзапросы будут получать
+            свои значения [nextPageToken](/docs/vpc/api-ref/Network/listSubnets#responses),
+            для перебора страниц результатов."
           type: string
     ListNetworksResponse:
       type: object
@@ -1720,23 +1325,13 @@ components:
           items:
             $ref: '#/components/schemas/Network'
         nextPageToken:
-          description: >-
-            Токен для получения следующей страницы результатов в ответе. Если
-            количество результатов 
-
-            больше чем
-            [pageSize](/docs/vpc/api-ref/Network/listSubnets#query_params),
-            используйте
-            [nextPageToken](/docs/vpc/api-ref/Network/list#responses) в качестве
-            значения 
-
-            параметра
-            [pageToken](/docs/vpc/api-ref/Network/listSubnets#query_params) в
-            следующем запросе списка ресурсов. Все последующие 
-
-            запросы будут получать свои значения
-            [nextPageToken](/docs/vpc/api-ref/Network/list#responses), для
-            перебора страниц результатов.
+          description: "Токен для получения следующей страницы результатов в ответе.
+            Если количество результатов \nбольше чем [pageSize](/docs/vpc/api-ref/Network/listSubnets#query_params),
+            используйте [nextPageToken](/docs/vpc/api-ref/Network/list#responses)
+            в качестве значения \nпараметра [pageToken](/docs/vpc/api-ref/Network/listSubnets#query_params)
+            в следующем запросе списка ресурсов. Все последующие \nзапросы будут получать
+            свои значения [nextPageToken](/docs/vpc/api-ref/Network/list#responses),
+            для перебора страниц результатов."
           type: string
     ListRouteTableOperationsResponse:
       type: object
@@ -1747,23 +1342,11 @@ components:
           items:
             $ref: '#/components/schemas/Operation'
         nextPageToken:
-          description: >-
-            Токен для получения следующей страницы результатов в ответе. Если
-            количество
-
-            результатов больше чем
-            [pageSize](/docs/vpc/api-ref/RouteTable/listOperations#query_params),
-            используйте
-            [nextPageToken](/docs/vpc/api-ref/RouteTable/listOperations#responses)
-            в качестве
-
-            значения параметра
-            [pageToken](/docs/vpc/api-ref/RouteTable/listOperations#query_params)
-            в следующем запросе списка ресурсов. Все
-
-            последующие запросы будут получать свои значения
-            [nextPageToken](/docs/vpc/api-ref/RouteTable/listOperations#responses)
-            для перебора страниц результатов.
+          description: |-
+            Токен для получения следующей страницы результатов в ответе. Если количество
+            результатов больше чем [pageSize](/docs/vpc/api-ref/RouteTable/listOperations#query_params), используйте [nextPageToken](/docs/vpc/api-ref/RouteTable/listOperations#responses) в качестве
+            значения параметра [pageToken](/docs/vpc/api-ref/RouteTable/listOperations#query_params) в следующем запросе списка ресурсов. Все
+            последующие запросы будут получать свои значения [nextPageToken](/docs/vpc/api-ref/RouteTable/listOperations#responses) для перебора страниц результатов.
           type: string
     ListRouteTablesResponse:
       type: object
@@ -1774,23 +1357,11 @@ components:
           items:
             $ref: '#/components/schemas/RouteTable'
         nextPageToken:
-          description: >-
-            Токен для получения следующей страницы результатов в ответе. Если
-            количество
-
-            результатов больше чем
-            [pageSize](/docs/vpc/api-ref/RouteTable/list#query_params),
-            используйте
-            [nextPageToken](/docs/vpc/api-ref/RouteTable/list#responses) в
-            качестве
-
-            значения параметра
-            [pageToken](/docs/vpc/api-ref/RouteTable/list#query_params) в
-            следующем запросе списка ресурсов. Все
-
-            последующие запросы будут получать свои значения
-            [nextPageToken](/docs/vpc/api-ref/RouteTable/list#responses), для
-            перебора страниц результатов.
+          description: |-
+            Токен для получения следующей страницы результатов в ответе. Если количество
+            результатов больше чем [pageSize](/docs/vpc/api-ref/RouteTable/list#query_params), используйте [nextPageToken](/docs/vpc/api-ref/RouteTable/list#responses) в качестве
+            значения параметра [pageToken](/docs/vpc/api-ref/RouteTable/list#query_params) в следующем запросе списка ресурсов. Все
+            последующие запросы будут получать свои значения [nextPageToken](/docs/vpc/api-ref/RouteTable/list#responses), для перебора страниц результатов.
           type: string
     ListSubnetOperationsResponse:
       type: object
@@ -1801,23 +1372,13 @@ components:
           items:
             $ref: '#/components/schemas/Operation'
         nextPageToken:
-          description: >-
-            Токен для получения следующей страницы результатов в ответе. Если
-            количество результатов 
-
-            больше чем
-            [pageSize](/docs/vpc/api-ref/Network/listSubnets#query_params),
-            используйте
-            [nextPageToken](/docs/vpc/api-ref/Subnet/listOperations#responses) в
-            качестве значения 
-
-            параметра
-            [pageToken](/docs/vpc/api-ref/Network/listSubnets#query_params) в
-            следующем запросе списка ресурсов. Все последующие 
-
-            запросы будут получать свои значения
-            [nextPageToken](/docs/vpc/api-ref/Subnet/listOperations#responses),
-            для перебора страниц результатов.
+          description: "Токен для получения следующей страницы результатов в ответе.
+            Если количество результатов \nбольше чем [pageSize](/docs/vpc/api-ref/Network/listSubnets#query_params),
+            используйте [nextPageToken](/docs/vpc/api-ref/Subnet/listOperations#responses)
+            в качестве значения \nпараметра [pageToken](/docs/vpc/api-ref/Network/listSubnets#query_params)
+            в следующем запросе списка ресурсов. Все последующие \nзапросы будут получать
+            свои значения [nextPageToken](/docs/vpc/api-ref/Subnet/listOperations#responses),
+            для перебора страниц результатов."
           type: string
     ListSubnetsResponse:
       type: object
@@ -1828,20 +1389,11 @@ components:
           items:
             $ref: '#/components/schemas/Subnet'
         nextPageToken:
-          description: >-
-            Токен для получения следующей страницы результатов в ответе. Если
-            количество результатов
-
-            больше чем [pageSize](/docs/vpc/api-ref/Subnet/list#query_params),
-            используйте [nextPageToken](/docs/vpc/api-ref/Subnet/list#responses)
-            в качестве значения
-
-            параметра [pageToken](/docs/vpc/api-ref/Subnet/list#query_params) в
-            следующем запросе списка ресурсов. Все последующие
-
-            запросы будут получать свои значения
-            [nextPageToken](/docs/vpc/api-ref/Subnet/list#responses), для
-            перебора страниц результатов.
+          description: |-
+            Токен для получения следующей страницы результатов в ответе. Если количество результатов
+            больше чем [pageSize](/docs/vpc/api-ref/Subnet/list#query_params), используйте [nextPageToken](/docs/vpc/api-ref/Subnet/list#responses) в качестве значения
+            параметра [pageToken](/docs/vpc/api-ref/Subnet/list#query_params) в следующем запросе списка ресурсов. Все последующие
+            запросы будут получать свои значения [nextPageToken](/docs/vpc/api-ref/Subnet/list#responses), для перебора страниц результатов.
           type: string
     Network:
       description: Ресурс Network. Подробнее см. [Сети](/vpc/concepts/network).
@@ -1854,10 +1406,8 @@ components:
           description: Идентификатор каталога, которому принадлежит сеть.
           type: string
         createdAt:
-          description: >-
-            Время создания ресурса в формате в
-            [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
-
+          description: |-
+            Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
 
             Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
           type: string
@@ -1873,9 +1423,8 @@ components:
             символов.
           type: string
         labels:
-          description: >-
-            Метки ресурса в формате `` ключ:значение ``. Максимум 64 метки на
-            ресурс.
+          description: Метки ресурса в формате `` ключ:значение ``. Максимум 64 метки
+            на ресурс.
           type: object
           additionalProperties:
             type: string
@@ -1888,129 +1437,103 @@ components:
         [Объект Operation](/docs/api-design-guide/concepts/operation).
       type: object
       allOf:
-        - type: object
-          properties:
-            id:
-              description: Идентификатор операции.
-              type: string
-            description:
-              description: |-
-                Описание операции. Длина описания должна быть от 0 до 256
-                символов.
-              type: string
-            createdAt:
-              description: >-
-                Время создания ресурса в формате в
+      - type: object
+        properties:
+          id:
+            description: Идентификатор операции.
+            type: string
+          description:
+            description: |-
+              Описание операции. Длина описания должна быть от 0 до 256
+              символов.
+            type: string
+          createdAt:
+            description: |-
+              Время создания ресурса в формате в
+              [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
 
-                [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+              Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+            type: string
+            format: date-time
+          createdBy:
+            description: |-
+              Идентификатор пользователя или сервисного
+              аккаунта, инициировавшего операцию.
+            type: string
+          modifiedAt:
+            description: |-
+              Время, когда ресурс Operation последний раз
+              обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
 
-
-                Строка в формате
-                [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
-              type: string
-              format: date-time
-            createdBy:
-              description: |-
-                Идентификатор пользователя или сервисного
-                аккаунта, инициировавшего операцию.
-              type: string
-            modifiedAt:
-              description: >-
-                Время, когда ресурс Operation последний раз
-
-                обновлялся. Значение в формате
-                [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
-
-
-                Строка в формате
-                [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
-              type: string
-              format: date-time
-            done:
-              description: |-
-                Если значение равно `false` — операция еще
-                выполняется. Если `true` — операция завершена, и задано значение
-                одного из полей `error` или `response`.
-              type: boolean
-              format: boolean
-            metadata:
-              description: |-
-                Метаданные операции. Обычно в поле содержится
-                идентификатор ресурса, над которым выполняется операция. Если
-                метод возвращает ресурс Operation, в описании метода приведена
-                структура соответствующего ему поля `metadata`.
-              type: object
-        - title: result
-          type: object
-          maxProperties: 1
-          properties:
-            error:
-              $ref: '#/components/schemas/Status'
-              description: Описание ошибки в случае сбоя или отмены операции.
-            response:
-              description: >-
-                Результат операции в случае успешного завершения. Если
-
-                исходный метод не возвращает никаких данных при успешном
-
-                завершении, например метод Delete, поле содержит объект
-
-                [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty).
-                Если исходный метод — это стандартный метод Create
-
-                / Update, поле содержит целевой ресурс операции. Если метод
-
-                возвращает ресурс Operation, в описании метода приведена
-
-                структура соответствующего ему поля `response`.
-              type: object
+              Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+            type: string
+            format: date-time
+          done:
+            description: |-
+              Если значение равно `false` — операция еще
+              выполняется. Если `true` — операция завершена, и задано значение
+              одного из полей `error` или `response`.
+            type: boolean
+            format: boolean
+          metadata:
+            description: |-
+              Метаданные операции. Обычно в поле содержится
+              идентификатор ресурса, над которым выполняется операция. Если
+              метод возвращает ресурс Operation, в описании метода приведена
+              структура соответствующего ему поля `metadata`.
+            type: object
+      - title: result
+        type: object
+        maxProperties: 1
+        properties:
+          error:
+            $ref: '#/components/schemas/Status'
+            description: Описание ошибки в случае сбоя или отмены операции.
+          response:
+            description: |-
+              Результат операции в случае успешного завершения. Если
+              исходный метод не возвращает никаких данных при успешном
+              завершении, например метод Delete, поле содержит объект
+              [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty). Если исходный метод — это стандартный метод Create
+              / Update, поле содержит целевой ресурс операции. Если метод
+              возвращает ресурс Operation, в описании метода приведена
+              структура соответствующего ему поля `response`.
+            type: object
     RouteTable:
-      description: >-
-        Таблица маршрутизации. 
-
-        Дополнительные сведения см. в разделе [Статическая
-        маршрутизация](/docs/vpc/concepts/static-routes).
+      description: "Таблица маршрутизации. \nДополнительные сведения см. в разделе
+        [Статическая маршрутизация](/docs/vpc/concepts/static-routes)."
       type: object
       properties:
         id:
           description: Идентификатор таблицы маршрутизации.
           type: string
         folderId:
-          description: >-
-            Идентификатор каталога, к которому принадлежит таблица
-            маршрутизации.
+          description: Идентификатор каталога, к которому принадлежит таблица маршрутизации.
           type: string
         createdAt:
-          description: >-
-            Время создания в формате
-            [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) .
-
+          description: |-
+            Время создания в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) .
 
             Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
           type: string
           format: date-time
         name:
-          description: >-
-            Имя таблицы маршрутизации. Имя должно быть уникальным в каталоге.
-            Длина имени должна
-
+          description: |-
+            Имя таблицы маршрутизации. Имя должно быть уникальным в каталоге. Длина имени должна
             быть от 3 до 63 символов.
           type: string
         description:
-          description: >-
-            Описание таблицы маршрутизации. Длина описания должна быть от 0 до
-            256 символов.
+          description: Описание таблицы маршрутизации. Длина описания должна быть
+            от 0 до 256 символов.
           type: string
         labels:
-          description: >-
-            Метки ресурса в формате `` ключ:значение ``. Максимум 64 метки на
-            ресурс.
+          description: Метки ресурса в формате `` ключ:значение ``. Максимум 64 метки
+            на ресурс.
           type: object
           additionalProperties:
             type: string
         networkId:
-          description: >-
-            Идентификатор облачной сети, к которой принадлежит таблица
+          description: Идентификатор облачной сети, к которой принадлежит таблица
             маршрутизации.
           type: string
         staticRoutes:
@@ -2019,33 +1542,30 @@ components:
           items:
             $ref: '#/components/schemas/StaticRoute'
     StaticRoute:
-      description: >-
-        Статический маршрут. Дополнительные сведения см. в разделе [Статическая
+      description: Статический маршрут. Дополнительные сведения см. в разделе [Статическая
         маршрутизация](/docs/vpc/concepts/static-routes).
       type: object
       allOf:
-        - title: destination
-          type: object
-          maxProperties: 1
-          properties:
-            destinationPrefix:
-              description: Подсеть назначения в нотации CIDR.
-              type: string
-        - title: next_hop
-          type: object
-          maxProperties: 1
-          properties:
-            nextHopAddress:
-              description: IP-адрес next hop.
-              type: string
+      - title: destination
+        type: object
+        maxProperties: 1
+        properties:
+          destinationPrefix:
+            description: Подсеть назначения в нотации CIDR.
+            type: string
+      - title: next_hop
+        type: object
+        maxProperties: 1
+        properties:
+          nextHopAddress:
+            description: IP-адрес next hop.
+            type: string
     Status:
       description: Описание ошибки в случае сбоя или отмены операции.
       type: object
       properties:
         code:
-          description: >-
-            Код ошибки. Значение из списка
-            [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
+          description: Код ошибки. Значение из списка [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
           type: integer
           format: int32
         message:
@@ -2067,10 +1587,8 @@ components:
           description: Идентификатор каталога, которому принадлежит подсеть.
           type: string
         createdAt:
-          description: >-
-            Время создания ресурса в формате в
-            [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
-
+          description: |-
+            Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
 
             Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
           type: string
@@ -2084,9 +1602,8 @@ components:
           description: Описание подсети. Длина описания должна быть от 0 до 256 символов.
           type: string
         labels:
-          description: >-
-            Метки ресурса в формате `` ключ:значение ``. Максимум 64 метки на
-            ресурс.
+          description: Метки ресурса в формате `` ключ:значение ``. Максимум 64 метки
+            на ресурс.
           type: object
           additionalProperties:
             type: string
@@ -2097,14 +1614,10 @@ components:
           description: Идентификатор зоны доступности, где находится подсеть.
           type: string
         v4CidrBlocks:
-          description: >-
+          description: |-
             CIDR. Диапазон внутренних адресов, определенных для этой подсети.
-
             Это поле может быть задано только во время создания
-
-            ресурса Subnet и не может быть изменено. Например, 10.0.0.0/22 или
-            192.168.0.0/24.
-
+            ресурса Subnet и не может быть изменено. Например, 10.0.0.0/22 или 192.168.0.0/24.
             Минимальный размер подсети /28, максимальный размер подсети /16.
           type: array
           items:
@@ -2126,14 +1639,9 @@ components:
         updateMask:
           $ref: '#/components/schemas/FieldMask_in_UpdateAddressRequest_updateMask'
         name:
-          description: >-
-            Новое имя для адреса. 
-
-            Имя должно быть уникальным в каталоге.
-
-
-            Значение должно соответствовать регулярному выражению ``
-            |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+          description: "Новое имя для адреса. \nИмя должно быть уникальным в каталоге.\n\nЗначение
+            должно соответствовать регулярному выражению `` |[a-z][-a-z0-9]{1,61}[a-z0-9]
+            ``."
           type: string
         description:
           description: |-
@@ -2142,34 +1650,20 @@ components:
             Максимальная длина строки в символах — 256.
           type: string
         labels:
-          description: >-
+          description: |-
             Метки адресов в формате `ключ:значение`.
 
-
-            Имеющийся набор меток полностью перезаписывается переданным набором,
-            поэтому если вы просто хотите
-
+            Имеющийся набор меток полностью перезаписывается переданным набором, поэтому если вы просто хотите
             добавить или удалить метку:
-
-            1. Запросите текущий набор меток с помощью запроса
-            [get](/docs/vpc/api-ref/Address/get).
-
+            1. Запросите текущий набор меток с помощью запроса [get](/docs/vpc/api-ref/Address/get).
             2. Добавьте или удалите метку в этом наборе.
-
             3. Отправьте новый набор в этом поле.
 
-
             Не более 64 на ресурс.
-
             Длина строки в символах для каждого ключа должна быть от 1 до 63.
-
-            Каждый ключ должен соответствовать регулярному выражению ``
-            [a-z][-_0-9a-z]* ``.
-
+            Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
             Максимальная длина строки в символах для каждого значения — 63.
-
-            Каждое значение должно соответствовать регулярному выражению ``
-            [-_0-9a-z]* ``.
+            Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.
           type: object
           additionalProperties:
             type: string
@@ -2189,12 +1683,10 @@ components:
         updateMask:
           $ref: '#/components/schemas/FieldMask_in_UpdateNetworkRequest_updateMask'
         name:
-          description: >-
+          description: |-
             Имя облачной сети. Имя должно быть уникальным в каталоге.
 
-
-            Значение должно соответствовать регулярному выражению ``
-            |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+            Значение должно соответствовать регулярному выражению `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
           type: string
         description:
           description: |-
@@ -2203,21 +1695,14 @@ components:
             Максимальная длина строки в символах — 256.
           type: string
         labels:
-          description: >-
+          description: |-
             Метки ресурса в формате `` ключ:значение ``.
 
-
             Не более 64 на ресурс.
-
             Длина строки в символах для каждого ключа должна быть от 1 до 63.
-
-            Каждый ключ должен соответствовать регулярному выражению ``
-            [a-z][-_0-9a-z]* ``.
-
+            Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
             Максимальная длина строки в символах для каждого значения — 63.
-
-            Каждое значение должно соответствовать регулярному выражению ``
-            [-_0-9a-z]* ``.
+            Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.
           type: object
           additionalProperties:
             type: string
@@ -2233,12 +1718,10 @@ components:
         updateMask:
           $ref: '#/components/schemas/FieldMask_in_UpdateRouteTableRequest_updateMask'
         name:
-          description: >-
+          description: |-
             Имя таблицы маршрутизации. Имя должно быть уникальным в каталоге.
 
-
-            Значение должно соответствовать регулярному выражению ``
-            |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+            Значение должно соответствовать регулярному выражению `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
           type: string
         description:
           description: |-
@@ -2247,21 +1730,14 @@ components:
             Максимальная длина строки в символах — 256.
           type: string
         labels:
-          description: >-
+          description: |-
             Метки ресурса в формате `` ключ:значение ``.
 
-
             Не более 64 на ресурс.
-
             Длина строки в символах для каждого ключа должна быть от 1 до 63.
-
-            Каждый ключ должен соответствовать регулярному выражению ``
-            [a-z][-_0-9a-z]* ``.
-
+            Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
             Максимальная длина строки в символах для каждого значения — 63.
-
-            Каждое значение должно соответствовать регулярному выражению ``
-            [-_0-9a-z]* ``.
+            Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.
           type: object
           additionalProperties:
             type: string
@@ -2282,12 +1758,10 @@ components:
         updateMask:
           $ref: '#/components/schemas/FieldMask_in_UpdateSubnetRequest_updateMask'
         name:
-          description: >-
+          description: |-
             Имя подсети. Имя должно быть уникальным в каталоге.
 
-
-            Значение должно соответствовать регулярному выражению ``
-            |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+            Значение должно соответствовать регулярному выражению `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
           type: string
         description:
           description: |-
@@ -2296,21 +1770,14 @@ components:
             Максимальная длина строки в символах — 256.
           type: string
         labels:
-          description: >-
+          description: |-
             Метки ресурса в формате `` ключ:значение ``.
 
-
             Не более 64 на ресурс.
-
             Длина строки в символах для каждого ключа должна быть от 1 до 63.
-
-            Каждый ключ должен соответствовать регулярному выражению ``
-            [a-z][-_0-9a-z]* ``.
-
+            Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
             Максимальная длина строки в символах для каждого значения — 63.
-
-            Каждое значение должно соответствовать регулярному выражению ``
-            [-_0-9a-z]* ``.
+            Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.
           type: object
           additionalProperties:
             type: string
@@ -2341,107 +1808,63 @@ components:
           description: Возможность отправки SMTP-трафика.
           type: string
     FieldMask_in_UpdateAddressRequest_updateMask:
-      description: >-
+      description: |-
         Маска, определяющая, какие атрибуты адреса должны быть обновлены.
 
-
         Имена всех обновляемых полей, разделенные запятыми.
+        Только значения указанных полей будут изменены. Остальные останутся нетронутыми.
+        Если поле указано в параметре `` updateMask `` и в запросе не было отправлено значение для этого поля,
+        значение поля будет сброшено на значение по умолчанию. Значение по умолчанию для большинства полей — null или 0.
 
-        Только значения указанных полей будут изменены. Остальные останутся
-        нетронутыми.
-
-        Если поле указано в параметре `` updateMask `` и в запросе не было
-        отправлено значение для этого поля,
-
-        значение поля будет сброшено на значение по умолчанию. Значение по
-        умолчанию для большинства полей — null или 0.
-
-
-        Если в запросе не передается `` updateMask ``, значения всех полей будут
-        обновлены.
-
+        Если в запросе не передается `` updateMask ``, значения всех полей будут обновлены.
         Для полей, указанных в запросе, будут использованы переданные значения.
-
         Значения остальных полей будут сброшены на значения по умолчанию.
       type: string
     FieldMask_in_UpdateNetworkRequest_updateMask:
-      description: >-
+      description: |-
         Маска, определяющая, какие поля облачной сети будут обновлены.
 
-
         Имена всех обновляемых полей, разделенные запятыми.
+        Только значения указанных полей будут изменены. Остальные останутся нетронутыми.
+        Если поле указано в параметре `` updateMask `` и в запросе не было отправлено значение для этого поля,
+        значение поля будет сброшено на значение по умолчанию. Значение по умолчанию для большинства полей — null или 0.
 
-        Только значения указанных полей будут изменены. Остальные останутся
-        нетронутыми.
-
-        Если поле указано в параметре `` updateMask `` и в запросе не было
-        отправлено значение для этого поля,
-
-        значение поля будет сброшено на значение по умолчанию. Значение по
-        умолчанию для большинства полей — null или 0.
-
-
-        Если в запросе не передается `` updateMask ``, значения всех полей будут
-        обновлены.
-
+        Если в запросе не передается `` updateMask ``, значения всех полей будут обновлены.
         Для полей, указанных в запросе, будут использованы переданные значения.
-
         Значения остальных полей будут сброшены на значения по умолчанию.
       type: string
     FieldMask_in_UpdateRouteTableRequest_updateMask:
-      description: >-
+      description: |-
         Маска, определяющая, какие поля ресурса RouteTable будут обновлены.
 
-
         Имена всех обновляемых полей, разделенные запятыми.
+        Только значения указанных полей будут изменены. Остальные останутся нетронутыми.
+        Если поле указано в параметре `` updateMask `` и в запросе не было отправлено значение для этого поля,
+        значение поля будет сброшено на значение по умолчанию. Значение по умолчанию для большинства полей — null или 0.
 
-        Только значения указанных полей будут изменены. Остальные останутся
-        нетронутыми.
-
-        Если поле указано в параметре `` updateMask `` и в запросе не было
-        отправлено значение для этого поля,
-
-        значение поля будет сброшено на значение по умолчанию. Значение по
-        умолчанию для большинства полей — null или 0.
-
-
-        Если в запросе не передается `` updateMask ``, значения всех полей будут
-        обновлены.
-
+        Если в запросе не передается `` updateMask ``, значения всех полей будут обновлены.
         Для полей, указанных в запросе, будут использованы переданные значения.
-
         Значения остальных полей будут сброшены на значения по умолчанию.
       type: string
     FieldMask_in_UpdateSubnetRequest_updateMask:
-      description: >-
+      description: |-
         Маска, определяющая, какие поля ресурса Subnet будут обновлены.
 
-
         Имена всех обновляемых полей, разделенные запятыми.
+        Только значения указанных полей будут изменены. Остальные останутся нетронутыми.
+        Если поле указано в параметре `` updateMask `` и в запросе не было отправлено значение для этого поля,
+        значение поля будет сброшено на значение по умолчанию. Значение по умолчанию для большинства полей — null или 0.
 
-        Только значения указанных полей будут изменены. Остальные останутся
-        нетронутыми.
-
-        Если поле указано в параметре `` updateMask `` и в запросе не было
-        отправлено значение для этого поля,
-
-        значение поля будет сброшено на значение по умолчанию. Значение по
-        умолчанию для большинства полей — null или 0.
-
-
-        Если в запросе не передается `` updateMask ``, значения всех полей будут
-        обновлены.
-
+        Если в запросе не передается `` updateMask ``, значения всех полей будут обновлены.
         Для полей, указанных в запросе, будут использованы переданные значения.
-
         Значения остальных полей будут сброшены на значения по умолчанию.
       type: string
 tags:
-  - name: Address
-    description: Набор методов для управления адресами.
-  - name: Network
-    description: Набор методов для управления облачными сетями.
-  - name: RouteTable
-    description: Набор методов для управления таблицами маршрутизации.
-  - name: Subnet
-    description: Набор методов для управления подсетями.
+- name: Address
+  description: Набор методов для управления адресами.
+- name: Network
+  description: Набор методов для управления облачными сетями.
+- name: RouteTable
+  description: Набор методов для управления таблицами маршрутизации.
+- name: Subnet
+  description: Набор методов для управления подсетями.

@@ -1,0 +1,494 @@
+openapi: "3.0"
+info:
+  title: Yandex Text To Speech Service API
+  description: This API reference is organized by resource. Actions are performed
+    by sending HTTP requests to resource URLs or making RPC calls. For more information
+    about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
+  version: v3
+  x-y-docUri: api-ref
+  x-y-baseUrl: https://tts.api.cloud.yandex.net
+paths: {}
+components:
+  schemas:
+    Alternative:
+      type: object
+      properties:
+        words:
+          type: array
+          items:
+            $ref: '#/components/schemas/Word'
+        text:
+          type: string
+        startTimeMs:
+          type: string
+          format: int64
+        endTimeMs:
+          type: string
+          format: int64
+        confidence:
+          type: number
+          format: double
+    AlternativeUpdate:
+      type: object
+      properties:
+        alternatives:
+          type: array
+          items:
+            $ref: '#/components/schemas/Alternative'
+        channelTag:
+          type: string
+    AudioChunk:
+      description: data chunk with audio
+      type: object
+      properties:
+        data:
+          type: string
+          format: byte
+    AudioCursors:
+      description: AudioCursors are state of ASR recognition stream
+      type: object
+      properties:
+        receivedDataMs:
+          description: amount of audio chunks server received. This cursor is moved
+            after each audio chunk was received by server.
+          type: string
+          format: int64
+        resetTimeMs:
+          description: input stream reset data
+          type: string
+          format: int64
+        partialTimeMs:
+          description: |-
+            how much audio was processed. This time includes trimming silences as well. This cursor is moved after server received enough data
+             to update recognition results (includes silence as well)
+          type: string
+          format: int64
+        finalTimeMs:
+          description: |-
+            Time of last final. This cursor is moved when server decides that recognition from start of audio until final_time_ms will not change anymore
+             usually this even is followed by EOU detection (but this could change in future)
+          type: string
+          format: int64
+        finalIndex:
+          description: This is index of last final server send. Incremented after
+            each new final.
+          type: string
+          format: int64
+        eouTimeMs:
+          description: |-
+            Estimated time of EOU. Cursor is updated after each new EOU is sent
+             For external classifier this equals to received_data_ms at the moment EOU event arrives
+             For internal classifier this is estimation of time. The time is not exact and has the same guarantees as word timings
+          type: string
+          format: int64
+    AudioFormatOptions:
+      description: audio format options
+      type: object
+      allOf:
+      - title: AudioFormat
+        type: object
+        maxProperties: 1
+        properties:
+          rawAudio:
+            $ref: '#/components/schemas/RawAudio'
+          containerAudio:
+            $ref: '#/components/schemas/ContainerAudio'
+    CodeType:
+      type: string
+      enum:
+      - WORKING
+      - WARNING
+      - CLOSED
+    ContainerAudio:
+      description: Audio with fixed type in container. used in AudioFormat options
+      type: object
+      properties:
+        containerAudioType:
+          $ref: '#/components/schemas/ContainerAudioContainerAudioType_in_ContainerAudio_containerAudioType'
+    ContainerAudioContainerAudioType:
+      type: string
+      enum:
+      - WAV
+      - OGG_OPUS
+    Context:
+      description: control message to change contexts
+      type: object
+      allOf:
+      - title: Hint
+        type: object
+        maxProperties: 1
+        properties:
+          id:
+            description: ID of LM to use
+            type: string
+    ContextUpdate:
+      type: object
+      properties:
+        updateSucceeded:
+          type: boolean
+          format: boolean
+        message:
+          type: string
+    DefaultEouClassifier:
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/DefaultEouClassifierEouSensitivity_in_DefaultEouClassifier_type'
+    DefaultEouClassifierEouSensitivity:
+      type: string
+      enum:
+      - DEFAULT
+    Eou:
+      description: force EOU, works only with externalEOUClassifier
+      type: object
+      properties: {}
+    EouClassifierOptions:
+      type: object
+      allOf:
+      - title: Classifier
+        type: object
+        maxProperties: 1
+        properties:
+          defaultClassifier:
+            $ref: '#/components/schemas/DefaultEouClassifier'
+          externalClassifier:
+            $ref: '#/components/schemas/ExternalEouClassifier'
+    EouUpdate:
+      type: object
+      properties:
+        timeMs:
+          type: string
+          format: int64
+    ExternalEouClassifier:
+      description: use EOU provided by user
+      type: object
+      properties: {}
+    FinalRefinement:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          finalIndex:
+            type: string
+            format: int64
+      - title: Type
+        type: object
+        maxProperties: 1
+        properties:
+          normalizedText:
+            $ref: '#/components/schemas/AlternativeUpdate'
+    LongAudioOptions:
+      type: object
+      properties:
+        recognitionModel:
+          $ref: '#/components/schemas/RecognitionModelOptions_in_LongAudioOptions_recognitionModel'
+    LongAudioResponse:
+      type: object
+      properties:
+        sessionUuid:
+          $ref: '#/components/schemas/SessionUuid_in_LongAudioResponse_sessionUuid'
+        alternative:
+          $ref: '#/components/schemas/AlternativeUpdate_in_LongAudioResponse_alternative'
+        normalizedAlternative:
+          $ref: '#/components/schemas/AlternativeUpdate_in_LongAudioResponse_normalizedAlternative'
+    RawAudio:
+      description: RAW Audio format spec (no container to infer type). used in AudioFormat
+        options
+      type: object
+      properties:
+        audioEncoding:
+          $ref: '#/components/schemas/RawAudioAudioEncoding_in_RawAudio_audioEncoding'
+        sampleRateHertz:
+          type: string
+          format: int64
+        audioChannelCount:
+          type: string
+          format: int64
+    RawAudioAudioEncoding:
+      type: string
+      enum:
+      - LINEAR16_PCM
+    RecognitionModelOptions:
+      type: object
+      properties:
+        model:
+          description: model name
+          type: string
+        audioFormat:
+          $ref: '#/components/schemas/AudioFormatOptions_in_RecognitionModelOptions_audioFormat'
+        textNormalization:
+          $ref: '#/components/schemas/TextNormalizationOptions_in_RecognitionModelOptions_textNormalization'
+    Reset:
+      description: 'Drop all recognition context. Use case: several recognitions over
+        one channel. After first recognition user should reset context'
+      type: object
+      properties: {}
+    SessionUuid:
+      type: object
+      properties:
+        uuid:
+          type: string
+        userRequestId:
+          type: string
+    ShortAudioOptions:
+      type: object
+      properties:
+        recognitionModel:
+          $ref: '#/components/schemas/RecognitionModelOptions_in_ShortAudioOptions_recognitionModel'
+    ShortAudioResponse:
+      type: object
+      properties:
+        sessionUuid:
+          $ref: '#/components/schemas/SessionUuid_in_ShortAudioResponse_sessionUuid'
+        alternative:
+          $ref: '#/components/schemas/AlternativeUpdate_in_ShortAudioResponse_alternative'
+        normalizedAlternative:
+          $ref: '#/components/schemas/AlternativeUpdate_in_ShortAudioResponse_normalizedAlternative'
+    SilenceChunk:
+      type: object
+      properties:
+        durationMs:
+          type: string
+          format: int64
+    StatusCode:
+      type: object
+      properties:
+        codeType:
+          $ref: '#/components/schemas/CodeType_in_StatusCode_codeType'
+        message:
+          type: string
+    StreamingOptions:
+      type: object
+      properties:
+        recognitionModel:
+          $ref: '#/components/schemas/RecognitionModelOptions_in_StreamingOptions_recognitionModel'
+        eouClassifier:
+          $ref: '#/components/schemas/EouClassifierOptions_in_StreamingOptions_eouClassifier'
+    StreamingResponse:
+      description: |-
+        responses from server
+        each response contains session uuid
+        AudioCursors
+        plus specific even
+      type: object
+      allOf:
+      - type: object
+        properties:
+          sessionUuid:
+            $ref: '#/components/schemas/SessionUuid'
+          audioCursors:
+            $ref: '#/components/schemas/AudioCursors'
+          responseWallTimeMs:
+            description: wall clock on server side. This is time when server wrote
+              results to stream
+            type: string
+            format: int64
+      - title: Event
+        type: object
+        maxProperties: 1
+        properties:
+          partial:
+            $ref: '#/components/schemas/AlternativeUpdate'
+            description: |-
+              partial results, server will send them regularly after enough audio data was received from user. This are current text estimation
+                 from final_time_ms to partial_time_ms. Could change after new data will arrive
+          final:
+            $ref: '#/components/schemas/AlternativeUpdate'
+            description: final results, the recognition is now fixed until final_time_ms.
+              For now, final is sent only if the EOU event was triggered. This could
+              be change in future releases
+          eouUpdate:
+            $ref: '#/components/schemas/EouUpdate'
+            description: |-
+              After EOU classifier, send the message with final, send the EouUpdate with time of EOU
+               before eou_update we send final with the same time. there could be several finals before eou update
+          finalRefinement:
+            $ref: '#/components/schemas/FinalRefinement'
+            description: |-
+              For each final, if normalization is enabled, sent the normalized text (or some other advanced post-processing).
+                 Final normalization will introduce additional latency
+          contextUpdate:
+            $ref: '#/components/schemas/ContextUpdate'
+            description: Status messages, send by server with fixed interval (keep-alive)
+          statusCode:
+            $ref: '#/components/schemas/StatusCode'
+    TextNormalizationOptions:
+      description: options
+      type: object
+      properties:
+        textNormalization:
+          $ref: '#/components/schemas/TextNormalizationOptionsTextNormalization_in_TextNormalizationOptions_textNormalization'
+        profanityFilter:
+          description: Profanity filter
+          type: boolean
+          format: boolean
+    TextNormalizationOptionsTextNormalization:
+      description: |-
+        Normalization
+
+         - TEXT_NORMALIZATION_ENABLED: Enable normalization
+         - TEXT_NORMALIZATION_DISABLED: Disable normalization
+      type: string
+      enum:
+      - TEXT_NORMALIZATION_ENABLED
+      - TEXT_NORMALIZATION_DISABLED
+    Word:
+      type: object
+      properties:
+        text:
+          type: string
+        startTimeMs:
+          type: string
+          format: int64
+        endTimeMs:
+          type: string
+          format: int64
+    ContainerAudioContainerAudioType_in_ContainerAudio_containerAudioType:
+      type: string
+      enum:
+      - WAV
+      - OGG_OPUS
+    DefaultEouClassifierEouSensitivity_in_DefaultEouClassifier_type:
+      description: EOU sensitivity. There'll be at least two levels, faster with more
+        error and more conservative (our default)
+      type: string
+      enum:
+      - DEFAULT
+    RecognitionModelOptions_in_LongAudioOptions_recognitionModel:
+      type: object
+      properties:
+        model:
+          description: model name
+          type: string
+        audioFormat:
+          $ref: '#/components/schemas/AudioFormatOptions_in_RecognitionModelOptions_audioFormat'
+        textNormalization:
+          $ref: '#/components/schemas/TextNormalizationOptions_in_RecognitionModelOptions_textNormalization'
+    SessionUuid_in_LongAudioResponse_sessionUuid:
+      type: object
+      properties:
+        uuid:
+          type: string
+        userRequestId:
+          type: string
+    AlternativeUpdate_in_LongAudioResponse_alternative:
+      type: object
+      properties:
+        alternatives:
+          type: array
+          items:
+            $ref: '#/components/schemas/Alternative'
+        channelTag:
+          type: string
+    AlternativeUpdate_in_LongAudioResponse_normalizedAlternative:
+      type: object
+      properties:
+        alternatives:
+          type: array
+          items:
+            $ref: '#/components/schemas/Alternative'
+        channelTag:
+          type: string
+    RawAudioAudioEncoding_in_RawAudio_audioEncoding:
+      type: string
+      enum:
+      - LINEAR16_PCM
+    AudioFormatOptions_in_RecognitionModelOptions_audioFormat:
+      description: |-
+        config for input audio
+
+        audio format options
+      type: object
+      allOf:
+      - title: AudioFormat
+        type: object
+        maxProperties: 1
+        properties:
+          rawAudio:
+            $ref: '#/components/schemas/RawAudio'
+          containerAudio:
+            $ref: '#/components/schemas/ContainerAudio'
+    TextNormalizationOptions_in_RecognitionModelOptions_textNormalization:
+      description: options
+      type: object
+      properties:
+        textNormalization:
+          $ref: '#/components/schemas/TextNormalizationOptionsTextNormalization_in_TextNormalizationOptions_textNormalization'
+        profanityFilter:
+          description: Profanity filter
+          type: boolean
+          format: boolean
+    RecognitionModelOptions_in_ShortAudioOptions_recognitionModel:
+      type: object
+      properties:
+        model:
+          description: model name
+          type: string
+        audioFormat:
+          $ref: '#/components/schemas/AudioFormatOptions_in_RecognitionModelOptions_audioFormat'
+        textNormalization:
+          $ref: '#/components/schemas/TextNormalizationOptions_in_RecognitionModelOptions_textNormalization'
+    SessionUuid_in_ShortAudioResponse_sessionUuid:
+      type: object
+      properties:
+        uuid:
+          type: string
+        userRequestId:
+          type: string
+    AlternativeUpdate_in_ShortAudioResponse_alternative:
+      type: object
+      properties:
+        alternatives:
+          type: array
+          items:
+            $ref: '#/components/schemas/Alternative'
+        channelTag:
+          type: string
+    AlternativeUpdate_in_ShortAudioResponse_normalizedAlternative:
+      type: object
+      properties:
+        alternatives:
+          type: array
+          items:
+            $ref: '#/components/schemas/Alternative'
+        channelTag:
+          type: string
+    CodeType_in_StatusCode_codeType:
+      type: string
+      enum:
+      - WORKING
+      - WARNING
+      - CLOSED
+    RecognitionModelOptions_in_StreamingOptions_recognitionModel:
+      type: object
+      properties:
+        model:
+          description: model name
+          type: string
+        audioFormat:
+          $ref: '#/components/schemas/AudioFormatOptions_in_RecognitionModelOptions_audioFormat'
+        textNormalization:
+          $ref: '#/components/schemas/TextNormalizationOptions_in_RecognitionModelOptions_textNormalization'
+    EouClassifierOptions_in_StreamingOptions_eouClassifier:
+      type: object
+      allOf:
+      - title: Classifier
+        type: object
+        maxProperties: 1
+        properties:
+          defaultClassifier:
+            $ref: '#/components/schemas/DefaultEouClassifier'
+          externalClassifier:
+            $ref: '#/components/schemas/ExternalEouClassifier'
+    TextNormalizationOptionsTextNormalization_in_TextNormalizationOptions_textNormalization:
+      description: |-
+        Normalization
+
+         - TEXT_NORMALIZATION_ENABLED: Enable normalization
+         - TEXT_NORMALIZATION_DISABLED: Disable normalization
+      type: string
+      enum:
+      - TEXT_NORMALIZATION_ENABLED
+      - TEXT_NORMALIZATION_DISABLED
+tags:
+- name: Recognizer

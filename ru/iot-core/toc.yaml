@@ -115,7 +115,7 @@ items:
         items: null
         include:
           repo: docs
-          path: en/_api-ref-grpc/iot-core/api-ref/toc.yaml
+          path: en/_api-ref-grpc/iot-core/toc.yaml
       - name: REST
         items: null
         include:

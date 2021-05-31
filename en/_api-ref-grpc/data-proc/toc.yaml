@@ -1,0 +1,13 @@
+items:
+  - name: Overview
+    href: api-ref/grpc/index.md
+  - name: ClusterService
+    href: api-ref/grpc/cluster_service.md
+  - name: JobService
+    href: api-ref/grpc/job_service.md
+  - name: ResourcePresetService
+    href: api-ref/grpc/resource_preset_service.md
+  - name: SubclusterService
+    href: api-ref/grpc/subcluster_service.md
+  - name: OperationService
+    href: api-ref/grpc/operation_service.md

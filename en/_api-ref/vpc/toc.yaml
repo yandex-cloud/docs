@@ -17,6 +17,8 @@ items:
         href: api-ref/Address/list.md
       - name: listOperations
         href: api-ref/Address/listOperations.md
+      - name: move
+        href: api-ref/Address/move.md
       - name: update
         href: api-ref/Address/update.md
   - name: Network
@@ -61,6 +63,24 @@ items:
     items:
       - name: Overview
         href: api-ref/SecurityGroup/index.md
+      - name: create
+        href: api-ref/SecurityGroup/create.md
+      - name: delete
+        href: api-ref/SecurityGroup/delete.md
+      - name: get
+        href: api-ref/SecurityGroup/get.md
+      - name: list
+        href: api-ref/SecurityGroup/list.md
+      - name: listOperations
+        href: api-ref/SecurityGroup/listOperations.md
+      - name: move
+        href: api-ref/SecurityGroup/move.md
+      - name: update
+        href: api-ref/SecurityGroup/update.md
+      - name: updateRule
+        href: api-ref/SecurityGroup/updateRule.md
+      - name: updateRules
+        href: api-ref/SecurityGroup/updateRules.md
   - name: Subnet
     items:
       - name: Overview

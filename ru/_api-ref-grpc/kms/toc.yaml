@@ -1,0 +1,9 @@
+items:
+  - name: Обзор
+    href: api-ref/grpc/index.md
+  - name: SymmetricCryptoService
+    href: api-ref/grpc/symmetric_crypto_service.md
+  - name: SymmetricKeyService
+    href: api-ref/grpc/symmetric_key_service.md
+  - name: OperationService
+    href: api-ref/grpc/operation_service.md

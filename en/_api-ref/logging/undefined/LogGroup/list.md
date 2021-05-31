@@ -16,10 +16,10 @@ GET undefined/logging/v1/logGroups
  
 Parameter | Description
 --- | ---
-folderId | Required.
+folderId | Required. The maximum string length in characters is 64.
 pageSize | 
-pageToken | 
-filter | supported fields for filter: name
+pageToken | The maximum string length in characters is 100.
+filter | supported fields for filter: name  The maximum string length in characters is 1000.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

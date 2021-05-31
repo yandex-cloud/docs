@@ -12,7 +12,9 @@ paths:
       parameters:
       - name: logGroupId
         in: path
-        description: Required.
+        description: |-
+          Required.
+          The maximum string length in characters is 64.
         required: true
         schema:
           type: string
@@ -31,7 +33,9 @@ paths:
       parameters:
       - name: logGroupId
         in: path
-        description: Required.
+        description: |-
+          Required.
+          The maximum string length in characters is 64.
         required: true
         schema:
           type: string
@@ -60,7 +64,9 @@ paths:
       parameters:
       - name: folderId
         in: query
-        description: Required.
+        description: |-
+          Required.
+          The maximum string length in characters is 64.
         schema:
           type: string
       responses:
@@ -79,7 +85,9 @@ paths:
       parameters:
       - name: logGroupId
         in: path
-        description: Required.
+        description: |-
+          Required.
+          The maximum string length in characters is 64.
         required: true
         schema:
           type: string
@@ -99,7 +107,9 @@ paths:
       parameters:
       - name: folderId
         in: query
-        description: Required.
+        description: |-
+          Required.
+          The maximum string length in characters is 64.
         schema:
           type: string
       - name: pageSize
@@ -109,6 +119,7 @@ paths:
           format: int64
       - name: pageToken
         in: query
+        description: The maximum string length in characters is 100.
         schema:
           type: string
       - name: filter
@@ -116,6 +127,8 @@ paths:
         description: |-
           supported fields for filter:
           name
+
+          The maximum string length in characters is 1000.
         schema:
           type: string
       responses:
@@ -134,12 +147,15 @@ paths:
       parameters:
       - name: logGroupId
         in: path
-        description: Required.
+        description: |-
+          Required.
+          The maximum string length in characters is 64.
         required: true
         schema:
           type: string
       - name: type
         in: query
+        description: The maximum string length in characters is 256.
         schema:
           type: string
       responses:
@@ -158,7 +174,9 @@ paths:
       parameters:
       - name: logGroupId
         in: path
-        description: Required.
+        description: |-
+          Required.
+          The maximum string length in characters is 64.
         required: true
         schema:
           type: string
@@ -343,19 +361,29 @@ paths:
           type: string
       - name: criteria.logGroupId
         in: query
-        description: Required.
+        description: |-
+          Required.
+          The maximum string length in characters is 64.
         schema:
           type: string
-      - name: criteria.resourceType
+      - name: criteria.resourceTypes
         in: query
-        description: The maximum string length in characters is 63.
+        description: |-
+          The maximum number of elements is 100.
+          Each value must match the regular expression `` [a-zA-Z][-a-zA-Z0-9_.]{1,62} ``.
         schema:
-          type: string
-      - name: criteria.resourceId
+          type: array
+          items:
+            type: string
+      - name: criteria.resourceIds
         in: query
-        description: The maximum string length in characters is 63.
+        description: |-
+          The maximum number of elements is 100.
+          Each value must match the regular expression `` [a-zA-Z][-a-zA-Z0-9_.]{1,62} ``.
         schema:
-          type: string
+          type: array
+          items:
+            type: string
       - name: criteria.since
         in: query
         description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
@@ -372,12 +400,14 @@ paths:
           format: date-time
       - name: criteria.levels
         in: query
+        description: The maximum number of elements is 10.
         schema:
           type: array
           items:
             $ref: '#/components/schemas/Level'
       - name: criteria.filter
         in: query
+        description: The maximum string length in characters is 1000.
         schema:
           type: string
       - name: criteria.pageSize
@@ -426,14 +456,24 @@ components:
       type: object
       properties:
         logGroupId:
-          description: Required.
+          description: |-
+            Required.
+            The maximum string length in characters is 64.
           type: string
-        resourceType:
-          description: The maximum string length in characters is 63.
-          type: string
-        resourceId:
-          description: The maximum string length in characters is 63.
-          type: string
+        resourceTypes:
+          description: |-
+            The maximum number of elements is 100.
+            Each value must match the regular expression `` [a-zA-Z][-a-zA-Z0-9_.]{1,62} ``.
+          type: array
+          items:
+            type: string
+        resourceIds:
+          description: |-
+            The maximum number of elements is 100.
+            Each value must match the regular expression `` [a-zA-Z][-a-zA-Z0-9_.]{1,62} ``.
+          type: array
+          items:
+            type: string
         since:
           description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
             format.
@@ -445,21 +485,29 @@ components:
           type: string
           format: date-time
         levels:
+          description: The maximum number of elements is 10.
           type: array
           items:
             $ref: '#/components/schemas/Level'
         filter:
+          description: The maximum string length in characters is 1000.
           type: string
         pageSize:
           type: string
           format: int64
     Destination:
       type: object
-      properties:
-        logGroupId:
-          type: string
-        folderId:
-          type: string
+      allOf:
+      - title: destination
+        type: object
+        maxProperties: 1
+        properties:
+          logGroupId:
+            description: The maximum string length in characters is 64.
+            type: string
+          folderId:
+            description: The maximum string length in characters is 64.
+            type: string
     Empty:
       description: Empty JSON object `` {} ``.
       type: object
@@ -498,7 +546,7 @@ components:
         level:
           $ref: '#/components/schemas/Level_in_IncomingLogEntry_level'
         message:
-          description: The maximum string length in characters is 262144.
+          description: The maximum string length in characters is 65536.
           type: string
         jsonPayload:
           type: object
@@ -939,11 +987,17 @@ components:
     Destination_in_WriteRequest_destination:
       description: Required.
       type: object
-      properties:
-        logGroupId:
-          type: string
-        folderId:
-          type: string
+      allOf:
+      - title: destination
+        type: object
+        maxProperties: 1
+        properties:
+          logGroupId:
+            description: The maximum string length in characters is 64.
+            type: string
+          folderId:
+            description: The maximum string length in characters is 64.
+            type: string
 tags:
 - name: LogGroup
 - name: LogIngestion

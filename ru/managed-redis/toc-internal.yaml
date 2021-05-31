@@ -63,7 +63,7 @@ items:
         href: api-ref/gRPC/authentication.md
     include:
       repo: docs
-      path: en/_api-ref-grpc/managed-redis/api-ref/toc.yaml
+      path: en/_api-ref-grpc/managed-redis/toc.yaml
   - name: Справочник REST API (англ.)
     items:
       - name: Authentication

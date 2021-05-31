@@ -1,0 +1,122 @@
+openapi: "3.0"
+info:
+  title: Yandex Text To Speech Service API
+  description: Сервис не оперирует ресурсами.
+  version: v1
+  x-y-docUri: api-ref
+  x-y-baseUrl: https://tts.api.cloud.yandex.net
+paths: {}
+components:
+  schemas:
+    AdaptiveSynthesizeResponse:
+      type: object
+      properties:
+        audioChunk:
+          $ref: '#/components/schemas/AudioChunk_in_AdaptiveSynthesizeResponse_audioChunk'
+    AudioChunk:
+      type: object
+      properties:
+        data:
+          description: Последовательность байт синтезированного звука в формате, указанном
+            в output_audio_spec
+          type: string
+          format: byte
+    AudioContent:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          audioSpec:
+            $ref: '#/components/schemas/AudioSpec'
+            description: |-
+              Обязательное поле.
+              Описание аудиоформата.
+      - title: audio_source
+        type: object
+        maxProperties: 1
+        properties:
+          content:
+            description: |-
+              Содержимое аудиофайла
+
+              Максимальная длина строки в символах — 10485760.
+            type: string
+            format: byte
+    AudioSpec:
+      type: object
+      properties:
+        audioEncoding:
+          $ref: '#/components/schemas/AudioSpecAudioEncoding_in_AudioSpec_audioEncoding'
+        sampleRateHertz:
+          description: Частота дискретизации сигнала.
+          type: string
+          format: int64
+        voice:
+          description: Подсказка для определения голоса, которым необходимо синтезировать
+            фразу.
+          type: string
+    AudioSpecAudioEncoding:
+      description: ' - LINEAR16_PCM: 16-bit signed little-endian (Linear PCM)'
+      type: string
+      enum:
+      - LINEAR16_PCM
+    ReplacementUnit:
+      type: object
+      properties:
+        wordIndexStart:
+          description: |-
+            Порядковый номер слова, с которого начинается переменная
+            (знаки препинания не учитываются).
+
+            Допустимые значения — от 0 до 128 включительно.
+          type: string
+          format: int64
+        wordIndexEnd:
+          description: |-
+            Gорядковый номер слова, перед которым заканчивается переменная.
+            (знаки препинания не учитываются).
+
+            Допустимые значения — от 0 до 128 включительно.
+          type: string
+          format: int64
+        replacementText:
+          description: |-
+            Обязательное поле.
+            Текст синтезируемой переменной.
+
+            Максимальная длина строки в символах — 100.
+          type: string
+        audioUnitStartMs:
+          description: |-
+            Позиция начала переменной в аудио (в миллисекундах).
+
+            Минимальное значение — 0.
+          type: string
+          format: int64
+        audioUnitEndMs:
+          description: |-
+            Позиция конца переменной в аудио (в миллисекундах).
+
+            Минимальное значение — 0.
+          type: string
+          format: int64
+    AudioChunk_in_AdaptiveSynthesizeResponse_audioChunk:
+      description: Фрагмент синтезированного аудио.
+      type: object
+      properties:
+        data:
+          description: Последовательность байт синтезированного звука в формате, указанном
+            в output_audio_spec
+          type: string
+          format: byte
+    AudioSpecAudioEncoding_in_AudioSpec_audioEncoding:
+      description: |-
+        Формат файла.
+
+         - LINEAR16_PCM: 16-bit signed little-endian (Linear PCM)
+      type: string
+      enum:
+      - LINEAR16_PCM
+tags:
+- name: Tts
+  description: Набор методов для управления синтезом переменных

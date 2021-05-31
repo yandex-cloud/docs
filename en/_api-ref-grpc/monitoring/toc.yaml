@@ -1,0 +1,15 @@
+items:
+  - name: Overview
+    href: api-ref/grpc/index.md
+  - name: AlertService
+    href: api-ref/grpc/alert_service.md
+  - name: ChannelService
+    href: api-ref/grpc/channel_service.md
+  - name: DashboardService
+    href: api-ref/grpc/dashboard_service.md
+  - name: MetricsDataService
+    href: api-ref/grpc/metrics_data_service.md
+  - name: MetricsMetaService
+    href: api-ref/grpc/metrics_meta_service.md
+  - name: OperationService
+    href: api-ref/grpc/operation_service.md

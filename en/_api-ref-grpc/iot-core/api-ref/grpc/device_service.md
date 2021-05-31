@@ -9,6 +9,7 @@ A set of methods for managing devices.
 | Call | Description |
 | --- | --- |
 | [Get](#Get) | Returns the specified device. |
+| [GetByName](#GetByName) |  |
 | [List](#List) | Retrieves the list of devices in the specified registry. |
 | [Create](#Create) | Creates a device in the specified registry. |
 | [Update](#Update) | Updates the specified device. |
@@ -62,30 +63,19 @@ last_sub_activity_time | **[google.protobuf.Timestamp](https://developers.google
 last_online_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
 
 
-## List {#List}
+## GetByName {#GetByName}
 
-Retrieves the list of devices in the specified registry.
 
-**rpc List ([ListDevicesRequest](#ListDevicesRequest)) returns ([ListDevicesResponse](#ListDevicesResponse))**
 
-### ListDevicesRequest {#ListDevicesRequest}
+**rpc GetByName ([GetByNameDeviceRequest](#GetByNameDeviceRequest)) returns ([Device](#Device1))**
+
+### GetByNameDeviceRequest {#GetByNameDeviceRequest}
 
 Field | Description
 --- | ---
-id | **oneof:** `registry_id` or `folder_id`<br>
-&nbsp;&nbsp;registry_id | **string**<br>ID of the registry to list devices in. <br>To get a registry ID make a [yandex.cloud.iot.devices.v1.RegistryService.List](/docs/iot-core/grpc/registry_service#List) request. The maximum string length in characters is 50.
-&nbsp;&nbsp;folder_id | **string**<br>ID of the folder to list devices in. <br>To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. The maximum string length in characters is 50.
-page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListDevicesResponse.next_page_token](#ListDevicesResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. Acceptable values are 0 to 1000, inclusive.
-page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListDevicesResponse.next_page_token](#ListDevicesResponse) returned by a previous list request. The maximum string length in characters is 100.
+registry_id | **string**<br>Required. ID of the registry to get device. <br>To get a registry ID make a [yandex.cloud.iot.devices.v1.RegistryService.List](/docs/iot-core/api-ref/grpc/registry_service#List) request. The maximum string length in characters is 50.
+device_name | **string**<br>Required. Name of the device to return. <br>To get a device name make a [DeviceService.List](#List) request. The maximum string length in characters is 50. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 device_view | enum **DeviceView**<br>Specifies which parts of the device resource should be returned in the response. <ul><li>`BASIC`: Server responses without monitoring data. The default value.</li><li>`FULL`: Server responses with monitoring data.</li><ul/>
-
-
-### ListDevicesResponse {#ListDevicesResponse}
-
-Field | Description
---- | ---
-devices[] | **[Device](#Device1)**<br>List of devices. 
-next_page_token | **string**<br>Token for getting the next page of the list. If the number of results is greater than the specified [ListDevicesRequest.page_size](#ListDevicesRequest), use `next_page_token` as the value for the [ListDevicesRequest.page_token](#ListDevicesRequest) parameter in the next list request. <br>Each subsequent page will have its own `next_page_token` to continue paging through the results. 
 
 
 ### Device {#Device1}
@@ -113,56 +103,30 @@ last_sub_activity_time | **[google.protobuf.Timestamp](https://developers.google
 last_online_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
 
 
-## Create {#Create}
+## List {#List}
 
-Creates a device in the specified registry.
+Retrieves the list of devices in the specified registry.
 
-**rpc Create ([CreateDeviceRequest](#CreateDeviceRequest)) returns ([operation.Operation](#Operation))**
+**rpc List ([ListDevicesRequest](#ListDevicesRequest)) returns ([ListDevicesResponse](#ListDevicesResponse))**
 
-Metadata and response of Operation:<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateDeviceMetadata](#CreateDeviceMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Device](#Device2)<br>
-
-### CreateDeviceRequest {#CreateDeviceRequest}
+### ListDevicesRequest {#ListDevicesRequest}
 
 Field | Description
 --- | ---
-registry_id | **string**<br>Required. ID of the registry to create a device in. <br>To get a registry ID, make a [yandex.cloud.iot.devices.v1.RegistryService.List](/docs/iot-core/grpc/registry_service#List) request. The maximum string length in characters is 50.
-name | **string**<br>Required. Name of the device. The name must be unique within the registry. The maximum string length in characters is 50. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
-description | **string**<br>Description of the device. The maximum string length in characters is 256.
-certificates[] | **[Certificate](#Certificate)**<br>Device certificate. 
-topic_aliases | **map<string,string>**<br>Alias of a device topic. <br>Alias is an alternate name of a device topic assigned by the user. Map alias to canonical topic name prefix, e.g. `my/custom/alias` match to `$device/{id}/events`. 
-password | **string**<br>Device password. <br>The password must contain at least three character categories among the following: upper case latin, lower case latin, numbers and special symbols. 
+id | **oneof:** `registry_id` or `folder_id`<br>
+&nbsp;&nbsp;registry_id | **string**<br>ID of the registry to list devices in. <br>To get a registry ID make a [yandex.cloud.iot.devices.v1.RegistryService.List](/docs/iot-core/api-ref/grpc/registry_service#List) request. The maximum string length in characters is 50.
+&nbsp;&nbsp;folder_id | **string**<br>ID of the folder to list devices in. <br>To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. The maximum string length in characters is 50.
+page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListDevicesResponse.next_page_token](#ListDevicesResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. Acceptable values are 0 to 1000, inclusive.
+page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListDevicesResponse.next_page_token](#ListDevicesResponse) returned by a previous list request. The maximum string length in characters is 100.
+device_view | enum **DeviceView**<br>Specifies which parts of the device resource should be returned in the response. <ul><li>`BASIC`: Server responses without monitoring data. The default value.</li><li>`FULL`: Server responses with monitoring data.</li><ul/>
 
 
-### Certificate {#Certificate}
-
-Field | Description
---- | ---
-certificate_data | **string**<br>Public part of the device certificate. 
-
-
-### Operation {#Operation}
+### ListDevicesResponse {#ListDevicesResponse}
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the operation. 
-description | **string**<br>Description of the operation. 0-256 characters long. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
-created_by | **string**<br>ID of the user or service account who initiated the operation. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
-done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateDeviceMetadata](#CreateDeviceMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
-result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Device](#Device2)>**<br>if operation finished successfully. 
-
-
-### CreateDeviceMetadata {#CreateDeviceMetadata}
-
-Field | Description
---- | ---
-device_id | **string**<br>ID of the device that is being created. 
+devices[] | **[Device](#Device2)**<br>List of devices. 
+next_page_token | **string**<br>Token for getting the next page of the list. If the number of results is greater than the specified [ListDevicesRequest.page_size](#ListDevicesRequest), use `next_page_token` as the value for the [ListDevicesRequest.page_token](#ListDevicesRequest) parameter in the next list request. <br>Each subsequent page will have its own `next_page_token` to continue paging through the results. 
 
 
 ### Device {#Device2}
@@ -190,6 +154,83 @@ last_sub_activity_time | **[google.protobuf.Timestamp](https://developers.google
 last_online_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
 
 
+## Create {#Create}
+
+Creates a device in the specified registry.
+
+**rpc Create ([CreateDeviceRequest](#CreateDeviceRequest)) returns ([operation.Operation](#Operation))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateDeviceMetadata](#CreateDeviceMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Device](#Device3)<br>
+
+### CreateDeviceRequest {#CreateDeviceRequest}
+
+Field | Description
+--- | ---
+registry_id | **string**<br>Required. ID of the registry to create a device in. <br>To get a registry ID, make a [yandex.cloud.iot.devices.v1.RegistryService.List](/docs/iot-core/api-ref/grpc/registry_service#List) request. The maximum string length in characters is 50.
+name | **string**<br>Required. Name of the device. The name must be unique within the registry. The maximum string length in characters is 50. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+description | **string**<br>Description of the device. The maximum string length in characters is 256.
+certificates[] | **[Certificate](#Certificate)**<br>Device certificate. 
+topic_aliases | **map<string,string>**<br>Alias of a device topic. <br>Alias is an alternate name of a device topic assigned by the user. Map alias to canonical topic name prefix, e.g. `my/custom/alias` match to `$device/{id}/events`. 
+password | **string**<br>Device password. <br>The password must contain at least three character categories among the following: upper case latin, lower case latin, numbers and special symbols. 
+
+
+### Certificate {#Certificate}
+
+Field | Description
+--- | ---
+certificate_data | **string**<br>Public part of the device certificate. 
+
+
+### Operation {#Operation}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateDeviceMetadata](#CreateDeviceMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Device](#Device3)>**<br>if operation finished successfully. 
+
+
+### CreateDeviceMetadata {#CreateDeviceMetadata}
+
+Field | Description
+--- | ---
+device_id | **string**<br>ID of the device that is being created. 
+
+
+### Device {#Device3}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the device. 
+registry_id | **string**<br>ID of the registry that the device belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+name | **string**<br>Name of the device. The name is unique within the registry. 
+description | **string**<br>Description of the device. 0-256 characters long. 
+topic_aliases | **map<string,string>**<br>Alias of a device topic. <br>Alias is an alternate name of a device topic assigned by the user. Map alias to canonical topic name prefix, e.g. `my/custom/alias` match to `$device/abcdef/events`. 
+status | enum **Status**<br>Status of the device. <ul><li>`CREATING`: Device is being created.</li><li>`ACTIVE`: Device is ready to use.</li><li>`DELETING`: Device is being deleted.</li><ul/>
+monitoring_data | **[DeviceMonitoringData](#DeviceMonitoringData3)**<br>Device monitoring data, returns if FULL view specified. 
+
+
+### DeviceMonitoringData {#DeviceMonitoringData3}
+
+Field | Description
+--- | ---
+last_auth_ip | **string**<br> 
+last_auth_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
+last_pub_activity_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
+last_sub_activity_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
+last_online_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
+
+
 ## Update {#Update}
 
 Updates the specified device.
@@ -198,7 +239,7 @@ Updates the specified device.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateDeviceMetadata](#UpdateDeviceMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Device](#Device3)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Device](#Device4)<br>
 
 ### UpdateDeviceRequest {#UpdateDeviceRequest}
 
@@ -224,7 +265,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateDeviceMetadata](#UpdateDeviceMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Device](#Device3)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Device](#Device4)>**<br>if operation finished successfully. 
 
 
 ### UpdateDeviceMetadata {#UpdateDeviceMetadata}
@@ -234,7 +275,7 @@ Field | Description
 device_id | **string**<br>ID of the device that is being updated. 
 
 
-### Device {#Device3}
+### Device {#Device4}
 
 Field | Description
 --- | ---
@@ -245,10 +286,10 @@ name | **string**<br>Name of the device. The name is unique within the registry.
 description | **string**<br>Description of the device. 0-256 characters long. 
 topic_aliases | **map<string,string>**<br>Alias of a device topic. <br>Alias is an alternate name of a device topic assigned by the user. Map alias to canonical topic name prefix, e.g. `my/custom/alias` match to `$device/abcdef/events`. 
 status | enum **Status**<br>Status of the device. <ul><li>`CREATING`: Device is being created.</li><li>`ACTIVE`: Device is ready to use.</li><li>`DELETING`: Device is being deleted.</li><ul/>
-monitoring_data | **[DeviceMonitoringData](#DeviceMonitoringData3)**<br>Device monitoring data, returns if FULL view specified. 
+monitoring_data | **[DeviceMonitoringData](#DeviceMonitoringData4)**<br>Device monitoring data, returns if FULL view specified. 
 
 
-### DeviceMonitoringData {#DeviceMonitoringData3}
+### DeviceMonitoringData {#DeviceMonitoringData4}
 
 Field | Description
 --- | ---
@@ -558,7 +599,7 @@ Field | Description
 device_id | **string**<br>Required. ID of the device to list operations for. <br>To get a device ID make a [DeviceService.List](#List) request. 
 page_size | **int64**<br>The maximum number of results per page that should be returned. If the number of available results is larger than `page_size`, the service returns a [ListDeviceOperationsResponse.next_page_token](#ListDeviceOperationsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListDeviceOperationsResponse.next_page_token](#ListDeviceOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br>A filter expression that filters resources listed in the response. Currently you can use filtering only on [Device.name](#Device4) field. The maximum string length in characters is 1000.
+filter | **string**<br>A filter expression that filters resources listed in the response. Currently you can use filtering only on [Device.name](#Device5) field. The maximum string length in characters is 1000.
 
 
 ### ListDeviceOperationsResponse {#ListDeviceOperationsResponse}

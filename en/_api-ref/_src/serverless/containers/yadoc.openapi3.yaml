@@ -1,0 +1,981 @@
+openapi: "3.0"
+info:
+  title: Yandex Cloud Serverless Containers Service
+  description: This API reference is organized by resource. Actions are performed
+    by sending HTTP requests to resource URLs or making RPC calls. For more information
+    about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
+  version: v1
+  x-y-docUri: containers/api-ref
+  x-y-baseUrl: https://serverless-containers.api.cloud.yandex.net
+paths:
+  /containers/v1/containers/{containerId}:
+    get:
+      tags:
+      - Container
+      operationId: ContainerGet
+      parameters:
+      - name: containerId
+        in: path
+        description: Required.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Container'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - Container
+      operationId: ContainerDelete
+      parameters:
+      - name: containerId
+        in: path
+        description: Required.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteContainerMetadata'
+      x-y-operation-response: Empty
+    patch:
+      tags:
+      - Container
+      operationId: ContainerUpdate
+      parameters:
+      - name: containerId
+        in: path
+        description: Required.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateContainerRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateContainerMetadata'
+      x-y-operation-response: '[Container](/docs/serverless/containers/api-ref/Container#representation)'
+  /containers/v1/containers:
+    get:
+      tags:
+      - Container
+      operationId: ContainerList
+      parameters:
+      - name: folderId
+        in: query
+        description: Required.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        schema:
+          type: string
+      - name: filter
+        in: query
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListContainersResponse'
+      x-y-navtitle: list
+    post:
+      tags:
+      - Container
+      operationId: ContainerCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateContainerRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateContainerMetadata'
+      x-y-operation-response: '[Container](/docs/serverless/containers/api-ref/Container#representation)'
+  /containers/v1/revisions:deploy:
+    post:
+      tags:
+      - Container
+      operationId: ContainerDeployRevision
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeployContainerRevisionRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: deployRevision
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeployContainerRevisionMetadata'
+      x-y-operation-response: '`Revision`'
+  /containers/v1/revisions/{containerRevisionId}:
+    get:
+      tags:
+      - Container
+      operationId: ContainerGetRevision
+      parameters:
+      - name: containerRevisionId
+        in: path
+        description: Required.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Revision'
+      x-y-navtitle: getRevision
+  /containers/v1/revisions:
+    get:
+      tags:
+      - Container
+      operationId: ContainerListRevisions
+      parameters:
+      - name: folderId
+        in: query
+        schema:
+          type: string
+      - name: containerId
+        in: query
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: The maximum string length in characters is 1000.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListContainersRevisionsResponse'
+      x-y-navtitle: listRevisions
+  /containers/v1/containers/{containerId}/operations:
+    get:
+      tags:
+      - Container
+      operationId: ContainerListOperations
+      parameters:
+      - name: containerId
+        in: path
+        description: Required.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: The maximum string length in characters is 1000.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListContainerOperationsResponse'
+      x-y-navtitle: listOperations
+  /containers/v1/containers/{resourceId}:listAccessBindings:
+    get:
+      tags:
+      - Container
+      operationId: ContainerListAccessBindings
+      parameters:
+      - name: resourceId
+        in: path
+        description: |-
+          Required.
+          ID of the resource to list access bindings for.
+
+          To get the resource ID, use a corresponding List request.
+          For example, use the [list](/docs/resource-manager/api-ref/Cloud/list) request to get the Cloud resource ID.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page that should be returned. If the number of available
+          results is larger than pageSize,
+          the service returns a nextPageToken
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
+
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. Set pageToken
+          to the nextPageToken
+          returned by a previous list request to get the next page of results.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListAccessBindingsResponse'
+      x-y-navtitle: listAccessBindings
+  /containers/v1/containers/{resourceId}:setAccessBindings:
+    post:
+      tags:
+      - Container
+      operationId: ContainerSetAccessBindings
+      parameters:
+      - name: resourceId
+        in: path
+        description: |-
+          Required.
+          ID of the resource for which access bindings are being set.
+
+          To get the resource ID, use a corresponding List request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SetAccessBindingsRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: setAccessBindings
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/SetAccessBindingsMetadata'
+      x-y-operation-response: Empty
+  /containers/v1/containers/{resourceId}:updateAccessBindings:
+    post:
+      tags:
+      - Container
+      operationId: ContainerUpdateAccessBindings
+      parameters:
+      - name: resourceId
+        in: path
+        description: |-
+          Required.
+          ID of the resource for which access bindings are being updated.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateAccessBindingsRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: updateAccessBindings
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateAccessBindingsMetadata'
+      x-y-operation-response: Empty
+components:
+  schemas:
+    AccessBinding:
+      type: object
+      properties:
+        roleId:
+          description: |-
+            Required.
+            ID of the [Role](/docs/iam/api-ref/Role#representation) that is assigned to the `subject`.
+
+            The maximum string length in characters is 50.
+          type: string
+        subject:
+          $ref: '#/components/schemas/Subject_in_AccessBinding_subject'
+    AccessBindingAction:
+      description: |2-
+         - ADD: Addition of an access binding.
+         - REMOVE: Removal of an access binding.
+      type: string
+      enum:
+      - ADD
+      - REMOVE
+    AccessBindingDelta:
+      type: object
+      properties:
+        action:
+          $ref: '#/components/schemas/AccessBindingAction_in_AccessBindingDelta_action'
+        accessBinding:
+          $ref: '#/components/schemas/AccessBinding_in_AccessBindingDelta_accessBinding'
+    Container:
+      type: object
+      properties:
+        id:
+          type: string
+        folderId:
+          type: string
+        createdAt:
+          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
+            format.
+          type: string
+          format: date-time
+        name:
+          type: string
+        description:
+          type: string
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+        regionId:
+          type: string
+        url:
+          type: string
+        status:
+          $ref: '#/components/schemas/ContainerStatus_in_Container_status'
+    ContainerStatus:
+      type: string
+      enum:
+      - CREATING
+      - ACTIVE
+      - DELETING
+      - ERROR
+    CreateContainerMetadata:
+      type: object
+      properties:
+        containerId:
+          type: string
+    CreateContainerRequest:
+      type: object
+      properties:
+        folderId:
+          description: Required.
+          type: string
+        name:
+          description: Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9]
+            ``.
+          type: string
+        description:
+          description: The maximum string length in characters is 256.
+          type: string
+        labels:
+          description: |-
+            No more than 64 per resource.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            The maximum string length in characters for each value is 63.
+            Each value must match the regular expression `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+        regionId:
+          description: |-
+            Required.
+            The maximum string length in characters is 50.
+          type: string
+    DeleteContainerMetadata:
+      type: object
+      properties:
+        containerId:
+          type: string
+    DeployContainerRevisionMetadata:
+      type: object
+      properties:
+        containerRevisionId:
+          type: string
+    DeployContainerRevisionRequest:
+      type: object
+      properties:
+        containerId:
+          description: Required.
+          type: string
+        description:
+          type: string
+        resources:
+          $ref: '#/components/schemas/Resources_in_DeployContainerRevisionRequest_resources'
+        executionTimeout:
+          description: The maximum value is 600 seconds.
+          type: string
+        serviceAccountId:
+          type: string
+        imageSpec:
+          $ref: '#/components/schemas/ImageSpec_in_DeployContainerRevisionRequest_imageSpec'
+        concurrency:
+          type: string
+          format: int64
+    Empty:
+      description: Empty JSON object `` {} ``.
+      type: object
+      maxProperties: 0
+    FieldMask:
+      description: |-
+        A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
+
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
+        Fields specified in the request will be updated to provided values.
+        The rest of the fields will be reset to the default.
+      type: string
+    Image:
+      type: object
+      properties:
+        imageUrl:
+          type: string
+        imageDigest:
+          type: string
+        command:
+          type: array
+          items:
+            type: string
+        args:
+          type: array
+          items:
+            type: string
+        environment:
+          description: |-
+            Each key must match the regular expression `` [a-zA-Z][a-zA-Z0-9_]* ``.
+            The maximum string length in characters for each value is 4096.
+          type: object
+          additionalProperties:
+            type: string
+        workingDir:
+          type: string
+    ImageSpec:
+      type: object
+      properties:
+        imageUrl:
+          description: Required.
+          type: string
+        command:
+          type: array
+          items:
+            type: string
+        args:
+          type: array
+          items:
+            type: string
+        environment:
+          description: |-
+            Each key must match the regular expression `` [a-zA-Z][a-zA-Z0-9_]* ``.
+            The maximum string length in characters for each value is 4096.
+          type: object
+          additionalProperties:
+            type: string
+        workingDir:
+          type: string
+    ListAccessBindingsResponse:
+      type: object
+      properties:
+        accessBindings:
+          description: List of access bindings for the specified resource.
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessBinding'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than pageSize, use
+            the nextPageToken as the value
+            for the pageToken query parameter
+            in the next list request. Each subsequent list request will have its own
+            nextPageToken to continue paging through the results.
+          type: string
+    ListContainerOperationsResponse:
+      type: object
+      properties:
+        operations:
+          type: array
+          items:
+            $ref: '#/components/schemas/Operation'
+        nextPageToken:
+          type: string
+    ListContainersResponse:
+      type: object
+      properties:
+        containers:
+          type: array
+          items:
+            $ref: '#/components/schemas/Container'
+        nextPageToken:
+          type: string
+    ListContainersRevisionsResponse:
+      type: object
+      properties:
+        revisions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Revision'
+        nextPageToken:
+          type: string
+    Operation:
+      description: An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
+      type: object
+      allOf:
+      - type: object
+        properties:
+          id:
+            description: ID of the operation.
+            type: string
+          description:
+            description: Description of the operation. 0-256 characters long.
+            type: string
+          createdAt:
+            description: |-
+              Creation timestamp.
+
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          createdBy:
+            description: ID of the user or service account who initiated the operation.
+            type: string
+          modifiedAt:
+            description: |-
+              The time when the Operation resource was last modified.
+
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          done:
+            description: |-
+              If the value is `false`, it means the operation is still in progress.
+              If `true`, the operation is completed, and either `error` or `response` is available.
+            type: boolean
+            format: boolean
+          metadata:
+            description: |-
+              Service-specific metadata associated with the operation.
+              It typically contains the ID of the target resource that the operation is performed on.
+              Any method that returns a long-running operation should document the metadata type, if any.
+            type: object
+      - title: result
+        type: object
+        maxProperties: 1
+        properties:
+          error:
+            $ref: '#/components/schemas/rpcStatus'
+            description: The error result of the operation in case of failure or cancellation.
+          response:
+            description: |-
+              The normal response of the operation in case of success.
+              If the original method returns no data on success, such as Delete,
+              the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty).
+              If the original method is the standard Create/Update,
+              the response should be the target resource of the operation.
+              Any method that returns a long-running operation should document the response type, if any.
+            type: object
+    Resources:
+      type: object
+      properties:
+        memory:
+          description: Acceptable values are 134217728 to 8589934592, inclusive.
+          type: string
+          format: int64
+        cores:
+          description: Value must be one of 1, 2 or 4.
+          type: string
+          format: int64
+        coreFraction:
+          description: Acceptable values are 0 to 100, inclusive.
+          type: string
+          format: int64
+    Revision:
+      type: object
+      properties:
+        id:
+          type: string
+        containerId:
+          type: string
+        description:
+          type: string
+        createdAt:
+          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
+            format.
+          type: string
+          format: date-time
+        image:
+          $ref: '#/components/schemas/Image_in_Revision_image'
+        resources:
+          $ref: '#/components/schemas/Resources_in_Revision_resources'
+        executionTimeout:
+          type: string
+        concurrency:
+          type: string
+          format: int64
+        serviceAccountId:
+          type: string
+        status:
+          $ref: '#/components/schemas/RevisionStatus_in_Revision_status'
+    RevisionStatus:
+      type: string
+      enum:
+      - CREATING
+      - ACTIVE
+      - OBSOLETE
+    SetAccessBindingsMetadata:
+      type: object
+      properties:
+        resourceId:
+          description: ID of the resource for which access bindings are being set.
+          type: string
+    SetAccessBindingsRequest:
+      type: object
+      properties:
+        accessBindings:
+          description: |-
+            Required.
+            Access bindings to be set. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings).
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessBinding'
+    Subject:
+      type: object
+      properties:
+        id:
+          description: |-
+            Required.
+            ID of the subject.
+
+            It can contain one of the following values:
+            * `allAuthenticatedUsers`: A special system identifier that represents anyone
+               who is authenticated. It can be used only if the `type` is `system`.
+            * `allUsers`: A special system identifier that represents anyone. No authentication is required.
+               For example, you don't need to specify the IAM token in an API query.
+            * `<cloud generated id>`: An identifier that represents a user account.
+               It can be used only if the `type` is `userAccount`, `federatedUser` or `serviceAccount`.
+
+            The maximum string length in characters is 50.
+          type: string
+        type:
+          description: |-
+            Required.
+            Type of the subject.
+
+            It can contain one of the following values:
+            * `userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud.
+            * `serviceAccount`: A service account. This type represents the [ServiceAccount](/docs/iam/api-ref/ServiceAccount#representation) resource.
+            * `federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory.
+            * `system`: System group. This type represents several accounts with a common system identifier.
+
+            For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject).
+
+            The maximum string length in characters is 100.
+          type: string
+    UpdateAccessBindingsMetadata:
+      type: object
+      properties:
+        resourceId:
+          description: ID of the resource for which access bindings are being updated.
+          type: string
+    UpdateAccessBindingsRequest:
+      type: object
+      properties:
+        accessBindingDeltas:
+          description: |-
+            Required.
+            Updates to access bindings.
+
+            Must contain at least one element.
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessBindingDelta'
+    UpdateContainerMetadata:
+      type: object
+      properties:
+        containerId:
+          type: string
+    UpdateContainerRequest:
+      type: object
+      properties:
+        updateMask:
+          $ref: '#/components/schemas/FieldMask_in_UpdateContainerRequest_updateMask'
+        name:
+          description: Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9]
+            ``.
+          type: string
+        description:
+          description: The maximum string length in characters is 256.
+          type: string
+        labels:
+          description: |-
+            No more than 64 per resource.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            The maximum string length in characters for each value is 63.
+            Each value must match the regular expression `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+    rpcStatus:
+      description: The error result of the operation in case of failure or cancellation.
+      type: object
+      properties:
+        code:
+          description: Error code. An enum value of [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
+          type: integer
+          format: int32
+        message:
+          description: An error message.
+          type: string
+        details:
+          description: A list of messages that carry the error details.
+          type: array
+          items:
+            type: object
+    Subject_in_AccessBinding_subject:
+      description: |-
+        Required.
+        Identity for which access binding is being created.
+        It can represent an account with a unique ID or several accounts with a system identifier.
+      type: object
+      properties:
+        id:
+          description: |-
+            Required.
+            ID of the subject.
+
+            It can contain one of the following values:
+            * `allAuthenticatedUsers`: A special system identifier that represents anyone
+               who is authenticated. It can be used only if the `type` is `system`.
+            * `allUsers`: A special system identifier that represents anyone. No authentication is required.
+               For example, you don't need to specify the IAM token in an API query.
+            * `<cloud generated id>`: An identifier that represents a user account.
+               It can be used only if the `type` is `userAccount`, `federatedUser` or `serviceAccount`.
+
+            The maximum string length in characters is 50.
+          type: string
+        type:
+          description: |-
+            Required.
+            Type of the subject.
+
+            It can contain one of the following values:
+            * `userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud.
+            * `serviceAccount`: A service account. This type represents the [ServiceAccount](/docs/iam/api-ref/ServiceAccount#representation) resource.
+            * `federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory.
+            * `system`: System group. This type represents several accounts with a common system identifier.
+
+            For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject).
+
+            The maximum string length in characters is 100.
+          type: string
+    AccessBindingAction_in_AccessBindingDelta_action:
+      description: |-
+        Required.
+        The action that is being performed on an access binding.
+
+         - ADD: Addition of an access binding.
+         - REMOVE: Removal of an access binding.
+      type: string
+      enum:
+      - ADD
+      - REMOVE
+    AccessBinding_in_AccessBindingDelta_accessBinding:
+      description: |-
+        Required.
+        Access binding. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings).
+      type: object
+      properties:
+        roleId:
+          description: |-
+            Required.
+            ID of the [Role](/docs/iam/api-ref/Role#representation) that is assigned to the `subject`.
+
+            The maximum string length in characters is 50.
+          type: string
+        subject:
+          $ref: '#/components/schemas/Subject_in_AccessBinding_subject'
+    ContainerStatus_in_Container_status:
+      type: string
+      enum:
+      - CREATING
+      - ACTIVE
+      - DELETING
+      - ERROR
+    Resources_in_DeployContainerRevisionRequest_resources:
+      description: Required.
+      type: object
+      properties:
+        memory:
+          description: Acceptable values are 134217728 to 8589934592, inclusive.
+          type: string
+          format: int64
+        cores:
+          description: Value must be one of 1, 2 or 4.
+          type: string
+          format: int64
+        coreFraction:
+          description: Acceptable values are 0 to 100, inclusive.
+          type: string
+          format: int64
+    ImageSpec_in_DeployContainerRevisionRequest_imageSpec:
+      description: Required.
+      type: object
+      properties:
+        imageUrl:
+          description: Required.
+          type: string
+        command:
+          type: array
+          items:
+            type: string
+        args:
+          type: array
+          items:
+            type: string
+        environment:
+          description: |-
+            Each key must match the regular expression `` [a-zA-Z][a-zA-Z0-9_]* ``.
+            The maximum string length in characters for each value is 4096.
+          type: object
+          additionalProperties:
+            type: string
+        workingDir:
+          type: string
+    Image_in_Revision_image:
+      type: object
+      properties:
+        imageUrl:
+          type: string
+        imageDigest:
+          type: string
+        command:
+          type: array
+          items:
+            type: string
+        args:
+          type: array
+          items:
+            type: string
+        environment:
+          description: |-
+            Each key must match the regular expression `` [a-zA-Z][a-zA-Z0-9_]* ``.
+            The maximum string length in characters for each value is 4096.
+          type: object
+          additionalProperties:
+            type: string
+        workingDir:
+          type: string
+    Resources_in_Revision_resources:
+      type: object
+      properties:
+        memory:
+          description: Acceptable values are 134217728 to 8589934592, inclusive.
+          type: string
+          format: int64
+        cores:
+          description: Value must be one of 1, 2 or 4.
+          type: string
+          format: int64
+        coreFraction:
+          description: Acceptable values are 0 to 100, inclusive.
+          type: string
+          format: int64
+    RevisionStatus_in_Revision_status:
+      type: string
+      enum:
+      - CREATING
+      - ACTIVE
+      - OBSOLETE
+    FieldMask_in_UpdateContainerRequest_updateMask:
+      description: |-
+        A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
+
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
+        Fields specified in the request will be updated to provided values.
+        The rest of the fields will be reset to the default.
+      type: string
+tags:
+- name: Container

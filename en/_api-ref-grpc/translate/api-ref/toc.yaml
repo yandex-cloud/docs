@@ -1,5 +1,0 @@
-items:
-  - name: Overview
-    href: grpc/index.md
-  - name: TranslationService
-    href: grpc/translation_service.md

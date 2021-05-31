@@ -57,6 +57,8 @@ release_channel | enum **ReleaseChannel**<br>When creating a Kubernetes cluster,
 network_policy | **[NetworkPolicy](#NetworkPolicy)**<br> 
 kms_provider | **[KMSProvider](#KMSProvider)**<br>KMS provider configuration. 
 log_group_id | **string**<br>Log group where cluster stores cluster system logs, like audit, events, or controlplane logs. 
+network_implementation | **oneof:** `cilium`<br>
+&nbsp;&nbsp;cilium | **[Cilium](#Cilium)**<br> 
 
 
 ### Master {#Master}
@@ -185,7 +187,14 @@ provider | enum **Provider**<br> <ul><ul/>
 
 Field | Description
 --- | ---
-key_id | **string**<br>KMS key ID for secrets encryption. To obtain a KMS key ID use a [yandex.cloud.kms.v1.SymmetricKeyService.List](/docs/kms/grpc/symmetric_key_service#List) request. 
+key_id | **string**<br>KMS key ID for secrets encryption. To obtain a KMS key ID use a [yandex.cloud.kms.v1.SymmetricKeyService.List](/docs/kms/api-ref/grpc/symmetric_key_service#List) request. 
+
+
+### Cilium {#Cilium}
+
+Field | Description
+--- | ---
+routing_mode | enum **RoutingMode**<br> <ul><ul/>
 
 
 ## List {#List}
@@ -198,7 +207,7 @@ Retrieves the list of Kubernetes cluster in the specified folder.
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder to list Kubernetes cluster in. To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. 
+folder_id | **string**<br>Required. ID of the folder to list Kubernetes cluster in. To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. 
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClustersResponse.next_page_token](#ListClustersResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListClustersResponse.next_page_token](#ListClustersResponse) returned by a previous list request. The maximum string length in characters is 100.
 filter | **string**<br><ol><li>The field name. Currently you can use filtering only on [Cluster.name](#Cluster1) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 1-61 characters long and match the regular expression `|[a-z][-a-z0-9]{1,61}[a-z0-9]`.</li></ol> The maximum string length in characters is 1000.
@@ -235,6 +244,8 @@ release_channel | enum **ReleaseChannel**<br>When creating a Kubernetes cluster,
 network_policy | **[NetworkPolicy](#NetworkPolicy1)**<br> 
 kms_provider | **[KMSProvider](#KMSProvider1)**<br>KMS provider configuration. 
 log_group_id | **string**<br>Log group where cluster stores cluster system logs, like audit, events, or controlplane logs. 
+network_implementation | **oneof:** `cilium`<br>
+&nbsp;&nbsp;cilium | **[Cilium](#Cilium1)**<br> 
 
 
 ### Master {#Master1}
@@ -363,7 +374,14 @@ provider | enum **Provider**<br> <ul><ul/>
 
 Field | Description
 --- | ---
-key_id | **string**<br>KMS key ID for secrets encryption. To obtain a KMS key ID use a [yandex.cloud.kms.v1.SymmetricKeyService.List](/docs/kms/grpc/symmetric_key_service#List) request. 
+key_id | **string**<br>KMS key ID for secrets encryption. To obtain a KMS key ID use a [yandex.cloud.kms.v1.SymmetricKeyService.List](/docs/kms/api-ref/grpc/symmetric_key_service#List) request. 
+
+
+### Cilium {#Cilium1}
+
+Field | Description
+--- | ---
+routing_mode | enum **RoutingMode**<br> <ul><ul/>
 
 
 ## Create {#Create}
@@ -380,7 +398,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder to create a Kubernetes cluster in. To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. 
+folder_id | **string**<br>Required. ID of the folder to create a Kubernetes cluster in. To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. 
 name | **string**<br>Name of the Kubernetes cluster. The name must be unique within the folder. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>Description of the Kubernetes cluster. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
@@ -394,6 +412,8 @@ node_service_account_id | **string**<br>Required. Service account to be used by 
 release_channel | enum **ReleaseChannel**<br>Release channel for the master. <ul><li>`RAPID`: Minor updates with new functions and improvements are often added. You can't disable automatic updates in this channel, but you can specify a time period for automatic updates.</li><li>`REGULAR`: New functions and improvements are added in chunks shortly after they appear on `RAPID`.</li><li>`STABLE`: Only updates related to bug fixes or security improvements are added.</li><ul/>
 network_policy | **[NetworkPolicy](#NetworkPolicy2)**<br> 
 kms_provider | **[KMSProvider](#KMSProvider2)**<br>KMS provider configuration. 
+network_implementation | **oneof:** `cilium`<br>
+&nbsp;&nbsp;cilium | **[Cilium](#Cilium2)**<br> 
 
 
 ### MasterSpec {#MasterSpec}
@@ -524,7 +544,14 @@ provider | enum **Provider**<br> <ul><ul/>
 
 Field | Description
 --- | ---
-key_id | **string**<br>KMS key ID for secrets encryption. To obtain a KMS key ID use a [yandex.cloud.kms.v1.SymmetricKeyService.List](/docs/kms/grpc/symmetric_key_service#List) request. 
+key_id | **string**<br>KMS key ID for secrets encryption. To obtain a KMS key ID use a [yandex.cloud.kms.v1.SymmetricKeyService.List](/docs/kms/api-ref/grpc/symmetric_key_service#List) request. 
+
+
+### Cilium {#Cilium2}
+
+Field | Description
+--- | ---
+routing_mode | enum **RoutingMode**<br> <ul><ul/>
 
 
 ### Operation {#Operation}
@@ -573,6 +600,8 @@ release_channel | enum **ReleaseChannel**<br>When creating a Kubernetes cluster,
 network_policy | **[NetworkPolicy](#NetworkPolicy3)**<br> 
 kms_provider | **[KMSProvider](#KMSProvider3)**<br>KMS provider configuration. 
 log_group_id | **string**<br>Log group where cluster stores cluster system logs, like audit, events, or controlplane logs. 
+network_implementation | **oneof:** `cilium`<br>
+&nbsp;&nbsp;cilium | **[Cilium](#Cilium3)**<br> 
 
 
 ### Master {#Master2}
@@ -701,7 +730,14 @@ provider | enum **Provider**<br> <ul><ul/>
 
 Field | Description
 --- | ---
-key_id | **string**<br>KMS key ID for secrets encryption. To obtain a KMS key ID use a [yandex.cloud.kms.v1.SymmetricKeyService.List](/docs/kms/grpc/symmetric_key_service#List) request. 
+key_id | **string**<br>KMS key ID for secrets encryption. To obtain a KMS key ID use a [yandex.cloud.kms.v1.SymmetricKeyService.List](/docs/kms/api-ref/grpc/symmetric_key_service#List) request. 
+
+
+### Cilium {#Cilium3}
+
+Field | Description
+--- | ---
+routing_mode | enum **RoutingMode**<br> <ul><ul/>
 
 
 ## Update {#Update}
@@ -848,6 +884,8 @@ release_channel | enum **ReleaseChannel**<br>When creating a Kubernetes cluster,
 network_policy | **[NetworkPolicy](#NetworkPolicy5)**<br> 
 kms_provider | **[KMSProvider](#KMSProvider4)**<br>KMS provider configuration. 
 log_group_id | **string**<br>Log group where cluster stores cluster system logs, like audit, events, or controlplane logs. 
+network_implementation | **oneof:** `cilium`<br>
+&nbsp;&nbsp;cilium | **[Cilium](#Cilium4)**<br> 
 
 
 ### Master {#Master3}
@@ -976,7 +1014,14 @@ provider | enum **Provider**<br> <ul><ul/>
 
 Field | Description
 --- | ---
-key_id | **string**<br>KMS key ID for secrets encryption. To obtain a KMS key ID use a [yandex.cloud.kms.v1.SymmetricKeyService.List](/docs/kms/grpc/symmetric_key_service#List) request. 
+key_id | **string**<br>KMS key ID for secrets encryption. To obtain a KMS key ID use a [yandex.cloud.kms.v1.SymmetricKeyService.List](/docs/kms/api-ref/grpc/symmetric_key_service#List) request. 
+
+
+### Cilium {#Cilium4}
+
+Field | Description
+--- | ---
+routing_mode | enum **RoutingMode**<br> <ul><ul/>
 
 
 ## Delete {#Delete}
@@ -1082,6 +1127,8 @@ release_channel | enum **ReleaseChannel**<br>When creating a Kubernetes cluster,
 network_policy | **[NetworkPolicy](#NetworkPolicy6)**<br> 
 kms_provider | **[KMSProvider](#KMSProvider5)**<br>KMS provider configuration. 
 log_group_id | **string**<br>Log group where cluster stores cluster system logs, like audit, events, or controlplane logs. 
+network_implementation | **oneof:** `cilium`<br>
+&nbsp;&nbsp;cilium | **[Cilium](#Cilium5)**<br> 
 
 
 ### Master {#Master4}
@@ -1210,7 +1257,14 @@ provider | enum **Provider**<br> <ul><ul/>
 
 Field | Description
 --- | ---
-key_id | **string**<br>KMS key ID for secrets encryption. To obtain a KMS key ID use a [yandex.cloud.kms.v1.SymmetricKeyService.List](/docs/kms/grpc/symmetric_key_service#List) request. 
+key_id | **string**<br>KMS key ID for secrets encryption. To obtain a KMS key ID use a [yandex.cloud.kms.v1.SymmetricKeyService.List](/docs/kms/api-ref/grpc/symmetric_key_service#List) request. 
+
+
+### Cilium {#Cilium5}
+
+Field | Description
+--- | ---
+routing_mode | enum **RoutingMode**<br> <ul><ul/>
 
 
 ## Start {#Start}
@@ -1276,6 +1330,8 @@ release_channel | enum **ReleaseChannel**<br>When creating a Kubernetes cluster,
 network_policy | **[NetworkPolicy](#NetworkPolicy7)**<br> 
 kms_provider | **[KMSProvider](#KMSProvider6)**<br>KMS provider configuration. 
 log_group_id | **string**<br>Log group where cluster stores cluster system logs, like audit, events, or controlplane logs. 
+network_implementation | **oneof:** `cilium`<br>
+&nbsp;&nbsp;cilium | **[Cilium](#Cilium6)**<br> 
 
 
 ### Master {#Master5}
@@ -1404,7 +1460,14 @@ provider | enum **Provider**<br> <ul><ul/>
 
 Field | Description
 --- | ---
-key_id | **string**<br>KMS key ID for secrets encryption. To obtain a KMS key ID use a [yandex.cloud.kms.v1.SymmetricKeyService.List](/docs/kms/grpc/symmetric_key_service#List) request. 
+key_id | **string**<br>KMS key ID for secrets encryption. To obtain a KMS key ID use a [yandex.cloud.kms.v1.SymmetricKeyService.List](/docs/kms/api-ref/grpc/symmetric_key_service#List) request. 
+
+
+### Cilium {#Cilium6}
+
+Field | Description
+--- | ---
+routing_mode | enum **RoutingMode**<br> <ul><ul/>
 
 
 ## ListNodeGroups {#ListNodeGroups}
@@ -1467,6 +1530,14 @@ v4_address_spec | **[NodeAddressSpec](#NodeAddressSpec)**<br>Specification for t
 scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy)**<br>Scheduling policy configuration. 
 network_interface_specs[] | **[NetworkInterfaceSpec](#NetworkInterfaceSpec)**<br>New api, to specify network interfaces for the node group compute instances. Can not be used together with 'v4_address_spec' 
 placement_policy | **[PlacementPolicy](#PlacementPolicy)**<br> 
+network_settings | **[NetworkSettings](#NetworkSettings)**<br>this parameter allows to specify type of network acceleration used on nodes (instances) 
+
+
+### NetworkSettings {#NetworkSettings}
+
+Field | Description
+--- | ---
+type | enum **Type**<br>Required.  <ul><ul/>
 
 
 ### ResourcesSpec {#ResourcesSpec}

@@ -16,13 +16,13 @@ GET undefined/logging/v1/logGroups/{logGroupId}:listResources
  
 Parameter | Description
 --- | ---
-logGroupId | Required.
+logGroupId | Required. The maximum string length in characters is 64.
  
 ## Query parameters {#query_params}
  
 Parameter | Description
 --- | ---
-type | 
+type | The maximum string length in characters is 256.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

@@ -9,7 +9,7 @@ editable: false
  
 ## HTTP-запрос {#https-request}
 ```
-GET https://mdb.api.cloud.yandex.net/managed-mysql/v1alpha/resourcePresets
+GET https://mdb.api.cloud.yandex.net/managed-mysql/v1/resourcePresets
 ```
  
 ## Query-параметры {#query_params}

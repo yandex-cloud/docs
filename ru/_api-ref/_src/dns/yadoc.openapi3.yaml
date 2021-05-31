@@ -1,0 +1,1166 @@
+openapi: "3.0"
+info:
+  title: Yandex Cloud DNS API
+  description: Методы справочника API сгруппированы по ресурсам. Чтобы выполнить операцию
+    над ресурсом, отправьте HTTP-запрос к соответствующему URL. Подробнее об архитектуре
+    API Яндекс.Облака, см. [Концепции API Яндекс.Облака](/docs/api-design-guide/).
+  version: v1
+  x-y-docUri: api-ref
+  x-y-baseUrl: https://dns.api.cloud.yandex.net
+paths:
+  /dns/v1/zones/{dnsZoneId}:
+    get:
+      tags:
+      - DnsZone
+      summary: Возвращает указанную зону DNS.
+      description: Чтобы получить список доступных зон, используйте запрос [list](/docs/dns/api-ref/DnsZone/list).
+      operationId: DnsZoneGet
+      parameters:
+      - name: dnsZoneId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор возвращаемой зоны DNS.
+
+          Чтобы получить идентификатор зоны DNS, выполните запрос [list](/docs/dns/api-ref/DnsZone/list).
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DnsZone'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - DnsZone
+      summary: Удаляет указанную зону DNS.
+      operationId: DnsZoneDelete
+      parameters:
+      - name: dnsZoneId
+        in: path
+        description: |-
+          Идентификатор удаляемой зоны DNS.
+
+          Чтобы получить идентификатор зоны DNS, выполните запрос [list](/docs/dns/api-ref/DnsZone/list).
+
+          Длина строки в символах должна быть равна 20.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteDnsZoneMetadata'
+      x-y-operation-response: Empty
+    patch:
+      tags:
+      - DnsZone
+      summary: Обновляет указанную зону DNS.
+      operationId: DnsZoneUpdate
+      parameters:
+      - name: dnsZoneId
+        in: path
+        description: |-
+          Идентификатор обновляемой зоны DNS.
+
+          Чтобы получить идентификатор зоны DNS, выполните запрос [list](/docs/dns/api-ref/DnsZone/list).
+
+          Длина строки в символах должна быть равна 20.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateDnsZoneRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateDnsZoneMetadata'
+      x-y-operation-response: '[DnsZone](/docs/dns/api-ref/DnsZone#representation)'
+  /dns/v1/zones:
+    get:
+      tags:
+      - DnsZone
+      summary: Возвращает список зон DNS в указанном каталоге.
+      operationId: DnsZoneList
+      parameters:
+      - name: folderId
+        in: query
+        description: "Обязательное поле.\nИдентификатор каталога для получения списка
+          зон DNS. \n\nЧтобы получить идентификатор каталога, используйте запрос [list](/docs/resource-manager/api-ref/Folder/list)."
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем `page_size`, сервис вернет значение
+          [nextPageToken](/docs/dns/api-ref/DnsZone/list#responses), которое можно использовать для получения следующей страницы.
+
+          Максимальное значение — 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение `page_token` равным значению поля [nextPageToken](/docs/dns/api-ref/DnsZone/list#responses) предыдущего запроса, чтобы получить следующую
+          страницу результатов.
+
+          Максимальная длина строки в символах — 1000.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: "Параметры фильтрации зон DNS в ответе.\n\nВ параметрах фильтрации
+          указываются: \n1. Имя поля. Фильтрация осуществляется только по полю [DnsZone.name](/docs/dns/api-ref/DnsZone#representation).
+          \n2. Оператор. Поддерживаются операторы `=` и `!=` для одиночных значений,
+          `IN` и `NOT IN` для списков значений.\n3. Значение или списки значений.
+          Значение длиной от 3 до 63 символов, совпадающее с регулярным выражением
+          `^[a-z][-a-z0-9]{1,61}[a-z0-9]`. Пример фильтра: `name=my-dns-zone`.\n\nМаксимальная
+          длина строки в символах — 1000."
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListDnsZonesResponse'
+      x-y-navtitle: list
+    post:
+      tags:
+      - DnsZone
+      summary: Создает зону DNS в указанном каталоге.
+      operationId: DnsZoneCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateDnsZoneRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateDnsZoneMetadata'
+      x-y-operation-response: '[DnsZone](/docs/dns/api-ref/DnsZone#representation)'
+  /dns/v1/zones/{dnsZoneId}:getRecordSet:
+    get:
+      tags:
+      - DnsZone
+      summary: Возвращает указанный набор записей.
+      operationId: DnsZoneGetRecordSet
+      parameters:
+      - name: dnsZoneId
+        in: path
+        description: |-
+          Идентификатор зоны DNS для получения набора записей.
+
+          Чтобы получить идентификатор зоны DNS, выполните запрос [list](/docs/dns/api-ref/DnsZone/list).
+
+          Длина строки в символах должна быть равна 20.
+        required: true
+        schema:
+          type: string
+      - name: name
+        in: query
+        description: |-
+          Обязательное поле.
+          Имя набора записей.
+
+          Максимальная длина строки в символах — 255.
+        schema:
+          type: string
+      - name: type
+        in: query
+        description: |-
+          Обязательное поле.
+          Тип набора записей.
+
+          Максимальная длина строки в символах — 10.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RecordSet'
+      x-y-navtitle: getRecordSet
+  /dns/v1/zones/{dnsZoneId}:listRecordSets:
+    get:
+      tags:
+      - DnsZone
+      summary: Возвращает список наборов записей в указанном каталоге.
+      operationId: DnsZoneListRecordSets
+      parameters:
+      - name: dnsZoneId
+        in: path
+        description: "Идентификатор зоны DNS для получения списка наборов записей.
+          \n\nЧтобы получить идентификатор зоны DNS, выполните запрос [list](/docs/dns/api-ref/DnsZone/list).\n\nДлина
+          строки в символах должна быть равна 20."
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем `page_size`, сервис вернет значение
+          [nextPageToken](/docs/dns/api-ref/DnsZone/listRecordSets#responses), которое можно использовать для получения следующей страницы.
+
+          Максимальное значение — 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение `page_token` равным значению поля [nextPageToken](/docs/dns/api-ref/DnsZone/listRecordSets#responses) предыдущего запроса, чтобы получить
+          следующую страницу результатов.
+
+          Максимальная длина строки в символах — 1000.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: "Параметры фильтрации задач в ответе.\n\nВ параметрах фильтрации
+          указываются: \n1. Имя поля. В настоящее время вы можете использовать фильтрацию
+          только для полей `name` и `type` . \n2. Оператор. Поддерживаются операторы
+          `=` и `!=` для одиночных значений, `IN` и `NOT IN` для списков значений.\n3.
+          Значение или списки значений. Значение длиной от 3 до 63 символов, совпадающее
+          с регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]`. Пример фильтра:
+          `name=my-record-set`.\n\nМаксимальная длина строки в символах — 1000."
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListDnsZoneRecordSetsResponse'
+      x-y-navtitle: listRecordSets
+  /dns/v1/zones/{dnsZoneId}:updateRecordSets:
+    post:
+      tags:
+      - DnsZone
+      summary: |-
+        Метод со строгим контролем за изменением состояния зоны. Возвращает ошибку, когда:
+        1. Удаленная запись не найдена.
+        2. Найдена запись с совпадающим типом и именем, но другим TTL или значением.
+        3. Предпринята попытка добавить запись с существующим именем и типом. Сначала происходит удаление. Если запись с одинаковым именем и типом существует в обоих списках, то существующая запись будет удалена, а новая добавлена.
+      operationId: DnsZoneUpdateRecordSets
+      parameters:
+      - name: dnsZoneId
+        in: path
+        description: |-
+          Идентификатор зоны DNS, в которой требуется обновить набор записей.
+
+          Чтобы получить идентификатор зоны DNS, выполните запрос [list](/docs/dns/api-ref/DnsZone/list).
+
+          Длина строки в символах должна быть равна 20.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateRecordSetsRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: updateRecordSets
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateRecordSetsMetadata'
+      x-y-operation-response: Empty
+  /dns/v1/zones/{dnsZoneId}:upsertRecordSets:
+    post:
+      tags:
+      - DnsZone
+      summary: |-
+        Метод без строгого контроля за изменением состояния зоны. Если удаленная запись не существует, ничего не происходит. Удаляет записи, соответствующие всем
+        указанным полям, что позволяет удалять только указанные записи из набора записей.
+      operationId: DnsZoneUpsertRecordSets
+      parameters:
+      - name: dnsZoneId
+        in: path
+        description: |-
+          Идентификатор зоны DNS, в которую нужно добавить новую запись или обновить существующую.
+
+          Чтобы получить идентификатор зоны DNS, выполните запрос [list](/docs/dns/api-ref/DnsZone/list).
+
+          Длина строки в символах должна быть равна 20.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpsertRecordSetsRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: upsertRecordSets
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpsertRecordSetsMetadata'
+      x-y-operation-response: Empty
+  /dns/v1/zones/{dnsZoneId}/operations:
+    get:
+      tags:
+      - DnsZone
+      summary: Возвращает список операций для указанной зоны DNS.
+      operationId: DnsZoneListOperations
+      parameters:
+      - name: dnsZoneId
+        in: path
+        description: |-
+          Идентификатор зоны DNS, для которой запрашивается список операций.
+
+          Чтобы получить идентификатор зоны DNS, выполните запрос [list](/docs/dns/api-ref/DnsZone/list).
+
+          Длина строки в символах должна быть равна 20.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем [pageSize](/docs/dns/api-ref/DnsZone/listOperations#query_params), сервис вернет значение
+          [nextPageToken](/docs/dns/api-ref/DnsZone/listOperations#responses), которое можно использовать для получения следующей страницы.
+
+          Допустимые значения — от 0 до 1000 включительно.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение [pageToken](/docs/dns/api-ref/DnsZone/listOperations#query_params) равным значению поля [nextPageToken](/docs/dns/api-ref/DnsZone/listOperations#responses) предыдущего запроса, чтобы получить
+          следующую страницу результатов.
+
+          Максимальная длина строки в символах — 1000.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: "Параметры фильтрации зон DNS в ответе.\n\nВ параметрах фильтрации
+          указываются: \n1. Имя поля. Фильтрация осуществляется только по полю [DnsZone.name](/docs/dns/api-ref/DnsZone#representation).
+          \n2. Оператор. Поддерживаются операторы `=` и `!=` для одиночных значений,
+          `IN` и `NOT IN` для списков значений.\n3. Значение или списки значений.
+          Значение длиной от 3 до 63 символов, совпадающее с регулярным выражением
+          `^[a-z][-a-z0-9]{1,61}[a-z0-9]`. Пример фильтра: `name=my-dns-zone`.\n\nМаксимальная
+          длина строки в символах — 1000."
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListDnsZoneOperationsResponse'
+      x-y-navtitle: listOperations
+  /dns/v1/zones/{resourceId}:listAccessBindings:
+    get:
+      tags:
+      - DnsZone
+      summary: Возвращает список привязок прав доступа для указанной зоны DNS.
+      operationId: DnsZoneListAccessBindings
+      parameters:
+      - name: resourceId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор ресурса, для которого запрашивается список привязок прав доступа.
+
+          Чтобы получить идентификатор ресурса, используйте соответствующий запрос List.
+          Например, используйте запрос [list](/docs/resource-manager/api-ref/Cloud/list) для получения
+          идентификатора ресурса Cloud.
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное число возвращаемых результатов на странице. Если количество
+          результатов больше чем pageSize , сервис вернет значение nextPageToken,
+          которое можно использовать для получения следующей страницы. Значение по умолчанию:
+          100.
+
+          Максимальное значение — 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение pageToken равным значению поля
+          nextPageToken прошлого запроса, чтобы получить следующую страницу
+          результатов.
+
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListAccessBindingsResponse'
+      x-y-navtitle: listAccessBindings
+  /dns/v1/zones/{resourceId}:setAccessBindings:
+    post:
+      tags:
+      - DnsZone
+      summary: Задает список привязок прав доступа для указанной зоны DNS.
+      operationId: DnsZoneSetAccessBindings
+      parameters:
+      - name: resourceId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор ресурса, для которого задается список привязок прав доступа.
+
+          Чтобы получить идентификатор ресурса, используйте соответствующий запрос List.
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SetAccessBindingsRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: setAccessBindings
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/SetAccessBindingsMetadata'
+      x-y-operation-response: Empty
+  /dns/v1/zones/{resourceId}:updateAccessBindings:
+    post:
+      tags:
+      - DnsZone
+      summary: Обновляет привязки прав доступа для указанной зоны DNS.
+      operationId: DnsZoneUpdateAccessBindings
+      parameters:
+      - name: resourceId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор ресурса, для которого обновляется список привязок прав доступа.
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateAccessBindingsRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: updateAccessBindings
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateAccessBindingsMetadata'
+      x-y-operation-response: Empty
+components:
+  schemas:
+    AccessBinding:
+      type: object
+      properties:
+        roleId:
+          description: |-
+            Обязательное поле.
+            Идентификатор ресурса [Role](/docs/iam/api-ref/Role#representation) который назначен для субъекта, указанного в
+            параметре `subject`.
+
+            Максимальная длина строки в символах — 50.
+          type: string
+        subject:
+          $ref: '#/components/schemas/Subject_in_AccessBinding_subject'
+    AccessBindingAction:
+      description: |2-
+         - ADD: Добавление новой привязки прав доступа.
+         - REMOVE: Удаление привязки прав доступа.
+      type: string
+      enum:
+      - ADD
+      - REMOVE
+    AccessBindingDelta:
+      type: object
+      properties:
+        action:
+          $ref: '#/components/schemas/AccessBindingAction_in_AccessBindingDelta_action'
+        accessBinding:
+          $ref: '#/components/schemas/AccessBinding_in_AccessBindingDelta_accessBinding'
+    CreateDnsZoneMetadata:
+      type: object
+      properties:
+        dnsZoneId:
+          description: Идентификатор создаваемой зоны DNS.
+          type: string
+    CreateDnsZoneRequest:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            Обязательное поле.
+            Идентификатор каталога для получения списка зон DNS.
+
+            Чтобы получить идентификатор каталога, используйте запрос [list](/docs/resource-manager/api-ref/Folder/list).
+
+            Максимальная длина строки в символах — 50.
+          type: string
+        name:
+          description: |-
+            Имя зоны DNS. Имя должно быть уникальным в каталоге.
+
+            Значение должно соответствовать регулярному выражению `` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
+          type: string
+        description:
+          description: |-
+            Описание зоны DNS.
+
+            Максимальная длина строки в символах — 256.
+          type: string
+        labels:
+          description: |-
+            Метки зон DNS в формате `key:value`.
+
+            Не более 64 на ресурс.
+            Длина строки в символах для каждого ключа должна быть от 1 до 63.
+            Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_./\@0-9a-z]* ``.
+            Максимальная длина строки в символах для каждого значения — 63.
+            Каждое значение должно соответствовать регулярному выражению `` [-_./\@0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+        zone:
+          description: |-
+            Обязательное поле.
+            Суффикс зоны DNS.
+
+            Максимальная длина строки в символах — 255.
+            Значение должно соответствовать регулярному выражению `` [.]|[a-z0-9][-a-z0-9.]*\. ``.
+          type: string
+        privateVisibility:
+          $ref: '#/components/schemas/PrivateVisibility_in_CreateDnsZoneRequest_privateVisibility'
+        publicVisibility:
+          $ref: '#/components/schemas/PublicVisibility_in_CreateDnsZoneRequest_publicVisibility'
+    DeleteDnsZoneMetadata:
+      type: object
+      properties:
+        dnsZoneId:
+          description: Идентификатор удаляемой зоны DNS.
+          type: string
+    DnsZone:
+      description: Зона DNS. Подробнее см. в разделе [Зоны DNS](/docs/dns/concepts/dns-zone).
+      type: object
+      properties:
+        id:
+          description: Идентификатор зоны DNS. Генерируется при создании.
+          type: string
+        folderId:
+          description: Идентификатор каталога, которому принадлежит зона DNS.
+          type: string
+        createdAt:
+          description: |-
+            Время создания ресурса.
+
+            Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+          type: string
+          format: date-time
+        name:
+          description: Имя зоны DNS. Имя должно быть уникальным в каталоге.
+          type: string
+        description:
+          description: Описание зоны DNS.
+          type: string
+        labels:
+          description: Метки зон DNS в формате `key:value`.
+          type: object
+          additionalProperties:
+            type: string
+        zone:
+          description: Суффикс зоны DNS.
+          type: string
+        privateVisibility:
+          $ref: '#/components/schemas/PrivateVisibility_in_DnsZone_privateVisibility'
+        publicVisibility:
+          $ref: '#/components/schemas/PublicVisibility_in_DnsZone_publicVisibility'
+    Empty:
+      description: Пустой JSON объект `` {} ``.
+      type: object
+      maxProperties: 0
+    FieldMask:
+      description: |-
+        Имена всех обновляемых полей, разделенные запятыми.
+        Только значения указанных полей будут изменены. Остальные останутся нетронутыми.
+        Если поле указано в параметре `` updateMask `` и в запросе не было отправлено значение для этого поля,
+        значение поля будет сброшено на значение по умолчанию. Значение по умолчанию для большинства полей — null или 0.
+
+        Если в запросе не передается `` updateMask ``, значения всех полей будут обновлены.
+        Для полей, указанных в запросе, будут использованы переданные значения.
+        Значения остальных полей будут сброшены на значения по умолчанию.
+      type: string
+    ListAccessBindingsResponse:
+      type: object
+      properties:
+        accessBindings:
+          description: Список привязок прав доступа для указанного ресурса.
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessBinding'
+        nextPageToken:
+          description: |-
+            Токен для получения следующей страницы результатов в ответе. Если количество
+            результатов больше чем pageSize, используйте nextPageToken в качестве
+            значения параметра pageToken в следующем запросе списка ресурсов. Все
+            последующие запросы будут получать свои значения nextPageToken для перебора страниц
+            результатов.
+          type: string
+    ListDnsZoneOperationsResponse:
+      type: object
+      properties:
+        operations:
+          description: Список операций для указанной зоны DNS.
+          type: array
+          items:
+            $ref: '#/components/schemas/Operation'
+        nextPageToken:
+          description: |-
+            Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [pageSize](/docs/dns/api-ref/DnsZone/listOperations#query_params), используйте
+            `next_page_token` в качестве значения параметра [pageToken](/docs/dns/api-ref/DnsZone/listOperations#query_params) в следующем запросе списка ресурсов.
+
+            Каждая следующая страница будет иметь свой `next_page_token` для продолжения перебора страниц результатов.
+          type: string
+    ListDnsZoneRecordSetsResponse:
+      type: object
+      properties:
+        recordSets:
+          description: Список наборов записей в указанной зоне DNS.
+          type: array
+          items:
+            $ref: '#/components/schemas/RecordSet'
+        nextPageToken:
+          description: |-
+            Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [pageSize](/docs/dns/api-ref/DnsZone/listRecordSets#query_params), используйте
+            `next_page_token` в качестве значения параметра [pageToken](/docs/dns/api-ref/DnsZone/listRecordSets#query_params) в следующем запросе списка ресурсов.
+
+            Каждая следующая страница будет иметь свой `next_page_token` для продолжения перебора страниц результатов.
+          type: string
+    ListDnsZonesResponse:
+      type: object
+      properties:
+        dnsZones:
+          description: Зоны DNS в указанном каталоге.
+          type: array
+          items:
+            $ref: '#/components/schemas/DnsZone'
+        nextPageToken:
+          description: |-
+            Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [pageSize](/docs/dns/api-ref/DnsZone/list#query_params), используйте
+            `next_page_token` в качестве значения параметра [pageToken](/docs/dns/api-ref/DnsZone/list#query_params) в следующем запросе списка ресурсов.
+
+            Каждая следующая страница будет иметь свой `next_page_token` для продолжения перебора страниц результатов.
+          type: string
+    Operation:
+      description: |-
+        Ресурс Operation. Дополнительные сведения см. в разделе
+        [Объект Operation](/docs/api-design-guide/concepts/operation).
+      type: object
+      allOf:
+      - type: object
+        properties:
+          id:
+            description: Идентификатор операции.
+            type: string
+          description:
+            description: |-
+              Описание операции. Длина описания должна быть от 0 до 256
+              символов.
+            type: string
+          createdAt:
+            description: |-
+              Время создания ресурса в формате в
+              [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+
+              Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+            type: string
+            format: date-time
+          createdBy:
+            description: |-
+              Идентификатор пользователя или сервисного
+              аккаунта, инициировавшего операцию.
+            type: string
+          modifiedAt:
+            description: |-
+              Время, когда ресурс Operation последний раз
+              обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+
+              Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+            type: string
+            format: date-time
+          done:
+            description: |-
+              Если значение равно `false` — операция еще
+              выполняется. Если `true` — операция завершена, и задано значение
+              одного из полей `error` или `response`.
+            type: boolean
+            format: boolean
+          metadata:
+            description: |-
+              Метаданные операции. Обычно в поле содержится
+              идентификатор ресурса, над которым выполняется операция. Если
+              метод возвращает ресурс Operation, в описании метода приведена
+              структура соответствующего ему поля `metadata`.
+            type: object
+      - title: result
+        type: object
+        maxProperties: 1
+        properties:
+          error:
+            $ref: '#/components/schemas/Status'
+            description: Описание ошибки в случае сбоя или отмены операции.
+          response:
+            description: |-
+              Результат операции в случае успешного завершения. Если
+              исходный метод не возвращает никаких данных при успешном
+              завершении, например метод Delete, поле содержит объект
+              [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty). Если исходный метод — это стандартный метод Create
+              / Update, поле содержит целевой ресурс операции. Если метод
+              возвращает ресурс Operation, в описании метода приведена
+              структура соответствующего ему поля `response`.
+            type: object
+    PrivateVisibility:
+      description: Конфигурация для внутренних зон.
+      type: object
+      properties:
+        networkIds:
+          description: |-
+            Идентификаторы сетей.
+
+            Количество элементов должно находиться в диапазоне от 0 до 10.
+            Длина строки в символах должна быть равна 20.
+          type: array
+          items:
+            type: string
+    PublicVisibility:
+      description: Конфигурация для публичных зон.
+      type: object
+      properties: {}
+    RecordSet:
+      description: Набор записей. Подробнее см. в разделе [Ресурсные записи](/docs/dns/concepts/resource-record).
+      type: object
+      properties:
+        name:
+          description: |-
+            Доменное имя.
+
+            Длина строки в символах должна быть от 1 до 254.
+          type: string
+        type:
+          description: |-
+            Тип записи.
+
+            Длина строки в символах должна быть от 1 до 20.
+          type: string
+        ttl:
+          description: |-
+            Время жизни записи в секундах.
+
+            Допустимые значения — от 0 до 2147483647 включительно.
+          type: string
+          format: int64
+        data:
+          description: |-
+            Обязательное поле.
+            Значение набора записей.
+
+            Количество элементов должно находиться в диапазоне от 1 до 100.
+            Длина строки в символах для каждого значения должна быть от 1 до 255.
+          type: array
+          items:
+            type: string
+    SetAccessBindingsMetadata:
+      type: object
+      properties:
+        resourceId:
+          description: Идентификатор ресурса, для которого задается список привязок
+            прав доступа.
+          type: string
+    SetAccessBindingsRequest:
+      type: object
+      properties:
+        accessBindings:
+          description: |-
+            Обязательное поле.
+            Привязки прав доступа, которые будут установлены. Дополнительные сведения см. в
+            разделе [Привязка прав доступа](/docs/iam/concepts/access-control/#access-bindings).
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessBinding'
+    Status:
+      description: Описание ошибки в случае сбоя или отмены операции.
+      type: object
+      properties:
+        code:
+          description: Код ошибки. Значение из списка [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
+          type: integer
+          format: int32
+        message:
+          description: Текст ошибки.
+          type: string
+        details:
+          description: Список сообщений с подробными сведениями об ошибке.
+          type: array
+          items:
+            type: object
+    Subject:
+      type: object
+      properties:
+        id:
+          description: |-
+            Обязательное поле.
+            Идентификатор субъекта.
+
+            Может иметь одно из значений:
+            * `allAuthenticatedUsers`: Специальный системный идентификатор, представляющий любого пользователя, прошедшего аутентификацию. Его можно использовать только если в параметре `type` указано `system`.
+            * `allUsers`: Специальный системный идентификатор, представляющий любого пользователя. Аутентификация не требуется. Например, при запросе через API не надо будет указывать IAM-токен.
+            * `<идентификатор пользователя в облаке>`: Идентификатор, представляющий учетную запись пользователя. Его можно использовать только если в параметре `type` передано одно из следующих значений: `userAccount`, `federatedUser` или `serviceAccount`.
+
+            Максимальная длина строки в символах — 50.
+          type: string
+        type:
+          description: |-
+            Обязательное поле.
+            Тип субъекта.
+
+            Может иметь одно из значений:
+            * `userAccount` — аккаунт на Яндексе или Яндекс.Коннекте, добавленный в Яндекс.Облако.
+            * `serviceAccount` — сервисный аккаунт. Этот тип представляет ресурс [ServiceAccount](/docs/iam/api-ref/ServiceAccount#representation).
+            * `federatedUser` — федеративный аккаунт. Этот тип представляет пользователя из федерации удостоверений, например Active Directory.
+            * `system` — системная группа. Представляет набор аккаунтов, который описывается общим системным идентификатором.
+
+            Дополнительные сведения см. в разделе [Субъект, которому назначается роль](/docs/iam/concepts/access-control/#subject).
+
+            Максимальная длина строки в символах — 100.
+          type: string
+    UpdateAccessBindingsMetadata:
+      type: object
+      properties:
+        resourceId:
+          description: Идентификатор ресурса, для которого обновляется список привязок
+            прав доступа.
+          type: string
+    UpdateAccessBindingsRequest:
+      type: object
+      properties:
+        accessBindingDeltas:
+          description: |-
+            Обязательное поле.
+            Изменения в список привязок прав доступа.
+
+            Должен содержать хотя бы один элемент.
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessBindingDelta'
+    UpdateDnsZoneMetadata:
+      type: object
+      properties:
+        dnsZoneId:
+          description: Идентификатор обновляемой зоны DNS.
+          type: string
+    UpdateDnsZoneRequest:
+      type: object
+      properties:
+        updateMask:
+          $ref: '#/components/schemas/FieldMask_in_UpdateDnsZoneRequest_updateMask'
+        name:
+          description: |-
+            Новое имя для зоны DNS. Имя должно быть уникальным в каталоге.
+
+            Значение должно соответствовать регулярному выражению `` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
+          type: string
+        description:
+          description: |-
+            Новое описание зоны DNS.
+
+            Максимальная длина строки в символах — 256.
+          type: string
+        labels:
+          description: |-
+            Метки зон DNS в формате `key:value`.
+
+            Имеющийся набор меток полностью перезаписывается переданным набором, поэтому если вы просто хотите добавить или удалить метку:
+            1. Запросите текущий набор меток с помощью запроса [get](/docs/dns/api-ref/DnsZone/get).
+            2. Добавьте или удалите метку в этом наборе.
+            3. Отправьте новый набор в этом поле.
+
+            Не более 64 на ресурс.
+            Длина строки в символах для каждого ключа должна быть от 1 до 63.
+            Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_./\@0-9a-z]* ``.
+            Максимальная длина строки в символах для каждого значения — 63.
+            Каждое значение должно соответствовать регулярному выражению `` [-_./\@0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+        privateVisibility:
+          $ref: '#/components/schemas/PrivateVisibility_in_UpdateDnsZoneRequest_privateVisibility'
+        publicVisibility:
+          $ref: '#/components/schemas/PublicVisibility_in_UpdateDnsZoneRequest_publicVisibility'
+    UpdateRecordSetsMetadata:
+      type: object
+      properties: {}
+    UpdateRecordSetsRequest:
+      type: object
+      properties:
+        deletions:
+          description: |-
+            Список наборов записей, которые следует удалить.
+
+            Максимальное количество элементов — 1000.
+          type: array
+          items:
+            $ref: '#/components/schemas/RecordSet'
+        additions:
+          description: |-
+            Список наборов записей, которые следует добавить.
+
+            Максимальное количество элементов — 1000.
+          type: array
+          items:
+            $ref: '#/components/schemas/RecordSet'
+    UpsertRecordSetsMetadata:
+      type: object
+      properties: {}
+    UpsertRecordSetsRequest:
+      type: object
+      properties:
+        deletions:
+          description: |-
+            Удаление только указанных записей из соответствующих наборов записей.
+
+            Максимальное количество элементов — 1000.
+          type: array
+          items:
+            $ref: '#/components/schemas/RecordSet'
+        replacements:
+          description: |-
+            Полная замена указанных наборов записей.
+
+            Максимальное количество элементов — 1000.
+          type: array
+          items:
+            $ref: '#/components/schemas/RecordSet'
+        merges:
+          description: |-
+            Замена указанных записей или добавление новых, если указанных наборов записей не существует.
+
+            Максимальное количество элементов — 1000.
+          type: array
+          items:
+            $ref: '#/components/schemas/RecordSet'
+    Subject_in_AccessBinding_subject:
+      description: |-
+        Обязательное поле.
+        Субъект, для которого создается привязка прав доступа. Может
+        представлять собой аккаунт с уникальным идентификатором в облаке или системную
+        группу с общим системным идентификатором.
+      type: object
+      properties:
+        id:
+          description: |-
+            Обязательное поле.
+            Идентификатор субъекта.
+
+            Может иметь одно из значений:
+            * `allAuthenticatedUsers`: Специальный системный идентификатор, представляющий любого пользователя, прошедшего аутентификацию. Его можно использовать только если в параметре `type` указано `system`.
+            * `allUsers`: Специальный системный идентификатор, представляющий любого пользователя. Аутентификация не требуется. Например, при запросе через API не надо будет указывать IAM-токен.
+            * `<идентификатор пользователя в облаке>`: Идентификатор, представляющий учетную запись пользователя. Его можно использовать только если в параметре `type` передано одно из следующих значений: `userAccount`, `federatedUser` или `serviceAccount`.
+
+            Максимальная длина строки в символах — 50.
+          type: string
+        type:
+          description: |-
+            Обязательное поле.
+            Тип субъекта.
+
+            Может иметь одно из значений:
+            * `userAccount` — аккаунт на Яндексе или Яндекс.Коннекте, добавленный в Яндекс.Облако.
+            * `serviceAccount` — сервисный аккаунт. Этот тип представляет ресурс [ServiceAccount](/docs/iam/api-ref/ServiceAccount#representation).
+            * `federatedUser` — федеративный аккаунт. Этот тип представляет пользователя из федерации удостоверений, например Active Directory.
+            * `system` — системная группа. Представляет набор аккаунтов, который описывается общим системным идентификатором.
+
+            Дополнительные сведения см. в разделе [Субъект, которому назначается роль](/docs/iam/concepts/access-control/#subject).
+
+            Максимальная длина строки в символах — 100.
+          type: string
+    AccessBindingAction_in_AccessBindingDelta_action:
+      description: |-
+        Обязательное поле.
+        Действие, которое надо выполнить с привязкой прав доступа.
+
+         - ADD: Добавление новой привязки прав доступа.
+         - REMOVE: Удаление привязки прав доступа.
+      type: string
+      enum:
+      - ADD
+      - REMOVE
+    AccessBinding_in_AccessBindingDelta_accessBinding:
+      description: |-
+        Обязательное поле.
+        Привязка прав доступа. Дополнительные сведения см. в разделе [Привязка прав доступа](/docs/iam/concepts/access-control/#access-bindings).
+      type: object
+      properties:
+        roleId:
+          description: |-
+            Обязательное поле.
+            Идентификатор ресурса [Role](/docs/iam/api-ref/Role#representation) который назначен для субъекта, указанного в
+            параметре `subject`.
+
+            Максимальная длина строки в символах — 50.
+          type: string
+        subject:
+          $ref: '#/components/schemas/Subject_in_AccessBinding_subject'
+    PrivateVisibility_in_CreateDnsZoneRequest_privateVisibility:
+      description: |-
+        Настройки внутренней зоны. Должно быть указано хотя бы одно из двух полей настроек видимости.
+
+        Конфигурация для внутренних зон.
+      type: object
+      properties:
+        networkIds:
+          description: |-
+            Идентификаторы сетей.
+
+            Количество элементов должно находиться в диапазоне от 0 до 10.
+            Длина строки в символах должна быть равна 20.
+          type: array
+          items:
+            type: string
+    PublicVisibility_in_CreateDnsZoneRequest_publicVisibility:
+      description: |-
+        Настройки публичной зоны. Должно быть указано хотя бы одно из двух полей настроек видимости.
+
+        Конфигурация для публичных зон.
+      type: object
+      properties: {}
+    PrivateVisibility_in_DnsZone_privateVisibility:
+      description: |-
+        Настройки внутренней зоны. Указывают, будут ли записи в зоне видны только из сетей VPC.
+
+        Конфигурация для внутренних зон.
+      type: object
+      properties:
+        networkIds:
+          description: |-
+            Идентификаторы сетей.
+
+            Количество элементов должно находиться в диапазоне от 0 до 10.
+            Длина строки в символах должна быть равна 20.
+          type: array
+          items:
+            type: string
+    PublicVisibility_in_DnsZone_publicVisibility:
+      description: |-
+        Настройки публичной зоны. Указывают, являются ли записи в пределах зоны публичными.
+
+        Конфигурация для публичных зон.
+      type: object
+      properties: {}
+    FieldMask_in_UpdateDnsZoneRequest_updateMask:
+      description: |-
+        Маска поля, указывающая, какие поля ресурса DnsZone будут обновлены.
+
+        Имена всех обновляемых полей, разделенные запятыми.
+        Только значения указанных полей будут изменены. Остальные останутся нетронутыми.
+        Если поле указано в параметре `` updateMask `` и в запросе не было отправлено значение для этого поля,
+        значение поля будет сброшено на значение по умолчанию. Значение по умолчанию для большинства полей — null или 0.
+
+        Если в запросе не передается `` updateMask ``, значения всех полей будут обновлены.
+        Для полей, указанных в запросе, будут использованы переданные значения.
+        Значения остальных полей будут сброшены на значения по умолчанию.
+      type: string
+    PrivateVisibility_in_UpdateDnsZoneRequest_privateVisibility:
+      description: |-
+        Новые идентификаторы сетей для внутренних зон.
+
+        Конфигурация для внутренних зон.
+      type: object
+      properties:
+        networkIds:
+          description: |-
+            Идентификаторы сетей.
+
+            Количество элементов должно находиться в диапазоне от 0 до 10.
+            Длина строки в символах должна быть равна 20.
+          type: array
+          items:
+            type: string
+    PublicVisibility_in_UpdateDnsZoneRequest_publicVisibility:
+      description: |-
+        Конфигурация публичной видимости зоны.
+
+        Конфигурация для публичных зон.
+      type: object
+      properties: {}
+tags:
+- name: DnsZone
+  description: Набор методов для управления зонами DNS.

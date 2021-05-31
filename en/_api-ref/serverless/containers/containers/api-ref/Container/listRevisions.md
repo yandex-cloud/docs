@@ -1,0 +1,86 @@
+---
+editable: false
+---
+
+# Method listRevisions
+
+ 
+
+ 
+## HTTP request {#https-request}
+```
+GET https://serverless-containers.api.cloud.yandex.net/containers/v1/revisions
+```
+ 
+## Query parameters {#query_params}
+ 
+Parameter | Description
+--- | ---
+folderId | 
+containerId | 
+pageSize | Acceptable values are 0 to 1000, inclusive.
+pageToken | The maximum string length in characters is 100.
+filter | The maximum string length in characters is 1000.
+ 
+## Response {#responses}
+**HTTP Code: 200 - OK**
+
+```json 
+{
+  "revisions": [
+    {
+      "id": "string",
+      "containerId": "string",
+      "description": "string",
+      "createdAt": "string",
+      "image": {
+        "imageUrl": "string",
+        "imageDigest": "string",
+        "command": [
+          "string"
+        ],
+        "args": [
+          "string"
+        ],
+        "environment": "object",
+        "workingDir": "string"
+      },
+      "resources": {
+        "memory": "string",
+        "cores": "string",
+        "coreFraction": "string"
+      },
+      "executionTimeout": "string",
+      "concurrency": "string",
+      "serviceAccountId": "string",
+      "status": "string"
+    }
+  ],
+  "nextPageToken": "string"
+}
+```
+
+ 
+Field | Description
+--- | ---
+revisions[] | **object**<br>
+revisions[].<br>id | **string**<br>
+revisions[].<br>containerId | **string**<br>
+revisions[].<br>description | **string**<br>
+revisions[].<br>createdAt | **string** (date-time)<br><p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+revisions[].<br>image | **object**<br>
+revisions[].<br>image.<br>imageUrl | **string**<br>
+revisions[].<br>image.<br>imageDigest | **string**<br>
+revisions[].<br>image.<br>command[] | **string**<br>
+revisions[].<br>image.<br>args[] | **string**<br>
+revisions[].<br>image.<br>environment | **object**<br><p>Each key must match the regular expression `` [a-zA-Z][a-zA-Z0-9_]* ``. The maximum string length in characters for each value is 4096.</p> 
+revisions[].<br>image.<br>workingDir | **string**<br>
+revisions[].<br>resources | **object**<br>
+revisions[].<br>resources.<br>memory | **string** (int64)<br><p>Acceptable values are 134217728 to 8589934592, inclusive.</p> 
+revisions[].<br>resources.<br>cores | **string** (int64)<br><p>Value must be one of 1, 2 or 4.</p> 
+revisions[].<br>resources.<br>coreFraction | **string** (int64)<br><p>Acceptable values are 0 to 100, inclusive.</p> 
+revisions[].<br>executionTimeout | **string**<br>
+revisions[].<br>concurrency | **string** (int64)<br>
+revisions[].<br>serviceAccountId | **string**<br>
+revisions[].<br>status | **string**<br>
+nextPageToken | **string**<br>
