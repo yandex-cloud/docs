@@ -9,7 +9,7 @@ Deletes the specified SQL Server user.
  
 ## HTTP request {#https-request}
 ```
-DELETE https://mdb.api.cloud.yandex.net/mdb/sqlserver/v1alpha/clusters/{clusterId}/users/{userName}
+DELETE https://mdb.api.cloud.yandex.net/mdb/sqlserver/v1/clusters/{clusterId}/users/{userName}
 ```
  
 ## Path parameters {#path_params}

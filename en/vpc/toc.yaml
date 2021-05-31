@@ -95,19 +95,19 @@ items:
       - name: gRPC
         items:
           - name: Overview
-            href: grpc/index.md
+            href: api-ref/grpc/index.md
           - name: AddressService
-            href: grpc/address_service.md
+            href: api-ref/grpc/address_service.md
           - name: NetworkService
-            href: grpc/network_service.md
+            href: api-ref/grpc/network_service.md
           - name: RouteTableService
-            href: grpc/route_table_service.md
+            href: api-ref/grpc/route_table_service.md
           - name: SecurityGroupService
-            href: grpc/security_group_service.md
+            href: api-ref/grpc/security_group_service.md
           - name: SubnetService
-            href: grpc/subnet_service.md
+            href: api-ref/grpc/subnet_service.md
           - name: OperationService
-            href: grpc/operation_service.md
+            href: api-ref/grpc/operation_service.md
       - name: REST
         items:
           - name: Overview
@@ -128,6 +128,8 @@ items:
                 href: api-ref/Address/list.md
               - name: listOperations
                 href: api-ref/Address/listOperations.md
+              - name: move
+                href: api-ref/Address/move.md
               - name: update
                 href: api-ref/Address/update.md
           - name: Network
@@ -172,6 +174,24 @@ items:
             items:
               - name: Overview
                 href: api-ref/SecurityGroup/index.md
+              - name: create
+                href: api-ref/SecurityGroup/create.md
+              - name: delete
+                href: api-ref/SecurityGroup/delete.md
+              - name: get
+                href: api-ref/SecurityGroup/get.md
+              - name: list
+                href: api-ref/SecurityGroup/list.md
+              - name: listOperations
+                href: api-ref/SecurityGroup/listOperations.md
+              - name: move
+                href: api-ref/SecurityGroup/move.md
+              - name: update
+                href: api-ref/SecurityGroup/update.md
+              - name: updateRule
+                href: api-ref/SecurityGroup/updateRule.md
+              - name: updateRules
+                href: api-ref/SecurityGroup/updateRules.md
           - name: Subnet
             items:
               - name: Overview

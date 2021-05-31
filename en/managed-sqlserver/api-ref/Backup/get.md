@@ -9,7 +9,7 @@ To get the list of available SQL Server backups, make a [list](/docs/managed-sql
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.api.cloud.yandex.net/mdb/sqlserver/v1alpha/backups/{backupId}
+GET https://mdb.api.cloud.yandex.net/mdb/sqlserver/v1/backups/{backupId}
 ```
  
 ## Path parameters {#path_params}

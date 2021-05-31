@@ -101,7 +101,10 @@ POST https://mks.api.cloud.yandex.net/managed-kubernetes/v1/clusters
   "kmsProvider": {
     "keyId": "string"
   },
-  "gatewayIpv4Address": "string"
+  "gatewayIpv4Address": "string",
+  "cilium": {
+    "routingMode": "string"
+  }
 }
 ```
 
@@ -162,6 +165,8 @@ networkPolicy.<br>provider | **string**<br>
 kmsProvider | **object**<br>KMS provider configuration.<br>
 kmsProvider.<br>keyId | **string**<br><p>KMS key ID for secrets encryption. To obtain a KMS key ID use a <a href="/docs/kms/api-ref/SymmetricKey/list">list</a> request.</p> 
 gatewayIpv4Address | **string**<br><p>Gateway IPv4 address.</p> 
+cilium | **object**<br>
+cilium.<br>routingMode | **string**<br>
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

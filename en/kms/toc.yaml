@@ -62,13 +62,13 @@ items:
       - name: gRPC
         items:
           - name: Overview
-            href: grpc/index.md
+            href: api-ref/grpc/index.md
           - name: SymmetricCryptoService
-            href: grpc/symmetric_crypto_service.md
+            href: api-ref/grpc/symmetric_crypto_service.md
           - name: SymmetricKeyService
-            href: grpc/symmetric_key_service.md
+            href: api-ref/grpc/symmetric_key_service.md
           - name: OperationService
-            href: grpc/operation_service.md
+            href: api-ref/grpc/operation_service.md
       - name: REST
         items:
           - name: Overview

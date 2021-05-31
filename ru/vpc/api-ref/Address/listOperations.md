@@ -23,7 +23,7 @@ addressId | Required. ID of the address to list operations for.  To get a addres
 Parameter | Description
 --- | ---
 pageSize | The maximum number of results per page to return. If the number of available results is larger than [pageSize](/docs/vpc/api-ref/Address/listOperations#query_params), the service returns a [nextPageToken](/docs/vpc/api-ref/Address/listOperations#responses) that can be used to get the next page of results in subsequent list requests. Default value: 100.  The maximum value is 1000.
-pageToken | Page token. To get the next page of results, set [pageToken](/docs/vpc/api-ref/Address/listOperations#query_params) to the  [nextPageToken](/docs/vpc/api-ref/Address/listOperations#responses) returned by a previous list request.  The maximum string length in characters is 100.
+pageToken | Page token. To get the next page of results, set [pageToken](/docs/vpc/api-ref/Address/listOperations#query_params) to the [nextPageToken](/docs/vpc/api-ref/Address/listOperations#responses) returned by a previous list request.  The maximum string length in characters is 100.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

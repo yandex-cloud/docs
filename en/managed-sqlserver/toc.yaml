@@ -56,19 +56,19 @@ items:
       - name: gRPC
         items:
           - name: Overview
-            href: grpc/index.md
+            href: api-ref/grpc/index.md
           - name: BackupService
-            href: grpc/backup_service.md
+            href: api-ref/grpc/backup_service.md
           - name: ClusterService
-            href: grpc/cluster_service.md
+            href: api-ref/grpc/cluster_service.md
           - name: DatabaseService
-            href: grpc/database_service.md
+            href: api-ref/grpc/database_service.md
           - name: ResourcePresetService
-            href: grpc/resource_preset_service.md
+            href: api-ref/grpc/resource_preset_service.md
           - name: UserService
-            href: grpc/user_service.md
+            href: api-ref/grpc/user_service.md
           - name: OperationService
-            href: grpc/operation_service.md
+            href: api-ref/grpc/operation_service.md
       - name: REST
         items:
           - name: Overview

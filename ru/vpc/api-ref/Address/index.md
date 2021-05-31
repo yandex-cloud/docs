@@ -56,4 +56,5 @@ Method | Description
 [getByValue](getByValue.md) | Returns the specified Address resource by a given value.
 [list](list.md) | Retrieves the list of Address resources in the specified folder.
 [listOperations](listOperations.md) | List operations for the specified address.
+[move](move.md) | Move an address to another folder
 [update](update.md) | Updates the specified address.

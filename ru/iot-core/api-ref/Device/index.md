@@ -50,6 +50,7 @@ Method | Description
 [deleteCertificate](deleteCertificate.md) | Deletes the specified device certificate.
 [deletePassword](deletePassword.md) | Deletes the specified password.
 [get](get.md) | Returns the specified device.
+[getByName](getByName.md) | 
 [list](list.md) | Retrieves the list of devices in the specified registry.
 [listCertificates](listCertificates.md) | Retrieves the list of device certificates for the specified device.
 [listOperations](listOperations.md) | Lists operations for the specified device.

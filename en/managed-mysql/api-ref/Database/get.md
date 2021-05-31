@@ -9,7 +9,7 @@ To get the list of available MySQL databases, make a [list](/docs/managed-mysql/
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.api.cloud.yandex.net/managed-mysql/v1alpha/clusters/{clusterId}/databases/{databaseName}
+GET https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters/{clusterId}/databases/{databaseName}
 ```
  
 ## Path parameters {#path_params}

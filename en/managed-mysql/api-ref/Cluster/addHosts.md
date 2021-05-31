@@ -9,7 +9,7 @@ Creates new hosts for a cluster.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.api.cloud.yandex.net/managed-mysql/v1alpha/clusters/{clusterId}/hosts:batchCreate
+POST https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters/{clusterId}/hosts:batchCreate
 ```
  
 ## Path parameters {#path_params}

@@ -17,7 +17,7 @@ GET https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters/{clusterId}/topic
 Parameter | Description
 --- | ---
 clusterId | Required. ID of the Apache Kafka® cluster that the topic belongs to.  To get the cluster ID, make a [list](/docs/managed-kafka/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
-topicName | Required. Name of the Kafka topic resource to return.  To get the name of the topic, make a [list](/docs/managed-kafka/api-ref/Topic/list) request.  The string length in characters must be 1-63. Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
+topicName | Required. Name of the Kafka topic resource to return.  To get the name of the topic, make a [list](/docs/managed-kafka/api-ref/Topic/list) request.  The string length in characters must be 1-256. Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

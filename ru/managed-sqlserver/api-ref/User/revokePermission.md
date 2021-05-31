@@ -9,7 +9,7 @@ Revokes a permission from the specified SQL Server user.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.api.cloud.yandex.net/mdb/sqlserver/v1alpha/clusters/{clusterId}/users/{userName}:revokePermission
+POST https://mdb.api.cloud.yandex.net/mdb/sqlserver/v1/clusters/{clusterId}/users/{userName}:revokePermission
 ```
  
 ## Path parameters {#path_params}

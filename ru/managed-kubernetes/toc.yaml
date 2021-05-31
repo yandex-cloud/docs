@@ -112,15 +112,15 @@ items:
       - name: gRPC
         items:
           - name: Overview
-            href: grpc/index.md
+            href: api-ref/grpc/index.md
           - name: ClusterService
-            href: grpc/cluster_service.md
+            href: api-ref/grpc/cluster_service.md
           - name: NodeGroupService
-            href: grpc/node_group_service.md
+            href: api-ref/grpc/node_group_service.md
           - name: VersionService
-            href: grpc/version_service.md
+            href: api-ref/grpc/version_service.md
           - name: OperationService
-            href: grpc/operation_service.md
+            href: api-ref/grpc/operation_service.md
       - name: REST
         items:
           - name: Overview

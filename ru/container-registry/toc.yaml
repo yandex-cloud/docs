@@ -94,15 +94,15 @@ items:
       - name: gRPC
         items:
           - name: Обзор
-            href: grpc/index.md
+            href: api-ref/grpc/index.md
           - name: ImageService
-            href: grpc/image_service.md
+            href: api-ref/grpc/image_service.md
           - name: RegistryService
-            href: grpc/registry_service.md
+            href: api-ref/grpc/registry_service.md
           - name: RepositoryService
-            href: grpc/repository_service.md
+            href: api-ref/grpc/repository_service.md
           - name: OperationService
-            href: grpc/operation_service.md
+            href: api-ref/grpc/operation_service.md
       - name: REST
         items:
           - name: Обзор

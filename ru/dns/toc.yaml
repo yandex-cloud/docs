@@ -48,11 +48,11 @@ items:
       - name: gRPC
         items:
           - name: Overview
-            href: grpc/index.md
+            href: api-ref/grpc/index.md
           - name: DnsZoneService
-            href: grpc/dns_zone_service.md
+            href: api-ref/grpc/dns_zone_service.md
           - name: OperationService
-            href: grpc/operation_service.md
+            href: api-ref/grpc/operation_service.md
       - name: REST
         items:
           - name: Overview

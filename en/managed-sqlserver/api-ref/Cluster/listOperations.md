@@ -9,7 +9,7 @@ Retrieves the list of operations for the specified SQL Server cluster.
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.api.cloud.yandex.net/mdb/sqlserver/v1alpha/clusters/{clusterId}/operations
+GET https://mdb.api.cloud.yandex.net/mdb/sqlserver/v1/clusters/{clusterId}/operations
 ```
  
 ## Path parameters {#path_params}

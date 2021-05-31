@@ -49,15 +49,47 @@ filter | A filter expression that filters resources listed in the response. Curr
             "address": "string",
             "oneToOneNat": {
               "address": "string",
-              "ipVersion": "string"
-            }
+              "ipVersion": "string",
+              "dnsRecords": [
+                {
+                  "fqdn": "string",
+                  "dnsZoneId": "string",
+                  "ttl": "string",
+                  "ptr": true
+                }
+              ]
+            },
+            "dnsRecords": [
+              {
+                "fqdn": "string",
+                "dnsZoneId": "string",
+                "ttl": "string",
+                "ptr": true
+              }
+            ]
           },
           "primaryV6Address": {
             "address": "string",
             "oneToOneNat": {
               "address": "string",
-              "ipVersion": "string"
-            }
+              "ipVersion": "string",
+              "dnsRecords": [
+                {
+                  "fqdn": "string",
+                  "dnsZoneId": "string",
+                  "ttl": "string",
+                  "ptr": true
+                }
+              ]
+            },
+            "dnsRecords": [
+              {
+                "fqdn": "string",
+                "dnsZoneId": "string",
+                "ttl": "string",
+                "ptr": true
+              }
+            ]
           }
         }
       ],
@@ -88,10 +120,30 @@ instances[].<br>networkInterfaces[].<br>primaryV4Address.<br>address | **string*
 instances[].<br>networkInterfaces[].<br>primaryV4Address.<br>oneToOneNat | **object**<br><p>One-to-one NAT configuration. If missing, NAT has not been set up.</p> 
 instances[].<br>networkInterfaces[].<br>primaryV4Address.<br>oneToOneNat.<br>address | **string**<br><p>An IPv4 external network address that is assigned to the managed instance for this network interface.</p> 
 instances[].<br>networkInterfaces[].<br>primaryV4Address.<br>oneToOneNat.<br>ipVersion | **string**<br><p>External IP address version.</p> <ul> <li>IPV4: IPv4 address, for example 192.168.0.0.</li> <li>IPV6: IPv6 address, not available yet.</li> </ul> 
+instances[].<br>networkInterfaces[].<br>primaryV4Address.<br>oneToOneNat.<br>dnsRecords[] | **object**<br><p>External DNS configuration.</p> 
+instances[].<br>networkInterfaces[].<br>primaryV4Address.<br>oneToOneNat.<br>dnsRecords[].<br>fqdn | **string**<br><p>Required. Name of the A/AAAA record as specified when creating the instance. Note that if `fqdn' has no trailing '.', it is specified relative to the zone (@see dns_zone_id).</p> 
+instances[].<br>networkInterfaces[].<br>primaryV4Address.<br>oneToOneNat.<br>dnsRecords[].<br>dnsZoneId | **string**<br><p>DNS zone id (optional, if not set, some private zone is used).</p> 
+instances[].<br>networkInterfaces[].<br>primaryV4Address.<br>oneToOneNat.<br>dnsRecords[].<br>ttl | **string** (int64)<br><p>DNS record ttl (optional, if 0, a reasonable default is used).</p> <p>Acceptable values are 0 to 86400, inclusive.</p> 
+instances[].<br>networkInterfaces[].<br>primaryV4Address.<br>oneToOneNat.<br>dnsRecords[].<br>ptr | **boolean** (boolean)<br><p>When true, indicates there is a corresponding auto-created PTR DNS record.</p> 
+instances[].<br>networkInterfaces[].<br>primaryV4Address.<br>dnsRecords[] | **object**<br><p>Internal DNS configuration.</p> 
+instances[].<br>networkInterfaces[].<br>primaryV4Address.<br>dnsRecords[].<br>fqdn | **string**<br><p>Required. Name of the A/AAAA record as specified when creating the instance. Note that if `fqdn' has no trailing '.', it is specified relative to the zone (@see dns_zone_id).</p> 
+instances[].<br>networkInterfaces[].<br>primaryV4Address.<br>dnsRecords[].<br>dnsZoneId | **string**<br><p>DNS zone id (optional, if not set, some private zone is used).</p> 
+instances[].<br>networkInterfaces[].<br>primaryV4Address.<br>dnsRecords[].<br>ttl | **string** (int64)<br><p>DNS record ttl (optional, if 0, a reasonable default is used).</p> <p>Acceptable values are 0 to 86400, inclusive.</p> 
+instances[].<br>networkInterfaces[].<br>primaryV4Address.<br>dnsRecords[].<br>ptr | **boolean** (boolean)<br><p>When true, indicates there is a corresponding auto-created PTR DNS record.</p> 
 instances[].<br>networkInterfaces[].<br>primaryV6Address | **object**<br><p>Primary IPv6 address that is assigned to the instance for this network interface. IPv6 is not available yet.</p> 
 instances[].<br>networkInterfaces[].<br>primaryV6Address.<br>address | **string**<br><p>An IPv4 internal network address that is assigned to the managed instance for this network interface. If not specified by the user, an unused internal IP is assigned by the system.</p> 
 instances[].<br>networkInterfaces[].<br>primaryV6Address.<br>oneToOneNat | **object**<br><p>One-to-one NAT configuration. If missing, NAT has not been set up.</p> 
 instances[].<br>networkInterfaces[].<br>primaryV6Address.<br>oneToOneNat.<br>address | **string**<br><p>An IPv4 external network address that is assigned to the managed instance for this network interface.</p> 
 instances[].<br>networkInterfaces[].<br>primaryV6Address.<br>oneToOneNat.<br>ipVersion | **string**<br><p>External IP address version.</p> <ul> <li>IPV4: IPv4 address, for example 192.168.0.0.</li> <li>IPV6: IPv6 address, not available yet.</li> </ul> 
+instances[].<br>networkInterfaces[].<br>primaryV6Address.<br>oneToOneNat.<br>dnsRecords[] | **object**<br><p>External DNS configuration.</p> 
+instances[].<br>networkInterfaces[].<br>primaryV6Address.<br>oneToOneNat.<br>dnsRecords[].<br>fqdn | **string**<br><p>Required. Name of the A/AAAA record as specified when creating the instance. Note that if `fqdn' has no trailing '.', it is specified relative to the zone (@see dns_zone_id).</p> 
+instances[].<br>networkInterfaces[].<br>primaryV6Address.<br>oneToOneNat.<br>dnsRecords[].<br>dnsZoneId | **string**<br><p>DNS zone id (optional, if not set, some private zone is used).</p> 
+instances[].<br>networkInterfaces[].<br>primaryV6Address.<br>oneToOneNat.<br>dnsRecords[].<br>ttl | **string** (int64)<br><p>DNS record ttl (optional, if 0, a reasonable default is used).</p> <p>Acceptable values are 0 to 86400, inclusive.</p> 
+instances[].<br>networkInterfaces[].<br>primaryV6Address.<br>oneToOneNat.<br>dnsRecords[].<br>ptr | **boolean** (boolean)<br><p>When true, indicates there is a corresponding auto-created PTR DNS record.</p> 
+instances[].<br>networkInterfaces[].<br>primaryV6Address.<br>dnsRecords[] | **object**<br><p>Internal DNS configuration.</p> 
+instances[].<br>networkInterfaces[].<br>primaryV6Address.<br>dnsRecords[].<br>fqdn | **string**<br><p>Required. Name of the A/AAAA record as specified when creating the instance. Note that if `fqdn' has no trailing '.', it is specified relative to the zone (@see dns_zone_id).</p> 
+instances[].<br>networkInterfaces[].<br>primaryV6Address.<br>dnsRecords[].<br>dnsZoneId | **string**<br><p>DNS zone id (optional, if not set, some private zone is used).</p> 
+instances[].<br>networkInterfaces[].<br>primaryV6Address.<br>dnsRecords[].<br>ttl | **string** (int64)<br><p>DNS record ttl (optional, if 0, a reasonable default is used).</p> <p>Acceptable values are 0 to 86400, inclusive.</p> 
+instances[].<br>networkInterfaces[].<br>primaryV6Address.<br>dnsRecords[].<br>ptr | **boolean** (boolean)<br><p>When true, indicates there is a corresponding auto-created PTR DNS record.</p> 
 instances[].<br>statusChangedAt | **string** (date-time)<br><p>The timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format when the status of the managed instance was last changed.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is more than <a href="/docs/compute/api-ref/InstanceGroup/listInstances#query_params">pageSize</a>, use <a href="/docs/compute/api-ref/InstanceGroup/listInstances#responses">nextPageToken</a> as the value for the <a href="/docs/compute/api-ref/InstanceGroup/listInstances#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own <a href="/docs/compute/api-ref/InstanceGroup/listInstances#responses">nextPageToken</a> to continue paging through the results.</p> 

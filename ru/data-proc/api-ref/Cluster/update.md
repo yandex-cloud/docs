@@ -46,7 +46,16 @@ clusterId | ID of the cluster to update.  To get the cluster ID, make a [list](/
           "decommissionTimeout": "string"
         }
       }
-    ]
+    ],
+    "hadoop": {
+      "services": [
+        "string"
+      ],
+      "properties": "object",
+      "sshPublicKeys": [
+        "string"
+      ]
+    }
   },
   "name": "string",
   "serviceAccountId": "string",
@@ -82,6 +91,10 @@ configSpec.<br>subclustersSpec[].<br>autoscalingConfig.<br>warmupDuration | **st
 configSpec.<br>subclustersSpec[].<br>autoscalingConfig.<br>stabilizationDuration | **string**<br><p>Minimum amount of time in seconds allotted for monitoring before Instance Groups can reduce the number of instances in the group. During this time, the group size doesn't decrease, even if the new metric values indicate that it should.</p> <p>Acceptable values are 60 seconds to 1800 seconds, inclusive.</p> 
 configSpec.<br>subclustersSpec[].<br>autoscalingConfig.<br>cpuUtilizationTarget | **number** (double)<br><p>Defines an autoscaling rule based on the average CPU utilization of the instance group.</p> <p>Acceptable values are 10 to 100, inclusive.</p> 
 configSpec.<br>subclustersSpec[].<br>autoscalingConfig.<br>decommissionTimeout | **string** (int64)<br><p>Timeout to gracefully decommission nodes during downscaling. In seconds. Default value: 120</p> <p>Acceptable values are 0 to 86400, inclusive.</p> 
+configSpec.<br>hadoop | **object**<br><p>Hadoop specific options</p> <p>Hadoop configuration that describes services installed in a cluster, their properties and settings.</p> 
+configSpec.<br>hadoop.<br>services[] | **string**<br><p>Set of services used in the cluster (if empty, the default set is used).</p> 
+configSpec.<br>hadoop.<br>properties | **object**<br><p>Properties set for all hosts in `*-site.xml` configurations. The key should indicate the service and the property.</p> <p>For example, use the key 'hdfs:dfs.replication' to set the `dfs.replication` property in the file `/etc/hadoop/conf/hdfs-site.xml`.</p> 
+configSpec.<br>hadoop.<br>sshPublicKeys[] | **string**<br><p>List of public SSH keys to access to cluster hosts.</p> 
 name | **string**<br><p>New name for the Data Proc cluster. The name must be unique within the folder.</p> <p>Value must match the regular expression `` \|[a-z][-a-z0-9]{1,61}[a-z0-9] ``.</p> 
 serviceAccountId | **string**<br><p>ID of the new service account to be used by the Data Proc manager agent.</p> 
 bucket | **string**<br><p>Name of the new Object Storage bucket to use for Data Proc jobs.</p> 
