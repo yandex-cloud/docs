@@ -4,8 +4,9 @@
 
 1. [Подготовьте облако к работе](#before-begin).
 1. [Необходимые платные ресурсы](#paid-resources).
-1. [Создайте ВМ с Hystax Acura](#create-acura-vm).
 1. [Создайте сервисный аккаунт и авторизованный ключ](#create-sa).
+1. [Настройте разрешения сетевого трафика](#network-settings).
+1. [Создайте ВМ с Hystax Acura](#create-acura-vm).
 1. [Настройте Hystax Acura](#setup-hystax-acura).
 1. [Настройте миграцию](#set-up-migration-flow).
 1. [Подготовьте Hystax Acura Cloud Agent](#prepare-agent).
@@ -45,6 +46,27 @@
 ## Создайте сервисный аккаунт и авторизованный ключ {#create-sa}
 
 [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролями `editor`, `marketplace.meteringAgent` и [авторизованный ключ](../../iam/operations/authorized-key/create.md). Сохраните идентификатор сервисного аккаунта, идентификатор приватного ключа и сам приватный ключ. Они понадобятся вам при настройке Hystax Acura.
+
+## Настройте разрешения сетевого трафика {#network-settings}
+
+Перед началом миграции настройте разрешения сетевого трафика в [группе безопасности по умолчанию](../../vpc/concepts/security-groups.md#default-security-group). Для этого [добавьте](../../vpc/operations/security-group-update.md#add-rule) следующие правила:
+
+   | Направление</br>трафика | Описание | Диапазон</br>портов | Протокол | Тип</br>источника | Источник/Назначение | 
+   |---|---|---|---|---|---|
+   | Входящий | http | 80 | TCP | CIDR | 0.0.0.0/0 |
+   | Входящий | https | 443 | TCP | CIDR | 0.0.0.0/0 |
+   | Входящий | https | 4443 | TCP | CIDR | 0.0.0.0/0 |
+   | Входящий | vmware | 902 | TCP | CIDR | 0.0.0.0/0 |
+   | Входящий | vmware | 902 | UDP | CIDR | 0.0.0.0/0 |
+   | Входящий | iSCSI | 3260 | TCP | CIDR | 0.0.0.0/0 |
+   | Входящий | udp | 12201 | UDP | CIDR | 0.0.0.0/0 |
+   | Входящий | tcp | 15000 | TCP | CIDR | 0.0.0.0/0 |
+   | Исходящий | http | 80 | TCP | CIDR | 0.0.0.0/0 |
+   | Исходящий | https | 443 | TCP | CIDR | 0.0.0.0/0 |
+   | Исходящий | vmware | 902 | TCP | CIDR | 0.0.0.0/0 |
+   | Исходящий | vmware | 902 | UDP | CIDR | 0.0.0.0/0 |
+   | Исходящий | iSCSI | 3260 | TCP | CIDR | 0.0.0.0/0 |
+   | Исходящий | udp | 12201 | UDP | CIDR | 0.0.0.0/0 |
 
 ## Создайте ВМ с Hystax Acura {#create-acura-vm}
 
