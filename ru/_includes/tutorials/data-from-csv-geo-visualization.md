@@ -16,21 +16,7 @@
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-Чтобы воспользоваться {{ datalens-short-name }}, нужно зарегистрироваться в {{ yandex-cloud }} и создать платежный аккаунт (без платежного аккаунта {{ datalens-short-name }} доступен только в демо-режиме):
-
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь, если вы еще не зарегистрированы.
-
-1. [На странице биллинга]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](https://cloud.yandex.ru/docs/billing/concepts/billing-account), и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](https://cloud.yandex.ru/docs/billing/quickstart/#create_billing_account).
-
-Когда вы активируете платежный аккаунт, вы автоматически переходите на тариф {{ datalens-short-name }} **Бесплатный**. По умолчанию вы можете создать экземпляр {{ datalens-short-name }} не более чем для 1 каталога. Если вы еще этого не сделали:
-
-1. Выберите каталог [на странице облака](https://console.cloud.yandex.ru/cloud).
-1. Выберите сервис **DataLens**.
-1. Нажмите кнопку **Активировать DataLens**.
-
-В выбранном каталоге будет создан экземпляр сервиса, и вы сможете перейти непосредственно в интерфейс {{ datalens-short-name }}.
-
-[Подробнее об облаках и каталогах](https://cloud.yandex.ru/docs/resource-manager/concepts/resources-hierarchy).
+{% include [before-you-begin](includes/before-you-begin-datalens.md) %}
 
 ## Шаг 1. Создайте подключение к CSV-файлу {#step1}
 
