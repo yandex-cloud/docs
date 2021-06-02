@@ -1,15 +1,22 @@
-Чтобы воспользоваться {{ datalens-short-name }}, нужно зарегистрироваться в {{ yandex-cloud }} и создать платежный аккаунт (без платежного аккаунта {{ datalens-short-name }} доступен только в деморежиме):
+Чтобы начать работать с {{ datalens-short-name }}:
 
-{% include [prepare-register-billing](../../../solutions/_solutions_includes/prepare-register-billing.md) %}
+{% list tabs %}
 
-Когда вы активируете платежный аккаунт, вы автоматически переходите на тариф {{ datalens-short-name }} **Бесплатный**. По умолчанию вы можете создать экземпляр {{ datalens-short-name }} не более чем для 1 каталога.
+- Новый пользователь
 
-Чтобы создать экземпляр {{ datalens-short-name }}:
+  1. Откройте [главную страницу](https://datalens.yandex.ru/) {{ datalens-short-name }}. Если у вас еще нет аккаунта на Яндексе, создайте его.
+  1. Примите пользовательское соглашение.
+  1. Активируйте экземпляр {{ datalens-short-name }} в облаке.
 
-1. Выберите каталог на [странице облака](https://console.cloud.yandex.ru/cloud).
-1. Выберите сервис **DataLens**.
-1. Нажмите кнопку **Активировать DataLens**.
+  Для прохождения этого сценария достаточно [бесплатного тарифа](../../../datalens/pricing.md#prices) {{ datalens-short-name }}, но для полноценной регистрации в {{ yandex-cloud }} необходимо [создать платежный аккаунт](../../../billing/quickstart/index.md) и привязать платежные реквизиты или банковскую карту.
 
-В выбранном каталоге будет создан экземпляр сервиса, и вы сможете перейти непосредственно в интерфейс {{ datalens-short-name }}.
+- Уже использую {{ yandex-cloud }}
 
-[Подробнее об облаках и каталогах](../../../resource-manager/concepts/resources-hierarchy.md).
+  1. Откройте [главную страницу](https://datalens.yandex.ru/) {{ datalens-short-name }}.
+  1. Активируйте экземпляр {{ datalens-short-name }} в облаке.
+  
+  Для прохождения этого сценария достаточно [бесплатного тарифа](../../../datalens/pricing.md#prices) {{ datalens-short-name }}. 
+
+{% endlist %}
+
+Если у вас возник технический вопрос по работе сервиса, обратитесь в [службу поддержки]({{ link-console-support }}) {{ yandex-cloud }}. Чтобы спросить совета, обсудить решение вашей задачи или лучшие практики работы сервиса, напишите в чат [{{ datalens-short-name }}](https://t.me/YandexDataLens) в Telegram. 
