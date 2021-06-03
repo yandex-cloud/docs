@@ -2,6 +2,12 @@
 
 You can create [backups](../concepts/backup.md) and restore clusters from existing backups.
 
+{% note warning %}
+
+You can't use SQL commands to change the [recovery model](https://docs.microsoft.com/ru-ru/sql/relational-databases/backup-restore/recovery-models-sql-server?view=sql-server-2016) for backup and restore operations.
+
+{% endnote %}
+
 ## Getting a list of backups {#list-backups}
 
 {% list tabs %}

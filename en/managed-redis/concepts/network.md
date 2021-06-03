@@ -1,4 +1,4 @@
-# {{ mrd-short-name }} network and clusters
+# {{ mrd-short-name }} network and DB clusters
 
 {% if audience != "internal" %}
 
@@ -28,4 +28,16 @@ All clusters are created inside our network, which is [already accessible](../..
 You can use the FQDN to access the host within a single cloud network.
 
 {% endif %}
+
+## Security groups {#security-groups}
+
+{% include [sg-rules-limits](../../_includes/mdb/sg-rules-limits.md) %}
+
+{% note tip %}
+
+When connecting to a cluster from within its cloud network, be sure to [configure](../operations/connect.md#configuring-security-groups) security groups both for the cluster and the connecting host.
+
+{% endnote %}
+
+{% include [sg-rules-concept](../../_includes/mdb/sg-rules-concept.md) %}
 

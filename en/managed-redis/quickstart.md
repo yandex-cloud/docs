@@ -35,7 +35,7 @@ To get started with the service:
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
-1. You can only connect to the cluster from within {{ yandex-cloud }}. To do this, create a [Linux](../compute/quickstart/quick-create-linux.md) VM in the same network as the cluster.
+1. You can only connect to the cluster from within {{ yandex-cloud }}. To connect to a cluster, create a VM in the same cloud network as the {{ RD }} cluster (with [Linux](../compute/quickstart/quick-create-linux.md) or [Windows](../compute/quickstart/quick-create-windows.md)).
 
 1. [Connect](../compute/operations/vm-connect/ssh.md) to the VM via SSH.
 
@@ -53,9 +53,11 @@ To get started with the service:
 1. Select **{{ mrd-full-name }}**.
 1. Click **Create cluster**.
 1. Set the cluster parameters and click **Create cluster**. This process is described in detail in [{#T}](operations/cluster-create.md).
-1. Wait until the cluster is ready: its status on the {{ mrd-short-name }} dashboard changes to **Running** and its state to **Alive**. This may take some time.
+1. Wait until the cluster is ready: its status on the {{ mrd-short-name }} dashboard changes to **Running** and its state becomes **Alive**. This may take some time.
 
 ## Connect to the cluster {#connect}
+
+1. [Configure security groups](operations/connect.md#configuring-security-groups) for the cloud network to enable all the relevant traffic between the cluster and the connecting host.
 
 1. Connect to the {{ RD }} cluster master host using `redis-cli`.
 

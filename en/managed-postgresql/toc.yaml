@@ -65,6 +65,8 @@ items:
         href: concepts/backup.md
       - name: Assigning roles
         href: concepts/roles.md
+      - name: Managing connections
+        href: concepts/pooling.md
       - name: Replication
         href: concepts/replication.md
       - name: Supported clients

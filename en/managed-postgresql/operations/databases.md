@@ -2,6 +2,8 @@
 
 You can add and remove databases, as well as view information about them.
 
+{% include [db-sql](../../_includes/mdb/mdb-db-sql-limits.md) %}
+
 ## Getting a list of cluster databases {#list-db}
 
 {% list tabs %}
@@ -20,7 +22,7 @@ You can add and remove databases, as well as view information about them.
 
   ```
   $ {{ yc-mdb-pg }} database list
-       --cluster-name=<cluster name>
+       --cluster-name <cluster name>
   ```
 
   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
@@ -35,29 +37,25 @@ You can add and remove databases, as well as view information about them.
 
 You can create an unlimited number of databases in each {{ mpg-name }} cluster.
 
-By default, databases are created with the `LC_COLLATE=C` and `LC_CTYPE=C` encoding settings. This allows {{ PG }} to run queries with string data types more efficiently, but may sometimes work counter-intuitively (for example, with Cyrillic). These settings are covered in more detail in the [{{ PG }} documentation](https://www.postgresql.org/docs/current/locale.html).
-
-{% note alert %}
-
-The LC_COLLATE and LC_CTYPE settings of a database cannot be changed after its creation.
-
-{% endnote %}
-
-You can configure character collation and sorting settings for columns when you create and edit
-specific tables. Learn more in the [{{ PG }} documentation](https://www.postgresql.org/docs/current/sql-createtable.html).
-
 {% list tabs %}
 
 - Management console
 
   To create a database:
+
   1. Go to the folder page and select **{{ mpg-name }}**.
+
   1. Click on the name of the cluster you need.
 
   1. If the owner of the new database still doesn't exist, [add the user](cluster-users.md#adduser).
+
   1. Select the **Databases** tab.
+
   1. Click **Add**.
-  1. Enter the database name, select its owner, and configure the character set.
+
+  1. Enter the database name, select its owner, and specify the required collation locale and character set.
+
+      {% include [postgresql-locale](../../_includes/mdb/mpg-locale-settings.md) %}
 
 - CLI
 
@@ -67,7 +65,7 @@ specific tables. Learn more in the [{{ PG }} documentation](https://www.postgres
 
   To create a database in a cluster:
 
-  1. See the description of the CLI's create database command:
+  1. View a description of the CLI create database command:
 
      ```
      $ {{ yc-mdb-pg }} database create --help
@@ -82,7 +80,7 @@ specific tables. Learn more in the [{{ PG }} documentation](https://www.postgres
 
      If the required user is not in the list, [create it](cluster-users.md#adduser).
 
-  1. Run the create database command. If needed, specify the character collation and sorting settings (default settings are `LC_COLLATE=C` and `LC_CTYPE=C`):
+  1. Run the create database command. If needed, specify the required collation locale and character set (default settings are `LC_COLLATE=C` and `LC_CTYPE=C`):
 
      ```
      $ {{ yc-mdb-pg }} database create <database name>
@@ -121,7 +119,7 @@ specific tables. Learn more in the [{{ PG }} documentation](https://www.postgres
 
   ```
   $ {{ yc-mdb-pg }} database delete <database name>
-       --cluster-name=<cluster name>
+       --cluster-name <cluster name>
   ```
 
   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
@@ -134,7 +132,7 @@ specific tables. Learn more in the [{{ PG }} documentation](https://www.postgres
 
 {% note warning %}
 
-Before creating a new database with the same name, wait for the delete operation to complete, otherwise the database being deleted is restored. Operation status can be obtained with a [list of cluster operations](cluster-list.md#list-operations).
+Before creating a new database with the same name, wait for the delete operation to complete, otherwise the database being deleted will be restored. Operation status can be obtained with a [list of cluster operations](cluster-list.md#list-operations).
 
 {% endnote %}
 

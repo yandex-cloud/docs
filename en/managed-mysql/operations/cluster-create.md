@@ -40,13 +40,15 @@ If database storage is 95% full, the cluster switches to read-only mode. Increas
   1. Select the host class that defines the technical specifications of the VMs where the DB hosts will be deployed. All available options are listed in [{#T}](../concepts/instance-types.md). When you change the host class for the cluster, the characteristics of all existing hosts change, too.
 
   1. Under **Storage size**:
-      - Select the type of storage, either a more flexible network type (**network-hdd** or **network-ssd**) or faster local SSD storage (**local-ssd**). The size of the local storage can only be changed in 100 GB increments.
+      - Select the type of storage, either a more flexible network type (`network-hdd` or `network-ssd`) or faster local SSD storage (`local-ssd`). The size of the local storage can only be changed in 100 GB increments.
       - Select the size to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
 
   1. Under **Database**, specify the DB attributes:
       - Database name. The DB name must be unique within the folder and contain only Latin letters, numbers, and underscores.
       - The name of the user who is the DB owner. The username may only contain Latin letters, numbers, and underscores.
       - User password (from 8 to 128 characters).
+
+  1. Under **Network settings**, select the cloud network to host the cluster in and security groups for cluster network traffic. You may need to additionally [set up security groups](connect.md#configuring-security-group) to connect to the cluster.
 
   1. Under **Hosts**, select parameters for the database hosts created with the cluster (keep in mind that if you use SSDs when creating a {{ MY }} cluster, you can set at least three hosts). If you open **Advanced settings**, you can choose specific subnets for each host. By default, each host is created in a separate subnet.
 
@@ -93,7 +95,8 @@ If database storage is 95% full, the cluster switches to read-only mode. Increas
         --mysql-version <MySQL version> \
         --resource-preset <host class> \
         --user name=<username>,password=<user password> \
-        --database name=<DB name>
+        --database name=<database name> \
+        --security-group-ids <list of security group IDs>
      ```
 
       The subnet ID `subnet-id` should be specified if the selected availability zone contains two or more subnets.
@@ -102,7 +105,7 @@ If database storage is 95% full, the cluster switches to read-only mode. Increas
 
   {% include [terraform-definition](../../solutions/_solutions_includes/terraform-definition.md) %}
 
-  If you don't have Terraform yet, [install it and configure the provider](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+  If you don't have Terraform, [install it and configure the provider](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   To create a cluster:
 
@@ -112,12 +115,13 @@ If database storage is 95% full, the cluster switches to read-only mode. Increas
 
      Example configuration file structure:
 
-     ```
+     ```hcl
      resource "yandex_mdb_mysql_cluster" "<cluster name>" {
-       name        = "<cluster name>"
-       environment = "<PRESTABLE or PRODUCTION>"
-       network_id  = "<network ID>"
-       version     = "<MySQL version: 5.7 or 8.0>"
+       name               = "<cluster name>"
+       environment        = "<PRESTABLE or PRODUCTION>"
+       network_id         = "<network ID>"
+       version            = "<MySQL version: 5.7 or 8.0>"
+       security_group_ids = [ "<list of security groups>" ]
      
        resources {
          resource_preset_id = "<host class>"
@@ -166,6 +170,12 @@ If database storage is 95% full, the cluster switches to read-only mode. Increas
 
 {% endlist %}
 
+{% note warning %}
+
+If you specified security group IDs when creating a cluster, you may also need to [re-configure security groups](connect.md#configuring-security-groups) to connect to the cluster.
+
+{% endnote %}
+
 ## Examples {#examples}
 
 ### Creating a single-host cluster {#creating-a-single-host-cluster}
@@ -183,6 +193,7 @@ If database storage is 95% full, the cluster switches to read-only mode. Increas
     - Version `8.0`.
     - In the `production` environment.
     - In the `default` network.
+    - In the security group with the ID `{{ security-group }}`.
     - With one `{{ host-class }}` host in the `{{ subnet-id }}` subnet, in the `{{ zone-id }}` availability zone.
     - With 20 GB fast network storage (`{{ disk-type-example }}`).
     - With one user (`user1`) with the password `user1user1`.
@@ -209,6 +220,7 @@ If database storage is 95% full, the cluster switches to read-only mode. Increas
          --mysql-version 8.0 \
          --environment=production \
          --network-name=default \
+         --security-group-ids {{ security-group }} \
          --host zone-id={{ host-net-example }} \
          --resource-preset {{ host-class }} \
          --disk-type {{ disk-type-example }} \
@@ -250,9 +262,10 @@ If database storage is 95% full, the cluster switches to read-only mode. Increas
   - Named `my-mysql`.
   - Version `8.0`.
   - In the `PRESTABLE` environment.
-  - In the cloud with ID `{{ tf-cloud-id }}`.
-  - In a folder named `myfolder`.
+  - In the cloud with the ID `{{ tf-cloud-id }}`.
+  - In the folder with the ID `{{ tf-folder-id }}`.
   - Network: `mynet`.
+  - In the new security group `mysql-sg` allowing connections to the cluster from the internet via port `{{ port-mmy }}`.
   - With 1 `{{ host-class }}` class host in the new `mysubnet` subnet and `{{ zone-id }}` availability zone. The `mysubnet` subnet will have the range `10.5.0.0/24`.
   - With 20 GB fast network storage (`{{ disk-type-example }}`).
   - With one user (`user1`) with the password `user1user1`.
@@ -260,19 +273,20 @@ If database storage is 95% full, the cluster switches to read-only mode. Increas
 
   The configuration file for the cluster looks like this:
 
-  ```
+  ```hcl
   provider "yandex" {
     token = "<OAuth or static key of service account>"
     cloud_id  = "{{ tf-cloud-id }}"
-    folder_id = "${data.yandex_resourcemanager_folder.myfolder.id}"
+    folder_id = "{{ tf-folder-id }}"
     zone      = "{{ zone-id }}"
   }
   
   resource "yandex_mdb_mysql_cluster" "my-mysql" {
-    name        = "my-mysql"
-    environment = "PRESTABLE"
-    network_id  = "${yandex_vpc_network.mynet.id}"
-    version     = "8.0"
+    name               = "my-mysql"
+    environment        = "PRESTABLE"
+    network_id         = yandex_vpc_network.mynet.id
+    version            = "8.0"
+    security_group_ids = [ yandex_vpc_security_group.mysql-sg.id ]
   
     resources {
       resource_preset_id = "{{ host-class }}"
@@ -295,17 +309,29 @@ If database storage is 95% full, the cluster switches to read-only mode. Increas
   
     host {
       zone      = "{{ zone-id }}"
-      subnet_id = "${yandex_vpc_subnet.mysubnet.id}"
+      subnet_id = yandex_vpc_subnet.mysubnet.id
     }
   }
   
   resource "yandex_vpc_network" "mynet" { name = "mynet" }
   
+  resource "yandex_vpc_security_group" "mysql-sg" {
+    name       = "mysql-sg"
+    network_id = yandex_vpc_network.mynet.id
+  
+    ingress {
+      description    = "MySQL"
+      port           = {{ port-mmy }}
+      protocol       = "TCP"
+      v4_cidr_blocks = [ "0.0.0.0/0" ]
+    }
+  }
+  
   resource "yandex_vpc_subnet" "mysubnet" {
     name           = "mysubnet"
     zone           = "{{ zone-id }}"
-    network_id     = "${yandex_vpc_network.mynet.id}"
-    v4_cidr_blocks = ["10.5.0.0/24"]
+    network_id     = yandex_vpc_network.mynet.id
+    v4_cidr_blocks = [ "10.5.0.0/24" ]
   }
   ```
 

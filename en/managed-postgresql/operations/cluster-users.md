@@ -2,6 +2,12 @@
 
 You can add and remove users, as well as manage their individual settings.
 
+{% note warning %}
+
+You can use SQL commands to assign privileges to users, but you can't use them to add or change users. For more information, see [{#T}](grant.md).
+
+{% endnote %}
+
 ## Getting a list of users {#list-users}
 
 {% list tabs %}
@@ -20,14 +26,14 @@ You can add and remove users, as well as manage their individual settings.
 
   ```
   $ {{ yc-mdb-pg }} user list
-       --cluster-name=<cluster name>
+       --cluster-name <cluster name>
   ```
 
   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
 
 {% endlist %}
 
-## Add a user {#adduser}
+## Adding a user {#adduser}
 
 {% list tabs %}
 
@@ -35,7 +41,7 @@ You can add and remove users, as well as manage their individual settings.
   1. Go to the folder page and select **{{ mpg-name }}**.
   1. Click on the name of the cluster you need and select the tab **Users**.
   1. Click **Add**.
-  1. Enter the database username and password (from 8 to 128 characters).
+  1. Enter a database username and password (from 8 to 128 characters).
   1. Select one or more databases that the user should have access to:
      1. Select the database from the **Database** drop-down list.
      1. Click **Add** to the right of the drop-down list.
@@ -54,8 +60,8 @@ You can add and remove users, as well as manage their individual settings.
 
   ```
   $ {{ yc-mdb-pg }} user create <username>
-       --cluster-name=<cluster name>
-       --password=<DB user password>
+       --cluster-name <cluster name>
+       --password=<user password>
        --permissions=<list of DBs the user can access>
        --conn-limit=<maximum number of connections per user>
   ```
@@ -74,7 +80,7 @@ When created, the user only gets the `CONNECT` privilege for the selected databa
 
 {% endnote %}
 
-## Change password {#updateuser}
+## Changing a password {#updateuser}
 
 {% list tabs %}
 
@@ -83,7 +89,7 @@ When created, the user only gets the `CONNECT` privilege for the selected databa
   To change the user's password:
   1. Go to the folder page and select **{{ mpg-name }}**.
   1. Click on the name of the cluster you need and select the tab **Users**.
-  1. Click the ![image](../../_assets/vertical-ellipsis.svg) icon and select **Change password**.
+  1. Click ![image](../../_assets/vertical-ellipsis.svg) and select **Change password**.
   1. Set a new password and click **Edit**.
 
 - CLI
@@ -95,7 +101,7 @@ When created, the user only gets the `CONNECT` privilege for the selected databa
   To change the user's password, run the command:
 
   ```
-  $ {{ yc-mdb-pg }} user update <update>
+  $ {{ yc-mdb-pg }} user update <username>
        --cluster-name=<cluster name>
        --password=<new password>
   ```
@@ -104,7 +110,7 @@ When created, the user only gets the `CONNECT` privilege for the selected databa
 
 {% endlist %}
 
-## Change user settings {update-settings}
+## Changing user settings {update-settings}
 
 {% note info %}
 
@@ -122,7 +128,7 @@ For information on setting up user privileges and roles, see [{#T}](grant.md).
   1. Go to the folder page and select **{{ mpg-name }}**.
   1. Click on the name of the cluster you need and select the tab **Users**.
   1. Click ![image](../../_assets/vertical-ellipsis.svg) and select **Settings**.
-  1. Set up the user's access rights to certain databases:
+  1. Set up user permissions to access certain databases:
      1. To grant access to the required databases:
         1. Select the database from the **Database** drop-down list.
         1. Click **Add** to the right of the drop-down list.
@@ -139,24 +145,24 @@ For information on setting up user privileges and roles, see [{#T}](grant.md).
 
   You can change the user settings from the command line interface:
 
-  1. To set up the user's access rights to certain databases, run the following command, listing the database names in the `--permissions` parameter:
+  1. To set up the user's permissions to access certain databases, run the command, listing the database names in the `--permissions` parameter:
 
      ```
-     $ {{ yc-mdb-pg }} user update <update>
+     $ {{ yc-mdb-pg }} user update <username>
           --cluster-name=<cluster name>
           --permissions=<list of DBs the user can access>
      ```
 
      The cluster name can be requested with a [list of folder clusters](#list-clusters).
 
-     This command grants the user access rights to the databases listed.
+     This command grants the user the permission to access the databases listed.
 
      To revoke access to a specific database, remove its name from the list and pass the updated list to the command.
 
   1. To change the [{{ PG }} settings](#dbms-settings) for the user, pass their parameters in the command:
 
      ```
-     $ {{ yc-mdb-pg }} user update <update>
+     $ {{ yc-mdb-pg }} user update <username>
           --cluster-name=<cluster name>
           --<setting 1>=<value 1>
           --<setting 2>=<value 2>
@@ -168,7 +174,7 @@ For information on setting up user privileges and roles, see [{#T}](grant.md).
 
 {% endlist %}
 
-## Deleting users {#removeuser}
+## Deleting a user {#removeuser}
 
 {% list tabs %}
 
@@ -193,6 +199,8 @@ For information on setting up user privileges and roles, see [{#T}](grant.md).
   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
 
 {% endlist %}
+
+{% include [user-ro](../../_includes/mdb/mpg-user-examples.md) %}
 
 ## Additional settings {#dbms-settings}
 

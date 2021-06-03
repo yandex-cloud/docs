@@ -12,7 +12,7 @@ You can create a cluster without specifying any subnets for the hosts, if the av
 
 {% else %}
 
-All clusters are created inside our network, which is [already accessible](../../mdb/access.md#network-access) from most networks and most employees. If you don't have access, request access to the macro `_PGAASINTERNALNETS_` in [Puncher](https://puncher.yandex-team.ru/) . To connect to {{ MY }}, specify port 3306 in your request.
+All clusters are created inside our network, which is [already accessible](../../mdb/access.md#network-access) from most networks and most employees. If you don't have access, request access to the macro `_PGAASINTERNALNETS_` in [Puncher](https://puncher.yandex-team.ru/). To connect to {{ MY }}, specify port 3306 in your request.
 
 {% endif %}
 
@@ -33,4 +33,16 @@ It is not possible to request a public address after creating a host, but you ca
 When deleting a host with a public FQDN, the assigned IP address is revoked.
 
 {% endif %}
+
+## Security groups {#security-groups}
+
+{% include [sg-rules-limits](../../_includes/mdb/sg-rules-limits.md) %}
+
+{% note tip %}
+
+When connecting to a cluster from within its cloud network, be sure to [configure](../operations/connect.md#configuring-security-groups) security groups both for the cluster and the connecting host.
+
+{% endnote %}
+
+{% include [sg-rules-concept](../../_includes/mdb/sg-rules-concept.md) %}
 
