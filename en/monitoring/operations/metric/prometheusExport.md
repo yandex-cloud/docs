@@ -25,7 +25,7 @@ An example of metric collection setup from {{ monitoring-name }} in {{ prometheu
    - `data-transfer` — {{ data-transfer-name }}.
    - `serverless-apigateway` — {{ api-gw-name }}.
 1. Create a static [API key](../../../iam/operations/api-key/create.md) for your [service account](../../../iam/concepts/users/service-accounts).
-1. Assign to the service account the role [viewer](../../../iam/operations/roles/grant#access-to-sa) for the selected folder.
+1. [Assign to the service account the role](../../../iam/operations/roles/grant#access-to-sa) `{{ roles-monitoring-viewer }}` for the selected folder.
 1. Add a new `job` to the data collection section of the [Prometheus configuration](https://prometheus.io/docs/prometheus/latest/configuration/configuration).
 
    ```yaml

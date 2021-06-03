@@ -141,6 +141,9 @@ default:
   roles-datalens-instances-admin: datalens.instances.admin
   roles-functions-ivoker: serverless.functions.invoker
   roles-image-user: compute.images.user
+  roles-monitoring-viewer: monitoring.viewer
+  roles-monitoring-editor: monitoring.editor
+  roles-monitoring-admin: monitoring.admin
   roles-vpc-viewer: vpc.viewer
   roles-vpc-user: vpc.user
   roles-vpc-private-admin: vpc.privateAdmin
