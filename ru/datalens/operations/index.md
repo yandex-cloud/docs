@@ -12,6 +12,7 @@
 - [{#T}](connection/create-metrica-api.md)
 - [{#T}](connection/create-metrica-logs-api.md)
 - [{#T}](connection/create-appmetrica.md)
+{% if audience != "internal" %} - [{#T}](connection/create-cloud-billing.md) {% endif %}
 {% if audience != "internal" %} - [{#T}](connection/manage-access.md) {% endif %}
 
 ## Работа с датасетом {#working-with-datasets}
