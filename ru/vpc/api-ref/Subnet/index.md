@@ -41,7 +41,7 @@ folderId | **string**<br><p>ID of the folder that the subnet belongs to.</p>
 createdAt | **string** (date-time)<br><p>Creation timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 name | **string**<br><p>Name of the subnet. The name is unique within the project. 3-63 characters long.</p> 
 description | **string**<br><p>Optional description of the subnet. 0-256 characters long.</p> 
-labels | **object**<br><p>Resource labels as `` key:value `` pairs. Maximum of 64 per resource.</p> 
+labels | **object**<br><p>Resource labels as ``key:value`` pairs. Maximum of 64 per resource.</p> 
 networkId | **string**<br><p>ID of the network the subnet belongs to.</p> 
 zoneId | **string**<br><p>ID of the availability zone where the subnet resides.</p> 
 v4CidrBlocks[] | **string**<br><p>CIDR block. The range of internal addresses that are defined for this subnet. This field can be set only at Subnet resource creation time and cannot be changed. For example, 10.0.0.0/22 or 192.168.0.0/24. Minimum subnet size is /28, maximum subnet size is /16.</p> 

@@ -12,6 +12,7 @@
 - [{#T}](connection/create-metrica-api.md)
 - [{#T}](connection/create-metrica-logs-api.md)
 - [{#T}](connection/create-appmetrica.md)
+- [{#T}](connection/create-cloud-billing.md)
 - [{#T}](connection/manage-access.md)
 
 ## Работа с датасетом {#working-with-datasets}

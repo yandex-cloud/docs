@@ -24,3 +24,15 @@ It is not possible to request a public address after creating a host, but you ca
 
 When deleting a host with a public FQDN, the assigned IP address is revoked.
 
+## Security groups {#security-groups}
+
+{% include [sg-rules-limits](../../_includes/mdb/sg-rules-limits.md) %}
+
+{% note tip %}
+
+When connecting to a cluster from within its cloud network, be sure to [configure](../operations/connect.md#configuring-security-groups) security groups both for the cluster and the connecting host.
+
+{% endnote %}
+
+{% include [sg-rules-concept](../../_includes/mdb/sg-rules-concept.md) %}
+

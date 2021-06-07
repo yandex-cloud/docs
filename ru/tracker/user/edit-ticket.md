@@ -96,7 +96,7 @@
     
     {% note info %}
 
-    Вы также можете перейти по ссылке [https://tracker.yandex.ru/settings](https://tracker.yandex.ru/settings).
+    Вы также можете перейти по ссылке [{{ link-settings }}]({{ link-settings }}).
 
     {% endnote %}
 
@@ -113,7 +113,7 @@
     
     {% note info %}
 
-    Вы также можете перейти по ссылке [https://tracker.yandex.ru/settings]({{ link-settings }}).
+    Вы также можете перейти по ссылке [{{ link-settings }}]({{ link-settings }}).
 
     {% endnote %}
 

@@ -113,6 +113,12 @@ The number of hosts in {{ mrd-short-name }} clusters is limited by the CPU and R
 
 {% endlist %}
 
+{% note warning %}
+
+If you can't [connect](connect.md) to the added host, check that the cluster's [security group](../concepts/network.md#security-groups) is configured correctly for the subnet where you placed the host.
+
+{% endnote %}
+
 ## Removing a host {#remove}
 
 You can remove a host from a {{ RD }} cluster if it is not the only host in it. To replace a single host, first create a new host and then remove the old one.
@@ -144,7 +150,7 @@ If the host is the master when deleted, {{ mrd-short-name }} automatically assig
        --cluster-name=<cluster name>
   ```
 
-  The host name can be requested with a [list of cluster hosts](#list-hosts), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+  The host name can be requested with a [list of cluster hosts](#list), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 

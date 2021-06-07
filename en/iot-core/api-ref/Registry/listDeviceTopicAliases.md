@@ -44,8 +44,8 @@ pageToken | Page token. To get the next page of results, set `page_token` to the
  
 Field | Description
 --- | ---
-aliases[] | **object**<br><p>A device topic alias.</p> <p>Alias is an alternate name of a device topic assigned by the user. Map alias to canonical topic name prefix, e.g. `my/custom/alias` match to `$device/abcdef/events`. For more information, see <a href="/docs/iot-core/concepts/topic#aliases">Using topic aliases</a>.</p> 
+aliases[] | **object**<br><p>A device topic alias.</p> <p>Alias is an alternate name of a device topic assigned by the user. Map alias to canonical topic name prefix, e.g. ``my/custom/alias`` match to ``$device/abcdef/events``. For more information, see <a href="/docs/iot-core/concepts/topic#aliases">Using topic aliases</a>.</p> 
 aliases[].<br>deviceId | **string**<br><p>ID of the device that the alias belongs to.</p> 
-aliases[].<br>topicPrefix | **string**<br><p>Prefix of a canonical topic name to be aliased, e.g. `$devices/abcdef`.</p> 
+aliases[].<br>topicPrefix | **string**<br><p>Prefix of a canonical topic name to be aliased, e.g. ``$devices/abcdef``.</p> 
 aliases[].<br>alias | **string**<br><p>Alias of a device topic.</p> 
-nextPageToken | **string**<br><p>Token for getting the next page of the list. If the number of results is greater than the specified <a href="/docs/iot-core/api-ref/Registry/listDeviceTopicAliases#query_params">pageSize</a>, use `next_page_token` as the value for the <a href="/docs/iot-core/api-ref/Registry/listDeviceTopicAliases#query_params">pageToken</a> parameter in the next list request.</p> <p>Each subsequent page will have its own `next_page_token` to continue paging through the results.</p> 
+nextPageToken | **string**<br><p>Token for getting the next page of the list. If the number of results is greater than the specified <a href="/docs/iot-core/api-ref/Registry/listDeviceTopicAliases#query_params">pageSize</a>, use ``next_page_token`` as the value for the <a href="/docs/iot-core/api-ref/Registry/listDeviceTopicAliases#query_params">pageToken</a> parameter in the next list request.</p> <p>Each subsequent page will have its own ``next_page_token`` to continue paging through the results.</p> 

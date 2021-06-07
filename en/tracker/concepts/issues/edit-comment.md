@@ -47,8 +47,8 @@ Organization ID.
 
 | Parameter | Value | Data type |
 | ----- | ----- | ----- |
-| text | Edited issue comment. Required. | String. |
-| attachmentIds | List of [attachment IDs](temp-attachment.md). | Array of strings. |
+| text | Edited issue comment. Required. | String |
+| attachmentIds | List of [attachment IDs](temp-attachment.md). | Array of strings |
 
 ## Response format {#section_rcd_ysf_2fb}
 
@@ -98,19 +98,19 @@ If the request is successful, the API returns a response with code 200. The resp
 
 | Parameter | Description | Data type |
 | ----- | ----- | ----- |
-| self | Link to the comment. | String. |
-| id | Comment ID. | String. |
-| longId | ID of the comment in string format. | String. |
-| text | Comment on the issue. | String. |
-| [createdBy](#object-fields-createdBy) | Block with information about the user who added the comment. | Object. |
-| [updatedBy](#object-fields-updatedBy) | Block with information about the user who edited the comment last. | Object. |
-| createdAt | Comment creation date and time. | String. |
-| updatedAt | Comment update date and time. | String. |
-| [summonees](#object-fields-summonees) | Block with information about users who are invited in comments. | Object. |
-| [maillistsummonees](#object-fields-maillistsummonees) | Block with information about mailing lists mentioned in comments. | Object. |
-| version | Comment version. Each change to the comment increases its version number. | Number. |
-| type | Comment type:<ul><li>**standard**: Comment sent via the {{ tracker-name }} interface.</li><li>**incoming**: Comment created from an incoming message.</li><li>**outcoming**: Comment created from an outgoing message.</li></ul> | String. |
-| transport | Method of adding a comment:<ul><li>**internal**: Via the {{ tracker-name }} interface.</li><li>**email**: Via email.</li></ul> | String. |
+| self | Link to the comment. | String |
+| id | Comment ID. | String |
+| longId | ID of the comment in string format. | String |
+| text | Comment on the issue. | String |
+| [createdBy](#object-fields-createdBy) | Block with information about the user who added the comment. | Object |
+| [updatedBy](#object-fields-updatedBy) | Block with information about the user who edited the comment last. | Object |
+| createdAt | Comment creation date and time. | String |
+| updatedAt | Comment update date and time. | String |
+| [summonees](#object-fields-summonees) | Block with information about users who are invited in comments. | Object |
+| [maillistsummonees](#object-fields-maillistsummonees) | Block with information about mailing lists mentioned in comments. | Object |
+| version | Comment version. Each change to the comment increases its version number. | Number |
+| type | Comment type:<ul><li>**standard**: Comment sent via the {{ tracker-name }} interface.</li><li>**incoming**: Comment created from an incoming message.</li><li>**outcoming**: Comment created from an outgoing message.</li></ul> | String |
+| transport | Method of adding a comment:<ul><li>**internal**: Via the {{ tracker-name }} interface.</li><li>**email**: Via email.</li></ul> | String |
 
 #### Object fields {#object-fields}
 
@@ -118,38 +118,38 @@ If the request is successful, the API returns a response with code 200. The resp
 
 | Parameter | Description | Data type |
 | ----- | ----- | ----- |
-| self | Link to the user. | String. |
-| id | User ID. | String. |
-| display | User's name displayed. | String. |
+| self | Link to the user. | String |
+| id | User ID. | String |
+| display | User's name displayed. | String |
 
 **Object fields** `updatedBy` {#object-fields-updatedBy}
 
 | Parameter | Description | Data type |
 | ----- | ----- | ----- |
-| self | Link to the user. | String. |
-| id | User ID. | String. |
-| display | User's name displayed. | String. |
+| self | Link to the user. | String |
+| id | User ID. | String |
+| display | User's name displayed. | String |
 
 **Object fields** `summonees` {#object-fields-summonees}
 
 | Parameter | Description | Data type |
 | ----- | ----- | ----- |
-| self | Link to the user. | String. |
-| id | User ID. | String. |
-| display | User's name displayed. | String. |
+| self | Link to the user. | String |
+| id | User ID. | String |
+| display | User's name displayed. | String |
 
 **Object fields** `maillistsummonees` {#object-fields-maillistsummonees}
 
 | Parameter | Description | Data type |
 | ----- | ----- | ----- |
-| self | Link to the mailing list. | String. |
-| id | Mailing list address. | String. |
-| display | Mailing list name displayed. | String. |
+| self | Link to the mailing list. | String |
+| id | Mailing list address. | String |
+| display | Mailing list name displayed. | String |
 
 ## Possible response codes {#section_otf_jrj_p1b}
 
 200
-:   Successful execution of the request.
+:   Request executed successfully.
 
 400
 :   The server couldn't process the request due to invalid syntax.

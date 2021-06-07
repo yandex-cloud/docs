@@ -7,14 +7,9 @@ Let's see how we can use {{ tracker-name }} to organize the workflow for the sup
 Let's create a dedicated {{ tracker-name }} [queue](queue-intro.md) for the support team to store issues created from user requests. Now let's configure additional queue features that will help us process user requests more efficiently:
 
 - [Accept requests from users who can't access {{ tracker-name }}.](support-process-mail-forms.md)
-
 - [Organize multiple support lines to manage requests of different complexity levels.](support-process-lines.md)
-
-
+- [Message users from the issue page.](support-process-send-mail.md)
 - [Group requests by topic.](support-process-group.md)
-
 - [Track the time it takes to process a request.](support-process-sla.md)
-
 - [Collect request statistics.](support-process-dashboards.md)
-
 - [Configure integration with third-party platforms.](support-process-integration.md)

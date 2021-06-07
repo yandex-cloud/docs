@@ -26,7 +26,7 @@ folderId | **string**<br><p>ID of the folder that the function belongs to.</p>
 createdAt | **string** (date-time)<br><p>Creation timestamp for the function.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 name | **string**<br><p>Name of the function. The name is unique within the folder.</p> <p>The string length in characters must be 3-63.</p> 
 description | **string**<br><p>Description of the function.</p> <p>The string length in characters must be 0-256.</p> 
-labels | **object**<br><p>Function labels as `key:value` pairs.</p> <p>No more than 64 per resource.</p> 
+labels | **object**<br><p>Function labels as ``key:value`` pairs.</p> <p>No more than 64 per resource.</p> 
 logGroupId | **string**<br><p>ID of the log group for the function.</p> 
 httpInvokeUrl | **string**<br><p>URL that needs to be requested to invoke the function.</p> 
 status | **string**<br><p>Status of the function.</p> <ul> <li>CREATING: Function is being created.</li> <li>ACTIVE: Function is ready to be invoked.</li> <li>DELETING: Function is being deleted.</li> <li>ERROR: Function failed.</li> </ul> 

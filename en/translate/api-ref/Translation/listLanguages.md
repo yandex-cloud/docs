@@ -43,5 +43,5 @@ folderId | **string**<br><p>ID of the folder to which you have access. Required 
 Field | Description
 --- | ---
 languages[] | **object**<br><p>List of supported languages.</p> 
-languages[].<br>code | **string**<br><p>The language code. Specified in <a href="https://en.wikipedia.org/wiki/ISO_639-1">ISO 639-1</a> format (for example, `` en ``).</p> 
-languages[].<br>name | **string**<br><p>The name of the language (for example, `` English ``).</p> 
+languages[].<br>code | **string**<br><p>The language code. Specified in <a href="https://en.wikipedia.org/wiki/ISO_639-1">ISO 639-1</a> format (for example, ``en``).</p> 
+languages[].<br>name | **string**<br><p>The name of the language (for example, ``English``).</p> 

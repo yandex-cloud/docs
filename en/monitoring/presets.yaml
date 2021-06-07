@@ -8,9 +8,9 @@ default:
   managed-mysql-full-name: Yandex Managed Service for MySQL<sup>®</sup>
   managed-mongodb-full-name: Yandex Managed Service for MongoDB
   roles-owner: owner
-  roles-admin: admin
-  roles-editor: editor
-  roles-viewer: viewer
+  roles-monitoring-viewer: monitoring.viewer
+  roles-monitoring-editor: monitoring.editor
+  roles-monitoring-admin: monitoring.admin
   monitoring-full-name: Yandex Monitoring
   monitoring-name: Monitoring
   monitoring-short-name: Monitoring

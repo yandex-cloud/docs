@@ -139,7 +139,7 @@ sparkJob.<br>jarFileUris[] | **string**<br><p>JAR file URIs to add to CLASSPATH 
 sparkJob.<br>fileUris[] | **string**<br><p>URIs of resource files to be copied to the working directory of Data Proc drivers and distributed Hadoop tasks.</p> 
 sparkJob.<br>archiveUris[] | **string**<br><p>URIs of archives to be extracted to the working directory of Data Proc drivers and tasks.</p> 
 sparkJob.<br>properties | **object**<br><p>Property names and values, used to configure Data Proc and Spark.</p> 
-sparkJob.<br>mainJarFileUri | **string**<br><p>The HCFS URI of the JAR file containing the `main` class for the job.</p> 
+sparkJob.<br>mainJarFileUri | **string**<br><p>The HCFS URI of the JAR file containing the ``main`` class for the job.</p> 
 sparkJob.<br>mainClass | **string**<br><p>The name of the driver class.</p> 
 pysparkJob | **object**<br>Specification for a PySpark job. <br> includes only one of the fields `mapreduceJob`, `sparkJob`, `pysparkJob`, `hiveJob`<br><br>
 pysparkJob.<br>args[] | **string**<br><p>Optional arguments to pass to the driver.</p> 

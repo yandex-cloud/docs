@@ -1,6 +1,6 @@
 # Python client
 
-To help you get started using the [API {{ tracker-name }}](https://tech.yandex.com/connect/tracker/), we created [yandex_tracker_client](https://github.com/yandex/yandex_tracker_client), a dedicated package that lets you easily add API calls to programs written in Python.
+To help you get started using the [{{ tracker-name }} API](../about.md), we created [yandex_tracker_client](https://github.com/yandex/yandex_tracker_client), a dedicated package that lets you easily add API calls to programs written in Python.
 
 To start using the client:
 
@@ -12,7 +12,7 @@ To start using the client:
     pip install yandex_tracker_client
     ```
 
-1. Receive your OAuth token and organization ID to access the API. For more information, see the [{{ tracker-name }} API documentation](https://tech.yandex.com/connect/tracker/api/concepts/access-docpage/).
+1. Receive your OAuth token and organization ID to access the API. To learn more, see the [API reference](../concepts/access.md).
 
 1. Initialize the client in your program's code:
 
@@ -23,7 +23,7 @@ To start using the client:
 
     Here `<token>` is your OAuth token, and `<org_id>` is your organization ID.
 
+In the client, use the same data format as in the [{{ tracker-name }} API](../concepts/access.md).
+
 To learn more about the client and its terms of use, visit the GitHub page: [https://github.com/yandex/yandex_tracker_client](https://github.com/yandex/yandex_tracker_client).
-
-
 

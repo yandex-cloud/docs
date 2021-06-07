@@ -52,7 +52,7 @@ diskPlacementGroups[].<br>folderId | **string**<br><p>ID of the folder that the 
 diskPlacementGroups[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 diskPlacementGroups[].<br>name | **string**<br><p>Name of the placement group. The name is unique within the folder.</p> 
 diskPlacementGroups[].<br>description | **string**<br><p>Description of the placement group.</p> 
-diskPlacementGroups[].<br>labels | **object**<br><p>Resource labels as `key:value` pairs.</p> 
+diskPlacementGroups[].<br>labels | **object**<br><p>Resource labels as ``key:value`` pairs.</p> 
 diskPlacementGroups[].<br>zoneId | **string**<br><p>ID of the availability zone where the placement group resides.</p> 
 diskPlacementGroups[].<br>status | **string**<br>Current status of the placement group<br>
 diskPlacementGroups[].<br>spreadPlacementStrategy | **object**<br>Distribute instances over distinct failure domains.<br>

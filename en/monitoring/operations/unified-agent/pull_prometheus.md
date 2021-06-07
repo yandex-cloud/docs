@@ -66,7 +66,7 @@ You can also use this method to deliver metrics for any custom application that 
 
 1. Set up a service account on behalf of which metrics will be written to {{ monitoring-full-name }}.
 
-   1. [Create a service account](../../../iam/operations/sa/create.md) in the folder where the metrics will be written and [assign it the `editor` role](../../../iam/operations/sa/assign-role-for-sa.md).
+   1. [Create a service account](../../../iam/operations/sa/create.md) in the folder where the metrics will be written and [assign it the `{{ roles-monitoring-editor }}` role](../../../iam/operations/sa/assign-role-for-sa.md).
 
    1. [Link the service account](../../../compute/operations/vm-connect/auth-inside-vm.md#link-sa-with-instance) to a virtual machine with {{unified-agent-short-name}} installed.
 

@@ -26,7 +26,7 @@ In April 2021, all existing clusters with this {{ MG }} version will be [forcibl
 
   1. Click **Create cluster**.
 
-  1. Enter the cluster name in the **Cluster name** field. The cluster name must be unique within the folder.
+  1. Enter a name for the cluster in the **Cluster name** field. The cluster name must be unique within the folder.
 
   1. Select the environment where you want to create the cluster (you can't change the environment once the cluster is created):
      - `PRODUCTION`: For stable versions of your apps.
@@ -44,6 +44,8 @@ In April 2021, all existing clusters with this {{ MG }} version will be [forcibl
       - DB name.
       - Username.
       - User password. At least 8 characters.
+
+  1. Under **Network settings**, select the cloud network to host the cluster in and security groups for cluster network traffic. You may need to additionally [set up the security groups](connect.md#configuring-security-groups) to connect to the cluster.
 
   1. Under **Hosts**, select parameters for the database hosts created with the cluster (keep in mind that if you use SSDs when creating a {{ MG }} cluster, you can set at least three hosts). If you open **Advanced settings**, you can choose specific subnets for each host. By default, each host is created in a separate subnet.
 
@@ -74,7 +76,7 @@ In April 2021, all existing clusters with this {{ MG }} version will be [forcibl
 
      If there are no subnets in the folder, [create the necessary subnets](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
 
-  1. View a description of the CLI's create cluster command:
+  1. View a description of the CLI create cluster command:
 
       ```
       $ {{ yc-mdb-mg }} cluster create --help
@@ -112,11 +114,12 @@ In April 2021, all existing clusters with this {{ MG }} version will be [forcibl
 
      Example configuration file structure:
 
-     ```
+     ```hcl
      resource "yandex_mdb_mongodb_cluster" "<cluster name>" {
-       name        = "<cluster name>"
-       environment = "<PRESTABLE or PRODUCTION>"
-       network_id  = "<network ID>"
+       name               = "<cluster name>"
+       environment        = "<PRESTABLE or PRODUCTION>"
+       network_id         = "<network ID>"
+       security_group_ids = [ "<list of security groups>" ]
      
        cluster_config {
          version = "MongoDB version: 4.0, 4.2 or 4.4"
@@ -168,6 +171,12 @@ In April 2021, all existing clusters with this {{ MG }} version will be [forcibl
 
 {% endlist %}
 
+{% note warning %}
+
+If you specified security group IDs when creating a cluster, you may also need to [re-configure security groups](connect.md#configuring-security-groups) to connect to the cluster.
+
+{% endnote %}
+
 ## Examples {#examples}
 
 ### Creating a single-host cluster {#creating-a-single-host-cluster}
@@ -176,13 +185,14 @@ In April 2021, all existing clusters with this {{ MG }} version will be [forcibl
 
 - CLI
 
-  To create a cluster with a single host, you should pass a single parameter, `--host`.
+  To create a cluster with a single host, you should pass a single `--host` parameter.
 
   Let's say we need to create a {{ MG }} cluster with the following characteristics:
 
     - Named `mymg`.
   - In the `production` environment.
   - In the `{{ network-name }}` network.
+  - In the security group with the ID `{{ security-group }}`.
   - With one `{{ host-class }}` class host in the `b0rcctk2rvtr8efcch64` subnet in the `{{ zone-id }}` availability zone.
   - With 20 GB fast network storage (`{{ disk-type-example }}`).
   - With one user, `user1`, with the password `user1user1`.
@@ -196,6 +206,7 @@ In April 2021, all existing clusters with this {{ MG }} version will be [forcibl
        --name mymg \
        --environment production \
        --network-name {{ network-name }} \
+       --security-group-ids {{ security-group }} \
        --mongod-resource-preset {{ host-class }} \
        --host zone-id={{ zone-id }},subnet-id=b0rcctk2rvtr8efcch64 \
        --mongod-disk-size 20 \
@@ -210,28 +221,30 @@ In April 2021, all existing clusters with this {{ MG }} version will be [forcibl
   - Named `mymg`.
   - Version `4.4`.
   - In the `PRODUCTION` environment.
-  - In the cloud with ID `{{ tf-cloud-id }}`.
-  - In a folder named `myfolder`.
+  - In the cloud with the ID `{{ tf-cloud-id }}`.
+  - In the folder with the ID `{{ tf-folder-id }}`.
   - Network: `mynet`.
   - With 1 `{{ host-class }}` class host in the new `mysubnet` subnet and `{{ zone-id }}` availability zone. The `mysubnet` subnet will have the range `10.5.0.0/24`.
+  - In the new security group `mymg-sg` allowing TCP connections to the cluster from the internet via port `{{ port-mmg }}`.
   - With 20 GB fast network storage (`{{ disk-type-example }}`).
   - With one user, `user1`, with the password `user1user1`.
   - With one database, `db1`.
 
   The configuration file for the cluster looks like this:
 
-  ```
+  ```hcl
   provider "yandex" {
     token = "<OAuth or static key of service account>"
     cloud_id  = "{{ tf-cloud-id }}"
-    folder_id = "${data.yandex_resourcemanager_folder.myfolder.id}"
+    folder_id = "{{ tf-folder-id }}"
     zone      = "{{ zone-id }}"
   }
   
   resource "yandex_mdb_mongodb_cluster" "mymg" {
-    name        = "mymg"
-    environment = "PRODUCTION"
-    network_id  = "${yandex_vpc_network.mynet.id}"
+    name               = "mymg"
+    environment        = "PRODUCTION"
+    network_id         = yandex_vpc_network.mynet.id
+    security_group_ids = [ yandex_vpc_security_group.mymg-sg.id ]
   
     cluster_config {
       version = "4.4"
@@ -257,16 +270,28 @@ In April 2021, all existing clusters with this {{ MG }} version will be [forcibl
   
     host {
       zone_id   = "{{ zone-id }}"
-      subnet_id = "${yandex_vpc_subnet.mysubnet.id}"
+      subnet_id = yandex_vpc_subnet.mysubnet.id
     }
   }
   
   resource "yandex_vpc_network" "mynet" { name = "mynet" }
   
+  resource "yandex_vpc_security_group" "mymg-sg" {
+    name       = "mymg-sg"
+    network_id = yandex_vpc_network.mynet.id
+  
+    ingress {
+      description    = "MongoDB"
+      port           = {{ port-mmg }}
+      protocol       = "TCP"
+      v4_cidr_blocks = [ "0.0.0.0/0" ]
+    }
+  }
+  
   resource "yandex_vpc_subnet" "mysubnet" {
     name           = "mysubnet"
     zone           = "{{ zone-id }}"
-    network_id     = "${yandex_vpc_network.mynet.id}"
+    network_id     = yandex_vpc_network.mynet.id
     v4_cidr_blocks = ["10.5.0.0/24"]
   }
   ```

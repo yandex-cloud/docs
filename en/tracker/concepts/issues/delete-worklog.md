@@ -49,15 +49,15 @@ X-Org-ID: <organization ID>
 
 {% list tabs %}
 
-- Successful execution of the request
+- Request executed successfully
 
     If the request is successful, the API returns a response with code 204. The response body is missing.
 
-- The request failed
+- Request failed
 
     If the request is processed incorrectly, the API returns a message with error details:
 
-    | HTTP code of the error | Error description |
+    | HTTP error code | Error description |
     | --------------- | --------------- |
     | 403 Forbidden | The user or application has no access rights to the resource, the request is rejected. |
     | 404 Not Found | The requested resource not found. |

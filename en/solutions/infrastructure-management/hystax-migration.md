@@ -136,7 +136,7 @@ The agents are installed on virtual machines to be migrated to Yandex.Cloud. To 
 
      1. Select **New VMware vSphere** and fill in the fields:
         - **Platform Name**: The name of the platform.
-        - **Endpoint**: The public IP address of the `hystax-acura-vm` virtual machine.
+        - **Endpoint**: IP address of the VMware ESXi host to deploy a replication agent to.
         - **Login**: The user's login.
         - **Password**: The user's password.
 

@@ -43,7 +43,7 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
 
   1. In **Cluster settings** under **Password**, set the user password (from 8 to 128 characters).
 
-  1. Under **Network**, select the network whose subnets the hosts will be connected to.
+  1. Under **Network settings**, select the cloud network to host the cluster in and security groups for cluster network traffic. You may need to additionally [set up the security groups](connect.md#configuring-security-groups) to connect to the cluster.
 
   1. Under **Hosts**, click **Add host** and select the availability zone and subnet to connect the host to. Create the necessary number of hosts. To change the availability zone and the added host, click the pencil icon in the host line.
 
@@ -92,6 +92,7 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
          --environment <prestable or production> \
          --network-name <network name> \
          --host zone-id=<availability zone>,subnet-id=<subnet ID> \
+         --security-group-ids <list of security group IDs> \
          --resource-preset <host class> \
          --disk-size <storage size in GB> \
          --password=<user password> \
@@ -115,11 +116,12 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
 
        Example configuration file structure:
 
-       ```
+       ```hcl
        resource "yandex_mdb_redis_cluster" "<cluster name>" {
-         name        = "<cluster name>"
-         environment = "<environment>"
-         network_id  = "<network ID>"
+         name               = "<cluster name>"
+         environment        = "<environment>"
+         network_id         = "<network ID>"
+         security_group_ids = [ "<security group IDs>" ]
        
          config {
            password = "<password>"
@@ -170,6 +172,12 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
 
 {% endlist %}
 
+{% note warning %}
+
+If you specified security group IDs when creating a cluster, you may also need to [re-configure security groups](connect.md#configuring-security-groups) to connect to the cluster.
+
+{% endnote %}
+
 ## Examples {#examples}
 
 ### Creating a single-host cluster {#creating-a-single-host-cluster}
@@ -184,7 +192,7 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
   - Named `myredis`.
   - In the `production` environment.
   - In the `default` network.
-  - With a single `hm1.nano` class host in the `b0rcctk2rvtr8efcch64` subnet and the `{{ zone-id }}` availability zone.
+  - With a single `hm1.nano` host in the `b0rcctk2rvtr8efcch64` subnet, the `{{ zone-id }}` availability zone, and the `{{ security-group }}` security group.
   - With a 16 GB fast network storage (`{{ disk-type-example }}`).
   - With the `user1user1` password.
 
@@ -197,6 +205,7 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
        --network-name default \
        --resource-preset hm1.nano \
        --host zone-id={{ zone-id }},subnet-id=b0rcctk2rvtr8efcch64 \
+       --security-group-ids {{ security-group }} \
        --disk-size 16 \
        --password=user1user1
   ```
@@ -207,26 +216,28 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
     - Named `myredis`.
     - In the `production` environment.
     - In the cloud with the ID `{{ tf-cloud-id }}`.
-    - In a folder named `myfolder`.
+    - In the folder with the ID `{{ tf-folder-id }}`.
     - Network: `mynet`.
     - With a single host of the `hm1.nano` class in the new `mysubnet` subnet and the `{{ zone-id }}` availability zone. The `mysubnet` subnet will have a range of `10.5.0.0/24`.
+    - In the new security group `redis-sg` allowing connections through port `{{ port-mrd }}` from any addresses in the `mysubnet` subnet.
     - With a 16 GB fast network storage (`{{ disk-type-example }}`).
     - With the `user1user1` password.
 
   The configuration file for the cluster looks like this:
 
-  ```
+  ```hcl
   provider "yandex" {
     token = "<OAuth or static key of service account>"
     cloud_id  = "{{ tf-cloud-id }}"
-    folder_id = "${data.yandex_resourcemanager_folder.myfolder.id}"
+    folder_id = "{{ tf-folder-id }}"
     zone      = "{{ zone-id }}"
   }
   
   resource "yandex_mdb_redis_cluster" "myredis" {
-    name        = "myredis"
-    environment = "PRODUCTION"
-    network_id  = "${yandex_vpc_network.mynet.id}"
+    name               = "myredis"
+    environment        = "PRODUCTION"
+    network_id         = yandex_vpc_network.mynet.id
+    security_group_ids = [ yandex_vpc_security_group.redis-sg.id ]
   
     config {
       password = "user1user1"
@@ -239,16 +250,35 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
   
     host {
       zone      = "{{ zone-id }}"
-      subnet_id = "${yandex_vpc_subnet.mysubnet.id}"
+      subnet_id = yandex_vpc_subnet.mysubnet.id
     }
   }
   
   resource "yandex_vpc_network" "mynet" { name = "mynet" }
   
+  resource "yandex_vpc_security_group" "redis-sg" {
+    name       = "redis-sg"
+    network_id = yandex_vpc_network.mynet.id
+  
+    ingress {
+      description    = "Redis"
+      port           = {{ port-mrd }}
+      protocol       = "TCP"
+      v4_cidr_blocks = ["10.5.0.0/24"]
+    }
+  
+    egress {
+      description    = "Redis"
+      port           = {{ port-mrd }}
+      protocol       = "TCP"
+      v4_cidr_blocks = ["10.5.0.0/24"]
+    }
+  }
+  
   resource "yandex_vpc_subnet" "mysubnet" {
     name           = "mysubnet"
     zone           = "{{ zone-id }}"
-    network_id     = "${yandex_vpc_network.mynet.id}"
+    network_id     = yandex_vpc_network.mynet.id
     v4_cidr_blocks = ["10.5.0.0/24"]
   }
   ```

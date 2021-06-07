@@ -7,13 +7,13 @@
 This example shows how to translate the following two lines of text into Russian: <q>Hello</q> and <q>World</q>. The text language is recognized automatically.
 
 1. Create a file with the request body (for example, `body.json`).
-    In `folder_id`, enter the [folder ID](../../resource-manager/operations/folder/get-id.md). List the text strings to translate in the `texts` field.
+    In `folderId`, enter the [folder ID](../../resource-manager/operations/folder/get-id.md). List the text strings to translate in the `texts` field.
 
     In the `targetLanguageCode` field, enter the target language in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format. For Russian, it's `ru`. The language code can be obtained together with a [list of supported languages](../../translate/operations/list.md).
 
     ```json
     {
-        "folder_id": "b1gvmob95yysaplct532",
+        "folderId": "b1gvmob95yysaplct532",
         "texts": ["Hello", "World"],
         "targetLanguageCode": "ru"
     }

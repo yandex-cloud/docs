@@ -2,12 +2,17 @@
 
 You can add and remove users, as well as manage their individual settings.
 
+{% note warning %}
+
+You can use SQL commands to assign privileges to users, but you can't use them to add or change users. For more information, see [{#T}](grant.md).
+
+{% endnote %}
+
 ## Getting a list of users {#list-users}
 
 {% list tabs %}
 
 - Management console
-
   1. Go to the folder page and select **{{ mmy-name }}**.
   1. Click on the name of the cluster you need and then select the **Users** tab.
 
@@ -20,7 +25,8 @@ You can add and remove users, as well as manage their individual settings.
   To get a list of cluster users, run the command:
 
   ```
-  $ {{ yc-mdb-my }} user list --cluster-name=<cluster name>
+  $ {{ yc-mdb-my }} user list
+       --cluster-name=<cluster name>
   ```
 
   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
@@ -128,7 +134,7 @@ To change a list of databases available to the user and the database access leve
        --max-questions-per-hour=<maximum number of requests per hour>
        --max-updates-per-hour=<maximum number of UPDATE requests per hour>
        --max-connections-per-hour=<maximum number of connections per hour>
-       --max-connections-per-hour=<maximum number of connections per hour>
+       --max-user-connections=<maximum number of simultaneous connections>
   ```
 
   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
@@ -190,17 +196,17 @@ To change a list of databases available to the user and the database access leve
   - **Max connections per hour**: The maximum number of connections per hour allowed for the user.
 
     The minimum value is 0 (no limitations).
-By default, not set (no limitations).
+By default, not selected (no limitations).
 
   - **Max questions per hour**: The maximum number of requests per hour allowed for the user (except for queries executed within stored procedures).
 
     The minimum value is 0 (no limitations).
-By default, not set (no limitations).
+By default, not selected (no limitations).
 
   - **Max updates per hour**: The maximum number of the `UPDATE` requests per hour allowed for the user.
 
     The minimum value is 0 (no limitations).
-By default, not set (no limitations).
+By default, not selected (no limitations).
 
   - **Max user connections**: The maximum number of simultaneous connections allowed for the user.
 

@@ -1,22 +1,35 @@
 # Assigning roles {{ PG }}
 
-{{ mpg-name }} lets you [create your own roles](https://www.postgresql.org/docs/current/sql-createrole.html) in {{ PG }} databases, but it doesn't let you access the [default roles](https://www.postgresql.org/docs/current/default-roles.html). A special `mdb_admin` role is provided for users who aren't DB owners, but need administrative privileges.
+{{ mpg-name }} doesn't let you access [default roles](https://www.postgresql.org/docs/current/default-roles.html). Instead, it provides special roles:
 
-To assign a user role, [use](../operations/grant.md) the Yandex.Cloud CLI or API: role assignment from a `GRANT` request is canceled when the next database operation is performed.
+* `mdb_admin`: For users who aren't database owners, but need administrative privileges.
+* `mdb_replication`: For users who need logical replication.
 
-## The mdb_admin role {#mdb-admin}
+To assign a user a role, [use](../operations/grant.md) the {{ yandex-cloud }} CLI or API: role assignment from a `GRANT` query is canceled when the next database operation is performed.
+
+## mdb_admin role {#mdb-admin}
 
 The `mdb_admin` role includes the following privileges:
 
-* Use system role privileges:
-  * `pg_monitor`
-  * `pg_signal_backend`
-* Use subscriptions for logical replication (`CREATE | DROP | ALTER SUBSCRIPTION`).
-* Use extensions:
-  * `dblink`
-  * `pg_repack`
-  * `postgres_fdw`
-* Use extension-specific functions:
-  * `pg_stat_kcache_reset()` from the `pg_stat_kcache` extension.
-  * `pg_stat_reset()` and `pg_stat_statements_reset()` from the `pg_stat_statements` extension.
+* System role privileges:
+    * `pg_monitor`
+    * `pg_signal_backend`
+Learn more about system role in [{{ PG }} documentation](https://www.postgresql.org/docs/current/default-roles.html).
+* Subscription for logical replication (`CREATE | DROP | ALTER SUBSCRIPTION`).
+* Extensions:
+    * `dblink`
+    * `pg_repack`
+    * `postgres_fdw`
+* Extension-specific functions:
+    * `pg_stat_kcache_reset()` from the `pg_stat_kcache` extension.
+    * `pg_stat_reset()` and `pg_stat_statements_reset()` from the `pg_stat_statements` extension.
+
+## mdb_replication role {#mdb-replication}
+
+The `mdb_replication` role includes the following privileges:
+
+* Connecting to a cluster using the logical replication protocol (`replication=database`).
+* Using the replication function:
+    * `pg_create_logical_replication_slot`
+    * `pg_drop_replication_slot`
 

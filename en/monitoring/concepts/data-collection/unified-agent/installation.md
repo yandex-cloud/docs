@@ -20,7 +20,7 @@ Prior to installing {{unified-agent-full-name}}, follow these steps:
    - Set up a public IPv4 address (recommended).
    - [Configure Docker to work with IPv6](https://docs.docker.com/config/daemon/ipv6) and [enable network address translation](https://medium.com/@skleeschulte/how-to-enable-ipv6-for-docker-containers-on-ubuntu-18-04-c68394a219a2) if you can't use a public IPv4 address.
 
-1. [Create a service account](../../../../iam/operations/sa/create.md) in the folder you want to write metrics to and [assign it the](../../../../iam/operations/sa/assign-role-for-sa.md) `editor` role.
+1. [Create a service account](../../../../iam/operations/sa/create.md) in the folder you want to write metrics to and [assign it the](../../../../iam/operations/sa/assign-role-for-sa.md) `{{ roles-monitoring-editor }}` role.
 
 1. Set up agent authorization in the {{monitoring-full-name}} API:
    - If the agent is installed on a VM in {{ yandex-cloud }}, [link the service account you created](../../../../compute/operations/vm-connect/auth-inside-vm.md#link-sa-with-instance) to a virtual machine. In that case, the agent will automatically receive the service account's IAM token from the metadata service.

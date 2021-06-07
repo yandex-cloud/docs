@@ -44,5 +44,5 @@ jwt | **string** <br> includes only one of the fields `yandexPassportOauthToken`
  
 Field | Description
 --- | ---
-iamToken | **string**<br><p>IAM token for the specified identity.</p> <p>You should pass the token in the `Authorization` header for any further API requests. For example, `Authorization: Bearer [iam_token]`.</p> 
+iamToken | **string**<br><p>IAM token for the specified identity.</p> <p>You should pass the token in the ``Authorization`` header for any further API requests. For example, ``Authorization: Bearer [iam_token]``.</p> 
 expiresAt | **string** (date-time)<br><p>IAM token expiration time.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 

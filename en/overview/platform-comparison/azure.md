@@ -2,8 +2,8 @@
 
 | Microsoft Azure | {{ yandex-cloud }} |
 | ---- | ---- |
-| API Gateway | [{{ api-gw-full-name }}](../../api-gateway/) |
-| Application Gateway | [{{ alb-full-name }}](../../application-load-balancer/) |
+| AI Platform | [{{ ml-platform-full-name }}](../../datasphere/) |
+| Azure Application Gateway | [{{ api-gw-full-name }}](../../api-gateway/) |
 | Azure Active Directory | [{{ iam-full-name }}](../../iam/) |
 | Azure Cache for Redis | [{{ mrd-full-name }}](../../managed-redis/) |
 | Azure Cosmos DB | [{{ mmg-full-name }}](../../managed-mongodb/) |

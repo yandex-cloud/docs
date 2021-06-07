@@ -50,7 +50,7 @@ name | Required. Required. Name of the provider to delete.  The maximum string l
 Field | Description
 --- | ---
 type | **string**<br>
-name | **string**<br><p>The maximum string length in characters is 50. Value must match the regular expression `` [a-z][a-z0-9_-]* ``.</p> 
+name | **string**<br><p>The maximum string length in characters is 50. Value must match the regular expression ``[a-z][a-z0-9_-]*``.</p> 
 order | **string** (int64)<br>
 enabled | **boolean** (boolean)<br>
 hidden | **boolean** (boolean)<br><p>selector ui settings</p> 

@@ -113,7 +113,7 @@ If you want the trigger to send an HTTP request:
 
 1. Enter request body.
 
-   You can insert field values and user variables in your request body (see below). To do this, click **{ }** to the right of the field and choose the field or variable name. The request body will include a sequence like `not_var{{variable_name}}` .
+   You can insert field values and user variables in your request body (see below). To do this, click **{ }** to the right of the field and choose the field or variable name. The request body will include a sequence like `not_var{{variable_name}}`.
 
    {% note info %}
 

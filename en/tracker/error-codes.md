@@ -1,7 +1,7 @@
 # Possible response codes
 
 200
-:   Successful execution of the request.
+:   Request executed successfully.
 
 201
 :  The `POST` request resulted in creating a new object.

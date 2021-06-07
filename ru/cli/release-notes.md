@@ -1,6 +1,39 @@
 # Релизы YC CLI
 
-## Версия 0.76.0 (19.05.21) {#latest-release}
+## Версия 0.77.0 (07.06.21) {#latest-release}
+
+**{{ compute-name }}**
+
+* Команда `yc compute instance`.
+
+- В `network_interface` добавлены ключи `dns-record-spec` и `ipv6-dns-record-spec`
+
+#### Сервисы управляемых баз данных {#managed-db}
+
+** {{ mes-name }} **
+
+- Добавлен флаг --service-type для команды `yc managed-elasticsearch cluster list-logs` для получения логов kibana.
+- Добавлен флаг --service-account для команд `yc managed-elasticsearch cluster create` и `yc managed-elasticsearch cluster update`.
+
+** {{ mkf-name }} **
+
+* В команды `yc managed-kafka cluster create` и `yc managed-kafka cluster update` добавлены флаги для задания и изменения конфигурационных настроек Kafka брокеров:
+  --num-partitions, --default-replication-factor
+
+** {{ api-gw-name }} **
+
+- Добавлена команда `yc serverless api-gateway add-domain` для привязывания домена к API-шлюзу.
+- Добавлена команда `yc serverless api-gateway remove-domain` для отсоединения домена от API-шлюза.
+
+**{{ mrd-name }}**
+
+* Команды `yc managed-redis cluster create\update`.
+
+  Добавлены флаги `--slowlog-log-slower-than`, `--slowlog-max-len`, `--databases` и `--notify-keyspace-events` (см. описание в redis.conf).
+
+---
+
+## Версия 0.76.0 (19.05.21) {#version0.76.0}
 
 **{{ mpg-name }}**
 

@@ -58,7 +58,7 @@ hostGroups[].<br>folderId | **string**<br><p>ID of the folder that the group bel
 hostGroups[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 hostGroups[].<br>name | **string**<br><p>Name of the group. The name is unique within the folder.</p> 
 hostGroups[].<br>description | **string**<br><p>Description of the group.</p> 
-hostGroups[].<br>labels | **object**<br><p>Resource labels as `key:value` pairs.</p> 
+hostGroups[].<br>labels | **object**<br><p>Resource labels as ``key:value`` pairs.</p> 
 hostGroups[].<br>zoneId | **string**<br><p>Availability zone where all dedicated hosts are allocated.</p> 
 hostGroups[].<br>status | **string**<br><p>Status of the group.</p> 
 hostGroups[].<br>typeId | **string**<br><p>ID of host type. Resources provided by each host of the group.</p> 

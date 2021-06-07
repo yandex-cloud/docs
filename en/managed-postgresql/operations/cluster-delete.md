@@ -21,7 +21,7 @@
   $ {{ yc-mdb-pg }} cluster delete <cluster name or ID>
   ```
 
-  The cluster name and ID can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+  You can query the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - Terraform
 

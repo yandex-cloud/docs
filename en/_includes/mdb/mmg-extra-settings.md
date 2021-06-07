@@ -2,7 +2,7 @@
 
 - **Retention period for automatic backups, days**: The time to retain the automatically created backups. If an automatic backup expires, it is deleted. The default is {{ mmg-backup-retention }} days. This feature is at the [Preview stage](../../overview/concepts/launch-stages.md). For more information, see [{#T}](../../managed-mongodb/concepts/backup.md).
 
-  Changing the retention period affects both new automatic backups and existing backups: when you increase/decrease the retention period, the lifetime for existing backups increases/decreases.
+  Changing the retention period affects both new automatic backups and existing backups.
 
   For example, if the original retention period was 7 days and the remaining lifetime of a separate automatic backup is 1 day, then when the retention period increases to 9 days, the remaining lifetime of this backup becomes 3 days.
 

@@ -4,23 +4,217 @@
 
 ## Безусловное обновление {#update-item}
 
+В следующем примере будет обновлено значение существующего атрибута `release_date` и добавлен новый атрибут `rating`.
+
+Чтобы обновить запись о фильме в таблице `Series`:
+
 {% list tabs %}
+
+- Java
+
+  1. Создайте проект `SeriesItemOps03`:
+
+      ```bash
+      mvn -B archetype:generate \
+        -DarchetypeGroupId=org.apache.maven.archetypes \
+        -DgroupId=ru.yandex.cloud.samples \
+        -DartifactId=SeriesItemOps03
+      ```
+
+      В результате выполнения команды в текущем рабочем каталоге будет создан каталог проекта с именем `SeriesItemOps03`, структурой подкаталогов и файлом описания проекта `pom.xml`.
+  
+  1. Перейдите в каталог проекта:
+
+      ```bash
+      cd SeriesItemOps03
+      ```
+
+  1. Отредактируйте описание проекта в файле `pom.xml`, например с помощью редактора nano:
+
+      ```bash
+      nano pom.xml
+      ```
+
+      Пример файла `pom.xml`:
+
+      ```xml
+      <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+        <modelVersion>4.0.0</modelVersion>
+        <groupId>ru.yandex.cloud.samples</groupId>
+        <artifactId>SeriesItemOps03</artifactId>
+        <packaging>jar</packaging>
+        <version>1.0-SNAPSHOT</version>
+        <name>SeriesItemOps03</name>
+        <url>http://maven.apache.org</url>
+        <build>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <configuration>
+                        <archive>
+                            <manifest>
+                                <addClasspath>true</addClasspath>
+                                <classpathPrefix>lib/</classpathPrefix>
+                                <mainClass>ru.yandex.cloud.samples.SeriesItemOps03</mainClass>
+                            </manifest>
+                            <manifestEntries>
+                                <Class-Path>.</Class-Path>
+                            </manifestEntries>
+                        </archive>
+                        <finalName>release/SeriesItemOps03</finalName>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-dependency-plugin</artifactId>
+                    <executions>
+                        <execution>
+                            <id>copy-dependencies</id>
+                            <phase>prepare-package</phase>
+                            <goals>
+                                <goal>copy-dependencies</goal>
+                            </goals>
+                            <configuration>
+                                <outputDirectory>${project.build.directory}/release/lib</outputDirectory>
+                                <overWriteReleases>false</overWriteReleases>
+                                <overWriteSnapshots>false</overWriteSnapshots>
+                                <overWriteIfNewer>true</overWriteIfNewer>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </build>
+        <dependencies>
+          <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.1</version>
+            <scope>test</scope>
+          </dependency>
+          <dependency>
+            <groupId>com.amazonaws</groupId>
+            <artifactId>aws-java-sdk-dynamodb</artifactId>
+            <version>1.11.1012</version>
+          </dependency>
+        </dependencies>
+        <properties>
+          <maven.compiler.source>1.8</maven.compiler.source>
+          <maven.compiler.target>1.8</maven.compiler.target>
+        </properties>
+      </project>
+      ```
+
+      Посмотрите актуальные версии [junit](https://mvnrepository.com/artifact/junit/junit) и [aws-java-sdk-dynamodb](https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-dynamodb).
+
+  1. В каталоге `src/main/java/ru/yandex/cloud/samples/` создайте файл `SeriesItemOps03.java`, например с помощью редактора nano:
+  
+      ```bash
+      nano src/main/java/ru/yandex/cloud/samples/SeriesItemOps03.java
+      ```
+
+      Скопируйте в созданный файл следующий код:
+
+      {% note warning %}
+
+      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+
+      {% endnote %}
+
+      ```java
+      package ru.yandex.cloud.samples;
+
+      import java.util.Arrays;
+
+      import com.amazonaws.client.builder.AwsClientBuilder;
+      import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
+      import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
+      import com.amazonaws.services.dynamodbv2.document.DynamoDB;
+      import com.amazonaws.services.dynamodbv2.document.Table;
+      import com.amazonaws.services.dynamodbv2.document.UpdateItemOutcome;
+      import com.amazonaws.services.dynamodbv2.document.spec.UpdateItemSpec;
+      import com.amazonaws.services.dynamodbv2.document.utils.ValueMap;
+      import com.amazonaws.services.dynamodbv2.model.ReturnValue;
+
+      public class SeriesItemOps03 {
+
+          public static void main(String[] args) throws Exception {
+
+              AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
+                  .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document API эндпоинт>", "ru-central1"))
+                  .build();
+
+              DynamoDB dynamoDB = new DynamoDB(client);
+
+              Table table = dynamoDB.getTable("Series");
+
+              int series_id = 3;
+              String title = "Supernatural";
+
+              UpdateItemSpec updateItemSpec = new UpdateItemSpec().withPrimaryKey("series_id", series_id, "title", title)
+                  .withUpdateExpression("set info.release_date=:d, info.rating=:r")
+                  .withValueMap(new ValueMap().withString(":d", "2005-09-13").withNumber(":r", 8))
+                  .withReturnValues(ReturnValue.UPDATED_NEW);
+
+              try {
+                  System.out.println("Обновление записи...");
+                  UpdateItemOutcome outcome = table.updateItem(updateItemSpec);
+                  System.out.println("Данные о сериале обновлены:\n" + outcome.getItem().toJSONPretty());
+
+              }
+              catch (Exception e) {
+                  System.err.println("Невозможно обновить запись: " + series_id + " " + title);
+                  System.err.println(e.getMessage());
+              }
+          }
+      }
+      ```
+
+      Добавить, обновить или удалить атрибуты для существующей записи можно методом `updateItem`.
+
+      Этот код использует `UpdateExpression` для описания обновлений, которые нужно выполнить для указанной записи.
+
+      Параметр `ReturnValues` предписывает {{ ydb-short-name }} возвращать только обновленные атрибуты (`UPDATED_NEW`).
+
+  1. Соберите проект:
+
+      ```bash
+      mvn package
+      ```
+
+      В результате выполнения команды в каталоге `target/release/` будет сгенерирован файл `SeriesItemOps03.jar`.
+
+  1. Запустите приложение:
+
+      ```bash
+      java -jar target/release/SeriesItemOps03.jar
+      ```
+
+      Результат выполнения:
+
+      ```text
+      Обновление записи...
+      Данные о сериале обновлены:
+      {
+        "info" : {
+          "release_date" : "2005-09-13",
+          "rating" : 8,
+          "series_info" : "Supernatural is an American television series created by Eric Kripke"
+        }
+      }
+      ```
 
 - Python
 
-  Для изменения существующей записи используется метод `update_item`. С помощью него можно обновить значения существующих атрибутов, добавить или удалить атрибуты.
-
-  В параметре `UpdateExpression` метода `update_item` передаются все обновления, которые применяются к указанной записи. Параметр `ReturnValues` указывает {{ ydb-short-name }} возвращать только обновленные атрибуты (`UPDATED_NEW`).
-
-  В SDK Boto 3 для хранения числовых значений {{ ydb-short-name }} используется класс `Decimal`.
-
-  В примере ниже выполняются следующие обновления:
-  * изменяется значение существующего атрибута `release_date`;
-  * добавляется новый атрибут `rating`.
-
-  Чтобы обновить данные о сериале в таблице `Series`:
-
   1. Создайте файл `SeriesItemOps03.py` и скопируйте в него следующий код:
+
+      {% note warning %}
+
+      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+
+      {% endnote %}
 
       ```python
       from decimal import Decimal
@@ -28,7 +222,7 @@
       import boto3
 
       def update_serie(title, series_id, release_date,  rating):
-          ydb_docapi_client = boto3.resource('dynamodb', endpoint_url = "<эндпойнт базы данных>")
+          ydb_docapi_client = boto3.resource('dynamodb', endpoint_url = "<Document API эндпоинт>")
 
           table = ydb_docapi_client.Table('Series')
 
@@ -53,6 +247,12 @@
           pprint(update_response, sort_dicts = False)
       ```
 
+      Для обновления записи используется метод `update_item`. С помощью него можно обновить значения атрибутов, добавить или удалить атрибуты.
+
+      В параметре `UpdateExpression` метода `update_item` передаются все обновления, которые применяются к указанной записи. Параметр `ReturnValues` указывает {{ ydb-short-name }} возвращать только обновленные атрибуты (`UPDATED_NEW`).
+
+      В SDK Boto 3 для хранения числовых значений {{ ydb-short-name }} используется класс `Decimal`.
+
   1. Запустите программу:
 
       ```bash
@@ -61,7 +261,7 @@
 
       Результат выполнения:
 
-      ```bash
+      ```text
       Данные о сериале обновлены:
       {'Attributes': {'info': {'release_date': '2005-09-13',
                               'series_info': 'Supernatural is an American '
@@ -81,17 +281,211 @@
 
 ## Увеличение атомарного счетчика {#increment-ac}
 
+{{ ydb-short-name }} поддерживает атомарные счетчики.
+
+Чтобы увеличить атомарный счетчик `rating` для сериала:
+
 {% list tabs %}
+
+- Java
+
+  1. Создайте проект `SeriesItemOps04`:
+
+      ```bash
+      mvn -B archetype:generate \
+        -DarchetypeGroupId=org.apache.maven.archetypes \
+        -DgroupId=ru.yandex.cloud.samples \
+        -DartifactId=SeriesItemOps04
+      ```
+
+      В результате выполнения команды в текущем рабочем каталоге будет создан каталог проекта с именем `SeriesItemOps04`, структурой подкаталогов и файлом описания проекта `pom.xml`.
+  
+  1. Перейдите в каталог проекта:
+
+      ```bash
+      cd SeriesItemOps04
+      ```
+
+  1. Отредактируйте описание проекта в файле `pom.xml`, например с помощью редактора nano:
+
+      ```bash
+      nano pom.xml
+      ```
+
+      Пример файла `pom.xml`:
+
+      ```xml
+      <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+        <modelVersion>4.0.0</modelVersion>
+        <groupId>ru.yandex.cloud.samples</groupId>
+        <artifactId>SeriesItemOps04</artifactId>
+        <packaging>jar</packaging>
+        <version>1.0-SNAPSHOT</version>
+        <name>SeriesItemOps04</name>
+        <url>http://maven.apache.org</url>
+        <build>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <configuration>
+                        <archive>
+                            <manifest>
+                                <addClasspath>true</addClasspath>
+                                <classpathPrefix>lib/</classpathPrefix>
+                                <mainClass>ru.yandex.cloud.samples.SeriesItemOps04</mainClass>
+                            </manifest>
+                            <manifestEntries>
+                                <Class-Path>.</Class-Path>
+                            </manifestEntries>
+                        </archive>
+                        <finalName>release/SeriesItemOps04</finalName>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-dependency-plugin</artifactId>
+                    <executions>
+                        <execution>
+                            <id>copy-dependencies</id>
+                            <phase>prepare-package</phase>
+                            <goals>
+                                <goal>copy-dependencies</goal>
+                            </goals>
+                            <configuration>
+                                <outputDirectory>${project.build.directory}/release/lib</outputDirectory>
+                                <overWriteReleases>false</overWriteReleases>
+                                <overWriteSnapshots>false</overWriteSnapshots>
+                                <overWriteIfNewer>true</overWriteIfNewer>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </build>
+        <dependencies>
+          <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.1</version>
+            <scope>test</scope>
+          </dependency>
+          <dependency>
+            <groupId>com.amazonaws</groupId>
+            <artifactId>aws-java-sdk-dynamodb</artifactId>
+            <version>1.11.1012</version>
+          </dependency>
+        </dependencies>
+        <properties>
+          <maven.compiler.source>1.8</maven.compiler.source>
+          <maven.compiler.target>1.8</maven.compiler.target>
+        </properties>
+      </project>
+      ```
+
+      Посмотрите актуальные версии [junit](https://mvnrepository.com/artifact/junit/junit) и [aws-java-sdk-dynamodb](https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-dynamodb).
+
+  1. В каталоге `src/main/java/ru/yandex/cloud/samples/` создайте файл `SeriesItemOps04.java`, например с помощью редактора nano:
+  
+      ```bash
+      nano src/main/java/ru/yandex/cloud/samples/SeriesItemOps04.java
+      ```
+
+      Скопируйте в созданный файл следующий код:
+
+      {% note warning %}
+
+      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+
+      {% endnote %}
+
+      ```java
+      package ru.yandex.cloud.samples;
+
+      import com.amazonaws.client.builder.AwsClientBuilder;
+      import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
+      import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
+      import com.amazonaws.services.dynamodbv2.document.DynamoDB;
+      import com.amazonaws.services.dynamodbv2.document.Table;
+      import com.amazonaws.services.dynamodbv2.document.UpdateItemOutcome;
+      import com.amazonaws.services.dynamodbv2.document.spec.UpdateItemSpec;
+      import com.amazonaws.services.dynamodbv2.document.utils.ValueMap;
+      import com.amazonaws.services.dynamodbv2.model.ReturnValue;
+
+      public class SeriesItemOps04 {
+
+          public static void main(String[] args) throws Exception {
+
+              AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
+                  .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document API эндпоинт>", "ru-central1"))
+                  .build();
+
+              DynamoDB dynamoDB = new DynamoDB(client);
+
+              Table table = dynamoDB.getTable("Series");
+
+              int series_id = 3;
+              String title = "Supernatural";
+
+              UpdateItemSpec updateItemSpec = new UpdateItemSpec().withPrimaryKey("series_id", series_id, "title", title)
+                  .withUpdateExpression("set info.rating = info.rating + :val")
+                  .withValueMap(new ValueMap().withNumber(":val", 1)).withReturnValues(ReturnValue.UPDATED_NEW);
+
+              try {
+                  System.out.println("Увеличение атомарного счетчика...");
+                  UpdateItemOutcome outcome = table.updateItem(updateItemSpec);
+                  System.out.println("Данные о сериале обновлены:\n" + outcome.getItem().toJSONPretty());
+
+              }
+              catch (Exception e) {
+                  System.err.println("Невозможно обновить запись: " + series_id + " " + title);
+                  System.err.println(e.getMessage());
+              }
+
+          }
+      }
+      ```
+
+      Используйте метод `updateItem` для увеличения или уменьшения значения существующего атрибута независимо от других запросов на запись (все запросы на запись применяются в том порядке, в котором они получены).
+
+  1. Соберите проект:
+
+      ```bash
+      mvn package
+      ```
+
+      В результате выполнения команды в каталоге `target/release/` будет сгенерирован файл `SeriesItemOps04.jar`.
+
+  1. Запустите приложение:
+
+      ```bash
+      java -jar target/release/SeriesItemOps04.jar
+      ```
+
+      Результат выполнения:
+
+      ```text
+      Увеличение атомарного счетчика...
+      Данные о сериале обновлены:
+      {
+        "info" : {
+          "release_date" : "2005-09-13",
+          "rating" : 9,
+          "series_info" : "Supernatural is an American television series created by Eric Kripke"
+        }
+      }
+      ```
 
 - Python
 
-  {{ ydb-short-name }} поддерживает использование атомарных счетчиков. С их помощью можно увеличить или уменьшить значение существующего атрибута, используя метод `update_item`. При этом все запросы на запись применяются в том порядке, в котором они пришли.
-
-  Следующая программа показывает, как увеличить значение атрибута `rating` для сериала. При каждом запуске она увеличивает этот атрибут на единицу.
-
-  Чтобы изменить значение атрибута `rating` для записи в таблице `Series`:
-
   1. Создайте файл `SeriesItemOps04.py` и скопируйте в него следующий код:
+
+      {% note warning %}
+
+      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+
+      {% endnote %}
 
       ```python
       from decimal import Decimal
@@ -99,7 +493,7 @@
       import boto3
 
       def increase_rating(title, series_id, rating_increase):
-          ydb_docapi_client = boto3.resource('dynamodb', endpoint_url = "<эндпойнт базы данных>")
+          ydb_docapi_client = boto3.resource('dynamodb', endpoint_url = "<Document API эндпоинт>")
 
           table = ydb_docapi_client.Table('Series')
 
@@ -146,21 +540,244 @@
                             'RetryAttempts': 0}}
       ```
 
+      Используйте метод `update_item` для увеличения или уменьшения значения существующего атрибута. При этом все запросы на запись применяются в том порядке, в котором они пришли.
+
+      При каждом запуске программы значение атрибута `rating` увеличивается на единицу.
+
 {% endlist %}
 
-## Обновление с условием {#update-with-cond}
+## Условное обновление {#update-with-cond}
+
+Чтобы обновить запись в таблице `Series` при выполнении условия:
 
 {% list tabs %}
 
+- Java
+
+  1. Создайте проект `SeriesItemOps05`:
+
+      ```bash
+      mvn -B archetype:generate \
+        -DarchetypeGroupId=org.apache.maven.archetypes \
+        -DgroupId=ru.yandex.cloud.samples \
+        -DartifactId=SeriesItemOps05
+      ```
+
+      В результате выполнения команды в текущем рабочем каталоге будет создан каталог проекта с именем `SeriesItemOps05`, структурой подкаталогов и файлом описания проекта `pom.xml`.
+  
+  1. Перейдите в каталог проекта:
+
+      ```bash
+      cd SeriesItemOps05
+      ```
+
+  1. Отредактируйте описание проекта в файле `pom.xml`, например с помощью редактора nano:
+
+      ```bash
+      nano pom.xml
+      ```
+
+      Пример файла `pom.xml`:
+
+      ```xml
+      <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+        <modelVersion>4.0.0</modelVersion>
+        <groupId>ru.yandex.cloud.samples</groupId>
+        <artifactId>SeriesItemOps05</artifactId>
+        <packaging>jar</packaging>
+        <version>1.0-SNAPSHOT</version>
+        <name>SeriesItemOps05</name>
+        <url>http://maven.apache.org</url>
+        <build>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <configuration>
+                        <archive>
+                            <manifest>
+                                <addClasspath>true</addClasspath>
+                                <classpathPrefix>lib/</classpathPrefix>
+                                <mainClass>ru.yandex.cloud.samples.SeriesItemOps05</mainClass>
+                            </manifest>
+                            <manifestEntries>
+                                <Class-Path>.</Class-Path>
+                            </manifestEntries>
+                        </archive>
+                        <finalName>release/SeriesItemOps05</finalName>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-dependency-plugin</artifactId>
+                    <executions>
+                        <execution>
+                            <id>copy-dependencies</id>
+                            <phase>prepare-package</phase>
+                            <goals>
+                                <goal>copy-dependencies</goal>
+                            </goals>
+                            <configuration>
+                                <outputDirectory>${project.build.directory}/release/lib</outputDirectory>
+                                <overWriteReleases>false</overWriteReleases>
+                                <overWriteSnapshots>false</overWriteSnapshots>
+                                <overWriteIfNewer>true</overWriteIfNewer>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </build>
+        <dependencies>
+          <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.1</version>
+            <scope>test</scope>
+          </dependency>
+          <dependency>
+            <groupId>com.amazonaws</groupId>
+            <artifactId>aws-java-sdk-dynamodb</artifactId>
+            <version>1.11.1012</version>
+          </dependency>
+        </dependencies>
+        <properties>
+          <maven.compiler.source>1.8</maven.compiler.source>
+          <maven.compiler.target>1.8</maven.compiler.target>
+        </properties>
+      </project>
+      ```
+
+      Посмотрите актуальные версии [junit](https://mvnrepository.com/artifact/junit/junit) и [aws-java-sdk-dynamodb](https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-dynamodb).
+
+  1. В каталоге `src/main/java/ru/yandex/cloud/samples/` создайте файл `SeriesItemOps05.java`, например с помощью редактора nano:
+  
+      ```bash
+      nano src/main/java/ru/yandex/cloud/samples/SeriesItemOps05.java
+      ```
+
+      Скопируйте в созданный файл следующий код:
+
+      {% note warning %}
+
+      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+
+      {% endnote %}
+
+      ```java
+      package ru.yandex.cloud.samples;
+
+      import com.amazonaws.client.builder.AwsClientBuilder;
+      import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
+      import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
+      import com.amazonaws.services.dynamodbv2.document.DynamoDB;
+      import com.amazonaws.services.dynamodbv2.document.PrimaryKey;
+      import com.amazonaws.services.dynamodbv2.document.Table;
+      import com.amazonaws.services.dynamodbv2.document.UpdateItemOutcome;
+      import com.amazonaws.services.dynamodbv2.document.spec.UpdateItemSpec;
+      import com.amazonaws.services.dynamodbv2.document.utils.ValueMap;
+      import com.amazonaws.services.dynamodbv2.model.ReturnValue;
+
+      public class SeriesItemOps05 {
+
+          public static void main(String[] args) throws Exception {
+
+              AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
+                  .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document API эндпоинт>", "ru-central1"))
+                  .build();
+
+              DynamoDB dynamoDB = new DynamoDB(client);
+
+              Table table = dynamoDB.getTable("Series");
+
+              int series_id = 3;
+              String title = "Supernatural";
+
+              UpdateItemSpec updateItemSpec = new UpdateItemSpec()
+                  .withPrimaryKey(new PrimaryKey("series_id", series_id, "title", title))
+                  .withUpdateExpression("set info.recommend=:d").withValueMap(new ValueMap().withString(":d", "Recommended for viewing"))
+                  .withConditionExpression("info.rating > :num").withValueMap(new ValueMap().withString(":d", "Recommended for viewing").withNumber(":num", 9))
+                  .withReturnValues(ReturnValue.UPDATED_NEW);
+
+              try {
+                  System.out.println("Попытка условного обновления...");
+                  UpdateItemOutcome outcome = table.updateItem(updateItemSpec);
+                  System.out.println("Данные о сериале обновлены:\n" + outcome.getItem().toJSONPretty());
+              }
+              catch (Exception e) {
+                  System.err.println("Невозможно обновить запись: " + series_id + " " + title);
+                  System.err.println(e.getMessage());
+              }
+
+          }
+      }
+      ```
+
+      Этот код показывает пример использования условия `UpdateItem`. Если условие принимает значение `true`, обновление завершается успешно; в противном случае обновление не выполняется.
+
+      В данном случае к записи добавляется рекомендация о просмотре при рейтинге более 9.
+
+  1. Соберите проект:
+
+      ```bash
+      mvn package
+      ```
+
+      В результате выполнения команды в каталоге `target/release/` будет сгенерирован файл `SeriesItemOps05.jar`.
+
+  1. Запустите приложение:
+
+      ```bash
+      java -jar target/release/SeriesItemOps05.jar
+      ```
+
+      Результат выполнения:
+
+      ```text
+      Попытка условного обновления...
+      Невозможно обновить запись: 3 Supernatural
+      Condition not satisfied (Service: AmazonDynamoDBv2; Status Code: 400; Error Code: ConditionalCheckFailedException; Request ID: null; Proxy: null)
+      ```
+
+      Операция завершилась с ошибкой: рейтинг фильма 9, но условие проверяет рейтинг более 9.
+
+      Измените код так, чтобы условие стало больше или равно 9:
+
+      ```java
+      .withConditionExpression("info.rating >= :num")
+      ```
+
+      Повторите сборку проекта и запустите приложение:
+
+      ```bash
+      mvn package && java -jar target/release/SeriesItemOps05.jar
+      ```
+
+      Теперь операция успешна:
+
+      ```text
+      Попытка условного обновления...
+      Данные о сериале обновлены:
+      {
+        "info" : {
+          "release_date" : "2005-09-13",
+          "rating" : 9,
+          "recommend" : "Recommended for viewing",
+          "series_info" : "Supernatural is an American television series created by Eric Kripke"
+        }
+      }
+      ```
+
 - Python
 
-  В следующей программе показано, как использовать метод `update_item` с условием. Если условие принимает значение `true`, обновление завершается успешно. Условие обновления указывается в параметре `ConditionExpression`.
-
-  В этом примере к записи добавляется рекомендация о просмотре, если рейтинг сериала выше 9.
-
-  Чтобы выполнить обновление с условием для записи в таблице `Series`:
-
   1. Создайте файл `SeriesItemOps05.py` и скопируйте в него следующий код:
+
+      {% note warning %}
+
+      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+
+      {% endnote %}
 
       ```python
       from pprint import pprint
@@ -168,7 +785,7 @@
       from botocore.exceptions import ClientError
 
       def add_recommend(title, series_id, rating_val):
-          ydb_docapi_client = boto3.resource('dynamodb', endpoint_url = "<эндпойнт базы данных>")
+          ydb_docapi_client = boto3.resource('dynamodb', endpoint_url = "<Document API эндпоинт>")
 
           table = ydb_docapi_client.Table('Series')
           rec = "Recommended for viewing"
@@ -202,6 +819,11 @@
               print("Данные о сериале обновлены:")
               pprint(update_response, sort_dicts = False)
       ```
+
+      Этот код показывает пример использования условия `update_item`. Если условие принимает значение `true`, обновление завершается успешно; в противном случае обновление не выполняется.
+
+      В данном случае к записи добавляется рекомендация о просмотре при рейтинге более 9.
+
 
   1. Для запуска программы выполните команду:
 

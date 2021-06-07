@@ -21,7 +21,7 @@ X-Org-Id: <organization ID>
 
 > Request for a list of files attached to the issue with the `JUNE-2` key:
 > 
-> - An HTTP GET method is used.
+> - Use the HTTP GET method.
 > 
 > ```
 > GET /v2/issues/JUNE-2/attachments HTTP/1.1
@@ -62,35 +62,35 @@ If the request is successful, the API returns a response with code 200. The resp
 
 | Parameter | Description | Data type |
 | ----- | ----- | ----- |
-| self | Address of the API resource corresponding to the attached file. | String. |
-| id | Unique ID of the file. | String. |
-| name | File name. | String. |
-| content | Address of the resource to download the file from. | String. |
-| thumbnail | Address of the resource to download the preview thumbnail from. Available for image files only. | String. |
+| self | Address of the API resource corresponding to the attached file. | String |
+| id | Unique ID of the file. | String |
+| name | File name. | String |
+| content | Address of the resource to download the file from. | String |
+| thumbnail | Address of the resource to download the preview thumbnail from. Available for image files only. | String |
 | [createdBy](#createdBy) | Object with information about the user who attached the file. | JSON object |
-| createdAt | Date and time when the file is uploaded, in <br/>``` YYYY-MM-DDThh:mm:ss.sss±hhmm ``` format | String. |
-| mimetype | File type, for example:<ul><li>`text/plain`: Text file.</li><li>`image/png`: Image in PNG format.</li></ul> | String. |
-| size | File size in bytes. | Integer. |
+| createdAt | Date and time when the file is uploaded, in <br/>``` YYYY-MM-DDThh:mm:ss.sss±hhmm ``` format | String |
+| mimetype | File type, for example:<ul><li>`text/plain`: Text file.</li><li>`image/png`: Image in PNG format.</li></ul> | String |
+| size | File size in bytes. | Integer |
 | [metadata](#metadata) | Object with file metadata. | JSON object |
 
 **Object fields** `createdBy` {#createdBy}
 
 | Parameter | Description | Data type |
 | ----- | ----- | ----- |
-| self | Address of the resource corresponding to the user who uploaded the file. | String. |
-| id | Username of the user. | String. |
-| display | User's name (as in the interface). | String. |
+| self | Address of the resource corresponding to the user who uploaded the file. | String |
+| id | Username of the user. | String |
+| display | User's name (as in the interface). | String |
 
 **Object fields** `metadata` {#metadata}
 
 | Parameter | Description | Data type |
 | ----- | ----- | ----- |
-| size | Image size in pixels. | String. |
+| size | Image size in pixels. | String |
 
 ## Possible response codes {#section_otf_jrj_p1b}
 
 200
-:   Successful execution of the request.
+:   Request executed successfully.
 
 404
 :   The requested object was not found. You may have specified an invalid object ID or key.

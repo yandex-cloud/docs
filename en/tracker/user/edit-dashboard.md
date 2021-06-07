@@ -1,4 +1,4 @@
-# How to change a dashboard
+# Editing a dashboard
 
 By default, only the owner can edit the dashboard. Change access settings to allow other users to edit the dashboard.
 
@@ -20,5 +20,15 @@ To change the settings of a widget:
 
 1. Make changes and click **Save widget**.
 
+## How to delete a dashboard {#delete_dashboard}
 
+A dashboard can only be deleted by its owner, your organization's administrator, or a user who has **Write** [permission](share-dashboard.md#section_k2z_1nk_pz) granted via the dashboard settings.
+
+To delete a dashboard:
+
+1. Open the dashboard page.
+
+1. To the left of the dashboard name, choose ![](../../_assets/tracker/icon-settings.png) → **Delete**. Confirm the deletion.
+
+You can't restore a dashboard after deleting it.
 

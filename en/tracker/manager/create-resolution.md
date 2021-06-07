@@ -1,9 +1,8 @@
 # Creating a resolution
 
-
 {% note warning %}
 
-Only your organization&apos;s admin can create new resolutions.
+Only your organization&apos;s admin can create new resolutions. Once created, a resolution can't be deleted or edited.
 
 {% endnote %}
 

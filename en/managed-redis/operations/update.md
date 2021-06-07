@@ -2,15 +2,17 @@
 
 After creating a cluster, you can:
 
-* [Change the cluster name and description](#change-name-and-description).
+- [{#T}](#change-name-and-description).
 
-* [Change the host class](#change-resource-preset).
+- [{#T}](#change-resource-preset).
 
-* [Increase the size of {{ RD }} host disks](#change-disk-size).
+- [{#T}](#change-disk-size).
 
-* [Configure](#change-redis-config) {{ RD }} servers according to the [{{ RD }} documentation](https://redis.io/documentation). Supported settings are listed [in the API reference](../api-ref/Cluster/update.md).
+- [Configure](#change-redis-config) {{ RD }} servers according to the [documentation for {{ RD }}](https://redis.io/documentation). Supported settings are listed [in the API reference](../api-ref/Cluster/update.md).
 
-* [Change additional cluster settings](#change-additional-settings).
+- [{#T}](#change-additional-settings).
+
+- [{#T}](#change-sg-set).
 
 ## Change the cluster name and description {#change-name-and-description}
 
@@ -199,5 +201,80 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 
   1. Click **Save changes**.
 
+- CLI
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  To change additional cluster settings:
+
+    1. View a description of the CLI's update cluster command:
+
+        ```bash
+        {{ yc-mdb-rd }} cluster update --help
+        ```
+
+    1. Run the command with a list of settings to update:
+
+        ```bash
+        {{ yc-mdb-rd }} cluster update <cluster name> \
+            --backup-window-start <backup start time> \
+            --maintenance-window type=<weekly or anytime>
+        ```
+
+    You can change the following settings:
+
+    {% include [backup-window-start](../../_includes/mdb/cli-additional-settings/backup-window-start.md) %}
+
+    {% include [maintenance-window](../../_includes/mdb/cli-additional-settings/maintenance-window.md) %}
+
+    You can get the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
 {% endlist %}
+
+## Changing security groups {#change-sg-set}
+
+{% list tabs %}
+
+- Management console
+    1. Go to the folder page and select **{{ mrd-name }}**.
+    1. Select the cluster and click **Edit cluster** in the top panel.
+    1. Under **Network settings**, select security groups for cluster network traffic.
+
+- CLI
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    To edit the list of [security groups](../concepts/network.md#security-groups) for your cluster:
+
+    1. View a description of the CLI's update cluster command:
+
+        ```bash
+        {{ yc-mdb-rd }} cluster update --help
+        ```
+
+    1. Specify the security groups in the update cluster command:
+
+        ```bash
+        {{ yc-mdb-rd }} cluster update <cluster name> \
+           --security-group-ids <list of security groups>
+        ```
+
+- API
+
+    To edit the list of cluster [security groups](../concepts/network.md#security-groups), use the `update` API method and pass the following in the request:
+    - The cluster ID, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
+    - The list of groups, in the `securityGroupIds` parameter.
+    - The list of settings to update, in the `updateMask` parameter. If this parameter is omitted, the API method resets any cluster settings that aren't explicitly specified in the request to their default values.
+
+{% endlist %}
+
+{% note warning %}
+
+You may need to additionally [set up the security groups](connect.md#configuring-security-groups) to connect to the cluster.
+
+{% endnote %}
 

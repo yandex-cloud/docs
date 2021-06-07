@@ -2,8 +2,8 @@
 
 | Google Cloud Platform | {{ yandex-cloud }} |
 |----|----|
-| AI Platform | [{{ ml-platform-full-name }}](../../datasphere/) |
-| Azure Application Gateway | [{{ api-gw-full-name }}](../../api-gateway/) |
+| API Gateway | [{{ api-gw-full-name }}](../../api-gateway/) |
+| Application Gateway | [{{ alb-full-name }}](../../application-load-balancer/) |
 | Cloud Dataproc | [{{ dataproc-full-name }}](../../data-proc/) |
 | Cloud DNS | [{{ dns-full-name }}](../../dns/) |
 | Cloud Functions | [{{ sf-full-name }}](../../functions/) |

@@ -6,7 +6,7 @@ The user created with a **{{ mmy-name }}** cluster is automatically assigned the
 
 - [Updating the list of user roles](#grant-role).
 - [Granting a privilege to a user](#grant-privilege).
-- [Revoke a privilege from a user](#revoke-privilege).
+- [Revoking a privilege from a user](#revoke-privilege).
 
 ## Updating the list of user roles {#grant-role}
 
@@ -66,19 +66,19 @@ The user created with a **{{ mmy-name }}** cluster is automatically assigned the
 
 ## Granting a privilege to a user {#grant-privilege}
 
-1. [Connect](connect.md) to the database under the database owner's account.
-2. Run the `GRANT` command. To learn more about the command syntax, see the [documentation for {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/grant.html).
+1. [Connect](connect.md) to the database under the account of the database owner.
+2. Run the `GRANT` command. To learn more about the syntax of the command, see the [documentation for {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/grant.html).
 
 ## Revoking a privilege from a user {#revoke-privilege}
 
-1. [Connect](connect.md) to the database under the database owner's account.
-2. Run the `REVOKE` command. To learn more about the command syntax, see the [documentation for {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/revoke.html).
+1. [Connect](connect.md) to the database under the account of the database owner.
+2. Run the `REVOKE` command. To learn more about the syntax of the command, see the [documentation for {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/revoke.html).
 
 {% include [user-ro](../../_includes/mdb/mmy-user-examples.md) %}
 
 ## Description of roles {#db-roles}
 
-  - `ALL_PRIVILEGES`: Allows any actions with custom data in the database.
+  - `ALL_PRIVILEGES`: Allows you to perform any action with custom data in the database and using the `SHOW SLAVE STATUS` operator.
   - `ALL`: A synonym for the `ALL_PRIVILEGES` role used for managing roles via the CLI.
   - `ALTER`: Necessary to use the `ALTER TABLE` operator to change the structure of any custom tables in the database. Requires `CREATE` and `INSERT` permissions or `DROP`, `CREATE`, and `INSERT` permissions for renaming tables.
   - `ALTER_ROUTINE`: Necessary to use the `ALTER ROUTINE` operator to change or delete any stored custom procedures and functions in the database.
@@ -92,7 +92,7 @@ The user created with a **{{ mmy-name }}** cluster is automatically assigned the
   - `EXECUTE`: Necessary to execute any stored custom procedures and functions.
   - `INDEX`: Necessary to create and delete indexes from existing tables in the database.
   - `INSERT`: Necessary to insert records into custom tables in the database.
-  - `LOCK_TABLES`: Allows explicit use of the `LOCK_TABLES` operator to create table locks in the database.
+  - `LOCK_TABLES`: Allows the explicit use of the `LOCK_TABLES` operator to create table locks in the database.
   - `PROCESS`: Necessary to use the `SHOW PROCESSLIST` operator and view the status of data storage systems (for example, `SHOW ENGINE INNODB STATUS`). In addition, in {{ mmy-name }}, this role grants the permission to read [mysql](https://dev.mysql.com/doc/refman/8.0/en/system-schema.html), [performance_schema](https://dev.mysql.com/doc/refman/8.0/en/performance-schema.html), and [sys](https://dev.mysql.com/doc/refman/8.0/en/sys-schema.html) system database tables.
   - `SELECT`: Necessary to read data from tables in the database.
   - `SHOW_VIEW`: Necessary to use the `SHOW CREATE VIEW` operator.

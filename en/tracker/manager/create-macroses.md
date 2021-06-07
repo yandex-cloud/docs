@@ -62,7 +62,7 @@ You can select multiple macros at the same time. If multiple macros change the s
 ## Example of a macro {#macro_example}
 
 
-Let's say a member of the 1st line of support wants to transfer a user request in {{ tracker-name }} to the 2nd line of support. Let's set up a macro that's going to do exactly that:
+Let's say a member of the first line of support wants to transfer a user request in {{ tracker-name }} to the second line of support. We'll set up a macro that does exactly that:
 
 1. Choose the queue where you want to create the macro for switching the request to a different support line and open its settings.
 

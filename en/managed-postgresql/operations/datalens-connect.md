@@ -14,7 +14,7 @@ To use an existing cluster as a data source for {{ datalens-name }}:
 
 ## Allowing access to a cluster from {{ datalens-name }} {#allow-access}
 
-To enable {{ datalens-name }} to connect to your cluster and work with its data, activate the **Access from {{ datalens-name }}** option when [creating a cluster](cluster-create.md) or [changing its settings](update.md#change-additional-settings).
+To enable {{ datalens-name }} to connect to your cluster and work with its data, activate the **Access from {{ datalens-name }}** option when [creating a cluster](cluster-create.md) or [updating its settings](update.md#change-additional-settings).
 
 ## Creating a connection to a cluster {#create-connector}
 
