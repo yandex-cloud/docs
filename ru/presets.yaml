@@ -301,6 +301,11 @@ default:
   tf-folder-id: b1gia87mbaomkfvsleds
   yandex-cloud: Yandex.Cloud
 
+  # Data Transfer
+  dt-copy: Копировать
+  dt-repl: Реплицировать
+  dt-copy-repl: Копировать и реплицировать
+
   # Провайдеры Terraform
   tf-provider-mch: https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster
   tf-provider-mkf: https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_kafka_cluster
