@@ -14,7 +14,7 @@ $ export IAM_TOKEN=CggaATEVAgA...
 $ curl -X POST \
     -H "Content-Type: application/json" \
     -H "Authorization: Bearer ${IAM_TOKEN}" \
-    -d "{\"folder_id\": \"${FOLDER_ID}\"}" \
+    -d "{\"folderId\": \"${FOLDER_ID}\"}" \
     "https://translate.api.cloud.yandex.net/translate/v2/languages"
 ```
 

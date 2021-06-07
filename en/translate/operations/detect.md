@@ -19,7 +19,7 @@ $ export TEXT="Hello, world"
 $ curl -X POST \
     -H "Content-Type: application/json" \
     -H "Authorization: Bearer ${IAM_TOKEN}" \
-    -d "{\"folder_id\": \"${FOLDER_ID}\", \"text\": \"${TEXT}\"}" \
+    -d "{\"folderId\": \"${FOLDER_ID}\", \"text\": \"${TEXT}\"}" \
     "https://translate.api.cloud.yandex.net/translate/v2/detect"
 ```
 
@@ -39,7 +39,7 @@ To avoid mistakes, you can use the `languageCodeHints` field to specify which la
 
 ```json
 {
-    "folder_id": "b1gvmob95yysaplct532",
+    "folderId": "b1gvmob95yysaplct532",
     "languageCodeHints":["ru", "de"],
     "text": "hand"
 }
