@@ -1,0 +1,19 @@
+title: Yandex Audit Trails
+stage: tech-preview
+href: index.yaml
+items:
+  - name: Getting started
+    href: quickstart.md
+  - name: Concepts
+    expanded: true
+    items:
+      - name: Overview
+        href: concepts/index.md
+      - name: Audit event log
+        href: concepts/format.md
+      - name: Event reference
+        href: concepts/events.md
+      - name: Quotas and limits
+        href: concepts/limits.md
+  - name: Pricing policy
+    href: pricing.md
