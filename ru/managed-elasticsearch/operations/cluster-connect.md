@@ -71,11 +71,12 @@
 
 Подробнее о группах безопасности см. в разделе [{#T}](../concepts/network.md#security-groups).
 
-## Настройка SSL-сертификата {#configuring-an-ssl-certificate}
 
-Подготовить SSL-сертификат можно так:
+## Получение SSL-сертификата {#get-ssl-cert}
 
-{% if audience == "internal" %}  
+Чтобы использовать шифрованное соединение, получите SSL-сертификат:
+
+{% if audience == "internal" %}
 
 ```bash
 mkdir ~/.elasticsearch && \
