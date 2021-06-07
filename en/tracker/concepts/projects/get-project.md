@@ -21,19 +21,19 @@ X-Org-Id: <organization ID>
 
 | Parameter | Description | Data type |
 | -------- | -------- | ---------- |
-| \<project-id> | Project ID. | Number. |
+| \<project-id> | Project ID. | Number |
 
 **Additional parameters**
 
 | Parameter | Description | Data type |
 | -------- | -------- | ---------- |
-| expand | Additional fields to be included in the response: <ul><li>`queues`: Project queues. </li></ul> | String. |
+| expand | Additional fields to be included in the response: <ul><li>`queues`: Project queues. </li></ul> | String |
 
 ## Response format {#answer}
 
 {% list tabs %}
 
-- Successful execution of the request
+- Request executed successfully
 
     If the request is successful, the API returns a response with code `200 OK`.
 
@@ -62,25 +62,25 @@ X-Org-Id: <organization ID>
 
     | Parameter | Description | Data type |
     | -------- | -------- | ---------- |
-    | self | Address of the API resource with information about the project. | String. |
-    | id | Project ID. | Number. |
-    | version | Project version. Each change of the parameters increases the version number. | Number. |
-    | key | Project key. Matches the project name. | String. |
-    | name | Project name. | String. |
-    | description | Project description. This parameter isn't displayed in the {{ tracker-name }} interface. | String. |
-    | lead | Block with information about the project assignee. | Object. |
-    | status | Stage of the project:<ul><li>`DRAFT`: Draft.</li><li>`IN_PROGRESS`: In progress.</li><li>`LAUNCHED`: Launched.</li><li>`POSTPONED`: Postponed. </li></ul> | String. |
-    | startDate | Project start date in `YYYY-MM-DD` format. | String. |
-    | endDate | Project end date in `YYYY-MM-DD` format. | String. |
+    | self | Address of the API resource with information about the project. | String |
+    | id | Project ID. | Number |
+    | version | Project version. Each change of the parameters increases the version number. | Number |
+    | key | Project key. Matches the project name. | String |
+    | name | Project name. | String |
+    | description | Project description. This parameter isn't displayed in the {{ tracker-name }} interface. | String |
+    | lead | Block with information about the project assignee. | Object |
+    | status | Stage of the project:<ul><li>`DRAFT`: Draft.</li><li>`IN_PROGRESS`: In progress.</li><li>`LAUNCHED`: Launched.</li><li>`POSTPONED`: Postponed. </li></ul> | String |
+    | startDate | Project start date in `YYYY-MM-DD` format. | String |
+    | endDate | Project end date in `YYYY-MM-DD` format. | String |
 
     **Object fields** `lead`
     Parameter | Description | Data type
     -------- | -------- | ----------
-    self | Address of the API resource with information about the user. | String.
-    id | User ID. | Number.
-    display | User's name displayed.. | String.
+    self | Address of the API resource with information about the user. | String
+    id | User ID. | Number
+    display | User's name displayed. | String
 
-- The request failed
+- Request failed
 
     If the request is processed incorrectly, the API returns a response with an error code:
 

@@ -23,19 +23,19 @@ The list below shows all roles that are considered when verifying access rights 
 
 {% include [cloud-roles](../../_includes/cloud-roles.md) %}
 
-### {{ roles-viewer }} {#viewer}
+### {{ roles-monitoring-viewer }} {#monitoring-viewer}
 
-Users with the `{{ roles-viewer }}` role can view created dashboards and widgets, as well as written metrics.
+Users with the `{{ roles-monitoring-viewer }}` role can view created dashboards and widgets, as well as written metrics.
 
-### {{ roles-editor }} {#editor}
+### {{ roles-monitoring-editor }} {#monitoring-editor}
 
-Users with the `{{ roles-editor }}` role can create dashboards and widgets, as well as write metrics.
+Users with the `{{ roles-monitoring-editor }}` role can create dashboards and widgets, write metrics and manage alerts.
 
-In addition, the `{{ roles-editor }}` role includes all permissions of the `{{ roles-viewer }}` role.
+In addition, the `{{ roles-monitoring-editor }}` role includes all permissions of the `{{ roles-monitoring-viewer }}` role.
 
-### {{ roles-admin }} {#admin}
+### {{ roles-monitoring-admin }} {#monitoring-admin}
 
-Users with the `{{ roles-admin }}` role can create dashboards and widgets, as well as write metrics.
+Users with the `{{ roles-monitoring-admin }}` role can create dashboards and widgets, write metrics and manage alerts.
 
-In addition, the `{{ roles-admin }}` role includes all permissions of the `{{ roles-editor }}` role.
+In addition, the `{{ roles-monitoring-admin }}` role includes all permissions of the `{{ roles-monitoring-editor }}` role.
 

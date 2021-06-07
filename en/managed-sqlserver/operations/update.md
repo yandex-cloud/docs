@@ -7,6 +7,12 @@ After creating a cluster, you can:
 - [Change {{ MS }} settings](#change-sqlserver-config) according to the {{ MS }} documentation.
 - [Move the cluster](#move-cluster) to another folder.
 
+{% note warning %}
+
+You can't use SQL commands to change {{ MS }} settings, including managing server-level objects, such as `Linked Server`, `Login`, `Credential`, `SQL Server Agent Job`, `Maintenance Plan`, `Audit`, `Polybase`, `Replication`, `Backup devices`, `Server Triggers`, and `Extended events`.
+
+{% endnote %}
+
 ## Change the host class {#change-resource-preset}
 
 {% list tabs %}

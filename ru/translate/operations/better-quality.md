@@ -17,7 +17,7 @@
 
 ```json
 {
-    "folder_id": "b1gvmob95yysaplct532",
+    "folderId": "b1gvmob95yysaplct532",
     "texts": ["angel"],
     "targetLanguageCode": "ru",
     "sourceLanguageCode": "de"

@@ -24,8 +24,8 @@ X-Org-Id: <organization ID>
 
 | Parameter | Description | Format |
 | ----- | ----- | ----- |
-| filter | Parameters for filtering issues. The parameter can specify any field and value to filter by. | Object. |
-| query | A filter using the [query language](../../user/query-filter.md). | String. |
+| filter | Parameters for filtering issues. The parameter can specify any field and value to filter by. | Object |
+| query | A filter using the [query language](../../user/query-filter.md). | String |
 
 > Request for the number of issues with additional filtering options:
 >
@@ -58,5 +58,5 @@ The response contains the number of issues that meet the conditions of your requ
 ## Possible response codes {#section_otf_jrj_p1b}
 
 200
-:   Successful execution of the request.
+:   Request executed successfully.
 

@@ -55,6 +55,8 @@ items:
             href: support-process-mail-forms.md
           - name: Configure multi-tiered support
             href: support-process-lines.md
+          - name: Send emails from the issue page
+            href: support-process-send-mail.md
           - name: Group requests by topic
             href: support-process-group.md
           - name: Track the time it takes to process a request
@@ -101,6 +103,8 @@ items:
                 href: manager/create-status.md
               - name: Create a resolution
                 href: manager/create-resolution.md
+      - name: Local issue fields
+        href: local-fields.md
       - name: Add a queue team
         href: manager/queue-team.md
       - name: Set access rights to queues
@@ -117,8 +121,8 @@ items:
         items:
           - name: Overview
             href: user/create-ticket.md
-          - name: Creating an issue from a form
-            href: user/create-ticket-with-forms.md
+          - name: Creating an issue via email
+            href: user/create-ticket-by-mail.md
           - name: Clone an issue
             href: user/clone.md
       - name: Edit an issue
@@ -131,8 +135,6 @@ items:
             href: user/wiki-markup.md
           - name: Editing issue links
             href: user/ticket-links.md
-          - name: Adding issue fields
-            href: user/create-param.md
           - name: Run a macro
             href: user/macroses.md
           - name: Change multiple issues
@@ -143,6 +145,8 @@ items:
         href: user/reminder.md
       - name: Register time spent
         href: user/time-spent.md
+      - name: Adding issue fields
+        href: user/create-param.md
       - name: View the history of issue changes
         href: user/history.md
       - name: Vote for an issue
@@ -204,7 +208,13 @@ items:
       - name: Subscribe other users to queue updates
         href: manager/subscriptions.md
       - name: Configuring notification contents
-        href: user/notification-settings.md
+        items:
+          - name: Overview
+            href: user/notification-settings.md
+          - name: Notifications about your issues
+            href: user/user-notifications.md
+          - name: Notifications about your subscriptions
+            href: user/user-subscriptions.md
   - name: Statistics and dashboards
     items:
       - name: Dashboards
@@ -267,8 +277,6 @@ items:
             href: user/delete-template.md
           - name: Use shared templates
             href: user/share-template.md
-      - name: Use a form as a template for creating issues
-        href: manager/attach-form.md
   - name: Configuring an SLA for issues
     items:
       - name: Overview
@@ -279,6 +287,8 @@ items:
         href: manager/schedule.md
   - name: Integration with other services
     items:
+      - name: Mail
+        href: manager/queue-mail.md
       - name: Forms
         href: manager/forms-integration.md
       - name: Wiki
@@ -331,14 +341,22 @@ items:
             href: concepts/issues/get-links.md
           - name: Link issues
             href: concepts/issues/link-issue.md
-          - name: Create a checklist or add items to it
-            href: concepts/issues/add-checklist-item.md
           - name: Get transitions
             href: concepts/issues/get-transitions.md
           - name: Make a transition to a new status
             href: concepts/issues/new-transition.md
           - name: Get the history of issue changes
             href: concepts/issues/get-changelog.md
+      - name: Checklists
+        items:
+          - name: Create a checklist or add items to it
+            href: concepts/issues/add-checklist-item.md
+          - name: Get checklist parameters
+            href: concepts/issues/get-checklist.md
+          - name: Edit a checklist
+            href: concepts/issues/edit-checklist.md
+          - name: Delete a checklist
+            href: concepts/issues/delete-checklist.md
       - name: Projects
         items:
           - name: Create a project
@@ -405,6 +423,8 @@ items:
             href: concepts/queues/delete-queue.md
           - name: Restore a queue
             href: concepts/queues/restore-queue.md
+          - name: Remove a tag from a queue
+            href: concepts/queues/delete-tag.md
       - name: Issue boards
         items:
           - name: Get parameters of all boards
@@ -477,6 +497,18 @@ items:
             href: concepts/issues/patch-issue-field-name.md
           - name: Edit possible values of issue fields
             href: concepts/issues/patch-issue-field-value.md
+          - name: Create an issue field category
+            href: concepts/issues/create-issue-field-category.md
+          - name: Local fields
+            items:
+              - name: Create a local queue field
+                href: concepts/queues/create-local-field.md
+              - name: Get local queue fields
+                href: concepts/queues/get-local-fields.md
+              - name: Get information about a local queue field
+                href: concepts/queues/get-info-local-field.md
+              - name: Edit a local queue field
+                href: concepts/queues/edit-local-field.md
       - name: Get information about the current user
         href: get-user-info.md
       - name: Possible response codes

@@ -5,12 +5,8 @@ The credit limit is a negative [personal account balance](../concepts/personal-a
 * Require that you settle your arrears before the reporting period.
 * Suspend your use of resources.
 
-When the credit limit is reached, a notification email is sent to your email address.
-
-Depending on the payment method, the following actions are taken so that you settle your arrears:
-
-* Bank card payment: An attempt is made to debit funds from your bank card.
-* Payment by bank transfer: An invoice is sent to you that must be paid within three business days.
+The credit limit is only applicable when a bank card payment is selected as the payment method. 
+When the credit limit is reached, a notification email is sent to your email address, and an attempt is made to withdraw funds from the card.
 
 {% note alert %}
 

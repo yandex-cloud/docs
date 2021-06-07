@@ -54,7 +54,7 @@ You can use the same method to attach files to comments.
 
 The attached files are displayed beneath the issue description or comment.
 
-To view a list of all the files attached to the issue page, go to the **Files** tab under the issue description.
+To view a list of all the files attached to the issue page, go to the **Files** tab under the issue description. Files added to {{ tracker-name }} don't take up space on Yandex.Disk. There's no limit on the amount of data stored in {{ tracker-name }}.
 
 ## Add a link to another issue {#section_wz1_rpn_jz}
 
@@ -91,12 +91,12 @@ Values responsible for date and time can be displayed in the full (day, month, y
 
 If you want to change the display type for these values, do the following:
 
-1. On the {{ tracker-name }} top panel, click ![](../../_assets/tracker/tracker-settings.png) → **Personal settings**.
+1. On the {{ tracker-name }} top panel, click ![](../../_assets/tracker/tracker-settings.png) → **Personal settings**
 
     
     {% note info %}
 
-    You can also follow this link: [https://tracker.yandex.ru/settings](https://tracker.yandex.ru/settings).
+    You can also follow this link: [https://tracker.yandex.com/settings]({{ link-settings }}).
 
     {% endnote %}
 
@@ -113,7 +113,7 @@ You can choose how usernames are displayed on the issue page.
     
     {% note info %}
 
-    You can also follow this link: [https://tracker.yandex.ru/settings]({{ link-settings }}).
+    You can also follow this link: [https://tracker.yandex.com/settings]({{ link-settings }}).
 
     {% endnote %}
 
@@ -130,8 +130,7 @@ You can choose how usernames are displayed on the issue page.
 
 {% note alert %}
 
-When you move an issue, its sub-issues remain in the original queue.
-
+When you move an issue, its sub-issues remain in the original queue. If the issue has values entered for [local fields](../local-fields.md), they will be deleted when the issued is moved to another queue.
 
 {% endnote %}
 
@@ -142,6 +141,4 @@ To move an issue:
 1. Specify the queue to move the issue to.
 
 1. If necessary, specify the issue parameters and click **Move**.
-
-
 

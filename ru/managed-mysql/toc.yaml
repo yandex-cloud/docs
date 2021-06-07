@@ -25,8 +25,6 @@ items:
         href: operations/hosts.md
       - name: Управление базами данных
         href: operations/databases.md
-      - name: Настройка базы данных
-        href: operations/db-settings.md
       - name: Управление пользователями
         href: operations/cluster-users.md
       - name: Назначение привилегий и ролей

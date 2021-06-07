@@ -30,7 +30,7 @@ keyId | Required. ID of the symmetric KMS key to use for decryption.  The maximu
  
 Field | Description
 --- | ---
-aadContext | **string** (byte)<br><p>Additional authenticated data, must be the same as was provided in the corresponding `SymmetricEncryptRequest`. Should be encoded with base64.</p> <p>The maximum string length in characters is 8192.</p> 
+aadContext | **string** (byte)<br><p>Additional authenticated data, must be the same as was provided in the corresponding ``SymmetricEncryptRequest``. Should be encoded with base64.</p> <p>The maximum string length in characters is 8192.</p> 
 ciphertext | **string** (byte)<br><p>Required. Ciphertext to be decrypted. Should be encoded with base64.</p> 
  
 ## Response {#responses}

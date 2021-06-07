@@ -2,6 +2,8 @@
 
 You can add and remove databases, as well as view information about them.
 
+{% include [db-sql](../../_includes/mdb/mmy-db-sql-limits.md) %}
+
 ## Getting a list of cluster databases {#list-db}
 
 {% list tabs %}
@@ -29,7 +31,7 @@ You can add and remove databases, as well as view information about them.
 
 ## Creating a database {#add-db}
 
-There are no limits to the number of databases in a cluster.
+The number of databases in a cluster is unlimited.
 
 {% list tabs %}
 
@@ -49,7 +51,7 @@ There are no limits to the number of databases in a cluster.
 
   To create a database in a cluster:
 
-  1. View a description of the CLI create database command:
+  1. See the description of the CLI's create database command:
 
      ```
      $ {{ yc-mdb-my }} database create --help
@@ -100,7 +102,7 @@ There are no limits to the number of databases in a cluster.
 
 {% note warning %}
 
-Before creating a new database with the same name, wait for the delete operation to complete, otherwise the database being deleted will be restored. Operation status can be obtained with a [list of cluster operations](cluster-list.md#list-operations).
+Before creating a new database with the same name, wait for the delete operation to complete, otherwise the database being deleted is restored. Operation status can be obtained with a [list of cluster operations](cluster-list.md#list-operations).
 
 {% endnote %}
 

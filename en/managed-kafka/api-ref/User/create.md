@@ -39,7 +39,7 @@ clusterId | Required. ID of the Apache Kafka® cluster to create a user in.  To 
 Field | Description
 --- | ---
 userSpec | **object**<br><p>Required. Configuration of the user to create.</p> 
-userSpec.<br>name | **string**<br><p>Required. Name of the Kafka user.</p> <p>The string length in characters must be 1-63. Value must match the regular expression `` [a-zA-Z0-9_]* ``.</p> 
+userSpec.<br>name | **string**<br><p>Required. Name of the Kafka user.</p> <p>The string length in characters must be 1-63. Value must match the regular expression ``[a-zA-Z0-9_]*``.</p> 
 userSpec.<br>password | **string**<br><p>Required. Password of the Kafka user.</p> <p>The string length in characters must be 8-128.</p> 
 userSpec.<br>permissions[] | **object**<br><p>Set of permissions granted to the user.</p> 
 userSpec.<br>permissions[].<br>topicName | **string**<br><p>Name or prefix-pattern with wildcard for the topic that the permission grants access to.</p> <p>To get the topic name, make a <a href="/docs/managed-kafka/api-ref/Topic/list">list</a> request.</p> 
@@ -80,7 +80,7 @@ description | **string**<br><p>Description of the operation. 0-256 characters lo
 createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 createdBy | **string**<br><p>ID of the user or service account who initiated the operation.</p> 
 modifiedAt | **string** (date-time)<br><p>The time when the Operation resource was last modified.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
-done | **boolean** (boolean)<br><p>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available.</p> 
+done | **boolean** (boolean)<br><p>If the value is ``false``, it means the operation is still in progress. If ``true``, the operation is completed, and either ``error`` or ``response`` is available.</p> 
 metadata | **object**<br><p>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any.</p> 
 error | **object**<br>The error result of the operation in case of failure or cancellation. <br> includes only one of the fields `error`, `response`<br><br><p>The error result of the operation in case of failure or cancellation.</p> 
 error.<br>code | **integer** (int32)<br><p>Error code. An enum value of <a href="https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto">google.rpc.Code</a>.</p> 

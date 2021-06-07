@@ -1,9 +1,8 @@
 # Creating a status
 
-
 {% note warning %}
 
-Only the company admin can create new issue statuses.
+Only the company admin can create new issue statuses. The created status can't be deleted or edited.
 
 {% endnote %}
 

@@ -7,45 +7,24 @@ items:
     items:
       - name: Все инструкции
         href: operations/index.md
-      - name: Управление эндпоинтом источника
-        items:
-          - name: Создание эндпоинта источника
-            href: operations/source/create-endpoint.md
-          - name: Изменение эндпоинта источника
-            href: operations/source/update-endpoint.md
-          - name: Удаление эндпоинта источника
-            href: operations/source/delete-endpoint.md
-      - name: Управление эндпоинтом приемника
-        items:
-          - name: Создание эндпоинта приемника
-            href: operations/target/create-endpoint.md
-          - name: Изменение эндпоинта приемника
-            href: operations/target/update-endpoint.md
-          - name: Удаление эндпоинта приемника
-            href: operations/target/delete-endpoint.md
+      - name: Подготовка к трансферу
+        href: operations/prepare.md
+      - name: Управление эндпоинтом-источником
+        href: operations/source-endpoint.md
+      - name: Управление эндпоинтом-приемником
+        href: operations/target-endpoint.md
       - name: Управление трансфером
-        items:
-          - name: Создание трансфера
-            href: operations/transfer/create-transfer.md
-          - name: Изменение трансфера
-            href: operations/transfer/update-transfer.md
-          - name: Удаление трансфера
-            href: operations/transfer/delete-transfer.md
-    href: quickstart.md
+        href: operations/transfer.md
+      - name: Работа с базами данных во время трансфера
+        href: operations/db-actions.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса
         href: concepts/index.md
       - name: Какие задачи решает сервис
         href: concepts/solutions.md
-      - name: Особенности работы сервиса
-        items:
-          - name: Обзор
-            href: concepts/specific.md
-          - name: Особенности работы с MySQL
-            href: concepts/specific-mysql.md
-          - name: Особенности работы с PostgreSQL
-            href: concepts/specific-postgresql.md
+      - name: Жизненный цикл трансфера
+        href: concepts/transfer-lifecycle.md
       - name: Мониторинг трансферов
         href: concepts/monitoring.md
       - name: Квоты и лимиты

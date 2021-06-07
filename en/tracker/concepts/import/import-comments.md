@@ -65,17 +65,17 @@ The request body contains the comment parameters:
 
 | Parameter | Description | Data type |
 | -------- | -------- | ---------- |
-| text | Text of the comment, no more than 512,000 characters. | String. |
-| createdAt | Comment creation date and time in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format. You can specify any value in the interval from the issue's creation time to its latest update. | String. |
-| createdBy | Username or ID of the user who made the comment. | <ul><li>String for the username.</li><li>Number for the ID.</li></ul> |
-| updatedAt | Date and time of the comment's last update in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format. You can specify any value in the interval from the time of issue creation to the time it was last updated.<br/><br/>The parameter is only used together with the `updatedBy` parameter. | String. |
-| updatedBy | Username or ID of the user who edited the comment last.<br/><br/>The parameter is only used together with the `updatedAt` parameter. | <ul><li>String for the username.</li><li>Number for the ID.</li></ul> |
+| text | Text of the comment, no more than 512,000 characters. | String |
+| createdAt | Comment creation date and time in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format. You can specify any value in the interval from the issue's creation time to its latest update. | String |
+| createdBy | Username or ID of the user who made the comment. | <ul><li>String for the username</li><li>Number for the ID</li></ul> |
+| updatedAt | Date and time of the comment's last update in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format. You can specify any value in the interval from the time of issue creation to the time it was last updated.<br/><br/>The parameter is only used together with the `updatedBy` parameter. | String |
+| updatedBy | Username or ID of the user who edited the comment last.<br/><br/>The parameter is only used together with the `updatedAt` parameter. | <ul><li>String for the username</li><li>Number for the ID</li></ul> |
 
 ## Response format {#section_isd_myb_p1b}
 
 {% list tabs %}
 
-- Successful execution of the request
+- Request executed successfully
 
     If the request is successful, the API returns a response with code 201. The request body contains information about the imported issue in JSON format.
 
@@ -107,39 +107,39 @@ The request body contains the comment parameters:
 
     | Parameter | Description | Data type |
     | -------- | -------- | ---------- |
-    | self | Link to the comment object | String. |
-    | id | Comment ID | Number. |
-    | longId | ID of the comment in string format. | String. |
-    | text | Text of the comment. | String. |
-    | [createdBy](#createdBy) | Object with information about the user who added the comment. | Object. |
-    | [updatedBy](#updatedBy) | Object with information about the user who edited the comment last. | Object. |
-    | createdAt | Comment creation date and time in <br/>``` YYYY-MM-DDThh:mm:ss.sss±hhmm ``` format | String. |
-    | updatedAt | Comment update date and time.<br/>``` YYYY-MM-DDThh:mm:ss.sss±hhmm ``` | String. |
-    | version | Comment version. Each change to the comment increases its version number. | Number. |
-    | type | Comment type:<ul><li>**standard**: Comment sent via the {{ tracker-name }} interface.</li><li>**incoming**: Comment created from an incoming message.</li><li>**outcoming**: Comment created from an outgoing message.</li></ul> | String. |
-    | transport | Method of adding a comment:<ul><li>**internal**: Via the {{ tracker-name }} interface.</li><li>**email**: Via email.</li></ul> | String. |
+    | self | Link to the comment object. | String |
+    | id | Comment ID. | Number |
+    | longId | ID of the comment in string format. | String |
+    | text | Text of the comment. | String |
+    | [createdBy](#createdBy) | Object with information about the user who added the comment. | Object |
+    | [updatedBy](#updatedBy) | Object with information about the user who edited the comment last. | Object |
+    | createdAt | Comment creation date and time in <br/>``` YYYY-MM-DDThh:mm:ss.sss±hhmm ``` format. | String |
+    | updatedAt | Comment update date and time.<br/>``` YYYY-MM-DDThh:mm:ss.sss±hhmm ``` | String |
+    | version | Comment version. Each change to the comment increases its version number. | Number |
+    | type | Comment type:<ul><li>**standard**: Comment sent via the {{ tracker-name }} interface.</li><li>**incoming**: Comment created from an incoming message.</li><li>**outcoming**: Comment created from an outgoing message.</li></ul> | String |
+    | transport | Method of adding a comment:<ul><li>**internal**: Via the {{ tracker-name }} interface.</li><li>**email**: Via email.</li></ul> | String |
 
     **Object fields** `createdBy` {#createdBy}
 
     | Parameter | Description | Data type |
     | -------- | -------- | ---------- |
-    | self | Link to the user. | String. |
-    | id | User ID. | String. |
-    | display | User's name displayed. | String. |
+    | self | Link to the user. | String |
+    | id | User ID. | String |
+    | display | User's name displayed. | String |
 
     **Object fields** `updatedBy` {#updatedBy}
 
     | Parameter | Description | Data type |
     | -------- | -------- | ---------- |
-    | self | Link to the user. | String. |
-    | id | User ID. | String. |
-    | display | User's name displayed. | String. |
+    | self | Link to the user. | String |
+    | id | User ID. | String |
+    | display | User's name displayed. | String |
 
-- The request failed
+- Request failed
 
     If the request is processed incorrectly, the API returns a message with error details:
 
-    | HTTP code of the error | Error description |
+    | HTTP error code | Error description |
     | --------------- | --------------- |
     | 400 Bad Request | One of the request parameters has an invalid value or data format. |
     | 403 Forbidden | The user or application has no access rights to the resource, the request is rejected. |

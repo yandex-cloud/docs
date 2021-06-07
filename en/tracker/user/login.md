@@ -6,9 +6,10 @@ To log in to {{ tracker-full-name }}:
 
 1. Log in to the account you use to work in {{ tracker-name }}:
 
-   - To log in with your email address on Yandex or your organization's domain, click **Log in to your Yandex account** and enter your login in the format `{{ example-account }}` or `login@example.com`.
-   - If you have single sign-on set up for your company via an [identity federation](../enable-tracker.md#federation), click **Log in via SSO**, then enter your federation ID and your corporate login.
+   - To log in using your Yandex email address or the email address on your company's domain, click **Log in to Yandex account** and enter your username like `{{ example-account }}` or `login@example.com`.
    
+   - If your company uses a Single Sign-On authentication scheme with [identity federation](../enable-tracker.md#federation), click **Log in via SSO**, specify the federation ID, and log in to your corporate account.
+
    {% note info %}
 
    To find out the federation ID, contact your company's admin.

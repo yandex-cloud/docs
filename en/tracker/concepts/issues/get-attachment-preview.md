@@ -30,7 +30,7 @@ If the request is successful, the API returns a response with code 200. The resp
 ## Possible response codes {#section_otf_jrj_p1b}
 
 200
-:   Successful execution of the request.
+:   Request executed successfully.
 
 404
 :   The requested object was not found. You may have specified an invalid object ID or key.

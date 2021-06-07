@@ -28,14 +28,14 @@ The request body contains the information required to create a checklist or add 
 
 | Parameter | Description | Data type |
 | ----- | ----- | ----- |
-| text | Text of the item. | String. |
-| checked | A mark of item completion. | Logical. |
+| text | Text of the item. | String |
+| checked | A mark of item completion. | Boolean |
 
 ## Response format {#answer}
 
 {% list tabs %}
 
-- Successful execution of the request
+- Request executed successfully
 
   If the request is successful, the API returns a response with code `200 OK`.
 
@@ -136,136 +136,136 @@ The request body contains the information required to create a checklist or add 
 
   | Parameter | Description | Data type |
   | ----- | ----- | ----- |
-  | self | Address of the API resource with information about the project. | String. |
-  | id | Project ID. | Number. |
-  | version | Project version. Each change of the parameters increases the version number. | Number. |
-  | key | Project key. Matches the project name. | String. |
-  | [pendingReplayFrom](#pending-replay-from) | Object with information about the employee whose response is awaited. | Object. |
-  | lastCommentUpdatedAt | Last comment's update time. | String. |
-  | summary | Issue name. | String. |
-  | statusStartTime | Issue creation time. | String. |
-  | [updatedBy](#updated-by) | Object with information about the employee who edited the issue last. | Object. |
-  | description | Issue description. | String. |
-  | [type](#type) | Object with information about the issue type. | Object. |
-  | [priority](#priority) | Object with information about the priority. | Object. |
-  | [previousStatusLastAssignee](#previous-status-last-assignee) | Object with information about the assignee of the issue in the previous status. | Object. |
-  | createdAt | Issue creation date and time. | String. |
-  | [followers](#followers) | Array of objects with information about issue followers. | Object. |
-  | [createdBy](#created-by) | Object with information about the user who created the issue. | Object. |
-  | [checklistItems](#checklist-items) | Array of objects with information about checklist items. | Object. |
-  | votes | Number of votes for the issue. | Number. |
-  | [assignee](#assignee) | Object with information about the issue's assignee. | Object. |
-  | deadline | Deadline for completing the issue. | String. |
-  | updatedAt | Date and time when the issue was last updated. | String. |
-  | [queue](#queue) | Object with information about the issue queue. | Object. |
-  | [status](#status) | Object with information about the issue status. | Object. |
-  | [previousStatus](#previous-status) | Object with information about the previous status of the issue. | Object. |
-  | favorite | Flag indicating a favorite issue:<ul><li>`true`: The user added the issue to favorites.</li><li>`false`: The issue is not added to favorites.</li></ul> | Number. |
+  | self | Address of the API resource with information about the issue. | String |
+  | id | Issue ID. | String |
+  | version | Issue version. Each change of the parameters increases the version number. | Number |
+  | key | Issue key. | String |
+  | [pendingReplayFrom](#pending-replay-from) | Object with information about the employee whose response is awaited. | Object |
+  | lastCommentUpdatedAt | Last comment's update time. | String |
+  | summary | Issue name. | String |
+  | statusStartTime | Issue creation time. | String |
+  | [updatedBy](#updated-by) | Object with information about the employee who edited the issue last. | Object |
+  | description | Issue description. | String |
+  | [type](#type) | Object with information about the issue type. | Object |
+  | [priority](#priority) | Object with information about the priority. | Object |
+  | [previousStatusLastAssignee](#previous-status-last-assignee) | Object with information about the assignee of the issue in the previous status. | Object |
+  | createdAt | Issue creation date and time. | String |
+  | [followers](#followers) | Array of objects with information about issue followers. | Object |
+  | [createdBy](#created-by) | Object with information about the user who created the issue. | Object |
+  | [checklistItems](#checklist-items) | Array of objects with information about checklist items. | Object |
+  | votes | Number of votes for the issue. | Number |
+  | [assignee](#assignee) | Object with information about the issue's assignee. | Object |
+  | deadline | Deadline for completing the issue. | String |
+  | updatedAt | Date and time when the issue was last updated. | String |
+  | [queue](#queue) | Object with information about the issue queue. | Object |
+  | [status](#status) | Object with information about the issue status. | Object |
+  | [previousStatus](#previous-status) | Object with information about the previous status of the issue. | Object |
+  | favorite | Flag indicating a favorite issue:<ul><li>`true`: The user added the issue to favorites.</li><li>`false`: The issue is not added to favorites.</li></ul> | Number |
 
   **Object fields** `updatedBy` {#updated-by}
 
   | Parameter | Description | Data type |
   | ----- | ----- | ----- |
-  | self | Address of the API resource with information about the user. | String. |
-  | id | User ID. | Number. |
-  | display | User's name displayed. | String. |
+  | self | Address of the API resource with information about the user. | String |
+  | id | User ID. | Number |
+  | display | User's name displayed. | String |
 
   **Object fields** `pendingReplayFrom` {#pending-replay-from}
 
   | Parameter | Description | Data type |
   | ----- | ----- | ----- |
-  | self | Address of the API resource with information about the user. | String. |
-  | id | User ID. | Number. |
-  | display | User's name displayed. | String. |
+  | self | Address of the API resource with information about the user. | String |
+  | id | User ID. | Number |
+  | display | User's name displayed. | String |
 
   **Object fields** `type` {#type}
 
   | Parameter | Description | Data type |
   | ----- | ----- | ----- |
-  | self | Link to the issue type. | String. |
-  | id | ID of the issue type. | String. |
-  | key | Key of the issue type. | String. |
-  | display | Issue type name displayed. | String. |
+  | self | Link to the issue type. | String |
+  | id | ID of the issue type. | String |
+  | key | Key of the issue type. | String |
+  | display | Issue type name displayed. | String |
 
   **Object fields** `priority` {#priority}
 
   | Parameter | Description | Data type |
   | ----- | ----- | ----- |
-  | self | Link to the priority type. | String. |
-  | id | Priority ID. | String. |
-  | key | Priority key. | String. |
-  | display | Priority name displayed. | String. |
+  | self | Link to the priority type. | String |
+  | id | Priority ID. | String |
+  | key | Priority key. | String |
+  | display | Priority name displayed. | String |
 
   **Object fields** `previousStatusLastAssignee` {#previous-status-last-assignee}
 
   | Parameter | Description | Data type |
   | ----- | ----- | ----- |
-  | self | Address of the API resource with information about the user. | String. |
-  | id | User ID. | Number. |
-  | display | User's name displayed. | String. |
+  | self | Address of the API resource with information about the user. | String |
+  | id | User ID. | Number |
+  | display | User's name displayed. | String |
 
   **Object fields** `followers` {#followers}
 
   | Parameter | Description | Data type |
   | ----- | ----- | ----- |
-  | self | Address of the API resource with information about the user. | String. |
-  | id | User ID. | Number. |
-  | display | User's name displayed. | String. |
+  | self | Address of the API resource with information about the user. | String |
+  | id | User ID. | Number |
+  | display | User's name displayed. | String |
 
   **Object fields** `createdBy` {#created-by}
 
   | Parameter | Description | Data type |
   | ----- | ----- | ----- |
-  | self | Address of the API resource with information about the user. | String. |
-  | id | User ID. | Number. |
-  | display | User's name displayed. | String. |
+  | self | Address of the API resource with information about the user. | String |
+  | id | User ID. | Number |
+  | display | User's name displayed. | String |
 
   **Object fields** `checklistItems` {#checklist-items}
 
   | Parameter | Description | Data type |
   | ----- | ----- | ----- |
-  | id | ID of the checklist item. | Number. |
-  | text | Text of the checklist item. | String. |
-  | textHtml | Text of the checklist item in HTML format. | String. |
-  | checked | Flag indicating that the checklist item is completed:<ul><li>`true`: The item is marked as completed.</li><li>`false`: The item is not marked as completed.</li></ul> | Logical. |
-  | checklistItemType | Type of the checklist item. | String. |
+  | id | ID of the checklist item. | String |
+  | text | Text of the checklist item. | String |
+  | textHtml | Text of the checklist item in HTML format. | String |
+  | checked | Flag indicating that the checklist item is completed:<ul><li>`true`: The item is marked as completed.</li><li>`false`: The item is not marked as completed.</li></ul> | Boolean |
+  | checklistItemType | Type of the checklist item. | String |
 
   **Object fields** `assignee` {#assignee}
 
   | Parameter | Description | Data type |
   | ----- | ----- | ----- |
-  | self | Address of the API resource with information about the user. | String. |
-  | id | User ID. | Number. |
-  | display | User's name displayed. | String. |
+  | self | Address of the API resource with information about the user. | String |
+  | id | User ID. | Number |
+  | display | User's name displayed. | String |
 
   **Object fields** `queue` {#queue}
 
   | Parameter | Description | Data type |
   | ----- | ----- | ----- |
-  | self | Queue link. | String. |
-  | id | Queue ID. | Number. |
-  | key | Queue key. | String. |
-  | display | Queue name displayed. | String. |
+  | self | Queue link. | String |
+  | id | Queue ID. | Number |
+  | key | Queue key. | String |
+  | display | Queue name displayed. | String |
 
   **Object fields** `status` {#status}
 
   | Parameter | Description | Data type |
   | ----- | ----- | ----- |
-  | self | Status link. | String. |
-  | id | Status ID. | String. |
-  | key | Status key. | String. |
-  | display | Status name displayed. | String. |
+  | self | Status link. | String |
+  | id | Status ID. | String |
+  | key | Status key. | String |
+  | display | Status name displayed. | String |
 
   **Object fields** `previousStatus` {#previous-status}
 
   | Parameter | Description | Data type |
   | ----- | ----- | ----- |
-  | self | Status link. | String. |
-  | id | Status ID. | String. |
-  | key | Status key. | String. |
-  | display | Status name displayed. | String. |
+  | self | Status link. | String |
+  | id | Status ID. | String |
+  | key | Status key. | String |
+  | display | Status name displayed. | String |
 
-- The request failed
+- Request failed
 
     If the request is processed incorrectly, the API returns a response with an error code:
 

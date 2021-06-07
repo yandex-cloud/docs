@@ -21,17 +21,17 @@ X-Org-Id: <organization ID>
 
 | Parameter | Description | Data type |
 | -------- | -------- | ---------- |
-| \<project-id> | Project ID. | Number. |
+| \<project-id> | Project ID. | Number |
 
 ## Response format {#answer}
 
 {% list tabs %}
 
-- Successful execution of the request
+- Request executed successfully
 
     If the project is deleted, the API returns a response with code `204 No Content`.
 
-- The request failed
+- Request failed
 
     If the request is processed incorrectly, the API returns a response with an error code:
 

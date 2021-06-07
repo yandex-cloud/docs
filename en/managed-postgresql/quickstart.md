@@ -8,16 +8,29 @@ To get started with the service:
 
 ## Before you start {#before-you-begin}
 
-1. Go to the [management console]({{ link-console-main }}). Then log in to Yandex.Cloud or sign up if you don't have an account.
+1. Go to the [management console]({{ link-console-main }}). Then log in to {{ yandex-cloud }} or sign up if you don't have an account yet.
 
 1. If you don't have a folder yet, create one:
 
     {% include [create-folder](../_includes/create-folder.md) %}
 
-You can connect to DB clusters from both inside and outside of the Cloud:
+1. You can connect to DB clusters from both inside and outside {{ yandex-cloud }}:
+   - To connect to a DB cluster from inside {{ yandex-cloud }}, create a VM in the same cloud network as the DB cluster (with [Linux](../compute/quickstart/quick-create-linux.md) or [Windows](../compute/quickstart/quick-create-windows.md)).
+   - To be able to connect to the cluster from the internet, request public access to hosts when creating the cluster.
 
-1. To connect to a DB cluster from inside Yandex.Cloud, create a VM in the same network as the DB cluster (with [Linux](../compute/quickstart/quick-create-linux.md) or [Windows](../compute/quickstart/quick-create-windows.md)).
-1. To connect to a cluster from the internet, request public access to the hosts when creating the cluster.
+   {% note info %}
+
+   The next step assumes that you connect to the cluster from a [Linux](../compute/quickstart/quick-create-linux.md)-based VM.
+
+   {% endnote %}
+
+1. [Connect](../compute/operations/vm-connect/ssh.md) to the VM via SSH.
+
+1. Install the necessary dependencies and the PostgreSQL client:
+
+   ```bash
+   sudo apt update && sudo apt install -y postgresql-client
+   ```
 
 ## Create a cluster {#cluster-create}
 
@@ -28,6 +41,8 @@ You can connect to DB clusters from both inside and outside of the Cloud:
 1. When the cluster is ready, its status on the {{ mpg-short-name }} dashboard changes to **Running** and its state to **Alive**. This may take some time.
 
 ## Connect to the DB {#connect}
+
+1. [Configure security groups](operations/connect.md#configuring-security-groups) for the cloud network to enable all the relevant traffic between the cluster and the connecting host.
 
 1. To connect to the DB server, get an SSL certificate:
 

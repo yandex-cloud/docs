@@ -69,7 +69,7 @@ disks[].<br>folderId | **string**<br><p>ID of the folder that the disk belongs t
 disks[].<br>createdAt | **string** (date-time)<br><p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 disks[].<br>name | **string**<br><p>Name of the disk. 1-63 characters long.</p> 
 disks[].<br>description | **string**<br><p>Description of the disk. 0-256 characters long.</p> 
-disks[].<br>labels | **object**<br><p>Resource labels as `key:value` pairs. Maximum of 64 per resource.</p> 
+disks[].<br>labels | **object**<br><p>Resource labels as ``key:value`` pairs. Maximum of 64 per resource.</p> 
 disks[].<br>typeId | **string**<br><p>ID of the disk type.</p> 
 disks[].<br>zoneId | **string**<br><p>ID of the availability zone where the disk resides.</p> 
 disks[].<br>size | **string** (int64)<br><p>Size of the disk, specified in bytes.</p> 

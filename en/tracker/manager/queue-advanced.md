@@ -6,6 +6,8 @@ You can:
 
 - Automate certain recurring actions within queues, such as changing values in issue fields or sending preset comments. To do this, create [triggers](../user/trigger.md), [auto actions](../user/autoactions.md), and [macros](create-macroses.md).
 
+- [Set up the queue email address](queue-mail.md) to create issues from incoming mail and respond to user emails right from the issue page. This helps log and process user requests, such as those sent to support.
+
 
 - [Subscribe users to notifications](subscriptions.md) about changes to all issues in the queue or issues related to specific components and versions.
 - [Configure components](components.md) to group issues in the queue by product components or other common parameters.

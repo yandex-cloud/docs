@@ -32,7 +32,7 @@ keyId | Required. ID of the symmetric KMS key to use for encryption.  The maximu
 Field | Description
 --- | ---
 versionId | **string**<br><p>ID of the key version to encrypt plaintext with. Defaults to the primary version if not specified.</p> <p>The maximum string length in characters is 50.</p> 
-aadContext | **string** (byte)<br><p>Additional authenticated data (AAD context), optional. If specified, this data will be required for decryption with the `SymmetricDecryptRequest`. Should be encoded with base64.</p> <p>The maximum string length in characters is 8192.</p> 
+aadContext | **string** (byte)<br><p>Additional authenticated data (AAD context), optional. If specified, this data will be required for decryption with the ``SymmetricDecryptRequest``. Should be encoded with base64.</p> <p>The maximum string length in characters is 8192.</p> 
 plaintext | **string** (byte)<br><p>Required. Plaintext to be encrypted. Should be encoded with base64.</p> <p>The maximum string length in characters is 32768.</p> 
  
 ## Response {#responses}

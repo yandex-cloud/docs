@@ -28,8 +28,8 @@ X-Org-Id: <organization ID>
 
 | Parameter | Description | Format |
 | ----- | ----- | ----- |
-| relationship | Type of links between issues:<ul><li>`relates`: Simple link.</li><li>`is dependent by`: The current issue blocks the linked one.</li><li>`depends on`: The current issue depends on the linked one.</li><li>`is subtask for`: The current issue is a sub-issue of the linked one.</li><li>`is parent task for`: The current issue is a parent issue of the linked one.</li><li>`duplicates`: The current issue duplicates the linked one.</li><li>`is duplicated by`: The linked  issue duplicates the current one.</li><li>`is epic of`: The current issue is an epic of the linked one. You can only set this type of link for Epic-type issues.</li><li>`has epic`: The linked issue is an epic of the current one. You can only set this type of link for Epic-type issues.</li></ul> | String. |
-| issue {#issue} | ID or key of the issue being linked. | String. |
+| relationship | Type of links between issues:<ul><li>`relates`: Simple link.</li><li>`is dependent by`: The current issue blocks the linked one.</li><li>`depends on`: The current issue depends on the linked one.</li><li>`is subtask for`: The current issue is a sub-issue of the linked one.</li><li>`is parent task for`: The current issue is a parent issue of the linked one.</li><li>`duplicates`: The current issue duplicates the linked one.</li><li>`is duplicated by`: The linked  issue duplicates the current one.</li><li>`is epic of`: The current issue is an epic of the linked one. You can only set this type of link for Epic-type issues.</li><li>`has epic`: The linked issue is an epic of the current one. You can only set this type of link for Epic-type issues.</li></ul> | String |
+| issue {#issue} | ID or key of the issue being linked. | String |
 
 > Creating a link:
 > 
@@ -86,68 +86,68 @@ X-Org-Id: <organization ID>
 
 | Parameter | Description | Data type |
 | ----- | ----- | ----- |
-| self | Address of the API resource with information about the link. | String. |
-| id | Link ID. | Number. |
-| [type](#type) | Block with information about the link type. | Object. |
-| direction | Link type of the issue specified in the request in relation to the issue specified in the [object](#object-param) field. Possible values:<ul><li>`outward`: The issue specified in the request is the main one for the issue in the [object](#object-param) field.</li><li>`inward`: The issue specified in the [object](#object-param) field is the main one for the issue in the request.</li></ul> | String. |
-| [object](#object) {#object-param} | Block with information about the linked issue. | Object. |
-| [createdBy](#created-by) | Block with information about the user who created the link. | Object. |
-| [updatedBy](#updated-by) | Block with information about the user who edited the linked issue last. | Object. |
-| createdAt | Link creation date and time. | String. |
-| updatedAt | Link update date and time. | String. |
-| [assignee](#assignee) | Assignee of the linked issue. | Object. |
-| [status](#status) | Status of the linked issue. | Object. |
+| self | Address of the API resource with information about the link. | String |
+| id | Link ID. | Number |
+| [type](#type) | Block with information about the link type. | Object |
+| direction | Link type of the issue specified in the request in relation to the issue specified in the [object](#object-param) field. Possible values:<ul><li>`outward`: The issue specified in the request is the main one for the issue in the [object](#object-param) field.</li><li>`inward`: The issue specified in the [object](#object-param) field is the main one for the issue in the request.</li></ul> | String |
+| [object](#object) {#object-param} | Block with information about the linked issue. | Object |
+| [createdBy](#created-by) | Block with information about the user who created the link. | Object |
+| [updatedBy](#updated-by) | Block with information about the user who edited the linked issue last. | Object |
+| createdAt | Link creation date and time. | String |
+| updatedAt | Link update date and time. | String |
+| [assignee](#assignee) | Assignee of the linked issue. | Object |
+| [status](#status) | Status of the linked issue. | Object |
 
 **Object fields** `type` {#type}
 
 | Parameter | Description | Data type |
 | ----- | ----- | ----- |
-| self | Link to the link type. | String. |
-| id | ID of the link type. | String. |
-| inward | Name of the link type of the issue specified in the [object](#object-param) field in relation to the issue specified in the request. | String. |
-| outward | Name of the link type of the issue specified in the request in relation to the issue specified in the [object](#object-param) field. | String. |
+| self | Link to the link type. | String |
+| id | ID of the link type. | String |
+| inward | Name of the link type of the issue specified in the [object](#object-param) field in relation to the issue specified in the request. | String |
+| outward | Name of the link type of the issue specified in the request in relation to the issue specified in the [object](#object-param) field. | String |
 
 **Object fields** `object` {#object}
 
 | Parameter | Description | Data type |
 | ----- | ----- | ----- |
-| self | Address of the API resource with information about the issue. | String. |
-| id | Issue ID. | String. |
-| key | Issue key. | String. |
-| display | Issue name displayed. | String. |
+| self | Address of the API resource with information about the issue. | String |
+| id | Issue ID. | String |
+| key | Issue key. | String |
+| display | Issue name displayed. | String |
 
 **Object fields** `createdBy` {#created-by}
 
 | Parameter | Description | Data type |
 | ----- | ----- | ----- |
-| self | Link to the user. | String. |
-| id | User ID. | String. |
-| display | User's name displayed. | String. |
+| self | Link to the user. | String |
+| id | User ID. | String |
+| display | User's name displayed. | String |
 
 **Object fields** `updatedBy` {#updated-by}
 
 | Parameter | Description | Data type |
 | ----- | ----- | ----- |
-| self | Link to the user. | String. |
-| id | User ID. | String. |
-| display | User's name displayed. | String. |
+| self | Link to the user. | String |
+| id | User ID. | String |
+| display | User's name displayed. | String |
 
 **Object fields** `assignee` {#assignee}
 
 | Parameter | Description | Data type |
 | ----- | ----- | ----- |
-| self | Link to the user. | String. |
-| id | User ID. | String. |
-| display | User's name displayed. | String. |
+| self | Link to the user. | String |
+| id | User ID. | String |
+| display | User's name displayed. | String |
 
 **Object fields** `status` {#status}
 
 | Parameter | Description | Data type |
 | ----- | ----- | ----- |
-| self | Status link. | String. |
-| id | Status ID. | String. |
-| key | Status key. | String. |
-| display | Status name displayed. | String. |
+| self | Status link. | String |
+| id | Status ID. | String |
+| key | Status key. | String |
+| display | Status name displayed. | String |
 
 ## Possible response codes {#section_otf_jrj_p1b}
 

@@ -56,5 +56,5 @@ users[].<br>name | **string**<br><p>Name of the MongoDB user.</p>
 users[].<br>clusterId | **string**<br><p>ID of the MongoDB cluster the user belongs to.</p> 
 users[].<br>permissions[] | **object**<br><p>Set of permissions granted to the user.</p> 
 users[].<br>permissions[].<br>databaseName | **string**<br><p>Name of the database that the permission grants access to.</p> 
-users[].<br>permissions[].<br>roles[] | **string**<br><p>MongoDB roles for the `databaseName` database that the permission grants.</p> 
+users[].<br>permissions[].<br>roles[] | **string**<br><p>MongoDB roles for the ``databaseName`` database that the permission grants.</p> 
 nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/managed-mongodb/api-ref/User/list#query_params">pageSize</a>, use the <a href="/docs/managed-mongodb/api-ref/User/list#responses">nextPageToken</a> as the value for the <a href="/docs/managed-mongodb/api-ref/User/list#query_params">pageToken</a> parameter in the next list request. Each subsequent list request will have its own <a href="/docs/managed-mongodb/api-ref/User/list#responses">nextPageToken</a> to continue paging through the results.</p> 

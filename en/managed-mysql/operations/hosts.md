@@ -108,7 +108,13 @@ The number of hosts in {{ mmy-short-name }} clusters is limited by the CPU and R
 
 {% endlist %}
 
-## Deleting a host {#remove}
+{% note warning %}
+
+If you can't [connect](connect.md) to the added host, check that the cluster's [security group](../concepts/network.md#security-groups) is configured correctly for the subnet where you placed the host.
+
+{% endnote %}
+
+## Removing a host {#remove}
 
 You can remove a host from a {{ MY }} cluster if it is not the only host in it. To replace a single host, first create a new host and then remove the old one.
 

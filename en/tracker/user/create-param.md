@@ -4,7 +4,7 @@
 
 The most popular issue fields (settings) are available in {{ tracker-name }} by default. See the list of available fields on the [{{ tracker-name }} settings]({{ link-admin-fields }}) page.
 
-If the field you need is missing, your organization's admin can [create a new field](create-param.md#section_pxn_fp4_xgb).
+If the field you need is missing, you can [create a new one in your queue](create-param.md#section_local_field). If you want to add a field that will be available in all {{ tracker-name }} queues, your organization's administrator can [create a global field](create-param.md#section_global_field).
 
 | Issue field | Description |
 | ----- | ----- |
@@ -26,18 +26,32 @@ If the field you need is missing, your organization's admin can [create a new fi
 | Sprint | The name of the sprint that the issue belongs to. |
 | Story Points | Estimated effort for the issue in terms of Story Points. |
 
+## Add a local field {#section_local_field}
 
-## Adding issue fields {#section_pxn_fp4_xgb}
+If you want to add a new issue parameter that isn't already an existing field in {{ tracker-name }}, you can add local fields to your queue.
 
-{% note warning %}
+You can only use a local field for issues in the queue that the field is linked to. The advantage of local fields is that the queue owner can manage them without the risk of affecting the workflow in other queues. Users working in other queues won't see this field in their issues.
 
-Only the company administrator can add new issue fields.
+To learn more about creating and using local fields, see [Local issue fields](../local-fields.md).
+
+{% note alert %}
+
+Local fields are temporarily not supported in some issue use scenarios. Support for these scenarios will be added later. To learn more, see [Local field constraints](../local-fields.md#restrictions).
 
 {% endnote %}
 
-The most popular issue fields (settings) are available in {{ tracker-name }} by default. To add a new field:
+## Add a global field {#section_global_field}
 
-1. Make sure that you are logged in as an administrator in {{ tracker-full-name }}.
+
+{% note alert %}
+
+Only your organization's administrator can add global issue fields.
+
+{% endnote %}
+
+To add a new issue field (parameter):
+
+1. Make sure that you are logged in as an administrator.
 
 1. On the top panel in {{ tracker-name }}, choose ![](../../_assets/tracker/icon-settings.png) → **Configure {{ tracker-name }}**.
 
@@ -45,15 +59,23 @@ The most popular issue fields (settings) are available in {{ tracker-name }} by 
 
 1. Click **Create field**.
 
-1. Select the field type and click **Next**.
+1. Select the field type and click **Continue**.
 
 1. Set parameters for the new field:
+
     - **Category**. All {{ tracker-name }} fields are grouped into categories. Select the category that best suits the new field.
+
     - **Name**. Try to give the fields short and informative names.
+
     - **Name in English**. This name will be shown in the {{ tracker-name }} English interface.
+
     - **Type of number** (only for fields with the <q>number</q> type).
+
     - **List items** (only for fields with the <q>drop-down list</q> type). Specify the possible values and their order.
+
     - **Number of list items** (only for fields with the <q>drop-down list</q> type).
+
     - **Number of employees** (only for fields with the <q>selecting employees</q> type).
 
 1. Click **Create**.
+

@@ -45,7 +45,7 @@ X-Org-ID: <organization ID>
 
 {% list tabs %}
 
-- Successful execution of the request
+- Request executed successfully
 
     If the request is successful, the API returns a response with code 200. The response body contains a JSON object with the parameters of the sprint.
 
@@ -81,41 +81,41 @@ X-Org-ID: <organization ID>
 
     | Parameter | Description | Data type |
     | -------- | -------- | ---------- |
-    | self | Address of the API resource with sprint parameters. | String. |
-    | id | Sprint ID. | Number. |
-    | version | Sprint version. Each change to the sprint increases its version number. | Number. |
-    | name | Sprint name. | String. |
-    | [board](#board) | Object with information about the board whose issues the sprint refers to. | String. |
-    | status | Sprint status. <br/>Possible statuses:<ul><li>`draft`: Open.</li><li>`in_progress`: In progress.</li><li>`released`: Resolved.</li><li>`archived`: Archived.</li></ul> | String. |
-    | archived | Shows whether the sprint is archived:<ul><li>`true`: The sprint is archived.</li><li>`false`: The sprint is not archived.</li></ul> | Logical. |
-    | [createdBy](#createdBy) | Object with information about the user who created the sprint. | Object. |
-    | createdAt | Sprint creation date and time in ```YYYY-MM-DDThh:mm:ss.sss±hhmm``` format | String. |
-    | startDate | Sprint start date in ```YYYY-MM-DD``` format | String. |
-    | endDate | Sprint end date in ```YYYY-MM-DD``` format | String. |
-    | startDateTime | Date and time of the sprint's actual start in ```YYYY-MM-DDThh:mm:ss.sss±hhmm``` format | String. |
-    | endDateTime | Date and time of the sprint's actual end in ```YYYY-MM-DDThh:mm:ss.sss±hhmm``` format | String. |
+    | self | Address of the API resource with sprint parameters. | String |
+    | id | Sprint ID. | Number |
+    | version | Sprint version. Each change to the sprint increases its version number. | Number |
+    | name | Sprint name. | String |
+    | [board](#board) | Object with information about the board whose issues the sprint refers to. | String |
+    | status | Sprint status. <br/>Possible statuses:<ul><li>`draft`: Open.</li><li>`in_progress`: In progress.</li><li>`released`: Resolved.</li><li>`archived`: Archived.</li></ul> | String |
+    | archived | Shows whether the sprint is archived:<ul><li>`true`: The sprint is archived.</li><li>`false`: The sprint is not archived.</li></ul> | Boolean |
+    | [createdBy](#createdBy) | Object with information about the user who created the sprint. | Object |
+    | createdAt | Sprint creation date and time in ```YYYY-MM-DDThh:mm:ss.sss±hhmm``` format | String |
+    | startDate | Sprint start date in ```YYYY-MM-DD``` format | String |
+    | endDate | Sprint end date in ```YYYY-MM-DD``` format | String |
+    | startDateTime | Date and time of the sprint's actual start in ```YYYY-MM-DDThh:mm:ss.sss±hhmm``` format | String |
+    | endDateTime | Date and time of the sprint's actual end in ```YYYY-MM-DDThh:mm:ss.sss±hhmm``` format | String |
 
     **Object fields** `board` {#board}
 
     | Parameter | Description | Data type |
     | -------- | -------- | ---------- |
-    | self | Address of the API resource with information about the board. | String. |
-    | id | Board ID. | String. |
-    | display | Board name displayed. | String. |
+    | self | Address of the API resource with information about the board. | String |
+    | id | Board ID. | String |
+    | display | Board name displayed. | String |
 
     **Object fields** `createdBy` {#createdBy}
 
     | Parameter | Description | Data type |
     | -------- | -------- | ---------- |
-    | self | Address of the API resource with information about the user. | String. |
-    | id | User ID. | String. |
-    | display | User's name displayed. | String. |
+    | self | Address of the API resource with information about the user. | String |
+    | id | User ID. | String |
+    | display | User's name displayed. | String |
 
-- The request failed
+- Request failed
 
     If the request is processed incorrectly, the API returns a message with error details:
 
-    | HTTP code of the error | Error description |
+    | HTTP error code | Error description |
     | --------------- | --------------- |
     | 400 Bad Request | One of the request parameters has an invalid value or data format. |
     | 403 Forbidden | The user or application has no access rights to the resource, the request is rejected. |

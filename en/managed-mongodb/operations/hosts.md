@@ -98,7 +98,7 @@ You can add different types of hosts to a cluster. Their number depends on the [
 
      If the necessary subnet is not in the list, [create it](../../vpc/operations/subnet-create.md).
 
-  1. See the description of the CLI command for adding a host:
+  1. View a description of the CLI command for adding a host:
 
      ```
      $ {{ yc-mdb-mg }} host add --help
@@ -122,7 +122,13 @@ You can add different types of hosts to a cluster. Their number depends on the [
 
 {% endlist %}
 
-## Deleting a host {#remove-host}
+{% note warning %}
+
+If you can't [connect](connect.md) to the added host, check that the cluster's [security group](../concepts/network.md#security-groups) is configured correctly for the subnet where you placed the host.
+
+{% endnote %}
+
+## Removing a host {#remove-host}
 
 You can remove a `MONGOD` host from a {{ MG }} cluster if it is not the only host in it. To replace a single host, first create a new host and then remove the old one.
 

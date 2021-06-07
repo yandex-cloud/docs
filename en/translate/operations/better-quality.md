@@ -17,7 +17,7 @@ To avoid mistakes, specify the source language in the `sourceLanguageCode` field
 
 ```json
 {
-    "folder_id": "b1gvmob95yysaplct532",
+    "folderId": "b1gvmob95yysaplct532",
     "texts": ["angel"],
     "targetLanguageCode": "ru",
     "sourceLanguageCode": "de"

@@ -4,7 +4,9 @@
 - [Creating a database](#add-db).
 - [Deleting a database](#remove-db).
 
-## Getting a list of databases in a cluster {#list-db}
+{% include [db-sql](../../_includes/mdb/mdb-db-sql-limits.md) %}
+
+## Getting a list of cluster databases {#list-db}
 
 {% list tabs %}
 

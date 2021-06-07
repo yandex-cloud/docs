@@ -14,6 +14,64 @@ The maximum number of simultaneous connections to a {{ mmy-name }} cluster host 
 
 For example, for a [s1.micro](../concepts/instance-types.md) host with 2 vCPUs and a 100% share, the default value of the `max_connections` parameter is `200`: `100×2×1`.
 
+## Configuring security groups {#configure-security-groups}
+
+{% include [sg-rules](../../_includes/mdb/sg-rules-connect.md) %}
+
+Settings of rules depend on the connection method you select:
+
+{% list tabs %}
+
+- Over the internet
+
+    [Configure all the security groups](../../vpc/operations/security-group-update.md#add-rule) of the cluster to allow incoming traffic on port {{ port-mmy }} from any IP address. To do this, create the following rule for incoming traffic:
+    - Protocol: `TCP`.
+    - Port range: `{{ port-mmy }}`.
+    - Source type: `CIDR`.
+    - Source: `0.0.0.0/0`.
+
+- With a VM in Yandex.Cloud
+
+    1. [Configure all the security groups](../../vpc/operations/security-group-update.md#add-rule) of the cluster to allow incoming traffic on port {{ port-mmy }} from the security group assigned to the VM. To do this, create the following rule for incoming traffic in these groups:
+        - Protocol: `TCP`.
+        - Port range: `{{ port-mmy }}`.
+        - Source type: `Security group`.
+        - Source: Security group assigned to the VM. If it is the same as the configured group, specify **Current**.
+
+    1. [Set up the security group](../../vpc/operations/security-group-update.md#add-rule) assigned to the VM to allow connections to the VM and traffic between the VM and the cluster hosts.
+
+        Example of rules for a VM:
+
+        - For incoming traffic:
+           - Protocol: `TCP`.
+           - Port range: `{{ port-ssh }}`.
+           - Source type: `CIDR`.
+           - Source: `0.0.0.0/0`.
+
+            This rule lets you connect to the VM over SSH.
+
+        - For outgoing traffic:
+            - Protocol: `Any`.
+            - Port range: `{{ port-any }}`.
+            - Destination type: `CIDR`.
+            - Destination: `0.0.0.0/0`.
+
+            This rule allows any outgoing traffic: this lets you both connect to the cluster and install certificates and utilities you might need to connect to the cluster.
+
+{% endlist %}
+
+{% note info %}
+
+You can set more detailed rules for security groups, such as to allow traffic in only specific subnets.
+
+Security groups must be configured correctly for all subnets that will include cluster hosts. If the security group settings are incomplete or incorrect, you might lose access the cluster.
+
+{% endnote %}
+
+For more information about security groups, see [{#T}](../concepts/network.md#security-groups).
+
+{% endlist %}
+
 ## Configuring an SSL certificate {#configuring-an-ssl-certificate}
 
 {{ MY }} hosts with public access only support connections with an SSL certificate. You can prepare a certificate as follows:

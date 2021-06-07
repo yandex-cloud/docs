@@ -22,7 +22,7 @@ You can add and remove cluster hosts and manage {{ PG }} settings for individual
 
   ```
   $ {{ yc-mdb-pg }} host list
-       --cluster-name=<cluster name>
+       --cluster-name <cluster name>
   
   +----------------------------+--------------+---------+--------+---------------+
   |            NAME            |  CLUSTER ID  |  ROLE   | HEALTH |    ZONE ID    |
@@ -51,18 +51,21 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
   1. Click on the name of the cluster you need and go to the **Hosts** tab.
   1. Click **Add host**.
 
-  
-  1. Specify the host parameters:
+    1. Specify the host parameters:
+     - Availability zone.
 
-      * Availability zone.
+     - Subnet (if the necessary subnet is not in the list, [create it](../../vpc/operations/subnet-create.md).
 
-      * Subnet (if the necessary subnet is not in the list, [create it](../../vpc/operations/subnet-create.md)).
+     - Priority of the host as a {{ PG }} replica.
 
-      * Priority of the host as a {{ PG }} replica.
+       Change the priority value to modify the selection of the [synchronous replica](../concepts/replication.md#selecting-the-master-and-a-synchronous-replica) in the cluster:
+       - The host with the highest priority in the cluster becomes a synchronous replica.
+       - If the cluster has multiple hosts with the highest priority, a synchronous replica is selected among them.
+       - The lowest priority is `0` (default), the highest is `100`.
 
-      * Replication source (if you use cascading replication).
+     - Replication source (if you use [cascading replication](../concepts/replication.md#replication-manual)).
 
-      * Select the **Public access** option if the host must be accessible from outside the Cloud.
+     - Select the **Public access** option if the host must be accessible from outside {{ yandex-cloud }}.
 
 - CLI
 
@@ -90,7 +93,7 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
 
      If the necessary subnet is not in the list, [create it](../../vpc/operations/subnet-create.md).
 
-  1. See the description of the CLI command for adding a host:
+  1. View a description of the CLI command for adding a host:
 
      ```
      $ {{ yc-mdb-pg }} host add --help
@@ -105,10 +108,17 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
           --host zone-id=<availability zone>,subnet-id=<subnet ID>
      ```
 
-     {{ mpg-short-name }} will run the add host operation.
-
      
      The subnet ID should be specified if the availability zone contains multiple subnets, otherwise {{ mpg-short-name }} automatically selects a single subnet. You can retrieve the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+     You can also specify some additional options in the `--host` parameter to manage replication in the cluster:
+      - Replication source for the host in the `replication-source` option to [manually manage replication threads](../concepts/replication.md#replication-manual).
+      - Host priority in the `priority` option to [modify the selection of a synchronous replica](../concepts/replication.md#selecting-the-master-and-a-synchronous-replica):
+        - The host with the highest priority in the cluster becomes a synchronous replica.
+        - If the cluster has multiple hosts with the highest priority, a synchronous replica is selected among them.
+        - The lowest priority is `0` (default), the highest is `100`.
+
+   {{ mpg-short-name }} will run the add host operation.
 
 - API
 
@@ -116,15 +126,31 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
 
 {% endlist %}
 
-## Change the host {#update}
+{% note warning %}
 
-For each host in a {{ PG }} cluster, you can change:
+If you can't [connect](connect.md) to the added host, check that the cluster's [security group](../concepts/network.md#security-groups) is configured correctly for the subnet where you placed the host.
 
-* The host's priority in the cluster, according to which a new master is selected when the old one is unavailable.
+{% endnote %}
 
-* The host chosen as the replication source for the current host (if you use [cascading replication](https://www.postgresql.org/docs/current/warm-standby.html#CASCADING-REPLICATION)).
+## Changing a host {#update}
+
+For each host in a {{ PG }} cluster, you can change the host priority and specify the replication source. For more information, see [{#T}](../concepts/replication.md).
 
 {% list tabs %}
+
+- Management console
+
+  To change the parameters of the {{ PG }} host:
+  1. Go to the folder page and select **{{ mpg-name }}**.
+  1. Click on the name of the cluster you want and select the **Hosts** tab.
+  1. Click ![image](../../_assets/pencil.svg).
+  1. Set new settings for the host:
+     1. Set the priority to modify the selection of the [synchronous replica](../concepts/replication.md#selecting-the-master-and-a-synchronous-replica) in the cluster:
+       - The host with the highest priority in the cluster becomes a synchronous replica.
+       - If the cluster has multiple hosts with the highest priority, a synchronous replica is selected among them.
+       - The lowest priority is `0` (default), the highest is `100`.
+     1. Select the replication source for the host to [manually manage replication threads](../concepts/replication.md#replication-manual).
+  1. Click **Save**.
 
 - CLI
 
@@ -141,13 +167,30 @@ For each host in a {{ PG }} cluster, you can change:
        --priority <replica's priority
   ```
 
-  The host names can be requested with a [list of cluster hosts](list-hosts)  and the cluster name can be requested with a [list of folder clusters](cluster-list.md#list-clusters).
+  The host name can be requested with a [list of cluster hosts](#list-hosts), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+  To manage replication in the cluster, change in the `--host` parameter:
+  - Replication source for the host in the `replication-source` option to [manually manage replication threads](../concepts/replication.md#replication-manual).
+  - Host priority in the `priority` option to [modify the selection of a synchronous replica](../concepts/replication.md#selecting-the-master-and-a-synchronous-replica):
+       - The host with the highest priority in the cluster becomes a synchronous replica.
+       - If the cluster has multiple hosts with the highest priority, a synchronous replica is selected among them.
+       - The lowest priority is `0` (default), the highest is `100`.
 
 - API
 
-  To remove a host, use the [deleteHosts](../api-ref/Cluster/deleteHosts.md) method.
+  To change the parameters of the {{ PG }} host, use the [updateHosts](../api-ref/Cluster/updateHosts.md) API method and pass the following in the query:
+  1. In the `clusterId` parameter, the ID of the cluster where you want to change the host.
+  1. In the `updateHostSpecs.hostName` parameter, the name of the host you want to change.
+
+  The host name can be requested with a [list of cluster hosts](hosts.md#list-hosts), and the cluster ID can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 {% endlist %}
+
+{% note warning %}
+
+If you can't [connect](connect.md) to the changed host, check that the cluster's [security group](../concepts/network.md#security-groups) is configured correctly for the subnet where you placed the host.
+
+{% endnote %}
 
 ## Removing a host {#remove}
 
@@ -174,8 +217,8 @@ If the host is the master when deleted, {{ mpg-short-name }} automatically assig
   To remove a host from the cluster, run:
 
   ```
-  $ {{ yc-mdb-pg }} host delete <hostname>
-       --cluster-name=<cluster name>
+  $ {{ yc-mdb-pg }} host delete <host name>
+       --cluster-name <cluster name>
   ```
 
   The host name can be requested with a [list of cluster hosts](#list-hosts), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).

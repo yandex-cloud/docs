@@ -1,6 +1,6 @@
 # Migrating databases to {{ mpg-name }}
 
-To migrate your database to {{ mpg-name }}, you need to directly transfer the data, disable writing to the old database, and then switch the load over to the database cluster in {{ yandex-cloud }}.
+To migrate your database to {{ mpg-name }}, you need to directly transfer the data, acquire a write lock for the old database, and transfer the load on the database cluster in {{ yandex-cloud }}.
 
 There are two ways to migrate data to a {{ mpg-name }} cluster:
 
@@ -100,7 +100,7 @@ Restore the schema in the new cluster:
 
 ```bash
 pg_restore -Fd -v --single-transaction -s --no-privileges \
-          -h <source address> \
+          -h <target address> \
           -U <username> \
           -p 6432 \
           -d <database name> /tmp/db_dump
@@ -124,8 +124,7 @@ For logical replication to work, you need to define a publication (a group of lo
    CREATE PUBLICATION p_data_migration FOR ALL TABLES;
    ```
 
-1. On the {{ mpg-name }} cluster host, create a subscription with a connection string to the publication. Learn more about creating
-subscriptions in the [{{ PG }} documentation](https://www.postgresql.org/docs/10/sql-createsubscription.html).
+1. On the {{ mpg-name }} cluster host, create a subscription with a connection string to the publication. For more information about creating subscriptions, see the [{{ PG }} documentation](https://www.postgresql.org/docs/10/sql-createsubscription.html).
 
    Request with SSL enabled:
 
@@ -177,7 +176,7 @@ When replication is complete and you move the sequences, remove the subscription
 
 Afterwards, the load can be transferred to the receiving server. Since transferring sequences is a relatively quick and easily automated process, migrating to {{ mpg-name }} is possible with minimal downtime.
 
-## Restore a database from dump {#backup}
+## Restore database from dump {#backup}
 
 To migrate data from an existing {{ PG }} database to {{ mpg-name }}, use `pg_dump` and `pg_restore`: create a dump of your running database and restore it to the {{ PG }} cluster in {{ yandex-cloud }}.
 
@@ -200,7 +199,7 @@ Migration stages:
 
 Use [pg_dump](https://www.postgresql.org/docs/current/app-pgdump.html) to create a database dump.
 
-1. Before creating a dump, we recommend switching the database to <q>read-only</q> to avoid losing data that might appear while the dump is created. The database dump itself is created using the following command:
+1. Before creating a dump, we recommend switching the database to <q>read-only</q> to avoid losing data that might appear while creating the dump. The database dump itself is created using the following command:
 
     ```bash
     pg_dump -h <DBMS server address> -U <username> -Fd -d <database name> -f ~/db_dump

@@ -59,7 +59,7 @@ folderId | **string**<br><p>ID of the folder that the certificate belongs to.</p
 createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 name | **string**<br><p>Name of the certificate. The name is unique within the folder.</p> 
 description | **string**<br><p>Description of the certificate.</p> 
-labels | **object**<br><p>Certificate labels as `key:value` pairs.</p> 
+labels | **object**<br><p>Certificate labels as ``key:value`` pairs.</p> 
 type | **string**<br><p>Type of the certificate.</p> <p>Supported certificate types.</p> <ul> <li>IMPORTED: The certificate is imported by user.</li> <li>MANAGED: The certificate is created by service.</li> </ul> 
 domains[] | **string**<br><p>Fully qualified domain names of the certificate.</p> 
 status | **string**<br><p>Status of the certificate.</p> <ul> <li>VALIDATING: The certificate domains validation are required. Used only for managed certificates.</li> <li>INVALID: The certificate issuance is failed. Used only for managed certificates.</li> <li>ISSUED: The certificate is issued.</li> <li>REVOKED: The certificate is revoked.</li> <li>RENEWING: The certificate renewal is started. Used only for managed certificates.</li> <li>RENEWAL_FAILED: The certificate renewal is failed. Used only for managed certificates.</li> </ul> 

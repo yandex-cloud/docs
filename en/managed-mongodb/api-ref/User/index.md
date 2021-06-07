@@ -26,7 +26,7 @@ name | **string**<br><p>Name of the MongoDB user.</p>
 clusterId | **string**<br><p>ID of the MongoDB cluster the user belongs to.</p> 
 permissions[] | **object**<br><p>Set of permissions granted to the user.</p> 
 permissions[].<br>databaseName | **string**<br><p>Name of the database that the permission grants access to.</p> 
-permissions[].<br>roles[] | **string**<br><p>MongoDB roles for the `databaseName` database that the permission grants.</p> 
+permissions[].<br>roles[] | **string**<br><p>MongoDB roles for the ``databaseName`` database that the permission grants.</p> 
 
 ## Methods {#methods}
 Method | Description

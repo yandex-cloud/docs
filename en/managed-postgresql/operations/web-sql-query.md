@@ -1,18 +1,28 @@
 # SQL queries in the management console
 
-{{ mpg-name }} allows you to visualize the data structure in your {{PG}} cluster and send SQL queries to databases from the Yandex.Cloud management console. To do this, log in to [management console]({{ link-console-main }}), open the cluster page and go to the **SQL** tab.
+{{ mpg-name }} lets you visualize the data structure in your {{PG}} cluster and send SQL queries to databases from the {{ yandex-cloud }} management console. To do this, log in to [management console]({{ link-console-main }}), open the cluster page and go to the **SQL** tab.
 
 See a reference list of supported queries in the [{{PG}} documentation](https://www.postgresql.org/docs/current/sql.html).
+
+{% note warning %}
+
+You can't use SQL commands to perform actions that require superuser privileges.
+
+{% endnote %}
+
+## Access to the cluster from the management console {#sql-cluster-access}
+
+To connect to a {{ mpg-name }} cluster from the management console and operate its data, activate the **Access from management console** option when [creating a cluster](cluster-create.md) or [changing its settings](update.md#change-additional-settings).
 
 {% include [web-sql-auth](../../_includes/mdb/web-sql-auth.md) %}
 
 ## Data structure visualization {#data-structure-visualization}
 
-Once you have logged in, you can see the structure of the databases and tables in the cluster:
+Once you have logged in, you can see the structure of the selected database and its tables:
 
 ![structure](../../_assets/mdb/pg-web-sql-structure.png)
 
-Click on the table to see the first 1000 rows of the `SELECT *` query result for this table, 20 rows per page ({{ mpg-name }} doesn't support full navigation through all the DB data). In the **Query result offset** field, you can set the offset for showing the results table.
+Click on the table to see the first 1000 rows of the `SELECT *` query result for this table, 20 rows per page (the management console doesn't support full navigation through all the DB data). In the **Query result offset** field, you can set the offset for showing the results table.
 
 Hover over the column header to see the type of column data:
 
@@ -35,3 +45,4 @@ Enter your query and click **Execute**. The results table or error message is sh
 * If a cluster query takes more than 10 minutes, the management console reports an error instead of printing the result, even if the query eventually finishes processing.
 * If your cluster has multiple {{PG}} hosts, queries from the management console are sent to the current master host.
 * The list of tables is taken from the _public_ schema. You can make queries to tables from other schemas by explicitly specifying the schema, for example: `SELECT * from information_schema.column_udt_usage`.
+

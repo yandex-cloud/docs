@@ -52,7 +52,7 @@ folderId | **string**<br><p>ID of the folder that the address belongs to.</p>
 createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 name | **string**<br><p>Name of the address. The name is unique within the folder.</p> 
 description | **string**<br><p>Description of the address.</p> 
-labels | **object**<br><p>Resource labels as `key:value` pairs.</p> 
+labels | **object**<br><p>Resource labels as ``key:value`` pairs.</p> 
 reserved | **boolean** (boolean)<br><p>Specifies if address is reserved or not.</p> 
 used | **boolean** (boolean)<br><p>Specifies if address is used or not.</p> 
 type | **string**<br>Type of the IP address.<br><ul> <li>INTERNAL: Internal IP address.</li> <li>EXTERNAL: Public IP address.</li> </ul> 

@@ -56,14 +56,14 @@ X-Org-Id: <organization ID>
 
 | Parameter | Value | Data type |
 | ----- | ----- | ----- |
-| \<key\> | Issue field that can be edited during the transition. List of keys: [{{ link-admin-fields }}]({{ link-admin-fields }}) | Depends on the parameter type. |
-| comment | Comment on the issue. | String. |
+| \<key\> | Issue field that can be edited during the transition. List of keys: [{{ link-admin-fields }}]({{ link-admin-fields }}) | Depends on the parameter type |
+| comment | Comment on the issue. | String |
 
 ## Response format {#section_rcd_ysf_2fb}
 
 {% list tabs %}
 
-- Successful execution of the request
+- Request executed successfully
 
   If the request is successful, the API returns a response with code 200. The response body contains a JSON array with a list of transitions available for the issue in the new status.
 
@@ -91,32 +91,32 @@ X-Org-Id: <organization ID>
 
   | Parameter | Description | Data type |
   | ----- | ----- | ----- |
-  | self | Transition link. | String. |
-  | id | Transition ID. | String. |
-  | [to](#to) | Block with information about the status that the issue can transition to. | Object. |
-  | [screen](#screen) | Block with information about the transition screen. | Object. |
+  | self | Transition link. | String |
+  | id | Transition ID. | String |
+  | [to](#to) | Block with information about the status that the issue can transition to. | Object |
+  | [screen](#screen) | Block with information about the transition screen. | Object |
 
   **Object fields** `to` {#to}
 
   | Parameter | Description | Data type |
   | ----- | ----- | ----- |
-  | self | Status link. | String. |
-  | id | Status ID. | String. |
-  | key | Status key. | String. |
-  | display | Status name displayed. | String. |
+  | self | Status link. | String |
+  | id | Status ID. | String |
+  | key | Status key. | String |
+  | display | Status name displayed. | String |
 
   **Object fields** `screen` {#screen}
 
   | Parameter | Description | Data type |
   | ----- | ----- | ----- |
-  | self | Link to the transition screen. | String. |
-  | id | Transition screen ID. | String. |
+  | self | Link to the transition screen. | String |
+  | id | Transition screen ID. | String |
 
-- The request failed
+- Request failed
 
   If the request is processed incorrectly, the API returns a response with an error code.
 
-  | HTTP code of the error | Error description |
+  | HTTP error code | Error description |
   | ----- | ----- |
   | 400 Bad Request | One of the request parameters has an invalid value or data format. |
   | 403 Forbidden | The user or application has no access rights to the resource, the request is rejected. |

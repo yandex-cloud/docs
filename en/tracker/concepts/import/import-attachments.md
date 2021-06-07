@@ -49,27 +49,7 @@ To import a file, use an HTTP `POST` request. Files are passed in the request bo
 
        Username or ID of the user who attached the file.
 
-    #### Request headers {#request-headers}
-
-    - **Host**
-
-        Address of the node that provides the API:
-
-        ```
-        {{ host }}
-        ```
-
-    - **Authorization**
-
-        OAuth token in `OAuth <token value>` format. For example:
-
-        ```
-        OAuth 0c4181a7c2cf4521964a72ff57a34a07
-        ```
-
-    - **X-Org-ID**
-
-        Organization ID.
+    {% include [headings](../../../_includes/tracker/api/headings.md) %}
 
     - **Content-Type**
 
@@ -154,7 +134,7 @@ To import a file, use an HTTP `POST` request. Files are passed in the request bo
 
 {% list tabs %}
 
-- Successful execution of the request
+- Request executed successfully
 
     If the request is successful, the API returns a response with code 201. The response body contains the parameters of the attached file in JSON format:
 
@@ -183,36 +163,36 @@ To import a file, use an HTTP `POST` request. Files are passed in the request bo
 
     | Parameter | Description | Data type |
     | -------- | -------- | ---------- |
-    | self | Address of the API resource corresponding to the attached file. | String. |
-    | id | Unique ID of the file. | String. |
-    | name | File name. | String. |
-    | content | Address of the resource to download the file from. | String. |
-    | thumbnail | Address of the resource to download the preview thumbnail from. Available for image files only. | String. |
+    | self | Address of the API resource corresponding to the attached file. | String |
+    | id | Unique ID of the file. | String |
+    | name | File name. | String |
+    | content | Address of the resource to download the file from. | String |
+    | thumbnail | Address of the resource to download the preview thumbnail from. Available for image files only. | String |
     | [createdBy](#createdBy) | Object with information about the user who attached the file. | JSON object |
-    | createdAt | Date and time when the file is uploaded, in <br/>``` YYYY-MM-DDThh:mm:ss.sss±hhmm ``` format | String. |
-    | mimetype | File type, for example:<ul><li>`text/plain`: Text file.</li><li>`image/png`: Image in PNG format.</li></ul> | String. |
-    | size | File size in bytes. | Integer. |
+    | createdAt | Date and time when the file is uploaded, in <br/>``` YYYY-MM-DDThh:mm:ss.sss±hhmm ``` format | String |
+    | mimetype | File type, for example:<ul><li>`text/plain`: Text file.</li><li>`image/png`: Image in PNG format.</li></ul> | String |
+    | size | File size in bytes. | Integer |
     | [metadata](#metadata) | Object with file metadata. | JSON object |
 
     **Object fields** `createdBy` {#createdBy}
 
     | Parameter | Description | Data type |
     | -------- | -------- | ---------- |
-    | self | Address of the resource corresponding to the user who uploaded the file. | String. |
-    | id | Username of the user. | String. |
-    | display | User's name (as in the interface). | String. |
+    | self | Address of the resource corresponding to the user who uploaded the file. | String |
+    | id | Username of the user. | String |
+    | display | User's name (as in the interface). | String |
 
     **Object fields** `metadata` {#metadata}
 
     | Parameter | Description | Data type |
     | -------- | -------- | ---------- |
-    | size | Image size in pixels. | String. |
+    | size | Image size in pixels. | String |
 
-- The request failed
+- Request failed
 
     If the request is processed incorrectly, the API returns a message with error details:
 
-    | HTTP code of the error | Error description |
+    | HTTP error code | Error description |
     | --------------- | --------------- |
     | 400 Bad Request | One of the request parameters has an invalid value or data format. |
     | 403 Forbidden | The user or application has no access rights to the resource, the request is rejected. |

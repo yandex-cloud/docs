@@ -3,6 +3,7 @@
 Для использования сервиса необходимо авторизоваться в консоли управления с [аккаунтом на Яндексе](../../iam/concepts/index.md#passport) или с [федеративным аккаунтом](../../iam/concepts/index.md#saml-federation).
 
 В этом разделе вы узнаете:
+
 * [Какие роли необходимы](#choosing-roles) для того или иного действия.
 * [На какие ресурсы можно назначить роль](#resources).
 * [Какие роли действуют в сервисе](#roles-list).
@@ -30,7 +31,7 @@
     * {% include [editor](../../_includes/iam/roles/short-descriptions/editor.md) %}
     * {% include [admin](../../_includes/iam/roles/short-descriptions/admin.md) %}
 
-#### Что дальше
+## Что дальше {#whats-next}
 
 * [Как назначить роль](../../iam/operations/roles/grant.md).
 * [Как отозвать роль](../../iam/operations/roles/revoke.md).

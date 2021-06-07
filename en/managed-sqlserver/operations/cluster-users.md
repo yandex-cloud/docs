@@ -2,6 +2,12 @@
 
 You can add and remove users, as well as manage their individual settings.
 
+{% note warning %}
+
+You can use SQL commands to assign privileges to users, but you can't use them to add or change users. For more information, see [{#T}](grant.md).
+
+{% endnote %}
+
 ## Getting a list of users {#list-users}
 
 {% list tabs %}

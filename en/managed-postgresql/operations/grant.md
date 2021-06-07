@@ -1,20 +1,16 @@
-# Granting user permissions and roles
+# Assigning privileges and roles to users
 
-The user created with a {{ mpg-name }} cluster is automatically assigned the `OWNER` role for the first database in the cluster. After that, you can create other users and configure their permissions as you wish.
+Atomic permissions in **{{ PG }}** are called _privileges_, and permission groups are called _roles_. For more information about access permissions, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/user-manag.html).
 
-Atomic permissions in {{ PG }} are called _privileges_ and permission groups are called _roles_. For more information about access permissions, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/user-manag.html).
+The user created with a **{{ mpg-name }}** cluster is the owner of the first database in the cluster. You can [create other users](cluster-users.md#adduser) and configure their permissions as you wish:
 
-To grant a **privilege** to a particular user, [create](cluster-users.md) a user via the Yandex.Cloud management console, CLI, or API and run the `GRANT` command on behalf of the DB owner. For example:
-
-```postgresql
-GRANT SELECT ON DATABASE db1 TO user2;
-```
-
-To assign a user a **role**, use the Yandex.Cloud CLI or API: role assignment from a `GRANT` request is canceled when the next database operation is performed.
+- [Updating the list of user roles](#grant-role).
+- [Granting a privilege to a user](#grant-privilege).
+- [Revoke a privilege from a user](#revoke-privilege).
 
 ## Updating the list of user roles {#grant-role}
 
-To add a role, request the list of available roles with [user information](cluster-users.md), add the desired role to the list, and send the updated list in a request. Similarly, to revoke a role, remove it from the list of roles and send the updated list in a request.
+To assign a [role](../concepts/roles.md) to a user, use the {{ yandex-cloud }} CLI or API: the roles assigned by the `GRANT` query are canceled during the next database operation.
 
 {% list tabs %}
 
@@ -29,12 +25,12 @@ To add a role, request the list of available roles with [user information](clust
   To assign roles, run the command:
 
   ```
-  $ {{ yc-mdb-pg }} user update <username>
-       --cluster-name <cluster name>
-       --grants="<role1, role2>"
+  $ {{ yc-mdb-pg }} user update <username> \
+         --grants=<role1,role2> \
+         --cluster-id <cluster ID>
   ```
 
-  You can request the cluster name with the [list of clusters in the folder](cluster-list.md) and the username with the [list of users](../operations/cluster-users.md#list-users).
+  You can query the cluster name with the [list of clusters in the folder](cluster-list.md) and the username with the [list of users](cluster-users.md#list-users).
 
 - API
 
@@ -44,18 +40,15 @@ To add a role, request the list of available roles with [user information](clust
 
 {% endlist %}
 
-## Example {#example}
+## Granting a privilege to a user {#grant-privilege}
 
-### Creating a read-only user {#creating-a-read-only-user}
+1. [Connect](connect.md) to the database under the database owner's account.
+2. Run the `GRANT` command. For more information about the command syntax, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/sql-grant.html).
 
-To create a user who can access data in the database but not change it:
+## Revoking a privilege from a user {#revoke-privilege}
 
-1. [Create a user](cluster-users.md#adduser) in the cluster.
+1. [Connect](connect.md) to the database under the database owner's account.
+2. Run the `REVOKE` command. For a detailed description of the command syntax, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/sql-revoke.html).
 
-1. On behalf of the DB owner, grant the new user `SELECT` and, if necessary, `USAGE` privileges for the appropriate database or table. For example:
-
-   ```postgresql
-   GRANT SELECT ON ALL TABLES IN SCHEMA myschema TO user2;
-   GRANT USAGE ON SCHEMA myschema TO user2;
-   ```
+{% include [user-ro](../../_includes/mdb/mpg-user-examples.md) %}
 

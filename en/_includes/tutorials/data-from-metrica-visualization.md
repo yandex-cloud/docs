@@ -19,7 +19,7 @@ To visualize your data, follow these steps:
 
 {% note warning %}
 
-This step is available to users who have permission to a Yandex.Metrica tag. If you don't have permissions for the tag, open the ready-to-use [**Metriсa Live Demo Dashboard**](https://datalens.yandex.com/navigation?path=Demo/Metrica/Metrica%20Live%20Demo%20Dashboard) and go to step 2.
+This step is available to users who have permission to a Yandex.Metrica tag. If you don't have permissions for the tag, open the ready-to-use [**Metriсa Live Demo Dashboard**](https://datalens.yandex.com/navigation?path=Demo%2FMetrica%20Live%2FMetrica%20Live%20Demo%20Dashboard) and go to step 2.
 
 {% endnote %}
 

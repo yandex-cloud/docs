@@ -54,7 +54,7 @@ Field | Description
 --- | ---
 providers[] | **object**<br><p>List of auth providers of the Elasticsearch cluster.</p> 
 providers[].<br>type | **string**<br>
-providers[].<br>name | **string**<br><p>The maximum string length in characters is 50. Value must match the regular expression `` [a-z][a-z0-9_-]* ``.</p> 
+providers[].<br>name | **string**<br><p>The maximum string length in characters is 50. Value must match the regular expression ``[a-z][a-z0-9_-]*``.</p> 
 providers[].<br>order | **string** (int64)<br>
 providers[].<br>enabled | **boolean** (boolean)<br>
 providers[].<br>hidden | **boolean** (boolean)<br><p>selector ui settings</p> 

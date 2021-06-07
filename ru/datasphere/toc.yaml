@@ -81,6 +81,46 @@ items:
         href: tutorials/markup.md
       - name: Классификация изображений на видеокадрах
         href: tutorials/video-recognition.md
+  - name: Справочник API (англ.)
+    items:
+      - name: Authentication
+        href: api-ref/authentication.md
+      - name: gRPC
+        items:
+          - name: Overview
+            href: api-ref/grpc/index.md
+          - name: NodeService
+            href: api-ref/grpc/node_service.md
+          - name: ProjectService
+            href: api-ref/grpc/project_service.md
+          - name: OperationService
+            href: api-ref/grpc/operation_service.md
+      - name: REST
+        items:
+          - name: Overview
+            href: api-ref/index.md
+          - name: Node
+            items:
+              - name: Overview
+                href: api-ref/Node/index.md
+              - name: execute
+                href: api-ref/Node/execute.md
+          - name: Project
+            items:
+              - name: Overview
+                href: api-ref/Project/index.md
+              - name: create
+                href: api-ref/Project/create.md
+              - name: delete
+                href: api-ref/Project/delete.md
+              - name: get
+                href: api-ref/Project/get.md
+              - name: list
+                href: api-ref/Project/list.md
+              - name: open
+                href: api-ref/Project/open.md
+              - name: update
+                href: api-ref/Project/update.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

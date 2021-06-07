@@ -20,7 +20,7 @@ Issue ID or key.
 
 > Request for comments on a single issue with the required fields specified:
 > 
-> An HTTP GET method is used.
+> Use the HTTP GET method.
 > 
 > ```
 > GET /v2/issues/JUNE-3/comments HTTP/1.1
@@ -65,38 +65,38 @@ If the request is successful, the API returns a response with code 200. The resp
 
 | Parameter | Description | Data type |
 | ----- | ----- | ----- |
-| self | Link to the comment object | String. |
-| id | Comment ID | Number. |
-| longId | ID of the comment in string format. | String. |
-| text | Text of the comment. | String. |
-| [createdBy](#object-fields-createdBy) | Object with information about the user who added the comment. | Object. |
-| [updatedBy](#object-fields-updatedBy) | Object with information about the user who edited the comment last. | Object. |
-| createdAt | Comment creation date and time in <br/>``` YYYY-MM-DDThh:mm:ss.sss±hhmm ``` format | String. |
-| updatedAt | Comment update date and time.<br/>``` YYYY-MM-DDThh:mm:ss.sss±hhmm ``` | String. |
-| version | Comment version. Each change to the comment increases its version number. | Number. |
-| type | Comment type:<ul><li>**standard**: Comment sent via the {{ tracker-name }} interface.</li><li>**incoming**: Comment created from an incoming message.</li><li>**outcoming**: Comment created from an outgoing message.</li></ul> | String. |
-| transport | Method of adding a comment:<ul><li>**internal**: Via the {{ tracker-name }} interface.</li><li>**email**: Via email.</li></ul> | String. |
+| self | Link to the comment object | String |
+| id | Comment ID | Number |
+| longId | ID of the comment in string format. | String |
+| text | Text of the comment. | String |
+| [createdBy](#object-fields-createdBy) | Object with information about the user who added the comment. | Object |
+| [updatedBy](#object-fields-updatedBy) | Object with information about the user who edited the comment last. | Object |
+| createdAt | Comment creation date and time in <br/>``` YYYY-MM-DDThh:mm:ss.sss±hhmm ``` format | String |
+| updatedAt | Comment update date and time.<br/>``` YYYY-MM-DDThh:mm:ss.sss±hhmm ``` | String |
+| version | Comment version. Each change to the comment increases its version number. | Number |
+| type | Comment type:<ul><li>**standard**: Comment sent via the {{ tracker-name }} interface.</li><li>**incoming**: Comment created from an incoming message.</li><li>**outcoming**: Comment created from an outgoing message.</li></ul> | String |
+| transport | Method of adding a comment:<ul><li>**internal**: Via the {{ tracker-name }} interface.</li><li>**email**: Via email.</li></ul> | String |
 
 **Object fields** `createdBy` {#object-fields-createdBy}
 
 | Parameter | Description | Data type |
 | ----- | ----- | ----- |
-| self | Link to the user. | String. |
-| id | User ID. | String. |
-| display | User's name displayed. | String. |
+| self | Link to the user. | String |
+| id | User ID. | String |
+| display | User's name displayed. | String |
 
 **Object fields** `updatedBy` {#object-fields-updatedBy}
 
 | Parameter | Description | Data type |
 | ----- | ----- | ----- |
-| self | Link to the user. | String. |
-| id | User ID. | String. |
-| display | User's name displayed. | String. |
+| self | Link to the user. | String |
+| id | User ID. | String |
+| display | User's name displayed. | String |
 
 ## Possible response codes {#section_otf_jrj_p1b}
 
 200
-:   Successful execution of the request.
+:   Request executed successfully.
 
 404
 :   The requested object was not found. You may have specified an invalid object ID or key.

@@ -152,7 +152,7 @@ jobs[].<br>sparkJob.<br>jarFileUris[] | **string**<br><p>JAR file URIs to add to
 jobs[].<br>sparkJob.<br>fileUris[] | **string**<br><p>URIs of resource files to be copied to the working directory of Data Proc drivers and distributed Hadoop tasks.</p> 
 jobs[].<br>sparkJob.<br>archiveUris[] | **string**<br><p>URIs of archives to be extracted to the working directory of Data Proc drivers and tasks.</p> 
 jobs[].<br>sparkJob.<br>properties | **object**<br><p>Property names and values, used to configure Data Proc and Spark.</p> 
-jobs[].<br>sparkJob.<br>mainJarFileUri | **string**<br><p>The HCFS URI of the JAR file containing the `main` class for the job.</p> 
+jobs[].<br>sparkJob.<br>mainJarFileUri | **string**<br><p>The HCFS URI of the JAR file containing the ``main`` class for the job.</p> 
 jobs[].<br>sparkJob.<br>mainClass | **string**<br><p>The name of the driver class.</p> 
 jobs[].<br>pysparkJob | **object**<br>Specification for a PySpark job. <br>`jobs[]` includes only one of the fields `mapreduceJob`, `sparkJob`, `pysparkJob`, `hiveJob`<br><br>
 jobs[].<br>pysparkJob.<br>args[] | **string**<br><p>Optional arguments to pass to the driver.</p> 
@@ -170,4 +170,4 @@ jobs[].<br>hiveJob.<br>jarFileUris[] | **string**<br><p>JAR file URIs to add to 
 jobs[].<br>hiveJob.<br>queryFileUri | **string** <br>`jobs[].hiveJob` includes only one of the fields `queryFileUri`, `queryList`<br><br><p>URI of the script with all the necessary Hive queries.</p> 
 jobs[].<br>hiveJob.<br>queryList | **object**<br>List of Hive queries to be used in the job. <br>`jobs[].hiveJob` includes only one of the fields `queryFileUri`, `queryList`<br><br>
 jobs[].<br>hiveJob.<br>queryList.<br>queries[] | **string**<br><p>List of Hive queries.</p> 
-nextPageToken | **string**<br><p>Token for getting the next page of the list. If the number of results is greater than the specified <a href="/docs/data-proc/api-ref/Job/list#query_params">pageSize</a>, use `next_page_token` as the value for the <a href="/docs/data-proc/api-ref/Job/list#query_params">pageToken</a> parameter in the next list request.</p> <p>Each subsequent page will have its own `next_page_token` to continue paging through the results.</p> 
+nextPageToken | **string**<br><p>Token for getting the next page of the list. If the number of results is greater than the specified <a href="/docs/data-proc/api-ref/Job/list#query_params">pageSize</a>, use ``next_page_token`` as the value for the <a href="/docs/data-proc/api-ref/Job/list#query_params">pageToken</a> parameter in the next list request.</p> <p>Each subsequent page will have its own ``next_page_token`` to continue paging through the results.</p> 

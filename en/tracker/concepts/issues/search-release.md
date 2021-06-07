@@ -53,7 +53,7 @@ If the request is successful, the API returns an empty message with code 200.
 ## Possible response codes {#section_otf_jrj_p1b}
 
 200
-:   Successful execution of the request.
+:   Request executed successfully.
 
 401
 :  The user isn't authorized. Make sure that actions described in [{#T}](../access.md) are performed.

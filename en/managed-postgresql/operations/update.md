@@ -10,11 +10,28 @@ After creating a cluster, you can:
 
 * [Change additional cluster settings](#change-additional-settings).
 
-* [Set the operation mode for the connection pooler](#change-pgbouncer-config).
+* [Set the operation mode for the connection pooler](#change-pooler-config).
+
+* [Manually switch the master in the cluster](#start-manual-failover).
+
+* [Change cluster security groups](#change-sg-set).
+
+{% note warning %}
+
+You can't change {{ PG }} server settings using SQL commands.
+
+{% endnote %}
 
 ## Change the host class {#change-resource-preset}
 
 {% list tabs %}
+
+- Management console
+
+  1. Go to the folder page and select **{{ mpg-name }}**.
+  1. Select the cluster and click **Edit cluster** in the top panel.
+  1. Under **Host class**, select the class for the {{ PG }} hosts.
+  1. Click **Save changes**.
 
 - CLI
 
@@ -66,6 +83,13 @@ After creating a cluster, you can:
 
 {% list tabs %}
 
+- Management console
+
+  1. Go to the folder page and select **{{ mpg-name }}**.
+  1. Select the cluster and click **Edit cluster** in the top panel.
+  1. Under **Storage size**, specify the required value.
+  1. Click **Save changes**.
+
 - CLI
 
   {% include [cli-install](../../_includes/cli-install.md) %}
@@ -75,7 +99,7 @@ After creating a cluster, you can:
   To increase the storage size for a cluster:
 
   
-  1. Make sure the required cluster is using network storage (it is not yet possible to increase the size of local storage). To do this, request information about the cluster and find the `disk_type_id` field: it should be set to `network-hdd` or `network-ssd`:
+  1. Make sure the required cluster uses network storage (it's currently not possible to increase the size of local storage). To do this, request information about the cluster and find the `disk_type_id` field: it should be set to `network-hdd` or `network-ssd`:
 
       ```
       $ {{ yc-mdb-pg }} cluster get <cluster name>
@@ -149,7 +173,7 @@ The settings you set manually will no longer change automatically. Exceptions ma
      $ {{ yc-mdb-pg }} cluster get <cluster name> --full
      ```
 
-  1. View the description of the CLI's update cluster configuration command:
+  1. View a description of the CLI's update cluster configuration command:
 
       ```
       $ {{ yc-mdb-pg }} cluster update-config --help
@@ -186,15 +210,49 @@ The settings you set manually will no longer change automatically. Exceptions ma
 
      {% include [mpg-extra-settings](../../_includes/mdb/mpg-extra-settings-web-console.md) %}
 
+- CLI
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  To change additional cluster settings:
+
+    1. View a description of the CLI's update cluster command:
+
+        ```bash
+        {{ yc-mdb-pg }} cluster update --help
+        ```
+
+    1. Run the command with a list of settings to update:
+
+        ```bash
+        {{ yc-mdb-pg }} cluster update <cluster name> \
+            --backup-window-start <backup start time> \
+            --datalens-access=<true or false> \
+            --maintenance-window type=<weekly or anytime> \
+            --websql-access=<true or false>
+        ```
+
+    You can change the following settings:
+
+    {% include [backup-window-start](../../_includes/mdb/cli-additional-settings/backup-window-start.md) %}
+    * `--datalens-access`: Enables DataLens access. Default value: `false`. For more information about how to connect to DataLens, see [{#T}](datalens-connect.md).
+
+    {% include [maintenance-window](../../_includes/mdb/cli-additional-settings/maintenance-window.md) %}
+    * `--websql-access`: Enables [SQL queries](web-sql-query.md) to be run from the management console. Default value: `false`.
+
+    You can get the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
 - API
 
   Use the [update](../api-ref/Cluster/update.md) API method and pass the required values in the `configSpec.access` and `configSpec.backupWindowStart` request parameters.
 
 {% endlist %}
 
-## Setting the operation mode for the connection pooler {#change-pgbouncer-config}
+## Setting the operation mode for the connection pooler {#change-pooler-config}
 
-You can set one of the modes described in the [PgBouncer documentation](https://pgbouncer.github.io/usage).
+You can set session mode or transaction mode for the connection pooler. For more information, see [{#T}](../concepts/pooling.md).
 
 {% list tabs %}
 
@@ -204,7 +262,7 @@ You can set one of the modes described in the [PgBouncer documentation](https://
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To change the PgBouncer operation mode:
+  To change the connection pooler's operation mode:
 
   1. View a description of the CLI's update cluster command:
 
@@ -216,7 +274,7 @@ You can set one of the modes described in the [PgBouncer documentation](https://
 
       ```
       $ {{ yc-mdb-pg }} cluster update <cluster name>
-           --connection-pooling-mode <SESSION, TRANSACTION or STATEMENT>
+           --connection-pooling-mode <SESSION or TRANSACTION>
       ```
 
       {{ mpg-short-name }} runs the operation to change the connection pooler mode.
@@ -226,4 +284,94 @@ You can set one of the modes described in the [PgBouncer documentation](https://
   You can change the connection pooler's operation mode for a cluster using the [update](../api-ref/Cluster/update.md) API method: pass the appropriate value in the `configSpec.poolerConfig.poolingMode` request parameter.
 
 {% endlist %}
+
+## Switching the master {#start-manual-failover}
+
+In a failover {{ PG }} cluster with multiple hosts, you can switch over the master role from the current master host to a replica host in the cluster. After this operation, the current master host becomes a replica host for the new master.
+
+Specifics of switching master hosts in {{  mpg-name }}
+
+1. You can't switch the master host over to a replica that explicitly specifies the source of the replication thread.
+1. If you don't specify the replica host name explicitly, the master host will switch over to a synchronous replica.
+
+For more information, see [{#T}](../concepts/replication.md).
+
+{% list tabs %}
+
+- Management console
+
+  To switch the master:
+  1. Go to the folder page and select **{{ mpg-name }}**.
+  1. Click on the name of the cluster you want and select the **Hosts** tab.
+  1. Click **![image](../../_assets/pencil.svg) Switching the master**.
+  1. To switch the master to a synchronous replica, leave the **Select master host automatically** option enabled.
+  1. To switch the master over to another replica, disable the **Select master host automatically** option and then select the desired replica from the drop-down list.
+  1. Click **Switch**.
+
+- CLI
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  To switch the master, run the command:
+
+  ```
+  $ {{ yc-mdb-pg }} cluster start-failover <cluster name> --host <replica host name>
+  ```
+
+  The replica host name can be requested with a [list of cluster hosts](hosts.md#list-hosts), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+- API
+
+  To switch the master, use the [startFailover](../api-ref/Cluster/startFailover.md) API method and pass the following in the request:
+  1. In the `clusterId` parameter, the ID of the cluster where you want to switch the master. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+  1. In the `hostName` parameter, the name of the replica host to switch to. To find out the name, request a [list of hosts in the cluster](hosts.md#list-hosts).
+
+{% endlist %}
+
+## Changing security groups {#change-sg-set}
+
+{% list tabs %}
+
+- Management console
+  1. Go to the folder page and select **{{ mpg-name }}**.
+  1. Select the cluster and click **Edit cluster** in the top panel.
+  1. Under **Network settings**, select security groups for cluster network traffic.
+
+- CLI
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  To edit the list of [security groups](../concepts/network.md#security-groups) for your cluster:
+
+  1. View a description of the CLI's update cluster command:
+
+      ```
+      $ {{ yc-mdb-pg }} cluster update --help
+      ```
+
+  1. Specify the security groups in the update cluster command:
+
+      ```
+      $ {{ yc-mdb-pg }} cluster update <cluster name>
+           --security-group-ids <list of security groups>
+      ```
+
+- API
+
+  To edit the list of cluster [security groups](../concepts/network.md#security-groups), use the `update` API method and pass the following in the request:
+  - The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
+  - The list of groups, in the `securityGroupIds` parameter.
+  - The list of settings to update, in the `updateMask` parameter. If this parameter is omitted, the API method resets any cluster settings that aren't explicitly specified in the request to their default values.
+
+{% endlist %}
+
+{% note warning %}
+
+You may need to additionally [set up the security groups](connect.md#configuring-security-groups) to connect to the cluster.
+
+{% endnote %}
 

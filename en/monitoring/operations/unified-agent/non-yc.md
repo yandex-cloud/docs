@@ -8,7 +8,7 @@ To configure {{unified-agent-full-name}} to deliver metrics using an authorized 
 
 1. Set up a service account from which metrics will be written to {{ monitoring-full-name }} and create an authorized key.
 
-   1. [Create a service account](../../../iam/operations/sa/create.md) in the folder you want to write metrics to and [assign it the](../../../iam/operations/sa/assign-role-for-sa.md) `editor` role.
+   1. [Create a service account](../../../iam/operations/sa/create.md) in the folder you want to write metrics to and [assign it the](../../../iam/operations/sa/assign-role-for-sa.md) `{{ roles-monitoring-editor }}` role.
 
    1. [Create an authorized key](../../../iam/operations/authorized-key/create.md) for your new service account using [YC CLI](../../../cli/quickstart.md), replacing `<SA_ID>` with your service account ID:
 

@@ -64,14 +64,14 @@ The request body contains the column parameters to be changed.
 
 | Parameter | Description | Data type |
 | -------- | -------- | ---------- |
-| name | Column name. | String. |
-| statuses | The array contains the keys of possible statuses of issues to be output in the column.<br/>A list of all issue statuses: [{{ link-admin-statuses }}]({{ link-admin-statuses }}) | Array. |
+| name | Column name. | String |
+| statuses | The array contains the keys of possible statuses of issues to be output in the column.<br/>A list of all issue statuses: [{{ link-admin-statuses }}]({{ link-admin-statuses }}) | Array |
 
 ## Response format {#section_rf4_nr4_qfb}
 
 {% list tabs %}
 
-- Successful execution of the request
+- Request executed successfully
 
     If the request is successful, the API returns a response with code 200. The response body contains a JSON object with all column parameters, including the updated ones.
 
@@ -97,25 +97,25 @@ The request body contains the column parameters to be changed.
 
     | Parameter | Description | Data type |
     | -------- | -------- | ---------- |
-    | self | Address of the API resource with information about the board column. | String. |
-    | id | Column ID. | Number. |
-    | name | Column name. | String. |
-    | [statuses](#statuses) | Array with the statuses of the issues included in the column. | Array. |
+    | self | Address of the API resource with information about the board column. | String |
+    | id | Column ID. | Number |
+    | name | Column name. | String |
+    | [statuses](#statuses) | Array with the statuses of the issues included in the column. | Array |
 
     **Object fields** `statuses` {#statuses}
 
     | Parameter | Description | Data type |
     | -------- | -------- | ---------- |
-    | self | Address of the API resource with information about the status. | String. |
-    | id | Status ID. | String. |
-    | key | Status key. | String. |
-    | display | Status name displayed. | String. |
+    | self | Address of the API resource with information about the status. | String |
+    | id | Status ID. | String |
+    | key | Status key. | String |
+    | display | Status name displayed. | String |
 
-- The request failed
+- Request failed
 
     If the request is processed incorrectly, the API returns a message with error details:
 
-    | HTTP code of the error | Error description |
+    | HTTP error code | Error description |
     | --------------- | --------------- |
     | 400 Bad Request | One of the request parameters has an invalid value or data format. |
     | 403 Forbidden | The user or application has no access rights to the resource, the request is rejected. |

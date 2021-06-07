@@ -56,14 +56,14 @@ The request body contains the issue parameters:
 
 | Parameter | Description | Data type |
 | -------- | -------- | ---------- |
-| duration | Time spent, in ```PnYnMnDTnHnMnS, PnW``` format, according to the [ISO 8601]({{ link-iso-8601 }}). | String. |
-| comment | Text of the comment to the record. The comment is saved to the Time Spent report. | String. |
+| duration | Time spent, in ```PnYnMnDTnHnMnS, PnW``` format, according to the [ISO 8601]({{ link-iso-8601 }}). | String |
+| comment | Text of the comment to the record. The comment is saved to the Time Spent report. | String |
 
 ## Response format {#section_gvv_tdl_gfb}
 
 {% list tabs %}
 
-- Successful execution of the request
+- Request executed successfully
 
     If the request is successful, the API returns a response with code 200. The response body contains a JSON object with an updated record of the time spent on the issue.
 
@@ -102,48 +102,48 @@ The request body contains the issue parameters:
 
     | Parameter | Description | Data type |
     | -------- | -------- | ---------- |
-    | self | Address of the API resource with a record of the time spent on the issue. | String. |
-    | id | ID of the record of time spent. | String. |
-    | version | Record version. Each change to the record increases its version number. | String. |
-    | [issue](#issue) | Block with information about the issue. | Object. |
-    | comment | Text of the comment to the record. The comment is saved to the Time Spent report. | String. |
-    | [createdBy](#createdBy) | Object with information about the user who added the record. | Object. |
-    | [updatedBy](#updatedBy) | Object with information about the user who edited the record. | Object. |
-    | createdAt | Record creation date and time in ```YYYY-MM-DDThh:mm:ss.sss±hhmm``` format | String. |
-    | updatedAt | Record update date and time in ```YYYY-MM-DDThh:mm:ss.sss±hhmm``` format | String. |
-    | start | Date and time when work on the issue started, in ```YYYY-MM-DDThh:mm:ss.sss±hhmm``` format | String. |
-    | duration | Time spent, in ```PnYnMnDTnHnMnS, PnW``` format, according to the [ISO 8601]({{ link-iso-8601 }}). | String. |
+    | self | Address of the API resource with a record of the time spent on the issue. | String |
+    | id | ID of the record of time spent. | String |
+    | version | Record version. Each change to the record increases its version number. | String |
+    | [issue](#issue) | Block with information about the issue. | Object |
+    | comment | Text of the comment to the record. The comment is saved to the Time Spent report. | String |
+    | [createdBy](#createdBy) | Object with information about the user who added the record. | Object |
+    | [updatedBy](#updatedBy) | Object with information about the user who edited the record. | Object |
+    | createdAt | Record creation date and time in ```YYYY-MM-DDThh:mm:ss.sss±hhmm``` format | String |
+    | updatedAt | Record update date and time in ```YYYY-MM-DDThh:mm:ss.sss±hhmm``` format | String |
+    | start | Date and time when work on the issue started, in ```YYYY-MM-DDThh:mm:ss.sss±hhmm``` format | String |
+    | duration | Time spent, in ```PnYnMnDTnHnMnS, PnW``` format, according to the [ISO 8601]({{ link-iso-8601 }}). | String |
 
     **Object fields** `issue` {#issue}
 
     | Parameter | Description | Data type |
     | -------- | -------- | ---------- |
-    | self | Address of the API resource with information about the issue. | String. |
-    | id | Issue ID. | String. |
-    | key | Issue key. | String. |
-    | display | Issue name displayed. | String. |
+    | self | Address of the API resource with information about the issue. | String |
+    | id | Issue ID. | String |
+    | key | Issue key. | String |
+    | display | Issue name displayed. | String |
 
     **Object fields** `createdBy` {#createdBy}
 
     | Parameter | Description | Data type |
     | -------- | -------- | ---------- |
-    | self | Address of the API resource with information about the user. | String. |
-    | id | User ID. | String. |
-    | display | User's name displayed. | String. |
+    | self | Address of the API resource with information about the user. | String |
+    | id | User ID. | String |
+    | display | User's name displayed. | String |
 
     **Object fields** `updatedBy` {#updatedBy}
 
     | Parameter | Description | Data type |
     | -------- | -------- | ---------- |
-    | self | Address of the API resource with information about the user. | String. |
-    | id | User ID. | String. |
-    | display | User's name displayed. | String. |
+    | self | Address of the API resource with information about the user. | String |
+    | id | User ID. | String |
+    | display | User's name displayed. | String |
 
-- The request failed
+- Request failed
 
     If the request is processed incorrectly, the API returns a message with error details:
 
-    | HTTP code of the error | Error description |
+    | HTTP error code | Error description |
     | --------------- | --------------- |
     | 400 Bad Request | One of the request parameters has an invalid value or data format. |
     | 403 Forbidden | The user or application has no access rights to the resource, the request is rejected. |

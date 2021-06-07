@@ -1,14 +1,14 @@
 # Questions about {{ PG }}
 
-#### How to import data to a {{ PG }} database cluster in {{ mpg-short-name }}? {#migrate}
+#### How do I import data to a {{ PG }} database cluster in {{ mpg-short-name }}? {#migrate}
 
 Use the `pg_dump` built-in tool to migrate data to a {{ PG }} cluster in {{ mpg-short-name }}.
 
 #### What {{ PG }} versions does {{ mpg-short-name }} support? {#supported-version}
 
-{{ mpg-short-name }} supports {{ PG }} 10, 11, and 12, as well as PostgreSQL 10 for 1C.
+{{ mpg-short-name }} supports {{ PG }} 10, 11, 12, and 13, as well as PostgreSQL 10 and 11 for 1C.
 
-#### Is DB cluster backup enabled by default? {#backup}
+#### Are DB cluster backups enabled by default? {#backup}
 
 Yes, backup is enabled by default. For {{ PG }} clusters, a full backup is performed once a day, saving all the database cluster transaction logs. This allows you to restore the cluster state to any point in time during the backup storage period, except for the last 30 seconds.
 

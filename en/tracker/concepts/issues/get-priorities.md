@@ -24,7 +24,7 @@ X-Org-Id: <organization ID>
 
 > Request for priorities:
 > 
-> - An HTTP GET method is used.
+> - Use the HTTP GET method.
 > 
 > ```
 > GET /v2/priorities HTTP/1.1
@@ -54,15 +54,15 @@ X-Org-Id: <organization ID>
 
 | Parameter | Description | Data type |
 | ----- | ----- | ----- |
-| self | Link to the object. | String. |
-| id | Priority ID. | Number. |
-| key | Priority key. | String. |
-| version | Priority version. | Number. |
-| name | Priority name displayed. If `localized=false` is passed in the request, this parameter duplicates the name in other languages. | String. |
-| order | Priority weight. This parameter affects the order of priority display in the interface. | Number. |
+| self | Link to the object. | String |
+| id | Priority ID. | Number |
+| key | Priority key. | String |
+| version | Priority version. | Number |
+| name | Priority name displayed. If `localized=false` is passed in the request, this parameter duplicates the name in other languages. | String |
+| order | Priority weight. This parameter affects the order of priority display in the interface. | Number |
 
 ## Possible response codes {#section_otf_jrj_p1b}
 
 200
-:   Successful execution of the request.
+:   Request executed successfully.
 

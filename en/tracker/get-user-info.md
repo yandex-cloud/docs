@@ -63,24 +63,24 @@ If the request is successful, the API returns a response with code 200. The resp
 
 | Parameter | Description | Data type |
 | -------- | -------- | ---------- |
-| self | Address of the API resource with information about the user account. | String. |
-| uid | Unique ID of the user account. | Number. |
-| login | Username of the user. | String. |
-| passportUid | Unique ID of the user's Yandex account. | Number. |
-| firstName | Username. | String. |
-| lastName | Last name of the user. | String. |
-| display | User's name displayed. | String. |
-| email | User's email address. | String. |
-| external | Service parameter. | Logical. |
-| hasLicense | Flag indicating whether the user has full access to {{ tracker-name }}:<ul><li>`true`: Full access.</li><li>`false`: Read-only access.</li></ul> | Logical. |
-| dismissed | User status in the organization:<ul><li>`true`: The user was dismissed.</li><li>`false`: The user is a current employee.</li></ul> | Logical. |
-| useNewFilters | Service parameter. | Logical. |
-| disableNotifications | Flag indicating whether user notifications are forced disabled:<ul><li>`true`: Disabled.</li><li>`false`: Enabled.</li></ul> | Logical. |
+| self | Address of the API resource with information about the user account. | String |
+| uid | Unique ID of the user account. | Number |
+| login | Username of the user. | String |
+| passportUid | Unique ID of the user's Yandex account. | Number |
+| firstName | Username. | String |
+| lastName | Last name of the user. | String |
+| display | User's name displayed. | String |
+| email | User's email address. | String |
+| external | Service parameter. | Boolean |
+| hasLicense | Flag indicating whether the user has full access to {{ tracker-name }}:<ul><li>`true`: Full access.</li><li>`false`: Read-only access.</li></ul> | Boolean |
+| dismissed | User status in the organization:<ul><li>`true`: The user was dismissed.</li><li>`false`: The user is a current employee.</li></ul> | Boolean |
+| useNewFilters | Service parameter. | Boolean |
+| disableNotifications | Flag indicating whether user notifications are forced disabled:<ul><li>`true`: Disabled.</li><li>`false`: Enabled.</li></ul> | Boolean |
 
 ## Possible response codes {#answer-codes}
 
 200
-:   Successful execution of the request.
+:   Request executed successfully.
 
 401
 :  The user isn't authorized. Make sure that actions described in [{#T}](concepts/access.md) are performed.

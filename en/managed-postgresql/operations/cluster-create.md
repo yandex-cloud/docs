@@ -1,6 +1,6 @@
 # Creating {{ PG }} clusters
 
-{{ PG }} clusters are one or more database hosts that replication can be configured between. Replication is enabled by default in any cluster consisting of more than one host: the master host accepts write requests, synchronously duplicates changes in the primary replica, and does it asynchronously in all the others.
+{{ PG }} clusters are one or more database hosts that replication can be configured between. Replication is enabled by default in any cluster consisting of more than one host: the master host accepts write requests, then duplicates changes synchronously in the primary replica and asynchronously in all the others.
 
 {% note info %}
 
@@ -31,14 +31,13 @@ By default, {{ mpg-short-name }} limits the maximum number of connections to eac
 
   1. Click **Create cluster**.
 
-  1. Enter the cluster name in the **Cluster name** field. The cluster name must be unique within {{ yandex-cloud }}.
+  1. Enter a name for the cluster in the **Cluster name** field. The cluster name must be unique within {{ yandex-cloud }}.
 
   1. Select the environment where you want to create the cluster (you can't change the environment once the cluster is created):
       - `PRODUCTION`: For stable versions of your apps.
       - `PRESTABLE`: For testing, including the {{ mpg-short-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
 
   1. Select the DBMS version.
-
      {% note info %}
 
      When using version `10-1c` ({{ PG }} 10 for 1C), to comfortably host 50 users, we recommend selecting the `s2.medium` host class. For 30 users and less, the `s2.small` class is probably going to be enough.
@@ -49,15 +48,24 @@ By default, {{ mpg-short-name }} limits the maximum number of connections to eac
 
   1. Under **Storage size**:
 
-      - Select the type of storage, either more flexible network storage (**network-hdd** or **network-ssd**) or faster local SSD storage (**local-ssd**). The size of local storage can only be changed in 100 GB increments.
+
+      - Select the type of storage, either a more flexible network type (**network-hdd** or **network-ssd**) or faster local SSD storage (**local-ssd**). The size of the local storage can only be changed in 100 GB increments.
+
       - Select the size to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
 
   1. Under **Database**, specify the database attributes:
+
       - Database name. This name must be unique within the folder and contain only Latin letters, numbers, and underscores.
+
       - Username of the database owner. This name may only contain Latin letters, numbers, and underscores. By default, the new user is assigned 50 connections to each host in the cluster.
+
       - User password (from 8 to 128 characters).
 
-      For the database created with the cluster, the character set and collate settings are specified as `LC_CTYPE=C` and `LC_COLLATE=C`. You can't change these settings after the database is created, but you can [create a new database](databases.md#add-the db) with the right settings.
+      - Locale for sorting and character set locale. These settings define the rules for sorting strings (`LC_COLLATE`) and classifying characters (`LC_CTYPE`). In {{ mpg-name }}, locale settings apply at the level of an individual database.
+
+           {% include [postgresql-locale](../../_includes/mdb/mpg-locale-settings.md) %}
+
+  1. Under **Network settings**, select the cloud network to host the cluster in and security groups for cluster network traffic. You may need to additionally [set up the security groups](connect.md#configuring-security-groups) to connect to the cluster.
 
   1. Under **Hosts**, select parameters for the database hosts created with the cluster (keep in mind that if you use SSDs when creating a {{ PG }} cluster, you must set at least three hosts). If you open **Advanced settings**, you can choose specific subnets for each host. By default, each host is created in a separate subnet.
 
@@ -75,6 +83,7 @@ By default, {{ mpg-short-name }} limits the maximum number of connections to eac
 
   To create a cluster:
 
+  
   1. Check whether the folder has any subnets for the cluster hosts:
 
      ```
@@ -83,7 +92,7 @@ By default, {{ mpg-short-name }} limits the maximum number of connections to eac
 
      If there are no subnets in the folder, [create the necessary subnets](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
 
-  1. View a description of the CLI's create cluster command:
+  1. View a description of the CLI create cluster command:
 
       ```
       $ {{ yc-mdb-pg }} cluster create --help
@@ -91,20 +100,34 @@ By default, {{ mpg-short-name }} limits the maximum number of connections to eac
 
   1. Specify the cluster parameters in the create command (only some of the supported parameters are given in the example):
 
-      
+  
       ```bash
       $ {{ yc-mdb-pg }} cluster create \
-           --name <cluster name> \
-           --environment <prestable or production> \
-           --network-name <network name> \
-           --host zone-id=<availability zone>,subnet-id=<subnet ID> \
-           --resource-preset <host class> \
-           --user name=<username>,password=<user password> \
-           --database name=<database name>,owner=<database owner name> \
-           --disk-size <storage size in GB>
+         --name <cluster name> \
+         --environment <prestable or production> \
+         --network-name <network name> \
+         --host zone-id=<availability zone>,subnet-id=<subnet ID> \
+         --resource-preset <host class> \
+         --user name=<username>,password=<user password> \
+         --database name=<database name>,owner=<database owner name> \
+         --disk-size <storage size in GB>
+         --security-group-ids <list of security group IDs>
       ```
+      
+      The `subnet-id` should be specified if the selected availability zone contains two or more subnets.
 
-      The subnet ID `subnet-id` should be specified if the selected availability zone contains two or more subnets.
+      You can also specify some additional options in the `--host` parameter to manage replication in the cluster:
+      - Replication source for the host in the `replication-source` option to [manually manage replication threads](../concepts/replication.md#replication-manual).
+      - Host priority in the `priority` option to [influence the selection of a synchronous replica](../concepts/replication.md#selecting-the-master-and-a-synchronous-replica):
+        - The host with the highest priority value in the cluster becomes the synchronous replica.
+        - If the cluster has multiple hosts with the highest priority, the synchronous replica is elected from among them. 
+        - The lowest priority value is `0` (default) and the highest is `100`.
+      
+      {% note warning %}
+      
+      When using the `--security-group-ids` option, you may need to [set up the security groups](connect.md#configuring-security-groups) to connect to the cluster.
+      
+      {% endnote %}  
 
 - Terraform
 
@@ -127,7 +150,7 @@ By default, {{ mpg-short-name }} limits the maximum number of connections to eac
        network_id  = "<network ID>"
      
        config {
-         version = "<PostgreSQL version: 10, 10-1c, 11 or 12>"
+         version = "<PostgreSQL version: 10, 10-1с, 11, 11-1c, 12, or 13>"
          resources {
            resource_preset_id = "<host class>"
            disk_type_id       = "<storage type>"
@@ -184,7 +207,7 @@ By default, {{ mpg-short-name }} limits the maximum number of connections to eac
 
 - CLI
 
-  To create a cluster with a single host, you should pass a single parameter, `--host`.
+  To create a cluster with a single host, you should pass a single `--host` parameter.
 
   Let's say we need to create a {{ PG }} cluster with the following characteristics:
 
@@ -216,12 +239,12 @@ By default, {{ mpg-short-name }} limits the maximum number of connections to eac
 
   Let's say we need to create a {{ PG }} cluster and a network for it with the following characteristics:
   - Named `mypg`.
-  - Version `12`.
+  - Version `13`.
   - In the `PRESTABLE` environment.
-  - In the cloud with ID `{{ tf-cloud-id }}`.
+  - In the cloud with the ID `{{ tf-cloud-id }}`.
   - In a folder named `myfolder`.
   - Network: `mynet`.
-  - With 1 `{{ host-class }}` class host in the new `mysubnet` subnet and `{{ zone-id }}` availability zone.The `mysubnet` subnet will have the range `10.5.0.0/24`.
+  - With 1 `{{ host-class }}` class host in the new `mysubnet` subnet and `{{ zone-id }}` availability zone. The `mysubnet` subnet will have the range `10.5.0.0/24`.
   - With 20 GB fast network storage (`{{ disk-type-example }}`).
   - With one user (`user1`) with the password `user1user1`.
   - With one `db1` database owned by the user `user1`.
@@ -242,7 +265,7 @@ By default, {{ mpg-short-name }} limits the maximum number of connections to eac
     network_id  = "${yandex_vpc_network.mynet.id}"
   
     config {
-      version = 12
+      version = 13
       resources {
         resource_preset_id = "{{ host-class }}"
         disk_type_id       = "{{ disk-type-example }}"

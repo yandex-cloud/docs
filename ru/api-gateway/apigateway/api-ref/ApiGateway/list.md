@@ -60,7 +60,7 @@ apiGateways[].<br>folderId | **string**<br><p>ID of the folder that the API gate
 apiGateways[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp for the API-gateway.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 apiGateways[].<br>name | **string**<br><p>Name of the API gateway. The name is unique within the folder.</p> 
 apiGateways[].<br>description | **string**<br><p>Description of the API gateway.</p> 
-apiGateways[].<br>labels | **object**<br><p>API gateway labels as `key:value` pairs.</p> 
+apiGateways[].<br>labels | **object**<br><p>API gateway labels as ``key:value`` pairs.</p> 
 apiGateways[].<br>status | **string**<br><p>Status of the API gateway.</p> <ul> <li>CREATING: API gateway is being created.</li> <li>ACTIVE: API gateway is ready for use.</li> <li>DELETING: API gateway is being deleted.</li> <li>ERROR: API gateway failed. The only allowed action is delete.</li> <li>UPDATING: API gateway is being updated.</li> </ul> 
 apiGateways[].<br>domain | **string**<br><p>Default domain for the API gateway. Generated at creation time.</p> 
 apiGateways[].<br>logGroupId | **string**<br><p>ID of the log group for the API gateway.</p> 
@@ -69,4 +69,4 @@ apiGateways[].<br>attachedDomains[].<br>domainId | **string**<br><p>ID of the do
 apiGateways[].<br>attachedDomains[].<br>certificateId | **string**<br><p>ID of the domain certificate.</p> 
 apiGateways[].<br>attachedDomains[].<br>enabled | **boolean** (boolean)<br><p>Enabling flag.</p> 
 apiGateways[].<br>attachedDomains[].<br>domain | **string**<br><p>Name of the domain.</p> 
-nextPageToken | **string**<br><p>Token for getting the next page of the list. If the number of results is greater than the specified <a href="/docs/functions/api-gateway/api-ref/ApiGateway/list#query_params">pageSize</a>, use `nextPageToken` as the value for the <a href="/docs/functions/api-gateway/api-ref/ApiGateway/list#query_params">pageToken</a> parameter in the next list request.</p> <p>Each subsequent page will have its own `nextPageToken` to continue paging through the results.</p> 
+nextPageToken | **string**<br><p>Token for getting the next page of the list. If the number of results is greater than the specified <a href="/docs/functions/api-gateway/api-ref/ApiGateway/list#query_params">pageSize</a>, use ``nextPageToken`` as the value for the <a href="/docs/functions/api-gateway/api-ref/ApiGateway/list#query_params">pageToken</a> parameter in the next list request.</p> <p>Each subsequent page will have its own ``nextPageToken`` to continue paging through the results.</p> 

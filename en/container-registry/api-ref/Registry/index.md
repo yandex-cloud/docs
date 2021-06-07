@@ -23,7 +23,7 @@ folderId | **string**<br><p>ID of the folder that the registry belongs to.</p>
 name | **string**<br><p>Name of the registry.</p> 
 status | **string**<br><p>Output only. Status of the registry.</p> <ul> <li>CREATING: Registry is being created.</li> <li>ACTIVE: Registry is ready to use.</li> <li>DELETING: Registry is being deleted.</li> </ul> 
 createdAt | **string** (date-time)<br><p>Output only. Creation timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
-labels | **object**<br><p>Resource labels as `key:value` pairs. Maximum of 64 per resource.</p> 
+labels | **object**<br><p>Resource labels as ``key:value`` pairs. Maximum of 64 per resource.</p> 
 
 ## Methods {#methods}
 Method | Description

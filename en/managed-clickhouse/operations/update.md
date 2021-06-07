@@ -181,11 +181,85 @@ After creating a cluster, you can:
 
   1. Click **Save changes**.
 
+- CLI
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  To change additional cluster settings:
+
+    1. View a description of the CLI's update cluster command:
+
+        ```bash
+        {{ yc-mdb-ch }} cluster update --help
+        ```
+
+    1. Run the command with a list of settings to update:
+
+        ```bash
+        {{ yc-mdb-ch }} cluster update <cluster name> \
+            --backup-window-start <backup start time> \
+            --datalens-access=<true or false> \
+            --maintenance-window type=<weekly or anytime> \
+            --metrika-access=<true or false> \
+            --websql-access=<true or false>
+        ```
+
+    You can change the following settings:
+
+    {% include [backup-window-start](../../_includes/mdb/cli-additional-settings/backup-window-start.md) %}
+    * `--datalens-access`: Enables DataLens access. Default value: `false`. For more information about how to connect to DataLens, see [{#T}](datalens-connect.md).
+
+    {% include [maintenance-window](../../_includes/mdb/cli-additional-settings/maintenance-window.md) %}
+
+    * `--metrika-access`: Enables the [import of AppMetrica data to a cluster](https://appmetrica.yandex.en/docs/cloud/index.html). Default value: `false`.
+
+    * `--websql-access`: Enables [SQL queries](web-sql-query.md) to be run from the management console. Default value: `false`.
+
+    You can get the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+- API
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  To change additional cluster settings:
+
+    1. View a description of the CLI's update cluster command:
+
+        ```bash
+        {{ yc-mdb-ch }} cluster update --help
+        ```
+
+    1. Run the command with a list of settings to update:
+
+        ```bash
+        {{ yc-mdb-ch }} cluster update <cluster name> \
+            --backup-window-start <backup start time> \
+            --datalens-access=<true or false> \
+            --maintenance-window type=<weekly or anytime> \
+            --metrika-access=<true or false> \
+            --websql-access=<true or false>
+        ```
+
+    You can change the following settings:
+
+    {% include [backup-window-start](../../_includes/mdb/cli-additional-settings/backup-window-start.md) %}
+    * `--datalens-access`: Enables DataLens access. Default value: `false`. For more information about how to connect to DataLens, see [{#T}](datalens-connect.md).
+
+    {% include [maintenance-window](../../_includes/mdb/cli-additional-settings/maintenance-window.md) %}
+
+    * `--metrika-access`: Enables the [import of AppMetrica data to a cluster](https://appmetrica.yandex.en/docs/cloud/index.html). Default value: `false`.
+
+    * `--websql-access`: Enables [SQL queries](web-sql-query.md) to be run from the management console. Default value: `false`.
+
+    You can get the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
 - API
 
   Use the [update](../api-ref/Cluster/update.md) API method and pass the required values in the `configSpec.access` and `configSpec.backupWindowStart` request parameters.
-
-  All supported settings are described [in the API reference](../api-ref/Cluster/update.md).
 
 {% endlist %}
 

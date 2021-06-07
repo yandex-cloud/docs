@@ -1,9 +1,8 @@
 # Creating an issue type
 
-
 {% note warning %}
 
-Only the company admin can create new issue types.
+Only the company admin can create new issue types. Once created, an issue type can't be deleted or edited.
 
 {% endnote %}
 
