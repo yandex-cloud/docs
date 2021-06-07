@@ -53,7 +53,7 @@ Field | Description
 --- | ---
 folderId | **string**<br><p>Required. The maximum string length in characters is 50.</p> 
 time | **string** (date-time)<br><p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
-name | **string**<br><p>Name of the alert.</p> <p>Value must match the regular expression `` \|<a href="%5B-a-z0-9%5D%7B0,61%7D%5Ba-z0-9%5D">a-z</a>? ``.</p> 
+name | **string**<br><p>Name of the alert.</p> <p>Value must match the regular expression ``\|[a-z]([-a-z0-9]{0,61}[a-z0-9])?``.</p> 
 description | **string**<br><p>Description of the alert.</p> <p>The maximum string length in characters is 256.</p> 
 status | **string**<br>Status of current alert.<br><ul> <li>STATUS_ACTIVE: Active.</li> <li>STATUS_INACTIVE: Muted.</li> <li>STATUS_DELETED: Deleted.</li> </ul> 
 window | **string**<br><p>Alert evaluation window in seconds.</p> 

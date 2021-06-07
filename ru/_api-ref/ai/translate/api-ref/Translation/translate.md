@@ -40,8 +40,8 @@ POST https://translate.api.cloud.yandex.net/translate/v2/translate
  
 Поле | Описание
 --- | ---
-sourceLanguageCode | **string**<br><p>Язык, на котором написан исходный текст. Указывается в формате <a href="https://en.wikipedia.org/wiki/ISO_639-1">ISO 639-1</a> (например, `` ru ``).</p> <p>Обязательно при переводе с глоссарием.</p> <p>Максимальная длина строки в символах — 3.</p> 
-targetLanguageCode | **string**<br><p>Обязательное поле. Язык, на который переводится текст. Указывается в формате <a href="https://en.wikipedia.org/wiki/ISO_639-1">ISO 639-1</a> (например, `` en ``).</p> <p>Максимальная длина строки в символах — 3.</p> 
+sourceLanguageCode | **string**<br><p>Язык, на котором написан исходный текст. Указывается в формате <a href="https://en.wikipedia.org/wiki/ISO_639-1">ISO 639-1</a> (например, ``ru``).</p> <p>Обязательно при переводе с глоссарием.</p> <p>Максимальная длина строки в символах — 3.</p> 
+targetLanguageCode | **string**<br><p>Обязательное поле. Язык, на который переводится текст. Указывается в формате <a href="https://en.wikipedia.org/wiki/ISO_639-1">ISO 639-1</a> (например, ``en``).</p> <p>Максимальная длина строки в символах — 3.</p> 
 format | **string**<br><p>Формат текста.</p> <ul> <li>PLAIN_TEXT: Текст без разметки. Значение по умолчанию.</li> <li>HTML: Текст в формате HTML.</li> </ul> 
 texts[] | **string**<br><p>Обязательное поле. Массив строк для перевода. Максимальная общая длина всех строк составляет 10000 символов.</p> <p>Должен содержать хотя бы один элемент.</p> 
 folderId | **string**<br><p>Идентификатор каталога, к которому у вас есть доступ. Требуется для авторизации с пользовательским аккаунтом (см. ресурс <a href="/docs/iam/api-ref/UserAccount#representation">UserAccount</a> ). Не используйте это поле, если вы делаете запрос от имени сервисного аккаунта.</p> <p>Максимальная длина строки в символах — 50.</p> 
@@ -71,4 +71,4 @@ glossaryConfig.<br>glossaryData.<br>glossaryPairs[].<br>translatedText | **strin
 --- | ---
 translations[] | **object**<br><p>Массив переводов.</p> 
 translations[].<br>text | **string**<br><p>Переведенный текст.</p> 
-translations[].<br>detectedLanguageCode | **string**<br><p>Код языка исходного текста. Указывается в формате <a href="https://en.wikipedia.org/wiki/ISO_639-1">ISO 639-1</a> (например, `` en ``).</p> 
+translations[].<br>detectedLanguageCode | **string**<br><p>Код языка исходного текста. Указывается в формате <a href="https://en.wikipedia.org/wiki/ISO_639-1">ISO 639-1</a> (например, ``en``).</p> 

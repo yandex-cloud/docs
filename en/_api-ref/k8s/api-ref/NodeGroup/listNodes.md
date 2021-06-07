@@ -88,13 +88,13 @@ nodes[].<br>spec.<br>resources.<br>cores | **string** (int64)<br><p>Number of co
 nodes[].<br>spec.<br>resources.<br>coreFraction | **string** (int64)<br><p>Baseline level of CPU performance with the possibility to burst performance above that baseline level. This field sets baseline performance for each core.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
 nodes[].<br>spec.<br>resources.<br>gpus | **string** (int64)<br><p>Number of GPUs available to the node.</p> <p>The minimum value is 0.</p> 
 nodes[].<br>spec.<br>disk | **object**<br><p>Node group specified disk.</p> 
-nodes[].<br>spec.<br>disk.<br>diskTypeId | **string**<br><p>ID of the disk type.</p> <p>Value must match the regular expression `` \|network-ssd\|network-hdd ``.</p> 
+nodes[].<br>spec.<br>disk.<br>diskTypeId | **string**<br><p>ID of the disk type.</p> <p>Value must match the regular expression ``\|network-ssd\|network-hdd``.</p> 
 nodes[].<br>spec.<br>disk.<br>diskSize | **string** (int64)<br><p>Size of the disk, specified in bytes.</p> <p>Acceptable values are 0 to 4398046511104, inclusive.</p> 
-nodes[].<br>cloudStatus | **object**<br><p>Cloud instance status. Not available in `MISSING` status.</p> <p>Cloud instance info</p> 
+nodes[].<br>cloudStatus | **object**<br><p>Cloud instance status. Not available in ``MISSING`` status.</p> <p>Cloud instance info</p> 
 nodes[].<br>cloudStatus.<br>id | **string**<br><p>Compute instance id</p> 
 nodes[].<br>cloudStatus.<br>status | **string**<br><p>IG instance status</p> 
 nodes[].<br>cloudStatus.<br>statusMessage | **string**<br><p>IG instance status message</p> 
-nodes[].<br>kubernetesStatus | **object**<br><p>Kubernetes node status. Not available in `PROVISIONING` and `NOT_CONNECTED` states.</p> <p>Kubernetes node info</p> 
+nodes[].<br>kubernetesStatus | **object**<br><p>Kubernetes node status. Not available in ``PROVISIONING`` and ``NOT_CONNECTED`` states.</p> <p>Kubernetes node info</p> 
 nodes[].<br>kubernetesStatus.<br>id | **string**<br><p>Node id (and instance name)</p> 
 nodes[].<br>kubernetesStatus.<br>conditions[] | **object**<br><p>Conditions is an array of current observed node conditions. More info: https://kubernetes.io/docs/concepts/nodes/node/#condition</p> 
 nodes[].<br>kubernetesStatus.<br>conditions[].<br>type | **string**<br><p>Type of node condition.</p> 
@@ -109,4 +109,4 @@ nodes[].<br>kubernetesStatus.<br>taints[].<br>effect | **string**<br><p>The effe
 nodes[].<br>kubernetesStatus.<br>attachedVolumes[] | **object**<br><p>AttachedVolume describes a volume attached to a node</p> 
 nodes[].<br>kubernetesStatus.<br>attachedVolumes[].<br>driverName | **string**<br><p>Name of the driver which has attached the volume</p> 
 nodes[].<br>kubernetesStatus.<br>attachedVolumes[].<br>volumeHandle | **string**<br><p>Volume handle (cloud disk id)</p> 
-nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/managed-kubernetes/api-ref/NodeGroup/listNodes#query_params">pageSize</a>, use the `next_page_token` as the value for the <a href="/docs/managed-kubernetes/api-ref/NodeGroup/listNodes#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results.</p> 
+nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/managed-kubernetes/api-ref/NodeGroup/listNodes#query_params">pageSize</a>, use the ``next_page_token`` as the value for the <a href="/docs/managed-kubernetes/api-ref/NodeGroup/listNodes#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own ``next_page_token`` to continue paging through the results.</p> 

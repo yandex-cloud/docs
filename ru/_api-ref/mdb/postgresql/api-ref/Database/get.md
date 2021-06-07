@@ -47,5 +47,5 @@ owner | **string**<br><p>Имя пользователя, назначенног
 lcCollate | **string**<br><p>POSIX-локаль для порядка сортировки строк. Может быть установлен только во время создания.</p> 
 lcCtype | **string**<br><p>POSIX-локаль для классификации символов. Может быть установлена только во время создания.</p> 
 extensions[] | **object**<br><p>Расширения PostgreSQL, включенные для базы данных.</p> 
-extensions[].<br>name | **string**<br><p>Имя расширения, например `pg_trgm` или `pg_btree`. Расширения, которые поддерживает Managed Service for PostgreSQL, <a href="/docs/managed-postgresql/operations/cluster-extensions">перечислены в документации</a>.</p> 
+extensions[].<br>name | **string**<br><p>Имя расширения, например ``pg_trgm`` или ``pg_btree``. Расширения, которые поддерживает Managed Service for PostgreSQL, <a href="/docs/managed-postgresql/operations/cluster-extensions">перечислены в документации</a>.</p> 
 extensions[].<br>version | **string**<br><p>Версия расширения.</p> 

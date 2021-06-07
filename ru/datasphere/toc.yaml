@@ -81,6 +81,20 @@ items:
         href: tutorials/markup.md
       - name: Классификация изображений на видеокадрах
         href: tutorials/video-recognition.md
+  - name: Справочник API (англ.)
+    items:
+        - name: Authentication
+          href: api-ref/authentication.md
+        - name: gRPC
+          items: null
+          include:
+            repo: docs
+            path: en/_api-ref-grpc/datasphere/toc.yaml
+        - name: REST
+          items: null
+          include:
+            repo: docs
+            path: en/_api-ref/datasphere/toc.yaml
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

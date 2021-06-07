@@ -56,9 +56,9 @@ dnsZones[].<br>folderId | **string**<br><p>Идентификатор катал
 dnsZones[].<br>createdAt | **string** (date-time)<br><p>Время создания ресурса.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
 dnsZones[].<br>name | **string**<br><p>Имя зоны DNS. Имя должно быть уникальным в каталоге.</p> 
 dnsZones[].<br>description | **string**<br><p>Описание зоны DNS.</p> 
-dnsZones[].<br>labels | **object**<br><p>Метки зон DNS в формате `key:value`.</p> 
+dnsZones[].<br>labels | **object**<br><p>Метки зон DNS в формате ``key:value``.</p> 
 dnsZones[].<br>zone | **string**<br><p>Суффикс зоны DNS.</p> 
 dnsZones[].<br>privateVisibility | **object**<br><p>Настройки внутренней зоны. Указывают, будут ли записи в зоне видны только из сетей VPC.</p> <p>Конфигурация для внутренних зон.</p> 
 dnsZones[].<br>privateVisibility.<br>networkIds[] | **string**<br><p>Идентификаторы сетей.</p> <p>Количество элементов должно находиться в диапазоне от 0 до 10. Длина строки в символах должна быть равна 20.</p> 
 dnsZones[].<br>publicVisibility | **object**<br><p>Настройки публичной зоны. Указывают, являются ли записи в пределах зоны публичными.</p> <p>Конфигурация для публичных зон.</p> 
-nextPageToken | **string**<br><p>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем <a href="/docs/dns/api-ref/DnsZone/list#query_params">pageSize</a>, используйте `next_page_token` в качестве значения параметра <a href="/docs/dns/api-ref/DnsZone/list#query_params">pageToken</a> в следующем запросе списка ресурсов.</p> <p>Каждая следующая страница будет иметь свой `next_page_token` для продолжения перебора страниц результатов.</p> 
+nextPageToken | **string**<br><p>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем <a href="/docs/dns/api-ref/DnsZone/list#query_params">pageSize</a>, используйте ``next_page_token`` в качестве значения параметра <a href="/docs/dns/api-ref/DnsZone/list#query_params">pageToken</a> в следующем запросе списка ресурсов.</p> <p>Каждая следующая страница будет иметь свой ``next_page_token`` для продолжения перебора страниц результатов.</p> 

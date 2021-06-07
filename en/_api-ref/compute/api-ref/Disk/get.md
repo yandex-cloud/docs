@@ -60,7 +60,7 @@ folderId | **string**<br><p>ID of the folder that the disk belongs to.</p>
 createdAt | **string** (date-time)<br><p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 name | **string**<br><p>Name of the disk. 1-63 characters long.</p> 
 description | **string**<br><p>Description of the disk. 0-256 characters long.</p> 
-labels | **object**<br><p>Resource labels as `key:value` pairs. Maximum of 64 per resource.</p> 
+labels | **object**<br><p>Resource labels as ``key:value`` pairs. Maximum of 64 per resource.</p> 
 typeId | **string**<br><p>ID of the disk type.</p> 
 zoneId | **string**<br><p>ID of the availability zone where the disk resides.</p> 
 size | **string** (int64)<br><p>Size of the disk, specified in bytes.</p> 

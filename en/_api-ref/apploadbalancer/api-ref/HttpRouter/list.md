@@ -174,7 +174,7 @@ httpRouters[].<br>id | **string**<br><p>Output only. ID of the router.</p>
 httpRouters[].<br>name | **string**<br><p>The name is unique within the folder. 3-63 characters long.</p> 
 httpRouters[].<br>description | **string**<br><p>Description of the router. 0-256 characters long.</p> 
 httpRouters[].<br>folderId | **string**<br><p>ID of the folder that the router belongs to.</p> 
-httpRouters[].<br>labels | **object**<br><p>Resource labels as `key:value` pairs. Maximum of 64 per resource.</p> 
+httpRouters[].<br>labels | **object**<br><p>Resource labels as ``key:value`` pairs. Maximum of 64 per resource.</p> 
 httpRouters[].<br>virtualHosts[] | **object**<br><p>Only one virtual host with no authority (default match) can be specified.</p> 
 httpRouters[].<br>virtualHosts[].<br>name | **string**<br><p>Required.</p> 
 httpRouters[].<br>virtualHosts[].<br>authority[] | **string**<br><p>A list of domains (host/authority header) that will be matched to this virtual host. Wildcard hosts are supported in the form of '<em>.foo.com' or '</em>-bar.foo.com'. If not specified, all domains will be matched.</p> 
@@ -195,7 +195,7 @@ httpRouters[].<br>virtualHosts[].<br>routes[].<br>http.<br>route.<br>upgradeType
 httpRouters[].<br>virtualHosts[].<br>routes[].<br>http.<br>route.<br>hostRewrite | **string** <br>`httpRouters[].virtualHosts[].routes[].http.route` includes only one of the fields `hostRewrite`, `autoHostRewrite`<br><br>
 httpRouters[].<br>virtualHosts[].<br>routes[].<br>http.<br>route.<br>autoHostRewrite | **boolean** (boolean) <br>`httpRouters[].virtualHosts[].routes[].http.route` includes only one of the fields `hostRewrite`, `autoHostRewrite`<br><br>
 httpRouters[].<br>virtualHosts[].<br>routes[].<br>http.<br>redirect | **object** <br>`httpRouters[].virtualHosts[].routes[].http` includes only one of the fields `route`, `redirect`, `directResponse`<br><br>
-httpRouters[].<br>virtualHosts[].<br>routes[].<br>http.<br>redirect.<br>replaceScheme | **string**<br><p>Replaces scheme. If the original scheme is `http` or `https`, will also remove the 80 or 443 port, if present.</p> 
+httpRouters[].<br>virtualHosts[].<br>routes[].<br>http.<br>redirect.<br>replaceScheme | **string**<br><p>Replaces scheme. If the original scheme is ``http`` or ``https``, will also remove the 80 or 443 port, if present.</p> 
 httpRouters[].<br>virtualHosts[].<br>routes[].<br>http.<br>redirect.<br>replaceHost | **string**<br><p>Replaces hostname.</p> 
 httpRouters[].<br>virtualHosts[].<br>routes[].<br>http.<br>redirect.<br>replacePort | **string** (int64)<br><p>Replaces port.</p> 
 httpRouters[].<br>virtualHosts[].<br>routes[].<br>http.<br>redirect.<br>removeQuery | **boolean** (boolean)<br><p>Remove query part.</p> 

@@ -42,4 +42,4 @@ storageTypes[] | **object**<br><p>Requested list of storage types.</p>
 storageTypes[].<br>id | **string**<br>
 storageTypes[].<br>deviceType | **string**<br>
 storageTypes[].<br>redundancyType | **string**<br>
-nextPageToken | **string**<br><p>This token allows you to get the next page of results for ListStorageTypes requests, if the number of results is larger than `page_size` specified in the request. To get the next page, specify the value of `next_page_token` as a value for the `page_token` parameter in the next ListStorageTypes request. Subsequent ListStorageTypes requests will have their own `next_page_token` to continue paging through the results.</p> 
+nextPageToken | **string**<br><p>This token allows you to get the next page of results for ListStorageTypes requests, if the number of results is larger than ``page_size`` specified in the request. To get the next page, specify the value of ``next_page_token`` as a value for the ``page_token`` parameter in the next ListStorageTypes request. Subsequent ListStorageTypes requests will have their own ``next_page_token`` to continue paging through the results.</p> 

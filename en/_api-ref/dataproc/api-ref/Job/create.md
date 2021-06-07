@@ -108,7 +108,7 @@ clusterId | Required. ID of the cluster to create a job for.  The maximum string
  
 Field | Description
 --- | ---
-name | **string**<br><p>Name of the job.</p> <p>Value must match the regular expression `` \|[a-z][-a-z0-9]{1,61}[a-z0-9] ``.</p> 
+name | **string**<br><p>Name of the job.</p> <p>Value must match the regular expression ``\|[a-z][-a-z0-9]{1,61}[a-z0-9]``.</p> 
 mapreduceJob | **object**<br>Specification for a MapReduce job. <br> includes only one of the fields `mapreduceJob`, `sparkJob`, `pysparkJob`, `hiveJob`<br><br>
 mapreduceJob.<br>args[] | **string**<br><p>Optional arguments to pass to the driver.</p> 
 mapreduceJob.<br>jarFileUris[] | **string**<br><p>JAR file URIs to add to CLASSPATH of the Data Proc driver and each task.</p> 
@@ -123,7 +123,7 @@ sparkJob.<br>jarFileUris[] | **string**<br><p>JAR file URIs to add to CLASSPATH 
 sparkJob.<br>fileUris[] | **string**<br><p>URIs of resource files to be copied to the working directory of Data Proc drivers and distributed Hadoop tasks.</p> 
 sparkJob.<br>archiveUris[] | **string**<br><p>URIs of archives to be extracted to the working directory of Data Proc drivers and tasks.</p> 
 sparkJob.<br>properties | **object**<br><p>Property names and values, used to configure Data Proc and Spark.</p> 
-sparkJob.<br>mainJarFileUri | **string**<br><p>The HCFS URI of the JAR file containing the `main` class for the job.</p> 
+sparkJob.<br>mainJarFileUri | **string**<br><p>The HCFS URI of the JAR file containing the ``main`` class for the job.</p> 
 sparkJob.<br>mainClass | **string**<br><p>The name of the driver class.</p> 
 pysparkJob | **object**<br>Specification for a PySpark job. <br> includes only one of the fields `mapreduceJob`, `sparkJob`, `pysparkJob`, `hiveJob`<br><br>
 pysparkJob.<br>args[] | **string**<br><p>Optional arguments to pass to the driver.</p> 
@@ -177,7 +177,7 @@ description | **string**<br><p>Description of the operation. 0-256 characters lo
 createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 createdBy | **string**<br><p>ID of the user or service account who initiated the operation.</p> 
 modifiedAt | **string** (date-time)<br><p>The time when the Operation resource was last modified.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
-done | **boolean** (boolean)<br><p>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available.</p> 
+done | **boolean** (boolean)<br><p>If the value is ``false``, it means the operation is still in progress. If ``true``, the operation is completed, and either ``error`` or ``response`` is available.</p> 
 metadata | **object**<br><p>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any.</p> 
 error | **object**<br>The error result of the operation in case of failure or cancellation. <br> includes only one of the fields `error`, `response`<br><br><p>The error result of the operation in case of failure or cancellation.</p> 
 error.<br>code | **integer** (int32)<br><p>Error code. An enum value of <a href="https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto">google.rpc.Code</a>.</p> 

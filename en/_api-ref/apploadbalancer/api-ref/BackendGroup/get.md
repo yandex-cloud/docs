@@ -164,7 +164,7 @@ id | **string**<br><p>Output only. ID of the backend group.</p>
 name | **string**<br><p>The name is unique within the folder. 3-63 characters long.</p> 
 description | **string**<br><p>Description of the backend group. 0-256 characters long.</p> 
 folderId | **string**<br><p>ID of the folder that the backend group belongs to.</p> 
-labels | **object**<br><p>Resource labels as `key:value` pairs. Maximum of 64 per resource.</p> 
+labels | **object**<br><p>Resource labels as ``key:value`` pairs. Maximum of 64 per resource.</p> 
 createdAt | **string** (date-time)<br><p>Creation timestamp for the backend group.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 http | **object** <br> includes only one of the fields `http`, `grpc`<br><br>
 http.<br>backends[] | **object**<br>

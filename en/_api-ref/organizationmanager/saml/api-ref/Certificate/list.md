@@ -46,7 +46,7 @@ Field | Description
 certificates[] | **object**<br><p>A certificate.</p> 
 certificates[].<br>id | **string**<br><p>Required. ID of the certificate.</p> <p>The maximum string length in characters is 50.</p> 
 certificates[].<br>federationId | **string**<br><p>Required. ID of the federation that the certificate belongs to.</p> <p>The maximum string length in characters is 50.</p> 
-certificates[].<br>name | **string**<br><p>Name of the certificate.</p> <p>Value must match the regular expression `` \|[a-z][-a-z0-9]{1,61}[a-z0-9] ``.</p> 
+certificates[].<br>name | **string**<br><p>Name of the certificate.</p> <p>Value must match the regular expression ``\|[a-z][-a-z0-9]{1,61}[a-z0-9]``.</p> 
 certificates[].<br>description | **string**<br><p>Description of the certificate.</p> <p>The maximum string length in characters is 256.</p> 
 certificates[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 certificates[].<br>data | **string**<br><p>Required. Certificate data in PEM format.</p> <p>The maximum string length in characters is 32000.</p> 

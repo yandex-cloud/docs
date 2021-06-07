@@ -36,8 +36,8 @@ validateOnly | **boolean** (boolean)<br><p>Checks whether you have the access re
 productId | **string**<br><p>Required. Marketplace Product's ID</p> <p>The maximum string length in characters is 50.</p> 
 usageRecords[] | **object**<br><p>Required. List of product usage records (up to 25 pet request)</p> <p>The number of elements must be in the range 1-25.</p> 
 usageRecords[].<br>uuid | **string**<br><p>Required. Unique identitifier of the usage record (UUID format)</p> <p>The maximum string length in characters is 36.</p> 
-usageRecords[].<br>skuId | **string**<br><p>Required. Consumed Marketplace SaaS Sku ID, linked to `UsageRecord.product_id`</p> <p>The maximum string length in characters is 50.</p> 
-usageRecords[].<br>quantity | **string** (int64)<br><p>Quantity of sku consumed, measured in `sku.usage_unit` units (e.g. bytes)</p> <p>Value must be greater than 0.</p> 
+usageRecords[].<br>skuId | **string**<br><p>Required. Consumed Marketplace SaaS Sku ID, linked to ``UsageRecord.product_id``</p> <p>The maximum string length in characters is 50.</p> 
+usageRecords[].<br>quantity | **string** (int64)<br><p>Quantity of sku consumed, measured in ``sku.usage_unit`` units (e.g. bytes)</p> <p>Value must be greater than 0.</p> 
 usageRecords[].<br>timestamp | **string** (date-time)<br><p>Required. Timestamp in UTC for which the usage is being reported</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
  
 ## Response {#responses}

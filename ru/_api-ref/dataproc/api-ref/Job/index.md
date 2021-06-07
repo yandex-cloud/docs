@@ -121,7 +121,7 @@ sparkJob.<br>jarFileUris[] | **string**<br><p>URI JAR-файлов, которы
 sparkJob.<br>fileUris[] | **string**<br><p>URI ресурсных файлов, которые копируются в рабочий каталог драйверов Data Proc и распределенных заданий Hadoop.</p> 
 sparkJob.<br>archiveUris[] | **string**<br><p>URI архивов, содержимое которых извлекается в рабочий каталог драйверов и каждого задания в рамках задачи.</p> 
 sparkJob.<br>properties | **object**<br><p>Имена и значения свойств, которые используются для настройки Data Proc и Spark.</p> 
-sparkJob.<br>mainJarFileUri | **string**<br><p>URI HCFS JAR-файла, содержащего класс `main` для задачи.</p> 
+sparkJob.<br>mainJarFileUri | **string**<br><p>URI HCFS JAR-файла, содержащего класс ``main`` для задачи.</p> 
 sparkJob.<br>mainClass | **string**<br><p>Имя класса драйвера.</p> 
 pysparkJob | **object** <br> включает только одно из полей `mapreduceJob`, `sparkJob`, `pysparkJob`, `hiveJob`<br><br>
 pysparkJob.<br>args[] | **string**<br><p>Необязательные аргументы, которые передаются драйверу.</p> 

@@ -292,15 +292,15 @@ deploymentSpec.<br>resources[] | **object**<br>
 deploymentSpec.<br>resources[].<br>name | **string**<br><p>Required.</p> 
 deploymentSpec.<br>resources[].<br>dependsOn[] | **string**<br>
 deploymentSpec.<br>resources[].<br>computeV1Instance | **object** <br>`deploymentSpec.resources[]` includes only one of the fields `computeV1Instance`, `computeV1Disk`, `computeV1Image`, `computeV1InstanceGroup`<br><br>
-deploymentSpec.<br>resources[].<br>computeV1Instance.<br>name | **string**<br><p>Required. Value must match the regular expression `` \|[a-z][-a-z0-9]{1,61}[a-z0-9] ``.</p> 
+deploymentSpec.<br>resources[].<br>computeV1Instance.<br>name | **string**<br><p>Required. Value must match the regular expression ``\|[a-z][-a-z0-9]{1,61}[a-z0-9]``.</p> 
 deploymentSpec.<br>resources[].<br>computeV1Instance.<br>description | **string**<br><p>The maximum string length in characters is 256.</p> 
-deploymentSpec.<br>resources[].<br>computeV1Instance.<br>labels | **object**<br><p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression `` [a-z][-_0-9a-z]* ``. The maximum string length in characters for each value is 63. Each value must match the regular expression `` [-_0-9a-z]* ``.</p> 
+deploymentSpec.<br>resources[].<br>computeV1Instance.<br>labels | **object**<br><p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_0-9a-z]*``.</p> 
 deploymentSpec.<br>resources[].<br>computeV1Instance.<br>zoneId | **string**<br><p>Required.</p> 
 deploymentSpec.<br>resources[].<br>computeV1Instance.<br>platformId | **string**<br><p>Required.</p> 
 deploymentSpec.<br>resources[].<br>computeV1Instance.<br>resources | **object**<br><p>Required.</p> 
 deploymentSpec.<br>resources[].<br>computeV1Instance.<br>resources.<br>memory | **string**<br><p>Required.</p> 
 deploymentSpec.<br>resources[].<br>computeV1Instance.<br>resources.<br>cores | **string**<br><p>Required.</p> 
-deploymentSpec.<br>resources[].<br>computeV1Instance.<br>metadata | **object**<br><p>No more than 128 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression `` [a-z][-_0-9a-z]* ``. The maximum string length in characters for each value is 262144.</p> 
+deploymentSpec.<br>resources[].<br>computeV1Instance.<br>metadata | **object**<br><p>No more than 128 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_0-9a-z]*``. The maximum string length in characters for each value is 262144.</p> 
 deploymentSpec.<br>resources[].<br>computeV1Instance.<br>bootDisk | **object**<br><p>Required.</p> 
 deploymentSpec.<br>resources[].<br>computeV1Instance.<br>bootDisk.<br>mode | **string**<br>Required.<br>
 deploymentSpec.<br>resources[].<br>computeV1Instance.<br>bootDisk.<br>deviceName | **string**<br>
@@ -311,7 +311,7 @@ deploymentSpec.<br>resources[].<br>computeV1Instance.<br>bootDisk.<br>diskSpec.<
 deploymentSpec.<br>resources[].<br>computeV1Instance.<br>bootDisk.<br>diskSpec.<br>typeId | **string**<br><p>Required.</p> 
 deploymentSpec.<br>resources[].<br>computeV1Instance.<br>bootDisk.<br>diskSpec.<br>zoneId | **string**<br>
 deploymentSpec.<br>resources[].<br>computeV1Instance.<br>bootDisk.<br>diskSpec.<br>size | **string**<br><p>Required.</p> 
-deploymentSpec.<br>resources[].<br>computeV1Instance.<br>bootDisk.<br>diskSpec.<br>labels | **object**<br><p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression `` [a-z][-_0-9a-z]* ``. The maximum string length in characters for each value is 63. Each value must match the regular expression `` [-_0-9a-z]* ``.</p> 
+deploymentSpec.<br>resources[].<br>computeV1Instance.<br>bootDisk.<br>diskSpec.<br>labels | **object**<br><p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_0-9a-z]*``.</p> 
 deploymentSpec.<br>resources[].<br>computeV1Instance.<br>bootDisk.<br>diskSpec.<br>sourceImageId | **string** <br>`deploymentSpec.resources[].computeV1Instance.bootDisk.diskSpec` includes only one of the fields `sourceImageId`, `sourceSnapshotId`<br><br>
 deploymentSpec.<br>resources[].<br>computeV1Instance.<br>bootDisk.<br>diskSpec.<br>sourceSnapshotId | **string** <br>`deploymentSpec.resources[].computeV1Instance.bootDisk.diskSpec` includes only one of the fields `sourceImageId`, `sourceSnapshotId`<br><br>
 deploymentSpec.<br>resources[].<br>computeV1Instance.<br>bootDisk.<br>diskId | **string** <br>`deploymentSpec.resources[].computeV1Instance.bootDisk` includes only one of the fields `diskSpec`, `diskId`<br><br>
@@ -325,7 +325,7 @@ deploymentSpec.<br>resources[].<br>computeV1Instance.<br>secondaryDisks[].<br>di
 deploymentSpec.<br>resources[].<br>computeV1Instance.<br>secondaryDisks[].<br>diskSpec.<br>typeId | **string**<br><p>Required.</p> 
 deploymentSpec.<br>resources[].<br>computeV1Instance.<br>secondaryDisks[].<br>diskSpec.<br>zoneId | **string**<br>
 deploymentSpec.<br>resources[].<br>computeV1Instance.<br>secondaryDisks[].<br>diskSpec.<br>size | **string**<br><p>Required.</p> 
-deploymentSpec.<br>resources[].<br>computeV1Instance.<br>secondaryDisks[].<br>diskSpec.<br>labels | **object**<br><p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression `` [a-z][-_0-9a-z]* ``. The maximum string length in characters for each value is 63. Each value must match the regular expression `` [-_0-9a-z]* ``.</p> 
+deploymentSpec.<br>resources[].<br>computeV1Instance.<br>secondaryDisks[].<br>diskSpec.<br>labels | **object**<br><p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_0-9a-z]*``.</p> 
 deploymentSpec.<br>resources[].<br>computeV1Instance.<br>secondaryDisks[].<br>diskSpec.<br>sourceImageId | **string** <br>`deploymentSpec.resources[].computeV1Instance.secondaryDisks[].diskSpec` includes only one of the fields `sourceImageId`, `sourceSnapshotId`<br><br>
 deploymentSpec.<br>resources[].<br>computeV1Instance.<br>secondaryDisks[].<br>diskSpec.<br>sourceSnapshotId | **string** <br>`deploymentSpec.resources[].computeV1Instance.secondaryDisks[].diskSpec` includes only one of the fields `sourceImageId`, `sourceSnapshotId`<br><br>
 deploymentSpec.<br>resources[].<br>computeV1Instance.<br>secondaryDisks[].<br>diskId | **string** <br>`deploymentSpec.resources[].computeV1Instance.secondaryDisks[]` includes only one of the fields `diskSpec`, `diskId`<br><br>
@@ -345,7 +345,7 @@ deploymentSpec.<br>resources[].<br>computeV1Disk.<br>description | **string**<br
 deploymentSpec.<br>resources[].<br>computeV1Disk.<br>typeId | **string**<br><p>Required.</p> 
 deploymentSpec.<br>resources[].<br>computeV1Disk.<br>zoneId | **string**<br>
 deploymentSpec.<br>resources[].<br>computeV1Disk.<br>size | **string**<br><p>Required.</p> 
-deploymentSpec.<br>resources[].<br>computeV1Disk.<br>labels | **object**<br><p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression `` [a-z][-_0-9a-z]* ``. The maximum string length in characters for each value is 63. Each value must match the regular expression `` [-_0-9a-z]* ``.</p> 
+deploymentSpec.<br>resources[].<br>computeV1Disk.<br>labels | **object**<br><p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_0-9a-z]*``.</p> 
 deploymentSpec.<br>resources[].<br>computeV1Disk.<br>sourceImageId | **string** <br>`deploymentSpec.resources[].computeV1Disk` includes only one of the fields `sourceImageId`, `sourceSnapshotId`<br><br>
 deploymentSpec.<br>resources[].<br>computeV1Disk.<br>sourceSnapshotId | **string** <br>`deploymentSpec.resources[].computeV1Disk` includes only one of the fields `sourceImageId`, `sourceSnapshotId`<br><br>
 deploymentSpec.<br>resources[].<br>computeV1Image | **object** <br>`deploymentSpec.resources[]` includes only one of the fields `computeV1Instance`, `computeV1Disk`, `computeV1Image`, `computeV1InstanceGroup`<br><br>
@@ -353,14 +353,14 @@ deploymentSpec.<br>resources[].<br>computeV1Image.<br>name | **string**<br>
 deploymentSpec.<br>resources[].<br>computeV1Image.<br>description | **string**<br><p>The maximum string length in characters is 256.</p> 
 deploymentSpec.<br>resources[].<br>computeV1Image.<br>family | **string**<br>
 deploymentSpec.<br>resources[].<br>computeV1Image.<br>minDiskSize | **string**<br>
-deploymentSpec.<br>resources[].<br>computeV1Image.<br>labels | **object**<br><p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression `` [a-z][-_0-9a-z]* ``. The maximum string length in characters for each value is 63. Each value must match the regular expression `` [-_0-9a-z]* ``.</p> 
+deploymentSpec.<br>resources[].<br>computeV1Image.<br>labels | **object**<br><p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_0-9a-z]*``.</p> 
 deploymentSpec.<br>resources[].<br>computeV1Image.<br>sourceDiskId | **string** <br>`deploymentSpec.resources[].computeV1Image` includes only one of the fields `sourceDiskId`, `sourceSnapshotId`, `sourceUri`<br><br>
 deploymentSpec.<br>resources[].<br>computeV1Image.<br>sourceSnapshotId | **string** <br>`deploymentSpec.resources[].computeV1Image` includes only one of the fields `sourceDiskId`, `sourceSnapshotId`, `sourceUri`<br><br>
 deploymentSpec.<br>resources[].<br>computeV1Image.<br>sourceUri | **string** <br>`deploymentSpec.resources[].computeV1Image` includes only one of the fields `sourceDiskId`, `sourceSnapshotId`, `sourceUri`<br><br>
 deploymentSpec.<br>resources[].<br>computeV1InstanceGroup | **object** <br>`deploymentSpec.resources[]` includes only one of the fields `computeV1Instance`, `computeV1Disk`, `computeV1Image`, `computeV1InstanceGroup`<br><br>
 deploymentSpec.<br>resources[].<br>computeV1InstanceGroup.<br>name | **string**<br><p>Required. The maximum string length in characters is 100.</p> 
 deploymentSpec.<br>resources[].<br>computeV1InstanceGroup.<br>description | **string**<br><p>The maximum string length in characters is 10000.</p> 
-deploymentSpec.<br>resources[].<br>computeV1InstanceGroup.<br>labels | **object**<br><p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression `` [a-z][-_0-9a-z]* ``. The maximum string length in characters for each value is 63. Each value must match the regular expression `` [-_0-9a-z]* ``.</p> 
+deploymentSpec.<br>resources[].<br>computeV1InstanceGroup.<br>labels | **object**<br><p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_0-9a-z]*``.</p> 
 deploymentSpec.<br>resources[].<br>computeV1InstanceGroup.<br>instanceTemplate | **object**<br><p>Required.</p> 
 deploymentSpec.<br>resources[].<br>computeV1InstanceGroup.<br>instanceTemplate.<br>description | **string**<br>
 deploymentSpec.<br>resources[].<br>computeV1InstanceGroup.<br>instanceTemplate.<br>labels | **object**<br>

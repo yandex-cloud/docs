@@ -44,5 +44,5 @@ jwt | **string** <br> включает только одно из полей `ya
  
 Поле | Описание
 --- | ---
-iamToken | **string**<br><p>IAM-токен для указанного субъекта.</p> <p>Передавайте токен в заголовке `Authorization` для дальнейших запросов к API. Например, `Authorization: Bearer [iam_token]`.</p> 
+iamToken | **string**<br><p>IAM-токен для указанного субъекта.</p> <p>Передавайте токен в заголовке ``Authorization`` для дальнейших запросов к API. Например, ``Authorization: Bearer [iam_token]``.</p> 
 expiresAt | **string** (date-time)<br><p>Время окончания действия IAM-токена.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 

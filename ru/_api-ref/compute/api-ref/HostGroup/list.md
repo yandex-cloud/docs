@@ -58,7 +58,7 @@ hostGroups[].<br>folderId | **string**<br><p>Идентификатор ката
 hostGroups[].<br>createdAt | **string** (date-time)<br><p>Время создания группы выделенных хостов в текстовом формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
 hostGroups[].<br>name | **string**<br><p>Имя группы выделенных хостов. Имя должно быть уникальным в каталоге.</p> 
 hostGroups[].<br>description | **string**<br><p>Описание группы выделенных хостов.</p> 
-hostGroups[].<br>labels | **object**<br><p>Метки ресурса в формате `ключ:значение`.</p> 
+hostGroups[].<br>labels | **object**<br><p>Метки ресурса в формате ``ключ:значение``.</p> 
 hostGroups[].<br>zoneId | **string**<br><p>Зона доступности, в которой размещены все выделенные хосты.</p> 
 hostGroups[].<br>status | **string**<br><p>Статус группы выделенных хостов.</p> 
 hostGroups[].<br>typeId | **string**<br><p>Идентификатор типа выделенного хоста. Ресурсы, предоставляемые каждым выделенным хостом группы.</p> 

@@ -63,7 +63,7 @@ versions[].<br>functionId | **string**<br><p>Идентификатор функ
 versions[].<br>description | **string**<br><p>Описание версии.</p> <p>Длина строки в символах должна быть от 0 до 256.</p> 
 versions[].<br>createdAt | **string** (date-time)<br><p>Время создания версии.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
 versions[].<br>runtime | **string**<br><p>Идентификатор среды выполнения для функции.</p> <p>Поддерживаемые среды и их идентификаторы перечислены в списке <a href="/docs/functions/concepts/runtime">Среда выполнения</a>.</p> 
-versions[].<br>entrypoint | **string**<br><p>Точка входа для функции: имя функции, вызываемой в качестве обработчика.</p> <p>Указывается в формате `<function file name>.<handler name>`, например, `index.myFunction`.</p> 
+versions[].<br>entrypoint | **string**<br><p>Точка входа для функции: имя функции, вызываемой в качестве обработчика.</p> <p>Указывается в формате ``&lt;function file name&gt;.&lt;handler name&gt;``, например, ``index.myFunction``.</p> 
 versions[].<br>resources | **object**<br><p>Ресурсы, выделенные для версии.</p> <p>Ресурсы, выделенные для версии.</p> 
 versions[].<br>resources.<br>memory | **string** (int64)<br><p>Объем памяти в байтах, доступный для версии.</p> <p>Допустимые значения — от 33554432 до 1073741824 включительно.</p> 
 versions[].<br>executionTimeout | **string**<br><p>Таймаут для выполнения версии.</p> <p>Если время ожидания будет превышено, Cloud Functions возвращает 504 HTTP-код.</p> 
@@ -73,4 +73,4 @@ versions[].<br>status | **string**<br><p>Состояние версии.</p> <u
 versions[].<br>tags[] | **string**<br><p>Теги версий. Подробнее см. в <a href="/docs/functions/concepts/function#tag">Тег версии</a>.</p> 
 versions[].<br>logGroupId | **string**<br><p>Идентификатор группы журналов выполнения для версии.</p> 
 versions[].<br>environment | **object**<br><p>Параметры среды выполнения для версии.</p> 
-nextPageToken | **string**<br><p>Токен для получения следующей страницы списка. Если количество результатов больше чем <a href="/docs/functions/functions/api-ref/Function/listVersions#query_params">pageSize</a>, используйте `nextPageToken` в качестве значения параметра <a href="/docs/functions/functions/api-ref/Function/listVersions#query_params">pageToken</a> в следующем запросе списка ресурсов.</p> <p>Все последующие запросы будут получать свои значения `nextPageToken` для перебора страниц результатов.</p> 
+nextPageToken | **string**<br><p>Токен для получения следующей страницы списка. Если количество результатов больше чем <a href="/docs/functions/functions/api-ref/Function/listVersions#query_params">pageSize</a>, используйте ``nextPageToken`` в качестве значения параметра <a href="/docs/functions/functions/api-ref/Function/listVersions#query_params">pageToken</a> в следующем запросе списка ресурсов.</p> <p>Все последующие запросы будут получать свои значения ``nextPageToken`` для перебора страниц результатов.</p> 

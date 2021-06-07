@@ -48,7 +48,7 @@ cellTowers[].<br>cellId | **string** (int64)<br><p>Обязательное по
 cellTowers[].<br>locationAreaCode | **string** (int64)<br><p>Обязательное поле.</p> <ul> <li>Для GSM и WCDMA — Location Area Code (<a href="https://en.wikipedia.org/wiki/Mobility_management#Location_area">LAC</a>).</li> <li>Для CDMA — Network ID (NID).</li> <li>Для LTE — <a href="https://en.wikipedia.org/wiki/Mobility_management#Tracking_area">Tracking Area Code</a>.</li> </ul> <p>Значение должно быть больше 0.</p> 
 cellTowers[].<br>signalStrength | **string** (int64)<br><p>Обязательное поле. Текущая сила сигнала в дБм.</p> <p>Значение должно быть меньше 0.</p> 
 wifiAccessPoints[] | **object**<br><p>Массив точек доступа WiFi, видимых устройству.</p> 
-wifiAccessPoints[].<br>bssid | **string**<br><p>Обязательное поле. MAC-адрес точки доступа WiFi. Обычно он называется BSS, BSSID или MAC-адресом.</p> <p>Значение - 12 шестнадцатеричных цифр без разделителей `:` (двоеточие).</p> <p>Значение должно соответствовать регулярному выражению `` [0-9a-fA-F]{12} ``.</p> 
+wifiAccessPoints[].<br>bssid | **string**<br><p>Обязательное поле. MAC-адрес точки доступа WiFi. Обычно он называется BSS, BSSID или MAC-адресом.</p> <p>Значение - 12 шестнадцатеричных цифр без разделителей ``:`` (двоеточие).</p> <p>Значение должно соответствовать регулярному выражению ``[0-9a-fA-F]{12}``.</p> 
 wifiAccessPoints[].<br>signalStrength | **string** (int64)<br><p>Обязательное поле. Текущая сила сигнала в дБм.</p> <p>Значение должно быть меньше 0.</p> 
 ip | **string**<br><p>IP-адрес в формате IPv4 или IPv6.</p> 
  

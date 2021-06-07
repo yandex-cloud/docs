@@ -44,4 +44,4 @@ name | **string**<br><p>Имя пользователя базы данных Mo
 clusterId | **string**<br><p>Идентификатор кластера MongoDB, к которому принадлежит пользователь.</p> 
 permissions[] | **object**<br><p>Набор разрешений, предоставленных пользователю.</p> 
 permissions[].<br>databaseName | **string**<br><p>Имя базы данных, к которой предоставляет доступ разрешение.</p> 
-permissions[].<br>roles[] | **string**<br><p>Роли MongoDB базы данных `databaseName`, которые предоставляет разрешение.</p> 
+permissions[].<br>roles[] | **string**<br><p>Роли MongoDB базы данных ``databaseName``, которые предоставляет разрешение.</p> 

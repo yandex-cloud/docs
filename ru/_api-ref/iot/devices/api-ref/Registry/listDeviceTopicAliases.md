@@ -44,8 +44,8 @@ pageToken | Токен страницы. Установите значение `
  
 Поле | Описание
 --- | ---
-aliases[] | **object**<br><p>Алиас топика устройства.</p> <p>Алиас — это альтернативное имя топика устройства, назначенное пользователем. Алиас сопоставляется со стандартным топиком, например `my/custom/alias` эквивалентен `$device/abcdef/events`. Дополнительные сведения см. в разделе <a href="/docs/iot-core/concepts/topic#aliases">Использование алиасов для топиков</a>.</p> 
+aliases[] | **object**<br><p>Алиас топика устройства.</p> <p>Алиас — это альтернативное имя топика устройства, назначенное пользователем. Алиас сопоставляется со стандартным топиком, например ``my/custom/alias`` эквивалентен ``$device/abcdef/events``. Дополнительные сведения см. в разделе <a href="/docs/iot-core/concepts/topic#aliases">Использование алиасов для топиков</a>.</p> 
 aliases[].<br>deviceId | **string**<br><p>Идентификатор устройства, которому принадлежит алиас.</p> 
-aliases[].<br>topicPrefix | **string**<br><p>Префикс алиаса стандартного топика устройства, например `$devices/abcdef`.</p> 
+aliases[].<br>topicPrefix | **string**<br><p>Префикс алиаса стандартного топика устройства, например ``$devices/abcdef``.</p> 
 aliases[].<br>alias | **string**<br><p>Алиас топика устройства.</p> 
-nextPageToken | **string**<br><p>Токен для получения следующей страницы списка. Если количество результатов больше чем <a href="/docs/iot-core/api-ref/Registry/listDeviceTopicAliases#query_params">pageSize</a>, используйте `next_page_token` в качестве значения параметра <a href="/docs/iot-core/api-ref/Registry/listDeviceTopicAliases#query_params">pageToken</a> в следующем запросе списка ресурсов.</p> <p>Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов.</p> 
+nextPageToken | **string**<br><p>Токен для получения следующей страницы списка. Если количество результатов больше чем <a href="/docs/iot-core/api-ref/Registry/listDeviceTopicAliases#query_params">pageSize</a>, используйте ``next_page_token`` в качестве значения параметра <a href="/docs/iot-core/api-ref/Registry/listDeviceTopicAliases#query_params">pageToken</a> в следующем запросе списка ресурсов.</p> <p>Все последующие запросы будут получать свои значения ``next_page_token`` для перебора страниц результатов.</p> 

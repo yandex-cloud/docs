@@ -42,6 +42,6 @@ Field | Description
 --- | ---
 metrics[] | **object**<br><p>List of metrics.</p> 
 metrics[].<br>name | **string**<br><p>Name of the metric.</p> 
-metrics[].<br>labels | **object**<br><p>Metric labels as `key:value` pairs.</p> 
+metrics[].<br>labels | **object**<br><p>Metric labels as ``key:value`` pairs.</p> 
 metrics[].<br>type | **string**<br><p>Type of the metric.</p> <ul> <li>DGAUGE: Gauge with fractional values.</li> <li>IGAUGE: Gauge with integer values.</li> <li>COUNTER: Counter.</li> <li>RATE: Rate.</li> </ul> 
 nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests.</p> 

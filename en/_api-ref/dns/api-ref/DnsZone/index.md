@@ -30,7 +30,7 @@ folderId | **string**<br><p>ID of the folder that the DNS zone belongs to.</p>
 createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 name | **string**<br><p>Name of the DNS zone. The name is unique within the folder.</p> 
 description | **string**<br><p>Description of the DNS zone.</p> 
-labels | **object**<br><p>DNS zone labels as `key:value` pairs.</p> 
+labels | **object**<br><p>DNS zone labels as ``key:value`` pairs.</p> 
 zone | **string**<br><p>DNS zone suffix.</p> 
 privateVisibility | **object**<br><p>Privately visible zone settings. Specifies whether records within the zone are visible from a VPC networks only.</p> <p>Configuration for privately visible zones.</p> 
 privateVisibility.<br>networkIds[] | **string**<br><p>Network IDs.</p> <p>The number of elements must be in the range 0-10. The string length in characters for each value must be equal to 20.</p> 

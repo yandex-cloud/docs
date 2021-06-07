@@ -2285,7 +2285,7 @@ clusters[].<br>folderId | **string**<br><p>Идентификатор катал
 clusters[].<br>createdAt | **string** (date-time)<br><p>Время создания в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> .</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
 clusters[].<br>name | **string**<br><p>Имя кластера PostgreSQL. Имя уникально в рамках каталога. Длина 1-63 символов.</p> 
 clusters[].<br>description | **string**<br><p>Описание кластера PostgreSQL. Длина описания должна быть от 0 до 256 символов.</p> 
-clusters[].<br>labels | **object**<br><p>Пользовательские метки для кластера PostgreSQL в виде пар `` key:value ``. Максимум 64 на ресурс.</p> 
+clusters[].<br>labels | **object**<br><p>Пользовательские метки для кластера PostgreSQL в виде пар ``key:value``. Максимум 64 на ресурс.</p> 
 clusters[].<br>environment | **string**<br><p>Среда развертывания для кластера PostgreSQL.</p> <ul> <li>PRODUCTION: Стабильная среда с осторожной политикой обновления: во время регулярного обслуживания применяются только срочные исправления.</li> <li>PRESTABLE: Среда с более агрессивной политикой обновления: новые версии развертываются независимо от обратной совместимости.</li> </ul> 
 clusters[].<br>monitoring[] | **object**<br><p>Система мониторинга.</p> 
 clusters[].<br>monitoring[].<br>name | **string**<br><p>Название системы мониторинга.</p> 
@@ -2295,7 +2295,7 @@ clusters[].<br>config | **object**<br><p>Конфигурация кластер
 clusters[].<br>config.<br>version | **string**<br><p>Версия серверного программного обеспечения PostgreSQL.</p> 
 clusters[].<br>config.<br>poolerConfig | **object**<br>Конфигурация менеджера соединений.<br>
 clusters[].<br>config.<br>poolerConfig.<br>poolingMode | **string**<br><p>Режим, в котором работает менеджер подключений. См. описание всех режимов в <a href="https://pgbouncer.github.io/usage">документации PgBouncer</a>.</p> <ul> <li>SESSION: Сессионный режим управления подключениями.</li> <li>TRANSACTION: Транзакционный режим управления подключениями.</li> <li>STATEMENT: Операторный режим управления подключениями.</li> </ul> 
-clusters[].<br>config.<br>poolerConfig.<br>poolDiscard | **boolean** (boolean)<br><p>Установка параметра `server_reset_query_always` в PgBouncer.</p> 
+clusters[].<br>config.<br>poolerConfig.<br>poolDiscard | **boolean** (boolean)<br><p>Установка параметра ``server_reset_query_always`` в PgBouncer.</p> 
 clusters[].<br>config.<br>resources | **object**<br>Ресурсы, выделенные хостам PostgreSQL.<br>
 clusters[].<br>config.<br>resources.<br>resourcePresetId | **string**<br><p>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в <a href="/docs/managed-postgresql/concepts/instance-types">документации</a>.</p> 
 clusters[].<br>config.<br>resources.<br>diskSize | **string** (int64)<br><p>Объем хранилища, доступного хосту, в байтах.</p> 
@@ -2310,7 +2310,7 @@ clusters[].<br>config.<br>access | **object**<br>Политика доступа
 clusters[].<br>config.<br>access.<br>dataLens | **boolean** (boolean)<br><p>Разрешить доступ для DataLens</p> 
 clusters[].<br>config.<br>access.<br>serverless | **boolean** (boolean)<br><p>Разрешить доступ для Serverless</p> 
 clusters[].<br>config.<br>postgresqlConfig_9_6 | **object**<br>Конфигурация сервера PostgreSQL 9.6. <br>`clusters[].config` включает только одно из полей `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`<br><br>
-clusters[].<br>config.<br>postgresqlConfig_9_6.<br>effectiveConfig | **object**<br><p>Обязательное поле. Действующие настройки для кластера PostgreSQL 9.6 (сочетание настроек, определенных в `userConfig` и `defaultConfig`).</p> <p>Поля и структура `PostgresqlConfig` отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в <a href="https://www.postgresql.org/docs/9.6/static/runtime-config">документации PostgreSQL</a>.</p> 
+clusters[].<br>config.<br>postgresqlConfig_9_6.<br>effectiveConfig | **object**<br><p>Обязательное поле. Действующие настройки для кластера PostgreSQL 9.6 (сочетание настроек, определенных в ``userConfig`` и ``defaultConfig``).</p> <p>Поля и структура ``PostgresqlConfig`` отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в <a href="https://www.postgresql.org/docs/9.6/static/runtime-config">документации PostgreSQL</a>.</p> 
 clusters[].<br>config.<br>postgresqlConfig_9_6.<br>effectiveConfig.<br>maxConnections | **integer** (int64)<br>
 clusters[].<br>config.<br>postgresqlConfig_9_6.<br>effectiveConfig.<br>sharedBuffers | **integer** (int64)<br>
 clusters[].<br>config.<br>postgresqlConfig_9_6.<br>effectiveConfig.<br>tempBuffers | **integer** (int64)<br>
@@ -2390,7 +2390,7 @@ clusters[].<br>config.<br>postgresqlConfig_9_6.<br>effectiveConfig.<br>autovacuu
 clusters[].<br>config.<br>postgresqlConfig_9_6.<br>effectiveConfig.<br>autovacuumNaptime | **integer** (int64)<br><p>Допустимые значения — от 1000 до 86400000 включительно.</p> 
 clusters[].<br>config.<br>postgresqlConfig_9_6.<br>effectiveConfig.<br>archiveTimeout | **integer** (int64)<br><p>Допустимые значения — от 10000 до 600000 включительно.</p> 
 clusters[].<br>config.<br>postgresqlConfig_9_6.<br>effectiveConfig.<br>trackActivityQuerySize | **integer** (int64)<br><p>Допустимые значения — от 100 до 102400 включительно.</p> 
-clusters[].<br>config.<br>postgresqlConfig_9_6.<br>userConfig | **object**<br><p>Пользовательские настройки для кластера PostgreSQL 9.6.</p> <p>Поля и структура `PostgresqlConfig` отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в <a href="https://www.postgresql.org/docs/9.6/static/runtime-config">документации PostgreSQL</a>.</p> 
+clusters[].<br>config.<br>postgresqlConfig_9_6.<br>userConfig | **object**<br><p>Пользовательские настройки для кластера PostgreSQL 9.6.</p> <p>Поля и структура ``PostgresqlConfig`` отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в <a href="https://www.postgresql.org/docs/9.6/static/runtime-config">документации PostgreSQL</a>.</p> 
 clusters[].<br>config.<br>postgresqlConfig_9_6.<br>userConfig.<br>maxConnections | **integer** (int64)<br>
 clusters[].<br>config.<br>postgresqlConfig_9_6.<br>userConfig.<br>sharedBuffers | **integer** (int64)<br>
 clusters[].<br>config.<br>postgresqlConfig_9_6.<br>userConfig.<br>tempBuffers | **integer** (int64)<br>
@@ -2470,7 +2470,7 @@ clusters[].<br>config.<br>postgresqlConfig_9_6.<br>userConfig.<br>autovacuumVacu
 clusters[].<br>config.<br>postgresqlConfig_9_6.<br>userConfig.<br>autovacuumNaptime | **integer** (int64)<br><p>Допустимые значения — от 1000 до 86400000 включительно.</p> 
 clusters[].<br>config.<br>postgresqlConfig_9_6.<br>userConfig.<br>archiveTimeout | **integer** (int64)<br><p>Допустимые значения — от 10000 до 600000 включительно.</p> 
 clusters[].<br>config.<br>postgresqlConfig_9_6.<br>userConfig.<br>trackActivityQuerySize | **integer** (int64)<br><p>Допустимые значения — от 100 до 102400 включительно.</p> 
-clusters[].<br>config.<br>postgresqlConfig_9_6.<br>defaultConfig | **object**<br><p>Конфигурация по умолчанию для кластера PostgreSQL 9.6.</p> <p>Поля и структура `PostgresqlConfig` отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в <a href="https://www.postgresql.org/docs/9.6/static/runtime-config">документации PostgreSQL</a>.</p> 
+clusters[].<br>config.<br>postgresqlConfig_9_6.<br>defaultConfig | **object**<br><p>Конфигурация по умолчанию для кластера PostgreSQL 9.6.</p> <p>Поля и структура ``PostgresqlConfig`` отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в <a href="https://www.postgresql.org/docs/9.6/static/runtime-config">документации PostgreSQL</a>.</p> 
 clusters[].<br>config.<br>postgresqlConfig_9_6.<br>defaultConfig.<br>maxConnections | **integer** (int64)<br>
 clusters[].<br>config.<br>postgresqlConfig_9_6.<br>defaultConfig.<br>sharedBuffers | **integer** (int64)<br>
 clusters[].<br>config.<br>postgresqlConfig_9_6.<br>defaultConfig.<br>tempBuffers | **integer** (int64)<br>
@@ -2551,7 +2551,7 @@ clusters[].<br>config.<br>postgresqlConfig_9_6.<br>defaultConfig.<br>autovacuumN
 clusters[].<br>config.<br>postgresqlConfig_9_6.<br>defaultConfig.<br>archiveTimeout | **integer** (int64)<br><p>Допустимые значения — от 10000 до 600000 включительно.</p> 
 clusters[].<br>config.<br>postgresqlConfig_9_6.<br>defaultConfig.<br>trackActivityQuerySize | **integer** (int64)<br><p>Допустимые значения — от 100 до 102400 включительно.</p> 
 clusters[].<br>config.<br>postgresqlConfig_10_1C | **object**<br>Конфигурация сервера PostgreSQL 10 1С. <br>`clusters[].config` включает только одно из полей `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`<br><br>
-clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>effectiveConfig | **object**<br><p>Обязательное поле. Действующие настройки для кластера PostgreSQL 10 1С (сочетание настроек, определенных в `userConfig` и `defaultConfig`).</p> <p>Поля и структура `PostgresqlConfig` отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в <a href="https://www.postgresql.org/docs/10/runtime-config.html">документации PostgreSQL</a>.</p> 
+clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>effectiveConfig | **object**<br><p>Обязательное поле. Действующие настройки для кластера PostgreSQL 10 1С (сочетание настроек, определенных в ``userConfig`` и ``defaultConfig``).</p> <p>Поля и структура ``PostgresqlConfig`` отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в <a href="https://www.postgresql.org/docs/10/runtime-config.html">документации PostgreSQL</a>.</p> 
 clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>effectiveConfig.<br>maxConnections | **integer** (int64)<br>
 clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>effectiveConfig.<br>sharedBuffers | **integer** (int64)<br>
 clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>effectiveConfig.<br>tempBuffers | **integer** (int64)<br>
@@ -2665,7 +2665,7 @@ clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>effectiveConfig.<br>pgHintP
 clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>effectiveConfig.<br>pgHintPlanMessageLevel | **string**<br>
 clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>effectiveConfig.<br>onlineAnalyzeEnable | **boolean** (boolean)<br>
 clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>effectiveConfig.<br>plantunerFixEmptyTable | **boolean** (boolean)<br>
-clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>userConfig | **object**<br><p>Пользовательские настройки для кластера PostgreSQL 10 1С.</p> <p>Поля и структура `PostgresqlConfig` отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в <a href="https://www.postgresql.org/docs/10/runtime-config.html">документации PostgreSQL</a>.</p> 
+clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>userConfig | **object**<br><p>Пользовательские настройки для кластера PostgreSQL 10 1С.</p> <p>Поля и структура ``PostgresqlConfig`` отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в <a href="https://www.postgresql.org/docs/10/runtime-config.html">документации PostgreSQL</a>.</p> 
 clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>userConfig.<br>maxConnections | **integer** (int64)<br>
 clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>userConfig.<br>sharedBuffers | **integer** (int64)<br>
 clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>userConfig.<br>tempBuffers | **integer** (int64)<br>
@@ -2779,7 +2779,7 @@ clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>userConfig.<br>pgHintPlanDe
 clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>userConfig.<br>pgHintPlanMessageLevel | **string**<br>
 clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>userConfig.<br>onlineAnalyzeEnable | **boolean** (boolean)<br>
 clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>userConfig.<br>plantunerFixEmptyTable | **boolean** (boolean)<br>
-clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>defaultConfig | **object**<br><p>Конфигурация по умолчанию для кластера PostgreSQL 10 1С.</p> <p>Поля и структура `PostgresqlConfig` отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в <a href="https://www.postgresql.org/docs/10/runtime-config.html">документации PostgreSQL</a>.</p> 
+clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>defaultConfig | **object**<br><p>Конфигурация по умолчанию для кластера PostgreSQL 10 1С.</p> <p>Поля и структура ``PostgresqlConfig`` отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в <a href="https://www.postgresql.org/docs/10/runtime-config.html">документации PostgreSQL</a>.</p> 
 clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>defaultConfig.<br>maxConnections | **integer** (int64)<br>
 clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>defaultConfig.<br>sharedBuffers | **integer** (int64)<br>
 clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>defaultConfig.<br>tempBuffers | **integer** (int64)<br>
@@ -2894,7 +2894,7 @@ clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>defaultConfig.<br>pgHintPla
 clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>defaultConfig.<br>onlineAnalyzeEnable | **boolean** (boolean)<br>
 clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>defaultConfig.<br>plantunerFixEmptyTable | **boolean** (boolean)<br>
 clusters[].<br>config.<br>postgresqlConfig_10 | **object**<br>Конфигурация сервера PostgreSQL 10. <br>`clusters[].config` включает только одно из полей `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`<br><br>
-clusters[].<br>config.<br>postgresqlConfig_10.<br>effectiveConfig | **object**<br><p>Обязательное поле. Действующие настройки для кластера PostgreSQL 10 (сочетание настроек, определенных в `userConfig` и `defaultConfig`).</p> <p>Поля и структура `PostgresqlConfig` отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в <a href="https://www.postgresql.org/docs/10/runtime-config.html">документации PostgreSQL</a>.</p> 
+clusters[].<br>config.<br>postgresqlConfig_10.<br>effectiveConfig | **object**<br><p>Обязательное поле. Действующие настройки для кластера PostgreSQL 10 (сочетание настроек, определенных в ``userConfig`` и ``defaultConfig``).</p> <p>Поля и структура ``PostgresqlConfig`` отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в <a href="https://www.postgresql.org/docs/10/runtime-config.html">документации PostgreSQL</a>.</p> 
 clusters[].<br>config.<br>postgresqlConfig_10.<br>effectiveConfig.<br>maxConnections | **integer** (int64)<br>
 clusters[].<br>config.<br>postgresqlConfig_10.<br>effectiveConfig.<br>sharedBuffers | **integer** (int64)<br>
 clusters[].<br>config.<br>postgresqlConfig_10.<br>effectiveConfig.<br>tempBuffers | **integer** (int64)<br>
@@ -2987,7 +2987,7 @@ clusters[].<br>config.<br>postgresqlConfig_10.<br>effectiveConfig.<br>enableTids
 clusters[].<br>config.<br>postgresqlConfig_10.<br>effectiveConfig.<br>maxWorkerProcesses | **integer** (int64)<br><p>Допустимые значения — от 0 до 1024 включительно.</p> 
 clusters[].<br>config.<br>postgresqlConfig_10.<br>effectiveConfig.<br>maxParallelWorkers | **integer** (int64)<br><p>Допустимые значения — от 0 до 1024 включительно.</p> 
 clusters[].<br>config.<br>postgresqlConfig_10.<br>effectiveConfig.<br>maxParallelWorkersPerGather | **integer** (int64)<br><p>Допустимые значения — от 0 до 1024 включительно.</p> 
-clusters[].<br>config.<br>postgresqlConfig_10.<br>userConfig | **object**<br><p>Пользовательские настройки для кластера PostgreSQL 10.</p> <p>Поля и структура `PostgresqlConfig` отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в <a href="https://www.postgresql.org/docs/10/runtime-config.html">документации PostgreSQL</a>.</p> 
+clusters[].<br>config.<br>postgresqlConfig_10.<br>userConfig | **object**<br><p>Пользовательские настройки для кластера PostgreSQL 10.</p> <p>Поля и структура ``PostgresqlConfig`` отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в <a href="https://www.postgresql.org/docs/10/runtime-config.html">документации PostgreSQL</a>.</p> 
 clusters[].<br>config.<br>postgresqlConfig_10.<br>userConfig.<br>maxConnections | **integer** (int64)<br>
 clusters[].<br>config.<br>postgresqlConfig_10.<br>userConfig.<br>sharedBuffers | **integer** (int64)<br>
 clusters[].<br>config.<br>postgresqlConfig_10.<br>userConfig.<br>tempBuffers | **integer** (int64)<br>
@@ -3080,7 +3080,7 @@ clusters[].<br>config.<br>postgresqlConfig_10.<br>userConfig.<br>enableTidscan |
 clusters[].<br>config.<br>postgresqlConfig_10.<br>userConfig.<br>maxWorkerProcesses | **integer** (int64)<br><p>Допустимые значения — от 0 до 1024 включительно.</p> 
 clusters[].<br>config.<br>postgresqlConfig_10.<br>userConfig.<br>maxParallelWorkers | **integer** (int64)<br><p>Допустимые значения — от 0 до 1024 включительно.</p> 
 clusters[].<br>config.<br>postgresqlConfig_10.<br>userConfig.<br>maxParallelWorkersPerGather | **integer** (int64)<br><p>Допустимые значения — от 0 до 1024 включительно.</p> 
-clusters[].<br>config.<br>postgresqlConfig_10.<br>defaultConfig | **object**<br><p>Конфигурация по умолчанию для кластера PostgreSQL 10.</p> <p>Поля и структура `PostgresqlConfig` отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в <a href="https://www.postgresql.org/docs/10/runtime-config.html">документации PostgreSQL</a>.</p> 
+clusters[].<br>config.<br>postgresqlConfig_10.<br>defaultConfig | **object**<br><p>Конфигурация по умолчанию для кластера PostgreSQL 10.</p> <p>Поля и структура ``PostgresqlConfig`` отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в <a href="https://www.postgresql.org/docs/10/runtime-config.html">документации PostgreSQL</a>.</p> 
 clusters[].<br>config.<br>postgresqlConfig_10.<br>defaultConfig.<br>maxConnections | **integer** (int64)<br>
 clusters[].<br>config.<br>postgresqlConfig_10.<br>defaultConfig.<br>sharedBuffers | **integer** (int64)<br>
 clusters[].<br>config.<br>postgresqlConfig_10.<br>defaultConfig.<br>tempBuffers | **integer** (int64)<br>
@@ -3174,7 +3174,7 @@ clusters[].<br>config.<br>postgresqlConfig_10.<br>defaultConfig.<br>maxWorkerPro
 clusters[].<br>config.<br>postgresqlConfig_10.<br>defaultConfig.<br>maxParallelWorkers | **integer** (int64)<br><p>Допустимые значения — от 0 до 1024 включительно.</p> 
 clusters[].<br>config.<br>postgresqlConfig_10.<br>defaultConfig.<br>maxParallelWorkersPerGather | **integer** (int64)<br><p>Допустимые значения — от 0 до 1024 включительно.</p> 
 clusters[].<br>config.<br>postgresqlConfig_11 | **object**<br>Конфигурация сервера PostgreSQL 11. <br>`clusters[].config` включает только одно из полей `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`<br><br>
-clusters[].<br>config.<br>postgresqlConfig_11.<br>effectiveConfig | **object**<br><p>Действующие настройки для кластера PostgreSQL 11 (сочетание настроек, определенных в `userConfig` и `defaultConfig`).</p> <p>Поля и структура `PostgresqlConfig` отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в <a href="https://www.postgresql.org/docs/11/runtime-config.html">документации PostgreSQL</a>.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11.<br>effectiveConfig | **object**<br><p>Действующие настройки для кластера PostgreSQL 11 (сочетание настроек, определенных в ``userConfig`` и ``defaultConfig``).</p> <p>Поля и структура ``PostgresqlConfig`` отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в <a href="https://www.postgresql.org/docs/11/runtime-config.html">документации PostgreSQL</a>.</p> 
 clusters[].<br>config.<br>postgresqlConfig_11.<br>effectiveConfig.<br>maxConnections | **integer** (int64)<br>
 clusters[].<br>config.<br>postgresqlConfig_11.<br>effectiveConfig.<br>sharedBuffers | **integer** (int64)<br>
 clusters[].<br>config.<br>postgresqlConfig_11.<br>effectiveConfig.<br>tempBuffers | **integer** (int64)<br>
@@ -3266,7 +3266,7 @@ clusters[].<br>config.<br>postgresqlConfig_11.<br>effectiveConfig.<br>enableTids
 clusters[].<br>config.<br>postgresqlConfig_11.<br>effectiveConfig.<br>maxWorkerProcesses | **integer** (int64)<br><p>Допустимые значения — от 0 до 1024 включительно.</p> 
 clusters[].<br>config.<br>postgresqlConfig_11.<br>effectiveConfig.<br>maxParallelWorkers | **integer** (int64)<br><p>Допустимые значения — от 0 до 1024 включительно.</p> 
 clusters[].<br>config.<br>postgresqlConfig_11.<br>effectiveConfig.<br>maxParallelWorkersPerGather | **integer** (int64)<br><p>Допустимые значения — от 0 до 1024 включительно.</p> 
-clusters[].<br>config.<br>postgresqlConfig_11.<br>userConfig | **object**<br><p>Пользовательские настройки для кластера PostgreSQL 11.</p> <p>Поля и структура `PostgresqlConfig` отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в <a href="https://www.postgresql.org/docs/11/runtime-config.html">документации PostgreSQL</a>.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11.<br>userConfig | **object**<br><p>Пользовательские настройки для кластера PostgreSQL 11.</p> <p>Поля и структура ``PostgresqlConfig`` отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в <a href="https://www.postgresql.org/docs/11/runtime-config.html">документации PostgreSQL</a>.</p> 
 clusters[].<br>config.<br>postgresqlConfig_11.<br>userConfig.<br>maxConnections | **integer** (int64)<br>
 clusters[].<br>config.<br>postgresqlConfig_11.<br>userConfig.<br>sharedBuffers | **integer** (int64)<br>
 clusters[].<br>config.<br>postgresqlConfig_11.<br>userConfig.<br>tempBuffers | **integer** (int64)<br>
@@ -3358,7 +3358,7 @@ clusters[].<br>config.<br>postgresqlConfig_11.<br>userConfig.<br>enableTidscan |
 clusters[].<br>config.<br>postgresqlConfig_11.<br>userConfig.<br>maxWorkerProcesses | **integer** (int64)<br><p>Допустимые значения — от 0 до 1024 включительно.</p> 
 clusters[].<br>config.<br>postgresqlConfig_11.<br>userConfig.<br>maxParallelWorkers | **integer** (int64)<br><p>Допустимые значения — от 0 до 1024 включительно.</p> 
 clusters[].<br>config.<br>postgresqlConfig_11.<br>userConfig.<br>maxParallelWorkersPerGather | **integer** (int64)<br><p>Допустимые значения — от 0 до 1024 включительно.</p> 
-clusters[].<br>config.<br>postgresqlConfig_11.<br>defaultConfig | **object**<br><p>Конфигурация по умолчанию для кластера PostgreSQL 11.</p> <p>Поля и структура `PostgresqlConfig` отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в <a href="https://www.postgresql.org/docs/11/runtime-config.html">документации PostgreSQL</a>.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11.<br>defaultConfig | **object**<br><p>Конфигурация по умолчанию для кластера PostgreSQL 11.</p> <p>Поля и структура ``PostgresqlConfig`` отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в <a href="https://www.postgresql.org/docs/11/runtime-config.html">документации PostgreSQL</a>.</p> 
 clusters[].<br>config.<br>postgresqlConfig_11.<br>defaultConfig.<br>maxConnections | **integer** (int64)<br>
 clusters[].<br>config.<br>postgresqlConfig_11.<br>defaultConfig.<br>sharedBuffers | **integer** (int64)<br>
 clusters[].<br>config.<br>postgresqlConfig_11.<br>defaultConfig.<br>tempBuffers | **integer** (int64)<br>
@@ -3451,7 +3451,7 @@ clusters[].<br>config.<br>postgresqlConfig_11.<br>defaultConfig.<br>maxWorkerPro
 clusters[].<br>config.<br>postgresqlConfig_11.<br>defaultConfig.<br>maxParallelWorkers | **integer** (int64)<br><p>Допустимые значения — от 0 до 1024 включительно.</p> 
 clusters[].<br>config.<br>postgresqlConfig_11.<br>defaultConfig.<br>maxParallelWorkersPerGather | **integer** (int64)<br><p>Допустимые значения — от 0 до 1024 включительно.</p> 
 clusters[].<br>config.<br>postgresqlConfig_11_1C | **object**<br>Конфигурация сервера PostgreSQL 11 1C. <br>`clusters[].config` включает только одно из полей `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`<br><br>
-clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig | **object**<br><p>Действующие настройки для кластера PostgreSQL 11 1C (сочетание настроек, определенных в `userConfig` и `defaultConfig`).</p> <p>Поля и структура `PostgresqlConfig` отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в <a href="https://www.postgresql.org/docs/11/runtime-config.html">документации PostgreSQL</a>.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig | **object**<br><p>Действующие настройки для кластера PostgreSQL 11 1C (сочетание настроек, определенных в ``userConfig`` и ``defaultConfig``).</p> <p>Поля и структура ``PostgresqlConfig`` отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в <a href="https://www.postgresql.org/docs/11/runtime-config.html">документации PostgreSQL</a>.</p> 
 clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>maxConnections | **integer** (int64)<br>
 clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>sharedBuffers | **integer** (int64)<br>
 clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>tempBuffers | **integer** (int64)<br>
@@ -3543,7 +3543,7 @@ clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>enableT
 clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>maxWorkerProcesses | **integer** (int64)<br><p>Допустимые значения — от 0 до 1024 включительно.</p> 
 clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>maxParallelWorkers | **integer** (int64)<br><p>Допустимые значения — от 0 до 1024 включительно.</p> 
 clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>maxParallelWorkersPerGather | **integer** (int64)<br><p>Допустимые значения — от 0 до 1024 включительно.</p> 
-clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig | **object**<br><p>Пользовательские настройки для кластера PostgreSQL 11 1C.</p> <p>Поля и структура `PostgresqlConfig` отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в <a href="https://www.postgresql.org/docs/11/runtime-config.html">документации PostgreSQL</a>.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig | **object**<br><p>Пользовательские настройки для кластера PostgreSQL 11 1C.</p> <p>Поля и структура ``PostgresqlConfig`` отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в <a href="https://www.postgresql.org/docs/11/runtime-config.html">документации PostgreSQL</a>.</p> 
 clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>maxConnections | **integer** (int64)<br>
 clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>sharedBuffers | **integer** (int64)<br>
 clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>tempBuffers | **integer** (int64)<br>
@@ -3635,7 +3635,7 @@ clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>enableTidsca
 clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>maxWorkerProcesses | **integer** (int64)<br><p>Допустимые значения — от 0 до 1024 включительно.</p> 
 clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>maxParallelWorkers | **integer** (int64)<br><p>Допустимые значения — от 0 до 1024 включительно.</p> 
 clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>maxParallelWorkersPerGather | **integer** (int64)<br><p>Допустимые значения — от 0 до 1024 включительно.</p> 
-clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig | **object**<br><p>Конфигурация по умолчанию для кластера PostgreSQL 11 1C.</p> <p>Поля и структура `PostgresqlConfig` отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в <a href="https://www.postgresql.org/docs/11/runtime-config.html">документации PostgreSQL</a>.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig | **object**<br><p>Конфигурация по умолчанию для кластера PostgreSQL 11 1C.</p> <p>Поля и структура ``PostgresqlConfig`` отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в <a href="https://www.postgresql.org/docs/11/runtime-config.html">документации PostgreSQL</a>.</p> 
 clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>maxConnections | **integer** (int64)<br>
 clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>sharedBuffers | **integer** (int64)<br>
 clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>tempBuffers | **integer** (int64)<br>
@@ -3728,7 +3728,7 @@ clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>maxWorker
 clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>maxParallelWorkers | **integer** (int64)<br><p>Допустимые значения — от 0 до 1024 включительно.</p> 
 clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>maxParallelWorkersPerGather | **integer** (int64)<br><p>Допустимые значения — от 0 до 1024 включительно.</p> 
 clusters[].<br>config.<br>postgresqlConfig_12 | **object**<br>Конфигурация сервера PostgreSQL 12. <br>`clusters[].config` включает только одно из полей `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`<br><br>
-clusters[].<br>config.<br>postgresqlConfig_12.<br>effectiveConfig | **object**<br><p>Действующие настройки для кластера PostgreSQL 12 (сочетание настроек, определенных в `userConfig` и `defaultConfig`).</p> <p>Поля и структура `PostgresqlConfig` отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в <a href="https://www.postgresql.org/docs/11/runtime-config.html">документации PostgreSQL</a>.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12.<br>effectiveConfig | **object**<br><p>Действующие настройки для кластера PostgreSQL 12 (сочетание настроек, определенных в ``userConfig`` и ``defaultConfig``).</p> <p>Поля и структура ``PostgresqlConfig`` отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в <a href="https://www.postgresql.org/docs/11/runtime-config.html">документации PostgreSQL</a>.</p> 
 clusters[].<br>config.<br>postgresqlConfig_12.<br>effectiveConfig.<br>maxConnections | **integer** (int64)<br>
 clusters[].<br>config.<br>postgresqlConfig_12.<br>effectiveConfig.<br>sharedBuffers | **integer** (int64)<br>
 clusters[].<br>config.<br>postgresqlConfig_12.<br>effectiveConfig.<br>tempBuffers | **integer** (int64)<br>
@@ -3850,7 +3850,7 @@ clusters[].<br>config.<br>postgresqlConfig_12.<br>effectiveConfig.<br>pgHintPlan
 clusters[].<br>config.<br>postgresqlConfig_12.<br>effectiveConfig.<br>pgHintPlanEnableHintTable | **boolean** (boolean)<br>
 clusters[].<br>config.<br>postgresqlConfig_12.<br>effectiveConfig.<br>pgHintPlanDebugPrint | **string**<br>
 clusters[].<br>config.<br>postgresqlConfig_12.<br>effectiveConfig.<br>pgHintPlanMessageLevel | **string**<br>
-clusters[].<br>config.<br>postgresqlConfig_12.<br>userConfig | **object**<br><p>Пользовательские настройки для кластера PostgreSQL 12.</p> <p>Поля и структура `PostgresqlConfig` отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в <a href="https://www.postgresql.org/docs/11/runtime-config.html">документации PostgreSQL</a>.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12.<br>userConfig | **object**<br><p>Пользовательские настройки для кластера PostgreSQL 12.</p> <p>Поля и структура ``PostgresqlConfig`` отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в <a href="https://www.postgresql.org/docs/11/runtime-config.html">документации PostgreSQL</a>.</p> 
 clusters[].<br>config.<br>postgresqlConfig_12.<br>userConfig.<br>maxConnections | **integer** (int64)<br>
 clusters[].<br>config.<br>postgresqlConfig_12.<br>userConfig.<br>sharedBuffers | **integer** (int64)<br>
 clusters[].<br>config.<br>postgresqlConfig_12.<br>userConfig.<br>tempBuffers | **integer** (int64)<br>
@@ -3972,7 +3972,7 @@ clusters[].<br>config.<br>postgresqlConfig_12.<br>userConfig.<br>pgHintPlanEnabl
 clusters[].<br>config.<br>postgresqlConfig_12.<br>userConfig.<br>pgHintPlanEnableHintTable | **boolean** (boolean)<br>
 clusters[].<br>config.<br>postgresqlConfig_12.<br>userConfig.<br>pgHintPlanDebugPrint | **string**<br>
 clusters[].<br>config.<br>postgresqlConfig_12.<br>userConfig.<br>pgHintPlanMessageLevel | **string**<br>
-clusters[].<br>config.<br>postgresqlConfig_12.<br>defaultConfig | **object**<br><p>Конфигурация по умолчанию для кластера PostgreSQL 12.</p> <p>Поля и структура `PostgresqlConfig` отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в <a href="https://www.postgresql.org/docs/11/runtime-config.html">документации PostgreSQL</a>.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12.<br>defaultConfig | **object**<br><p>Конфигурация по умолчанию для кластера PostgreSQL 12.</p> <p>Поля и структура ``PostgresqlConfig`` отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в <a href="https://www.postgresql.org/docs/11/runtime-config.html">документации PostgreSQL</a>.</p> 
 clusters[].<br>config.<br>postgresqlConfig_12.<br>defaultConfig.<br>maxConnections | **integer** (int64)<br>
 clusters[].<br>config.<br>postgresqlConfig_12.<br>defaultConfig.<br>sharedBuffers | **integer** (int64)<br>
 clusters[].<br>config.<br>postgresqlConfig_12.<br>defaultConfig.<br>tempBuffers | **integer** (int64)<br>
@@ -4095,7 +4095,7 @@ clusters[].<br>config.<br>postgresqlConfig_12.<br>defaultConfig.<br>pgHintPlanEn
 clusters[].<br>config.<br>postgresqlConfig_12.<br>defaultConfig.<br>pgHintPlanDebugPrint | **string**<br>
 clusters[].<br>config.<br>postgresqlConfig_12.<br>defaultConfig.<br>pgHintPlanMessageLevel | **string**<br>
 clusters[].<br>config.<br>postgresqlConfig_12_1C | **object**<br>Конфигурация сервера PostgreSQL 12 1C. <br>`clusters[].config` включает только одно из полей `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`<br><br>
-clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig | **object**<br><p>Действующие настройки для кластера PostgreSQL 12 1C (сочетание настроек, определенных в `userConfig` и `defaultConfig`).</p> <p>Поля и структура `PostgresqlConfig` отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в <a href="https://www.postgresql.org/docs/11/runtime-config.html">документации PostgreSQL</a>.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig | **object**<br><p>Действующие настройки для кластера PostgreSQL 12 1C (сочетание настроек, определенных в ``userConfig`` и ``defaultConfig``).</p> <p>Поля и структура ``PostgresqlConfig`` отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в <a href="https://www.postgresql.org/docs/11/runtime-config.html">документации PostgreSQL</a>.</p> 
 clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>maxConnections | **integer** (int64)<br>
 clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>sharedBuffers | **integer** (int64)<br>
 clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>tempBuffers | **integer** (int64)<br>
@@ -4217,7 +4217,7 @@ clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>pgHintP
 clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>pgHintPlanEnableHintTable | **boolean** (boolean)<br>
 clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>pgHintPlanDebugPrint | **string**<br>
 clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>pgHintPlanMessageLevel | **string**<br>
-clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig | **object**<br><p>Пользовательские настройки для кластера PostgreSQL 12 1C</p> <p>Поля и структура `PostgresqlConfig` отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в <a href="https://www.postgresql.org/docs/11/runtime-config.html">документации PostgreSQL</a>.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig | **object**<br><p>Пользовательские настройки для кластера PostgreSQL 12 1C</p> <p>Поля и структура ``PostgresqlConfig`` отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в <a href="https://www.postgresql.org/docs/11/runtime-config.html">документации PostgreSQL</a>.</p> 
 clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>maxConnections | **integer** (int64)<br>
 clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>sharedBuffers | **integer** (int64)<br>
 clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>tempBuffers | **integer** (int64)<br>
@@ -4339,7 +4339,7 @@ clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>pgHintPlanEn
 clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>pgHintPlanEnableHintTable | **boolean** (boolean)<br>
 clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>pgHintPlanDebugPrint | **string**<br>
 clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>pgHintPlanMessageLevel | **string**<br>
-clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig | **object**<br><p>Конфигурация по умолчанию для кластера PostgreSQL 12 1C.</p> <p>Поля и структура `PostgresqlConfig` отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в <a href="https://www.postgresql.org/docs/11/runtime-config.html">документации PostgreSQL</a>.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig | **object**<br><p>Конфигурация по умолчанию для кластера PostgreSQL 12 1C.</p> <p>Поля и структура ``PostgresqlConfig`` отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в <a href="https://www.postgresql.org/docs/11/runtime-config.html">документации PostgreSQL</a>.</p> 
 clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>maxConnections | **integer** (int64)<br>
 clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>sharedBuffers | **integer** (int64)<br>
 clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>tempBuffers | **integer** (int64)<br>
@@ -4462,6 +4462,6 @@ clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>pgHintPla
 clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>pgHintPlanDebugPrint | **string**<br>
 clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>pgHintPlanMessageLevel | **string**<br>
 clusters[].<br>networkId | **string**<br><p>Идентификатор сети, к которой принадлежит кластер.</p> 
-clusters[].<br>health | **string**<br><p>Агрегированная работоспособность кластера.</p> <ul> <li>HEALTH_UNKNOWN: Состояние кластера неизвестно (`health` для каждого хоста в кластере — UNKNOWN).</li> <li>ALIVE: Кластер работает нормально (`health` для каждого хоста в кластере — ALIVE).</li> <li>DEAD: Кластер не работает (`health` для каждого узла в кластере — DEAD).</li> <li>DEGRADED: Кластер работает неоптимально (`health` по крайней мере для одного узла в кластере не ALIVE).</li> </ul> 
+clusters[].<br>health | **string**<br><p>Агрегированная работоспособность кластера.</p> <ul> <li>HEALTH_UNKNOWN: Состояние кластера неизвестно (``health`` для каждого хоста в кластере — UNKNOWN).</li> <li>ALIVE: Кластер работает нормально (``health`` для каждого хоста в кластере — ALIVE).</li> <li>DEAD: Кластер не работает (``health`` для каждого узла в кластере — DEAD).</li> <li>DEGRADED: Кластер работает неоптимально (``health`` по крайней мере для одного узла в кластере не ALIVE).</li> </ul> 
 clusters[].<br>status | **string**<br><p>Текущее состояние кластера.</p> <ul> <li>STATUS_UNKNOWN: Состояние кластера неизвестно.</li> <li>CREATING: Кластер создается.</li> <li>RUNNING: Кластер работает нормально.</li> <li>ERROR: На кластере произошла ошибка, блокирующая работу.</li> <li>UPDATING: Кластер изменяется.</li> <li>STOPPING: Кластер останавливается.</li> <li>STOPPED: Кластер остановлен.</li> <li>STARTING: Кластер запускается.</li> </ul> 
 nextPageToken | **string**<br><p>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем <a href="/docs/managed-postgresql/api-ref/Cluster/list#query_params">pageSize</a>, используйте <a href="/docs/managed-postgresql/api-ref/Cluster/list#responses">nextPageToken</a> в качестве значения параметра <a href="/docs/managed-postgresql/api-ref/Cluster/list#query_params">pageToken</a> в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения <a href="/docs/managed-postgresql/api-ref/Cluster/list#responses">nextPageToken</a> для перебора страниц результатов.</p> 

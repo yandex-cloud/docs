@@ -51,6 +51,6 @@ networks[].<br>folderId | **string**<br><p>Идентификатор катал
 networks[].<br>createdAt | **string** (date-time)<br><p>Время создания ресурса в формате в <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
 networks[].<br>name | **string**<br><p>Имя облачной сети. Имя должно быть уникальным в каталоге. Длина имени должна быть от 3 до 63 символов.</p> 
 networks[].<br>description | **string**<br><p>Описание облачной сети. Длина описания должна быть от 0 до 256 символов.</p> 
-networks[].<br>labels | **object**<br><p>Метки ресурса в формате `` ключ:значение ``. Максимум 64 метки на ресурс.</p> 
+networks[].<br>labels | **object**<br><p>Метки ресурса в формате ``ключ:значение``. Максимум 64 метки на ресурс.</p> 
 networks[].<br>defaultSecurityGroupId | **string**<br><p>Идентификатор группы безопасности по умолчанию.</p> 
 nextPageToken | **string**<br><p>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем <a href="/docs/vpc/api-ref/Network/listSubnets#query_params">pageSize</a>, используйте <a href="/docs/vpc/api-ref/Network/list#responses">nextPageToken</a> в качестве значения параметра <a href="/docs/vpc/api-ref/Network/listSubnets#query_params">pageToken</a> в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения <a href="/docs/vpc/api-ref/Network/list#responses">nextPageToken</a>, для перебора страниц результатов.</p> 

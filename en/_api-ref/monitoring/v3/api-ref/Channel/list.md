@@ -68,7 +68,7 @@ channels[].<br>folderId | **string**<br><p>ID of the folder that the channel bel
 channels[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 channels[].<br>name | **string**<br><p>Name of the channel.</p> 
 channels[].<br>description | **string**<br><p>Description of the channel.</p> 
-channels[].<br>labels | **object**<br><p>Resource labels as `key:value` pairs.</p> 
+channels[].<br>labels | **object**<br><p>Resource labels as ``key:value`` pairs.</p> 
 channels[].<br>cloudEmail | **object**<br>E-Mail channel. <br>`channels[]` includes only one of the fields `cloudEmail`, `cloudSms`, `cloudMobilePush`<br><br>
 channels[].<br>cloudEmail.<br>recipients[] | **string**<br>
 channels[].<br>cloudSms | **object**<br>Sms channel. <br>`channels[]` includes only one of the fields `cloudEmail`, `cloudSms`, `cloudMobilePush`<br><br>

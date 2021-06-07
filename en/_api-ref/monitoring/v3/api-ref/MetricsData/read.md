@@ -43,7 +43,7 @@ fromTime | **string** (date-time)<br><p>Required. The beginning of the time inte
 toTime | **string** (date-time)<br><p>Required. The end of the time interval, in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 downsampling | **object**<br><p>Required. Downsampling parameters.</p> <p>List of available aggregate functions for downsampling.</p> 
 downsampling.<br>gridAggregation | **string**<br>Function that is used for downsampling.<br><p>List of available aggregate functions for downsampling.</p> <ul> <li>GRID_AGGREGATION_MAX: Max value.</li> <li>GRID_AGGREGATION_MIN: Min value.</li> <li>GRID_AGGREGATION_SUM: Sum of values.</li> <li>GRID_AGGREGATION_AVG: Average value.</li> <li>GRID_AGGREGATION_LAST: Last value.</li> <li>GRID_AGGREGATION_COUNT: Total count of points.</li> </ul> 
-downsampling.<br>gapFilling | **string**<br>Parameters for filling gaps in data.<br><p>List of available gap filling policy for downsampling.</p> <ul> <li>GAP_FILLING_NULL: Returns `null` as a metric value and `timestamp` as a time series value.</li> <li>GAP_FILLING_NONE: Returns no value and no timestamp.</li> <li>GAP_FILLING_PREVIOUS: Returns the value from the previous time interval.</li> </ul> 
+downsampling.<br>gapFilling | **string**<br>Parameters for filling gaps in data.<br><p>List of available gap filling policy for downsampling.</p> <ul> <li>GAP_FILLING_NULL: Returns ``null`` as a metric value and ``timestamp`` as a time series value.</li> <li>GAP_FILLING_NONE: Returns no value and no timestamp.</li> <li>GAP_FILLING_PREVIOUS: Returns the value from the previous time interval.</li> </ul> 
 downsampling.<br>maxPoints | **string** (int64) <br>`downsampling` includes only one of the fields `maxPoints`, `gridInterval`, `disabled`<br><br><p>Maximum number of points to be returned.</p> 
 downsampling.<br>gridInterval | **string** (int64) <br>`downsampling` includes only one of the fields `maxPoints`, `gridInterval`, `disabled`<br><br><p>Time interval (grid) for downsampling in milliseconds. Points in the specified range are aggregated into one time point.</p> 
 downsampling.<br>disabled | **boolean** (boolean) <br>`downsampling` includes only one of the fields `maxPoints`, `gridInterval`, `disabled`<br><br><p>Disable downsampling.</p> 
@@ -89,7 +89,7 @@ Field | Description
 metrics[] | **object**<br><p>List of metrics with timeseries.</p> 
 metrics[].<br>alias | **string**<br><p>Alias.</p> 
 metrics[].<br>name | **string**<br><p>Name of the metric.</p> 
-metrics[].<br>labels | **object**<br><p>List of metric labels as `key:value` pairs.</p> 
+metrics[].<br>labels | **object**<br><p>List of metric labels as ``key:value`` pairs.</p> 
 metrics[].<br>type | **string**<br><p>Type of the metric.</p> <ul> <li>DGAUGE: Gauge with fractional values.</li> <li>IGAUGE: Gauge with integer values.</li> <li>COUNTER: Counter.</li> <li>RATE: Rate.</li> </ul> 
 metrics[].<br>timeseries | **object**<br><p>Metric timeseries.</p> 
 metrics[].<br>timeseries.<br>timestamps[] | **string** (date-time)<br><p>List of timestamps.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 

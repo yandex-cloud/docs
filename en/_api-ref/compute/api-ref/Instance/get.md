@@ -146,7 +146,7 @@ folderId | **string**<br><p>ID of the folder that the instance belongs to.</p>
 createdAt | **string** (date-time)<br><p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 name | **string**<br><p>Name of the instance. 1-63 characters long.</p> 
 description | **string**<br><p>Description of the instance. 0-256 characters long.</p> 
-labels | **object**<br><p>Resource labels as `key:value` pairs. Maximum of 64 per resource.</p> 
+labels | **object**<br><p>Resource labels as ``key:value`` pairs. Maximum of 64 per resource.</p> 
 zoneId | **string**<br><p>ID of the availability zone where the instance resides.</p> 
 platformId | **string**<br><p>ID of the hardware platform configuration for the instance.</p> 
 resources | **object**<br><p>Computing resources of the instance such as the amount of memory and number of cores.</p> 
@@ -155,7 +155,7 @@ resources.<br>cores | **string** (int64)<br><p>The number of cores available to 
 resources.<br>coreFraction | **string** (int64)<br><p>Baseline level of CPU performance with the ability to burst performance above that baseline level. This field sets baseline performance for each core.</p> 
 resources.<br>gpus | **string** (int64)<br><p>The number of GPUs available to the instance.</p> 
 status | **string**<br><p>Status of the instance.</p> <ul> <li>PROVISIONING: Instance is waiting for resources to be allocated.</li> <li>RUNNING: Instance is running normally.</li> <li>STOPPING: Instance is being stopped.</li> <li>STOPPED: Instance stopped.</li> <li>STARTING: Instance is being started.</li> <li>RESTARTING: Instance is being restarted.</li> <li>UPDATING: Instance is being updated.</li> <li>ERROR: Instance encountered a problem and cannot operate.</li> <li>CRASHED: Instance crashed and will be restarted automatically.</li> <li>DELETING: Instance is being deleted.</li> </ul> 
-metadata | **object**<br><p>The metadata `key:value` pairs assigned to this instance. This includes custom metadata and predefined keys.</p> <p>For example, you may use the metadata in order to provide your public SSH key to the instance. For more information, see <a href="/docs/compute/concepts/vm-metadata">Metadata</a>.</p> 
+metadata | **object**<br><p>The metadata ``key:value`` pairs assigned to this instance. This includes custom metadata and predefined keys.</p> <p>For example, you may use the metadata in order to provide your public SSH key to the instance. For more information, see <a href="/docs/compute/concepts/vm-metadata">Metadata</a>.</p> 
 bootDisk | **object**<br><p>Boot disk that is attached to the instance.</p> 
 bootDisk.<br>mode | **string**<br><p>Access mode to the Disk resource.</p> <ul> <li>READ_ONLY: Read-only access.</li> <li>READ_WRITE: Read/Write access.</li> </ul> 
 bootDisk.<br>deviceName | **string**<br><p>Serial number that is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance.</p> <p>This value can be used to reference the device for mounting, resizing, and so on, from within the instance.</p> 
@@ -201,7 +201,7 @@ networkInterfaces[].<br>primaryV6Address.<br>dnsRecords[].<br>dnsZoneId | **stri
 networkInterfaces[].<br>primaryV6Address.<br>dnsRecords[].<br>ttl | **string** (int64)<br><p>DNS record ttl (optional, if not set, a reasonable default is used.)</p> 
 networkInterfaces[].<br>primaryV6Address.<br>dnsRecords[].<br>ptr | **boolean** (boolean)<br><p>When true, indicates there is a corresponding auto-created PTR DNS record.</p> 
 networkInterfaces[].<br>securityGroupIds[] | **string**<br><p>ID's of security groups attached to the interface</p> 
-fqdn | **string**<br><p>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.&lt;region_id&gt;.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`.</p> 
+fqdn | **string**<br><p>A domain name of the instance. FQDN is defined by the server in the format ``&lt;hostname&gt;.&lt;region_id&gt;.internal`` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be ``&lt;id&gt;.auto.internal``.</p> 
 schedulingPolicy | **object**<br><p>Scheduling policy configuration.</p> 
 schedulingPolicy.<br>preemptible | **boolean** (boolean)<br><p>True for short-lived compute instances. For more information, see <a href="/docs/compute/concepts/preemptible-vm">Preemptible VMs</a>.</p> 
 serviceAccountId | **string**<br><p>ID of the service account to use for <a href="/docs/compute/operations/vm-connect/auth-inside-vm">authentication inside the instance</a>. To get the service account ID, use a <a href="/docs/iam/api-ref/ServiceAccount/list">list</a> request.</p> 

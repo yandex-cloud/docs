@@ -42,7 +42,7 @@ folderId | **string**<br><p>ID of the folder that the channel belongs on.</p>
 createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 name | **string**<br><p>Name of the channel.</p> 
 description | **string**<br><p>Description of the channel.</p> 
-labels | **object**<br><p>Resource labels as `key:value` pairs.</p> 
+labels | **object**<br><p>Resource labels as ``key:value`` pairs.</p> 
 cloudEmail | **object** <br> includes only one of the fields `cloudEmail`, `cloudSms`, `cloudMobilePush`<br><br>
 cloudEmail.<br>recipients[] | **string**<br>
 cloudSms | **object** <br> includes only one of the fields `cloudEmail`, `cloudSms`, `cloudMobilePush`<br><br>

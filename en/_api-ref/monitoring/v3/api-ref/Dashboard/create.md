@@ -179,9 +179,9 @@ POST https://monitoring.api.cloud.yandex.net/monitoring/v3/dashboards
 Field | Description
 --- | ---
 folderId | **string**<br><p>Required. Required. Folder ID.</p> <p>The maximum string length in characters is 50.</p> 
-name | **string**<br><p>Required. Dashboard name.</p> <p>Value must match the regular expression `` \|<a href="%5B-a-z0-9%5D%7B0,61%7D%5Ba-z0-9%5D">a-z</a>? ``.</p> 
+name | **string**<br><p>Required. Dashboard name.</p> <p>Value must match the regular expression ``\|[a-z]([-a-z0-9]{0,61}[a-z0-9])?``.</p> 
 description | **string**<br><p>Dashboard description.</p> <p>The maximum string length in characters is 256.</p> 
-labels | **object**<br><p>Resource labels as `key:value` pairs.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression `` [a-z][-<em>./@0-9a-z]* ``. The maximum string length in characters for each value is 63. Each value must match the regular expression `` [-</em>./@0-9a-z]* ``.</p> 
+labels | **object**<br><p>Resource labels as ``key:value`` pairs.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_./\@0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_./\@0-9a-z]*``.</p> 
 title | **string**<br><p>Dashboard title.</p> 
 widgets[] | **object**<br><p>Widget.</p> 
 widgets[].<br>position | **object**<br>Required. Widget layout position.<br><p>Layout item for widget item positioning.</p> 
@@ -203,7 +203,7 @@ widgets[].<br>chart.<br>queries.<br>targets[].<br>textMode | **boolean** (boolea
 widgets[].<br>chart.<br>queries.<br>targets[].<br>hidden | **boolean** (boolean)<br><p>Checks that target is visible or invisible.</p> 
 widgets[].<br>chart.<br>queries.<br>downsampling | **object**<br><p>Required. Downsampling settings.</p> <p>List of available aggregate functions for downsampling.</p> 
 widgets[].<br>chart.<br>queries.<br>downsampling.<br>gridAggregation | **string**<br>Function that is used for downsampling.<br><p>List of available aggregate functions for downsampling.</p> <ul> <li>GRID_AGGREGATION_MAX: Max value.</li> <li>GRID_AGGREGATION_MIN: Min value.</li> <li>GRID_AGGREGATION_SUM: Sum of values.</li> <li>GRID_AGGREGATION_AVG: Average value.</li> <li>GRID_AGGREGATION_LAST: Last value.</li> <li>GRID_AGGREGATION_COUNT: Total count of points.</li> </ul> 
-widgets[].<br>chart.<br>queries.<br>downsampling.<br>gapFilling | **string**<br>Parameters for filling gaps in data.<br><p>List of available gap filling policy for downsampling.</p> <ul> <li>GAP_FILLING_NULL: Returns `null` as a metric value and `timestamp` as a time series value.</li> <li>GAP_FILLING_NONE: Returns no value and no timestamp.</li> <li>GAP_FILLING_PREVIOUS: Returns the value from the previous time interval.</li> </ul> 
+widgets[].<br>chart.<br>queries.<br>downsampling.<br>gapFilling | **string**<br>Parameters for filling gaps in data.<br><p>List of available gap filling policy for downsampling.</p> <ul> <li>GAP_FILLING_NULL: Returns ``null`` as a metric value and ``timestamp`` as a time series value.</li> <li>GAP_FILLING_NONE: Returns no value and no timestamp.</li> <li>GAP_FILLING_PREVIOUS: Returns the value from the previous time interval.</li> </ul> 
 widgets[].<br>chart.<br>queries.<br>downsampling.<br>maxPoints | **string** (int64) <br>`widgets[].chart.queries.downsampling` includes only one of the fields `maxPoints`, `gridInterval`, `disabled`<br><br><p>Maximum number of points to be returned.</p> 
 widgets[].<br>chart.<br>queries.<br>downsampling.<br>gridInterval | **string** (int64) <br>`widgets[].chart.queries.downsampling` includes only one of the fields `maxPoints`, `gridInterval`, `disabled`<br><br><p>Time interval (grid) for downsampling in milliseconds. Points in the specified range are aggregated into one time point.</p> 
 widgets[].<br>chart.<br>queries.<br>downsampling.<br>disabled | **boolean** (boolean) <br>`widgets[].chart.queries.downsampling` includes only one of the fields `maxPoints`, `gridInterval`, `disabled`<br><br><p>Disable downsampling.</p> 
@@ -311,7 +311,7 @@ description | **string**<br><p>Description of the operation. 0-256 characters lo
 createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 createdBy | **string**<br><p>ID of the user or service account who initiated the operation.</p> 
 modifiedAt | **string** (date-time)<br><p>The time when the Operation resource was last modified.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
-done | **boolean** (boolean)<br><p>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available.</p> 
+done | **boolean** (boolean)<br><p>If the value is ``false``, it means the operation is still in progress. If ``true``, the operation is completed, and either ``error`` or ``response`` is available.</p> 
 metadata | **object**<br><p>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any.</p> 
 error | **object**<br>The error result of the operation in case of failure or cancellation. <br> includes only one of the fields `error`, `response`<br><br><p>The error result of the operation in case of failure or cancellation.</p> 
 error.<br>code | **integer** (int32)<br><p>Error code. An enum value of <a href="https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto">google.rpc.Code</a>.</p> 

@@ -49,10 +49,10 @@ cellTowers[].<br>cellId | **string** (int64)<br><p>Required. Unique identifier o
 cellTowers[].<br>locationAreaCode | **string** (int64)<br><p>Required.</p> <ul> <li>For GSM and WCDMA - Location Area Code (<a href="https://en.wikipedia.org/wiki/Mobility_management#Location_area">LAC</a>).</li> <li>For CDMA - Network ID (NID).</li> <li>For LTE - <a href="https://en.wikipedia.org/wiki/Mobility_management#Tracking_area">Tracking Area Code</a>.</li> </ul> <p>Value must be greater than 0.</p> 
 cellTowers[].<br>signalStrength | **string** (int64)<br><p>Required. The current signal strength measured in dBm.</p> <p>Value must be less than 0.</p> 
 wifiAccessPoints[] | **object**<br><p>An array of visible WiFi access points around device.</p> 
-wifiAccessPoints[].<br>bssid | **string**<br><p>Required. The MAC address of the WiFi access point. It's typically called a BSS, BSSID or MAC address.</p> <p>The value is 12 hexadecimal digits without `:` (colon) separators.</p> <p>Value must match the regular expression `` [0-9a-fA-F]{12} ``.</p> 
+wifiAccessPoints[].<br>bssid | **string**<br><p>Required. The MAC address of the WiFi access point. It's typically called a BSS, BSSID or MAC address.</p> <p>The value is 12 hexadecimal digits without ``:`` (colon) separators.</p> <p>Value must match the regular expression ``[0-9a-fA-F]{12}``.</p> 
 wifiAccessPoints[].<br>signalStrength | **string** (int64)<br><p>Required. The current signal strength measured in dBm.</p> <p>Value must be less than 0.</p> 
 ip | **string**<br><p>User IP address in IPv4 or IPv6 format.</p> 
-uuid | **string**<br><p>Unique user identifier that can be used for debugging. May be empty.</p> <p>The maximum string length in characters is 64. Value must match the regular expression `` [A-Za-z0-9._-] ``.</p> 
+uuid | **string**<br><p>Unique user identifier that can be used for debugging. May be empty.</p> <p>The maximum string length in characters is 64. Value must match the regular expression ``[A-Za-z0-9._-]``.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

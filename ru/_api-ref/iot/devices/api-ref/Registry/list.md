@@ -50,7 +50,7 @@ registries[].<br>folderId | **string**<br><p>Идентификатор ката
 registries[].<br>createdAt | **string** (date-time)<br><p>Время создания.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
 registries[].<br>name | **string**<br><p>Название реестра. Имя уникально в рамках каталога.</p> 
 registries[].<br>description | **string**<br><p>Описание реестра. Длина описания должна быть от 0 до 256 символов.</p> 
-registries[].<br>labels | **object**<br><p>Метки группы размещения в формате `key:value`. Максимум 64 метки на ресурс.</p> 
+registries[].<br>labels | **object**<br><p>Метки группы размещения в формате ``key:value``. Максимум 64 метки на ресурс.</p> 
 registries[].<br>status | **string**<br><p>Статус реестра.</p> <ul> <li>CREATING: Реестр создается.</li> <li>ACTIVE: Реестр готов к использованию.</li> <li>DELETING: Реестр удаляется.</li> </ul> 
 registries[].<br>logGroupId | **string**<br><p>Идентификатор группы журналов для указанного реестра.</p> 
-nextPageToken | **string**<br><p>Токен для получения следующей страницы списка. Если количество результатов больше чем <a href="/docs/iot-core/api-ref/Registry/list#query_params">pageSize</a>, используйте `next_page_token` в качестве значения параметра <a href="/docs/iot-core/api-ref/Registry/list#query_params">pageToken</a> в следующем запросе списка ресурсов.</p> <p>Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов.</p> 
+nextPageToken | **string**<br><p>Токен для получения следующей страницы списка. Если количество результатов больше чем <a href="/docs/iot-core/api-ref/Registry/list#query_params">pageSize</a>, используйте ``next_page_token`` в качестве значения параметра <a href="/docs/iot-core/api-ref/Registry/list#query_params">pageToken</a> в следующем запросе списка ресурсов.</p> <p>Все последующие запросы будут получать свои значения ``next_page_token`` для перебора страниц результатов.</p> 

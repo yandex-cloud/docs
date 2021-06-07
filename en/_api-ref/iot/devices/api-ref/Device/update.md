@@ -32,10 +32,10 @@ deviceId | Required. ID of the device to update.  To get a device ID make a [lis
  
 Field | Description
 --- | ---
-updateMask | **string**<br><p>Field mask that specifies which fields of the device are going to be updated.</p> <p>A comma-separated names off ALL fields to be updated. Оnly the specified fields will be changed. The others will be left untouched. If the field is specified in `` updateMask `` and no value for that field was sent in the request, the field's value will be reset to the default. The default value for most fields is null or 0.</p> <p>If `` updateMask `` is not sent in the request, all fields' values will be updated. Fields specified in the request will be updated to provided values. The rest of the fields will be reset to the default.</p> 
-name | **string**<br><p>Name of the device. The name must be unique within the registry.</p> <p>The maximum string length in characters is 50. Value must match the regular expression `` [a-zA-Z0-9_-]* ``.</p> 
+updateMask | **string**<br><p>Field mask that specifies which fields of the device are going to be updated.</p> <p>A comma-separated names off ALL fields to be updated. Оnly the specified fields will be changed. The others will be left untouched. If the field is specified in ``updateMask`` and no value for that field was sent in the request, the field's value will be reset to the default. The default value for most fields is null or 0.</p> <p>If ``updateMask`` is not sent in the request, all fields' values will be updated. Fields specified in the request will be updated to provided values. The rest of the fields will be reset to the default.</p> 
+name | **string**<br><p>Name of the device. The name must be unique within the registry.</p> <p>The maximum string length in characters is 50. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
 description | **string**<br><p>Description of the device.</p> <p>The maximum string length in characters is 256.</p> 
-topicAliases | **object**<br><p>Alias of a device topic.</p> <p>Alias is an alternate name of a device topic assigned by the user. Map alias to canonical topic name prefix, e.g. `my/custom/alias` match to `$device/{id}/events`.</p> 
+topicAliases | **object**<br><p>Alias of a device topic.</p> <p>Alias is an alternate name of a device topic assigned by the user. Map alias to canonical topic name prefix, e.g. ``my/custom/alias`` match to ``$device/{id}/events``.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -72,7 +72,7 @@ description | **string**<br><p>Description of the operation. 0-256 characters lo
 createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 createdBy | **string**<br><p>ID of the user or service account who initiated the operation.</p> 
 modifiedAt | **string** (date-time)<br><p>The time when the Operation resource was last modified.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
-done | **boolean** (boolean)<br><p>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available.</p> 
+done | **boolean** (boolean)<br><p>If the value is ``false``, it means the operation is still in progress. If ``true``, the operation is completed, and either ``error`` or ``response`` is available.</p> 
 metadata | **object**<br><p>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any.</p> 
 error | **object**<br>The error result of the operation in case of failure or cancellation. <br> includes only one of the fields `error`, `response`<br><br><p>The error result of the operation in case of failure or cancellation.</p> 
 error.<br>code | **integer** (int32)<br><p>Error code. An enum value of <a href="https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto">google.rpc.Code</a>.</p> 

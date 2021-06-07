@@ -149,29 +149,29 @@ externalDictionary.<br>structure.<br>key.<br>attributes[].<br>name | **string**<
 externalDictionary.<br>structure.<br>key.<br>attributes[].<br>type | **string**<br><p>Required. Type of the column.</p> 
 externalDictionary.<br>structure.<br>key.<br>attributes[].<br>nullValue | **string**<br><p>Default value for an element without data (for example, an empty string).</p> 
 externalDictionary.<br>structure.<br>key.<br>attributes[].<br>expression | **string**<br><p>Expression, describing the attribute, if applicable.</p> 
-externalDictionary.<br>structure.<br>key.<br>attributes[].<br>hierarchical | **boolean** (boolean)<br><p>Indication of hierarchy support. Default value: `false`.</p> 
-externalDictionary.<br>structure.<br>key.<br>attributes[].<br>injective | **boolean** (boolean)<br><p>Indication of injective mapping &quot;id -&gt; attribute&quot;. Default value: `false`.</p> 
-externalDictionary.<br>structure.<br>rangeMin | **object**<br><p>Field holding the beginning of the range for dictionaries with `RANGE_HASHED` layout. For details, see <a href="https://clickhouse.yandex/docs/en/query_language/dicts/external_dicts_dict_layout/#range-hashed">ClickHouse documentation</a>.</p> 
+externalDictionary.<br>structure.<br>key.<br>attributes[].<br>hierarchical | **boolean** (boolean)<br><p>Indication of hierarchy support. Default value: ``false``.</p> 
+externalDictionary.<br>structure.<br>key.<br>attributes[].<br>injective | **boolean** (boolean)<br><p>Indication of injective mapping &quot;id -&gt; attribute&quot;. Default value: ``false``.</p> 
+externalDictionary.<br>structure.<br>rangeMin | **object**<br><p>Field holding the beginning of the range for dictionaries with ``RANGE_HASHED`` layout. For details, see <a href="https://clickhouse.yandex/docs/en/query_language/dicts/external_dicts_dict_layout/#range-hashed">ClickHouse documentation</a>.</p> 
 externalDictionary.<br>structure.<br>rangeMin.<br>name | **string**<br><p>Required. Name of the column.</p> 
 externalDictionary.<br>structure.<br>rangeMin.<br>type | **string**<br><p>Required. Type of the column.</p> 
 externalDictionary.<br>structure.<br>rangeMin.<br>nullValue | **string**<br><p>Default value for an element without data (for example, an empty string).</p> 
 externalDictionary.<br>structure.<br>rangeMin.<br>expression | **string**<br><p>Expression, describing the attribute, if applicable.</p> 
-externalDictionary.<br>structure.<br>rangeMin.<br>hierarchical | **boolean** (boolean)<br><p>Indication of hierarchy support. Default value: `false`.</p> 
-externalDictionary.<br>structure.<br>rangeMin.<br>injective | **boolean** (boolean)<br><p>Indication of injective mapping &quot;id -&gt; attribute&quot;. Default value: `false`.</p> 
-externalDictionary.<br>structure.<br>rangeMax | **object**<br><p>Field holding the end of the range for dictionaries with `RANGE_HASHED` layout. For details, see <a href="https://clickhouse.yandex/docs/en/query_language/dicts/external_dicts_dict_layout/#range-hashed">ClickHouse documentation</a>.</p> 
+externalDictionary.<br>structure.<br>rangeMin.<br>hierarchical | **boolean** (boolean)<br><p>Indication of hierarchy support. Default value: ``false``.</p> 
+externalDictionary.<br>structure.<br>rangeMin.<br>injective | **boolean** (boolean)<br><p>Indication of injective mapping &quot;id -&gt; attribute&quot;. Default value: ``false``.</p> 
+externalDictionary.<br>structure.<br>rangeMax | **object**<br><p>Field holding the end of the range for dictionaries with ``RANGE_HASHED`` layout. For details, see <a href="https://clickhouse.yandex/docs/en/query_language/dicts/external_dicts_dict_layout/#range-hashed">ClickHouse documentation</a>.</p> 
 externalDictionary.<br>structure.<br>rangeMax.<br>name | **string**<br><p>Required. Name of the column.</p> 
 externalDictionary.<br>structure.<br>rangeMax.<br>type | **string**<br><p>Required. Type of the column.</p> 
 externalDictionary.<br>structure.<br>rangeMax.<br>nullValue | **string**<br><p>Default value for an element without data (for example, an empty string).</p> 
 externalDictionary.<br>structure.<br>rangeMax.<br>expression | **string**<br><p>Expression, describing the attribute, if applicable.</p> 
-externalDictionary.<br>structure.<br>rangeMax.<br>hierarchical | **boolean** (boolean)<br><p>Indication of hierarchy support. Default value: `false`.</p> 
-externalDictionary.<br>structure.<br>rangeMax.<br>injective | **boolean** (boolean)<br><p>Indication of injective mapping &quot;id -&gt; attribute&quot;. Default value: `false`.</p> 
+externalDictionary.<br>structure.<br>rangeMax.<br>hierarchical | **boolean** (boolean)<br><p>Indication of hierarchy support. Default value: ``false``.</p> 
+externalDictionary.<br>structure.<br>rangeMax.<br>injective | **boolean** (boolean)<br><p>Indication of injective mapping &quot;id -&gt; attribute&quot;. Default value: ``false``.</p> 
 externalDictionary.<br>structure.<br>attributes[] | **object**<br><p>Required. Description of the fields available for database queries. For details, see <a href="https://clickhouse.yandex/docs/en/query_language/dicts/external_dicts_dict_structure/#attributes">ClickHouse documentation</a>.</p> <p>Must contain at least one element.</p> 
 externalDictionary.<br>structure.<br>attributes[].<br>name | **string**<br><p>Required. Name of the column.</p> 
 externalDictionary.<br>structure.<br>attributes[].<br>type | **string**<br><p>Required. Type of the column.</p> 
 externalDictionary.<br>structure.<br>attributes[].<br>nullValue | **string**<br><p>Default value for an element without data (for example, an empty string).</p> 
 externalDictionary.<br>structure.<br>attributes[].<br>expression | **string**<br><p>Expression, describing the attribute, if applicable.</p> 
-externalDictionary.<br>structure.<br>attributes[].<br>hierarchical | **boolean** (boolean)<br><p>Indication of hierarchy support. Default value: `false`.</p> 
-externalDictionary.<br>structure.<br>attributes[].<br>injective | **boolean** (boolean)<br><p>Indication of injective mapping &quot;id -&gt; attribute&quot;. Default value: `false`.</p> 
+externalDictionary.<br>structure.<br>attributes[].<br>hierarchical | **boolean** (boolean)<br><p>Indication of hierarchy support. Default value: ``false``.</p> 
+externalDictionary.<br>structure.<br>attributes[].<br>injective | **boolean** (boolean)<br><p>Indication of injective mapping &quot;id -&gt; attribute&quot;. Default value: ``false``.</p> 
 externalDictionary.<br>layout | **object**<br>Required. Layout for storing the dictionary in memory. For in-depth description, see [ClickHouse documentation](https://clickhouse.yandex/docs/en/query_language/dicts/external_dicts_dict_layout/).<br><p>Layout determining how to store the dictionary in memory.</p> 
 externalDictionary.<br>layout.<br>type | **string**<br><p>Required. Layout type for an external dictionary.</p> <ul> <li>FLAT: The entire dictionary is stored in memory in the form of flat arrays. Available for all dictionary sources.</li> <li>HASHED: The entire dictionary is stored in memory in the form of a hash table. Available for all dictionary sources.</li> <li>COMPLEX_KEY_HASHED: Similar to HASHED, to be used with composite keys. Available for all dictionary sources.</li> <li>RANGE_HASHED: The entire dictionary is stored in memory in the form of a hash table, with an ordered array of ranges and their corresponding values. Available for all dictionary sources.</li> <li>CACHE: The dictionary is stored in a cache with a set number of cells. Available for MySQL, ClickHouse and HTTP dictionary sources.</li> <li>COMPLEX_KEY_CACHE: Similar to CACHE, to be used with composite keys. Available for MySQL, ClickHouse and HTTP dictionary sources.</li> </ul> 
 externalDictionary.<br>layout.<br>sizeInCells | **string** (int64)<br><p>Number of cells in the cache. Rounded up to a power of two. Applicable only for CACHE and COMPLEX_KEY_CACHE layout types.</p> 
@@ -256,7 +256,7 @@ description | **string**<br><p>Description of the operation. 0-256 characters lo
 createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 createdBy | **string**<br><p>ID of the user or service account who initiated the operation.</p> 
 modifiedAt | **string** (date-time)<br><p>The time when the Operation resource was last modified.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
-done | **boolean** (boolean)<br><p>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available.</p> 
+done | **boolean** (boolean)<br><p>If the value is ``false``, it means the operation is still in progress. If ``true``, the operation is completed, and either ``error`` or ``response`` is available.</p> 
 metadata | **object**<br><p>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any.</p> 
 error | **object**<br>The error result of the operation in case of failure or cancellation. <br> includes only one of the fields `error`, `response`<br><br><p>The error result of the operation in case of failure or cancellation.</p> 
 error.<br>code | **integer** (int32)<br><p>Error code. An enum value of <a href="https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto">google.rpc.Code</a>.</p> 

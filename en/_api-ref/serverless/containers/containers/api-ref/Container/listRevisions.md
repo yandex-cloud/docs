@@ -73,7 +73,7 @@ revisions[].<br>image.<br>imageUrl | **string**<br>
 revisions[].<br>image.<br>imageDigest | **string**<br>
 revisions[].<br>image.<br>command[] | **string**<br>
 revisions[].<br>image.<br>args[] | **string**<br>
-revisions[].<br>image.<br>environment | **object**<br><p>Each key must match the regular expression `` [a-zA-Z][a-zA-Z0-9_]* ``. The maximum string length in characters for each value is 4096.</p> 
+revisions[].<br>image.<br>environment | **object**<br><p>Each key must match the regular expression ``[a-zA-Z][a-zA-Z0-9_]*``. The maximum string length in characters for each value is 4096.</p> 
 revisions[].<br>image.<br>workingDir | **string**<br>
 revisions[].<br>resources | **object**<br>
 revisions[].<br>resources.<br>memory | **string** (int64)<br><p>Acceptable values are 134217728 to 8589934592, inclusive.</p> 

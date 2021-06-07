@@ -156,7 +156,7 @@ loadBalancers[].<br>id | **string**<br><p>Output only. ID of the load balancer.<
 loadBalancers[].<br>name | **string**<br><p>The name is unique within the folder. 3-63 characters long.</p> 
 loadBalancers[].<br>description | **string**<br><p>Description of the load balancer. 0-256 characters long.</p> 
 loadBalancers[].<br>folderId | **string**<br><p>ID of the folder that the load balancer belongs to.</p> 
-loadBalancers[].<br>labels | **object**<br><p>Resource labels as `key:value` pairs. Maximum of 64 per resource.</p> 
+loadBalancers[].<br>labels | **object**<br><p>Resource labels as ``key:value`` pairs. Maximum of 64 per resource.</p> 
 loadBalancers[].<br>status | **string**<br><p>Status of the application load balancer.</p> <ul> <li>CREATING: Application load balancer is being created.</li> <li>STARTING: Application load balancer is being started.</li> <li>ACTIVE: Application load balancer is active and sends traffic to the targets.</li> <li>STOPPING: Application load balancer is being stopped.</li> <li>STOPPED: Application load balancer is stopped and doesn't send traffic to the targets.</li> <li>DELETING: Application load balancer is being deleted.</li> </ul> 
 loadBalancers[].<br>regionId | **string**<br><p>ID of the region that the load balancer located at.</p> 
 loadBalancers[].<br>networkId | **string**<br><p>ID of the network that the load balancer located at.</p> 

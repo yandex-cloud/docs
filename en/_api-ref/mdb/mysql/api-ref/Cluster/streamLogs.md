@@ -48,4 +48,4 @@ Field | Description
 record | **object**<br><p>One of the requested log records.</p> 
 record.<br>timestamp | **string** (date-time)<br><p>Log record timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 record.<br>message | **object**<br><p>Contents of the log record.</p> 
-nextRecordToken | **string**<br><p>This token allows you to continue streaming logs starting from the exact same record. To continue streaming, specify value of `next_record_token` as value for `record_token` parameter in the next StreamLogs request. This value is interchangeable with `next_page_token` from ListLogs method.</p> 
+nextRecordToken | **string**<br><p>This token allows you to continue streaming logs starting from the exact same record. To continue streaming, specify value of ``next_record_token`` as value for ``record_token`` parameter in the next StreamLogs request. This value is interchangeable with ``next_page_token`` from ListLogs method.</p> 

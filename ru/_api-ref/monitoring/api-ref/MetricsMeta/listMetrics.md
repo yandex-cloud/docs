@@ -48,7 +48,7 @@ pageSize | Количество метрик в одной странице от
 --- | ---
 result[] | **object**<br><p>Список метрик.</p> 
 result[].<br>name | **string**<br><p>Имя метрики.</p> 
-result[].<br>labels | **object**<br><p>Список меток метрики в формате `ключ:значение`.</p> 
+result[].<br>labels | **object**<br><p>Список меток метрики в формате ``ключ:значение``.</p> 
 result[].<br>kind | **string**<br><p>Тип метрики.</p> <ul> <li>DGAUGE: Числовой показатель. Задается дробным числом.</li> <li>IGAUGE: Числовой показатель. Задается целым числом.</li> <li>COUNTER: Счетчик.</li> <li>RATE: Производная.</li> </ul> 
 result[].<br>createdAt | **string** (int64)<br><p>Время создания (записи первой точки) метрики. Строка в формате <a href="https://ru.wikipedia.org/wiki/ISO_8601">ISO8601</a>.</p> 
 page | **object**<br><p>Параметры пагинации.</p> 
