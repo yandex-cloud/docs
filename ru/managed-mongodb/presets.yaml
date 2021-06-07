@@ -1,0 +1,6 @@
+default:
+  policy: keep
+internal:
+  policy: keep
+external:
+  policy: keep
