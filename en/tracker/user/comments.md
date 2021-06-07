@@ -1,4 +1,4 @@
-# Add comments to issues
+# Adding comments to issues
 
 You can use comments to leave notes about progress, ask for additional information, or ask colleagues to join the discussion.
 
@@ -61,8 +61,6 @@ Drag files to the comment box or click **Choose files**.
 
 To insert images attached to an issue in the comment text, click ![](../../_assets/tracker/add-image.png).
 
-{% if audience == "internal" %}
-
 ## Send comments to a user's email address {#section_zpd_ph5_wdb}
 
 You can send emails to in-house and outside users directly from the issue page. The message text is attached to the issue as a comment.
@@ -83,11 +81,11 @@ To send an email from the issue page:
 
     - Queue address
 
-        You can use this option if the queue has [a dedicated email address](../manager/queue-mail.md).
+        You can use this option if the queue has a [dedicated email address](../manager/queue-mail.md#section_gwv_hqb_hgb).
 
         The <q>From</q> field will only display the queue address. Responses to such emails are turned into comments for the corresponding issue.
 
-        You can set up a **Nickname** to communicate with outside users. Create one or more nicknames in the [queue email address](../manager/queue-mail.md) settings.
+        You can set up a **Nickname** to communicate with outside users. Create one or more nicknames in the [queue email address](../manager/queue-mail.md#section_ffq_gqb_hgb) settings.
 
     - Your own address
 
@@ -100,8 +98,6 @@ To send an email from the issue page:
 1. Click **Submit**.
 
 Responses to such emails are turned into comments for the corresponding issue automatically.
-
-{% endif %}
 
 ## Share a comment {#section_cc2_rm1_wz}
 
@@ -119,7 +115,7 @@ Respond to any notification about the change in an issue's status to create a co
 
 1. Click **Submit**.
 
-The comment will be created automatically after the message has been sent.
+The comment is created automatically after the message is sent.
 
 {% endif %}
 
@@ -169,13 +165,13 @@ If the discussion of an issue leads to creating a new issue, you can create it d
 
 Comments are listed chronologically by default. If you want to place the most recent comments at the start of the chain, do the following:
 
-1. {% if audience == "external" %}On the {{ tracker-name }} top panel, click ![](../../_assets/tracker/tracker-settings.png) → **Personal settings**.{% else %}On the {{ tracker-name }} top panel, click on your profile picture and select **Personal settings** or follow the link: [https://st.yandex-team.ru/settings]({{ link-settings-ya }}){% endif %}
+1. {% if audience == "external" %}On the {{ tracker-name }} top panel, click ![](../../_assets/tracker/tracker-settings.png) → **Personal settings**{% else %}On the {{ tracker-name }} top panel, click on your profile picture and select **Personal settings** or follow the link: [https://st.yandex-team.ru/settings]({{ link-settings-ya }}){% endif %}
 
     {% if audience == "external" %}
 
     {% note info %}
 
-    You can also follow this link: [https://tracker.yandex.ru/settings]({{ link-settings }}).
+    You can also follow this link: [https://tracker.yandex.com/settings]({{ link-settings }}).
 
     {% endnote %}
 
@@ -186,5 +182,4 @@ Comments are listed chronologically by default. If you want to place the most re
 1. Click **Save**.
 
 All issue changelogs on the **History** tab will also change their order to newest first.
-
 

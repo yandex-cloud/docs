@@ -42,7 +42,7 @@ Organization ID.
 
 {% list tabs %}
 
-- Successful execution of the request
+- Request executed successfully
 
     If the request is successful, the API returns a response with code 200. The response body contains a JSON array with the parameters of all queue macros.
 
@@ -81,37 +81,37 @@ Organization ID.
 
   | Parameter | Description | Data type |
   | ----- | ----- | ----- |
-  | self | Address of the API resource with macro parameters. | String. |
-  | id | Macro ID. | Number. |
-  | [queue](#queue) | Object with information about the queue whose issues that the macro is applied to. | Object. |
-  | name | Macro name. | String. |
-  | body | [Message](manager/create-macroses.md#section_inq_5b1_x2b) to be created when executing the macro. Format: ``` <Message text>\n<variable> ```<br/>where:<ul><li> `<Message text>`: Text to be created in the **Comment** field when executing the macro.</li><li> ``\n``: Line break symbol.</li><li> Variable that may contain:<br/>`not_var{{currentUser}}`: Name of the user who ran the macro.<br/> `not_var{{currentDateTime.date}}`: Macro execution date. <br/>`not_var{{currentDateTime}}`: Macro execution date and time.<br/>`{{issue.<field_key>}}`: Key of the issue field whose value will be displayed in the message. Full list of issue fields: [https://tracker.yandex.ru/admin/fields]({{ link-admin-fields }})</li></ul>To delete the message, use the construction `"body": {"unset":1}` | String. |
+  | self | Address of the API resource with macro parameters. | String |
+  | id | Macro ID. | Number |
+  | [queue](#queue) | Object with information about the queue whose issues that the macro is applied to. | Object |
+  | name | Macro name. | String |
+  | body | [Message](manager/create-macroses.md#section_inq_5b1_x2b) to be created when executing the macro. Format: ``` <Message text>\n<variable> ```<br/>where:<ul><li> `<Message text>`: Text to be created in the **Comment** field when executing the macro.</li><li> ``\n``: Line break symbol.</li><li> Variable that may contain:<br/>`not_var{{currentUser}}`: Name of the user who ran the macro.<br/> `not_var{{currentDateTime.date}}`: Macro execution date. <br/>`not_var{{currentDateTime}}`: Macro execution date and time.<br/>`{{issue.<field_key>}}`: Key of the issue field whose value will be displayed in the message. Full list of issue fields: [https://tracker.yandex.ru/admin/fields]({{ link-admin-fields }})</li></ul>To delete the message, use the construction `"body": {"unset":1}` | String |
 
   **Object fields** `queue` {#queue}
 
   Parameter | Description | Data type
   -------- | -------- | ----------
-  self| Address of the API resource with information about the queue. | String.
-  id | Queue ID. | String.
-  key | Queue key. | String.
-  display | Queue name displayed. | String.
+  self| Address of the API resource with information about the queue. | String
+  id | Queue ID. | String
+  key | Queue key. | String
+  display | Queue name displayed. | String
 
   **Array objects** `fieldChanges` {#fieldChanges}
 
   Parameter | Description | Data type
   -------- | -------- | ----------
-  [field](#field) | Object with information about the issue field. | Object.
-  value | Array with issue field values. | Array of objects.
+  [field](#field) | Object with information about the issue field. | Object
+  value | Array with issue field values. | Array of objects
 
   **Object fields** `field` {#field}
 
   Parameter | Description | Data type
   -------- | -------- | ----------
-  self | Address of the API resource with information about the issue field. | String.
-  id | Issue field ID. | String.
-  display | Issue field name displayed. | String.
+  self | Address of the API resource with information about the issue field. | String
+  id | Issue field ID. | String
+  display | Issue field name displayed. | String
 
-- The request failed
+- Request failed
 
   If the request is processed incorrectly, the response contains error details:
 

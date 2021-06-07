@@ -1,14 +1,10 @@
 # Creating a status
 
-{% if audience == "external" %}
-
 {% note warning %}
 
-Only the company admin can create new issue statuses.
+Only the company admin can create new issue statuses. The created status can't be deleted or edited.
 
 {% endnote %}
-
-{% endif %}
 
 A status is an issue attribute that reflects the current state of the issue completion process. For example: <q>Open</q>, <q>In progress</q>, <q>Testing</q>, or <q>Closed</q>.
 

@@ -14,7 +14,7 @@ To set up mail integration{% if audience == "external" %}:{% else %}, [add an em
 
 {% note warning %}
 
-You can only set up an email address for the queue if your organization has a [domain]({{ support-connect-domain }}) in Yandex.Connect.
+You can only set up an email address for the queue if your organization has a [domain]({{ support-business-domain }}) in Yandex.Mail 360 for Business. If you already have a mail domain set up in another service, you can create a subdomain for it and [add a domain]({{ support-business-domain }}).
 By default, [only the queue owner](queue-access.md) can configure a queue.
 
 {% endnote %}
@@ -30,7 +30,7 @@ To add an email address to your queue, follow these steps:
 1. Go to the **Mailboxes** tab.
 
 1. Click **Create address**.
-If you can't create such an address, this means your organization doesn't have its own domain. You need a domain to create mailboxes and newsletters. This includes creating queue addresses. You can [add a domain]({{ support-connect-domain }}) to Yandex.Connect for free.
+If you can't create such an address, this means your organization doesn't have its own domain. You need a domain to create mailboxes and newsletters. This includes creating queue addresses. A domain is free to [add in Yandex.Mail 360 for Business]({{ support-business-domain }}).
 
 1. Enter the address to assign to the queue in the **Email** field.
 

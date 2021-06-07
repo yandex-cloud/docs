@@ -20,7 +20,7 @@ X-Org-Id: <organization ID>
     Queue ID or key. The queue key is case-sensitive.
 
 > Request for the <q>TEST</q> queue's versions:
->- An HTTP GET method is used.
+>- Use the HTTP GET method.
 >```
 >GET /v2/queues/TEST/versions HTTP/1.1
 >Host: {{ host }}
@@ -58,30 +58,30 @@ X-Org-Id: <organization ID>
 
 | Parameter | Description | Data type |
 | ----- | ----- | ----- |
-| self | Link to the version object. | String. |
-| id | Version ID. | Number. |
-| version | Version number. | Number. |
-| [queue](#queue) | Object with information about the queue. | Object. |
-| name | Version name. | String. |
-| description | Text description of the version. | String. |
-| startDate | Start date of the queue. | String. |
-| dueDate | End date of the queue. | String. |
-| released | Flag of the released version. | Logical. |
-| archived | Flag of the archived version. | Logical. |
+| self | Link to the version object. | String |
+| id | Version ID. | Number |
+| version | Version number. | Number |
+| [queue](#queue) | Object with information about the queue. | Object |
+| name | Version name. | String |
+| description | Text description of the version. | String |
+| startDate | Start date of the queue. | String |
+| dueDate | End date of the queue. | String |
+| released | Flag of the released version. | Boolean |
+| archived | Flag of the archived version. | Boolean |
 
 **Object fields** `queue` {#queue}
 
 | Parameter | Description | Data type |
 | ----- | ----- | ----- |
-| self | Queue link. | String. |
-| id | Queue ID. | String. |
-| key | Queue key. | String. |
-| display | Queue name displayed. | String. |
+| self | Queue link. | String |
+| id | Queue ID. | String |
+| key | Queue key. | String |
+| display | Queue name displayed. | String |
 
 ## Possible response codes {#section_otf_jrj_p1b}
 
 200
-:   Successful execution of the request.
+:   Request executed successfully.
 
 404
 :   The requested object was not found. You may have specified an invalid object ID or key.

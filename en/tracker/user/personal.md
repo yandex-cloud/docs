@@ -2,45 +2,28 @@
 
 You can manage your issues more easily by configuring the {{ tracker-name }} interface.
 
+
 ## Customize your home page {#sec_my_page}
 
 You can set {% if audience == "external" %}your [home page](startpage.md){% else %}the tab [**My page**](startpage.md){% endif %} to display any [filter](filters.md), [dashboard](dashboard.md), or [issue board](../manager/create-agile-board.md):
 
-1. {% if audience == "external" %}On the {{ tracker-name }} top panel, click ![]( ../../_assets/tracker/tracker-settings.png) → **Personal settings**.{% else %}On the {{ tracker-name }} top panel, click on your profile picture and select **Personal settings** or follow the link: [https://st.yandex-team.ru/settings]({{ link-settings-ya }}){% endif %}
-
-    {% if audience == "external" %}
-
-    {% note info %}
-
-    You can also follow this link: [https://tracker.yandex.ru/settings]({{ link-settings }}).
-
-    {% endnote %}
-
-    {% endif %}
+1. {% if audience == "external" %}On the {{ tracker-name }} top panel, click ![](../../_assets/tracker/tracker-settings.png) → **Personal settings** or follow this link: [https://tracker.yandex.com/settings]({{ link-settings }}){% else %}On the {{ tracker-name }} top panel, click on your profile picture and select **Personal settings** or follow this link: [https://st.yandex-team.ru/settings]({{ link-settings-ya }}){% endif %}.
 
 1. Choose a filter, dashboard, or issue board you want to see on the home page in the **My page** section.
 
 1. Click **Save**.
 
+
 ## Set the interface language {#choose-language}
 
 {{ tracker-name }} is available in English and Russian. To do this:
 
-1. {% if audience == "external" %}On the {{ tracker-name }} top panel, click ![]( ../../_assets/tracker/tracker-settings.png) → **Personal settings**.{% else %}On the {{ tracker-name }} top panel, click on your profile picture and select **Personal settings** or follow the link: [https://st.yandex-team.ru/settings]({{ link-settings-ya }}){% endif %}
-
-    {% if audience == "external" %}
-
-    {% note info %}
-
-    You can also follow this link: [https://tracker.yandex.ru/settings]({{ link-settings }}).
-
-    {% endnote %}
-
-    {% endif %}
+1. {% if audience == "external" %}On the {{ tracker-name }} top panel, click ![](../../_assets/tracker/tracker-settings.png) → **Personal settings** or follow this link: [https://tracker.yandex.com/settings]({{ link-settings }}){% else %}On the {{ tracker-name }} top panel, click on your profile picture and select **Personal settings** or follow this link: [https://st.yandex-team.ru/settings]({{ link-settings-ya }}){% endif %}.
 
 1. Select a language in the **Interface language** section.
 
 1. Click **Save**.
+
 
 ## Set user display type {#sec_display}
 
@@ -54,17 +37,7 @@ By default, the **Reporter**, **Assignee**, and **Followers** fields display the
 
 To change the display method, do the following:
 
-1. {% if audience == "external" %}On the {{ tracker-name }} top panel, click ![]( ../../_assets/tracker/tracker-settings.png) → **Personal settings**.{% else %}On the {{ tracker-name }} top panel, click on your profile picture and select **Personal settings** or follow the link: [https://st.yandex-team.ru/settings]({{ link-settings-ya }}){% endif %}
-
-    {% if audience == "external" %}
-
-    {% note info %}
-
-    You can also follow this link: [https://tracker.yandex.ru/settings]({{ link-settings }}).
-
-    {% endnote %}
-
-    {% endif %}
+1. {% if audience == "external" %}On the {{ tracker-name }} top panel, click ![](../../_assets/tracker/tracker-settings.png) → **Personal settings** or follow this link: [https://tracker.yandex.com/settings]({{ link-settings }}){% else %}On the {{ tracker-name }} top panel, click on your profile picture and select **Personal settings** or follow this link: [https://st.yandex-team.ru/settings]({{ link-settings-ya }}){% endif %}.
 
 1. Choose the desired display method in the **User display** section:
 
@@ -86,21 +59,12 @@ To change the display method, do the following:
 
 1. Click **Save**.
 
+
 ## Configure notifications {#sec_notifications}
 
 {{ tracker-name }} notifies you of any updates to issues you're subscribed to. You can change your notification settings on the personal settings page:
 
-1. {% if audience == "external" %}On the {{ tracker-name }} top panel, click ![]( ../../_assets/tracker/tracker-settings.png) → **Personal settings**.{% else %}On the {{ tracker-name }} top panel, click on your profile picture and select **Personal settings** or follow the link: [https://st.yandex-team.ru/settings]({{ link-settings-ya }}){% endif %}
-
-    {% if audience == "external" %}
-
-    {% note info %}
-
-    You can also follow this link: [https://tracker.yandex.ru/settings]({{ link-settings }}).
-
-    {% endnote %}
-
-    {% endif %}
+1. {% if audience == "external" %}On the {{ tracker-name }} top panel, click ![](../../_assets/tracker/tracker-settings.png) → **Personal settings** or follow this link: [https://tracker.yandex.com/settings]({{ link-settings }}){% else %}On the {{ tracker-name }} top panel, click on your profile picture and select **Personal settings** or follow this link: [https://st.yandex-team.ru/settings]({{ link-settings-ya }}){% endif %}.
 
 1. Set your notification settings:
     - Enable or disable [regular update reports for issues you're subscribed to](notification-digest.md).
@@ -112,7 +76,5 @@ To change the display method, do the following:
 To learn more about notifications, see the following sections:
 
 - [{#T}](subscribe.md)
-- [{#T}](notification-settings.md)
-
-
+- [Notification settings ](notification-settings.md)
 

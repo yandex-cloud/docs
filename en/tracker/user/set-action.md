@@ -81,7 +81,7 @@ To configure issue creation:
 
     1. Set the issue parameters and click **Save**.
 
-1. If you want the {% if audience == "external" %}Tracker robot{% else %}Yandex Tracker robot{% endif %} to be the issue reporter, enable the option **Create as robot**. Make sure the robot has permission to create issues in the queue.
+1. If you want the {% if audience == "external" %}Tracker robot{% else %}Tracker robot{% endif %} to be the issue reporter, enable the option **Create as robot**. Make sure the robot has permission to create issues in the queue.
 
    If this option is disabled, the user who triggered the action becomes the issue reporter instead.
 
@@ -113,7 +113,7 @@ If you want the trigger to send an HTTP request:
 
 1. Enter request body.
 
-   You can insert field values and user variables in your request body (see below). To do this, click **{ }** to the right of the field and choose the field or variable name. The request body will include a sequence like `not_var{{variable_name}}` .
+   You can insert field values and user variables in your request body (see below). To do this, click **{ }** to the right of the field and choose the field or variable name. The request body will include a sequence like `not_var{{variable_name}}`.
 
    {% note info %}
 

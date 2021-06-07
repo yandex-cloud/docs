@@ -21,14 +21,14 @@ X-Org-Id: <organization ID>
 
 | Parameter | Description | Data type |
 | -------- | -------- | ---------- |
-| \<project-id> | Project ID. | Number. |
-| expand | Additional fields to include in the response. If there are multiple queues in the project, parameters are displayed for each queue:<ul><li>`all`: All queue parameters.</li><li>`projects`: All organization projects.</li><li>`components`: Queue components.</li><li>`versions`: Queue versions.</li><li>`types`: Queue issue types.</li><li>`team`: Queue team members.</li><li>`workflows`: Queue workflows and their issue types.</li><li>`fields`: Required queue fields.</li><li>`notification_fields`: Queue issue notification fields.</li><li>`issue_types_config`: Queue issue settings.</li><li>`enabled_features`: Queue integration settings.</li><li> `signature_settings`: Information about the queue mailbox: address, alias, and signature.</li></ul> | String. |
+| \<project-id> | Project ID. | Number |
+| expand | Additional fields to include in the response. If there are multiple queues in the project, parameters are displayed for each queue:<ul><li>`all`: All queue parameters.</li><li>`projects`: All organization projects.</li><li>`components`: Queue components.</li><li>`versions`: Queue versions.</li><li>`types`: Queue issue types.</li><li>`team`: Queue team members.</li><li>`workflows`: Queue workflows and their issue types.</li><li>`fields`: Required queue fields.</li><li>`notification_fields`: Queue issue notification fields.</li><li>`issue_types_config`: Queue issue settings.</li><li>`enabled_features`: Queue integration settings.</li><li> `signature_settings`: Information about the queue mailbox: address, alias, and signature.</li></ul> | String |
 
 ## Response format {#answer}
 
 {% list tabs %}
 
-- Successful execution of the request
+- Request executed successfully
 
     If the request is successful, the API returns a response with code `200 OK`.
 
@@ -109,51 +109,51 @@ X-Org-Id: <organization ID>
 
     | Parameter | Description | Data type |
     | -------- | -------- | ---------- |
-    | self | Address of the API resource with information about the queue. | String. |
-    | id | Queue ID. | Number. |
-    | key | Queue key. | String. |
-    | version | Queue version. Each change to the queue increases its version number. | String. |
-    | name | Queue name. | String. |
-    | description | Text description of the queue. | String. |
-    | lead | Block with information about the queue owner. | Object. |
-    | assignAuto | Flag indicating that new issues in the queue are assigned automatically:<ul><li>`true`: Assigned.</li><li>`false`: Not assigned.</li></ul> | Logical. |
-    | defaultType | Block with information about the default issue type. | Object. |
-    | defaultPriority | Block with information about the default issue priority. | Object. |
-    | allowExternalMailing | Flag that indicates if emails to external addresses are allowed:<ul><li>`true`: Allowed.</li><li>`false`: Not allowed.</li></ul> | Logical. |
-    | addIssueKeyInEmail | Flag that indicates if the issue number is added to the email subject:<ul><li>`true`: Added.</li><li>`false`: Not added.</li></ul> | Logical. |
-    | denyVoting | Flag that indicates if voting for issues is allowed:<ul><li>`true`: Allowed.</li><li>`false`: Not allowed. </li></ul> | Logical. |
-    | denyConductorAutolink | Service parameter. | Logical. |
-    | denyTrackerAutolink | Flag that indicates whether to add an automatic link to issues in other queues:<ul><li>`true`: Add a link.</li><li>`false`: Do not add a link if the key of an issue from another queue is added to the comment or description.</li></ul> | Logical. |
-    | useComponentPermissionsIntersection | The method of getting access rights to issues with multiple components:<ul><li>`true`: As an overlap of component access rights.</li><li>`false`: As a combination of component access rights.</li></ul> | Logical. |
-    | useLastSignature | Service parameter. | Logical. |
+    | self | Address of the API resource with information about the queue. | String |
+    | id | Queue ID. | Number |
+    | key | Queue key. | String |
+    | version | Queue version. Each change to the queue increases its version number. | String |
+    | name | Queue name. | String |
+    | description | Text description of the queue. | String |
+    | lead | Block with information about the queue owner. | Object |
+    | assignAuto | Flag indicating that new issues in the queue are assigned automatically:<ul><li>`true`: Assigned.</li><li>`false`: Not assigned.</li></ul> | Boolean |
+    | defaultType | Block with information about the default issue type. | Object |
+    | defaultPriority | Block with information about the default issue priority. | Object |
+    | allowExternalMailing | Flag that indicates if emails to external addresses are allowed:<ul><li>`true`: Allowed.</li><li>`false`: Not allowed.</li></ul> | Boolean |
+    | addIssueKeyInEmail | Flag that indicates if the issue number is added to the email subject:<ul><li>`true`: Added.</li><li>`false`: Not added.</li></ul> | Boolean |
+    | denyVoting | Flag that indicates if voting for issues is allowed:<ul><li>`true`: Allowed.</li><li>`false`: Not allowed. </li></ul> | Boolean |
+    | denyConductorAutolink | Service parameter. | Boolean |
+    | denyTrackerAutolink | Flag that indicates whether to add an automatic link to issues in other queues:<ul><li>`true`: Add a link.</li><li>`false`: Do not add a link if the key of an issue from another queue is added to the comment or description.</li></ul> | Boolean |
+    | useComponentPermissionsIntersection | The method of getting access rights to issues with multiple components:<ul><li>`true`: As an overlap of component access rights.</li><li>`false`: As a combination of component access rights.</li></ul> | Boolean |
+    | useLastSignature | Service parameter. | Boolean |
 
     **Object fields** `lead`
 
     | Parameter | Description | Data type |
     | -------- | -------- | ---------- |
-    | self | Address of the API resource with information about the user. | String. |
-    | id | User ID. | Number. |
-    | display | User's name displayed. | String. |
+    | self | Address of the API resource with information about the user. | String |
+    | id | User ID. | Number |
+    | display | User's name displayed. | String |
 
     **Object fields** `defaultType`
 
     | Parameter | Description | Data type |
     | -------- | -------- | ---------- |
-    | self | Address of the API resource with information about the issue type. | String. |
-    | id | ID of the issue type. | Number. |
-    | key | Key of the issue type. | String. |
-    | display | Issue type name displayed. | String. |
+    | self | Address of the API resource with information about the issue type. | String |
+    | id | ID of the issue type. | Number |
+    | key | Key of the issue type. | String |
+    | display | Issue type name displayed. | String |
 
     **Object fields** `defaultPriority`
 
     | Parameter | Description | Data type |
     | -------- | -------- | ---------- |
-    | self | Address of the API resource with information about the issue priority. | String. |
-    | id | Issue priority ID. | Number. |
-    | key | Issue priority key. | String. |
-    | display | Issue priority name displayed. | String. |
+    | self | Address of the API resource with information about the issue priority. | String |
+    | id | Issue priority ID. | Number |
+    | key | Issue priority key. | String |
+    | display | Issue priority name displayed. | String |
 
-- The request failed
+- Request failed
 
     If the request is processed incorrectly, the API returns a response with an error code:
 

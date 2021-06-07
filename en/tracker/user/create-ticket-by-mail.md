@@ -4,7 +4,7 @@ To create an issue via email, send a message with the issue description to the {
 
 {% if audience == "external" %}
 
-1. Make sure the queue has its [email address](../manager/queue-mail.md) set up first.
+1. Make sure the queue has its [email address](../manager/queue-mail.md#section_gwv_hqb_hgb) set up first.
 
 1. Make sure you have [queue access](../manager/queue-access.md).
 
@@ -22,7 +22,7 @@ To create an issue via email, send a message with the issue description to the {
 
 1. Describe the issue in the message body.
 
-1. Send an email to the address {% if audience == "internal" %}`<KEY>-bugs@yandex-team.ru`, where `<KEY>-` is the queue key{% else %}specified in the [queue settings](../manager/queue-mail.md){% endif %}.
+1. Send an email to the address {% if audience == "internal" %}`<KEY>-bugs@yandex-team.ru`, where `<KEY>` is the queue key{% else %}specified in [queue settings](../manager/queue-mail.md#section_gwv_hqb_hgb){% endif %}.
 
 {% if audience == "external" %} You will receive a reply notifying you that a new issue was created.{% endif %}
 
@@ -37,6 +37,4 @@ If the standard address `<KEY>-bugs@yandex-team.ru` doesn't suit you, change it.
 To configure an automatic response for creating an issue via email, contact {{ tracker-name }} support using the [form](../manager/queue-mail.md#feedback_support_ya).
 
 {% endif %}
-
-
 

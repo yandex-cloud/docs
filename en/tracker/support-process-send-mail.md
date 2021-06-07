@@ -1,5 +1,3 @@
-{% if audience == "internal" %}
-
 # Send emails from the issue page
 
 If you want to respond to a user request, you can send them an email right from the issue page in {{ tracker-name }}. Their response to you will then be added as a comment to the corresponding issue. This lets you keep all correspondence right on the issue page, so you don't have to waste time with a dedicated email client.
@@ -12,11 +10,11 @@ To send emails from the issue page, do the following:
 
     If you want to send issues from the issue page, you need a shared queue address. Responses sent to the queue address will be added to issue comments.
 
-    If you can't create such an address, this means your organization doesn't have its own domain. You need a domain to create mailboxes and newsletters. This includes creating queue addresses. You can [add a domain for free in Yandex.Connect](https://yandex.ru/support/connect/add-domain.html).
+    If you can't create such an address, this means your organization doesn't have its own domain. You need a domain to create mailboxes and newsletters. This includes creating queue addresses. A domain is free to [add in Yandex.Mail 360 for Business]({{ support-business-domain }}).
 
-2. [Set up sender names and signatures](manager/queue-mail.md#section_ffq_gqb_hgb) if needed.
+1. [Set up sender names and signatures](manager/queue-mail.md#section_ffq_gqb_hgb) if needed.
 
-3. If the users aren't your organization's employees, [allow sending email from issue pages to external addresses](manager/queue-mail.md#send_outside).
+1. If the users aren't your organization's employees, [allow sending email from issue pages to external addresses](manager/queue-mail.md#send_outside).
 
 ### Step 2. Send emails from the issue page
 
@@ -35,5 +33,4 @@ To send emails from the issue page, do the following:
 - If you want to quickly send preset messages from the issue page, [configure macros](manager/create-macroses.md).
 
 - [Use triggers](manager/trigger-examples.md#notify_mail) to automatically notify users when certain events occur.
-{% endif %}
 

@@ -6,9 +6,13 @@ For example, if two issues copy each other, one of them can be closed with the "
 
 You can also hide an unnecessary issue from search results and dashboards by clearing the **Assignee** field, deleting its links to other issues, and so on.
 
+{% if audience == "external" %}
+
 {% note tip %}
 
 You can [delete a queue](../manager/delete-queue.md) and all issues in it. [Move](edit-ticket.md#section_xwx_qpn_jz) the issues you don't need to a special queue and then delete it.
 
 {% endnote %}
+
+{% endif %}
 

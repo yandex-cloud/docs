@@ -29,7 +29,7 @@ X-Org-Id: <organization ID>
 
 | Parameter | Description | Data type |
 | -------- | -------- | ---------- |
-| notify | Flag indicating if users should be notified about issue changes:<ul><li>`true`: Users specified in the issue fields are notified.</li><li>`false` (by default): No users are notified.</li></ul> | Logical. |
+| notify | Flag indicating if users should be notified about issue changes:<ul><li>`true`: Users specified in the issue fields are notified.</li><li>`false` (by default): No users are notified.</li></ul> | Boolean |
 
 #### Request body parameters {#req-body-params}
 
@@ -37,8 +37,8 @@ X-Org-Id: <organization ID>
 
 | Parameter | Description | Data type |
 | -------- | -------- | ---------- |
-| issues | IDs of issues to be edited. | String. |
-| values | Issue parameters that will be updated. Use the parameters that are available when [editing the issue](../issues/patch-issue.md#req-get-params). | String. |
+| issues | IDs of issues to be edited. | String |
+| values | Issue parameters that will be updated. Use the parameters that are available when [editing the issue](../issues/patch-issue.md#req-get-params). | String |
 
 > Example: Edit issues.
 >- An HTTP POST method is used.
@@ -60,7 +60,7 @@ X-Org-Id: <organization ID>
 
 {% list tabs %}
 
-- Successful execution of the request
+- Request executed successfully
 
     If the request is successful, the API returns a response with code `201 Created`.
 
@@ -87,24 +87,24 @@ X-Org-Id: <organization ID>
 
     | Parameter | Description | Data type |
     | -------- | -------- | ---------- |
-    | id | Bulk change operation ID. | String. |
-    | self | Address of the API resource with information about the bulk change. | String. |
-    | [createdBy](#createdBy) | Object with information about the user who made the bulk change. | Object. |
-    | createdAt | Date and time when the bulk change operation was created. | String. |
-    | status | Bulk change operation status. | String. |
-    | statusText | Description of the bulk change operation status. | String. |
-    | executionChunkPercent | Service parameter. | Number. |
-    | executionIssuePercent | Service parameter. | Number. |
+    | id | Bulk change operation ID. | String |
+    | self | Address of the API resource with information about the bulk change. | String |
+    | [createdBy](#createdBy) | Object with information about the user who made the bulk change. | Object |
+    | createdAt | Date and time when the bulk change operation was created. | String |
+    | status | Bulk change operation status. | String |
+    | statusText | Description of the bulk change operation status. | String |
+    | executionChunkPercent | Service parameter. | Number |
+    | executionIssuePercent | Service parameter. | Number |
 
     **Object fields** `createdBy` {#createdBy}
 
     | Parameter | Description | Data type |
     | -------- | -------- | ---------- |
-    | self | Address of the API resource with information about the user. | String. |
-    | id | User ID. | Number. |
-    | display | User's name displayed. | String. |
+    | self | Address of the API resource with information about the user. | String |
+    | id | User ID. | Number |
+    | display | User's name displayed. | String |
 
-- The request failed
+- Request failed
 
     If the request is processed incorrectly, the API returns a response with an error code:
 

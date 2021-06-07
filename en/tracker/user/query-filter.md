@@ -69,7 +69,6 @@ parameter: "value1", "value2", " value3"
 author: "vpupkin","iivanov"
 ```
 
-
 This filter outputs all issues that were reported by `vpupkin` or `iivanov`.
 
 ## Filters with multiple conditions {#section_yqw_fmk_lz}
@@ -184,11 +183,9 @@ You can search for issues by users' real names and usernames specified in issue 
 
     - `Followers: alice`. This query will display all issues followed by the user with the username `alice@` or any user named Alice {% if locale == "ru" %}(if the name is specified in English){% endif %}.
 
-{% if audience == "internal" %}
-
 ## Searching by local field {#local_fields}
 
-To specify the value of an [issue's local field](../local-fields.md) in a query, enter the key of the queue that the field is linked to and then the field name or key after a dot. Examples:
+To specify the value of an [issue local field](../local-fields.md) in a query, enter the key of the queue that the field is linked to and then the field name or key after a dot. Examples:
 
 ```
 DEVS."Tester": "Alice Little"
@@ -197,8 +194,6 @@ DEVS."Tester": "Alice Little"
 ```
 DEVS.tester: user3370@
 ```
-
-{% endif %}
 
 ## Date and time parameters {#section_lyr_qjj_nz}
 
@@ -238,7 +233,21 @@ Many issue parameters have date and time values. The query language supports sev
     2017-04-30
     ```
 
-#### Time
+#### Date and time
+
+To specify the exact date and time, use this format:
+
+```
+"YYYY-MM-DD XXh:XXm:XXs"
+```
+
+Example:
+
+```
+"2017-04-30 17:25:00"
+```
+
+#### Time intervals
 
 - You can set time intervals in weeks, days, hours, minutes and seconds in the format:
 
@@ -246,25 +255,31 @@ Many issue parameters have date and time values. The query language supports sev
     "XXw XXd XXh XXm XXs"
     ```
 
-    For example, a time interval of 3 days 5 hours and 32 minutes is written as:
+    For example, a time interval of 3 days, 5 hours, and 32 minutes can be written as:
 
     ```
     "3d 5h 32m"
     ```
 
-When searching fields that contain a date, you can use the addition and subtraction operations, time ranges, and [functions](#section_pmb_kmk_lz).
+- You can set intervals using valid date formats:
 
-Here is an example of a filter for issues created no earlier than eight days ago:
+    ```
+    DD-MM-YYYY .. DD-MM-YYYY
+    ```
 
-```
-Created: > today() - "1w 1d"
-```
+    Here's an example of a filter for issues that were created in a certain period of time:
 
-A filter for issues that were created in a certain period of time:
+    ```
+    Created: 01-01-2017 .. 02-03-2017
+    ```
 
-```
-Created: 01-01-2017 .. 02-03-2017
-```
+- Time intervals can be set using [functions](#section_pmb_kmk_lz) as well as comparison, addition, and subtraction operations.
+
+    Here is an example of a filter for issues created no earlier than eight days ago:
+
+    ```
+    Created: > today() - "1w 1d"
+    ```
 
 ## Comparison operations {#section_kws_ylk_lz}
 
@@ -325,10 +340,16 @@ If you know when and how a parameter was changed for an issue, you can create a 
 "parameter": changed(from: "old value" to: "new value" by: "who changed" date: "when changed")
 ```
 
-For example, to get a list of issues that user Alice Little switched to the status "In progress" in a certain time period, make the query:
+For example, to get a list of issues that user Alice Little switched to the <q>In progress</q> status in a certain period of time, you need to make a request:
 
 ```
 Status: changed(to: "In progress" by: "Alice Little" date: 01.09.2017 .. 15.09.2017)
+```
+
+For example, to get a list of issues that user Alice Little switched to the <q>In progress</q> status during the last week, use a [function](#section_pmb_kmk_lz) in your request:
+
+```
+Status: changed(to: "In progress" by: "Alice Little" date: >today()-1w)>
 ```
 
 ## Sort results {#section_f3y_kpk_lz}
@@ -457,7 +478,8 @@ Try a few ready-made queries to learn how they work:
 | ```"Summary" ``` | Text string | Search for issues with a specific title.<br/>For example:<ul><li>Find issues that have a title containing the words and word forms in the phrase:<br/>    ```"Summary": "invent the wheel" ```</li><li>Find issues whose name completely matches the following phrase:<br/>    ```"Summary": # " invent the wheel" ```</li></ul> |
 | ```"Tags" ``` | Issue tags | Search for issues with specific tags.<br/>For example:<br/>```"Tags": "Support", "wiki" ``` |
 | ```"Time Spent" ``` | Time range in the format `"XXw XXd XXh XXm XXs"` | Search for issues that took a specific amount of time to complete.<br/>For example:<br/>```"Time Spent": >"5d 2h 30m" ``` |
-| ```"Type" ``` | Issue type | ```"Type" ``` | Issue type | Search for issues with the specified type. For example:<br/>```"Type": Epic``` |
+| ```"Type" ``` | Issue type | Search for issues with the specified type. For example:<br/>```"Type": Epic``` |
 | ```"Updated" ``` | Date or date range | Search for issues that were changed on a specific date or during a specific date range.<br/>For example:<br/>```"Updated": >2017-01-30 ``` |
 | ```"Voted by" ``` | User logins and names | Search for issues voted on by specific users.<br/>For example:<br/>```"Voted By": user3370@, "Alice Little" ``` |
 | ```"Votes" ``` | Number of votes | Search for issues with a specific number of votes.<br/>For example:<br/>```"Votes": > 6 ``` |
+

@@ -66,7 +66,8 @@ If you want to apply settings used in an existing queue, just copy the queue:
 
 ## Create a queue manually {#section_cg3_wpq_w1b}
 
-If none of the preset queue types is suitable for your issues, you can set all the parameters for the new queue manually:
+If none of the preset queue types are suitable for your issues, you can set all
+parameters for the new queue manually:
 
 1. Enter a unique [key for the queue](#key). The key can consist only of Latin letters and must not contain spaces or special symbols. If you delete a queue, you can't reuse its key.
 

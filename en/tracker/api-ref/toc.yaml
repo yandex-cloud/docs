@@ -25,14 +25,22 @@ items:
       href: concepts/issues/get-links.md
     - name: Link issues
       href: concepts/issues/link-issue.md
-    - name: Create a checklist or add items to it
-      href: concepts/issues/add-checklist-item.md
     - name: Get transitions
       href: concepts/issues/get-transitions.md
     - name: Make a transition to a new status
       href: concepts/issues/new-transition.md
     - name: Get the history of issue changes
       href: concepts/issues/get-changelog.md
+- name: Checklists
+  items:
+    - name: Create a checklist or add items to it
+      href: concepts/issues/add-checklist-item.md  
+    - name: Get checklist parameters
+      href: concepts/issues/get-checklist.md
+    - name: Edit a checklist
+      href: concepts/issues/edit-checklist.md
+    - name: Delete a checklist
+      href: concepts/issues/delete-checklist.md
 - name: Projects
   items:
     - name: Create a project
@@ -99,6 +107,8 @@ items:
       href: concepts/queues/delete-queue.md
     - name: Restore a queue
       href: concepts/queues/restore-queue.md
+    - name: Remove a tag from a queue
+      href: concepts/queues/delete-tag.md
 - name: Issue boards
   items:
     - name: Get parameters of all boards
@@ -171,6 +181,18 @@ items:
       href: concepts/issues/patch-issue-field-name.md
     - name: Edit possible values of issue fields
       href: concepts/issues/patch-issue-field-value.md
+    - name: Create an issue field category
+      href: concepts/issues/create-issue-field-category.md
+    - name: Local fields
+      items:
+        - name: Create a local queue field
+          href: concepts/queues/create-local-field.md        
+        - name: Get local queue fields
+          href: concepts/queues/get-local-fields.md
+        - name: Get information about a local queue field
+          href: concepts/queues/get-info-local-field.md      
+        - name: Edit a local queue field
+          href: concepts/queues/edit-local-field.md  
 - name: Get information about the current user
   href: get-user-info.md
 - name: Possible response codes

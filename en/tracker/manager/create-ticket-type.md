@@ -1,14 +1,10 @@
 # Creating an issue type
 
-{% if audience == "external" %}
-
 {% note warning %}
 
-Only the company admin can create new issue types.
+Only the company admin can create new issue types. Once created, an issue type can't be deleted or edited.
 
 {% endnote %}
-
-{% endif %}
 
 The most popular issue types are available in {{ tracker-name }} by default. If you need something different, create a new one:
 

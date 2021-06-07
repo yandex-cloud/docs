@@ -44,11 +44,11 @@ Organization ID.
 
 {% list tabs %}
 
-- Successful execution of the request
+- Request executed successfully
 
   If the request is successful, the API returns a response with code 204. The response body is missing.
 
-- The request failed
+- Request failed
 
   If the request is processed incorrectly, the response contains error details:
 

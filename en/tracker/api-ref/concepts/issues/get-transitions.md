@@ -21,7 +21,7 @@ X-Org-Id: <organization ID>
 
 > Getting a list of transitions:
 > 
-> - An HTTP GET method is used.
+> - Use the HTTP GET method.
 > 
 > ```
 > GET /v2/issues/JUNE-3/transitions HTTP/1.1
@@ -54,24 +54,24 @@ X-Org-Id: <organization ID>
 
 | Parameter | Description | Data type |
 | ----- | ----- | ----- |
-| id | Transition ID. | String. |
-| self | Transition link. | String. |
-| display | Transition name displayed. Matches the corresponding button name in the {{ tracker-name }} interface. | String. |
-| [to](#to) | Object with information about a new issue status. | Object. |
+| id | Transition ID. | String |
+| self | Transition link. | String |
+| display | Transition name displayed. Matches the corresponding button name in the {{ tracker-name }} interface. | String |
+| [to](#to) | Object with information about a new issue status. | Object |
 
 **Object fields** `to` {#to}
 
 | Parameter | Description | Data type |
 | ----- | ----- | ----- |
-| self | Status link. | String. |
-| id | Status ID. | String. |
-| key | Status key. | String. |
-| display | Status name displayed. | String. |
+| self | Status link. | String |
+| id | Status ID. | String |
+| key | Status key. | String |
+| display | Status name displayed. | String |
 
 ## Possible response codes {#section_otf_jrj_p1b}
 
 200
-:   Successful execution of the request.
+:   Request executed successfully.
 
 404
 :   The requested object was not found. You may have specified an invalid object ID or key.

@@ -20,15 +20,11 @@ To clone an issue:
 
     - **Copy issue fields**: Select this option to keep the same issue parameters after cloning. If some of the settings are not available in the target queue (for example, versions or components), they will be left empty.
 
-        {% if audience == "internal" %}
-
         {% note warning %}
 
         If the issue has values entered for [local fields](../local-fields.md), they will be deleted when the issued is cloned to another queue.
 
         {% endnote %}
-
-        {% endif %}
 
     - **Link the cloned issue**: Select this option to link the issue and its clone.
 
@@ -41,6 +37,4 @@ To clone an issue:
     - **Assignee** and **Followers**: These settings are preserved by default, but you can change them.
 
 1. Click **Clone**.
-
-
 

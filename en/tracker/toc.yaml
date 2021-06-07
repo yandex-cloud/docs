@@ -61,7 +61,7 @@ items:
         - name: Configure multi-tiered support
           href: support-process-lines.md
         - name: Send emails from the issue page
-          when: audience == "internal"
+
           href: support-process-send-mail.md
         - name: Group requests by topic
           href: support-process-group.md
@@ -114,7 +114,6 @@ items:
             - name: Create a resolution
               href: manager/create-resolution.md
     - name: Local issue fields
-      when: audience == "internal"
       href: local-fields.md
     - name: Add a queue team
       href: manager/queue-team.md
@@ -134,9 +133,12 @@ items:
         - name: Overview
           href: user/create-ticket.md
         - name: Creating an issue via email
-          when: audience == "internal"
+
           href: user/create-ticket-by-mail.md
         - name: Creating an issue from a form
+          when: audience == "internal"
+
+
           href: user/create-ticket-with-forms.md
         - name: Clone an issue
           href: user/clone.md
@@ -150,8 +152,7 @@ items:
           href: user/wiki-markup.md
         - name: Editing issue links
           href: user/ticket-links.md
-        - name: Adding issue fields
-          href: user/create-param.md
+
         - name: Run a macro
           href: user/macroses.md
         - name: Change multiple issues
@@ -162,6 +163,8 @@ items:
       href: user/reminder.md
     - name: Register time spent
       href: user/time-spent.md
+    - name: Adding issue fields
+      href: user/create-param.md
     - name: View the history of issue changes
       href: user/history.md
     - name: Vote for an issue
@@ -223,8 +226,16 @@ items:
     - name: Subscribe other users to queue updates
       href: manager/subscriptions.md
     - name: Configuring notification contents
-      href: user/notification-settings.md
-#    - name: Send notifications to mailboxes in your domain
+
+
+      items:
+        - name: Overview
+          href: user/notification-settings.md
+        - name: Notifications about your issues
+          href: user/user-notifications.md
+        - name: Notifications about your subscriptions
+          href: user/user-subscriptions.md
+#    - name: Отправлять уведомления на почтовые ящики в вашем домене
 #      href: manager/mail-notifications.md
     - name: Filtering incoming mail
       when: audience == "internal"
@@ -292,6 +303,7 @@ items:
         - name: Use shared templates
           href: user/share-template.md
     - name: Use a form as a template for creating issues
+      when: audience == "internal"
       href: manager/attach-form.md
 - name: Configuring an SLA for issues
   items:
@@ -304,7 +316,7 @@ items:
 - name: Integration with other services
   items:
     - name: Mail
-      when: audience == "internal"
+
       href: manager/queue-mail.md
     - name: Forms
       href: manager/forms-integration.md

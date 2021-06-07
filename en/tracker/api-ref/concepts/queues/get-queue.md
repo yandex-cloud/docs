@@ -34,7 +34,7 @@ X-Org-Id: <organization ID>
     - `issueTypesConfig`: Settings of queue issue types.
 
 > Request for a queue:
->- An HTTP GET method is used.
+>- Use the HTTP GET method.
 >- All additional fields are displayed in the response.
 >```
 >GET /v2/queues/TEST?expand=all HTTP/1.1
@@ -140,121 +140,121 @@ X-Org-Id: <organization ID>
 
 | Parameter | Description | Data type |
 | ----- | ----- | ----- |
-| self | Queue link. | String. |
-| id | Queue ID. | String. |
-| key | Queue key. | String. |
-| version | Queue version. Each change to the queue increases its version number. | Number. |
-| name | Queue name. | String. |
-| description | Text description of the queue. | String. |
-| [lead](#lead) | Block with information about the queue owner. | Object. |
-| assignAuto | Automatically assign new issues in the queue:<br/><br/>`true`: Assign.<br/><br/>`false`: Do not assign. | Logical. |
-| [defaultType](#default-type) | Block with information about the default issue type. | Object. |
-| [defaultPriority](#default-priority) | Block with information about the default issue priority | Object. |
-| [teamUsers](#team-users) | Array with information about queue team members | Array of objects. |
-| [issueTypes](#issue-types) | Array with information about queue issue types. | Array of objects. |
-| [versions](#versions) | Array with information about queue versions | Array of objects. |
-| [workflows](#workflows) | List of queue workflows and their issue types. | Array. |
-| denyVoting | Flag that indicates if voting for issues is enabled. | Logical. |
-| [issueTypesConfig](#issue-types-config) | Array with queue issue settings. | Array of objects. |
+| self | Queue link. | String |
+| id | Queue ID. | String |
+| key | Queue key. | String |
+| version | Queue version. Each change to the queue increases its version number. | Number |
+| name | Queue name. | String |
+| description | Text description of the queue. | String |
+| [lead](#lead) | Block with information about the queue owner. | Object |
+| assignAuto | Automatically assign new issues in the queue:<br/><br/>`true`: Assign.<br/><br/>`false`: Do not assign. | Boolean |
+| [defaultType](#default-type) | Block with information about the default issue type. | Object |
+| [defaultPriority](#default-priority) | Block with information about the default issue priority | Object |
+| [teamUsers](#team-users) | Array with information about queue team members | Array of objects |
+| [issueTypes](#issue-types) | Array with information about queue issue types. | Array of objects |
+| [versions](#versions) | Array with information about queue versions | Array of objects |
+| [workflows](#workflows) | List of queue workflows and their issue types. | Array |
+| denyVoting | Flag that indicates if voting for issues is enabled. | Boolean |
+| [issueTypesConfig](#issue-types-config) | Array with queue issue settings. | Array of objects |
 
 **Object fields** `lead` {#lead}
 
 | Parameter | Description | Data type |
 | ----- | ----- | ----- |
-| self | Link to the user. | String. |
-| id | User ID. | String. |
-| display | User's name displayed. | String. |
+| self | Link to the user. | String |
+| id | User ID. | String |
+| display | User's name displayed. | String |
 
 **Object fields** `defaultType` {#default-type}
 
 | Parameter | Description | Data type |
 | ----- | ----- | ----- |
-| self | Link to the issue type. | String. |
-| id | ID of the issue type. | String. |
-| key | Key of the issue type. | String. |
-| display | Issue type name displayed. | String. |
+| self | Link to the issue type. | String |
+| id | ID of the issue type. | String |
+| key | Key of the issue type. | String |
+| display | Issue type name displayed. | String |
 
 **Object fields** `defaultPriority` {#default-priority}
 
 | Parameter | Description | Data type |
 | ----- | ----- | ----- |
-| self | Link to the priority type. | String. |
-| id | Priority ID. | String. |
-| key | Priority key. | String. |
-| display | Priority name displayed. | String. |
+| self | Link to the priority type. | String |
+| id | Priority ID. | String |
+| key | Priority key. | String |
+| display | Priority name displayed. | String |
 
 **Array object fields** `teamUsers` {#team-users}
 
 | Parameter | Description | Data type |
 | ----- | ----- | ----- |
-| self | Link to the user. | String. |
-| id | User ID. | String. |
-| display | User's name displayed. | String. |
+| self | Link to the user. | String |
+| id | User ID. | String |
+| display | User's name displayed. | String |
 
 **Array object fields** `issueTypes` {#issue-types}
 
 | Parameter | Description | Data type |
 | ----- | ----- | ----- |
-| self | Link to the issue type. | String. |
-| id | ID of the issue type. | String. |
-| key | Key of the issue type. | String. |
-| display | Issue type name displayed. | String. |
+| self | Link to the issue type. | String |
+| id | ID of the issue type. | String |
+| key | Key of the issue type. | String |
+| display | Issue type name displayed. | String |
 
 **Array object fields** `versions` {#versions}
 
 | Parameter | Description | Data type |
 | ----- | ----- | ----- |
-| self | Link to the queue version. | String. |
-| id | Version ID. | String. |
-| display | Version name displayed. | String. |
+| self | Link to the queue version. | String |
+| id | Version ID. | String |
+| display | Version name displayed. | String |
 
 **Array object fields** `workflows` {#workflows}
 
 | Parameter | Description | Data type |
 | ----- | ----- | ----- |
-| self | Link to the issue type. | String. |
-| id | ID of the issue type. | String. |
-| key | Key of the issue type. | String. |
-| display | Issue type name displayed. | String. |
+| self | Link to the issue type. | String |
+| id | ID of the issue type. | String |
+| key | Key of the issue type. | String |
+| display | Issue type name displayed. | String |
 
 **Array object fields** `issueTypesConfig` {#issue-types-config}
 
 | Parameter | Description | Data type |
 | ----- | ----- | ----- |
-| [issueType](#issue-type) | Block with information about the issue type. | Object. |
-| [workflow](#workflow) | Block with information about the issue type workflow. | Object. |
-| [resolutions](#resolutions) | Array with possible issue type resolutions. | Array of objects. |
+| [issueType](#issue-type) | Block with information about the issue type. | Object |
+| [workflow](#workflow) | Block with information about the issue type workflow. | Object |
+| [resolutions](#resolutions) | Array with possible issue type resolutions. | Array of objects |
 
 **Object fields** `issueType` {#issue-type}
 
 | Parameter | Description | Data type |
 | ----- | ----- | ----- |
-| self | Link to the issue type. | String. |
-| id | ID of the issue type. | String. |
-| key | Key of the issue type. | String. |
-| display | Issue type name displayed. | String. |
+| self | Link to the issue type. | String |
+| id | ID of the issue type. | String |
+| key | Key of the issue type. | String |
+| display | Issue type name displayed. | String |
 
 **Object fields** `workflow` {#workflow}
 
 | Parameter | Description | Data type |
 | ----- | ----- | ----- |
-| self | Link to the workflow object. | String. |
-| id | Workflow ID. | String. |
-| display | Workflow name displayed. | String. |
+| self | Link to the workflow object. | String |
+| id | Workflow ID. | String |
+| display | Workflow name displayed. | String |
 
 **Array object fields** `resolutions` {#resolutions}
 
 | Parameter | Description | Data type |
 | ----- | ----- | ----- |
-| self | Link to the resolution object. | String. |
-| id | Resolution ID. | String. |
-| key | Resolution ID. | String. |
-| display | Resolution name displayed. | String. |
+| self | Link to the resolution object. | String |
+| id | Resolution ID. | String |
+| key | Resolution ID. | String |
+| display | Resolution name displayed. | String |
 
 ## Possible response codes {#section_otf_jrj_p1b}
 
 200
-:   Successful execution of the request.
+:   Request executed successfully.
 
 404
 :   The requested object was not found. You may have specified an invalid object ID or key.

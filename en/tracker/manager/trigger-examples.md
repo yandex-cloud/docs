@@ -6,10 +6,13 @@ Let's look at some examples of how triggers work in {{ tracker-name }}:
 
 - How to [automatically invite assignees](#summon_ticket) based on the status or field value.
 
+- How to [automatically notify a user](#notify_mail) after an issue was created based on a request sent to the support team via email.
+
+- How to [automatically notify a user](#notify_form) after an issue was created based on a request sent to the support team via Yandex.Forms.
+
 {% if audience == "internal" %}
 
-- How to [automatically notify a user](#notify_mail) after an issue was created based on a request sent to the support team via email.
-- How to [automatically notify a user](#notify_form) after an issue was created based on a request sent to the support team via Yandex.Forms.
+- How to [automatically add a form](#insert_form) to the issue comment.
 
 {% endif %}
 
@@ -90,8 +93,6 @@ After completing an issue, the assignee may forget to specify some important inf
 
 When closing any issue that does not specify the time spent, the robot will create a comment and invite the assignee.
 
-{% if audience == "internal" %}
-
 ## Send a notification when an issue is created from an email {#notify_mail}
 
 Let's say the support team is processing user requests in {{ tracker-name }}. Users contact the support team via email, and those emails are used as the basis for issues in {{ tracker-name }}.
@@ -104,8 +105,7 @@ You need to set up email integration if you want to send emails right from {{ tr
 
 1. [Set up an email address for the queue]{% if audience == "external" %} (queue-mail.md#section_gwv_hqb_hgb){% else %}(queue-mail.md#sec-mail-yandex){% endif %} that will create issues from user requests.
 
-<!--
-    If you can't create such an address, this means your organization doesn't have its own domain. You need a domain to create mailboxes and newsletters. This includes creating queue addresses. You can [add a domain for free in Yandex.Connect](https://yandex.ru/support/connect/add-domain.html).-->
+    If you can't create such an address, this means your organization doesn't have its own domain. You need a domain to create mailboxes and newsletters. This includes creating queue addresses. A domain is free to [add in Yandex.Mail 360 for Business]({{ support-business-domain }}).
 
 1. [Set up sender names and signatures](queue-mail.md#send_outside) if needed.
 
@@ -129,7 +129,7 @@ Set up a trigger that automatically notifies users by mail when a new issue is c
 
 1. Go to queue settings, open the **Triggers** section, and click [**Create trigger**](../user/create-trigger.md).
 
-1. Set the trigger to react when a new issue is created based on an incoming email:
+1. Set the trigger to fire when a new issue is created based on an incoming email:
 
     1. Choose **Conditions to be met** → **All**.
 
@@ -169,8 +169,7 @@ You need to set up email integration if you want to send emails from {{ tracker-
 
 1. [Set up an email address for the queue]{% if audience == "external" %} (queue-mail.md#section_gwv_hqb_hgb){% else %}(queue-mail.md#sec-mail-yandex){% endif %} that will create issues from user requests.
 
-<!--
-   If you can't create such an address, this means your organization doesn't have its own domain. You need a domain to create mailboxes and newsletters. This includes creating queue addresses. You can [add a domain for free in Yandex.Connect](https://yandex.ru/support/connect/add-domain.html).-->
+   If you can't create such an address, this means your organization doesn't have its own domain. You need a domain to create mailboxes and newsletters. This includes creating queue addresses. A domain is free to [add in Yandex.Mail 360 for Business]({{ support-business-domain }}).
 
 1. [Set up sender names and signatures](queue-mail.md#send_outside) if needed.
 
@@ -208,7 +207,7 @@ Set up a trigger that automatically notifies users by email when a new issue is 
 
 1. Go to queue settings, open the **Triggers** section, and click [**Create trigger**](../user/create-trigger.md).
 
-1. Set the trigger to react when a new issue is created based on an incoming email:
+1. Set the trigger to fire when a new issue is created based on an incoming email:
 
     1. Choose **Conditions to be met** → **All**.
 
@@ -233,6 +232,74 @@ Set up a trigger that automatically notifies users by email when a new issue is 
 1. Save your trigger.
 
     To see if your trigger works, fill out the form you integrated with {{ tracker-name }}.
+
+    {% if audience == "internal" %}
+
+## Automatically add a form to the issue comments {#insert_form}
+
+Using a trigger, you can add a form with auto-prefilled fields to the issue comments. To do this, add a special code with a link to the form in the comment text. Values can be passed to the form fields via [GET-params]({{ support-forms-get-params-ya }}). For example, you can pass the issue parameters using variables that are available in the trigger.
+
+Let's set up a trigger that adds a feedback form to the comments and invites an assignee after the issue is closed:
+
+#### Step 1. Create a feedback form
+
+1. Go to [Yandex.Forms]{% if audience == "external" %}({{ link-forms }}){% else %}({{ link-forms-ya }}){% endif %} and create a form. {% if audience == "internal" %}For information on which admin panel to create a form in, [читайте в документации]({{ support-forms-instance-ya }}).{% endif %}
+
+1. Add questions to the form so that the assignee can provide necessary information.
+
+#### Step 2. Create a trigger to add the form
+
+1. Go to queue settings, open the **Triggers** section, and click [**Create trigger**](../user/create-trigger.md).
+
+1. Set the trigger to fire when the issue is closed:
+
+    1. Choose **Conditions to be met** → **All**.
+
+    1. Add the condition **Status** → **Field value became equal to** → **Closed**.
+
+    ![](../../_assets/tracker/trigger-example-add-form-1.png)
+
+1. Set a trigger action:
+
+    1. Add the **Add comment** action.
+
+    1. In the comment text, insert the code:
+
+    ```
+    {{=<% %>=}}{{iframe src=//forms.yandex-team.ru/surveys/<id_формы>/?iframe=1&<id_вопроса>=<значение> frameborder=0 width=100% height=660px scrolling=no}}
+    ```
+
+    `<form id>` is the ID of the form to be added.
+
+    `<question_id>` is the [идентификатор вопроса]({{ support-forms-question-id }}).
+
+    `<value>` is the value to populate the form field.
+
+    To transfer issue parameters to the form, use variables as values: at the bottom of the window, click the **Add variable** button and choose the issue parameter. Then replace the `{{ }}` characters around the name of a variable with `<% %>`.
+
+    For example, to pass an issue key, use the `<%issue.key%>` value. To pass the username of an assignee, use the `<%issue.assignee.login%>` value.
+
+    Code example where an issue key is passed to the form field:
+
+    ```
+    {{=<% %>=}}{{iframe src=//forms.yandex-team.ru/surveys/68417/?iframe=1&answer_short_text_584943=<%issue.key%> frameborder=0 width=100% height=660px scrolling=no}}
+    ```
+
+    1. Click ![](../../_assets/tracker/summon.png), find the line **Invite users from a field**, and enter <q>Assignee</q>.
+
+    1. Enable the **Send as robot** option.
+
+    ![](../../_assets/tracker/trigger-example-add-form-2.png)
+
+1. Click **Create** to save the trigger.
+
+#### Step 3. Add robot-forms@ to the queue
+
+To ensure the form is inserted correctly, provide access to the queue for the `robot-forms@` robot. To learn more about configuring access, see [Setting access rights for queues](queue-access.md).
+
+![](../../_assets/tracker/trigger-example-add-form-3.png)
+
+Once the issue is closed, the robot will create a comment with the form and invite the assignee.
 
 {% endif %}
 

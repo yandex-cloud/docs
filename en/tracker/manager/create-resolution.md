@@ -1,14 +1,10 @@
 # Creating a resolution
 
-{% if audience == "external" %}
-
 {% note warning %}
 
-Only your organization&apos;s admin can create new resolutions.
+Only your organization&apos;s admin can create new resolutions. Once created, a resolution can't be deleted or edited.
 
 {% endnote %}
-
-{% endif %}
 
 A resolution is an issue attribute that specifies why the issue was closed. For example, an issue can be closed because it was completed (the <q>Resolved</q> resolution status) or because it's a duplicate of another issue (the <q>Duplicate</q> status).
 

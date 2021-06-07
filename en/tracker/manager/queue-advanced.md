@@ -6,9 +6,10 @@ You can:
 
 - Automate certain recurring actions within queues, such as changing values in issue fields or sending preset comments. To do this, create [triggers](../user/trigger.md), [auto actions](../user/autoactions.md), and [macros](create-macroses.md).
 
+- [Set up the queue email address](queue-mail.md) to create issues from incoming mail and respond to user emails right from the issue page. This helps log and process user requests, such as those sent to support.
+
 {% if audience == "internal" %}
 
-- [Set up the queue email address](queue-mail.md) to create issues from incoming mail and respond to user emails right from the issue page. This helps log and process user requests, such as those sent to support.
 - [Embed a Yandex.Forms form on the issue creation page](attach-form.md) to use it as a template for filling in your issue fields.
 
 {% endif %}

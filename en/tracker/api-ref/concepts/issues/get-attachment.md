@@ -29,7 +29,7 @@ X-Org-Id: <organization ID>
 
 > Request to download a file attached to the `JUNE-2` issue:
 > 
-> - An HTTP GET method is used.
+> - Use the HTTP GET method.
 > 
 > ```
 > GET /v2/issues/JUNE-2/attachments/4159/attachment.txt HTTP/1.1
@@ -45,7 +45,7 @@ If the request is successful, the API returns a response with code 200.
 ## Possible response codes {#section_otf_jrj_p1b}
 
 200
-:   Successful execution of the request.
+:   Request executed successfully.
 
 404
 :   The requested object was not found. You may have specified an invalid object ID or key.

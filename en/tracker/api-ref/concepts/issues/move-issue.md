@@ -10,6 +10,8 @@ If an issue you want to move has a type and status that are missing in the targe
 
 By default, when an issue is moved, the values of its components, versions, and projects are cleared. If the new queue has the same values of the fields specified, use the `MoveAllFields` parameter to move the components, versions, and projects.
 
+If the issue has values set for [local fields](../../local-fields.md), they are deleted when the issue is moved to another queue.
+
 {% endnote %}
 
 ## Request format {#section_rnm_x4j_p1b}
@@ -29,23 +31,23 @@ X-Org-Id: <organization ID>
 
 | Parameter | Description | Data type |
 | ----- | ----- | ----- |
-| \<issue-id\> | Required parameter. ID of the issue being moved. | String. |
+| \<issue-id\> | Required parameter. ID of the issue being moved. | String |
 
 **Required parameters**
 
 | Parameter | Description | Data type |
 | ----- | ----- | ----- |
-| \<queue-id\> | Required parameter. Key of the queue to move the issue to. | String. |
+| \<queue-id\> | Required parameter. Key of the queue to move the issue to. | String |
 
 **Additional parameters**
 
 | Parameter | Description | Data type |
 | ----- | ----- | ----- |
-| notify | Flag notifying users about changes to the issue:<ul><li>`true` (by default): The users specified in the issue fields are notified.</li><li>`false`: No users are notified.</li></ul> | Logical. |
-| notifyAuthor | Flag notifying the issue reporter:<ul><li>`true`: The reporter is notified.</li><li>`false` (by default): The reporter is not notified.</li></ul> | Logical. |
-| moveAllFields | Shows whether to move the issue's versions, components, and projects to the new queue:<ul><li>`true`: Move them if the new queue has similar versions, components, and projects.</li><li>`false` (by default): Clear the versions, components, and projects.</li></ul> | Logical. |
-| initialStatus | Resetting the issue status. The status is reset if the issue is moved to another queue with a different [workflow](../../manager/add-workflow.md):<ul><li>`true`: Reset the status.</li><li>`false` (by default): Retain the status as is.</li></ul> | Logical. |
-| expand | Additional fields to be included in the response:<ul><li>`attachments`: Attachments.</li><li>`comments`: Comments.</li><li>`workflow`: Issue workflow.</li><li>`transitions`: Workflow transitions between statuses.</li></ul> | String. |
+| notify | Flag notifying users about changes to the issue:<ul><li>`true` (by default): The users specified in the issue fields are notified.</li><li>`false`: No users are notified.</li></ul> | Boolean |
+| notifyAuthor | Flag notifying the issue reporter:<ul><li>`true`: The reporter is notified.</li><li>`false` (by default): The reporter is not notified.</li></ul> | Boolean |
+| moveAllFields | Shows whether to move the issue's versions, components, and projects to the new queue:<ul><li>`true`: Move them if the new queue has similar versions, components, and projects.</li><li>`false` (by default): Clear the versions, components, and projects.</li></ul> | Boolean |
+| initialStatus | Resetting the issue status. The status is reset if the issue is moved to another queue with a different [workflow](../../manager/add-workflow.md):<ul><li>`true`: Reset the status.</li><li>`false` (by default): Retain the status as is.</li></ul> | Boolean |
+| expand | Additional fields to be included in the response:<ul><li>`attachments`: Attachments.</li><li>`comments`: Comments.</li><li>`workflow`: Issue workflow.</li><li>`transitions`: Workflow transitions between statuses.</li></ul> | String |
 
 #### Request body {#req-body-params}
 
@@ -146,118 +148,118 @@ You can use the request body if you need to change the parameters of the issue b
 
 | Parameter | Description | Data type |
 | ----- | ----- | ----- |
-| self | Address of the API resource with information about the issue. | String. |
-| id | Issue ID. | String. |
-| key | Issue key. | String. |
-| version | Issue version. Each change to the issue parameters increases its version number. | Number. |
-| aliases | Array with information about alternative issue keys. | Array of strings. |
-| [previousQueue](#previous-queue) | Object with information about the issue's previous queue. | Object. |
-| description | Issue description. | String. |
-| [type](#type) | Object with information about the issue type. | Object. |
-| createdAt | Issue creation date and time. | String. |
-| updatedAt | Issue update date and time. | String. |
-| lastCommentUpdatedAt | Date and time when the last comment was added. | String. |
-| summary | Issue name. | String. |
-| [updatedBy](#updated-by) | Object with information about the user who edited the issue last. | Object. |
-| [priority](#priority) | Object with information about the priority. | Object. |
-| [followers](#followers) | Array of objects with information about issue followers. | Array of strings. |
-| [createdBy](#created-by) | Object with information about the user who created the issue. | Object. |
-| [assignee](#assignee) | Object with information about the issue's assignee. | Object. |
-| [queue](#queue) | Object with information about the issue queue. | Object. |
-| [status](#status) | Object with information about the issue status. | Object. |
-| [previousStatus](#previous-status) | Object with information about the previous status of the issue. | Object. |
-| favorite | Flag indicating a favorite issue:<ul><li>`true`: Notifications are disabled.</li><li>`false`: Notifications are enabled.</li></ul> | Logical. |
+| self | Address of the API resource with information about the issue. | String |
+| id | Issue ID. | String |
+| key | Issue key. | String |
+| version | Issue version. Each change to the issue parameters increases its version number. | Number |
+| aliases | Array with information about alternative issue keys. | Array of strings |
+| [previousQueue](#previous-queue) | Object with information about the issue's previous queue. | Object |
+| description | Issue description. | String |
+| [type](#type) | Object with information about the issue type. | Object |
+| createdAt | Issue creation date and time. | String |
+| updatedAt | Issue update date and time. | String |
+| lastCommentUpdatedAt | Date and time when the last comment was added. | String |
+| summary | Issue name. | String |
+| [updatedBy](#updated-by) | Object with information about the user who edited the issue last. | Object |
+| [priority](#priority) | Object with information about the priority. | Object |
+| [followers](#followers) | Array of objects with information about issue followers. | Array of strings |
+| [createdBy](#created-by) | Object with information about the user who created the issue. | Object |
+| [assignee](#assignee) | Object with information about the issue's assignee. | Object |
+| [queue](#queue) | Object with information about the issue queue. | Object |
+| [status](#status) | Object with information about the issue status. | Object |
+| [previousStatus](#previous-status) | Object with information about the previous status of the issue. | Object |
+| favorite | Flag indicating a favorite issue:<ul><li>`true`: Notifications are disabled.</li><li>`false`: Notifications are enabled.</li></ul> | Boolean |
 
 **Object fields** `previousQueue` {#previous-queue}
 
 | Parameter | Description | Data type |
 | ----- | ----- | ----- |
-| self | Address of the API resource with information about the queue. | String. |
-| id | Queue ID. | Number. |
-| key | Queue key. | String. |
-| display | Queue name displayed. | String. |
+| self | Address of the API resource with information about the queue. | String |
+| id | Queue ID. | Number |
+| key | Queue key. | String |
+| display | Queue name displayed. | String |
 
 **Object fields** `type` {#type}
 
 | Parameter | Description | Data type |
 | ----- | ----- | ----- |
-| self | Address of the API resource with information about the issue type. | String. |
-| id | ID of the issue type. | Number. |
-| key | Key of the issue type. | String. |
-| display | Issue type name displayed. | String. |
+| self | Address of the API resource with information about the issue type. | String |
+| id | ID of the issue type. | Number |
+| key | Key of the issue type. | String |
+| display | Issue type name displayed. | String |
 
 **Object fields** `updatedBy` {#updated-by}
 
 | Parameter | Description | Data type |
 | ----- | ----- | ----- |
-| self | Address of the API resource with information about the user. | String. |
-| id | User ID. | Number. |
-| display | User's name displayed. | String. |
+| self | Address of the API resource with information about the user. | String |
+| id | User ID. | Number |
+| display | User's name displayed. | String |
 
 **Object fields** `priority` {#priority}
 
 | Parameter | Description | Data type |
 | ----- | ----- | ----- |
-| self | Address of the API resource with information about the priority. | String. |
-| id | Priority type ID. | Number. |
-| key | Priority type key. | String. |
-| display | Priority type name displayed. | String. |
+| self | Address of the API resource with information about the priority. | String |
+| id | Priority type ID. | Number |
+| key | Priority type key. | String |
+| display | Priority type name displayed. | String |
 
 **Object array fields** `followers` {#followers}
 
 | Parameter | Description | Data type |
 | ----- | ----- | ----- |
-| self | Address of the API resource with information about the user. | String. |
-| id | User ID. | Number. |
-| display | User's name displayed. | String. |
+| self | Address of the API resource with information about the user. | String |
+| id | User ID. | Number |
+| display | User's name displayed. | String |
 
 **Object fields** `createdBy` {#created-by}
 
 | Parameter | Description | Data type |
 | ----- | ----- | ----- |
-| self | Address of the API resource with information about the user. | String. |
-| id | User ID. | Number. |
-| display | User's name displayed. | String. |
+| self | Address of the API resource with information about the user. | String |
+| id | User ID. | Number |
+| display | User's name displayed. | String |
 
 **Object fields** `assignee` {#assignee}
 
 | Parameter | Description | Data type |
 | ----- | ----- | ----- |
-| self | Address of the API resource with information about the user. | String. |
-| id | User ID. | Number. |
-| display | User's name displayed. | String. |
+| self | Address of the API resource with information about the user. | String |
+| id | User ID. | Number |
+| display | User's name displayed. | String |
 
 **Object fields** `queue` {#queue}
 
 | Parameter | Description | Data type |
 | ----- | ----- | ----- |
-| self | Address of the API resource with information about the queue. | String. |
-| id | Queue ID. | Number. |
-| key | Queue key. | String. |
-| display | Queue name displayed. | String. |
+| self | Address of the API resource with information about the queue. | String |
+| id | Queue ID. | Number |
+| key | Queue key. | String |
+| display | Queue name displayed. | String |
 
 **Object fields** `status` {#status}
 
 | Parameter | Description | Data type |
 | ----- | ----- | ----- |
-| self | Address of the API resource with information about the status. | String. |
-| id | Status ID. | Number. |
-| key | Status type key. | String. |
-| display | Status type name displayed. | String. |
+| self | Address of the API resource with information about the status. | String |
+| id | Status ID. | Number |
+| key | Status type key. | String |
+| display | Status type name displayed. | String |
 
-**Object fields** `previousStatus` {#type}
+**Object fields** `previousStatus` {#previousStatus}
 
 | Parameter | Description | Data type |
 | ----- | ----- | ----- |
-| self | Address of the API resource with information about the status. | String. |
-| id | Status ID. | Number. |
-| key | Status type key. | String. |
-| display | Status type name displayed. | String. |
+| self | Address of the API resource with information about the status. | String |
+| id | Status ID. | Number |
+| key | Status type key. | String |
+| display | Status type name displayed. | String |
 
 ## Possible response codes {#section_otf_jrj_p1b}
 
 200
-:   Successful execution of the request.
+:   Request executed successfully.
 
 401
 :  The user isn't authorized. Make sure that actions described in [{#T}](../access.md) are performed.
