@@ -17,7 +17,7 @@ Let's perform the basic actions using the AWS CLI, one of the [tools](instrument
      Set the AWS CLI configuration via the `aws configure` command, using the ID and secret access key of the service account:
 
      ```
-     $ aws configure
+     aws configure
      AWS Access Key ID [****************kzJl]: <ID of the service account's access key
      AWS Secret Access Key [****************I3AO]: <ID of the service account's access key
      Default region name [eu-west-1]: ru-central1
@@ -33,7 +33,7 @@ Let's perform the basic actions using the AWS CLI, one of the [tools](instrument
    - AWS CLI
 
      ```
-     $ aws sqs create-queue --queue-name sample-queue \
+     aws sqs create-queue --queue-name sample-queue \
                  --endpoint https://message-queue.api.cloud.yandex.net/
      {
          "QueueUrl": "https://message-queue.api.cloud.yandex.net/aoeaql9r10cd9cfue7v6/000000000000002n034r/sample-queue"
@@ -63,7 +63,7 @@ Let's perform the basic actions using the AWS CLI, one of the [tools](instrument
    - AWS CLI
 
      ```
-     $ aws sqs send-message --message-body "Hello World!" \
+     aws sqs send-message --message-body "Hello World" \
                  --endpoint https://message-queue.api.cloud.yandex.net/ \
                  --queue-url https://message-queue.api.cloud.yandex.net/aoeaql9r10cd9cfue7v6/000000000000002l034r/sample-queue
      {
@@ -81,7 +81,7 @@ Let's perform the basic actions using the AWS CLI, one of the [tools](instrument
    - AWS CLI
 
      ```
-     $ aws sqs receive-message \
+     aws sqs receive-message \
                  --endpoint https://message-queue.api.cloud.yandex.net/ \
                  --queue-url https://message-queue.api.cloud.yandex.net/aoegtvhtp8ob9rqq8sto/000000000000002p01jp/sample-queue
      {
@@ -90,7 +90,7 @@ Let's perform the basic actions using the AWS CLI, one of the [tools](instrument
                  "MessageId": "948de7-9ec8d787-cbf3465c-c",
                  "ReceiptHandle": "EAEggbjIg_8sKAM",
                  "MD5OfBody": "ed076287532e86365e841e92bfc50d8c",
-                 "Body": "Hello World!",
+                 "Body": "Hello World",
                  "Attributes": {
                      "ApproximateFirstReceiveTimestamp": "1545927269377",
                      "ApproximateReceiveCount": "1",
@@ -114,7 +114,7 @@ Let's perform the basic actions using the AWS CLI, one of the [tools](instrument
    - AWS CLI
 
      ```
-     $ aws sqs delete-message \
+     aws sqs delete-message \
                  --endpoint https://message-queue.api.cloud.yandex.net/ \
                  --queue-url https://message-queue.api.cloud.yandex.net/aoegtvhtp8ob9rqq8sto/000000000000002p01jp/sample-queue \
                  --receipt-handle EAEggbjIg_8sKAM
@@ -129,7 +129,7 @@ Let's perform the basic actions using the AWS CLI, one of the [tools](instrument
    - AWS CLI
 
      ```
-     $ aws sqs delete-queue \
+     aws sqs delete-queue \
                  --queue-url https://message-queue.api.cloud.yandex.net/aoegtvhtp8ob9rqq8sto/000000000000002p01jp/sample-queue \
                  --endpoint https://message-queue.api.cloud.yandex.net/
      ```

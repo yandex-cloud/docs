@@ -123,22 +123,24 @@ items:
         href: datalens/index.md
       - name: Visualizing data from a CSV file
         href: datalens/data-from-csv-visualization.md
-      - name: Visualizing data from a ClickHouse database
-        href: datalens/data-from-ch-visualization.md
-      - name: Visualizing data from Yandex.Metrica
-        href: datalens/data-from-metrica-visualization.md
-      - name: Visualizing data from Yandex.Metrica Logs API
-        href: datalens/data-from-metrica-logsapi-visualization.md
-      - name: Publishing a chart with a map from a CSV file to DataLens Public
+      - name: Creating and publishing a chart with a map of Moscow from a CSV file
         href: datalens/data-from-csv-to-public-visualization.md
-      - name: Visualizing data from AppMetrica
-        href: datalens/data-from-appmetrica-visualization.md
-      - name: Visualizing geodata from a CSV file
+      - name: Analyzing a store chain's sales based on data from a ClickHouse DB
+        href: datalens/data-from-ch-visualization.md
+      - name: Analyzing open data on road accidents in Russia
         href: datalens/data-from-csv-geo-visualization.md
       - name: >-
-          Visualizing data from a ClickHouse database with geolayers from the
-          Marketplace
+          Analyzing sales and locations of pizzerias based on data from
+          Clickhouse DB and Marketplace
         href: datalens/data-from-ch-to-geolayers-visualization.md
+      - name: Web analytics with a connection to Yandex.Metrica
+        href: datalens/data-from-metrica-visualization.md
+      - name: Web analytics with a connection to Yandex.Metrica via the Logs API
+        href: datalens/data-from-metrica-logsapi-visualization.md
+      - name: Mobile app analytics based on AppMetrica data
+        href: datalens/data-from-appmetrica-visualization.md
+      - name: Analyzing Yandex Music podcast statistics (for podcast authors)
+        href: datalens/data-from-podcasts.md
   - name: Internet of things
     items:
       - name: Use cases for the internet of things

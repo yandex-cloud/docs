@@ -1,4 +1,4 @@
-# Visualizing data from Yandex.Metriсa
+# Web analytics with a connection to Yandex.Metrica
 
 One of the Yandex.Metrica tags that you have access to will be used as the data source. You can view a list of tags available to you at [https://metrika.yandex.com/list](https://metrika.yandex.com/list).![image](../../_assets/datalens/solution-03/01-metrica-list.png)
 

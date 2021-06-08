@@ -1,12 +1,14 @@
-# Create a new product
+# Creating a product
 
-To add a product to Marketplace, you need to [create an image in {{ compute-name }}](../../compute/operations/image-create/upload.md). Then follow these steps:
+To add a product to the Marketplace, you need to [upload an image to {{ yandex-cloud }}](create-image.md#create).
 
-## Tell users about your product {#description}
+## Providing product details {#tell-about}
 
-{% include [new-product-desc](../_includes_service/new-product-desc.md) %}
+{% include [product](../../_includes/marketplace/product.md) %}
 
-## Upload the first version of the product {#first-version}
+## Creating the first version of the product {#first-version}
 
-{% include [new-product-version](../_includes_service/new-product-version.md) %}
+{% include [product-version](../../_includes/marketplace/product-version.md) %}
+
+The product's first version will be sent for moderation to {{ yandex-cloud }}. After it passes moderation, you'll get an email confirming that your product is available to users in the Marketplace public catalog.
 

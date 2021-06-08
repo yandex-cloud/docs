@@ -6,24 +6,30 @@
 
 * Команда `yc compute instance`.
 
-- В `network_interface` добавлены ключи `dns-record-spec` и `ipv6-dns-record-spec`
+  В `network_interface` добавлены ключи `dns-record-spec` и `ipv6-dns-record-spec`.
+
+**{{ api-gw-name }}**
+
+* Добавлена команда `yc serverless api-gateway add-domain` для привязывания домена к API-шлюзу.
+* Добавлена команда `yc serverless api-gateway remove-domain` для отсоединения домена от API-шлюза.
 
 #### Сервисы управляемых баз данных {#managed-db}
 
-** {{ mes-name }} **
+**{{ mes-name }}**
 
-- Добавлен флаг --service-type для команды `yc managed-elasticsearch cluster list-logs` для получения логов kibana.
-- Добавлен флаг --service-account для команд `yc managed-elasticsearch cluster create` и `yc managed-elasticsearch cluster update`.
+* Команда `yc managed-elasticsearch cluster list-logs`.
 
-** {{ mkf-name }} **
+  Добавлен флаг `--service-type` для получения логов Kibana.
 
-* В команды `yc managed-kafka cluster create` и `yc managed-kafka cluster update` добавлены флаги для задания и изменения конфигурационных настроек Kafka брокеров:
-  --num-partitions, --default-replication-factor
+* Команды `yc managed-elasticsearch cluster create` и `yc managed-elasticsearch cluster update`.
 
-** {{ api-gw-name }} **
+  Добавлен флаг `--service-account`.
 
-- Добавлена команда `yc serverless api-gateway add-domain` для привязывания домена к API-шлюзу.
-- Добавлена команда `yc serverless api-gateway remove-domain` для отсоединения домена от API-шлюза.
+**{{ mkf-name }}**
+
+* Команды `yc managed-kafka cluster create` и `yc managed-kafka cluster update`.
+
+  Добавлены флаги `--num-partitions` и `--default-replication-factor` для задания и изменения конфигурационных настроек брокеров Kafka.
 
 **{{ mrd-name }}**
 
@@ -31,9 +37,9 @@
 
   Добавлены флаги `--slowlog-log-slower-than`, `--slowlog-max-len`, `--databases` и `--notify-keyspace-events` (см. описание в redis.conf).
 
----
+## Предыдущие релизы {#previous-releases}
 
-## Версия 0.76.0 (19.05.21) {#version0.76.0}
+### Версия 0.76.0 (19.05.21) {#version0.76.0}
 
 **{{ mpg-name }}**
 
@@ -50,8 +56,6 @@
 * Команда `yc compute instance-group`.
 
   В вывод групп добавлено отображение статуса группы.
-
-## Предыдущие релизы {#previous-releases}
 
 ### Версия 0.75.0 (13.04.21) {#version0.75.0}
 

@@ -1,4 +1,4 @@
-# Visualizing data from Yandex.Metrica Logs API
+# Web analytics with a connection to Yandex.Metrica via the Logs API
 
 **Logs API** technology lets you get non-aggregated Yandex.Metrica data, process it, and use it in analytical tasks.
 

@@ -1,4 +1,4 @@
-# Visualizing data from a ClickHouse database
+# Analyzing a store chain's sales based on data from a ClickHouse DB
 
 As a data source, we'll use a demo ClickHouse database on sales in a Moscow chain of stores.
 The connection to this database is automatically created when a {{ datalens-short-name }} instance is created.

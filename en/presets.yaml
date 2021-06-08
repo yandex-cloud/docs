@@ -126,7 +126,6 @@ default:
   api-gw-short-name: API Gateway
   lockbox-short-name: Lockbox
   at-short-name: Audit Trails
-  tracker-short-name: Tracker
   price-per-hour-count-per-second: Prices are shown for 1 hour of use. Billing is on a per-second basis.
   roles-cr-admin: container-registry.admin
   roles-cr-puller: container-registry.images.puller
@@ -182,7 +181,7 @@ default:
   dns-zone: mdb.yandexcloud.net
   network-name: default
   security-group: enp6saqnq4ie244g67sb
-  host-net-example: zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch63
+  host-net-example: zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch64
   disk-type-example: network-ssd
   PG: PostgreSQL
   CH: ClickHouse
@@ -199,6 +198,7 @@ default:
   ZK: ZooKeeper
   MS: SQL Server
   RMQ: RabbitMQ
+  TF: Terraform
   tag-con: <code><b><small>Management console</small></b></code>
   tag-cli: <code><b><small>CLI</small></b></code>
   tag-tf: <code><b><small>Terraform</small></b></code>

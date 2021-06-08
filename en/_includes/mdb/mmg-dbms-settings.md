@@ -1,8 +1,8 @@
 - **Net → Max incoming connections**: Maximum number of inbound connections.
 
-  The minimum value is `10` and the maximum value is equal to the number of MB of RAM on the host. Defaults to `1024`.
+  Minimum value: `10`, the maximum value depends on the amount of host RAM.
 
-  For more information, see the [{{ MG }} documentation](https://docs.mongodb.com/manual/administration/analyzing-mongodb-performance/#number-of-connections).
+  For more information, see [Connection limits](../../managed-mongodb/operations/connect.md#connection-limits).
 
 - **Operation profiling**: DBMS profiler settings. The profiler collects query data to determine a query optimization strategy.
 
@@ -41,4 +41,3 @@
             The minimum value is `0.25` and the maximum value is 90% of the host's RAM. Defaults to 50% of the host's RAM.
 
             For more information, see the [{{ MG }} documentation](https://docs.mongodb.com/manual/reference/configuration-options/#storage.wiredTiger.engineConfig.cacheSizeGB).
-

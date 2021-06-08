@@ -4,5 +4,5 @@ A Marketplace product is a disk image with pre-installed software that the user 
 
 Users pay for consuming the product based on the [service plan](tariff.md) assigned to the product.
 
-You can create product [versions](../operations/create-new-version.md) to release product updates or builds for different operating systems. You can assign different plans for different product versions.
+You can create product versions to release product updates or builds for different operating systems. You can assign different plans for different product versions.
 
