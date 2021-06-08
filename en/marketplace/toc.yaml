@@ -7,13 +7,17 @@ items:
     items:
       - name: All instructions
         href: operations/index.md
-      - name: Create a service plan
+      - name: Registration
+        href: operations/registration.md
+      - name: Creating a service plan
         href: operations/create-tariff.md
-      - name: Create a new product
+      - name: Creating a product image
+        href: operations/create-image.md
+      - name: Creating a product
         href: operations/create-product.md
-      - name: Edit product information
+      - name: Updating a product
         href: operations/change-product.md
-      - name: Create a new product version
+      - name: Adding a new product version
         href: operations/create-new-version.md
   - name: Concepts
     items:
@@ -21,3 +25,4 @@ items:
         href: concepts/product.md
       - name: Pricing plan
         href: concepts/tariff.md
+base: ru/marketplace
