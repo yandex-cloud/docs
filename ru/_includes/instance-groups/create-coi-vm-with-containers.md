@@ -65,7 +65,7 @@
    - Консоль управления
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать сеть.
-     1. Выберите сервис **Virtual Private Cloud**.
+     1. Выберите сервис **{{ vpc-name }}**.
      1. Нажмите кнопку **Создать сеть**.
      1. Задайте имя сети `yc-auto-network`.
      1. Выберите дополнительную опцию **Создать подсети**.
@@ -109,44 +109,13 @@
    - API
 
      1. Создайте сеть с помощью метода [Create](../../vpc/api-ref/Network/create.md) для ресурса `Networks`.
-
      1. Создать подсеть в зоне доступности `ru-central1-a`с помощью метода [Сreate](../../vpc/api-ref/Subnet/create.md) для ресурса `Subnets`.
 
    {% endlist %}
 
 ## Создайте группу ВМ с {{ coi }} и несколькими Docker-контейнерами {#create}
 
-1. Узнайте идентификатор последней версии [публичного образа](../../compute/operations/images-with-pre-installed-software/get-list.md) {{ coi }}.
-
-   Образ {{ coi }} в реестре [{{ container-registry-name }}](../../container-registry/) может обновляться и меняться в соответствии с релизами. При этом образ на ВМ не обновится автоматически до последней версии. Чтобы создать группу ВМ с последней версией {{ coi }}, необходимо самостоятельно проверить ее наличие:
-
-   {% list tabs %}
-
-   - CLI
-
-     ```bash
-     yc compute image get-latest-from-family container-optimized-image --folder-id standard-images
-     ```
-
-     Результат выполнения команды:
-
-     ```bash
-     id: fd8iv792kirahcnqnt0q
-     folder_id: standard-images
-     created_at: "2021-01-29T13:30:22Z"
-     name: container-optimized-image-1611926453
-     description: Build by Assembly-Workshop-build-66870
-     family: container-optimized-image
-     storage_size: "6157238272"
-     min_disk_size: "10737418240"
-     product_ids:
-     - f2elj2f52bbqe4af8tfd
-     status: READY
-     os:
-       type: LINUX
-     ```
-
-   {% endlist %}
+1. {% include [get-latest-coi](../container-registry/get-latest-coi.md) %}
 
 1. Сохраните спецификацию группы ВМ с {{ coi }} и несколькими Docker-контейнерами в файл `specification.yaml`:
 
@@ -201,9 +170,9 @@
        - zone_id: ru-central1-a
    ```
 
-   {% note info %}   
+   {% note info %}
 
-   Передать SSH-ключ в [метаданных ВМ](../../compute/concepts/vm-metadata.md#keys-processed-in-public-images) можно с помощью параметра `ssh-keys` или в строке с пользовательскими метаданными `user-data`. В этом руководстве используется первый вариант.
+   Передать SSH-ключ в [метаданных ВМ](../../compute/concepts/vm-metadata.md#keys-processed-in-public-images) можно с помощью параметра `ssh-keys` или в строке с пользовательскими метаданными `user-data`. В этом практическом руководстве используется первый вариант.
 
    {% endnote %}
 
@@ -244,7 +213,7 @@
    - Консоль управления
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создали группу ВМ.
-     1. Выберите сервис **Compute Cloud**.
+     1. Выберите сервис **{{ compute-short-name }}**.
      1. Перейдите в раздел **Группы виртуальных машин**.
      1. Нажмите на имя группы ВМ `group-coi-containers`.
 
@@ -270,10 +239,10 @@
      Посмотрите список созданных ВМ с помощью метода [List](../../compute/api-ref/InstanceGroup/list.md) для ресурса `InstanceGroup`.
 
    {% endlist %}
-   
+
 ## Проверьте группу ВМ с {{ coi }} и несколькими Docker-контейнерами {#check}
 
-1. Подключитесь к одной из созданных ВМ по [SSH](../../compute/operations/vm-connect/ssh#vm-connect):
+1. Подключитесь к одной из созданных ВМ по [SSH](../../compute/operations/vm-connect/ssh.md#vm-connect):
 
    {% list tabs %}
 
@@ -287,7 +256,7 @@
 
      ```bash
      Welcome to Ubuntu 20.04.1 LTS (GNU/Linux 5.4.0-54-generic x86_64)
-   
+
       * Documentation:  https://help.ubuntu.com
       * Management:     https://landscape.canonical.com
       * Support:        https://ubuntu.com/advantage

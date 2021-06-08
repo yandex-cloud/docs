@@ -124,12 +124,16 @@
 
    - API
 
-     1. Создайте сеть с помощью метода [Create](../../vpc/api-ref/Network/create.md) для ресурса `Networks`.
-     1. Создать подсети в зонах `ru-central1-b` и `ru-central1-c` с помощью метода [Сreate](../../vpc/api-ref/Subnet/create.md) для ресурса `Subnets`.
+     1. Создайте сеть с помощью метода [Create](../../vpc/api-ref/Network/create.md) для ресурса `Network`.
+     1. Создать подсети в зонах `ru-central1-b` и `ru-central1-c` с помощью метода [Сreate](../../vpc/api-ref/Subnet/create.md) для ресурса `Subnet`.
 
    {% endlist %}
 
 ## Создайте группу ВМ с автоматическим масштабированием и сетевым балансировщиком нагрузки {#create-vm-group}
+
+1. Все ВМ группы создаются из образа [{{ coi }}](../../cos/concepts/index.md). Каждая ВМ содержит Docker-контейнер с веб-сервером, который эмулирует нагрузку на сервис.
+
+   {% include [get-latest-coi](../../_includes/container-registry/get-latest-coi.md) %}
 
 1. Сохраните спецификацию группы ВМ с сетевым балансировщиком нагрузки в файл `specification.yaml`:
 
@@ -176,7 +180,7 @@
        disk_spec:
          type_id: network-hdd
          size: 10G
-         image_id: fd81a49qficqvt0dthu8
+         image_id: fd8iv792kirahcnqnt0q # Идентификатор публичного образа Container Optimized Image.
      network_interface_specs:
        - network_id: enpabce123hde4ft1r3t
          primary_v4_address_spec: { one_to_one_nat_spec: { ip_version: IPV4 }}
@@ -205,8 +209,6 @@
      service_account_id: ajelabcde12f33nol1v5
      status: ACTIVE
      ```
-
-     Все ВМ группы создаются из образа [{{ coi }}](../../cos/concepts/index.md). Каждая ВМ содержит Docker-контейнер с веб-сервером, который эмулирует нагрузку на сервис.
 
    - API
 
@@ -297,10 +299,10 @@
 
    - API
 
-     1. Создайте балансировщик нагрузки с помощью метода [Create](../../network-load-balancer/api-ref/NetworkLoadBalancer/create.md) для ресурса `NetworkLoadBalancers`.
-     1. Добавьте обработчик к балансировщику с помощью метода [AddListener](../../network-load-balancer/api-ref/NetworkLoadBalancer/addListener.md) для ресурса `NetworkLoadBalancers`.
-     1. Подключите целевую группу к балансировщику с помощью метода [AttachTargetGroup](../../network-load-balancer/api-ref/NetworkLoadBalancer/attachTargetGroup.md) для ресурса `NetworkLoadBalancers`.
-     1. Подключите балансировщик к группе ВМ с помощью метода [AddTargets](../../network-load-balancer/api-ref/TargetGroup/addTargets.md) для ресурса `TargetGroups`.
+     1. Создайте балансировщик нагрузки с помощью метода [Create](../../network-load-balancer/api-ref/NetworkLoadBalancer/create.md) для ресурса `NetworkLoadBalancer`.
+     1. Добавьте обработчик к балансировщику с помощью метода [AddListener](../../network-load-balancer/api-ref/NetworkLoadBalancer/addListener.md) для ресурса `NetworkLoadBalancer`.
+     1. Подключите целевую группу к балансировщику с помощью метода [AttachTargetGroup](../../network-load-balancer/api-ref/NetworkLoadBalancer/attachTargetGroup.md) для ресурса `NetworkLoadBalancer`.
+     1. Подключите балансировщик к группе ВМ с помощью метода [AddTargets](../../network-load-balancer/api-ref/TargetGroup/addTargets.md) для ресурса `TargetGroup`.
 
    {% endlist %}
 
@@ -477,7 +479,7 @@
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создали группу ВМ `auto-group`.
      1. Выберите сервис **{{ compute-short-name }}**.
-     1. Перейдите в раздел **Группы виртуальных машин**. 
+     1. Перейдите в раздел **Группы виртуальных машин**.
      1. Нажмите значок ![image](../../_assets/vertical-ellipsis.svg) для группы ВМ `auto-group`.
      1. В открывшемся меню нажмите кнопку **Удалить**.
      1. В открывшемся окне **Удаление группы виртуальных машин** нажмите кнопку **Удалить**.
