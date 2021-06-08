@@ -1,4 +1,4 @@
-# Visualizing data from a ClickHouse database with geolayers from the Marketplace
+# Analyzing sales and locations of pizzerias based on data from Clickhouse DB and Marketplace
 
 We'll use a ClickHouse database connection and the **Companies: supply and demand** product from the Marketplace as a source.
 

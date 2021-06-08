@@ -131,33 +131,33 @@ items:
         href: datalens/index.md
       - name: Визуализация данных из CSV-файла
         href: datalens/data-from-csv-visualization.md
-      - name: Визуализация данных из базы данных ClickHouse
+      - name: Создание и публикация диаграммы с картой Москвы из CSV-файла
+        when: audience == "external"
+        href: datalens/data-from-csv-to-public-visualization.md
+      - name: Анализ продаж сети магазинов из БД ClickHouse
         when: audience == "external"
         href: datalens/data-from-ch-visualization.md
       - name: Визуализация данных из ClickHouse over YT (CHYT)
         when: audience == "internal"
         href: datalens/data-from-ch-over-yt.md
-      - name: Визуализация данных из Метрики
-        when: audience == "external"
-        href: datalens/data-from-metrica-visualization.md
-      - name: Визуализация данных из Metriсa Logs API
-        when: audience == "external"
-        href: datalens/data-from-metrica-logsapi-visualization.md
-      - name: Публикация в DataLens Public диаграммы с картой на основе CSV-файла
-        when: audience == "external"
-        href: datalens/data-from-csv-to-public-visualization.md
-      - name: Визуализация данных из AppMetrica
-        when: audience == "external"
-        href: datalens/data-from-appmetrica-visualization.md
-      - name: Визуализация геоданных из CSV-файла
+      - name: Анализ открытых данных ДТП на дорогах России
         href: datalens/data-from-csv-geo-visualization.md
-      - name: Визуализация данных из базы данных ClickHouse с геослоями из Marketplace
+      - name: Анализ продаж и локаций пиццерий на данных из БД Clickhouse и Marketplace
         when: audience == "external"
         href: datalens/data-from-ch-to-geolayers-visualization.md
+      - name: Веб-аналитика с подключением к Яндекс.Метрике
+        when: audience == "external"
+        href: datalens/data-from-metrica-visualization.md
+      - name: Веб-аналитика с подключением к Яндекс.Метрике через Logs API
+        when: audience == "external"
+        href: datalens/data-from-metrica-logsapi-visualization.md
+      - name: Аналитика мобильного приложения на данных AppMetrica
+        when: audience == "external"
+        href: datalens/data-from-appmetrica-visualization.md
       - name: Визуализация данных из отчетов Statface
         when: audience == "internal"
         href: datalens/data-from-statface-visualization.md
-      - name: Визуализация данных из статистики подкастов Яндекс.Музыки
+      - name: Анализ статистики подкастов Яндекс.Музыки (для авторов подкастов)
         when: audience == "external"
         href: datalens/data-from-podcasts.md
   - name: Интернет вещей

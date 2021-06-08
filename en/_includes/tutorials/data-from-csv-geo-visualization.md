@@ -1,4 +1,4 @@
-# Visualizing geodata from a CSV file
+# Analyzing open data on road accidents in Russia
 
 This scenario analyzes public data on road accidents in Russia. In addition to identifying the facts of accident statistics in Russia, during the analysis you'll learn how to:
 

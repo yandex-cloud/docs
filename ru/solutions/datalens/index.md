@@ -5,14 +5,14 @@
 {% if audience != "internal" %} 
 
 - [Визуализация данных из CSV-файла](data-from-csv-visualization.md)
-- [Визуализация данных из базы данных ClickHouse](data-from-ch-visualization.md)
-- [Визуализация данных из Metriсa](data-from-metrica-visualization.md)
-- [Визуализация данных из Metriсa Logs API](data-from-metrica-logsapi-visualization.md)
-- [Публикация в DataLens Public диаграммы с картой на основе CSV-файла](data-from-csv-to-public-visualization.md)
-- [Визуализация данных из AppMetrica](data-from-appmetrica-visualization.md)
-- [Визуализация геоданных из CSV-файла](data-from-csv-geo-visualization.md)
-- [Визуализация данных из базы данных ClickHouse с геослоями из Marketplace](data-from-ch-to-geolayers-visualization.md)
-- [Визуализация данных из статистики подкастов Яндекс.Музыки](data-from-podcasts.md)
+- [Создание и публикация диаграммы с картой Москвы из CSV-файла](data-from-csv-to-public-visualization.md)
+- [Анализ продаж сети магазинов из БД ClickHouse](data-from-ch-visualization.md)
+- [Анализ открытых данных ДТП на дорогах России](data-from-csv-geo-visualization.md)
+- [Анализ продаж и локаций пиццерий на данных из БД Clickhouse и Marketplace](data-from-ch-to-geolayers-visualization.md)
+- [Веб-аналитика с подключением к Яндекс.Метрике](data-from-metrica-visualization.md)
+- [Веб-аналитика с подключением к Яндекс.Метрике через Logs API](data-from-metrica-logsapi-visualization.md)
+- [Аналитика мобильного приложения на данных AppMetrica](data-from-appmetrica-visualization.md)
+- [Анализ статистики подкастов Яндекс.Музыки (для авторов подкастов)](data-from-podcasts.md)
 
 {% endif %}
 
@@ -20,7 +20,7 @@
 
 - [Визуализация данных из CSV-файла](data-from-csv-visualization.md)
 - [Визуализация данных из ClickHouse over YT (CHYT)](data-from-ch-over-yt.md)
-- [Визуализация геоданных из CSV-файла](data-from-csv-geo-visualization.md)
+- [Анализ открытых данных ДТП на дорогах России](data-from-csv-geo-visualization.md)
 - [Визуализация данных из отчетов Statface](data-from-statface-visualization.md)
 
 {% endif %}

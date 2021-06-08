@@ -1,4 +1,4 @@
-# Visualizing data from AppMetrica
+# Mobile app analytics based on AppMetrica data
 
 The application added to [AppMetrica](https://appmetrica.yandex.com) will be used as the data source. You can view a list of applications available to you under [Applications](https://appmetrica.yandex.com/application/list).
 
