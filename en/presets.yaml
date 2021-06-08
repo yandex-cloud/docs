@@ -130,7 +130,6 @@ default:
   api-gw-short-name: API Gateway
   lockbox-short-name: Lockbox
   at-short-name: Audit Trails
-  tracker-short-name: Tracker
   price-per-hour-count-per-second: Prices are shown for 1 hour of use. Billing is on a per-second basis.
   roles-cr-admin: container-registry.admin
   roles-cr-puller: container-registry.images.puller
@@ -186,7 +185,7 @@ default:
   dns-zone: mdb.yandexcloud.net
   network-name: default
   security-group: enp6saqnq4ie244g67sb
-  host-net-example: zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch63
+  host-net-example: zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch64
   disk-type-example: network-ssd
   PG: PostgreSQL
   CH: ClickHouse
@@ -203,6 +202,7 @@ default:
   ZK: ZooKeeper
   MS: SQL Server
   RMQ: RabbitMQ
+  TF: Terraform
   tag-con: <code><b><small>Management console</small></b></code>
   tag-cli: <code><b><small>CLI</small></b></code>
   tag-tf: <code><b><small>Terraform</small></b></code>
@@ -284,8 +284,7 @@ default:
   link-cloud-services: https://cloud.yandex.com/services
   link-yandex-connect: https://connect.yandex.com
   link-passport-login: https://passport.yandex.com/auth
-  link-cloud-oauth: >-
-    https://oauth.yandex.com/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb
+  link-cloud-oauth: https://oauth.yandex.com/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb
   link-cloud-partners: https://partners.cloud.yandex.ru/
   link-app-android: https://play.google.com/store/apps/details?id=ru.yandex.cloud
   link-app-ios: https://apps.apple.com/ru/app/yandex-cloud/id1515465314
@@ -354,14 +353,13 @@ internal:
   link-cloud-calculator: https://cloud.yandex.com/prices#calculator
   link-yandex-connect: https://connect.yandex.com
   link-passport-login: https://passport.yandex.com/auth
-  link-cloud-oauth: >-
-    https://oauth.yandex.com/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb
+  link-cloud-oauth: https://oauth.yandex.com/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb
   link-cloud-partners: https://partners.cloud.yandex.ru/
   tf-cloud-id: b1gq90dgh25bebiu75o
   tf-folder-id: b1go92dnv7b9u8f21mnj
 external:
   audience: external
-  console-link: console.cloud.yandex.com
+  console-link: https://console.cloud.yandex.com
   host-class: s2.micro
   network-name: default-net
   security-group: enp6saqnq4ie244g67sb
@@ -374,8 +372,7 @@ external:
   link-cloud-calculator: https://cloud.yandex.com/prices#calculator
   link-yandex-connect: https://connect.yandex.com
   link-passport-login: https://passport.yandex.com/auth
-  link-cloud-oauth: >-
-    https://oauth.yandex.com/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb
+  link-cloud-oauth: https://oauth.yandex.com/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb
   link-cloud-partners: https://partners.cloud.yandex.ru/
   tf-cloud-id: b1gq90dgh25bebiu75o
   tf-folder-id: b1go92dnv7b9u8f21mnj
