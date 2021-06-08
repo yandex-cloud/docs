@@ -9,23 +9,23 @@ items:
         href: solutions/index.md
       - name: Визуализация данных из CSV-файла
         href: solutions/data-from-csv-visualization.md
-      - name: Визуализация данных из базы данных ClickHouse
-        href: solutions/data-from-ch-visualization.md
-      - name: Визуализация данных из Metriсa
-        href: solutions/data-from-metrica-visualization.md
-      - name: Визуализация данных из Metriсa Logs API
-        href: solutions/data-from-metrica-logsapi-visualization.md
-      - name: Публикация в DataLens Public диаграммы с картой на основе CSV-файла
+      - name: Создание и публикация диаграммы с картой Москвы из CSV-файла
         href: solutions/data-from-csv-to-public-visualization.md
-      - name: Визуализация данных из AppMetrica
-        href: solutions/data-from-appmetrica-visualization.md
-      - name: Визуализация геоданных из CSV-файла
+      - name: Анализ продаж сети магазинов из БД ClickHouse
+        href: solutions/data-from-ch-visualization.md
+      - name: Анализ открытых данных ДТП на дорогах России
         href: solutions/data-from-csv-geo-visualization.md
       - name: >-
-          Визуализация данных из базы данных ClickHouse с геослоями из
+          Анализ продаж и локаций пиццерий на данных из БД Clickhouse и
           Marketplace
         href: solutions/data-from-ch-to-geolayers-visualization.md
-      - name: Визуализация данных из статистики подкастов Яндекс.Музыки
+      - name: Веб-аналитика с подключением к Яндекс.Метрике
+        href: solutions/data-from-metrica-visualization.md
+      - name: Веб-аналитика с подключением к Яндекс.Метрике через Logs API
+        href: solutions/data-from-metrica-logsapi-visualization.md
+      - name: Аналитика мобильного приложения на данных AppMetrica
+        href: solutions/data-from-appmetrica-visualization.md
+      - name: Анализ статистики подкастов Яндекс.Музыки (для авторов подкастов)
         href: solutions/data-from-podcasts.md
   - name: Пошаговые инструкции
     items:

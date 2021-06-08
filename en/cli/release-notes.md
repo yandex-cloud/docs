@@ -1,24 +1,96 @@
 # YC CLI Releases
 
-## Version 0.74.0 (30.03.21) {#latest-release}
+## Version 0.76.0 (19.05.21) {#latest-release}
 
-* Added support for macOS/arm64 (Apple Silicon M1) and linux/arm64.
+**{{ mpg-name }}**
 
-### Changes to {{ yandex-cloud }} services
+* Command `yc managed-postgresql cluster update`
 
-#### {{ dataproc-name }} {#dataproc}
+  Added the `--serverless-access` flag for accessing Managed Service for PostgreSQL cluster hosts from Cloud Functions.
 
-* Commands `yc dataproc cluster create` and `yc dataproc cluster update`.
+**{{ vpc-name }}**
 
-  Added the `--security-group-ids` flag that lets you specify a set of security groups for a cluster.
+* Added the `yc vpc address move` command to move an address between cloud folders.
+
+**{{ compute-name }}**
+
+* Command `yc compute instance-group`
+
+  Instance groups can now output the group status.
 
 ## Previous releases {#previous-releases}
 
+### Version 0.75.0 (13.04.21) {#version0.75.0}
+
+#### Changes to {{ yandex-cloud }} services
+
+#### {{ compute-name }} {#compute}
+
+* Command `yc compute create-with-container`
+
+  Added the `--gpus` flag that lets you create a Container Optimized Image with a GPU.
+
+#### Managed database services {#managed-db}
+
+**{{ mrd-name }}**
+
+* Command `yc managed-redis cluster create`
+
+  Added the `--disk-type-id [local-ssd|network-ssd]` key that lets you select the disk type.
+
+**{{ mmy-name }}**
+
+* Command `yc managed-mysql cluster list-logs`
+
+  Logs are now output in an "as-is" format by default. To enable the previous log format, use the `--format=yaml` flag.
+
+**{{ mes-name }}**
+
+* Commands `yc managed-elasticsearch cluster create` and `yc managed-elasticsearch cluster update`
+
+  Added flags for cluster `admin` password management:
+  * `--admin-password` that lets you set a password manually.
+  * `--generate-admin-password` to generate a password automatically.
+  * `--read-admin-password` that lets you set a password from a file.
+
+* Removed the `yc managed-elasticsearch user` commands. User management is now available with native Elasticsearch tools through the `admin` user.
+
+* Command `yc managed-elasticsearch create`
+
+  Added the `--edition [basic|gold|platinum]` flag that lets you specify the {{ ES }} edition when creating a cluster.
+
+**{{ mkf-name }}**
+
+* Command `yc managed-kafka cluster create`
+
+  Added the `--host-group-ids` flag that controls cluster hosting on dedicated servers.
+
+#### {{ dataproc-name }} {#dataproc}
+
+* Command `yc dataproc cluster create`
+
+  Added the `--host-group-ids` flag that controls cluster hosting on dedicated servers.
+
+### Version 0.74.0 (29.03.21) {#version0.74.0}
+
+* Added support for macOS/arm64 (Apple Silicon M1) and linux/arm64.
+
+#### Changes to {{ yandex-cloud }} services
+
+#### {{ dataproc-name }} {#dataproc}
+
+* Commands `yc dataproc cluster create` and `yc dataproc cluster update`
+
+  Added the `--security-group-ids` flag that lets you specify a set of security groups for a cluster.
+
 ### Version 0.73.0 (17.03.21) {#version0.73.0}
+
+#### Changes to {{ yandex-cloud }} services
 
 #### {{ container-registry-name }} {#container-registry}
 
-Added commands for managing the allowed IP addresses for pushing and pulling the Docker images:
+Added commands for managing the allowed IP addresses for pushing and pulling Docker images:
+
 * `yc container registry add-ip-permissions` adds IP addresses.
 * `yc container registry list-ip-permissions` lets you view IP addresses.
 * `yc container registry set-ip-permissions` sets IP addresses.
@@ -26,13 +98,13 @@ Added commands for managing the allowed IP addresses for pushing and pulling the
 
 #### {{ sf-name }} {#cloud-functions}
 
-* Command `yc serverless function version create`.
+* Command `yc serverless function version create`
 
-Added default values for flags:
-* `--execution-timeout` – Three seconds.
-* `--memory` – 128 MB.
+  Added default values for flags:
+  * `--execution-timeout`: Three seconds.
+  * `--memory`: 128 MB.
 
-* Command `yc serverless function version create`.
+* Command `yc serverless function version create`
 
   Added the `--add-service-account` flag to specify additional service accounts for the version.
 
@@ -44,31 +116,31 @@ Added default values for flags:
 
 **{{ mkf-name }}**
 
-* Command `yc managed-kafka cluster create`.
+* Command `yc managed-kafka cluster create`
 
-Default values are no longer set for the flags `--disk-size`, `--disk-type`, `--resource-preset`, `--zookeeper-disk-size`, `--zookeeper-disk-type` and `--zookeeper-resource-preset`. If no values are specified, the default values set on the server are used.
+  Default values are no longer specified for the `--disk-size`, `--disk-type`, `--resource-preset`, `--zookeeper-disk-size`, `--zookeeper-disk-type`, and `--zookeeper-resource-preset` flags. If no values are specified, the default values set on the server are used.
 
-* Command `yc managed-kafka cluster create`.
+* Command `yc managed-kafka cluster create`
 
-Added the `--unmanaged-topics` flag to enable management of {{ KF }} topics via AdminAPI.
+  Added the `--unmanaged-topics` flag to enable management of {{ KF }} topics via AdminAPI.
 
-Added the `--auto-create-topics-enable` flag to enable automatic {{ KF }}  topic creation.
+  Added the `--auto-create-topics-enable` flag to enable automatic {{ KF }} topic creation.
 
-* Command `yc managed-kafka user create`.
+* Command `yc managed-kafka user create`
 
-Added the `admin` role to enable managing {{ KF }} cluster topics via AdminAPI.
+   Added the `admin` role to enable management of {{ KF }} cluster topics via AdminAPI.
 
 **{{ mrd-name }}**
 
-* Command `yc managed-redis cluster create`.
+* Command `yc managed-redis cluster create`
 
-Added the `--enable-tls` flag to enable TLS when creating an {{ RD }} cluster.
+  Added the `--enable-tls` flag to enable TLS when creating {{ RD }} clusters.
 
-* Command `yc managed-redis cluster restore`.
+* Command `yc managed-redis cluster restore`
 
-  Added the `--enable-tls` flag to enable TLS when creating an {{ RD }} cluster from a backup.
+  Added the `--enable-tls` flag to enable TLS when creating {{ RD }} clusters from backups.
 
-### Version 0.72.0 (11.02.21) {#version0.72.0}
+### Version 0.72.0 (11.02.21)
 
 #### Changes to {{ yandex-cloud }} services
 
@@ -197,7 +269,7 @@ Added primary support for {{ mkf-name }}:
 
 - Command `yc <managed DB service name> cluster update`
 
-    Added the `--websql-access` flag to control access from the [management console]({{ link-console-main }}).
+    Added the `--websql-access` flag to control access from the [консоли управления]({{ link-console-main }}).
 
 ### Version 0.68.0 (03.11.20) {#version0.68.0}
 
@@ -704,12 +776,14 @@ The {{ api-gw-full-name }} service is at the Preview stage. Read more about the 
 **Improved**
 
 * When you start `yc` using the `--help` or `-h` flag, interactive help opens:
-in `less` (`$PAGER`) on Linux and macOS, in `more` on Windows. Now you no longer have to scroll up through the help output.
+in `less` (`$PAGER`) on Linux and macOS, and in `more` on Windows. Now you no longer have to scroll up through the help output.
 
 * Debug logs for execution and API interaction are now saved to the
-`$HOME/.config/yandex-cloud/logs` configuration directory rather than the installation directory. This fixes the problem when `yc`, which is installed as a stand-alone binary file, suddenly tries to save its log in the same directory without the rights to it.
+`$HOME/.config/yandex-cloud/logs` configuration directory rather than the installation directory. This fixes the problem when `yc`, which is installed as a stand-alone binary file,
+suddenly tries to save its log in the same directory without the rights to it.
 
-* Debug logs are also saved for successful requests. If you contact support about an issue with a `yc` command, we may be able to help you faster if you attach your log file.
+* Debug logs are also saved for successful requests. If you contact support about an issue with a
+`yc` command, we may be able to help you faster if you attach your log file.
 
 **Fixed**
 
@@ -759,7 +833,7 @@ in `less` (`$PAGER`) on Linux and macOS, in `more` on Windows. Now you no longer
 
 **Improved**
 
-* Command `yc <service> <resource> create`
+* Command `yc <services> <resource> create`
 
   Added the ability to pass resource names as command arguments. Commands like `yc <service> <resource> create --name <resource name>` and `yc <service> <resource> create <resource name>` are now the same.
 
@@ -781,7 +855,7 @@ in `less` (`$PAGER`) on Linux and macOS, in `more` on Windows. Now you no longer
 
 #### {{iam-name}} {#iam}
 
-* Added commands for creating and managing SAML-compatible identity federations and their certificates: `yc iam federation` and `yc iam certificate`. Learn more about SAML-compatible identity federations in the [documentation](https://cloud.yandex.com/docs/iam/concepts/users/identity-federations).
+* Added commands for creating and managing SAML-compatible identity federations and their certificates: `yc iam federation` and `yc iam certificate`. Learn more about SAML-compatible identity federations in the [documentation](https://cloud.yandex.ru/docs/iam/concepts/users/identity-federations).
 
 ### Version 0.50.0 (27.01.20) {#version0.50.0}
 
@@ -820,7 +894,7 @@ Support for the cryptographic key management service: {{ kms-full-name }}.
 {{ kms-full-name }} (KMS) lets you create encryption keys and implement data protection models in your applications and services.
 Use the keys to protect your secrets, private data, and other confidential information you store in the cloud.
 
-The {{ kms-full-name }} service is at the Preview stage. Read more about the service in the [documentation](https://cloud.yandex.com/docs/kms/).
+The {{ kms-full-name }} service is at the Preview stage. Read more about the service in the [documentation](https://cloud.yandex.ru/docs/kms/).
 
 ### Version 0.48.0 (27.12.19) {#version0.48.0}
 

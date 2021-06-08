@@ -1,4 +1,4 @@
-# Visualizing data from Yandex Music podcast statistics
+# Analyzing Yandex Music podcast statistics (for podcast authors)
 
 A podcast from Yandex Music that you have access to is used as a data source.
 Podcast analytics lets you get and analyze podcast listening statistics and data on the number of podcast subscribers in Yandex Music. To work with podcast analytics, you must have access to one or more podcasts.

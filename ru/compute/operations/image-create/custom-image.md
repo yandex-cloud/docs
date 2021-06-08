@@ -10,79 +10,97 @@
 
 ### Установите virtio-драйверы {#virtio}
 
-Чтобы образ соответствовал требованию о virtio-драйверах:
+Для успешной загрузки в системе должны присутствовать драйверы `virtio-blk` и `virtio-net`. На этапе загрузки с `initramfs` необходим, как минимум, драйвер `virtio-blk`. Во время окончательной загрузки необходимы оба драйвера — `virtio-blk` и `virtio-net`.
 
-1. Проверьте, входят ли драйверы в конфигурацию ядра:
-       
+Большинство современных дистрибутивов по умолчанию содержит драйверы `virtio`. Драйверы могут быть скомпилированы в виде отдельных файлов `.ko` или входить в состав самого ядра.
+
+По инструкции ниже вы можете проверить, установлены ли драйверы, и при необходимости добавить их в систему.
+
+1. Узнайте, входят ли драйверы в конфигурацию ядра:
+
+   {% cut "Как узнать" %}
+
+   Выполните команду:
    ```sh
-   grep -i virtio /boot/config-$(uname -r)
+   grep -E -i "(VIRTIO_BLK|VIRTIO_NET)" /boot/config-$(uname -r)
    ```
-          
-   Если на экране не появились строки, начинающиеся на `CONFIG_VIRTIO_BLK=` и `CONFIG_VIRTIO_NET=`, нужно заново скомпилировать ядро Linux с virtio-драйверами. В противном случае переходите к следующим шагам. 
+
+   Если на экране не появились строки, начинающиеся на `CONFIG_VIRTIO_BLK=` и `CONFIG_VIRTIO_NET=`, нужно заново скомпилировать ядро Linux с virtio-драйверами. В противном случае переходите к следующим шагам.
+
+   {% endcut %}
 
 1. Если на шаге 1 на экране появились строки `CONFIG_VIRTIO_BLK=y` и `CONFIG_VIRTIO_NET=y`, проверьте, что драйверы входят в состав ядра:
-  
+
+   {% cut "Как проверить драйверы в составе ядра" %}
+
+   Выполните команду:
    ```sh
-   grep -E "virtio.*" /lib/modules/"$(uname -r)"/modules.builtin
+   grep -E "(virtio_blk|virtio_net)" /lib/modules/"$(uname -r)"/modules.builtin
    ```
-     
+
    * Если на экране появились строки с файлами `virtio_net.ko` и `virtio_blk.ko`, драйверы входят в состав ядра, устанавливать их не нужно.
    * Если на экране не появились такие строки, нужно заново скомпилировать ядро Linux с virtio-драйверами.
-     
+
+   {% endcut %}
+
 1. Если на шаге 1 на экране появились строки `CONFIG_VIRTIO_BLK=m` и `CONFIG_VIRTIO_NET=m`, проверьте, что драйверы установлены в качестве модулей ядра:
-  
+
+   {% cut "Как проверить модули ядра" %}
+
    {% list tabs %}
-   
-   - CentOS 6, 7
-   
+
+   - CentOS, Fedora
+
      Выполните следующую команду:
-   
+
      ```sh
-     sudo lsinitrd /boot/initramfs-$(uname -r).img | grep virtio
+     sudo lsinitrd /boot/initramfs-$(uname -r).img | grep -E "(virtio_blk|virtio_net)"
      ```
-     
+
      * Если на экране появились строки с файлами `virtio_net.ko.xz` и `virtio_blk.ko.xz`, драйверы установлены в качестве модулей ядра.
      * Если на экране не появились такие строки, создайте резервную копию файла `initramfs` и установите драйверы:
-  
+
        ```sh
        sudo cp /boot/initramfs-$(uname -r).img /boot/initramfs-$(uname -r).img.bak
        sudo mkinitrd -f --with=virtio_blk --with=virtio_net /boot/initramfs-$(uname -r).img $(uname -r)
        ```
-   
+
        После этого перезапустите ОС и проверьте, что драйверы появились в файле `initramfs` и загрузились:
-       
+
        ```sh
-       sudo lsinitrd /boot/initramfs-$(uname -r).img | grep virtio
-       find /lib/modules/"$(uname -r)"/ -name "virtio*" | grep -E "virtio.*"
+       sudo lsinitrd /boot/initramfs-$(uname -r).img | grep -E "(virtio_blk|virtio_net)"
+       find /lib/modules/"$(uname -r)"/ -name "virtio*" | grep -E "(blk|net)"
        ```
-       
+
        После каждой из команд на экране должны появиться строки с файлами `virtio_net.ko.xz` и `virtio_blk.ko.xz`.
-       
+
    - Debian, Ubuntu
-   
+
      Выполните следующую команду:
-   
+
      ```sh
-     lsinitramfs /boot/initrd.img-$(uname -r) | grep virtio
+     lsinitramfs /boot/initrd.img-$(uname -r) | grep -E "(virtio_blk|virtio_net)"
      ```
      * Если на экране появились строки с файлами `virtio_net.ko` и `virtio_blk.ko`, драйверы установлены в качестве модулей ядра.
      * Если на экране не появились такие строки, установите драйверы:
-  
+
        ```sh
-       echo -e "virtio_net\nvirtio_blk" >> /etc/initramfs-tools/modules
-       update-initramfs -u
+       echo -e "virtio_blk\nvirtio_net" | sudo tee -a /etc/initramfs-tools/modules
+       sudo update-initramfs -u
        ```
-   
+
        После этого перезапустите ОС и проверьте, что драйверы появились в файле `initrd` и загрузились:
-       
+
        ```sh
-       lsinitramfs /boot/initrd.img-$(uname -r) | grep virtio
-       find /lib/modules/"$(uname -r)"/ -name "virtio*" | grep -E "virtio.*"
+       lsinitramfs /boot/initrd.img-$(uname -r) | grep -E "(virtio_blk|virtio_net)"
+       find /lib/modules/"$(uname -r)"/ -name "virtio*" | grep -E "(blk|net)"
        ```
-       
+
        После каждой из команд на экране должны появиться строки с файлами `virtio_net.ko` и `virtio_blk.ko`.
-  
+
    {% endlist %}
+
+   {% endcut %}
 
 ### Настройте серийную консоль {#serial-console}
 
@@ -91,57 +109,57 @@
 Чтобы к ВМ можно было подключаться с помощью серийной консоли, настройте для образа терминал `ttyS0` (порт COM1) в качестве системной консоли:
 
 1. В файле с настройками GRUB `/etc/default/grub` добавьте в значение параметра `GRUB_CMDLINE_LINUX` опцию `console=ttyS0`. Строка с этим параметром должна иметь такой вид:
-        
+
    ```sh
    GRUB_CMDLINE_LINUX="foo=bar baz console=ttyS0"
    ```
-       
+
 1. Убедитесь, что в файле `/etc/securetty` с перечислением терминалов, через которые пользователь `root` может войти в систему, есть строка `ttyS0`. Если файла не существует, создайте его.
 
    {% note info %}
-  
+
    В некоторых ОС файл `/etc/securetty` не используется, и пользователю `root` по умолчанию разрешен доступ ко всем терминалам. Если вы хотите настраивать доступ с помощью этого файла, нужно добавить в файл `/etc/pam.d/login` указание на модуль `pam_securetty.so`. Подробнее см. `man pam_securetty` и `man pam.d`.
-  
+
    {% endnote %} 
-  
+
 1. Выполните следующие команды:
-   
+
    {% list tabs %}
-   
-   - CentOS 6, 7
-     
+
+   - CentOS, Fedora
+
      ```sh
      sudo stty -F /dev/ttyS0 9600                 # Устанавливает рекомендуемую скорость терминала ttyS0 — 9600 бод 
      sudo grub2-mkconfig -o /boot/grub2/grub.cfg  # Генерирует конфигурационный файл для GRUB
      sudo systemctl start getty@ttyS0             # Запускает getty на терминале ttyS0
      sudo systemctl enable getty@ttyS0            # Указывает, что getty нужно запускать при каждом включении ОС
      ```
-   
+
    - Debian, Ubuntu
-        
+
         ```sh
         sudo stty -F /dev/ttyS0 9600        # Устанавливает рекомендуемую скорость терминала ttyS0 — 9600 бод 
         sudo update-grub                    # Генерирует конфигурационный файл для GRUB
         sudo systemctl start getty@ttyS0    # Запускает getty на терминале ttyS0
         sudo systemctl enable getty@ttyS0   # Указывает, что getty нужно запускать при каждом включении ОС
         ```
- 
+
    {% endlist %}
-   
+
 1. Перезапустите ОС.
 
 После [создания ВМ из образа](upload.md#create-vm-from-user-image) ее нужно будет дополнительно [настроить для работы с серийной консолью](../serial-console/index.md). 
 
 ## Установите драйверы для совместимости с GPU {#gpu-drivers}
 
-Чтобы образ был совместим с [GPU](../../concepts/gpus.md), при подготовке файла [установите драйверы NVIDIA](../vm-operate/install-nvidia-drivers.md).
+Если при работе с ВМ потребуется [GPU](../../concepts/gpus.md), во время подготовки образа [установите драйверы NVIDIA](../vm-operate/install-nvidia-drivers.md).
 
 ## Создайте файл с образом {#create-image-file}
 
 Поддерживаемые форматы: Qcow2, VMDK и VHD.
 
 Рекомендуется использовать формат Qcow2 с оптимизированным размером кластера, чтобы ускорить импорт. Сконвертировать образ из других форматов можно с помощью утилиты `qemu-img`:
-                                                                
+
 ```
 qemu-img convert -p -O qcow2 -o cluster_size=2M <имя вашего файла образа> <имя нового файла образа>
 ```

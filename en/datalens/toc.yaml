@@ -9,23 +9,23 @@ items:
         href: solutions/index.md
       - name: Visualizing data from a CSV file
         href: solutions/data-from-csv-visualization.md
-      - name: Visualizing data from a ClickHouse database
-        href: solutions/data-from-ch-visualization.md
-      - name: Visualizing data from Yandex.Metriсa
-        href: solutions/data-from-metrica-visualization.md
-      - name: Visualizing data from Yandex.Metrica Logs API
-        href: solutions/data-from-metrica-logsapi-visualization.md
-      - name: Publishing a chart with a map from a CSV file to DataLens Public
+      - name: Creating and publishing a chart with a map of Moscow from a CSV file
         href: solutions/data-from-csv-to-public-visualization.md
-      - name: Visualizing data from AppMetrica
-        href: solutions/data-from-appmetrica-visualization.md
-      - name: Visualizing geodata from a CSV file
+      - name: Analyzing a store chain's sales based on data from a ClickHouse DB
+        href: solutions/data-from-ch-visualization.md
+      - name: Analyzing open data on road accidents in Russia
         href: solutions/data-from-csv-geo-visualization.md
       - name: >-
-          Visualizing data from a ClickHouse database with geolayers from the
-          Marketplace
+          Analyzing sales and locations of pizzerias based on data from
+          Clickhouse DB and Marketplace
         href: solutions/data-from-ch-to-geolayers-visualization.md
-      - name: Visualizing data from Yandex Music podcast statistics
+      - name: Web analytics with a connection to Yandex.Metrica
+        href: solutions/data-from-metrica-visualization.md
+      - name: Web analytics with a connection to Yandex.Metrica via the Logs API
+        href: solutions/data-from-metrica-logsapi-visualization.md
+      - name: Mobile app analytics based on AppMetrica data
+        href: solutions/data-from-appmetrica-visualization.md
+      - name: Analyzing Yandex Music podcast statistics (for podcast authors)
         href: solutions/data-from-podcasts.md
   - name: Step-by-step instructions
     items:

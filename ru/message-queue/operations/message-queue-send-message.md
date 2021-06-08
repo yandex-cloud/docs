@@ -9,7 +9,7 @@
   Выполните в терминале команду:
   
   ```
-  $ aws sqs send-message --message-body "Hello World!" \
+  aws sqs send-message --message-body "Hello World" \
               --endpoint https://message-queue.api.cloud.yandex.net/ \
               --queue-url https://message-queue.api.cloud.yandex.net/aoeaql9r10cd9cfue7v6/000000000000002l034r/sample-queue
   {

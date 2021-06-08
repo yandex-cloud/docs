@@ -3,10 +3,11 @@
 Below are tutorials for using {{ datalens-full-name }}:
 
 - [Visualizing data from a CSV file](data-from-csv-visualization.md)
-- [Visualizing data from a ClickHouse database](data-from-ch-visualization.md)
-- [Visualizing data from Yandex.Metriсa](data-from-metrica-visualization.md)
-- [Visualizing data from Yandex.Metrica Logs API](data-from-metrica-logsapi-visualization.md)
-- [Publishing a chart with a map from a CSV file to DataLens Public](data-from-csv-to-public-visualization.md)
-- [Visualizing data from AppMetrica](data-from-appmetrica-visualization.md)
-- [Visualizing geodata from a CSV file](data-from-csv-geo-visualization.md)
-- [Visualizing data from a ClickHouse database with geolayers from the Marketplace](data-from-ch-to-geolayers-visualization.md)
+- [Creating and publishing a chart with a map of Moscow from a CSV file](data-from-csv-to-public-visualization.md)
+- [Analyzing a store chain's sales based on data from a ClickHouse DB](data-from-ch-visualization.md)
+- [Analyzing open data on road accidents in Russia](data-from-csv-geo-visualization.md)
+- [Analyzing sales and locations of pizzerias based on data from Clickhouse DB and Marketplace](data-from-ch-to-geolayers-visualization.md)
+- [Web analytics with a connection to Yandex.Metrica](data-from-metrica-visualization.md)
+- [Web analytics with a connection to Yandex.Metrica via the Logs API](data-from-metrica-logsapi-visualization.md)
+- [Mobile app analytics based on AppMetrica data](data-from-appmetrica-visualization.md)
+- [Analyzing Yandex Music podcast statistics (for podcast authors)](data-from-podcasts.md)

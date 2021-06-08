@@ -1,10 +1,14 @@
 title: Marketplace partner interface
 description:
   - >-
-    In the <a href="https://partners.cloud.yandex.ru"> Marketplace partner
-    interface</a>, you can add images of your Marketplace products and assign
-    them service plans to earn money when users run your images on VMs or CPU
-    cores.
+    You can use the <a href="https://partners.cloud.yandex.ru">Marketplace
+    partner interface</a> to: <ul><li>Add your VM image-based products to the
+    Marketplace.</li> <li>Set the price for using your images on VMs or
+    vCPUs.</li><li>Update your product's version.</li></ul> Before you start, <a
+    href="https://cloud.yandex.en/docs/marketplace/operations/registration">sign
+    up</a> and <a
+    href="https://cloud.yandex.en/docs/marketplace/operations/create-image">upload</a>
+    a ready-made image to be published in Compute Cloud.
 meta:
   title: Marketplace partner interface
 links:
