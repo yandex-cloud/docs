@@ -9,6 +9,7 @@
 
 - [{#T}](subnet-create.md)
 - [{#T}](subnet-delete.md)
+- [{#T}](subnet-used-addresses.md)
 
 ## Адреса {#addresses}
 
