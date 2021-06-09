@@ -1,8 +1,9 @@
 # {{ CH }} versioning policy
 
-{{ CH }} has a frequent release policy. In {{ mch-name }}, a limited set of {{ CH }} versions is available for use, and this set is continually maintained to ensure it is up to date. If the {{ CH }} version used in a {{ mch-name }} cluster becomes outdated, the cluster's version gets updated.
+{{ CH }} has a frequent release policy. In {{ mch-name }}, a limited set of {{ CH }} versions is available, which is continually updated. If the {{ CH }} version used in a {{ mch-name }} cluster becomes obsolete, it gets updated.
 
 Updating to current versions allows you to get new functionality, patches, and security fixes, which improves the overall stability of the cluster.
+
 Each {{ CH }} version supported by {{ mch-name }} undergoes comprehensive testing.
 
 You can be confident that your data will remain safe and accessible after updating to a new supported version of {{ CH }}.
@@ -17,13 +18,13 @@ You can be confident that your data will remain safe and accessible after updati
 
   Two LTS versions are supported: the current one and the previous one.
 
-  When a new LTS version is released in {{ mch-name }}, the previous LTS version is deprecated. Users with clusters deployed on the current LTS version are notified that support for this version will be discontinued in 6 months.
+  When a new LTS version is released in {{ mch-name }}, the oldest available LTS version stops being supported.
 
 - **Interim**.
 
-  The three latest interim {{ CH }} versions that are not LTS versions are supported.
+  The three latest {{ CH }} versions, including interim ones, are supported. If one of these versions is an LTS version, only two interim versions are supported.
 
-  When a new interim version of {{ CH }} is released in {{ mch-name }}, the oldest of the three supported interim versions is deprecated.
+  When a new interim {{ CH }} version is released in {{ mch-name }}, the oldest interim version stops being supported.
 
 You can manually [change the cluster version](../operations/cluster-version-update.md) to one of the supported versions.
 
@@ -46,7 +47,7 @@ You can manually [change the cluster version](../operations/cluster-version-upda
 
   {% note warning %}
 
-  Notifications about the scheduled update of clusters using a deprecated LTS version are sent to users **2 months**, **1 month**, and **1 week** before the update.
+  Notifications about the scheduled update of clusters using a deprecated LTS version are sent to users **2 months** and **1 week** before the update.
 
   {% endnote %}
 
