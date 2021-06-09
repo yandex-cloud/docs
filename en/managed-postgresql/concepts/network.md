@@ -5,9 +5,7 @@
 When creating a cluster, you can:
 
 * Set the network for the cluster itself.
-
 * Set the subnets for each host in the cluster.
-
 * Request a public IP address to access the cluster from outside {{ yandex-cloud }}.
 
 You can create a cluster without specifying any subnets for the hosts, if the availability zone selected for each host contains exactly one subnet of the cluster network.
@@ -28,7 +26,7 @@ You can use the FQDN to access the host within a single cloud network. Read more
 
 ## Public access to a host {#public-access-to-a-host}
 
-Any cluster host can be accessible from outside {{ yandex-cloud }} if you requested public access when creating the host. To connect to this kind of host, use its FQDN.
+Any cluster host can be accessible from outside {{ yandex-cloud }} if you requested public access when creating the host. To connect to such a host, use its FQDN.
 
 It is not possible to request a public address after creating a host, but you can replace one of the existing hosts with a new host that has a public address.
 
@@ -47,4 +45,3 @@ When connecting to a cluster from within its cloud network, be sure to [configur
 {% endnote %}
 
 {% include [sg-rules-concept](../../_includes/mdb/sg-rules-concept.md) %}
-

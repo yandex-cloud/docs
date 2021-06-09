@@ -3,17 +3,11 @@
 After creating a cluster, you can:
 
 * [Change the host class](#change-resource-preset).
-
 * [Increase the storage size](#change-disk-size) (available only for network storage, `network-hdd`, and `network-ssd`).
-
 * [Configure {{ PG }} servers](#change-postgresql-config) according to the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config.html).
-
 * [Change additional cluster settings](#change-additional-settings).
-
 * [Set the operation mode for the connection pooler](#change-pooler-config).
-
 * [Manually switch the master in the cluster](#start-manual-failover).
-
 * [Change cluster security groups](#change-sg-set).
 
 {% note warning %}
@@ -196,9 +190,9 @@ The settings you set manually will no longer change automatically. Exceptions ma
 
   1. View a description of the CLI's update cluster configuration command:
 
-      ```
-      $ {{ yc-mdb-pg }} cluster update-config --help
-      ```
+     ```
+     $ {{ yc-mdb-pg }} cluster update-config --help
+     ```
 
   1. Set the required parameter values.
 
@@ -224,9 +218,7 @@ The settings you set manually will no longer change automatically. Exceptions ma
 - Management console
 
   1. Go to the folder page and select **{{ mpg-name }}**.
-
   1. Select the cluster and click **Edit cluster** in the top panel.
-
   1. Change additional cluster settings:
 
      {% include [mpg-extra-settings](../../_includes/mdb/mpg-extra-settings-web-console.md) %}

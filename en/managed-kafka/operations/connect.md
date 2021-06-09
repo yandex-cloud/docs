@@ -24,7 +24,63 @@ To connect to an {{ KF }} cluster:
 
 There are ready-made {{ KF }} API implementations for most popular programming languages. See code examples for connecting to a cluster in [{#T}](#connection-string).
 
-## Get an SSL certificate {#get-ssl-cert}
+## Configuring security groups {#configuring-security-groups}
+
+{% include [sg-rules](../../_includes/mdb/sg-rules-connect.md) %}
+
+Settings of rules depend on the connection method you select:
+
+{% list tabs %}
+
+- Over the internet
+
+  [Configure all the security groups](../../vpc/operations/security-group-update.md#add-rule) of the cluster to allow incoming traffic on port 9091 from any IP address. To do this, create the following rule for incoming traffic:
+  - Protocol: `TCP`.
+  - Port range: `9091`.
+  - Source type: `CIDR`.
+  - Source: `0.0.0.0/0`.
+
+- With a VM in Yandex.Cloud
+
+  1. [Configure all the security groups](../../vpc/operations/security-group-update.md#add-rule) of the cluster to allow incoming traffic on ports 9091, 9092 from the security group assigned to the VM. To do this, create the following rule for incoming traffic in these groups:
+     - Protocol: `TCP`.
+     - Port range: `9091`.
+     - Source type: `Security group`.
+     - Source: Security group assigned to the VM. If it is the same as the configured group, specify **Current**.
+
+  1. [Set up the security group](../../vpc/operations/security-group-update.md#add-rule) assigned to the VM to allow connections to the VM and traffic between the VM and the cluster hosts.
+
+     Example of rules for a VM:
+
+     - For incoming traffic:
+       - Protocol: `TCP`.
+       - Port range: `22`.
+       - Source type: `CIDR`.
+       - Source: `0.0.0.0/0`.
+
+       This rule lets you connect to the VM over SSH.
+
+     - For outgoing traffic:
+        - Protocol: `Any`.
+        - Port range: `0-65535`.
+        - Destination type: `CIDR`.
+        - Destination: `0.0.0.0/0`.
+
+       This rule allows any outgoing traffic: this lets you both connect to the cluster and install certificates and utilities you might need to connect to the cluster.
+
+{% endlist %}
+
+{% note info %}
+
+You can set more detailed rules for security groups, such as to allow traffic in only specific subnets.
+
+Security groups must be configured correctly for all subnets that will include cluster hosts. If the security group settings are incomplete or incorrect, you might lose access the cluster.
+
+{% endnote %}
+
+For more information about security groups, see [{#T}](../concepts/network.md#security-groups).
+
+## Getting an SSL certificate {#get-ssl-cert}
 
 To use an encrypted SSL connection, you need to get an SSL certificate:
 
@@ -56,3 +112,4 @@ Before connecting to cluster hosts over an SSL connection, [prepare a certificat
 {% include [mkf-connection-strings](../../_includes/mdb/mkf-conn-strings.md) %}
 
 First, launch the consumer application that will continuously read new messages from the topic. Then launch the producer application that will send one or more `test message` messages with the `key` key to the {{ KF }} topic. The consumer application displays messages sent to the topic.
+

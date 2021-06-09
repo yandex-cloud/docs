@@ -17,7 +17,7 @@ The rules for accessing MDB clusters are already given in [Puncher](https://punc
 
 If you need more rules, request access to the `_PGAASINTERNALNETS_` macro. To connect to {{ KF }}, specify port 9091 (SASL_TLS) in your request.
 
-## CLI setup
+## CLI setup {#cli-setup}
 
 If you plan to use the CLI, install and configure it according to the [instructions](../cli/quickstart.md).
 
@@ -71,7 +71,7 @@ Then create a topic in the cluster.
 
 ## Create the topic {#topic-create}
 
-[Topic](./concepts/topics.md) is a way to group message streams into categories. [Producers](./concepts/producers-consumers.md) write messages to a topic and [consumers](./concepts/producers-consumers.md) read messages from it.
+[Topic](./concepts/topics.md) is a way to group message streams into categories. [Producers](./concepts/producers-consumers.md) write messages to topics and [consumers](./concepts/producers-consumers.md) read messages from them.
 
 To create a topic:
 
@@ -105,6 +105,8 @@ Then connect to the cluster using this account.
 You can connect producers and consumers to clusters using one account. Both the producer and consumer will only be able to work with the topics that they are allowed to access within a specific account.
 
 To connect to a cluster:
+
+1. [Configure security groups](operations/connect.md#configuring-security-groups) for the cloud network to enable all the relevant traffic between the cluster and the connecting host.
 
 1. Install an SSL certificate on the VM:
 
