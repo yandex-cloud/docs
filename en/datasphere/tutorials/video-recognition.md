@@ -39,7 +39,7 @@ To get an idea of how the problem might be solved:
    https://github.com/MaxKhlupnov/ImageClassificationML
    ```
 
-   Wait until cloning is complete. It may take some time. Once the operation is completed, the ![folder](../../_assets/datasphere/jupyterlab/folder.svg) **File Browser** section will show the cloned repository's folder.
+   Wait until cloning is complete. It may take some time. Once the operation is completed, in the ![folder](../../_assets/datasphere/jupyterlab/folder.svg) **File Browser** section, a folder of the cloned repository will appear.
 
 1. Open the **ImageClassificationML** folder and then the `yc.config` file. Replace the file contents with lines from the local file that include your static access key.
 
@@ -217,14 +217,14 @@ There are several practical uses of the model you built:
 
   ```python
   from sparkdl import readImages, KerasImageFileTransformer
-  
+
   # load cctv image body from S3 and return image tensor
   
   def load_image_body_and_process(uri):
       import PIL.image
       from keras.applications.imagenet_utils import preprocess.input
   ...
-  
+
   # load cctv images in batch (from S3 or copy to local hdfs)
   
   image_uri_dataset = readImages("/cctv-in/*.jpg")
@@ -241,4 +241,5 @@ There are several practical uses of the model you built:
                                       modelFile="lightgbm_classifier.model")
   predictions = estimator.fit(image_uri_dataset)
   ```
+
 
