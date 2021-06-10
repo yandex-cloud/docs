@@ -35,8 +35,6 @@ items:
             href: operations/connection/create-clickhouse.md
           - name: Creating a connection to a CSV file
             href: operations/connection/create-csv.md
-          - name: Creating a Google Sheets connection
-            href: operations/connection/create-google-sheets.md
           - name: Creating a MySQL connection
             href: operations/connection/create-mysql.md
           - name: Creating a PostgreSQL connection
