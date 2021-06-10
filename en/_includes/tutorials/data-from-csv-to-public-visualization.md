@@ -27,7 +27,7 @@ To visualize and analyze the data, [make sure you have a ready-to-use cloud](#be
 
 Create a dataset based on the [connection](../../datalens/concepts/connection.md) to the CSV file.
 
-1. Go to the [interface{{ datalens-short-name }}](https://datalens.yandex.com).
+1. Go to the [interface{{ datalens-short-name }}]({{ link-datalens-main }}).
 
 1. Click **Create connection**.
 

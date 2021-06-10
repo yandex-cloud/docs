@@ -289,6 +289,7 @@ default:
   link-app-android: https://play.google.com/store/apps/details?id=ru.yandex.cloud
   link-app-ios: https://apps.apple.com/ru/app/yandex-cloud/id1515465314
   link-cloud-notifications: https://console.cloud.yandex.com/cloud?section=incident-notifications
+  link-datalens-main: https://datalens.yandex.com
   tf-cloud-id: b1gq90dgh25bebiu75o
   tf-folder-id: b1gia87mbaomkfvsleds
   yandex-cloud: Yandex.Cloud

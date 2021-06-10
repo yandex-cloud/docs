@@ -23,7 +23,7 @@ This step is available to users who have permission to a Yandex.Metrica tag. If 
 
 {% endnote %}
 
-1. Go to [{{ datalens-short-name }}](https://datalens.yandex.com).
+1. Go to [{{ datalens-short-name }}]({{ link-datalens-main }}).
 
 1. Click **Create connection**.
 
