@@ -1,7 +1,5 @@
 # Use cases
 
-Below are tutorials for using {{ datalens-full-name }}:
-
 - [Visualizing data from a CSV file](data-from-csv-visualization.md)
 - [Creating and publishing a chart with a map of Moscow from a CSV file](data-from-csv-to-public-visualization.md)
 - [Analyzing a store chain's sales based on data from a ClickHouse DB](data-from-ch-visualization.md)

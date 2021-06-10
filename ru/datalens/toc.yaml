@@ -94,6 +94,9 @@ items:
       - name: Анализ статистики подкастов Яндекс.Музыки (для авторов подкастов)
         when: audience == "external"
         href: solutions/data-from-podcasts.md
+      - name: Веб-аналитика с расчетом воронок и когорт на данных Яндекс.Метрики
+        when: audience == "external"
+        href: solutions/data-from-metrica-yc-visualization.md
   - name: Пошаговые инструкции
     items:
       - name: Все инструкции
