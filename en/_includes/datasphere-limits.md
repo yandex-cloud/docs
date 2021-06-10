@@ -4,11 +4,25 @@
 | ----- | ----- |
 | Number of projects per cloud | 5 |
 
-{% note info %}
+{% if region == "ru" %}
+   
+   {% note info %}
+   
+   On June 20, 2021, restrictions on the use of VMs with GPUs, available by default for individuals, will take effect. To use a VM with a g1.1 GPU configuration, top up your billing account balance to at least ₽500, or write to Support and tell us about your task.
+   
+   {% endnote %}
 
-From May 3, 2021, quotas on the number of VMs available within the service by default will begin to apply. The restrictions will not affect the calculations running at this time.
+{% endif %}
 
-{% endnote %}
+{% if region == "int" %}
+
+   {% note info %}
+   
+   On June 20, 2021, restrictions on the use of VMs with GPUs, available by default for individuals, will take effect. To use a VM with a g1.1 GPU configuration, top up your billing account balance to at least $10, or write to Support and tell us about your task.
+   
+   {% endnote %}
+
+{% endif %}
 
 Type of limit | Value
 ----- | -----
