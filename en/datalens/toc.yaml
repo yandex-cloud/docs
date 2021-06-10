@@ -141,7 +141,7 @@ items:
             href: concepts/calculations/formula-syntax.md
       - name: Marketplace
         href: concepts/marketplace.md
-      - name: Backups in DataLens
+      - name: Backups
         href: concepts/backup.md
       - name: Quotas and limits
         href: concepts/limits.md
