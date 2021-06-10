@@ -13,8 +13,8 @@ After creating an {{ KF }} cluster, you can:
 
 You can change:
 
-- The {{ KF }} broker host class and number.
-- The class of {{ ZK }} hosts.
+- {{ KF }} broker host class and number.
+- {{ ZK }} hosts class.
 
 {% note warning %}
 
@@ -152,44 +152,61 @@ Currently, you can't change the disk type for {{ KF }} clusters after creation.
 
 {% endlist %}
 
-## Changing {{ KF }} settings {#change-kafka-settings}
+## Changing storage settings {#change-disk-size}
+
+{% note warning %}
+
+Currently, you can't change the disk type for {{ KF }} clusters after creation.
+
+{% endnote %}
 
 {% list tabs %}
 
+
 - Management console
 
-    1. Go to the folder page and select **{{ mkf-name }}**.
-
-    1. Select the cluster and click **Edit** in the top panel.
-
-    1. Change the {{ KF }} settings by clicking **Configure** under **DBMS settings**:
-
-        For more information, see [{{ KF }} settings](../concepts/settings-list.md).
-
-    1. Click **Save**.
+  1. Go to the folder page and select **{{ mkf-name }}**.
+  1. Select the cluster and click **Edit** in the top panel.
+  1. To change storage settings, select the [storage type](../concepts/storage.md) and its size in the corresponding section.
+  1. Click **Save**.
 
 - CLI
 
-    {% include [cli-install](../../_includes/cli-install.md) %}
+  {% include [cli-install](../../_includes/cli-install.md) %}
 
-    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To change {{ KF }} settings:
+  To change storage settings for hosts:
 
-    1. View a description of the CLI update cluster settings command:
+  1. Get information about the cluster:
 
-        ```bash
-        {{ yc-mdb-kf }} cluster update --help
-        ```
+     ```
+     {{ yc-mdb-kf }} cluster list
+     {{ yc-mdb-kf }} cluster get <cluster name or ID>
+     ```
 
-    1. Change [{{ KF }} settings](../concepts/settings-list.md#cluster-settings) in the cluster update command (not all settings are shown in the example):
+  1. View a description of the CLI's update cluster command:
 
-        ```bash
-        {{ yc-mdb-kf }} cluster update <cluster name> \
-           --compression-type <compression type> \
-           --log-flush-interval-messages <number of messages in the log to trigger flushing to disk> \
-           --log-flush-interval-ms <maximum time of message storage in memory before flushing to disk>
-        ```
+     ```
+     {{ yc-mdb-kf }} cluster update --help
+     ```
+
+  1. To change the size of the broker host disks, run the command:
+
+     ```
+     {{ yc-mdb-kf }} cluster update <cluster name or ID> --disk-size <disk size>
+     ```
+
+     If no size units are specified, gigabytes are used.
+
+  1. To change the size of the {{ ZK }} host disks, run the command:
+
+     ```
+     {{ yc-mdb-kf }} cluster update <cluster name or ID> \
+     --zookeeper-disk-size <disk size>
+     ```
+
+     If no size units are specified, gigabytes are used.
 
 
 - API

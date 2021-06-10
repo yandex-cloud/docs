@@ -4,13 +4,24 @@
 
 - [Yandex Database Whitepaper](https://storage.yandexcloud.net/ydb-public-talks/yandex-database-a4.pdf).
 
+### 2021: YDB Webinar 2021-01-21 {#webinar20210121}
+
+- Topic: Serverless case study: Integration of {{ yandex-cloud }} services with Voximplant voice technologies.
+  - [About the event](https://cloud.yandex.ru/events/298).
+  - [Recorded broadcast](https://youtu.be/mB0Wpn2473U).
+  - Description:
+    1. Voximplant Kit integration with {{ speechkit-full-name }}, a speech recognition and synthesis service.
+    2. Voximplant Kit dialog processing setup and automation.
+    3. CRM system built around a serverless API Gateway, Yandex Cloud Functions, and Yandex Database (serverless).
+    4. [Sample app in Go](https://github.com/yandex-cloud/examples/tree/master/serverless/serverless_voximplant).
+
 ### 2020: YDB Webinar 2020-04-23 {#webinar20200423}
 
 - Topic: Yandex Database News.
   - [Recorded broadcast](https://youtu.be/6LMH4Q4uGBU).
   - Description:
-    1. Sample app in Node.js
-    1. JSON support in YDB
+    1. Sample app in Node.js.
+    1. JSON support in YDB.
     1. YDB database in {{ yandex-cloud }} available online (whitelisted IP addresses).
 
 ### 2019: YaTalks Moscow {#yatalks-moscow-2019}
@@ -20,7 +31,7 @@
   - [Recorded broadcast](https://youtu.be/hXH_tRBxFnA?t=11283).
   - Description:
     1. A story about successfully using Yandex Database as a backend for distributed Jaeger tracing from [Auto.ru](https://auto.ru) and [Yandex.Realty](https://realty.yandex.ru/) representatives.
-    1. A story about the architecture of distributed network storage in Yandex Database.
+    1. A talk about the architecture of distributed network storage in Yandex Database.
 
 ### 2019: Yandex Scale {#scale}
 
@@ -53,7 +64,7 @@
 
 - Topic: Yandex Database: Network Block Store.
   - [Recorded broadcast](https://youtu.be/Kr6WIYPts8I?t=12861).
-  - Description: A story about Network Block Store, the virtual disk service running all {{ yandex-cloud }} VMs.
+  - Description: A talk about Network Block Store, a virtual disk service running all {{ yandex-cloud }} VMs.
 
 ## Comprehensive YDB materials {#internals}
 
@@ -68,7 +79,7 @@
 
 - Topic: Yandex Database Structure.
   - [Recorded podcast](https://devzen.ru/episode-0272/).
-  - Description: A detailed story about YDB structure and answers to questions.
+  - Description: A detailed talk about the YDB structure and answers to questions.
 
 ### 2019: YaTalks Yekaterinburg {#yatalks}
 
@@ -94,3 +105,4 @@
 - Topic: Yandex Database: How we ensure fault-tolerance.
   - [Recorded broadcast](https://youtu.be/-GlRSxG4JQU?t=10779).
   - Description: How YDB enables redundant data storage and distributed consensus.
+

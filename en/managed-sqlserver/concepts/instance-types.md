@@ -15,12 +15,6 @@ The full list of possible host configurations on each platform is provided below
 
 * **m2**: Configurations with a decreased vCPU to GB RAM ratio (1:8 vs. 1:4 for standard classes). These configurations can be useful for clusters with increased cache requirements.
 
-  {% note info %}
-
-  Hosts with a guaranteed vCPU share under 100% can't be used in multi-host clusters.
-
-  {% endnote %}
-
 | Host class name | Number of CPUs | CPU performance | RAM, GB |
 | ----- | ----- | ----- | ----- |
 | **Intel Cascade Lake** |

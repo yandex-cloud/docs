@@ -23,6 +23,8 @@ items:
             href: operations/subnet-delete.md
           - name: Изменить подсеть
             href: operations/subnet-update.md
+          - name: Посмотреть список используемых адресов
+            href: operations/subnet-used-addresses.md
       - name: IP-адрес
         items:
           - name: Зарезервировать статический публичный IP-адрес
