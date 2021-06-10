@@ -48,7 +48,7 @@ Then create a topic in the cluster.
 
 ## Create the topic {#topic-create}
 
-[Topic](./concepts/topics.md) is a way to group message streams into categories. [Producers](./concepts/producers-consumers.md) write messages to a topic and [consumers](./concepts/producers-consumers.md) read messages from it.
+[Topic](./concepts/topics.md) is a way to group message streams into categories. [Producers](./concepts/producers-consumers.md) write messages to topics and [consumers](./concepts/producers-consumers.md) read messages from them.
 
 To create a topic:
 
@@ -82,6 +82,8 @@ Then connect to the cluster using this account.
 You can connect producers and consumers to clusters using one account. Both the producer and consumer will only be able to work with the topics that they are allowed to access within a specific account.
 
 To connect to a cluster:
+
+1. [Configure security groups](operations/connect.md#configuring-security-groups) for the cloud network to enable all the relevant traffic between the cluster and the connecting host.
 
 1. Install an SSL certificate on the VM:
 

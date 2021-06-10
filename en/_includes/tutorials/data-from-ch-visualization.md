@@ -196,7 +196,7 @@ To visualize sales by brands and product categories, create a [chart](../../data
 
     ![image](../../_assets/datalens/solution-02/25-replace-field1.png)
 
-1. Replace payment types for product categories in Colors. Drag **ProductCategory** from the **Dimensions** section to the **X** section and hold it over the **PaymentType** field until it turns red.
+1. Replace payment types for product categories in **Colors**. Drag **ProductCategory** from the **Dimensions** section to the **Colors** section and hold it over the **PaymentType** field until it turns red.
 
     ![image](../../_assets/datalens/solution-02/26-replace-field2.png)
 
@@ -260,8 +260,6 @@ To visualize the density of orders on the Moscow map, create a [chart](../../dat
 1. Select the **Map** visualization type.
 
     ![image](../../_assets/datalens/solution-02/33-choose-heatmap.png)
-
-1. Delete the **Sales** field from the **Colors** section.
 
 1. Select the **Points (heat map)** layer type.
 
