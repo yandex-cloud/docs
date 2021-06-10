@@ -41,9 +41,9 @@
 
     {% note info %}
 
-    По умолчанию все ячейки запускаются на [S-конфигурации](../concepts/configurations.md) c минимальными вычислительными ресурсами. Вы можете выполнить одну или несколько ячеек (или даже ноутбук целиком) на разных конфигурациях, при этом состояние ноутбука сохранится — переменные и результаты уже сделанных вычислений не будут сброшены. Подробнее см. в разделе [{#T}](../operations/projects/control-compute-resources.md).
+    По умолчанию все ячейки запускаются на [конфигурации <q>c1.4</q>](../concepts/configurations.md) c минимальными вычислительными ресурсами. Вы можете выполнить одну или несколько ячеек (или даже ноутбук целиком) на разных конфигурациях, при этом состояние ноутбука сохранится — переменные и результаты уже сделанных вычислений не будут сброшены. Подробнее см. в разделе [{#T}](../operations/projects/control-compute-resources.md).
 
-   {% endnote %}
+    {% endnote %}
 
 1. Дождитесь завершения операции.
 
@@ -74,7 +74,7 @@
 
     ```python
     # Let's start with import and install all necessary libraries and packages
-    # Import  packages that are pre-installed  already and install through %pip packages that are not inb the list, although requires
+    # Import packages that are pre-installed already and install through %pip packages that are not in the list, although requires
     import pandas as pd
     %pip install seaborn
     import seaborn as sns

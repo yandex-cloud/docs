@@ -92,7 +92,7 @@ Wait for the connection to be saved.
 
 ## Create a dashboard {#create-dashboard}
 
-1. Go to the [{{ datalens-short-name }}](https://datalens.yandex.com) homepage.
+1. Go to the [{{ datalens-short-name }}]({{ link-datalens-main }}) homepage.
 1. Click **Create dashboard**.
 1. Enter a name for the dashboard and click **Create**.
 

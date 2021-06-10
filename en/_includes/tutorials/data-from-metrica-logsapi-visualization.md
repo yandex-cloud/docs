@@ -26,7 +26,7 @@ To visualize the data, follow these steps:
 
 ## Step 1. Create a connection and a standard dashboard {#step1}
 
-1. Go to the [interface{{ datalens-short-name }}](https://datalens.yandex.com).
+1. Go to the [interface{{ datalens-short-name }}]({{ link-datalens-main }}).
 
 1. Click **Create connection**.
 

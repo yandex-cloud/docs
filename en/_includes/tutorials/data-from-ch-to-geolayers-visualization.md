@@ -52,7 +52,7 @@ To visualize and analyze the data, [make sure you have a ready-to-use cloud](#be
 
 ## Step 2. Create a connection {#step2}
 
-1. Go to [{{ datalens-short-name }}](https://datalens.yandex.com).
+1. Go to [{{ datalens-short-name }}]({{ link-datalens-main }}).
 
 1. Click **Create connection**.
 
@@ -204,7 +204,7 @@ In the window that opens, specify the **DODO** dataset name and click **Create**
 
 ## Step 8. Create a dashboard {#step8}
 
-1. Go to [{{ datalens-short-name }}](https://datalens.yandex.com).
+1. Go to [{{ datalens-short-name }}]({{ link-datalens-main }}).
 1. Click **Create dashboard**.
 1. Name it **DODO Dashboard** and click **Create**.
 1. In the window that opens, click **Add** in the upper-right corner and choose **Chart**.

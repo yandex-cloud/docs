@@ -4,7 +4,7 @@
 
 - Новый пользователь
 
-  1. Откройте [главную страницу](https://datalens.yandex.ru/) {{ datalens-short-name }}. Если у вас еще нет аккаунта на Яндексе, создайте его.
+  1. Откройте [главную страницу]({{ link-datalens-main }}) {{ datalens-short-name }}. Если у вас еще нет аккаунта на Яндексе, создайте его.
   1. Примите пользовательское соглашение.
   1. Активируйте экземпляр {{ datalens-short-name }} в облаке.
 
@@ -12,7 +12,7 @@
 
 - Уже использую {{ yandex-cloud }}
 
-  1. Откройте [главную страницу](https://datalens.yandex.ru/) {{ datalens-short-name }}.
+  1. Откройте [главную страницу]({{ link-datalens-main }}) {{ datalens-short-name }}.
   1. Активируйте экземпляр {{ datalens-short-name }} в облаке.
   
   Для прохождения этого сценария достаточно [бесплатного тарифа](../../../datalens/pricing.md#prices) {{ datalens-short-name }}. 

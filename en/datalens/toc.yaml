@@ -87,6 +87,8 @@ items:
             href: operations/chart/create-table.md
           - name: Creating a pivot table
             href: operations/chart/create-pivot-table.md
+          - name: Creating an indicator
+            href: operations/chart/create-indicator-chart.md
           - name: Publishing a chart
             href: operations/chart/publish.md
           - name: Managing chart access
@@ -113,9 +115,9 @@ items:
             href: operations/permission/request.md
   - name: Concepts
     items:
-      - name: Overview
+      - name: Service overview
         href: concepts/index.md
-      - name: Connections
+      - name: Connection
         href: concepts/connection.md
       - name: Data types
         href: concepts/data-types.md
@@ -143,7 +145,7 @@ items:
             href: concepts/calculations/formula-syntax.md
       - name: Marketplace
         href: concepts/marketplace.md
-      - name: Backups in DataLens
+      - name: Backups
         href: concepts/backup.md
       - name: Quotas and limits
         href: concepts/limits.md
@@ -159,7 +161,7 @@ items:
         href: pricing.md
       - name: Archive
         items:
-          - name: Policy before March 1, 2021
+          - name: Rules before March 1, 2021
             href: pricing-archive/pricing-01032021.md
   - name: Function reference
     items:

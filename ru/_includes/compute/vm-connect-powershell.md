@@ -110,6 +110,6 @@
     ...
     ```
 
-#### См. также
+#### См. также {#see-also}
 
 * [Сессии PowerShell (PSSessions)](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_pssessions)

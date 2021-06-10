@@ -46,7 +46,7 @@ An instance of the service is created in the selected folder and you can go dire
 
 1. Download a [file with accident statistics](https://yadi.sk/d/zgo7RgjFWSMiyg) for 2018 in CSV format.
 
-1. Open the [{{ datalens-short-name }}](https://datalens.yandex.com/) homepage and click **Create connection**.
+1. Open the [{{ datalens-short-name }}]({{ link-datalens-main }}) homepage and click **Create connection**.
 
    ![image](../../_assets/datalens/solution-07/02-create-connection.png)
 

@@ -147,6 +147,8 @@ items:
         href: datalens/data-from-metrica-visualization.md
       - name: Веб-аналитика с подключением к Яндекс.Метрике через Logs API
         href: datalens/data-from-metrica-logsapi-visualization.md
+      - name: Веб-аналитика с расчетом воронок и когорт на данных Яндекс.Метрики
+        href: datalens/data-from-metrica-yc-visualization.md
       - name: Аналитика мобильного приложения на данных AppMetrica
         href: datalens/data-from-appmetrica-visualization.md
       - name: Анализ статистики подкастов Яндекс.Музыки (для авторов подкастов)

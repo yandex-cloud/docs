@@ -63,6 +63,8 @@ items:
         href: early-access/repeat.md
   - name: Use cases
     items:
+      - name: Getting started with Yandex DataSphere
+        href: tutorials/basics.md
       - name: Voice recognition
         href: tutorials/speech-recognition.md
       - name: Classification of images in video frames

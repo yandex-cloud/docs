@@ -43,7 +43,7 @@ To open DataLens, prepare the cloud:
 
    If you want to use Yandex DataLens for podcast analysis only:
 
-   1. Open the [service home page](https://datalens.yandex.com).
+   1. Open the [service home page]({{ link-datalens-main }}).
 
    1. In the upper-right corner, check that you are logged in to the correct account.
 
@@ -56,7 +56,7 @@ To open DataLens, prepare the cloud:
 - I'm already using {{ datalens-full-name }}
 
    If you're already using {{ datalens-full-name }} for various purposes:
-   1. Open the [service home page](https://datalens.yandex.com).
+   1. Open the [service home page]({{ link-datalens-main }}).
    1. In the upper-right corner, check that you are logged in to the correct account.
    1. The {{ datalens-full-name }} home page opens.
 
@@ -200,7 +200,7 @@ Refresh the dashboard page to apply the chart changes.
 
 Let's say we want to build a chart with the total number of times streams were listened to over the entire period.
 
-1. Open the [service home page](https://datalens.yandex.com).
+1. Open the [service home page]({{ link-datalens-main }}).
 
 1. Click **Create chart**.
 
