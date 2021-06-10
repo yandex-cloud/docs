@@ -23,6 +23,8 @@ items:
         href: solutions/data-from-metrica-visualization.md
       - name: Веб-аналитика с подключением к Яндекс.Метрике через Logs API
         href: solutions/data-from-metrica-logsapi-visualization.md
+      - name: Веб-аналитика с расчетом воронок и когорт на данных Яндекс.Метрики
+        href: solutions/data-from-metrica-yc-visualization.md
       - name: Аналитика мобильного приложения на данных AppMetrica
         href: solutions/data-from-appmetrica-visualization.md
       - name: Анализ статистики подкастов Яндекс.Музыки (для авторов подкастов)
@@ -149,8 +151,10 @@ items:
             href: concepts/calculations/formula-syntax.md
       - name: Marketplace
         href: concepts/marketplace.md
-      - name: Резервное копирование в DataLens
+      - name: Резервное копирование
         href: concepts/backup.md
+      - name: Кеширование
+        href: concepts/caching.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Управление доступом

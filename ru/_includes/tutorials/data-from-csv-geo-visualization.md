@@ -22,7 +22,7 @@
 
 1. Скачайте [файл с данными статистики ДТП](https://yadi.sk/d/zgo7RgjFWSMiyg) за 2018 год в формате CSV.
 
-1. Откройте главную страницу [{{ datalens-short-name }}](https://datalens.yandex.ru/) и нажмите **Создать подключение**.
+1. Откройте главную страницу [{{ datalens-short-name }}]({{ link-datalens-main }}) и нажмите **Создать подключение**.
 
    ![image](../../_assets/datalens/solution-07/02-create-connection.png)
 

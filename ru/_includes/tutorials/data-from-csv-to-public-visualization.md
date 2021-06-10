@@ -29,7 +29,7 @@
 
 Создайте датасет на основе [подключения](../../datalens/concepts/connection.md) к CSV-файлу.
 
-1. Перейдите в интерфейс [{{ datalens-short-name }}](https://datalens.yandex.ru).
+1. Перейдите в интерфейс [{{ datalens-short-name }}]({{ link-datalens-main }}).
 1. Нажмите кнопку **Создать подключение**.
 
     ![image](../../_assets/datalens/solution-05/01-create-connection.png)

@@ -22,7 +22,7 @@ This step is available to users who have an app in AppMetrica. If you don't have
 
 {% endnote %}
 
-1. Go to [{{ datalens-short-name }}](https://datalens.yandex.com) and click **Create connection**.
+1. Go to [{{ datalens-short-name }}]({{ link-datalens-main }}) and click **Create connection**.
 
     ![image](../../_assets/datalens/solution-06/02-create-connection.png)
 

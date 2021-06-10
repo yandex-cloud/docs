@@ -23,7 +23,7 @@
 
 {% endnote %}
 
-1. Перейдите в [{{ datalens-short-name }}](https://datalens.yandex.ru) и нажмите кнопку **Создать подключение**.
+1. Перейдите в [{{ datalens-short-name }}]({{ link-datalens-main }}) и нажмите кнопку **Создать подключение**.
 
     ![image](../../_assets/datalens/solution-06/02-create-connection.png)
 
