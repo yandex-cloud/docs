@@ -8,11 +8,6 @@ items:
 #  href: migration.md
 #- name: Подключение сервисов
 #  href: services.md
-#  items:
-#    - name: Трекер
-#      href: tracker-settings.md
-#    - name: Оплата
-#      href: billing.md
 - name: Управление организациями
   items:
     - name: Создать организацию
@@ -43,8 +38,19 @@ items:
 #      href: manage-departments.md
 #    - name: Команды
 #      href: teams.md
-
-#- name: API Yandex Cloud Organization
-#  href: org-api.md
+- name: Справочник API
+  items:
+    - name: Аутентификация
+      href: api-authentication.md
+    - name: gRPC
+      items: null
+      include:
+        repo: docs
+        path: ru/_api-ref-grpc/organization-manager/toc.yaml
+    # - name: REST
+    #   items: null
+    #   include:
+    #     repo: docs
+    #     path: en/_api-ref/organizationmanager/toc.yaml
 - name: Правила тарификации
   href: pricing.md
