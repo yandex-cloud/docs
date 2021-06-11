@@ -40,7 +40,7 @@ items:
         href: concepts/interfaces.md
       - name: Component web interfaces
         href: concepts/ui-proxy.md
-      - name: Auto scaling
+      - name: Autoscaling
         href: concepts/autoscaling.md
       - name: Decommissioning subclusters and hosts
         href: concepts/decommission.md
