@@ -193,7 +193,13 @@
 
 - Python
 
-  1. Создайте файл `SeriesItemOps01.py` и скопируйте в него следующий код:
+  1. Создайте файл `SeriesItemOps01.py`, например с помощью редактора nano:
+  
+      ```bash
+      nano SeriesItemOps01.py
+      ```
+
+      Скопируйте в созданный файл следующий код:
 
       {% note warning %}
 
@@ -247,6 +253,89 @@
                                             'date': 'Sat, 26 Dec 2020 17:21:01 GMT',
                                             'content-length': '2'},
                             'RetryAttempts': 0}}
+      ```
+
+- PHP
+
+  1. Создайте файл `SeriesItemOps01.php`, например с помощью редактора nano:
+  
+      ```bash
+      nano SeriesItemOps01.php
+      ```
+
+      Скопируйте в созданный файл следующий код:
+
+      {% note warning %}
+
+      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+
+      {% endnote %}
+
+      ```php
+      <?php
+
+      require 'vendor/autoload.php';
+
+      date_default_timezone_set('UTC');
+
+      use Aws\DynamoDb\Exception\DynamoDbException;
+      use Aws\DynamoDb\Marshaler;
+
+      $sdk = new Aws\Sdk([
+          'endpoint' => '<Document API эндпоинт>',
+          'region'   => 'ru-central1',
+          'version'  => 'latest'
+      ]);
+
+      $dynamodb = $sdk->createDynamoDb();
+      $marshaler = new Marshaler();
+
+      $tableName = 'Series';
+
+      $series_id = 3;
+      $title = 'Supernatural';
+
+      $item = $marshaler->marshalJson('
+          {
+              "series_id": ' . $series_id . ',
+              "title": "' . $title . '",
+              "info": {
+                  "release_date": "2015-09-13",
+                  "series_info": "Supernatural is an American television series created by Eric Kripke"
+              }
+          }
+      ');
+
+      $params = [
+          'TableName' => 'Series',
+          'Item' => $item
+      ];
+
+
+      try {
+          $result = $dynamodb->putItem($params);
+          echo "Сериал успешно добавлен: $series_id - $title\n";
+
+      } catch (DynamoDbException $e) {
+          echo "Невозможно добавить запись:\n";
+          echo $e->getMessage() . "\n";
+      }
+
+      ?>
+      ```
+
+      Этот код добавляет запись с первичным ключом (`series_id`, `title`) и атрибутом `info`. Атрибут `info` содержит запись JSON с дополнительной информацию о фильме. Первичный ключ обязателен.
+
+  1. Запустите программу:
+
+      ```bash
+      php SeriesItemOps01.php
+      ```
+
+      Результат выполнения:
+
+      ```text
+      Сериал успешно добавлен: 3 - Supernatural
       ```
 
 {% endlist %}

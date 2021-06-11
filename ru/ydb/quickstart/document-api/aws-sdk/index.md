@@ -51,10 +51,17 @@
   1. [Установите](https://www.python.org/downloads/) Python версии 3.6 и выше.
   1. Установите библиотеку Boto3:
 
-      ```
+      ```bash
       pip install boto3
       ```
 
       Подробнее об AWS SDK for Python (Boto) читайте в [документации AWS](https://aws.amazon.com/ru/sdk-for-python/).
+
+- PHP
+
+  1. Установите [PHP](https://www.php.net/).
+  1. Настройте [AWS SDK для PHP](https://docs.aws.amazon.com/sdk-for-php/v3/developer-guide/getting-started_installation.html).
+
+  Подробнее об AWS SDK for PHP читайте в [документации AWS](https://aws.amazon.com/ru/sdk-for-php/).
 
 {% endlist %}

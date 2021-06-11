@@ -205,75 +205,7 @@
 
       В результате выполнения команды в каталоге `target/release/` будет сгенерирован файл `SeriesLoadData.jar`.
 
-  1. Создайте файл `seriesdata.json` с данными для загрузки, например с помощью редактора nano:
-
-      ```bash
-      nano seriesdata.json
-      ```
-
-      Скопируйте в созданный файл следующий код:
-
-      ```json
-      [{
-          "series_id": 1,
-          "title": "IT Crowd",
-          "info": {
-            "release_date": "2006-02-03T00:00:00Z",
-            "series_info": "The IT Crowd is a British sitcom produced by Channel 4, written by Graham Linehan, produced by Ash Atalla and starring Chris O'Dowd, Richard Ayoade, Katherine Parkinson, and Matt Berry"
-          }
-        },
-        {
-          "series_id": 2,
-          "title": "Silicon Valley",
-          "info": {
-            "release_date": "2014-04-06T00:00:00Z",
-            "series_info": "Silicon Valley is an American comedy television series created by Mike Judge, John Altschuler and Dave Krinsky. The series focuses on five young men who founded a startup company in Silicon Valley"
-          }
-        },
-        {
-          "series_id": 3,
-          "title": "House of Cards",
-          "info": {
-            "release_date": "2013-02-01T00:00:00Z",
-            "series_info": "House of Cards is an American political thriller streaming television series created by Beau Willimon. It is an adaptation of the 1990 BBC miniseries of the same name and based on the 1989 novel of the same name by Michael Dobbs"
-          }
-        },
-        {
-          "series_id": 3,
-          "title": "The Office",
-          "info": {
-            "release_date": "2005-03-24T00:00:00Z",
-            "series_info": "The Office is an American mockumentary sitcom television series that depicts the everyday work lives of office employees in the Scranton, Pennsylvania, branch of the fictional Dunder Mifflin Paper Company"
-          }
-        },
-        {
-          "series_id": 3,
-          "title": "True Detective",
-          "info": {
-            "release_date": "2014-01-12T00:00:00Z",
-            "series_info": "True Detective is an American anthology crime drama television series created and written by Nic Pizzolatto. The series, broadcast by the premium cable network HBO in the United States, premiered on January 12, 2014"
-          }
-        },
-        {
-          "series_id": 4,
-          "title": "The Big Bang Theory",
-          "info": {
-            "release_date": "2007-09-24T00:00:00Z",
-            "series_info": "The Big Bang Theory is an American television sitcom created by Chuck Lorre and Bill Prady, both of whom served as executive producers on the series, along with Steven Molaro"
-          }
-        },
-        {
-          "series_id": 5,
-          "title": "Twin Peaks",
-          "info": {
-            "release_date": "1990-04-08T00:00:00Z",
-            "series_info": "Twin Peaks is an American mystery horror drama television series created by Mark Frost and David Lynch that premiered on April 8, 1990, on ABC until its cancellation after its second season in 1991 before returning as a limited series in 2017 on Showtime"
-          }
-        }
-      ]
-      ```
-
-      {% endcut %}
+  1. {% include [seriesdata](../../../_includes/seriesdata.md) %}
 
   1. Запустите приложение:
 
@@ -295,73 +227,13 @@
 
 - Python
 
-  1. Создайте файл `seriesdata.json` с данными для загрузки.
-
-      Скопируйте в созданный файл следующий код:
-
-      ```json
-      [{
-          "series_id": 1,
-          "title": "IT Crowd",
-          "info": {
-            "release_date": "2006-02-03T00:00:00Z",
-            "series_info": "The IT Crowd is a British sitcom produced by Channel 4, written by Graham Linehan, produced by Ash Atalla and starring Chris O'Dowd, Richard Ayoade, Katherine Parkinson, and Matt Berry"
-          }
-        },
-        {
-          "series_id": 2,
-          "title": "Silicon Valley",
-          "info": {
-            "release_date": "2014-04-06T00:00:00Z",
-            "series_info": "Silicon Valley is an American comedy television series created by Mike Judge, John Altschuler and Dave Krinsky. The series focuses on five young men who founded a startup company in Silicon Valley"
-          }
-        },
-        {
-          "series_id": 3,
-          "title": "House of Cards",
-          "info": {
-            "release_date": "2013-02-01T00:00:00Z",
-            "series_info": "House of Cards is an American political thriller streaming television series created by Beau Willimon. It is an adaptation of the 1990 BBC miniseries of the same name and based on the 1989 novel of the same name by Michael Dobbs"
-          }
-        },
-        {
-          "series_id": 3,
-          "title": "The Office",
-          "info": {
-            "release_date": "2005-03-24T00:00:00Z",
-            "series_info": "The Office is an American mockumentary sitcom television series that depicts the everyday work lives of office employees in the Scranton, Pennsylvania, branch of the fictional Dunder Mifflin Paper Company"
-          }
-        },
-        {
-          "series_id": 3,
-          "title": "True Detective",
-          "info": {
-            "release_date": "2014-01-12T00:00:00Z",
-            "series_info": "True Detective is an American anthology crime drama television series created and written by Nic Pizzolatto. The series, broadcast by the premium cable network HBO in the United States, premiered on January 12, 2014"
-          }
-        },
-        {
-          "series_id": 4,
-          "title": "The Big Bang Theory",
-          "info": {
-            "release_date": "2007-09-24T00:00:00Z",
-            "series_info": "The Big Bang Theory is an American television sitcom created by Chuck Lorre and Bill Prady, both of whom served as executive producers on the series, along with Steven Molaro"
-          }
-        },
-        {
-          "series_id": 5,
-          "title": "Twin Peaks",
-          "info": {
-            "release_date": "1990-04-08T00:00:00Z",
-            "series_info": "Twin Peaks is an American mystery horror drama television series created by Mark Frost and David Lynch that premiered on April 8, 1990, on ABC until its cancellation after its second season in 1991 before returning as a limited series in 2017 on Showtime"
-          }
-        }
-      ]
+  1. Создайте файл `SeriesLoadData.py`, например с помощью редактора nano:
+  
+      ```bash
+      nano SeriesLoadData.py
       ```
 
-      {% endcut %}
-
-  1. Создайте файл `SeriesLoadData.py` и скопируйте в него следующий код:
+      Скопируйте в созданный файл следующий код:
 
       {% note warning %}
 
@@ -390,10 +262,104 @@
           load_series(serie_list)
       ```
 
+  1. {% include [seriesdata](../../../_includes/seriesdata.md) %}
+
   1. Запустите программу:
 
       ```bash
       python SeriesLoadData.py
+      ```
+
+      Результат выполнения:
+
+      ```text
+      Добавлен сериал: 1 IT Crowd
+      Добавлен сериал: 2 Silicon Valley
+      Добавлен сериал: 3 House of Cards
+      Добавлен сериал: 3 The Office
+      Добавлен сериал: 3 True Detective
+      Добавлен сериал: 4 The Big Bang Theory
+      Добавлен сериал: 5 Twin Peaks
+      ```
+
+- PHP
+
+  1. Создайте файл `SeriesLoadData.php`, например с помощью редактора nano:
+  
+      ```bash
+      nano SeriesLoadData.php
+      ```
+
+      Скопируйте в созданный файл следующий код:
+
+      {% note warning %}
+
+      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+
+      {% endnote %}
+
+      ```php
+      <?php
+
+      require 'vendor/autoload.php';
+
+      date_default_timezone_set('UTC');
+
+      use Aws\DynamoDb\Exception\DynamoDbException;
+      use Aws\DynamoDb\Marshaler;
+
+      $sdk = new Aws\Sdk([
+          'endpoint' => '<Document API эндпоинт>',
+          'region'   => 'ru-central1',
+          'version'  => 'latest'
+      ]);
+
+      $dynamodb = $sdk->createDynamoDb();
+      $marshaler = new Marshaler();
+
+      $tableName = 'Series';
+
+      $Series = json_decode(file_get_contents('seriesdata.json'), true);
+
+      foreach ($Series as $movie) {
+
+          $series_id = $movie['series_id']; 
+          $title = $movie['title'];
+          $info = $movie['info'];
+
+          $json = json_encode([
+              'series_id' => $series_id,
+              'title' => $title,
+              'info' => $info
+          ]);
+
+          $params = [
+              'TableName' => $tableName,
+              'Item' => $marshaler->marshalJson($json)
+          ];
+
+          try {
+              $result = $dynamodb->putItem($params);
+              echo "Добавлен сериал: " . $movie['series_id'] . " " . $movie['title'] . "\n";
+          } catch (DynamoDbException $e) {
+              echo "Невозможно загрузить данные:\n";
+              echo $e->getMessage() . "\n";
+              break;
+          }
+
+      }
+
+      ?>
+      ```
+
+      Класс `Marshaler` включает методы преобразования JSON-документов и PHP-массивов в формат {{ ydb-short-name }}. В этом коде `$marshaler->marshalJson($json)` принимает данные в формате JSON и преобразует их в запись {{ ydb-short-name }}.
+
+  1. {% include [seriesdata](../../../_includes/seriesdata.md) %}
+
+  1. Запустите программу:
+
+      ```bash
+      php SeriesLoadData.php
       ```
 
       Результат выполнения:
