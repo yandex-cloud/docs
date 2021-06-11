@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method create
-Creates a federation in the specified folder.
+Creates a federation in the specified organization.
  
 
  
@@ -38,7 +38,7 @@ organizationId | **string**<br><p>ID of the organization to create a federation 
 name | **string**<br><p>Name of the federation. The name must be unique within the organization.</p> <p>Value must match the regular expression ``[a-z]([-a-z0-9]{0,61}[a-z0-9])?``.</p> 
 description | **string**<br><p>Description of the federation.</p> <p>The maximum string length in characters is 256.</p> 
 cookieMaxAge | **string**<br><p>Browser cookie lifetime in seconds. If the cookie is still valid, the management console authenticates the user immediately and redirects them to the home page. The default value is ``8h``.</p> <p>Acceptable values are 600 seconds to 43200 seconds, inclusive.</p> 
-autoCreateAccountOnLogin | **boolean** (boolean)<br><p>Add new users automatically on successful authentication. The user becomes member of the organization automatically, but you need to grant other roles to them.</p> <p>If the value is ``false``, users who aren't added to the cloud can't log in, even if they have authenticated on your server.</p> 
+autoCreateAccountOnLogin | **boolean** (boolean)<br><p>Add new users automatically on successful authentication. The user becomes member of the organization automatically, but you need to grant other roles to them.</p> <p>If the value is ``false``, users who aren't added to the organization can't log in, even if they have authenticated on your server.</p> 
 issuer | **string**<br><p>Required. ID of the IdP server to be used for authentication. The IdP server also responds to IAM with this ID after the user authenticates.</p> <p>The maximum string length in characters is 8000.</p> 
 ssoBinding | **string**<br><p>Single sign-on endpoint binding type. Most Identity Providers support the ``POST`` binding type.</p> <p>SAML Binding is a mapping of a SAML protocol message onto standard messaging formats and/or communications protocols.</p> <ul> <li>POST: HTTP POST binding.</li> <li>REDIRECT: HTTP redirect binding.</li> <li>ARTIFACT: HTTP artifact binding.</li> </ul> 
 ssoUrl | **string**<br><p>Required. Single sign-on endpoint URL. Specify the link to the IdP login page here.</p> <p>The maximum string length in characters is 8000.</p> 

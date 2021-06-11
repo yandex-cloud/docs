@@ -2015,7 +2015,7 @@ components:
 
             Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_connections).
 
-            Допустимые значения — от 10 до 10000 включительно.
+            Допустимые значения — от 10 до 16384 включительно.
           type: integer
           format: int64
         longQueryTime:
@@ -2119,7 +2119,7 @@ components:
 
             Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_tmp_table_size)
 
-            Допустимые значения — от 1024 до 134217728 включительно.
+            Допустимые значения — от 1024 до 536870912 включительно.
           type: integer
           format: int64
         maxHeapTableSize:
@@ -2128,7 +2128,7 @@ components:
 
             Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_heap_table_size)
 
-            Допустимые значения — от 16384 до 134217728 включительно.
+            Допустимые значения — от 16384 до 536870912 включительно.
           type: integer
           format: int64
         defaultTimeZone:
@@ -2517,7 +2517,7 @@ components:
 
             Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_connections).
 
-            Допустимые значения — от 10 до 10000 включительно.
+            Допустимые значения — от 10 до 16384 включительно.
           type: integer
           format: int64
         longQueryTime:
@@ -2621,7 +2621,7 @@ components:
 
             Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_tmp_table_size)
 
-            Допустимые значения — от 1024 до 134217728 включительно.
+            Допустимые значения — от 1024 до 536870912 включительно.
           type: integer
           format: int64
         maxHeapTableSize:
@@ -2630,7 +2630,7 @@ components:
 
             Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_heap_table_size)
 
-            Допустимые значения — от 16384 до 134217728 включительно.
+            Допустимые значения — от 16384 до 536870912 включительно.
           type: integer
           format: int64
         defaultTimeZone:
@@ -3874,7 +3874,7 @@ components:
 
             Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_connections).
 
-            Допустимые значения — от 10 до 10000 включительно.
+            Допустимые значения — от 10 до 16384 включительно.
           type: integer
           format: int64
         longQueryTime:
@@ -3978,7 +3978,7 @@ components:
 
             Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_tmp_table_size)
 
-            Допустимые значения — от 1024 до 134217728 включительно.
+            Допустимые значения — от 1024 до 536870912 включительно.
           type: integer
           format: int64
         maxHeapTableSize:
@@ -3987,7 +3987,7 @@ components:
 
             Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_heap_table_size)
 
-            Допустимые значения — от 16384 до 134217728 включительно.
+            Допустимые значения — от 16384 до 536870912 включительно.
           type: integer
           format: int64
         defaultTimeZone:
@@ -4318,7 +4318,7 @@ components:
 
             Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_connections).
 
-            Допустимые значения — от 10 до 10000 включительно.
+            Допустимые значения — от 10 до 16384 включительно.
           type: integer
           format: int64
         longQueryTime:
@@ -4422,7 +4422,7 @@ components:
 
             Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_tmp_table_size)
 
-            Допустимые значения — от 1024 до 134217728 включительно.
+            Допустимые значения — от 1024 до 536870912 включительно.
           type: integer
           format: int64
         maxHeapTableSize:
@@ -4431,7 +4431,7 @@ components:
 
             Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_heap_table_size)
 
-            Допустимые значения — от 16384 до 134217728 включительно.
+            Допустимые значения — от 16384 до 536870912 включительно.
           type: integer
           format: int64
         defaultTimeZone:
@@ -4762,7 +4762,7 @@ components:
 
             Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_connections).
 
-            Допустимые значения — от 10 до 10000 включительно.
+            Допустимые значения — от 10 до 16384 включительно.
           type: integer
           format: int64
         longQueryTime:
@@ -4866,7 +4866,7 @@ components:
 
             Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_tmp_table_size)
 
-            Допустимые значения — от 1024 до 134217728 включительно.
+            Допустимые значения — от 1024 до 536870912 включительно.
           type: integer
           format: int64
         maxHeapTableSize:
@@ -4875,7 +4875,7 @@ components:
 
             Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_heap_table_size)
 
-            Допустимые значения — от 16384 до 134217728 включительно.
+            Допустимые значения — от 16384 до 536870912 включительно.
           type: integer
           format: int64
         defaultTimeZone:
@@ -5207,7 +5207,7 @@ components:
 
             Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_connections).
 
-            Допустимые значения — от 10 до 10000 включительно.
+            Допустимые значения — от 10 до 16384 включительно.
           type: integer
           format: int64
         longQueryTime:
@@ -5311,7 +5311,7 @@ components:
 
             Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_tmp_table_size)
 
-            Допустимые значения — от 1024 до 134217728 включительно.
+            Допустимые значения — от 1024 до 536870912 включительно.
           type: integer
           format: int64
         maxHeapTableSize:
@@ -5320,7 +5320,7 @@ components:
 
             Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_heap_table_size)
 
-            Допустимые значения — от 16384 до 134217728 включительно.
+            Допустимые значения — от 16384 до 536870912 включительно.
           type: integer
           format: int64
         defaultTimeZone:
@@ -5660,7 +5660,7 @@ components:
 
             Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_connections).
 
-            Допустимые значения — от 10 до 10000 включительно.
+            Допустимые значения — от 10 до 16384 включительно.
           type: integer
           format: int64
         longQueryTime:
@@ -5764,7 +5764,7 @@ components:
 
             Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_tmp_table_size)
 
-            Допустимые значения — от 1024 до 134217728 включительно.
+            Допустимые значения — от 1024 до 536870912 включительно.
           type: integer
           format: int64
         maxHeapTableSize:
@@ -5773,7 +5773,7 @@ components:
 
             Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_heap_table_size)
 
-            Допустимые значения — от 16384 до 134217728 включительно.
+            Допустимые значения — от 16384 до 536870912 включительно.
           type: integer
           format: int64
         defaultTimeZone:
@@ -6113,7 +6113,7 @@ components:
 
             Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_connections).
 
-            Допустимые значения — от 10 до 10000 включительно.
+            Допустимые значения — от 10 до 16384 включительно.
           type: integer
           format: int64
         longQueryTime:
@@ -6217,7 +6217,7 @@ components:
 
             Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_tmp_table_size)
 
-            Допустимые значения — от 1024 до 134217728 включительно.
+            Допустимые значения — от 1024 до 536870912 включительно.
           type: integer
           format: int64
         maxHeapTableSize:
@@ -6226,7 +6226,7 @@ components:
 
             Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_heap_table_size)
 
-            Допустимые значения — от 16384 до 134217728 включительно.
+            Допустимые значения — от 16384 до 536870912 включительно.
           type: integer
           format: int64
         defaultTimeZone:

@@ -42,7 +42,7 @@ clusterId | Required. ID of the Redis cluster to update. To get the Redis cluste
       "dataLens": true
     },
 
-    // `configSpec` includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`
+    // `configSpec` includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`, `redisConfig_6_2`
     "redisConfig_5_0": {
       "maxmemoryPolicy": "string",
       "timeout": "integer",
@@ -53,6 +53,15 @@ clusterId | Required. ID of the Redis cluster to update. To get the Redis cluste
       "notifyKeyspaceEvents": "string"
     },
     "redisConfig_6_0": {
+      "maxmemoryPolicy": "string",
+      "timeout": "integer",
+      "password": "string",
+      "databases": "integer",
+      "slowlogLogSlowerThan": "integer",
+      "slowlogMaxLen": "integer",
+      "notifyKeyspaceEvents": "string"
+    },
+    "redisConfig_6_2": {
       "maxmemoryPolicy": "string",
       "timeout": "integer",
       "password": "string",
@@ -101,7 +110,7 @@ configSpec.<br>backupWindowStart.<br>seconds | **integer** (int32)<br><p>Seconds
 configSpec.<br>backupWindowStart.<br>nanos | **integer** (int32)<br><p>Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.</p> 
 configSpec.<br>access | **object**<br>Access policy to DB<br>
 configSpec.<br>access.<br>dataLens | **boolean** (boolean)<br><p>Allow access for DataLens</p> 
-configSpec.<br>redisConfig_5_0 | **object** <br>`configSpec` includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`<br><br><p>Fields and structure of ``RedisConfig`` reflects Redis configuration file parameters.</p> 
+configSpec.<br>redisConfig_5_0 | **object** <br>`configSpec` includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`, `redisConfig_6_2`<br><br><p>Fields and structure of ``RedisConfig`` reflects Redis configuration file parameters.</p> 
 configSpec.<br>redisConfig_5_0.<br>maxmemoryPolicy | **string**<br><p>Redis key eviction policy for a dataset that reaches maximum memory, available to the host. Redis maxmemory setting depends on Managed Service for Redis <a href="/docs/managed-redis/concepts/instance-types">host class</a>.</p> <p>All policies are described in detail in <a href="https://redis.io/topics/lru-cache">Redis documentation</a>.</p> <ul> <li>VOLATILE_LRU: Try to remove less recently used (LRU) keys with ``expire set``.</li> <li>ALLKEYS_LRU: Remove less recently used (LRU) keys.</li> <li>VOLATILE_LFU: Try to remove least frequently used (LFU) keys with ``expire set``.</li> <li>ALLKEYS_LFU: Remove least frequently used (LFU) keys.</li> <li>VOLATILE_RANDOM: Try to remove keys with ``expire set`` randomly.</li> <li>ALLKEYS_RANDOM: Remove keys randomly.</li> <li>VOLATILE_TTL: Try to remove less recently used (LRU) keys with ``expire set`` and shorter TTL first.</li> <li>NOEVICTION: Return errors when memory limit was reached and commands could require more memory to be used.</li> </ul> 
 configSpec.<br>redisConfig_5_0.<br>timeout | **integer** (int64)<br><p>Time that Redis keeps the connection open while the client is idle. If no new command is sent during that time, the connection is closed.</p> 
 configSpec.<br>redisConfig_5_0.<br>password | **string**<br><p>Authentication password.</p> <p>Value must match the regular expression ``[a-zA-Z0-9@=+?*.,!&amp;#$^&lt;&gt;_-]{8,128}``.</p> 
@@ -109,7 +118,7 @@ configSpec.<br>redisConfig_5_0.<br>databases | **integer** (int64)<br><p>Number 
 configSpec.<br>redisConfig_5_0.<br>slowlogLogSlowerThan | **integer** (int64)<br><p>Threshold for logging slow requests to server in microseconds (log only slower than it).</p> <p>The minimum value is 0.</p> 
 configSpec.<br>redisConfig_5_0.<br>slowlogMaxLen | **integer** (int64)<br><p>Max slow requests number to log.</p> <p>The minimum value is 0.</p> 
 configSpec.<br>redisConfig_5_0.<br>notifyKeyspaceEvents | **string**<br><p>String setting for pub\sub functionality; subset of KEg$lshzxeAt.</p> <p>Value must match the regular expression ``[KEg$lshzxeAt]{0,12}``.</p> 
-configSpec.<br>redisConfig_6_0 | **object** <br>`configSpec` includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`<br><br><p>Fields and structure of ``RedisConfig`` reflects Redis configuration file parameters.</p> 
+configSpec.<br>redisConfig_6_0 | **object** <br>`configSpec` includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`, `redisConfig_6_2`<br><br><p>Fields and structure of ``RedisConfig`` reflects Redis configuration file parameters.</p> 
 configSpec.<br>redisConfig_6_0.<br>maxmemoryPolicy | **string**<br><p>Redis key eviction policy for a dataset that reaches maximum memory, available to the host. Redis maxmemory setting depends on Managed Service for Redis <a href="/docs/managed-redis/concepts/instance-types">host class</a>.</p> <p>All policies are described in detail in <a href="https://redis.io/topics/lru-cache">Redis documentation</a>.</p> <ul> <li>VOLATILE_LRU: Try to remove less recently used (LRU) keys with ``expire set``.</li> <li>ALLKEYS_LRU: Remove less recently used (LRU) keys.</li> <li>VOLATILE_LFU: Try to remove least frequently used (LFU) keys with ``expire set``.</li> <li>ALLKEYS_LFU: Remove least frequently used (LFU) keys.</li> <li>VOLATILE_RANDOM: Try to remove keys with ``expire set`` randomly.</li> <li>ALLKEYS_RANDOM: Remove keys randomly.</li> <li>VOLATILE_TTL: Try to remove less recently used (LRU) keys with ``expire set`` and shorter TTL first.</li> <li>NOEVICTION: Return errors when memory limit was reached and commands could require more memory to be used.</li> </ul> 
 configSpec.<br>redisConfig_6_0.<br>timeout | **integer** (int64)<br><p>Time that Redis keeps the connection open while the client is idle. If no new command is sent during that time, the connection is closed.</p> 
 configSpec.<br>redisConfig_6_0.<br>password | **string**<br><p>Authentication password.</p> <p>Value must match the regular expression ``[a-zA-Z0-9@=+?*.,!&amp;#$^&lt;&gt;_-]{8,128}``.</p> 
@@ -117,6 +126,14 @@ configSpec.<br>redisConfig_6_0.<br>databases | **integer** (int64)<br><p>Number 
 configSpec.<br>redisConfig_6_0.<br>slowlogLogSlowerThan | **integer** (int64)<br><p>Threshold for logging slow requests to server in microseconds (log only slower than it).</p> <p>The minimum value is 0.</p> 
 configSpec.<br>redisConfig_6_0.<br>slowlogMaxLen | **integer** (int64)<br><p>Max slow requests number to log.</p> <p>The minimum value is 0.</p> 
 configSpec.<br>redisConfig_6_0.<br>notifyKeyspaceEvents | **string**<br><p>String setting for pub\sub functionality; subset of KEg$lshzxeAtm.</p> <p>Value must match the regular expression ``[KEg$lshzxeAtm]{0,13}``.</p> 
+configSpec.<br>redisConfig_6_2 | **object** <br>`configSpec` includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`, `redisConfig_6_2`<br><br><p>Fields and structure of ``RedisConfig`` reflects Redis configuration file parameters.</p> 
+configSpec.<br>redisConfig_6_2.<br>maxmemoryPolicy | **string**<br><p>Redis key eviction policy for a dataset that reaches maximum memory, available to the host. Redis maxmemory setting depends on Managed Service for Redis <a href="/docs/managed-redis/concepts/instance-types">host class</a>.</p> <p>All policies are described in detail in <a href="https://redis.io/topics/lru-cache">Redis documentation</a>.</p> <ul> <li>VOLATILE_LRU: Try to remove less recently used (LRU) keys with ``expire set``.</li> <li>ALLKEYS_LRU: Remove less recently used (LRU) keys.</li> <li>VOLATILE_LFU: Try to remove least frequently used (LFU) keys with ``expire set``.</li> <li>ALLKEYS_LFU: Remove least frequently used (LFU) keys.</li> <li>VOLATILE_RANDOM: Try to remove keys with ``expire set`` randomly.</li> <li>ALLKEYS_RANDOM: Remove keys randomly.</li> <li>VOLATILE_TTL: Try to remove less recently used (LRU) keys with ``expire set`` and shorter TTL first.</li> <li>NOEVICTION: Return errors when memory limit was reached and commands could require more memory to be used.</li> </ul> 
+configSpec.<br>redisConfig_6_2.<br>timeout | **integer** (int64)<br><p>Time that Redis keeps the connection open while the client is idle. If no new command is sent during that time, the connection is closed.</p> 
+configSpec.<br>redisConfig_6_2.<br>password | **string**<br><p>Authentication password.</p> <p>Value must match the regular expression ``[a-zA-Z0-9@=+?*.,!&amp;#$^&lt;&gt;_-]{8,128}``.</p> 
+configSpec.<br>redisConfig_6_2.<br>databases | **integer** (int64)<br><p>Number of database buckets on a single redis-server process.</p> <p>Value must be greater than 0.</p> 
+configSpec.<br>redisConfig_6_2.<br>slowlogLogSlowerThan | **integer** (int64)<br><p>Threshold for logging slow requests to server in microseconds (log only slower than it).</p> <p>The minimum value is 0.</p> 
+configSpec.<br>redisConfig_6_2.<br>slowlogMaxLen | **integer** (int64)<br><p>Max slow requests number to log.</p> <p>The minimum value is 0.</p> 
+configSpec.<br>redisConfig_6_2.<br>notifyKeyspaceEvents | **string**<br><p>String setting for pub\sub functionality; subset of KEg$lshzxeAtm.</p> <p>Value must match the regular expression ``[KEg$lshzxeAtm]{0,13}``.</p> 
 name | **string**<br><p>New name for the cluster.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
 maintenanceWindow | **object**<br><p>New maintenance window settings for the cluster.</p> <p>A maintenance window settings.</p> 
 maintenanceWindow.<br>anytime | **object**<br>Maintenance operation can be scheduled anytime. <br>`maintenanceWindow` includes only one of the fields `anytime`, `weeklyMaintenanceWindow`<br><br>

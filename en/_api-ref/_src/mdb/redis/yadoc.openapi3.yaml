@@ -1267,6 +1267,9 @@ components:
           redisConfig_6_0:
             $ref: '#/components/schemas/RedisConfigSet6_0'
             description: Configuration of a Redis 6.0 server.
+          redisConfig_6_2:
+            $ref: '#/components/schemas/RedisConfigSet6_2'
+            description: Configuration of a Redis 6.2 server.
     ClusterEnvironment:
       description: |2-
          - PRODUCTION: Stable environment with a conservative update policy:
@@ -1336,6 +1339,8 @@ components:
             $ref: '#/components/schemas/RedisConfig5_0'
           redisConfig_6_0:
             $ref: '#/components/schemas/RedisConfig6_0'
+          redisConfig_6_2:
+            $ref: '#/components/schemas/RedisConfig6_2'
     CreateClusterMetadata:
       type: object
       properties:
@@ -1954,6 +1959,75 @@ components:
       - ALLKEYS_RANDOM
       - VOLATILE_TTL
       - NOEVICTION
+    RedisConfig6_2:
+      description: |-
+        Fields and structure of `RedisConfig` reflects Redis configuration file
+        parameters.
+      type: object
+      properties:
+        maxmemoryPolicy:
+          $ref: '#/components/schemas/RedisConfig6_2MaxmemoryPolicy_in_RedisConfig6_2_maxmemoryPolicy'
+        timeout:
+          description: |-
+            Time that Redis keeps the connection open while the client is idle.
+            If no new command is sent during that time, the connection is closed.
+          type: integer
+          format: int64
+        password:
+          description: |-
+            Authentication password.
+
+            Value must match the regular expression `` [a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128} ``.
+          type: string
+        databases:
+          description: |-
+            Number of database buckets on a single redis-server process.
+
+            Value must be greater than 0.
+          type: integer
+          format: int64
+        slowlogLogSlowerThan:
+          description: |-
+            Threshold for logging slow requests to server in microseconds (log only slower than it).
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        slowlogMaxLen:
+          description: |-
+            Max slow requests number to log.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        notifyKeyspaceEvents:
+          description: |-
+            String setting for pub\sub functionality; subset of KEg$lshzxeAtm.
+
+            Value must match the regular expression `` [KEg$lshzxeAtm]{0,13} ``.
+          type: string
+    RedisConfig6_2MaxmemoryPolicy:
+      description: |2-
+         - VOLATILE_LRU: Try to remove less recently used (LRU) keys with `expire set`.
+         - ALLKEYS_LRU: Remove less recently used (LRU) keys.
+         - VOLATILE_LFU: Try to remove least frequently used (LFU) keys with `expire set`.
+         - ALLKEYS_LFU: Remove least frequently used (LFU) keys.
+         - VOLATILE_RANDOM: Try to remove keys with `expire set` randomly.
+         - ALLKEYS_RANDOM: Remove keys randomly.
+         - VOLATILE_TTL: Try to remove less recently used (LRU) keys with `expire set`
+        and shorter TTL first.
+         - NOEVICTION: Return errors when memory limit was reached and commands could require
+        more memory to be used.
+      type: string
+      enum:
+      - VOLATILE_LRU
+      - ALLKEYS_LRU
+      - VOLATILE_LFU
+      - ALLKEYS_LFU
+      - VOLATILE_RANDOM
+      - ALLKEYS_RANDOM
+      - VOLATILE_TTL
+      - NOEVICTION
     RedisConfigSet5_0:
       type: object
       properties:
@@ -1972,6 +2046,15 @@ components:
           $ref: '#/components/schemas/RedisConfig6_0_in_RedisConfigSet6_0_userConfig'
         defaultConfig:
           $ref: '#/components/schemas/RedisConfig6_0_in_RedisConfigSet6_0_defaultConfig'
+    RedisConfigSet6_2:
+      type: object
+      properties:
+        effectiveConfig:
+          $ref: '#/components/schemas/RedisConfig6_2_in_RedisConfigSet6_2_effectiveConfig'
+        userConfig:
+          $ref: '#/components/schemas/RedisConfig6_2_in_RedisConfigSet6_2_userConfig'
+        defaultConfig:
+          $ref: '#/components/schemas/RedisConfig6_2_in_RedisConfigSet6_2_defaultConfig'
     RescheduleMaintenanceMetadata:
       type: object
       properties:
@@ -2357,6 +2440,9 @@ components:
           redisConfig_6_0:
             $ref: '#/components/schemas/RedisConfigSet6_0'
             description: Configuration of a Redis 6.0 server.
+          redisConfig_6_2:
+            $ref: '#/components/schemas/RedisConfigSet6_2'
+            description: Configuration of a Redis 6.2 server.
     ClusterHealth_in_Cluster_health:
       description: |-
         Aggregated cluster health.
@@ -2473,6 +2559,8 @@ components:
             $ref: '#/components/schemas/RedisConfig5_0'
           redisConfig_6_0:
             $ref: '#/components/schemas/RedisConfig6_0'
+          redisConfig_6_2:
+            $ref: '#/components/schemas/RedisConfig6_2'
     Resources_in_Host_resources:
       description: Resources allocated to the Redis host.
       type: object
@@ -2550,6 +2638,34 @@ components:
       - VOLATILE_TTL
       - NOEVICTION
     RedisConfig6_0MaxmemoryPolicy_in_RedisConfig6_0_maxmemoryPolicy:
+      description: |-
+        Redis key eviction policy for a dataset that reaches maximum memory,
+        available to the host. Redis maxmemory setting depends on Managed
+        Service for Redis [host class](/docs/managed-redis/concepts/instance-types).
+
+        All policies are described in detail in [Redis documentation](https://redis.io/topics/lru-cache).
+
+         - VOLATILE_LRU: Try to remove less recently used (LRU) keys with `expire set`.
+         - ALLKEYS_LRU: Remove less recently used (LRU) keys.
+         - VOLATILE_LFU: Try to remove least frequently used (LFU) keys with `expire set`.
+         - ALLKEYS_LFU: Remove least frequently used (LFU) keys.
+         - VOLATILE_RANDOM: Try to remove keys with `expire set` randomly.
+         - ALLKEYS_RANDOM: Remove keys randomly.
+         - VOLATILE_TTL: Try to remove less recently used (LRU) keys with `expire set`
+        and shorter TTL first.
+         - NOEVICTION: Return errors when memory limit was reached and commands could require
+        more memory to be used.
+      type: string
+      enum:
+      - VOLATILE_LRU
+      - ALLKEYS_LRU
+      - VOLATILE_LFU
+      - ALLKEYS_LFU
+      - VOLATILE_RANDOM
+      - ALLKEYS_RANDOM
+      - VOLATILE_TTL
+      - NOEVICTION
+    RedisConfig6_2MaxmemoryPolicy_in_RedisConfig6_2_maxmemoryPolicy:
       description: |-
         Redis key eviction policy for a dataset that reaches maximum memory,
         available to the host. Redis maxmemory setting depends on Managed
@@ -2873,6 +2989,154 @@ components:
 
             Value must match the regular expression `` [KEg$lshzxeAtm]{0,13} ``.
           type: string
+    RedisConfig6_2_in_RedisConfigSet6_2_effectiveConfig:
+      description: |-
+        Effective settings for a Redis 6.2 cluster (a combination of settings
+        defined in `userConfig` and `defaultConfig`).
+
+        Fields and structure of `RedisConfig` reflects Redis configuration file
+        parameters.
+      type: object
+      properties:
+        maxmemoryPolicy:
+          $ref: '#/components/schemas/RedisConfig6_2MaxmemoryPolicy_in_RedisConfig6_2_maxmemoryPolicy'
+        timeout:
+          description: |-
+            Time that Redis keeps the connection open while the client is idle.
+            If no new command is sent during that time, the connection is closed.
+          type: integer
+          format: int64
+        password:
+          description: |-
+            Authentication password.
+
+            Value must match the regular expression `` [a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128} ``.
+          type: string
+        databases:
+          description: |-
+            Number of database buckets on a single redis-server process.
+
+            Value must be greater than 0.
+          type: integer
+          format: int64
+        slowlogLogSlowerThan:
+          description: |-
+            Threshold for logging slow requests to server in microseconds (log only slower than it).
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        slowlogMaxLen:
+          description: |-
+            Max slow requests number to log.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        notifyKeyspaceEvents:
+          description: |-
+            String setting for pub\sub functionality; subset of KEg$lshzxeAtm.
+
+            Value must match the regular expression `` [KEg$lshzxeAtm]{0,13} ``.
+          type: string
+    RedisConfig6_2_in_RedisConfigSet6_2_userConfig:
+      description: |-
+        User-defined settings for a Redis 6.2 cluster.
+
+        Fields and structure of `RedisConfig` reflects Redis configuration file
+        parameters.
+      type: object
+      properties:
+        maxmemoryPolicy:
+          $ref: '#/components/schemas/RedisConfig6_2MaxmemoryPolicy_in_RedisConfig6_2_maxmemoryPolicy'
+        timeout:
+          description: |-
+            Time that Redis keeps the connection open while the client is idle.
+            If no new command is sent during that time, the connection is closed.
+          type: integer
+          format: int64
+        password:
+          description: |-
+            Authentication password.
+
+            Value must match the regular expression `` [a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128} ``.
+          type: string
+        databases:
+          description: |-
+            Number of database buckets on a single redis-server process.
+
+            Value must be greater than 0.
+          type: integer
+          format: int64
+        slowlogLogSlowerThan:
+          description: |-
+            Threshold for logging slow requests to server in microseconds (log only slower than it).
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        slowlogMaxLen:
+          description: |-
+            Max slow requests number to log.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        notifyKeyspaceEvents:
+          description: |-
+            String setting for pub\sub functionality; subset of KEg$lshzxeAtm.
+
+            Value must match the regular expression `` [KEg$lshzxeAtm]{0,13} ``.
+          type: string
+    RedisConfig6_2_in_RedisConfigSet6_2_defaultConfig:
+      description: |-
+        Default configuration for a Redis 6.2 cluster.
+
+        Fields and structure of `RedisConfig` reflects Redis configuration file
+        parameters.
+      type: object
+      properties:
+        maxmemoryPolicy:
+          $ref: '#/components/schemas/RedisConfig6_2MaxmemoryPolicy_in_RedisConfig6_2_maxmemoryPolicy'
+        timeout:
+          description: |-
+            Time that Redis keeps the connection open while the client is idle.
+            If no new command is sent during that time, the connection is closed.
+          type: integer
+          format: int64
+        password:
+          description: |-
+            Authentication password.
+
+            Value must match the regular expression `` [a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128} ``.
+          type: string
+        databases:
+          description: |-
+            Number of database buckets on a single redis-server process.
+
+            Value must be greater than 0.
+          type: integer
+          format: int64
+        slowlogLogSlowerThan:
+          description: |-
+            Threshold for logging slow requests to server in microseconds (log only slower than it).
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        slowlogMaxLen:
+          description: |-
+            Max slow requests number to log.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        notifyKeyspaceEvents:
+          description: |-
+            String setting for pub\sub functionality; subset of KEg$lshzxeAtm.
+
+            Value must match the regular expression `` [KEg$lshzxeAtm]{0,13} ``.
+          type: string
     RescheduleMaintenanceRequestRescheduleType_in_RescheduleMaintenanceRequest_rescheduleType:
       description: |-
         Required.
@@ -2927,6 +3191,8 @@ components:
             $ref: '#/components/schemas/RedisConfig5_0'
           redisConfig_6_0:
             $ref: '#/components/schemas/RedisConfig6_0'
+          redisConfig_6_2:
+            $ref: '#/components/schemas/RedisConfig6_2'
     ServiceType_in_Service_type:
       description: |-
         Type of the service provided by the host.
@@ -3007,6 +3273,8 @@ components:
             $ref: '#/components/schemas/RedisConfig5_0'
           redisConfig_6_0:
             $ref: '#/components/schemas/RedisConfig6_0'
+          redisConfig_6_2:
+            $ref: '#/components/schemas/RedisConfig6_2'
     MaintenanceWindow_in_UpdateClusterRequest_maintenanceWindow:
       description: |-
         New maintenance window settings for the cluster.

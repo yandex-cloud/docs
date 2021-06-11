@@ -633,8 +633,12 @@ components:
       type: object
       properties:
         type:
+          description: Value must match the regular expression `` |[a-zA-Z][-a-zA-Z0-9_.]{1,62}
+            ``.
           type: string
         id:
+          description: Value must match the regular expression `` |[a-zA-Z][-a-zA-Z0-9_.]{1,62}
+            ``.
           type: string
     LogGroup:
       type: object
@@ -850,6 +854,8 @@ components:
       properties:
         destination:
           $ref: '#/components/schemas/Destination_in_WriteRequest_destination'
+        resource:
+          $ref: '#/components/schemas/LogEntryResource_in_WriteRequest_resource'
         entries:
           description: The maximum number of elements is 100.
           type: array
@@ -954,8 +960,12 @@ components:
       type: object
       properties:
         type:
+          description: Value must match the regular expression `` |[a-zA-Z][-a-zA-Z0-9_.]{1,62}
+            ``.
           type: string
         id:
+          description: Value must match the regular expression `` |[a-zA-Z][-a-zA-Z0-9_.]{1,62}
+            ``.
           type: string
     Level_in_LogEntry_level:
       type: string
@@ -998,6 +1008,17 @@ components:
           folderId:
             description: The maximum string length in characters is 64.
             type: string
+    LogEntryResource_in_WriteRequest_resource:
+      type: object
+      properties:
+        type:
+          description: Value must match the regular expression `` |[a-zA-Z][-a-zA-Z0-9_.]{1,62}
+            ``.
+          type: string
+        id:
+          description: Value must match the regular expression `` |[a-zA-Z][-a-zA-Z0-9_.]{1,62}
+            ``.
+          type: string
 tags:
 - name: LogGroup
 - name: LogIngestion

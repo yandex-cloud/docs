@@ -843,7 +843,7 @@ components:
           type: string
     FieldMask_in_UpdateOrganizationRequest_updateMask:
       description: |-
-        Field mask that specifies which fields of the cloud are going to be updated.
+        Field mask that specifies which fields of the organization are going to be updated.
 
         A comma-separated names off ALL fields to be updated.
         Оnly the specified fields will be changed. The others will be left untouched.

@@ -59,8 +59,8 @@ logGroupId | **string**<br>
 entries[] | **object**<br>
 entries[].<br>uid | **string**<br>
 entries[].<br>resource | **object**<br>
-entries[].<br>resource.<br>type | **string**<br>
-entries[].<br>resource.<br>id | **string**<br>
+entries[].<br>resource.<br>type | **string**<br><p>Value must match the regular expression ``\|[a-zA-Z][-a-zA-Z0-9_.]{1,62}``.</p> 
+entries[].<br>resource.<br>id | **string**<br><p>Value must match the regular expression ``\|[a-zA-Z][-a-zA-Z0-9_.]{1,62}``.</p> 
 entries[].<br>timestamp | **string** (date-time)<br><p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 entries[].<br>ingestedAt | **string** (date-time)<br><p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 entries[].<br>savedAt | **string** (date-time)<br><p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 

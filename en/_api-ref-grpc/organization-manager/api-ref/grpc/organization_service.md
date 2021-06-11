@@ -91,7 +91,7 @@ Metadata and response of Operation:<br>
 Field | Description
 --- | ---
 organization_id | **string**<br>Required. ID of the organization to update. To get the organization ID, use a [OrganizationService.List](#List) request. The maximum string length in characters is 50.
-update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the cloud are going to be updated. 
+update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the organization are going to be updated. 
 name | **string**<br>Name of the organization. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>Description of the organization. The maximum string length in characters is 256.
 title | **string**<br>Display name of the organization. The maximum string length in characters is 256.

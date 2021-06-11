@@ -313,7 +313,7 @@ paths:
     get:
       tags:
       - Federation
-      summary: Retrieves the list of federations in the specified folder.
+      summary: Retrieves the list of federations in the specified organization.
       operationId: FederationList
       parameters:
       - name: organizationId
@@ -372,7 +372,7 @@ paths:
     post:
       tags:
       - Federation
-      summary: Creates a federation in the specified folder.
+      summary: Creates a federation in the specified organization.
       operationId: FederationCreate
       requestBody:
         content:
@@ -679,7 +679,7 @@ components:
             The user becomes member of the organization automatically,
             but you need to grant other roles to them.
 
-            If the value is `false`, users who aren't added to the cloud
+            If the value is `false`, users who aren't added to the organization
             can't log in, even if they have authenticated on your server.
           type: boolean
           format: boolean
@@ -773,7 +773,7 @@ components:
             The user becomes member of the organization automatically,
             but you need to grant other roles to them.
 
-            If the value is `false`, users who aren't added to the cloud
+            If the value is `false`, users who aren't added to the organization
             can't log in, even if they have authenticated on your server.
           type: boolean
           format: boolean
@@ -1049,7 +1049,7 @@ components:
         name:
           description: |-
             Name of the federation.
-            The name must be unique within the cloud.
+            The name must be unique within the organization.
 
             Value must match the regular expression `` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
           type: string
@@ -1074,7 +1074,7 @@ components:
             The user becomes member of the organization automatically,
             but you need to grant other roles to them.
 
-            If the value is `false`, users who aren't added to the cloud
+            If the value is `false`, users who aren't added to the organization
             can't log in, even if they have authenticated on your server.
           type: boolean
           format: boolean

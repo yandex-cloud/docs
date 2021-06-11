@@ -2178,7 +2178,7 @@ components:
 
             For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_connections).
 
-            Acceptable values are 10 to 10000, inclusive.
+            Acceptable values are 10 to 16384, inclusive.
           type: integer
           format: int64
         longQueryTime:
@@ -2281,7 +2281,7 @@ components:
 
             For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_tmp_table_size)
 
-            Acceptable values are 1024 to 134217728, inclusive.
+            Acceptable values are 1024 to 536870912, inclusive.
           type: integer
           format: int64
         maxHeapTableSize:
@@ -2290,7 +2290,7 @@ components:
 
             For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_heap_table_size)
 
-            Acceptable values are 16384 to 134217728, inclusive.
+            Acceptable values are 16384 to 536870912, inclusive.
           type: integer
           format: int64
         defaultTimeZone:
@@ -2679,7 +2679,7 @@ components:
 
             For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_connections).
 
-            Acceptable values are 10 to 10000, inclusive.
+            Acceptable values are 10 to 16384, inclusive.
           type: integer
           format: int64
         longQueryTime:
@@ -2782,7 +2782,7 @@ components:
 
             For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_tmp_table_size)
 
-            Acceptable values are 1024 to 134217728, inclusive.
+            Acceptable values are 1024 to 536870912, inclusive.
           type: integer
           format: int64
         maxHeapTableSize:
@@ -2791,7 +2791,7 @@ components:
 
             For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_heap_table_size)
 
-            Acceptable values are 16384 to 134217728, inclusive.
+            Acceptable values are 16384 to 536870912, inclusive.
           type: integer
           format: int64
         defaultTimeZone:
@@ -4139,7 +4139,7 @@ components:
 
             For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_connections).
 
-            Acceptable values are 10 to 10000, inclusive.
+            Acceptable values are 10 to 16384, inclusive.
           type: integer
           format: int64
         longQueryTime:
@@ -4242,7 +4242,7 @@ components:
 
             For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_tmp_table_size)
 
-            Acceptable values are 1024 to 134217728, inclusive.
+            Acceptable values are 1024 to 536870912, inclusive.
           type: integer
           format: int64
         maxHeapTableSize:
@@ -4251,7 +4251,7 @@ components:
 
             For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_heap_table_size)
 
-            Acceptable values are 16384 to 134217728, inclusive.
+            Acceptable values are 16384 to 536870912, inclusive.
           type: integer
           format: int64
         defaultTimeZone:
@@ -4582,7 +4582,7 @@ components:
 
             For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_connections).
 
-            Acceptable values are 10 to 10000, inclusive.
+            Acceptable values are 10 to 16384, inclusive.
           type: integer
           format: int64
         longQueryTime:
@@ -4685,7 +4685,7 @@ components:
 
             For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_tmp_table_size)
 
-            Acceptable values are 1024 to 134217728, inclusive.
+            Acceptable values are 1024 to 536870912, inclusive.
           type: integer
           format: int64
         maxHeapTableSize:
@@ -4694,7 +4694,7 @@ components:
 
             For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_heap_table_size)
 
-            Acceptable values are 16384 to 134217728, inclusive.
+            Acceptable values are 16384 to 536870912, inclusive.
           type: integer
           format: int64
         defaultTimeZone:
@@ -5025,7 +5025,7 @@ components:
 
             For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_connections).
 
-            Acceptable values are 10 to 10000, inclusive.
+            Acceptable values are 10 to 16384, inclusive.
           type: integer
           format: int64
         longQueryTime:
@@ -5128,7 +5128,7 @@ components:
 
             For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_tmp_table_size)
 
-            Acceptable values are 1024 to 134217728, inclusive.
+            Acceptable values are 1024 to 536870912, inclusive.
           type: integer
           format: int64
         maxHeapTableSize:
@@ -5137,7 +5137,7 @@ components:
 
             For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_heap_table_size)
 
-            Acceptable values are 16384 to 134217728, inclusive.
+            Acceptable values are 16384 to 536870912, inclusive.
           type: integer
           format: int64
         defaultTimeZone:
@@ -5469,7 +5469,7 @@ components:
 
             For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_connections).
 
-            Acceptable values are 10 to 10000, inclusive.
+            Acceptable values are 10 to 16384, inclusive.
           type: integer
           format: int64
         longQueryTime:
@@ -5572,7 +5572,7 @@ components:
 
             For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_tmp_table_size)
 
-            Acceptable values are 1024 to 134217728, inclusive.
+            Acceptable values are 1024 to 536870912, inclusive.
           type: integer
           format: int64
         maxHeapTableSize:
@@ -5581,7 +5581,7 @@ components:
 
             For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_heap_table_size)
 
-            Acceptable values are 16384 to 134217728, inclusive.
+            Acceptable values are 16384 to 536870912, inclusive.
           type: integer
           format: int64
         defaultTimeZone:
@@ -5921,7 +5921,7 @@ components:
 
             For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_connections).
 
-            Acceptable values are 10 to 10000, inclusive.
+            Acceptable values are 10 to 16384, inclusive.
           type: integer
           format: int64
         longQueryTime:
@@ -6024,7 +6024,7 @@ components:
 
             For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_tmp_table_size)
 
-            Acceptable values are 1024 to 134217728, inclusive.
+            Acceptable values are 1024 to 536870912, inclusive.
           type: integer
           format: int64
         maxHeapTableSize:
@@ -6033,7 +6033,7 @@ components:
 
             For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_heap_table_size)
 
-            Acceptable values are 16384 to 134217728, inclusive.
+            Acceptable values are 16384 to 536870912, inclusive.
           type: integer
           format: int64
         defaultTimeZone:
@@ -6373,7 +6373,7 @@ components:
 
             For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_connections).
 
-            Acceptable values are 10 to 10000, inclusive.
+            Acceptable values are 10 to 16384, inclusive.
           type: integer
           format: int64
         longQueryTime:
@@ -6476,7 +6476,7 @@ components:
 
             For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_tmp_table_size)
 
-            Acceptable values are 1024 to 134217728, inclusive.
+            Acceptable values are 1024 to 536870912, inclusive.
           type: integer
           format: int64
         maxHeapTableSize:
@@ -6485,7 +6485,7 @@ components:
 
             For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_heap_table_size)
 
-            Acceptable values are 16384 to 134217728, inclusive.
+            Acceptable values are 16384 to 536870912, inclusive.
           type: integer
           format: int64
         defaultTimeZone:
