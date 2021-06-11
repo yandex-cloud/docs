@@ -194,7 +194,7 @@ placementPolicy.<br>hostAffinityRules[].<br>values[] | **string**<br><p>Affinity
 ## Methods {#methods}
 Method | Description
 --- | ---
-[addOneToOneNat](addOneToOneNat.md) | 
+[addOneToOneNat](addOneToOneNat.md) | Enables One-to-one NAT on the network interface.
 [attachDisk](attachDisk.md) | Attaches the disk to the instance.
 [create](create.md) | Creates an instance in the specified folder. Method starts an asynchronous operation that can be cancelled while it is in progress.
 [delete](delete.md) | Deletes the specified instance.
@@ -203,10 +203,10 @@ Method | Description
 [getSerialPortOutput](getSerialPortOutput.md) | Returns the serial port output of the specified Instance resource.
 [list](list.md) | Retrieves the list of Instance resources in the specified folder.
 [listOperations](listOperations.md) | Lists operations for the specified instance.
-[removeOneToOneNat](removeOneToOneNat.md) | 
+[removeOneToOneNat](removeOneToOneNat.md) | Removes One-to-one NAT from the network interface.
 [restart](restart.md) | Restarts the running instance.
 [start](start.md) | Starts the stopped instance.
 [stop](stop.md) | Stops the running instance.
 [update](update.md) | Updates the specified instance.
 [updateMetadata](updateMetadata.md) | Updates the metadata of the specified instance.
-[updateNetworkInterface](updateNetworkInterface.md) | 
+[updateNetworkInterface](updateNetworkInterface.md) | Updates the specified instance network interface.

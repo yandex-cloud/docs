@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method addOneToOneNat
-
+Enables One-to-one NAT on the network interface.
  
 
  
@@ -16,7 +16,7 @@ POST https://compute.api.cloud.yandex.net/compute/v1/instances/{instanceId}/addO
  
 Parameter | Description
 --- | ---
-instanceId | 
+instanceId | ID of the instance to enable One-to-One NAT on.
  
 ## Body parameters {#body_params}
  
@@ -38,13 +38,13 @@ instanceId |
   }
 }
 ```
-
+Enables One-to-one NAT on the network interface.
  
 Field | Description
 --- | ---
-networkInterfaceIndex | **string**<br>
-internalAddress | **string**<br>
-oneToOneNatSpec | **object**<br>
+networkInterfaceIndex | **string**<br><p>The index of the network interface to enable One-to-One NAT on.</p> 
+internalAddress | **string**<br><p>The network address that is assigned to the instance for this network interface.</p> 
+oneToOneNatSpec | **object**<br><p>An external IP address configuration. If not specified, then this instance will have no external internet access.</p> 
 oneToOneNatSpec.<br>ipVersion | **string**<br><p>External IP address version.</p> <ul> <li>IPV4: IPv4 address, for example 192.0.2.235.</li> <li>IPV6: IPv6 address. Not available yet.</li> </ul> 
 oneToOneNatSpec.<br>address | **string**<br>
 oneToOneNatSpec.<br>dnsRecordSpecs[] | **object**<br><p>External DNS configuration</p> 

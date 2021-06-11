@@ -53,11 +53,7 @@
 
 1. Нажмите **Сохранить**. Подключение появится в списке.
 
-{% note info %}
-
-Вы можете проверить подключение к хосту перед созданием. Для этого нажмите кнопку **Проверить подключение**.
-
-{% endnote %}
+{% include [datalens-check-host](../../../_includes/datalens/operations/datalens-check-host.md) %}
 
 ### Дополнительные настройки {#postgresql-additional-settings}
 

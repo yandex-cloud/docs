@@ -38,11 +38,11 @@ By default, {{ mpg-short-name }} limits the maximum number of connections to eac
       - `PRESTABLE`: For testing, including the {{ mpg-short-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
 
   1. Select the DBMS version.
-     {% note info %}
+      {% note info %}
 
-     When using version `10-1c` ({{ PG }} 10 for 1C), to comfortably host 50 users, we recommend selecting the `s2.medium` host class. For 30 users and less, the `s2.small` class is probably going to be enough.
+      When using version `10-1c` ({{ PG }} 10 for 1C), to comfortably host 50 users, we recommend selecting the `s2.medium` host class. For 30 users and less, the `s2.small` class is probably going to be enough.
 
-     {% endnote %}
+      {% endnote %}
 
   1. Select the host class to define the technical specifications of the VMs where the database hosts will be deployed. All available options are listed in [{#T}](../concepts/instance-types.md). When you change the host class for the cluster, the characteristics of all existing hosts change, too.
 
@@ -110,11 +110,24 @@ By default, {{ mpg-short-name }} limits the maximum number of connections to eac
          --resource-preset <host class> \
          --user name=<username>,password=<user password> \
          --database name=<database name>,owner=<database owner name> \
-         --disk-size <storage size in GB>
+         --disk-size <storage size in GB> \
          --security-group-ids <list of security group IDs>
       ```
       
       The `subnet-id` should be specified if the selected availability zone contains two or more subnets.
+
+      You can also specify some additional options in the `--host` parameter to manage replication in the cluster:
+      - Replication source for the host in the `replication-source` option to [manually manage replication threads](../concepts/replication.md#replication-manual).
+      - Host priority in the `priority` option to [influence the selection of a synchronous replica](../concepts/replication.md#selecting-the-master-and-a-synchronous-replica):
+        - The host with the highest priority in the cluster becomes a synchronous replica.
+        - If the cluster has multiple hosts with the highest priority, a synchronous replica is selected among them. 
+        - The lowest and default priority is `0` and the highest is `100`.
+      
+      {% note warning %}
+      
+      When using the `--security-group-ids` option, you may need to [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
+      
+      {% endnote %}  
 
       You can also specify some additional options in the `--host` parameter to manage replication in the cluster:
       - Replication source for the host in the `replication-source` option to [manually manage replication threads](../concepts/replication.md#replication-manual).
@@ -223,16 +236,16 @@ By default, {{ mpg-short-name }} limits the maximum number of connections to eac
 
   
   ```
-  $ {{ yc-mdb-pg }} cluster create \
-       --name mypg \
-       --environment production \
-       --network-name default \
-       --resource-preset {{ host-class }} \
-       --host zone-id={{ zone-id }},subnet-id=b0rcctk2rvtr8efcch64 \
-       --disk-type {{ disk-type-example }} \
-       --disk-size 20 \
-       --user name=user1,password=user1user1 \
-       --database name=db1,owner=user1
+    {{ yc-mdb-pg }} cluster create \
+    --name mypg \
+    --environment production \
+    --network-name default \
+    --resource-preset {{ host-class }} \
+    --host zone-id={{ zone-id }},subnet-id=b0rcctk2rvtr8efcch64 \
+    --disk-type {{ disk-type-example }} \
+    --disk-size 20 \
+    --user name=user1,password=user1user1 \
+    --database name=db1,owner=user1
   ```
 
 - Terraform

@@ -20,9 +20,9 @@ A set of methods for managing Instance resources.
 | [Restart](#Restart) | Restarts the running instance. |
 | [AttachDisk](#AttachDisk) | Attaches the disk to the instance. |
 | [DetachDisk](#DetachDisk) | Detaches the disk from the instance. |
-| [AddOneToOneNat](#AddOneToOneNat) | net |
-| [RemoveOneToOneNat](#RemoveOneToOneNat) |  |
-| [UpdateNetworkInterface](#UpdateNetworkInterface) |  |
+| [AddOneToOneNat](#AddOneToOneNat) | Enables One-to-one NAT on the network interface. |
+| [RemoveOneToOneNat](#RemoveOneToOneNat) | Removes One-to-one NAT from the network interface. |
+| [UpdateNetworkInterface](#UpdateNetworkInterface) | Updates the specified instance network interface. |
 | [ListOperations](#ListOperations) | Lists operations for the specified instance. |
 
 ## Calls InstanceService {#calls}
@@ -1666,7 +1666,7 @@ values[] | **string**<br>Affinity value or host ID or host group ID
 
 ## AddOneToOneNat {#AddOneToOneNat}
 
-net
+Enables One-to-one NAT on the network interface.
 
 **rpc AddOneToOneNat ([AddInstanceOneToOneNatRequest](#AddInstanceOneToOneNatRequest)) returns ([operation.Operation](#Operation9))**
 
@@ -1678,10 +1678,10 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-instance_id | **string**<br> 
-network_interface_index | **string**<br> 
-internal_address | **string**<br> 
-one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec)**<br> 
+instance_id | **string**<br>ID of the instance to enable One-to-One NAT on. 
+network_interface_index | **string**<br>The index of the network interface to enable One-to-One NAT on. 
+internal_address | **string**<br>The network address that is assigned to the instance for this network interface. 
+one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec)**<br>An external IP address configuration. If not specified, then this instance will have no external internet access. 
 
 
 ### OneToOneNatSpec {#OneToOneNatSpec1}
@@ -1723,7 +1723,7 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-instance_id | **string**<br> 
+instance_id | **string**<br>ID of the instance. 
 
 
 ### Instance {#Instance8}
@@ -1854,7 +1854,7 @@ values[] | **string**<br>Affinity value or host ID or host group ID
 
 ## RemoveOneToOneNat {#RemoveOneToOneNat}
 
-
+Removes One-to-one NAT from the network interface.
 
 **rpc RemoveOneToOneNat ([RemoveInstanceOneToOneNatRequest](#RemoveInstanceOneToOneNatRequest)) returns ([operation.Operation](#Operation10))**
 
@@ -1866,9 +1866,9 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-instance_id | **string**<br> 
-network_interface_index | **string**<br> 
-internal_address | **string**<br> 
+instance_id | **string**<br>ID of the instance to remove One-to-one NAT. 
+network_interface_index | **string**<br>The index of the network interface to remove One-to-One NAT from. 
+internal_address | **string**<br>The network address that is assigned to the instance for this network interface. 
 
 
 ### Operation {#Operation10}
@@ -1891,7 +1891,7 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-instance_id | **string**<br> 
+instance_id | **string**<br>ID of the instance. 
 
 
 ### Instance {#Instance9}
@@ -2022,7 +2022,7 @@ values[] | **string**<br>Affinity value or host ID or host group ID
 
 ## UpdateNetworkInterface {#UpdateNetworkInterface}
 
-
+Updates the specified instance network interface.
 
 **rpc UpdateNetworkInterface ([UpdateInstanceNetworkInterfaceRequest](#UpdateInstanceNetworkInterfaceRequest)) returns ([operation.Operation](#Operation11))**
 
@@ -2034,13 +2034,13 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-instance_id | **string**<br>Required.  
-network_interface_index | **string**<br>Required.  
-update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br> 
-subnet_id | **string**<br> 
-primary_v4_address_spec | **[PrimaryAddressSpec](#PrimaryAddressSpec)**<br> 
-primary_v6_address_spec | **[PrimaryAddressSpec](#PrimaryAddressSpec)**<br> 
-security_group_ids[] | **string**<br> 
+instance_id | **string**<br>Required. ID of the network interface that is being updated. 
+network_interface_index | **string**<br>Required. The index of the network interface to be updated. 
+update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which attributes of the instance should be updated. 
+subnet_id | **string**<br>ID of the subnet. 
+primary_v4_address_spec | **[PrimaryAddressSpec](#PrimaryAddressSpec)**<br>Primary IPv4 address that will be assigned to the instance for this network interface. 
+primary_v6_address_spec | **[PrimaryAddressSpec](#PrimaryAddressSpec)**<br>Primary IPv6 address that will be assigned to the instance for this network interface. IPv6 not available yet. 
+security_group_ids[] | **string**<br>ID's of security groups attached to the interface. 
 
 
 ### PrimaryAddressSpec {#PrimaryAddressSpec1}
@@ -2101,8 +2101,8 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-instance_id | **string**<br> 
-network_interface_index | **string**<br> 
+instance_id | **string**<br>ID of the instant network interface that is being updated. 
+network_interface_index | **string**<br>The index of the network interface. 
 
 
 ### Instance {#Instance10}
