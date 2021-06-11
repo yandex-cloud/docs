@@ -3,6 +3,7 @@
 | Type of limit | Value |
 | ----- | ----- |
 | Number of projects per cloud | 5 |
+| Number of docker images per cloud | 3 |
 
 {% if region == "ru" %}
    
