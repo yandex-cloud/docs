@@ -2,13 +2,10 @@
 
 You can perform the following actions for any subcluster:
 
-* [Change the number of hosts](#change-host-number).
-
-* [Change the host class](#change-resource-preset).
-
-* [Change the autoscaling rule](#change-autoscaling-rule)
-
-* [Increase storage size](#change-disk-size).
+* [{#T}](#change-host-number).
+* [{#T}](#change-resource-preset).
+* [{#T}](#change-autoscaling-rule).
+* [{#T}](#change-disk-size).
 
 ## Changing the number of hosts {#change-host-number}
 
@@ -47,21 +44,17 @@ You can change the computing power of hosts in a separate subcluster:
 
 ## Changing the autoscaling rule for Compute subclusters {#change-autoscaling-rule}
 
-You can set up the autoscaling rule for `COMPUTENODE` hosts:
+You can set up the [autoscaling](../concepts/autoscaling.md) rule for hosts with the `COMPUTENODE` role:
 
-1. In the [management console]({{ link-console-main }}), select the folder with the cluster whose subcluster you want to update.
-1. Select {{ dataproc-name }} and the desired cluster.
-1. Go to **Subclusters**.
-1. Click ![image](../../_assets/options.svg) for the appropriate subcluster and select **Edit**.
-1. Enter or select the minimum size of the scaling group in the **Minimum number of hosts** field.
-1. Enter or select the maximum size of the scaling group in the **Maximum group size** field.
-1. Set the utilization measurement period.
-1. Enter the instance warmup period in minutes or seconds.
-1. Enter the stabilization period.
-1. Set the target CPU performance level.
+{% include [note-info-service-account-roles](../../_includes/data-proc/service-account-roles.md) %}
+
+1. Go to the [folder page]({{ link-console-main }}) and select **{{ dataproc-name }}**.
+1. Select a cluster and open the **Subclusters** tab.
+1. Click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) for the appropriate subcluster and select **Edit**.
+1. Under **Scalability**, enable **Automatic scaling** if it's not activated.
+1. Set autoscaling parameters.
+1. The default metric used for autoscaling is `yarn.cluster.containersPending`. To enable scaling based on CPU usage, disable the **Default scaling** option and set the target CPU utilization level.
 1. Click **Save changes**.
-
-{{ dataproc-name }} saves the autoscaling settings for the subcluster.
 
 ## Increasing storage size {#change-disk-size}
 
@@ -88,3 +81,4 @@ Currently, you cannot reduce storage size. If necessary, re-create the {{ datapr
     {{ dataproc-name }} runs the update subcluster operation.
 
 {% endlist %}
+

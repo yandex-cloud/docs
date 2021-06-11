@@ -1,6 +1,6 @@
 # Updating fields in datasets
 
-You should update fields when you change the schema of a table (or tables) in the data source.
+You need to update fields if you changed the schema of a table (or tables) in a data source or manually deleted fields from a dataset.
 
 {% note info %}
 
@@ -10,12 +10,19 @@ You can update fields for any source except CSV files.
 
 To update fields in a dataset:
 
-1. Open the dataset. If you don't have a dataset, [create one](create.md).
+1. Open the dataset.
 1. In the upper-left corner, select the **Fields** tab.
 1. At the top of the screen, click **Update fields**.
 
-The fields in the dataset are updated if:
+## Replace a field {#replace-field}
 
-* The table schema in the source changed.
-* Fields were manually deleted from the dataset.
+If a field has been removed from a data source, it will not be updated when a dataset is updated. A chart based on this dataset will display the `ERR.DS_API.DB.COLUMN_DOES_NOT_EXIST` error.
+
+To fix the error, replace the field in the dataset:
+
+1. Open the dataset.
+1. In the upper-left corner, select the **Fields** tab.
+1. In the dataset, select the field you wish to replace.
+1. Go to the **Field source** column.
+1. In the field settings, select the field you wish to replace the deleted field with from the **Field from source** list.
 

@@ -222,7 +222,13 @@
 
 - Python
 
-  1. Создайте файл `SeriesQuery01.py` и скопируйте в него следующий код:
+  1. Создайте файл `SeriesQuery01.py`, например с помощью редактора nano:
+  
+      ```bash
+      nano SeriesQuery01.py
+      ```
+
+      Скопируйте в созданный файл следующий код:
 
       {% note warning %}
 
@@ -268,6 +274,99 @@
       3 : House of Cards
       3 : The Office
       3 : True Detective
+      ```
+
+- PHP
+
+  1. Создайте файл `SeriesQuery01.php`, например с помощью редактора nano:
+  
+      ```bash
+      nano SeriesQuery01.php
+      ```
+
+      Скопируйте в созданный файл следующий код:
+
+      {% note warning %}
+
+      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+
+      {% endnote %}
+
+      ```php
+      <?php
+
+      require 'vendor/autoload.php';
+
+      date_default_timezone_set('UTC');
+
+      use Aws\DynamoDb\Exception\DynamoDbException;
+      use Aws\DynamoDb\Marshaler;
+
+      $sdk = new Aws\Sdk([
+          'endpoint' => '<Document API эндпоинт>',
+          'region'   => 'ru-central1',
+          'version'  => 'latest'
+      ]);
+
+      $dynamodb = $sdk->createDynamoDb();
+      $marshaler = new Marshaler();
+
+      $tableName = 'Series';
+
+      $eav = $marshaler->marshalJson('
+          {
+              ":sd": 3
+          }
+      ');
+
+      $params = [
+          'TableName' => $tableName,
+          'KeyConditionExpression' => 'series_id = :sd',
+          'ExpressionAttributeValues'=> $eav
+      ];
+
+      echo "Сериалы с id, равным 3\n";
+
+      try {
+          $result = $dynamodb->query($params);
+
+          echo "Поиск выполнен.\n";
+
+          foreach ($result['Items'] as $movie) {
+              echo $marshaler->unmarshalValue($movie['series_id']) . ': ' .
+                  $marshaler->unmarshalValue($movie['title']) . "\n";
+          }
+
+      } catch (DynamoDbException $e) {
+          echo "Невозможно выполнить поиск:\n";
+          echo $e->getMessage() . "\n";
+      }
+
+      ?>
+      ```
+
+      Этот код извлекает из таблицы `Series` все сериалы с ключом партицирования, равным 3.
+
+      {% note info %}
+
+      `ExpressionAttributeValues` используется для подстановки значений. Это необходимо потому, что нельзя использовать литералы непосредственно в выражениях, в том числе и в  `KeyConditionExpression`. В приведенном коде используется `:sd`.
+
+      {% endnote %}
+
+  1. Запустите программу:
+
+      ```bash
+      php SeriesItemQuery01.php
+      ```
+
+      Результат выполнения:
+
+      ```text
+      Сериалы с id, равным 3
+      Поиск выполнен.
+      3: House of Cards
+      3: The Office
+      3: True Detective
       ```
 
 {% endlist %}
@@ -475,7 +574,13 @@
 
 - Python
 
-  1. Создайте файл `SeriesQuery02.py` и скопируйте в него следующий код:
+  1. Создайте файл `SeriesQuery02.py`, например с помощью редактора nano:
+  
+      ```bash
+      nano SeriesQuery02.py
+      ```
+
+      Скопируйте в созданный файл следующий код:
 
       {% note warning %}
 
@@ -522,6 +627,93 @@
       Сериалы с id = 3 и названием на букву Т
       3 : The Office
       3 : True Detective
+      ```
+
+- PHP
+
+  1. Создайте файл `SeriesQuery02.php`, например с помощью редактора nano:
+  
+      ```bash
+      nano SeriesQuery02.php
+      ```
+
+      Скопируйте в созданный файл следующий код:
+
+      {% note warning %}
+
+      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+
+      {% endnote %}
+
+      ```php
+      <?php
+
+      require 'vendor/autoload.php';
+
+      date_default_timezone_set('UTC');
+
+      use Aws\DynamoDb\Exception\DynamoDbException;
+      use Aws\DynamoDb\Marshaler;
+
+      $sdk = new Aws\Sdk([
+          'endpoint' => '<Document API эндпоинт>',
+          'region'   => 'ru-central1',
+          'version'  => 'latest'
+      ]);
+
+      $dynamodb = $sdk->createDynamoDb();
+      $marshaler = new Marshaler();
+
+      $tableName = 'Series';
+
+      $eav = $marshaler->marshalJson('
+          {
+              ":sd": 3,
+              ":letter": "T"
+          }
+      ');
+
+      $params = [
+          'TableName' => $tableName,
+          'ProjectionExpression' => 'series_id, title',
+          'KeyConditionExpression' =>
+              'series_id = :sd and begins_with(title, :letter)',
+          'ExpressionAttributeValues'=> $eav
+      ];
+
+      echo "Сериалы с id, равным 3 и названием на букву T:\n";
+
+      try {
+          $result = $dynamodb->query($params);
+
+          echo "Поиск выполнен.\n";
+
+          foreach ($result['Items'] as $i) {
+              $movie = $marshaler->unmarshalItem($i);
+              print $movie['series_id'] . ': ' . $movie['title'] . "\n";
+          }
+
+      } catch (DynamoDbException $e) {
+          echo "Невозможно выполнить поиск:\n";
+          echo $e->getMessage() . "\n";
+      }
+
+      ?>
+      ```
+
+  1. Запустите программу:
+
+      ```bash
+      php SeriesItemQuery02.php
+      ```
+
+      Результат выполнения:
+
+      ```text
+      Сериалы с id, равным 3 и названием на букву T:
+      Поиск выполнен.
+      3: The Office
+      3: True Detective
       ```
 
 {% endlist %}
@@ -724,7 +916,13 @@
 
 - Python
 
-  1. Создайте файл `SeriesScan.py` и скопируйте в него следующий код:
+  1. Создайте файл `SeriesScan.py`, например с помощью редактора nano:
+  
+      ```bash
+      nano SeriesScan.py
+      ```
+
+      Скопируйте в созданный файл следующий код:
 
       {% note warning %}
 
@@ -800,6 +998,100 @@
       {'release_date': '2014-04-06'}
       ```
 
-  Вы также можете использовать метода `scan` для работы с любыми вторичными индексами, созданными в таблице.
+- PHP
+
+  1. Создайте файл `SeriesScan.php`, например с помощью редактора nano:
+  
+      ```bash
+      nano SeriesScan.php
+      ```
+
+      Скопируйте в созданный файл следующий код:
+
+      {% note warning %}
+
+      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+
+      {% endnote %}
+
+      ```php
+      <?php
+
+      require 'vendor/autoload.php';
+
+      date_default_timezone_set('UTC');
+
+      use Aws\DynamoDb\Exception\DynamoDbException;
+      use Aws\DynamoDb\Marshaler;
+
+      $sdk = new Aws\Sdk([
+          'endpoint' => '<Document API эндпоинт>',
+          'region'   => 'ru-central1',
+          'version'  => 'latest'
+      ]);
+
+      $dynamodb = $sdk->createDynamoDb();
+
+      $marshaler = new Marshaler();
+
+      //Expression attribute values
+      $eav = $marshaler->marshalJson('
+          {
+              ":start_sd": 1,
+              ":end_sd": 3
+          }
+      ');
+
+      $params = [
+          'TableName' => 'Series',
+          'ProjectionExpression' => 'series_id, title',
+          'FilterExpression' => 'series_id between :start_sd and :end_sd',
+          'ExpressionAttributeValues'=> $eav
+      ];
+
+      echo "Сканирование таблицы Series.\n";
+
+      try {
+          while (true) {
+              $result = $dynamodb->scan($params);
+
+              foreach ($result['Items'] as $i) {
+                  $movie = $marshaler->unmarshalItem($i);
+                  echo $movie['series_id'] . ': ' . $movie['title'] . "\n";
+              }
+
+              if (isset($result['LastEvaluatedKey'])) {
+                  $params['ExclusiveStartKey'] = $result['LastEvaluatedKey'];
+              } else {
+                  break;
+              }
+          }
+
+      } catch (DynamoDbException $e) {
+          echo "Невозможно выполнить сканирование:\n";
+          echo $e->getMessage() . "\n";
+      }
+
+      ?>
+      ```
+
+      Приведенный код сканирует таблицу `Series` и выводит сериалы с атрибутом `series_id` от 1 до 3. Все остальные элементы отбрасываются.
+
+  1. Запустите программу:
+
+      ```bash
+      php SeriesScan.php
+      ```
+
+      Результат выполнения:
+
+      ```text
+      Сканирование таблицы Series.
+      3: House of Cards
+      3: The Office
+      3: True Detective
+      1: IT Crowd
+      2: Silicon Valley
+      ```
 
 {% endlist %}

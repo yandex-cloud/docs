@@ -289,7 +289,7 @@ page_token | **string**<br>Page token. To get the next page of results, set `pag
 Field | Description
 --- | ---
 disks[] | **[Disk](#Disk)**<br>Lists disks for the specified placement group. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is more than [ListDiskPlacementGroupInstancesRequest.page_size], use `next_page_token` as the value for the [ListDiskPlacementGroupInstancesRequest.page_token] query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is more than [ListDiskPlacementGroupDisksRequest.page_size](#ListDiskPlacementGroupDisksRequest), use `next_page_token` as the value for the [ListDiskPlacementGroupDisksRequest.page_token](#ListDiskPlacementGroupDisksRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
 ### Disk {#Disk}

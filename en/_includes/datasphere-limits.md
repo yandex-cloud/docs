@@ -3,12 +3,15 @@
 | Type of limit | Value |
 | ----- | ----- |
 | Number of projects per cloud | 5 |
+| Number of docker images per cloud | 3 |
 
-{% note info %}
 
-From May 3, 2021, quotas on the number of VMs available within the service by default will begin to apply. The restrictions will not affect the calculations running at this time.
 
-{% endnote %}
+   {% note info %}
+   
+   On June 20, 2021, restrictions on the use of VMs with GPUs, available by default for individuals, will take effect. To use a VM with a g1.1 GPU configuration, top up your billing account balance to at least $10, or write to Support and tell us about your task.
+   
+   {% endnote %}
 
 Type of limit | Value
 ----- | -----

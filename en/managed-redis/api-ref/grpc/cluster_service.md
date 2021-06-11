@@ -85,9 +85,10 @@ link | **string**<br>Link to the monitoring system charts for the Redis cluster.
 Field | Description
 --- | ---
 version | **string**<br>Version of Redis server software. 
-redis_config | **oneof:** `redis_config_5_0` or `redis_config_6_0`<br>Configuration for Redis servers in the cluster.
+redis_config | **oneof:** `redis_config_5_0`, `redis_config_6_0` or `redis_config_6_2`<br>Configuration for Redis servers in the cluster.
 &nbsp;&nbsp;redis_config_5_0 | **[config.RedisConfigSet5_0](#RedisConfigSet5_0)**<br>Configuration of a Redis 5.0 server. 
 &nbsp;&nbsp;redis_config_6_0 | **[config.RedisConfigSet6_0](#RedisConfigSet6_0)**<br>Configuration of a Redis 6.0 server. 
+&nbsp;&nbsp;redis_config_6_2 | **[config.RedisConfigSet6_2](#RedisConfigSet6_2)**<br>Configuration of a Redis 6.2 server. 
 resources | **[Resources](#Resources)**<br>Resources allocated to Redis hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](#Access)**<br>Access policy to DB 
@@ -199,9 +200,10 @@ link | **string**<br>Link to the monitoring system charts for the Redis cluster.
 Field | Description
 --- | ---
 version | **string**<br>Version of Redis server software. 
-redis_config | **oneof:** `redis_config_5_0` or `redis_config_6_0`<br>Configuration for Redis servers in the cluster.
+redis_config | **oneof:** `redis_config_5_0`, `redis_config_6_0` or `redis_config_6_2`<br>Configuration for Redis servers in the cluster.
 &nbsp;&nbsp;redis_config_5_0 | **[config.RedisConfigSet5_0](#RedisConfigSet5_0)**<br>Configuration of a Redis 5.0 server. 
 &nbsp;&nbsp;redis_config_6_0 | **[config.RedisConfigSet6_0](#RedisConfigSet6_0)**<br>Configuration of a Redis 6.0 server. 
+&nbsp;&nbsp;redis_config_6_2 | **[config.RedisConfigSet6_2](#RedisConfigSet6_2)**<br>Configuration of a Redis 6.2 server. 
 resources | **[Resources](#Resources1)**<br>Resources allocated to Redis hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](#Access1)**<br>Access policy to DB 
@@ -284,9 +286,10 @@ tls_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protoc
 Field | Description
 --- | ---
 version | **string**<br>Version of Redis used in the cluster. 
-redis_spec | **oneof:** `redis_config_5_0` or `redis_config_6_0`<br>Configuration of a Redis cluster.
+redis_spec | **oneof:** `redis_config_5_0`, `redis_config_6_0` or `redis_config_6_2`<br>Configuration of a Redis cluster.
 &nbsp;&nbsp;redis_config_5_0 | **[config.RedisConfig5_0](#RedisConfig5_0)**<br>Configuration of a Redis cluster. 
 &nbsp;&nbsp;redis_config_6_0 | **[config.RedisConfig6_0](#RedisConfig6_0)**<br>Configuration of a Redis cluster. 
+&nbsp;&nbsp;redis_config_6_2 | **[config.RedisConfig6_2](#RedisConfig6_2)**<br>Configuration of a Redis cluster. 
 resources | **[Resources](#Resources2)**<br>Resources allocated to Redis hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](#Access2)**<br>Access policy to DB 
@@ -377,9 +380,10 @@ link | **string**<br>Link to the monitoring system charts for the Redis cluster.
 Field | Description
 --- | ---
 version | **string**<br>Version of Redis server software. 
-redis_config | **oneof:** `redis_config_5_0` or `redis_config_6_0`<br>Configuration for Redis servers in the cluster.
+redis_config | **oneof:** `redis_config_5_0`, `redis_config_6_0` or `redis_config_6_2`<br>Configuration for Redis servers in the cluster.
 &nbsp;&nbsp;redis_config_5_0 | **[config.RedisConfigSet5_0](#RedisConfigSet5_0)**<br>Configuration of a Redis 5.0 server. 
 &nbsp;&nbsp;redis_config_6_0 | **[config.RedisConfigSet6_0](#RedisConfigSet6_0)**<br>Configuration of a Redis 6.0 server. 
+&nbsp;&nbsp;redis_config_6_2 | **[config.RedisConfigSet6_2](#RedisConfigSet6_2)**<br>Configuration of a Redis 6.2 server. 
 resources | **[Resources](#Resources3)**<br>Resources allocated to Redis hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](#Access3)**<br>Access policy to DB 
@@ -459,9 +463,10 @@ security_group_ids[] | **string**<br>User security groups
 Field | Description
 --- | ---
 version | **string**<br>Version of Redis used in the cluster. 
-redis_spec | **oneof:** `redis_config_5_0` or `redis_config_6_0`<br>Configuration of a Redis cluster.
+redis_spec | **oneof:** `redis_config_5_0`, `redis_config_6_0` or `redis_config_6_2`<br>Configuration of a Redis cluster.
 &nbsp;&nbsp;redis_config_5_0 | **[config.RedisConfig5_0](#RedisConfig5_0)**<br>Configuration of a Redis cluster. 
 &nbsp;&nbsp;redis_config_6_0 | **[config.RedisConfig6_0](#RedisConfig6_0)**<br>Configuration of a Redis cluster. 
+&nbsp;&nbsp;redis_config_6_2 | **[config.RedisConfig6_2](#RedisConfig6_2)**<br>Configuration of a Redis cluster. 
 resources | **[Resources](#Resources4)**<br>Resources allocated to Redis hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](#Access4)**<br>Access policy to DB 
@@ -564,9 +569,10 @@ link | **string**<br>Link to the monitoring system charts for the Redis cluster.
 Field | Description
 --- | ---
 version | **string**<br>Version of Redis server software. 
-redis_config | **oneof:** `redis_config_5_0` or `redis_config_6_0`<br>Configuration for Redis servers in the cluster.
+redis_config | **oneof:** `redis_config_5_0`, `redis_config_6_0` or `redis_config_6_2`<br>Configuration for Redis servers in the cluster.
 &nbsp;&nbsp;redis_config_5_0 | **[config.RedisConfigSet5_0](#RedisConfigSet5_0)**<br>Configuration of a Redis 5.0 server. 
 &nbsp;&nbsp;redis_config_6_0 | **[config.RedisConfigSet6_0](#RedisConfigSet6_0)**<br>Configuration of a Redis 6.0 server. 
+&nbsp;&nbsp;redis_config_6_2 | **[config.RedisConfigSet6_2](#RedisConfigSet6_2)**<br>Configuration of a Redis 6.2 server. 
 resources | **[Resources](#Resources5)**<br>Resources allocated to Redis hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](#Access5)**<br>Access policy to DB 
@@ -734,9 +740,10 @@ link | **string**<br>Link to the monitoring system charts for the Redis cluster.
 Field | Description
 --- | ---
 version | **string**<br>Version of Redis server software. 
-redis_config | **oneof:** `redis_config_5_0` or `redis_config_6_0`<br>Configuration for Redis servers in the cluster.
+redis_config | **oneof:** `redis_config_5_0`, `redis_config_6_0` or `redis_config_6_2`<br>Configuration for Redis servers in the cluster.
 &nbsp;&nbsp;redis_config_5_0 | **[config.RedisConfigSet5_0](#RedisConfigSet5_0)**<br>Configuration of a Redis 5.0 server. 
 &nbsp;&nbsp;redis_config_6_0 | **[config.RedisConfigSet6_0](#RedisConfigSet6_0)**<br>Configuration of a Redis 6.0 server. 
+&nbsp;&nbsp;redis_config_6_2 | **[config.RedisConfigSet6_2](#RedisConfigSet6_2)**<br>Configuration of a Redis 6.2 server. 
 resources | **[Resources](#Resources6)**<br>Resources allocated to Redis hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](#Access6)**<br>Access policy to DB 
@@ -864,9 +871,10 @@ link | **string**<br>Link to the monitoring system charts for the Redis cluster.
 Field | Description
 --- | ---
 version | **string**<br>Version of Redis server software. 
-redis_config | **oneof:** `redis_config_5_0` or `redis_config_6_0`<br>Configuration for Redis servers in the cluster.
+redis_config | **oneof:** `redis_config_5_0`, `redis_config_6_0` or `redis_config_6_2`<br>Configuration for Redis servers in the cluster.
 &nbsp;&nbsp;redis_config_5_0 | **[config.RedisConfigSet5_0](#RedisConfigSet5_0)**<br>Configuration of a Redis 5.0 server. 
 &nbsp;&nbsp;redis_config_6_0 | **[config.RedisConfigSet6_0](#RedisConfigSet6_0)**<br>Configuration of a Redis 6.0 server. 
+&nbsp;&nbsp;redis_config_6_2 | **[config.RedisConfigSet6_2](#RedisConfigSet6_2)**<br>Configuration of a Redis 6.2 server. 
 resources | **[Resources](#Resources7)**<br>Resources allocated to Redis hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](#Access7)**<br>Access policy to DB 
@@ -997,9 +1005,10 @@ link | **string**<br>Link to the monitoring system charts for the Redis cluster.
 Field | Description
 --- | ---
 version | **string**<br>Version of Redis server software. 
-redis_config | **oneof:** `redis_config_5_0` or `redis_config_6_0`<br>Configuration for Redis servers in the cluster.
+redis_config | **oneof:** `redis_config_5_0`, `redis_config_6_0` or `redis_config_6_2`<br>Configuration for Redis servers in the cluster.
 &nbsp;&nbsp;redis_config_5_0 | **[config.RedisConfigSet5_0](#RedisConfigSet5_0)**<br>Configuration of a Redis 5.0 server. 
 &nbsp;&nbsp;redis_config_6_0 | **[config.RedisConfigSet6_0](#RedisConfigSet6_0)**<br>Configuration of a Redis 6.0 server. 
+&nbsp;&nbsp;redis_config_6_2 | **[config.RedisConfigSet6_2](#RedisConfigSet6_2)**<br>Configuration of a Redis 6.2 server. 
 resources | **[Resources](#Resources8)**<br>Resources allocated to Redis hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](#Access8)**<br>Access policy to DB 
@@ -1127,9 +1136,10 @@ link | **string**<br>Link to the monitoring system charts for the Redis cluster.
 Field | Description
 --- | ---
 version | **string**<br>Version of Redis server software. 
-redis_config | **oneof:** `redis_config_5_0` or `redis_config_6_0`<br>Configuration for Redis servers in the cluster.
+redis_config | **oneof:** `redis_config_5_0`, `redis_config_6_0` or `redis_config_6_2`<br>Configuration for Redis servers in the cluster.
 &nbsp;&nbsp;redis_config_5_0 | **[config.RedisConfigSet5_0](#RedisConfigSet5_0)**<br>Configuration of a Redis 5.0 server. 
 &nbsp;&nbsp;redis_config_6_0 | **[config.RedisConfigSet6_0](#RedisConfigSet6_0)**<br>Configuration of a Redis 6.0 server. 
+&nbsp;&nbsp;redis_config_6_2 | **[config.RedisConfigSet6_2](#RedisConfigSet6_2)**<br>Configuration of a Redis 6.2 server. 
 resources | **[Resources](#Resources9)**<br>Resources allocated to Redis hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](#Access9)**<br>Access policy to DB 
@@ -1212,9 +1222,10 @@ tls_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protoc
 Field | Description
 --- | ---
 version | **string**<br>Version of Redis used in the cluster. 
-redis_spec | **oneof:** `redis_config_5_0` or `redis_config_6_0`<br>Configuration of a Redis cluster.
+redis_spec | **oneof:** `redis_config_5_0`, `redis_config_6_0` or `redis_config_6_2`<br>Configuration of a Redis cluster.
 &nbsp;&nbsp;redis_config_5_0 | **[config.RedisConfig5_0](#RedisConfig5_0)**<br>Configuration of a Redis cluster. 
 &nbsp;&nbsp;redis_config_6_0 | **[config.RedisConfig6_0](#RedisConfig6_0)**<br>Configuration of a Redis cluster. 
+&nbsp;&nbsp;redis_config_6_2 | **[config.RedisConfig6_2](#RedisConfig6_2)**<br>Configuration of a Redis cluster. 
 resources | **[Resources](#Resources10)**<br>Resources allocated to Redis hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](#Access10)**<br>Access policy to DB 
@@ -1306,9 +1317,10 @@ link | **string**<br>Link to the monitoring system charts for the Redis cluster.
 Field | Description
 --- | ---
 version | **string**<br>Version of Redis server software. 
-redis_config | **oneof:** `redis_config_5_0` or `redis_config_6_0`<br>Configuration for Redis servers in the cluster.
+redis_config | **oneof:** `redis_config_5_0`, `redis_config_6_0` or `redis_config_6_2`<br>Configuration for Redis servers in the cluster.
 &nbsp;&nbsp;redis_config_5_0 | **[config.RedisConfigSet5_0](#RedisConfigSet5_0)**<br>Configuration of a Redis 5.0 server. 
 &nbsp;&nbsp;redis_config_6_0 | **[config.RedisConfigSet6_0](#RedisConfigSet6_0)**<br>Configuration of a Redis 6.0 server. 
+&nbsp;&nbsp;redis_config_6_2 | **[config.RedisConfigSet6_2](#RedisConfigSet6_2)**<br>Configuration of a Redis 6.2 server. 
 resources | **[Resources](#Resources11)**<br>Resources allocated to Redis hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](#Access11)**<br>Access policy to DB 
@@ -1439,9 +1451,10 @@ link | **string**<br>Link to the monitoring system charts for the Redis cluster.
 Field | Description
 --- | ---
 version | **string**<br>Version of Redis server software. 
-redis_config | **oneof:** `redis_config_5_0` or `redis_config_6_0`<br>Configuration for Redis servers in the cluster.
+redis_config | **oneof:** `redis_config_5_0`, `redis_config_6_0` or `redis_config_6_2`<br>Configuration for Redis servers in the cluster.
 &nbsp;&nbsp;redis_config_5_0 | **[config.RedisConfigSet5_0](#RedisConfigSet5_0)**<br>Configuration of a Redis 5.0 server. 
 &nbsp;&nbsp;redis_config_6_0 | **[config.RedisConfigSet6_0](#RedisConfigSet6_0)**<br>Configuration of a Redis 6.0 server. 
+&nbsp;&nbsp;redis_config_6_2 | **[config.RedisConfigSet6_2](#RedisConfigSet6_2)**<br>Configuration of a Redis 6.2 server. 
 resources | **[Resources](#Resources12)**<br>Resources allocated to Redis hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](#Access12)**<br>Access policy to DB 
@@ -1569,9 +1582,10 @@ link | **string**<br>Link to the monitoring system charts for the Redis cluster.
 Field | Description
 --- | ---
 version | **string**<br>Version of Redis server software. 
-redis_config | **oneof:** `redis_config_5_0` or `redis_config_6_0`<br>Configuration for Redis servers in the cluster.
+redis_config | **oneof:** `redis_config_5_0`, `redis_config_6_0` or `redis_config_6_2`<br>Configuration for Redis servers in the cluster.
 &nbsp;&nbsp;redis_config_5_0 | **[config.RedisConfigSet5_0](#RedisConfigSet5_0)**<br>Configuration of a Redis 5.0 server. 
 &nbsp;&nbsp;redis_config_6_0 | **[config.RedisConfigSet6_0](#RedisConfigSet6_0)**<br>Configuration of a Redis 6.0 server. 
+&nbsp;&nbsp;redis_config_6_2 | **[config.RedisConfigSet6_2](#RedisConfigSet6_2)**<br>Configuration of a Redis 6.2 server. 
 resources | **[Resources](#Resources13)**<br>Resources allocated to Redis hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](#Access13)**<br>Access policy to DB 
@@ -2146,9 +2160,10 @@ link | **string**<br>Link to the monitoring system charts for the Redis cluster.
 Field | Description
 --- | ---
 version | **string**<br>Version of Redis server software. 
-redis_config | **oneof:** `redis_config_5_0` or `redis_config_6_0`<br>Configuration for Redis servers in the cluster.
+redis_config | **oneof:** `redis_config_5_0`, `redis_config_6_0` or `redis_config_6_2`<br>Configuration for Redis servers in the cluster.
 &nbsp;&nbsp;redis_config_5_0 | **[config.RedisConfigSet5_0](#RedisConfigSet5_0)**<br>Configuration of a Redis 5.0 server. 
 &nbsp;&nbsp;redis_config_6_0 | **[config.RedisConfigSet6_0](#RedisConfigSet6_0)**<br>Configuration of a Redis 6.0 server. 
+&nbsp;&nbsp;redis_config_6_2 | **[config.RedisConfigSet6_2](#RedisConfigSet6_2)**<br>Configuration of a Redis 6.2 server. 
 resources | **[Resources](#Resources15)**<br>Resources allocated to Redis hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](#Access14)**<br>Access policy to DB 

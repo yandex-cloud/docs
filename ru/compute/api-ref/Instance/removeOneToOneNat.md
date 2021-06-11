@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method removeOneToOneNat
-
+Removes One-to-one NAT from the network interface.
  
 
  
@@ -16,7 +16,7 @@ POST https://compute.api.cloud.yandex.net/compute/v1/instances/{instanceId}/remo
  
 Parameter | Description
 --- | ---
-instanceId | 
+instanceId | ID of the instance to remove One-to-one NAT.
  
 ## Body parameters {#body_params}
  
@@ -30,8 +30,8 @@ instanceId |
  
 Field | Description
 --- | ---
-networkInterfaceIndex | **string**<br>
-internalAddress | **string**<br>
+networkInterfaceIndex | **string**<br><p>The index of the network interface to remove One-to-One NAT from.</p> 
+internalAddress | **string**<br><p>The network address that is assigned to the instance for this network interface.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

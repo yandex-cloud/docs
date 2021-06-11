@@ -184,7 +184,13 @@
 
 - Python
 
-  1. Создайте файл `SeriesItemOps02.py` и скопируйте в него следующий код:
+  1. Создайте файл `SeriesItemOps02.py`, например с помощью редактора nano:
+
+      ```bash
+      nano SeriesItemOps02.py
+      ```
+
+      Скопируйте в созданный файл следующий код:
 
       {% note warning %}
 
@@ -233,6 +239,101 @@
       'info': {'release_date': 2015-09-13',
                 'series_info': 'Supernatural is an American television series '
                               'created by Eric Kripke'}}
+      ```
+
+- PHP
+
+  1. Создайте файл `SeriesItemOps02.php`, например с помощью редактора nano:
+
+      ```bash
+      nano SeriesItemOps02.php
+      ```
+
+      Скопируйте в созданный файл следующий код:
+
+      {% note warning %}
+
+      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+
+      {% endnote %}
+
+      ```php
+      <?php
+
+      require 'vendor/autoload.php';
+
+      date_default_timezone_set('UTC');
+
+      use Aws\DynamoDb\Exception\DynamoDbException;
+      use Aws\DynamoDb\Marshaler;
+
+      $sdk = new Aws\Sdk([
+          'endpoint' => '<Document API эндпоинт>',
+          'region'   => 'ru-central1',
+          'version'  => 'latest'
+      ]);
+
+      $dynamodb = $sdk->createDynamoDb();
+      $marshaler = new Marshaler();
+
+      $tableName = 'Series';
+
+      $series_id = 3;
+      $title = 'Supernatural';
+
+      $key = $marshaler->marshalJson('
+          {
+              "series_id": ' . $series_id . ', 
+              "title": "' . $title . '"
+          }
+      ');
+
+      $params = [
+          'TableName' => $tableName,
+          'Key' => $key
+      ];
+
+      try {
+          $result = $dynamodb->getItem($params);
+          echo json_encode($result["Item"], JSON_PRETTY_PRINT);
+
+      } catch (DynamoDbException $e) {
+          echo "Невозможно получить запись:\n";
+          echo $e->getMessage() . "\n";
+      }
+
+      ?>
+      ```
+
+      Для чтения записи по ее первичному ключу используется метод `getItem`.
+
+  1. Запустите программу:
+
+      ```bash
+      php SeriesItemOps02.php
+      ```
+
+      Результат выполнения:
+
+      ```text
+      {
+          "series_id": {
+              "N": ".3e1"
+          },
+          "title": {
+              "S": "Supernatural"
+          },
+          "info": {
+              "M": {
+                  "release_date": {
+                      "S": "2015-09-13"
+                  },
+                  "series_info": {
+                      "S": "Supernatural is an American television series created by Eric Kripke"
+                  }
+              }
+          }
+      }
       ```
 
 {% endlist %}

@@ -193,7 +193,13 @@
 
   В коде ниже используется функция `print` из Python 3. Для использования этой функции в версиях Python 2.6 и старше добавьте в начало файла строку `from __future__ import print_function`.
 
-  1. Создайте файл `SeriesCreateTable.py` и скопируйте в него следующий код:
+  1. Создайте файл `SeriesCreateTable.py`, например с помощью редактора nano:
+
+      ```bash
+      nano SeriesCreateTable.py
+      ```
+
+      Скопируйте в созданный файл следующий код:
 
       {% note warning %}
 
@@ -247,6 +253,88 @@
       Результат выполнения:
 
       ```text
+      Статус таблицы: ACTIVE
+      ```
+
+- PHP
+
+  1. Создайте файл `SeriesCreateTable.php`, например с помощью редактора nano:
+
+      ```bash
+      nano SeriesCreateTable.php
+      ```
+
+      Скопируйте в созданный файл следующий код:
+
+      {% note warning %}
+
+      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+
+      {% endnote %}
+
+      ```php
+      <?php
+
+      require 'vendor/autoload.php';
+
+      date_default_timezone_set('UTC');
+
+      use Aws\DynamoDb\Exception\DynamoDbException;
+
+      $sdk = new Aws\Sdk([
+          'endpoint' => '<Document API эндпоинт>',
+          'region'   => 'ru-central1',
+          'version'  => 'latest'
+      ]);
+
+      $dynamodb = $sdk->createDynamoDb();
+
+      $params = [
+          'TableName' => 'Series',
+          'KeySchema' => [
+              [
+                  'AttributeName' => 'series_id',
+                  'KeyType' => 'HASH'
+              ],
+              [
+                  'AttributeName' => 'title',
+                  'KeyType' => 'RANGE'
+              ]
+          ],
+          'AttributeDefinitions' => [
+              [
+                  'AttributeName' => 'series_id',
+                  'AttributeType' => 'N'
+              ],
+              [
+                  'AttributeName' => 'title',
+                  'AttributeType' => 'S'
+              ],
+          ]
+      ];
+
+      try {
+          $result = $dynamodb->createTable($params);
+          echo 'Статус таблицы: ' . 
+              $result['TableDescription']['TableStatus'] ."\n";
+
+      } catch (DynamoDbException $e) {
+          echo "Невозможно создать таблицу:\n";
+          echo $e->getMessage() . "\n";
+      }
+
+      ?>
+      ```
+
+  1. Запустите программу:
+
+      ```bash
+      php SeriesCreateTable.php
+      ```
+
+      Результат выполнения:
+
+      ```txt
       Статус таблицы: ACTIVE
       ```
 

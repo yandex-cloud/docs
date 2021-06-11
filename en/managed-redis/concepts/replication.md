@@ -32,7 +32,7 @@ Owners of {{ mrd-name }} clusters can't configure Sentinel services, but they ca
 
 * **appendonly yes**{#setting-appendonly}
 
-  AOF (Append Only File) mode is enabled. In this mode, Redis logs every write operation without changing the data written before.
+  AOF (Append Only File) mode is enabled. In this mode, Redis logs every write operation without changing already written data.
 
 * **no-appendfsync-on-rewrite yes**{#setting-no-appendfsync}
 

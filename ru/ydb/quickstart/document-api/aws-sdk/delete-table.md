@@ -177,7 +177,13 @@
 
 - Python
 
-  1. Создайте файл `SeriesDeleteTable.py` и скопируйте в него следующий код:
+  1. Создайте файл `SeriesDeleteTable.py`, например с помощью редактора nano:
+  
+      ```bash
+      nano SeriesDeleteTable.py
+      ```
+
+      Скопируйте в созданный файл следующий код:
 
       {% note warning %}
 
@@ -209,6 +215,67 @@
 
       ```text
       Таблица Series удалена
+      ```
+
+- PHP
+
+  1. Создайте файл `SeriesDeleteTable.php`, например с помощью редактора nano:
+  
+      ```bash
+      nano SeriesDeleteTable.php
+      ```
+
+      Скопируйте в созданный файл следующий код:
+
+      {% note warning %}
+
+      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+
+      {% endnote %}
+
+      ```php
+      <?php
+
+      require 'vendor/autoload.php';
+
+      date_default_timezone_set('UTC');
+
+      use Aws\DynamoDb\Exception\DynamoDbException;
+
+      $sdk = new Aws\Sdk([
+          'endpoint' => '<Document API эндпоинт>',
+          'region'   => 'ru-central1',
+          'version'  => 'latest'
+      ]);
+
+      $dynamodb = $sdk->createDynamoDb();
+
+      $params = [
+          'TableName' => 'Series'
+      ];
+
+      try {
+          $result = $dynamodb->deleteTable($params);
+          echo "Таблица удалена.\n";
+
+      } catch (DynamoDbException $e) {
+          echo "Невозможно удалить таблицу:\n";
+          echo $e->getMessage() . "\n";
+      }
+
+      ?>
+      ```
+
+  1. Запустите программу:
+
+      ```bash
+      php SeriesDeleteTable.php
+      ```
+
+      Результат выполнения:
+
+      ```txt
+      Таблица удалена.
       ```
 
 {% endlist %}

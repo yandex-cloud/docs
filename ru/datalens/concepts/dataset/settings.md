@@ -23,7 +23,7 @@
 
 ### Прямой доступ {#direct}
 
-В режиме прямого доступа, {{ datalens-short-name }} материализует только часть данных для превью датасета.
+В режиме прямого доступа {{ datalens-short-name }} материализует только часть данных для превью датасета.
 
 Все запросы к данным исполняются на стороне источника.
 
@@ -69,3 +69,5 @@
 #### См. также {#see-also}
 - [{#T}](../../operations/dataset/create.md)
 - [{#T}](../../operations/dataset/materialize.md)
+- [{#T}](../calculations/index.md)
+- [{#T}](../calculations/index.md#how-to-create-calculated-field)

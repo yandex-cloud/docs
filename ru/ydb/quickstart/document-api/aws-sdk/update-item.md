@@ -208,7 +208,13 @@
 
 - Python
 
-  1. Создайте файл `SeriesItemOps03.py` и скопируйте в него следующий код:
+  1. Создайте файл `SeriesItemOps03.py`, например с помощью редактора nano:
+  
+      ```bash
+      nano SeriesItemOps03.py
+      ```
+
+      Скопируйте в созданный файл следующий код:
 
       {% note warning %}
 
@@ -275,6 +281,114 @@
                                             'date': 'Sun, 27 Dec 2020 13:01:12 GMT',
                                             'content-length': '175'},
                             'RetryAttempts': 0}}
+      ```
+
+- PHP
+
+  1. Создайте файл `SeriesItemOps03.php`, например с помощью редактора nano:
+  
+      ```bash
+      nano SeriesItemOps03.php
+      ```
+
+      Скопируйте в созданный файл следующий код:
+
+      {% note warning %}
+
+      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+
+      {% endnote %}
+
+      ```php
+      <?php
+
+      require 'vendor/autoload.php';
+
+      date_default_timezone_set('UTC');
+
+      use Aws\DynamoDb\Exception\DynamoDbException;
+      use Aws\DynamoDb\Marshaler;
+
+      $sdk = new Aws\Sdk([
+          'endpoint' => '<Document API эндпоинт>',
+          'region'   => 'ru-central1',
+          'version'  => 'latest'
+      ]);
+
+      $dynamodb = $sdk->createDynamoDb();
+      $marshaler = new Marshaler();
+
+      $tableName = 'Series';
+
+      $series_id = 3;
+      $title = 'Supernatural';
+
+      $key = $marshaler->marshalJson('
+          {
+              "series_id": ' . $series_id . ', 
+              "title": "' . $title . '"
+          }
+      ');
+
+      
+      $eav = $marshaler->marshalJson('
+          {
+              ":d": "2005-09-13",
+              ":r": 8
+          }
+      ');
+
+      $params = [
+          'TableName' => $tableName,
+          'Key' => $key,
+          'UpdateExpression' => 
+              'set info.release_date=:d, info.rating = :r',
+          'ExpressionAttributeValues'=> $eav,
+          'ReturnValues' => 'UPDATED_NEW'
+      ];
+
+      try {
+          $result = $dynamodb->updateItem($params);
+          echo "Запись обновлена.\n";
+          echo json_encode($result["Attributes"], JSON_PRETTY_PRINT);
+
+      } catch (DynamoDbException $e) {
+          echo "Невозможно обновить запись:\n";
+          echo $e->getMessage() . "\n";
+      }
+
+      ?>
+      ```
+
+      Этот код использует `UpdateExpression` для описания обновлений, которые нужно выполнить для указанной записи.
+
+      Параметр `ReturnValues` предписывает {{ ydb-short-name }} возвращать только обновленные атрибуты (`UPDATED_NEW`).
+
+  1. Запустите программу:
+
+      ```bash
+      php SeriesItemOps03.php
+      ```
+
+      Результат выполнения:
+
+      ```text
+      Запись обновлена.
+      {
+          "info": {
+              "M": {
+                  "rating": {
+                      "N": "8"
+                  },
+                  "release_date": {
+                      "S": "2005-09-13"
+                  },
+                  "series_info": {
+                      "S": "Supernatural is an American television series created by Eric Kripke"
+                  }
+              }
+          }
+      }
       ```
 
 {% endlist %}
@@ -479,7 +593,13 @@
 
 - Python
 
-  1. Создайте файл `SeriesItemOps04.py` и скопируйте в него следующий код:
+  1. Создайте файл `SeriesItemOps04.py`, например с помощью редактора nano:
+  
+      ```bash
+      nano SeriesItemOps04.py
+      ```
+
+      Скопируйте в созданный файл следующий код:
 
       {% note warning %}
 
@@ -516,6 +636,10 @@
           pprint(update_response, sort_dicts = False)
       ```
 
+      Используйте метод `update_item` для увеличения или уменьшения значения существующего атрибута. При этом все запросы на запись применяются в том порядке, в котором они пришли.
+
+      При каждом запуске программы значение атрибута `rating` увеличивается на единицу.
+
   1. Запустите программу:
 
       ```bash
@@ -540,9 +664,108 @@
                             'RetryAttempts': 0}}
       ```
 
-      Используйте метод `update_item` для увеличения или уменьшения значения существующего атрибута. При этом все запросы на запись применяются в том порядке, в котором они пришли.
+- PHP
 
-      При каждом запуске программы значение атрибута `rating` увеличивается на единицу.
+  1. Создайте файл `SeriesItemOps04.php`, например с помощью редактора nano:
+  
+      ```bash
+      nano SeriesItemOps04.php
+      ```
+
+      Скопируйте в созданный файл следующий код:
+
+      {% note warning %}
+
+      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+
+      {% endnote %}
+
+      ```php
+      <?php
+
+      require 'vendor/autoload.php';
+
+      date_default_timezone_set('UTC');
+
+      use Aws\DynamoDb\Exception\DynamoDbException;
+      use Aws\DynamoDb\Marshaler;
+
+      $sdk = new Aws\Sdk([
+          'endpoint' => '<Document API эндпоинт>',
+          'region'   => 'ru-central1',
+          'version'  => 'latest'
+      ]);
+
+      $dynamodb = $sdk->createDynamoDb();
+      $marshaler = new Marshaler();
+
+      $tableName = 'Series';
+
+      $series_id = 3;
+      $title = 'Supernatural';
+
+      $key = $marshaler->marshalJson('
+          {
+              "series_id": ' . $series_id . ', 
+              "title": "' . $title . '"
+          }
+      ');
+
+      $eav = $marshaler->marshalJson('
+          {
+              ":val": 1
+          }
+      ');
+
+      $params = [
+          'TableName' => $tableName,
+          'Key' => $key,
+          'UpdateExpression' => 'set info.rating = info.rating + :val',
+          'ExpressionAttributeValues'=> $eav,
+          'ReturnValues' => 'UPDATED_NEW'
+      ];
+
+      try {
+          $result = $dynamodb->updateItem($params);
+          echo "Запись обновлена:\n";
+          echo json_encode($result["Attributes"], JSON_PRETTY_PRINT);
+
+      } catch (DynamoDbException $e) {
+          echo "Невозможно обновить запись:\n";
+          echo $e->getMessage() . "\n";
+      }
+
+      ?>
+      ```
+
+      При каждом запуске приведенного кода значение `rating` будет увеличиваться на единицу.
+
+  1. Запустите программу:
+
+      ```bash
+      php SeriesItemOps04.php
+      ```
+
+      Результат выполнения:
+
+      ```text
+      Запись обновлена:
+      {
+          "info": {
+              "M": {
+                  "rating": {
+                      "N": "9"
+                  },
+                  "release_date": {
+                      "S": "2005-09-13"
+                  },
+                  "series_info": {
+                      "S": "Supernatural is an American television series created by Eric Kripke"
+                  }
+              }
+          }
+      }
+      ```
 
 {% endlist %}
 
@@ -771,7 +994,13 @@
 
 - Python
 
-  1. Создайте файл `SeriesItemOps05.py` и скопируйте в него следующий код:
+  1. Создайте файл `SeriesItemOps05.py`, например с помощью редактора nano:
+  
+      ```bash
+      nano SeriesItemOps05.py
+      ```
+
+      Скопируйте в созданный файл следующий код:
 
       {% note warning %}
 
@@ -824,8 +1053,7 @@
 
       В данном случае к записи добавляется рекомендация о просмотре при рейтинге более 9.
 
-
-  1. Для запуска программы выполните команду:
+  1. Запустите программу:
 
       ```bash
       python SeriesItemOps05.py
@@ -840,7 +1068,7 @@
 
       Обновление не удалось, потому что рейтинг сериала равен 9, а условием для обновления является значение рейтинга выше 9.
 
-  1. Измените программу так, чтобы условием для обновления был рейтинг 9 и выше. При этом параметр `ConditionExpression` будет выглядеть следующим образом:
+  1. Измените код так, чтобы условием для обновления был рейтинг 9 и выше. При этом параметр `ConditionExpression` будет выглядеть следующим образом:
 
       ```python
       ConditionExpression = "info.rating >= :num" 
@@ -866,6 +1094,133 @@
                                             'date': 'Wed, 13 Jan 2021 10:26:53 GMT',
                                             'content-length': '219'},
                             'RetryAttempts': 0}}
+      ```
+
+- PHP
+
+  1. Создайте файл `SeriesItemOps05.php`, например с помощью редактора nano:
+  
+      ```bash
+      nano SeriesItemOps05.php
+      ```
+
+      Скопируйте в созданный файл следующий код:
+
+      {% note warning %}
+
+      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+
+      {% endnote %}
+
+      ```php
+      <?php
+
+      require 'vendor/autoload.php';
+
+      date_default_timezone_set('UTC');
+
+      use Aws\DynamoDb\Exception\DynamoDbException;
+      use Aws\DynamoDb\Marshaler;
+
+      $sdk = new Aws\Sdk([
+          'endpoint' => '<Document API эндпоинт>',
+          'region'   => 'ru-central1',
+          'version'  => 'latest'
+      ]);
+
+      $dynamodb = $sdk->createDynamoDb();
+      $marshaler = new Marshaler();
+
+      $tableName = 'Series';
+
+      $series_id = 3;
+      $title = 'Supernatural';
+
+      $key = $marshaler->marshalJson('
+          {
+              "series_id": ' . $series_id . ', 
+              "title": "' . $title . '"
+          }
+      ');
+
+      $eav = $marshaler->marshalJson('
+          {
+            ":d": "Recommended for viewing",
+            ":num": 9
+          }
+      ');
+
+      $params = [
+          'TableName' => $tableName,
+          'Key' => $key,
+          'UpdateExpression' => 'set info.recommend=:d',
+          'ConditionExpression' => 'info.rating > :num',
+          'ExpressionAttributeValues'=> $eav,
+          'ReturnValues' => 'UPDATED_NEW'
+      ];
+
+      try {
+          $result = $dynamodb->updateItem($params);
+          echo "Запись обновлена:\n";
+          echo json_encode($result["Attributes"], JSON_PRETTY_PRINT);
+
+      } catch (DynamoDbException $e) {
+          echo "Невозможно обновить запись:\n";
+          echo $e->getMessage() . "\n";
+      }
+
+      ?>
+      ```
+
+      Этот код показывает пример использования условия `UpdateItem`. Если условие принимает значение `true`, обновление завершается успешно; в противном случае обновление не выполняется.
+
+      В данном случае к записи добавляется рекомендация о просмотре при рейтинге более 9.
+
+  1. Запустите программу:
+
+      ```bash
+      php SeriesItemOps05.php
+      ```
+
+      Результат выполнения:
+
+      ```text
+      Невозможно обновить запись:
+      Error executing "UpdateItem" on "<Document API эндпоинт>"; AWS HTTP error: Client error: `POST <Document API эндпоинт>` resulted in a `400 Bad Request` response:
+      {"__type":"ru.yandex.docapi.v20120810#ConditionalCheckFailedException","message":"Condition not satisfied"}
+      ConditionalCheckFailedException (client): Condition not satisfied - {"__type":"ru.yandex.docapi.v20120810#ConditionalCheckFailedException","message":"Condition not satisfied"}
+      ```
+
+      Операция завершилась с ошибкой: рейтинг фильма 9, но условие проверяет рейтинг более 9.
+
+      Измените код так, чтобы условие стало больше или равно 9:
+
+      ```php
+      'ConditionExpression' => 'info.rating >= :num',
+      ```
+
+      Запустите программу еще раз. Теперь операция успешна:
+
+      ```text
+      Запись обновлена:
+      {
+          "info": {
+              "M": {
+                  "series_info": {
+                      "S": "Supernatural is an American television series created by Eric Kripke"
+                  },
+                  "recommend": {
+                      "S": "Recommended for viewing"
+                  },
+                  "rating": {
+                      "N": "9"
+                  },
+                  "release_date": {
+                      "S": "2005-09-13"
+                  }
+              }
+          }
+      }
       ```
 
 {% endlist %}

@@ -56,11 +56,7 @@ To create a {{ PG }} connection:
 
 1. Click **Save**. The connection appears in the list.
 
-{% note info %}
-
-You can check the host connection before creating it. To do this, click **Check connection**.
-
-{% endnote %}
+{% include [datalens-check-host](../../../_includes/datalens/operations/datalens-check-host.md) %}
 
 ### Additional settings {#postgresql-additional-settings}
 

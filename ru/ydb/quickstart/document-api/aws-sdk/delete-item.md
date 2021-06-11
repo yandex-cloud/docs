@@ -212,7 +212,13 @@
 
 - Python
 
-  1. Создайте файл `SeriesItemOps06.py` и скопируйте в него следующий код:
+  1. Создайте файл `SeriesItemOps06.py`, например с помощью редактора nano:
+  
+      ```bash
+      nano SeriesItemOps06.py
+      ```
+
+      Скопируйте в созданный файл следующий код:
 
       {% note warning %}
 
@@ -277,7 +283,7 @@
 
       Операция завершилась с ошибкой: рейтинг фильма больше 5.
 
-  1. Измените программу так, чтобы удалить условие при вызове метода `delete_item`:
+  1. Измените код, удалив условие:
 
       ```python
       response = table.delete_item(
@@ -302,6 +308,114 @@
                                             'date': 'Wed, 13 Jan 2021 11:04:13 GMT',
                                             'content-length': '2'},
                             'RetryAttempts': 0}}
+      ```
+
+- PHP
+
+  1. Создайте файл `SeriesItemOps06.php`, например с помощью редактора nano:
+  
+      ```bash
+      nano SeriesItemOps06.php
+      ```
+
+      Скопируйте в созданный файл следующий код:
+
+      {% note warning %}
+
+      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+
+      {% endnote %}
+
+      ```php
+      <?php
+
+      require 'vendor/autoload.php';
+
+      date_default_timezone_set('UTC');
+
+      use Aws\DynamoDb\Exception\DynamoDbException;
+      use Aws\DynamoDb\Marshaler;
+
+      $sdk = new Aws\Sdk([
+          'endpoint' => '<Document API эндпоинт>',
+          'region'   => 'ru-central1',
+          'version'  => 'latest'
+      ]);
+
+      $dynamodb = $sdk->createDynamoDb();
+      $marshaler = new Marshaler();
+
+      $tableName = 'Series';
+
+      $series_id = 3;
+      $title = 'Supernatural';
+
+      $key = $marshaler->marshalJson('
+          {
+              "series_id": ' . $series_id . ', 
+              "title": "' . $title . '"
+          }
+      ');
+
+      $eav = $marshaler->marshalJson('
+          {
+              ":val": 5 
+          }
+      ');
+
+      $params = [
+          'TableName' => $tableName,
+          'Key' => $key, 
+          'ConditionExpression' => 'info.rating <= :val',
+          'ExpressionAttributeValues'=> $eav
+      ];
+
+      try {
+          $result = $dynamodb->deleteItem($params);
+          echo "Запись удалена.\n";
+
+      } catch (DynamoDbException $e) {
+          echo "Невозможно удалить запись:\n";
+          echo $e->getMessage() . "\n";
+      }
+
+      ?>
+      ```
+
+      Вы можете использовать метод `deleteItem` для удаления одной записи, указав ее первичный ключ. Также можно дополнительно указать `ConditionExpression`, чтобы предотвратить удаление элемента, если это условие не выполняется.
+
+      Этот код удалит запись о фильме, если его рейтинг равен или менее 5.
+
+  1. Запустите программу:
+
+      ```bash
+      php SeriesItemOps06.php
+      ```
+
+      Результат выполнения:
+
+      ```text
+      Невозможно удалить запись:
+      Error executing "DeleteItem" on "<Document API эндпоинт>"; AWS HTTP error: Client error: `POST <Document API эндпоинт>` resulted in a `400 Bad Request` response:
+      {"__type":"ru.yandex.docapi.v20120810#ConditionalCheckFailedException","message":"Condition not satisfied"}
+      ConditionalCheckFailedException (client): Condition not satisfied - {"__type":"ru.yandex.docapi.v20120810#ConditionalCheckFailedException","message":"Condition not satisfied"}
+      ```
+
+      Операция завершилась с ошибкой: рейтинг фильма больше 5.
+
+      Измените код, удалив условие:
+
+      ```php
+      $params = [
+          'TableName' => $tableName,
+          'Key' => $key
+      ]; 
+      ```
+
+      Запустите программу еще раз. Теперь операция успешна:
+
+      ```text
+      Запись удалена.
       ```
 
 {% endlist %}

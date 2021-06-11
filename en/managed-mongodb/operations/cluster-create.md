@@ -37,7 +37,7 @@ In April 2021, all existing clusters with this {{ MG }} version will be [forcibl
   1. Select the host class that defines the technical specifications of the VMs where the DB hosts will be deployed. When you change the host class for the cluster, the characteristics of all existing hosts change, too.
 
   1. Under **Storage size**:
-      - Select [the type of storage](../concepts/storage.md), either a more flexible network type (**network-hdd** or **network-ssd**) or faster local SSD storage (**local-ssd**). The size of the local storage can only be changed in 100 GB increments.
+      - Select the type of storage, either a more flexible network type (**network-hdd** or **network-ssd**) or faster local SSD storage (**local-ssd**). The size of the local storage can only be changed in 100 GB increments.
       - Select the size to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
 
   1. Under **Database**, specify the DB attributes:
@@ -92,7 +92,7 @@ In April 2021, all existing clusters with this {{ MG }} version will be [forcibl
          --network-name <network name> \
          --host zone-id=<availability zone>,subnet-id=<subnet ID> \
          --mongod-resource-preset <host class> \
-         --user name=<user name>,password=<user password> \
+         --user name=<username>,password=<user password> \
          --database name=<database name> \
          --mongod-disk-type <network-hdd | network-ssd | local-ssd> \
          --mongod-disk-size <storage size in GB>
