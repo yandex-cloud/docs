@@ -34,7 +34,7 @@ The cluster doesn't have to stop to move slots between shards. If the client que
 
 {{ mrd-name }} lets you create from 3 to 10 shards, each containing:
 
-- 1 to 7 hosts when using network storage.
+- 1 to 7 hosts when using a network storage.
 
-- 2 to 7 hosts when using local storage.
+- 2 to 7 hosts when using a local storage.
 

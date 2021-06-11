@@ -15,7 +15,7 @@ You can only connect to a {{ RD }} cluster from a {{ yandex-cloud }} VM instance
 
 {% else %}
 
-All clusters are created inside our network, which is [already accessible](../../mdb/access.md#network-access) from most networks and most employees. If you don't have access, request access to the macro `_PGAASINTERNALNETS_` in [Puncher](https://puncher.yandex-team.ru/) . To connect to {{ RD }}, specify ports 26379 (Sentinel) and 6379 (Redis) in your request.
+All clusters are created inside our network, which is [already accessible](../../mdb/access.md#network-access) from most networks and most employees. If you don't have access, request access to the macro `_PGAASINTERNALNETS_` in [Puncher](https://puncher.yandex-team.ru/). To connect to {{ RD }}, specify ports 26379 (Sentinel) and 6379 (Redis) in your request.
 
 {% endif %}
 
