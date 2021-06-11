@@ -98,7 +98,6 @@ databaseId | Required. Required. ID of the YDB cluster.  The maximum string leng
     ]
   },
   "documentApiEndpoint": "string",
-  "kinesisApiEndpoint": "string",
 
   //  includes only one of the fields `zonalDatabase`, `regionalDatabase`, `dedicatedDatabase`, `serverlessDatabase`
   "zonalDatabase": {
@@ -182,7 +181,6 @@ backupConfig.<br>backupSettings[].<br>sourcePaths[] | **string**<br><p>provide a
 backupConfig.<br>backupSettings[].<br>sourcePathsToExclude[] | **string**<br><p>provide a list of paths to exclude from backup. Each path is a directory, table, or database. Each directory (or database) will be traversed recursively and all childs of directory will be excluded.</p> <p>The maximum number of elements is 256.</p> 
 backupConfig.<br>backupSettings[].<br>type | **string**<br>
 documentApiEndpoint | **string**<br>
-kinesisApiEndpoint | **string**<br>
 zonalDatabase | **object**<br>deprecated field <br> includes only one of the fields `zonalDatabase`, `regionalDatabase`, `dedicatedDatabase`, `serverlessDatabase`<br><br>
 zonalDatabase.<br>zoneId | **string**<br><p>Required.</p> 
 regionalDatabase | **object**<br>deprecated field <br> includes only one of the fields `zonalDatabase`, `regionalDatabase`, `dedicatedDatabase`, `serverlessDatabase`<br><br>

@@ -232,7 +232,7 @@ project_id | **string**<br>ID of the project that is being opened.
 
 Field | Description
 --- | ---
-project_url | **string**<br>URL of the project that is being opened. Make GET request to `project_url` with sessionToken query parameter equals to `session_token` or POST request to `project_url` with sessionToken body parameter equals to `session_token` to fetch Datasphere web interface. 
+project_url | **string**<br>URL of the project that is being opened. Make GET request to `project_url` with sessionToken query parameter equals to `session_token` or POST request to `project_url` with sessionToken body parameter equals to `session_token` to fetch Datasphere web interface 
 session_token | **string**<br>Session token of the project that is being opened. 
 
 

@@ -810,8 +810,6 @@ components:
             $ref: '#/components/schemas/BackupConfig'
           documentApiEndpoint:
             type: string
-          kinesisApiEndpoint:
-            type: string
       - title: database_type
         type: object
         maxProperties: 1

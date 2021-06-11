@@ -1593,14 +1593,17 @@ paths:
     post:
       tags:
       - Instance
+      summary: Enables One-to-one NAT on the network interface.
       operationId: InstanceAddOneToOneNat
       parameters:
       - name: instanceId
         in: path
+        description: ID of the instance to enable One-to-One NAT on.
         required: true
         schema:
           type: string
       requestBody:
+        description: Enables One-to-one NAT on the network interface.
         content:
           application/json:
             schema:
@@ -1621,10 +1624,12 @@ paths:
     post:
       tags:
       - Instance
+      summary: Removes One-to-one NAT from the network interface.
       operationId: InstanceRemoveOneToOneNat
       parameters:
       - name: instanceId
         in: path
+        description: ID of the instance to remove One-to-one NAT.
         required: true
         schema:
           type: string
@@ -1649,11 +1654,14 @@ paths:
     patch:
       tags:
       - Instance
+      summary: Updates the specified instance network interface.
       operationId: InstanceUpdateNetworkInterface
       parameters:
       - name: instanceId
         in: path
-        description: Required.
+        description: |-
+          Required.
+          ID of the network interface that is being updated.
         required: true
         schema:
           type: string
@@ -2241,13 +2249,19 @@ components:
       type: object
       properties:
         instanceId:
+          description: ID of the instance.
           type: string
     AddInstanceOneToOneNatRequest:
+      description: Enables One-to-one NAT on the network interface.
       type: object
       properties:
         networkInterfaceIndex:
+          description: The index of the network interface to enable One-to-One NAT
+            on.
           type: string
         internalAddress:
+          description: The network address that is assigned to the instance for this
+            network interface.
           type: string
         oneToOneNatSpec:
           $ref: '#/components/schemas/OneToOneNatSpec_in_AddInstanceOneToOneNatRequest_oneToOneNatSpec'
@@ -3510,9 +3524,9 @@ components:
         nextPageToken:
           description: |-
             This token allows you to get the next page of results for list requests. If the number of results
-            is more than [ListDiskPlacementGroupInstancesRequest.page_size], use
+            is more than [pageSize](/docs/compute/api-ref/DiskPlacementGroup/listDisks#query_params), use
             [nextPageToken](/docs/compute/api-ref/DiskPlacementGroup/listDisks#responses) as the value
-            for the [ListDiskPlacementGroupInstancesRequest.page_token] query parameter
+            for the [pageToken](/docs/compute/api-ref/DiskPlacementGroup/listDisks#query_params) query parameter
             in the next list request. Each subsequent list request will have its own
             [nextPageToken](/docs/compute/api-ref/DiskPlacementGroup/listDisks#responses) to continue paging through the results.
           type: string
@@ -4089,13 +4103,18 @@ components:
       type: object
       properties:
         instanceId:
+          description: ID of the instance.
           type: string
     RemoveInstanceOneToOneNatRequest:
       type: object
       properties:
         networkInterfaceIndex:
+          description: The index of the network interface to remove One-to-One NAT
+            from.
           type: string
         internalAddress:
+          description: The network address that is assigned to the instance for this
+            network interface.
           type: string
     Resources:
       type: object
@@ -4467,24 +4486,30 @@ components:
       type: object
       properties:
         instanceId:
+          description: ID of the instant network interface that is being updated.
           type: string
         networkInterfaceIndex:
+          description: The index of the network interface.
           type: string
     UpdateInstanceNetworkInterfaceRequest:
       type: object
       properties:
         networkInterfaceIndex:
-          description: Required.
+          description: |-
+            Required.
+            The index of the network interface to be updated.
           type: string
         updateMask:
           $ref: '#/components/schemas/FieldMask_in_UpdateInstanceNetworkInterfaceRequest_updateMask'
         subnetId:
+          description: ID of the subnet.
           type: string
         primaryV4AddressSpec:
           $ref: '#/components/schemas/PrimaryAddressSpec_in_UpdateInstanceNetworkInterfaceRequest_primaryV4AddressSpec'
         primaryV6AddressSpec:
           $ref: '#/components/schemas/PrimaryAddressSpec_in_UpdateInstanceNetworkInterfaceRequest_primaryV6AddressSpec'
         securityGroupIds:
+          description: ID's of security groups attached to the interface.
           type: array
           items:
             type: string
@@ -4653,6 +4678,9 @@ components:
           items:
             type: object
     OneToOneNatSpec_in_AddInstanceOneToOneNatRequest_oneToOneNatSpec:
+      description: |-
+        An external IP address configuration.
+        If not specified, then this instance will have no external internet access.
       type: object
       properties:
         ipVersion:
@@ -5239,6 +5267,8 @@ components:
       type: string
     FieldMask_in_UpdateInstanceNetworkInterfaceRequest_updateMask:
       description: |-
+        Field mask that specifies which attributes of the instance should be updated.
+
         A comma-separated names off ALL fields to be updated.
         Оnly the specified fields will be changed. The others will be left untouched.
         If the field is specified in `` updateMask `` and no value for that field was sent in the request,
@@ -5249,6 +5279,8 @@ components:
         The rest of the fields will be reset to the default.
       type: string
     PrimaryAddressSpec_in_UpdateInstanceNetworkInterfaceRequest_primaryV4AddressSpec:
+      description: Primary IPv4 address that will be assigned to the instance for
+        this network interface.
       type: object
       properties:
         address:
@@ -5264,6 +5296,8 @@ components:
           items:
             $ref: '#/components/schemas/DnsRecordSpec'
     PrimaryAddressSpec_in_UpdateInstanceNetworkInterfaceRequest_primaryV6AddressSpec:
+      description: Primary IPv6 address that will be assigned to the instance for
+        this network interface. IPv6 not available yet.
       type: object
       properties:
         address:

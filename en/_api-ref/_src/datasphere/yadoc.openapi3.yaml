@@ -1,6 +1,6 @@
 openapi: "3.0"
 info:
-  title: Yandex DataSphere API
+  title: Yandex Datasphere API
   description: This API reference is organized by resource. Actions are performed
     by sending HTTP requests to resource URLs or making RPC calls. For more information
     about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
@@ -12,12 +12,12 @@ paths:
     post:
       tags:
       - Node
-      summary: Executes deployed Node.
+      summary: Executes deployed Node
       operationId: NodeExecute
       parameters:
       - name: nodeId
         in: path
-        description: ID of the Node to perform request on.
+        description: ID of the Node to perform request on
         required: true
         schema:
           type: string
@@ -296,16 +296,16 @@ components:
       type: object
       properties:
         folderId:
-          description: ID of the folder that will be matched with Node ACL.
+          description: ID of the folder that will be matched with Node ACL
           type: string
         input:
-          description: Input data for the execution.
+          description: Input data for the execution
           type: object
     NodeExecutionResponse:
       type: object
       properties:
         output:
-          description: Result of the execution.
+          description: Result of the execution
           type: object
     OpenProjectMetadata:
       type: object
@@ -321,7 +321,7 @@ components:
             URL of the project that is being opened.
             Make GET request to `projectUrl` with sessionToken query parameter equals to `sessionToken`
             or POST request to `projectUrl` with sessionToken body parameter equals to `sessionToken`
-            to fetch Datasphere web interface.
+            to fetch Datasphere web interface
           type: string
         sessionToken:
           description: Session token of the project that is being opened.
