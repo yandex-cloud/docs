@@ -8,7 +8,7 @@
 
   1. Click **Create resource** and select **{{ dataproc-name }} cluster** from the drop-down list.
 
-  1. Enter the cluster name in the **Cluster name** field. The cluster name must be unique within the folder.
+  1. Enter a name for the cluster in the **Cluster name** field. The cluster name must be unique within the folder.
 
   1. Select a relevant [image version](../concepts/environment.md) and the components you want to use in the cluster.
 
@@ -52,7 +52,7 @@
 
   1. Configure subclusters: no more than one main subcluster with a **Master** host and subclusters for data storage or computing.
 
-     The roles of the `Compute` and `Data` subclusters are different: you can deploy data storage components on `Data` and data processing components on `Compute` subclusters. Storage on a `Compute` subcluster is only used to temporarily store processed files.
+     The roles of `Compute` and `Data` subcluster are different: you can deploy data storage components on `Data` subclusters, and data processing components on `Compute` subclusters. Storage on a `Compute` subcluster is only used to temporarily store processed files.
 
   1. For each subcluster, you can configure:
      * The number of hosts.
@@ -60,10 +60,19 @@
      * Storage size and type.
      * The subnet of the network where the cluster is located.
 
-  1. For `Compute` subclusters, you can specify the [auto scaling](../concepts/autoscaling.md) parameters.
+  1. For `Compute` subclusters, you can specify the [autoscaling](../concepts/autoscaling.md) parameters.
+
+     {% include [note-info-service-account-roles](../../_includes/data-proc/service-account-roles.md) %}
+     1. Under **Add subcluster**, click **Add**.
+     1. In the **Roles** field, select _COMPUTENODE_.
+     1. Under **Scalability**, enable **Automatic scaling**.
+     1. Set autoscaling parameters.
+     1. The default metric used for autoscaling is `yarn.cluster.containersPending`. To enable scaling based on CPU usage, disable the **Default scaling** option and set the target CPU utilization level.
+     1. Click **Add**.
 
   1. After you configure all the subclusters you need, click **Create cluster**.
 
 {% endlist %}
 
 {{ dataproc-name }} runs the create cluster operation. After the cluster status changes to **Running**, you can [connect](connect.md) to any active subcluster using the specified SSH key.
+
