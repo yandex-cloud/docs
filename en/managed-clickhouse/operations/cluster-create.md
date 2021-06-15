@@ -21,7 +21,7 @@ When creating a {{ CH }} cluster with 2 or more hosts, {{ mch-short-name }} auto
 The number of hosts that can be created together with a {{ CH }} cluster depends on the selected [type of storage](../concepts/storage.md):
 
 * With **local storage**, you can create a cluster with 2 or more replicas (to ensure fault tolerance, a minimum of 2 replicas is necessary). If the [available folder resources](../concepts/limits.md) are still sufficient, you can add extra replicas.
-* With **network storage**, you can request any number of hosts (from one to a maximum for the current [quota](../concepts/limits.md)).
+* With **network storage**, you can request any number of hosts (from one to the maximum for the current [quota](../concepts/limits.md)).
 * With **hybrid storage**, you can only create a cluster with a single host. After creating this cluster, you can [add shards](shards.md#add-shard) consisting of only one host. Such a cluster isn't tolerant to host failures, but if this happens, the data in the shard or cluster is saved. Hybrid storage is at the [Preview](../../overview/concepts/launch-stages.md) stage.
 
 {% endif %}
@@ -38,7 +38,7 @@ The number of hosts that can be created together with a {{ CH }} cluster depends
 
   1. Click **Create cluster**.
 
-  1. Enter the cluster name in the **Cluster name** field. The cluster name must be unique within the folder.
+  1. Enter a name for the cluster in the **Cluster name** field. The cluster name must be unique within the folder.
 
   1. From the **Version** drop-down list, select the version of {{ CH }} which the {{ mch-name }} cluster will use:
      1. For most clusters, it's recommended to select the latest LTS version.
@@ -61,12 +61,22 @@ The number of hosts that can be created together with a {{ CH }} cluster depends
         - If you plan to use hybrid storage at the [Preview](../../overview/concepts/launch-stages.md) stage, you can select only one of the network storages in this section: **network-ssd** or **network-hdd**.
 
       {% endif %}
+	  
       - Select the size to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
 
   1. Under **Database**, specify the DB attributes:
+  
       - DB name.
       - Username.
       - User password. At least 8 characters.
+
+  1. To [manage users via SQL](cluster-users.md#sql-user-management), enable the **User management via SQL** setting and specify the password of the `admin` user.
+
+  1. To [manage databases via SQL](databases.md#sql-database-management), enable the **User management via SQL** and **Database management via SQL** settings and specify the password of the `admin` user.
+
+     {% include [sql-db-and-users-alers](../../_includes/mdb/mch-sql-db-and-users-alert.md) %}
+
+  1. Under **Network settings**, select the cloud network to host the cluster in and security groups for cluster network traffic. You may need to additionally [set up the security groups](connect.md#configuring-security-groups) to connect to the cluster.
 
   1. Under **Hosts**, select the parameters of database hosts created together with the cluster. To change the added host, place the cursor on the host line and click  ![image](../../_assets/pencil.svg).
 
@@ -102,7 +112,7 @@ The number of hosts that can be created together with a {{ CH }} cluster depends
 
   {% endif %}
 
-  1. View a description of the CLI's create cluster command:
+  1. View a description of the CLI create cluster command:
 
       ```
       $ {{ yc-mdb-ch }} cluster create --help
@@ -122,27 +132,56 @@ The number of hosts that can be created together with a {{ CH }} cluster depends
         --clickhouse-disk-type <network-hdd | network-ssd | local-ssd> \
         --clickhouse-disk-size <storage size in GB> \
         --user name=<username>,password=<user password> \
-        --database name=<DB name>
+        --database name=<database name> \
+        --security-group-ids <list of security group IDs>
      ```
 
      The subnet ID `subnet-id` should be specified if the selected availability zone contains two or more subnets.
 
      {% else %}
 
-     ```
-     $ {{ yc-mdb-ch }} cluster create \
-        --name <cluster name> \
-        --environment <prestable or production> \
-        --network-id ' ' \
-        --host type=<clickhouse or zookeeper>,zone-id=<availability zone> \
-        --clickhouse-resource-preset <host class> \
-        --clickhouse-disk-type local-ssd \
-        --clickhouse-disk-size <storage size in GB> \
-        --user name=<username>,password=<user password> \
-        --database name=<DB name>
-     ```
+      ```
+      $ {{ yc-mdb-ch }} cluster create \
+         --name <cluster name> \
+         --environment <prestable or production> \
+         --network-id ' ' \
+         --host type=<clickhouse or zookeeper>,zone-id=<availability zone> \
+         --clickhouse-resource-preset <host class> \
+         --clickhouse-disk-type local-ssd \
+         --clickhouse-disk-size <storage size in GB> \
+         --user name=<username>,password=<user password> \
+         --database name=<database name> \
+         --security-group-ids <list of security group IDs>
+      ```
 
-     {% endif %}
+    {% endif %}
+
+      1. To enable [user management via SQL mode](cluster-users.md#sql-user-management):
+      
+          {% include [sql-db-and-users-alers](../../_includes/mdb/mch-sql-db-and-users-alert.md) %}
+      
+          * Set the `--enable-sql-user-management` parameter to `true`.
+          * Set the `admin` user password in the `--admin-password` parameter.
+      
+          ```bash
+          {{ yc-mdb-ch }} cluster create \
+             ...
+             --enable-sql-user-management=true \
+             --admin-password <admin user password>
+          ```
+      
+      1. To enable [database management via SQL mode](databases.md#sql-database-management):
+      
+          * Set the `--enable-sql-user-management` and `--enable-sql-database-management` parameters to `true`.
+          * Set the `admin` user password in the `--admin-password` parameter.
+      
+          ```bash
+          {{ yc-mdb-ch }} cluster create \
+             ...
+             --enable-sql-user-management=true \
+             --enable-sql-database-management=true \
+             --admin-password <admin user password>
+          ```
 
 - Terraform
 
@@ -153,17 +192,19 @@ The number of hosts that can be created together with a {{ CH }} cluster depends
   To create a cluster:
 
     1. In the configuration file, describe the parameters of resources that you want to create:
+
        * Database cluster: Description of the cluster and its hosts. If necessary, you can also configure the [DBMS settings](../concepts/settings-list.md#dbms-cluster-settings) here.
        * Network: Description of the [cloud network](../../vpc/concepts/network.md#network) where the cluster will be located. If you already have a suitable network, you don't need to describe it again.
        * Subnets: Description of the [subnets](../../vpc/concepts/network.md#network) to connect the cluster hosts to. If you already have suitable subnets, you don't need to describe them again.
 
        Example configuration file structure:
 
-       ```
+       ```hcl
        resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
-         name        = "<cluster name>"
-         environment = "<environment>"
-         network_id  = "<network ID>"
+         name               = "<cluster name>"
+         environment        = "<environment>"
+         network_id         = "<network ID>"
+         security_group_ids = ["<list of security groups>"]
        
          clickhouse {
            resources {
@@ -202,7 +243,7 @@ The number of hosts that can be created together with a {{ CH }} cluster depends
        }
        ```
 
-       For more information about resources that you can create using Terraform, see the [provider's documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
+       For more information about resources that you can create using Terraform, see the [provider's documentation](https://www.terraform.io/docs/providers/yandex/r/mdb_clickhouse_cluster.html).
 
     1. Make sure that the configuration files are correct.
        1. In the command line, go to the folder where you created the configuration file.
@@ -233,6 +274,7 @@ The number of hosts that can be created together with a {{ CH }} cluster depends
   - Cluster configuration, in the `configSpec` parameter.
   - Configuration of the cluster hosts, in one or more `hostSpecs` parameters.
   - Network ID, in the `networkId` parameter.
+  - Security group IDs in the parameter `securityGroupIds`.
 
   If necessary, enable user and database management via SQL:
   - `configSpec.sqlUserManagement`: Set `true` to enable [managing users via SQL](cluster-users.md#sql-user-management).
@@ -245,6 +287,12 @@ The number of hosts that can be created together with a {{ CH }} cluster depends
 
 {% endlist %}
 
+{% note warning %}
+
+If you specified security group IDs when creating a cluster, you may also need to [re-configure security groups](connect.md#configuring-security-groups) to connect to the cluster.
+
+{% endnote %}
+
 ## Examples {#examples}
 
 ### Creating a single-host cluster {#creating-a-single-host-cluster}
@@ -253,22 +301,27 @@ The number of hosts that can be created together with a {{ CH }} cluster depends
 
 - CLI
 
-  To create a cluster with a single host, you should pass a single parameter, `--host`.
+  To create a cluster with a single host, you should pass a single `--host` parameter.
 
   Let's say we need to create a {{ CH }} cluster with the following characteristics:
 
   {% if audience != "internal" %}
+  
   - Named `mych`.
   - In the `production` environment.
   - In the `default` network.
+  - In the security group `{{ security-group }}`.
   - With a single `{{ host-class }}` class ClickHouse host in the `b0rcctk2rvtr8efcch64` subnet and `ru-central1-c` availability zone.
   - With 20 GB fast network storage (`{{ disk-type-example }}`).
   - With one user, `user1`, with the password `user1user1`.
   - With one database, `db1`.
 
   {% else %}
+
   - Named `mych`.
   - In the `production` environment.
+  - In the `default` network.
+  - In the security group `{{ security-group }}`.
   - With one `{{host-class}}` class ClickHouse host in the `{{zone-id}}` availability zone.
   - With 20 GB fast local storage (`local-ssd`).
   - With one user, `user1`, with the password `user1user1`.
@@ -290,7 +343,8 @@ The number of hosts that can be created together with a {{ CH }} cluster depends
        --clickhouse-disk-size 20 \
        --clickhouse-disk-type {{ disk-type-example }} \
        --user name=user1,password=user1user1 \
-       --database name=db1
+       --database name=db1 \
+       --security-group-ids {{ security-group }}
   ```
 
   {% else %}
@@ -304,7 +358,8 @@ The number of hosts that can be created together with a {{ CH }} cluster depends
        --clickhouse-disk-size 20 \
        --clickhouse-disk-type local-ssd \
        --user name=user1,password=user1user1 \
-       --database name=db1
+       --database name=db1 \
+       --security-group-ids {{ security-group }}
   ```
 
 {% endif %}
@@ -314,9 +369,10 @@ The number of hosts that can be created together with a {{ CH }} cluster depends
   Let's say we need to create a {{ CH }} cluster and a network for it with the following characteristics:
     - Named `mych`.
     - In the `PRESTABLE` environment.
-    - In the cloud with ID `{{ tf-cloud-id }}`.
-    - In a folder named `myfolder`.
+    - In the cloud with the ID `{{ tf-cloud-id }}`.
+    - In the folder with the ID `{{ tf-folder-id }}`.
     - Network: `mynet`.
+    - In the new security group `mych-sg` allowing connections to the cluster from the internet via ports `8443` and `9440`.
     - With a single `{{ host-class }}` class host in the new subnet named `mysubnet` and the `ru-central1-c` availability zone. The `mysubnet` subnet will have a range of `10.5.0.0/24`.
     - With 32 GB of fast network storage.
     - With the database name `my_db`.
@@ -324,24 +380,25 @@ The number of hosts that can be created together with a {{ CH }} cluster depends
 
   The configuration file for the cluster looks like this:
 
-  ```
+  ```hcl
   provider "yandex" {
     token = "<OAuth or static key of service account>"
     cloud_id  = "{{ tf-cloud-id }}"
-    folder_id = "${data.yandex_resourcemanager_folder.myfolder.id}"
+    folder_id = "{{ tf-folder-id }}"
     zone      = "ru-central1-c"
   }
   
   resource "yandex_mdb_clickhouse_cluster" "mych" {
-    name        = "mych"
-    environment = "PRESTABLE"
-    network_id  = "${yandex_vpc_network.mynet.id}"
+    name               = "mych"
+    environment        = "PRESTABLE"
+    network_id         = yandex_vpc_network.mynet.id
+    security_group_ids = [ yandex_vpc_security_group.mych-sg.id ]
   
     clickhouse {
       resources {
         resource_preset_id = "{{ host-class }}"
         disk_type_id       = "network-ssd"
-        disk_size          = 32
+        disk_size          = "32"
       }
     }
   
@@ -360,7 +417,7 @@ The number of hosts that can be created together with a {{ CH }} cluster depends
     host {
       type      = "CLICKHOUSE"
       zone      = "ru-central1-c"
-      subnet_id = "${yandex_vpc_subnet.mysubnet.id}"
+      subnet_id = yandex_vpc_subnet.mysubnet.id
     }
   }
   
@@ -369,10 +426,28 @@ The number of hosts that can be created together with a {{ CH }} cluster depends
   resource "yandex_vpc_subnet" "mysubnet" {
     name           = "mysubnet"
     zone           = "ru-central1-c"
-    network_id     = "${yandex_vpc_network.mynet.id}"
+    network_id     = yandex_vpc_network.mynet.id
     v4_cidr_blocks = ["10.5.0.0/24"]
+  }
+  
+  resource "yandex_vpc_security_group" "mych-sg" {
+    name       = "mych-sg"
+    network_id = yandex_vpc_network.mynet.id
+  
+    ingress {
+      description    = "MCHSSSH"
+      port           = 8443
+      protocol       = "TCP"
+      v4_cidr_blocks = [ "0.0.0.0/0" ]
+    }
+  
+    ingress {
+      description    = "MCHSSH2"
+      port           = 9440
+      protocol       = "TCP"
+      v4_cidr_blocks = [ "0.0.0.0/0" ]
+    }
   }
   ```
 
 {% endlist %}
-
