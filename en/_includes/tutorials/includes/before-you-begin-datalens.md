@@ -1,14 +1,21 @@
-To use {{ datalens-short-name }}, sign up for Yandex.Cloud and create a billing account (without a billing account, {{ datalens-short-name }} is only available in demo mode):
+To get started with {{ datalens-short-name }}:
 
-{% include [prepare-register-billing](../../../solutions/_solutions_includes/prepare-register-billing.md) %}
+{% list tabs %}
 
-When you activate your billing account, you automatically switch to the **Free** {{ datalens-short-name }} plan. By default, you can create a {{ datalens-short-name }} instance for no more than 1 folder. If you haven't done this yet:
+- New user
+  1. Open the {{ datalens-short-name }} [home page]({{ link-datalens-main }}). If you don't have a Yandex account, create one.
+  1. Accept the user agreement.
+  1. Activate a {{ datalens-short-name }} instance in the cloud.
 
-1. Select a folder on the [cloud page](https://console.cloud.yandex.com/cloud).
-1. Select the **DataLens** service.
-1. Click **Activate DataLens**.
+  To run this scenario, you only need a [free plan](../../../datalens/pricing.md#prices) of {{ datalens-short-name }}, but to fully register in {{ yandex-cloud }}, you need to [create a billing account](../../../billing/quickstart/index.md) and link your payment details or bank card.
 
-An instance of the service is created in the selected folder and you can go directly to the {{ datalens-short-name }} interface.
+- I'm already using {{ yandex-cloud }}
+  1. Open the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
+  1. Activate a {{ datalens-short-name }} instance in the cloud.
 
-[Learn more about clouds and folders](../../../resource-manager/concepts/resources-hierarchy.md).
+  To run this scenario, you only need a [free plan](../../../datalens/pricing.md#prices) {{ datalens-short-name }}.
+
+{% endlist %}
+
+If you have a technical question about the service, please contact [support]({{ link-console-support }}). To ask for advice or discuss the solution to your problem or best service practices, write to the [{{ datalens-short-name }}](https://t.me/YandexDataLens) chat in Telegram.
 
