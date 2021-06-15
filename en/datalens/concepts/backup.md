@@ -1,4 +1,4 @@
-# Backups in DataLens
+# Backups
 
 {{ datalens-short-name }} provides:
 

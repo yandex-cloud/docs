@@ -56,11 +56,11 @@ _Роль_ — это набор разрешений, который опре�
 
 ## {{ container-registry-name }} {#cr-roles}
 
-{% include [container-registry-admin](../../../_includes/roles-container-registry-admin.md)%}
+{% include [container-registry-admin](../../../_includes/roles-container-registry-admin.md) %}
 
-{% include [container-registry-puller](../../../_includes/roles-container-registry-puller.md)%}
+{% include [container-registry-puller](../../../_includes/roles-container-registry-puller.md) %}
 
-{% include [container-registry-pusher](../../../_includes/roles-container-registry-pusher.md)%}
+{% include [container-registry-pusher](../../../_includes/roles-container-registry-pusher.md) %}
 
 ## {{ dataproc-short-name }} {#mdb-roles}
 
@@ -68,19 +68,19 @@ _Роль_ — это набор разрешений, который опре�
 
 ## {{ data-transfer-name }} {#data-transfer-roles}
 
-{% include [data-transfer-viewer](../../../_includes/roles-data-transfer-viewer.md)%}
+{% include [data-transfer-viewer](../../../_includes/roles-data-transfer-viewer.md) %}
 
 ## {{ datalens-name }} {#datalens-roles}
 
-{% include [datalens-instances-user](../../../_includes/roles-datalens-user.md)%}
+{% include [datalens-instances-user](../../../_includes/roles-datalens-user.md) %}
 
-{% include [datalens-instances-admin](../../../_includes/roles-datalens-admin.md)%}
+{% include [datalens-instances-admin](../../../_includes/roles-datalens-admin.md) %}
 
 ## {{ ml-platform-name }} {#datasphere-roles}
 
-{% include [datasphere-user](../../../_includes/roles-datasphere-user.md)%}
+{% include [datasphere-user](../../../_includes/roles-datasphere-user.md) %}
 
-{% include [datasphere-admin](../../../_includes/roles-datasphere-admin.md)%}
+{% include [datasphere-admin](../../../_includes/roles-datasphere-admin.md) %}
 
 ## {{ sf-short-name }} {#functions-roles}
 
@@ -100,9 +100,9 @@ _Роль_ — это набор разрешений, который опре�
 
 ## {{ kms-name }} {#kms-roles}
 
-{% include [kms-admin](../../../_includes/roles-kms-admin.md)%}
+{% include [kms-admin](../../../_includes/roles-kms-admin.md) %}
 
-{% include [kms-keys-encrypterdecrypter](../../../_includes/roles-kms-keys-encrypterdecrypter.md)%}
+{% include [kms-keys-encrypterdecrypter](../../../_includes/roles-kms-keys-encrypterdecrypter.md) %}
 
 ## {{ monitoring-name }} {#monitoring-roles}
 

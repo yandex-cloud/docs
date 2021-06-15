@@ -24,8 +24,9 @@ In the {{ yandex-cloud }} console, you can assign a role for a [cloud](../../res
 | `resource-manager.clouds.member` | The role required to access resources in the cloud for all users except [cloud owners](../../resource-manager/concepts/resources-hierarchy.md#owner) and [service accounts](../../iam/concepts/users/service-accounts.md). |
 | `resource-manager.clouds.owner` | Grants you full access to a cloud and the resources in it. You can only assign this role for a cloud. |
 | `storage.admin` | Gives the right to manage {{ objstorage-name }}. |
-| `storage.configurer` | Lets you manage the settings of [object lifecycles](../../storage/concepts/lifecycles.md), [static site hosting](../../storage/concepts/hosting.md), and [CORS](../../storage/concepts/cors.md). |
-| `storage.editor` | Permits any operations on buckets and [objects](../../storage/concepts/object.md) in them. |
+| `storage.configViewer` | The role allows users to view the security settings of buckets and [objects](../../storage/concepts/object.md) in them, but doesn't grant them access to data stored in buckets. |
+| `storage.configurer` | Lets you manage the settings of [object lifecycles](../../storage/concepts/lifecycles.md), [static site hosting](../../storage/concepts/hosting.md), [access policy](../concepts/policy.md), and [CORS](../../storage/concepts/cors.md). |
+| `storage.editor` | Permits any operations on buckets and objects in them. |
 | `storage.uploader` | Gives the right to upload objects to buckets. |
 | `storage.viewer` | Gives access to read the list of buckets, their settings, and data in buckets. |
 

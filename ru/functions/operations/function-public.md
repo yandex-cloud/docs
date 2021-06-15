@@ -90,7 +90,7 @@
     Чтобы посмотреть [роли](../security/index.md#roles), назначенные на функцию, выполните команду:
     
     ```
-    $ yc serverless function list-access-bindings <имя функции>
+    yc serverless function list-access-bindings <имя функции>
     ```
 
     Результат:

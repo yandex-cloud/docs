@@ -37,6 +37,8 @@ items:
             href: operations/connection/create-clickhouse.md
           - name: Creating a connection to a CSV file
             href: operations/connection/create-csv.md
+          - name: Creating a Google Sheets connection
+            href: operations/connection/create-google-sheets.md
           - name: Creating a MySQL connection
             href: operations/connection/create-mysql.md
           - name: Creating a PostgreSQL connection
@@ -51,6 +53,8 @@ items:
             href: operations/connection/create-metrica-logs-api.md
           - name: Creating an AppMetrica connection
             href: operations/connection/create-appmetrica.md
+          - name: Creating a Yandex Cloud Billing connection
+            href: operations/connection/create-cloud-billing.md
           - name: Managing connection access
             href: operations/connection/manage-access.md
       - name: Working with datasets
@@ -87,7 +91,7 @@ items:
             href: operations/chart/create-table.md
           - name: Creating a pivot table
             href: operations/chart/create-pivot-table.md
-          - name: Creating an indicator
+          - name: Creating an indicator chart
             href: operations/chart/create-indicator-chart.md
           - name: Publishing a chart
             href: operations/chart/publish.md
@@ -275,18 +279,6 @@ items:
             href: function-ref/ISNULL.md
           - name: ZN
             href: function-ref/ZN.md
-      - name: Text markup functions
-        items:
-          - name: Overview
-            href: function-ref/markup-functions.md
-          - name: BOLD
-            href: function-ref/BOLD.md
-          - name: ITALIC
-            href: function-ref/ITALIC.md
-          - name: MARKUP
-            href: function-ref/MARKUP.md
-          - name: URL
-            href: function-ref/URL.md
       - name: Mathematical functions
         items:
           - name: Overview
@@ -437,6 +429,18 @@ items:
             href: function-ref/UPPER.md
           - name: UTF8
             href: function-ref/UTF8.md
+      - name: Text markup functions
+        items:
+          - name: Overview
+            href: function-ref/markup-functions.md
+          - name: BOLD
+            href: function-ref/BOLD.md
+          - name: ITALIC
+            href: function-ref/ITALIC.md
+          - name: MARKUP
+            href: function-ref/MARKUP.md
+          - name: URL
+            href: function-ref/URL.md
       - name: Time series functions
         items:
           - name: Overview

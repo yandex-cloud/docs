@@ -28,6 +28,7 @@ You can configure connection permissions. For more information, see [{#T}](../se
 
 - [{#T}](../operations/connection/create-clickhouse.md)
 - [{#T}](../operations/connection/create-csv.md)
+- [{#T}](../operations/connection/create-google-sheets.md)
 - [{#T}](../operations/connection/create-mysql.md)
 - [{#T}](../operations/connection/create-postgresql.md)
 - [{#T}](../operations/connection/create-mssql-server.md)

@@ -26,20 +26,30 @@ As an example, we'll use the function described in [{#T}](version-manage.md#func
         - **Trigger for {{message-queue-short-name}}**: Data format for the function invoked by a trigger in order to process messages from the queue.
     1. In the **Input** field, enter the input data to test the function.
     1. Click **Run test**.
-    1. You will see the testing status under **Test result** in the **Function status** field. **Important**: The maximum function execution time before [timeout](../../operations/function/version-manage.md#version-create) (including original initialization at initial invocation) is 10 minutes.
+    1. You will see the testing status under **Test result** in the **Function status** field. **Important**: The maximum function execution time before [timeout](../../operations/function/version-manage.md#version-create) (including original initialization at initial launch) is 10 minutes.
     1. You will see the function execution result in the **Function output** field.
 
-- HTTP
+- HTTPS
 
-    You can view the function invocation link in the **Link to invoke** string after creating the function.
+    {% note info %}
 
-    For security reasons, you can only invoke the function via HTTPS. Invoke it as a regular HTTP request by inserting the function invocation link in the browser address bar. Link format:
+    To invoke a private function via HTTPS, you must [authenticate](#auth).
+
+    {% endnote %}
+
+    You can find the function invocation link in:
+    * The **Link to invoke** field. To do this, in [management console]({{ link-console-main }}), open **{{ sf-name }}** and select the function.
+    * The `http_invoke_url` parameter. To do this, run the command:
+
+        ```
+        yc serverless function get <function name>
+        ```
+
+    For security reasons, you can only invoke the function via HTTPS. Invoke it as a regular HTTP request by inserting the function invoke link in the browser address bar. Link format:
 
     ```
     {{ sf-url }}/<function ID>
     ```
-
-    The function invocation link is also shown in the `http_invoke_url` parameter when [creating a function](function-create.md).
 
     You can invoke a specific function version using the `tag` parameter. The function with the `$latest` tag is invoked by default.
 
@@ -49,7 +59,7 @@ As an example, we'll use the function described in [{#T}](version-manage.md#func
         {{ sf-url }}/b09bhaokchn9pnbrlseb
         ```
 
-        The response depends on the function you invoke. In this case, it will be as follows:
+        The following response appears on the page:
 
         ```
         Hello, World!
@@ -75,9 +85,13 @@ As an example, we'll use the function described in [{#T}](version-manage.md#func
 
 - CLI
 
+    {% include [cli-install](../../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
     You can invoke a specific function version using the `--tag` parameter. The function with the `$latest` tag is invoked by default.
 
-    - Invoke the function by specifying in the parameter a name for еру greeting:
+    - Invoke the function by specifying in the parameter a name for the greeting:
 
         ```
         yc serverless function invoke <function ID> -d '{"queryStringParameters": {"name": "Username"}}'
@@ -89,7 +103,7 @@ As an example, we'll use the function described in [{#T}](version-manage.md#func
         {"statusCode": 200, "headers": {"Content-Type": "text/plain"}, "isBase64Encoded": false, "body": "Hello, Username!"}
         ```
 
-    - Use a tag to invoke a specific function version:
+    - Invoke a specific version of the function using the `--tag` parameter:
 
         ```
         yc serverless function invoke <function ID> --tag <function version tag>

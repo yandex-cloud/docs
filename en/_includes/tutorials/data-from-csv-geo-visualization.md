@@ -8,43 +8,29 @@ This scenario analyzes public data on road accidents in Russia. In addition to i
 - Work with geodata: geopoints and geopolygons.
 - Create public dashboards that will be available to everyone from any device without authentication.
 
-To visualize and analyze the data, [make sure you have a ready-to-use cloud](#before-you-begin) and follow these steps:
+To visualize and analyze the data, [make sure you have a ready-to-use cloud](data-from-csv-geo-visualization.md#before-you-begin) and follow these steps:
 
 1. [Create a connection to a CSV file](#step1).
 1. [Create a dataset and configure its fields](#step2).
 1. [Create your first chart: a heat map](#step3).
 1. [Create your second chart: a bar chart](#step4).
-1. [Create line charts](#step5).
+1. [Create more charts: line charts](#step5).
 1. [Create a dashboard](#step6).
 1. [Add charts to the dashboard](#step7).
 1. [Add selectors and create a dashboard](#step8).
 1. [Connect an additional source with region geolayers](#step9).
 1. [Add new fields to the dataset](#step10).
 1. [Create a chart using the new fields](#step11).
-1. [Add the new chart to the dashboard](#step12).
+1. [Add a new chart to the dashboard](#step12).
 1. [Publish the dashboard](#step13).
 
 ## Before you start {#before-you-begin}
 
-To use {{ datalens-short-name }}, you have to sign up for {{ yandex-cloud }} and create a billing account (without a billing account, {{ datalens-short-name }} is only available in demo mode):
-
-1. Go to the [management console]({{ link-console-main }}). Then log in to {{ yandex-cloud }} or sign up if you don't have an account yet.
-
-1. [On the billing page]({{ link-console-billing }}) make sure that a [billing account](https://cloud.yandex.com/docs/billing/concepts/billing-account) is linked and that its status is `ACTIVE` or `TRIAL_ACTIVE`. If you don't have a billing account, [create one](https://cloud.yandex.com/docs/billing/quickstart/#create_billing_account).
-
-When you activate your billing account, you automatically switch to the **Free** {{ datalens-short-name }} plan. By default, you can create a {{ datalens-short-name }} instance for no more than 1 folder. If you haven't done this yet:
-
-1. Select a folder on the [cloud page](https://console.cloud.yandex.com/cloud).
-1. Select the **DataLens** service.
-1. Click **Activate DataLens**.
-
-An instance of the service is created in the selected folder and you can go directly to the {{ datalens-short-name }} interface.
-
-[Learn more about clouds and folders](https://cloud.yandex.com/docs/resource-manager/concepts/resources-hierarchy).
+{% include [before-you-begin](includes/before-you-begin-datalens.md) %}
 
 ## Step 1. Create a connection to a CSV file {#step1}
 
-1. Download a [file with accident statistics](https://yadi.sk/d/zgo7RgjFWSMiyg) for 2018 in CSV format.
+1. Download the [file with traffic accident statistics](https://yadi.sk/d/zgo7RgjFWSMiyg) for 2018 in CSV format.
 
 1. Open the [{{ datalens-short-name }}]({{ link-datalens-main }}) homepage and click **Create connection**.
 
@@ -100,7 +86,7 @@ The dataset will consist of a single source: the CSV file.
    - crash_date: The date in numeric format like `20190218`.
    - crash_time: The time written like `19:34`.
 
-   They won't be used in the dataset in this form. Click the visibility icon to hide them.
+   They won't be used in the dataset in this format. Click the visibility icon to hide them.
 
    ![image](../../_assets/datalens/solution-07/11-hide-attributes.png)
 
@@ -111,7 +97,7 @@ The dataset will consist of a single source: the CSV file.
       ![image](../../_assets/datalens/solution-07/12-add-field.png)
 
    1. Specify the following data for it:
-      - **Name**: Date and time
+      - **Field name**: Date and time
       - **Formula**: `datetime_parse(str([crash_date])+'-'+str([crash_time]))`
 
       ![image](../../_assets/datalens/solution-07/13-tune-field.png)
@@ -130,14 +116,14 @@ The dataset will consist of a single source: the CSV file.
 
 1. Continue renaming the fields in the following order:
    - Cause of accident
-   - Number of victims
    - Death toll
+   - Number of victims
    - Number of vehicles
    - Number of participants
 
    Set the **Sum** aggregation type for the following fields:
-   - Number of victims
    - Death toll
+   - Number of victims
    - Number of vehicles
    - Number of participants
 
@@ -150,7 +136,7 @@ The dataset will consist of a single source: the CSV file.
       ![image](../../_assets/datalens/solution-07/12-add-field.png)
 
    1. Enter data for the new field:
-      - **Name**: Geopoint
+      - **Field name**: Geopoint
       - **Formula**: `GEOPOINT([latitude],[longitude])`
 
       where [latitude] and [longitude] are dataset fields.
@@ -176,7 +162,7 @@ The dataset will consist of a single source: the CSV file.
       ![image](../../_assets/datalens/solution-07/12-add-field.png)
 
    1. Enter data for the new field:
-      - **Name**: Number of accidents
+      - **Field name**: Number of accidents
       - **Formula**: `SUM(1)`
 
       ![image](../../_assets/datalens/solution-07/18-new-field-count-DTP.png)
@@ -192,7 +178,7 @@ The dataset will consist of a single source: the CSV file.
       ![image](../../_assets/datalens/solution-07/12-add-field.png)
 
    1. Enter data for the new field:
-      - **Name**: Accident death rate
+      - **Field name**: Accident death rate
       - **Formula**: `[Death toll]/[Number of accidents]`
 
       ![image](../../_assets/datalens/solution-07/19-new-field-fatality.png)
@@ -282,7 +268,7 @@ Proceed to creating the first [chart](https://cloud.yandex.com/docs/datalens/con
 
       ![image](../../_assets/datalens/solution-07/31-drag-attributes-2.png)
 
-      This time, Ingushetia is far ahead in the number of deaths, followed by Tyva and Kalmykia.
+      This time, Ingushetia is far ahead in the number of deaths, followed by Tuva and Kalmykia.
 
    1. Save the chart by clicking **Save as**
 
@@ -292,7 +278,7 @@ Proceed to creating the first [chart](https://cloud.yandex.com/docs/datalens/con
 
       ![image](../../_assets/datalens/solution-07/32-save-linely-diagram-2.png)
 
-## Step 5. Create line charts {#step5}
+## Step 5. Create more charts: line charts{#step5}
 
 Let's see how the number of accidents and related deaths are distributed by week, day of the week, and time of day.
 
@@ -372,7 +358,7 @@ Let's see how the number of accidents and related deaths are distributed by week
 
    ![image](../../_assets/datalens/solution-07/45-choose-menu-dashbords.png)
 
-1. Click **Create**
+1. Click **Create**.
 
    ![image](../../_assets/datalens/solution-07/46-create-dashbord.png)
 

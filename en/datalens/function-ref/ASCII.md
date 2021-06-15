@@ -28,6 +28,18 @@ Returns the numeric representation of the first character of the string.
 ASCII("N") = 78
 ```
 
+```
+ASCII("¹") = 185
+```
+
+```
+ASCII("¹") = 194
+```
+
+```
+ASCII("…") = 8230
+```
+
 
 #### Data source support {#data-source-support}
 
