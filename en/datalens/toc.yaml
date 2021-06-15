@@ -49,6 +49,8 @@ items:
             href: operations/connection/create-metrica-logs-api.md
           - name: Creating an AppMetrica connection
             href: operations/connection/create-appmetrica.md
+          - name: Creating a Yandex Cloud Billing connection
+            href: operations/connection/create-cloud-billing.md
           - name: Managing connection access
             href: operations/connection/manage-access.md
       - name: Working with datasets
