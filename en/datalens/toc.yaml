@@ -35,6 +35,8 @@ items:
             href: operations/connection/create-clickhouse.md
           - name: Creating a connection to a CSV file
             href: operations/connection/create-csv.md
+          - name: Creating a Google Sheets connection
+            href: operations/connection/create-google-sheets.md
           - name: Creating a MySQL connection
             href: operations/connection/create-mysql.md
           - name: Creating a PostgreSQL connection
@@ -87,7 +89,7 @@ items:
             href: operations/chart/create-table.md
           - name: Creating a pivot table
             href: operations/chart/create-pivot-table.md
-          - name: Creating an indicator
+          - name: Creating an indicator chart
             href: operations/chart/create-indicator-chart.md
           - name: Publishing a chart
             href: operations/chart/publish.md
