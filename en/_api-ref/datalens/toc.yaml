@@ -109,18 +109,6 @@ items:
         href: function-ref/ISNULL.md
       - name: ZN
         href: function-ref/ZN.md
-  - name: Text markup functions
-    items:
-      - name: Overview
-        href: function-ref/markup-functions.md
-      - name: BOLD
-        href: function-ref/BOLD.md
-      - name: ITALIC
-        href: function-ref/ITALIC.md
-      - name: MARKUP
-        href: function-ref/MARKUP.md
-      - name: URL
-        href: function-ref/URL.md
   - name: Mathematical functions
     items:
       - name: Overview
@@ -271,6 +259,18 @@ items:
         href: function-ref/UPPER.md
       - name: UTF8
         href: function-ref/UTF8.md
+  - name: Text markup functions
+    items:
+      - name: Overview
+        href: function-ref/markup-functions.md
+      - name: BOLD
+        href: function-ref/BOLD.md
+      - name: ITALIC
+        href: function-ref/ITALIC.md
+      - name: MARKUP
+        href: function-ref/MARKUP.md
+      - name: URL
+        href: function-ref/URL.md
   - name: Time series functions
     items:
       - name: Overview
