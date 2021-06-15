@@ -355,9 +355,9 @@ if(
 1. Установите в селекторах значения по умолчанию.
 
 
-## Отчеты Статистики в Wizard {#analytics-reports-in-wizard}
+## Отчеты Statface в {{ datalens-short-name }} {#statface-reports}
 
-[Документация DataLens на wiki](https://wiki.yandex-team.ru/DataLens/UserGuide/statreport/) содержит описание различных вариантов, позволяющих использовать данные отчетов Статистики в DataLens.
+Сценарий [Визуализация данных из отчетов Statface](solutions/data-from-statface-visualization.md) содержит описание различных вариантов, позволяющих использовать данные отчетов Statface в {{ datalens-short-name }}.
 
 
 ## Партнерская аналитика {#partner-analytics}
@@ -484,6 +484,9 @@ if(
 
 Увеличить лимит нельзя: объем данных для отрисовки чарта может быть настолько большим, что браузер перестанет работать. Лимиты подобраны и периодически уточняются из соображений оптимизации препроцессинга данных.
 
+### Too many series on the chart {#too-many-series}
+
+{% include notitle [ERR-CK_TOO_MANY_LINES](troubleshooting/errors/ERR-CK_TOO_MANY_LINES.md) %}
 
 ## Другое {#other}
 

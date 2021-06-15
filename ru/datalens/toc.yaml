@@ -59,6 +59,9 @@ items:
           - name: Window function has no aggregated expressions among its arguments
             hidden: true
             href: troubleshooting/errors/ERR-DS_API-VALIDATION-WIN_FUNC-NO_AGG.md
+          - name: Too many series on the chart
+            hidden: true
+            href: troubleshooting/errors/ERR-CK_TOO_MANY_LINES.md
   - name: Сценарии использования
     items:
       - name: Все сценарии
