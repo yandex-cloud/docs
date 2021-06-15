@@ -34,7 +34,7 @@ By default, {{ mpg-short-name }} limits the maximum number of connections to eac
 
   1. Click **Create cluster**.
 
-  1. Enter a name for the cluster in the **Cluster name** field. The cluster name must be unique within {{ yandex-cloud }}.
+  1. Enter a name for the cluster in the **Cluster name** field. The cluster name must be unique within the folder.
 
   1. Select the environment where you want to create the cluster (you can't change the environment once the cluster is created):
       - `PRODUCTION`: For stable versions of your apps.
