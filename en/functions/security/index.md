@@ -1,29 +1,25 @@
 # Access management
 
-{{ yandex-cloud }} users can only perform operations on resources that are allowed by the roles assigned to them.
-If a user doesn't have any roles assigned, almost all operations are forbidden.
+In this section, you'll learn:
 
-To allow access to {{ sf-name }} service resources (functions and their versions), assign users applicable roles from the list below. For now, a role can be assigned for a parent resource (folder or cloud) or a function.
+* [What resources you can assign roles to](#resources).
+* [What roles exist in the service](#roles).
 
-{% note info %}
+{% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-For more information about role inheritance, see [{#T}](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) in the {{ resmgr-full-name }} documentation.
+## What resources you can assign roles to {#resources}
 
-{% endnote %}
+You can assign roles for a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), [folder](../../resource-manager/concepts/resources-hierarchy.md#folder), and a [function](../concepts/function.md). Roles assigned to a cloud or folder also affect the functions that are located there.
 
-## Assigning roles {#grant-roles}
-
-To assign a user a role:
-
-{% include [grant-role-console](../../_includes/grant-role-console.md) %}
-
-## Roles {#roles}
+## What roles exist in the service {#roles}
 
 The list below shows all roles that are considered when verifying access rights in the {{ sf-name }} service.
 
 {% include [cloud-roles](../../_includes/cloud-roles.md) %}
 
 {% include [functions-roles-invoker](../../_includes/roles-functions-invoker.md) %}
+
+{% include [functions-roles-admin](../../_includes/roles-functions-admin.md) %}
 
 ### {{ roles-viewer }} {#viewer}
 

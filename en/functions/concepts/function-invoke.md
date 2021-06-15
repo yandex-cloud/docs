@@ -5,7 +5,7 @@ You can invoke a function:
 - [Using an HTTP request](#http).
 - [Using the CLI](#cli).
 
-Each method has a specific data structure for function requests and responses.
+Each method has a specific data structure for function requests and responses. Learn more about how to [invoke a function](../operations/function/function-invoke.md).
 
 ## Invoking a function using HTTP {#http}
 
@@ -56,7 +56,7 @@ Detailed description of a request:
     ```
     {
         "identity": "<a set of key:value pairs to authenticate the user>",
-        "httpMethod": "<DELETE, GET, HEAD, OPTIONS, PATCH, POST или PUT>",
+        "httpMethod": "<DELETE, GET, HEAD, OPTIONS, PATCH, POST or PUT>",
         "requestId": "<request ID generated in the router>",
         "requestTime": "<request time in CLF format>",
         "requestTimeEpoch": "<request time in Unix format>"
