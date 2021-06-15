@@ -73,8 +73,6 @@ items:
         href: solutions/backup.md
       - name: Интеграция с корпоративной зоной DNS
         href: solutions/custom-dns.md
-      - name: Настройка локального кэширования DNS
-        href: solutions/node-local-dns.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

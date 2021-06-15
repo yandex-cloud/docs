@@ -4,11 +4,11 @@ Access to {{ datalens-full-name }} is managed from the {{ yandex-cloud }} consol
 To grant a user access, assign them a {{ datalens-short-name }} role.
 
 Permission differentiation in the service is implemented at the object and directory level.
-You can grant users permission to each object and directory. They determine what operations are allowed. By default, objects inherit the access rights of the parent folder.
+You can grant users permission to each object and directory. They determine what operations are allowed. If you created or copied a directory or object, they will have the same permissions as their new parent folder.
 
 You can grant users access to a directory or any service object:
 
-- Connections
+- Connection
 - Datasets
 - Charts
 - Dashboards
@@ -19,12 +19,12 @@ Users can also request permission on their own via the request form. For more in
 
 Let you define user permissions in a {{ datalens-short-name }} instance:
 
-- `{{ roles-datalens-instances-user }}` — A {{ datalens-short-name }} user with the rights to create, read, and update objects based on [object permissions](#permissions).
-- `{{ roles-datalens-instances-admin }}` — The {{ datalens-short-name }} instance administrator. The role is automatically assigned to the instance creator. The administrator has the `{{ roles-datalens-instances-user }}` rights and can also change the service plan and pay for the paid content in {{ marketplace-name }}.
+- `{{ roles-datalens-instances-user }}`: A {{ datalens-short-name }} user with the permissions to create, read, and update objects based on [object permissions](#permissions).
+- `{{ roles-datalens-instances-admin }}`: A {{ datalens-short-name }} instance administrator. The role is automatically assigned to the instance creator. The administrator has the `{{ roles-datalens-instances-user }}` rights and can also change the service plan and pay for the paid content in {{ marketplace-name }}.
 
 User roles are assigned in the {{ yandex-cloud }} console.
 
-## Adding users {#add-new-user}
+## Adding a user {#add-new-user}
 
 You can add [users with a Yandex account](#passport-user) and [federated users](#federated-user).
 
@@ -112,26 +112,26 @@ The `{{ permission-admin }}` permission includes everything under the `{{ permis
 | Edit directories | N/A | - | ✔ | ✔ |
 | Delete directories | N/A | - | - | ✔ |
 | Edit permissions | N/A | - | - | ✔ |
-| **Connections** |
+| **Connection** |
 | Make requests<br/>to a connection | ✔ | ✔ | ✔ | ✔ |
 | Create a dataset<br/>over a connection | - | ✔ | ✔ | ✔ |
 | View<br/>connection parameters | - | ✔ | ✔ | ✔ |
-| Edit connections | - | - | ✔ | ✔ |
+| Edit connection | - | - | ✔ | ✔ |
 | Delete connections | - | - | - | ✔ |
 | Edit permissions | - | - | - | ✔ |
-| **Datasets** |
+| **Dataset** |
 | Make requests<br/>to a dataset | ✔ | ✔ | ✔ | ✔ |
 | Create charts<br/>on a dataset | ✔ | ✔ | ✔ | ✔ |
 | View datasets | - | ✔ | ✔ | ✔ |
 | Edit datasets | - | - | ✔ | ✔ |
 | Delete datasets | - | - | - | ✔ |
 | Edit permissions | - | - | - | ✔ |
-| **Charts** |
+| **Chart** |
 | View charts | N/A | ✔ | ✔ | ✔ |
 | Edit charts | N/A | - | ✔ | ✔ |
 | Delete charts | N/A | - | - | ✔ |
 | Edit permissions | N/A | - | - | ✔ |
-| **Dashboards** |
+| **Dashboard** |
 | View dashboards | N/A | ✔ | ✔ | ✔ |
 | Edit dashboards | N/A | - | ✔ | ✔ |
 | Deleting dashboards | N/A | - | - | ✔ |
@@ -148,4 +148,3 @@ To get logs, you can contact [technical support]({{ link-console-support }}).
 - [{#T}](../operations/permission/revoke.md)
 - [{#T}](../operations/permission/request.md)
 - [{#T}](../operations/dataset/manage-row-level-security.md)
-

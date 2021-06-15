@@ -87,6 +87,8 @@ For example, the `{{ roles-admin }}` role lets you perform the following operati
 
 {% include [serverless.functions.invoker](../../../_includes/roles-functions-invoker.md) %}
 
+{% include [functions-roles-admin](../../../_includes/roles-functions-admin.md) %}
+
 ## {{ iam-name }} {#iam-roles}
 
 {% include [roles-sa-user](../../../_includes/roles-sa-user.md) %}
@@ -117,6 +119,8 @@ For example, the `{{ roles-admin }}` role lets you perform the following operati
 
 {% include [storage.admin](../../../_includes/roles-storage-admin.md) %}
 
+{% include [storage.configViewer](../../../_includes/roles-storage-config-viewer.md) %}
+
 {% include [storage.configurer](../../../_includes/roles-storage-configurer.md) %}
 
 {% include [storage.editor](../../../_includes/roles-storage-editor.md) %}
@@ -142,3 +146,4 @@ For example, the `{{ roles-admin }}` role lets you perform the following operati
 {% include [roles-vpc-sg-admin](../../../_includes/roles-vpc-sg-admin.md) %}
 
 {% include [roles-vpc-admin](../../../_includes/roles-vpc-admin.md) %}
+

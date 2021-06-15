@@ -193,6 +193,8 @@ items:
         href: solutions/ntp.md
       - name: Работа с группой ВМ с автоматическим масштабированием
         href: solutions/vm-autoscale.md
+      - name: Развертывание Remote Desktop Gateway
+        href: solutions/rds-gw
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов

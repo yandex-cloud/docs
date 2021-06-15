@@ -1,21 +1,24 @@
 # Database management
 
-You can add and remove databases, as well as view information about them.
-
-There are two ways to manage cluster databases:
+{{ mch-name }} lets you manage cluster databases in two ways:
 
 - {{ yandex-cloud }} standard interfaces (CLI, API, or management console). Choose this method if you want to use all the features of the {{ yandex-cloud }} managed service.
 - SQL queries to the cluster. Choose this method if you want to use an existing solution for creating and managing databases, or if you need {{ MY }} database support in {{ mch-name }}.
 
-## Managing databases using SQL {#sql-database-management}
+## Managing databases via SQL {#sql-database-management}
 
-To manage databases using SQL, [create a cluster via the API](cluster-create.md) with the **sqlDatabaseManagement** setting enabled. In this cluster:
+To manage databases using SQL, [create a cluster](cluster-create.md) with the following settings enabled:
 
-- Databases can only be managed using SQL.
-- Management using {{ yandex-cloud }} standard interfaces (CLI, API, or management console) isn't possible.
+- **User management via SQL**.
+- **Database management via SQL**.
+
+In a cluster with DB management via SQL enabled:
+
+- You can only manage databases and [users](cluster-users.md#sql-user-management) via SQL.
+- User and DB management using {{ yandex-cloud }} standard interfaces (the CLI, API, or management console) isn't possible.
 - Users are managed under the `admin` account. The password for this account is set when creating a cluster.
 
-To learn more about managing databases using SQL, see the [documentation for {{ CH }}](https://clickhouse.tech/docs/en/sql-reference/statements/create/database/).
+{% include [sql-db-and-users-alert](../../_includes/mdb/mch-sql-db-and-users-alert.md) %}
 
 ## Getting a list of cluster databases {#list-db}
 
@@ -58,7 +61,7 @@ To learn more about managing databases using SQL, see the [documentation for {{ 
 
 ## Creating a database {#add-db}
 
-The number of databases in a cluster is unlimited.
+There are no limits to the number of databases in a cluster.
 
 {% list tabs %}
 
@@ -160,7 +163,7 @@ The number of databases in a cluster is unlimited.
 
 {% note warning %}
 
-Before creating a new database with the same name, wait for the delete operation to complete, otherwise the database being deleted is restored. Operation status can be obtained with a [list of cluster operations](cluster-list.md#list-operations).
+Before creating a new database with the same name, wait for the delete operation to complete, otherwise the database being deleted will be restored. Operation status can be obtained with a [list of cluster operations](cluster-list.md#list-operations).
 
 {% endnote %}
 

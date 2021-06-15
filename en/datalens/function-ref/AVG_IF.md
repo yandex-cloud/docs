@@ -26,7 +26,7 @@ Returns the average of all values that meet the `condition` condition. If the va
 #### Examples {#examples}
 
 ```
-AVG([Profit], [Profit] > 5)
+AVG_IF([Profit], [Profit] > 5)
 ```
 
 

@@ -132,7 +132,7 @@ To add a [GPU](../../concepts/gpus.md) to an existing VM, change the platform an
 
       ```
       $ yc compute instance update first-instance \
-          --platform-id=gpu-standard-v1 \
+          --platform=gpu-standard-v1 \
           --cores=8 \
           --memory=96 \
           --gpus=1

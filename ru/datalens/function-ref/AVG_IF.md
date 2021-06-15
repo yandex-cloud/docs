@@ -26,7 +26,7 @@ AVG_IF( expression, condition )
 #### Примеры {#examples}
 
 ```
-AVG([Profit], [Profit] > 5)
+AVG_IF([Profit], [Profit] > 5)
 ```
 
 
