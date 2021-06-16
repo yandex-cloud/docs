@@ -7,3 +7,5 @@ items:
     href: fit-lm.md
   - name: Распознавание аудио с помощью Cloud STT API
     href: recognize-api.md
+  - name: Расширение модели распознавания речи
+    href: additional-training.md
