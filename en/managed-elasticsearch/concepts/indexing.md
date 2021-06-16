@@ -1,11 +1,3 @@
----
-title: Elasticsearch indexes
-description: 'When a document is saved to Elasticsearch, it is indexed and placed in a specific Elasticsearch index of the user's choice, making it available for search and analysis. An index can be viewed as an analogue of a table with data in classical DBMS. '
-keywords:
-  - Elasticsearch index
-  - Elasticsearch
----
-
 # Indexes
 
 When saving a document to {{ ES }}, it is indexed and placed in a user-specified _index_, making it available for search and analysis. An index is an analogue of a data table in a traditional DBMS.
