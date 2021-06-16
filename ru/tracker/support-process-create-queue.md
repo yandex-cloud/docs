@@ -4,7 +4,7 @@
 
 1. Если ваша организация еще не работает в {{ tracker-name }}, [подключите сервис](enable-tracker.md).
 
-1. [Добавьте в {{ tracker-name }} пользователей](enable-tracker.md#section_v3s_wp4_1cb).<!--1. Если требуется разделить сотрудников на группы, [создайте команды](https://yandex.ru/support/connect/teams.html#teams__section_q3z_wkm_5gb). Команду можно будет призвать в комментарии к задаче и создать для нее почтовую рассылку (если у вашей организации есть [почтовый домен](https://yandex.ru/support/connect/domains.html)).-->
+1. [Добавьте в {{ tracker-name }} пользователей](add-users.md).
 
 {% endif %}
 

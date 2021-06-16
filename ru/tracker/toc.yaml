@@ -6,6 +6,12 @@ items:
     - name: Подключить Tracker
       when: audience == "external"
       href: enable-tracker.md
+    - name: Добавить пользователей
+      when: audience == "external"
+      href: add-users.md
+    - name: Настроить доступ в Tracker
+      when: audience == "external"
+      href: access.md
     - name: Настроить Tracker
       href: quick-start.md
     - name: Как работать в Tracker
