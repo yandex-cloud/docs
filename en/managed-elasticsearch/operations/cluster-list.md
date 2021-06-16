@@ -1,3 +1,12 @@
+---
+title: Information about the existing Elasticsearch clusters
+description: 'You can request detailed information about each Managed Service for Elasticsearch cluster you create.'
+keywords:
+  - information about Elasticsearch hosts
+  - Elasticsearch hosts
+  - Elasticsearch
+---
+
 # Information about existing clusters
 
 You can request detailed information about each {{ mes-name }} cluster you created.

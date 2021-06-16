@@ -1,3 +1,12 @@
+---
+title: Elasticsearch Storage Types
+description: 'The Elasticsearch service allows you to use network and local storage for clusters. The network storage is implemented on the basis of network blocks, virtual disks in the Yandex.Cloud infrastructure.'
+keywords:
+  - Elasticsearch storage
+  - Elasticsearch repositories
+  - Elasticsearch
+---
+
 # Storage types
 
 {{ mes-name }} allows you to use network and local storage for clusters. Network storage is based on network blocks, which are virtual disks in the {{ yandex-cloud }} infrastructure. Local storage is organized on disks, which are physically located on the cluster servers.

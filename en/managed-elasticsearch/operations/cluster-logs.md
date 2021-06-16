@@ -1,3 +1,12 @@
+---
+title: Viewing Elasticsearch cluster Logs
+description: 'Managed Service for Elasticsearch allows you to retrieve cluster logs for viewing and exploring.'
+keywords:
+  - Elasticsearch logs
+  - Elasticsearch cluster logs
+  - Elasticsearch
+---
+
 # Viewing cluster logs
 
 {{ mes-name }} allows you to get cluster logs for viewing and analysis.
