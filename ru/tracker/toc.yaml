@@ -5,6 +5,10 @@ items:
     items:
       - name: Подключить Tracker
         href: enable-tracker.md
+      - name: Добавить пользователей
+        href: add-users.md
+      - name: Настроить доступ в Tracker
+        href: access.md
       - name: Настроить Tracker
         href: quick-start.md
       - name: Как работать в Tracker

@@ -71,6 +71,16 @@ items:
             href: operations/ydb-cli/readtable.md
           - name: Работа со вторичными индексами
             href: operations/ydb-cli/operations-index.md
+          - name: Управление профилем
+            items:
+              - name: Создание профиля
+                href: operations/ydb-cli/profile/create.md
+              - name: Получение информации о профиле
+                href: operations/ydb-cli/profile/list-and-get.md
+              - name: Активация профиля
+                href: operations/ydb-cli/profile/activate.md
+              - name: Удаление профиля
+                href: operations/ydb-cli/profile/delete.md
       - name: Использование плана запроса и AST
         href: operations/get-query-plan.md
       - name: Управление базами данных

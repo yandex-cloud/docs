@@ -1,3 +1,12 @@
+---
+title: Информация об имеющихся кластерах Elasticsearch
+description: 'Вы можете запросить детальную информацию о каждом созданном вами кластере Managed Service for Elasticsearch.'
+keywords:
+  - информация о хостах Elasticsearch
+  - хосты Elasticsearch
+  - Elasticsearch
+---
+
 # Информация об имеющихся кластерах
 
 Вы можете запросить детальную информацию о каждом созданном вами кластере {{ mes-name }}.

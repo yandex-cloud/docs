@@ -1,3 +1,12 @@
+---
+title: Sharding and replication in Elasticsearch
+description: 'In an Elasticsearch cluster, sharding can be used to scale out as the amount of data in the indexes grows. Replication can improve cluster resiliency and index data retention.'
+keywords:
+  - Elasticsearch sharding
+  - Elasticsearch replication
+  - Elasticsearch
+---
+
 # Sharding and replication
 
 In an {{ ES }} cluster:
