@@ -26,6 +26,30 @@ paths:
               schema:
                 $ref: '#/components/schemas/LogGroup'
       x-y-navtitle: get
+    delete:
+      tags:
+      - LogGroup
+      operationId: LogGroupDelete
+      parameters:
+      - name: logGroupId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 64.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteLogGroupMetadata'
+      x-y-operation-response: Empty
     patch:
       tags:
       - LogGroup
@@ -139,6 +163,27 @@ paths:
               schema:
                 $ref: '#/components/schemas/ListLogGroupsResponse'
       x-y-navtitle: list
+    post:
+      tags:
+      - LogGroup
+      operationId: LogGroupCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateLogGroupRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateLogGroupMetadata'
+      x-y-operation-response: '[LogGroup](/LogGroup#representation)'
   /logging/v1/logGroups/{logGroupId}:listResources:
     get:
       tags:
@@ -452,6 +497,39 @@ components:
           $ref: '#/components/schemas/AccessBindingAction_in_AccessBindingDelta_action'
         accessBinding:
           $ref: '#/components/schemas/AccessBinding_in_AccessBindingDelta_accessBinding'
+    CreateLogGroupMetadata:
+      type: object
+      properties:
+        logGroupId:
+          type: string
+    CreateLogGroupRequest:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            Required.
+            The maximum string length in characters is 64.
+          type: string
+        name:
+          description: Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9]
+            ``.
+          type: string
+        description:
+          description: The maximum string length in characters is 256.
+          type: string
+        labels:
+          description: |-
+            No more than 64 per resource.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            The maximum string length in characters for each value is 63.
+            Each value must match the regular expression `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+        retentionPeriod:
+          description: The minimum value is 3600 seconds.
+          type: string
     Criteria:
       type: object
       properties:
@@ -495,6 +573,11 @@ components:
         pageSize:
           type: string
           format: int64
+    DeleteLogGroupMetadata:
+      type: object
+      properties:
+        logGroupId:
+          type: string
     Destination:
       type: object
       allOf:

@@ -5,6 +5,10 @@ items:
     items:
       - name: Overview
         href: undefined/LogGroup/index.md
+      - name: create
+        href: undefined/LogGroup/create.md
+      - name: delete
+        href: undefined/LogGroup/delete.md
       - name: get
         href: undefined/LogGroup/get.md
       - name: getDefault

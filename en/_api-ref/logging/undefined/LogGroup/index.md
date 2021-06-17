@@ -34,6 +34,8 @@ retentionPeriod | **string**<br>
 ## Methods {#methods}
 Method | Description
 --- | ---
+[create](create.md) | 
+[delete](delete.md) | 
 [get](get.md) | 
 [getDefault](getDefault.md) | 
 [list](list.md) | 
