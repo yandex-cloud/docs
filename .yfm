@@ -12,7 +12,7 @@ ignore:
 
 connector:
     type: github
-    gitHub: 
+    github: 
         endpoint: https://api.github.com
         owner: yandex-cloud
         repo: docs
