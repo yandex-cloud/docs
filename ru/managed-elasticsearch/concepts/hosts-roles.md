@@ -1,3 +1,12 @@
+---
+title: Роли хостов Elasticsearch
+description: Каждый кластер управляемого сервиса Elasticsearch состоит из одного или нескольких хостов Elasticsearch с разными ролями Data node или Master node. 
+keywords:
+  - роли хостов Elasticsearch
+  - Elasticsearch
+  - хосты Elasticsearch
+---
+
 # Роли хостов
 
 Каждый кластер {{ mes-name }} состоит из одного или нескольких хостов {{ ES }} с разными ролями: _Data node_ или _Master node_.

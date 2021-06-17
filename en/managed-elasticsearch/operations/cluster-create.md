@@ -1,3 +1,12 @@
+---
+title: Creating an Elasticsearch cluster
+description: 'Managed Service for Elasticsearch cluster is a group of several related Elasticsearch hosts. When creating an Elasticsearch cluster, parameters are specified separately for hosts acting as a Master node, and separately for hosts acting as a Data node.'
+keywords:
+  - creating an Elasticsearch cluster
+  - Elasticsearch cluster
+  - Elasticsearch
+---
+
 # Creating clusters
 
 {{ mes-name }} cluster is a group of multiple linked {{ ES }} hosts. A cluster provides high search performance by distributing search and indexing tasks across all cluster hosts with the _Data node_ role. To learn more about roles in the cluster, see [{#T}](../concepts/index.md).

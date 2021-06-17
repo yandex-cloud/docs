@@ -37,7 +37,7 @@ items:
         href: concepts/searching.md
       - name: Host classes
         href: concepts/instance-types.md
-      - name: Managed Service for Elasticsearch
+      - name: Managed Service for Elasticsearch network
         href: concepts/network.md
       - name: Quotas and limits
         href: concepts/limits.md

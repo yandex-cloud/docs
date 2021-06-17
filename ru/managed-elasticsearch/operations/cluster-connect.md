@@ -1,3 +1,12 @@
+---
+title: Подключение к кластеру Elasticsearch
+description: 'К хостам кластера Elasticsearch с ролью Data node можно подключиться через интернет, если вы настроили публичный доступ для нужного хоста, и с виртуальных машин Yandex.Cloud, расположенных в той же виртуальной сети.'
+keywords:
+  - подключение кластера Elasticsearch
+  - кластер Elasticsearch
+  - Elasticsearch
+---
+
 # Подключение к кластеру
 
 К хостам кластера {{ mes-name }} с [ролью _Data node_](../concepts/hosts-roles.md#data-node) можно подключиться:

@@ -1,3 +1,12 @@
+---
+title: Elasticsearch host roles
+description: Each cluster of a Managed Service for Elasticsearch consists of one or more Elasticsearch hosts with different Data node or Master node roles.
+keywords:
+  - Elasticsearch host roles
+  - Elasticsearch
+  - Elasticsearch hosts
+---
+
 # Host roles
 
 Each {{ mes-name }} cluster consists of one or more {{ ES }} hosts with different roles: _Data node_ or _Master node_.
