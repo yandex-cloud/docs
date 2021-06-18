@@ -19,8 +19,8 @@ Users can also request permission on their own via the request form. For more in
 
 Let you define user permissions in a {{ datalens-short-name }} instance:
 
-- `{{ roles-datalens-instances-user }}`: A {{ datalens-short-name }} user with the permissions to create, read, and update objects based on [object permissions](#permissions).
-- `{{ roles-datalens-instances-admin }}`: A {{ datalens-short-name }} instance administrator. The role is automatically assigned to the instance creator. The administrator has the `{{ roles-datalens-instances-user }}` rights and can also change the service plan and pay for the paid content in {{ marketplace-name }}.
+- `{{ roles-datalens-instances-user }}` — A {{ datalens-short-name }} user with the permissions to create, read, and update objects based on [object permissions](#permissions).
+- `{{ roles-datalens-instances-admin }}` — The {{ datalens-short-name }} instance administrator. The role is automatically assigned to the instance creator. The administrator has the `{{ roles-datalens-instances-user }}` rights and can also change the service plan and pay for the paid content in {{ marketplace-name }}.
 
 User roles are assigned in the {{ yandex-cloud }} console.
 
@@ -76,20 +76,40 @@ For more information about assigning roles in {{ yandex-cloud }}, see [Roles](..
 
 You can assign the following permissions to objects and folders in {{ datalens-short-name }}:
 
+- [{{ permission-execute }}](#permission-execute)
+- [{{ permission-read }}](#permission-read)
+- [{{ permission-write }}](#permission-write)
+- [{{ permission-admin }}](#permission-admin)
+
 ### {{ permission-execute }} {#permission-execute}
 
-A user with the `{{ permission-execute }}` permission can make requests to available connections and datasets.
-It doesn't let the user view connections or datasets.
+A user with the `{{ permission-execute }}` permission for a connection can make requests to it, but can't create datasets. Regardless of dataset permissions, the user can't access a list of tables in a dataset or view the SQL subquery that the dataset is based on.
+
+A user with the `{{ permission-execute }}` permission for a dataset can make requests to it and create charts, but can't view the dataset.
 
 {% note warning %}
 
-You can only grant the `{{ permission-execute }}` permission for a connection and dataset.
+You can only grant the `{{ permission-execute }}` permission for connections and datasets.
 
 {% endnote %}
+
+Granting users the `{{ permission-execute }}` permission lets you:
+
+- Reduce the number of requests to the source, thereby reducing the load on the connection source.
+
+- Better control what data can be shown from a dataset. You can hide some source fields so that users can't view all fields.
+
+- Restrict the creation of subqueries to the source database. A user with the `{{ permission-execute }}` permission can't write subqueries.
 
 ### {{ permission-read }} {#permission-read}
 
 A user with the `{{ permission-read }}` permission can view dashboards, widgets, datasets, and directories.
+
+{% note warning %}
+
+The `{{ permission-read }}` permission doesn't allow copying datasets, because they contain [RLS](row-level-security.md) settings. A user can only copy datasets if granted the `{{ permission-write }}` or `{{ permission-admin }}` permission.
+
+{% endnote %}
 
 ### {{ permission-write }} {#permission-write}
 
@@ -148,3 +168,4 @@ To get logs, you can contact [technical support]({{ link-console-support }}).
 - [{#T}](../operations/permission/revoke.md)
 - [{#T}](../operations/permission/request.md)
 - [{#T}](../operations/dataset/manage-row-level-security.md)
+

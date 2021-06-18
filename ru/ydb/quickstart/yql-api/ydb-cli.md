@@ -141,11 +141,12 @@
 Для проверки корректности аутентификации можно использовать команду запроса информации о пользователе:
 
 ```bash
-{{ ydb-cli }} discovery whoami \
+{{ ydb-cli }} \
   --endpoint <эндпоинт> \
   --database <база данных> \
   --yc-token-file <путь к файлу с токеном> \
-  --groups
+  discovery whoami \
+  --groups \
 ```
 
 Где:
@@ -413,9 +414,10 @@ User has no groups
 Чтобы получить список эндпойнтов, выполните команду:
 
 ```bash
-{{ ydb-cli }} discovery list \
+{{ ydb-cli }} \
   --endpoint <эндпоинт> \
-  --database <база данных>
+  --database <база данных> \
+  discovery list
 ```
 
 Где:
@@ -436,17 +438,18 @@ grpcs://vm-etn01lrprvnlnhv8v5kj-ru-central1-a-abod.etn01lrprvnlnhv8v5kj.ydb.mdb.
 Выполните запрос к данным:
 
 ```bash
-{{ ydb-cli }} table query execute \
-  --query "SELECT season_id, episode_id, title FROM episodes WHERE series_id = 1 AND season_id > 1 ORDER BY season_id, episode_id LIMIT 3" \
+{{ ydb-cli }} \
   --endpoint <эндпоинт> \
-  --database <база данных>
+  --database <база данных> \
+  table query execute \
+  --query "SELECT season_id, episode_id, title FROM episodes WHERE series_id = 1 AND season_id > 1 ORDER BY season_id, episode_id LIMIT 3"
 ```
 
 Где:
 
-* `--query` — текст запроса.
 * `--endpoint` — эндпоинт БД.
 * `--database` — полный путь БД.
+* `--query` — текст запроса.
 
 Результат выполнения:
 
@@ -467,9 +470,10 @@ grpcs://vm-etn01lrprvnlnhv8v5kj-ru-central1-a-abod.etn01lrprvnlnhv8v5kj.ydb.mdb.
 Листинг объектов производится подкомандой `scheme ls <путь>`. Если путь не указан, то будет производиться листинг корня базы данных:
 
 ```bash
-{{ ydb-cli }} scheme ls \
+{{ ydb-cli }} \
   --endpoint <эндпоинт> \
-  --database <база данных>
+  --database <база данных> \
+  scheme ls
 ```
 
 Где:
@@ -486,9 +490,10 @@ episodes  seasons  series  some_directory  .sys
 Чтобы посмотреть подробную информацию, добавьте флаг `-l`:
 
 ```bash
-{{ ydb-cli } scheme ls \
+{{ ydb-cli }} \
   --endpoint <эндпоинт> \
   --database <база данных> \
+  scheme ls \
   -l
 ```
 
@@ -511,27 +516,31 @@ episodes  seasons  series  some_directory  .sys
 Создайте дерево из директорий:
 
 ```bash
-{{ ydb-cli }} scheme mkdir some_directory \
+{{ ydb-cli }} \
   --endpoint <эндпоинт> \
-  --database <база данных>
+  --database <база данных> \
+  scheme mkdir some_directory
 ```
 
 ```bash
-{{ ydb-cli }} scheme mkdir some_directory/sub-directory1 \
+{{ ydb-cli }} \
   --endpoint <эндпоинт> \
-  --database <база данных>
+  --database <база данных> \
+  scheme mkdir some_directory/sub-directory1
 ```
 
 ```bash
-{{ ydb-cli }} scheme mkdir some_directory/sub-directory1/sub-directory1-1 \
+{{ ydb-cli }} \
   --endpoint <эндпоинт> \
-  --database <база данных>
+  --database <база данных> \
+  scheme mkdir some_directory/sub-directory1/sub-directory1-1
 ```
 
 ```bash
-{{ ydb-cli }} scheme mkdir some_directory/sub-directory2 \
+{{ ydb-cli }} \
   --endpoint <эндпоинт> \
-  --database <база данных>
+  --database <база данных> \
+  scheme mkdir some_directory/sub-directory2
 ```
 
 Где:
@@ -542,9 +551,10 @@ episodes  seasons  series  some_directory  .sys
 Чтобы посмотреть рекурсивный листинг всех поддиректорий и объектов в них по указанному пути, воспользуйтесь опцией `-R` подкоманды `scheme ls`:
 
 ```bash
-{{ ydb-cli }} scheme ls some_directory \
+{{ ydb-cli }} \
   --endpoint <эндпоинт> \
   --database <база данных> \
+  scheme ls some_directory \
   -lR
 ```
 
