@@ -510,7 +510,7 @@ episodes  seasons  series  some_directory  .sys
 Чтобы посмотреть подробную информацию, добавьте флаг `-l`:
 
 ```bash
-{{ ydb-cli } \
+{{ ydb-cli }} \
   --endpoint <эндпоинт> \
   --database <база данных> \
   scheme ls \
