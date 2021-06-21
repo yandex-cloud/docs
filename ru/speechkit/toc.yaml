@@ -19,6 +19,8 @@ items:
         href: stt/formats.md
       - name: Модели распознавания
         href: stt/models.md
+      - name: Расширение модели распознавания речи
+        href: additional-training.md
   - name: Синтез речи
     items:
       - name: О технологии

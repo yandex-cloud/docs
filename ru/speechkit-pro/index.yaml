@@ -13,6 +13,3 @@ links:
 - title: "Распознавание аудио с помощью Cloud STT API"
   description: "Пройдите сценарий"
   href: "recognize-api"
-- title: "Расширение модели распознавания речи"
-  description: "Дополнительные возможности повысить качество распознавания"
-  href: "additional-training"
