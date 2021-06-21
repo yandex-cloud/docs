@@ -51,6 +51,8 @@ items:
         href: concepts/sharding.md
       - name: Supported clients
         href: concepts/supported-clients.md
+      - name: MongoDB settings
+        href: concepts/settings-list.md
   - name: Access management
     href: security/index.md
   - name: Resources and quotas

@@ -6,23 +6,23 @@ After creating a cluster, you can:
 
 - [Increase the storage size](#change-disk-size) (available only for network storage, `network-hdd`, and `network-ssd`).
 
-- [Configure {{ MG }} servers](change-mongod-config) according to the [{{ MG }} documentation](https://docs.mongodb.com/manual/reference/configuration-options/).
+- [Configure {{ MG }} servers](#change-mongod-config) according to the [{{ MG }} documentation](https://docs.mongodb.com/manual/reference/configuration-options/).
 
 - [Change additional cluster settings](#change-additional-settings).
 
 - [{#T}](#change-sg-set).
 
-## Change the host class {#change-resource-preset}
+## Changing the host class {#change-resource-preset}
 
 {% list tabs %}
 
-* Management console
+- Management console
   1. Go to the folder page and select **{{ mmg-name }}**.
   1. Select the cluster and click **Edit cluster** in the top panel.
   1. To change the class of {{ MG }} hosts, under **Host class**, select the required class.
   1. Click **Save changes**.
 
-* CLI
+- CLI
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -78,7 +78,7 @@ After creating a cluster, you can:
 
       {{ mmg-short-name }} will run the update host class command for the cluster.
 
-* API
+- API
 
   You can change the cluster [host class](../concepts/instance-types.md) using the API's [update](../api-ref/Cluster/update.md) method: pass the appropriate values in the request parameter `configSpec.mongodbSpec_3_64_2.mongod.configresources.resourcePresetId`.
 
@@ -90,13 +90,13 @@ After creating a cluster, you can:
 
 {% list tabs %}
 
-* Management console
+- Management console
   1. Go to the folder page and select **{{ mmg-name }}**.
   1. Select the cluster and click **Edit cluster** in the top panel.
   1. Under **Storage size**, specify the required value.
   1. Click **Save changes**.
 
-* CLI
+- CLI
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -141,7 +141,7 @@ After creating a cluster, you can:
 
       If all these conditions are met, {{ mmg-short-name }} launches the operation to increase storage space.
 
-* API
+- API
 
   You can change the storage size for a cluster using the API [update](../api-ref/Cluster/update.md) method: pass the appropriate values in the request parameter `configSpec.mongodbSpec_4_2.mongod.resources.diskSize`.
 
@@ -155,31 +155,25 @@ You can change the DBMS settings of the hosts in your cluster.
 
 {% list tabs %}
 
-* Management console
-
+- Management console
   1. Go to the folder page and select **{{ mmg-name }}**.
-
   1. Select the cluster and click **Edit cluster** in the top panel.
-
-  1. Change the {{ MG }} settings by clicking **Configure** under **DBMS settings**:
-
-      {% include [mmg-dbms-settings](../../_includes/mdb/mmg-dbms-settings.md) %}
-
+  1. Change the [{{ MG }} settings](../concepts/settings-list.md#dbms-cluster-settings) by clicking **Configure** under **DBMS settings**:
   1. Click **Save changes**.
 
-* CLI
+- CLI
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To change the DBMS settings for a cluster, use the command:
+  To update the [{{ MG }} settings](../concepts/settings-list.md#dbms-cluster-settings) for a cluster, run the command:
 
   ```
   $ {{ yc-mdb-mg }} cluster update-config
   ```
 
-  For example, to set [net.maxIncomingConnections](https://docs.mongodb.com/manual/reference/configuration-options/#net.maxIncomingConnections) to `4096`, run the following command:
+  For example, to set [net.maxIncomingConnections](https://docs.mongodb.com/manual/reference/configuration-options/#mongodb-setting-net.maxIncomingConnections) to `4096`, run the following command:
 
   ```
   $ {{ yc-mdb-mg }} cluster update-config <cluster name>
@@ -188,9 +182,9 @@ You can change the DBMS settings of the hosts in your cluster.
 
   {{ mmg-short-name }} will run the update DBMS settings command for the cluster. If the setting being changed is only applied when the database is restarted, {{ mmg-short-name }} sequentially restarts the database on all the cluster hosts.
 
-* API
+- API
 
-  You can update DBMS settings for a cluster using the API [update](../api-ref/Cluster/update.md) method: pass the appropriate values in the request parameter `configSpec.mongodbSpec_4_2.mongod.config`.
+  You can update the [{{ MG }} settings](../concepts/settings-list.md#dbms-cluster-settings) for a cluster using the [update](../api-ref/Cluster/update.md) API method: pass the appropriate values in the request parameter `configSpec.mongodbSpec_4_2.mongod.config`.
 
   All supported settings are described [in the API reference](../api-ref/Cluster/update.md).
 
@@ -200,7 +194,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
 {% list tabs %}
 
-* Management console
+- Management console
 
   1. Go to the folder page and select **{{ mmg-name }}**.
 
@@ -212,7 +206,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
   1. Click **Save changes**.
 
-* CLI
+- CLI
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 

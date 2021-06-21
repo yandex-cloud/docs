@@ -40,7 +40,7 @@ In April 2021, all existing clusters with this {{ MG }} version will be [forcibl
   1. Select the host class that defines the technical specifications of the VMs where the DB hosts will be deployed. When you change the host class for the cluster, the characteristics of all existing hosts change, too.
 
   1. Under **Storage size**:
-      - Select the type of storage, either a more flexible network type (**network-hdd** or **network-ssd**) or faster local SSD storage (**local-ssd**). The size of the local storage can only be changed in 100 GB increments.
+      - Choose the [type of storage](../concepts/storage.md), either a more flexible network type (**network-hdd** or **network-ssd**) or faster local SSD storage (**local-ssd**). The size of the local storage can only be changed in 100 GB increments.
       - Select the size to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
 
   1. Under **Database**, specify the DB attributes:
@@ -48,17 +48,15 @@ In April 2021, all existing clusters with this {{ MG }} version will be [forcibl
       - Username.
       - User password. At least 8 characters.
 
-  1. Under **Network settings**, select the cloud network to host the cluster in and security groups for cluster network traffic. You may need to additionally [set up the security groups](connect.md#configuring-security-groups) to connect to the cluster.
+  1. Under **Network settings**, select the cloud network to host the cluster in and security groups for cluster network traffic. You may need to additionally [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
 
   1. Under **Hosts**, select parameters for the database hosts created with the cluster (keep in mind that if you use SSDs when creating a {{ MG }} cluster, you can set at least three hosts). If you open **Advanced settings**, you can choose specific subnets for each host. By default, each host is created in a separate subnet.
 
   1. If necessary, configure additional cluster settings:
 
-     {% include [mmg-extra-settings](../../_includes/mdb/mmg-extra-settings-web-console.md) %}
+     {% include [mmg-extra-settings](../../_includes/mdb/mmg-extra-settings.md) %}
 
-  1. If necessary, configure additional DBMS settings:
-
-      {% include [mmg-dbms-settings](../../_includes/mdb/mmg-dbms-settings.md) %}
+  1. If necessary, configure the [DBMS settings](../concepts/settings-list.md#dbms-cluster-settings).
 
   1. Click **Create cluster**.
 
@@ -139,6 +137,21 @@ In April 2021, all existing clusters with this {{ MG }} version will be [forcibl
      Example configuration file structure:
 
      ```hcl
+     terraform {
+       required_providers {
+         yandex = {
+           source = "yandex-cloud/yandex"
+         }
+       }
+     }
+     
+     provider "yandex" {
+       token = "<OAuth or static key of service account>"
+       cloud_id  = "<cloud ID>"
+       folder_id = "<folder ID>"
+       zone      = "<availability zone>"
+     }
+     
      resource "yandex_mdb_mongodb_cluster" "<cluster name>" {
        name               = "<cluster name>"
        environment        = "<PRESTABLE or PRODUCTION>"
@@ -146,7 +159,7 @@ In April 2021, all existing clusters with this {{ MG }} version will be [forcibl
        security_group_ids = [ "<list of security groups>" ]
      
        cluster_config {
-         version = "MongoDB version: 4.0, 4.2 or 4.4"
+         version = "<MongoDB version: 4.0, 4.2, or 4.4>"
        }
      
        database {
@@ -168,7 +181,7 @@ In April 2021, all existing clusters with this {{ MG }} version will be [forcibl
        }
      
        host {
-         zone_id           = "<availability zone>"
+         zone_id   = "<availability zone>"
          subnet_id = "<subnet ID>"
        }
      }
@@ -273,21 +286,29 @@ If you specified security group IDs when creating a cluster, you may also need t
 - Terraform
 
   Let's say we need to create a {{ MG }} cluster and a network for it with the following characteristics:
-  - Named `mymg`.
-  - Version `4.4`.
-  - In the `PRODUCTION` environment.
-  - In the cloud with the ID `{{ tf-cloud-id }}`.
-  - In the folder with the ID `{{ tf-folder-id }}`.
-  - Network: `mynet`.
-  - With 1 `{{ host-class }}` class host in the new `mysubnet` subnet and `{{ zone-id }}` availability zone. The `mysubnet` subnet will have the range `10.5.0.0/24`.
-  - In the new security group `mymg-sg` allowing TCP connections to the cluster from the internet via port `{{ port-mmg }}`.
-  - With 20 GB fast network storage (`{{ disk-type-example }}`).
-  - With one user, `user1`, with the password `user1user1`.
-  - With one database, `db1`.
+    - Named `mymg`.
+    - Version `4.4`.
+    - In the `PRODUCTION` environment.
+    - In the cloud with the ID `{{ tf-cloud-id }}`.
+    - In the folder with the ID `{{ tf-folder-id }}`.
+    - Network: `mynet`.
+    - With 1 `{{ host-class }}` class host in the new `mysubnet` subnet and `{{ zone-id }}` availability zone. The `mysubnet` subnet will have the range `10.5.0.0/24`.
+    - In the new security group `mymg-sg` allowing TCP connections to the cluster from the internet via port `{{ port-mmg }}`.
+    - With 20 GB fast network storage (`{{ disk-type-example }}`).
+    - With one user, `user1`, with the password `user1user1`.
+    - With one database, `db1`.
 
   The configuration file for the cluster looks like this:
 
-  ```hcl
+  ```go
+  terraform {
+    required_providers {
+      yandex = {
+        source = "yandex-cloud/yandex"
+      }
+    }
+  }
+  
   provider "yandex" {
     token = "<OAuth or static key of service account>"
     cloud_id  = "{{ tf-cloud-id }}"
@@ -329,7 +350,9 @@ If you specified security group IDs when creating a cluster, you may also need t
     }
   }
   
-  resource "yandex_vpc_network" "mynet" { name = "mynet" }
+  resource "yandex_vpc_network" "mynet" {
+    name = "mynet"
+  }
   
   resource "yandex_vpc_security_group" "mymg-sg" {
     name       = "mymg-sg"
