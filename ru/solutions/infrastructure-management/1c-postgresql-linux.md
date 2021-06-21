@@ -270,7 +270,7 @@ $ systemctl status srv1cv83
 
 ## Настройте Samba-сервер для сервера лицензий {#set-up-samba-for-license-server}
 
-[Подключитесь](../../compute/operations/vm-connect/ssh.md) к ВМ `server-1c` по SSH. 
+[Подключитесь](../../compute/operations/vm-connect/ssh.md) к ВМ `licensing-server-1c` по SSH. 
 
 1. Установите Samba, необходимые зависимости и текстовый редактор `nano`:
    
@@ -294,7 +294,7 @@ $ systemctl status srv1cv83
 
    ```
    NETWORKING_IPv6=no
-   HOSTNAME=server-1c
+   HOSTNAME=licensing-server-1c
    ```
 
 1. Настройте общий каталог. Для этого откройте файл конфигурации Samba:
@@ -357,7 +357,7 @@ $ systemctl status srv1cv83
    $ sudo systemctl restart smb.service
    ```
 
-## Установите сервер «1С:Предприятия» для сервиса лицензий {#setup-1c-license-server} 
+## Установите сервер «1С:Предприятия» для сервера лицензий {#setup-1c-license-server} 
 
 Установите сервер «1С:Предприятия» на ВМ:
 
