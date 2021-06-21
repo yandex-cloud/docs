@@ -114,7 +114,7 @@ yc managed-kubernetes node-group add-metadata \
 
 ## Получите публичный IP-адрес узла {#node-public-ip}
 
-Для подключения необходимо указать [публичный IP-адрес](../../vpc/concepts/address.md#publichnye-adresa) узла. Его можно узнать одним из следующих способов.
+Для подключения необходимо указать [публичный IP-адрес](../../vpc/concepts/address.md#public-addresses) узла. Его можно узнать одним из следующих способов.
 
 {% list tabs %}
 
