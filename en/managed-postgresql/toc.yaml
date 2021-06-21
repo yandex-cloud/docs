@@ -33,7 +33,7 @@ items:
         href: operations/grant.md
       - name: Managing backups
         href: operations/cluster-backups.md
-      - name: Deleting clusters
+      - name: Deleting a cluster
         href: operations/cluster-delete.md
       - name: Performance diagnostics
         href: operations/performance-diagnostics.md
@@ -41,7 +41,8 @@ items:
         href: operations/data-migration.md
       - name: Monitoring the state of a cluster and hosts
         href: operations/monitoring.md
-      - name: Creating a logical replica of Amazon RDS for PostgreSQL in Managed Service for PostgreSQL
+      - name: >-
+          Creating a logical replica of Amazon RDS for PostgreSQL in Managed Service for PostgreSQL
         href: operations/logical-replica-from-rds.md
   - name: Use cases
     items:
@@ -54,7 +55,15 @@ items:
       - name: Relationship between service resources
         href: concepts/index.md
       - name: Host classes
-        href: concepts/instance-types.md
+        items:
+          - name: Active host classes
+            href: concepts/instance-types.md
+          - name: Archive
+            items:
+              - name: Before June 1, 2020
+                href: concepts/instance-types-archive/instance-types-01062020.md
+          - name: Using deprecated host classes
+            href: concepts/using-deprecated-instances.md
       - name: Network in Yandex Managed Service for PostgreSQL
         href: concepts/network.md
       - name: Quotas and limits
@@ -71,6 +80,8 @@ items:
         href: concepts/replication.md
       - name: Supported clients
         href: concepts/supported-clients.md
+      - name: PostgreSQL settings
+        href: concepts/settings-list.md
   - name: Access management
     href: security/index.md
   - name: Resources and quotas

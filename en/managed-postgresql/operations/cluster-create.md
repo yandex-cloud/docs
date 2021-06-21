@@ -18,7 +18,7 @@ The number of hosts that can be created with a {{ PG }} cluster depends on the s
 
 {% endif %}
 
-By default, {{ mpg-short-name }} limits the maximum number of connections to each {{ PG }} cluster host. This maximum is calculated as follows: `200 × <number of vCPUs per host>`. For example, for a [s1.micro class](../concepts/instance-types.md) cluster, the `max_connections` default parameter value is 400 and can't be increased.
+By default, {{ mpg-short-name }} sets the maximum number of connections to each {{ PG }} cluster host. This maximum cannot be greater than the value of [Max connections](../concepts/settings-list.md#setting-max-connections).
 
 {% include [note-pg-user-connections.md](../../_includes/mdb/note-pg-user-connections.md) %}
 
@@ -53,7 +53,7 @@ By default, {{ mpg-short-name }} limits the maximum number of connections to eac
 
 {% if audience != "internal" %}
 
-      - Select the type of storage, either a more flexible network type (**network-hdd** or **network-ssd**) or faster local SSD storage (**local-ssd**). The size of the local storage can only be changed in 100 GB increments. 
+      - Select the type of storage, either a more flexible network type (`network-hdd` or `network-ssd`) or faster local SSD storage (`local-ssd`). The size of the local storage can only be changed in 100 GB increments.
 
 {% endif %}
 
@@ -78,6 +78,8 @@ By default, {{ mpg-short-name }} limits the maximum number of connections to eac
   1. If necessary, configure additional cluster settings:
 
      {% include [mpg-extra-settings](../../_includes/mdb/mpg-extra-settings-web-console.md) %}
+
+  1. If required, configure [DBMS cluster-level settings](../concepts/settings-list.md#dbms-cluster-settings).
 
   1. Click **Create cluster**.
 
@@ -160,14 +162,8 @@ By default, {{ mpg-short-name }} limits the maximum number of connections to eac
       - Replication source for the host in the `replication-source` option to [manually manage replication threads](../concepts/replication.md#replication-manual).
       - Host priority in the `priority` option to [influence the selection of a synchronous replica](../concepts/replication.md#selecting-the-master-and-a-synchronous-replica):
         - The host with the highest priority value in the cluster becomes the synchronous replica.
-        - If the cluster has multiple hosts with the highest priority, the synchronous replica is elected from among them. 
+        - If the cluster has multiple hosts with the highest priority, the synchronous replica is elected from among them.
         - The lowest priority value is `0` (default) and the highest is `100`.
-      
-      {% note warning %}
-      
-      When using the `--security-group-ids` option, you may need to [set up the security groups](connect.md#configuring-security-groups) to connect to the cluster.
-      
-      {% endnote %}  
 
 - Terraform
 
@@ -178,8 +174,9 @@ By default, {{ mpg-short-name }} limits the maximum number of connections to eac
   To create a cluster:
 
   1. In the configuration file, describe the parameters of resources that you want to create:
-
-     {% include [terraform-create-cluster-step-1](../../_includes/mdb/terraform-create-cluster-step-1.md) %}
+     * Database cluster: Description of the cluster and its hosts. If required, here you can also configure [DBMS settings](../concepts/settings-list.md#dbms-cluster-settings).
+     * Network: Description of the [cloud network](../../vpc/concepts/network.md#network) where the cluster will be located. If you already have a suitable network, you don't need to describe it again.
+     * Subnets: Description of the [subnets](../../vpc/concepts/network.md#network) to connect the cluster hosts to. If you already have suitable subnets, you don't need to describe them again.
 
      Example configuration file structure:
 
@@ -238,6 +235,12 @@ By default, {{ mpg-short-name }} limits the maximum number of connections to eac
      {% include [terraform-create-cluster-step-3](../../_includes/mdb/terraform-create-cluster-step-3.md) %}
 
 {% endlist %}
+
+{% note warning %}
+      
+ When using the `--security-group-ids` option, you may need to [set up the security groups](connect.md#configuring-security-groups) to connect to the cluster.
+ 
+ {% endnote %}
 
 ## Examples {#examples}
 
