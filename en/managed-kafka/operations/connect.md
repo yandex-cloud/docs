@@ -110,6 +110,3 @@ Before connecting to cluster hosts over an SSL connection, [prepare a certificat
 {% include [see-fqdn-in-console](../../_includes/mdb/see-fqdn-in-console.md) %}
 
 {% include [mkf-connection-strings](../../_includes/mdb/mkf-conn-strings.md) %}
-
-First, launch the consumer application that will continuously read new messages from the topic. Then launch the producer application that will send one or more `test message` messages with the `key` key to the {{ KF }} topic. The consumer application displays messages sent to the topic.
-

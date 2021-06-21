@@ -1,59 +1,50 @@
+### Bash {#bash}
+
+Before connecting:
+
+1. Install the dependencies:
+
+    ```bash
+    sudo apt update && \
+    sudo apt install python3-pip python-is-python3 && \
+    pip3 install mssql-cli && \
+    source ~/.profile
+    ```
+
+1. By default, Microsoft collects anonymous data about the use of the `mssql-cli` client utility. For more information, see the [mssql-cli documentation](https://github.com/dbcli/mssql-cli/blob/master/doc/telemetry_guide.md). To disable automatic data collection, run:
+
+    ```bash
+    export MSSQL_CLI_TELEMETRY_OPTOUT=True
+    ```
+
 {% list tabs %}
 
-- Bash
-
-  1. Install the dependencies:
-
-      ```bash
-      $ sudo apt update && \
-      sudo apt install python3-pip python-is-python3 && \
-      pip3 install mssql-cli && \
-      source ~/.profile
-      ```
-
-  1. By default, Microsoft collects anonymous data about the use of the `mssql-cli` client utility. For more information, see the [mssql-cli documentation](https://github.com/dbcli/mssql-cli/blob/master/doc/telemetry_guide.md). To disable automatic data collection, run:
-
-      ```bash
-      $ export MSSQL_CLI_TELEMETRY_OPTOUT=True
-      ```
+- Connecting without using SSL
 
   1. Connect to a database:
 
       ```bash
-      $ mssql-cli -U <username> \
+      mssql-cli -U <username> \
                 -d <database name> \
                 -S <FQDN of the host>,1433
       ```
 
       After running the command, enter the user password to complete the connection procedure.
 
-  1. To check that the connection is successful, request the {{ MS }} DBMS version:
+  1. To check the connection, run the following query:
 
       ```bash
       SELECT @@version;
       ```
 
-- Bash (SSL)
+      The {{ MS }} DBMS version will be displayed.
 
-  1. Install the dependencies:
-
-      ```bash
-      $ sudo apt update && \
-      sudo apt install python3-pip python-is-python3 && \
-      pip3 install mssql-cli && \
-      source ~/.profile
-      ```
-
-  1. By default, Microsoft collects anonymous data about the use of the `mssql-cli` client utility. For more information, see the [mssql-cli documentation](https://github.com/dbcli/mssql-cli/blob/master/doc/telemetry_guide.md). To disable automatic data collection, run:
-
-      ```bash
-      $ export MSSQL_CLI_TELEMETRY_OPTOUT=True
-      ```
+- Connecting via SSL
 
   1. Connect to a database:
 
       ```bash
-      $ mssql-cli -U <username> \
+      mssql-cli -U <username> \
                 -d <database name> \
                 -S <FQDN of the host>,1433 \
                 -N
@@ -61,28 +52,36 @@
 
       After running the command, enter the user password to complete the connection procedure.
 
-  1. To check that the connection is successful, request the {{ MS }} DBMS version:
+  1. To check the connection, run the following query:
 
       ```bash
       SELECT @@version;
       ```
 
-- C#
+      The {{ MS }} DBMS version will be displayed.
 
-  1. Install the dependencies:
+{% endlist %}
 
-      ```bash
-      $ sudo apt update && \
-      sudo apt install mono-complete nuget && \
-      sudo nuget update -self && \
-      nuget install System.Data.SqlClient
-      ```
+### C# {#csharp}
+
+Before connecting, install the dependencies:
+
+```bash
+sudo apt update && \
+sudo apt install mono-complete nuget && \
+sudo nuget update -self && \
+nuget install System.Data.SqlClient
+```
+
+{% list tabs %}
+
+- Connecting without using SSL
 
   1. Code example:
 
       `connect.cs`
 
-      ```С#
+      ```csharp
       using System;
       using System.Data.SqlClient;
       
@@ -128,28 +127,19 @@
   1. Building and connecting:
 
       ```bash
-      $ mcs connect.cs -r:System.Data.dll && \
+      mcs connect.cs -r:System.Data.dll && \
       mono connect.exe
       ```
 
       If the connection to the cluster and the test query are successful, the {{ MS }} version is output.
 
-- C# (SSL)
-
-  1. Install the dependencies:
-
-      ```bash
-      $ sudo apt update && \
-      sudo apt install mono-complete nuget && \
-      sudo nuget update -self && \
-      nuget install System.Data.SqlClient
-      ```
+- Connecting via SSL
 
   1. Code example:
 
       `connect.cs`
 
-      ```С#
+      ```csharp
       using System;
       using System.Data.SqlClient;
       
@@ -195,152 +185,203 @@
   1. Building and connecting:
 
       ```bash
-      $ mcs connect.cs -r:System.Data.dll && \
+      mcs connect.cs -r:System.Data.dll && \
       mono connect.exe
       ```
 
       If the connection to the cluster and the test query are successful, the {{ MS }} version is output.
 
-{% if audience == "internal" %}
+{% endlist %}
 
-- Python
-  1. Install the dependencies:
+### Go {#go}
 
-      ```bash
-      $ sudo apt install unixodbc unixodbc-dev && \
-      pip3 install pyodbc && \
-      curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add - && \
-      curl https://packages.microsoft.com/config/ubuntu/20.04/prod.list | sudo tee /etc/apt/sources.list.d/mssql-release.list && \
-      sudo apt update && \
-      sudo ACCEPT_EULA=Y apt install msodbcsql17
-      ```
+Before connecting, install the dependencies:
+
+```bash
+go get github.com/denisenkom/go-mssqldb
+```
+
+{% list tabs %}
+
+- Connecting without using SSL
 
   1. Code example:
 
-      `connect.py`
+      `connect.go`
 
-      ```python
-      import pyodbc
+      ```go
+      package main
       
-      conn = pyodbc.connect(
-          driver='{ODBC Driver 17 for SQL Server}',
-          server='<host FQDN>,1433',
-          database='<database name>',
-          uid='<username>',
-          pwd='<user password>',
-          encrypt='yes',
-          trust_server_certificate='no')
+      import (
+          _ "github.com/denisenkom/go-mssqldb"
+          "database/sql"
+          "fmt"
+      )
       
-      cursor = conn.cursor()
-      cursor.execute("SELECT @@version;")
-      
-      row = cursor.fetchone()
-      while row:
-          print(row[0])
-          row = cursor.fetchone()
-      
-      conn.close()
+      func main() {
+          connStr := `
+                  server=<FQDN of the host>;
+                  port=1433;
+                  database=<database name>;
+                  user id=<username>;
+                  password=<user password>
+          `
+          conn, err := sql.Open("sqlserver", connStr)
+          if err != nil {
+            fmt.Printf("Error creating connection: ", err.Error())
+          }
+          fmt.Printf("Connected!\n")
+          conn.Close()
+      }
       ```
 
   1. Connecting:
 
-      ```bash
-      $ python3 connect.py
+     ```bash
+     go run connect.go
+     ```
+
+     If you are connected to the cluster, a message will display saying `Connected!`.
+
+- Connecting without using SSL
+
+  1. Code example:
+
+      `connect.go`
+
+      ```go
+      package main
+      
+      import (
+          _ "github.com/denisenkom/go-mssqldb"
+          "database/sql"
+          "fmt"
+      )
+      
+      func main() {
+          connStr := `
+                  server=<FQDN of the host>;
+                  port=1433;
+                  database=<database name>;
+                  user id=<username>;
+                  password=<user password>;
+                  encrypt=true;
+                  TrustServerCertificate=false
+          `
+          conn, err := sql.Open("sqlserver", connStr)
+          if err != nil {
+            fmt.Printf("Error creating connection: ", err.Error())
+          }
+          fmt.Printf("Connected!\n")
+          conn.Close()
+      }
       ```
 
-      If the connection to the cluster and the test query are successful, the {{ MS }} version is output.
+  1. Connecting:
 
-{% endif %}
+     ```bash
+     go run connect.go
+     ```
 
-- Java
+     If you are connected to the cluster, a message will display saying `Connected!`.
 
-  1. Install the dependencies:
+{% endlist %}
 
-      ```bash
-      $ sudo apt install default-jdk maven
-      ```
+### Java {#java}
 
-  1. Create a folder for the Maven project:
+Before connecting:
 
-      ```bash
-      $ cd ~/ && mkdir -p project/src/java/com/example && cd project/
-      ```
+1. Install the dependencies:
 
-  1. Create a configuration file for Maven:
+    ```bash
+    sudo apt install default-jdk maven
+    ```
 
-      {% cut "pom.xml" %}
+1. Create a folder for the Maven project:
 
-      ```xml
-      <?xml version="1.0" encoding="UTF-8"?>
-      <project
-          xmlns="http://maven.apache.org/POM/4.0.0"
-          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-          <modelVersion>4.0.0</modelVersion>
-          <groupId>com.example</groupId>
-          <artifactId>app</artifactId>
-          <packaging>jar</packaging>
-          <version>0.1.0</version>
-          <properties>
-              <maven.compiler.source>1.8</maven.compiler.source>
-              <maven.compiler.target>1.8</maven.compiler.target>
-          </properties>
-          <dependencies>
-              <dependency>
-                  <groupId>com.microsoft.sqlserver</groupId>
-                  <artifactId>mssql-jdbc</artifactId>
-                  <version>8.4.0.jre11</version>
-              </dependency>
-      	  </dependencies>
-      	<build>
-          	<finalName>${project.artifactId}-${project.version}</finalName>
-          	<sourceDirectory>src</sourceDirectory>
-      		<resources>
-          		<resource>
-         	     	<directory>src</directory>
-          		</resource>
-          	</resources>
-         	<plugins>
-         		<plugin>
-             		<groupId>org.apache.maven.plugins</groupId>
-             		<artifactId>maven-assembly-plugin</artifactId>
-             		<executions>
-             			<execution>
-             				<goals>
-         	    				<goal>attached</goal>
-             				</goals>
-         	    			<phase>package</phase>
-         	    			<configuration>
-         		    			<descriptorRefs>
-         			    			<descriptorRef>jar-with-dependencies</descriptorRef>
-         		    			</descriptorRefs>
-         			    		<archive>
-         			    			<manifest>
-         			    				<mainClass>com.example.App</mainClass>
-         			    			</manifest>
-         	    				</archive>
-         	    			</configuration>
-         	    		</execution>
-      	    		</executions>
-         		</plugin>
-      			<plugin>
-          			<groupId>org.apache.maven.plugins</groupId>
-             		<artifactId>maven-jar-plugin</artifactId>
-          			<version>3.1.0</version>
-         			<configuration>
-             			<archive>
-             				<manifest>
-              					<mainClass>com.example.App</mainClass>
-          	     			</manifest>
-         	    		</archive>
-         			</configuration>
-         		</plugin>
-         	</plugins>
-         </build>
-      </project>
-      ```
+    ```bash
+    cd ~/ && mkdir -p project/src/java/com/example && cd project/
+    ```
 
-      {% endcut %}
+1. Create a configuration file for Maven:
+
+    {% cut "pom.xml" %}
+
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <project
+        xmlns="http://maven.apache.org/POM/4.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+        <modelVersion>4.0.0</modelVersion>
+        <groupId>com.example</groupId>
+        <artifactId>app</artifactId>
+        <packaging>jar</packaging>
+        <version>0.1.0</version>
+        <properties>
+            <maven.compiler.source>1.8</maven.compiler.source>
+            <maven.compiler.target>1.8</maven.compiler.target>
+        </properties>
+        <dependencies>
+            <dependency>
+                <groupId>com.microsoft.sqlserver</groupId>
+                <artifactId>mssql-jdbc</artifactId>
+                <version>8.4.0.jre11</version>
+            </dependency>
+    	  </dependencies>
+    	<build>
+        	<finalName>${project.artifactId}-${project.version}</finalName>
+        	<sourceDirectory>src</sourceDirectory>
+    		<resources>
+        		<resource>
+       	     	<directory>src</directory>
+        		</resource>
+        	</resources>
+       	<plugins>
+       		<plugin>
+           		<groupId>org.apache.maven.plugins</groupId>
+           		<artifactId>maven-assembly-plugin</artifactId>
+           		<executions>
+           			<execution>
+           				<goals>
+       	    				<goal>attached</goal>
+           				</goals>
+       	    			<phase>package</phase>
+       	    			<configuration>
+       		    			<descriptorRefs>
+       			    			<descriptorRef>jar-with-dependencies</descriptorRef>
+       		    			</descriptorRefs>
+       			    		<archive>
+       			    			<manifest>
+       			    				<mainClass>com.example.App</mainClass>
+       			    			</manifest>
+       	    				</archive>
+       	    			</configuration>
+       	    		</execution>
+    	    		</executions>
+       		</plugin>
+    			<plugin>
+        			<groupId>org.apache.maven.plugins</groupId>
+           		<artifactId>maven-jar-plugin</artifactId>
+        			<version>3.1.0</version>
+       			<configuration>
+           			<archive>
+           				<manifest>
+            					<mainClass>com.example.App</mainClass>
+        	     			</manifest>
+       	    		</archive>
+       			</configuration>
+       		</plugin>
+       	</plugins>
+       </build>
+    </project>
+    ```
+
+    {% endcut %}
+
+{% list tabs %}
+
+- Connecting without using SSL
 
   1. Code example:
 
@@ -383,108 +424,13 @@
   1. Building and connecting:
 
       ```bash
-      $ mvn clean package && \
+      mvn clean package && \
       java -jar target/app-0.1.0-jar-with-dependencies.jar
       ```
 
       If the connection to the cluster and the test query are successful, the {{ MS }} version is output.
 
-- Java (SSL)
-
-  1. Install the dependencies:
-
-      ```bash
-      $ sudo apt install default-jdk maven
-      ```
-
-  1. Add the SSL certificate to the Java trusted certificate store (Java Key Store) so that the {{ MS }} driver can use this certificate for secure connections to the cluster hosts. Make sure to set the password using the `-storepass` parameter for additional storage protection:
-
-      ```bash
-      $ cd /etc/security && \
-      sudo keytool -importcert -alias YandexCA -file /usr/local/share/ca-certificates/Yandex/YandexCA.crt -keystore ssl -storepass <certificate store password> --noprompt
-      ```
-
-  1. Create a folder for the Maven project:
-
-      ```bash
-      $ cd ~/ && mkdir -p project/src/java/com/example && cd project/
-      ```
-
-  1. Create a configuration file for Maven:
-
-      {% cut "pom.xml" %}
-
-      ```xml
-      <?xml version="1.0" encoding="UTF-8"?>
-      <project
-          xmlns="http://maven.apache.org/POM/4.0.0"
-          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-          <modelVersion>4.0.0</modelVersion>
-          <groupId>com.example</groupId>
-          <artifactId>app</artifactId>
-          <packaging>jar</packaging>
-          <version>0.1.0</version>
-          <properties>
-              <maven.compiler.source>1.8</maven.compiler.source>
-              <maven.compiler.target>1.8</maven.compiler.target>
-          </properties>
-          <dependencies>
-              <dependency>
-                  <groupId>com.microsoft.sqlserver</groupId>
-                  <artifactId>mssql-jdbc</artifactId>
-                  <version>8.4.0.jre11</version>
-              </dependency>
-      	  </dependencies>
-      	<build>
-          	<finalName>${project.artifactId}-${project.version}</finalName>
-          	<sourceDirectory>src</sourceDirectory>
-      		<resources>
-          		<resource>
-         	     	<directory>src</directory>
-          		</resource>
-          	</resources>
-         	<plugins>
-         		<plugin>
-             		<groupId>org.apache.maven.plugins</groupId>
-             		<artifactId>maven-assembly-plugin</artifactId>
-             		<executions>
-             			<execution>
-             				<goals>
-         	    				<goal>attached</goal>
-             				</goals>
-         	    			<phase>package</phase>
-         	    			<configuration>
-         		    			<descriptorRefs>
-         			    			<descriptorRef>jar-with-dependencies</descriptorRef>
-         		    			</descriptorRefs>
-         			    		<archive>
-         			    			<manifest>
-         			    				<mainClass>com.example.App</mainClass>
-         			    			</manifest>
-         	    				</archive>
-         	    			</configuration>
-         	    		</execution>
-      	    		</executions>
-         		</plugin>
-      			<plugin>
-          			<groupId>org.apache.maven.plugins</groupId>
-             		<artifactId>maven-jar-plugin</artifactId>
-          			<version>3.1.0</version>
-         			<configuration>
-             			<archive>
-             				<manifest>
-              					<mainClass>com.example.App</mainClass>
-          	     			</manifest>
-         	    		</archive>
-         			</configuration>
-         		</plugin>
-         	</plugins>
-         </build>
-      </project>
-      ```
-
-      {% endcut %}
+- Connecting via SSL
 
   1. Code example:
 
@@ -527,20 +473,70 @@
   1. Building and connecting:
 
       ```bash
-      $ mvn clean package && \
+      mvn clean package && \
       java -jar target/app-0.1.0-jar-with-dependencies.jar
       ```
 
       If the connection to the cluster and the test query are successful, the {{ MS }} version is output.
 
+{% endlist %}
+
 {% if audience == "internal" %}
 
-- PHP
+### Python {#python}
+
+  1. Install the dependencies:
+
+      ```bash
+      sudo apt install unixodbc unixodbc-dev && \
+      pip3 install pyodbc && \
+      curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add - && \
+      curl https://packages.microsoft.com/config/ubuntu/20.04/prod.list | sudo tee /etc/apt/sources.list.d/mssql-release.list && \
+      sudo apt update && \
+      sudo ACCEPT_EULA=Y apt install msodbcsql17
+      ```
+
+  1. Code example:
+
+      `connect.py`
+
+      ```python
+      import pyodbc
+      
+      conn = pyodbc.connect(
+          driver='{ODBC Driver 17 for SQL Server}',
+          server='<host FQDN>,1433',
+          database='<database name>',
+          uid='username',
+          pwd='<user password>',
+          encrypt='yes',
+          trust_server_certificate='no')
+      
+      cursor = conn.cursor()
+      cursor.execute("SELECT @@version;")
+      
+      row = cursor.fetchone()
+      while row:
+          print(row[0])
+          row = cursor.fetchone()
+      
+      conn.close()
+      ```
+
+  1. Connecting:
+
+      ```bash
+      python3 connect.py
+      ```
+
+      If the connection to the cluster and the test query are successful, the {{ MS }} version is output.
+
+### PHP {#php}
 
   1. Install the dependencies:
 
      ```bash
-     $ sudo apt update && \
+     sudo apt update && \
      sudo apt install php php-dev unixodbc unixodbc-dev && \
      sudo pecl channel-update pecl.php.net && \
      sudo pecl install pdo_sqlsrv sqlsrv && \
@@ -565,7 +561,7 @@
                 try
                 {
                     $serverName = "<host FQDN>,1433";
-                    $connectionInfo = array("UID" => "<username>", "pwd" => "<user password>", "Database" => "<database name>", "LoginTimeout" => 30, "Encrypt" => 0, "TrustServerCertificate" => 0);
+                    $connectionInfo = array("UID" => "<username>", "pwd" => "user password", "Database" => "<database name>", "LoginTimeout" => 30, "Encrypt" => 0, "TrustServerCertificate" => 0);
                     $conn = sqlsrv_connect($serverName, $connectionInfo);
                     if($conn == false)
                         echo print_r(sqlsrv_errors(), true);
@@ -600,75 +596,17 @@
   1. Connecting:
 
       ```bash
-      $ php connect.php
+      php connect.php
       ```
 
       If the connection to the cluster and the test query are successful, the {{ MS }} version is output.
 
-{% endif %}
-
-- Go
+### Node.js {#nodejs}
 
   1. Install the dependencies:
 
       ```bash
-      $ go get github.com/denisenkom/go-mssqldb
-      ```
-
-  1. Code example:
-
-      ```go
-      import (
-          _ "github.com/denisenkom/go-mssqldb"
-          "database/sql"
-      )
-      
-      connStr := `
-              server=<FQDN of the host>;
-              port=1433;
-              database=<database name>;
-              user id=<username>;
-              password=<user password>
-      `
-      conn, err := sql.Open("sqlserver", connStr)
-      ```
-
-- Go (SSL)
-
-  1. Install the dependencies:
-
-      ```bash
-      $ go get github.com/denisenkom/go-mssqldb
-      ```
-
-  1. Code example:
-
-      ```go
-      import (
-          _ "github.com/denisenkom/go-mssqldb"
-          "database/sql"
-      )
-      
-      connStr := `
-              server=<FQDN of the host>;
-              port=1433;
-              database=<database name>;
-              user id=<username>;
-              password=<user password>;
-              encrypt=true;
-              TrustServerCertificate=false
-      `
-      conn, err := sql.Open("sqlserver", connStr)
-      ```
-
-{% if audience == "internal" %}
-
-- Node.js
-
-  1. Install the dependencies:
-
-      ```bash
-      $ npm install tedious
+      npm install tedious
       ```
 
   1. Code example:
@@ -703,59 +641,79 @@
 
 {% endif %}
 
-- ODBC
+### ODBC {#odbc}
 
-  1. Install the dependencies:
+Before connecting, install the dependencies:
 
-      ```bash
-      $ sudo apt install unixodbc unixodbc-dev && \
-      curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add - && \
-      curl https://packages.microsoft.com/config/ubuntu/20.04/prod.list | sudo tee /etc/apt/sources.list.d/mssql-release.list && \
-      sudo apt update && \
-      sudo ACCEPT_EULA=Y apt install msodbcsql17
-      ```
+```bash
+sudo apt install unixodbc unixodbc-dev && \
+curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add - && \
+curl https://packages.microsoft.com/config/ubuntu/20.04/prod.list | sudo tee /etc/apt/sources.list.d/mssql-release.list && \
+sudo apt update && \
+sudo ACCEPT_EULA=Y apt install msodbcsql17
+```
 
-  1. Code example:
+The {{ MS }} ODBC driver will be registered automatically in `/etc/odbcinst.ini`.
 
-      ```
-      [sqlserver]
-      
-      Driver={ODBC Driver 17 for SQL Server};
-      Server=<FQDN of the host>,1433;
-      Database=<database name>;
-      Uid=<username>;
-      Pwd=<user password>;
-      Encrypt=no;
-      TrustServerCertificate=no;
-      Connection Timeout=30;
-      ```
+{% list tabs %}
 
-- ODBC (SSL)
+- Connecting without using SSL
 
-  1. Install the dependencies:
+  1. Example `/etc/odbc.ini` connection configuration file:
 
-      ```bash
-      $ sudo apt install unixodbc unixodbc-dev && \
-      curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add - && \
-      curl https://packages.microsoft.com/config/ubuntu/20.04/prod.list | sudo tee /etc/apt/sources.list.d/mssql-release.list && \
-      sudo apt update && \
-      sudo ACCEPT_EULA=Y apt install msodbcsql17
-      ```
+     `odbc.ini`
 
-  1. Code example:
+     ```ini
+     [sqlserver]
+     
+     Driver={ODBC Driver 17 for SQL Server};
+     Server=<FQDN of the host>,1433;
+     Database=<database name>;
+     Uid=<username>;
+     Pwd=<user password>;
+     Encrypt=no;
+     TrustServerCertificate=no;
+     Connection Timeout=30;
+     ```
 
-      ```
-      [sqlserver]
-      
-      Driver={ODBC Driver 17 for SQL Server};
-      Server=<FQDN of the host>,1433;
-      Database=<database name>;
-      Uid=<username>;
-      Pwd=<user password>;
-      Encrypt=yes;
-      TrustServerCertificate=no;
-      Connection Timeout=30;
-      ```
+  1. Connecting:
+
+     ```bash
+     isql -v postgresql
+     ```
+
+     Once connected to the DBMS, run `SELECT @@version;`.
+
+     If the connection to the cluster and the test query are successful, the {{ MS }} version is output.
+
+- Connecting via SSL
+
+  1. Example `/etc/odbc.ini` connection configuration file:
+
+     `odbc.ini`
+
+     ```ini
+     [sqlserver]
+     
+     Driver={ODBC Driver 17 for SQL Server};
+     Server=<FQDN of the host>,1433;
+     Database=<database name>;
+     Uid=<username>;
+     Pwd=<user password>;
+     Encrypt=yes;
+     TrustServerCertificate=no;
+     Connection Timeout=30;
+     ```
+
+  1. Connecting:
+
+     ```bash
+     isql -v postgresql
+     ```
+
+     Once connected to the DBMS, run `SELECT @@version;`.
+
+     If the connection to the cluster and the test query are successful, the {{ MS }} version is output.
 
 {% endlist %}
 
