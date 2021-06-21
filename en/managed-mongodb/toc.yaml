@@ -67,6 +67,8 @@ items:
         href: concepts/users-and-roles.md
       - name: Supported clients
         href: concepts/supported-clients.md
+      - name: MongoDB settings
+        href: concepts/settings-list.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

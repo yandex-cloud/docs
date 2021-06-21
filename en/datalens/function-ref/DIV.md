@@ -14,7 +14,7 @@ DIV( number_1, number_2 )
 ```
 
 #### Description {#description}
-Divides `number_1` by `number_1`. The result is rounded down to the nearest integer.
+Divides `number_1` by `number_2`. The result is rounded down to the nearest integer.
 
 **Argument types:**
 - `number_1` — `Fractional number | Integer`

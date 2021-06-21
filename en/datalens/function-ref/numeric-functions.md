@@ -81,7 +81,7 @@ Converts radians to degrees.
 
 **Syntax:**`DIV( number_1, number_2 )`
 
-Divides `number_1` by `number_1`. The result is rounded down to the nearest integer.
+Divides `number_1` by `number_2`. The result is rounded down to the nearest integer.
 
 
 

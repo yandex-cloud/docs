@@ -47,7 +47,7 @@ You can use SQL commands to assign privileges to users, but you can't use them t
      1. Click **Add** to the right of the drop-down list.
      1. Repeat the previous two steps until all the required databases are selected.
      1. To delete a database that was added by mistake, click ![image](../../_assets/cross.svg) to the right of the database name in the **Permissions** list.
-  1. Configure the [DBMS settings](#dbms-settings) for the user.
+  1. Configure the [DBMS settings](../concepts/settings-list.md#dbms-user-settings) for the user.
   1. Click **Add**.
 
 - CLI
@@ -68,7 +68,7 @@ You can use SQL commands to assign privileges to users, but you can't use them t
 
   This command configures only the main user settings.
 
-  To set the DBMS settings for the user, use the parameters described in [DBMS settings](#dbms-settings).
+  To customize the DBMS for the user, use the parameters described in [User settings](../concepts/settings-list.md#dbms-user-settings).
 
   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
 
@@ -134,7 +134,7 @@ For information on setting up user privileges and roles, see [{#T}](grant.md).
         1. Click **Add** to the right of the drop-down list.
         1. Repeat the previous two steps until all the required databases are selected.
      1. To revoke access to a specific database, remove it from the **Permissions** list by clicking ![image](../../_assets/cross.svg) to the right of the database name.
-  1. Change the [{{ PG }} settings](#dbms-settings) for the user under **DBMS settings**.
+  1. Change the [{{ PG }} settings](../concepts/settings-list.md#dbms-user-settings) for the user in **DBMS settings**.
   1. Click **Save**.
 
 - CLI
@@ -159,7 +159,7 @@ For information on setting up user privileges and roles, see [{#T}](grant.md).
 
      To revoke access to a specific database, remove its name from the list and pass the updated list to the command.
 
-  1. To change the [{{ PG }} settings](#dbms-settings) for the user, pass their parameters in the command:
+  1. To change the [{{ PG }} settings](../concepts/settings-list.md#dbms-user-settings) for the user, pass their parameters in the command:
 
      ```
      $ {{ yc-mdb-pg }} user update <username>
@@ -201,20 +201,4 @@ For information on setting up user privileges and roles, see [{#T}](grant.md).
 {% endlist %}
 
 {% include [user-ro](../../_includes/mdb/mpg-user-examples.md) %}
-
-## Additional settings {#dbms-settings}
-
-These settings affect the behavior of {{ PG }} when handling user queries.
-
-{% list tabs %}
-
-- Management console
-
-  {% include [console-dbms-settings](../../_includes/mdb/mpg-dbms-settings-console.md) %}
-
-- CLI
-
-  {% include [cli-dbms-settings](../../_includes/mdb/mpg-dbms-settings-cli.md) %}
-
-{% endlist %}
 

@@ -23,12 +23,12 @@ Prepare the keys for use with your node. To do this:
   1. Use the `ssh-keygen` command to create a new key:
 
      ```
-     $ ssh-keygen -t rsa -b 2048
+     ssh-keygen -t rsa -b 2048
      ```
 
      After the command runs, you will be asked to specify the names of files where the keys will be saved and enter the password for the private key. The default name is `id_rsa`. Keys are created in the `~./ssh` directory.
 
-     The public part of the key will be saved in a file with the name `<key name>.pub`.
+     The public part of the key will be saved in a file with the name `<key_name>.pub`.
 
 - Windows 10
 
@@ -37,12 +37,12 @@ Prepare the keys for use with your node. To do this:
   1. Use the `ssh-keygen` command to create a new key. Run the command:
 
      ```
-     $ ssh-keygen -t rsa -b 2048
+     ssh-keygen -t rsa -b 2048
      ```
 
-     After the command runs, you will be asked to specify the names of files where the keys will be saved and enter the password for the private key. The default name is `id_rsa`. Keys are created in the `C:\Users\<user name>\.ssh\` directory.
+     After the command runs, you will be asked to specify the names of files where the keys will be saved and enter the password for the private key. The default name is `id_rsa`. Keys are created in the `C:\Users\<user_name>\.ssh\` directory.
 
-     The public part of the key will be saved in a file with the name `<key name>.pub`.
+     The public part of the key will be saved in a file with the name `<key_name>.pub`.
 
 - Windows 7/8
 
@@ -98,18 +98,28 @@ username2:ssh-rsa ONEMOREkey***********88OavEHw== username2
 To create a node group with the necessary parameters, use the following command:
 
 ```
-$ yc managed-kubernetes node-group create \
---name <node group name> \
---cluster-name <Kubernetes cluster name>
---fixed-size <number of nodes in the group> \
---location zone=<availability zone>,subnet-name=<subnet name> \
+yc managed-kubernetes node-group create \
+--name <node_group_name> \
+--cluster-name <{{ k8s }}_cluster_name> \
+--fixed-size <number_of_nodes_in_the_group> \
+--location zone=<availability_zone>,subnet-name=<subnet_name> \
 --public-ip \
---metadata-from-file=ssh-keys=<name of the file with public keys> \
+--metadata-from-file=ssh-keys <name_of_the_file_with_public_keys> \
+```
+
+## Update node group keys {#node-add-metadata}
+
+To update the SSH keys of a node group, use the following command:
+
+```
+yc managed-kubernetes node-group add-metadata \
+--name <node group name> \
+--metadata-from-file=ssh-keys <name of the file with public keys> \
 ```
 
 ## Get the public IP address of the node {#node-public-ip}
 
-To connect, specify the [public IP address](../../vpc/concepts/address.md#publichnye-adresa) of the node. You can find it using one of the following methods.
+To connect, specify the [public IP address](../../vpc/concepts/address.md#public-addresses) of the node. You can find it using one of the following methods.
 
 {% list tabs %}
 
@@ -118,7 +128,12 @@ To connect, specify the [public IP address](../../vpc/concepts/address.md#public
   Use the following command for kubectl. The public IP address is listed in the `EXTERNAL-IP` column.
 
   ```
-  $ kubectl get nodes -o wide
+  kubectl get nodes -o wide
+  ```
+
+  Command execution result:
+
+  ```
   NAME                        STATUS   ROLES    AGE   VERSION   INTERNAL-IP   EXTERNAL-IP      OS-IMAGE             KERNEL-VERSION      CONTAINER-RUNTIME
   cl17i6943n92sb98jifg-itif   Ready    <none>   31m   v1.13.3   10.0.0.27     84.201.145.251   Ubuntu 18.04.1 LTS   4.15.0-29-generic   docker://18.6.2
   cl17i6943n92sb98jifg-ovah   Ready    <none>   31m   v1.13.3   10.0.0.22     84.201.149.184   Ubuntu 18.04.1 LTS   4.15.0-29-generic   docker://18.6.2
@@ -139,7 +154,12 @@ To connect, specify the [public IP address](../../vpc/concepts/address.md#public
       This parameter is shown in the `INSTANCE GROUP ID` column.
 
       ```
-      $ yc managed-kubernetes node-group list
+      yc managed-kubernetes node-group list
+      ```
+
+      Command execution result:
+
+      ```
       +----------------------+----------------------+----------------+----------------------+---------------------+---------+------+
       |          ID          |      CLUSTER ID      |      NAME      |  INSTANCE GROUP ID   |     CREATED AT      | STATUS  | SIZE |
       +----------------------+----------------------+----------------+----------------------+---------------------+---------+------+
@@ -152,7 +172,12 @@ To connect, specify the [public IP address](../../vpc/concepts/address.md#public
       The public IP address of the node is shown in the `IP` column after the `~` character.
 
       ```
-      $ yc compute instance-group list-instances cl17i6943n92sb98jifg
+      yc compute instance-group list-instances cl17i6943n92sb98jifg
+      ```
+
+      Command execution result:
+
+      ```
       +----------------------+---------------------------+--------------------------+---------------+----------------+
       |     INSTANCE ID      |           NAME            |            IP            |    STATUS     | STATUS MESSAGE |
       +----------------------+---------------------------+--------------------------+---------------+----------------+
@@ -174,7 +199,7 @@ You can connect to a node over SSH once it is started (with the `RUNNING` status
   In the terminal, run the following command:
 
   ```
-  $ ssh <username>@<public IP address of the node>
+  ssh <username>@<public_IP_address_of_the_node>
   ```
 
   If this is the first time you connect to the node, you might see a warning about an unknown host:

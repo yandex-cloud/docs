@@ -153,6 +153,14 @@ The settings you set manually will no longer change automatically. Exceptions ma
 
 {% list tabs %}
 
+- Management console
+
+  1. Go to the folder page and select **{{ mpg-name }}**.
+  1. Select the cluster and click **Edit cluster** in the top panel.
+  1. Change the [{{ PG }} settings](../concepts/settings-list.md) by clicking **Configure** under **DBMS settings**.
+  1. Click **Save**.
+  1. Click **Save changes**.
+
 - CLI
 
   {% include [cli-install](../../_includes/cli-install.md) %}
@@ -173,16 +181,16 @@ The settings you set manually will no longer change automatically. Exceptions ma
      $ {{ yc-mdb-pg }} cluster update-config --help
      ```
 
-  1. Set the required parameter values.
-
-      All supported parameters are listed in [the request format for the update method](../api-ref/Cluster/update.md), in the `postgresqlConfig_<version>` field. To specify the parameter name in the CLI's call, convert the name from <q>lowerCamelCase</q> to <q>snake_case</q>. For example, the `logMinDurationStatement` parameter from an API request should be converted to `log_min_duration_statement` for the CLI command:
+  1. Set the required parameter values:
 
       ```
       $ {{ yc-mdb-pg }} cluster update-config <cluster name>
-           --set log_min_duration_statement=100,<parameter name>=<value>,...
+           --set <parameter name1>=<value1>,...
       ```
 
       {{ mpg-short-name }} runs the update cluster settings operation.
+
+      All the supported parameters are listed in the [description of settings for {{ PG }}](../concepts/settings-list.md).
 
 - API
 
@@ -194,7 +202,7 @@ The settings you set manually will no longer change automatically. Exceptions ma
 
 {% list tabs %}
 
-- Management console
+* Management console
 
   1. Go to the folder page and select **{{ mpg-name }}**.
   1. Select the cluster and click **Edit cluster** in the top panel.
@@ -202,7 +210,7 @@ The settings you set manually will no longer change automatically. Exceptions ma
 
      {% include [mpg-extra-settings](../../_includes/mdb/mpg-extra-settings-web-console.md) %}
 
-- CLI
+* CLI
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -236,7 +244,7 @@ The settings you set manually will no longer change automatically. Exceptions ma
 
     You can get the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- API
+* API
 
   Use the [update](../api-ref/Cluster/update.md) API method and pass the required values in the `configSpec.access` and `configSpec.backupWindowStart` request parameters.
 
@@ -244,7 +252,7 @@ The settings you set manually will no longer change automatically. Exceptions ma
 
 ## Setting the operation mode for the connection pooler {#change-pooler-config}
 
-You can set session mode or transaction mode for the connection pooler. For more information, see [{#T}](../concepts/pooling.md).
+You can set session or transaction mode for the connection pooler. For more information, see [{#T}](../concepts/pooling.md).
 
 {% list tabs %}
 
@@ -279,12 +287,12 @@ You can set session mode or transaction mode for the connection pooler. For more
 
 ## Switching the master {#start-manual-failover}
 
-In a failover {{ PG }} cluster with multiple hosts, you can switch over the master role from the current master host to a replica host in the cluster. After this operation, the current master host becomes a replica host for the new master.
+In a failover {{ PG }} cluster with multiple hosts, you can switch the master role from the current master host to the cluster's replica host. After this operation, the current master host becomes the replica host of the new master.
 
 Specifics of switching master hosts in {{  mpg-name }}
 
-1. You can't switch the master host over to a replica that explicitly specifies the source of the replication thread.
-1. If you don't specify the replica host name explicitly, the master host will switch over to a synchronous replica.
+1. You can't switch the master host to a replica that the source of the replication thread is explicitly given for.
+1. If you don't specify the replica host name explicitly, the master host will switch to a synchronous replica.
 
 For more information, see [{#T}](../concepts/replication.md).
 
@@ -296,8 +304,8 @@ For more information, see [{#T}](../concepts/replication.md).
   1. Go to the folder page and select **{{ mpg-name }}**.
   1. Click on the name of the cluster you want and select the **Hosts** tab.
   1. Click **![image](../../_assets/pencil.svg) Switching the master**.
-  1. To switch the master to a synchronous replica, leave the **Select master host automatically** option enabled.
-  1. To switch the master over to another replica, disable the **Select master host automatically** option and then select the desired replica from the drop-down list.
+  1. To switch the master to a synchronous replica, leave the **Choose master host automatically** option enabled.
+  1. To switch the master to another replica, disable the **Choose master host automatically** option and then select the desired replica from the drop-down list.
   1. Click **Switch**.
 
 - CLI
@@ -356,14 +364,14 @@ For more information, see [{#T}](../concepts/replication.md).
 
   To edit the list of cluster [security groups](../concepts/network.md#security-groups), use the `update` API method and pass the following in the request:
   - The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
-  - The list of groups, in the `securityGroupIds` parameter.
-  - The list of settings to update, in the `updateMask` parameter. If this parameter is omitted, the API method resets any cluster settings that aren't explicitly specified in the request to their default values.
+  - The list of groups in the `securityGroupIds` parameter.
+  - The list of settings to update in the `updateMask` parameter. If this parameter is omitted, the API method resets any cluster settings that aren't explicitly specified in the request to their default values.
 
 {% endlist %}
 
 {% note warning %}
 
-You may need to additionally [set up the security groups](connect.md#configuring-security-groups) to connect to the cluster.
+You may need to additionally [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
 
 {% endnote %}
 
