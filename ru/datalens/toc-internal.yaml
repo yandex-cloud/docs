@@ -24,10 +24,10 @@ items:
             href: operations/connection/create-clickhouse.md
           - name: Создание подключения к файлу CSV
             href: operations/connection/create-csv.md
-          - name: Создание подключения к MySQL
-            href: operations/connection/create-mysql.md
           - name: Создание подключения к PostgreSQL
             href: operations/connection/create-postgresql.md
+          - name: Создание подключения к MySQL
+            href: operations/connection/create-mysql.md
           - name: Создание подключения к MS SQL Server
             href: operations/connection/create-mssql-server.md
           - name: Создание подключения к Oracle Database

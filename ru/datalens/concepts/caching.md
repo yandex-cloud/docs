@@ -17,8 +17,6 @@ _Кеш_ хранит в себе часто запрашиваемые данн
 
 {% endnote %}
 
-Настройка времени жизни кeша доступна только на уровне подключения. Чтобы изменить время жизни кеша, обратитесь к команде {{ datalens-short-name }} в очереди [DLHELP](https://st.yandex-team.ru/DLHELP) (задача на добавление настройки в интерфейс {{ datalens-short-name }}: [CHARTS-3127](https://st.yandex-team.ru/CHARTS-3127)).
-
 О кешировании в ChartEditor читайте в разделе [Источники данных](../editor/sources/index.md).
 
 {% endif %}
