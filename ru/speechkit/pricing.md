@@ -81,6 +81,46 @@ editable: false
 
 {% endif %}
 
+#### Brand Voice {#brand-voice}
+
+{% if region == "ru"%}
+
+{% include [rub.md](../_pricing/speechkit/rub-brand.md) %}
+
+{% endif %}
+
+{% if region == "kz"%}
+
+{% include [kzt.md](../_pricing/speechkit/kzt-brand.md) %}
+
+{% endif %}
+
+{% if region == "int"%}
+
+{% include [usd.md](../_pricing/speechkit/usd-brand.md) %}
+
+{% endif %}
+
+### Хостинг моделей Brand Voice {#hosting-brand-voice}
+
+{% if region == "ru"%}
+
+{% include [rub.md](../_pricing/speechkit/rub-hosting.md) %}
+
+{% endif %}
+
+{% if region == "kz"%}
+
+{% include [kzt.md](../_pricing/speechkit/kzt-hosting.md) %}
+
+{% endif %}
+
+{% if region == "int"%}
+
+{% include [usd.md](../_pricing/speechkit/usd-hosting.md) %}
+
+{% endif %}
+
 ### Распознавание речи {#prices-stt}
 
 {% if region == "ru"%}

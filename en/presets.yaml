@@ -20,6 +20,7 @@ default:
   prometheus-name: Prometheus
   dsvm-full-name: Yandex Data Science Virtual Machine
   speechkit-full-name: Yandex SpeechKit
+  brand-voice-full-name: Yandex SpeechKit Brand Voice
   translate-full-name: Yandex Translate
   network-load-balancer-full-name: Yandex Network Load Balancer
   message-queue-full-name: Yandex Message Queue
@@ -65,6 +66,7 @@ default:
   ddos-protection-name: DDoS Protection
   dsvm-name: Data Science Virtual Machine
   speechkit-name: SpeechKit
+  brand-voice-name: SpeechKit Brand Voice
   translate-name: Translate
   network-load-balancer-name: Network Load Balancer
   message-queue-name: Message Queue
