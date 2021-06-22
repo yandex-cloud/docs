@@ -68,6 +68,20 @@ editable: false
 
 
 
+#### Brand Voice {#brand-voice}
+
+
+{% include [rub.md](../_pricing/speechkit/rub-brand.md) %}
+
+
+
+### Хостинг моделей Brand Voice {#hosting-brand-voice}
+
+
+{% include [rub.md](../_pricing/speechkit/rub-hosting.md) %}
+
+
+
 ### Распознавание речи {#prices-stt}
 
 
