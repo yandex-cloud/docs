@@ -17,6 +17,8 @@ items:
         href: operations/projects/checkpoints.md
       - name: Managing computing resources
         href: operations/projects/control-compute-resources.md
+      - name: Creating a custom image
+        href: operations/user-images.md
       - name: Clearing the interpreter state
         href: operations/projects/clear-kernel-state.md
       - name: Sharing a notebook
