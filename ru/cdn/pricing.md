@@ -11,18 +11,18 @@ editable: false
 
 {% if region == "ru" %}
 
-{% include notitle [rub-egress-traffic.md](../_pricing/cdn/rub.md) %}
+{% include notitle [rub.md](../_pricing/cdn/rub.md) %}
 
 {% endif %}
 
 {% if region == "kz" %}
 
-{% include notitle [kzt-egress-traffic.md](../_pricing/cdn/kzt.md) %}
+{% include notitle [kzt.md](../_pricing/cdn/kzt.md) %}
 
 {% endif %}
 
 {% if region == "int" %}
 
-{% include notitle [usd-egress-traffic.md](../_pricing/cdn/usd.md) %}
+{% include notitle [usd.md](../_pricing/cdn/usd.md) %}
 
 {% endif %}

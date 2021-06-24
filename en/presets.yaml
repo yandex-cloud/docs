@@ -46,11 +46,14 @@ default:
   alb-full-name: Yandex Application Load Balancer
   dns-full-name: Yandex Cloud DNS
   at-full-name: Yandex Audit Trails
+  speechkit-pro-full-name: Yandex SpeechKit Pro
+  cdn-full-name: Yandex Cloud CDN
 
   # Full services names without Yandex
   iam-name: Identity and Access Management
   ig-name: Instance Groups
   resmgr-name: Resource Manager
+  cloud-stt-api-name: Cloud STT API
   compute-name: Compute Cloud
   objstorage-name: Object Storage
   mpg-name: Managed Service for PostgreSQL
@@ -92,6 +95,8 @@ default:
   alb-name: Application Load Balancer
   dns-name: Cloud DNS
   at-name: Audit Trails
+  speechkit-pro-name: SpeechKit Pro
+  cdn-name: Cloud CDN
 
   # Short names
   iam-short-name: IAM
@@ -132,7 +137,9 @@ default:
   api-gw-short-name: API Gateway
   lockbox-short-name: Lockbox
   at-short-name: Audit Trails
-  price-per-hour-count-per-second: Prices are shown for 1 hour of use. Billing is on a per-second basis.
+  speechkit-pro-short-name: SpeechKit Pro
+  cdn-short-name: Cloud CDN
+  price-per-hour-count-per-second: Prices are shown for 1 hour of use. Billing occurs per second.
   roles-cr-admin: container-registry.admin
   roles-cr-puller: container-registry.images.puller
   roles-cr-pusher: container-registry.images.pusher
@@ -189,22 +196,22 @@ default:
   security-group: enp6saqnq4ie244g67sb
   host-net-example: zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch64
   disk-type-example: network-ssd
-  PG: PostgreSQL
-  CH: ClickHouse
   mch-hs-version: 21.1
-  MG: MongoDB
   mmg-backup-retention: 7
   mmg-backup-retention-min: 7
   mmg-backup-retention-max: 35
-  MY: MySQL
-  RD: Redis
   mrd-max-disk-size: 4096 GB
-  KF: Apache Kafka<sup>®</sup>
+  CH: ClickHouse
   ES: Elasticsearch
-  ZK: ZooKeeper
+  KF: Apache Kafka<sup>®</sup>
+  MG: MongoDB
   MS: SQL Server
+  MY: MySQL
+  PG: PostgreSQL
+  RD: Redis
   RMQ: RabbitMQ
   TF: Terraform
+  ZK: ZooKeeper
   tag-con: <code><b><small>Management console</small></b></code>
   tag-cli: <code><b><small>CLI</small></b></code>
   tag-tf: <code><b><small>Terraform</small></b></code>
@@ -348,15 +355,15 @@ internal:
   host-class: db1.micro
   mch-backup-retention: 7
   mch-dedup-retention: 30
-  link-console-billing: https://console.cloud.yandex.com/billing
-  link-console-main: https://console.cloud.yandex.com/
-  link-console-quotas: https://console.cloud.yandex.com/cloud?section=quotas
-  link-console-access-management: https://console.cloud.yandex.com/iam
-  link-console-support: https://console.cloud.yandex.com/support
+  link-console-billing: https://yc.yandex-team.ru/billing
+  link-console-main: https://yc.yandex-team.ru/
+  link-console-quotas: https://yc.yandex-team.ru/cloud?section=quotas
+  link-console-access-management: https://yc.yandex-team.ru/iam
+  link-console-support: https://yc.yandex-team.ru/support
   link-cloud-calculator: https://cloud.yandex.com/prices#calculator
   link-yandex-connect: https://connect.yandex.com
-  link-passport-login: https://passport.yandex.com/auth
-  link-cloud-oauth: https://oauth.yandex.com/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb
+  link-passport-login: https://passport.yandex-team.ru/auth
+  link-cloud-oauth: https://oauth.yandex-team.ru/authorize?response_type=token&client_id=8cdb2f6a0dca48398c6880312ee2f78d
   link-cloud-partners: https://partners.cloud.yandex.ru/
   tf-cloud-id: b1gq90dgh25bebiu75o
   tf-folder-id: b1go92dnv7b9u8f21mnj

@@ -1,0 +1,23 @@
+title: Yandex Cloud CDN
+description:
+  - >-
+    <em>Yandex Cloud CDN is currently in the <a href="/docs/overview/concepts/launch-stages">Preview stage</a></em>.
+  - >-
+    Yandex Cloud CDN lets you organize the delivery of content to your end users using a content delivery network (CDN).
+
+  - >-
+    This helps you: <ul> <li>Decrease the load on your main content servers by employing caching.</li> <li>Decrease content waiting time for the consumer.</li> </ul>
+  - >-
+    You can manage the service using the management console.
+meta:
+  title: Yandex Cloud CDN
+links:
+  - title: Getting started
+    description: How to get started with CDN content delivery
+    href: quickstart
+  - title: Quotas and limits
+    description: The service's technical and organizational limitations
+    href: limits
+  - title: Pricing policy
+    description: Prices and rules for calculating the service cost
+    href: pricing
