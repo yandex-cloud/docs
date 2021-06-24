@@ -374,4 +374,165 @@
       Добавлен сериал: 5 Twin Peaks
       ```
 
+- Node.js
+
+  1. Создайте файл `SeriesLoadData.js`, например с помощью редактора nano:
+  
+      ```bash
+      nano SeriesLoadData.js
+      ```
+
+      Скопируйте в созданный файл следующий код:
+
+      {% note warning %}
+
+      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+
+      {% endnote %}
+
+      ```javascript
+      var AWS = require("aws-sdk");
+      var fs = require('fs');
+
+      AWS.config.update({
+        region: "ru-central1",
+        endpoint: "<Document API эндпоинт>"
+      });
+
+      var docClient = new AWS.DynamoDB.DocumentClient();
+
+      console.log("Загрузка сериалов в YDB. Пожалуйста, подождите...");
+
+      var allSeries = JSON.parse(fs.readFileSync('seriesdata.json', 'utf8'));
+      allSeries.forEach(function(series) {
+          var params = {
+              TableName: "Series",
+              Item: {
+                  "series_id":  series.series_id,
+                  "title": series.title,
+                  "info":  series.info
+              }
+          };
+
+          docClient.put(params, function(err, data) {
+              if (err) {
+                  console.error("Невозможно добавить сериал", series.title, ". Error JSON:", JSON.stringify(err, null, 2));
+              } else {
+                  console.log("Добавлен сериал:", series.title);
+              }
+          });
+      });
+      ```
+
+  1. {% include [seriesdata](../../../_includes/seriesdata.md) %}
+
+  1. Запустите программу:
+
+      ```bash
+      node SeriesLoadData.js
+      ```
+
+      Результат выполнения:
+
+      ```bash
+      Загрузка сериалов в YDB. Пожалуйста, подождите...
+      Добавлен сериал: The Office
+      Добавлен сериал: IT Crowd
+      Добавлен сериал: House of Cards
+      Добавлен сериал: The Big Bang Theory
+      Добавлен сериал: Twin Peaks
+      Добавлен сериал: Silicon Valley
+      Добавлен сериал: True Detective
+      ```
+
+- Ruby
+
+  1. Создайте файл `SeriesLoadData.rb`, например с помощью редактора nano:
+  
+      ```bash
+      nano SeriesLoadData.rb
+      ```
+
+      Скопируйте в созданный файл следующий код:
+
+      {% note warning %}
+
+      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+
+      {% endnote %}
+
+      ```ruby
+      require 'aws-sdk-dynamodb'
+      require 'json'
+      
+      $series_counter = 0
+      $total_series = 0
+      
+      def add_item_to_table(dynamodb_client, table_item)
+        dynamodb_client.put_item(table_item)
+        $series_counter += 1
+        puts "Загрузка сериала #{$series_counter}/#{$total_series}: " \
+          "'#{table_item[:item]['title']} " \
+          "(#{table_item[:item]['series_id']})'."
+      rescue StandardError => e
+        puts "Ошибка загрузки сериала '#{table_item[:item]['title']} " \
+          "(#{table_item[:item]['series_id']})': #{e.message}"
+        puts 'Программа остановлена.'
+        exit 1
+      end
+      
+      def run_me
+        region = 'ru-central1'
+        table_name = 'Series'
+        data_file = 'seriesdata.json'
+      
+        Aws.config.update(
+          endpoint: '<Document API эндпоинт>',
+          region: region
+        )
+      
+        dynamodb_client = Aws::DynamoDB::Client.new
+        file = File.read(data_file)
+        series = JSON.parse(file)
+        $total_series = series.count
+      
+        puts "Будет загружено #{$total_series} сериалов из файла '#{data_file}' " \
+          "в таблицу '#{table_name}'..."
+      
+        series.each do |seria|
+          table_item = {
+            table_name: table_name,
+            item: seria
+          }
+          add_item_to_table(dynamodb_client, table_item)
+        end
+      
+        puts 'Загрузка успешно выполнена.'
+      end
+      
+      run_me if $PROGRAM_NAME == __FILE__
+      ```
+  
+  1. {% include [seriesdata](../../../_includes/seriesdata.md) %}
+
+  1. Запустите программу:
+
+      ```bash
+      ruby SeriesLoadData.rb
+      ```
+
+      Результат выполнения:
+
+      ```text
+      Будет загружено 7 сериалов из файла 'seriesdata.json' в таблицу 'Series'...
+      Загрузка сериала 1/7: 'IT Crowd (1)'.
+      Загрузка сериала 2/7: 'Silicon Valley (2)'.
+      Загрузка сериала 3/7: 'House of Cards (3)'.
+      Загрузка сериала 4/7: 'The Office (3)'.
+      Загрузка сериала 5/7: 'True Detective (3)'.
+      Загрузка сериала 6/7: 'The Big Bang Theory (4)'.
+      Загрузка сериала 7/7: 'Twin Peaks (5)'.
+      Загрузка успешно выполнена.
+      ```
+
 {% endlist %}

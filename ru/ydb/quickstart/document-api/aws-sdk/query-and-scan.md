@@ -369,6 +369,151 @@
       3: True Detective
       ```
 
+- Node.js
+
+  1. Создайте файл `SeriesQuery01.js`, например с помощью редактора nano:
+
+      ```bash
+      nano SeriesQuery01.js
+      ```
+
+      Скопируйте в созданный файл следующий код:
+
+      {% note warning %}
+
+      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+
+      {% endnote %}
+
+      ```javascript
+      var AWS = require("aws-sdk");
+
+      AWS.config.update({
+        region: "ru-central1",
+        endpoint: "<Document API эндпоинт>"
+      });
+
+      var docClient = new AWS.DynamoDB.DocumentClient();
+
+      console.log("Поиск фильмов с ключом партицирования, равным 3.");
+
+      var params = {
+          TableName : "Series",
+          KeyConditionExpression: "series_id = :val",
+          ExpressionAttributeValues: {
+              ":val": 3
+          }
+      };
+
+      docClient.query(params, function(err, data) {
+          if (err) {
+              console.error("Не удалось выполнить запрос. Ошибка:", JSON.stringify(err, null, 2));
+              process.exit(1);
+          } else {
+              console.log("Запрос успешно выполнен:");
+              data.Items.forEach(function(item) {
+                  console.log(" -", item.series_id + ": " + item.title);
+              });
+          }
+      });
+      ```
+
+      Этот код извлекает из таблицы `Series` все сериалы с ключом партицирования, равным 3.
+
+  1. Запустите программу:
+
+      ```bash
+      node SeriesQuery01.js
+      ```
+
+      Результат выполнения:
+
+      ```text
+      Поиск фильмов с ключом партицирования, равным 3.
+      Запрос успешно выполнен:
+      - 3: House of Cards
+      - 3: The Office
+      - 3: True Detective
+      ```
+
+- Ruby
+
+  1. Создайте файл `SeriesQuery01.rb`, например с помощью редактора nano:
+
+      ```bash
+      nano SeriesQuery01.rb
+      ```
+
+      Скопируйте в созданный файл следующий код:
+
+      {% note warning %}
+
+      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+
+      {% endnote %}
+
+      ```ruby
+      require 'aws-sdk-dynamodb'
+
+      def query_for_items_from_table(dynamodb_client, query_condition)
+        result = dynamodb_client.query(query_condition)
+        if result.items.count.zero?
+          puts 'Результатов не найдено.'
+        else
+          puts "Найдено #{result.items.count} записей:"
+          result.items.each do |movie|
+            puts "#{movie['title']} (#{movie['series_id'].to_i})"
+          end
+        end
+      rescue StandardError => e
+        puts "Ошибка получения элементов из таблицы: #{e.message}"
+      end
+
+      def run_me
+        region = 'ru-central1'
+        table_name = 'Series'
+        series_id = 3
+
+        Aws.config.update(
+          endpoint: '<Document API эндпоинт>',
+          region: region
+        )
+
+        dynamodb_client = Aws::DynamoDB::Client.new
+        query_condition = {
+          table_name: table_name,
+          key_condition_expression: 'series_id = :val',
+          expression_attribute_values: {
+            ':val' => 3
+          }
+        }
+
+        puts "Поиск фильмов с ключом партицирования, равным '#{series_id}' в таблице '#{table_name}'..."
+
+        query_for_items_from_table(dynamodb_client, query_condition)
+      end
+
+      run_me if $PROGRAM_NAME == __FILE__
+      ```
+
+      Этот код извлекает из таблицы `Series` все сериалы с ключом партицирования, равным 3.
+
+  1. Запустите программу:
+
+      ```bash
+      ruby SeriesQuery01.rb
+      ```
+
+      Результат выполнения:
+
+      ```text
+      Поиск фильмов с ключом партицирования, равным '3' в таблице 'Series'...
+      Найдено 3 записей:
+      House of Cards (3)
+      The Office (3)
+      True Detective (3)
+      ```
+
 {% endlist %}
 
 ## Поиск по ключам партицирования и сортировки {#part-sort-key-find}
@@ -714,6 +859,151 @@
       Поиск выполнен.
       3: The Office
       3: True Detective
+      ```
+
+- Node.js
+
+  1. Создайте файл `SeriesQuery02.js`, например с помощью редактора nano:
+
+      ```bash
+      nano SeriesQuery02.js
+      ```
+
+      Скопируйте в созданный файл следующий код:
+
+      {% note warning %}
+
+      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+
+      {% endnote %}
+
+      ```javascript
+      var AWS = require("aws-sdk");
+
+      AWS.config.update({
+        region: "ru-central1",
+        endpoint: "<Document API эндпоинт>"
+      });
+
+      var docClient = new AWS.DynamoDB.DocumentClient();
+
+      console.log("Сериалы с id = 3 и названием на букву Т:");
+
+      var params = {
+          TableName : "Series",
+          ProjectionExpression: "#series_id, title",
+          KeyConditionExpression: "#series_id = :series_id and begins_with(title,:letter)",
+          ExpressionAttributeNames:{
+              "#series_id": "series_id",
+              "#letter": "letter"
+          },
+          ExpressionAttributeValues: {
+              ":series_id": 3,
+              ":letter": 'T'
+          }
+      };
+
+      docClient.query(params, function(err, data) {
+          if (err) {
+              console.log("Не удалось выполнить запрос. Ошибка:", JSON.stringify(err, null, 2));
+          } else {
+              console.log("Запрос успешно выполнен:");
+              data.Items.forEach(function(item) {
+                  console.log(" -", item.series_id + ": " + item.title);
+              });
+          }
+      });
+      ```
+
+  1. Запустите программу:
+
+      ```bash
+      node SeriesQuery02.js
+      ```
+
+      Результат выполнения:
+
+      ```text
+      Сериалы с id = 3 и названием на букву Т:
+      Запрос успешно выполнен:
+      - 3: The Office
+      - 3: True Detective
+      ```
+
+- Ruby
+
+  1. Создайте файл `SeriesQuery02.rb`, например с помощью редактора nano:
+
+      ```bash
+      nano SeriesQuery02.rb
+      ```
+
+      Скопируйте в созданный файл следующий код:
+
+      {% note warning %}
+
+      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+
+      {% endnote %}
+
+      ```ruby
+      require 'aws-sdk-dynamodb'
+
+      def query_for_items_from_table(dynamodb_client, query_condition)
+        result = dynamodb_client.query(query_condition)
+        if result.items.count.zero?
+          puts 'Результатов не найдено.'
+        else
+          puts "Найдено #{result.items.count} записей:"
+          result.items.each do |movie|
+            puts "#{movie['title']} (#{movie['series_id'].to_i}) "      
+          end
+        end
+      rescue StandardError => e
+        puts "Ошибка получения элементов из таблицы: #{e.message}"
+      end
+
+      def run_me
+        region = 'ru-central1'
+        table_name = 'Series'
+        series_id = 3
+
+        Aws.config.update(
+          endpoint: '<Document API эндпоинт>',
+          region: region
+        )
+
+        dynamodb_client = Aws::DynamoDB::Client.new
+        query_condition = {
+          table_name: table_name,
+          key_condition_expression: 'series_id = :val and begins_with(title,:letter)',
+          expression_attribute_values: {
+            ':val' => 3,
+            ':letter' => 'T'
+          }
+        }
+
+        puts "Поиск в таблице '#{table_name}' сериалов с id = '#{series_id}' и названием на букву Т"              
+
+        query_for_items_from_table(dynamodb_client, query_condition)
+      end
+
+      run_me if $PROGRAM_NAME == __FILE__
+      ```
+  
+  1. Запустите программу:
+
+      ```bash
+      ruby SeriesQuery02.rb
+      ```
+
+      Результат выполнения:
+
+      ```text
+      Поиск в таблице 'Series' сериалов с id = '3' и названием на букву Т
+      Найдено 2 записей:
+      The Office (3) 
+      True Detective (3) 
       ```
 
 {% endlist %}
@@ -1092,6 +1382,188 @@
       3: True Detective
       1: IT Crowd
       2: Silicon Valley
+      ```
+
+- Node.js
+
+  1. Создайте файл `SeriesScan.js`, например с помощью редактора nano:
+
+      ```bash
+      nano SeriesScan.js
+      ```
+
+      Скопируйте в созданный файл следующий код:
+
+      {% note warning %}
+
+      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+
+      {% endnote %}
+
+      ```javascript
+      var AWS = require("aws-sdk");
+
+      AWS.config.update({
+        region: "ru-central1",
+        endpoint: "<Document API эндпоинт>"
+      });
+
+      var docClient = new AWS.DynamoDB.DocumentClient();
+
+      var params = {
+          TableName: "Series",
+          ProjectionExpression: "#sid, title, info.rating",
+          FilterExpression: "#sid between :start_id and :end_id",
+          ExpressionAttributeNames: {
+              "#sid": "series_id",
+          },
+          ExpressionAttributeValues: {
+                ":start_id": 1,
+                ":end_id": 3
+          }
+      };
+
+      console.log("Сканирование таблицы Series");
+      docClient.scan(params, onScan);
+
+      function onScan(err, data) {
+          if (err) {
+              console.error("Не удалось сканировать таблицу. Ошибка JSON:", JSON.stringify(err, null, 2));
+          } else {
+              console.log("Сканирование успешно.");
+              data.Items.forEach(function(series) {
+                  console.log(
+                      series.series_id + ": ",
+                      series.title);
+              });
+
+              if (typeof data.LastEvaluatedKey != "undefined") {
+                  console.log("Сканирую далее...");
+                  params.ExclusiveStartKey = data.LastEvaluatedKey;
+                  docClient.scan(params, onScan);
+              }
+          }
+      }
+      ```
+
+      Приведенный код сканирует таблицу `Series` и выводит сериалы с атрибутом `series_id` от 1 до 3. Все остальные элементы отбрасываются.
+
+  1. Запустите программу:
+
+      ```bash
+      node SeriesScan.js
+      ```
+
+      Результат выполнения команды:
+
+      ```text
+      Сканирование таблицы Series
+      Сканирование успешно.
+      3:  House of Cards
+      3:  The Office
+      3:  True Detective
+      1:  IT Crowd
+      2:  Silicon Valley
+      Сканирую далее...
+      Сканирование успешно.
+      ```
+
+- Ruby
+
+  1. Создайте файл `SeriesScan.rb`, например с помощью редактора nano:
+
+      ```bash
+      nano SeriesScan.rb
+      ```
+
+      Скопируйте в созданный файл следующий код:
+
+      {% note warning %}
+
+      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+
+      {% endnote %}
+  
+      ```ruby
+      require 'aws-sdk-dynamodb'
+
+      def scan_for_items_from_table(dynamodb_client, scan_condition)
+        loop do
+          result = dynamodb_client.scan(scan_condition)
+
+          if result.items.count.zero?
+            puts 'Подходящих сериалов не найдено (пока)...'
+          else
+            puts "Найдено #{result.items.count} подходящих сериалов (пока):"
+            result.items.each do |movie|
+              puts "#{movie["title"]} (#{movie["series_id"].to_i}), " \
+                "Rating: #{movie["info"]["rating"].to_f}"
+            end
+          end
+
+          break if result.last_evaluated_key.nil?
+
+          puts "Продолжается поиск сериалов..."
+          scan_condition[:exclusive_start_key] = result.last_evaluated_key
+        end
+        puts 'Поиск завершен.'
+      rescue StandardError => e
+        puts "Ошибка сканирования: #{e.message}"
+      end
+
+      def run_me
+        region = 'ru-central1'
+        table_name = 'Series'
+        start_id = 1
+        end_id = 3
+
+        Aws.config.update(
+          endpoint: '<Document API эндпоинт>',
+          region: region
+        )
+
+        dynamodb_client = Aws::DynamoDB::Client.new
+
+        scan_condition = {
+          table_name: table_name,
+          projection_expression: '#series_id, title, info.rating',
+          filter_expression: '#series_id between :start_id and :end_id',
+          expression_attribute_names: { '#series_id' => 'series_id' },
+          expression_attribute_values: {
+            ':start_id' => start_id,
+            ':end_id' => end_id
+          }
+        }
+
+        puts "Поиск сериалов в таблице '#{table_name}' с id в диапазон от #{start_id} до #{end_id}..."
+
+        scan_for_items_from_table(dynamodb_client, scan_condition)  
+      end
+
+      run_me if $PROGRAM_NAME == __FILE__
+      ```
+
+      Приведенный код сканирует таблицу `Series` и выводит сериалы с атрибутом `series_id` от 1 до 3. Все остальные элементы отбрасываются.
+
+  1. Запустите программу:
+
+      ```bash
+      ruby SeriesScan.rb
+      ```
+
+      Результат выполнения:
+
+      ```text
+      Поиск сериалов в таблице 'Series' с id в диапазон от 1 до 3...
+      Найдено 5 подходящих сериалов (пока):
+      House of Cards (3), Rating: 0.0
+      The Office (3), Rating: 0.0
+      True Detective (3), Rating: 0.0
+      IT Crowd (1), Rating: 0.0
+      Silicon Valley (2), Rating: 0.0
+      Продолжается поиск сериалов...
+      Подходящих сериалов не найдено (пока)...
+      Поиск завершен.
       ```
 
 {% endlist %}

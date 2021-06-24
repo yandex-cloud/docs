@@ -338,4 +338,149 @@
       Сериал успешно добавлен: 3 - Supernatural
       ```
 
+- Node.js
+
+  1. Создайте файл `SeriesItemOps01.js`, например с помощью редактора nano:
+  
+      ```bash
+      nano SeriesItemOps01.js
+      ```
+
+      Скопируйте в созданный файл следующий код:
+
+      {% note warning %}
+
+      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+
+      {% endnote %}
+  
+      ```javascript
+      var AWS = require("aws-sdk");
+      
+      AWS.config.update({
+        region: "ru-central1",
+        endpoint: "<Document API эндпоинт>"
+      });
+      
+      var docClient = new AWS.DynamoDB.DocumentClient();
+      
+      var table = "Series";
+      
+      var series_id = 3;
+      var title = "Supernatural";
+      
+      var params = {
+          TableName:table,
+          Item:{
+              "series_id": series_id,
+              "title": title,
+              "info":{
+                  "release_date": "2015-09-13",
+                  "series_info": "Supernatural is an American television series created by Eric Kripke"
+              }
+          }
+      };
+      
+      console.log("Добавление новой записи...");
+      docClient.put(params, function(err, data) {
+          if (err) {
+              console.error("Не удалось добавить запись. Ошибка JSON:", JSON.stringify(err, null, 2));
+              process.exit(1);
+          } else {
+              console.log("Сериал успешно добавлен:", JSON.stringify(data, null, 2));
+          }
+      });
+      ```
+  
+      Первичный ключ обязателен. Этот код добавляет запись, которая имеет первичный ключ (`series_id`, `title`) и атрибуты внутри `info`. Блок `info` хранит JSON, который предоставляет дополнительную информацию о сериале.
+  
+  1. Запустите программу:
+
+      ```bash
+      node SeriesItemOps01.js
+      ```
+
+      Результат выполнения:
+
+      ```bash
+      Добавление новой записи...
+      Сериал успешно добавлен: {}
+      ```
+
+- Ruby
+
+  1. Создайте файл `SeriesItemOps01.rb`, например с помощью редактора nano:
+  
+      ```bash
+      nano SeriesItemOps01.rb
+      ```
+
+      Скопируйте в созданный файл следующий код:
+
+      {% note warning %}
+
+      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+
+      {% endnote %}
+
+      ```ruby
+      require 'aws-sdk-dynamodb'
+      
+      def add_item_to_table(dynamodb_client, table_item)
+        dynamodb_client.put_item(table_item)
+        puts "Загружен '#{table_item[:item][:title]} " \
+          "(#{table_item[:item][:series_id]})'."
+      rescue StandardError => e
+        puts "Ошибка загрузки сериала '#{table_item[:item][:title]} " \
+          "(#{table_item[:item][:series_id]})': #{e.message}"
+      end
+      
+      def run_me
+        region = 'ru-central1'
+        table_name = 'Series'
+        title = 'Supernatural'
+        series_id = 3
+      
+        Aws.config.update(
+          endpoint: '<Document API эндпоинт>',
+          region: region
+        )
+      
+        dynamodb_client = Aws::DynamoDB::Client.new
+      
+        item = {
+          series_id: series_id,
+          title: title,
+          info: {
+            release_date: '2015-09-13',
+            series_info: "Supernatural is an American television series created by Eric Kripke"
+          }
+        }
+      
+        table_item = {
+          table_name: table_name,
+          item: item
+        }
+      
+        puts "Загрузка сериала '#{item[:title]} (#{item[:series_id]})' " \
+          "в таблицу '#{table_name}'..."
+        add_item_to_table(dynamodb_client, table_item)
+      end
+      
+      run_me if $PROGRAM_NAME == __FILE__
+      ```
+  
+  1. Запустите программу:
+
+      ```bash
+      ruby SeriesItemOps01.rb
+      ```
+
+      Результат выполнения:
+
+      ```text
+      Загрузка сериала 'Supernatural (3)' в таблицу 'Series'...
+      Загружен 'Supernatural (3)'.
+      ```
+
 {% endlist %}
