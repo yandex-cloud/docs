@@ -70,7 +70,7 @@
   1. Запустите виртуальную машину:
 
      ```
-     $ yc compute instance stop instance-in-group-2
+     $ yc compute instance start instance-in-group-2
      id: epdlv1pp54019j09fhue
      ...
      status: RUNNING
