@@ -31,19 +31,13 @@ VMs in {{ yandex-cloud }} can use the following types of disks:
 * Network HDD (`network-hdd`): A standard network drive. Network block storage on an HDD.
 * Non-replicated SSD (`network-ssd-nonreplicated`): A network drive with enhanced performance that is implemented by imposing several [limitations](#nr-disks).
 
-Standard network SSDs and HDDs provide sufficient redundancy for reliable data storage and allow for continuous read and write operations even when multiple physical disks fail at the same time. Non-replicated disks do not ensure redundancy.
+Standard network SSDs and HDDs provide sufficient redundancy for reliable data storage and allow for continuous read and write operations even when multiple physical disks fail at the same time. Non-replicated disks do not duplicate the information they store.
 
 If a physical disk with a network SSD or HDD fails, the VM continues to run and quickly regains full access to the data.
 
 Network drives are slower than local drives in terms of execution speed and throughput, but they provide greater reliability and uptime for VMs.
 
 ### Non-replicated disk limitations {#nr-disks}
-
-{% note info %}
-
-Non-replicated disks are at the [Preview](../../overview/concepts/launch-stages.md) stage.
-
-{% endnote %}
 
 Non-replicated disks outperform regular network drives and can be useful when redundancy is already provided at the application level or you need to provide quick access to temporary data.
 
@@ -54,11 +48,9 @@ Non-replicated disks have a number of limitations:
 
 * The information they store may be temporarily unavailable or lost in the event of failure since non-replicated disks don't provide redundancy.
 
-* You cannot create [snapshots](snapshot.md) from a non-replicated disk.
+Multiple non-replicated disks can be combined into a [placement group](disk-placement-group.md) to ensure data storage redundancy at the application level. In this case, individual disks are physically placed in different racks in a data center to reduce the probability of simultaneous failure of all disks in the group.
 
-Multiple non-replicated disks can be grouped into `placement groups` to provide data storage redundancy at the application level. In this case, individual disks are physically placed in different racks in a data center to reduce the probability of simultaneous failure of all disks in the group.
-
-##  Maximum disk size
+## Maximum disk size
 
 {% include [disk-blocksize](../../_includes/compute/disk-blocksize.md) %}
 
@@ -70,11 +62,11 @@ VMs require one boot disk. Additional disks can also be attached.
 
 {% include [attach-empty-disk](../_includes_service/attach-empty-disk.md) %}
 
-When attaching a disk to VMs, you can specify whether the disk should be deleted along with the VM. You can also configure this when creating and updating VMs.
+When selecting a disk to attach to a VM, you can specify whether the disk should be deleted along with the VM. You can choose this option when creating a VM, updating it, or attaching a new disk to it.
 
-If previously created disks were connected to the VM, they will be disabled when the VM is deleted. Disk data is preserved and the disk can be attached to other VMs in the future.
+If previously created disks are attached to the VM, they are detached when the VM is deleted. Disk data is preserved and the disk can be attached to other VMs in the future.
 
-If you want the disk to be deleted together with the VM, specify this during one of the operations: when creating the VM, changing it, or connecting the disk to it. Such disks will be deleted when the VM is deleted.
+If you want to delete a disk with a VM, specify this option during one of the following operations: when creating the VM, updating it, or attaching the disk to it. The disk will be deleted when you delete the VM.
 
 **See also**
 
@@ -85,7 +77,7 @@ If you want the disk to be deleted together with the VM, specify this during one
 
 Each disk is accessible and replicated within a specific availability zone.
 
-You can back up disks as [snapshots](snapshot.md). Snapshots are replicated across every availability zone, which lets you transfer disks between availability zones.
+You can back up disks as [snapshots](snapshot.md). Snapshots are replicated across every availability zone, which lets you transfer disks between zones.
 
 Restoring a particular disk state can become a routine operation, for example, if you want to attach the same boot disk to every new VM. You can upload an [image](image.md) of the disk to {{ compute-name }}. Disk are created faster from images than from snapshots. Images are also automatically replicated to multiple availability zones.
 
@@ -104,8 +96,9 @@ The actual IOPS value depends on the characteristics of the disk, total bandwidt
 ![image](../../_assets/compute/iops.svg)
 
 Where:
-* _Max IOPS_: The [maximum IOPS value](../concepts/limits.md#limits-disks) for the disk.
-* _Max bandwidth_: The [maximum bandwidth value](../concepts/limits.md#limits-disks) for the disk.
+
+* _Max. IOPS_: The [maximum IOPS value](../concepts/limits.md#limits-disks) for the disk.
+* _Max. bandwidth_: The [maximum bandwidth value](../concepts/limits.md#limits-disks) for the disk.
 
 Read and write operations utilize the same disk resource. The more read operations you do, the fewer write operations you can do, and vice versa. The total number of read and write operations per second is determined by the formula:
 
@@ -120,7 +113,7 @@ For more information about maximum possible IOPS and bandwidth values, see [Quot
 
 ### Disk performance {#performance}
 
-To achieve maximum IOPS, we recommend performing read and write operations whose size is close to that of the disk block (4 KB by default). Network SSDs have much higher IOPS for read operations and process requests faster than HDDs.
+To achieve maximum IOPS, we recommend performing read and write operations that are 4 KB and less. Network SSDs have much higher IOPS for read operations and process requests faster than HDDs.
 
 To achieve the maximum possible bandwidth, we recommend performing 4 MB reads and writes.
 
