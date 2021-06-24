@@ -21,6 +21,7 @@
    - `interconnect` — {{ interconnect-name }};
    - `certificate-manager` — {{ certificate-manager-name }};
    - `data-transfer` — {{ data-transfer-name }};
+   - `data-proc` — {{ dataproc-name }};
    - `serverless-apigateway` — {{ api-gw-name }}.
 1. Создайте статичный [API-ключ](../../../iam/operations/api-key/create.md) для [сервисного аккаунта](../../../iam/concepts/users/service-accounts).
 1. [Назначьте сервисному аккаунту роль](../../../iam/operations/roles/grant#access-to-sa) `{{ roles-monitoring-viewer }}` на выбранный каталог.
