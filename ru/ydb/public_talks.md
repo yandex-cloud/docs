@@ -58,7 +58,7 @@
   - [Запись трансляции](https://youtu.be/Kr6WIYPts8I?t=8558).
   - Описание: рассказ о YDB, как о платформе, на которой можно строить различные системы хранения и обработки данных.
 
-- Тема: Yandex Database: newSQL база данных. Рассказ собственно о YDB как базе данных.
+- Тема: Yandex Database: Distributed SQL база данных. Рассказ собственно о YDB как базе данных.
   - [Запись трансляции](https://youtu.be/Kr6WIYPts8I?t=10550).
   - Описание: о YDB как о базе данных.
 
@@ -83,7 +83,7 @@
 
 ### 2019: YaTalks Екатеринбург {#yatalks}
 
-- Тема: Yandex Database: newSQL-база данных Яндекса.
+- Тема: Yandex Database: Distributed SQL база данных Яндекса.
   - [Презентация](https://storage.yandexcloud.net/ydb-public-talks/YdbInCloud_2.pptx).
   - [Запись трансляции](https://youtu.be/tzANIAbc99o?t=3012).
   - Описание: основные моменты, связанные с выполнением распределенных запросов в YDB:
