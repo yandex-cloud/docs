@@ -89,5 +89,7 @@ items:
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
+  - name: Releases
+    href: release-notes.md
   - name: Questions and answers
     href: qa/index.md
