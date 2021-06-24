@@ -5,7 +5,6 @@ To edit an L7 load balancer:
 {% list tabs %}
 
 - Management console
-
   1. In the [management console]({{ link-console-main }}), select the folder that the load balancer belongs to.
   1. Select **{{ alb-name }}**.
   1. Click on the name of the load balancer you need.
@@ -19,7 +18,7 @@ To edit an L7 load balancer:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. View a description of the CLI command for updating the load balancer parameters:
+  1. View a description of the CLI command for editing the load balancer parameters:
 
      ```
      yc alb load-balancer update --help
