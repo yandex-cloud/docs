@@ -1,4 +1,7 @@
 ---
+title: Quotas and limits in Yandex Object Storage
+description: 'The Yandex Object Storage service has limits and quotas for the amount of storage in one cloud, the number of buckets in one cloud. You will learn more about the limitations of the service in this article. '
+
 editable: false
 ---
 # Quotas and limits

@@ -1,3 +1,8 @@
+----
+title: Creating a trigger in Yandex Cloud Functions
+description: "Create a trigger in Yandex Cloud Functions that will launch a function on an event or schedule. Examples of triggers — creating a timer, creating a trigger for Yandex Message Queue, Object Storage, Container Registry, Cloud Logs and Yandex IoT Core."
+----
+
 # Creating a trigger
 
 Create a trigger that will run a function when a certain event occurs or on a schedule.

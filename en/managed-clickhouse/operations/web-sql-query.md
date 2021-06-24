@@ -1,4 +1,9 @@
-# SQL queries in the management console
+---
+title: SQL Queries in Managed Service for ClickHouse
+description: 'Managed Service for ClickHouse allows you to visualize the data structure on your ClickHouse cluster and send SQL queries to databases from the Yandex.Cloud management console. To do this, log into the management console, open the page of the required cluster and go to the SQL tab.'
+---
+
+# SQL queries in Managed Service for ClickHouse
 
 {{ mch-name }} allows you to visualize the data structure in your ClickHouse cluster and send SQL queries to databases from the {{ yandex-cloud }} management console. To do this, log in to the [management console]({{ link-console-main }}), open the cluster page and go to the **SQL** tab.
 

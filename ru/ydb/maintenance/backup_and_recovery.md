@@ -217,7 +217,7 @@ YDB позволяет сохранять резервные копии баз �
 |     destination_prefix: 20200601/seasons                                                                               |
 |   - source_path: /ru-central1/b1g8skpblkos03malf3s/etn03umjgudn9q4l0vkk/backup/series                                  |
 |     destination_prefix: 20200601/series                                                                                |
-| Description:                                                                                                           |
+| description:                                                                                                           |
 | Number of retries: 10                                                                                                  |
 └────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
@@ -272,7 +272,7 @@ aws --endpoint-url=https://{{ s3-storage-host }} s3 ls testdbbackups/20200601/
 |     destination_prefix: 20200601/seasons                                                                        |
 |   - source_path: /ru/tutorial/home/testdb/backup/series                                                         |
 |     destination_prefix: 20200601/series                                                                         |
-| Description:                                                                                                    |
+| description:                                                                                                    |
 | Number of retries: 10                                                                                           |
 └─────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
@@ -291,7 +291,7 @@ aws --endpoint-url=https://{{ s3-storage-host }} s3 ls testdbbackups/20200601/
 |     destination_prefix: 20200601/seasons                                                                   |
 |   - source_path: /ru/tutorial/home/testdb/backup/series                                                    |
 |     destination_prefix: 20200601/series                                                                    |
-| Description:                                                                                               |
+| description:                                                                                               |
 | Number of retries: 10                                                                                      |
 └────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
@@ -315,7 +315,7 @@ aws --endpoint-url=https://{{ s3-storage-host }} s3 ls testdbbackups/20200601/
 |     destination_prefix: 20200601/seasons                                                                              |
 |   - source_path: /ru-central1/b1g8skpblkos03malf3s/etn03umjgudn9q4l0vkk/backup/series                                 |
 |     destination_prefix: 20200601/series                                                                               |
-| Description:                                                                                                          |
+| description:                                                                                                          |
 | Number of retries: 10                                                                                                 |
 └───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
@@ -333,7 +333,7 @@ aws --endpoint-url=https://{{ s3-storage-host }} s3 ls testdbbackups/20200601/
 |     destination_prefix: 20200601/seasons                                                                              |
 |   - source_path: /ru-central1/b1g8skpblkos03malf3s/etn03umjgudn9q4l0vkk/backup/series                                 |
 |     destination_prefix: 20200601/series                                                                               |
-| Description:                                                                                                          |
+| description:                                                                                                          |
 | Number of retries: 10                                                                                                 |
 └───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
@@ -406,7 +406,7 @@ ya ydb -e ydb-ru.yandex.net:2135 -d /ru/tutorial/home/testdb export yt --proxy h
 |     destination_path: <append=true>//home/kikimr/backup_docs/seasons                    |
 |   - source_path: /ru/tutorial/home/testdb/backup/series                                 |
 |     destination_path: <append=true>//home/kikimr/backup_docs/series                     |
-| Description:                                                                            |
+| description:                                                                            |
 | Number of retries: 5                                                                    |
 └─────────────────────────────────────────────────────────────────────────────────────────┘
 ```
@@ -437,7 +437,7 @@ ya ydb -e ydb-ru.yandex.net:2135 -d /ru/tutorial/home/testdb operation get ydb:/
 |     destination_path: <append=true>//home/kikimr/backup_docs/seasons                       |
 |   - source_path: /ru/tutorial/home/testdb/backup/series                                    |
 |     destination_path: <append=true>//home/kikimr/backup_docs/series                        |
-| Description:                                                                               |
+| description:                                                                               |
 | Number of retries: 5                                                                       |
 └────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
@@ -455,7 +455,7 @@ ya ydb -e ydb-ru.yandex.net:2135 -d /ru/tutorial/home/testdb operation get ydb:/
 |     destination_path: <append=true>//home/kikimr/backup_docs/seasons                   |
 |   - source_path: /ru/tutorial/home/testdb/backup/series                                |
 |     destination_path: <append=true>//home/kikimr/backup_docs/series                    |
-| Description:                                                                           |
+| description:                                                                           |
 | Number of retries: 5                                                                   |
 └────────────────────────────────────────────────────────────────────────────────────────┘
 ```

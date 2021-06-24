@@ -1,3 +1,8 @@
+----
+title: Access management in Yandex API Gateway
+description: "Access management in the API gateway service that supports the OpenAPI 3.0 specification. To allow access to the API Gateway service resources, assign the user the necessary roles from the list below. At the moment, a role can be assigned only to the parent resource (directory or cloud)."
+----
+
 # Access management
 
 Yandex.Cloud users can only perform operations on resources that are permitted under the roles assigned to them.

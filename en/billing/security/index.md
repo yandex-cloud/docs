@@ -1,3 +1,8 @@
+----
+title: Billing access management
+description: "Access to Billing is provided to users with a registered account on Yandex or Yandex.Connect. Access to a billing account is provided through the Billing service. Operations that a user can perform with a billing account are determined by the role assigned to him."
+----
+
 # Access management
 
 ## Billing access {#billing}

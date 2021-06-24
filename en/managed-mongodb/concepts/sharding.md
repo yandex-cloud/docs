@@ -1,4 +1,9 @@
-# Sharding
+---
+title: Sharding in MongoDB
+description: 'MongoDB supports sharding to handle large amounts of data and to increase database throughput. Sharding is especially useful when vertical scaling (increasing server capacity) is unprofitable or impossible. Managed Service for MongoDB supports basic data sharding strategies — hash (hash-based sharding key) and ranged sharding. '
+---
+
+# Sharding in Managed Service for MongoDB
 
 {% note info %}
 

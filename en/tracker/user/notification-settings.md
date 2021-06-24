@@ -1,3 +1,8 @@
+---
+title: Configuring Yandex Tracker notifications. Overview
+description: 'By default, Tracker will notify you of task changes if you have one of the roles. You can customize the content of notifications so that you only receive emails about events that interest you. You can choose how usernames and event types are displayed in notification emails.'
+---
+
 # Overview
 
 By default, {{ tracker-name }} sends you notifications about changes to issues if you have one of the following roles:
