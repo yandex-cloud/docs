@@ -44,13 +44,13 @@ items:
       - name: Логическая репликация PostgreSQL
         href: solutions/replication-overview.md
       - name: Миграция базы данных в Yandex.Cloud
-        href: solutions/data-migration.md
+        href: operations/data-migration.md
       - name: Миграция базы данных из Managed Service for PostgreSQL
         href: solutions/outbound-replication.md
       - name: >-
           Создание логической реплики Amazon RDS для PostgreSQL в Managed
           Service for PostgreSQL
-        href: solutions/logical-replica-from-rds.md
+        href: operations/logical-replica-from-rds.md
   - name: Концепции
     items:
     - name: Взаимосвязь ресурсов сервиса

@@ -112,7 +112,7 @@
 
 {% endlist %}
 
-## Изменить настройки пользователя {update-settings}
+## Изменить настройки пользователя {#update-settings}
 
 {% note info %}
 
