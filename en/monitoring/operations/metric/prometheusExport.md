@@ -23,6 +23,7 @@ An example of metric collection setup from {{ monitoring-name }} in {{ prometheu
    - `interconnect` — {{ interconnect-name }}.
    - `certificate-manager` — {{ certificate-manager-name }}.
    - `data-transfer` — {{ data-transfer-name }}.
+   - `data-proc` — {{ dataproc-name }}. 
    - `serverless-apigateway` — {{ api-gw-name }}.
 1. Create a static [API key](../../../iam/operations/api-key/create.md) for your [service account](../../../iam/concepts/users/service-accounts).
 1. [Assign to the service account the role](../../../iam/operations/roles/grant#access-to-sa) `{{ roles-monitoring-viewer }}` for the selected folder.
