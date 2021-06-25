@@ -36,12 +36,13 @@ The table below lists the roles needed to perform a given action. You can always
 
 | Action | Methods | Required roles |
 | ----- | ----- | ----- |
-| **Viewing data** |  |
+| **View data** |  |
 | View information about any resource | `get`, `list` | `viewer` for this resource |
-| **Managing resources** |  |
+| **Manage resources** |  |
 | Create resources in a folder | `create` | `editor` for the folder |
 | Edit, delete resources | `update`, `delete` | `editor` |
-| **Managing resource access** |  |
+| Create subzones | `create` | `editor` for the folder hosting the zone that the created subzones will be part of |
+| **Manage resource access** |  |
 | [Assign](../../iam/operations/roles/grant.md), [revoke](../../iam/operations/roles/revoke.md), and view roles granted for the resource | `setAccessBindings`, `updateAccessBindings`, `listAccessBindings` | `admin` for the resource |
 
 #### What's next {#next}
