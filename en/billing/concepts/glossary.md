@@ -64,6 +64,7 @@ Invoice
 :  A tax document that is issued to a customer at the end of the reporting period.
 <br/>See the section [Invoice](invoice.md).
 
+{% if region == "ru" %}
 Amount of payment invoice or receipt
 : The total amount that a customer is required to pay within a certain period (the time period depends on their legal status).
 <br/>See the sections [Payment receipt](individual-bill.md) and [Payment invoice](bill.md).
@@ -72,3 +73,4 @@ Payment receipt
 :   A document confirming the fact of a bank card payment for the consumed resources.
 <br/>See the section [Payment receipt](individual-bill.md).
 
+{% endif %}

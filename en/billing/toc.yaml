@@ -34,11 +34,17 @@ items:
         href: operations/change-data.md
       - name: Create a new billing account
         href: operations/create-new-account.md
+      - name: Get expense details by folder
+        href: operations/get-folder-report.md
+      - name: View details in {{ datalens-full-name }}
+        href: operations/dashbord.md
+      - name: Enabling usage notifications
+        href: operations/budgets.md
   - name: Concepts
     items:
       - name: All concepts
         href: concepts/index.md
-      - name: Promo codes
+      - name: Promo code
         href: concepts/promo-code.md
       - name: Credit limit
         href: concepts/credit-limit.md
@@ -96,6 +102,7 @@ items:
             href: concepts/invoice.md
           - name: Payment receipt
             href: concepts/individual-bill.md
+            when: region == "ru"
       - name: Payment currency
         href: payment/currency.md
   - name: Access control
@@ -112,7 +119,7 @@ items:
         href: qa/billing-account.md
       - name: Questions about the trial period and paid version
         href: qa/trial-commercial.md
-      - name: Questions about working with non-residents of Russia
+      - name: Questions about working with non-residents of Russia or Kazakhstan
         href: qa/non-resident.md
       - name: All questions on the same page
         href: qa/all.md
