@@ -101,7 +101,7 @@
 
    ```
    {
-     "name" : "....mdb.cloud.yandex.net",
+     "name" : "....mdb.yandexcloud.net",
      "cluster_name" : "...",
      "cluster_uuid" : "...",
      ...

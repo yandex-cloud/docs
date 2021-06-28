@@ -1,6 +1,6 @@
 # Управление пользователями {{ ES }}
 
-Вы можете управлять пользователями кластера с помощью специального пользователя `admin`.
+Вы можете управлять пользователями кластера с помощью специального пользователя `admin`. Задать пароль этого пользователя можно при [создании](cluster-create.md#create-cluster) или [изменении](cluster-update.md#change-admin-password) кластера.
 
 Доступные интерфейсы для управления:
 - [Security API {{ ES }}](https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api.html#security-user-apis).
