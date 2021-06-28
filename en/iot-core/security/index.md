@@ -1,7 +1,7 @@
-----
+---
 title: Access management in Yandex IoT Core
 description: "Access management of the cloud MQTT broker — Yandex IoT Core. The section describes which resources can be assigned a role, which roles are active in the service."
-----
+---
 
 # Access management
 

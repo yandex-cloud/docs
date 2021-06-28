@@ -1,7 +1,7 @@
-----
+---
 title: Access management in Yandex Message Queue
 description: "Access management in the service for exchanging messages between applications — Yandex Message Queue. To allow access to the resources of the Yandex Message Queue service, assign the user the necessary roles from the list provided."
-----
+---
 
 # Access management
 
