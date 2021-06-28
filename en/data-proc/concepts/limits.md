@@ -1,6 +1,10 @@
 ---
+title: Quotas and limits in Yandex Data Proc
+description: 'Limits and quotas apply in Yandex Data Proc. The virtual machines that make up the Data Proc clusters consume your cloud quotas for the Yandex Compute Cloud service. You will learn more about the limitations of the service in this article. '
+
 editable: false
 ---
+
 # Quotas and limits
 
 {{ dataproc-full-name }} has the following limits:

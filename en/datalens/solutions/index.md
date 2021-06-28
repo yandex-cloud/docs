@@ -1,4 +1,9 @@
-# Use cases
+---
+title: Scenarios for using Yandex DataLens
+description: 'The section describes scenarios for using the Yandex DataLens service. Visualization of data from a CSV file, creation and publication of a diagram with a map of Moscow from a CSV file, analysis of sales of a chain of stores from the ClickHouse database, analysis of open data of accidents on the roads of Russia.'
+---
+
+# Use cases Yandex DataLens
 
 - [Visualizing data from a CSV file](data-from-csv-visualization.md)
 - [Creating and publishing a chart with a map of Moscow from a CSV file](data-from-csv-to-public-visualization.md)

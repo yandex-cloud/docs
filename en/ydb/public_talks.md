@@ -43,7 +43,7 @@
 - Topic: Yandex Database at Scale: Practical application in Yandex highload services.
   - [Presentation](https://storage.yandexcloud.net/ydb-public-talks/2019-webinar.pptx).
   - [Recorded broadcast](https://youtu.be/kubFwIKJjBY).
-  - Description: Representatives from [Auto.ru](https://auto.ru), [Yandex.Tutor](https://yandex.ru/tutor/), [Alice Voice Assistant](https://yandex.ru/alice), and [Condé Nast](https://www.condenast.ru/) explain why they chose Yandex Database and how this DBMS helps them develop their products.
+  - description: Representatives from [Auto.ru](https://auto.ru), [Yandex.Tutor](https://yandex.ru/tutor/), [Alice Voice Assistant](https://yandex.ru/alice), and [Condé Nast](https://www.condenast.ru/) explain why they chose Yandex Database and how this DBMS helps them develop their products.
 
 ### 2019: YDB Webinar {#webinar}
 

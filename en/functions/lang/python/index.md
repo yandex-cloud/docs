@@ -1,4 +1,9 @@
-# Overview
+---
+title: Development in Python at Yandex Cloud Functions. Overview
+description: 'With the Cloud Functions service, you can run Python applications. The service provides several runtimes with different versions.'
+---
+
+# Development in Python. Overview
 
 With {{ sf-name }}, you can run applications written in [Python](https://python.org/). The service provides several [runtime environments](../../concepts/runtime/index.md) with different versions:
 

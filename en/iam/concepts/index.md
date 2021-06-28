@@ -1,4 +1,9 @@
-# {{ iam-full-name }}
+---
+title: Overview of Yandex Identity and Access Management
+description: 'The Identity and Access Management (IAM) service controls access to resources and provides functionality for configuring access rights. You determine who has what rights to the resource, and IAM grants access according to the assigned rights.'
+---
+
+# Overview of {{ iam-full-name }}
 
 {% include notitle [iam-def](../../_includes/iam-def.md) %}
 

@@ -38,9 +38,12 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
       - `PRESTABLE`: For testing, including the {{ mpg-short-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
 
   1. Select the DBMS version.
+
       {% note info %}
 
-      When using version `10-1c` ({{ PG }} 10 for 1C), to comfortably host 50 users, we recommend selecting the `s2.medium` host class. For 30 users and less, the `s2.small` class is probably going to be enough.
+      When you select the host class version `12-1c` ({{ PG }} 12 for 1C), consider the number of users in your 1C:Enterprise installation:
+      * For 50 or more users connecting at the same time, we recommend using `s2.medium`.
+      * For fewer than 50 users, `s2.small` is sufficient.
 
       {% endnote %}
 
@@ -51,7 +54,7 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
 
       - Select the type of storage, either a more flexible network type (`network-hdd` or `network-ssd`) or faster local SSD storage (`local-ssd`). The size of the local storage can only be changed in 100 GB increments.
 
-      - Select the size to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
+      - Select the amount of space to use for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
 
   1. Under **Database**, specify the database attributes:
 
@@ -132,7 +135,7 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
       {% endnote %}  
 
       You can also specify some additional options in the `--host` parameter to manage replication in the cluster:
-      - Replication source for the host in the `replication-source` option to [manually manage replication threads](../concepts/replication.md#replication-manual).
+      - The host's replication source in the `replication-source` option [manually to manage replication threads](../concepts/replication.md#replication-manual).
       - Host priority in the `priority` option to [influence the selection of a synchronous replica](../concepts/replication.md#selecting-the-master-and-a-synchronous-replica):
         - The host with the highest priority value in the cluster becomes the synchronous replica.
         - If the cluster has multiple hosts with the highest priority, the synchronous replica is elected from among them.
@@ -160,7 +163,7 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
        network_id  = "<network ID>"
      
        config {
-         version = "<PostgreSQL version: 10, 10-1с, 11, 11-1c, 12, or 13>"
+         version = "<PostgreSQL version: 10, 10-1c, 11, 11-1c, 12, 12-1c, or 13>"
          resources {
            resource_preset_id = "<host class>"
            disk_type_id       = "<storage type>"

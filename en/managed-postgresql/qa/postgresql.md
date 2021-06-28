@@ -6,7 +6,7 @@ Use the `pg_dump` built-in tool to migrate data to a {{ PG }} cluster in {{ mpg-
 
 #### What {{ PG }} versions does {{ mpg-short-name }} support? {#supported-version}
 
-{{ mpg-short-name }} supports {{ PG }} 10, 11, 12, and 13, as well as PostgreSQL 10 and 11 for 1C.
+{{ mpg-short-name }} supports {{ PG }} 10, 11, 12, and 13 as well as PostgreSQL 10, 11, and 12 for 1C.
 
 #### Are DB cluster backups enabled by default? {#backup}
 

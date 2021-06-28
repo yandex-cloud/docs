@@ -418,4 +418,202 @@
       Запись удалена.
       ```
 
+- Node.js
+
+  1. Создайте файл `SeriesItemOps06.js`, например с помощью редактора nano:
+
+      ```bash
+      nano SeriesItemOps06.js
+      ```
+
+      Скопируйте в созданный файл следующий код:
+
+      {% note warning %}
+
+      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+
+      {% endnote %}
+
+      ```javascript
+      var AWS = require("aws-sdk");
+
+      AWS.config.update({
+        region: "ru-central1",
+        endpoint: "<Document API эндпоинт>"
+      });
+
+      var docClient = new AWS.DynamoDB.DocumentClient();
+
+      var table = "Series";
+
+      var series_id = 3;
+      var title = "Supernatural";
+
+      var params = {
+          TableName:table,
+          Key:{
+              "series_id": series_id,
+              "title": title
+          },
+          ConditionExpression:"info.rating >= :val",
+          ExpressionAttributeValues: {
+              ":val": 10
+          }
+      };
+
+      console.log("Выполнение удаления с условием...");
+      docClient.delete(params, function(err, data) {
+          if (err) {
+              console.error("Не удалось удалить запись. Ошибка JSON:", JSON.stringify(err, null, 2));
+              process.exit(1);
+          } else {
+              console.log("Удаление выполнено:", JSON.stringify(data, null, 2));
+          }
+      });
+      ```
+
+      Удалить одиночную запись, указав её первичный ключ, можно с помощью метода `delete`. При необходимости можно указать выражение `ConditionExpression`, чтобы предотвратить удаление элемента, если это условие не выполняется.
+
+  1. Запустите программу:
+
+      ```bash
+      node SeriesItemOps06.js
+      ```
+
+      Результат выполнения:
+
+      ```text
+      Выполнение удаления с условием...
+      Не удалось удалить запись. Ошибка JSON: {
+        "message": "Condition not satisfied",
+        "code": "ConditionalCheckFailedException",
+        "time": "2021-06-14T20:33:29.115Z",
+        "statusCode": 400,
+        "retryable": false,
+        "retryDelay": 20.94065998018778
+      }
+      ```
+
+      Операция завершилась с ошибкой: рейтинг фильма меньше 10.
+
+      Измените код, удалив условие:
+
+      ```javascript
+      var params = {
+          TableName:table,
+          Key:{
+              "series_id": series_id,
+              "title": title
+          }
+      };
+      ```
+
+      Запустите программу еще раз. Теперь операция успешна:
+
+      ```text
+      Выполнение удаления с условием...
+      Удаление выполнено: {}
+      ```
+
+- Ruby
+
+  1. Создайте файл `SeriesItemOps06.rb`, например с помощью редактора nano:
+
+      ```bash
+      nano SeriesItemOps06.rb
+      ```
+
+      Скопируйте в созданный файл следующий код:
+
+      {% note warning %}
+
+      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+
+      {% endnote %}
+
+      ```ruby
+      require 'aws-sdk-dynamodb'
+
+      def table_item_deleted?(dynamodb_client, table_item)
+        dynamodb_client.delete_item(table_item)
+        true
+      rescue StandardError => e
+        puts "Ошибка удаления записи: #{e.message}"
+        false
+      end
+
+      def run_me
+        region = 'ru-central1'
+        table_name = 'Series'
+        title = 'Supernatural'
+        series_id = 3
+
+        Aws.config.update(
+          endpoint: '<Document API эндпоинт>',
+          region: region
+        )
+
+        dynamodb_client = Aws::DynamoDB::Client.new
+
+        table_item = {
+          table_name: table_name,
+          key: {
+            series_id: series_id,
+            title: title
+          },
+          condition_expression: 'info.rating > :val',
+            expression_attribute_values: {
+              ':val' => 9
+            }
+        }
+
+        puts "Удаление сериала '#{title} (#{series_id})' из таблицы '#{table_name}', при выполнении заданного условия."
+
+        if table_item_deleted?(dynamodb_client, table_item)
+          puts 'Запись удалена.'
+        else
+          puts 'Не удалось удалить запись.'
+        end
+      end
+
+      run_me if $PROGRAM_NAME == __FILE__
+      ```
+
+      Удалить одиночную запись, указав её первичный ключ, можно с помощью метода `delete`. При необходимости можно указать выражение `ConditionExpression`, чтобы предотвратить удаление элемента, если это условие не выполняется.
+
+  1. Запустите программу:
+
+      ```bash
+      ruby SeriesItemOps06.rb
+      ```
+
+      Результат выполнения:
+
+      ```text
+      Удаление сериала 'Supernatural (3)' из таблицы 'Series', при выполнении заданного условия.
+      Ошибка удаления записи: Condition not satisfied
+      Не удалось удалить запись.
+      ```
+
+      Операция завершилась с ошибкой: рейтинг фильма равен 9.
+
+      Измените код, удалив условие:
+
+      ```ruby
+      table_item = {
+        table_name: table_name,
+        key: {
+          series_id: series_id,
+          title: title
+        }
+      }
+      ```
+
+      Запустите программу еще раз. Теперь операция успешна:
+
+      ```text
+      Удаление сериала 'Supernatural (3)' из таблицы 'Series', при выполнении заданного условия.
+      Запись удалена.
+      ```
+
 {% endlist %}

@@ -1,3 +1,8 @@
+----
+title: Access management in Yandex Cloud DNS
+description: "Access management in the service for managing DNS zones and domain names of your resources — Yandex Cloud DNS. The section describes which resources you can assign a role to, which roles operate in the service, which roles are required for this or that action."
+----
+
 # Access management
 
 In this section, you'll learn:
@@ -31,12 +36,13 @@ The table below lists the roles needed to perform a given action. You can always
 
 | Action | Methods | Required roles |
 | ----- | ----- | ----- |
-| **Viewing data** |  |
+| **View data** |  |
 | View information about any resource | `get`, `list` | `viewer` for this resource |
-| **Managing resources** |  |
+| **Manage resources** |  |
 | Create resources in a folder | `create` | `editor` for the folder |
 | Edit, delete resources | `update`, `delete` | `editor` |
-| **Managing resource access** |  |
+| Create subzones | `create` | `editor` for the folder hosting the zone that the created subzones will be part of |
+| **Manage resource access** |  |
 | [Assign](../../iam/operations/roles/grant.md), [revoke](../../iam/operations/roles/revoke.md), and view roles granted for the resource | `setAccessBindings`, `updateAccessBindings`, `listAccessBindings` | `admin` for the resource |
 
 #### What's next {#next}

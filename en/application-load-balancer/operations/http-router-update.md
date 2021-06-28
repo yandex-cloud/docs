@@ -5,7 +5,6 @@ To change the HTTP router parameters:
 {% list tabs %}
 
 - Management console
-
   1. In the [management console]({{ link-console-main }}), select the folder that the HTTP router belongs to.
   1. Select **{{ alb-name }}**.
   1. Open the **HTTP routers** section.
@@ -67,7 +66,6 @@ To add a new route to an HTTP router's virtual host:
 {% list tabs %}
 
 - Management console
-
   1. In the [management console]({{ link-console-main }}), select the folder that the HTTP router belongs to.
   1. Select **{{ alb-name }}**.
   1. Open the **HTTP routers** section.
@@ -90,9 +88,9 @@ To add a new route to an HTTP router's virtual host:
 
   You can add a new route to the beginning, end, or specific position in the host's route list.
 
-  **Add a route to the end of a host's route list**
+  **Add a route to the end of the host's route list**
 
-  1. View a description of the CLI command for adding a route to the end of a host's route list:
+  1. View a description of the CLI command for adding a route to the end of the host's route list:
 
      ```
      yc alb virtual-host append-http-route --help
@@ -131,9 +129,9 @@ To add a new route to an HTTP router's virtual host:
      ...
      ```
 
-  **Add a route to the beginning of a host's route list**
+  **Add a route to the beginning of the host's route list**
 
-  1. View a description of the CLI command for adding a route to the beginning of a host's route list:
+  1. View a description of the CLI command for adding a route to the beginning of the host's route list:
 
      ```
      yc alb virtual-host prepend-http-route --help

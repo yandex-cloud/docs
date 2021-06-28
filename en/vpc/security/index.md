@@ -1,3 +1,8 @@
+----
+title: Access management in Yandex Virtual Private Cloud (VPC)
+description: "Access management in the service of cloud networks (private cloud), as well as the connection of cloud resources with each other and with the Internet — Yandex Virtual Private Cloud (VPC). The section describes which resources can be assigned a role, which roles operate in the service, which roles are required for this or that action."
+----
+
 # Access management
 
 In this section, you'll learn:

@@ -30,7 +30,7 @@ To delete an HTTP router:
      yc alb http-router delete --help
      ```
 
-  1. Run the command, specifying the name of the HTTP router:
+  1. Run the command, specifying the HTTP router name:
 
      ```
      yc alb http-router delete --name <HTTP router name>

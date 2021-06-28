@@ -8,6 +8,7 @@
 | Total number of disks per cloud | 32 |
 | Total SSD storage capacity per cloud | 200 GB |
 | Total HDD storage capacity per cloud | 500 GB |
+| Total number of non-replicated SSDs per placement group | 5 |
 | Total number of disk snapshots per cloud | 32 |
 | Total storage capacity of all disk snapshots per cloud | 400 GB |
 | Number of images per cloud | 8 |
@@ -27,20 +28,11 @@
 | Maximum number of vCPUs per VM | 32 and 80 for Intel Broadwell and Intel Cascade Lake [platforms](../compute/concepts/vm-platforms.md), respectively |
 | Maximum virtual memory per VM | 256 GB and 640 GB for Intel Broadwell and Intel Cascade Lake [platforms](../compute/concepts/vm-platforms.md), respectively |
 | Maximum number of disks connected to a single VM | 7 |
-| Maximum number of GPUs connected to a single VM | 4 and 8 GB for Intel Broadwell and Intel Cascade Lake [platforms](../compute/concepts/vm-platforms.md), respectively |
-| Maximum number of vGPUs connected to a single VM | 1 |
+| Maximum number of GPUs connected to a single VM | 4 and 8 for Intel Broadwell and Intel Cascade Lake [platforms](../compute/concepts/vm-platforms.md), respectively |
+| Maximum number of vGPUs connected to a VM | 1 |
 | Maximum number of vCPUs for VMs with GPUs | 32 |
 | Maximum RAM for VMs with GPUs | 384 |
 | Maximum number of security groups per interface | 5 |
-
-#### VM with non-replicated disks limits {#compute-limits-vm-nonrepl}
-
-Type of limit | Value 
------ | ----- 
-Maximum[*](../compute/concepts/limits.md#max_iops) [IOPS](../compute/concepts/disk.md#rw) for 1 vCPU | 10 000
-Maximum[*](../compute/concepts/limits.md#max_iops) IOPS for 1 VM | 100 000
-Maximum[**](../compute/concepts/limits.md#max_bandwidth) [bandwidth](../compute/concepts/disk.md#rw) for 1 vCPU | 100 MB/s
-Maximum[**](../compute/concepts/limits.md#max_bandwidth) bandwidth for 1 VM | 1 GB/s
 
 #### Disk limits {#compute-limits-disks}
 
@@ -66,13 +58,12 @@ Maximum[**](../compute/concepts/limits.md#max_bandwidth) bandwidth for 1 VM | 1
 
     | Type of limit | Value |
     | ----- | ----- |
-    | Maximum disk size | 4 TB |
     | Maximum disk snapshot size | 4 TB |
     | [Allocation unit size](../compute/concepts/disk.md#rw) | 256 GB |
     | Maximum[*](../compute/concepts/limits.md#max_iops) [IOPS](../compute/concepts/disk.md#rw) for writes, per disk | 11,000 |
     | Maximum[*](../compute/concepts/limits.md#max_iops) IOPS for writes, per allocation unit | 300 |
-    | Maximum[**](../compute/concepts/limits.md#max_bandwidth) [bandwidth](../compute/concepts/disk.md#rw) for writes, per disk | 1 GB/s |
-    | Maximum[**](../compute/concepts/limits.md#max_bandwidth) bandwidth for writes, per allocation unit | 82 MB/s |
+    | Maximum[**](../compute/concepts/limits.md#max_bandwidth) [bandwidth](../compute/concepts/disk.md#rw) for writes, per disk | 240 MB/s |
+    | Maximum[**](../compute/concepts/limits.md#max_bandwidth) bandwidth for writes, per allocation unit | 30 MB/s |
     | Maximum[*](../compute/concepts/limits.md#max_iops) IOPS for reads, per disk | 300 |
     | Maximum[*](../compute/concepts/limits.md#max_iops) IOPS for reads, per allocation unit | 100 |
     | Maximum[**](../compute/concepts/limits.md#max_bandwidth) bandwidth for reads, per disk | 240 MB/s |
@@ -80,18 +71,9 @@ Maximum[**](../compute/concepts/limits.md#max_bandwidth) bandwidth for 1 VM | 1
 
 - Non-replicated SSD
 
-  Type of limit | Value
-  ----- | -----
-  Minimum disk size | 93 ГБ
-  [Allocation unit size](../compute/concepts/disk.md#rw) | 93 ГБ
-  Maximum[*](../compute/concepts/limits.md#max_iops) [IOPS](../compute/concepts/disk.md#rw) for writes, per disk | 50 000
-  Maximum[*](../compute/concepts/limits.md#max_iops) IOPS for writes, per allocation unit | 5 600
-  Maximum[**](../compute/concepts/limits.md#max_bandwidth) [bandwidth](../compute/concepts/disk.md#rw) for writes, per disk  | 1 GB/s
-  Maximum[**](../compute/concepts/limits.md#max_bandwidth) bandwidth for writes, per allocation unit | 82 MB/s 
-  Maximum[*](../compute/concepts/limits.md#max_iops) IOPS for reads, per disk | 50 000
-  Maximum[*](../compute/concepts/limits.md#max_iops) IOPS for reads, per allocation unit | 28 000
-  Maximum[**](../compute/concepts/limits.md#max_bandwidth) bandwidth for reads, per disk  | 1 GB/s
-  Maximum[**](../compute/concepts/limits.md#max_bandwidth) bandwidth for reads, per allocation unit | 110 MB/с
+    | Type of limit | Value |
+    | ----- | ----- |
+    | Minimum non-replicated disk size | 93 GB |
 
 {% endlist %}
 
@@ -99,8 +81,9 @@ Read and write operations utilize the same disk resource. The more read operatio
 
 ##### * {#max_iops}
 
-To achieve maximum IOPS, we recommend performing read and write operations that are 4 KB and less.
+To achieve maximum IOPS, we recommend performing read and write operations whose size is close to that of the disk block (4 KB by default).
 
 ##### ** {#max_bandwidth}
 
 To achieve the maximum possible bandwidth, we recommend performing 4 MB reads and writes.
+

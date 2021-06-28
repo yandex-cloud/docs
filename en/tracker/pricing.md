@@ -1,4 +1,9 @@
-# Pricing
+---
+title: Pricing for Yandex Tracker
+description: "The cost of using Tracker is based on the number of users with full access to the platform. You don't have to pay for Tracker if you have a small team. You can subscribe up to 5 employees to Tracker for free."
+---
+
+# Pricing for {{ tracker-full-name }}
 
 By default, all company employees can use {{ tracker-full-name }} for free in [<q>Read only</q>](enable-tracker.md#readonly) mode. Grant [{{ tracker-name }} full access](enable-tracker.md#access) so that your employees can use all of its features.
 

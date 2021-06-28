@@ -1,3 +1,8 @@
+----
+title: Инструкции по работе с Yandex Managed Service for Kubernetes
+description: "Из статьи вы узнаете, как работать с управляемым сервисом Kubernetes в Yandex.Cloud. Рассказываем, как работать с постоянными томами, управлять группой узлов и кластером Kubernetes."
+----
+
 # Все инструкции
 
 * [{#T}](node-connect-ssh.md)

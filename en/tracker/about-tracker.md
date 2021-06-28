@@ -1,3 +1,8 @@
+---
+title: How Tracker works
+description: 'In this section, you'll learn all about how Tracker works and how you can use Tracker to suit your workflow. Organizing your workflow in Tracker requires managing two crucial elements: issues and queues. Issues describe tasks that need to be completed, while a queue sets the rules all issues within must abide by.'
+---
+
 # How {{ tracker-name }} works 
 
 In this section, you'll learn all about how {{ tracker-name }} works and how you can use {{ tracker-name }} to suit your workflow.

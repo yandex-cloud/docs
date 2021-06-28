@@ -3,6 +3,7 @@
 You can use {{ certificate-manager-name }} certificates in the following {{ yandex-cloud }} services:
 
 * [{{ objstorage-full-name }}](#os).
+* [{{ api-gw-full-name }}](#api-gw).
 
 ## {{ objstorage-full-name }} {#os}
 

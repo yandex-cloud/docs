@@ -32,13 +32,13 @@ To delete a backend group:
      yc alb backend-group delete --help
      ```
 
-  1. Run the command, specifying the name of the backend group you want to delete:
+  1. Run the command, specifying the backend group name you want to delete:
 
      ```
      yc alb backend-group delete --name <backend group name>
      ```
 
-     To check the deletion, get a list of backend groups by running the command:
+     To check the deletion, get a list of the backend group by running the command:
 
      ```
      yc alb backend-group list

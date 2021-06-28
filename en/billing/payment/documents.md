@@ -21,6 +21,3 @@ Documents are sent to the email address and mailing address specified in the pay
 
 {% endnote %}
 
-## Documents for individuals {#docs-for-individual}
-
-Individuals shall be provided with a [payment receipt](../concepts/individual-bill.md) in accordance with Russian Federal Law No. [FZ-54 <q>On the use of cash registers</q>](http://base.garant.ru/12130951/). It is sent to the email address of the billing account owner. The original receipt is not sent.

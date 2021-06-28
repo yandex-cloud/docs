@@ -1,3 +1,8 @@
+----
+title: Access management in Yandex Key Management Service
+description: "Access management in the service for creating and managing encryption keys — Yandex Key Management Service. The section describes which resources you can assign a role to, which roles act in the service, which roles are required for this or that action."
+----
+
 # Access management
 
 In this section, you'll learn:

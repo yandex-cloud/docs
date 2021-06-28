@@ -5,7 +5,6 @@ To change the backend group parameters:
 {% list tabs %}
 
 - Management console
-
   1. In the [management console]({{ link-console-main }}), select the folder that the backend group belongs to.
   1. Select **{{ alb-name }}**.
   1. Open the **Backend groups** section.
@@ -27,8 +26,8 @@ To change the backend group parameters:
      ```
      yc alb backend-group update-http-backend \
      --backend-group-name <backend group name> \
-     --name <backend name> \
-     --weight <backend weight>
+     --name <name of the backend> \
+     --weight <weight of the backend>
      ```
 
      Command execution result:
@@ -69,7 +68,6 @@ To remove a backend from a group:
 {% list tabs %}
 
 - Management console
-
    1. In the [management console]({{ link-console-main }}), select the folder that the backend belongs to.
    1. Select **{{ alb-name }}**.
    1. Open the **Backend groups** section.

@@ -1,4 +1,9 @@
-# SQL queries in the management console
+---
+title: SQL Queries in Managed Service for PostgreSQL
+description: 'Managed Service for PostgreSQL allows you to visualize the data structure on your PostgreSQL cluster and send SQL queries to databases from the Yandex.Cloud management console. To do this, log into the management console, open the page of the required cluster and go to the SQL tab.'
+---
+
+# SQL queries in Managed Service for PostgreSQL
 
 {{ mpg-name }} lets you visualize the data structure in your {{PG}} cluster and send SQL queries to databases from the {{ yandex-cloud }} management console. To do this, log in to [management console]({{ link-console-main }}), open the cluster page and go to the **SQL** tab.
 

@@ -1,3 +1,8 @@
+----
+title: Access management in Yandex Application Load Balancer
+description: "Access management in the service for distributing requests to the backends of network applications and terminating TLS encryption — Yandex Application Load Balancer. The section describes which resources can be assigned a role, which roles are active in the service, which roles are required for a particular action."
+----
+
 # Access management
 
 In this section, you'll learn:

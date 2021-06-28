@@ -1,4 +1,9 @@
-# Overview
+---
+title: Development in Java at Yandex Cloud Functions. Overview
+description: 'With the Cloud Functions service, you can run Java applications. The service provides a runtime environment with language version 11 and Ubuntu 18.04 LTS operating system.'
+---
+
+# Development in Java. Overview
 
 With {{ sf-name }}, you can run applications written in [Java](https://docs.oracle.com/en/java/javase/11/docs/api/index.html). The service provides the [runtime environment](../../concepts/runtime/index.md) with Java 11 and Ubuntu 18.04 LTS.
 

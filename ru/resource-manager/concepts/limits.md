@@ -1,4 +1,7 @@
 ---
+title: Квоты и лимиты в Yandex Resource Manager
+description: 'Квоты и лимиты для сервиса Yandex Resource Manager не определены.'
+
 editable: false
 ---
 

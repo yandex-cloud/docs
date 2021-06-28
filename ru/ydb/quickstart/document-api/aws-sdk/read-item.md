@@ -336,4 +336,151 @@
       }
       ```
 
+- Node.js
+
+  1. Создайте файл `SeriesItemOps02.js`, например с помощью редактора nano:
+
+      ```bash
+      nano SeriesItemOps02.js
+      ```
+
+      Скопируйте в созданный файл следующий код:
+
+      {% note warning %}
+
+      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+
+      {% endnote %}
+
+      ```javascript
+      var AWS = require("aws-sdk");
+
+      AWS.config.update({
+        region: "ru-central1",
+        endpoint: "<Document API эндпоинт>"
+      });
+
+      var docClient = new AWS.DynamoDB.DocumentClient();
+
+      var table = "Series";
+
+      var series_id = 3;
+      var title = "Supernatural";
+
+      var params = {
+          TableName: table,
+          Key:{
+              "series_id": series_id,
+              "title": title
+          }
+      };
+
+      docClient.get(params, function(err, data) {
+          if (err) {
+              console.error("Не удалось прочитать запись. Ошибка JSON:", JSON.stringify(err, null, 2));
+              process.exit(1);
+          } else {
+              console.log("Чтение записи успешно:", JSON.stringify(data, null, 2));
+          }
+      });
+      ```
+
+      Для чтения записи из таблицы используйте метод `get`. Указав значения первичного ключа (`series_id` и `title`), можно прочитать любую запись из таблицы `Series`.
+  
+  1. Запустите программу:
+  
+      ```bash
+      node SeriesItemOps02.js
+      ```
+
+      Результат выполнения:
+
+      ```text
+      Чтение записи успешно: {
+        "Item": {
+          "series_id": 3,
+          "title": "Supernatural",
+          "info": {
+            "series_info": "Supernatural is an American television series created by Eric Kripke",
+            "release_date": "2015-09-13"
+          }
+        }
+      }
+      ```
+
+- Ruby
+
+  1. Создайте файл `SeriesItemOps02.rb`, например с помощью редактора nano:
+
+      ```bash
+      nano SeriesItemOps02.rb
+      ```
+
+      Скопируйте в созданный файл следующий код:
+
+      {% note warning %}
+
+      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+
+      {% endnote %}
+
+      ```ruby
+      require 'aws-sdk-dynamodb'
+      
+      def get_item_from_table(dynamodb_client, table_item)
+        result = dynamodb_client.get_item(table_item)
+        puts "#{result.item['title']} (#{result.item['series_id'].to_i}):"
+        puts "  Release date: #{result.item['info']['release_date']}"
+        puts "  Series info: #{result.item['info']['series_info']}"
+      rescue StandardError => e
+        puts "Ошибка получения сериала '#{table_item[:key][:title]} " \
+              "(#{table_item[:key][:series_id]})': #{e.message}"
+      end
+      
+      def run_me
+        region = 'ru-central1'
+        table_name = 'Series'
+        title = 'Supernatural'
+        series_id = 3
+      
+        Aws.config.update(
+          endpoint: '<Document API эндпоинт>',
+          region: region
+        )
+      
+        dynamodb_client = Aws::DynamoDB::Client.new
+      
+        table_item = {
+          table_name: table_name,
+          key: {
+            series_id: series_id,
+            title: title
+          }
+        }
+      
+        puts "Получение информации о '#{title} (#{series_id})' " \
+          "из таблицы '#{table_name}'..."
+        get_item_from_table(dynamodb_client, table_item)
+      end
+      
+      run_me if $PROGRAM_NAME == __FILE__
+      ```
+
+      Для чтения записи из таблицы используйте метод `get_item`, где указав значение первичного ключа (`series_id` и `title`), можно прочитать любую запись из таблицы `Series`.
+  
+  1. Запустите программу:
+
+      ```bash
+      ruby SeriesItemOps02.rb
+      ```
+
+      Результат выполнения:
+
+      ```text
+      Получение информации о 'Supernatural (3)' из таблицы 'Series'...
+      Supernatural (3):
+        Release date: 2015-09-13
+        Series info: Supernatural is an American television series created by Eric Kripke
+      ```
+
 {% endlist %}

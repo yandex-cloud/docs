@@ -5,7 +5,6 @@ To create a backend group, add a backend to it and set up a health check:
 {% list tabs %}
 
 - Management console
-
   1. In the [management console]({{ link-console-main }}), select the folder where the backend group will be created.
   1. In the list of services, select **{{ alb-name }}**.
   1. In the left menu, select **Backend groups**.
@@ -72,7 +71,7 @@ To create a backend group, add a backend to it and set up a health check:
      ```
 
      Command parameters:
-     * `--panic-threshold`: The threshold for panic mode.
+     * `--panic-threshold`: The threshold for the panic mode.
      * `--http-healthcheck`: Parameters for checking the resource status.
        * `port`: The port.
        * `healthy-threshold`: The healthy threshold.

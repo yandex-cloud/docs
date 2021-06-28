@@ -5,7 +5,6 @@ To create an HTTP router and add a route to it:
 {% list tabs %}
 
 - Management console
-
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create an HTTP router.
   1. In the list of services, select **{{ alb-name }}**.
   1. In the menu on the left, select **HTTP routers**.
@@ -54,7 +53,7 @@ To create an HTTP router and add a route to it:
      yc alb virtual-host create --help
      ```
 
-  1. Create a virtual host, specifying the name of the HTTP router and the virtual host settings:
+  1. Create a virtual host, specifying the name of an HTTP router and the virtual host settings:
 
      ```
      yc alb virtual-host create <virtual host name> \
