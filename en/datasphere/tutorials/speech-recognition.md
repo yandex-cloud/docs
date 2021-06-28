@@ -13,38 +13,36 @@
 
 1. [Clone](../operations/projects/work-with-git.md#clone) the Git repository that contains the prepared notebook with the dataset:
 
-   ```
-   https://github.com/donkrasnov/webinar0813_gbc_yandex
-   ```
+    ```text
+    https://github.com/yandex-cloud/examples
+    ```
 
-   Wait until the cloning is complete. It may take some time. Once the operation is completed, the ![folder](../../_assets/datasphere/jupyterlab/folder.svg) **File Browser** section will show the cloned repository's folder.
+    Wait for the cloning to complete. It may take some time. Once the operation is complete, the **File Browser** section will show the folder of the cloned repository.
 
-1. Open the folder **webinar0813_gbc_yandex** and check out the contents of the notebook **webinar-yandex-gbc.ipynb**. At the beginning of the notebook, you'll see the basic principles of speech signal modeling with audio features.
+1. Open the **examples/datasphere/** folder and review the contents of the **speech-recognition.ipynb** notebook. At the beginning of the notebook, you'll see the basic principles of speech signal modeling with audio features.
 
-   {% note info %}
-
-   If you update the browser tab where the notebook is running or close it, the state of the notebook is saved. The variables and results of previous computations are not reset during these actions.
-
-   {% endnote %}
+    {% include [safe-state-warn](../../_includes/datasphere/safe-state.md) %}
 
 ## Install dependencies {#satisfy-dependencies}
 
 1. Select all cells with code in the **Installing and importing required packages** section by holding *Shift* and clicking to the left of the desired cells:
 
-   ```
-   %pip install numba==0.48.0
-   %pip install librosa
-   %pip install cffi==1.14.2
-   %pip show numba
-   import time
-   import os
-   from tqdm import tqdm
-   ...
-   ```
+    ```python
+    %pip install numba==0.48.0
+    %pip install librosa
+    %pip install cffi==1.14.2
+    %pip show numba
+    import time
+    import os
+    from tqdm import tqdm
+    ...
+    ```
 
 1. Run the selected cells. To do this, choose **Run → Run Selected Cells** or press *Shift+Enter*.
 
 1. Wait for the operation to complete.
+
+1. Restart the kernel. To do this, choose **Kernel → Restart kernel**.
 
 Some packages are already installed and imported using the `import` command. Other are installed using the `%pip install` command and imported after that. For the full list of packages pre-installed in {{ ml-platform-name }}, see [{#T}](../concepts/preinstalled-packages.md).
 
@@ -66,32 +64,31 @@ To upload and process data:
 Go to the cell with the model training code in the **Model training** section. In this cell, the following operations are run in the loop for each speaker:
 
 1. The model is trained on fragments of a speaker's speech.
-1. The `pickle` module saves the trained model's object to a file in the `./speaker-models` folder.
+1. The `pickle` module saves the trained model's object to a file in the `./data/speaker-models` folder.
 
 To train the model:
 
-1. Add `!#M` at the beginning of the cell to [modify the resource configuration](../operations/projects/control-compute-resources.md), since training models is a resource-intensive operation:
-
-   ```
-   #!M
-   
-   start = time.time()
-   
-   features_smpl = pd.DataFrame()
-   count = 1
-   ...
-   ```
-
+1. Select the cell with code in the **Model training** section.
 1. Run the cell.
-
 1. Wait for the operation to complete.
+
+Pay attention to the first row in the cell with code:
+
+```python
+#!c1.8
+
+start = time.time()
+...
+```
+
+Training a model is a resource-intensive operation. To make sure it's executed efficiently, the [computing resource configuration](../concepts/configurations.md) is increased to **c1.8**.
 
 ## Get the results of feature prediction based on test data {#model-test}
 
 Go to the **Testing on a test sample** section. The following operations are performed there:
 
 1. Uploading the trained models from the `pickle` files.
-1. Audio files from the test dataset are uploaded and processed the same way [for the training dataset](#load-dataset).
+1. Audio files from the test dataset are uploaded and processed the same way as [for the training dataset](#load-dataset).
 1. Each model predicts the speaker by features.
 1. The best prediction result determines the speaker's choice.
 1. The accuracy of determining the speaker selected in the test is displayed.

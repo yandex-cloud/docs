@@ -1,4 +1,7 @@
 ---
+title: Квоты и лимиты в Yandex Message Queue
+description: 'В Yandex Message Queue действуют лимиты и квоты на количество вызовов SendMessage и SendMessageBatch на одну очередь, количество вызовов ReceiveMessage на одну очередь. Более подробно об ограничениях в сервисе вы узнаете из данной статьи.'
+
 editable: false
 ---
 

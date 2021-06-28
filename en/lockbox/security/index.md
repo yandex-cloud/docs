@@ -1,3 +1,8 @@
+----
+title: Access management in Yandex Lockbox
+description: "Access management in the service for storing secrets — Yandex Lockbox. The section describes which resources a role can be assigned to, which roles operate in the service, which roles are required for a particular action."
+----
+
 # Access management
 
 In this section, you'll learn:

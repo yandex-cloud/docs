@@ -215,6 +215,8 @@ items:
             href: concepts/disk.md
           - name: Disk snapshots
             href: concepts/snapshot.md
+          - name: Non-replicated disk placement groups
+            href: concepts/disk-placement-group.md
       - name: Images
         href: concepts/image.md
       - name: Instance groups

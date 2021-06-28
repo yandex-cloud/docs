@@ -110,7 +110,7 @@ When created, the user only gets the `CONNECT` privilege for the selected databa
 
 {% endlist %}
 
-## Changing user settings {update-settings}
+## Changing user settings {#update-settings}
 
 {% note info %}
 

@@ -1,102 +1,100 @@
 title: Документация Yandex.Cloud
 href: index.yaml
 items:
-  - name: api-design-guide
-    href: api-design-guide/
-  - name: api-gateway
-    href: api-gateway/
-  - name: application-load-balancer
-    href: application-load-balancer/
-  - name: billing
-    href: billing/
-  - name: certificate-manager
-    href: certificate-manager/
-  - name: CLI
-    href: cli/
-  - name: compute
-    href: compute/
-  - name: container-registry
-    href: container-registry/
-  - name: cos
-    href: cos/
-  - name: data-proc
-    href: data-proc/
-  - name: data-transfer
-    href: data-transfer/
+  - name: API Yandex.Cloud
+    href: api-design-guide/index.yaml
+  - name: API Gateway
+    href: api-gateway/index.yaml
+  - name: Application Load Balancer
+    href: application-load-balancer/index.yaml
+  - name: Биллинг
+    href: billing/index.yaml
+  - name: Certificate Manager
+    href: certificate-manager/index.yaml
+  - name: CLI Yandex.Cloud
+    href: cli/index.yaml
+  - name: Compute Cloud
+    href: compute/index.yaml
+  - name: Container Registry
+    href: container-registry/index.yaml
+  - name: Container Solution
+    href: cos/index.yaml
+  - name: Data Proc
+    href: data-proc/index.yaml
+  - name: Data Transfer
+    href: data-transfer/index.yaml
   - name: DataLens
-    href: datalens/
-  - name: datalens-api
-    href: datalens-api/
-  - name: datasphere
-    href: datasphere/
-  - name: dns
-    href: dns/
-  - name: free-trial
-    href: free-trial/
-  - name: functions
-    href: functions/
-  - name: iam
-    href: iam/
-  - name: iot-core
-    href: iot-core/
-  - name: kms
-    href: kms/
-  - name: lockbox
-    href: lockbox/
-  - name: Managed ClickHouse
-    href: managed-clickhouse/
-  - name: Managed Elasticsearch
-    href: managed-elasticsearch/
-  - name: Managed Kafka
-    href: managed-kafka/
-  - name: managed-kubernetes
-    href: managed-kubernetes/
-  - name: Managed MongoDB
-    href: managed-mongodb/
-  - name: Managed MySQL
-    href: managed-mysql/
-  - name: Managed PostgreSQL
-    href: managed-postgresql/
-  - name: Managed Redis
-    href: managed-redis/
-  - name: managed-sqlserver
-    href: managed-sqlserver/
-  - name: marketplace
-    href: marketplace/
-  - name: MDB
-    href: mdb/
-  - name: message-queue
-    href: message-queue/
-  - name: microsoft
-    href: microsoft/
-  - name: monitoring
-    href: monitoring/
-  - name: network-load-balancer
-    href: network-load-balancer/
-  - name: organization
-    href: organization/
-  - name: overview
-    href: overview/
-  - name: partner
-    href: partner/
-  - name: resource-manager
-    href: resource-manager/
-  - name: solutions
-    href: solutions/
-  - name: speechkit
-    href: speechkit/
-  - name: storage
-    href: storage/
-  - name: support
-    href: support/
-  - name: tracker
-    href: tracker/
-  - name: translate
-    href: translate/
-  - name: vision
-    href: vision/
-  - name: vpc
-    href: vpc/
-  - name: ydb
-    href: ydb/
+    href: datalens/index.yaml
+  - name: DataLens Partner API
+    href: datalens-api/index.yaml
+  - name: DataSphere
+    href: datasphere/index.yaml
+  - name: Cloud DNS
+    href: dns/index.yaml
+  - name: Пробный период
+    href: free-trial/index.yaml
+  - name: Cloud Functions
+    href: functions/index.yaml
+  - name: Identity and Access Management
+    href: iam/index.yaml
+  - name: IoT Core
+    href: iot-core/index.yaml
+  - name: Key Management Service
+    href: kms/index.yaml
+  - name: Lockbox
+    href: lockbox/index.yaml
+  - name: Managed Service for ClickHouse
+    href: managed-clickhouse/index.yaml
+  - name: Managed Service for Elasticsearch
+    href: managed-elasticsearch/index.yaml
+  - name: Managed Service for Apache Kafka<sup>®</sup>
+    href: managed-kafka/index.yaml
+  - name: Managed Service for Kubernetes<sup>®</sup>
+    href: managed-kubernetes/index.yaml
+  - name: Managed Service for MongoDB
+    href: managed-mongodb/index.yaml
+  - name: Managed Service for MySQL<sup>®</sup>
+    href: managed-mysql/index.yaml
+  - name: Managed Service for PostgreSQL
+    href: managed-postgresql/index.yaml
+  - name: Managed Service for Redis
+    href: managed-redis/index.yaml
+  - name: Managed Service for SQL Server™
+    href: managed-sqlserver/index.yaml
+  - name: Кабинет партнера Marketplace
+    href: marketplace/index.yaml
+  - name: Message Queue
+    href: message-queue/index.yaml
+  - name: Использование продуктов Microsoft
+    href: microsoft/index.yaml
+  - name: Monitoring
+    href: monitoring/index.yaml
+  - name: Network Load Balancer
+    href: network-load-balancer/index.yaml
+  - name: Cloud Organization
+    href: organization/index.yaml
+  - name: Обзор платформы Yandex.Cloud
+    href: overview/index.yaml
+  - name: Партнерская программа Yandex.Cloud
+    href: partner/index.yaml
+  - name: Resource Manager
+    href: resource-manager/index.yaml
+  - name: Сценарии использования платформы Yandex.Cloud
+    href: solutions/index.yaml
+  - name: SpeechKit
+    href: speechkit/index.yaml
+  - name: Object Storage
+    href: storage/index.yaml
+  - name: Техническая поддержка Yandex.Cloud
+    href: support/index.yaml
+  - name: Tracker
+    href: tracker/index.yaml
+  - name: Translate
+    href: translate/index.yaml
+  - name: Vision
+    href: vision/index.yaml
+  - name: Virtual Private Cloud
+    href: vpc/index.yaml
+  - name: Yandex Database
+    href: ydb/index.yaml
 base: ru

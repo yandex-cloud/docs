@@ -278,4 +278,147 @@
       Таблица удалена.
       ```
 
+- Node.js
+
+  1. Создайте файл `SeriesDeleteTable.js`, например с помощью редактора nano:
+  
+      ```bash
+      nano SeriesDeleteTable.js
+      ```
+
+      Скопируйте в созданный файл следующий код:
+
+      {% note warning %}
+
+      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+
+      {% endnote %}
+
+      ```javascript
+      var AWS = require("aws-sdk");
+
+      AWS.config.update({
+        region: "ru-central1",
+        endpoint: "<Document API эндпоинт>"
+      });
+
+      var dynamodb = new AWS.DynamoDB();
+
+      var params = {
+          TableName : "Series"
+      };
+
+      dynamodb.deleteTable(params, function(err, data) {
+          if (err) {
+              console.error("Не удалось удалить таблицу. Ошибка JSON:", JSON.stringify(err, null, 2));
+              process.exit(1);
+          } else {
+              console.log("Таблица удалена. Описание таблицы JSON:", JSON.stringify(data, null, 2));
+          }
+      });
+      ```
+  
+  1. Запустите программу:
+
+      ```bash
+      node SeriesDeleteTable.js
+      ```
+
+      Результат выполнения:
+
+      ```text
+      Таблица удалена. Описание таблицы JSON: {
+        "TableDescription": {
+          "AttributeDefinitions": [
+            {
+              "AttributeName": "series_id",
+              "AttributeType": "N"
+            },
+            {
+              "AttributeName": "title",
+              "AttributeType": "S"
+            }
+          ],
+          "TableName": "Series",
+          "KeySchema": [
+            {
+              "AttributeName": "series_id",
+              "KeyType": "HASH"
+            },
+            {
+              "AttributeName": "title",
+              "KeyType": "RANGE"
+            }
+          ],
+          "TableStatus": "DELETING",
+          "CreationDateTime": "2021-06-14T19:34:32.000Z",
+          "TableSizeBytes": 6064,
+          "ItemCount": 8
+        }
+      }
+      ```
+
+- Ruby
+
+  1. Создайте файл `SeriesDeleteTable.rb`, например с помощью редактора nano:
+  
+      ```bash
+      nano SeriesDeleteTable.rb
+      ```
+
+      Скопируйте в созданный файл следующий код:
+
+      {% note warning %}
+
+      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+
+      {% endnote %}
+
+      ```ruby
+      require 'aws-sdk-dynamodb'
+
+      def table_deleted?(dynamodb_client, table_name)
+        dynamodb_client.delete_table(table_name: table_name)
+        true
+      rescue StandardError => e
+        puts "Ошибка удаления таблицы: #{e.message}"
+        false
+      end
+
+      def run_me
+        region = 'ru-central1'
+        table_name = 'Series'
+
+        Aws.config.update(
+          endpoint: '<Document API эндпоинт>',
+          region: region
+        )
+
+        dynamodb_client = Aws::DynamoDB::Client.new
+
+        puts "Удаление таблицы '#{table_name}'..."
+
+        if table_deleted?(dynamodb_client, table_name)
+          puts 'Таблица удалена.'
+        else
+          puts 'Не удалось удалить таблицу.'
+        end
+      end
+
+      run_me if $PROGRAM_NAME == __FILE__
+      ```
+
+  1. Запустите программу:
+
+     ```bash
+     ruby SeriesDeleteTable.rb
+     ```
+
+     Результат выполнения:
+
+     ```text
+     Удаление таблицы 'Series'...
+     Таблица удалена.
+     ```
+
 {% endlist %}

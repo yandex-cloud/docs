@@ -1,3 +1,8 @@
+---
+title: Работа с AWS SDK. Обзор
+description: 'В этом разделе описано, как с помощью AWS SDKнаписать простые программы, которые выполняют некоторые операции c YDB. Примеры приведены для нескольких языков программирования.'
+---
+
 # Обзор
 
 В этом разделе описано, как с помощью AWS SDK для нескольких языков программирования написать простые программы, которые выполняют следующие операции в {{ ydb-short-name }}:
@@ -63,5 +68,19 @@
   1. Настройте [AWS SDK для PHP](https://docs.aws.amazon.com/sdk-for-php/v3/developer-guide/getting-started_installation.html).
 
   Подробнее об AWS SDK for PHP читайте в [документации AWS](https://aws.amazon.com/ru/sdk-for-php/).
+
+- Node.js
+
+  1. Установите [Node.js](https://nodejs.org/ru/).
+  1. Установите [AWS SDK for Node.js](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/installing-jssdk.html).
+
+  Подробнее об AWS SDK для Node.js читайте в [документации](https://aws.amazon.com/ru/sdk-for-node-js/).
+
+- Ruby
+
+  1. Установите [Ruby](https://www.ruby-lang.org/ru/documentation/installation/).
+  1. Установите [AWS SDK for Ruby](https://docs.aws.amazon.com/sdk-for-ruby/v3/developer-guide/setup-install.html).
+
+  Подробнее об AWS SDK для Ruby читайте в [документации](https://aws.amazon.com/ru/sdk-for-ruby/).
 
 {% endlist %}

@@ -391,6 +391,183 @@
       }
       ```
 
+- Node.js
+
+  1. Создайте файл `SeriesItemOps03.js`, например с помощью редактора nano:
+  
+      ```bash
+      nano SeriesItemOps03.js
+      ```
+
+      Скопируйте в созданный файл следующий код:
+
+      {% note warning %}
+
+      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+
+      {% endnote %}
+
+      ```javascript
+      var AWS = require("aws-sdk");
+
+      AWS.config.update({
+        region: "ru-central1",
+        endpoint: "<Document API эндпоинт>"
+      });
+
+      var docClient = new AWS.DynamoDB.DocumentClient()
+
+      var table = "Series";
+
+      var series_id = 3;
+      var title = "Supernatural";
+
+      var params = {
+          TableName:table,
+          Key:{
+              "series_id": series_id,
+              "title": title
+          },
+          UpdateExpression: "set info.release_date = :d, info.rating = :r",
+          ExpressionAttributeValues:{
+              ":d": "2005-09-13",
+              ":r": 8
+          },
+          ReturnValues:"UPDATED_NEW"
+      };
+
+      console.log("Обновление записи...");
+      docClient.update(params, function(err, data) {
+          if (err) {
+              console.error("Не удалось обновить запись. Ошибка JSON:", JSON.stringify(err, null, 2));
+              process.exit(1);
+          } else {
+              console.log("Успешно обновлено:", JSON.stringify(data, null, 2));
+          }
+      });
+      ```
+  
+      Для обновления атрибутов существующей записи используется метод `update`. Выражением `UpdateExpression` описываются все обновления, которые вы хотите выполнить для указанного элемента.
+
+      Параметр `ReturnValues` предписывает {{ ydb-short-name }} возвращать только обновленные атрибуты `UPDATED_NEW`.
+
+  1. Запустите программу:
+
+      ```bash
+      node SeriesItemOps03.js
+      ```
+
+      Результат выполнения:
+
+      ```text
+      Обновление записи...
+      Успешно обновлено: {
+        "Attributes": {
+          "info": {
+            "rating": 8,
+            "release_date": "2005-09-13",
+            "series_info": "Supernatural is an American television series created by Eric Kripke"
+          }
+        }
+      }
+      ```
+
+- Ruby
+
+  1. Создайте файл `SeriesItemOps03.rb`, например с помощью редактора nano:
+  
+      ```bash
+      nano SeriesItemOps03.rb
+      ```
+
+      Скопируйте в созданный файл следующий код:
+
+      {% note warning %}
+
+      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+
+      {% endnote %}
+
+      ```ruby
+      require 'aws-sdk-dynamodb'
+
+      def table_item_updated?(dynamodb_client, table_item)
+        response = dynamodb_client.update_item(table_item)
+        puts "Запись обновлена атрибутами 'info':"
+        response.attributes['info'].each do |key, value|
+          if key == 'rating'
+            puts "#{key}: #{value.to_f}"
+          else
+            puts "#{key}: #{value}"
+          end
+        end
+        true
+      rescue StandardError => e
+        puts "Ошибка обновления записи: #{e.message}"
+        false
+      end
+
+      def run_me
+        region = 'ru-central1'
+        table_name = 'Series'
+        title = 'Supernatural'
+        series_id = 3
+
+        Aws.config.update(
+          endpoint: '<Document API эндпоинт>',
+          region: region
+        )
+
+        dynamodb_client = Aws::DynamoDB::Client.new
+
+        table_item = {
+          table_name: table_name,
+          key: {
+            series_id: series_id,
+            title: title
+          },
+          update_expression: 'SET info.release_date = :d, info.rating = :r',
+          expression_attribute_values: {
+            ':d': '2005-09-13',
+            ':r': 8
+          },
+          return_values: 'UPDATED_NEW'
+        }
+
+        puts "Обновление таблицы '#{table_name}' информацией о " \
+          "'#{title} (#{series_id})'..."
+
+        if table_item_updated?(dynamodb_client, table_item)
+          puts 'Таблица обновлена.'
+        else
+          puts 'Не удалось обновить таблицу.'
+        end
+      end
+
+      run_me if $PROGRAM_NAME == __FILE__
+      ```
+  
+      Эта программа использует выражение `update_expression` для описания всех обновлений, которые вы хотите выполнить для указанного элемента.
+
+      Параметр `return_values` предписывает {{ ydb-short-name }} возвращать только обновленные атрибуты `UPDATED_NEW`.
+  
+  1. Запустите программу:
+
+      ```bash
+      ruby SeriesItemOps03.rb
+      ```
+
+      Результат выполнения:
+
+      ```text
+      Обновление таблицы 'Series' информацией о 'Supernatural (3)'...
+      Запись обновлена атрибутами 'info':
+      series_info: Supernatural is an American television series created by Eric Kripke
+      rating: 8.0
+      release_date: 2005-09-13
+      Таблица обновлена.
+      ```
+
 {% endlist %}
 
 ## Увеличение атомарного счетчика {#increment-ac}
@@ -766,6 +943,177 @@
           }
       }
       ```
+
+- Node.js
+
+  1. Создайте файл `SeriesItemOps04.js`, например с помощью редактора nano:
+
+      ```bash
+      nano SeriesItemOps04.js
+      ```
+
+      Скопируйте в созданный файл следующий код:
+
+      {% note warning %}
+
+      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+
+      {% endnote %}
+
+      ```javascript
+      var AWS = require("aws-sdk");
+
+      AWS.config.update({
+        region: "ru-central1",
+        endpoint: "<Document API эндпоинт>"
+      });
+
+      var docClient = new AWS.DynamoDB.DocumentClient()
+
+      var table = "Series";
+
+      var series_id = 3;
+      var title = "Supernatural";
+
+      var params = {
+          TableName:table,
+          Key:{
+              "series_id": series_id,
+              "title": title
+          },
+          UpdateExpression: "set info.rating = info.rating + :val",
+          ExpressionAttributeValues:{
+              ":val": 1
+          },
+          ReturnValues:"UPDATED_NEW"
+      };
+
+      console.log("Обновление записи...");
+      docClient.update(params, function(err, data) {
+          if (err) {
+              console.error("Не удалось обновить запись. Ошибка JSON:", JSON.stringify(err, null, 2));
+              process.exit(1);
+          } else {
+              console.log("Успешно обновлено:", JSON.stringify(data, null, 2));
+          }
+      });
+      ```
+
+      При каждом запуске приведенного кода значение `rating` будет увеличиваться на единицу.
+
+  1. Запустите программу:
+
+      ```bash
+      node SeriesItemOps04.js
+      ```
+
+      Результат выполнения:
+
+      ```bash
+      Обновление записи...
+      Успешно обновлено: {
+        "Attributes": {
+          "info": {
+            "rating": 9,
+            "release_date": "2005-09-13",
+            "series_info": "Supernatural is an American television series created by Eric Kripke"
+          }
+        }
+      }
+      ```
+
+- Ruby
+
+  1. Создайте файл `SeriesItemOps04.rb`, например с помощью редактора nano:
+
+      ```bash
+      nano SeriesItemOps04.rb
+      ```
+
+      Скопируйте в созданный файл следующий код:
+
+      {% note warning %}
+
+      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+
+      {% endnote %}
+
+      ```ruby
+      require 'aws-sdk-dynamodb'
+
+      def table_item_updated?(dynamodb_client, table_item)
+        result = dynamodb_client.update_item(table_item)
+        puts "Запись обновлена атрибутами 'info':"
+        result.attributes['info'].each do |key, value|
+          if key == 'rating'
+            puts "#{key}: #{value.to_f}"
+          else
+            puts "#{key}: #{value}"
+          end
+        end
+        true
+      rescue StandardError => e
+        puts "Ошибка обновления записи: #{e.message}"
+        false
+      end
+
+      def run_me
+        region = 'ru-central1'
+        table_name = 'Series'
+        title = 'Supernatural'
+        series_id = 3
+
+        Aws.config.update(
+          endpoint: '<Document API эндпоинт>',
+          region: region
+        )
+
+        dynamodb_client = Aws::DynamoDB::Client.new
+
+        table_item = {
+          table_name: table_name,
+          key: {
+            series_id: series_id,
+            title: title
+          },
+          update_expression: 'SET info.rating = info.rating + :val',
+          expression_attribute_values: {
+            ':val': 1
+          },
+          return_values: 'UPDATED_NEW'
+        }
+
+        puts "Обновление '#{table_name}' информацией о " \
+          "'#{title} (#{series_id})'..."
+
+        if table_item_updated?(dynamodb_client, table_item)
+          puts 'Таблица успешно обновлена.'
+        else
+          puts 'Не удалось обновить таблицу.'
+        end
+      end
+
+      run_me if $PROGRAM_NAME == __FILE__
+      ```
+
+      При каждом запуске приведенного кода значение `rating` будет увеличиваться на единицу.
+
+  1. Запустите программу:
+
+     ```bash
+     ruby SeriesItemOps04.rb
+     ```
+
+     Результат выполнения:
+
+     ```text
+     Обновление 'Series' информацией о 'Supernatural (3)'...
+     Запись обновлена атрибутами 'info':
+     rating: 9.0
+     release_date: 2005-09-13
+     series_info: Supernatural is an American television series created by Eric Kripke
+     Таблица успешно обновлена.
+     ```
 
 {% endlist %}
 
@@ -1221,6 +1569,225 @@
               }
           }
       }
+      ```
+
+- Node.js
+
+  1. Создайте файл `SeriesItemOps05.js`, например с помощью редактора nano:
+
+      ```bash
+      nano SeriesItemOps05.js
+      ```
+
+      Скопируйте в созданный файл следующий код:
+
+      {% note warning %}
+
+      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+
+      {% endnote %}
+
+      ```javascript
+      var AWS = require("aws-sdk");
+
+      AWS.config.update({
+        region: "ru-central1",
+        endpoint: "<Document API эндпоинт>"
+      });
+
+      var docClient = new AWS.DynamoDB.DocumentClient()
+
+      var table = "Series";
+
+      var series_id = 3;
+      var title = "Supernatural";
+
+      var params = {
+          TableName:table,
+          Key:{
+              "series_id": series_id,
+              "title": title
+          },
+          UpdateExpression: "set info.recommend = :d",
+          ConditionExpression: "info.rating > :num",
+          ExpressionAttributeValues:{
+              ":num": 9,
+              ":d": "Рекомендуем к просмотру"
+          },
+          ReturnValues:"UPDATED_NEW"
+      };
+
+      console.log("Обновление записей с заданным условием...");
+      docClient.update(params, function(err, data) {
+          if (err) {
+              console.error("Не удалось обновить запись. Ошибка JSON:", JSON.stringify(err, null, 2));
+              process.exit(1);
+          } else {
+              console.log("Успешно обновлено:", JSON.stringify(data, null, 2));
+          }
+      });
+      ```
+
+      Этот код показывает пример использования условия `UpdateItem`. Если условие принимает значение `true`, обновление завершается успешно; в противном случае обновление не выполняется.
+
+      В данном случае к записи добавляется рекомендация о просмотре при рейтинге более 9.
+
+  1. Запустите программу:
+
+      ```bash
+      node SeriesItemOps05.js
+      ```
+
+      Результат выполнения:
+
+      ```text
+      Обновление записей с заданным условием...
+      Не удалось обновить запись. Ошибка JSON: {
+        "message": "Condition not satisfied",
+        "code": "ConditionalCheckFailedException",
+        "time": "2021-06-14T20:12:19.032Z",
+        "statusCode": 400,
+        "retryable": false,
+        "retryDelay": 38.20325040644864
+      }
+      ```
+
+      Операция завершилась с ошибкой: рейтинг фильма 9, но условие проверяет рейтинг более 9.
+
+      Измените код так, чтобы условие стало больше или равно 9:
+
+      ```javascript
+      ConditionExpression: "info.rating >= :num",
+      ```
+
+      Запустите программу еще раз. Теперь операция успешна:
+
+      ```text
+      Обновление записей с заданным условием...
+      Успешно обновлено: {
+        "Attributes": {
+          "info": {
+            "rating": 9,
+            "release_date": "2005-09-13",
+            "series_info": "Supernatural is an American television series created by Eric Kripke",
+            "recommend": "Рекомендуем к просмотру"
+          }
+        }
+      }
+      ```
+
+- Ruby
+
+  1. Создайте файл `SeriesItemOps05.rb`, например с помощью редактора nano:
+
+      ```bash
+      nano SeriesItemOps05.rb
+      ```
+
+      Скопируйте в созданный файл следующий код:
+
+      {% note warning %}
+
+      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+
+      {% endnote %}
+
+      ```ruby
+      require 'aws-sdk-dynamodb'
+
+      def table_item_updated?(dynamodb_client, table_item)
+        result = dynamodb_client.update_item(table_item)
+        puts "Запись обновлена атрибутами 'info':"
+        result.attributes['info'].each do |key, value|
+          if key == 'rating'
+            puts "#{key}: #{value.to_f}"
+          else
+            puts "#{key}: #{value}"
+          end
+        end
+        true
+      rescue StandardError => e
+        puts "Ошибка обновления записи: #{e.message}"
+        false
+      end
+
+      def run_me
+        region = 'ru-central1'
+        table_name = 'Series'
+        title = 'Supernatural'
+        series_id = 3
+
+        Aws.config.update(
+          endpoint: '<Document API эндпоинт>',
+          region: region
+        )
+
+        dynamodb_client = Aws::DynamoDB::Client.new
+
+        table_item = {
+          table_name: table_name,
+          key: {
+            series_id: series_id,
+            title: title
+          },
+          update_expression: 'set info.recommend = :d',
+          condition_expression: 'info.rating > :num',
+          expression_attribute_values: {
+            ':num': 9,
+            ':d': 'Рекомендуем к просмотру'
+          },
+          return_values: 'UPDATED_NEW'
+        }
+
+        puts "Обновление таблицы '#{table_name}' информацией о " \
+          "'#{title} (#{series_id})'..."
+
+        if table_item_updated?(dynamodb_client, table_item)
+          puts 'Таблица успешно обновлена.'
+        else
+          puts 'Не удалось обновить таблицу.'
+        end
+      end
+
+      run_me if $PROGRAM_NAME == __FILE__
+      ```
+
+      Этот код показывает пример использования условия `update_item`. Если условие принимает значение `true`, обновление завершается успешно; в противном случае обновление не выполняется.
+
+      В данном случае к записи добавляется рекомендация о просмотре при рейтинге более 9.
+
+  1. Запустите программу:
+
+      ```bash
+      ruby SeriesItemOps05.rb
+      ```
+
+      Результат выполнения:
+
+      ```text
+      Обновление таблицы 'Series' информацией о 'Supernatural (3)'...
+      Ошибка обновления записи: Condition not satisfied
+      Не удалось обновить таблицу.
+      ```
+
+      Операция завершилась с ошибкой: рейтинг фильма 9, но условие проверяет рейтинг более 9.
+
+      Измените код так, чтобы условие стало больше либо равно 9:
+
+      ```ruby
+      condition_expression: 'info.rating >= :num',
+      ```
+
+      Запустите программу еще раз. Теперь операция успешна:
+
+      ```text
+      Обновление таблицы 'Series' информацией о 'Supernatural (3)'...
+      Запись обновлена атрибутами 'info':
+      rating: 9.0
+      release_date: 2005-09-13
+      series_info: Supernatural is an American television series created by Eric Kripke
+      recommend: Рекомендуем к просмотру
+      Таблица успешно обновлена.
       ```
 
 {% endlist %}

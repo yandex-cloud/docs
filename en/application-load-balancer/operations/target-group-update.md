@@ -1,15 +1,14 @@
 # Edit a target group
 
-You can add or remove VMs from a target group.
+You can add or remove VMs from the target group.
 
-## Add a VM to a target group {#add-targets}
+## Add a VM to the target group {#add-targets}
 
 To add a VM to a target group:
 
 {% list tabs %}
 
 - Management console
-
   1. In the [management console]({{ link-console-main }}), select the folder that the target group belongs to.
   1. Select **{{ alb-name }}**.
   1. Open the **Target group** section.
@@ -57,14 +56,13 @@ To add a VM to a target group:
 
 {% endlist %}
 
-## Remove a VM from a target group {#remove-targets}
+## Remove a VM from the target group {#remove-targets}
 
 To remove a VM from a target group:
 
 {% list tabs %}
 
 - Management console
-
   1. In the [management console]({{ link-console-main }}), select the folder that the target group belongs to.
   1. Select **{{ alb-name }}**.
   1. Open the **Target group** section.
@@ -80,7 +78,7 @@ To remove a VM from a target group:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. View a description of the CLI command for removing resources from a target group:
+  1. View a description of the CLI command for removing resources from the target group:
 
      ```
      yc alb target-group remove-targets --help

@@ -5,7 +5,6 @@ To create a target group:
 {% list tabs %}
 
 - Management console
-
   1. In the [management console]({{ link-console-main }}), select the folder where the target group will be created.
   1. In the list of services, select **{{ alb-name }}**.
   1. In the left menu, select **Target groups**.
@@ -32,7 +31,7 @@ To create a target group:
      yc alb target-group create <target group name> \
      --target subnet-name=<subnet name>,ip-address=<internal IP address of VM 1> \
      --target subnet-name=<subnet name>,ip-address=<internal IP address of VM 2> \
-     --target subnet-name=<subnet name>,ip-address=<internal IP address of VM 3> \ 
+     --target subnet-name=<subnet name>,ip-address=<internal IP address of VM 3> 
      ```
 
      Command execution result:

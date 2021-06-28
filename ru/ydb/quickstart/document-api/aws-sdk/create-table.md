@@ -338,4 +338,178 @@
       Статус таблицы: ACTIVE
       ```
 
+- Node.js
+
+  1. Создайте файл `SeriesCreateTable.js`, например с помощью редактора nano:
+
+      ```bash
+      nano SeriesCreateTable.js
+      ```
+
+      Скопируйте в созданный файл следующий код:
+
+      {% note warning %}
+
+      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+
+      {% endnote %}
+
+      ```javascript
+      var AWS = require("aws-sdk");
+      
+      AWS.config.update({
+        region: "ru-central1",
+        endpoint: "<Document API эндпоинт>"
+      });
+      
+      var dynamodb = new AWS.DynamoDB();
+      
+      var params = {
+          TableName : "Series",
+          KeySchema: [       
+              { AttributeName: "series_id", KeyType: "HASH"},
+              { AttributeName: "title", KeyType: "RANGE" }
+          ],
+          AttributeDefinitions: [       
+              { AttributeName: "series_id", AttributeType: "N" },
+              { AttributeName: "title", AttributeType: "S" }
+          ]};
+      
+      dynamodb.createTable(params, function(err, data) {
+          if (err) {
+              console.error("Не удалось создать таблицу. Ошибка JSON:", JSON.stringify(err, null, 2));
+              process.exit(1);
+          } else {
+              console.log("Таблица создана. Схема таблицы JSON:", JSON.stringify(data, null, 2));
+          }
+      });
+      ```
+
+  1. Запустите программу:
+
+      ```bash
+      node SeriesCreateTable.js
+      ```
+
+      Результат выполнения:
+
+      ```text
+      Таблица создана. Схема таблицы JSON: {
+        "TableDescription": {
+          "AttributeDefinitions": [
+            {
+              "AttributeName": "series_id",
+              "AttributeType": "N"
+            },
+            {
+              "AttributeName": "title",
+              "AttributeType": "S"
+            }
+          ],
+          "TableName": "Series",
+          "KeySchema": [
+            {
+              "AttributeName": "series_id",
+              "KeyType": "HASH"
+            },
+            {
+              "AttributeName": "title",
+              "KeyType": "RANGE"
+            }
+          ],
+          "TableStatus": "ACTIVE",
+          "CreationDateTime": "2021-06-14T19:34:32.000Z",
+          "TableSizeBytes": 0,
+          "ItemCount": 0
+        }
+      }
+      ```
+
+- Ruby
+
+  1. Создайте файл `SeriesCreateTable.rb`, например с помощью редактора nano:
+
+      ```bash
+      nano SeriesCreateTable.rb
+      ```
+
+      Скопируйте в созданный файл следующий код:
+
+      {% note warning %}
+
+      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+
+      {% endnote %}
+  
+      ```ruby
+      require 'aws-sdk-dynamodb'
+      
+      def create_table(dynamodb_client, table_definition)
+        response = dynamodb_client.create_table(table_definition)
+        response.table_description.table_status
+      rescue StandardError => e
+        puts "Ошибка создания таблицы: #{e.message}"
+        'Error'
+      end
+      
+      def run_me
+        region = 'ru-central1'
+      
+        Aws.config.update(
+          endpoint: '<Document API эндпоинт>',
+          region: region
+        )
+      
+        dynamodb_client = Aws::DynamoDB::Client.new
+      
+        table_definition = {
+          table_name: 'Series',
+          key_schema: [
+            {
+              attribute_name: 'series_id',
+              key_type: 'HASH'  # Ключ раздела.
+            },
+            {
+              attribute_name: 'title',
+              key_type: 'RANGE' # Ключ сортировки.
+            }
+          ],
+          attribute_definitions: [
+            {
+              attribute_name: 'series_id',
+              attribute_type: 'N'
+            },
+            {
+              attribute_name: 'title',
+              attribute_type: 'S'
+            }
+          ]
+        }
+      
+        puts "Создание таблицы 'Series'..."
+        create_table_result = create_table(dynamodb_client, table_definition)
+      
+        if create_table_result == 'Ошибка'
+          puts 'Не удалось создать таблицу.'
+        else
+          puts "Таблица создана. Статус: '#{create_table_result}'."
+        end
+      end
+      
+      run_me if $PROGRAM_NAME == __FILE__
+      ```
+  
+  1. Запустите программу:
+
+      ```bash
+      ruby SeriesCreateTable.rb
+      ```
+
+      Результат выполнения:
+
+      ```text
+      Создание таблицы 'Series'...
+      Таблица создана. Статус: 'ACTIVE'.
+      ```
+
 {% endlist %}

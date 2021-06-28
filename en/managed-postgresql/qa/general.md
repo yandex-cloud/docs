@@ -79,7 +79,7 @@ Maintenance in {{ mpg-short-name }} implies:
 
 #### Which version of {{ PG }} does {{ mpg-short-name }} use? {#dbms-version}
 
-{{ mpg-short-name }} supports {{ PG }} 10, 11, 12, and 13, as well as PostgreSQL 10 and 11 for 1C.
+{{ mpg-short-name }} supports {{ PG }} 10, 11, 12, and 13 as well as PostgreSQL 10, 11, and 12 for 1C.
 
 #### What happens when a new DBMS version is released? {#new-version}
 

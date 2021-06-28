@@ -1,4 +1,9 @@
-# Data types
+---
+title: Data Types in Yandex Database (YDB) 
+description: 'Yandex Database (YDB) uses YQL data types. Some of the YQL types are supported with restrictions — they can only be used in calculations, but cannot be a column type or used in a primary key. All columns, including key columns, can contain the special NULL value. The tables show the possible uses of YQL data types in YDB.'
+---
+
+# Data types in Yandex Database (YDB)
 
 This section describes the data types that {{ ydb-short-name }} supports.
 

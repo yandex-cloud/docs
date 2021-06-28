@@ -1,4 +1,9 @@
-# Overview
+---
+title: Trigger. Overview
+description: 'Trigger — a condition, when executed, a certain function is automatically launched. Triggers allow you to automate work with other Yandex.Cloud services, for example — Yandex Object Storage, Yandex Message Queue and Yandex IoT Core. '
+---
+
+# Trigger. Overview
 
 _Triggers_ are the criteria that automatically launch a specific function when met. Triggers let you automate your work with other {{ yandex-cloud }} services, such as {{ objstorage-full-name }}, {{ message-queue-full-name }}, and {{ iot-full-name }}.
 

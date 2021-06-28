@@ -1,4 +1,9 @@
-# Обзор
+---
+title: Разработка на Bash в Yandex Cloud Functions. Обзор
+description: 'С помощью сервиса Cloud Functions вы можете запускать приложения, написанные на Bash. В среду выполнения Bash по умолчанию установлены утилиты jq, YC CLI, AWS CLI version 2.'
+---
+
+# Разработка на Bash. Обзор
 
 С помощью сервиса {{ sf-name }} вы можете запускать приложения, написанные на [Bash](https://www.gnu.org/software/bash/).
 
