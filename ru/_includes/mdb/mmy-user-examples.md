@@ -8,15 +8,15 @@
 1. [Подключитесь](../../managed-mysql/operations/connect.md#connection-string) к базе данных `db1` с помощью учетной записи владельца БД.
 1. Чтобы выдать права доступа только к таблице `Products` в базе данных `db1`, выполните команду:
 
-   ```sql
-   GRANT SELECT ON Products TO user2;
-   ```
+    ```sql
+    GRANT SELECT ON Products TO user2;
+    ```
 
 1. Чтобы выдать права доступа к базе данных `db1`, выполните команду:
    
-   ```sql
-   GRANT SELECT ON db1.* TO user2;
-   ```
+    ```sql
+    GRANT SELECT ON db1.* TO user2;
+    ```
 
 Для отзыва выданных привилегий выполните команды:
 
