@@ -124,7 +124,7 @@
 
 1. Исследуйте данные с помощью Kibana и {{ ES }}, нажав кнопку **View data** для интересующего набора данных.
 
-Подробнее о работе с Kibana см. в [документации {{ ES }}](https://www.elastic.co/guide/en/kibana/current/tutorial-sample-data.html).
+Подробнее о работе с Kibana см. в [документации {{ ES }}](https://www.elastic.co/guide/en/kibana/current/connect-to-elasticsearch.html).
 
 ## Что дальше {#whats-next}
 
