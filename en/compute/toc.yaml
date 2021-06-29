@@ -199,6 +199,8 @@ items:
             href: concepts/preemptible-vm.md
           - name: Network on a VM
             href: concepts/network.md
+          - name: Software-accelerated network
+            href: concepts/software-accelerated-network.md
           - name: Live migration
             href: concepts/live-migration.md
           - name: Placement groups

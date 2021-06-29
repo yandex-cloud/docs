@@ -34,7 +34,7 @@ To create a Docker image:
 Make sure that the custom image functionality is available in your project. For example, for the image with CUDA<sup>®</sup> packages, create and run a cell with the following code:
 
 ```bash
-#!L
+#!g1.1
 %pip install tensorflow==2.4.1
 import tensorflow as tf
 tf.config.list_physical_devices('GPU')

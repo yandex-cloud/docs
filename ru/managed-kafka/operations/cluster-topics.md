@@ -52,6 +52,56 @@
 
      При необходимости здесь же задайте [настройки топика](../concepts/settings-list.md#topic-settings).
 
+- Terraform
+
+    Чтобы создать топик:
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+    1. В описании кластера {{ mkf-name }} добавьте блок `topic`:
+
+        ```hcl
+        resource "yandex_mdb_kafka_cluster" "<имя кластера>" {
+           topic {
+             name               = "<имя топика>"
+             partitions         = <количество разделов>
+             replication_factor = <фактор репликации>
+           }
+           ...
+        }
+        ```
+
+    1. При необходимости задайте [настройки топика](../concepts/settings-list.md#topic-settings) в блоке `topic_config`:
+
+        ```hcl
+        resource "yandex_mdb_kafka_cluster" "<имя кластера>" {
+           topic {
+             name               = "<имя топика>"
+             partitions         = <количество разделов>
+             replication_factor = <фактор репликации>
+
+             topic_config {
+               compression_type = "<тип сжатия>"
+               flush_messages   = <максимальное число сообщений в памяти>
+               ...
+             }
+           }
+           ...
+        }
+        ```
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_kafka_cluster).
+
 
 - API
 
@@ -108,6 +158,43 @@
      --replication-factor <фактор репликации>
      ```
 
+- Terraform
+
+    Чтобы изменить [настройки топика](../concepts/settings-list.md#topic-settings):
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+    1. Измените в описании кластера {{ mkf-name }} значение параметров в блоках `topic` или `topic_config`:
+
+        ```hcl
+        resource "yandex_mdb_kafka_cluster" "<имя кластера>" {
+          topic {
+            name               = "<имя топика>"
+            partitions         = <количество разделов>
+            replication_factor = <фактор репликации>
+
+            topic_config {
+              compression_type = "<тип сжатия>"
+              flush_messages   = <максимальное число сообщений в памяти>
+              ...
+            }
+          }
+          ...
+        }
+        ```
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_kafka_cluster).
+
 
 - API
 
@@ -152,6 +239,25 @@
      ```
      {{ yc-mdb-kf }} topic delete <имя топика> --cluster-name <имя кластера>
      ```
+
+- Terraform
+
+    Чтобы удалить топик:
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+    1. В описании кластера {{ mkf-name }} удалите блок `topic` с описанием топика.
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_kafka_cluster).
 
 
 - API

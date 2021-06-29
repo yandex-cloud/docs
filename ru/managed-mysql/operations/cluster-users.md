@@ -74,6 +74,42 @@
   
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md).  
 
+- Terraform
+
+  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+      О том, как создать такой файл, см. в разделе [{#T}](./cluster-create.md).
+
+  1. Добавьте к описанию кластера {{ mmy-name }} блок `user`:
+
+      ```hcl
+      resource "yandex_mdb_mysql_cluster" "<имя кластера>" {
+        ...
+        user {
+          name     = "<имя пользователя>"
+          password = "<пароль>"
+          permission {
+            database_name = "<имя БД, к которой пользователь должен иметь доступ>"
+            roles         = [<список ролей пользователя по отношению к БД>]
+            ...
+          }
+          ...
+        }
+      }
+      ```
+
+      {% include [user-name-and-passwords-limits](../../_includes/mdb/mmy/note-info-user-name-and-pass-limits.md) %}
+
+  1. Проверьте корректность настроек.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Подтвердите изменение ресурсов.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmy }}).
+
 {% endlist %}
 
 ## Изменить пароль {#updateuser}
@@ -86,6 +122,8 @@
   1. Нажмите на имя нужного кластера и выберите вкладку **Пользователи**.
   1. Нажмите значок ![image](../../_assets/horizontal-ellipsis.svg) и выберите пункт **Изменить пароль**.
   1. Задайте новый пароль и нажмите кнопку **Изменить**.
+
+  {% include [passwords-limits](../../_includes/mdb/mmy/note-info-password-limits.md) %}
 
 - CLI
 
@@ -101,9 +139,45 @@
        --password=<новый пароль>
   ```
 
+  {% include [passwords-limits](../../_includes/mdb/mmy/note-info-password-limits.md) %}
+
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md).
 
+- Terraform
+
+  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+      О том, как создать такой файл, см. в разделе [{#T}](./cluster-create.md).
+
+  1. Найдите в описании кластера {{ mmy-name }} блок `user` для нужного пользователя.
+
+  1. Измените значение поля `password`:
+
+      ```hcl
+      resource "yandex_mdb_mysql_cluster" "<имя кластера>" {
+        ...
+        user {
+          name     = "<имя пользователя>"
+          password = "<новый пароль>"
+          ...
+        }
+      }
+      ```
+
+     {% include [passwords-limits](../../_includes/mdb/mmy/note-info-password-limits.md) %}
+
+  1. Проверьте корректность настроек.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Подтвердите изменение ресурсов.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmy }}).
+
 {% endlist %}
+
 
 ## Изменить настройки пользователя {#update-settings}
 
@@ -140,6 +214,54 @@
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md).
 
+- Terraform
+
+  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+      О том, как создать такой файл, см. в разделе [{#T}](./cluster-create.md).
+
+  1. Найдите в описании кластера {{ mmy-name }} блок `user` для нужного пользователя.
+
+  1. Чтобы задать ограничения по количеству соединений и запросов, добавьте блок `connection_limits` к его описанию:
+
+      ```hcl
+      resource "yandex_mdb_mysql_cluster" "<имя кластера>" {
+        ...
+        user {
+          ...
+          connection_limits {
+            max_questions_per_hour   = <максимальное количество запросов в час>
+            max_updates_per_hour     = <максимальное количество запросов UPDATE в час>
+            max_connections_per_hour = <максимальное количество соединений в час>
+            max_user_connections     = <максимальное количество одновременных соединений>
+            ...
+          }
+        }
+      }
+      ```
+
+  1. Чтобы настроить плагин аутентификации пользователя, добавьте блок `authentication_plugin` к его описанию:
+
+      ```hcl
+      resource "yandex_mdb_mysql_cluster" "<имя кластера>" {
+        ...
+        user {
+          ...
+          authentication_plugin = "<плагин аутентификации>"
+        }
+      }
+      ```
+
+  1. Проверьте корректность настроек.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Подтвердите изменение ресурсов.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmy }}).
+
 {% endlist %}
 
 ## Удалить пользователя {#removeuser}
@@ -166,7 +288,25 @@
   ```
   
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md).
-  
+
+- Terraform
+
+  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+      О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+  1. Удалите из описания кластера {{ mmy-name  }} блок `user` с описанием нужного пользователя.
+
+  1. Проверьте корректность настроек.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Подтвердите изменение ресурсов.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmy }}).
+
 {% endlist %}
 
 {% include [user-ro](../../_includes/mdb/mmy-user-examples.md) %}

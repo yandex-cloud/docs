@@ -113,13 +113,6 @@
 
       При необходимости здесь же можно задать [настройки {{ KF }}](../concepts/settings-list.md#cluster-settings).
 
-- API
-
-  Чтобы создать кластер, воспользуйтесь методом API [create](../api-ref/Cluster/create.md) и передайте в запросе:
-  - Идентификатор каталога, в котором должен быть размещен кластер, в параметре `folderId`.
-  - Имя кластера в параметре `name`.
-  - Идентификаторы групп безопасности в параметре `securityGroupIds`.
-
 - Terraform
 
     {% include [terraform-definition](../../_includes/solutions/terraform-definition.md) %}
@@ -156,7 +149,7 @@
           environment        = "<окружение: PRESTABLE или PRODUCTION>"
           name               = "<имя кластера>"
           network_id         = "<идентификатор сети>"
-          security_group_ids = ["<список групп безопасности>"]
+          security_group_ids = ["<список идентификаторов групп безопасности кластера>"]
 
           config {
             assign_public_ip = "<публичный доступ к кластеру: true или false>"
@@ -165,7 +158,7 @@
             kafka {
               resources {
                 disk_size          = <размер хранилища в гигабайтах>
-                disk_type_id       = "<тип хранилища: network-ssd, network-hdd или local-ssd>"
+                disk_type_id       = "<тип хранилища: network-ssd, network-hdd, network-ssd-nonreplicated или local-ssd>"
                 resource_preset_id = "<класс хоста>"
               }
             }
@@ -188,15 +181,24 @@
         }
         ```
 
-        Более подробную информацию о ресурсах, которые можно создать с помощью Terraform, см. в [документации провайдера](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_kafka_cluster).
+    1. Проверьте корректность настроек.
 
-    1. Проверьте корректность конфигурационных файлов.
-
-        {% include [terraform-create-cluster-step-2](../../_includes/mdb/terraform-create-cluster-step-2.md) %}
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
     1. Создайте кластер.
 
-        {% include [terraform-create-cluster-step-3](../../_includes/mdb/terraform-create-cluster-step-3.md) %}
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+        После этого в указанном каталоге будут созданы все требуемые ресурсы, а в терминале отобразятся IP-адреса виртуальных машин. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+
+    Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_kafka_cluster).
+
+- API
+
+  Чтобы создать кластер, воспользуйтесь методом API [create](../api-ref/Cluster/create.md) и передайте в запросе:
+  - Идентификатор каталога, в котором должен быть размещен кластер, в параметре `folderId`.
+  - Имя кластера в параметре `name`.
+  - Идентификаторы групп безопасности в параметре `securityGroupIds`.
 
 {% endlist %}
 

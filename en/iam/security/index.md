@@ -1,7 +1,7 @@
-----
+---
 title: Access management in Yandex Identity and Access Management (IAM)
 description: "Access management in the service of identification and access control — Yandex Identity and Access Management (IAM). The section describes which resources you can assign a role to, which roles act in the service, which roles are required for a particular action."
-----
+---
 
 # Access management
 

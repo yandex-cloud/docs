@@ -1,7 +1,7 @@
-----
+---
 title: Dead Letter Queue in Yandex Message Queue
 description: "Dead Letter Queue (DLQ) is a queue where messages that could not be processed by recipients in regular queues can be forwarded. Messages may not be processed for a number of reasons, for example, due to changed states of the sender or recipient. Messages forwarded to DLQ will be stored there for further diagnostics and will no longer interfere with applications."
-----
+---
 
 # Dead Letter Queue
 

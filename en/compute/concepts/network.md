@@ -1,18 +1,14 @@
 # Network on a VM
 
-When creating a VM, you need to specify settings for the network interface connected to it: select the [subnet](../../vpc/concepts/network.md#subnet) to connect the VM to, and configure its [internal](#internal-ip) and [public ](#public-ip) IP addresses. This allows the VM to interact with other services on the intranet and internet.
+When creating a VM, you need to specify settings for the network interface connected to it: select the [subnet](../../vpc/concepts/network.md#subnet) to connect the VM to and configure its [internal](#internal-ip) and [public](#public-ip) IP addresses. This allows the VM to interact with other services on the intranet and internet.
 
 After the network interface is connected, the VM will be assigned the internal IP address in the subnet and [FQDN](#hostname). The public IP address will only be assigned if this was set when creating the VM.
-
-{% note info %}
-
-The network interface can only be configured when creating VMs. For example, you can't connect a VM to a different subnet after you created it.
-
-{% endnote %}
 
 You can find out the IP addresses, FQDN and other information in the management console (go to the **Network** section on the virtual machine's page). This data can be used to connect to the VM.
 
 On VMs created from public Linux images, the IP address and hostname (FQDN) are not automatically written to the `/etc/hosts` file. This can affect the execution of the `sudo` command.
+
+You can change the network interface settings on the stopped VMs: assign a public IP address, change the subnet, or configure the DNS settings.
 
 ## Internal IP address {#internal-ip}
 
@@ -32,7 +28,7 @@ The internal IP address cannot be changed.
 
 You can get a public IP address to access a VM from the internet.
 
-A public IP address is assigned automatically and cannot be chosen. The address is allocated from the pool of Yandex.Cloud addresses.
+A public IP address is assigned automatically and cannot be chosen. The address is allocated from the {{ yandex-cloud }} address pool.
 
 {% include notitle [public-ip-reset](../../_includes/public-ip-reset.md) %}
 
@@ -56,15 +52,15 @@ myinstance.ru-central1.internal
 
 {% include [name-fqdn](../../_includes/compute/name-fqdn.md) %}
 
-If no hostname is specified, the VM's ID will be used as its hostname. In this case, the region is omitted, since the VM's ID is unique within the entire Yandex.Cloud.
+If no hostname is specified, the VM's ID will be used as its hostname. In this case, the region is omitted, because the VM's ID is unique within the entire {{ yandex-cloud }}.
 
 ```
 <ID>.auto.internal
 ```
 
-## MAC address {#mac-address}
+## MAC Address {#mac-address}
 
 After the network interface is connected to a VM, it will be assigned the MAC address of the device.
 
-You can find out the MAC address from inside the VM or in the resource information via the Yandex.Cloud API.
+You can find out the MAC address from inside the VM or in the resource information using the {{ yandex-cloud }} API.
 

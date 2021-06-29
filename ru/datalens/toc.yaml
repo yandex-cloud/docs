@@ -95,6 +95,8 @@ items:
             href: operations/chart/create-pivot-table.md
           - name: Создание индикатора
             href: operations/chart/create-indicator-chart.md
+          - name: Добавление иерархии
+            href: operations/chart/add-hierarchy.md
           - name: Публикация чарта
             href: operations/chart/publish.md
           - name: Управление доступом к чарту

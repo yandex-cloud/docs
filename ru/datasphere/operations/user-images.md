@@ -34,7 +34,7 @@
 Убедитесь, что функционал пользовательского образа доступен в вашем проекте. Например, для образа с CUDA<sup>®</sup> создайте и запустите ячейку со следующим кодом:
 
 ```bash
-#!L
+#!g1.1
 %pip install tensorflow==2.4.1
 import tensorflow as tf
 tf.config.list_physical_devices('GPU')

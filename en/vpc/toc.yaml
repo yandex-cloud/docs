@@ -48,7 +48,9 @@ items:
             href: operations/security-group-update.md
           - name: Delete a security group
             href: operations/security-group-delete.md
-      - name: DDoS Protection
+      - name: Enable a software-accelerated network
+        href: operations/enable-software-accelerated-network.md
+      - name: Protection from DDoS attacks
         items:
           - name: Enable protection from DDoS attacks
             href: operations/enable-ddos-protection.md
@@ -72,21 +74,27 @@ items:
         href: concepts/mtu-mss.md
       - name: DHCP settings
         href: concepts/dhcp-options.md
+      - name: Software-accelerated network
+        href: concepts/software-accelerated-network.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: DDoS Protection
     href: ddos-protection/index.md
   - name: Cloud Interconnect
-    href: interconnect/index.md
+    items:
+      - name: Overview
+        href: interconnect/index.md
+      - name: Custom metrics
+        href: interconnect/user-metrics.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy
     items:
-      - name: Current policy
+      - name: Current pricing policy
         href: pricing.md
       - name: Archive
         items:
-          - name: Policy before January 1, 2019
+          - name: Before January 1, 2019
             href: pricing-archive/pricing-01012019.md
   - name: API reference
     items:

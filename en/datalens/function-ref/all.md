@@ -553,6 +553,10 @@ The following type casts are supported:
 | `ClickHouse`  | `Integer`           | `Int16`             |                              |                               |
 | `ClickHouse`  | `Integer`           | `Int32`             |                              |                               |
 | `ClickHouse`  | `Integer`           | `Int64`             |                              |                               |
+| `ClickHouse`  | `Integer`           | `UInt8`             |                              |                               |
+| `ClickHouse`  | `Integer`           | `UInt16`            |                              |                               |
+| `ClickHouse`  | `Integer`           | `UInt32`            |                              |                               |
+| `ClickHouse`  | `Integer`           | `UInt64`            |                              |                               |
 | `ClickHouse`  | `String`            | `String`            |                              |                               |
 | `PostgreSQL`  | `Fractional number` | `double precision`  |                              |                               |
 | `PostgreSQL`  | `Fractional number` | `real`              |                              |                               |
