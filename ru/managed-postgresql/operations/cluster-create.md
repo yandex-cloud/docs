@@ -98,7 +98,7 @@
   1. Проверьте, есть ли в каталоге подсети для хостов кластера:
 
      ```
-     $ yc vpc subnet list
+     yc vpc subnet list
      ```
 
      Если ни одной подсети в каталоге нет, [создайте нужные подсети](../../vpc/operations/subnet-create.md) в сервисе {{ vpc-short-name }}.
@@ -108,7 +108,7 @@
   1. Посмотрите описание команды CLI для создания кластера:
 
       ```
-      $ {{ yc-mdb-pg }} cluster create --help
+      {{ yc-mdb-pg }} cluster create --help
       ```
 
   1. Укажите параметры кластера в команде создания (в примере приведены не все параметры):
@@ -116,17 +116,17 @@
   {% if audience != "internal" %}
 
       ```bash
-      $ {{ yc-mdb-pg }} cluster create \
-         --name <имя кластера> \
-         --environment <окружение, prestable или production> \
-         --network-name <имя сети> \
-         --host zone-id=<зона доступности>,subnet-id=<идентификатор подсети> \
-         --resource-preset <класс хоста> \
-         --user name=<имя пользователя>,password=<пароль пользователя> \
-         --database name=<имя базы данных>,owner=<имя владельца базы данных> \
-         --disk-size <размер хранилища в гигабайтах> \
-         --disk-type  <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \ 
-         --security-group-ids <список идентификаторов групп безопасности>
+      {{ yc-mdb-pg }} cluster create \
+      --name <имя кластера> \
+      --environment <окружение, prestable или production> \
+      --network-name <имя сети> \
+      --host zone-id=<зона доступности>,subnet-id=<идентификатор подсети> \
+      --resource-preset <класс хоста> \
+      --user name=<имя пользователя>,password=<пароль пользователя> \
+      --database name=<имя базы данных>,owner=<имя владельца базы данных> \
+      --disk-size <размер хранилища в гигабайтах> \
+      --disk-type  <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \ 
+      --security-group-ids <список идентификаторов групп безопасности>
       ```
 
       Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной зоне доступности создано 2 и больше подсетей.
@@ -134,16 +134,16 @@
   {% else %}
 
       ```bash
-      $ {{ yc-mdb-pg }} cluster create \
-         --name <имя кластера> \
-         --environment <окружение, prestable или production> \
-         --network-id {{ network-name }} \
-         --host zone-id=<зона доступности> \
-         --resource-preset <класс хоста> \
-         --user name=<имя пользователя>,password=<пароль пользователя> \
-         --database name=<имя базы данных>,owner=<имя владельца базы данных> \
-         --disk-size <размер хранилища в гигабайтах> \
-         --security-group-ids <список идентификаторов групп безопасности>
+      {{ yc-mdb-pg }} cluster create \
+      --name <имя кластера> \
+      --environment <окружение, prestable или production> \
+      --network-id {{ network-name }} \
+      --host zone-id=<зона доступности> \
+      --resource-preset <класс хоста> \
+      --user name=<имя пользователя>,password=<пароль пользователя> \
+      --database name=<имя базы данных>,owner=<имя владельца базы данных> \
+      --disk-size <размер хранилища в гигабайтах> \
+      --security-group-ids <список идентификаторов групп безопасности>
       ```
 
   {% endif %}
@@ -305,17 +305,17 @@
   {% else %}
 
   ```
-  $ {{ yc-mdb-pg }} cluster create \
-       --name mypg \
-       --environment production \
-       --network-id ' ' \
-       --host zone-id=man \
-       --resource-preset db1.micro \
-       --disk-type local-ssd \
-       --disk-size 20 \
-       --user name=user1,password=user1user1 \
-       --database name=db1,owner=user1 \
-       --security-group-ids {{ security-group }}
+  {{ yc-mdb-pg }} cluster create \
+  --name mypg \
+  --environment production \
+  --network-id ' ' \
+  --host zone-id=man \
+  --resource-preset db1.micro \
+  --disk-type local-ssd \
+  --disk-size 20 \
+  --user name=user1,password=user1user1 \
+  --database name=db1,owner=user1 \
+  --security-group-ids {{ security-group }}
   ```
 
   {% endif %}
