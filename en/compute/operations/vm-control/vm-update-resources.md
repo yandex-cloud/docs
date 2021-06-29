@@ -224,3 +224,28 @@ To add a [GPU](../../concepts/gpus.md) to an existing VM, change the platform an
   To change the number of GPUs, use the [Update](../../api-ref/Instance/update.md) method for the `Instance` resource.
 
 {% endlist %}
+
+## Enabling a software-accelerated network {#enable-software-accelerated-network}
+
+{% note warning %}
+
+This functionality is only available when agreed upon by your account manager.
+
+{% endnote %}
+
+{% list tabs %}
+
+- Management console
+
+  To enable a [software-accelerated network](../../concepts/software-accelerated-network.md) on an existing VM:
+  1. Open the folder that the VM belongs to.
+  1. Select **{{ compute-full-name }}**.
+  1. Click on the VM name.
+  1. Click **Stop** in the upper-right corner of the page.
+  1. Wait until the VM status changes to `STOPPED`, then click **Update VM** in the upper-right corner of the page.
+  1. Under **Computing resources**, select **Software-accelerated network**.
+  1. Click **Save changes**.
+  1. Click **Run** in the upper-right corner of the page.
+
+{% endlist %}
+
