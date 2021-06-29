@@ -172,6 +172,8 @@ items:
             href: operations/chart/create-pivot-table.md
           - name: Создание индикатора
             href: operations/chart/create-indicator-chart.md
+          - name: Добавление иерархии
+            href: operations/chart/add-hierarchy.md
           - name: Публикация чарта
             when: audience == "external"
             href: operations/chart/publish.md
