@@ -23,7 +23,10 @@
   1. Перейдите на страницу каталога и выберите сервис **{{ mkf-name }}**.
   1. Нажмите на имя нужного кластера и перейдите на вкладку **Пользователи**.
   1. Нажмите кнопку **Добавить**.
-  1. Введите имя учетной записи (имя пользователя) и пароль (от 8 до 128 символов).
+  1. Введите имя учетной записи (имя пользователя) и пароль.
+
+      {% include [user-name-and-password-limits](../../_includes/mdb/mkf/note-info-user-name-and-pass-limits.md) %}
+
   1. [Выдайте права доступа](#grant-permission) к нужным топикам.
   1. Нажмите кнопку **Добавить**.
 
@@ -46,9 +49,45 @@
      ```
      {{ yc-mdb-kf }} user create <имя пользователя> \
      --cluster-name <имя кластера> \
-     --password <пароль длиной не менее 8 символов> \
+     --password <пароль пользователя> \
      --permission topic=<имя топика>,role=<роль пользователя: producer или consumer>
      ```
+
+      {% include [user-name-and-password-limits](../../_includes/mdb/mkf/note-info-user-name-and-pass-limits.md) %}
+
+- Terraform
+
+    Чтобы создать учетную запись:
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+    1. В описании кластера {{ mkf-name }} добавьте блок `user`:
+
+        ```hcl
+        resource "yandex_mdb_kafka_cluster" "<имя кластера>" {
+           user {
+             name     = "<имя пользователя>"
+             password = "<пароль>"
+             ...
+           }
+           ...
+        }
+        ```
+
+        {% include [user-name-and-password-limits](../../_includes/mdb/mkf/note-info-user-name-and-pass-limits.md) %}
+
+    1. [Выдайте права доступа](#grant-permission) к нужным топикам.
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_kafka_cluster).
 
 {% if api != "noshow" %}
 
@@ -62,6 +101,8 @@
     - Права доступа к топикам (один или несколько параметров `permissions`, по одному на каждый топик):
       - Имя топика в параметре `topicName`. Чтобы узнать имя, [получите список топиков в кластере](cluster-topics.md#list-topics).
       - Права доступа к топику в параметре `role`: `ACCESS_ROLE_PRODUCER` для производителя либо `ACCESS_ROLE_CONSUMER` для потребителя.
+
+  {% include [user-name-and-password-limits](../../_includes/mdb/mkf/note-info-user-name-and-pass-limits.md) %}
 
 {% endif %}
 
@@ -79,6 +120,8 @@
   1. Нажмите значок ![image](../../_assets/horizontal-ellipsis.svg) для нужной учетной записи и выберите пункт **Изменить пароль**.
   1. Задайте новый пароль и нажмите кнопку **Изменить**.
 
+  {% include [password-limits](../../_includes/mdb/mkf/note-info-password-limits.md) %}
+
 - CLI
 
   {% include [cli-install](../../_includes/cli-install.md) %}
@@ -90,8 +133,43 @@
   ```
   {{ yc-mdb-kf }} user update <имя пользователя> \
   --cluster-name <имя кластера> \
-  --password <пароль длиной не менее 8 символов>
+  --password <новый пароль>
   ```
+
+  {% include [password-limits](../../_includes/mdb/mkf/note-info-password-limits.md) %}
+
+- Terraform
+
+    Чтобы изменить пароль учетной записи:
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+    1. Найдите в описании кластера {{ mkf-name }}  блок `user` для нужного пользователя.
+    1. Измените значение поля `password`:
+
+        ```hcl
+        resource "yandex_mdb_kafka_cluster" "<имя кластера>" {
+           user {
+             ...
+             password = "<пароль>"
+           }
+           ...
+        }
+        ```
+
+        {% include [password-limits](../../_includes/mdb/mkf/note-info-password-limits.md) %}
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_kafka_cluster).
 
 {% if api != "noshow" %}  
 
@@ -102,6 +180,8 @@
   - Имя учетной записи в параметре `userName`. Чтобы узнать имя, [получите список учетных записей в кластере](#list-accounts).
   - Название настройки `password` в параметре `updateMask`. Если не задать этот параметр, метод API сбросит на значения по умолчанию все настройки учетной записи, которые не были явно указаны в запросе.
   - Новый пароль учетной записи в параметре `password`.
+
+  {% include [password-limits](../../_includes/mdb/mkf/note-info-password-limits.md) %}
 
 {% endif %}
 
@@ -127,7 +207,26 @@
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
   С помощью CLI можно [выдавать](#grant-permission) и [отзывать](#revoke-permission) права на доступ к топикам.
-  
+
+- Terraform
+
+    Чтобы изменить настройки учетной записи:
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+    1. В описании кластера {{ mkf-name }} внесите изменения в блок `permission` в блоке `user`, чтобы [выдать](#grant-permission) или [отозвать](#revoke-permission) права на доступ к топикам.
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_kafka_cluster).
+
 {% if api != "noshow" %}
 
 - API
@@ -205,6 +304,42 @@
      --permission topic=topic2,role=producer
      ```
 
+- Terraform
+
+    Чтобы выдать права доступа учетной записи:
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+    1. В описании кластера {{ mkf-name }} добавьте блок `permission` в блок `user`:
+
+        ```hcl
+        resource "yandex_mdb_kafka_cluster" "<имя кластера>" {
+           user {
+             name     = "<имя пользователя>"
+             password = "<пароль>"
+             permission {
+               topic_name = "<имя топика>"
+               role       = "<роль пользователя: ACCESS_ROLE_CONSUMER, ACCESS_ROLE_PRODUCER или ACCESS_ROLE_ADMIN>"
+             }
+           }
+           ...
+        }
+        ```
+
+        Роль `ACCESS_ROLE_ADMIN` доступна только в кластере с включенным [управлением топиками через Admin API](../concepts/topics.md) и если выбраны все топики (`topic_name = "*"`).
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_kafka_cluster).
+
 {% if api != "noshow" %}
 
 - API
@@ -248,6 +383,25 @@
   
   Флаг `--permission` должен содержать хотя бы одну пару топик/роль. Чтобы отозвать у учетной записи все имеющиеся права доступа, воспользуйтесь консолью или удалите учетную запись.
 
+- Terraform
+
+    Чтобы отозвать права доступа учетной записи:
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+    1. В описании кластера {{ mkf-name }} измените или удалите блок `permission` в блоке `user`.
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_kafka_cluster).
+
 {% if api != "noshow" %}
 
 - API
@@ -284,6 +438,25 @@
   ```
   {{ yc-mdb-kf }} user delete <имя пользователя> --cluster-name <имя кластера>
   ```
+
+- Terraform
+
+    Чтобы удалить учетную запись:
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+    1. Удалите из описания кластера {{ mkf-name }} блок `user` с описанием нужного пользователя.
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_kafka_cluster).
 
 {% if api != "noshow" %}
 

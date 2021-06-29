@@ -34,8 +34,6 @@
 
 {% list tabs %}
 
-{% if ui != "noshow" %}
-
 - Консоль управления
 
   1. Перейдите на страницу каталога и выберите сервис **{{ mkf-name }}**.
@@ -45,8 +43,6 @@
      - Чтобы изменить количество хостов-брокеров в каждой из зон доступности, которые были выбраны при [создании кластера](cluster-create.md#create-cluster), задайте значение соответствующей настройки.
 
   1. Нажмите кнопку **Сохранить**.
-
-{% endif %}
 
 - CLI
 
@@ -88,6 +84,56 @@
      --zookeeper-resource-preset <класс хоста>
      ```
 
+- Terraform
+
+    Чтобы изменить [класс и количество хостов](../concepts/instance-types.md) для кластера:
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+    1. Измените в описании кластера {{ mkf-name }} значение параметра `brokers_count`, чтобы увеличить количество хостов-брокеров:
+
+        ```hcl
+        resource "yandex_mdb_kafka_cluster" "<имя кластера>" {
+          config {
+            brokers_count = <количество хостов-брокеров>
+            ...
+          }
+          ...
+        }
+        ```
+
+    1. Измените в описании кластера {{ mkf-name }} значение параметра `resource_preset_id` в блоках `kafka.resources` и `zookeeper.resources` для хостов {{ KF }} и {{ ZK }} соответственно:
+
+        ```hcl
+        resource "yandex_mdb_kafka_cluster" "<имя кластера>" {
+          ...
+          kafka {
+            resources {
+              resource_preset_id = "<класс хостов Apache Kafka>"
+              ...
+            }
+          }
+          zookeeper {
+            resources {
+              resource_preset_id = "<класс хостов {{ ZK }}>"
+              ...
+            }
+          }
+         }
+        ```
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_kafka_cluster).
+
 {% if api != "noshow" %}
 
 - API
@@ -111,16 +157,12 @@
 
 {% list tabs %}
 
-{% if ui != "noshow" %}
-
 - Консоль управления
 
   1. Перейдите на страницу каталога и выберите сервис **{{ mkf-name }}**.
   1. Выберите кластер и нажмите кнопку **Редактировать** на панели сверху.
-  1. Чтобы изменить настройки хранилища, выберите [тип хранилища](../concepts/storage.md) и его размер в соответствующем блоке.
+  1. Измените размер хранилища в соответствующем блоке.
   1. Нажмите кнопку **Сохранить**.
-
-{% endif %}
 
 - CLI
 
@@ -159,7 +201,45 @@
      ```
      
      Если не указаны единицы размера, то используются гигабайты.
-     
+
+- Terraform
+
+    Чтобы увеличить размер хранилища для кластера:
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+    1. Измените в описании кластера {{ mkf-name }} значение параметра `disk_size` в блоках `kafka.resources` и `zookeeper.resources` для хостов {{ KF }} и {{ ZK }} соответственно:
+
+        ```hcl
+        resource "yandex_mdb_kafka_cluster" "<имя кластера>" {
+          ...
+          kafka {
+            resources {
+              disk_size = <размер хранилища в гигабайтах>
+              ...
+            }
+          }
+          zookeeper {
+            resources {
+              disk_size = <размер хранилища в гигабайтах>
+              ...
+            }
+          }
+        }
+        ```
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_kafka_cluster).
+
 {% if api != "noshow" %}
 
 - API
@@ -210,6 +290,42 @@
            --log-flush-interval-ms <максимальное время хранения сообщений в памяти перед сбросом на диск>
         ```
 
+- Terraform
+
+    Чтобы изменить [настройки кластера](../concepts/settings-list.md#cluster-settings):
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+    1. Измените в описании кластера {{ mkf-name }} значения параметров в блоке `kafka.kafka_config` (в примере приведены не все настройки):
+
+        ```hcl
+        resource "yandex_mdb_kafka_cluster" "<имя кластера>" {
+          ...
+          config {
+            kafka {
+              ...
+              kafka_config {
+                compression_type            = "<тип сжатия>"
+                log_flush_interval_messages = <максимальное число сообщений в памяти>
+                ...
+              }
+            }
+          }
+        }
+        ```
+
+    2. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    3. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    Подробнее см. в [документации провайдера Terraform](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_kafka_cluster).
+
 {% if api != "noshow" %}
 
 - API
@@ -246,6 +362,12 @@
 
 {% list tabs %}
 
+- Консоль управления
+
+  1. Перейдите на страницу каталога и выберите сервис **{{ mkf-name }}**.
+  1. Выберите кластер и нажмите кнопку **Изменить кластер** на панели сверху.
+  1. В блоке **Сетевые настройки** выберите группы безопасности для сетевого трафика кластера.
+
 - CLI
 
   {% include [cli-install](../../_includes/cli-install.md) %}
@@ -266,6 +388,33 @@
       $ {{ yc-mdb-kf }} cluster update <имя кластера>
            --security-group-ids <список групп безопасности>
       ```
+
+- Terraform
+
+    Для изменения групп безопасности кластера:
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+    1. Измените значение параметра `security_group_ids` в описании кластера:
+
+        ```hcl
+        resource "yandex_mdb_kafka_cluster" "<имя кластера>" {
+          ...
+          security_group_ids = [ <список идентификаторов групп безопасности кластера> ]
+        }
+        ```
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    Подробнее см. в [документации провайдера Terraform](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_kafka_cluster).
 
 - API
 
